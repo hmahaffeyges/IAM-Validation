@@ -143,7 +143,8 @@
   {
    "status": "open",
    "rows": [
-    "OTH-082"
+    "OTH-082",
+    "CAN-005"
    ],
    "task": "Tune the chain: replay the earlier work through the one command until every signal is found again, every reading wired, the Decoder, globes and spheres right; commissioning waits (author 2026-10-23)",
    "done_when": "every earlier signal on spent data replayed through the chain and recorded; the author decides the chain is ready to commission",
@@ -171,6 +172,14 @@
      "what": "Speed: jobs hit GitHub's 6-hour limit after the one command gained every reading (Group-A pass 2, 11 shards; the C-Score test, 4 runs; the plasma run, 1 shard; the release check's V1 and V5). Profile the one command, then speed it up and split the big jobs",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_SPEED_01/profile_01.py",
      "next": "read the profile; speed up the slowest steps; rerun Group-A pass 2 from its saved pass 1, the plasma shard and the C-Score test split one plant per machine"
+    },
+    {
+     "id": "0.4",
+     "date": "2026-10-23",
+     "status": "built",
+     "what": "Distance to the ceiling read by the chain on every atlas reading (saturation, distance, turnover share), in every report (CAN-005; author: 'so we can start collecting data')",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md",
+     "next": "collect it on every replay series; re-read the three sealed tissue sets with it recorded"
     }
    ]
   },

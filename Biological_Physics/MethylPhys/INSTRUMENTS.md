@@ -234,8 +234,8 @@ Candidate instruments: every reading we could build on the methylation channel, 
 
 - **Reads:** how close a sample sits to the derived entropy ceiling; the right-hand mark of the gauge, past which the reading stops rising with further loss
 - **Substrate:** arrays and sequencing · **Cost:** free (arithmetic on readings we already have)
-- **Where it stands:** the ceiling is in the foundation as derived. AUDIT DONE (DEV-CEILING-AUDIT-01): of 7,681 readings that record the flag, none is past the ceiling; the composition-aware path never recorded it, so the three sealed tissue results cannot be audited from saved files, and that gap could only have cost detections
-- **Still open:** re-read the three sealed tissue sets with the flag recorded (free, arrays on disk, reported as an audit that cannot change their sealed verdicts); and the reading itself; distance to the ceiling has still never been reported as a number
+- **Where it stands:** the ceiling is in the foundation as derived. AUDIT DONE (DEV-CEILING-AUDIT-01): of 7,681 readings that record the flag, none is past the ceiling. Now READ BY THE CHAIN (development): every atlas reading (Met-A for the whole sample and for each cell, the territories) carries its saturation, its distance to the ceiling and its turnover share, and the report shows them
+- **Still open:** re-read the three sealed tissue sets with the flag recorded (free, arrays on disk, reported as an audit that cannot change their sealed verdicts); collect the distance on every array the chain reads
 - **Advantage:** derived with no free parameter, and it answers how far from the ceiling a tumor arrives
 - **Blind spot:** only informative for samples near the ceiling; says nothing about a healthy-range sample
 - **What would break it:** a sample reading past the ceiling, which the derivation forbids

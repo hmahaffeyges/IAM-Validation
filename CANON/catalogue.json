@@ -325,6 +325,14 @@
     "physics": "Information is spherical in a strict sense: a site at methylation level b is the point (sqrt b, sqrt(1 - b)) on a circle of radius 1, and the distance between two states is the angle between their points, the Fisher-Rao distance, the local form of relative entropy, the quantity IAM's Law bounds.",
     "significance": "The globe says where on the genome a change is; this sphere says what kind of change it is. A program failing at sites spread over many chromosomes is scattered dots on the globe but one territory here.",
     "sky": "The microwave sky is a sphere because it is the surface of last scattering seen from one place; this sphere is a sphere because probabilities live on one. The same tools (masks, spectra, cross-spectra of two readings) apply to both."
+   },
+   "v4-ceiling": {
+    "instrument": null,
+    "measures": "How close each atlas reading sits to the derived entropy ceiling, the right-hand mark of the gauge, and whether any part of the sample has passed it.",
+    "source": "Arithmetic on the readings above, nothing new measured and nothing fitted. A site's entropy peaks at 1 bit when its level reaches 0.5, so a reading of the form 'disorder over its healthy expectation' can rise no higher than its saturation: every site at 1 bit, divided by the healthy expectation. Distance to the ceiling is (saturation - reading) / (saturation - 1): 1 at the healthy expectation, 0 at the ceiling.",
+    "compares": "The ceiling the physics sets for this sample's own expectation. The turnover share is the share of sites whose level has crossed 0.5 to the far side of their healthy state.",
+    "physics": "Past the ceiling the reading turns over: a held mark that keeps being lost moves from 0.5 toward 0 and its entropy falls again, so a badly damaged sample would read lower than its damage warrants. The derivation says a sample should not reach that point; the turnover share is the check.",
+    "significance": "It answers how far from the ceiling a sample arrives, with no free parameter, and it guards every reading against the one way the gauge could under-read. It is informative near the ceiling and says little about a sample in the healthy range, which is expected to read close to 1."
    }
   }
  }

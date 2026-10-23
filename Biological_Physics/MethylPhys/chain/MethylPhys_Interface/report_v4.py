@@ -321,6 +321,20 @@ def detail_tables(o):
               ["Territory", "Disorder (A)", "Level change", "Standard error", "Sites measured"],
               [[k, _f(v.get("A")), (f"{v.get('level_change'):+.4f}" if v.get("level_change") is not None else ""), _f(v.get("se_over_sites"), 5), f"{v.get('measured', 0):,} of {v.get('set_size', 0):,}"] for k, v in te.items()],
               (DEV + ". State: " + str((o.get("territories") or {}).get("state") or "untared") + ".") if te else "Not read."))
+    cl = []   # 2026-10-23: distance to the entropy ceiling (CAN-005), for every atlas reading that carries it
+    def _cl(name, A, c):
+        if c and c.get("A_sat"): cl.append([name, _f(A), _f(c.get("A_sat"), 3), _f(c.get("distance_to_ceiling"), 4), _f(c.get("turnover_share"), 4), "yes" if c.get("past_entropy_ceiling") else "no"])
+    _cl("Met-A, whole sample", w.get("A"), w.get("ceiling"))
+    for k, v in (w.get("by_place") or {}).items():
+        if v: _cl("  " + k, v.get("A"), v.get("ceiling"))
+    for x in cells:
+        if x.get("A") is not None: _cl("Met-A, " + cellname(x["cell"]), x.get("A"), x.get("ceiling"))
+    for k, v in te.items():
+        if v.get("A") is not None: _cl("Territory, " + k, v.get("A"), v.get("ceiling"))
+    T.append(("v4-ceiling", "Distance to the ceiling",
+              "How close each reading sits to the ceiling the physics sets for it: 1 is the healthy expectation, 0 the ceiling.",
+              ["Reading", "Value", "Saturation", "Distance to the ceiling", "Turnover share", "Methylated sites past 0.5"], cl,
+              (DEV + ".") if cl else "Not read: no atlas reading carries it on this sample."))
     c = o.get("met_a_cscore") or {}; ce = o.get("cscore_each_cell") or {}; wg = ce.get("whole_genome") or {}; q = o.get("iam_a") or {}
     cr = [["1. C-Score, commissioned (neutrophil identity sites)", _f(c.get("C_rel") if c.get("C_rel") is not None else c.get("C")), str(c.get("C_call") or c.get("reason") or ("not read" if c.get("C") is None else ""))[:120], "commissioned" if c.get("commissioning") else ("commissioned on whole blood; untared here (needs 3 same-run healthy references for the band)" if c.get("C") is not None and sp_ == "whole blood" else ("outside what it was commissioned on" if c.get("C") is not None else ""))],
           ["2. C-Score, whole genome (every atlas site)", _f(wg.get("C")), "" if wg.get("C") is not None else str(ce.get("reason") or "not read"), DEV]]

@@ -1853,6 +1853,9 @@ Draws the report's 'How to read this report' section (the law, the ratio to heal
 ### report_pdf_v4.py::_explain
 Draws one section's explanation in the researcher PDF, from the same source as the HTML report.
 
+### report_v4.py::detail_tables._cl
+Adds one row to the distance-to-the-ceiling table for a reading that carries its ceiling record: the reading, its saturation, its distance to the ceiling, its turnover share, and whether its methylated sites have passed 0.5.
+
 ### report_v4.py::_sections_v5
 All the new sections in their order, after the cell shares.
 
@@ -1867,6 +1870,9 @@ The weighted reading over one group of sites (all, or one place), with its stand
 
 ### stage_metaa_atlas.py::territory_sets
 The two sets where early cancer is known to act, by fixed rules on IAM-Atlas v2.1 over the sites measured in all 79 cell types: islands (every cell type below 0.2) and loosely held domains (mean at least 0.75, none below 0.2, at least one between 0.2 and 0.7). Read column by column so memory stays near one column.
+
+### stage_metaa_atlas.py::ceiling_reading
+Distance to the entropy ceiling (CAN-005), derived and unfitted: a reading's saturation A_sat = sum w / sum w H(e) (every site at 1 bit), the distance (A_sat - A) / (A_sat - 1) (1 at the healthy expectation, 0 at the ceiling), and the turnover share, the weighted share of sites whose level has crossed 0.5 to the far side of their healthy state, past which the reading falls as loss continues. Attached to Met-A for the whole sample (and each place), each cell's Met-A, and each territory.
 
 ### stage_metaa_atlas.py::territory_reading
 The sample's disorder at each set against the atlas mixed in its own shares: mean H(beta) over mean H(e), the mean level change, the standard error over sites, and how much of the set the array measures. Development, flagged.

@@ -184,6 +184,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison
         r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5), expectation_rule=f"mixed over the cells with an atlas value; site kept at >= {MIX_COVER:.0%} of the shares",
                  shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
+        if counts is None: r["ceiling"] = {k: v for k, v in ceiling_reading(x[ok].to_numpy(), e[ok].to_numpy()).items() if k != "A"}   # 2026-10-23
         out["cells"].append(r)
     return out
 
@@ -307,6 +308,28 @@ def territory_sets():
     out = dict(islands=list(ids[full & (MX < 0.2)]), domains=list(ids[full & (mu >= 0.75) & (MN >= 0.2) & (MID >= 1)]))
     _cache["terr"] = out; return out
 
+def ceiling_reading(xs, es, w=None):
+    """Distance to the entropy ceiling (development, 2026-10-23; author: 'adding this so we can start collecting data'; CANON/foundation.json
+    entry entropy_ceiling; DEV-CEILING-AUDIT-01). Derived, nothing fitted. A site's entropy peaks at 1 bit at beta = 0.5, so a reading of the
+    form A = sum w H(beta) / sum w H(e) can rise no higher than its saturation A_sat = sum w / sum w H(e) (every site at 1 bit). Reported:
+    A_sat; distance_to_ceiling = (A_sat - A) / (A_sat - 1), 1 at the healthy expectation and 0 at the ceiling; headroom_used = 1 - that;
+    turnover_share, the weighted share of sites whose level has crossed 0.5 to the far side of their healthy state (past it the reading falls
+    as loss continues, which the derivation says should not be reached); and the earlier diagnostic, the mean beta of the sites the expectation
+    holds methylated and whether it has crossed one half."""
+    x = np.asarray(xs, dtype="float64"); e = np.asarray(es, dtype="float64"); ok = np.isfinite(x) & np.isfinite(e)
+    x, e = x[ok], e[ok]; w = np.ones(len(x)) if w is None else np.asarray(w, dtype="float64")[ok]
+    if len(x) < 100: return {"reason": f"only {len(x)} sites"}
+    he = np.asarray(_H(pd.Series(e)), dtype="float64"); hx = np.asarray(_H(pd.Series(x)), dtype="float64")
+    den = float((w * he).sum())
+    if den <= 0: return {"reason": "no healthy entropy at these sites"}
+    A = float((w * hx).sum()) / den; As = float(w.sum()) / den
+    crossed = ((e > 0.5) & (x < 0.5)) | ((e < 0.5) & (x > 0.5)); hi = e > 0.5
+    m = float(x[hi].mean()) if hi.any() else None
+    return dict(A=round(A, 5), A_sat=round(As, 4), distance_to_ceiling=round((As - A) / (As - 1), 5) if As > 1 else None,
+                headroom_used=round(1 - (As - A) / (As - 1), 5) if As > 1 else None,
+                turnover_share=round(float((w * crossed).sum() / w.sum()), 5), methylated_sites_mean_beta=None if m is None else round(m, 4),
+                past_entropy_ceiling=None if m is None else bool(m < 0.5), rule="(A_sat - A) / (A_sat - 1); A_sat = sum w / sum w H(e)")
+
 def territory_reading(beta, shares):
     """The sample's disorder at each territory against IAM-Atlas v2.1 mixed in its own shares (read_in_mix's mix rule): A = mean H(beta) over
     mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of
@@ -321,6 +344,7 @@ def territory_reading(beta, shares):
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
         hx = np.asarray(_H(xs), dtype="float64"); he = np.asarray(_H(es), dtype="float64"); A = float(hx.mean() / he.mean())
+        r["ceiling"] = ceiling_reading(xs.to_numpy(), es.to_numpy())   # 2026-10-23: distance to the entropy ceiling
         se = float(np.std(hx - A * he, ddof=1) / np.sqrt(len(hx)) / he.mean()); d = (xs - es).to_numpy()
         r.update(A=round(A, 5), se_over_sites=round(se, 6), level_change=round(float(d.mean()), 5), level_change_se=round(float(d.std(ddof=1) / np.sqrt(len(d))), 6),
                  coverage=round(ok.sum() / len(S), 4), state="untared")
@@ -357,14 +381,16 @@ def read_whole(beta, shares):
     w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = np.asarray(_H(es), dtype="float64")
     def one(m):
         if m.sum() < 500: return None
+        _c = ceiling_reading(xs.to_numpy()[m], es.to_numpy()[m], w[m])   # 2026-10-23: distance to the entropy ceiling, for this group of sites
         A = float((w[m] * hx[m]).sum() / (w[m] * he[m]).sum()); dv = hx[m] - A * he[m]
-        return dict(A=round(A, 5), se_over_sites=round(float(np.sqrt((w[m] ** 2 * dv ** 2).sum()) / (w[m] * he[m]).sum()), 6), sites=int(m.sum()))
+        return dict(A=round(A, 5), se_over_sites=round(float(np.sqrt((w[m] ** 2 * dv ** 2).sum()) / (w[m] * he[m]).sum()), 6), sites=int(m.sum()),
+                    ceiling={k: v for k, v in _c.items() if k != "A"})
     allm = np.ones(len(xs), bool); r = one(allm)
     xd = np.clip(xs.to_numpy() + 0.01 * (0.5 - es.to_numpy()), 1e-6, 1 - 1e-6)
     sh = float((w * np.asarray(_H(pd.Series(xd)), dtype="float64")).sum() / (w * he).sum() - r["A"])
     ident = set().union(*[set(identity_sites(c)) for c in cells]); T = territory_sets(); isl, dom = set(T["islands"]), set(T["domains"]); ix = xs.index
     mi = np.fromiter((i in ident for i in ix), bool, len(ix)); ms = np.fromiter((i in isl for i in ix), bool, len(ix)); md = np.fromiter((i in dom for i in ix), bool, len(ix))
-    out.update(A=r["A"], se_over_sites=r["se_over_sites"], sites=r["sites"], shift_per_1pct_loss=round(sh, 5),
+    out.update(A=r["A"], se_over_sites=r["se_over_sites"], sites=r["sites"], ceiling=r["ceiling"], shift_per_1pct_loss=round(sh, 5),
                effective_sites=int(w.sum() ** 2 / (w ** 2).sum()), state="untared",
                by_place={"identity sites of the cells found": one(mi), "islands": one(ms), "domains": one(md), "the rest": one(~mi & ~ms & ~md)})
     return out

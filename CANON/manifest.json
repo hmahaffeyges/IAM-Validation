@@ -5297,11 +5297,11 @@
    "data_status": "partial",
    "status": "planned",
    "runs": [],
-   "next_step": "compute it for every sealed cancer reading already in the records and check none is past the turnover",
+   "next_step": "collect it on the replay series; re-read the three sealed tissue sets with it recorded",
    "cost": "free (arithmetic on readings we already have)",
    "impact": 4,
    "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md",
-   "notes": "row created from the register entry",
+   "notes": "row created from the register entry | 2026-10-23: distance to the ceiling read by the chain (stage_metaa_atlas.ceiling_reading) on every atlas reading, with the turnover share; in every report (author: 'so we can start collecting data').",
    "legacy_ids": [],
    "depends_on": [],
    "register_ids": [
