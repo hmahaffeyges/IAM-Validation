@@ -28096,6 +28096,25 @@
    "sources_of_row": [],
    "runs": [],
    "notes": "2026-10-23: synthetic test 1: island gains and domain losses planted by the chain read cleanly and apart; healthy reads 1.176 and 1.115 untared. | 2026-10-23 test 2: Met-A for the whole sample over every atlas site (read_whole) and each cell's reading, with the territories, all on by default; every plant read where expected; healthy 1.113 untared."
+  },
+  {
+   "title": "The earlier work replayed through the chain (tuning): signals the earlier instruments found, read again by the one command",
+   "purpose": "Does the one command find again what the earlier instruments found, on the same arrays?",
+   "instrument_or_term": "run_sample.py, every reading, flagged",
+   "sources": [
+    "GEO: GSE42861, GSE87571, GSE288652, GSE166212 (R1); the retired evidence report's series next"
+   ],
+   "data_status": "spent (opened by the earlier instruments)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "status": "run",
+   "next_step": "R1 on GitHub (blood and tissue); then the retired report's 31 raw-array series, EPIC-Italy first",
+   "cost": null,
+   "impact": null,
+   "legacy_ids": [],
+   "id": "OTH-082",
+   "sources_of_row": [],
+   "runs": [],
+   "notes": "2026-10-23: started (author: get the chain working and recreate all the signals before commissioning)."
   }
  ],
  "not_tests": {

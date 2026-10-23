@@ -143,6 +143,31 @@
   {
    "status": "open",
    "rows": [
+    "OTH-082"
+   ],
+   "task": "Tune the chain: replay the earlier work through the one command until every signal is found again, every reading wired, the Decoder, globes and spheres right; commissioning waits (author 2026-10-23)",
+   "done_when": "every earlier signal on spent data replayed through the chain and recorded; the author decides the chain is ready to commission",
+   "branches": [
+    {
+     "id": "0.1",
+     "date": "2026-10-23",
+     "status": "running",
+     "what": "R1: the earlier CPG engine's 11 test arrays (blood and colon tissue)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "next": "read both runs; then EPIC-Italy and the retired report's raw-array series"
+    },
+    {
+     "id": "0.2",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The atlas ruler, so healthy reads 1 on the whole-sample Met-A and the territories (healthy 1.113 untared)",
+     "next": "build into Stage T; synthetic first"
+    }
+   ]
+  },
+  {
+   "status": "open",
+   "rows": [
     "CAN-007",
     "GRP-015"
    ],
