@@ -1,0 +1,4 @@
+DEV-TERRITORIES-01 test 3, healthy run: GSM7508429 through run_sample.py with the atlas ruler v1 (two anchors per design)
+whole sample A 0.93791 (0.938); parts identity sites of the cells found 0.88488 (0.885), islands 0.8766 (0.877), domains 0.93897 (0.939), the rest 0.94413 (0.944)
+territories islands 0.87988 (0.880), domains 0.95231 (0.952)
+ruler design I: array anchors 0.03382 (0.034) and 0.96722 (0.967) mapped to the atlas's 0.02291 (0.023) and 0.97788 (0.978), slope 1.02311; design II: array anchors 0.06389 (0.064) and 0.9403 (0.940) mapped to the atlas's 0.03857 (0.039) and 0.96623 (0.966), slope 1.05848

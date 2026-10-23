@@ -59,3 +59,14 @@ own reading most (1.122 to 1.231) while the whole sample barely moves (a loss at
 The island and domain plants also move neutrophils' own reading (to 1.173 and 1.171), because some identity sites lie in those sets.
 **Healthy reads 1.113 untared** on every part: the array's scale against the atlas, the same offset as test 1, for the atlas ruler to remove.
 
+## The atlas ruler, first version (two anchors per probe design)
+
+`chain/builders/build_atlas_ruler.py` builds `Runtime Matrices/Stage_T/atlas_ruler_v1.json`: for each probe design, sites every one of the 79
+cell types holds below 0.10 (outside CpG islands and their 2 kb shores) and above 0.90, on both the 450K and EPIC v1 chips, autosomes (861 and
+1,101 low, 2,553 and 3,690 high, for designs I and II); targets the atlas's means there. `stage_t_selftare.ruler_map` maps the array's own anchor
+means onto them by the self-tare's straight line; `run_sample.py --dev-ruler` (off by default) applies it before the whole-sample Met-A and the
+territories. On the healthy whole blood GSM7508429 (test 3, `whole_03.sh`, output `whole_03_healthy_summary.txt`; the planted runs follow): the type II low anchors read 0.064 against
+the atlas's 0.039, so the line lowers every low value; the whole-sample reading goes from 1.113 untared to 0.938, the islands part from 1.179 to
+0.877, the domains part from 1.125 to 0.939. **The straight line overcorrects:** the array's departure from the atlas is not a straight line across
+the range. Next: a ruler with many marks (sites every cell type holds alike at several levels between 0 and 1), synthetic first.
+

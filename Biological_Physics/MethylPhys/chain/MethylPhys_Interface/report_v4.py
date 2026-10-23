@@ -90,7 +90,7 @@ def glance_rows(o):
         bp = mw.get("by_place") or {}
         rows.append(("Met-A, whole sample", "Has the sample as a whole departed from its own expected healthy self, over every atlas site",
                      f"A {mw['A']} ({mw['sites']:,} sites; " + "; ".join(f"{k} {v['A']}" for k, v in bp.items() if v) + ")", "",
-                     "development, not commissioned; untared (the atlas ruler is not built yet)"))
+                     "development, not commissioned; " + str(mw.get("state") or "untared")))
     elif mw.get("reason"): rows.append(("Met-A, whole sample", "Has the sample as a whole departed", "", "", "not read: " + str(mw.get("reason"))[:120]))
     te = (o.get("territories") or {}).get("sets") or {}
     if any(v.get("A") is not None for v in te.values()):   # 2026-10-23: cancer's own territories (development, flagged)
@@ -256,6 +256,80 @@ def _plain(o, F):
                                 "Speckle is what healthy looks like; patches mean the changes are bunched together.</p>")
     return "".join(P)
 
+
+# ---- 2026-10-23 (author: "That report needs updating with ALL those tests because they are not there"): one section for every instrument
+BLOOD_FAMILIES = ("T cells", "B and NK cells", "Myeloid cells")
+def _fam_of():
+    try:
+        import stage_info_sphere as _IS
+        return {c: n for n, _, cs in _IS.FAMILIES for c in cs}
+    except Exception: return {}
+def _fmt(v, d=4): return "" if v is None else (f"{v:.{d}f}" if isinstance(v, (int, float)) else E(str(v)))
+def _tbl(head, rows): return "<table><tr>" + "".join(f"<th>{E(h)}</th>" for h in head) + "</tr>" + "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows) + "</table>"
+def _dev(): return chip("development, not commissioned")
+
+def _atlas_ruler(o):
+    ru = o.get("atlas_ruler") or {}; sh = o.get("cell_shares") or {}
+    h = "<h2 id='v4-atlas'>IAM-Atlas v2.1 and the ruler</h2><p>Every atlas reading below compares this sample with IAM-Atlas v2.1: 79 healthy cell types, 813,951 sites, built once from healthy donors. "
+    h += "The ruler puts the array on the atlas's scale first: for each probe design, the array's own mean at sites every healthy cell type holds unmarked, and at sites every one holds marked, is mapped onto the atlas's means at the same sites (islands and their shores are never anchors, so a gain there is never tared away). The shift is shown, never hidden.</p>"
+    mp = ru.get("maps") or {}
+    if not mp: return h + f"<p>{chip('not applied')} {E(str(ru.get('reason') or 'no ruler record'))}</p>"
+    rows = [[E(d), _fmt(m.get("L")), _fmt(m.get("L_ref")), _fmt(m.get("U")), _fmt(m.get("U_ref")), _fmt(m.get("slope")), f"{m.get('n_sites_mapped', 0):,}"] for d, m in mp.items() if m]
+    return h + _tbl(["Probe design", "Array low anchor", "Atlas low", "Array high anchor", "Atlas high", "Slope", "Sites mapped"], rows) + f"<p>{_dev()}</p>"
+
+def _unexpected(o):
+    sp = str(o.get("specimen") or "").lower(); F = _fam_of(); sh = (o.get("cell_shares") or {}).get("cells") or []
+    if sp not in ("whole blood", "buffy coat", "pbmc"): return ""
+    odd = [r for r in sh if (r.get("share") or 0) >= 0.02 and F.get(r["cell"]) and F.get(r["cell"]) not in BLOOD_FAMILIES]
+    if not odd: return ""
+    return ("<p class='note'><b>Cells not usually found in circulating blood:</b> " + ", ".join(f"{E(cellname(r['cell']))} {100*r['share']:.1f} % ({E(F.get(r['cell']))})" for r in odd)
+            + ". The IAM-Deconvolver reports what fits; a share like this can be the platform's own difference from the atlas, or a change the healthy atlas has no name for. It is shown, not hidden, and read with care.</p>")
+
+def _whole(o):
+    w = o.get("met_a_whole") or {}
+    h = "<h2 id='v4-whole'>Met-A, whole sample: every atlas site</h2><p>Disorder at every site against the atlas mixed in this sample's own cell shares, each site counted by how firmly a healthy sample of this mix holds it. The sensitive reading: it moves when anything in the sample departs. Healthy reads 1.</p>"
+    if w.get("A") is None: return h + f"<p>{chip('not read')} {E(str(w.get('reason', '')))}</p>"
+    rows = [["<b>whole sample</b>", f"<b>{_fmt(w['A'])}</b>", _fmt(w.get("se_over_sites"), 5), f"{w.get('sites', 0):,}"]]
+    rows += [[E(k), _fmt(v["A"]), _fmt(v.get("se_over_sites"), 5), f"{v.get('sites', 0):,}"] for k, v in (w.get("by_place") or {}).items() if v]
+    return (h + _tbl(["Sites", "Met-A", "Standard error", "Sites read"], rows)
+            + f"<p class='note'>A 1 % loss of the held pattern moves this reading by about {_fmt(w.get('shift_per_1pct_loss'))}. State: {E(str(w.get('state', '')))}. {_dev()}</p>")
+
+def _each_cell(o):
+    ec = o.get("met_a_each_cell") or {}; cells = [x for x in ec.get("cells", []) if x.get("A") is not None]
+    h = "<h2 id='v4-each'>Met-A for each cell: which cell moved</h2><p>Each cell found, read at its own 6,000 identity sites against its healthy profile in the atlas, in this sample's mix. When the whole-sample reading moves, these say which cell.</p>"
+    if not cells: return h + f"<p>{chip('not read')} {E(str(ec.get('reason', '')))}</p>"
+    rows = [[E(cellname(x["cell"])), f"{100*(x.get('share') or 0):.1f} %" if x.get("share") is not None else "", f"<b>{_fmt(x['A'])}</b>", _fmt(x.get("se"), 4) if x.get("se") is not None else ""] for x in sorted(cells, key=lambda x: -(x.get("share") or 0))]
+    return h + _tbl(["Cell", "Share", "Met-A", "Standard error"], rows) + f"<p>{_dev()} Untared unless stated.</p>"
+
+def _territories(o):
+    te = (o.get("territories") or {}).get("sets") or {}
+    h = ("<h2 id='v4-territories'>Territories: where early cancer is known to act</h2><p><b>Islands:</b> sites every healthy cell type keeps unmarked, where marks are gained early. "
+         "<b>Domains:</b> marked sites some healthy cell types hold loosely, where marks are lost early. Each read against the atlas in this sample's mix; healthy reads 1.</p>")
+    if not te: return h + f"<p>{chip('not read')}</p>"
+    rows = [[E(k), f"<b>{_fmt(v.get('A'))}</b>", f"{v.get('level_change'):+.4f}" if v.get("level_change") is not None else "", _fmt(v.get("se_over_sites"), 5), f"{v.get('measured', 0):,} of {v.get('set_size', 0):,}"] for k, v in te.items()]
+    return h + _tbl(["Territory", "Disorder (A)", "Level change", "Standard error", "Sites measured"], rows) + f"<p>{_dev()} State: {E(str((o.get('territories') or {}).get('state') or 'untared'))}.</p>"
+
+def _cscores_all(o):
+    c = o.get("met_a_cscore") or {}; ce = o.get("cscore_each_cell") or {}; wg = ce.get("whole_genome") or {}
+    h = "<h2 id='v4-cscores'>The four C-Scores: are the departures clustered along the genome?</h2><p>Each C-Score asks the same question of a different map: scattered departures read near 1, departures that run along the genome read higher.</p>"
+    rows = [["C-Score (commissioned, neutrophil identity sites)", _fmt(c.get("C_rel") if c.get("C_rel") is not None else c.get("C")), E(str(c.get("C_call") or c.get("reason") or "")), chip("commissioned" if c.get("commissioning") else "not commissioned here")],
+            ["C-Score, whole genome (every atlas site)", _fmt(wg.get("C")), "", _dev()]]
+    for x in sorted(ce.get("cells", []), key=lambda x: -(x.get("share") or 0)):
+        if x.get("C") is not None: rows.append([f"C-Score, {E(cellname(x['cell']))}", _fmt(x.get("C")), E(str(x.get("flag") or "")), _dev()])
+    q = o.get("iam_a") or {}
+    rows.append(["IAM-A C-Score, region by region (sequencing)", _fmt((q.get("cscore") or {}).get("C")) if q.get("cscore") else "", "" if q.get("cscore") else ("not built yet" if q else "no sequencing input"), _dev()])
+    return h + _tbl(["Reading", "Value", "Note", "Status"], rows)
+
+def _sphere_sec(o):
+    sp = o.get("info_sphere") or {}
+    h = ("<h2 id='v4-sphere'>The information sphere: which cell programs moved</h2><p>Every site placed by how it behaves across the atlas's 79 cell types, so sites that work together sit together. "
+         "The sample is read territory by territory against its own expected healthy self, with its distance from that self in the sphere's own measure (the Fisher-Rao angle).</p>")
+    if not sp.get("territories_read"): return h + f"<p>{chip('not drawn')} {E(str(sp.get('reason', '')))}</p>"
+    link = sp.get("html"); lk = f" <a href='{E(os.path.basename(str(link)))}'>Open the sphere</a>." if link else ""
+    return h + f"<p class='big'>{sp.get('territories_changed')} of {sp.get('territories_read')} territories changed · distance {_fmt(sp.get('fisher_rao_rms_rad'), 4)} rad</p><p>{_dev()}{lk}</p>"
+
+def _sections_v5(o): return _atlas_ruler(o) + _unexpected(o) + _whole(o) + _each_cell(o) + _territories(o) + _cscores_all(o) + _sphere_sec(o)
+
 def build(o, out, sid):
     G, GP = o.pop("_globe_html", "") or "", o.pop("_globe_prose", "") or ""   # taken out first: the technical record must not print the globe's data
     tech = os.path.splitext(out)[0] + "_v3record.tmp.html"
@@ -271,7 +345,7 @@ def build(o, out, sid):
              "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
              "<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'>"
              "<div class='vbar'><label for='vr'>Researcher</label><label for='vp'>Plain</label></div>",
-             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _physics(o), _shares(o), _meta(o), _cscore(o), _iama(o), "</div>",
+             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _physics(o), _shares(o), _sections_v5(o), _meta(o), _cscore(o), _iama(o), "</div>",
              "<div class='plain'>", _plain(o, F), "</div></div>"]
     prose = re.sub(r"<[^>]+>", " ", re.sub(r"src='data:[^']+'", "", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S)))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))

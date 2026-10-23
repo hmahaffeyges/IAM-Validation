@@ -27,6 +27,18 @@ def anchors(beta, st=None):
     return out
 
 
+RULER = os.path.join(HERE, "Runtime Matrices", "Stage_T", "atlas_ruler_v1.json")
+
+def ruler_map(beta):
+    """The atlas ruler (development, 2026-10-23; builders/build_atlas_ruler.py): the self-tare's straight line for each probe design, with the
+    array's own anchor means mapped onto IAM-Atlas v2.1's means at sites every cell type holds the same way (islands and shores never anchors).
+    The anchor shift (the array's anchors before the map against the atlas's) is in the record; it is reported, never silently removed."""
+    if "ruler" not in _C: _C["ruler"] = json.load(open(RULER)) if os.path.exists(RULER) else None
+    if _C["ruler"] is None: return None, {"reason": "Runtime Matrices/Stage_T/atlas_ruler_v1.json not found"}
+    b2, rec = selftare_map(beta, _C["ruler"]); rec = dict(rec or {}); rec["ruler"] = "atlas_ruler_v1 (IAM-Atlas v2.1 targets)"
+    return b2, rec
+
+
 def selftare_map(beta, st=None):
     """beta' = Lr + (beta - L)(Ur - Lr)/(U - L) per design at the sites whose design is recorded; other sites unchanged. Returns (beta', record)."""
     st = st or _json()

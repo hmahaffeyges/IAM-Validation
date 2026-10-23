@@ -1826,6 +1826,45 @@ spread combined with the atlas's own uncertainty, half its 95 % range over 1.96)
 to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
 measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
 
+### report_v4.py::_fam_of
+Each atlas cell type's family (stage_info_sphere.FAMILIES), for the report's unexpected-cell note.
+
+### report_v4.py::_fmt
+Prints a number to a fixed number of decimals, or the value as text.
+
+### report_v4.py::_tbl
+Builds one HTML table from a header and rows.
+
+### report_v4.py::_dev
+The development chip: a reading not yet commissioned.
+
+### report_v4.py::_atlas_ruler
+The report's IAM-Atlas v2.1 section: what the atlas is, and the ruler's anchors before and after the map for each probe design, so the shift is shown.
+
+### report_v4.py::_unexpected
+For blood specimens, cells found at 2 % or more whose family is not a circulating blood family, named with a note that a share like this can be the platform or a change the healthy atlas has no name for.
+
+### report_v4.py::_whole
+The report's section for Met-A over every atlas site: the whole-sample reading and its parts by place, with standard errors and the shift a 1 % loss would make.
+
+### report_v4.py::_each_cell
+The report's section for Met-A for each cell found, at its identity sites, with its share.
+
+### report_v4.py::_territories
+The report's section for the island and domain readings, with level change and sites measured.
+
+### report_v4.py::_cscores_all
+The report's section for the four C-Scores: the commissioned one, the whole genome's, each cell's, and IAM-A's region-by-region version for sequencing.
+
+### report_v4.py::_sphere_sec
+The report's section for the information sphere: territories changed, the Fisher-Rao distance, and a link to the sphere page.
+
+### report_v4.py::_sections_v5
+All the new sections in their order, after the cell shares.
+
+### stage_t_selftare.py::ruler_map
+The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v2.1's means at sites every cell type holds alike (islands and shores never anchors). Development; off unless run_sample.py is given --dev-ruler.
+
 ### stage_metaa_atlas.py::read_whole
 Met-A for the whole sample over every atlas site: the atlas mixed in the sample's own shares is the expectation, each site counts by how firmly that mix holds it (|0.5 - e|), and the reading is weighted disorder over weighted expected disorder. Reported overall and split by place (identity sites of the cells found, islands, domains, the rest), with the shift a 1 % loss would make. The per-cell readings say which cell; this one says whether the sample has departed. Development, flagged, on by default.
 

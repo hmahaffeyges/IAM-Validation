@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1040,
+   "lines": 1043,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -282,9 +282,9 @@
      "function": "main",
      "name": "main",
      "line": 350,
-     "end": 1037,
+     "end": 1040,
      "args": [],
-     "lines": 688,
+     "lines": 691,
      "doc": "",
      "constants": [
       "BIO",
@@ -307,8 +307,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 547,
-     "end": 551,
+     "line": 548,
+     "end": 552,
      "args": [
       "r"
      ],
@@ -324,8 +324,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 782,
-     "end": 789,
+     "line": 783,
+     "end": 790,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -337,8 +337,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 981,
-     "end": 982,
+     "line": 984,
+     "end": 985,
      "args": [
       "b",
       "it",
@@ -1961,7 +1961,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 291,
+   "lines": 365,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2332,10 +2332,207 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_fam_of",
+     "name": "_fam_of",
+     "line": 262,
+     "end": 266,
+     "args": [],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_fmt",
+     "name": "_fmt",
+     "line": 267,
+     "end": 267,
+     "args": [
+      "v",
+      "d"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_tbl",
+     "name": "_tbl",
+     "line": 268,
+     "end": 268,
+     "args": [
+      "head",
+      "rows"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_dev",
+     "name": "_dev",
+     "line": 269,
+     "end": 269,
+     "args": [],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_atlas_ruler",
+     "name": "_atlas_ruler",
+     "line": 271,
+     "end": 278,
+     "args": [
+      "o"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_unexpected",
+     "name": "_unexpected",
+     "line": 280,
+     "end": 286,
+     "args": [
+      "o"
+     ],
+     "lines": 7,
+     "doc": "",
+     "constants": [
+      "BLOOD_FAMILIES",
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_whole",
+     "name": "_whole",
+     "line": 288,
+     "end": 295,
+     "args": [
+      "o"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_each_cell",
+     "name": "_each_cell",
+     "line": 297,
+     "end": 302,
+     "args": [
+      "o"
+     ],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_territories",
+     "name": "_territories",
+     "line": 304,
+     "end": 310,
+     "args": [
+      "o"
+     ],
+     "lines": 7,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_cscores_all",
+     "name": "_cscores_all",
+     "line": 312,
+     "end": 321,
+     "args": [
+      "o"
+     ],
+     "lines": 10,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_sphere_sec",
+     "name": "_sphere_sec",
+     "line": 323,
+     "end": 329,
+     "args": [
+      "o"
+     ],
+     "lines": 7,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_sections_v5",
+     "name": "_sections_v5",
+     "line": 331,
+     "end": 331,
+     "args": [
+      "o"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 259,
-     "end": 290,
+     "line": 333,
+     "end": 364,
      "args": [
       "o",
       "out",
@@ -4528,7 +4725,7 @@
   },
   {
    "file": "stage_t_selftare.py",
-   "lines": 42,
+   "lines": 54,
    "functions": [
     {
      "file": "stage_t_selftare.py",
@@ -4568,10 +4765,30 @@
     },
     {
      "file": "stage_t_selftare.py",
+     "function": "ruler_map",
+     "name": "ruler_map",
+     "line": 32,
+     "end": 39,
+     "args": [
+      "beta"
+     ],
+     "lines": 8,
+     "doc": "The atlas ruler (development, 2026-10-23; builders/build_atlas_ruler.py): the self-tare's straight line for each probe design, with the array's own anchor means mapped onto IAM-Atlas v2.1's means at sites every cell type holds the same way (islands and shores never anchors). The anchor shift (the array's anchors before the map against the atlas's) is in the record; it is reported, never silently r",
+     "constants": [
+      "RULER",
+      "_C"
+     ],
+     "data_files": [
+      "Runtime Matrices/Stage_T/atlas_ruler_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_t_selftare.py",
      "function": "selftare_map",
      "name": "selftare_map",
-     "line": 30,
-     "end": 41,
+     "line": 42,
+     "end": 53,
      "args": [
       "beta",
       "st"
@@ -7597,5 +7814,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 387
+ "n_functions": 400
 }

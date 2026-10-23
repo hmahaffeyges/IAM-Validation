@@ -379,6 +379,7 @@ def main():
                     help="DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make "
                          "(stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading")
     ap.add_argument("--dev-territories", action="store_true", default=True, help="DEVELOPMENT (plan 48): disorder at cancer's own territories (islands unmarked in every cell type; loosely held domains), against the atlas in the sample's mix. On by default since 2026-10-23 (author: 'wire in the territories score')")
+    ap.add_argument("--dev-ruler", action="store_true", help="DEVELOPMENT (plan 0.2): put the array on IAM-Atlas v2.1's scale (stage_t_selftare.ruler_map) before the whole-sample Met-A and the territories. Off until the many-level ruler passes (the two-anchor line overcorrects: healthy 1.113 untared, 0.938 on it)")
     ap.add_argument("--no-territories", dest="dev_territories", action="store_false", help="skip the territory readings")
     ap.add_argument("--dev-plant-territory", default=None, metavar="islands|domains:FRACTION:SIZE", help="TESTS ONLY: a constructed gain at islands or loss in domains, planted by the chain")
     ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS[:all|runs]",
@@ -868,10 +869,12 @@ def main():
                 try: o["cscore_each_cell"] = SA.cscore_in_mix(_vals, _shr, a._cell_dep)   # 2026-10-23 (41.2, 41.3): the C-Score for each cell and the whole genome, flagged
                 except Exception as e: o["cscore_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_metaa_allsites: o["met_a_each_cell_allsites"] = SA.read_in_mix_allsites(_vals, _shr)
-                try: o["met_a_whole"] = SA.read_whole(_vals, _shr)   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
+                _rv, o["atlas_ruler"] = (None, {"reason": "sequencing values are not mapped" if a._seqv else "the atlas ruler is off (--dev-ruler turns it on; development)"}) if (a._seqv or not a.dev_ruler) else _ST.ruler_map(_pd.Series(beta, dtype="float64"))   # 2026-10-23: the atlas ruler
+                _vr = _rv if _rv is not None else _vals
+                try: o["met_a_whole"] = SA.read_whole(_vr, _shr); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
                 except Exception as e: o["met_a_whole"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix
-                    try: o["territories"] = SA.territory_reading(_vals, _shr)
+                    try: o["territories"] = SA.territory_reading(_vr, _shr); o["territories"]["state"] = o["met_a_whole"].get("state")
                     except Exception as e: o["territories"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_metaa_specific:   # 2026-10-22 (39.9): the same reading on sites held by each cell and not by the others
                     o["met_a_each_cell_specific"] = {d.strip(): SA.read_in_mix(_vals, _shr, counts=getattr(a, "_seqc", None), specific=float(d)) for d in a.dev_metaa_specific.split(",") if d.strip()}

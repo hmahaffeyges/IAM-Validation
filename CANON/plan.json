@@ -161,7 +161,16 @@
      "date": "2026-10-23",
      "status": "open",
      "what": "The atlas ruler, so healthy reads 1 on the whole-sample Met-A and the territories (healthy 1.113 untared)",
-     "next": "build into Stage T; synthetic first"
+     "next": "the many-level ruler (sites every cell type holds alike at several levels), synthetic first; the two-anchor line overcorrects (healthy 1.113 untared, 0.938 on it)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "id": "0.3",
+     "date": "2026-10-23",
+     "status": "running",
+     "what": "Speed: jobs hit GitHub's 6-hour limit after the one command gained every reading (Group-A pass 2, 11 shards; the C-Score test, 4 runs; the plasma run, 1 shard; the release check's V1 and V5). Profile the one command, then speed it up and split the big jobs",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_SPEED_01/profile_01.py",
+     "next": "read the profile; speed up the slowest steps; rerun Group-A pass 2 from its saved pass 1, the plasma shard and the C-Score test split one plant per machine"
     }
    ]
   },
