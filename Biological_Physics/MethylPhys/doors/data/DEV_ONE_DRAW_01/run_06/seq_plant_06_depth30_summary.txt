@@ -1,0 +1,5 @@
+DEV-ONE-DRAW-01 exploration 6: losses planted before counting, read at 30 reads per site; all by the chain (constructed from GSM7508429, spent)
+healthy: neutrophils 1.14694 (se 0.007325), monocytes 1.10275 (se 0.006889), b cells 1.20654 (se 0.006982), cd4 t cells 1.22636 (se 0.007499), cd8 t cells 1.21584 (se 0.007125), nk cells 1.19758 (se 0.007056)
+cd4 t cells 5%: 1.22636 -> 1.29151, moved +0.06515 = +8.7 of its own error | largest other move cd8 t cells 25% of it
+cd4 t cells 20%: 1.22636 -> 1.4673, moved +0.24094 = +32.1 of its own error | largest other move cd8 t cells 26% of it
+nk cells 20%: 1.19758 -> 1.27387, moved +0.07629 = +10.8 of its own error | largest other move b cells 16% of it

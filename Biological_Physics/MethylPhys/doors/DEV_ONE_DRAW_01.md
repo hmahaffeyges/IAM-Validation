@@ -94,3 +94,13 @@ of the time, not 95 %), so it is reported as the spread of the fit, not as a 95 
 **Exploration 6 at 10 reads per site (2026-10-22; explore run 39904730217):** `data/DEV_ONE_DRAW_01/run_06/seq_plant_06_depth10_summary.txt`.
 A loss planted before counting moves the planted cell's Met-A clear of its own error at 10 reads: CD4 T cells 5 % by 6.2 of its error, 20 % by
 23.4; NK cells 20 % by 7.4. The closest relative moves about a quarter as much (CD8 T for CD4 T; CD4 T for NK). The other depths are running.
+
+**Exploration 6 at 30 reads (explore run 39904765477):** CD4 T cells 5 % moves 8.7 of its own error, 20 % 32.1; NK cells 20 % 10.8; the closest
+relative moves 16 to 26 % as much (`run_06/seq_plant_06_depth30_summary.txt`).
+
+**Exploration 5 at 10 reads per site in the plasma (explore run 39904598005):** `run_05/constructed_draw_05_depth10_summary.txt`. Hepatocyte DNA
+added at shares 0.005, 0.01, 0.02 and 0.05 is found at 0.0049, 0.0082, 0.0197 and 0.0525; vascular endothelium at 0.0045, 0.0152, 0.0316 and
+0.0616; colon epithelium is not found below 0.05 (0.0294 at 0.05). With nothing added, each tissue reads at most 0.0001. The summary's "largest not added" (basophils, about
+3 %) is a cell of the blood itself, which the constructed plasma carries; the line should list only tissues outside the blood, and is
+corrected in the next runs' summaries. Reading: at plasma-like depth the full-atlas split finds liver DNA from 0.5 % and puts it at the right
+size; vessel lining is found but read high; colon is missed at small shares, which is what the known mixtures showed on arrays as well.

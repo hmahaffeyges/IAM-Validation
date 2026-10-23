@@ -1,0 +1,6 @@
+DEV-ONE-DRAW-01 exploration 5: constructed draws from GSM7508429 (spent), plasma at 10 reads per site, buffy coat at 30; all by the chain
+share 0.0%: found hepatocyte 0.0000, vascular endothelium 0.0001, colon epithelium 0.0000 | largest not added: basophils 0.0299
+share 0.5%: found hepatocyte 0.0049, vascular endothelium 0.0045, colon epithelium 0.0000 | largest not added: basophils 0.0284
+share 1.0%: found hepatocyte 0.0082, vascular endothelium 0.0152, colon epithelium 0.0000 | largest not added: basophils 0.0283
+share 2.0%: found hepatocyte 0.0197, vascular endothelium 0.0316, colon epithelium 0.0000 | largest not added: basophils 0.0285
+share 5.0%: found hepatocyte 0.0525, vascular endothelium 0.0616, colon epithelium 0.0294 | largest not added: microglia 0.0206
