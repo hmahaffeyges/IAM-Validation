@@ -62,3 +62,14 @@ so it is smaller than the spread between healthy people; that spread comes from 
 `data/DEV_EACH_CELL_01/globe_cell_05.py`, only the one command on the raw IDATs of GSM7508429: a loss planted by the chain in 10 runs of 30
 neighboring identity sites (`--dev-plant CELL:LOSS:runs`) of monocytes, CD4 T, B or NK cells, at 5, 20 and 50 %, scaled by the cell's share; each
 cell's changed blocks on the globe against healthy. An even loss was already shown not to light the layer (2 of 597 blocks before and after).
+
+## Exploration 4, run once (2026-10-22; explore run 39885755066)
+Output: `data/DEV_EACH_CELL_01/metaa_allsites_04_summary.txt`. Each move is in the reading's own error over sites (within one sample).
+- A loss at the cell's identity sites: the identity-site reading moves 6.0 (monocytes) to 30.9 (CD4 T) errors, other cells 15 to 26 % as
+  much; the every-site reading moves 0.5 to 2.1 errors, every cell alike (100 to 118 %).
+- A loss at every site the cell holds: the identity-site reading moves 5.6 to 29.9 errors, other cells 92 to 121 % as much; the every-site
+  reading moves 44.6 to 186.7 errors, every cell alike (101 to 106 %).
+Reading: the every-site version is far more sensitive to a loss across a whole pattern but cannot say which cell (it is a whole-sample
+reading); the identity sites say which cell only when the loss sits at that cell's own sites; a loss across a cell's whole pattern cannot be
+put on one cell by either, because most held sites are held by its relatives too. Kept: the identity sites for the reading of each cell.
+Next: identity sites chosen to be specific to each cell (to-do 39.9); the every-site version as a candidate whole-sample reading.

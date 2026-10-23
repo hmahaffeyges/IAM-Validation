@@ -80,3 +80,24 @@ def values_from_beta(path, min_calls=1):
     calls = pd.Series(C, index=k["probe"])[beta.index]
     return beta, calls, dict(source=os.path.basename(path), format=".beta (per-CpG counts)", atlas_sites=int(len(k["idx"])), sites_with_value=int(ok.sum()),
                              calls_per_site_median=float(np.median(C[ok])) if ok.any() else 0.0, min_calls=int(min_calls), flag=FLAG)
+
+
+def construct_draw(blood, add, depth_buffy, depth_plasma, out_dir, seed=20261022):
+    """TESTS ONLY (2026-10-22, author: GSE186888 stays unread, "how are you going to explore without one?"): a CONSTRUCTED blood draw with a
+    known answer, built from spent values. Buffy coat: the blood's own levels. Plasma: (1 - sum of add) x the blood's levels + each added atlas
+    tissue's share x its IAM-Atlas v2.1 best value (where the tissue has none, the blood's). Each half is read as k of n reads at every atlas
+    site, n = its depth and k ~ Binomial(n, level), seeded, and written as a .beta count file (hg19 CpG numbering) beside a truth record.
+    blood: Series of levels by probe; add: {atlas tissue: share}. Returns the truth record."""
+    import json, sys
+    sys.path.insert(0, HERE); import stage_metaa_atlas as SA
+    k = key(); lev = pd.Series(blood, dtype="float64").reindex(k["probe"]).to_numpy(); ok = np.isfinite(lev)
+    tot = float(sum(add.values())); pl = lev * (1 - tot)
+    for t, f in add.items():
+        mu = SA._col("mu", t).reindex(k["probe"]).to_numpy(); pl = pl + f * np.where(np.isfinite(mu), mu, lev)
+    rng = np.random.default_rng(seed); os.makedirs(out_dir, exist_ok=True); rec = dict(rule=construct_draw.__doc__.split("\n")[0], added=add, blood_share=round(1 - tot, 6),
+                                                                                      depth=dict(buffy=depth_buffy, plasma=depth_plasma), seed=seed, sites=int(ok.sum()), flag="CONSTRUCTED for a test, not a person")
+    for half, L, n in (("buffy", lev, depth_buffy), ("plasma", pl, depth_plasma)):
+        a = np.zeros((HG19_CPGS, 2), np.uint8); m = rng.binomial(n, np.clip(L[ok], 0, 1))
+        a[k["idx"][ok] - 1, 0] = m; a[k["idx"][ok] - 1, 1] = n
+        with gzip.open(os.path.join(out_dir, f"{half}.beta.gz"), "wb", compresslevel=1) as f: f.write(a.tobytes())
+    json.dump(rec, open(os.path.join(out_dir, "truth.json"), "w"), indent=1); return rec

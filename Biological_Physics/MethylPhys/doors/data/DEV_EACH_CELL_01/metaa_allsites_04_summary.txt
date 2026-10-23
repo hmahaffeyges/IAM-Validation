@@ -1,0 +1,19 @@
+DEV-EACH-CELL-01 exploration 4: Met-A for each cell, identity sites (I) against every atlas site weighted by its shift (W); GSM7508429 by run_sample.py
+healthy I: neutrophils A 1.12224 se 0.002297 sites 5912, monocytes A 1.09666 se 0.00224 sites 5670, b cells A 1.17758 se 0.001988 sites 5995, cd4 t cells A 1.18358 se 0.001873 sites 5973, cd8 t cells A 1.19108 se 0.00189 sites 5914, nk cells A 1.17076 se 0.001908 sites 5911
+healthy W: neutrophils A 1.1007 se 0.000199 sites 711832, monocytes A 1.10057 se 0.000197 sites 716155, b cells A 1.1098 se 0.000195 sites 701541, cd4 t cells A 1.11213 se 0.000191 sites 700993, cd8 t cells A 1.11477 se 0.000193 sites 693296, nk cells A 1.10892 se 0.000193 sites 706382
+plant identity monocytes    | I: moved +0.01353 = +6.0 of its own error | largest other move 15% of it
+plant identity monocytes    | W: moved +0.00009 = +0.5 of its own error | largest other move 111% of it
+plant identity cd4 t cells  | I: moved +0.05782 = +30.9 of its own error | largest other move 26% of it
+plant identity cd4 t cells  | W: moved +0.00040 = +2.1 of its own error | largest other move 100% of it
+plant identity b cells      | I: moved +0.01270 = +6.4 of its own error | largest other move 25% of it
+plant identity b cells      | W: moved +0.00010 = +0.5 of its own error | largest other move 100% of it
+plant identity nk cells     | I: moved +0.01830 = +9.6 of its own error | largest other move 18% of it
+plant identity nk cells     | W: moved +0.00011 = +0.6 of its own error | largest other move 118% of it
+plant all      monocytes    | I: moved +0.01255 = +5.6 of its own error | largest other move 121% of it
+plant all      monocytes    | W: moved +0.00938 = +47.6 of its own error | largest other move 106% of it
+plant all      cd4 t cells  | I: moved +0.05599 = +29.9 of its own error | largest other move 92% of it
+plant all      cd4 t cells  | W: moved +0.03566 = +186.7 of its own error | largest other move 101% of it
+plant all      b cells      | I: moved +0.01208 = +6.1 of its own error | largest other move 114% of it
+plant all      b cells      | W: moved +0.00870 = +44.6 of its own error | largest other move 102% of it
+plant all      nk cells     | I: moved +0.01736 = +9.1 of its own error | largest other move 113% of it
+plant all      nk cells     | W: moved +0.01229 = +63.7 of its own error | largest other move 103% of it

@@ -232,6 +232,13 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "constructed-draw":   # TESTS ONLY (2026-10-22): a constructed draw with a known answer, built by the chain from spent values
+        if not (a.build_input and a.build_out and a.build_mix): print("--build constructed-draw needs --build-input (blood values), --build-mix TISSUE:SHARE,... and --build-out DIR"); return 2
+        import stage_seq_values as _SVc
+        bl = _pd.read_csv(a.build_input, index_col=0).iloc[:, 0]; add = {x.rsplit(":", 1)[0].strip(): float(x.rsplit(":", 1)[1]) for x in a.build_mix.split(",") if x.strip()}
+        db, dp = (int(x) for x in (a.build_depth or "30,15").split(","))
+        rec = _SVc.construct_draw(bl, add, db, dp, a.build_out); rec["input"] = os.path.basename(a.build_input); rec["command"] = [os.path.basename(sys.argv[0])] + sys.argv[1:]
+        json.dump(rec, open(os.path.join(a.build_out, "truth.json"), "w"), indent=1); print("Build: constructed draw", json.dumps({k: v for k, v in rec.items() if k != "command"})[:600]); return 0
     import reference_globes as RG
     if not a.build_out: print(f"--build {a.build} needs --build-out"); return 2
     if a.build in ("explorer-purified", "explorer-noise"):
@@ -328,6 +335,8 @@ def main():
                     help="the cells the IAM-Deconvolver splits the sample into: 'blood' (the six blood cells it is commissioned on, the default), 'atlas' (all of "
                          "IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for "
                          "each cell reads every cell the panel finds (2026-10-22)")
+    ap.add_argument("--build-mix", default=None, metavar="TISSUE:SHARE,...", help="--build constructed-draw: atlas tissues added to the plasma half and their shares (tests only)")
+    ap.add_argument("--build-depth", default=None, metavar="BUFFY,PLASMA", help="--build constructed-draw: reads per site in each half (default 30,15)")
     ap.add_argument("--dev-seq-beta", default=None, metavar="FILE.beta[.gz]",
                     help="DEVELOPMENT (40.10): read a .beta file of per-CpG counts (hg19 CpG numbering) as values at IAM-Atlas v2.1's sites; "
                          "every reader but IAM-A (no molecules); with --dev-seq-values N, sites with fewer than N reads have no value")
@@ -384,7 +393,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
