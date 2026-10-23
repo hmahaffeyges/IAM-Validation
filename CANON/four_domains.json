@@ -4,7 +4,8 @@
   "cosmos",
   "qubits",
   "chips",
-  "cells"
+  "cells",
+  "cells_meta"
  ],
  "slots": [
   {
@@ -46,6 +47,9 @@
     "formula": "methyl mark at each CpG",
     "status": "derived",
     "source": "Ch. Four saturation events"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -90,6 +94,9 @@
     "formula": "T_b = 310.15 K",
     "status": "measured",
     "source": "Part VI"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -135,6 +142,9 @@
     "formula": "k_B T_b ln2 = 2.97e-21 J",
     "status": "derived",
     "source": "Ch. Landauer"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -171,6 +181,9 @@
     "formula": "Delta G_ATP = 54 kJ/mol",
     "status": "measured",
     "source": "App. E #484"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -203,6 +216,9 @@
     "formula": "M = Delta G_ATP / R T_b = 20.94",
     "status": "calculated",
     "source": "App. E #484"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -232,6 +248,12 @@
     "formula": "28,217,009 CpG sites per haploid genome (counted from hg19); a diploid cell has about 112 million methyl positions (about 14 MB), about 83 million bits held at the healthy held error (0.044); M = 20.94 kT per ATP = 30.2 bits; the writer's discrimination ln D = 4.15 kT = 6.0 bits",
     "status": "calculated",
     "source": "App. E #484; Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (healthy held error); writer D: DEV-WRITER-01"
+   },
+   "cells_meta": {
+    "native": "the share of a site's copies that carry the mark",
+    "formula": "one level per site, averaged over every copy in the sample: an array cannot see a single molecule, so a firmly held copy and a loose one are mixed into the same number",
+    "status": "definition",
+    "source": "Biological_Physics/MethylPhys/chain/stage_m_met_a.py; p6_00b 'One instrument, one gauge'"
    }
   },
   {
@@ -260,6 +282,12 @@
     "status": "derived",
     "native": "one identity site",
     "formula": "H(eps) bits per site; floor H_min = 2.5e-8 bits per site (one ATP against thermal kicks), ceiling 1 bit per site (coin flip)",
+    "source": "p6_00b 'One instrument, one gauge'; p6_06 'The points on the gauge'; p6_07 'The entropy ceiling'"
+   },
+   "cells_meta": {
+    "native": "one identity site, read as a level",
+    "formula": "H(beta) bits per site from the averaged level; floor H_min = 2.5e-8 bits per site, ceiling 1 bit per site (beta = 1/2)",
+    "status": "derived",
     "source": "p6_00b 'One instrument, one gauge'; p6_06 'The points on the gauge'; p6_07 'The entropy ceiling'"
    }
   },
@@ -290,6 +318,9 @@
     "native": "none yet",
     "formula": "the cell reading is a snapshot (bits per site); a rate needs a clock, and the only clock proposed is development (clock row, candidate). Turnover and division are not used (author's rule)",
     "source": "clock row; author 2026-10-15"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -319,6 +350,9 @@
     "native": "methyl writes per second the body's methyl supply can pay for",
     "formula": "upper bound, all methylation: whole-body transmethylation 16.7-23.4 mmol SAM/d (70 kg young adults) = 1.2e17-1.6e17 methyl writes per second. Per cell: open. CORRECTED 2026-10-15: a first version divided by all 3.72e13 cells (3,100-4,400 per cell per second), but about 70 percent of those are red blood cells, which carry no DNA; the per-cell figure must use DNA-carrying cells from Bianconi's cell-type table (not yet read). Most of the flux is creatine and phosphatidylcholine synthesis in the liver, so DNA writing in any one cell is a small part of it",
     "source": "Mudd et al. 2007, Am J Clin Nutr 85, 19-25 (10.1093/ajcn/85.1.19); cell counts: Bianconi et al. 2013, Ann Hum Biol 40, 463-471; red-cell share per Sender, Fuchs and Milo 2016 (bioRxiv 10.1101/036103)"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -363,6 +397,12 @@
     "formula": "eps_min = 1/(1+e^M) = 8e-10",
     "status": "derived",
     "source": "Part VI"
+   },
+   "cells_meta": {
+    "native": "floor",
+    "formula": "the same physical floor read on the level: H_min = 2.5e-8 bits per site (drawn as 0 on the gauge)",
+    "status": "derived",
+    "source": "Part VI; p6_06 'The points on the gauge'"
    }
   },
   {
@@ -401,6 +441,9 @@
     "formula": "eps = f/(f+g), E_hold = k_B T ln(g/f)",
     "status": "derived",
     "source": "foundation"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -433,6 +476,12 @@
     "formula": "eps0 = 0.044, E_hold = 3.08 k_B T (2.85-3.37 across 56 healthy cell types, SD 0.12), H_ref = 0.259 bits; per interior opportunity on single molecules, counted by chain Stage Q2. The commissioned IAM-A reads each sample against its own line instead, eps_pred(L) = 0.0403 + 0.0346 L. Not derived: ln D - ln 2 was not supported (DEV-ERASE-01 NOT MET on all five units); the fully held sites' reading against the writer's limit was made (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed)",
     "status": "measured",
     "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json; Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json; DEV_ERASE_01.md"
+   },
+   "cells_meta": {
+    "native": "healthy",
+    "formula": "measured on healthy references of the same cell on the same platform (purified neutrophils on EPIC: H = 0.330263 bits); in a mixed sample, IAM-Atlas v2.1 mixed in the sample's own IAM-Deconvolver shares. Not derived. A whiteboard check on the atlas put about half of a methylated site's healthy drop from 1 on the held error and half on a gap that differs by cell type (both read from the same molecules, so not independent); the atlas as the ruler for every array (plan 35.14) is the route to a reference with no same-run healthy arrays",
+    "status": "measured",
+    "source": "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md; Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py; CANON/plan.json 35.14"
    }
   },
   {
@@ -462,6 +511,12 @@
     "formula": "the writer's own error, eps_W = 1/(1 + D), E = ln D = 4.15 kT (3.86-4.38), H = 0.115 bits; D measured on two enzymes (47.4 to 80). The firm rate read off the commissioned line (a sample with no loose tiles) is 0.0403 = 3.17 kT, outside the writer's band (eps_W 0.0123-0.0207): on the per-opportunity count the firm rate is not the writer's error alone, and what adds to it is open. The fully held and island readings of 2026-10-15 were made (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed)",
     "status": "open",
     "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json; DEV-WRITER-01 (writer D)"
+   },
+   "cells_meta": {
+    "native": "not separated",
+    "formula": "an array cannot split firm from loose; the firm rate enters only inside each site's healthy level",
+    "status": "open",
+    "source": "Biological_Physics/MethylPhys/chain/stage_m_met_a.py"
    }
   },
   {
@@ -491,6 +546,12 @@
     "formula": "L, the share of the genome held loosely, read from the sample itself (0.20 in naive T cells to 0.93 in red-cell progenitors). On the commissioned line the loose rate (a sample all loose) is 0.0749 = 2.51 kT, one level for every cell class; 34 of 56 healthy cell types within 0.003 of the line (median distance 0.0025). Measured, not derived; one laboratory's samples, recounted identically from public files by a fresh clone",
     "status": "measured",
     "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Biological_Physics/MethylPhys/chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json; reproduce/ iama_line"
+   },
+   "cells_meta": {
+    "native": "not seen directly",
+    "formula": "the loose share is averaged into each site's level; a change in it shows only as a change in the level",
+    "status": "open",
+    "source": "Biological_Physics/MethylPhys/chain/stage_m_met_a.py"
    }
   },
   {
@@ -520,6 +581,12 @@
     "formula": "the commissioned IAM-A gives one reading per sample, A = eps / eps_pred(L), the held error over what its own loose share predicts; the loose share enters through the line, not as a second reading. Normal band v1 0.779-1.055. The territory-weighted pooling of 2026-10-15 belonged to the retired position form",
     "status": "definition",
     "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; author 2026-10-15 (one reading per instrument)"
+   },
+   "cells_meta": {
+    "native": "identity-site reading",
+    "formula": "Met-A = mean H(beta) over the cell's 6,000 identity sites over its healthy expectation; in a mix, one reading for each cell found (development)",
+    "status": "definition",
+    "source": "Biological_Physics/MethylPhys/chain/stage_m_met_a.py; Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py"
    }
   },
   {
@@ -557,7 +624,13 @@
    },
    "cells": {
     "native": "full surface",
-    "formula": "coin flip, eps = 1/2 at every identity site: IAM-A reads 0.5/eps_pred(L), 6.68 (all loose) to 12.42 (no loose tiles); Met-A reads 1/0.330263 = 3.03",
+    "formula": "coin flip, eps = 1/2 at every identity site: IAM-A reads 0.5/eps_pred(L), 6.68 (all loose) to 12.42 (no loose tiles)",
+    "status": "derived",
+    "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Ch. Four saturation events"
+   },
+   "cells_meta": {
+    "native": "full surface",
+    "formula": "every identity site at beta = 1/2 (1 bit): neutrophils on EPIC read 1/0.330263 = 3.03",
     "status": "derived",
     "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Ch. Four saturation events"
    }
@@ -589,6 +662,9 @@
     "formula": "kinetic: the work of writing marks into the record and of making room for new writing (the writer and the eraser, each event >= k_B T ln2 at 310 K); potential: the held methylation pattern filling the DNA surface. Book p6_04: the two-halves picture for a cell is a conjecture; a split of the whole cell's energy is ruled out (maintenance ~1e-7 of the budget); a narrower split at the maintenance machinery is left open, which is where this sits. TESTED 2026-10-15, DEV-ERASE-01 NOT MET: removing the eraser lowers the held error by 4-21 percent, not by half, so the equal split does not hold site by site where we count",
     "status": "open",
     "source": "p6_04 keybox 'Status of the two-halves picture for a cell'; PHY-040; DEV_ERASE_01.md"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -630,6 +706,9 @@
     "formula": "DNMT, on SAM (author, 2026-10-14) | ADDED 2026-10-15 (author): fuel of the writer is carbon: the methyl group comes from SAM, made by one-carbon metabolism (methionine, folate)",
     "status": "candidate",
     "source": "PHY-040"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -671,6 +750,9 @@
     "formula": "TET, on O2 and 2-oxoglutarate (author, 2026-10-14); 2026-10-15: removing it barely changes the 1s (DEV-ERASE-01) and raises the island gain error only 1.07x (median, six sets), so it is not what holds the 0s; the islands' 0s are held by a shield (4.38 kT against 3.83 kT for the firm 1s (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed)) | ADDED 2026-10-15 (author): fuel of the eraser is oxygen: TET enzymes are Fe(II)/2-oxoglutarate dioxygenases that need O2; tumor hypoxia slows TET and leaves hypermethylation (Thienpont et al. 2016, Nature 537, 63-68, 10.1038/nature19081). In computer terms: losing the eraser's oxygen is a crash from lost erasing, not from extra writing (candidate). Not since the first cells: oxygen-powered erasure post-dates the rise of atmospheric oxygen; plants lack TET (ROS1/DME glycosylases)",
     "status": "candidate",
     "source": "PHY-040"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -700,6 +782,9 @@
     "formula": "2<K> + <V> = 0 for the Coulomb (1/r) binding of electrons and nuclei; exact for 20 atoms H-Xe and 10 molecules at the Hartree-Fock limit; 'the DNA, the enzymes that copy its marks and the ATP that pays for them are all bound this way'. p6_01: for the cell 'the half does not carry over as a number; what carries over is the accounting'",
     "status": "derived",
     "source": "p6_04 'Atoms, molecules and cells'; p1_03 sec:vl_atoms"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -729,6 +814,9 @@
     "formula": "candidate: equal writer and eraser loss lowers the holding by exactly ln2 (one Landauer bit): E_hold = ln D - ln 2. TESTED 2026-10-15, DEV-ERASE-01 NOT MET: removing the eraser lowers the held error by 4-21 percent, not by half, so the equal split does not hold site by site where we count",
     "status": "open",
     "source": "p6_04 keybox (open problem: a narrower partition at the maintenance machinery); DEV_ERASE_01.md; PHY-040"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -758,6 +846,9 @@
     "formula": "phi = E_hold/(M k_B T) = 3.08/20.94 = 0.147 +/- 0.006; why 0.147 (when a black hole holds 1/2) is the open problem D1. Equivalently the cell holds its marks as if at T_b/phi = 2106 K. The conditional derivation phi = (ln D - ln 2)/M = 0.165 (0.151-0.176 over D 47.4-80) rested on equal writer and eraser loss, and DEV-ERASE-01 was NOT MET (removing the eraser lowers the held error by 4-21 percent, not by half); it is also above the measured 0.147",
     "status": "measured",
     "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json; App. E #491"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -799,6 +890,9 @@
     "formula": "(writer + eraser loss) / eraser loss: 1.90 (1.61-2.76 over the writer's range), after the fact, computed from the earlier holding energy 3.41 kT (on the earlier counter, which counted end CpGs as opportunities and read about 0.75 of the per-opportunity rate; superseded 2026-10-19, not recomputed). Caution (2026-10-14): R is a population ratio, which in the cosmos slides from infinity to 2 despite the per-event half; which cell quantity is the potential population and which the kinetic is open",
     "status": "candidate",
     "source": "development"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -835,6 +929,9 @@
     "formula": "candidate: x runs from the near-total erasure after fertilization (nothing written, potential dominates) through implantation and differentiation to the healthy differentiated state (x = 1, the balance). The steady state itself is reached in about 1/(f+g) intervals and does not rise with age once balanced (p6_02, derived); RULE for any test: the clock variable (developmental stage, divisions or time) is named before any data is opened, because the peak moves with the clock (cosmos: per e-fold peaks at a = 1, per time at z = 1.26, per scale factor at a = 1/2; p2_20)",
     "status": "candidate",
     "source": "2026-10-14, from the author's R(a) reading; p6_02 'The held state is a balance of restore and loss'"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -881,6 +978,9 @@
     "formula": "candidate: does the pattern's build-up through development follow E(x) = exp(1 - 1/x)? Test on public embryo methylation time courses, rule written before any data is opened. ADDED 2026-10-14: the cell's own balance gives its approach law: eps relaxes to f/(f+g) at rate (f+g) per interval (p6_02, derived; the interval need not be a division). Open difference from the cosmos: the cosmos relaxes ln E linearly, the cell the fraction itself; test which variable relaxes linearly in a recovery time course (e.g. remethylation after a demethylating drug is washed out), rule written first",
     "status": "candidate",
     "source": "2026-10-14"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -917,10 +1017,16 @@
     ]
    },
    "cells": {
-    "native": "IAM-A and Met-A",
-    "formula": "IAM-A = eps / eps_pred(L), each sample against its own line (commissioned 2026-10-17, band v1 0.779-1.055); Met-A = reading / healthy of the same kind (commissioned); C-Score, clustering of the change over the healthy baseline (commissioned 2026-10-15, upper limit 1.152)",
+    "native": "IAM-A",
+    "formula": "IAM-A = eps / eps_pred(L), each sample against its own line (commissioned, band v1 0.779-1.055)",
     "status": "derived",
     "source": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md; Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"
+   },
+   "cells_meta": {
+    "native": "Met-A and the C-Score",
+    "formula": "Met-A = reading / healthy of the same kind (commissioned); the C-Score reads how Met-A's departures cluster along the genome (commissioned, upper limit 1.152)",
+    "status": "derived",
+    "source": "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"
    }
   },
   {
@@ -963,6 +1069,9 @@
     "formula": "to be measured; a Warburg line is a conjecture (PROC-WARBURG-01 class era: P1, P3 not met)",
     "status": "open",
     "source": "Part VI; manifest"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   },
   {
@@ -1005,6 +1114,9 @@
     "formula": "DEV-BREACH-01: not visible at the precancer stage; candidate: writing outruns the eraser on the islands",
     "status": "candidate",
     "source": "DEV_BREACH_01.md"
+   },
+   "cells_meta": {
+    "same_as": "cells"
    }
   }
  ],
@@ -1287,5 +1399,13 @@
    "Fidelity is how often the qubit is still in the state it should be."
   ],
   "closing": "The cell's methylation is the same contest. The 4.4 % is its error rate at a held site; IAM-A measures that rate against what the cell's own state predicts, the way a qubit is benchmarked against its specification. This puts the cell, the qubit and the chip on one scale: energy per write in units of kT, against the error rate it buys."
- }
+ },
+ "domain_names": {
+  "cosmos": "Cosmos",
+  "qubits": "Qubits",
+  "chips": "Chips",
+  "cells": "Cells: IAM-A (molecules)",
+  "cells_meta": "Cells: Met-A (arrays)"
+ },
+ "_instrument_rule": "The cell has two instruments that read the same physics differently (author: 'the cell section should be divided between instruments where they are different'): IAM-A counts single molecules; Met-A reads an array's averaged level per site. Where they agree, the Met-A entry is {\"same_as\": \"cells\"} and is drawn from the IAM-A entry, so nothing is written twice."
 }

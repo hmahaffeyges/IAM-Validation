@@ -13,7 +13,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] the epoch-dependent cost (cost per bit at the horizon) \hfill(\textit{conjecture})
 \item[Qubits] the Landauer cost per bit (at 15 mK); 'k\_BT ln2 per bit at the temperature each record actually sees' \hfill(\textit{conjecture})
 \item[Chips] Landauer floor for logic ('The Landauer floor') \hfill(\textit{calculated})
-\item[Cells] Landauer cost per mark \hfill(\textit{derived})
+\item[Cells: IAM-A (molecules)] Landauer cost per mark \hfill(\textit{derived})
+\item[Cells: Met-A (arrays)] Landauer cost per mark \hfill(\textit{derived})
 \end{description}
 
 \section*{Capacity (bits stored)}
@@ -22,7 +23,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] horizon bits \hfill(\textit{calculated})
 \item[Qubits] one qubit's classical record \hfill(\textit{derived})
 \item[Chips] one stored node \hfill(\textit{derived})
-\item[Cells] one CpG on one strand of one DNA copy \hfill(\textit{calculated})
+\item[Cells: IAM-A (molecules)] one CpG on one strand of one DNA copy \hfill(\textit{calculated})
+\item[Cells: Met-A (arrays)] the share of a site's copies that carry the mark \hfill(\textit{definition})
 \end{description}
 
 \section*{Bits per operation}
@@ -31,7 +33,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] one irreversible record on the horizon \hfill(\textit{derived})
 \item[Qubits] one gate \hfill(\textit{measured})
 \item[Chips] one switch \hfill(\textit{calculated})
-\item[Cells] one identity site \hfill(\textit{derived})
+\item[Cells: IAM-A (molecules)] one identity site \hfill(\textit{derived})
+\item[Cells: Met-A (arrays)] one identity site, read as a level \hfill(\textit{derived})
 \end{description}
 
 \section*{Bit rate}
@@ -40,7 +43,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] the record rate on the horizon \hfill(\textit{conjecture})
 \item[Qubits] erasures of discarded flips \hfill(\textit{derived})
 \item[Chips] switches per second \hfill(\textit{calculated})
-\item[Cells] none yet \hfill(\textit{open})
+\item[Cells: IAM-A (molecules)] none yet \hfill(\textit{open})
+\item[Cells: Met-A (arrays)] none yet \hfill(\textit{open})
 \end{description}
 
 \section*{Throughput}
@@ -49,7 +53,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] none named \hfill(\textit{open})
 \item[Qubits] none named \hfill(\textit{open})
 \item[Chips] switches per second at the power budget \hfill(\textit{calculated})
-\item[Cells] methyl writes per second the body's methyl supply can pay for \hfill(\textit{candidate})
+\item[Cells: IAM-A (molecules)] methyl writes per second the body's methyl supply can pay for \hfill(\textit{candidate})
+\item[Cells: Met-A (arrays)] methyl writes per second the body's methyl supply can pay for \hfill(\textit{candidate})
 \end{description}
 
 \section*{Power budget per operation}
@@ -58,7 +63,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] Mahaffey number, cosmological row (no number given) \hfill(\textit{derived})
 \item[Qubits] the Mahaffey number of the record \hfill(\textit{definition})
 \item[Chips] Mahaffey number M ('the dimensionless operating ratio M=E\_drive/k\_B T' in p6\_02) \hfill(\textit{calculated})
-\item[Cells] Mahaffey number of the cell \hfill(\textit{calculated})
+\item[Cells: IAM-A (molecules)] Mahaffey number of the cell \hfill(\textit{calculated})
+\item[Cells: Met-A (arrays)] Mahaffey number of the cell \hfill(\textit{calculated})
 \end{description}
 
 \section*{Write process (and its fuel)}
@@ -67,7 +73,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] potential half; geometric channel; "the geometric reservoir of deposited potential energy" = dark matter \hfill(\textit{conjecture})
 \item[Qubits] what writes on a cold qubit: substrate/oxide defects and TLS; residual thermal photons; cosmic-ray muons and gamma rays. For measurement: the record is written  \hfill(\textit{interp})
 \item[Chips] not named as a writer; only 'wherever a bit is irreversibly set or erased' \hfill(\textit{interp})
-\item[Cells] writer \hfill(\textit{candidate})
+\item[Cells: IAM-A (molecules)] writer \hfill(\textit{candidate})
+\item[Cells: Met-A (arrays)] writer \hfill(\textit{candidate})
 \end{description}
 
 \section*{Erase process (and its fuel)}
@@ -76,7 +83,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] kinetic half; decoherence energy; "kinetic informational half"; Landauer/informational pressure on the horizon = dark energy together with the vacuum baseline L \hfill(\textit{conjecture})
 \item[Qubits] erasure: TLS flip undone by condensate phase restoration; a thermal kick undone by correction or lost; reset of the record/apparatus; for photons, loss \hfill(\textit{conjecture})
 \item[Chips] erasure at the gate ('logically irreversible steps, those that erase information') \hfill(\textit{derived})
-\item[Cells] eraser \hfill(\textit{candidate})
+\item[Cells: IAM-A (molecules)] eraser \hfill(\textit{candidate})
+\item[Cells: Met-A (arrays)] eraser \hfill(\textit{candidate})
 \end{description}
 
 \section*{Operating point}
@@ -85,7 +93,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] normalization today (a = 1 now by definition) \hfill(\textit{definition})
 \item[Qubits] As built; 'the device as built'; 'its own as-built state' \hfill(\textit{definition})
 \item[Chips] 'as built' ('reads 1: as built'); 'its own as-built state and its own history on one definition' \hfill(\textit{interp})
-\item[Cells] healthy \hfill(\textit{measured})
+\item[Cells: IAM-A (molecules)] healthy \hfill(\textit{measured})
+\item[Cells: Met-A (arrays)] healthy \hfill(\textit{measured})
 \end{description}
 
 \section*{Gate error}
@@ -94,7 +103,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] none named \hfill(\textit{open})
 \item[Qubits] gate error \hfill(\textit{measured})
 \item[Chips] switching error, at the Boltzmann wall \hfill(\textit{derived})
-\item[Cells] the writer's discrimination (backbone) \hfill(\textit{open})
+\item[Cells: IAM-A (molecules)] the writer's discrimination (backbone) \hfill(\textit{open})
+\item[Cells: Met-A (arrays)] not separated \hfill(\textit{open})
 \end{description}
 
 \section*{Leakage}
@@ -103,7 +113,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] none named \hfill(\textit{open})
 \item[Qubits] leakage out of the computational states \hfill(\textit{measured})
 \item[Chips] leakage current; dark silicon \hfill(\textit{interp})
-\item[Cells] loosely held territory \hfill(\textit{measured})
+\item[Cells: IAM-A (molecules)] loosely held territory \hfill(\textit{measured})
+\item[Cells: Met-A (arrays)] not seen directly \hfill(\textit{open})
 \end{description}
 
 \section*{Floor}
@@ -112,7 +123,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] one unit of entropy (one nat) per minimum encoding area 4 l\_P\textasciicircum{}2 \hfill(\textit{calculated})
 \item[Qubits] thermal floor; 'The floor from k\_BT'; 'left-hand mark'; two forms: held-record floor and floor of one gate (per-gate thermal floor) \hfill(\textit{calculated})
 \item[Chips] Landauer floor and 'The reliability floor' (E\_min of a binary switch) \hfill(\textit{calculated})
-\item[Cells] floor \hfill(\textit{derived})
+\item[Cells: IAM-A (molecules)] floor \hfill(\textit{derived})
+\item[Cells: Met-A (arrays)] floor \hfill(\textit{derived})
 \end{description}
 
 \section*{Saturation (capacity reached)}
@@ -121,7 +133,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] asymptotic limit E(inf)=e, never reached; local saturation = black-hole formation \hfill(\textit{interp})
 \item[Qubits] Full surface; 'the point where error correction fails'; error-correction threshold; right-hand mark \hfill(\textit{measured})
 \item[Chips] 'the right-hand, full-surface mark of the chip gauge' \hfill(\textit{open})
-\item[Cells] full surface \hfill(\textit{derived})
+\item[Cells: IAM-A (molecules)] full surface \hfill(\textit{derived})
+\item[Cells: Met-A (arrays)] full surface \hfill(\textit{derived})
 \end{description}
 
 \section*{Crash (overload)}
@@ -130,7 +143,8 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] collapse (runaway) regime: a new local horizon forms when local records saturate the surface ("holographic saturation condition") \hfill(\textit{conjecture})
 \item[Qubits] coherence optimum on one material (chapter: 'Coherence walls and the coherence optimum') \hfill(\textit{open})
 \item[Chips] 'The Dennard wall is a Boltzmann wall'; 'end of Dennard scaling, 2004--06'; 'The end of free scaling' \hfill(\textit{derived})
-\item[Cells] breach and the cancer region \hfill(\textit{open})
+\item[Cells: IAM-A (molecules)] breach and the cancer region \hfill(\textit{open})
+\item[Cells: Met-A (arrays)] breach and the cancer region \hfill(\textit{open})
 \end{description}
 
 \section*{Point of no return}
@@ -139,6 +153,7 @@ from is \texttt{FOUR\_DOMAINS.md}. \emph{Open} means no value has been found yet
 \item[Cosmos] irreversibility of the record ("A superposition, once recorded, does not return"); at local scale the Schwarzschild radius \hfill(\textit{conjecture})
 \item[Qubits] 'the point where error correction fails' (gauge); for a record: Q >= Q\_L, record 'cannot be recovered by any operation on the marker alone' \hfill(\textit{conjecture})
 \item[Chips] not in these chapters \hfill(\textit{open})
-\item[Cells] not measured \hfill(\textit{candidate})
+\item[Cells: IAM-A (molecules)] not measured \hfill(\textit{candidate})
+\item[Cells: Met-A (arrays)] not measured \hfill(\textit{candidate})
 \end{description}
 

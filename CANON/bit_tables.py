@@ -5,7 +5,10 @@ except the computer-language name of each row. Table 1: the connections, one row
 Tables 2-5: one per application, the value, its status and its source. Usage: python3 CANON/bit_tables.py [--check]"""
 import json, os, sys
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); J = json.load(open(os.path.join(R, "CANON/four_domains.json"), encoding="utf-8"))
-S = {s["id"]: s for s in J["slots"]}; DOM = J["domains"]; NAME = {"cosmos": "Cosmos", "qubits": "Qubits", "chips": "Chips", "cells": "Cells"}
+for _s in J["slots"]:   # an entry {"same_as": d} is the entry of domain d, written once (the cell's two instruments, author)
+    for _d in J["domains"]:
+        if isinstance(_s.get(_d), dict) and "same_as" in _s[_d]: _s[_d] = dict(_s[_s[_d]["same_as"]], same=_s[_d]["same_as"])
+S = {s["id"]: s for s in J["slots"]}; DOM = J["domains"]; NAME = J.get("domain_names") or {"cosmos": "Cosmos", "qubits": "Qubits", "chips": "Chips", "cells": "Cells"}
 ROWS = [("Price per bit", "bit_price", "the least energy to write one bit at this surface (Landauer, at the surface's temperature)"),
         ("Capacity (bits stored)", "bits", "data at rest: what the surface holds"),
         ("Bits per operation", "bits_per_op", "a snapshot or a limit: the writing in one operation"),
