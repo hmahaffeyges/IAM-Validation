@@ -765,12 +765,12 @@
    ]
   },
   {
-   "task": "Salmon: IAM-A on hatchery and wild coho (author 2026-10-22, for the fisheries biologists): public RRBS of 39 coho salmon smolts, white muscle, 20 hatchery-reared and 19 wild (SRA PRJNA389610, single-end, about 29 million reads each; labels from each sample's record: treatment hatchery or wild). Aligned to the coho genome, read by chain Stage Q2's counter unchanged; each fish against its own prediction, and hatchery against wild on the whole-genome globe. Synthetic first; exploratory before any seal; after the current list, on GitHub",
+   "task": "Salmon: IAM-A on hatchery and wild coho (author 2026-10-22, for the fisheries biologists): public RRBS of 39 coho salmon smolts, white muscle, 20 hatchery-reared and 19 wild (SRA PRJNA389610, single-end, about 29 million reads each; labels from each sample's record: treatment hatchery or wild). Aligned to the coho genome, read by chain Stage Q2's counter unchanged; each fish against its own prediction, and hatchery against wild on the whole-genome globe. Synthetic first; exploratory before any seal; after the current list, on GitHub | PARKED 2026-10-23 (author: 'I think we need to prioritize the human stuff ... We can wait for salmon until then'): not even on idle machines, until the human instruments are commissioned.",
    "done_when": "the plan written before any read; the exploratory read and its globes committed",
    "rows": [
     "ATL-063"
    ],
-   "status": "open",
+   "status": "parked",
    "done_date": "",
    "record": ""
   },
@@ -1102,6 +1102,38 @@
     "OTH-072"
    ],
    "status": "open"
+  },
+  {
+   "status": "open",
+   "rows": [
+    "COM-CSCORE-009",
+    "COM-CSCORE-011"
+   ],
+   "task": "The C-Score family commissioned (author 2026-10-23: 'We have more C-Scores to commission'). The instrument's job, for each: a healthy sample reads inside its band; a clustered loss stands out. Each is the commissioned C-Score's rule (block departures in genome order against the sample's own spread), read on a different reference. Synthetic first, explored on spent data, then sealed; all through the one command",
+   "done_when": "each version met its sealed bars, or is recorded as development with the reason",
+   "branches": [
+    {
+     "id": "41.1",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "IAM-A's C-Score, version 2: the held error of each 1,000-CpG region predicted from that region's OWN loose share by the commissioned self-reference line. Version 1 (DEV-IAMA-CSCORE-01) used one genome-wide rate and failed: healthy regions spread by nature (globe step 3: own spread 2.47, so C about 6). If IAM's law holds region by region, the healthy C falls toward 1: a physics test as well as an instrument",
+     "next": "synthetic first (regions with different loose shares, errors drawn from the line; then a clustered plant); then the two spent CD8 T samples on GitHub"
+    },
+    {
+     "id": "41.2",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The whole-genome C-Score against IAM-Atlas v2.1 on arrays: the globe's block departures (every atlas site, blocks of 10 neighbors) against the sample's own spread",
+     "next": "read off exploration 8's 56 healthy bloods once it lands; clustered plants through --dev-plant"
+    },
+    {
+     "id": "41.3",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Each cell's C-Score in a mix: the same rule on each cell's own identity sites and its globe layer (exploration 5 shows the layer works)",
+     "next": "healthy spread from exploration 8's bloods; clustered plants per cell as in exploration 5"
+    }
+   ]
   }
  ],
  "scheduled": [
