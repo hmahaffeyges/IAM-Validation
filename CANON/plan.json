@@ -853,7 +853,7 @@
      "id": "39.2",
      "date": "2026-10-22",
      "status": "done",
-     "what": "Which share estimate to keep: the best fit (0.57 points against 0.79 for the resampled middle on the 9 known mixtures)",
+     "what": "Which share estimate to keep: the best fit (mean absolute error 0.0057 against 0.0079 for the resampled middle on the 9 known mixtures)",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md (exploration 3, run 39879101605)"
     },
     {
@@ -997,7 +997,7 @@
      "id": "40.8",
      "date": "2026-10-22",
      "status": "done",
-     "what": "9 known mixtures: best fit off 0.57 points; tissues not put in at most 0.3 %; resampled range holds the truth 10 of 15",
+     "what": "9 known mixtures: best fit mean absolute error 0.0057; tissues not put in at most 0.0030; resampled range holds the truth 10 of 15",
      "run": "series run 39879101605",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md (exploration 3, run 39879101605)"
     },
