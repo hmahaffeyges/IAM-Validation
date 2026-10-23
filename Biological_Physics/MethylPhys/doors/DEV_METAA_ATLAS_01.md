@@ -168,3 +168,5 @@ Stage 0 admitted all 67. Laboratory tare: 67 tared, 97.0 % Normal, spread 0.0197
 tared, 100 % Normal, spread 0.0145, a planted 1 % loss 3.73 spreads. With the adult series (100 % Normal, 4.09 spreads on its own slide), the
 same-slide tare reads every healthy monocyte Normal in both laboratories and lifts a 1 % loss well clear of the healthy spread. Next: the
 sealed test of the same-slide tare, on a series not yet read with at least 3 healthy arrays on most slides.
+
+**Exploration 7, superseded without running (recorded 2026-10-23).** Its script read Met-A against the atlas by calling chain pieces, which the chain-only rule (gate rule 23b, lesson C33) no longer counts, so it was never dispatched. Its question is answered by the one command itself: `run_sample.py --dev-metaa-atlas` reads Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (`stage_t_selftare.selftare_map`), so every reading since, exploration 8 on both monocyte series and the second sealed test, includes the self-tare the first sealed test skipped.

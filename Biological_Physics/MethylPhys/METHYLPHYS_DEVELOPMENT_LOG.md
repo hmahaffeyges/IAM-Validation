@@ -3084,5 +3084,8 @@ Every fifth of Group-A's 278 healthy bloods (56) through the one command on the 
 ### 2026-10-23 · Priority (CAN-007)
 Author: human early cancer detection first, through the full chain on whole blood, buffy coat, plasma cell-free DNA and tissue, every tool that can fire scoring whatever is found; the remaining C-Scores and Met-A against the atlas commissioned. Salmon parked until then. Record: [DEV_FIRES_01.md](../Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md).
 
+### 2026-10-23 · Met-A against the atlas, exploration 7 superseded without running (GRP-014)
+Exploration 7 (the self-tare before atlas Met-A) called chain pieces and was never dispatched; the one command reads Met-A against the atlas after Stage T step 1, so exploration 8 and the second sealed test include the step the first sealed test skipped. Record: [DEV_METAA_ATLAS_01.md](../Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_01.md).
+
 ### 2026-10-23 · Records checked against the logs (OTH-072)
 Every result of 2026-10-22 and 2026-10-23 was checked against the development log, the day logs, the manifest and the plan; the development log had 2 entries for 2026-10-22 where 24 results and changes stood in their records and commits; each was added from its record's own numbers. Record: [DEV_EACH_CELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md).
