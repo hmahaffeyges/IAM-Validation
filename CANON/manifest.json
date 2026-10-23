@@ -5398,7 +5398,7 @@
    "legacy_ids": [
     "L7"
    ],
-   "notes": "Falsifier: healthy people differing by more than the leverage of the signal. DEV-GROUP-01 itself (group-instrument tests) may also be carried by the group-instrument section. Both healthy sets are spent and may not serve as held-out tests for a blood group reading.",
+   "notes": "Falsifier: healthy people differing by more than the leverage of the signal. DEV-GROUP-01 itself (group-instrument tests) may also be carried by the group-instrument section. Both healthy sets are spent and may not serve as held-out tests for a blood group reading. | 2026-10-23: DEV-FIRES-01, every tool on GSE51032 (spent; exploration), plan step 42; rare pre-diagnosis sets kept for sealed tests (42.3).",
    "register_ids": [
     "BLOOD-METAA-LIMIT"
    ],

@@ -38,6 +38,16 @@
       "GRP-014"
      ],
      "record": "Biological_Physics/MethylPhys/doors/data/METAA_ATLAS_SEAL_02/synthetic_02.py"
+    },
+    {
+     "title": "Every tool fires: blood drawn years before a diagnosis (CAN-007, DEV-FIRES-01)",
+     "status": "development",
+     "what": "EPIC-Italy's 845 whole bloods (spent), smoke run of four arrays through the whole chain with all 79 atlas cells.",
+     "outcome": "Running.",
+     "rows": [
+      "CAN-007"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md"
     }
    ]
   },

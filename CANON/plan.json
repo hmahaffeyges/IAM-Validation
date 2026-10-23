@@ -141,6 +141,46 @@
  "_todo_rule": "The to-do list (author 2026-10-19: 'make sure all this stuff above makes it onto a to do list that can be executed one by one until complete so nothing is forgotten'). Steps are worked in order; a step is closed only by setting status 'done' with its date and the record that shows it done, which must exist in the repository. plan_md.py --check (in the push gate) refuses a closed step without a record, and refuses any finished or running manifest row whose next step names pending work unless that row is on this plan (a to-do step or an item below). Scenario 4 of the showcase was lost exactly that way: its 'Next' sat in a row marked run. | 2026-10-22 (author: 'keep track of everything that we add ... keep the breadcrumbs coming so we can follow our way back'): every exploration, fix or idea a step sprouts is a branch under that step (id step.n, date, status open|running|built|done|parked, what, record or run, next); the plan page lists every open branch, newest first; plan_md refuses an open branch without a next action or a done branch without a record.",
  "todo": [
   {
+   "status": "open",
+   "rows": [
+    "CAN-007",
+    "GRP-015"
+   ],
+   "task": "EVERY TOOL FIRES, the priority (author 2026-10-23: 'find the cancer before the tumor crystalizes ... The early signals are in the blood/immune cells ... The Italy studies that follow patients for 10 years ... THAT is the kind of data we need'). The whole chain on every public blood we can get: the IAM-Deconvolver finds every cell with nothing assumed (79 cells), and every cell found is scored by every tool that can read it (Met-A per cell, the C-Scores, IAM-A where molecules exist), flagged where not commissioned; gathered per person, against years to diagnosis where known. Explore on spent or common data; the rare sets are kept for their sealed tests",
+   "done_when": "every spent pre-diagnosis and plasma series read this way, the per-person readings delivered as one table per series, and each rare set's sealed test written",
+   "branches": [
+    {
+     "id": "42.1",
+     "date": "2026-10-23",
+     "status": "running",
+     "what": "GSE51032 (EPIC-Italy, 845 whole bloods, 450K IDATs, breast and colorectal cases 0.02 to 14.4 years before diagnosis; spent): smoke run of 4 arrays",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md",
+     "next": "the smoke run; then the whole series in batches"
+    },
+    {
+     "id": "42.2",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Plasma cfDNA on EPIC with raw IDATs, at diagnosis (common enough to explore): GSE277078 (185, lung), GSE298812 (245, liver, with cirrhosis, fibrosis and cancer-free groups), GSE157273 (48, prostate, the same 9 patients over 13-21 months), GSE220160 (colorectal cancer and polyp), GSE122126 (spent, running as 40.7)",
+     "next": "after GSE122126's 58 plasma arrays are recorded: GSE277078 through the full panel"
+    },
+    {
+     "id": "42.3",
+     "date": "2026-10-23",
+     "status": "parked",
+     "what": "RARE, kept for sealed tests, not explored: GSE130748 (the same 20 people at baseline and year 6, Health ABC, EPIC, with later cancer diagnoses: the year-after-year design); GSE113392 (21 blood samples drawn before a liver cancer diagnosis and 21 matched controls, 450K); GSE280206 (648 stroke patients followed 15 years, 83 later cancers, 450K and EPIC); GSE325660 (plasma cfDNA and blood DNA from the same 3 patients)",
+     "next": "write each sealed test from what DEV-FIRES-01 shows on GSE51032, before opening any of them"
+    },
+    {
+     "id": "42.4",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Stool: is there public human stool DNA methylation data the chain can read (arrays or sequencing)?",
+     "next": "metadata search"
+    }
+   ]
+  },
+  {
    "task": "Showcase scenario 4: the three healthy colon samples (GSE151732: GSM4589141, GSM4589144, GSM4589145) through IAM-Atlas v2.1's commissioned tissue scorer, once, by the sealed rule",
    "done_when": "their reports and the scorer's reading committed in doors/data/SHOWCASE_V4, and its README section written",
    "rows": [
