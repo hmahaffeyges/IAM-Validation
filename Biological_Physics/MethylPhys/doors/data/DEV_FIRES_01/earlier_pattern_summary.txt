@@ -1,0 +1,11 @@
+Earlier instrument (VAL-047 phase 12) on GSE51032, 6-site immune panel (xu_6_immune): cases against controls, by years before diagnosis
+breast     0-2 yr     n  66 | effect size 0.28 | permutation p 0.0367
+breast     2-5 yr     n  50 | effect size 0.47 | permutation p 0.0020
+breast     5-10 yr    n  75 | effect size 0.44 | permutation p 0.0006
+breast     >10 yr     n  33 | effect size 0.37 | permutation p 0.0477
+breast     all_pre_dx n 224 | effect size 0.35 | permutation p 0.0001
+colorectal 0-2 yr     n   8 | effect size 0.33 | permutation p 0.3464
+colorectal 2-5 yr     n  27 | effect size 0.16 | permutation p 0.4247
+colorectal 5-10 yr    n  38 | effect size 0.16 | permutation p 0.3303
+colorectal >10 yr     insufficient_n (n 3)
+colorectal all_pre_dx n  76 | effect size 0.18 | permutation p 0.1501

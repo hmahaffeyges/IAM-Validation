@@ -19,4 +19,18 @@ Stage 0 and Stage 1, and does every atlas reader fire. This is also plan branch 
 **Then:** the whole series in batches across the GitHub machines; per person, each cell's share, Met-A, and the C-Scores as they are built
 (plan step 41), set against the years to diagnosis.
 
+## What the earlier instrument saw, written before the chain reads the whole series
+
+The earlier instrument (VAL-047 phase 12: the entropy of each beta value over a small published panel of immune sites, against one fixed
+floor, on the series' processed values, with no cell mix, no tare and no Stage 0) read the breast cases as more disordered than the 424
+controls in every window before diagnosis: effect size 0.28 at 0-2 years (66 cases), 0.47 at 2-5 (50), 0.44 at 5-10 (75), 0.37 beyond 10
+(33), 0.35 over all 224 (permutation p 0.0001). On a 19-site secretory panel the same direction, a difference in A of 0.006 to 0.010. The
+colorectal cases showed no clear signal (0.18 over all 76, p 0.15). Source: the earlier results file VAL047_phase12_gse51032_combined_results.json
+(the author's evidence folder, not this repository), printed by `data/DEV_FIRES_01/earlier_pattern.py` into `earlier_pattern_summary.txt`.
+
+**The question the chain answers.** With each person's own cell mix found by the IAM-Deconvolver, and each cell read against its own healthy
+profile in IAM-Atlas v2.1, do the breast cases still read more disorder than the controls, in which cell, and in which years before diagnosis;
+and is there now anything in the colorectal cases? If the earlier signal was the cell mix or the laboratory, the chain will not find it;
+that is an answer too, and it decides where IAM is used next (blood, plasma, tissue, or single molecules). Not sealed: the series is spent.
+
 ---
