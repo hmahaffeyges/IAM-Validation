@@ -9,7 +9,7 @@ import os, sys, json, re, numpy as np, pandas as pd
 rows, samples, out = sys.argv[1], sys.argv[2], sys.argv[3]; S = pd.read_csv(samples)
 MAP = {"Hepatocytes": ["hepatocyte"], "Lung cells": ["lung alveolar epithelium", "lung bronchus epithelium"],
        "Colon cells": ["colon epithelium", "colon enteroendocrine"], "Neurons": ["cortical neurons"]}
-L = ["DEV-ONE-DRAW-01 exploration 3: GSE122126's 9 known mixtures, read by run_sample.py on the full atlas panel"]; err = []; held = []; stray = []
+L = ["DEV-ONE-DRAW-01 exploration 3: GSE122126's 9 known mixtures, read by run_sample.py on the full atlas panel"]; err = []; errm = []; held = []; stray = []
 for r in S.itertuples():
     f = os.path.join(out, "pass1", r.gsm + ".json")
     if not os.path.exists(f): L.append(f"{r.gsm}: no bundle"); continue
@@ -19,10 +19,10 @@ for r in S.itertuples():
     parts = []
     for t, cells in MAP.items():
         s = sum(C[c]["share"] for c in cells if c in C); lo = sum(C[c]["interval_95"][0] for c in cells if c in C); hi = sum(C[c]["interval_95"][1] for c in cells if c in C)
-        k = truth.get(t, 0.0)
-        if k > 0: err.append(abs(s - k)); held.append(lo <= k <= hi); parts.append(f"{t} put in {k:.3f}, found {s:.3f} [{lo:.3f}, {hi:.3f}]")
+        md = sum(C[c].get("resampled_median", float("nan")) for c in cells if c in C); k = truth.get(t, 0.0)
+        if k > 0: err.append(abs(s - k)); errm.append(abs(md - k)); held.append(lo <= k <= hi); parts.append(f"{t} put in {k:.3f}, best fit {s:.3f}, resampled middle {md:.3f} [{lo:.3f}, {hi:.3f}]")
         else: stray.append(s); parts.append(f"{t} not put in, found {s:.3f}")
     L.append(f"{r.gsm} ({r.truth}): " + "; ".join(parts))
-if err: L.append(f"mean absolute error over the tissues put in: {np.mean(err):.4f} (n {len(err)}); intervals holding the known amount: {sum(held)} of {len(held)}; "
+if err: L.append(f"mean absolute error over the tissues put in: best fit {np.mean(err):.4f}, resampled middle {np.nanmean(errm):.4f} (n {len(err)}); intervals holding the known amount: {sum(held)} of {len(held)}; "
                  f"largest share found for a tissue not put in: {max(stray):.4f}")
 open(os.path.join(out, "mixes_03_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))

@@ -16,8 +16,8 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 145 | 7 | 6 | 2 |
 | `dev_stages.py` | 339 | 27 | 1 | 0 |
-| `stage_v4.py` | 165 | 10 | 4 | 2 |
-| `stage_deconv_v21.py` | 198 | 6 | 4 | 0 |
+| `stage_v4.py` | 166 | 10 | 4 | 2 |
+| `stage_deconv_v21.py` | 200 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 100 | 6 | 6 | 6 |
@@ -1136,13 +1136,13 @@ Each share whose best fit lies outside its own 95 % range is marked `resolved: f
 On the six-cell panel this does not happen; on the full panel close relatives (neutrophils, eosinophils and basophils; monocytes, macrophages
 and microglia; T-cell subsets) can trade a share between them, so the resampled range and the single best fit disagree (development).
 
-*Code:* `stage_v4.py` line 32 (23 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`
+*Code:* `stage_v4.py` line 32 (24 lines) · arguments: beta, panel · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `_REF`
 
 ### `stage_v4.py::count_sequencing`
 
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
 
-*Code:* `stage_v4.py` line 57 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
+*Code:* `stage_v4.py` line 58 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
 
 ### `stage_v4.py::counting_error`
 
@@ -1153,38 +1153,38 @@ changes A or its state, so a shallow sample, plasma included, is read and says i
 instrument tell us...not our assumptions"). For example, at a held error of 0.02: ten million chances use 3 % of the band's width, one million
 9 %, a hundred thousand 30 %, ten thousand 94 % (`stage_v4.counting_error` on those counts).
 
-*Code:* `stage_v4.py` line 63 (12 lines) · arguments: rec, A, B · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 64 (12 lines) · arguments: rec, A, B · calls: not called on the traced runs
 
 ### `stage_v4.py::stage_q2`
 
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 
-*Code:* `stage_v4.py` line 76 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
+*Code:* `stage_v4.py` line 77 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_v4.py::_compress`
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-*Code:* `stage_v4.py` line 110 (3 lines) · arguments: v · calls: array run 6
+*Code:* `stage_v4.py` line 111 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-*Code:* `stage_v4.py` line 113 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
+*Code:* `stage_v4.py` line 114 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-*Code:* `stage_v4.py` line 124 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
+*Code:* `stage_v4.py` line 125 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-*Code:* `stage_v4.py` line 163 (2 lines) · arguments: path · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 164 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -1246,20 +1246,23 @@ The three-pass weighted non-negative least squares.
 
 The shares, raw sum, 95 % intervals and sites used for one sample.
 
-*Code:* `stage_deconv_v21.py` line 62 (14 lines) · arguments: beta, R, M, lab_sd, boot, seed · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`
+Since 2026-10-22 it also records each cell's `resampled_median`, the middle of the resampled shares, beside the best fit, so a wide panel's two
+estimates can be compared against known mixtures (development; the commissioned six-cell shares are the best fit, unchanged).
+
+*Code:* `stage_deconv_v21.py` line 62 (16 lines) · arguments: beta, R, M, lab_sd, boot, seed · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`
 
 ### `stage_deconv_v21.py::sample`
 
 Inside the planted test only: builds a planted array, each cell's DNA drawn from the atlas's donor spread, mixed in known shares, plus a
 laboratory shift and array noise.
 
-*Code:* `stage_deconv_v21.py` line 93 (2 lines) · arguments: f, lab · calls: not called on the traced runs
+*Code:* `stage_deconv_v21.py` line 95 (2 lines) · arguments: f, lab · calls: not called on the traced runs
 
 ### `stage_deconv_v21.py::sample_check`
 
 For the second sealed test: a pure array passes when it reads at least 0.80 of its own cell. Failing arrays are listed and not mixed.
 
-*Code:* `stage_deconv_v21.py` line 170 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`
+*Code:* `stage_deconv_v21.py` line 172 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`
 
 ## 8. IAM-Atlas v2.1's commissioning rules: `stage_atlas_commission.py`
 

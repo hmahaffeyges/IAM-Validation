@@ -3209,7 +3209,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 165,
+   "lines": 166,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3253,12 +3253,12 @@
      "function": "stage_d21",
      "name": "stage_d21",
      "line": 32,
-     "end": 54,
+     "end": 55,
      "args": [
       "beta",
       "panel"
      ],
-     "lines": 23,
+     "lines": 24,
      "doc": "",
      "constants": [
       "MIN_MARKER_SHARE",
@@ -3273,8 +3273,8 @@
      "file": "stage_v4.py",
      "function": "count_sequencing",
      "name": "count_sequencing",
-     "line": 57,
-     "end": 61,
+     "line": 58,
+     "end": 62,
      "args": [
       "pat",
       "bam",
@@ -3294,8 +3294,8 @@
      "file": "stage_v4.py",
      "function": "counting_error",
      "name": "counting_error",
-     "line": 63,
-     "end": 74,
+     "line": 64,
+     "end": 75,
      "args": [
       "rec",
       "A",
@@ -3311,8 +3311,8 @@
      "file": "stage_v4.py",
      "function": "stage_q2",
      "name": "stage_q2",
-     "line": 76,
-     "end": 102,
+     "line": 77,
+     "end": 103,
      "args": [
       "rec",
       "cell",
@@ -3335,8 +3335,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 110,
-     "end": 112,
+     "line": 111,
+     "end": 113,
      "args": [
       "v"
      ],
@@ -3352,8 +3352,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 113,
-     "end": 122,
+     "line": 114,
+     "end": 123,
      "args": [
       "nside",
       "ipix"
@@ -3373,8 +3373,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 124,
-     "end": 161,
+     "line": 125,
+     "end": 162,
      "args": [
       "z",
       "out_png",
@@ -3394,8 +3394,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 163,
-     "end": 164,
+     "line": 164,
+     "end": 165,
      "args": [
       "path"
      ],
@@ -3413,7 +3413,7 @@
   },
   {
    "file": "stage_deconv_v21.py",
-   "lines": 198,
+   "lines": 200,
    "functions": [
     {
      "file": "stage_deconv_v21.py",
@@ -3486,7 +3486,7 @@
      "function": "deconvolve",
      "name": "deconvolve",
      "line": 62,
-     "end": 75,
+     "end": 77,
      "args": [
       "beta",
       "R",
@@ -3495,7 +3495,7 @@
       "boot",
       "seed"
      ],
-     "lines": 14,
+     "lines": 16,
      "doc": "beta: pd.Series of readings by site id. Returns shares (normalized), raw sum, 95 % intervals, sites used.",
      "constants": [
       "BOOT",
@@ -3511,8 +3511,8 @@
      "file": "stage_deconv_v21.py",
      "function": "sample",
      "name": "sample",
-     "line": 93,
-     "end": 94,
+     "line": 95,
+     "end": 96,
      "args": [
       "f",
       "lab"
@@ -3527,8 +3527,8 @@
      "file": "stage_deconv_v21.py",
      "function": "sample_check",
      "name": "sample_check",
-     "line": 170,
-     "end": 171,
+     "line": 172,
+     "end": 173,
      "args": [
       "x",
       "cell",

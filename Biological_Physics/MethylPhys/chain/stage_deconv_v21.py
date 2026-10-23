@@ -72,7 +72,9 @@ def deconvolve(beta, R, M, lab_sd=LAB_SD, boot=BOOT, seed=SEED):
     B = np.array(B); lo, hi = np.percentile(B, 2.5, 0), np.percentile(B, 97.5, 0)   # boot=0: the point estimate only
     sh = f / tot if tot > 0 else f
     return dict(shares={c: float(v) for c, v in zip(R["cells"], sh)}, raw_sum=float(tot),
-                interval_95={c: [float(a), float(b)] for c, a, b in zip(R["cells"], lo, hi)}, sites_used=int(m.sum()), lab_sd=R.get("lab_sd", lab_sd), spread=R.get("spread", "mean_only"), boot=boot)
+                interval_95={c: [float(a), float(b)] for c, a, b in zip(R["cells"], lo, hi)},
+                resampled_median={c: float(v) for c, v in zip(R["cells"], np.median(B, 0))},   # 2026-10-22: recorded beside the best fit (wide panels)
+                sites_used=int(m.sum()), lab_sd=R.get("lab_sd", lab_sd), spread=R.get("spread", "mean_only"), boot=boot)
 # the blood panel: separate subsets only; the atlas's unsorted parent cells (b cells, cd4 t cells, cd8 t cells) contain their subsets and would
 # compete with them in a mixture (U3's mixture rule removed them for the same reason)
 BLOOD = ["neutrophils", "eosinophils", "basophils", "monocytes", "naive b cells", "memory b cells", "naive cd4 t cells", "memory cd4 t cells",

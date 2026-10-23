@@ -46,6 +46,7 @@ def stage_d21(beta, panel=None):
         return rec
     d = D21.deconvolve(b, R, M); com = set(D21.DECONV_V21_COMMISSIONING["cells"]) if list(panel) == list(D21.BLOOD6) else set()   # commissioned on the six-cell panel only
     rec["cells"] = [{"cell": c, "share": round(d["shares"][c], 4), "interval_95": [round(x, 4) for x in d["interval_95"][c]],
+                     "resampled_median": round((d.get("resampled_median") or {}).get(c, float("nan")), 4),
                      "status": "commissioned" if c in com else "development"} for c in panel]
     for x in rec["cells"]:   # 2026-10-22: on a wide panel close relatives can trade a share, and the best fit can then fall outside its own 95 % range
         lo, hi = x["interval_95"]

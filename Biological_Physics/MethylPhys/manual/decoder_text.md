@@ -858,6 +858,9 @@ The three-pass weighted non-negative least squares.
 ### stage_deconv_v21.py::deconvolve
 The shares, raw sum, 95 % intervals and sites used for one sample.
 
+Since 2026-10-22 it also records each cell's `resampled_median`, the middle of the resampled shares, beside the best fit, so a wide panel's two
+estimates can be compared against known mixtures (development; the commissioned six-cell shares are the best fit, unchanged).
+
 ### stage_deconv_v21.py::sample
 Inside the planted test only: builds a planted array, each cell's DNA drawn from the atlas's donor spread, mixed in known shares, plus a
 laboratory shift and array noise.
