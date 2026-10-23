@@ -890,9 +890,9 @@
     {
      "id": "38.4",
      "date": "2026-10-22",
-     "status": "built",
+     "status": "done",
      "what": "Two rules for 'changed' in one report: the flat picture at Met-A's 6,000 sites (report_figs_v4.changes_sky_png) marks a pixel beyond +/-2 of the sample's own spread, while the globe uses blocks of 10 against the family-wise line (report_globe_v4.FW_LINE)",
-     "next": "release check on GitHub (V12, V13 browser checks); then done"
+     "run": "release run 39921158217 (34 of 34 checks pass, V13 every globe layer in Chromium)"
     },
     {
      "id": "38.5",
@@ -925,9 +925,9 @@
     {
      "id": "38.6",
      "date": "2026-10-23",
-     "status": "built",
+     "status": "done",
      "what": "Changed blocks drawn as patches on the globe (author: 'Those patches are exactly what should be seen, not the tiny specs'): Met-A's and each cell's changed blocks painted over the stretch of genome their 10 sites cover (report_globe_v4._paint_blocks); the whole-genome layer's changed blocks drawn at the dots' radius (_patch). Drawing only; every count unchanged (example blood 0 of 597, planted 44 of 597)",
-     "next": "release check on GitHub; then done"
+     "run": "release run 39921158217 (34 of 34 checks pass, V13 every globe layer in Chromium)"
     },
     {
      "id": "39.16",
