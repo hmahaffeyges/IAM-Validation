@@ -1,7 +1,7 @@
 [
 {
 "file": "FOUR_DOMAINS.md",
-"line": 36,
+"line": 55,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",

@@ -56,3 +56,10 @@ white cells. IAM-A is not read: count files carry no molecules.
 the test that counts and never explores on them; declaring three donors spent did not satisfy it. The run was cancelled while still queued, so no
 GSE186888 file was downloaded or read, and the series is again wholly unread (removed from CANON/data_spent.csv). The `.beta` reader stays,
 checked on a constructed file.
+
+## Exploration 5, written before it runs (2026-10-22): constructed draws with known answers
+Because the matched set is reserved, the one-draw path is explored on draws the chain builds itself (`run_sample.py --build constructed-draw`)
+from the spent example blood: hepatocyte, vascular endothelium and colon epithelium each added to the plasma at 0 (control), 0.5, 1, 2 and 5 %,
+plasma read at 10, 30 and 60 reads per site (one GitHub run each), buffy coat at 30. `data/DEV_ONE_DRAW_01/constructed_draw_05.py` reports each
+added tissue's share found against the truth and the largest share found for a tissue not added (the noise floor at that depth). A first local
+check at 15 reads (5 % hepatocyte and 5 % vascular endothelium) found 4.8 % and 5.2 %, with tissues not added up to 1.9 %.

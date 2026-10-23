@@ -956,9 +956,10 @@
     {
      "id": "40.5",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "Smallest share each instrument reads at each depth",
-     "next": "thin a known tissue mixture step by step through the chain (sequencing mixtures; spent)"
+     "next": "record the smallest share read at each depth (10, 30, 60 reads); then the same on array plasma (40.7) for comparison",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/constructed_draw_05.py"
     },
     {
      "id": "40.6",
