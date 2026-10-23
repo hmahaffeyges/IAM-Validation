@@ -1,0 +1,18 @@
+DEV-SPHERE-01 test 10 (real data, IAM-Atlas v2.1, 79 healthy cell types; exploratory, not sealed; the globe built by run_sample.py --build info-sphere)
+191458 pool sites x 79 cell types; variance kept 0.3906; sky covered 55.3% (masked 44.7%) (reported)
+  neutrophils: below every other blood cell: R 0.4501 | line 0.239 | together
+  neutrophils: above every other blood cell: R 0.7467 | line 0.2269 | together
+  monocytes: below every other blood cell: R 0.4227 | line 0.2438 | together
+  monocytes: above every other blood cell: R 0.7359 | line 0.2306 | together
+  b cells: below every other blood cell: R 0.2483 | line 0.2211 | together
+  b cells: above every other blood cell: R 0.8011 | line 0.2327 | together
+  cd4 t cells: below every other blood cell: R 0.5178 | line 0.221 | together
+  cd4 t cells: above every other blood cell: R 0.8044 | line 0.2373 | together
+  cd8 t cells: below every other blood cell: R 0.6161 | line 0.2284 | together
+  cd8 t cells: above every other blood cell: R 0.7862 | line 0.2233 | together
+  nk cells: below every other blood cell: R 0.536 | line 0.2455 | together
+  nk cells: above every other blood cell: R 0.6557 | line 0.233 | together
+C1 marker groups together: 12 of 12 (bar at least 10) -> MET
+C2 level-matched groups past the line: 29 of 100 (bar at most 4) -> NOT MET
+C3 distance agreement rho 0.8065 (bar at least 0.7) -> MET
+TEST 10 FAILED: C2 not met

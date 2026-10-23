@@ -750,10 +750,10 @@
     {
      "id": "35.1",
      "date": "2026-10-22",
-     "status": "running",
+     "status": "open",
      "what": "Test 8 (real atlas cells) met C1 and C3 and failed C2: a site's level dominates its place. Construction v5 takes the level out",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_SPHERE_01/atlas_sphere_10.py",
-     "next": "test 9 PASSED; test 10 on the real atlas running; record"
+     "next": "test 9 PASSED (synthetic); test 10 (real atlas) C1 and C3 met, C2 29 of 100 (v1: 88); next a test with the line set by level-matched random groups, written before it runs"
     }
    ]
   },
@@ -790,10 +790,10 @@
     {
      "id": "37.2",
      "date": "2026-10-22",
-     "status": "running",
-     "what": "The C-Score band through the one command",
+     "status": "done",
+     "what": "The C-Score band through the one command: MET (0.9545 not above, bar 0.95), against the committed 0.9565. One array fewer: GSM5583015 is now stopped by Stage 0 (bisulfite conversion 0.576, limit 0.80 set 2026-10-21 after the committed test); the other numbers beside the committed ones in the summary",
      "run": "series run band_chain",
-     "next": "compare with band_test_GSE184269.json"
+     "record": "Biological_Physics/MethylPhys/doors/data/CSCORE_COMMISSIONING/run_chain_01/band_chain_summary.txt (series run 39841612307)"
     },
     {
      "id": "37.3",

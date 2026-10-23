@@ -1,0 +1,5 @@
+C-Score band test, GSE184269, through the one command (every reading and tare by run_sample.py)
+whole bloods 23 listed, 22 scored, 1 withheld (reasons: ['only 5325 of 6000 neutrophil sites measured (>= 5400 required): A withheld'])
+above 1.152: 1 | not above 0.9545 (bar at least 95%) -> MET | C_rel median 1.0, range 0.8724 to 1.1825
+against the committed scoring (this run, committed): n_whole_blood_scored 22 vs 23; above_limit 1 vs 1; not_above_fraction 0.9545 vs 0.9565; met True vs True; C_rel_median 1.0 vs 0.9992; C_rel_min 0.8724 vs 0.871; C_rel_max 1.1825 vs 1.1815; whole_bloods_listed 23 vs 24; whole_bloods_withheld 1 vs 1
+DIFFERS FROM THE COMMITTED SCORING (see the pairs above)

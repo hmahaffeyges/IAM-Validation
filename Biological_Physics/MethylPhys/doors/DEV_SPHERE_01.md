@@ -289,3 +289,9 @@ reported beside it. Test 9 (`data/DEV_SPHERE_01/planted_sphere_09.py`) is test 7
 synthetic methylome (60,000 sites x 40 cell types): C1 the planted group lands together (R 0.9916 against a 99th percentile of 0.1256); C2
 nothing planted lands together in 1 of 100 (bar at most 4); C3 distance agreement 0.7686 (bar 0.7). Sky covered 26.0 %. Test 10, on the real
 atlas, now runs as written.
+
+**Test 10, run once (2026-10-22; explore run 39908544842, commit 9270b8e1): FAILED on C2, much closer.** Output: `data/DEV_SPHERE_01/run_10/`.
+Construction v5 on IAM-Atlas v2.1's 79 healthy cell types: C1 met, 12 of 12 marker groups together; C3 met, distance agreement 0.8065; C2 not
+met, 29 of 100 level-matched groups past the line (test 8 with v1: 88). Taking the level out removed most of its hold on a site's place, not
+all of it. Next, written before it runs: the same with the line set by level-matched random groups (the null the question actually asks:
+does a group land together beyond what its level alone gives), so C2 asks the right question rather than one the random pool answers.
