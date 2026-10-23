@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 915,
+   "lines": 921,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -261,9 +261,9 @@
      "function": "main",
      "name": "main",
      "line": 314,
-     "end": 912,
+     "end": 918,
      "args": [],
-     "lines": 599,
+     "lines": 605,
      "doc": "",
      "constants": [
       "BIO",
@@ -315,8 +315,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 856,
-     "end": 857,
+     "line": 862,
+     "end": 863,
      "args": [
       "b",
       "it",

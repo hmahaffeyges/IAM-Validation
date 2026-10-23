@@ -6,7 +6,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 915 | 17 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 921 | 17 | 11 | 10 |
 | `stage_0_intake.py` | 1,177 | 41 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -255,7 +255,7 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 314 (599 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 314 (605 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
 
 ### `run_sample.py::main._panel`
 
@@ -276,7 +276,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 856 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 862 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -346,6 +346,11 @@ The 79 cell names of IAM-Atlas v2.1 (its best-value columns), read once.
 
 An isolated, sorted or purified cell of any IAM-Atlas v2.1 type other than neutrophils (case-insensitive): its atlas name, else nothing. Such a
 specimen is accepted at intake and read by Met-A against the atlas (development, not commissioned); the commissioned Met-A is not applied.
+
+**450K arrays and the atlas readers (2026-10-22).** On a 450K array the conductor refuses the commissioned Met-A and C-Score (no 450K healthy
+neutrophil reference; `conductor_v3.platform_refusal`), but `run_sample.py` still runs the atlas readers, which work by site name on IAM-Atlas
+v2.1: the IAM-Deconvolver's shares, Met-A for each cell and the globe, each flagged development and each reporting how many of its sites the
+array measured. The bundle records this under `atlas_readers_on_450k`.
 
 *Code:* `stage_0_intake.py` line 91 (8 lines) · arguments: specimen · calls: not called on the traced runs · constants read: `ATLAS_CELL_WORDS`
 

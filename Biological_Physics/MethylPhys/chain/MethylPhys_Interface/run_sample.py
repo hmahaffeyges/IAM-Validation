@@ -763,7 +763,13 @@ def main():
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "note": "sequencing input only: no array reading"}
     _z = o.pop("_cscore_z", None)
     if getattr(a, "_thin", None): o["thinned"] = a._thin; o["banner"] = a.banner   # 2026-10-22: a thinned test copy is always recorded
-    if beta is not None and not o.get("refusal"):   # chain v4: the cell shares (D21) and the C-Score drawn on the sphere
+    _450 = (beta is not None and o.get("refusal_code") == "PLATFORM_REFUSED" and (o.get("platform") == "450K" or str(array_type) == "HM450K"))
+    if _450:   # 2026-10-22 (step 27; author: read it and flag it): no 450K neutrophil reference, so the commissioned Met-A and C-Score stay refused,
+        # but the atlas readers work by site name and 450K's sites are on IAM-Atlas v2.1, so they read, flagged, with their own coverage
+        o["atlas_readers_on_450k"] = ("450K array: the commissioned Met-A and C-Score are not read (no 450K healthy neutrophil reference); the IAM-Deconvolver, "
+                                      "Met-A for each cell and the globe read the 450K sites on IAM-Atlas v2.1 (development, not commissioned on 450K)")
+        print("450K array: atlas readers run, flagged (" + o["atlas_readers_on_450k"][:60] + "...)", flush=True)
+    if beta is not None and (not o.get("refusal") or _450):   # chain v4: the cell shares (D21) and the C-Score drawn on the sphere
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel())
