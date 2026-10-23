@@ -713,10 +713,17 @@
     {
      "id": "33.1",
      "date": "2026-10-22",
-     "status": "running",
-     "what": "Exploration 8 on both monocyte series through the one command",
+     "status": "done",
+     "what": "Exploration 8 through the one command: same-slide tare 100 % Normal in both series (1 % loss 4.09 and 3.73 spreads); laboratory tare 90.3 % and 97.0 % (1.45 and 2.76)",
      "run": "series runs chain08_gse168779, chain08_gse267660",
-     "next": "adult monocytes recorded (same-slide tare 100 % Normal, 4.09 spreads; laboratory tare 1.45); children's monocytes (GSE168779) still running; then a sealed test on a series with at least 3 healthy arrays on most slides"
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_01.md (exploration 8, runs 39834679796 and 39834626943)"
+    },
+    {
+     "id": "33.2",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "The sealed test of the same-slide tare",
+     "next": "search for an unread series of healthy purified cells with at least 3 healthy arrays on most slides; declare before opening; seal the bars"
     }
    ]
   },

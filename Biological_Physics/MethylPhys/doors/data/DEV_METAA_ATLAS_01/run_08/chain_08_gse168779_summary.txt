@@ -1,0 +1,4 @@
+DEV-METAA-ATLAS-01 exploration 8 (exploratory, not sealed), chain_08_gse168779.csv: 67 arrays listed
+pass 1: 67 bundles | Stage 0 verdicts {'PROCEED': 67} | atlas Met-A read 67
+tare series: tared 67 of 67 | Normal 0.970 | median 0.9998 | spread 0.0197 | planted 1 % moves +0.0545 (n 67) = 2.76 spreads
+tare slide : tared 50 of 67 | Normal 1.000 | median 1.0005 | spread 0.0145 | planted 1 % moves +0.0543 (n 50) = 3.73 spreads

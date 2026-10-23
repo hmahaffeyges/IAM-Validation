@@ -161,3 +161,10 @@ reading and tare by run_sample.py). Stage 0 admitted all 31 (one with a penalty)
 (the chain's Stage T rule): 9 of 31 had at least 3 on their slide, 100 % Normal, spread 0.0145, a planted 1 % loss 4.09 spreads. The withdrawn
 sealed test's pattern holds through the chain: the laboratory-wide tare is too loose for a 1 % loss; the same-slide tare is tight enough.
 The children's monocytes (GSE168779) are still running.
+
+## Exploration 8, children's monocytes, run once through the one command (2026-10-22; series run 39834626943)
+Output: `data/DEV_METAA_ATLAS_01/run_08/chain_08_gse168779_summary.txt` and `_rows.csv` (67 healthy children's monocyte arrays of GSE168779).
+Stage 0 admitted all 67. Laboratory tare: 67 tared, 97.0 % Normal, spread 0.0197, a planted 1 % loss 2.76 spreads. Same-slide tare: 50 of 67
+tared, 100 % Normal, spread 0.0145, a planted 1 % loss 3.73 spreads. With the adult series (100 % Normal, 4.09 spreads on its own slide), the
+same-slide tare reads every healthy monocyte Normal in both laboratories and lifts a 1 % loss well clear of the healthy spread. Next: the
+sealed test of the same-slide tare, on a series not yet read with at least 3 healthy arrays on most slides.
