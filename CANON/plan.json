@@ -960,6 +960,13 @@
      "status": "open",
      "what": "Anchors cancer does not move (author: 'cancer chooses its sites for a reason too ... they could be accounted for and still keep the calibration'). Early cancer methylation changes are known to concentrate in two places: loss in partially methylated domains (late-replicating, gene-poor, low CpG density; lose with each division) and gain at Polycomb-target CpG islands (developmental genes, unmethylated in every healthy cell). Anchors avoid both: high anchors only in tiles that are firm (not loose) in all 79 atlas cell types, low anchors only at islands outside Polycomb targets; the excluded sets are read as their own readings (loss in loose-prone domains, gain at Polycomb islands)",
      "next": "exploration on spent tumor and normal arrays (GSE287331, DEV-FIELD-01): do the chosen anchors stay put while the excluded sets move? Then the ruler (35.14) uses them"
+    },
+    {
+     "id": "35.16",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The lever simulator (author: 'add all the levers of IAM physics each in their own drop-down ... visualize the methylation happening in real time ... mimic a real cellular black hole forming'): in the browser, every site of the information sphere runs IAM's write and erase balance (writer rate from the methyl supply, eraser rate from oxygen and 2-oxoglutarate, holding energy from M and phi at the set temperature, the replication route from the division rate, and neighbor coupling for clustered failure, each lever from CANON/levers.json); the sphere, the address globe, the IAM-A, Met-A and C-Score gauges update as the levers move. A simulation of the model, labeled so; it becomes a test when real tumors' spheres are compared with the patterns it predicts",
+     "next": "version 1: the existing 191,458-site layout, four levers (temperature, writer, eraser, division rate), the balance only; then neighbor coupling and the wall (local saturation)"
     }
    ]
   },
