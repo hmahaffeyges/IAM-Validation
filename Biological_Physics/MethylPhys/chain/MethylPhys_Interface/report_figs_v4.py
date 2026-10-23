@@ -99,16 +99,23 @@ def atlas_sky_png(out, ids, cell, atlas_dir, nest_pix2ang, title=""):
     return {"drawn": True, "png": os.path.abspath(out), "cell": cell, "sites": n, "sites_in_atlas": int(ok.sum()), "nside": nside, "order": "NESTED",
             "atlas": "IAM-Atlas v2.1", "range_halfwidth": hw}
 
-def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0, title=""):
+def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=None, title=""):
     """The sample laid over its healthy reference (author 2026-10-18: overlay the two, quiet the matches, show the changes). Same sites, same
     order, same pixels as the C-Score sky. Background: the healthy cell from IAM-Atlas v2.1 in grays (darker = more tagged). Color only where
     the sample's pattern (entropy per site, the Met-A departure) differs from healthy by more than `thr` of its own spread (the C-Score's departures, scaled as on the C-Score sky). Scattered
-    single colored pixels are ordinary; colored patches are changes that run along the genome, which is what the C-Score measures."""
+    single colored pixels are ordinary; colored patches are changes that run along the genome, which is what the C-Score measures.
+    2026-10-22 (plan 38.4): one rule for "changed" in the whole report, the globe's: the departures, centered and scaled by the sample's own
+    spread, are read in blocks of 10 sites in genome order, and a block beyond the 5 % family-wise line (report_globe_v4.FW_LINE) is colored
+    with its sites. thr is kept only for an old caller and is ignored."""
     import pyarrow.parquet as pq, pandas as pd
     from scipy.spatial import cKDTree
     from matplotlib.patches import Ellipse, Patch
     zz = pd.Series(z, dtype="float64"); ids = list(zz.index); n = len(zz)
-    med = float(zz.median()); mad = float((zz - med).abs().median()) * 1.4826 or float(zz.std()) or 1.0; d = ((zz - med) / mad).to_numpy()
+    med = float(zz.median()); mad = float((zz - med).abs().median()) * 1.4826 or float(zz.std()) or 1.0; d0 = ((zz - med) / mad).to_numpy()
+    import report_globe_v4 as _RG
+    _B = _RG.BLOCK; _ok = np.isfinite(d0); _dv = d0[_ok]; nb = len(_dv) // _B; line = _RG.FW_LINE(nb)
+    _bz = _dv[:nb * _B].reshape(nb, _B).mean(1) * np.sqrt(_B); _lit = np.r_[np.repeat(np.where(np.abs(_bz) > line, _bz, 0.0), _B), np.zeros(len(_dv) - nb * _B)]
+    d = np.full(n, np.nan); d[np.flatnonzero(_ok)] = _lit; nblk_ch = int((np.abs(_bz) > line).sum())
     sites = pq.read_table(os.path.join(atlas_dir, "sites.parquet")).column("cpg").to_pylist()
     part = next(k for k in (1, 2, 3) if cell in pq.read_schema(os.path.join(atlas_dir, f"mu_part{k}.parquet")).names)
     u = pq.read_table(os.path.join(atlas_dir, f"mu_part{part}.parquet"), columns=[cell]).column(cell).to_numpy()
@@ -118,7 +125,12 @@ def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0,
     npix = 12 * nside * nside; pix = (np.arange(n) * npix) // n
     def pmean(x):
         ok = np.isfinite(x); s = np.bincount(pix[ok], x[ok], npix); k = np.bincount(pix[ok], minlength=npix); return np.where(k > 0, s / np.maximum(k, 1), np.nan)
-    D, H = pmean(d), pmean(mu)
+    def pext(x):   # the block value of largest size in each pixel, so a changed block is never averaged away by an unchanged neighbor
+        o = np.full(npix, np.nan); ok = np.isfinite(x)
+        for p_, v_ in zip(pix[ok], x[ok]):
+            if not np.isfinite(o[p_]) or abs(v_) > abs(o[p_]): o[p_] = v_
+        return o
+    D, H = pext(d), pmean(mu)
     th, ph = nest_pix2ang(nside, np.arange(npix)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
     X, Y = np.meshgrid((np.arange(1600) + 0.5) / 1600 * 4 - 2, (np.arange(800) + 0.5) / 800 * 2 - 1)
     inside = (X / 2) ** 2 + Y ** 2 < 1; t = np.arcsin(np.clip(Y, -1, 1)); lat = np.arcsin(np.clip((2 * t + np.sin(2 * t)) / np.pi, -1, 1))
@@ -126,19 +138,19 @@ def changes_sky_png(out, z, cell, atlas_dir, nest_pix2ang, readings="", thr=2.0,
     q = np.c_[(np.cos(lat) * np.cos(-lon)).ravel(), (np.cos(lat) * np.sin(-lon)).ravel(), np.sin(lat).ravel()]
     idx = cKDTree(xyz).query(q)[1].reshape(X.shape); di, hi = D[idx], H[idx]
     g = np.where(np.isfinite(hi), 0.95 - 0.30 * np.nan_to_num(hi), 0.97)          # healthy backdrop: light grays
-    rgb = np.dstack([g, g, g]); cm = plt.get_cmap("RdBu_r"); ch = np.isfinite(di) & (np.abs(di) > thr) & inside
-    col = cm(np.clip((di + 4) / 8, 0, 1))[..., :3]; rgb[ch] = col[ch]; rgb[~inside] = 1.0
+    rgb = np.dstack([g, g, g]); cm = plt.get_cmap("RdBu_r"); ch = np.isfinite(di) & (di != 0) & inside
+    col = cm(np.clip(0.5 + np.sign(np.nan_to_num(di)) * (0.25 + 0.25 * np.minimum(np.abs(np.nan_to_num(di)) / 10, 1)), 0, 1))[..., :3]; rgb[ch] = col[ch]; rgb[~inside] = 1.0
     fig, ax = plt.subplots(figsize=(7.2, 4.3)); fig.patch.set_facecolor("white")
     im = ax.imshow(rgb, origin="lower", interpolation="nearest", extent=(-2, 2, -1, 1))
     e = Ellipse((0, 0), 4, 2, transform=ax.transData, fc="none", ec="#555555", lw=0.5); ax.add_patch(e); im.set_clip_path(e)
     ax.set_xlim(-2.02, 2.02); ax.set_ylim(-1.02, 1.02); ax.set_aspect("equal"); ax.set_axis_off()
     ax.set_title(title or f"What changed at Met-A's {len(z):,} identity sites of {cell}: this sample laid over healthy {cell}", loc="left", fontsize=9.5)
-    nch = int((np.isfinite(D) & (np.abs(D) > thr)).sum()); nd = int(np.isfinite(D).sum())
+    nd = nb
     ax.legend(handles=[Patch(color="#c8c8c8", label="matches healthy (gray shade: the healthy cell's tagging)"),
-                       Patch(color=cm(0.92), label=f"more disorder than healthy: pattern lost (beyond +{thr:g} of its own spread)"),
-                       Patch(color=cm(0.08), label=f"more order than healthy (beyond \u2212{thr:g})")],
+                       Patch(color=cm(0.92), label=f"more disorder than healthy: pattern lost (a block of {_B} sites beyond the 5 % family-wise line, {line:.2f})"),
+                       Patch(color=cm(0.08), label=f"more order than healthy (a block beyond \u2212{line:.2f})")],
               loc="upper center", bbox_to_anchor=(0.5, -0.02), ncol=1, fontsize=7.2, frameon=False)
-    if readings: fig.text(0.5, 0.005, readings + f"   \u00b7   {nch} of {nd} pixels changed", ha="center", fontsize=9)
+    if readings: fig.text(0.5, 0.005, readings + f"   \u00b7   {nblk_ch} of {nd} blocks changed", ha="center", fontsize=9)
     fig.savefig(out, dpi=200, bbox_inches="tight"); plt.close(fig)
     return {"drawn": True, "png": os.path.abspath(out), "cell": cell, "nside": nside, "order": "NESTED", "threshold": thr,
-            "pixels_changed": nch, "pixels": nd, "atlas": "IAM-Atlas v2.1"}
+            "blocks_changed": nblk_ch, "blocks": nd, "block": _B, "line": round(line, 3), "rule": "blocks of 10 sites beyond the 5 % family-wise line (the globe's rule)", "atlas": "IAM-Atlas v2.1"}

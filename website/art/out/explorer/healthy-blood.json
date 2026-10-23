@@ -55,7 +55,7 @@
      "full": 10,
      "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
      "fixed": "Changed: 0 of 597 blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
-     "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.",
+     "note": "The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps. Each changed block is drawn over the stretch of genome its 10 sites cover, so a patch shows where the change sits on the genome; where those sites lie far apart, the patch is large though only 10 measured sites stand behind it.",
      "base": "a4",
      "id": "metaa",
      "ref_word": "Met-A's purified-array reference",
@@ -173,6 +173,95 @@
      "base": null
     }
    ]
+  },
+  {
+   "name": "each cell's change (development)",
+   "layers": [
+    {
+     "name": "neutrophils: the change at its identity sites (development)",
+     "kind": "change",
+     "src": "a11",
+     "full": 10,
+     "id": "genome",
+     "ref_word": "the healthy reference",
+     "key_up": "Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
+     "key_down": "Blue: less disorder than the healthy mix (rare)",
+     "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+     "fixed": "Changed: 5 of 591 blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. DEVELOPMENT: not commissioned by our own standards. At Met-A's 6,000 neutrophil sites alone: 0 of 597 blocks changed. A loss of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer \"the change at Met-A's 6,000 sites\" to see it.",
+     "note": "Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 mixed in this sample's own cell shares, in the sample's own spread there, read in blocks of 10 neighboring sites; a block changed beyond the line pure chance crosses less than once in 20 genomes. A loss of one cell's pattern is diluted by its share of the sample, so a small cell needs a larger loss to show.",
+     "base": null
+    },
+    {
+     "name": "monocytes: the change at its identity sites (development)",
+     "kind": "change",
+     "src": "a12",
+     "full": 10,
+     "id": "genome",
+     "ref_word": "the healthy reference",
+     "key_up": "Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
+     "key_down": "Blue: less disorder than the healthy mix (rare)",
+     "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+     "fixed": "Changed: 2 of 567 blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. DEVELOPMENT: not commissioned by our own standards. At Met-A's 6,000 neutrophil sites alone: 0 of 597 blocks changed. A loss of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer \"the change at Met-A's 6,000 sites\" to see it.",
+     "note": "Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 mixed in this sample's own cell shares, in the sample's own spread there, read in blocks of 10 neighboring sites; a block changed beyond the line pure chance crosses less than once in 20 genomes. A loss of one cell's pattern is diluted by its share of the sample, so a small cell needs a larger loss to show.",
+     "base": null
+    },
+    {
+     "name": "b cells: the change at its identity sites (development)",
+     "kind": "change",
+     "src": "a13",
+     "full": 10,
+     "id": "genome",
+     "ref_word": "the healthy reference",
+     "key_up": "Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
+     "key_down": "Blue: less disorder than the healthy mix (rare)",
+     "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+     "fixed": "Changed: 4 of 599 blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. DEVELOPMENT: not commissioned by our own standards. At Met-A's 6,000 neutrophil sites alone: 0 of 597 blocks changed. A loss of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer \"the change at Met-A's 6,000 sites\" to see it.",
+     "note": "Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 mixed in this sample's own cell shares, in the sample's own spread there, read in blocks of 10 neighboring sites; a block changed beyond the line pure chance crosses less than once in 20 genomes. A loss of one cell's pattern is diluted by its share of the sample, so a small cell needs a larger loss to show.",
+     "base": null
+    },
+    {
+     "name": "cd4 t cells: the change at its identity sites (development)",
+     "kind": "change",
+     "src": "a14",
+     "full": 10,
+     "id": "genome",
+     "ref_word": "the healthy reference",
+     "key_up": "Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
+     "key_down": "Blue: less disorder than the healthy mix (rare)",
+     "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+     "fixed": "Changed: 2 of 597 blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. DEVELOPMENT: not commissioned by our own standards. At Met-A's 6,000 neutrophil sites alone: 0 of 597 blocks changed. A loss of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer \"the change at Met-A's 6,000 sites\" to see it.",
+     "note": "Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 mixed in this sample's own cell shares, in the sample's own spread there, read in blocks of 10 neighboring sites; a block changed beyond the line pure chance crosses less than once in 20 genomes. A loss of one cell's pattern is diluted by its share of the sample, so a small cell needs a larger loss to show.",
+     "base": null
+    },
+    {
+     "name": "cd8 t cells: the change at its identity sites (development)",
+     "kind": "change",
+     "src": "a15",
+     "full": 10,
+     "id": "genome",
+     "ref_word": "the healthy reference",
+     "key_up": "Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
+     "key_down": "Blue: less disorder than the healthy mix (rare)",
+     "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+     "fixed": "Changed: 0 of 591 blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. DEVELOPMENT: not commissioned by our own standards. At Met-A's 6,000 neutrophil sites alone: 0 of 597 blocks changed. A loss of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer \"the change at Met-A's 6,000 sites\" to see it.",
+     "note": "Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 mixed in this sample's own cell shares, in the sample's own spread there, read in blocks of 10 neighboring sites; a block changed beyond the line pure chance crosses less than once in 20 genomes. A loss of one cell's pattern is diluted by its share of the sample, so a small cell needs a larger loss to show.",
+     "base": null
+    },
+    {
+     "name": "nk cells: the change at its identity sites (development)",
+     "kind": "change",
+     "src": "a16",
+     "full": 10,
+     "id": "genome",
+     "ref_word": "the healthy reference",
+     "key_up": "Red: more disorder (entropy) here than this sample's own mix of healthy cells holds: this cell's pattern is being lost",
+     "key_down": "Blue: less disorder than the healthy mix (rare)",
+     "hint": "Slide right to quiet the unchanged sites to dark, until only the changed ones are left lit. Slide left to bring them back.",
+     "fixed": "Changed: 2 of 591 blocks of 10 of this cell's identity sites. This count is fixed; the slider never changes it. DEVELOPMENT: not commissioned by our own standards. At Met-A's 6,000 neutrophil sites alone: 0 of 597 blocks changed. A loss of the neutrophils' pattern sits there, too few sites to show on the whole genome: choose the layer \"the change at Met-A's 6,000 sites\" to see it.",
+     "note": "Met-A's departure for this cell: at the cell's identity sites, the sample's disorder against the disorder of IAM-Atlas v2.1 mixed in this sample's own cell shares, in the sample's own spread there, read in blocks of 10 neighboring sites; a block changed beyond the line pure chance crosses less than once in 20 genomes. A loss of one cell's pattern is diluted by its share of the sample, so a small cell needs a larger loss to show.",
+     "base": null
+    }
+   ]
   }
  ],
  "assets": {
@@ -186,6 +275,12 @@
   "a7": "../art/explorer/healthy-blood_008.jpg",
   "a8": "../art/explorer/healthy-blood_009.jpg",
   "a9": "../art/explorer/healthy-blood_010.jpg",
-  "a10": "../art/explorer/healthy-blood_011.jpg"
+  "a10": "../art/explorer/healthy-blood_011.jpg",
+  "a11": "../art/explorer/healthy-blood_012.png",
+  "a12": "../art/explorer/healthy-blood_013.png",
+  "a13": "../art/explorer/healthy-blood_014.png",
+  "a14": "../art/explorer/healthy-blood_015.png",
+  "a15": "../art/explorer/healthy-blood_016.png",
+  "a16": "../art/explorer/healthy-blood_017.png"
  }
 }

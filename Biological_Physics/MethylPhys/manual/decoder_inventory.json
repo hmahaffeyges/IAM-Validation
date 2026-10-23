@@ -2526,7 +2526,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_figs_v4.py",
-   "lines": 145,
+   "lines": 157,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_figs_v4.py",
@@ -2651,7 +2651,7 @@
      "function": "changes_sky_png",
      "name": "changes_sky_png",
      "line": 102,
-     "end": 144,
+     "end": 156,
      "args": [
       "out",
       "z",
@@ -2662,7 +2662,7 @@
       "thr",
       "title"
      ],
-     "lines": 43,
+     "lines": 55,
      "doc": "The sample laid over its healthy reference (author 2026-10-18: overlay the two, quiet the matches, show the changes). Same sites, same order, same pixels as the C-Score sky. Background: the healthy cell from IAM-Atlas v2.1 in grays (darker = more tagged). Color only where the sample's pattern (entropy per site, the Met-A departure) differs from healthy by more than `thr` of its own spread (the C-S",
      "constants": [],
      "data_files": [
@@ -2677,8 +2677,8 @@
      "file": "MethylPhys_Interface/report_figs_v4.py",
      "function": "changes_sky_png.pmean",
      "name": "pmean",
-     "line": 119,
-     "end": 120,
+     "line": 126,
+     "end": 127,
      "args": [
       "x"
      ],
@@ -2689,6 +2689,21 @@
      "traced_calls": {
       "array": 2
      }
+    },
+    {
+     "file": "MethylPhys_Interface/report_figs_v4.py",
+     "function": "changes_sky_png.pext",
+     "name": "pext",
+     "line": 128,
+     "end": 132,
+     "args": [
+      "x"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
     }
    ],
    "first_entered": {
@@ -5552,7 +5567,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 402,
+   "lines": 432,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -5797,17 +5812,53 @@
     },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_paint_blocks",
+     "name": "_paint_blocks",
+     "line": 148,
+     "end": 161,
+     "args": [
+      "sky",
+      "vals",
+      "posidx",
+      "npix",
+      "n"
+     ],
+     "lines": 14,
+     "doc": "DRAWING ONLY (2026-10-23; author: \"Those patches are exactly what should be seen, not the tiny specs\"): a changed block is painted over the stretch of the genome it covers, from its first site to its last, at their places on the genome-order sky (site k sits at pixel k x npix / n). A block of 10 neighboring Met-A or identity sites spans a median of about 0.15 % of the sphere, so a changed block sh",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "_patch",
+     "name": "_patch",
+     "line": 163,
+     "end": 170,
+     "args": [
+      "v"
+     ],
+     "lines": 8,
+     "doc": "DRAWING ONLY (2026-10-23): a changed pixel of the whole-genome change map is drawn as a patch of radius R_DOT texture pixels (the dots' size), the larger change winning where two meet; a block of 10 neighboring sites covers only a few texture pixels and would show as a speck. Unchanged and unmeasured pixels are left as they are; which blocks changed, and the counts, are untouched.",
+     "constants": [
+      "R_DOT"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_cell_change",
      "name": "_cell_change",
-     "line": 148,
-     "end": 165,
+     "line": 172,
+     "end": 190,
      "args": [
       "d",
       "ids_ordered",
       "npix",
       "look"
      ],
-     "lines": 18,
+     "lines": 19,
      "doc": "One cell's change layer (development, 2026-10-22): the departure d (stage_metaa_atlas.departure_in_mix) at the cell's identity sites, in the sample's own spread there, read in blocks of 10 of those sites in genome order (the same rule as the Met-A layer); a block changed beyond the 5 % family-wise line lights its sites, drawn as dots. Returns (code image, changed blocks, blocks) or None.",
      "constants": [
       "BLOCK",
@@ -5820,8 +5871,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 167,
-     "end": 331,
+     "line": 192,
+     "end": 361,
      "args": [
       "beta",
       "specimen",
@@ -5832,7 +5883,7 @@
       "sex",
       "cell_departures"
      ],
-     "lines": 165,
+     "lines": 170,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -5860,8 +5911,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 207,
-     "end": 208,
+     "line": 232,
+     "end": 233,
      "args": [
       "m"
      ],
@@ -5875,8 +5926,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 210,
-     "end": 215,
+     "line": 235,
+     "end": 240,
      "args": [
       "v",
       "full"
@@ -5891,8 +5942,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 348,
-     "end": 391,
+     "line": 378,
+     "end": 421,
      "args": [
       "beta",
       "ref_beta",
@@ -5922,8 +5973,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 370,
-     "end": 371,
+     "line": 400,
+     "end": 401,
      "args": [
       "m"
      ],
@@ -7151,5 +7202,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 364
+ "n_functions": 367
 }

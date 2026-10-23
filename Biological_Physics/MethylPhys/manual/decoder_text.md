@@ -1428,9 +1428,13 @@ The healthy reference of the sample's cell from IAM-Atlas v2.1, at the same site
 sample's C-Score sky, so the two line up site for site.
 
 ### report_figs_v4.py::changes_sky_png
-The sample laid over its healthy reference: the healthy cell in grays, color only where the sample departs by more than a threshold of
-its own spread. Single colored pixels are ordinary; colored patches are changes that run along the genome, which is what the C-Score
-measures.
+The sample laid over its healthy reference at Met-A's 6,000 identity sites: the healthy cell in grays, color only on blocks that changed,
+by the globe's rule (blocks of 10 neighboring sites in genome order, each block's mean departure beyond the 5 % family-wise line), so the
+flat picture and the globe count the same change (healthy example blood: 0 of 597 blocks; the planted clustered loss: 44). Each pixel keeps
+the block value of largest size, so a changed block is never averaged away.
+
+### report_figs_v4.py::changes_sky_png.pext
+The block value of largest size in each pixel, its sign kept, so a changed block is never averaged away by an unchanged neighbor.
 
 ### report_figs_v4.py::changes_sky_png.pmean
 The mean of the values falling in each pixel.
@@ -1599,6 +1603,17 @@ A color texture as base64 JPEG, for the sample and reference layers.
 ### report_globe_v4.py::reference
 The healthy reference for a specimen: the matching atlas cell, or for blood the six panel cells weighted by the Stage D21 shares and scaled
 to 1; refuses with the reason when there are no shares or no specimen.
+
+### report_globe_v4.py::_paint_blocks
+Drawing only. A changed block of 10 sites (the Met-A layer, each cell's layer) is painted over the stretch of the genome it covers, from its
+first placed site to its last, at their places on the genome-order sky. Met-A's 6,000 sites lie far apart along the genome, so a block drawn as
+10 dots landed as 10 specks in different places; painted over its stretch (a median of about 0.15 % of the sphere) a clustered loss shows as
+patches where it sits on the genome. Which blocks changed, and every count, are untouched; a block whose sites lie far apart gives a large patch
+from only 10 measured sites, and the layer's note says so.
+
+### report_globe_v4.py::_patch
+Drawing only. On the whole-genome change layer a block of 10 neighboring sites covers only a few texture pixels; each changed pixel is drawn as a
+patch of the dots' radius (R_DOT), the larger change winning where two meet. Unchanged and unmeasured pixels and every count are untouched.
 
 ### report_globe_v4.py::_cell_change
 One cell's change layer on the globe (development, 2026-10-22): the departure behind Met-A for that cell

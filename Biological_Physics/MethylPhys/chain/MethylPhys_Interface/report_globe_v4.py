@@ -145,6 +145,30 @@ def purified(fractions, specimen):
         t = sum(f.values()); return pd.Series(sum(P[g] * (x / t) for g, x in f.items()), index=S)
     return pd.Series(P["NEU"], index=S) if "neutrophil" in str(specimen).lower() else None
 
+def _paint_blocks(sky, vals, posidx, npix, n):
+    """DRAWING ONLY (2026-10-23; author: "Those patches are exactly what should be seen, not the tiny specs"): a changed block is painted over the
+    stretch of the genome it covers, from its first site to its last, at their places on the genome-order sky (site k sits at pixel k x npix / n).
+    A block of 10 neighboring Met-A or identity sites spans a median of about 0.15 % of the sphere, so a changed block shows as a patch where it
+    sits on the genome, not as 10 dots far apart. Which blocks changed, and the counts, are untouched. posidx: (blocks, 10) positions in the
+    sky order; vals: each block's value, 0 when unchanged."""
+    out = sky.copy(); ch = np.nonzero(vals)[0]
+    posidx = np.asarray(posidx, dtype="float64")   # a site without a place on the sky is NaN; the block spans its placed sites
+    for b in ch:
+        q = posidx[b][np.isfinite(posidx[b])]
+        if not len(q): continue
+        lo, hi = int(q.min()) * npix // n, int(q.max()) * npix // n
+        seg = out[lo:hi + 1]; keep = np.isfinite(seg) & (np.abs(seg) >= abs(vals[b])); seg[~keep] = vals[b]
+    return out
+
+def _patch(v):
+    """DRAWING ONLY (2026-10-23): a changed pixel of the whole-genome change map is drawn as a patch of radius R_DOT texture pixels (the dots'
+    size), the larger change winning where two meet; a block of 10 neighboring sites covers only a few texture pixels and would show as a speck.
+    Unchanged and unmeasured pixels are left as they are; which blocks changed, and the counts, are untouched."""
+    from scipy import ndimage
+    fp = np.hypot(*np.mgrid[-R_DOT:R_DOT + 1, -R_DOT:R_DOT + 1]) <= R_DOT; ch = np.isfinite(v) & (v != 0)
+    P = ndimage.maximum_filter(np.where(ch & (v > 0), v, 0.0), footprint=fp, mode="wrap"); N = ndimage.maximum_filter(np.where(ch & (v < 0), -v, 0.0), footprint=fp, mode="wrap")
+    big = np.where(P >= N, P, -N); return np.where(big != 0, big, v)
+
 def _cell_change(d, ids_ordered, npix, look):
     """One cell's change layer (development, 2026-10-22): the departure d (stage_metaa_atlas.departure_in_mix) at the cell's identity sites, in
     the sample's own spread there, read in blocks of 10 of those sites in genome order (the same rule as the Met-A layer); a block changed beyond
@@ -156,7 +180,8 @@ def _cell_change(d, ids_ordered, npix, look):
     pos = pd.Series(np.arange(len(ids_ordered)), index=ids_ordered); zo = z[z.index.isin(pos.index)]; zo = zo.iloc[np.argsort(pos.reindex(zo.index).to_numpy())]
     nb = len(zo) // BLOCK; bz = zo.to_numpy()[:nb * BLOCK].reshape(nb, BLOCK).mean(1) * np.sqrt(BLOCK); line = FW_LINE(nb)
     lit = pd.Series(np.r_[np.repeat(np.where(np.abs(bz) > line, bz, 0.0), BLOCK), np.zeros(len(zo) - nb * BLOCK)], index=zo.index)
-    zv = _to_sky(lit.reindex(ids_ordered).to_numpy(), npix)[look].reshape(HT, W)
+    _pi = pos.reindex(zo.index[:nb * BLOCK]).to_numpy().reshape(nb, BLOCK)
+    zv = _paint_blocks(_to_sky(lit.reindex(ids_ordered).to_numpy(), npix), np.where(np.abs(bz) > line, bz, 0.0), _pi, npix, len(ids_ordered))[look].reshape(HT, W)
     fp = np.hypot(*np.mgrid[-R_DOT:R_DOT + 1, -R_DOT:R_DOT + 1]) <= R_DOT
     P = ndimage.maximum_filter(np.where(zv > 0, zv, -np.inf), footprint=fp, mode="wrap"); N = ndimage.maximum_filter(np.where(zv < 0, -zv, -np.inf), footprint=fp, mode="wrap")
     has = ndimage.maximum_filter(np.isfinite(zv).astype(np.uint8), footprint=fp, mode="wrap") > 0
@@ -206,7 +231,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     cm = ListedColormap(np.loadtxt(os.path.join(HERE, "Planck_Parchment_RGB.txt")) / 255.0)
     def rgb(m):
         v = m[look].reshape(HT, W); x = (cm(np.clip(np.nan_to_num(v, nan=0), 0, 1))[..., :3] * 255).astype(np.uint8); x[~np.isfinite(v)] = (42, 45, 51); return x
-    dv = ex_s[look].reshape(HT, W)   # the change code: 0 no site, 128 unchanged, 128 +/- 127 x size/0.5 changed (at least one step from 128)
+    dv = _patch(ex_s[look].reshape(HT, W))   # the change code: 0 no site, 128 unchanged, 128 +/- 127 x size/0.5 changed (at least one step from 128)
     def _code(v, full):
         # 2026-10-21: a browser may color-manage an image and shift its values by a few steps (seen in Safari: every "unchanged" 128 drawn as a
         # faint change), so the code keeps wide gaps: 0 no site; 128 unchanged; a change 128 +/- (48 + 79 x size/full), never within 48 of 128.
@@ -227,7 +252,10 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
         _zo = z.reindex(_R["sites_ordered"]).dropna(); _nb = len(_zo) // _k
         _bz = _zo.to_numpy()[:_nb * _k].reshape(_nb, _k).mean(1) * np.sqrt(_k); _ml = FW_LINE(_nb); _lit = np.repeat(np.where(np.abs(_bz) > _ml, _bz, 0.0), _k)
         z = pd.Series(np.r_[_lit, np.zeros(len(_zo) - _nb * _k)], index=_zo.index); blocks = (int((np.abs(_bz) > _ml).sum()), int(_nb))
-        zz = z.reindex(ids[order]).to_numpy(); zs = _to_sky(zz, npix); zv = zs[look].reshape(HT, W)
+        zz = z.reindex(ids[order]).to_numpy(); zs = _to_sky(zz, npix)
+        _pos = pd.Series(np.arange(len(order)), index=ids[order]); _pz = _pos.reindex(_zo.index[:_nb * _k]).to_numpy()
+        zs = _paint_blocks(zs, np.where(np.abs(_bz) > _ml, _bz, 0.0), _pz.reshape(_nb, _k), npix, len(order))   # each changed block over its stretch
+        zv = zs[look].reshape(HT, W)
         # 6,000 sites hold about one texture pixel each, too small to see: each is drawn as a dot of radius R_DOT pixels at its own place, the
         # larger departure winning where two dots meet, so a run of neighboring departing sites shows as a patch. Positions are unchanged.
         from scipy import ndimage
@@ -274,7 +302,9 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
                       fixed=f"Changed: {zabove[0]:,} of {zabove[1]:,} blocks of 10 neighboring sites. This count is fixed; the slider never changes it.",
                       note=("The C-Score's departure map against Met-A's commissioned purified-array reference, read as the C-Score reads it: in blocks "
                             "of 10 neighboring sites along the genome, a block changed beyond the line pure chance crosses less than once in 20 genomes. "
-                            "Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps.")))
+                            "Ordinary wear is scattered and seldom moves a whole block; a loss that runs along the genome does, so it shows as clumps. "
+                            "Each changed block is drawn over the stretch of genome its 10 sites cover, so a patch shows where the change sits on the "
+                            "genome; where those sites lie far apart, the patch is large though only 10 measured sites stand behind it.")))
     if pcode is not None:
         Pr = J(_jpg_b64(prgb))
         for x in L:   # the Met-A layer fades Met-A's purified reference map, not a flat gray (audit 2026-10-21)
@@ -362,7 +392,7 @@ def build_pair(beta, ref_beta, ref_name, out_html=None, title="This sample again
     zg = np.where(ok, (d - med) / mad, np.nan); mi = np.where(ok)[0]; nb = len(mi) // BLOCK
     bm_ = zg[mi[:nb * BLOCK]].reshape(nb, BLOCK).mean(1); c_ = float(np.median(bm_)); s_ = float(np.median(np.abs(bm_ - c_))) * 1.4826 or 1.0
     bz = (bm_ - c_) / s_; line = FW_LINE(nb); ex = np.where(ok, 0.0, np.nan); ex[mi[:nb * BLOCK]] = np.repeat(np.where(np.abs(bz) > line, bz, 0.0), BLOCK)
-    dv = _to_sky_extreme(ex, npix)[look].reshape(HT, W)
+    dv = _patch(_to_sky_extreme(ex, npix)[look].reshape(HT, W))
     a = np.clip(np.abs(dv) / 10, 0, 1); c = np.where(np.isfinite(dv), np.where(dv != 0, 128 + np.sign(dv) * np.round(48 + 79 * a), 128), 0)
     code = np.repeat(np.clip(c, 0, 255).astype(np.uint8)[..., None], 3, -1)
     from matplotlib.colors import ListedColormap
