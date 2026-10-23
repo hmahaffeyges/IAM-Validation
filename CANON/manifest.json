@@ -28058,6 +28058,25 @@
    "legacy_ids": [],
    "notes": "2026-10-21 exploratory, not sealed: the committed line's healthy blood samples counted by Stage Q2 count_pat as committed and with non-autosome lines blanked in place; explore.yml on GitHub. Record: Biological_Physics/MethylPhys/doors/DEV_IAMA_SEX_01.md | 2026-10-21 explore run 39717648496: 17 of 17 healthy samples; loose share identical; autosome-only held error and IAM-A shift by a mean of -0.32 % (range -0.71 to +0.09 %), about 2.5 % of band v1's width at most. Line and band unchanged; recorded in the Chain Decoder (F37). | 2026-10-21 development log entry written for the day summary.",
    "sources_of_row": []
+  },
+  {
+   "title": "Blind studies: published methylation studies read by the chain before their findings are opened",
+   "purpose": "Does the chain find what published studies found, read blind across many laboratories, each array against the atlas as its ruler?",
+   "instrument_or_term": "the one command (run_sample.py) on tissue, unnamed specimens and blood, flagged",
+   "sources": [
+    "GEO: GSE149282, GSE118694, GSE136583, GSE164269, GSE226764, GSE136791, GSE204943, GSE299925, GSE112047, GSE101764, GSE234379, GSE67170, GSE237100, GSE318669"
+   ],
+   "data_status": "accessions only, labels unread (CANON/blind_studies.json)",
+   "record": "Biological_Physics/MethylPhys/BLIND_STUDIES.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "GSE149282 through the series workflow, pass 1 (the first real tissue arrays end to end); then the rest of wave 1",
+   "cost": "GitHub machines only",
+   "impact": "replication across laboratories; the rehearsal for a researcher's own blind run",
+   "legacy_ids": [],
+   "id": "OTH-081",
+   "sources_of_row": [],
+   "notes": "2026-10-23: protocol, question for each study and verdict rule committed before any study is read (author: 'find as many studies as we can that have already been analyzed and blindly test them')."
   }
  ],
  "not_tests": {

@@ -814,6 +814,13 @@ def main():
                       "finds against the atlas in this sample's own shares; the commissioned Met-A and C-Score read whole blood and are not applied"}
         if a._seqv: o["sequencing_values"] = a._seqv
         if (a.cell_panel or "blood") == "blood": a.cell_panel = "atlas"
+    elif beta is not None and _S0spec.is_tissue(a.specimen):   # 2026-10-23: solid tissue, tumor, or a specimen not named (blind runs), on the full atlas, flagged
+        o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": array_type if not a._seqv else "sequencing values (development)",
+             "scope": "tissue or an unnamed specimen (development): the IAM-Deconvolver splits it on IAM-Atlas v2.1's full panel, so the reading says what "
+                      "the sample is made of, and Met-A reads each cell it finds against the atlas in this sample's own shares; the commissioned Met-A and "
+                      "C-Score read whole blood and are not applied"}
+        if a._seqv: o["sequencing_values"] = a._seqv
+        if (a.cell_panel or "blood") == "blood": a.cell_panel = "atlas"
     elif beta is not None and a._seqv:   # 2026-10-22 (step 40): sequencing values; the commissioned array readings are not applied
         o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": "sequencing values (development)", "sequencing_values": a._seqv,
              "scope": "values made from sequencing molecules at IAM-Atlas v2.1's sites (development): the cell shares, Met-A for each cell and the globe read "
@@ -840,7 +847,7 @@ def main():
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel())
-        if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development)
+        if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
                 _bs, _inf = (None, None) if a._seqv else _ST.selftare_map(_pd.Series(beta, dtype="float64"))   # the self-tare maps array designs; not sequencing

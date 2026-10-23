@@ -181,6 +181,52 @@
    ]
   },
   {
+   "status": "open",
+   "rows": [
+    "OTH-081"
+   ],
+   "task": "Blind studies: published methylation studies read by the chain before their findings are opened, then compared (author 2026-10-23)",
+   "done_when": "every wave-1 study has our reading committed, then the published finding and a verdict entered in CANON/blind_studies.json",
+   "branches": [
+    {
+     "id": "43.1",
+     "date": "2026-10-23",
+     "status": "built",
+     "what": "Protocol, the ledger (CANON/blind_studies.json, BLIND_STUDIES.md) and blind_prep.py; 14 studies, 1,313 arrays listed by accession only; 23 rare designs reserved",
+     "record": "Biological_Physics/MethylPhys/BLIND_STUDIES.md",
+     "next": "enter each study's reading as it lands, then its published finding and verdict"
+    },
+    {
+     "id": "43.2",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "Tissue and unnamed specimens accepted on the full-atlas route, flagged (stage_0_intake.is_tissue); GSE149282 as the first real tissue arrays end to end (lesson C40)",
+     "next": "the series run on GSE149282, pass 1"
+    },
+    {
+     "id": "43.3",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "blind_unblind.py: after the readings are committed, fetch the labels from GEO, compute each reading's AUC between the study's groups, and open the publication",
+     "next": "write before GSE149282's readings land"
+    },
+    {
+     "id": "43.4",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "A researcher's own blind run: coded IDATs, our readings committed (and deposited on Zenodo) before they unblind",
+     "next": "after wave 1; needs the outreach step"
+    },
+    {
+     "id": "43.5",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "The Researcher Challenge (author: 'challenge researchers to run their own chip or IDAT and find out if the chain agrees with what they know'): three routes that never put a patient's arrays in public (a private copy of the repository with my_samples.yml; GEO accession numbers read by the chain itself; the one command on their own computer); the report says what the chain found without their labels; an opt-in scoreboard in CANON/blind_studies.json",
+     "next": "the website page and a GEO-accession input to my_samples.yml, after wave 1 shows agreement"
+    }
+   ]
+  },
+  {
    "task": "Showcase scenario 4: the three healthy colon samples (GSE151732: GSM4589141, GSM4589144, GSM4589145) through IAM-Atlas v2.1's commissioned tissue scorer, once, by the sealed rule",
    "done_when": "their reports and the scorer's reading committed in doors/data/SHOWCASE_V4, and its README section written",
    "rows": [

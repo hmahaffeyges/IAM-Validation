@@ -102,10 +102,18 @@ def is_plasma(specimen):
     """True for plasma cell-free DNA (2026-10-22, to-do steps 39-40): accepted at intake and read on IAM-Atlas v2.1's full panel; development."""
     return normalise_specimen(specimen) in PLASMA_WORDS
 
+TISSUE_WORDS = ("tissue", "solid tissue", "tumor", "tumor tissue", "biopsy", "unknown", "unknown specimen", "not stated")
+def is_tissue(specimen):
+    """2026-10-23 (author: read it and flag it; blind runs: 'we dont even know what the chips are from'): a solid tissue, a tumor, or a specimen
+    not named. Read on IAM-Atlas v2.1's full panel, flagged, as plasma is: the IAM-Deconvolver says what the sample is made of, and Met-A reads
+    each cell it finds against the atlas in the sample's own shares. The commissioned readers read blood and are not applied."""
+    s = normalise_specimen(specimen)
+    return s in TISSUE_WORDS or s.endswith(" tissue") or s.endswith(" tumor") or s.endswith(" biopsy")
+
 def specimen_refusal(specimen):
     """None when intake accepts the specimen (ACCEPTED_SPECIMENS, or an isolated IAM-Atlas v2.1 cell); otherwise the plain refusal text naming the specimen (decision L)."""
     s = normalise_specimen(specimen)
-    if s in ACCEPTED_SPECIMENS or atlas_cell_of(specimen) or is_plasma(specimen): return None
+    if s in ACCEPTED_SPECIMENS or atlas_cell_of(specimen) or is_plasma(specimen) or is_tissue(specimen): return None
     why = next((r for keys, r in REFUSED_SPECIMEN_REASONS if any(k and k in s for k in keys) or (s == "" and "" in keys)), None)
     why = why or f"'{specimen}' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference)"
     return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, buffy coat, isolated / sorted / purified neutrophils, constructed DNA mixtures of blood cells (test material), and "
