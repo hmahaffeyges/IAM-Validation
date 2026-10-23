@@ -3122,3 +3122,6 @@ Island gains and domain losses planted by the chain are read cleanly and kept ap
 
 ### 2026-10-23 · Each cell's healthy spread in 56 whole bloods (GRP-015, DEV-EACH-CELL-01 exploration 8)
 Neutrophils: identity sites spread 3.69 % with a 1 % loss moving 2.41 %; every site spread 1.98 % with the same loss moving 1.83 %, about 1.4 times as sensitive in one person. The every-site spread is nearly the same for every cell, one sample-wide factor for the atlas ruler to remove. Record: [DEV_EACH_CELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md).
+
+### 2026-10-23 · Met-A as a two-level instrument (GRP-017, DEV-TERRITORIES-01 test 2)
+The whole-sample reading over every atlas site rises for every plant; the island and domain plants move their own parts most; a neutrophil identity-site loss moves neutrophils' own reading most (1.122 to 1.231) and the whole sample barely. Healthy reads 1.113 untared, the array's scale. Record: [DEV_TERRITORIES_01.md](../Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md).

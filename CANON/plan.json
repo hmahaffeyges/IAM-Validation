@@ -266,6 +266,14 @@
      "status": "open",
      "what": "Cancer's territories on the information sphere (author: 'hopefully modeling it on our information sphere'). The healthy sphere cannot place sites that are the same in every healthy cell type. Two ways to give them a place: (a) by function: each such site joins the territory of its gene's function (the stacking of 35.10), on the healthy sphere; (b) a second sphere by the same fixed construction, its columns tumor and normal tissues from spent public arrays instead of healthy cell types, so sites that fail together across tumors land together. (b) describes cancer's patterns, not healthy physics, and is labeled so",
      "next": "(a) after 35.10's function labels; (b) after 48.1 and 48.2, on spent series only"
+    },
+    {
+     "id": "48.5",
+     "date": "2026-10-23",
+     "status": "built",
+     "what": "Met-A as a two-level instrument (author: 'adjust Met-A to read from the entire IAM-Atlas'): the whole-sample reading over every atlas site (read_whole) and each cell's identity-site reading, with the territories, all on by default; test 2 met every expectation",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md",
+     "next": "the atlas ruler, so healthy reads 1 (it reads 1.113 untared); then the replication battery"
     }
    ]
   },

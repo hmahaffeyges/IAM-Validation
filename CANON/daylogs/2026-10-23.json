@@ -188,6 +188,16 @@
       "GRP-015"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
+    },
+    {
+     "title": "Met-A as a two-level instrument (GRP-017)",
+     "status": "synthetic only",
+     "what": "The whole-sample reading over every atlas site and each cell's reading, with plants made by the one command.",
+     "outcome": "Every plant read where expected; healthy sits off 1, the array's scale.",
+     "rows": [
+      "GRP-017"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
     }
    ]
   },

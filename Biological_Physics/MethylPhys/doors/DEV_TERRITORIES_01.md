@@ -36,3 +36,26 @@ sits off the atlas at these sites, which is the chip's scale, so the ruler comes
 
 **What it would take to finish:** the atlas ruler; then the healthy spread of both readings on healthy arrays; then spent tumor and
 normal arrays. **Not a milestone:** a synthetic test on one blood, nothing commissioned.
+
+## Test 2: Met-A as a two-level instrument
+
+**The instrument's job:** the whole-sample reading (every atlas site, `stage_metaa_atlas.read_whole`) moves when anything in the sample departs;
+each cell's reading (its identity sites) says which cell. Both on by default in `run_sample.py`, with the territories.
+
+`data/DEV_TERRITORIES_01/whole_02.sh`, written before it ran; output `whole_02_summary.txt`. Healthy whole blood GSM7508429 (spent), untared;
+plants by the chain. 773,556 sites carry an expectation.
+
+| sample | whole sample | its identity-site part | islands part | domains part | the rest | neutrophils' own (identity sites) |
+|---|---|---|---|---|---|---|
+| healthy | 1.11291 | 1.15739 | 1.17899 | 1.12544 | 1.10423 | 1.12224 |
+| neutrophil identity-site loss, 5 % | 1.11369 | 1.18196 | 1.18291 | 1.12713 | 1.1042 | 1.23072 |
+| neutrophil whole-pattern loss, 5 % | 1.18621 | 1.25794 | 1.34547 | 1.20188 | 1.1685 | 1.21996 |
+| island gain, 10 % | 1.12813 | 1.20068 | 1.41105 | 1.12545 | 1.10405 | 1.17345 |
+| domain loss, 10 % | 1.12878 | 1.18753 | 1.17897 | 1.24224 | 1.10404 | 1.17062 |
+
+**Against what was written before it ran:** every plant raises the whole-sample reading above healthy (standard error over sites about 0.0002);
+the island plant moves the islands part most and the domain plant the domains part most; the neutrophil identity-site loss moves neutrophils'
+own reading most (1.122 to 1.231) while the whole sample barely moves (a loss at 6,000 of 773,556 sites), which is why both levels are kept.
+The island and domain plants also move neutrophils' own reading (to 1.173 and 1.171), because some identity sites lie in those sets.
+**Healthy reads 1.113 untared** on every part: the array's scale against the atlas, the same offset as test 1, for the atlas ruler to remove.
+

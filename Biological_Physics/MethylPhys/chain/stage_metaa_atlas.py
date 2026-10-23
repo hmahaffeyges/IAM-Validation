@@ -332,3 +332,37 @@ def plant_territory(beta, name, frac, size, seed=20261023):
     pick = np.random.default_rng(seed).random(len(S)) < frac; s = S[pick]
     b.loc[s] = (b.loc[s] + size * (1 - b.loc[s])) if name == "islands" else (b.loc[s] * (1 - size))
     return b, int(pick.sum())
+
+
+
+def read_whole(beta, shares):
+    """Met-A for the whole sample over EVERY IAM-Atlas v2.1 site (development, 2026-10-23; author: 'adjust Met-A to read from the entire
+    IAM-Atlas'). One reading per sample: e = the atlas mixed in the sample's own shares (read_in_mix's rule, MIX_COVER); each site counts by how
+    firmly a healthy sample of this mix holds it, w = |0.5 - e| (a site held near 0 or 1 counts most, a half-held one least; nothing chosen,
+    nothing fitted); A = sum w H(beta) / sum w H(e). Reported with the shift a 1 % loss of the whole held pattern would make, the reading's
+    standard error over sites, the effective number of sites, and the same reading split by where the sites lie: Met-A's identity sites of any
+    cell found, the islands and the domains (territory_sets), and the rest. The per-cell readings say which cell; this one says whether the sample
+    as a whole has departed."""
+    x = pd.Series(beta, dtype="float64"); cells = [c for c, f in shares.items() if f]; F = pd.Series({k: float(shares[k]) for k in cells})
+    out = dict(stage="M-whole", reading="Met-A for the whole sample over every atlas site, against the atlas in this sample's mix", flag=FLAG,
+               weight_rule="w = |0.5 - e|, e the atlas in the sample's shares", A=None)
+    if not cells: out["reason"] = "no cell shares"; return out
+    idx = x.dropna().index
+    MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
+    cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+    ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
+    if ok.sum() < 10000: out["reason"] = f"only {int(ok.sum())} sites with an expectation"; return out
+    w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = np.asarray(_H(es), dtype="float64")
+    def one(m):
+        if m.sum() < 500: return None
+        A = float((w[m] * hx[m]).sum() / (w[m] * he[m]).sum()); dv = hx[m] - A * he[m]
+        return dict(A=round(A, 5), se_over_sites=round(float(np.sqrt((w[m] ** 2 * dv ** 2).sum()) / (w[m] * he[m]).sum()), 6), sites=int(m.sum()))
+    allm = np.ones(len(xs), bool); r = one(allm)
+    xd = np.clip(xs.to_numpy() + 0.01 * (0.5 - es.to_numpy()), 1e-6, 1 - 1e-6)
+    sh = float((w * np.asarray(_H(pd.Series(xd)), dtype="float64")).sum() / (w * he).sum() - r["A"])
+    ident = set().union(*[set(identity_sites(c)) for c in cells]); T = territory_sets(); isl, dom = set(T["islands"]), set(T["domains"]); ix = xs.index
+    mi = np.fromiter((i in ident for i in ix), bool, len(ix)); ms = np.fromiter((i in isl for i in ix), bool, len(ix)); md = np.fromiter((i in dom for i in ix), bool, len(ix))
+    out.update(A=r["A"], se_over_sites=r["se_over_sites"], sites=r["sites"], shift_per_1pct_loss=round(sh, 5),
+               effective_sites=int(w.sum() ** 2 / (w ** 2).sum()), state="untared",
+               by_place={"identity sites of the cells found": one(mi), "islands": one(ms), "domains": one(md), "the rest": one(~mi & ~ms & ~md)})
+    return out

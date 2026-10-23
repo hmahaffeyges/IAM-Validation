@@ -378,7 +378,8 @@ def main():
     ap.add_argument("--dev-metaa-allsites", action="store_true",
                     help="DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make "
                          "(stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading")
-    ap.add_argument("--dev-territories", action="store_true", help="DEVELOPMENT (plan 48): disorder at cancer's own territories (islands unmarked in every cell type; loosely held domains), against the atlas in the sample's mix")
+    ap.add_argument("--dev-territories", action="store_true", default=True, help="DEVELOPMENT (plan 48): disorder at cancer's own territories (islands unmarked in every cell type; loosely held domains), against the atlas in the sample's mix. On by default since 2026-10-23 (author: 'wire in the territories score')")
+    ap.add_argument("--no-territories", dest="dev_territories", action="store_false", help="skip the territory readings")
     ap.add_argument("--dev-plant-territory", default=None, metavar="islands|domains:FRACTION:SIZE", help="TESTS ONLY: a constructed gain at islands or loss in domains, planted by the chain")
     ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS[:all|runs]",
                     help="TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this "
@@ -867,6 +868,8 @@ def main():
                 try: o["cscore_each_cell"] = SA.cscore_in_mix(_vals, _shr, a._cell_dep)   # 2026-10-23 (41.2, 41.3): the C-Score for each cell and the whole genome, flagged
                 except Exception as e: o["cscore_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_metaa_allsites: o["met_a_each_cell_allsites"] = SA.read_in_mix_allsites(_vals, _shr)
+                try: o["met_a_whole"] = SA.read_whole(_vals, _shr)   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
+                except Exception as e: o["met_a_whole"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix
                     try: o["territories"] = SA.territory_reading(_vals, _shr)
                     except Exception as e: o["territories"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}

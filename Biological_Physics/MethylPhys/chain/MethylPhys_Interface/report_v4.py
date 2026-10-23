@@ -85,6 +85,18 @@ def glance_rows(o):
         rows.append(("Met-A, each cell", "How far each blood cell's tagging level has moved (against IAM-Atlas v2.1 in this person's own cell mix)",
                      ", ".join(f"{cellname(x['cell'])} {x['A']:.3f}" for x in rd) + (" (untared)" if rd else ""), "",
                      untested("each blood cell in whole blood", "Met-A")))
+    mw = o.get("met_a_whole") or {}
+    if mw.get("A") is not None:   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged)
+        bp = mw.get("by_place") or {}
+        rows.append(("Met-A, whole sample", "Has the sample as a whole departed from its own expected healthy self, over every atlas site",
+                     f"A {mw['A']} ({mw['sites']:,} sites; " + "; ".join(f"{k} {v['A']}" for k, v in bp.items() if v) + ")", "",
+                     "development, not commissioned; untared (the atlas ruler is not built yet)"))
+    elif mw.get("reason"): rows.append(("Met-A, whole sample", "Has the sample as a whole departed", "", "", "not read: " + str(mw.get("reason"))[:120]))
+    te = (o.get("territories") or {}).get("sets") or {}
+    if any(v.get("A") is not None for v in te.values()):   # 2026-10-23: cancer's own territories (development, flagged)
+        rows.append(("Territories", "Gains at islands every healthy cell keeps unmarked; losses in loosely held domains",
+                     "; ".join(f"{k} A {v.get('A')}, level change {v.get('level_change'):+}" for k, v in te.items() if v.get("A") is not None), "",
+                     "development, not commissioned; untared"))
     sp = o.get("info_sphere") or {}
     if sp.get("territories_read"):   # 2026-10-23: the information sphere, on by default (development, flagged)
         rows.append(("Information sphere", "Which cell programs moved, and how far the sample sits from its own expected healthy self",
