@@ -14,7 +14,7 @@ GSE315366,spent,Box Run 3 test 1 (boxruns/run3/JOBS.md; results/BOXRUN3; LOG 202
 GSE315367,spent,Box Run 3 reading 2 (results/BOXRUN3; LOG 2026-10-09),s3_roadmap_inventory 2026-10-11
 GSE315451,unspent,no read record,s3_roadmap_inventory 2026-10-11
 GSE42861,partly spent,"old VAL record (early_gape_evidence) + Sept-2026 procedures: PHASE1c, BANDv2, LABZERO-01, PROC-CMB-04/05, PROC-MAHA-03, PROC-SKY-01, PROC-TARE-01, PROC-SWITCH-01",s3_roadmap_inventory 2026-10-11
-GSE51032,partly spent,"old VAL-047/048 (early_gape_evidence, CPG VAL package) + Sept-2026 PHASE1, PROC-MF-02/03",s3_roadmap_inventory 2026-10-11
+GSE51032,spent,"old VAL-047/048 (early_gape_evidence, CPG VAL package) + Sept-2026 PHASE1, PROC-MF-02/03 | 2026-10-22: fully spent: old VAL047 phase 12 (early_gape_evidence/.../GSE51032_replication/VAL047_phase12_gse51032_combined_results.json) read the cases (224 breast, 76 colorectal) against the 424 controls by time window before diagnosis; cannot be a blind test",s3_roadmap_inventory 2026-10-11
 GSE51057,partly spent,"old VAL-047/048 + PROC-PREDX-NEUT-01 and PROC-PREDX-SLIDE-01 (2026-10-01, pre-chain-v3 rules) + PROC-SWITCH-01",s3_roadmap_inventory 2026-10-11
 GSE87640,unspent,listed not-in-scope in boxruns/run3/JOBS.md only,s3_roadmap_inventory 2026-10-11
 GSE119260,unspent,no read record,s3_roadmap_inventory 2026-10-11
