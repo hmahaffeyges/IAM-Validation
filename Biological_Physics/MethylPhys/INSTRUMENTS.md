@@ -4,11 +4,11 @@
 
 ## Why a self-reference matters
 
-Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. we found that across 56 kinds of healthy human cells, a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That step is now commissioned: IAM-A reads each sample against its own reference.
+Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. Across 56 kinds of healthy human cells, we found that a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That step is now commissioned: IAM-A reads each sample against its own reference.
 
 ## How they work together
 
-Each instrument answers a different question about the same sample, so together they leave no blind side. The atlas says whose DNA it is. Met-A says how far a tissue's tagging level has drifted toward the ceiling. The C-Score says whether the pattern has started to clump. IAM-A says whether each mark is still held at its own healthy rate. Group-A says whether a whole group has moved, for studies rather than single patients. A tumor that hides from one reading still has to answer to the others.
+Each instrument answers a different question about the same sample, so together they leave no blind side. IAM-Atlas v2.1 is the healthy reference every reading uses. The IAM-Deconvolver says whose DNA it is: which cells are in the sample, and in what shares. Met-A says how far each of those cells has drifted toward the ceiling. The C-Score says whether the pattern has started to clump. IAM-A says whether each mark is still held at its own healthy rate. Group-A says whether a whole group has moved, for studies rather than single patients. Every reading is also drawn on the globe, where it sits on the genome, against its healthy reference. A tumor that hides from one reading still has to answer to the others.
 
 ## Lab methods: what the chemistry and the machines give, and which instrument reads each
 
@@ -16,95 +16,117 @@ DNA's sequence is the same in every cell; the methyl tags are not, and a sequenc
 
 | Method | What it gives | Single molecules? | Who uses it | Which IAM instruments read it |
 |---|---|---|---|---|
-| **Methylation arrays (Illumina 450K, EPIC v1, EPIC v2)** | One average per site (beta value) over every cell in the sample; 450,000 to 935,000 chosen sites; two-color readout | no | Most aging clocks (Horvath, GrimAge) and most cohort studies | Met-A, C-Score, Group-A, Atlas |
-| **Whole-genome bisulfite sequencing (WGBS)** | Every one of about 28 million CpG sites, on single molecules about 100-150 letters long | yes | Reference atlases of human cell types; research | IAM-A, Atlas, C-Score (sequencing reading) |
-| **EM-seq (enzymatic conversion)** | The same readout as WGBS with gentler chemistry: longer, less damaged molecules from less DNA | yes | Newer research and clinical labs | IAM-A, Atlas |
-| **RRBS (reduced representation)** | A cut-and-select step keeps only CpG-dense regions (islands and promoters), about 1 to 3 million sites | yes, islands only | Lower-cost research studies | none of IAM's readings: IAM-A's loose share comes from the rest of the genome, which RRBS skips; the C-Score's sequencing reading failed on it |
+| **Methylation arrays (Illumina 450K, EPIC v1, EPIC v2)** | One average per site (beta value) over every cell in the sample; 450,000 to 935,000 chosen sites; two-color readout | no | Most aging clocks (Horvath, GrimAge) and most cohort studies | Met-A, C-Score, Group-A, IAM-Atlas v2.1, IAM-Deconvolver (the commissioned readings on EPIC v1; on 450K, the atlas, the Deconvolver and Met-A for each cell read and flagged development) |
+| **Whole-genome bisulfite sequencing (WGBS)** | Every one of about 28 million CpG sites, on single molecules about 100-150 letters long | yes | Reference atlases of human cell types; research | IAM-A, IAM-Atlas v2.1; read and flagged development: the IAM-Deconvolver and Met-A for each cell from sequencing values (with the read-count correction), the C-Score's sequencing reading, and the whole-genome IAM-A globe |
+| **EM-seq (enzymatic conversion)** | The same readout as WGBS with gentler chemistry: longer, less damaged molecules from less DNA | yes | Newer research and clinical labs | IAM-A, IAM-Atlas v2.1; read and flagged development: the IAM-Deconvolver and Met-A for each cell from sequencing values, and the whole-genome IAM-A globe |
+| **RRBS (reduced representation)** | A cut-and-select step keeps only CpG-dense regions (islands and promoters), about 1 to 3 million sites | yes, islands only | Lower-cost research studies | the held error is counted on RRBS (the mouse reproduction); no IAM-A reading, because its loose share comes from the rest of the genome, which RRBS skips; the C-Score's sequencing reading failed on it |
 | **Targeted methylation sequencing (capture panels)** | Molecules from selected regions only | yes, selected regions only | Blood tests for cancer such as GRAIL's Galleri, which match a sample against patterns learned from people with and without cancer | not yet assessed |
 | **MeDIP and MRE (enrichment)** | Pull out methylated (or cut unmethylated) DNA in bulk; no reading per site or per molecule | no | Older and lower-cost studies | none: there is nothing per molecule to count (a thermometer handed a barometer's printout) |
 | **Nanopore and PacBio long reads** | Read the tag directly on long native molecules, no conversion chemistry | yes, long | Growing research use | IAM-A: a reader is not built yet (planned) |
 
-**How IAM differs from cohort methods.** Aging clocks and cancer blood tests learn patterns from large groups of people and score a new sample by how closely it matches them. IAM's instruments measure a physical quantity against a floor and a ceiling set by physics. IAM-A goes further: it reads each sample against its own loose share, like checking for a fever with the back of your own hand on your own forehead instead of against a crowd's average.
+**How IAM differs from cohort methods.** Aging clocks and cancer blood tests learn patterns from large groups of people and score a new sample by how closely it matches them. IAM's instruments measure a physical quantity against a floor and a ceiling set by physics. IAM-A goes further: it reads each sample against its own loose share, like checking for a fever with the back of your own hand on your own forehead instead of against a crowd's average. The C-Score reads each sample against its own spread in the same way, so a laboratory's offset cancels without any healthy cohort.
 
 ## IAM-Atlas v2.1
 
-**The question:** Whose DNA is this? Which cells are in a sample, and in what shares?
+**The question:** What does each healthy cell look like, at every site, and how sure are we?
 
-A map of 79 kinds of healthy human cells, built from 21 public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.
+A map of 79 kinds of healthy human cells, built from 21 public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like combining many sensors into one estimate, each weighted by how far it can be trusted.
 
 **Reads:** arrays or sequencing. **Where it stands:** commissioned (79 cell types; met all three sealed bars against both published reference atlases; commissioned for three cell references and the colon and lung tissue tests).
 
-- ATL-005 Atlas v2.1 joint fit: run; last run: not met
+**The tests behind it:**
+
 - ATL-060 Head to head: atlas v2.1 against the source atlases' own references, on their own job: run; last run: met
 - ATL-001 Atlas commissioning as a source of healthy references: run; last run: met
 
+**Earlier rounds and side tests** (kept as recorded; the record says what each one taught):
+
+- ATL-005 Atlas v2.1 joint fit: run; last run: not met
+
 **Record:** [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
-**Next:** Deposited with its DOIs (fitted atlas 10.5281/zenodo.23441999; posterior draws 10.5281/zenodo.23422688). On the site, every cell turns on the Globe Explorer, and every report carries the sample on the same globe against its healthy reference. In the works: the noise maps from the public draws, the information sphere (DEV-SPHERE-01), and the sky's tools on the globe, each with its null beside it (to-do step 28).
+**Next:** Deposited with its DOIs (fitted atlas 10.5281/zenodo.23441999; posterior draws 10.5281/zenodo.23422688). On the site every cell turns on the Globe Explorer, the noise maps from the posterior draws are drawn, and every report carries the sample on the same globe against its healthy reference. In the works: the information sphere (below, In development) and each cell's change layer on the globe.
 
 ## IAM-Deconvolver
 
 **The question:** How much of each cell is in a mixed sample?
 
-Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error).
+Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error). Read and flagged development: every one of the atlas's 79 cells in one run; nine known mixtures of tissue DNA in blood were found at the right size through the one command (mean error 0.0057, nothing that was not put in above 0.0030; `doors/data/DEV_ONE_DRAW_01/run_03/mixes_03_summary.txt`).
 
-**Reads:** arrays. **Where it stands:** commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells).
+**Reads:** arrays; sequencing values (development). **Where it stands:** commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells).
+
+**The tests behind it:**
+
+- ATL-066 Deconvolution tool version 2 on fresh mixtures: run; commissioned (the record says on which bars)
+
+**Earlier rounds and side tests** (kept as recorded; the record says what each one taught):
 
 - ATL-065 Deconvolution tool on atlas v2.1: run; last run: not met
-- ATL-066 Deconvolution tool version 2 on fresh mixtures: run; last run: not met
 
 **Record:** [COMMISSIONING_NOTE_DECONV_V21.md](doors/COMMISSIONING_NOTE_DECONV_V21.md)
 
-**Next:** B and NK cell shares, tissue cells, then cell-free DNA.
+**Next:** Commission the B and NK cell shares; then the full 79-cell panel and plasma, both already read and flagged.
 
 ## Met-A
 
 **The question:** How far has a tissue's tagging level drifted toward the ceiling?
 
-Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4).
+Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4). Read and flagged development: Met-A for every cell the IAM-Deconvolver finds, each against its own profile in IAM-Atlas v2.1, on arrays and on sequencing values.
 
 **Reads:** arrays. **Where it stands:** commissioned (isolated neutrophils).
 
-- COM-METAA-003 Met-A commissioning on isolated neutrophils, EPIC v1: run; last run: progressed
+**The tests behind it:**
+
+- COM-METAA-003 Met-A commissioning on isolated neutrophils, EPIC v1: run; commissioned (the record says on which bars)
+
+**Earlier rounds and side tests** (kept as recorded; the record says what each one taught):
+
 - COM-METAA-039 Met-A read against the sample's own line: run; last run: not met
 - COM-METAA-032 Whole blood back into Met-A scope: designed
 
 **Record:** [COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
 
-**Next:** More cell types, each against its own healthy profile.
+**Next:** The sealed test of Met-A against the atlas with same-slide references; then every cell in a mix.
 
 ## C-Score (the clustering meter)
 
 **The question:** Has the pattern started to clump?
 
-Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.
+Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same. Reproduced through the one command from the raw arrays: the band holds again.
 
 **Reads:** arrays. **Where it stands:** commissioned (tested and commissioned on whole blood, EPIC v1).
+
+**The tests behind it:**
 
 - COM-CSCORE-011 C-score healthy band test: run; last run: met
 - COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run: met
 
 **Record:** [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
 
-**Next:** Real cancers read on the gauge; then 450K, EPIC v2 and plasma.
+**Next:** Real cancers read on the gauge; then 450K, EPIC v2 and plasma; new same-person repeats from a series that did not help build the band. Its family (below, In development): the whole-genome C-Score against the atlas, and IAM-A's.
 
 ## IAM-A
 
 **The question:** Is each mark still held at its own healthy rate?
 
-Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the healthy middle comes from the sample itself.
+Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the healthy middle comes from the sample itself. Every reading states its own counting error: how many held-error chances it counted and the range that leaves.
 
 **Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite).
 
+**The tests behind it:**
+
+- COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: run; last run: met
 - PHY-045 The loose rate read off the line: every healthy cell's held error from its own loose share: run; last run: met
 - PHY-048 The loose-end line at the one-Landauer-bit cut: run; last run: met
+
+**Earlier rounds and side tests** (kept as recorded; the record says what each one taught):
+
 - PHY-049 The loose share from each sample's own molecules: run; last run: not met
 - PHY-043 Tumor backbone against the writer's nameplate: run; last run: progressed
-- COM-IAMA-052 IAM-A atlas-free commissioning: one grand sealed test on fresh data: run; last run: met
 
 **Record:** [COMMISSIONING_NOTE_IAMA.md](doors/COMMISSIONING_NOTE_IAMA.md)
 
-**Next:** Other healthy blood cells, then tissue and cell-free DNA; the tumor pairs read on the gauge.
+**Next:** Other healthy blood cells, then tissue and cell-free DNA; the tumor pairs read on the gauge; the firm rate derived again on the commissioned counter (the top physics item); the whole-genome IAM-A globe (development).
 
 ## Group-A
 
@@ -114,11 +136,51 @@ Single blood readings are too noisy for one person on arrays, but a group averag
 
 **Reads:** arrays. **Where it stands:** commissioned (groups of whole bloods run in one series, EPIC v1).
 
-- GRP-004 DEV-GROUP-01 step 2: group comparison, one cancer at a time, patients and healthy controls in the same series: run
+**The tests behind it:**
+
+- GRP-004 Group-A on groups of whole bloods in one series: commissioning, then one cancer at a time: run; commissioned (the record says on which bars)
 
 **Record:** [COMMISSIONING_NOTE_GROUPA.md](doors/COMMISSIONING_NOTE_GROUPA.md)
 
 **Next:** One cancer at a time, patients and healthy controls from the same series.
+
+## Support tools
+
+Not instruments: the steps and pictures every reading passes through.
+
+- **Intake and calibration.** Takes an array's raw intensities, checks every control, and turns them into tagging levels on one fixed scale, refusing what it cannot read and saying why.
+- **The tare.** Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease.
+- **Composition.** For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells.
+- **The chain and its report.** Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit.
+- **The sky sphere and the Globe Explorer.** Lays every site of IAM-Atlas v2.1 on one sphere in genome order, the way a microwave sky is drawn: equal area, no edges, clustered change shows as patches, and the microwave-sky toolset applies. Every report draws the sample on it against its healthy reference; the change is fixed by the measurement (blocks of 10 neighboring sites beyond the 5 % family-wise line), and a slider only fades the unchanged background. The Explorer carries the atlas's 79 cells and the example readings.
+
+## In development
+
+Read and flagged development, by the same chain; each becomes an instrument only through its own sealed test.
+
+### The information sphere
+
+The second sphere. The sky sphere places a site by where it sits on the genome; the information sphere places it by how it behaves across the 79 healthy cells, so sites that act alike land together wherever they are on the DNA, and the distance between two states is the Fisher-Rao distance of information geometry, the local form of relative entropy. The sky sphere says where a change is; the information sphere says what kind of change it is. Its construction takes each site's level out first, because on real cells a site's level otherwise sets its place. The synthetic tests pass; on the real atlas it met two of three checks, and the next test reads the third against level-matched groups.
+
+**Next:** The test on the real atlas with level-matched lines; then a person's information sphere against their own healthy one. **Record:** [DEV_SPHERE_01.md](doors/DEV_SPHERE_01.md)
+
+### The C-Score family
+
+The C-Score reads how a change is laid out along the genome, not how large it is, against the sample's own spread, so a laboratory's offset cancels. Three versions: the commissioned one at Met-A's neutrophil sites; the whole-genome version on the globe's change map against IAM-Atlas v2.1; and IAM-A's, the clustering of held-error departures along the genome on single molecules.
+
+**Next:** Each version read on healthy samples first, then on tumors. **Record:** [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
+
+### Every cell in a mix
+
+One run of the one command finds every cell of IAM-Atlas v2.1 in a sample and reads Met-A for each, against its own healthy profile; each cell also gets its own change layer on the globe. Sites held by one cell alone are the next test, so a loss across a cell's whole pattern can be put on the right cell.
+
+**Next:** Each cell's healthy spread across Group-A's 278 bloods. **Record:** [DEV_EACH_CELL_01.md](doors/DEV_EACH_CELL_01.md)
+
+### One blood draw
+
+One tube, two halves: the buffy coat (the person's own white cells, long DNA) and the plasma (cell-free DNA). The one command reads both and writes one record, including what the plasma holds that the person's own white cells do not explain, and IAM-Atlas v2.1 says which tissue it came from. Constructed draws with known answers test it; a public set of matched halves from healthy people is held unread for the test that counts.
+
+**Next:** The smallest share each instrument reads at each depth; then the test on the held set. **Record:** [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md)
 
 ## Sex and the X chromosome
 
@@ -133,9 +195,9 @@ Single blood readings are too noisy for one person on arrays, but a group averag
 | Noise index | 48,528 sites, 95 on the X and 15 on the Y. Even if every one of them read at maximum noise, the index could move by at most 0.0023 bits (0.23 % of its 1-bit scale). |
 | Stage A, the blood mix | 963 markers, 0 on the X or Y. |
 | IAM-Deconvolver | 600 markers, 0 on the X, 0 on the Y. |
-| IAM-A | Each sample is read against its own predicted error, so no other person, of either sex, enters its reading. Aligned files (BAM) are counted on chromosomes 1 to 22 only. From a .pat file the loose share is counted on chromosomes 1 to 22, and the held error on every chromosome the file holds (the route IAM-A was commissioned on; a recount with the X and Y left out is on the to-do list, Decoder finding F37). |
+| IAM-A | Each sample is read against its own predicted error, so no other person, of either sex, enters its reading. Aligned files (BAM) are counted on chromosomes 1 to 22 only. From a .pat file the loose share is counted on chromosomes 1 to 22, and the held error on every chromosome the file holds (the route IAM-A was commissioned on). With the X and Y left out, IAM-A moves by -0.32 % on average (at most -0.71 %), well inside the band, so the line and the band are kept (Decoder finding F37). |
 | Group-A | Compares groups run in the same series; its sealed bar 2 is a women-against-men null (above). |
-| IAM-Atlas v2.1 and the globes | 813,951 atlas sites, 14,759 on the X and 3 on the Y. The atlas's donors are women and men, so it is 2.5 to 3.6 times less sure on the X and Y than elsewhere (the noise globe shows it). Every change count on a globe is also given on the X and Y, the page prints the sex Stage 0 read, and a tumor against its own normal tissue (same person, same sex) is counted with and without the X and Y: in a tumor an X change can be real biology. |
+| IAM-Atlas v2.1 and the globes | 813,951 atlas sites, 14,759 on the X and 3 on the Y. The atlas's donors are women and men, so it is 2.5 to 3.6 times less sure on the X and Y than elsewhere (the noise globe shows it). Every change count on a globe is also given on the X and Y, and the page prints the sex Stage 0 read. When a tumor is drawn against its own normal tissue (same person, same sex), its change is counted with and without the X and Y: in a tumor an X change can be real biology. |
 <!-- SEX-SECTION:END -->
 
 ## Candidate instruments
@@ -144,19 +206,7 @@ Single blood readings are too noisy for one person on arrays, but a group averag
 
 Candidate instruments: every reading we could build on the methylation channel, each with the term of the law it reads, its substrate, its blind spot, its advantage, what would break it, and the next concrete step. The point is NOT to pick one - several instruments with different blind spots, agreeing on the same sample, is worth more than one instrument we trust. Priority is by (decides something) x (free or cheap) / (blocked).
 
-### 1. Clustering meter (C-score): finish its commissioning
-
-- **Reads:** whether losses are CLUSTERED (whole stretches) rather than scattered; the shape of the loss, not its size
-- **Substrate:** arrays (EPIC v1 now; 450K and EPIC v2 later) · **Cost:** free (a metadata search, then one laptop read)
-- **Where it stands:** DONE: last check met (same person twice, SD 0.038 against 0.125; third laboratory 172/173); commissioned on whole blood. test (a) MET in two laboratories that had no part in setting the band (34/35 and 22/23 healthy, 95 % bar)
-- **Still open:** new SAME-PERSON replicate arrays, from a set that did not help build the band, to confirm the repeatability bar
-- **Advantage:** clustering is the cancer fingerprint; ordinary aging and inflammation scatter errors instead. Most specific thing we have
-- **Blind spot:** whole blood so far, while the meter it rides on is commissioned on sorted cells; that scope gap must be reconciled before any detection claim; and one array decided the second test (22/23 = 95.65 % against 95 %)
-- **What would break it:** healthy replicate pairs from one person differing by more than the band's own tolerance
-- **Next step:** search GEO for healthy EPIC v1 series with same-person repeats, excluding every set in the spent register
-- **Record:** [CSCORE_COMMISSIONING_PLAN.md](doors/CSCORE_COMMISSIONING_PLAN.md)
-
-### 2. Territory contrast: fidelity in fragile territory over fidelity in stable territory
+### 1. Territory contrast: fidelity in fragile territory over fidelity in stable territory
 
 - **Reads:** WHERE the loss happens first; a sustained energy shortfall should take the late-replicating, solo-WCGW territory before it touches housekeeping promoters
 - **Substrate:** arrays (works today, no new data) · **Cost:** free (design, synthetic test, then existing arrays)
@@ -168,19 +218,19 @@ Candidate instruments: every reading we could build on the methylation channel, 
 - **Next step:** write DEV-TERRITORY-02 with the two-number signature and the measured ceiling floor, bars first
 - **Record:** [DEV_TERRITORY_01.md](doors/DEV_TERRITORY_01.md)
 
-### 3. Met-A on whole blood: measure the real healthy spread
+### 2. Met-A on whole blood: each cell in the mix, and the whole-sample reading
 
 - **Reads:** total disorder above what the estimated cell mixture explains; the existing composition-aware reading, in a tube of blood
 - **Substrate:** arrays · **Cost:** free (one laptop read of arrays already on disk)
-- **Where it stands:** MEASURED on real healthy arrays, Corrected: read by the chain itself (run_neutrophil, in the C-score band test), healthy people differ by 2.01 % (relative SD; 95th percentile +3.33 %), and the chain's leverage is 2.12 % of the reading per 1 % pattern loss, so about a 1.57 % loss clears the healthy 95th percentile. The first measurement (6.36 %) skipped the chain's self-tare step (Stage T step 1) and is withdrawn. GROUP ARM (DEV-GROUP-01): the sham passes; two healthy groups from two laboratories agree to 0.16 % after taring, but differ by 3.69 % UNTARED, at 6.5 standard errors. A group study is admissible only when patients and healthy comparisons are run in the SAME series
+- **Where it stands:** MEASURED on real healthy arrays, read by the chain itself (run_neutrophil, in the C-score band test), healthy people differ by 2.01 % (relative SD; 95th percentile +3.33 %), and the chain's leverage is 2.12 % of the reading per 1 % pattern loss, so about a 1.57 % loss clears the healthy 95th percentile. The first measurement (6.36 %) skipped the chain's self-tare step (Stage T step 1) and is withdrawn. GROUP ARM (DEV-GROUP-01): the sham passes; two healthy groups from two laboratories agree to 0.16 % after taring, but differ by 3.69 % UNTARED, at 6.5 standard errors. A group study is admissible only when patients and healthy comparisons are run in the SAME series. Read and flagged development: Met-A for each cell in a mix; and the every-site reading, more sensitive than the identity sites but unable to say which cell moved
 - **Still open:** per-person detection in whole blood, now open: the corrected spread is one laboratory's 23 arrays and one leverage array; a sealed per-person test across laboratories decides it
 - **Advantage:** group comparisons are within reach NOW: with 50 people a mean loss of about 0.27 % separates the group from healthy, and the function already exists in the chain
 - **Blind spot:** an array averages molecules before anyone reads them, so one cell type can never be isolated. Across laboratories without a shared series the raw reading carries a 3.7 % offset, which is inside the tumor range, so every comparison needs the same-series tare
 - **What would break it:** healthy people differing by more than the leverage of the signal we are looking for (then arrays cannot carry blood and sequencing is required)
-- **Next step:** commission Group-A (to-do step 20); then a sealed per-person test in whole blood, across laboratories
+- **Next step:** the every-site reading's healthy spread across Group-A's 278 bloods; then a sealed per-person test in whole blood, across laboratories
 - **Record:** [DEV_BLOOD_SENSITIVITY_01.md](doors/DEV_BLOOD_SENSITIVITY_01.md)
 
-### 4. Distance to the ceiling
+### 3. Distance to the ceiling
 
 - **Reads:** how close a sample sits to the derived entropy ceiling; the right-hand mark of the gauge, past which the reading stops rising with further loss
 - **Substrate:** arrays and sequencing · **Cost:** free (arithmetic on readings we already have)
@@ -192,33 +242,33 @@ Candidate instruments: every reading we could build on the methylation channel, 
 - **Next step:** compute it for every sealed cancer reading already in the records and check none is past the turnover
 - **Record:** [DEV_CEILING_AUDIT_01.md](doors/DEV_CEILING_AUDIT_01.md)
 
-### 5. Run-length spectrum of losses
+### 4. Run-length spectrum of losses
 
 - **Reads:** the SHAPE of clustering; exponential against heavy-tailed, which separates a processive mechanism from independent point losses
 - **Substrate:** sequencing only (needs several sites on one molecule) · **Cost:** laptop work on reads already in storage; no new sequencing
 - **Where it stands:** not written
-- **Still open:** the derivation of the expected shape under each mechanism, then a synthetic test. Gated: the sequencing instrument is held, though its trim rule now has six planted bars met (DEV-IAMA-TRIM-01) and needs one cheap box read to calibrate
+- **Still open:** the derivation of the expected shape under each mechanism, then a synthetic test. Gated: the head-of-run bias the trim rule was written for (it held the earlier sequencing reading, since retired) must be checked on IAM-A's commissioned counter before a per-molecule reading spans laboratories
 - **Advantage:** same data as the clustering meter, different question; distinguishes mechanism rather than only size
 - **Blind spot:** impossible on arrays; needs depth, so shallow libraries are out
 - **What would break it:** the measured shape matching neither mechanism's prediction in a case where the mechanism is known
-- **Next step:** after the sequencing instrument is released from hold
+- **Next step:** after that check on IAM-A's commissioned counter
 - **Record:** [DEV_IAMA_TRIM_01.md](doors/DEV_IAMA_TRIM_01.md)
 
-### 6. Tail of fragments in plasma (the early-detection instrument)
+### 5. Tail of fragments in plasma (the early-detection instrument)
 
 - **Reads:** the few badly disordered MOLECULES in a plasma sample, not the average; because early cancer is a tiny minority of fragments and an average hides it by construction
 - **Substrate:** sequencing of cell-free DNA · **Cost:** box time per sample; the expensive one
 - **Where it stands:** not written; gated
-- **Still open:** the sequencing instrument is held, the atlas is not commissioned, and a healthy plasma reference does not exist yet
+- **Still open:** the head-of-run check on IAM-A's commissioned counter, and a healthy plasma reference; the one-draw work builds toward it, and a public set of matched halves is held unread for the test that counts
 - **Advantage:** the highest reward on the whole board; it is the blood test, and a tail statistic is the right shape for early detection
 - **Blind spot:** needs depth and fragment length; a shallow or heavily fragmented sample has no tail to read. Composition of plasma is itself a question
 - **What would break it:** the tail in healthy plasma being as heavy as in known cancer plasma
-- **Next step:** blocked behind the sequencing instrument's trim rule and the atlas; do not spend box money on it yet
+- **Next step:** behind the head-of-run check and a healthy plasma reference
 - **Record:** [DEV_IAMA_TRIM_01.md](doors/DEV_IAMA_TRIM_01.md)
 
-### Not an instrument, but it releases two of them: the trim rule
+### Not an instrument: the trim rule, and the head-of-run check it calls for
 
-The sequencing instrument is held because the same kit read differently in two laboratories, and the cause is where in each file we read: at the head the failing libraries read 11-14 % below the controls read at the SAME position, and Stage B had read the head (part 0 reproduces each sealed value to 0.0 %). Reading more places failed its planted test - pooling divides a bias rather than removing it. The remedy, DEV-IAMA-TRIM-01, excludes the unsettled head and decides how much from the raw reads' own chemistry (the non-CpG C-to-T fraction in windows, no alignment and no IAM-A): six planted bars, all met, including blindness to the direction of the error and the declared limit that it must not act without independent evidence. Nothing real has been trimmed yet; calibration is one cheap box read, and the laboratory check must then be rerun on the WHOLE stage because the five diagnostic libraries are spent. Instruments 5 and 6 are both behind it.
+The earlier sequencing reading (Stage B) was held because the same kit read differently in two laboratories, and the cause is where in each file it read: at the head the failing libraries read 11-14 % below the controls read at the SAME position. Reading more places failed its planted test - pooling divides a bias rather than removing it. The remedy, DEV-IAMA-TRIM-01, excludes the unsettled head and decides how much from the raw reads' own chemistry (the non-CpG C-to-T fraction in windows, no alignment and no IAM-A): six planted bars, all met. That reading was since retired; IAM-A was commissioned on a different counter (Stage Q2). Whether the head-of-run bias touches the commissioned counter is checked before any per-molecule reading spans laboratories. Candidates 4 and 5 are both behind that check.
 
 _Several instruments, each with a different blind spot, reading the same sample and agreeing - that is worth far more than one instrument we trust. Disagreement is also informative: a sample that reads normal on total disorder and abnormal on clustering is telling us which channel failed._
 

@@ -17,7 +17,8 @@ def load():
     return C, M
 def row_line(r):
     s = STATUS.get(r["status"], r["status"]); runs = r.get("runs") or []
-    if runs: s += f"; last run {runs[-1]['date']}: {OUTCOME.get(runs[-1]['outcome'], runs[-1]['outcome'])}"
+    if any(str(x.get("note", "")).startswith("COMMISSIONED") for x in runs): s += "; commissioned (the record says on which bars)"   # 2026-10-23
+    elif runs: s += f"; last run {runs[-1]['date']}: {OUTCOME.get(runs[-1]['outcome'], runs[-1]['outcome'])}"
     return f"{r['id']} {r['title'].split(' (')[0]}: {s}"
 def stage(inst, M):
     rows = [M[i] for i in inst["rows"] if i in M]
@@ -35,7 +36,16 @@ def markdown(C, M):
         L += [f"| **{m['name']}** | {m['what']} | {m['molecules']} | {m['industry']} | {m['readers']} |" for m in C["methods"]] + ["", C.get("cohort_note", ""), ""]
     for i in C["instruments"]:
         L += [f"## {i['name']}", "", f"**The question:** {i['question']}", "", i["how"], "", f"**Reads:** {i['reads']}. **Where it stands:** {stage(i, M)}.", ""]
-        L += [f"- {row_line(M[r])}" for r in i["rows"] if r in M] + ["", f"**Record:** [{os.path.basename(i['record'])}]({i['record']})", "", f"**Next:** {i['next']}", ""]
+        L += ["**The tests behind it:**", ""] + [f"- {row_line(M[r])}" for r in i["rows"] if r in M] + [""]
+        if i.get("history_rows"):   # earlier rounds and side tests, kept as recorded, never shown as the instrument's own result (2026-10-23)
+            L += ["**Earlier rounds and side tests** (kept as recorded; the record says what each one taught):", ""] + [f"- {row_line(M[r])}" for r in i["history_rows"] if r in M] + [""]
+        L += [f"**Record:** [{os.path.basename(i['record'])}]({i['record']})", "", f"**Next:** {i['next']}", ""]
+    if C.get("support_tools"):   # the tools every instrument rides on (2026-10-23: in the source but never printed)
+        L += ["## Support tools", "", "Not instruments: the steps and pictures every reading passes through.", ""] + [f"- **{t['name']}.** {t['what']}" for t in C["support_tools"]] + [""]
+    if C.get("in_development"):   # read and flagged development, explained in full (author 2026-10-23)
+        L += ["## In development", "", "Read and flagged development, by the same chain; each becomes an instrument only through its own sealed test.", ""]
+        for d in C["in_development"]:
+            L += [f"### {d['name']}", "", d["what"], "", f"**Next:** {d['next']} **Record:** [{os.path.basename(d['record'])}]({d['record']})", ""]
     import instruments_board as IB   # the candidates board, merged here 2026-10-16 (one catalogue)
     cb, _ = IB.build(base=ROOT); cb = cb.split("\n")
     import sex_chromosomes as _sx   # the X and Y in every instrument, from the chain's own files (author 2026-10-21)
@@ -49,7 +59,7 @@ def table(C, M):
     return "\n".join(L)
 def problems(C, M):
     sys.path.insert(0, os.path.join(ROOT, "CANON")); import now_running as NR
-    P = [f"{i['id']}: manifest row {r} does not exist" for i in C["instruments"] for r in i["rows"] if r not in M] + [f"{i['id']}: record {i.get('record')} does not exist" for i in C["instruments"] if not (i.get("record") and os.path.exists(os.path.join(ROOT, i["record"])))]
+    P = [f"{i['id']}: manifest row {r} does not exist" for i in C["instruments"] for r in i["rows"] + i.get("history_rows", []) if r not in M] + [f"in development {d['name']}: record {d['record']} does not exist" for d in C.get("in_development", []) if not os.path.isfile(os.path.join(ROOT, d["record"]))] + [f"{i['id']}: record {i.get('record')} does not exist" for i in C["instruments"] if not (i.get("record") and os.path.exists(os.path.join(ROOT, i["record"])))]
     txt = " ".join([C["why_self_reference"], C["together"]] + [i[k] for i in C["instruments"] for k in ("question", "how", "next")])
     if NR.HYPE.search(txt): P.append(f"hype word '{NR.HYPE.search(txt).group(0)}'")
     if NR.VOICE.search(txt): P.append(f"voice '{NR.VOICE.search(txt).group(0)}' (write as we)")

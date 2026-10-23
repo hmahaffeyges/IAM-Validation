@@ -6,32 +6,32 @@ Every reading in this part comes from one of a small set of tools. Each answers 
 \section{The instruments}
 
 \subsection*{IAM-Atlas v2.1}
-\textbf{The question.} Whose DNA is this? Which cells are in a sample, and in what shares?\par
-\textbf{How it reads.} A map of 79 kinds of healthy human cells, built from 21 public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like a state estimator across the whole interconnection: many utilities' meters, each weighted by how far it can be trusted.\par
+\textbf{The question.} What does each healthy cell look like, at every site, and how sure are we?\par
+\textbf{How it reads.} A map of 79 kinds of healthy human cells, built from 21 public sources on arrays and sequencing, fitted as one model so every spot on the genome carries its value and its uncertainty. Like combining many sensors into one estimate, each weighted by how far it can be trusted.\par
 \textbf{Its specialty.} It is the map every other instrument reads against: for 79 healthy cell types, the expected tagging at every site with its range of error, so a sample can be split into its cells and each cell compared with its own healthy kind. (Chapter~\ref{ch:atlas})\par
 \textbf{Reads from.} arrays or sequencing. \textbf{Status.} Commissioned (79 cell types; met all three sealed bars against both published reference atlases; commissioned for three cell references and the colon and lung tissue tests).\par
 
 \subsection*{IAM-Deconvolver}
 \textbf{The question.} How much of each cell is in a mixed sample?\par
-\textbf{How it reads.} Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error).\par
+\textbf{How it reads.} Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with its range, after a sample check that refuses arrays it cannot read. On 200 fresh mixtures from a laboratory the atlas never saw, the shares came back within 0.016 of the truth (mean absolute error). Read and flagged development: every one of the atlas's 79 cells in one run; nine known mixtures of tissue DNA in blood were found at the right size through the one command (mean error 0.0057, nothing that was not put in above 0.0030; `doors/data/DEV\_ONE\_DRAW\_01/run\_03/mixes\_03\_summary.txt`).\par
 \textbf{Its specialty.} It turns a whole-blood array into its cells, so each instrument reads the cell it was built for and a change in the mix is not mistaken for a change in the cells. (Chapter~\ref{ch:atlas})\par
-\textbf{Reads from.} arrays. \textbf{Status.} Commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells).\par
+\textbf{Reads from.} arrays; sequencing values (development). \textbf{Status.} Commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells).\par
 
 \subsection*{Met-A}
 \textbf{The question.} How far has a tissue's tagging level drifted toward the ceiling?\par
-\textbf{How it reads.} Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4).\par
+\textbf{How it reads.} Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4). Read and flagged development: Met-A for every cell the IAM-Deconvolver finds, each against its own profile in IAM-Atlas v2.1, on arrays and on sequencing values.\par
 \textbf{Its specialty.} Cost and reach: a single array, the most common methylation measurement in the world, read on the gauge against the same cell type's healthy reference, with its detection limit printed. (Chapter~\ref{ch:meta})\par
 \textbf{Reads from.} arrays. \textbf{Status.} Commissioned (tested and commissioned on isolated neutrophils, EPIC v1).\par
 
 \subsection*{C-Score (the clustering meter)}
 \textbf{The question.} Has the pattern started to clump?\par
-\textbf{How it reads.} Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same.\par
+\textbf{How it reads.} Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same. Reproduced through the one command from the raw arrays: the band holds again.\par
 \textbf{Its specialty.} The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome. (Chapter~\ref{ch:cscore})\par
 \textbf{Reads from.} arrays. \textbf{Status.} Commissioned (tested and commissioned on whole blood, EPIC v1).\par
 
 \subsection*{IAM-A}
 \textbf{The question.} Is each mark still held at its own healthy rate?\par
-\textbf{How it reads.} Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the healthy middle comes from the sample itself.\par
+\textbf{How it reads.} Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the healthy middle comes from the sample itself. Every reading states its own counting error: how many held-error chances it counted and the range that leaves.\par
 \textbf{Its specialty.} That it reads single molecules and carries its own reference: how well each molecule held its marks, compared with the healthy level set by the cell's own loose share, with no library of other people's cells. (Chapter~\ref{ch:iama})\par
 \textbf{Reads from.} single-molecule sequencing (bisulfite, EM-seq; nanopore next). \textbf{Status.} Commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite).\par
 
@@ -47,8 +47,8 @@ Every reading in this part comes from one of a small set of tools. Each answers 
 \item \textbf{Intake and calibration.} Takes an array's raw intensities, checks every control, and turns them into tagging levels on one fixed scale, refusing what it cannot read and saying why. (Chapter~\ref{ch:instrument})
 \item \textbf{The tare.} Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease. (Chapter~\ref{ch:instrument})
 \item \textbf{Composition.} For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells. (Chapter~\ref{ch:chain})
-\item \textbf{The sky map.} Lays the genome on a sphere, chromosome by chromosome, and draws each site's departure from healthy, the way a microwave sky is drawn; the same residuals the clustering meter scores. (Chapter~\ref{ch:skytools})
 \item \textbf{The chain and its report.} Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit. (Chapter~\ref{ch:report})
+\item \textbf{The sky sphere and the Globe Explorer.} Lays every site of IAM-Atlas v2.1 on one sphere in genome order, the way a microwave sky is drawn: equal area, no edges, clustered change shows as patches, and the microwave-sky toolset applies. Every report draws the sample on it against its healthy reference; the change is fixed by the measurement (blocks of 10 neighboring sites beyond the 5 \% family-wise line), and a slider only fades the unchanged background. The Explorer carries the atlas's 79 cells and the example readings. (Chapter~\ref{ch:sky})
 \end{itemize}
 
 \section{Candidates}
@@ -65,5 +65,5 @@ Readings still being designed, each with what it would add and what it cannot se
 
 \section{Why several}
 
-Each instrument answers a different question about the same sample, so together they leave no blind side. The atlas says whose DNA it is. Met-A says how far a tissue's tagging level has drifted toward the ceiling. The C-Score says whether the pattern has started to clump. IAM-A says whether each mark is still held at its own healthy rate. Group-A says whether a whole group has moved, for studies rather than single patients. A tumor that hides from one reading still has to answer to the others.
+Each instrument answers a different question about the same sample, so together they leave no blind side. IAM-Atlas v2.1 is the healthy reference every reading uses. The IAM-Deconvolver says whose DNA it is: which cells are in the sample, and in what shares. Met-A says how far each of those cells has drifted toward the ceiling. The C-Score says whether the pattern has started to clump. IAM-A says whether each mark is still held at its own healthy rate. Group-A says whether a whole group has moved, for studies rather than single patients. Every reading is also drawn on the globe, where it sits on the genome, against its healthy reference. A tumor that hides from one reading still has to answer to the others.
 

@@ -56,7 +56,7 @@ gravity follows from the thermodynamics of such surfaces.
 
 | Instrument | The question it answers | Where it stands |
 |---|---|---|
-| **IAM-Atlas v2.1** | Whose DNA is this? Which cells are in a sample, and in what shares? | commissioned (79 cell types; met all three sealed bars against both published reference atlases; commissioned for three cell references and the colon and lung tissue tests) |
+| **IAM-Atlas v2.1** | What does each healthy cell look like, at every site, and how sure are we? | commissioned (79 cell types; met all three sealed bars against both published reference atlases; commissioned for three cell references and the colon and lung tissue tests) |
 | **IAM-Deconvolver** | How much of each cell is in a mixed sample? | commissioned (blood-cell shares on arrays, tested on neutrophils, monocytes, CD4 T and CD8 T cells) |
 | **Met-A** | How far has a tissue's tagging level drifted toward the ceiling? | commissioned (isolated neutrophils) |
 | **C-Score (the clustering meter)** | Has the pattern started to clump? | commissioned (tested and commissioned on whole blood, EPIC v1) |

@@ -293,7 +293,7 @@
    "done_when": "the recount scored once and recorded; a sealed prediction written or the derivation recorded as not supported",
    "rows": [
     "PHY-006",
-    "PHY-049"
+    "PHY-050"
    ],
    "status": "open",
    "done_date": "",
@@ -858,23 +858,23 @@
     {
      "id": "39.13",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "done",
      "what": "Instrument catalogue, line by line (author 2026-10-22): update stale entries; review every candidate instrument (some started, in development or commissioned) for its true status and for deployment; add the globes (address sky sphere, Globe Explorer, per-cell change layers) and the information sphere (in development, explained in full); add the C-Score family (38.5)",
-     "next": "no machine needed: read CANON/catalogue.json entry by entry against the manifest, the plan and the records; list every change to the author before it is pushed"
+     "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md (generated from CANON/catalogue.json and CANON/instruments.json)"
     },
     {
      "id": "39.14",
      "date": "2026-10-23",
      "status": "open",
      "what": "One source per fact (author 2026-10-23: 'we are not hand updating things like this because that is how we end up with all kinds of stale information'): (1) INTRODUCTION.md's per-instrument 'Commissioned' lines generated from CANON/catalogue.json into a marked block, checked by the push gate; (2) the information sphere described once in the canon and drawn into the book's AstroGenetics chapter, the atlas story and the Q&A; (3) a status-claim check over every public document, built from the catalogue, refusing 'X is not commissioned' or 'once X is commissioned' for a commissioned instrument, naming file and line",
-     "next": "build (1)-(3); then push the line-by-line catalogue corrections (39.13) through them"
+     "next": "(3) status_claims.py joins the push gate in this push; still open: (1) INTRODUCTION.md's instrument lines generated from CANON/catalogue.json; (2) one source for the information sphere's write-up"
     },
     {
      "id": "39.15",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "done",
      "what": "No dates in public prose (author 2026-10-23: 'dates belong nowhere except the logs ... NEVER in the book or webpage or anywhere in prose'): CANON/no_dates.py lists 348 dates in 41 of 136 public documents; fix at the sources (four_domains.json, catalogue.json, instruments.json, the manifest status lines, verified.json, the README and website generators), then the hand-written chapters; the check joins the push gate at zero",
-     "next": "generators and canon files first; then chapters line by line; with 39.13 and 39.14 in one push"
+     "record": "CANON/undate.py; CANON/no_dates.py"
     },
     {
      "id": "38.6",
