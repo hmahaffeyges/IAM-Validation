@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1027,
+   "lines": 1037,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -282,9 +282,9 @@
      "function": "main",
      "name": "main",
      "line": 350,
-     "end": 1024,
+     "end": 1034,
      "args": [],
-     "lines": 675,
+     "lines": 685,
      "doc": "",
      "constants": [
       "BIO",
@@ -307,8 +307,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 544,
-     "end": 548,
+     "line": 546,
+     "end": 550,
      "args": [
       "r"
      ],
@@ -324,8 +324,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 779,
-     "end": 786,
+     "line": 781,
+     "end": 788,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -337,8 +337,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 968,
-     "end": 969,
+     "line": 978,
+     "end": 979,
      "args": [
       "b",
       "it",
@@ -6259,7 +6259,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 281,
+   "lines": 335,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6585,6 +6585,64 @@
       "FLAG",
       "MIX_COVER"
      ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "territory_sets",
+     "name": "territory_sets",
+     "line": 290,
+     "end": 306,
+     "args": [],
+     "lines": 17,
+     "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
+     "constants": [
+      "ATLAS",
+      "NA"
+     ],
+     "data_files": [
+      "import pyarrow.parquet",
+      "sites.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "territory_reading",
+     "name": "territory_reading",
+     "line": 308,
+     "end": 326,
+     "args": [
+      "beta",
+      "shares"
+     ],
+     "lines": 19,
+     "doc": "The sample's disorder at each territory against IAM-Atlas v2.1 mixed in its own shares (read_in_mix's mix rule): A = mean H(beta) over mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of the set this array measures. Development, flagged; healthy is read first and its spread sets any line, not this function.",
+     "constants": [
+      "FLAG",
+      "MIX_COVER",
+      "TERR_RULES"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "plant_territory",
+     "name": "plant_territory",
+     "line": 328,
+     "end": 334,
+     "args": [
+      "beta",
+      "name",
+      "frac",
+      "size",
+      "seed"
+     ],
+     "lines": 7,
+     "doc": "TESTS ONLY: a constructed change at one territory: at a seeded fraction frac of its measured sites, islands gain (beta + size(1 - beta)) and domains lose (beta (1 - size)). Returns the planted values and how many sites moved.",
+     "constants": [],
      "data_files": [],
      "traced_calls": {}
     }
@@ -7505,5 +7563,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 382
+ "n_functions": 385
 }

@@ -1,0 +1,4 @@
+Stage D21: cell shares against IAM-Atlas v2.1
+
+terr_none: Met-A (neutrophils) 0.9845 (withheld: noise index 0.17179 > 0.149 and no same-run tare; A printed as a number only) | C 0.9686 | tare None
+report: /tmp/terr01/none.html | bundle: /tmp/terr01/none.json | evidence ledger: /tmp/terr01/evidence_ledger.jsonl (one row appended)

@@ -1,0 +1,5 @@
+PLANTED: PLANTED (constructed for a test): domains loss of 10% at 20% of the set, 19993 sites
+Stage D21: cell shares against IAM-Atlas v2.1
+
+terr_domains_0.2_0.1: Met-A (neutrophils) 0.9808 (withheld: noise index 0.1751 > 0.149 and no same-run tare; A printed as a number only) | C 0.9886 | tare None
+report: /tmp/terr01/domains_0.2_0.1.html | bundle: /tmp/terr01/domains_0.2_0.1.json | evidence ledger: /tmp/terr01/evidence_ledger.jsonl (one row appended)

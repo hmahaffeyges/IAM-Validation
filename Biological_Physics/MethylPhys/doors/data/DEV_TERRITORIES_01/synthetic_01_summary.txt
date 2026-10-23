@@ -1,0 +1,6 @@
+DEV-TERRITORIES-01 synthetic test 1: territory readings through run_sample.py on GSM7508429 (healthy whole blood), untared
+none             | islands: A 1.17607 (se 0.000785), level change 0.01211, 66935 of 66986 sites | domains: A 1.11469 (se 0.000511), level change -0.02004, 99986 of 100101 sites
+islands_0.2_0.1  | islands: A 1.40054 (se 0.002046), level change 0.03075, 66935 of 66986 sites | domains: A 1.1147 (se 0.000511), level change -0.02004, 99986 of 100101 sites
+islands_0.2_0.3  | islands: A 1.6293 (se 0.003882), level change 0.06802, 66935 of 66986 sites | domains: A 1.11472 (se 0.000511), level change -0.02004, 99986 of 100101 sites
+domains_0.2_0.1  | islands: A 1.17605 (se 0.000785), level change 0.01211, 66935 of 66986 sites | domains: A 1.21691 (se 0.000918), level change -0.03759, 99986 of 100101 sites
+domains_0.2_0.3  | islands: A 1.176 (se 0.000785), level change 0.01211, 66935 of 66986 sites | domains: A 1.32304 (se 0.001614), level change -0.07271, 99986 of 100101 sites

@@ -231,7 +231,8 @@
   {
    "status": "open",
    "rows": [
-    "GRP-014"
+    "GRP-014",
+    "GRP-017"
    ],
    "task": "Reading cancer's own territories (author: 'if we are missing a lot of the signal, that is wonderful news ... we can find it and increase the sensitivity of our instruments'). The commissioned Met-A, the C-Score and Group-A read the 6,000 identity sites of a cell (healthy 0.05-0.25 or 0.75-0.95), so none reads the two places early cancer acts: the 66,986 atlas sites unmarked in every cell type (where Polycomb-island gains fall; median healthy level 0.037) and the loosely held methylated domains (where early losses fall). The retired class gauge read larger panels by their mean level (29,181 to 42,134 loci per class), which is one likely reason its cohort signals were strong, though it was also open to the cell mix. Two new readings, each against IAM-Atlas v2.1 in the person's own Deconvolver mix, flagged development: island gain, and domain loss",
    "done_when": "both readings built in the one command, passed a synthetic test (planted island gains and planted domain loss found; healthy reads Normal), and explored on spent tumor and normal arrays",
@@ -239,16 +240,18 @@
     {
      "id": "48.1",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "built",
      "what": "Island gain reading: mean H(beta) at the 0-of-79 islands over the atlas expectation in the person's mix; Polycomb targets reported apart",
-     "next": "build in stage_metaa_atlas; synthetic test first"
+     "next": "the atlas ruler (35.14) first: healthy reads 1.176 (islands) and 1.115 (domains) untared, the array's scale against the atlas; then the healthy spread, then spent tumor and normal arrays",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
     },
     {
      "id": "48.2",
      "date": "2026-10-23",
-     "status": "open",
+     "status": "built",
      "what": "Domain loss reading: at methylated sites in tiles loose in any healthy cell type (the loose-prone domains), the same form",
-     "next": "build after 48.1"
+     "next": "the atlas ruler (35.14) first: healthy reads 1.176 (islands) and 1.115 (domains) untared, the array's scale against the atlas; then the healthy spread, then spent tumor and normal arrays",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
     },
     {
      "id": "48.3",

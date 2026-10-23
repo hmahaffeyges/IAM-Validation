@@ -1826,6 +1826,15 @@ spread combined with the atlas's own uncertainty, half its 95 % range over 1.96)
 to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
 measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
 
+### stage_metaa_atlas.py::territory_sets
+The two sets where early cancer is known to act, by fixed rules on IAM-Atlas v2.1 over the sites measured in all 79 cell types: islands (every cell type below 0.2) and loosely held domains (mean at least 0.75, none below 0.2, at least one between 0.2 and 0.7). Read column by column so memory stays near one column.
+
+### stage_metaa_atlas.py::territory_reading
+The sample's disorder at each set against the atlas mixed in its own shares: mean H(beta) over mean H(e), the mean level change, the standard error over sites, and how much of the set the array measures. Development, flagged.
+
+### stage_metaa_atlas.py::plant_territory
+Tests only: a constructed gain at a seeded fraction of the islands, or loss at the domains, so a test of the territory readings runs through the one command.
+
 ### stage_metaa_atlas.py::read_in_mix_allsites
 Met-A for each cell over every IAM-Atlas v2.1 site (development; `run_sample.py --dev-metaa-allsites`): each site counts by the shift a loss
 of that cell would make there, share × |0.5 − μ| (the chain's own shift rule), so nothing is chosen. Records the reading, its shift per 1 %

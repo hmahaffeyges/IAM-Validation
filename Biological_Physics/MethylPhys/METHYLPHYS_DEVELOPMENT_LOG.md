@@ -3116,3 +3116,6 @@ The count from the saved molecules completed through the one command: held error
 
 ### 2026-10-23 · The information sphere's first sample test, CD4 T cells (ATL-046, DEV-SPHERE-01)
 The distance from the sample's own expected healthy self rises with a planted whole-program loss (0.06317 rad healthy to 0.10198 at 50 %); the territories lit none (0 of 27), because each is judged against the others. The sphere is now read by default for every sample. Record: [DEV_SPHERE_01.md](../Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md).
+
+### 2026-10-23 · Reading cancer's own territories, synthetic test 1 (GRP-014, DEV-TERRITORIES-01)
+Island gains and domain losses planted by the chain are read cleanly and kept apart (islands 1.176 to 1.629 at a 30 % gain; domains 1.115 to 1.323 at a 30 % loss; the other set unchanged). Healthy blood reads 1.176 and 1.115 untared, the array's scale against the atlas, so the atlas ruler comes first. Record: [DEV_TERRITORIES_01.md](../Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md).

@@ -278,3 +278,57 @@ def cscore_in_mix(beta, shares, deps=None):
     C = _clustering(dw.reindex(_genome_order(dw.index)).to_numpy()) if len(dw) >= 10 * CS_BLOCK else None
     out["whole_genome"] = dict(C=None if C is None else round(C, 4), n_sites=int(len(dw)))
     return out
+
+
+
+# ---- cancer's own territories (2026-10-23; DEVELOPMENT, plan 48; author: 'we know what is missing and we can find it') ---------------------
+# Met-A's identity sites are by rule at healthy 0.05-0.25 or 0.75-0.95 in the cell, so neither place early cancer acts is read by it. Two fixed
+# rules on IAM-Atlas v2.1, over the sites measured in all 79 cell types; nothing is chosen by hand and nothing is fitted:
+TERR_RULES = dict(islands="unmarked in every healthy cell type: the highest of the 79 values below 0.2 (where Polycomb-island gains fall)",
+                  domains="marked in most and loosely held in some: mean of the 79 at least 0.75, none below 0.2, at least one between 0.2 and 0.7")
+
+def territory_sets():
+    """The two site sets, computed from the atlas column by column (memory near one column at a time) and cached."""
+    if "terr" in _cache: return _cache["terr"]
+    import pyarrow.parquet as pq
+    ids = None; S = MX = MN = C = MID = None
+    for part in (1, 2, 3):
+        t = pq.read_table(os.path.join(ATLAS, f"mu_part{part}.parquet"))
+        for c in t.column_names:
+            u = t.column(c).to_numpy(); ok = u != NA; x = u / 1e4
+            if S is None:
+                n = len(u); S = np.zeros(n); MX = np.full(n, -1.0); MN = np.full(n, 2.0); C = np.zeros(n, int); MID = np.zeros(n, int)
+            S += np.where(ok, x, 0.0); C += ok; MX = np.where(ok, np.maximum(MX, x), MX); MN = np.where(ok, np.minimum(MN, x), MN); MID += ok & (x >= 0.2) & (x < 0.7)
+        del t
+        if ids is None: ids = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    full = C == C.max(); mu = S / np.maximum(C, 1); ids = np.asarray(ids, dtype=object)
+    out = dict(islands=list(ids[full & (MX < 0.2)]), domains=list(ids[full & (mu >= 0.75) & (MN >= 0.2) & (MID >= 1)]))
+    _cache["terr"] = out; return out
+
+def territory_reading(beta, shares):
+    """The sample's disorder at each territory against IAM-Atlas v2.1 mixed in its own shares (read_in_mix's mix rule): A = mean H(beta) over
+    mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of
+    the set this array measures. Development, flagged; healthy is read first and its spread sets any line, not this function."""
+    x = pd.Series(beta, dtype="float64"); cells = [c for c, f in shares.items() if f]; F = pd.Series({k: float(shares[k]) for k in cells})
+    out = dict(stage="M-territories", reading="disorder at cancer's own territories, against the atlas in this sample's mix", flag=FLAG, rules=TERR_RULES, sets={})
+    if not cells: out["reason"] = "no cell shares"; return out
+    for name, S in territory_sets().items():
+        idx = pd.Index(S).intersection(x.dropna().index)
+        MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
+        cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+        ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
+        if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
+        hx = np.asarray(_H(xs), dtype="float64"); he = np.asarray(_H(es), dtype="float64"); A = float(hx.mean() / he.mean())
+        se = float(np.std(hx - A * he, ddof=1) / np.sqrt(len(hx)) / he.mean()); d = (xs - es).to_numpy()
+        r.update(A=round(A, 5), se_over_sites=round(se, 6), level_change=round(float(d.mean()), 5), level_change_se=round(float(d.std(ddof=1) / np.sqrt(len(d))), 6),
+                 coverage=round(ok.sum() / len(S), 4), state="untared")
+        out["sets"][name] = r
+    return out
+
+def plant_territory(beta, name, frac, size, seed=20261023):
+    """TESTS ONLY: a constructed change at one territory: at a seeded fraction frac of its measured sites, islands gain (beta + size(1 - beta))
+    and domains lose (beta (1 - size)). Returns the planted values and how many sites moved."""
+    b = pd.Series(beta, dtype="float64").copy(); S = pd.Index(territory_sets()[name]).intersection(b.dropna().index)
+    pick = np.random.default_rng(seed).random(len(S)) < frac; s = S[pick]
+    b.loc[s] = (b.loc[s] + size * (1 - b.loc[s])) if name == "islands" else (b.loc[s] * (1 - size))
+    return b, int(pick.sum())

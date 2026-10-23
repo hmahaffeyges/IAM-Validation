@@ -1,0 +1,5 @@
+PLANTED: PLANTED (constructed for a test): islands gain of 30% at 20% of the set, 13367 sites
+Stage D21: cell shares against IAM-Atlas v2.1
+
+terr_islands_0.2_0.3: Met-A (neutrophils) 0.8944 (withheld: noise index 0.22834 > 0.149 and no same-run tare; A printed as a number only) | C 0.8873 | tare None
+report: /tmp/terr01/islands_0.2_0.3.html | bundle: /tmp/terr01/islands_0.2_0.3.json | evidence ledger: /tmp/terr01/evidence_ledger.jsonl (one row appended)

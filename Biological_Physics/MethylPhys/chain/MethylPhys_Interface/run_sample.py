@@ -378,6 +378,8 @@ def main():
     ap.add_argument("--dev-metaa-allsites", action="store_true",
                     help="DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make "
                          "(stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading")
+    ap.add_argument("--dev-territories", action="store_true", help="DEVELOPMENT (plan 48): disorder at cancer's own territories (islands unmarked in every cell type; loosely held domains), against the atlas in the sample's mix")
+    ap.add_argument("--dev-plant-territory", default=None, metavar="islands|domains:FRACTION:SIZE", help="TESTS ONLY: a constructed gain at islands or loss in domains, planted by the chain")
     ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS[:all|runs]",
                     help="TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this "
                          "array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the "
@@ -784,6 +786,11 @@ def main():
         cells = [c.strip() for c in p.split(",") if c.strip()]; have = set(_V4c.atlas_panel()); bad = [c for c in cells if c not in have]
         if bad: sys.exit(f"--cell-panel: not IAM-Atlas v2.1 cell names: {bad}")
         return cells
+    if a.dev_plant_territory and beta is not None:   # 2026-10-23 (plan 48): TESTS ONLY, a constructed change at one territory
+        import stage_metaa_atlas as _SAt
+        _tn, _tf, _ts = a.dev_plant_territory.split(":"); _bt, _nt = _SAt.plant_territory(_pd.Series(beta, dtype="float64"), _tn, float(_tf), float(_ts)); beta = _bt.to_dict()
+        a.banner = (a.banner + " | " if a.banner else "") + f"PLANTED (constructed for a test): {_tn} {'gain' if _tn == 'islands' else 'loss'} of {float(_ts):.0%} at {float(_tf):.0%} of the set, {_nt} sites"
+        print(f"PLANTED: {a.banner}", flush=True)
     if a.dev_plant and beta is not None:   # 2026-10-22: a constructed loss planted by the chain itself, so a test is the one command end to end
         import stage_metaa_atlas as _SAp, stage_v4 as _V4p
         _pc, _, _pl = a.dev_plant.partition(":"); _pl, _, _scope = _pl.partition(":"); _pl = float(_pl or 0.01); _scope = _scope or "identity"; _b0 = _pd.Series(beta, dtype="float64")
@@ -860,6 +867,9 @@ def main():
                 try: o["cscore_each_cell"] = SA.cscore_in_mix(_vals, _shr, a._cell_dep)   # 2026-10-23 (41.2, 41.3): the C-Score for each cell and the whole genome, flagged
                 except Exception as e: o["cscore_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_metaa_allsites: o["met_a_each_cell_allsites"] = SA.read_in_mix_allsites(_vals, _shr)
+                if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix
+                    try: o["territories"] = SA.territory_reading(_vals, _shr)
+                    except Exception as e: o["territories"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_metaa_specific:   # 2026-10-22 (39.9): the same reading on sites held by each cell and not by the others
                     o["met_a_each_cell_specific"] = {d.strip(): SA.read_in_mix(_vals, _shr, counts=getattr(a, "_seqc", None), specific=float(d)) for d in a.dev_metaa_specific.split(",") if d.strip()}
             except Exception as e: o["met_a_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
