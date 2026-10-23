@@ -1255,5 +1255,37 @@
    "found": "to check",
    "checked": "open"
   }
- ]
+ ],
+ "plain_key": {
+  "title": "The cell's three numbers, told with a computer and a qubit (author, 2026-10-22: the way to explain them)",
+  "intro": "Each number below is a row of the schematic (its slot id in brackets); the values are the cell's, from those rows.",
+  "rows": [
+   [
+    "**M**, the Mahaffey number [mahaffey]",
+    "The energy spent to write one bit, in units of thermal noise. Every bit faces the same noise, so this is the write budget.",
+    "20.94 (a present chip spends 399 to 411)"
+   ],
+   [
+    "**φ**, the drive fraction [held_share]",
+    "The share of that energy that ends up holding the bit; the rest is lost as heat along the way (a transistor stores 1/2 of what it draws per write).",
+    "0.147"
+   ],
+   [
+    "**ε**, the held error [reference]",
+    "The bit error rate: how many stored bits are wrong at any moment, ε₀ = 1/(1 + e^(φM)).",
+    "4.4 %"
+   ],
+   [
+    "The floor [floor]",
+    "The error rate if all of the energy held the bit, 1/(1 + e^M).",
+    "about 1 in a billion (8 × 10⁻¹⁰)"
+   ]
+  ],
+  "qubit": [
+   "The thermal kicks are the qubit's surroundings knocking it out of its state, its decoherence.",
+   "The drive is the active reset and error correction that pull it back.",
+   "Fidelity is how often the qubit is still in the state it should be."
+  ],
+  "closing": "The cell's methylation is the same contest. The 4.4 % is its error rate at a held site; IAM-A measures that rate against what the cell's own state predicts, the way a qubit is benchmarked against its specification. This puts the cell, the qubit and the chip on one scale: energy per write in units of kT, against the error rate it buys."
+ }
 }
