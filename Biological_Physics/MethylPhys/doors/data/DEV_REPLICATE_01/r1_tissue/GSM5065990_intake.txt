@@ -1,0 +1,3 @@
+  WHY: bisulfite conversion control probes (Step 0.4) - stopped
+    measured on this array: conversion efficiency 0.749
+    limit: at least 0.8

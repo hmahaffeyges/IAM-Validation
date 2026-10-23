@@ -146,6 +146,7 @@ def plant(beta, cell, loss=0.01):
     b.loc[x[ok].index] = (x[ok] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b
 
 
+READ_COVER_MIN = 0.50   # 2026-10-23: each cell is read when at least half its identity sites are measured, flagged below RULE coverage_min (stated)
 MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
 def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
@@ -172,8 +173,9 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
         e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
-        if ok.sum() < RULE["coverage_min"] * len(S):
-            r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; out["cells"].append(r); continue
+        if ok.sum() < READ_COVER_MIN * len(S):   # 2026-10-23 (author: read and flag): withheld only below half; between half and RULE's 90 %, read and flagged
+            r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {READ_COVER_MIN:.0%} needed to read)"; out["cells"].append(r); continue
+        if ok.sum() < RULE["coverage_min"] * len(S): r["coverage_flag"] = f"read on {int(ok.sum())} of {len(S)} identity sites ({ok.sum() / len(S):.0%}; below the {RULE['coverage_min']:.0%} of the commissioned rule)"
         he = float(_H(e[ok]).mean())
         if counts is not None:   # sequencing: the expectation at each site's own read count (40.3)
             _n = pd.Series(counts).reindex(e[ok].index).fillna(0).astype("int64").to_numpy(); he = float(np.nanmean(expected_H_counts(e[ok].to_numpy(), _n)))

@@ -119,10 +119,11 @@ def _jpg_b64(rgb):
 def reference(specimen, shares):
     """(name, {atlas cell: weight}) of the healthy reference for this specimen, or (None, reason)."""
     s = str(specimen or "").strip().lower()
-    if s in BLOOD:
-        w = {PANEL[c]: float(v) for c, v in (shares or {}).items() if c in PANEL and v is not None and np.isfinite(v) and v > 0}
-        if not w: return None, "no cell shares from Stage D21, so the healthy blood for this person's mix cannot be drawn"
-        t = sum(w.values()); return "healthy blood for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares)", {c: v / t for c, v in w.items()}
+    _mixed = s in BLOOD or any(k in s for k in ("tissue", "tumor", "biopsy", "plasma", "cfdna", "cell-free", "unknown", "not stated"))   # 2026-10-23: every mixed specimen
+    if _mixed:   # the person's own mix as the IAM-Deconvolver found it, every cell (2026-10-23: the 79-cell panel's names are atlas names already)
+        w = {PANEL.get(c, c): float(v) for c, v in (shares or {}).items() if v is not None and np.isfinite(v) and v > 0}
+        if not w: return None, "no cell shares from Stage D21, so the healthy reference for this person's mix cannot be drawn"
+        t = sum(w.values()); return ("healthy blood" if s in BLOOD else "healthy " + s) + " for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares)", {c: v / t for c, v in w.items()}
     c = s[9:] if s.startswith("isolated ") else s
     c = {"neutrophil": "neutrophils", "cd8": "cd8 t cells", "cd8 t cell": "cd8 t cells", "cd4 t cell": "cd4 t cells", "monocyte": "monocytes", "b cell": "b cells", "nk cell": "nk cells"}.get(c, c)
     return (f"healthy {c} (IAM-Atlas v2.1)", {c: 1.0}) if c else (None, "no specimen given")
@@ -202,7 +203,8 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
         return {"drawn": False, "reason": "the atlas site list differs from the one the frozen layout was built on"}
     mu = _mu(list(w)); missing = [c for c in w if c not in mu]
     if missing: return {"drawn": False, "reason": f"cell(s) not in IAM-Atlas v2.1: {', '.join(missing)}"}
-    ref = sum(w[c] * mu[c] for c in w)                                   # NaN where any weighted cell has no atlas value
+    _num = sum(w[c] * np.nan_to_num(mu[c]) for c in w); _den = sum(w[c] * np.isfinite(mu[c]) for c in w)   # 2026-10-23: mixed over the cells with a value
+    ref = np.where(_den >= 0.99 * sum(w.values()), _num / np.maximum(_den, 1e-12), np.nan)   # kept at >= 99 % of the shares, read_in_mix's rule (MIX_COVER)
     smp = pd.Series(beta, dtype="float64").reindex(ids).to_numpy()
     ref_s, smp_s = _to_sky(ref[order], npix), _to_sky(smp[order], npix)
     both = np.isfinite(ref[order]) & np.isfinite(smp[order]); d = np.where(both, smp[order] - ref[order], np.nan); dif_s = _to_sky(d, npix)
@@ -214,7 +216,9 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     # 84 % of a healthy blood, because that range is how sure the atlas is of the healthy average, not how much a healthy person varies; with
     # the person-to-person spread added, still 18.5 % beyond 2 widths, because an array's own noise is not in the atlas.)
     lo_, hi_, sd_ = _mu(list(w), "mu_lo"), _mu(list(w), "mu_hi"), _mu(list(w), "donor_sd")
-    un = sum(w[c] * (hi_[c] - lo_[c]) / 3.92 for c in w); width = np.sqrt(sum(w[c] * sd_[c] ** 2 for c in w) + un ** 2)[order]
+    _ok = {c: np.isfinite(hi_[c]) & np.isfinite(lo_[c]) & np.isfinite(sd_[c]) for c in w}; _wd = sum(w[c] * _ok[c] for c in w)   # 2026-10-23: over the cells with values
+    un = sum(w[c] * np.nan_to_num((hi_[c] - lo_[c]) / 3.92) for c in w) / np.maximum(_wd, 1e-12)
+    width = np.where(_wd >= 0.99 * sum(w.values()), np.sqrt(sum(w[c] * np.nan_to_num(sd_[c]) ** 2 for c in w) / np.maximum(_wd, 1e-12) + un ** 2), np.nan)[order]
     x = np.where(both & np.isfinite(width) & (width > 0), d / np.where(width > 0, width, np.nan), np.nan); xv = x[np.isfinite(x)]
     med = float(np.median(xv)); mad = float(np.median(np.abs(xv - med))) * 1.4826 or 1.0; zg = (x - med) / mad
     # Blocks, not single sites (2026-10-21, author: "no way the entire globe is lit up"): one site beyond 3 lit 2.1 % of a healthy blood's

@@ -901,6 +901,7 @@ def main():
                            sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html",
                            cell_departures=getattr(a, "_cell_dep", None))
             _fr = _g.pop("fragment", ""); _spec = _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", ""); _sites = _g.pop("_sites", None)
+            if a.dev_info_sphere and _sites is None: o["info_sphere"] = {"reason": "the globe was not drawn, so there is no site-by-site change to place: " + str((o.get("globe") or {}).get("reason") or "")[:160]}   # 2026-10-23: never skip silently
             if a.dev_info_sphere and _sites is not None:   # 2026-10-23 (DEV-SPHERE-01, plan 35.2): the same change, on the information sphere
                 try:
                     import stage_info_sphere as IS, info_sphere_viewer as ISV

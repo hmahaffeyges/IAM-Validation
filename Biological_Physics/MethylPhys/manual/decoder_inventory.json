@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1043,
+   "lines": 1044,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -282,9 +282,9 @@
      "function": "main",
      "name": "main",
      "line": 350,
-     "end": 1040,
+     "end": 1041,
      "args": [],
-     "lines": 691,
+     "lines": 692,
      "doc": "",
      "constants": [
       "BIO",
@@ -337,8 +337,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 984,
-     "end": 985,
+     "line": 985,
+     "end": 986,
      "args": [
       "b",
       "it",
@@ -5929,7 +5929,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 435,
+   "lines": 439,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -6120,12 +6120,12 @@
      "function": "reference",
      "name": "reference",
      "line": 119,
-     "end": 128,
+     "end": 129,
      "args": [
       "specimen",
       "shares"
      ],
-     "lines": 10,
+     "lines": 11,
      "doc": "(name, {atlas cell: weight}) of the healthy reference for this specimen, or (None, reason).",
      "constants": [
       "BLOOD",
@@ -6138,8 +6138,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 130,
-     "end": 136,
+     "line": 131,
+     "end": 137,
      "args": [
       "v"
      ],
@@ -6155,8 +6155,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 138,
-     "end": 146,
+     "line": 139,
+     "end": 147,
      "args": [
       "fractions",
       "specimen"
@@ -6176,8 +6176,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_paint_blocks",
      "name": "_paint_blocks",
-     "line": 148,
-     "end": 161,
+     "line": 149,
+     "end": 162,
      "args": [
       "sky",
       "vals",
@@ -6195,8 +6195,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_patch",
      "name": "_patch",
-     "line": 163,
-     "end": 170,
+     "line": 164,
+     "end": 171,
      "args": [
       "v"
      ],
@@ -6212,8 +6212,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_cell_change",
      "name": "_cell_change",
-     "line": 172,
-     "end": 190,
+     "line": 173,
+     "end": 191,
      "args": [
       "d",
       "ids_ordered",
@@ -6233,8 +6233,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 192,
-     "end": 364,
+     "line": 193,
+     "end": 368,
      "args": [
       "beta",
       "specimen",
@@ -6245,7 +6245,7 @@
       "sex",
       "cell_departures"
      ],
-     "lines": 173,
+     "lines": 176,
      "doc": "",
      "constants": [
       "ABOUT",
@@ -6273,8 +6273,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 232,
-     "end": 233,
+     "line": 236,
+     "end": 237,
      "args": [
       "m"
      ],
@@ -6288,8 +6288,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 235,
-     "end": 240,
+     "line": 239,
+     "end": 244,
      "args": [
       "v",
       "full"
@@ -6304,8 +6304,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 381,
-     "end": 424,
+     "line": 385,
+     "end": 428,
      "args": [
       "beta",
       "ref_beta",
@@ -6335,8 +6335,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 403,
-     "end": 404,
+     "line": 407,
+     "end": 408,
      "args": [
       "m"
      ],
@@ -6476,7 +6476,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 369,
+   "lines": 371,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6688,19 +6688,20 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 150,
-     "end": 186,
+     "line": 151,
+     "end": 188,
      "args": [
       "beta",
       "shares",
       "counts",
       "specific"
      ],
-     "lines": 37,
+     "lines": 38,
      "doc": "Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written 2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21). For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at t",
      "constants": [
       "FLAG",
       "MIX_COVER",
+      "READ_COVER_MIN",
       "RULE"
      ],
      "data_files": [],
@@ -6710,8 +6711,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 189,
-     "end": 200,
+     "line": 191,
+     "end": 202,
      "args": [
       "beta",
       "shares",
@@ -6729,8 +6730,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 203,
-     "end": 232,
+     "line": 205,
+     "end": 234,
      "args": [
       "beta",
       "shares"
@@ -6748,8 +6749,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_clustering",
      "name": "_clustering",
-     "line": 238,
-     "end": 244,
+     "line": 240,
+     "end": 246,
      "args": [
       "z",
       "w"
@@ -6766,8 +6767,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_genome_order",
      "name": "_genome_order",
-     "line": 246,
-     "end": 251,
+     "line": 248,
+     "end": 253,
      "args": [
       "ids"
      ],
@@ -6787,8 +6788,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
-     "line": 253,
-     "end": 280,
+     "line": 255,
+     "end": 282,
      "args": [
       "beta",
       "shares",
@@ -6809,8 +6810,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_sets",
      "name": "territory_sets",
-     "line": 290,
-     "end": 306,
+     "line": 292,
+     "end": 308,
      "args": [],
      "lines": 17,
      "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
@@ -6828,8 +6829,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_reading",
      "name": "territory_reading",
-     "line": 308,
-     "end": 326,
+     "line": 310,
+     "end": 328,
      "args": [
       "beta",
       "shares"
@@ -6848,8 +6849,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 328,
-     "end": 334,
+     "line": 330,
+     "end": 336,
      "args": [
       "beta",
       "name",
@@ -6867,8 +6868,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 338,
-     "end": 368,
+     "line": 340,
+     "end": 370,
      "args": [
       "beta",
       "shares"
@@ -6886,8 +6887,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 356,
-     "end": 359,
+     "line": 358,
+     "end": 361,
      "args": [
       "m"
      ],

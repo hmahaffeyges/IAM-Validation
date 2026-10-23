@@ -298,13 +298,13 @@ def _each_cell(o):
     ec = o.get("met_a_each_cell") or {}; cells = [x for x in ec.get("cells", []) if x.get("A") is not None]
     h = "<h2 id='v4-each'>Met-A for each cell: which cell moved</h2><p>Each cell found, read at its own 6,000 identity sites against its healthy profile in the atlas, in this sample's mix. When the whole-sample reading moves, these say which cell.</p>"
     if not cells: return h + f"<p>{chip('not read')} {E(str(ec.get('reason', '')))}</p>"
-    rows = [[E(cellname(x["cell"])), f"{100*(x.get('share') or 0):.1f} %" if x.get("share") is not None else "", f"<b>{_fmt(x['A'])}</b>", _fmt(x.get("se"), 4) if x.get("se") is not None else ""] for x in sorted(cells, key=lambda x: -(x.get("share") or 0))]
+    rows = [[E(cellname(x["cell"])), f"{100*(x.get('share') or 0):.1f} %" if x.get("share") is not None else "", f"<b>{_fmt(x['A'])}</b>", (_fmt(x.get("se_over_sites"), 5) if x.get("se_over_sites") is not None else "") + (f" <i>{E(x['coverage_flag'])}</i>" if x.get("coverage_flag") else "")] for x in sorted(cells, key=lambda x: -(x.get("share") or 0))]
     return h + _tbl(["Cell", "Share", "Met-A", "Standard error"], rows) + f"<p>{_dev()} Untared unless stated.</p>"
 
 def _territories(o):
     te = (o.get("territories") or {}).get("sets") or {}
-    h = ("<h2 id='v4-territories'>Territories: where early cancer is known to act</h2><p><b>Islands:</b> sites every healthy cell type keeps unmarked, where marks are gained early. "
-         "<b>Domains:</b> marked sites some healthy cell types hold loosely, where marks are lost early. Each read against the atlas in this sample's mix; healthy reads 1.</p>")
+    h = ("<h2 id='v4-territories'>Territories: islands and loosely held domains</h2><p><b>Islands:</b> sites every healthy cell type keeps unmarked, where a mark gained is a departure no healthy cell makes. "
+         "<b>Domains:</b> marked sites some healthy cell types hold loosely, where a held mark is most easily lost. Each read against the atlas in this sample's mix; healthy reads 1.</p>")
     if not te: return h + f"<p>{chip('not read')}</p>"
     rows = [[E(k), f"<b>{_fmt(v.get('A'))}</b>", f"{v.get('level_change'):+.4f}" if v.get("level_change") is not None else "", _fmt(v.get("se_over_sites"), 5), f"{v.get('measured', 0):,} of {v.get('set_size', 0):,}"] for k, v in te.items()]
     return h + _tbl(["Territory", "Disorder (A)", "Level change", "Standard error", "Sites measured"], rows) + f"<p>{_dev()} State: {E(str((o.get('territories') or {}).get('state') or 'untared'))}.</p>"

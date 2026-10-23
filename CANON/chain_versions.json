@@ -555,6 +555,16 @@
    "chain_sha": "ace971cbebb33c20fe14e7628b23e87dcf99db8af3a3a795b450685d38c92d63",
    "first_commit_after": "7dc86ca4",
    "date": "2026-10-23"
+  },
+  {
+   "chain_sha": "5886b1cb8c153b56175731c9ebc53d1f5c0bb7da599e7fdeaf50590f805b6e86",
+   "first_commit_after": "7115b6d1",
+   "date": "2026-10-23"
+  },
+  {
+   "chain_sha": "1e33ee4f67e4fabc4900bee484c23e5b4894e521c0956bfcfdc9fe05e003d93e",
+   "first_commit_after": "2e0b979b",
+   "date": "2026-10-23"
   }
  ]
 }
