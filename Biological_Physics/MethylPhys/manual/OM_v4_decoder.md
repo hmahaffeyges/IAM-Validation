@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **32 Python files** holding **370 functions** (nested ones included); 370 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **33 Python files** holding **377 functions** (nested ones included); 377 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 965 | 17 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 991 | 18 | 11 | 10 |
 | `stage_0_intake.py` | 1,177 | 41 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -21,6 +21,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 100 | 6 | 6 | 6 |
+| `MethylPhys_Interface/info_sphere_viewer.py` | 165 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 42 | 3 | 0 | 0 |
 | `stage_seq_values.py` | 114 | 6 | 0 | 0 |
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
@@ -34,7 +35,7 @@ Read from the code at build time: the one command can load **32 Python files** h
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 281 | 17 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
-| `stage_info_sphere.py` | 111 | 10 | 0 | 0 |
+| `stage_info_sphere.py` | 147 | 11 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 126 | 6 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
@@ -236,7 +237,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 256 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 281 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -244,7 +245,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 219 (35 lines) · arguments: a · calls: not called on the traced runs · files named: `truth.json`
+*Code:* `MethylPhys_Interface/run_sample.py` line 221 (58 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `import pyarrow.parquet`, `truth.json`
 
 ### `run_sample.py::_dev_run`
 
@@ -252,7 +253,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 279 (41 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 304 (41 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -260,14 +261,14 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 322 (641 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 347 (642 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 740 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 766 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -275,13 +276,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 513 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 539 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 906 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 932 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3060,6 +3061,57 @@ across cell types) and the tools that read the map.
 The mean jump of the mean-level map across HEALPix base-face edges over the jump within a face (about 1: no grid edges).
 
 *Code:* `stage_info_sphere.py` line 69 (14 lines) · arguments: mb, nside · calls: not called on the traced runs · constants read: `NSIDE`
+
+### `run_sample.py::_build._R`
+
+With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
+
+*Code:* `MethylPhys_Interface/run_sample.py` line 251 (1 lines) · arguments: m · calls: not called on the traced runs
+
+### `stage_info_sphere.py::roles`
+
+What groups a site with its neighbors on the information sphere. With each site's own level taken out (construction v5), a site's direction
+is set by how it departs from that level across the cell types, so the cell where it departs most is the identity it carries: returned with
+the sign (methylated there, or unmethylated), the size of that departure, and the margin over the next cell. The 15 families that color the
+picture are a *stated* grouping of the atlas's 79 cell types by tissue and lineage (FAMILIES); nothing is computed from them. Measured, not
+assumed: a cell's methylated and unmethylated sites gather on opposite sides of the sphere (T cells: two groups, each tight, R 0.88 and 0.86).
+
+*Code:* `stage_info_sphere.py` line 137 (10 lines) · arguments: B, cells · calls: not called on the traced runs · constants read: `FAMILIES`
+
+### `info_sphere_viewer.py::_b64`
+
+Packs an array into text so the page carries its own data and needs no other file.
+
+*Code:* `MethylPhys_Interface/info_sphere_viewer.py` line 49 (1 lines) · arguments: a · calls: not called on the traced runs
+
+### `info_sphere_viewer.py::territories`
+
+Each family's density of clearly marking sites (margin at least CLEAR = 0.10, *stated*) in every direction of a 128 x 256 grid over the sphere,
+with a von Mises-Fisher kernel of 6 degrees (*stated*): the spherical form of a smoothing window.
+
+*Code:* `MethylPhys_Interface/info_sphere_viewer.py` line 16 (9 lines) · arguments: X, fam, nfam, H, W, sigma_deg, chunk · calls: not called on the traced runs
+
+### `info_sphere_viewer.py::territory_texture`
+
+Colors each direction by the family most over-represented there: its share of the local density divided by its share of all clearly marking
+sites (the enrichment), so a large family does not color the sphere by size alone. The glow grows with the enrichment and the density; it
+dims where two families are nearly equal, which draws the dark lanes between territories; empty sky stays dark.
+
+*Code:* `MethylPhys_Interface/info_sphere_viewer.py` line 26 (9 lines) · arguments: T, counts, colors · calls: not called on the traced runs
+
+### `info_sphere_viewer.py::territory_peaks`
+
+Where to write each family's name: up to two directions where it is most enriched and leads, at least 55 degrees apart (*stated*).
+
+*Code:* `MethylPhys_Interface/info_sphere_viewer.py` line 36 (12 lines) · arguments: E, top, min_sep_deg, min_enrich, per_family · calls: not called on the traced runs
+
+### `info_sphere_viewer.py::write`
+
+Writes the information sphere as one page with everything inside it: every site's direction, cell, sign, size and margin; the territory
+picture; the labels; and the page's own drawing code. The drawing turns the sphere, shows the territories, the sites as points, a wire
+graticule for depth, and reads which family's territory is under the pointer.
+
+*Code:* `MethylPhys_Interface/info_sphere_viewer.py` line 51 (28 lines) · arguments: path, X, cell, sgn, size, margin, cells, cell_family, families, title, about, sample · calls: not called on the traced runs · constants read: `CLEAR`, `PAGE`
 
 ### `stage_info_sphere.py::build`
 

@@ -23,6 +23,19 @@ def opts(cls, ri):
     return pg.evaluate(f"Array.from(document.querySelectorAll('{cls}')[{ri}].options).map(o => o.textContent)")
 with sync_playwright() as P:
     br = P.chromium.launch(); pg = br.new_page(viewport={"width": 1300, "height": 1000})
+    # 2026-10-23: the information sphere page (its own viewer): loads with no script error, draws, and every button and chooser changes the picture
+    errs = []; pg.on("pageerror", lambda e: errs.append(str(e)))
+    pg.goto(BASE + "atlas/information_sphere.html", wait_until="networkidle", timeout=180000); pg.wait_for_timeout(4000); pg.evaluate("document.getElementById('spin').click()")
+    def lit():
+        return pg.evaluate("(()=>{const c=document.getElementById('c'),d=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=0;i<d.length;i+=4)if(d[i]+d[i+1]+d[i+2]>90)n++;return n/(d.length/4)})()")
+    base = lit(); pg.locator("#c").screenshot(path=os.path.join(OUT, "shots", "info_sphere_default.png")); res = [("default", round(base, 4))]
+    for bid in ("ter", "lab", "d0", "d1", "d2", "dst", "far"):
+        pg.evaluate(f"document.getElementById('{bid}').click()"); pg.wait_for_timeout(700); v = lit(); res.append((bid, round(v, 4)))
+        pg.locator("#c").screenshot(path=os.path.join(OUT, "shots", f"info_sphere_{bid}.png"))
+    pg.evaluate("(()=>{const s=document.getElementById('one');s.selectedIndex=1;s.dispatchEvent(new Event('change'))})()"); pg.wait_for_timeout(700); res.append(("one cell", round(lit(), 4)))
+    open(os.path.join(OUT, "info_sphere.txt"), "w").write("\n".join(f"{k}: share of the canvas lit {v}" for k, v in res) + f"\nscript errors: {len(errs)} {errs[:3]}\n")
+    print(open(os.path.join(OUT, "info_sphere.txt")).read(), flush=True)
+    assert not errs and base > 0.05, f"information sphere page: errors {errs[:2]}, lit {base}"
     for tag, path in PAGES:
         if tag == "explorer" and "--skip-atlas" in sys.argv: pass
         pg.goto(BASE + path, wait_until="networkidle", timeout=180000); pg.wait_for_timeout(3000)

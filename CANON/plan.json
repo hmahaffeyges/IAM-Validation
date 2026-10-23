@@ -808,6 +808,14 @@
      "status": "open",
      "what": "One person's information sphere against their own healthy cells, wired into the one command (author: 'the blind spot we didnt know we had')",
      "next": "write it, synthetic first (a planted group of co-moving sites in one sample against its healthy reference), through run_sample.py"
+    },
+    {
+     "id": "35.3",
+     "date": "2026-10-23",
+     "status": "built",
+     "what": "The information sphere as a picture, by the one command (run_sample.py --build info-globe): territories colored by the cell family each site's identity belongs to; on the Globe Explorer",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md",
+     "next": "the browser check on GitHub (globe_audit.py); then 35.2, one person's sample as a layer on it, and the two spheres linked side by side"
     }
    ]
   },

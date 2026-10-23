@@ -500,6 +500,16 @@
    "chain_sha": "1100da0b7374869bb43873505af312040fe1bda32b6860a2cce234b65655a063",
    "first_commit_after": "a578cad7",
    "date": "2026-10-23"
+  },
+  {
+   "chain_sha": "20f192ad40f0a8abfe6c136f3efd82b41c18762920a6cd1d3c08fb58b2992262",
+   "first_commit_after": "fb921322",
+   "date": "2026-10-23"
+  },
+  {
+   "chain_sha": "179443d4884b0aa10f6aca3b6e8a14abcae109141a89ed6aad4f41505682defb",
+   "first_commit_after": "9a6918e1",
+   "date": "2026-10-23"
   }
  ]
 }

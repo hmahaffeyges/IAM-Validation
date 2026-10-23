@@ -3102,3 +3102,5 @@ GSM2387332 on one GitHub machine: index 6,814 s, 10 million pairs aligned in 6,8
 ### 2026-10-23 · Four finished runs left unread overnight (OTH-072)
 The run watcher followed a hand-typed list of runs; four started before it (sphere test 11, the timing test, two depth runs) finished unread for several hours. The watcher now reads every run from GitHub against a ledger of runs already read, and reports idle machines. Record: [DEV_EACH_CELL_01.md](../Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md).
 
+### 2026-10-23 · The information sphere as a picture (ATL-046, plan 35.3)
+The one command draws it from IAM-Atlas v2.1 (run_sample.py --build info-globe): 191,458 sites, colored by the cell family whose identity each carries. A cell's methylated and unmethylated sites gather on opposite sides; about half the sites carry no single cell's identity; colored by over-representation, the blood lineages lie side by side and the tissues hold their own regions. Record: [DEV_SPHERE_01.md](../Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md).

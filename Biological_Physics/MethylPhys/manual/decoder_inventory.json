@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 965,
+   "lines": 991,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -207,25 +207,43 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build",
      "name": "_build",
-     "line": 219,
-     "end": 253,
+     "line": 221,
+     "end": 278,
      "args": [
       "a"
      ],
-     "lines": 35,
+     "lines": 58,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
-     "constants": [],
+     "constants": [
+      "_ISV_ABOUT"
+     ],
      "data_files": [
+      "import pyarrow.parquet",
       "truth.json"
      ],
      "traced_calls": {}
     },
     {
      "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_build._R",
+     "name": "_R",
+     "line": 251,
+     "end": 251,
+     "args": [
+      "m"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 256,
-     "end": 276,
+     "line": 281,
+     "end": 301,
      "args": [
       "a",
       "cnt",
@@ -241,8 +259,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 279,
-     "end": 319,
+     "line": 304,
+     "end": 344,
      "args": [
       "a",
       "o",
@@ -262,10 +280,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 322,
-     "end": 962,
+     "line": 347,
+     "end": 988,
      "args": [],
-     "lines": 641,
+     "lines": 642,
      "doc": "",
      "constants": [
       "BIO",
@@ -287,8 +305,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 513,
-     "end": 517,
+     "line": 539,
+     "end": 543,
      "args": [
       "r"
      ],
@@ -304,8 +322,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 740,
-     "end": 747,
+     "line": 766,
+     "end": 773,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -317,8 +335,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 906,
-     "end": 907,
+     "line": 932,
+     "end": 933,
      "args": [
       "b",
       "it",
@@ -4382,6 +4400,114 @@
    }
   },
   {
+   "file": "MethylPhys_Interface/info_sphere_viewer.py",
+   "lines": 165,
+   "functions": [
+    {
+     "file": "MethylPhys_Interface/info_sphere_viewer.py",
+     "function": "territories",
+     "name": "territories",
+     "line": 16,
+     "end": 24,
+     "args": [
+      "X",
+      "fam",
+      "nfam",
+      "H",
+      "W",
+      "sigma_deg",
+      "chunk"
+     ],
+     "lines": 9,
+     "doc": "Each family's density of clearly marking sites in every direction of an equirectangular grid (a von Mises-Fisher kernel of width sigma_deg on the sphere). Returns (H, W, nfam). Direction of grid cell (lat, lon): (cos lat cos lon, sin lat, cos lat sin lon).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/info_sphere_viewer.py",
+     "function": "territory_texture",
+     "name": "territory_texture",
+     "line": 26,
+     "end": 34,
+     "args": [
+      "T",
+      "counts",
+      "colors"
+     ],
+     "lines": 9,
+     "doc": "Color each direction by the family most over-represented there (its share of the local density over its share of all clearly marking sites: the enrichment), glowing with how strongly it is enriched and how dense the sites are; empty sky stays dark.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/info_sphere_viewer.py",
+     "function": "territory_peaks",
+     "name": "territory_peaks",
+     "line": 36,
+     "end": 47,
+     "args": [
+      "E",
+      "top",
+      "min_sep_deg",
+      "min_enrich",
+      "per_family"
+     ],
+     "lines": 12,
+     "doc": "Label places: for each family, up to per_family directions where it is most enriched (and leads), at least min_sep_deg apart.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/info_sphere_viewer.py",
+     "function": "_b64",
+     "name": "_b64",
+     "line": 49,
+     "end": 49,
+     "args": [
+      "a"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/info_sphere_viewer.py",
+     "function": "write",
+     "name": "write",
+     "line": 51,
+     "end": 78,
+     "args": [
+      "path",
+      "X",
+      "cell",
+      "sgn",
+      "size",
+      "margin",
+      "cells",
+      "cell_family",
+      "families",
+      "title",
+      "about",
+      "sample"
+     ],
+     "lines": 28,
+     "doc": "X: unit vectors (n x 3); cell, sgn, size, margin: stage_info_sphere.roles; cells: cell type names; cell_family: family index of each cell type; families: [(name, color, members)]. sample (optional): per-site departure of one reading from its healthy expectation, the sample layer (red: higher than expected, blue: lower; NaN where not measured).",
+     "constants": [
+      "CLEAR",
+      "PAGE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
    "file": "stage_t_selftare.py",
    "lines": 42,
    "functions": [
@@ -6712,7 +6838,7 @@
   },
   {
    "file": "stage_info_sphere.py",
-   "lines": 111,
+   "lines": 147,
    "functions": [
     {
      "file": "stage_info_sphere.py",
@@ -6879,6 +7005,24 @@
      "doc": "The layout of a reference matrix B (sites x cell types) and its report. groups: {name: site indices}; for each, the concentration R and the 99th percentile of n_random random groups of the same size drawn from groups['pool'] if given, else from all sites.",
      "constants": [
       "NSIDE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_info_sphere.py",
+     "function": "roles",
+     "name": "roles",
+     "line": 137,
+     "end": 146,
+     "args": [
+      "B",
+      "cells"
+     ],
+     "lines": 10,
+     "doc": "For each site: the cell type it departs most from its own mean level in (the identity it carries), the sign (+1: higher there than its level, -1: lower), the size of that departure, and how clearly that one cell stands apart (its departure minus the next largest, the margin). Returns arrays cell index, sign, size, margin, and the family index of each cell type (FAMILIES order; -1 if unlisted).",
+     "constants": [
+      "FAMILIES"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -7262,6 +7406,6 @@
    "first_entered": null
   }
  ],
- "n_files": 32,
- "n_functions": 370
+ "n_files": 33,
+ "n_functions": 377
 }

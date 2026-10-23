@@ -184,6 +184,16 @@
       "OTH-072"
      ],
      "record": "CANON/build_all.py"
+    },
+    {
+     "title": "The information sphere as a picture (ATL-046)",
+     "status": "development",
+     "what": "Drawn by the one command from IAM-Atlas v2.1: each site colored by the cell family whose identity it carries; the blood lineages lie side by side, the tissues in their own regions; on the Globe Explorer.",
+     "outcome": null,
+     "rows": [
+      "ATL-046"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
     }
    ]
   },

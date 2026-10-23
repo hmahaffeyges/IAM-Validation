@@ -302,3 +302,15 @@ twins, seeded): C1 at least 10 of 12 marker groups above their own level-matched
 level-matched line; C3 distance agreement at least 0.7. Same data, pool, groups and construction (v5) as test 10; every R by the one command.
 
 **Test 11, run once (2026-10-23; explore run 39913125753, commit 8cf26900): PASSED.** Output: `data/DEV_SPHERE_01/run_11/atlas_sphere_11_summary.txt`. Construction v5 on IAM-Atlas v2.1's 79 healthy cell types (191,458 sites), each line the 99th percentile of 1,000 level-matched groups: C1 met, 11 of 12 marker groups land together beyond what their level alone gives (B cells' low group did not: R 0.2483 against 0.2965); C2 met, 0 of 100 level-matched twins past their line; C3 met, distance agreement 0.8065. On real healthy cells the information sphere places together sites that behave alike across cells, beyond their methylation level, and does not invent groups. Exploratory, not sealed. Next: one person's information sphere against their own healthy cells, through the one command, synthetic first.
+
+**The information sphere as a picture (2026-10-23; development, nothing scored).** The one command draws it from IAM-Atlas v2.1:
+`run_sample.py --build info-globe --build-out PAGE.html --bundle B.json` (the 191,458 sites of tests 8 to 11, construction v5; the page is
+`website/art/out/information_sphere.html`, its build record `data/DEV_SPHERE_01/picture_01/information_sphere_build.json`; on the site, `atlas/information_sphere.html`).
+Each site is colored by the cell family whose identity it carries (stage_info_sphere.roles: the cell where it departs most from its own
+level). Seen while building it, measured: (1) a cell's methylated and unmethylated sites gather on opposite sides (T cells, among their clearly marking sites: methylated there 0.88, unmethylated there 0.86,
+the family as a whole 0.14; the build record's concentration_by_family), as taking the level out predicts; (2) about half the sites carry no single cell's identity (median margin
+0.036), so the picture colors only the 41,241 with a margin of at least 0.10 and draws the rest as faint dust; (3) colored point by point the
+families overlap in three directions, so each direction is colored by the family most over-represented there (territory_texture). The blood
+lineages (bone marrow progenitors, B and NK cells, T cells, myeloid cells) lie side by side, and the tissues hold their own regions,
+from the methylation alone.
+

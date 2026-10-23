@@ -216,6 +216,8 @@ def _metaa_atlas(a, b):
     return rec
 
 
+_ISV_ABOUT = "<p><b>What this is.</b> The address globes place every site by where it sits on the DNA. This sphere places each site by how it <i>behaves</i>: its methylation across 79 kinds of healthy human cells. Sites that behave alike land together, wherever they sit on the genome. The color is the cell whose identity those sites carry, the thing that put them together.</p><p><b>The geometry.</b> A site's levels b in the cell types become the vector of square roots (&radic;b, &radic;(1&minus;b)). Every such vector has length one, so it lies on a sphere, and the angle between two of them is the Fisher&ndash;Rao distance of information geometry, the local form of relative entropy: the same quantity IAM measures as disorder against a floor. Each site's own level is taken out first, so a site is placed by how it departs from its level across the cells, not by the level. The three leading directions of that space are drawn.</p><p><b>What it adds.</b> A change confined to one stretch of a chromosome is one patch on the address globe. A program that fails at sites spread over many chromosomes is scattered dots there, but one patch here. The two spheres answer different questions about the same sample: where on the genome, and what kind of change.</p><p><b>Status.</b> Development. On the atlas's real healthy cells, 11 of 12 groups of cell-marking sites land together beyond what their methylation level alone gives, and look-alike groups of the same levels do not (0 of 100). The dark sky is masked, as the microwave sky masks the galaxy: the sphere keeps distances and does not stretch sites to fill it. Reading one person against their own healthy cells on this sphere is the next test.</p>\n"   # the information sphere picture's explanation (DEV-SPHERE-01)
+
 def _build(a):
     """--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out."""
     import numpy as _np, pandas as _pd, stage_info_sphere as IS
@@ -232,6 +234,29 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "info-globe":   # 2026-10-23 (DEV-SPHERE-01, development): the information sphere as a picture, from IAM-Atlas v2.1
+        if not a.build_out: print("--build info-globe needs --build-out PAGE.html"); return 2
+        import pyarrow.parquet as _pq, info_sphere_viewer as _ISV
+        AT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"); parts, cells = [], []
+        for n in (1, 2, 3):   # read part by part as stored (uint16, 65535 = no value), so memory stays near the atlas's own size
+            t = _pq.read_table(os.path.join(AT, f"mu_part{n}.parquet")); cells += t.column_names
+            parts.append(_np.column_stack([t.column(c).to_numpy(zero_copy_only=False) for c in t.column_names]).astype("uint16")); del t
+        U16 = _np.hstack(parts); del parts; ok = (U16 != 65535).all(1); B = U16[ok].astype("float32") / 10000.0; del U16
+        keep = B.std(1, ddof=1) > 0.08; B = B[keep]   # the pool of DEV-SPHERE-01 tests 8 to 11 (pandas spread, n - 1): measured in all 79 cell types, spread above 0.08
+        print(f"Build: information sphere picture from IAM-Atlas v2.1 ({B.shape[0]:,} sites x {B.shape[1]} cell types; construction v5)", flush=True)
+        L, rep = IS.build(B, None, n_random=0, construction="v5")
+        cell, sgn, size, margin, cf = IS.roles(B, cells)
+        r = _ISV.write(a.build_out, L["X"], cell, sgn, size, margin, cells, cf, IS.FAMILIES, "The information sphere", a.build_about or _ISV_ABOUT)
+        X3 = L["X"].astype(float); fo = cf[cell]; clr = margin >= _ISV.CLEAR
+        def _R(m): return round(float(_np.linalg.norm(X3[m].mean(0))), 2) if m.sum() >= 20 else None
+        rep.update(margin_median=round(float(_np.median(margin)), 3), sites_clear=int(clr.sum()), clear_margin=_ISV.CLEAR,
+                   concentration_by_family={f[0]: dict(all=_R(fo == k), methylated_there=_R((fo == k) & (sgn > 0)), unmethylated_there=_R((fo == k) & (sgn < 0)),
+                                                        clear_methylated_there=_R(clr & (fo == k) & (sgn > 0)), clear_unmethylated_there=_R(clr & (fo == k) & (sgn < 0)))
+                                            for k, f in enumerate(IS.FAMILIES)})
+        rep.update(picture=os.path.basename(a.build_out), page_bytes=r["bytes"], sites_by_family={f[0]: int((cf[cell] == k).sum()) for k, f in enumerate(IS.FAMILIES)},
+                   command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1800]); return 0
     if a.build == "constructed-draw":   # TESTS ONLY (2026-10-22): a constructed draw with a known answer, built by the chain from spent values
         if not (a.build_input and a.build_out and a.build_mix is not None): print("--build constructed-draw needs --build-input (blood values), --build-mix TISSUE:SHARE,... ('' for none) and --build-out DIR"); return 2
         import stage_seq_values as _SVc
@@ -400,11 +425,12 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
                          "atlas globe's textures and slider pictures (reference_globes.py)")
+    ap.add_argument("--build-about", default=None, help="with --build info-globe: the explanation beside the picture (default: the one in run_sample.py)")
     ap.add_argument("--build-input", default=None, help="with --build info-sphere: a matrix of methylation levels, sites x cell types (.parquet or .csv, site id first)")
     ap.add_argument("--build-groups", default=None, help="with --build info-sphere: JSON {name: [site ids]} of site groups to test for landing together "
                     "('pool': the sites random groups are drawn from)")

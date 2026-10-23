@@ -1989,6 +1989,36 @@ across cell types) and the tools that read the map.
 ### stage_info_sphere.py::edge_ratio
 The mean jump of the mean-level map across HEALPix base-face edges over the jump within a face (about 1: no grid edges).
 
+### run_sample.py::_build._R
+With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
+
+### stage_info_sphere.py::roles
+What groups a site with its neighbors on the information sphere. With each site's own level taken out (construction v5), a site's direction
+is set by how it departs from that level across the cell types, so the cell where it departs most is the identity it carries: returned with
+the sign (methylated there, or unmethylated), the size of that departure, and the margin over the next cell. The 15 families that color the
+picture are a *stated* grouping of the atlas's 79 cell types by tissue and lineage (FAMILIES); nothing is computed from them. Measured, not
+assumed: a cell's methylated and unmethylated sites gather on opposite sides of the sphere (T cells: two groups, each tight, R 0.88 and 0.86).
+
+### info_sphere_viewer.py::_b64
+Packs an array into text so the page carries its own data and needs no other file.
+
+### info_sphere_viewer.py::territories
+Each family's density of clearly marking sites (margin at least CLEAR = 0.10, *stated*) in every direction of a 128 x 256 grid over the sphere,
+with a von Mises-Fisher kernel of 6 degrees (*stated*): the spherical form of a smoothing window.
+
+### info_sphere_viewer.py::territory_texture
+Colors each direction by the family most over-represented there: its share of the local density divided by its share of all clearly marking
+sites (the enrichment), so a large family does not color the sphere by size alone. The glow grows with the enrichment and the density; it
+dims where two families are nearly equal, which draws the dark lanes between territories; empty sky stays dark.
+
+### info_sphere_viewer.py::territory_peaks
+Where to write each family's name: up to two directions where it is most enriched and leads, at least 55 degrees apart (*stated*).
+
+### info_sphere_viewer.py::write
+Writes the information sphere as one page with everything inside it: every site's direction, cell, sign, size and margin; the territory
+picture; the labels; and the page's own drawing code. The drawing turns the sphere, shows the territories, the sites as points, a wire
+graticule for depth, and reads which family's territory is under the pointer.
+
 ### stage_info_sphere.py::build
 The layout and its report: variance kept, sky covered and masked, distance agreement on 5,000 seeded pairs, edge ratio, and for each named
 group its concentration against the 99th percentile of 500 random groups of the same size.

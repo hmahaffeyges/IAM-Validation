@@ -1,0 +1,154 @@
+{
+ "stage": "information sphere (development)",
+ "construction": "v5: v1 on each site's square-root vector minus that of a flat profile at its own mean level, scaled to 1 (the level taken out)",
+ "distance_rho_fisher_rao": 0.2484,
+ "sites_without_direction": 0,
+ "sites": 191458,
+ "cell_types": 79,
+ "variance_kept": 0.3906,
+ "nside": 128,
+ "sky_covered": 0.5527,
+ "sky_masked": 0.4473,
+ "distance_rho": 0.8065,
+ "edge_ratio": 1.021,
+ "groups": {},
+ "margin_median": 0.036,
+ "sites_clear": 41241,
+ "clear_margin": 0.1,
+ "concentration_by_family": {
+  "T cells": {
+   "all": 0.14,
+   "methylated_there": 0.87,
+   "unmethylated_there": 0.85,
+   "clear_methylated_there": 0.88,
+   "clear_unmethylated_there": 0.86
+  },
+  "B and NK cells": {
+   "all": 0.45,
+   "methylated_there": 0.72,
+   "unmethylated_there": 0.69,
+   "clear_methylated_there": null,
+   "clear_unmethylated_there": 0.7
+  },
+  "Myeloid cells": {
+   "all": 0.53,
+   "methylated_there": 0.45,
+   "unmethylated_there": 0.63,
+   "clear_methylated_there": 0.32,
+   "clear_unmethylated_there": 0.63
+  },
+  "Bone marrow progenitors": {
+   "all": 0.42,
+   "methylated_there": 0.83,
+   "unmethylated_there": 0.5,
+   "clear_methylated_there": null,
+   "clear_unmethylated_there": 0.55
+  },
+  "Liver": {
+   "all": 0.13,
+   "methylated_there": 0.44,
+   "unmethylated_there": 0.28,
+   "clear_methylated_there": 0.54,
+   "clear_unmethylated_there": 0.14
+  },
+  "Digestive tract": {
+   "all": 0.35,
+   "methylated_there": 0.73,
+   "unmethylated_there": 0.65,
+   "clear_methylated_there": 0.81,
+   "clear_unmethylated_there": 0.59
+  },
+  "Pancreas": {
+   "all": 0.21,
+   "methylated_there": 0.57,
+   "unmethylated_there": 0.44,
+   "clear_methylated_there": 0.64,
+   "clear_unmethylated_there": 0.33
+  },
+  "Lung and airway": {
+   "all": 0.48,
+   "methylated_there": 0.78,
+   "unmethylated_there": 0.55,
+   "clear_methylated_there": 0.85,
+   "clear_unmethylated_there": 0.4
+  },
+  "Kidney, bladder, prostate": {
+   "all": 0.2,
+   "methylated_there": 0.69,
+   "unmethylated_there": 0.39,
+   "clear_methylated_there": 0.74,
+   "clear_unmethylated_there": 0.33
+  },
+  "Breast and reproductive": {
+   "all": 0.15,
+   "methylated_there": 0.66,
+   "unmethylated_there": 0.46,
+   "clear_methylated_there": 0.7,
+   "clear_unmethylated_there": 0.26
+  },
+  "Squamous and thyroid": {
+   "all": 0.35,
+   "methylated_there": 0.62,
+   "unmethylated_there": 0.48,
+   "clear_methylated_there": 0.66,
+   "clear_unmethylated_there": 0.24
+  },
+  "Blood vessels": {
+   "all": 0.36,
+   "methylated_there": 0.7,
+   "unmethylated_there": 0.6,
+   "clear_methylated_there": 0.76,
+   "clear_unmethylated_there": 0.71
+  },
+  "Muscle, heart, fat, fibroblasts": {
+   "all": 0.45,
+   "methylated_there": 0.66,
+   "unmethylated_there": 0.54,
+   "clear_methylated_there": 0.74,
+   "clear_unmethylated_there": 0.56
+  },
+  "Brain": {
+   "all": 0.17,
+   "methylated_there": 0.51,
+   "unmethylated_there": 0.57,
+   "clear_methylated_there": 0.59,
+   "clear_unmethylated_there": 0.59
+  },
+  "Embryonic stem cells": {
+   "all": 0.41,
+   "methylated_there": 0.46,
+   "unmethylated_there": 0.25,
+   "clear_methylated_there": 0.54,
+   "clear_unmethylated_there": 0.32
+  }
+ },
+ "picture": "info_sphere.html",
+ "page_bytes": 2788101,
+ "sites_by_family": {
+  "T cells": 20197,
+  "B and NK cells": 5978,
+  "Myeloid cells": 8567,
+  "Bone marrow progenitors": 9846,
+  "Liver": 6151,
+  "Digestive tract": 17386,
+  "Pancreas": 18761,
+  "Lung and airway": 6720,
+  "Kidney, bladder, prostate": 7708,
+  "Breast and reproductive": 18176,
+  "Squamous and thyroid": 14284,
+  "Blood vessels": 5610,
+  "Muscle, heart, fat, fibroblasts": 20532,
+  "Brain": 22383,
+  "Embryonic stem cells": 9159
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "info-globe",
+  "--build-out",
+  "/tmp/isg/info_sphere.html",
+  "--bundle",
+  "/tmp/isg/info_sphere.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (DEV-SPHERE-01)"
+}

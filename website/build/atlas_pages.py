@@ -45,7 +45,11 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))): specs.append(json.load(open(g)))
     intro = (f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><p>Choose a globe, then what to show. '
              'Drag to turn it. Each globe brings its own layers and sliders. Gray or dark pixels hold no measured site.</p>')
+    isp = os.path.join(ART_, "information_sphere.html")   # 2026-10-23: the information sphere, as the one command built it (run_sample.py --build info-globe)
+    if os.path.exists(isp): intro += ('<p><b>New: <a href="information_sphere.html">the information sphere</a></b> (development). These globes place every site by where '
+                                      'it sits on the DNA; the information sphere places it by how it behaves across the 79 cell types.</p>')
     d = os.path.join(out, "atlas"); os.makedirs(d, exist_ok=True)
+    if os.path.exists(isp): import shutil as _sh; _sh.copy(isp, os.path.join(d, "information_sphere.html"))
     open(os.path.join(d, "sphere.html"), "w", encoding="utf-8").write(V.page(specs, "The IAM Globe Explorer", intro=intro))
     return len(cells)
 

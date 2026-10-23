@@ -108,3 +108,39 @@ def build(B, groups=None, n_random=500, seed=20261013, nside=NSIDE, construction
         q = float(np.quantile([concentration(X, rng.choice(pool, len(idx), replace=False)) for _ in range(n_random)], 0.99))
         rep["groups"][name] = dict(n=int(len(idx)), R=round(R, 4), random_q99=round(q, 4), together=bool(R > q))
     return dict(X=X.astype("float32"), pix=pix.astype("int32"), count=cnt, mean_b=mb), rep
+
+
+# ---- the information sphere picture (2026-10-23; author: "color coded by what groups them together") -------------------------------------
+# A site lands where it does on the information sphere because of how it departs from its own level across the cell types. The cell where it
+# departs most is the identity it carries, so that cell, and the family it belongs to, is what groups neighbors together; the color says it.
+# The families are a STATED grouping of IAM-Atlas v2.1's 79 cell types by tissue and lineage, for the legend only; nothing is computed from them.
+FAMILIES = [
+ ("T cells", "#ff4d6d", ["cd4 t cells", "cd8 t cells", "cd8 central memory t cells", "cd8 temra t cells", "central memory th1 cells", "cytotoxic cd4 t cells (cd28-)",
+   "effector memory cd8 t cells", "memory cd4 t cells", "naive cd4 t cells", "naive cd8 t cells", "regulatory t cells", "t central memory cd4", "t effector cell cd8",
+   "t effector memory cd4"]),
+ ("B and NK cells", "#ffafcc", ["b cells", "memory b cells", "naive b cells", "nk cells", "cd56bright nk cells"]),
+ ("Myeloid cells", "#ff9e00", ["neutrophils", "monocytes", "eosinophils", "basophils", "colon macrophages", "lung alveolar macrophages", "lung interstitial macrophages", "microglia"]),
+ ("Bone marrow progenitors", "#ffe74c", ["HSC (bone marrow)", "MPP (bone marrow)", "L-MPP (bone marrow)", "CMP (bone marrow)", "GMP (bone marrow)", "MEP (bone marrow)", "erythrocyte progenitors"]),
+ ("Liver", "#38b000", ["hepatocyte"]),
+ ("Digestive tract", "#b5e48c", ["colon epithelium", "colon enteroendocrine", "small intestine epithelium", "gastric antrum epithelium", "gastric body epithelium", "gastric fundus epithelium"]),
+ ("Pancreas", "#00f5d4", ["pancreatic acinar", "pancreatic alpha", "pancreatic beta", "pancreatic delta", "pancreatic duct"]),
+ ("Lung and airway", "#4cc9f0", ["lung alveolar epithelium", "lung bronchus epithelium"]),
+ ("Kidney, bladder, prostate", "#4361ee", ["kidney glomerular epithelium", "kidney tubular epithelium", "bladder epithelium", "prostate epithelium"]),
+ ("Breast and reproductive", "#f72585", ["breast basal epithelium", "breast luminal epithelium", "endometrium epithelium", "fallopien tubes epithelium"]),
+ ("Squamous and thyroid", "#e9edc9", ["tongue epithelium", "tonsil palatine epithelium", "tonsil pharyngeal epithelium", "thyroid epithelium"]),
+ ("Blood vessels", "#ff5400", ["aorta endothelium", "kidney glomerular endothelium", "kidney tubular endothelium", "lung alveolar endothelium", "pancreas endothelium",
+   "vascular endothelium", "vascular saphenous endothelium"]),
+ ("Muscle, heart, fat, fibroblasts", "#c8a165", ["cardiomyocyte", "smooth muscle", "striated muscle", "adipocytes", "colon fibroblasts", "heart fibroblasts"]),
+ ("Brain", "#a66cff", ["cortical neurons", "astrocytes", "oligodendrocytes", "oligodendrocyte precursors", "vascular leptomeningeal cells"]),
+ ("Embryonic stem cells", "#ffffff", ["embryonic stem cells"])]
+
+def roles(B, cells):
+    """For each site: the cell type it departs most from its own mean level in (the identity it carries), the sign (+1: higher there than its
+    level, -1: lower), the size of that departure, and how clearly that one cell stands apart (its departure minus the next largest, the
+    margin). Returns arrays cell index, sign, size, margin, and the family index of each cell type (FAMILIES order; -1 if unlisted)."""
+    B = np.asarray(B, float); D = B - B.mean(1, keepdims=True); A = np.abs(D)
+    top = A.argmax(1); r = np.arange(len(B)); size = A[r, top]; sgn = np.sign(D[r, top]).astype(int)
+    A2 = A.copy(); A2[r, top] = -1; margin = size - A2.max(1)
+    fam = {c: k for k, (_, _, cs) in enumerate(FAMILIES) for c in cs}
+    cf = np.array([fam.get(str(c), -1) for c in cells], dtype=int)
+    return top.astype(int), sgn, size, margin, cf
