@@ -47,3 +47,13 @@ in three places, cases against the cancer-free references, window by window, by 
 shares, the neutrophil share and the lymphocyte share first; (2) each cell's Met-A and the every-site reading; (3) the territories. A change
 in (1) alone says the blood's make-up moved; in (2) or (3) too, the cells themselves moved. Neither outcome is a failure of the chain.
 
+**Where the earlier panel came from (added after reading the author's earlier work folder, before the series is read).** The six sites and the
+earlier 538-site immune-class panel are a published set: the blood methylation sites associated with later breast cancer in the Sister Study,
+listed in that paper's supplementary tables (sites at p < 1e-7, replicated in EPIC-Italy, plus sites in known breast-cancer susceptibility
+genes). So the signal at these sites in EPIC-Italy is already reported, and a reading of them here is a replication, not a discovery. Of the
+538, 486 are in IAM-Atlas v2.1: 6 are among any blood cell's Met-A identity sites, 58 are in the islands set and 128 in the domains set
+(DEV-TERRITORIES-01), 115 vary between cell types and 218 read alike in all 79. Most of the published signal therefore lies outside Met-A's sites,
+which is why the every-site reading and the territories are read here beside Met-A. Several earlier results (top-ranked sites, cross-validated
+effect sizes, variance by class, five windows) chose sites or tests on the same arrays; the chain's readings are fixed before any array is read,
+so smaller effects than the earlier ones are expected if part of those came from the selection.
+
