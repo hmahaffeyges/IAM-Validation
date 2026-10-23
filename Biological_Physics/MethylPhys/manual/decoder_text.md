@@ -1763,6 +1763,12 @@ spread combined with the atlas's own uncertainty, half its 95 % range over 1.96)
 to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
 measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
 
+### stage_metaa_atlas.py::read_in_mix_allsites
+Met-A for each cell over every IAM-Atlas v2.1 site (development; `run_sample.py --dev-metaa-allsites`): each site counts by the shift a loss
+of that cell would make there, share × |0.5 − μ| (the chain's own shift rule), so nothing is chosen. Records the reading, its shift per 1 %
+loss, its standard error over sites and its effective number of sites. The standard error is within one sample; how much healthy people
+differ is measured on many healthy samples, not here.
+
 ### stage_metaa_atlas.py::departure_in_mix
 The per-site departure behind Met-A for one cell of a mixed sample: at the cell's identity sites,
 H(β) − H(e), e the atlas mixed in the sample's own shares by `read_in_mix`'s rule; by site id. Used by the globe's layer for each cell.
@@ -1797,6 +1803,10 @@ Deconvolver's share of that cell, so the reading sees less loss than was planted
 On a wide panel (`--cell-panel atlas`) the expectation at each site is mixed over the cells that have an atlas value there, renormalized, and a
 site counts when those cells hold at least `MIX_COVER` (99 %) of the sample's shares: before this rule (2026-10-22), one small cell without a
 value dropped the site, and on the 79-cell panel most cells lost about half their identity sites.
+
+### stage_metaa_atlas.py::plant_all
+TESTS ONLY: a constructed loss of a cell's whole pattern, every atlas site the array measured where the cell has a value moved the given share of
+the way to 0.5 (`run_sample.py --dev-plant CELL:LOSS:all`). A real loss of hold reaches every held site, not only the identity sites.
 
 ### stage_metaa_atlas.py::plant
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the

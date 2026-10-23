@@ -328,7 +328,10 @@ def main():
                     help="the cells the IAM-Deconvolver splits the sample into: 'blood' (the six blood cells it is commissioned on, the default), 'atlas' (all of "
                          "IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for "
                          "each cell reads every cell the panel finds (2026-10-22)")
-    ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS",
+    ap.add_argument("--dev-metaa-allsites", action="store_true",
+                    help="DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make "
+                         "(stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading")
+    ap.add_argument("--dev-plant", default=None, metavar="CELL:LOSS[:all]",
                     help="TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this "
                          "array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the "
                          "IAM-Deconvolver reads it on the unplanted values. Every report and bundle says PLANTED; the bundle records the plant (key 'planted')")
@@ -719,13 +722,14 @@ def main():
         return cells
     if a.dev_plant and beta is not None:   # 2026-10-22: a constructed loss planted by the chain itself, so a test is the one command end to end
         import stage_metaa_atlas as _SAp, stage_v4 as _V4p
-        _pc, _, _pl = a.dev_plant.partition(":"); _pl = float(_pl or 0.01); _b0 = _pd.Series(beta, dtype="float64")
+        _pc, _, _pl = a.dev_plant.partition(":"); _pl, _, _scope = _pl.partition(":"); _pl = float(_pl or 0.01); _scope = _scope or "identity"; _b0 = _pd.Series(beta, dtype="float64")
         _mix = str(a.specimen).lower() in ("whole blood", "blood", "peripheral blood", "venous blood", "buffy coat")
         _sh = {r["cell"]: r["share"] for r in (_V4p.stage_d21(_b0, _panel()).get("cells") or [])} if _mix else {}
         _f = float(_sh.get(_pc, 0.0)) if _mix else 1.0
         if _mix and _pc not in _sh: sys.exit(f"--dev-plant {a.dev_plant}: '{_pc}' is not among the cells the IAM-Deconvolver read ({sorted(_sh)})")
-        _bp = _SAp.plant(_b0, _pc, _pl * _f); _n = int((_bp != _b0).sum()); beta = _bp.to_dict()
-        planted_rec = dict(cell=_pc, loss=_pl, share=round(_f, 4), applied=round(_pl * _f, 6), sites_moved=_n, rule="stage_metaa_atlas.plant (x + loss (0.5 - mu) at the cell's identity sites)")
+        _bp = (_SAp.plant_all if _scope == "all" else _SAp.plant)(_b0, _pc, _pl * _f); _n = int((_bp != _b0).sum()); beta = _bp.to_dict()
+        planted_rec = dict(cell=_pc, loss=_pl, share=round(_f, 4), applied=round(_pl * _f, 6), sites_moved=_n, scope=_scope,
+                           rule="x + loss (0.5 - mu) at " + ("every atlas site the cell has a value (stage_metaa_atlas.plant_all)" if _scope == "all" else "the cell's identity sites (stage_metaa_atlas.plant)"))
         a.banner = (a.banner + " | " if a.banner else "") + f"PLANTED (constructed for a test): a {_pl:.0%} loss of the {_pc} pattern" + (f" at its share {_f:.4f}" if _mix else "") + f", {_n} sites"
         print(f"PLANTED: {a.banner}", flush=True)
     refs = [float(x) for x in a.slide_ref_A.split(",") if x.strip()] if a.slide_ref_A else None
@@ -782,6 +786,7 @@ def main():
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
+                if a.dev_metaa_allsites: o["met_a_each_cell_allsites"] = SA.read_in_mix_allsites(_vals, _shr)
             except Exception as e: o["met_a_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
         _m, _c, _t = o.get("met_a") or {}, o.get("met_a_cscore") or {}, o.get("tare") or {}
         _rd = "    ".join(x for x in (("" if str(_m.get("state", "")).startswith("withheld") else f"Met-A {_t['A_rel']:.3f} (tared)" if _t.get("A_rel") is not None else (f"Met-A {_m['A']:.3f}" if _m.get("A") is not None else "")),

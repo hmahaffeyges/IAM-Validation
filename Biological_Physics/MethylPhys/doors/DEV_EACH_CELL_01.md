@@ -49,3 +49,11 @@ shift predicted for it; the largest move of another cell was 6 % (monocyte plant
 move, the lymphocytes sharing part of their pattern; the Deconvolver's share of the planted cell did not move. Read on the six-cell panel,
 untared. The globe in each report shows the change against healthy neutrophils, so a loss in another cell barely moves it (the changed
 pixels are in the report's own count): a globe for each cell is not built yet.
+
+## Exploration 4, written before it runs (2026-10-22): Met-A on the 6,000 identity sites against every atlas site
+Author: "Met-A should be able to read 800K sites so long as they correspond to the cells in the atlas." `data/DEV_EACH_CELL_01/metaa_allsites_04.py`
+runs only the one command on the raw IDATs of GSM7508429: healthy, then a 5 % loss planted by the chain in monocytes, CD4 T, B and NK cells, once
+at their identity sites and once at every atlas site they hold (`--dev-plant CELL:0.05:all`). Each bundle carries both readings: identity sites
+(I) and every site weighted by its shift (W, `--dev-metaa-allsites`). Reported for each: the planted cell's move in the reading's own error over
+sites, and the largest move of another cell as a share of it. Nothing scored. Known before it runs: the error over sites is within one sample,
+so it is smaller than the spread between healthy people; that spread comes from many healthy bloods read the same way (Group-A's 278).

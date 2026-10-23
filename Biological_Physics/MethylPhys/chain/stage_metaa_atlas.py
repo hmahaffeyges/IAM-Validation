@@ -86,6 +86,12 @@ def tare(A, refs):
                state="Normal" if RULE["normal"][0] <= a <= RULE["normal"][1] else ("above Normal" if a > RULE["normal"][1] else "below Normal"))
     return out
 
+def plant_all(beta, cell, loss=0.01):
+    """A CONSTRUCTED loss of the cell's whole pattern, for tests only (2026-10-22): every atlas site the array measured where the cell has a value,
+    moved loss of the way to 0.5, x + loss (0.5 - mu). A real loss of hold would reach every held site, not only the identity sites."""
+    b = beta.copy(); mu = _col("mu", cell).reindex(b.index); ok = b.notna() & mu.notna()
+    b.loc[ok] = (b[ok] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b
+
 def plant(beta, cell, loss=0.01):
     """A CONSTRUCTED loss of the cell's pattern, for tests only (the rule read() predicts its shift by): every identity site of the cell this
     array measured moved loss of the way to 0.5, x + loss (0.5 - mu). Returns a new Series; the input is unchanged."""
@@ -120,6 +126,8 @@ def read_in_mix(beta, shares):
         if ok.sum() < RULE["coverage_min"] * len(S):
             r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; out["cells"].append(r); continue
         he = float(_H(e[ok]).mean()); A = float(_H(x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
+        _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
+        r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison
         r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5), expectation_rule=f"mixed over the cells with an atlas value; site kept at >= {MIX_COVER:.0%} of the shares",
                  shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
         out["cells"].append(r)
@@ -138,3 +146,35 @@ def departure_in_mix(beta, shares, cell):
     e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
     ok = x.notna() & e.notna() & (cover >= MIX_COVER)
     return pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)   # site ids kept
+
+
+def read_in_mix_allsites(beta, shares):
+    """Met-A for each cell over EVERY IAM-Atlas v2.1 site (development, written 2026-10-22 before any comparison is run; author: "Met-A should be
+    able to read 800K sites so long as they correspond to the cells in the atlas"). For cell c, each site s counts by how much a loss of c's
+    pattern would move it, the chain's own shift rule (conductor_v3.stage_m_blood): w_s = f_c x |0.5 - mu_c,s|. Nothing is chosen or fitted:
+    a site c does not hold firmly, or where c is a small share, counts for little by itself. A_c = sum w H(beta) / sum w H(e), e the atlas mixed
+    in the sample's own shares (read_in_mix's rule, MIX_COVER); also the shift a 1 % loss of c would make, and the reading's own standard error
+    over sites (weighted, from the per-site ratios), so the two versions can be compared by how far a planted loss moves each in its own error."""
+    cells = [c for c, f in shares.items() if f is not None]
+    out = dict(stage="M-atlas-mix-allsites", reading="Met-A for each cell over every atlas site, each site weighted by the shift a loss of that cell would make",
+               flag=FLAG, cells=[], weight_rule="w = share x |0.5 - mu| (conductor_v3.stage_m_blood's shift)")
+    if not cells: out["reason"] = "no cell shares"; return out
+    x = pd.Series(beta, dtype="float64"); idx = x.dropna().index
+    MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
+    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+    e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+    ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
+    Hx = np.asarray(_H(xs), dtype="float64"); He = np.asarray(_H(es), dtype="float64")
+    for c in cells:
+        mu = MU[c][ok]; m = mu.notna().to_numpy(); f = float(shares[c]); w = f * np.abs(0.5 - mu.to_numpy()[m]); hx, he = Hx[m], He[m]
+        r = dict(cell=c, share=round(f, 4), n_sites=int(m.sum()), A=None)
+        if m.sum() < 1000 or w.sum() <= 0: r["reason"] = f"only {int(m.sum())} sites with a value"; out["cells"].append(r); continue
+        A = float((w * hx).sum() / (w * he).sum())
+        xd = np.clip(xs.to_numpy()[m] + f * 0.01 * (0.5 - mu.to_numpy()[m]), 1e-6, 1 - 1e-6)
+        sh = float((w * np.asarray(_H(pd.Series(xd)), dtype="float64")).sum() / (w * he).sum() - A)
+        # standard error over sites: the weighted sum's linearized error, from each site's departure from the reading
+        dv = hx - A * he; se = float(np.sqrt((w ** 2 * dv ** 2).sum()) / (w * he).sum())
+        neff = float(w.sum() ** 2 / (w ** 2).sum())
+        r.update(A=round(A, 5), shift_per_1pct_loss=round(sh, 5), se_over_sites=round(se, 6), effective_sites=int(neff), state="untared")
+        out["cells"].append(r)
+    return out

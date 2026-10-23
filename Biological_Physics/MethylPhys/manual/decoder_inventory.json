@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 924,
+   "lines": 929,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -261,9 +261,9 @@
      "function": "main",
      "name": "main",
      "line": 314,
-     "end": 921,
+     "end": 926,
      "args": [],
-     "lines": 608,
+     "lines": 613,
      "doc": "",
      "constants": [
       "BIO",
@@ -285,8 +285,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 485,
-     "end": 489,
+     "line": 488,
+     "end": 492,
      "args": [
       "r"
      ],
@@ -302,8 +302,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 712,
-     "end": 719,
+     "line": 715,
+     "end": 722,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -315,8 +315,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 865,
-     "end": 866,
+     "line": 870,
+     "end": 871,
      "args": [
       "b",
       "it",
@@ -6016,7 +6016,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 141,
+   "lines": 181,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6128,10 +6128,27 @@
     },
     {
      "file": "stage_metaa_atlas.py",
-     "function": "plant",
-     "name": "plant",
+     "function": "plant_all",
+     "name": "plant_all",
      "line": 89,
      "end": 93,
+     "args": [
+      "beta",
+      "cell",
+      "loss"
+     ],
+     "lines": 5,
+     "doc": "A CONSTRUCTED loss of the cell's whole pattern, for tests only (2026-10-22): every atlas site the array measured where the cell has a value, moved loss of the way to 0.5, x + loss (0.5 - mu). A real loss of hold would reach every held site, not only the identity sites.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "plant",
+     "name": "plant",
+     "line": 95,
+     "end": 99,
      "args": [
       "beta",
       "cell",
@@ -6147,13 +6164,13 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 97,
-     "end": 126,
+     "line": 103,
+     "end": 134,
      "args": [
       "beta",
       "shares"
      ],
-     "lines": 30,
+     "lines": 32,
      "doc": "Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written 2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21). For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at t",
      "constants": [
       "FLAG",
@@ -6167,8 +6184,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 129,
-     "end": 140,
+     "line": 137,
+     "end": 148,
      "args": [
       "beta",
       "shares",
@@ -6177,6 +6194,25 @@
      "lines": 12,
      "doc": "The per-site departure behind Met-A for one cell of a mixed sample (development, 2026-10-22, for the globe's layer for each cell): at the cell's identity sites, H(beta) - H(e), e the atlas mixed in this sample's shares by read_in_mix's rule (MIX_COVER). A pd.Series by site id, or None when the cell has no identity sites. Positive: more disorder than this mix of healthy cells holds there.",
      "constants": [
+      "MIX_COVER"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "read_in_mix_allsites",
+     "name": "read_in_mix_allsites",
+     "line": 151,
+     "end": 180,
+     "args": [
+      "beta",
+      "shares"
+     ],
+     "lines": 30,
+     "doc": "Met-A for each cell over EVERY IAM-Atlas v2.1 site (development, written 2026-10-22 before any comparison is run; author: \"Met-A should be able to read 800K sites so long as they correspond to the cells in the atlas\"). For cell c, each site s counts by how much a loss of c's pattern would move it, the chain's own shift rule (conductor_v3.stage_m_blood): w_s = f_c x |0.5 - mu_c,s|. Nothing is chose",
+     "constants": [
+      "FLAG",
       "MIX_COVER"
      ],
      "data_files": [],
@@ -6985,5 +7021,5 @@
   }
  ],
  "n_files": 32,
- "n_functions": 356
+ "n_functions": 358
 }
