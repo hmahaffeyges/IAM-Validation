@@ -1,0 +1,6 @@
+DEV-SPHERE-01 planted test 9 (synthetic; every globe built by run_sample.py --build info-sphere, construction v5)
+60000 sites x 40 cell types; variance kept 0.3673; sky covered 26.0% (masked 74.0%); edge ratio 1.038 (reported)
+C1 planted group R 0.9916 | 99th percentile of 1,000 random groups 0.1256 -> MET
+C2 nothing planted: together in 1 of 100 (bar at most 4) -> MET
+C3 distance agreement rho 0.7686 (bar at least 0.7) -> MET
+PLANTED TEST 9 PASSED (C1-C3)

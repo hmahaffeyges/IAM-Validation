@@ -284,3 +284,8 @@ flat profile at the site's own mean level, scaled to length 1, then v1's three l
 the full-space angles of these level-free vectors (the space the globe is meant to show); the agreement with the original Fisher-Rao angles is
 reported beside it. Test 9 (`data/DEV_SPHERE_01/planted_sphere_09.py`) is test 7 with v5, synthetic first. Test 10
 (`data/DEV_SPHERE_01/atlas_sphere_10.py`) is test 8 with v5, on IAM-Atlas v2.1's 79 healthy cell types, and runs only if test 9 passes.
+
+**Test 9, run once (2026-10-22; explore run 39907627811, commit 0475a8b1): PASSED.** Output: `data/DEV_SPHERE_01/run_09/`. Construction v5 on test 7's
+synthetic methylome (60,000 sites x 40 cell types): C1 the planted group lands together (R 0.9916 against a 99th percentile of 0.1256); C2
+nothing planted lands together in 1 of 100 (bar at most 4); C3 distance agreement 0.7686 (bar 0.7). Sky covered 26.0 %. Test 10, on the real
+atlas, now runs as written.
