@@ -1961,7 +1961,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 365,
+   "lines": 396,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2137,11 +2137,11 @@
      "function": "glance_rows",
      "name": "glance_rows",
      "line": 63,
-     "end": 117,
+     "end": 127,
      "args": [
       "o"
      ],
-     "lines": 55,
+     "lines": 65,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -2154,8 +2154,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_shares",
      "name": "_shares",
-     "line": 119,
-     "end": 130,
+     "line": 129,
+     "end": 140,
      "args": [
       "o"
      ],
@@ -2174,26 +2174,6 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_meta",
      "name": "_meta",
-     "line": 132,
-     "end": 140,
-     "args": [
-      "o"
-     ],
-     "lines": 9,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {
-      "array": 1,
-      "bam": 1
-     }
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_cscore",
-     "name": "_cscore",
      "line": 142,
      "end": 150,
      "args": [
@@ -2212,10 +2192,30 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
+     "function": "_cscore",
+     "name": "_cscore",
+     "line": 152,
+     "end": 160,
+     "args": [
+      "o"
+     ],
+     "lines": 9,
+     "doc": "",
+     "constants": [
+      "E"
+     ],
+     "data_files": [],
+     "traced_calls": {
+      "array": 1,
+      "bam": 1
+     }
+    },
+    {
+     "file": "MethylPhys_Interface/report_v4.py",
      "function": "_iama",
      "name": "_iama",
-     "line": 152,
-     "end": 164,
+     "line": 162,
+     "end": 174,
      "args": [
       "o"
      ],
@@ -2234,8 +2234,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_figs",
      "name": "_figs",
-     "line": 167,
-     "end": 183,
+     "line": 177,
+     "end": 193,
      "args": [
       "o",
       "base"
@@ -2253,8 +2253,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 189,
-     "end": 194,
+     "line": 199,
+     "end": 204,
      "args": [
       "o"
      ],
@@ -2274,8 +2274,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 196,
-     "end": 227,
+     "line": 206,
+     "end": 237,
      "args": [
       "o"
      ],
@@ -2294,8 +2294,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 230,
-     "end": 237,
+     "line": 243,
+     "end": 250,
      "args": [
       "o"
      ],
@@ -2313,8 +2313,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 239,
-     "end": 257,
+     "line": 252,
+     "end": 270,
      "args": [
       "o",
       "F"
@@ -2334,8 +2334,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_fam_of",
      "name": "_fam_of",
-     "line": 262,
-     "end": 266,
+     "line": 277,
+     "end": 281,
      "args": [],
      "lines": 5,
      "doc": "",
@@ -2345,47 +2345,14 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_fmt",
-     "name": "_fmt",
-     "line": 267,
-     "end": 267,
+     "function": "_f",
+     "name": "_f",
+     "line": 282,
+     "end": 282,
      "args": [
       "v",
       "d"
      ],
-     "lines": 1,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_tbl",
-     "name": "_tbl",
-     "line": 268,
-     "end": 268,
-     "args": [
-      "head",
-      "rows"
-     ],
-     "lines": 1,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_dev",
-     "name": "_dev",
-     "line": 269,
-     "end": 269,
-     "args": [],
      "lines": 1,
      "doc": "",
      "constants": [],
@@ -2394,120 +2361,18 @@
     },
     {
      "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_atlas_ruler",
-     "name": "_atlas_ruler",
-     "line": 271,
-     "end": 278,
+     "function": "detail_tables",
+     "name": "detail_tables",
+     "line": 285,
+     "end": 354,
      "args": [
       "o"
      ],
-     "lines": 8,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_unexpected",
-     "name": "_unexpected",
-     "line": 280,
-     "end": 286,
-     "args": [
-      "o"
-     ],
-     "lines": 7,
-     "doc": "",
+     "lines": 70,
+     "doc": "[(id, title, intro, header, rows, note)] - plain text cells; one per instrument, in the order the chain reads them.",
      "constants": [
       "BLOOD_FAMILIES",
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_whole",
-     "name": "_whole",
-     "line": 288,
-     "end": 295,
-     "args": [
-      "o"
-     ],
-     "lines": 8,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_each_cell",
-     "name": "_each_cell",
-     "line": 297,
-     "end": 302,
-     "args": [
-      "o"
-     ],
-     "lines": 6,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_territories",
-     "name": "_territories",
-     "line": 304,
-     "end": 310,
-     "args": [
-      "o"
-     ],
-     "lines": 7,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_cscores_all",
-     "name": "_cscores_all",
-     "line": 312,
-     "end": 321,
-     "args": [
-      "o"
-     ],
-     "lines": 10,
-     "doc": "",
-     "constants": [
-      "E"
-     ],
-     "data_files": [],
-     "traced_calls": {}
-    },
-    {
-     "file": "MethylPhys_Interface/report_v4.py",
-     "function": "_sphere_sec",
-     "name": "_sphere_sec",
-     "line": 323,
-     "end": 329,
-     "args": [
-      "o"
-     ],
-     "lines": 7,
-     "doc": "",
-     "constants": [
-      "E"
+      "DEV"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -2516,14 +2381,16 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_sections_v5",
      "name": "_sections_v5",
-     "line": 331,
-     "end": 331,
+     "line": 356,
+     "end": 362,
      "args": [
       "o"
      ],
-     "lines": 1,
+     "lines": 7,
      "doc": "",
-     "constants": [],
+     "constants": [
+      "E"
+     ],
      "data_files": [],
      "traced_calls": {}
     },
@@ -2531,8 +2398,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 333,
-     "end": 364,
+     "line": 364,
+     "end": 395,
      "args": [
       "o",
       "out",
@@ -4485,7 +4352,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_pdf_v4.py",
-   "lines": 100,
+   "lines": 107,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_pdf_v4.py",
@@ -4573,7 +4440,7 @@
      "function": "build_pdfs",
      "name": "build_pdfs",
      "line": 50,
-     "end": 99,
+     "end": 106,
      "args": [
       "o",
       "F",
@@ -4581,7 +4448,7 @@
       "sid",
       "when"
      ],
-     "lines": 50,
+     "lines": 57,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -7830,5 +7697,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 401
+ "n_functions": 393
 }

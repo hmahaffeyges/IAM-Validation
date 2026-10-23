@@ -68,6 +68,13 @@ def build_pdfs(o, F, out, sid, when):
                     + [[P(R.cellname(r["cell"])), P(f"<b>{100 * r['share']:.1f} %</b>"), P(f"{100 * r['interval_95'][0]:.1f} to {100 * r['interval_95'][1]:.1f} %"),
                         P(r["status"] if r["status"] != "development" else R.untested(r["cell"], "the IAM-Deconvolver", noun="shares"), "small")]
                        for r in sorted(sh["cells"], key=lambda r: -r["share"])], [1.9, 1.0, 1.7, 2.7])]
+    for _i, _t, _in, _hd, _rw, _nt in R.detail_tables(o):   # 2026-10-23: every instrument, from the same source as the HTML report
+        blk = [P(html.escape(_t), "h2"), P(html.escape(_in), "small")]
+        if _rw:
+            n = len(_hd); wd = [7.2 / n] * n
+            blk.append(_tbl([[P(f"<b>{html.escape(str(x))}</b>") for x in _hd]] + [[P(html.escape(str(x)), "small") for x in r] for r in _rw], wd))
+        if _nt: blk.append(P(html.escape(_nt), "small"))
+        st += [KeepTogether(blk)] if len(_rw) < 12 else blk
     for k, t_ in (("met_a", "Met-A on its gauge"), ("iam_a", "IAM-A on its gauge"), ("cscore", "C-Score on its bar")):
         i = _img(F.get(k))
         if i: st += [KeepTogether([P(t_, "h2"), i])]

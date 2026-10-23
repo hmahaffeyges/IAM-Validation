@@ -107,8 +107,18 @@ def glance_rows(o):
         val = f"C_rel {c['C_rel']}" if c.get("C_rel") is not None else f"C {c['C']} (untared)"
         st = ("commissioned" if c.get("commissioning") else "not tared: needs 3 same-run healthy references" if c.get("C_rel") is None and o.get("specimen") == "whole blood"
               else untested(o.get("specimen") or "this specimen", "the C-Score"))
-        rows.append(("C-Score", "Are the departures clustered or scattered", val, str(c.get("C_call") or ""), st))
-    else: rows.append(("C-Score", "Are the departures clustered or scattered", "", "", "not run" if not o.get("met_a") else "not read: " + str(c.get("reason", ""))))
+        rows.append(("C-Score, commissioned", "Are the neutrophil's departures clustered or scattered", val, str(c.get("C_call") or ""), st))
+    else: rows.append(("C-Score, commissioned", "Are the neutrophil's departures clustered or scattered", "", "", "not run" if not o.get("met_a") else "not read: " + str(c.get("reason", ""))))
+    ce = o.get("cscore_each_cell") or {}; wg = ce.get("whole_genome") or {}   # 2026-10-23: the other three C-Scores, Group-A and the globe, always listed
+    rows.append(("C-Score, whole genome", "Are the departures clustered, over every atlas site", f"C {wg['C']}" if wg.get("C") is not None else "", "", "development, not commissioned" if wg.get("C") is not None else "not read: " + str(ce.get("reason") or "no cell shares")))
+    each = [x for x in ce.get("cells", []) if x.get("C") is not None]
+    rows.append(("C-Score, each cell", "Are each cell's departures clustered", ", ".join(f"{cellname(x['cell'])} {x['C']:.3f}" for x in sorted(each, key=lambda x: -(x.get("share") or 0))[:6]), "", "development, not commissioned" if each else "not read"))
+    qc = (q or {}).get("cscore") or {}
+    rows.append(("C-Score, IAM-A", "Are the held-error departures clustered, region by region", f"C {qc['C']}" if qc.get("C") is not None else "", "", "development" if qc.get("C") is not None else "not run (needs sequencing input)"))
+    g = o.get("globe") or {}
+    rows.append(("Globe", "Where on the genome the sample changed", f"{g.get('blocks_changed')} of {g.get('blocks'):,} blocks changed" if g.get("drawn") else "", "", "development, not commissioned" if g.get("drawn") else "not drawn: " + str(g.get("reason") or "")[:120]))
+    ga = o.get("group_a") or {}
+    rows.append(("Group-A", "Does this person's group differ from its healthy group", str(ga.get("reading") or ""), "", str(ga.get("status") or "a group reading: shown in the series summary when this sample is read as one member of a series")))
     if q.get("A") is not None:
         st = "commissioned" if q.get("commissioning") else untested(str(q.get("cell")), "IAM-A")
         rows.append(("IAM-A", "Is each mark still held, against the sample's own reference", f"A {q['A']}", str(q.get("state", "")), st))
@@ -226,7 +236,10 @@ def physics_rows(o):
                      "617 healthy arrays from 19 studies and held in two laboratories that had no part in setting it. The sky below shows the same departures."))
     return rows
 
-SKY_CAP = "Gray is where this sample matches healthy neutrophils from IAM-Atlas v2.1 (the shade is the healthy cell's own tagging). Color marks only the sites that differ from healthy by more than 2 of this sample's own spread: red where its pattern is more disordered than healthy (marks lost), blue where it is more ordered. Every site keeps one place on a HEALPix sphere, set by its position in the genome, so a few scattered colored points are ordinary, and colored patches are changes that run along the genome, which is what the C-Score measures. A picture of the reading; nothing is scored from it."
+SKY_CAP = ("Gray is where this sample matches healthy neutrophils from IAM-Atlas v2.1 (the shade is the healthy cell's own tagging). Color marks only "
+           "blocks of 10 neighboring identity sites, in genome order, whose mean departure is beyond the line pure chance crosses less than once in 20 "
+           "samples (5 % family-wise over all blocks): red where the pattern is more disordered than healthy (marks lost), blue where it is more ordered. "
+           "This is the globe's own change rule, so the flat picture and the globe count the same blocks. A picture of the reading; nothing is scored from it.")
 def _skypair(o):   # the overlay replaces the side-by-side pair (author 2026-10-18: "quieten the matches and showcase the changes")
     c, a = o.get("changes_sky") or {}, o.get("atlas_sky") or {}
     if not c.get("drawn"): return ""
@@ -257,78 +270,96 @@ def _plain(o, F):
     return "".join(P)
 
 
-# ---- 2026-10-23 (author: "That report needs updating with ALL those tests because they are not there"): one section for every instrument
+# ---- 2026-10-23 (author: "That report needs updating with ALL those tests"; "both Met-A, all 4 C-Scores, Territory Score, Group-A, IAM-A,
+# Globe and Information Sphere all correctly represented"): ONE source, detail_tables(o), drawn by the HTML report AND both PDFs. Every
+# instrument always has its table: a reading, or the reason it did not fire.
 BLOOD_FAMILIES = ("T cells", "B and NK cells", "Myeloid cells")
 def _fam_of():
     try:
         import stage_info_sphere as _IS
         return {c: n for n, _, cs in _IS.FAMILIES for c in cs}
     except Exception: return {}
-def _fmt(v, d=4): return "" if v is None else (f"{v:.{d}f}" if isinstance(v, (int, float)) else E(str(v)))
-def _tbl(head, rows): return "<table><tr>" + "".join(f"<th>{E(h)}</th>" for h in head) + "</tr>" + "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows) + "</table>"
-def _dev(): return chip("development, not commissioned")
+def _f(v, d=4): return "" if v is None else (f"{v:.{d}f}" if isinstance(v, (int, float)) else str(v))
+DEV = "development, not commissioned"
 
-def _atlas_ruler(o):
-    ru = o.get("atlas_ruler") or {}; sh = o.get("cell_shares") or {}
-    h = "<h2 id='v4-atlas'>IAM-Atlas v2.1 and the ruler</h2><p>Every atlas reading below compares this sample with IAM-Atlas v2.1: 79 healthy cell types, 813,951 sites, built once from healthy donors. "
-    h += "The ruler puts the array on the atlas's scale first: for each probe design, the array's own mean at sites every healthy cell type holds unmarked, and at sites every one holds marked, is mapped onto the atlas's means at the same sites (islands and their shores are never anchors, so a gain there is never tared away). The shift is shown, never hidden.</p>"
-    mp = ru.get("maps") or {}
-    if not mp: return h + f"<p>{chip('not applied')} {E(str(ru.get('reason') or 'no ruler record'))}</p>"
-    rows = [[E(d), _fmt(m.get("L")), _fmt(m.get("L_ref")), _fmt(m.get("U")), _fmt(m.get("U_ref")), _fmt(m.get("slope")), f"{m.get('n_sites_mapped', 0):,}"] for d, m in mp.items() if m]
-    return h + _tbl(["Probe design", "Array low anchor", "Atlas low", "Array high anchor", "Atlas high", "Slope", "Sites mapped"], rows) + f"<p>{_dev()}</p>"
-
-def _unexpected(o):
-    sp = str(o.get("specimen") or "").lower(); F = _fam_of(); sh = (o.get("cell_shares") or {}).get("cells") or []
-    if sp not in ("whole blood", "buffy coat", "pbmc"): return ""
-    odd = [r for r in sh if (r.get("share") or 0) >= 0.02 and F.get(r["cell"]) and F.get(r["cell"]) not in BLOOD_FAMILIES]
-    if not odd: return ""
-    return ("<p class='note'><b>Cells not usually found in circulating blood:</b> " + ", ".join(f"{E(cellname(r['cell']))} {100*r['share']:.1f} % ({E(F.get(r['cell']))})" for r in odd)
-            + ". The IAM-Deconvolver reports what fits; a share like this can be the platform's own difference from the atlas, or a change the healthy atlas has no name for. It is shown, not hidden, and read with care.</p>")
-
-def _whole(o):
+def detail_tables(o):
+    """[(id, title, intro, header, rows, note)] - plain text cells; one per instrument, in the order the chain reads them."""
+    T = []; sp_ = str(o.get("specimen") or "").lower(); F = _fam_of()
+    sh = (o.get("cell_shares") or {}).get("cells") or []
+    ru = o.get("atlas_ruler") or {}; mp = ru.get("maps") or {}
+    T.append(("v4-atlas", "IAM-Atlas v2.1 and the ruler",
+              "Every atlas reading compares this sample with IAM-Atlas v2.1: 79 healthy cell types, 813,951 sites, built once from healthy donors. The ruler puts the array on the atlas's scale first, one straight line per probe design through sites every healthy cell type holds unmarked and marked (islands and their shores are never anchors). The shift is shown, never hidden.",
+              ["Probe design", "Array low anchor", "Atlas low", "Array high anchor", "Atlas high", "Slope"],
+              [[d, _f(m.get("L")), _f(m.get("L_ref")), _f(m.get("U")), _f(m.get("U_ref")), _f(m.get("slope"))] for d, m in mp.items() if m],
+              (DEV + "." if mp else "Not applied: " + str(ru.get("reason") or "no ruler record") + ".")))
+    odd = [r for r in sh if (r.get("share") or 0) >= 0.02 and F.get(r["cell"]) and F.get(r["cell"]) not in BLOOD_FAMILIES] if sp_ in ("whole blood", "buffy coat", "pbmc") else []
+    if odd:
+        T.append(("v4-odd", "Cells not usually found in circulating blood",
+                  "The IAM-Deconvolver reports what fits. A share like this can be the platform's own difference from the atlas, or a change the healthy atlas has no name for. It is shown, not hidden, and read with care.",
+                  ["Cell", "Share", "Family"], [[cellname(r["cell"]), f"{100*r['share']:.1f} %", F.get(r["cell"])] for r in odd], ""))
     w = o.get("met_a_whole") or {}
-    h = "<h2 id='v4-whole'>Met-A, whole sample: every atlas site</h2><p>Disorder at every site against the atlas mixed in this sample's own cell shares, each site counted by how firmly a healthy sample of this mix holds it. The sensitive reading: it moves when anything in the sample departs. Healthy reads 1.</p>"
-    if w.get("A") is None: return h + f"<p>{chip('not read')} {E(str(w.get('reason', '')))}</p>"
-    rows = [["<b>whole sample</b>", f"<b>{_fmt(w['A'])}</b>", _fmt(w.get("se_over_sites"), 5), f"{w.get('sites', 0):,}"]]
-    rows += [[E(k), _fmt(v["A"]), _fmt(v.get("se_over_sites"), 5), f"{v.get('sites', 0):,}"] for k, v in (w.get("by_place") or {}).items() if v]
-    return (h + _tbl(["Sites", "Met-A", "Standard error", "Sites read"], rows)
-            + f"<p class='note'>A 1 % loss of the held pattern moves this reading by about {_fmt(w.get('shift_per_1pct_loss'))}. State: {E(str(w.get('state', '')))}. {_dev()}</p>")
-
-def _each_cell(o):
-    ec = o.get("met_a_each_cell") or {}; cells = [x for x in ec.get("cells", []) if x.get("A") is not None]
-    h = "<h2 id='v4-each'>Met-A for each cell: which cell moved</h2><p>Each cell found, read at its own 6,000 identity sites against its healthy profile in the atlas, in this sample's mix. When the whole-sample reading moves, these say which cell.</p>"
-    if not cells: return h + f"<p>{chip('not read')} {E(str(ec.get('reason', '')))}</p>"
-    rows = [[E(cellname(x["cell"])), f"{100*(x.get('share') or 0):.1f} %" if x.get("share") is not None else "", f"<b>{_fmt(x['A'])}</b>", (_fmt(x.get("se_over_sites"), 5) if x.get("se_over_sites") is not None else "") + (f" <i>{E(x['coverage_flag'])}</i>" if x.get("coverage_flag") else "")] for x in sorted(cells, key=lambda x: -(x.get("share") or 0))]
-    return h + _tbl(["Cell", "Share", "Met-A", "Standard error"], rows) + f"<p>{_dev()} Untared unless stated.</p>"
-
-def _territories(o):
+    T.append(("v4-whole", "Met-A, whole sample: every atlas site",
+              "Disorder at every atlas site against the atlas mixed in this sample's own cell shares, each site counted by how firmly a healthy sample of this mix holds it. The sensitive reading: it moves when anything in the sample departs. Healthy reads 1.",
+              ["Sites", "Met-A", "Standard error", "Sites read"],
+              ([["whole sample", _f(w.get("A")), _f(w.get("se_over_sites"), 5), f"{w.get('sites', 0):,}"]] + [[k, _f(v["A"]), _f(v.get("se_over_sites"), 5), f"{v.get('sites', 0):,}"] for k, v in (w.get("by_place") or {}).items() if v]) if w.get("A") is not None else [],
+              (f"A 1 % loss of the held pattern moves this reading by about {_f(w.get('shift_per_1pct_loss'))}. State: {w.get('state', 'untared')}. {DEV}." if w.get("A") is not None else "Not read: " + str(w.get("reason") or "no cell shares") + ".")))
+    ec = o.get("met_a_each_cell") or {}; cells = sorted(ec.get("cells", []), key=lambda x: -(x.get("share") or 0))
+    T.append(("v4-each", "Met-A for each cell: which cell moved",
+              "Each cell found, read at its own identity sites against its healthy profile in the atlas, in this sample's mix. When the whole-sample reading moves, these say which cell.",
+              ["Cell", "Share", "Met-A", "Note"],
+              [[cellname(x["cell"]), f"{100*(x.get('share') or 0):.1f} %", _f(x.get("A")) or "-", x.get("coverage_flag") or x.get("reason") or ""] for x in cells],
+              DEV + ". Untared." if cells else "Not read: " + str(ec.get("reason") or "no cell shares") + "."))
+    m = o.get("met_a") or {}; t = o.get("tare") or {}
+    T.append(("v4-meta-c", "Met-A, commissioned: the neutrophil on its gauge",
+              "The commissioned reading: the neutrophil's disorder at its 6,000 identity sites, against its frozen healthy reference, tared against same-run healthy arrays. Commissioned on isolated neutrophils, EPIC v1.",
+              ["Reading", "Value", "State"],
+              [["A_rel" if t.get("A_rel") is not None else "A (untared)", _f(t.get("A_rel") if t.get("A_rel") is not None else m.get("A")), str(t.get("state") or m.get("state") or "")[:160]]] if m.get("A") is not None else [],
+              ("" if m.get("A") is not None else "Not read: " + str(m.get("reason") or (o.get("refusal") or "")) [:200] + ".")))
     te = (o.get("territories") or {}).get("sets") or {}
-    h = ("<h2 id='v4-territories'>Territories: islands and loosely held domains</h2><p><b>Islands:</b> sites every healthy cell type keeps unmarked, where a mark gained is a departure no healthy cell makes. "
-         "<b>Domains:</b> marked sites some healthy cell types hold loosely, where a held mark is most easily lost. Each read against the atlas in this sample's mix; healthy reads 1.</p>")
-    if not te: return h + f"<p>{chip('not read')}</p>"
-    rows = [[E(k), f"<b>{_fmt(v.get('A'))}</b>", f"{v.get('level_change'):+.4f}" if v.get("level_change") is not None else "", _fmt(v.get("se_over_sites"), 5), f"{v.get('measured', 0):,} of {v.get('set_size', 0):,}"] for k, v in te.items()]
-    return h + _tbl(["Territory", "Disorder (A)", "Level change", "Standard error", "Sites measured"], rows) + f"<p>{_dev()} State: {E(str((o.get('territories') or {}).get('state') or 'untared'))}.</p>"
-
-def _cscores_all(o):
-    c = o.get("met_a_cscore") or {}; ce = o.get("cscore_each_cell") or {}; wg = ce.get("whole_genome") or {}
-    h = "<h2 id='v4-cscores'>The four C-Scores: are the departures clustered along the genome?</h2><p>Each C-Score asks the same question of a different map: scattered departures read near 1, departures that run along the genome read higher.</p>"
-    rows = [["C-Score (commissioned, neutrophil identity sites)", _fmt(c.get("C_rel") if c.get("C_rel") is not None else c.get("C")), E(str(c.get("C_call") or c.get("reason") or "")), chip("commissioned" if c.get("commissioning") else "not commissioned here")],
-            ["C-Score, whole genome (every atlas site)", _fmt(wg.get("C")), "", _dev()]]
-    for x in sorted(ce.get("cells", []), key=lambda x: -(x.get("share") or 0)):
-        if x.get("C") is not None: rows.append([f"C-Score, {E(cellname(x['cell']))}", _fmt(x.get("C")), E(str(x.get("flag") or "")), _dev()])
-    q = o.get("iam_a") or {}
-    rows.append(["IAM-A C-Score, region by region (sequencing)", _fmt((q.get("cscore") or {}).get("C")) if q.get("cscore") else "", "" if q.get("cscore") else ("not built yet" if q else "no sequencing input"), _dev()])
-    return h + _tbl(["Reading", "Value", "Note", "Status"], rows)
-
-def _sphere_sec(o):
+    T.append(("v4-territories", "Territories: islands and loosely held domains",
+              "Islands: sites every healthy cell type keeps unmarked, where a mark gained is a departure no healthy cell makes. Domains: marked sites some healthy cell types hold loosely, where a held mark is most easily lost. Each read against the atlas in this sample's mix; healthy reads 1.",
+              ["Territory", "Disorder (A)", "Level change", "Standard error", "Sites measured"],
+              [[k, _f(v.get("A")), (f"{v.get('level_change'):+.4f}" if v.get("level_change") is not None else ""), _f(v.get("se_over_sites"), 5), f"{v.get('measured', 0):,} of {v.get('set_size', 0):,}"] for k, v in te.items()],
+              (DEV + ". State: " + str((o.get("territories") or {}).get("state") or "untared") + ".") if te else "Not read."))
+    c = o.get("met_a_cscore") or {}; ce = o.get("cscore_each_cell") or {}; wg = ce.get("whole_genome") or {}; q = o.get("iam_a") or {}
+    cr = [["1. C-Score, commissioned (neutrophil identity sites)", _f(c.get("C_rel") if c.get("C_rel") is not None else c.get("C")), str(c.get("C_call") or c.get("reason") or ("not read" if c.get("C") is None else ""))[:120], "commissioned" if c.get("commissioning") else ("commissioned on whole blood; untared here (needs 3 same-run healthy references for the band)" if c.get("C") is not None and sp_ == "whole blood" else ("outside what it was commissioned on" if c.get("C") is not None else ""))],
+          ["2. C-Score, whole genome (every atlas site)", _f(wg.get("C")), "" if wg.get("C") is not None else str(ce.get("reason") or "not read"), DEV]]
+    each = [x for x in ce.get("cells", []) if x.get("C") is not None]
+    cr.append(["3. C-Score, each cell", ("; ".join(f"{cellname(x['cell'])} {x['C']:.3f}" for x in sorted(each, key=lambda x: -(x.get("share") or 0))[:8])) or "-", f"{len(each)} cells read" if each else "not read", DEV])
+    qc = q.get("cscore") or {}
+    cr.append(["4. IAM-A C-Score, region by region (sequencing)", _f(qc.get("C")), "" if qc.get("C") is not None else ("needs single molecules: sequencing input" if not q else "not built yet"), DEV])
+    T.append(("v4-cscores", "The four C-Scores: are the departures clustered along the genome?",
+              "Each asks the same question of a different map: scattered departures read near 1; departures that run along the genome read higher.", ["C-Score", "Value", "Note", "Status"], cr, ""))
+    T.append(("v4-iama", "IAM-A: is each mark still held, against the sample's own reference",
+              "Single molecules only: the share of marks left unwritten between written neighbors, against what this sample's own loose share predicts. No other person is needed.",
+              ["Reading", "Value", "State"], [["A", _f(q.get("A")), str(q.get("state") or "")]] if q.get("A") is not None else [],
+              ("commissioned on healthy CD8 T cells" if q.get("commissioning") else DEV) + "." if q.get("A") is not None else ("Not read: " + str(q.get("refusal")) + "." if q else "Not run: this sample has no sequencing input (arrays carry no single molecules).")))
+    ga = o.get("group_a") or {}
+    T.append(("v4-groupa", "Group-A: this person's group against its healthy group",
+              "Group-A reads a group, not one person: it compares a group's readings with a healthy group's, window by window, after every member is read by this same command. Commissioned on EPIC v1 whole blood.",
+              ["Group", "Reading", "Status"], [[str(ga.get("group")), str(ga.get("reading")), str(ga.get("status") or "")]] if ga.get("reading") is not None else [],
+              "" if ga.get("reading") is not None else "Not part of a single-sample report: when this sample is read as one member of a series (run_series.py), Group-A's result is in that series' summary."))
+    g = o.get("globe") or {}
+    T.append(("v4-globe-sum", "The globe: where on the genome it changed",
+              "Every site keeps one place on the sphere, set by its position in the genome; the sample is laid over its healthy reference and only changed blocks of 10 neighboring sites light up.",
+              ["Layer", "Changed blocks", "Blocks read"],
+              [["whole genome", f"{g.get('blocks_changed', 0):,}", f"{g.get('blocks', 0):,}"]] + ([["Met-A's identity sites", f"{g.get('metaa_blocks_changed')}", f"{g.get('metaa_blocks')}"]] if g.get("metaa_blocks") else []) if g.get("drawn") else [],
+              ("Reference: " + str(g.get("reference") or "") + ". " + DEV + ". The turning globe: " + os.path.basename(str(g.get("html") or "the globe page beside this report")) + ".") if g.get("drawn") else "Not drawn: " + str(g.get("reason") or "") + "."))
     sp = o.get("info_sphere") or {}
-    h = ("<h2 id='v4-sphere'>The information sphere: which cell programs moved</h2><p>Every site placed by how it behaves across the atlas's 79 cell types, so sites that work together sit together. "
-         "The sample is read territory by territory against its own expected healthy self, with its distance from that self in the sphere's own measure (the Fisher-Rao angle).</p>")
-    if not sp.get("territories_read"): return h + f"<p>{chip('not drawn')} {E(str(sp.get('reason', '')))}</p>"
-    link = sp.get("html"); lk = f" <a href='{E(os.path.basename(str(link)))}'>Open the sphere</a>." if link else ""
-    return h + f"<p class='big'>{sp.get('territories_changed')} of {sp.get('territories_read')} territories changed · distance {_fmt(sp.get('fisher_rao_rms_rad'), 4)} rad</p><p>{_dev()}{lk}</p>"
+    T.append(("v4-sphere", "The information sphere: which cell programs moved",
+              "Every site placed by how it behaves across the atlas's 79 cell types, so sites that work together sit together. The sample is read territory by territory against its own expected healthy self, with its distance from that self in the sphere's own measure (the Fisher-Rao angle).",
+              ["Territories read", "Territories changed", "Distance (rad)"],
+              [[str(sp.get("territories_read")), str(sp.get("territories_changed")), _f(sp.get("fisher_rao_rms_rad"))]] if sp.get("territories_read") else [],
+              (DEV + ". Page: " + os.path.basename(str(sp.get("html") or "")) + ".") if sp.get("territories_read") else "Not drawn: " + str(sp.get("reason") or "") + "."))
+    return T
 
-def _sections_v5(o): return _atlas_ruler(o) + _unexpected(o) + _whole(o) + _each_cell(o) + _territories(o) + _cscores_all(o) + _sphere_sec(o)
+def _sections_v5(o):
+    h = []
+    for i, title, intro, head, rows, note in detail_tables(o):
+        h.append(f"<h2 id='{i}'>{E(title)}</h2><p>{E(intro)}</p>")
+        if rows: h.append("<table><tr>" + "".join(f"<th>{E(x)}</th>" for x in head) + "</tr>" + "".join("<tr>" + "".join(f"<td>{E(str(x))}</td>" for x in r) + "</tr>" for r in rows) + "</table>")
+        if note: h.append(f"<p class='note'>{E(note)}</p>")
+    return "".join(h)
 
 def build(o, out, sid):
     G, GP = o.pop("_globe_html", "") or "", o.pop("_globe_prose", "") or ""   # taken out first: the technical record must not print the globe's data
