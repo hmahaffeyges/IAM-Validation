@@ -82,3 +82,11 @@ the one command. Reported: each planted cell's Met-A move, in the reading's own 
 
 Explorations 5 and 6, first dispatch: stopped by a path bug in the test files (a relative output folder, while the chain's builds run from
 their own folder); no draw was read. Fixed (absolute folder); nothing else changed; run again.
+
+## Exploration 3, run once through the one command (2026-10-22; series run 39879101605)
+Output: `data/DEV_ONE_DRAW_01/run_03/mixes_03_summary.txt`. GSE122126's 9 known mixtures (real arrays: DNA of hepatocytes, lung, colon and
+neurons put into blood DNA at 3.5 to 10 %, spent), each read by run_sample.py on IAM-Atlas v2.1's full panel. Over the 15 tissues put in, the
+best fit is off by 0.57 points on average (resampled middle 0.79); the largest share found for a tissue NOT put in is 0.3 %; the resampled
+95 % range holds the known amount in 10 of 15. Reading: the full-atlas split finds tissue DNA at 3.5 % in blood and puts it at the right size,
+with almost nothing found that was not there. The best fit is the closer estimate; the resampled range is too narrow (it holds the truth 67 %
+of the time, not 95 %), so it is reported as the spread of the fit, not as a 95 % range, until widened by a rule tested on these mixtures.

@@ -852,9 +852,9 @@
     {
      "id": "39.2",
      "date": "2026-10-22",
-     "status": "open",
-     "what": "On 79 cells close relatives trade a share: 9 of 79 best fits outside their own 95 % range (flagged not resolved)",
-     "next": "after 40.8, choose the estimate (best fit or resampled middle) that lands closer to known amounts, or a solver change; test before adopting"
+     "status": "done",
+     "what": "Which share estimate to keep: the best fit (0.57 points against 0.79 for the resampled middle on the 9 known mixtures)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md (exploration 3, run 39879101605)"
     },
     {
      "id": "39.3",
@@ -920,6 +920,13 @@
      "status": "done",
      "what": "Write why Met-A reads these sites in the book's Met-A chapter and INSTRUMENTS.md (the Decoder section is written)",
      "record": "docs/book/part6/p6_07_meta.tex (sec:meta_whysites); CANON/catalogue.json (Met-A); Decoder 'Why these sites'"
+    },
+    {
+     "id": "39.12",
+     "date": "2026-10-22",
+     "status": "open",
+     "what": "The Deconvolver's resampled range holds the known amount in 10 of 15 (too narrow for a 95 % range)",
+     "next": "a widening rule written before it runs (for example resampling the atlas's own uncertainty as well as the sites), tested on the 9 known mixtures; until then reported as the fit's spread"
     }
    ]
   },
@@ -989,10 +996,10 @@
     {
      "id": "40.8",
      "date": "2026-10-22",
-     "status": "running",
-     "what": "9 known tissue mixtures (GSE122126) on the full panel: best fit and resampled middle against the amounts put in",
+     "status": "done",
+     "what": "9 known mixtures: best fit off 0.57 points; tissues not put in at most 0.3 %; resampled range holds the truth 10 of 15",
      "run": "series run 39879101605",
-     "next": "record; decide 39.2 from it"
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md (exploration 3, run 39879101605)"
     },
     {
      "id": "40.9",
