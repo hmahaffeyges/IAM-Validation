@@ -1,7 +1,7 @@
 """METAA-ATLAS-SEAL-02, synthetic test (written and committed 2026-10-23 before it runs and before the seal; constructed arrays, nothing real).
 The instrument's job: a healthy purified monocyte, read against the atlas's monocytes and tared against healthy monocytes on its own slide, reads
 Normal; a 1 % loss of its pattern stands out. This test runs the sealed design end to end through the one command, on arrays whose answer is known.
-Constructed arrays: the atlas's monocyte best value at every monocyte identity site, softened or hardened by the slide's offset d
+Constructed arrays: the atlas's monocyte best value at every atlas site with a monocyte value (run 1 used only the identity sites; see below), softened or hardened by the slide's offset d
 (beta + d x (0.5 - beta)), plus each site's healthy person-to-person spread (donor_sd), clipped to (0, 1); fixed seed. Six slides of 8, 8, 4, 4, 4
 and 8 arrays (the sealed list's layout), offsets -0.03, 0, +0.03, +0.06, -0.03, +0.03. Every reading by chain/MethylPhys_Interface/run_sample.py:
 pass 1 without references; pass 2 with --metaa-atlas-ref-A from the other arrays on the same slide; the planted copy (stage_metaa_atlas.plant, as
@@ -14,7 +14,9 @@ import stage_metaa_atlas as SA
 RS = os.path.join(CH, "MethylPhys_Interface", "run_sample.py"); SR = os.path.join(CH, "MethylPhys_Interface", "run_series.py")
 out = os.path.abspath(sys.argv[1]); d1, d2, Wd = (os.path.join(out, x) for x in ("pass1", "pass2_slide", "work")); [os.makedirs(x, exist_ok=True) for x in (d1, d2, Wd)]
 SL = [(8, -0.03), (8, 0.0), (4, 0.03), (4, 0.06), (4, -0.03), (8, 0.03)]; SPEC = "isolated monocytes"
-S = SA.identity_sites("monocytes"); mu = SA._col("mu", "monocytes").reindex(S).to_numpy(); sd = SA._col("donor_sd", "monocytes").reindex(S).fillna(0).to_numpy()
+# run 2 (2026-10-23): every atlas site the monocytes have a value at, as a real array carries. Run 1 (explore run 39932749386) built only the
+# 6,000 identity sites; Stage T step 1 refused all 36 ("mapped II only; both designs are needed"), as it should: a fault of the construction.
+_m = SA._col("mu", "monocytes").dropna(); S = list(_m.index); mu = _m.to_numpy(); sd = SA._col("donor_sd", "monocytes").reindex(S).fillna(0).to_numpy()
 rng = np.random.default_rng(20261023); rows = []
 for k, (n, d) in enumerate(SL):
     for j in range(n):
