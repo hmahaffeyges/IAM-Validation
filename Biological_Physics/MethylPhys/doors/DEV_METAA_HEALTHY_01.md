@@ -193,6 +193,8 @@ on the atlas's anchor sites; adding it would be version 2, written before it run
 
 ## Confirmation 1: layer 1 on samples that played no part (written and committed before any of them is counted)
 
+**Prior reading:** GSE116229 is spent for the leukemia replication (DEV_ALL_INFO_01.md); no count of its three cord-blood samples had landed or been read when this was written.
+
 Version 2 was written after version 1 was seen, so it is confirmed on another laboratory's samples: the three cord-blood CD19+ B cells of
 GSE116229 (GSM4914800, GSM4914801, GSM4914802), counted by the leukemia replication's pass 1 (10 million read pairs, `run_sample.py
 --dev-count-only`). Version 2's rule unchanged, against IAM-Atlas v2.1's B-cell level. **Bars:** marked side within 0.02; unmarked side
