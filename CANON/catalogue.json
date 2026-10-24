@@ -338,8 +338,18 @@
  },
  "coverage": {
   "_rule": "One source for the table of what each instrument is referenced against and which instrument covers its blind spot (author: 'those are also filling blind spots'; 'that table belongs in the instrument document'). Status is read from each instrument's commissioned field, never typed here.",
-  "intro": "No instrument here needs a healthy cohort from the same laboratory. Each is referenced against something it carries with it: the sample's own molecules, the atlas mixed in the person's own cells, the sample's own departures, or physics. Each also has a blind spot, and the last column names the instrument that sees what it cannot. No instrument stands alone.",
+  "intro": "IAM-Atlas v2.1 comes first because nearly every other reading is made against it: it is the shared ruler, built once from healthy cells with a stated uncertainty at every site. No instrument here needs a healthy cohort from the same laboratory. Each is referenced against something it carries with it: the sample's own molecules, the atlas mixed in the person's own cells, the sample's own departures, or physics. Each also has a blind spot, and the last column names the instrument that sees what it cannot. No instrument stands alone.",
   "rows": [
+   {
+    "name": "IAM-Atlas v2.1",
+    "inst": "atlas",
+    "commissioned_form": true,
+    "against": "healthy cells from 21 published sources, arrays and sequencing, fit jointly with each source's own offset fitted alongside, as Planck's maps were made from every detector's scans",
+    "derived": "nothing: it is the measured ruler, with a stated uncertainty at every site",
+    "measured_once": "every site in each of its 79 cell types, built once and shared by every laboratory",
+    "blind_to": "cell types it does not hold, and sites no source measured (left blank, never filled in)",
+    "covered_by": "the IAM-Deconvolver's leftover and the unexpected-cell flag; a new cell type enters only through its own sealed test"
+   },
    {
     "name": "IAM-A",
     "inst": "iama",
