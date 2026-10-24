@@ -146,7 +146,7 @@
     "GRP-020"
    ],
    "task": "Replicate the published information-theory study of pediatric leukemia through the chain, for its authors (author 2026-10-24: 'prioritize their work, replicating it ... make sure our chain is bulletproof')",
-   "done_when": "every finding of the study set beside the chain's readings in DEV_ALL_INFO_01.md, and the package for its authors built",
+   "done_when": "every finding of the study set beside the chain's readings in DEV_ALL_INFO_01.md, and the package built. Nothing is sent until (author: 'We need to get our chain perfect and get the healthy line derived for Met-A before we can send anything'): (1) the chain is complete: every reading in the one command, the open faults fixed (IAM-A on cell-free DNA 40.11, the chr15-chr22 tile offset 14.9, the not-found flag 40.16), every function in the Decoder; (2) Met-A's healthy line derived: the five-laboratory test (DEV-METAA-HEALTHY-01 bar 2) and layer 1 (14.7); (3) the pieces learned from the study added, each only after its own synthetic test through the one command (49.5)",
    "branches": [
     {
      "id": "49.1",
@@ -181,7 +181,7 @@
      "id": "49.5",
      "date": "2026-10-24",
      "status": "open",
-     "what": "What we learned from the study, each with a synthetic test and a Decoder entry: nearest-neighbor coupling (whether held errors cluster), a physics-derived sensitivity (dH per small change in how well a mark is held, analytic, nothing fitted) as a globe layer and a sphere layer",
+     "what": "What we learned from the study, each added only after its own synthetic test through the one command, with a Decoder entry: nearest-neighbor coupling (whether held errors cluster along a molecule); a physics-derived sensitivity (how fast a site's disorder moves when its mark is held slightly less well, analytic, nothing fitted) as a globe layer and a sphere layer; the ceiling turnover read on real molecules (the knockout's heterochromatic domains)",
      "next": "synthetic first"
     },
     {
