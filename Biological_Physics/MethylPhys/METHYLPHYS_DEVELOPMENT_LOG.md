@@ -3125,3 +3125,18 @@ Neutrophils: identity sites spread 3.69 % with a 1 % loss moving 2.41 %; every s
 
 ### 2026-10-23 · Met-A as a two-level instrument (GRP-017, DEV-TERRITORIES-01 test 2)
 The whole-sample reading over every atlas site rises for every plant; the island and domain plants move their own parts most; a neutrophil identity-site loss moves neutrophils' own reading most (1.122 to 1.231) and the whole sample barely. Healthy reads 1.113 untared, the array's scale. Record: [DEV_TERRITORIES_01.md](../Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md).
+
+### 2026-10-23 · EPIC-Italy through the one command, first reading (GRP-018, DEV-FIRES-01)
+837 of 845 arrays read. Women only, each case tared against the cancer-free on its own chip: breast cases read more disorder on every Met-A reading, peaking 2-5 years before diagnosis (whole-sample d +0.82), the earlier engine's shape; colorectal d +0.06. The case arrays are of lower quality (conversion, signal, probes detected); matched on every quality measure, 45 of 230 cases pair and a small shift remains (median +0.52 %, Wilcoxon p 0.018). Not settled. Record: [DEV_FIRES_01.md](doors/DEV_FIRES_01.md).
+
+### 2026-10-23 · The first healthy plasmas read end to end (GRP-016, DEV-ONE-DRAW-01 plasma_seq_01)
+Two of the 30 healthy plasmas (PRJNA929650) read by the one command, every instrument flagged: IAM-A 0.722 and 0.8196, held error 0.039202 and 0.038256, loose share 0.4052 and 0.1852. The band's scorer committed before the other 28 are read. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-10-23 · Smoking and aging replays (OTH-082, DEV-REPLICATE-01 R2, R3)
+R2 (GSE42861, 689): the AHRR control site reads current smokers 0.595 against never 0.853 (d -2.83); no Met-A smoking effect (d -0.17), as the earlier engine. R3 (GSE87571, 731): ELOVL2 rises with age (rho +0.956); whole-sample Met-A rises with age (rho +0.209). Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
+
+### 2026-10-23 · Day summary
+The chain read three large public blood series end to end and its positive controls came out as the literature has them (AHRR in smokers, ELOVL2 with age), so it reads other laboratories' arrays correctly. In EPIC-Italy the earlier engine's breast pattern repeats, but the case arrays are of lower quality, and only a small part survives matching on quality. The first real plasmas were read end to end after four faults in the plasma path were fixed. Eight series counted as having IDATs had none; the replay tables were corrected and replacements chosen.
+
+### 2026-10-24 · Alzheimer's blood replay (OTH-082, DEV-REPLICATE-01 R4)
+All 726 AIBL arrays: Alzheimer's bloods carry more neutrophils (median 0.609 against 0.575, d +0.30); Met-A does not differ (whole sample d +0.09). Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).

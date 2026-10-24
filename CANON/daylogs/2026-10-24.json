@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-24",
+ "title": "Replays of the earlier work, read through the chain",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Keep the machines full on the earlier engine's series and the healthy plasmas, and record each result as it lands.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Alzheimer's blood, AIBL (OTH-082, DEV-REPLICATE-01 R4)",
+     "status": "development",
+     "what": "All 726 AIBL arrays read by the one command; Alzheimer's and mild cognitive impairment against healthy controls.",
+     "outcome": "More neutrophils in Alzheimer's blood (d +0.30); no Met-A difference (d +0.09).",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    }
+   ]
+  }
+ ],
+ "open_at_turnover": "",
+ "closing": "",
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ }
+}

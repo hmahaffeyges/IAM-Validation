@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-10-24](2026-10-24.md) | Replays of the earlier work, read through the chain |
 | [2026-10-23](2026-10-23.md) | One source for every fact, and the globe draws change as patches |
 | [2026-10-22](2026-10-22.md) | Every reproduction passes on GitHub, and every reading goes through the one command |
 | [2026-10-21](2026-10-21.md) | The Stage 0 limits from healthy arrays of three laboratories |
