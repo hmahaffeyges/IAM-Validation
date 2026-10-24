@@ -9,7 +9,11 @@ reference (its own loose share). Every other cell type, specimen, chemistry and 
 healthy CD8 T-cell samples (GSE144691, a published whole-genome bisulfite study of sorted human CD8 T-cell subsets) inside Normal; bar 0.75 with at least 8 read.
 Band v1 is Normal 0.7787 to 1.0551 (DEV-IAMA-GRAND-01, grand_rule.json). The sample-shape check declined 5 of 13 (all four naive, one central memory), as the rule allows; they are listed in the record.
 
-**The gates before it:** the self-reference line (PHY-049) and the island prediction (PHY-043) met; the clean room reproduced every
+**The gates before it** (corrected 2026-10-24; it had said PHY-049 and PHY-043 met): the line itself (PHY-045) is a development result on
+one laboratory, with no sealed bar: on the commissioned counter 34 of 56 healthy cell types sit within 0.003 of it (firm rate 0.0403,
+selfref_line_v1.json); the loose share from the sample's own molecules (PHY-049) progressed (r 0.81, 46 of 56 within 0.003), and its
+open-sea variant failed and was not adopted; the island prediction (PHY-043) was inconclusive by its rule (its firm-territory arm, 6 of 6
+tumors above their own normal, reported, not scored). The clean room reproduced every
 count, the line and the shape reference from public data (PHY-055, 158 of 158); the second laboratory (PHY-047) and Hansen were not
 met like for like and are recorded as such.
 
