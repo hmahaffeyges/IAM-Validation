@@ -713,6 +713,20 @@
      "status": "open",
      "what": "Cross-check against informME on the same files: their normalized methylation entropy and Jensen-Shannon distance against IAM-A, Met-A and the information sphere's Fisher-Rao distance; their nearest-neighbor coupling as a test of whether held errors cluster along a molecule (with IAM-A's C-Score version 2, 41.1); their methylation sensitivity index as a candidate reading for loosely held domains",
      "next": "after 14.10, on the same spent files"
+    },
+    {
+     "id": "14.12",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is measured. A derivation of that limit from block size and counting noise, with its own synthetic test. IAM-A's C-Score (version 2) becomes derived with the firm rate, not with layer 1.",
+     "next": "written after 14.11"
+    },
+    {
+     "id": "14.13",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'healthy middle' (174 live uses) become the baseline with its status; the canon's 'Healthy reference' and 'H_ref' entries folded into 'baseline'; the chain's Met_A_Floors files, which call Met-A's baseline a floor, renamed with a compatibility note; the book, website, report and Decoder regenerated.",
+     "next": "next language batch"
     }
    ]
   },
