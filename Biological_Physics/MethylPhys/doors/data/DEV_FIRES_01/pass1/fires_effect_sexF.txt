@@ -1,0 +1,11 @@
+DEV-FIRES-01 effect sizes, women only, Group-A tare (cancer-free on the same chip); Cohen's d on the tared readings
+breast     all       n 230 | Met-A whole d +0.52 | Met-A whole, islands d +0.46 | Met-A neutrophils d +0.54 | territory domains d +0.54
+breast     0-2 y     n  66 | Met-A whole d +0.44 | Met-A whole, islands d +0.38 | Met-A neutrophils d +0.37 | territory domains d +0.47
+breast     2-5 y     n  52 | Met-A whole d +0.82 | Met-A whole, islands d +0.82 | Met-A neutrophils d +0.83 | territory domains d +0.79
+breast     5-10 y    n  79 | Met-A whole d +0.67 | Met-A whole, islands d +0.58 | Met-A neutrophils d +0.77 | territory domains d +0.74
+breast     over 10 y n  33 | Met-A whole d +0.46 | Met-A whole, islands d +0.39 | Met-A neutrophils d +0.54 | territory domains d +0.51
+colorectal all       n  79 | Met-A whole d +0.06 | Met-A whole, islands d +0.19 | Met-A neutrophils d +0.16 | territory domains d +0.00
+colorectal 0-2 y     n   8 | Met-A whole d -0.29 | Met-A whole, islands d -0.11 | Met-A neutrophils d -0.15 | territory domains d -0.32
+colorectal 2-5 y     n  30 | Met-A whole d +0.19 | Met-A whole, islands d +0.35 | Met-A neutrophils d +0.26 | territory domains d +0.08
+colorectal 5-10 y    n  38 | Met-A whole d +0.08 | Met-A whole, islands d +0.17 | Met-A neutrophils d +0.16 | territory domains d +0.05
+colorectal over 10 y n   3 | Met-A whole d -0.48 | Met-A whole, islands d -0.38 | Met-A neutrophils d -0.27 | territory domains d -0.45
