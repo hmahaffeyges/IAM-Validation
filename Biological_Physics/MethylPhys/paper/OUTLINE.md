@@ -47,6 +47,9 @@ fidelity bound (IAM's Law) defined in the text, not in the title.
    methylation entropy, Jensen-Shannon distance, UHRF1) and the earlier work on epigenetic stochasticity it builds on.
 2. Two limits such measures share: the scale is set by controls (in that study, 5 normal samples), and the model is fitted inside each
    sample, so it needs deep sequencing.
+   Genome-wide scores built on cohorts share the first limit: epimutation burden (epigenetic mutation load, sites outside a healthy
+   cohort's range), epigenetic clocks and methylation risk scores. Their "normal" mixes age, inherited variation, laboratory batch and each
+   person's cell mix, and their unit (deviations from that cohort) changes with the cohort. Cite these by DOI, each checked.
 3. What physics offers: a maintained mark is a stored bit; holding it against thermal noise has a minimum cost (Landauer), and that cost
    bounds the error a cell can reach. The bound gives a scale whose ends are derived, not learned.
 4. This paper: the bound and the readings built on it; the reference atlas; a test on the published data, including the knockout of the
@@ -107,7 +110,11 @@ on an assumption tagged as a conjecture, and the cell results stand on Landauer'
 
 ## Discussion (about 1,500 words)
 
-What a derived bound changes; what was taken from the published study (nearest-neighbor coupling, methylation sensitivity, the knockout as
+What a derived bound changes, set beside the cohort scores (epimutation burden, clocks, risk scores, methylation entropy) on three
+points: (1) composition removed per person, each site's expectation the reference atlas's healthy cells in that person's own measured mix;
+(2) absolute physical units, floor and ceiling from the law in bits, the same in any laboratory; (3) self-reference on molecules, IAM-A read
+against the sample's own loose share, so laboratory batch largely drops out. Stated with it: the atlas is a measured reference of healthy
+donors, and inherited variation sits inside its donor spread, so a genome-wide score must first show healthy people reading Normal. What was taken from the published study (nearest-neighbor coupling, methylation sensitivity, the knockout as
 a test) and how it was built in; what neither method yet does; limitations, stated plainly; the next study.
 
 ## Methods (subsections)
