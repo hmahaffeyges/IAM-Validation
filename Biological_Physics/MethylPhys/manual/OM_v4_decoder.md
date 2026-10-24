@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **33 Python files** holding **409 functions** (nested ones included); 409 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **34 Python files** holding **414 functions** (nested ones included); 414 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -29,6 +29,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
 | `stage_q0_intake.py` | 174 | 7 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
+| `stage_provisional.py` | 70 | 5 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 445 | 23 | 0 | 0 |
@@ -3464,6 +3465,36 @@ Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which
 The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. Below 1 % of the sample the C is flagged, not withheld (*stated*): there a cell's departure map is mostly the other cells'. Which cells are there is the IAM-Deconvolver's answer.
 
 *Code:* `stage_metaa_atlas.py` line 262 (28 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_FLAG_SHARE`, `FLAG`, `MIX_COVER`
+
+### `stage_provisional.py::pool_hg38`
+
+Pools per-CpG methylated and total read files (GEO, GRCh38) at IAM-Atlas v2.1's sites, through the public EPIC hg38 annotation; a position listed twice is summed.
+
+*Code:* `stage_provisional.py` line 22 (17 lines) · arguments: samples_csv, work · calls: not called on the traced runs · constants read: `ANN`, `ATLAS` · files named: `sites_sequencing_key.parquet`
+
+### `stage_provisional.py::column`
+
+A provisional reference column from pooled reads: the level through the atlas's own inverse transfer (as the atlas converted its sequencing readings), the spread from counting (q = (m + 1/2)/(n + 1)), the median donor spread of the 79 atlas cells, and the atlas reference's laboratory and floor terms. Nothing fitted.
+
+*Code:* `stage_provisional.py` line 40 (12 lines) · arguments: P · calls: not called on the traced runs · constants read: `ATLAS`, `SMOOTH` · files named: `sites.parquet`
+
+### `stage_provisional.py::build`
+
+Builds and saves a provisional column with its provenance (samples, annotation and column checksums); run by run_sample.py --build provisional.
+
+*Code:* `stage_provisional.py` line 53 (5 lines) · arguments: cell, samples_csv, work, out · calls: not called on the traced runs · constants read: `ANN`, `DIR`, `FLAG`, `SMOOTH` · files named: `_v1.parquet`
+
+### `stage_provisional.py::load`
+
+Loads a saved provisional column, if one was built.
+
+*Code:* `stage_provisional.py` line 59 (2 lines) · arguments: cell · calls: not called on the traced runs · constants read: `DIR` · files named: `_v1.parquet`
+
+### `stage_provisional.py::with_provisional`
+
+The atlas reference with provisional columns added, as a copy; IAM-Atlas v2.1 itself is never changed.
+
+*Code:* `stage_provisional.py` line 62 (8 lines) · arguments: R, cells · calls: not called on the traced runs
 
 ### `stage_v4.py::stage_d21_provisional`
 

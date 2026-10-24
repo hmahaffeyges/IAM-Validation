@@ -5793,6 +5793,114 @@
    "first_entered": null
   },
   {
+   "file": "stage_provisional.py",
+   "lines": 70,
+   "functions": [
+    {
+     "file": "stage_provisional.py",
+     "function": "pool_hg38",
+     "name": "pool_hg38",
+     "line": 22,
+     "end": 38,
+     "args": [
+      "samples_csv",
+      "work"
+     ],
+     "lines": 17,
+     "doc": "Pool per-CpG methylated/total read files (GEO, GRCh38, chr pos m n) at the atlas's sites. Returns probe, m, n.",
+     "constants": [
+      "ANN",
+      "ATLAS"
+     ],
+     "data_files": [
+      "sites_sequencing_key.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_provisional.py",
+     "function": "column",
+     "name": "column",
+     "line": 40,
+     "end": 51,
+     "args": [
+      "P"
+     ],
+     "lines": 12,
+     "doc": "P: probe, m, n. Returns a DataFrame indexed by atlas site id with mu and sd (array scale).",
+     "constants": [
+      "ATLAS",
+      "SMOOTH"
+     ],
+     "data_files": [
+      "sites.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_provisional.py",
+     "function": "build",
+     "name": "build",
+     "line": 53,
+     "end": 57,
+     "args": [
+      "cell",
+      "samples_csv",
+      "work",
+      "out"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [
+      "ANN",
+      "DIR",
+      "FLAG",
+      "SMOOTH"
+     ],
+     "data_files": [
+      "_v1.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_provisional.py",
+     "function": "load",
+     "name": "load",
+     "line": 59,
+     "end": 60,
+     "args": [
+      "cell"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "DIR"
+     ],
+     "data_files": [
+      "_v1.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_provisional.py",
+     "function": "with_provisional",
+     "name": "with_provisional",
+     "line": 62,
+     "end": 69,
+     "args": [
+      "R",
+      "cells"
+     ],
+     "lines": 8,
+     "doc": "The atlas reference R (stage_deconv_v21.reference) with provisional columns added; R itself is not changed.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
    "file": "serial_mode.py",
    "lines": 67,
    "functions": [
@@ -7992,6 +8100,6 @@
    "first_entered": null
   }
  ],
- "n_files": 33,
- "n_functions": 409
+ "n_files": 34,
+ "n_functions": 414
 }

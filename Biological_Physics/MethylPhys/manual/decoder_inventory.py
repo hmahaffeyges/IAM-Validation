@@ -8,7 +8,7 @@ H = os.path.dirname(os.path.abspath(__file__)); CH = os.path.join(H, "..", "chai
 TRACES = [("array", os.path.join(CH, "trace", "trace_calls.csv")), ("bam", os.path.join(CH, "trace", "trace_bam_calls.csv"))]
 LOADED = ["MethylPhys_Interface/run_sample.py", "MethylPhys_Interface/info_sphere_viewer.py", "stage_0_intake.py", "stage_0_1_qc_handoff.py", "stage_1_idat_calibration.py", "conductor_v3.py",
           "stage_m_met_a.py", "stage_t_selftare.py", "stage_seq_values.py", "dev_stages.py", "dev_comp_methods.py", "stage_v4.py", "deconv_v2.py", "stage_deconv_v21.py", "sky_statistics.py",
-          "stage_atlas_commission.py", "stage_q0_intake.py", "stage_q_iam_a.py", "stage_q2_selfref.py", "serial_mode.py", "stage_groupa.py",
+          "stage_atlas_commission.py", "stage_q0_intake.py", "stage_q_iam_a.py", "stage_q2_selfref.py", "stage_provisional.py", "serial_mode.py", "stage_groupa.py",
           "MethylPhys_Interface/report_v3.py", "MethylPhys_Interface/report_v4.py", "MethylPhys_Interface/report_figs_v4.py", "MethylPhys_Interface/report_pdf_v4.py",
           "MethylPhys_Interface/report_globe_v4.py", "MethylPhys_Interface/globe_viewer.py",
           # 2026-10-22: loaded by the one command's development flags and build mode (--dev-metaa-atlas, --dev-genome-globe, --build), and the series runner
