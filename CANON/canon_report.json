@@ -2223,33 +2223,6 @@
 "text": "| `literature_anchors.json` | disease_matching.py | [RECORD - not read by the chain] Published A-score anchors per class extracted from the April web build. Ori"
 },
 {
-"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
-"line": 4,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "fidelity is compromised.\" And: \"an elevated A score is not the same as the severely suppressed A score. When it can no longer maintain its"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
-"line": 4,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "fidelity is compromised.\" And: \"an elevated A score is not the same as the severely suppressed A score. When it can no longer maintain its"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
-"line": 12,
-"pattern": "Mahaffey number",
-"use": "the M number (named like the Mach number; author 2026-10-24)",
-"severity": "block",
-"status": "LIVE",
-"text": "surface holds, the surface saturating. This is the tumour direction \u2014 the black-hole analogue (Mahaffey number at saturation)."
-},
-{
 "file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
 "line": 25,
 "pattern": "class H_min",
