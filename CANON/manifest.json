@@ -28119,6 +28119,26 @@
    "sources_of_row": [],
    "runs": [],
    "notes": "2026-10-23: started (author: get the chain working and recreate all the signals before commissioning). | 2026-10-23 R1 tissue: 3 of 4 read (one stopped at intake, bisulfite conversion 0.749); islands highest in the two adenomas; each cell's Met-A now read at half its sites or more, flagged. | 2026-10-23: three faults R1 found fixed (globe and sphere for every mixed specimen; each cell read at half its sites, flagged); R1 tissue rerun. | 2026-10-23 R1 blood: 7 of 7 read; the series offset is the largest effect; the globe's lookup made fast (DEV-SPEED-01). | 2026-10-23 R1 tissue rerun with the three fixes: globe drawn, sphere read, Met-A each cell read on all three; sphere lights nothing (self-scaling). | 2026-10-23: R2 smoking (GSE42861) and R3 aging (GSE87571) written before reading; GSE50660 and GSE40279 have no IDATs. | 2026-10-23: control sites (AHRR, F2RL3, ELOVL2) recorded by the one command; R2/R3 scorer committed before any reading. | 2026-10-23: R4 AIBL (GSE153712) written before reading."
+  },
+  {
+   "title": "EPIC-Italy through the one command: blood years before breast and colorectal cancer (DEV-FIRES-01)",
+   "purpose": "Does the earlier engine's pre-diagnosis breast signal survive the real instruments (cell mix removed, each person against the atlas, same-chip tare against the cancer-free)?",
+   "instrument_or_term": "the one command (run_sample.py) on every array; Group-A's compare (stage_groupa) on every reading; development, preliminary on 450K",
+   "sources": [
+    "GEO: GSE51032 (EPIC-Italy, 845 whole bloods, 450K, IDATs; spent)"
+   ],
+   "data_status": "spent; all 845 read for tuning",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md",
+   "status": "run",
+   "runs": [],
+   "next_step": "why the case samples carry weaker signal; more quality-matched pairs by a rule stated before",
+   "cost": "GitHub machines only",
+   "impact": "whether the earliest blood signal is biology or array quality",
+   "legacy_ids": [],
+   "notes": "2026-10-23: first reading of 837 arrays: the breast shift repeats the earlier pattern (women only, same-chip tare; d +0.44 to +0.82 by window) but the case arrays are lower quality; matched on every quality measure (45 of 230 pair) a small shift remains (median +0.52 %, Wilcoxon p 0.018); not settled.",
+   "depends_on": [],
+   "id": "GRP-018",
+   "sources_of_row": []
   }
  ],
  "not_tests": {

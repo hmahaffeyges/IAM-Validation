@@ -211,7 +211,8 @@
    "status": "open",
    "rows": [
     "CAN-007",
-    "GRP-015"
+    "GRP-015",
+    "GRP-018"
    ],
    "task": "EVERY TOOL FIRES, the priority (author 2026-10-23: 'find the cancer before the tumor crystalizes ... The early signals are in the blood/immune cells ... The Italy studies that follow patients for 10 years ... THAT is the kind of data we need'). The whole chain on every public blood we can get: the IAM-Deconvolver finds every cell with nothing assumed (79 cells), and every cell found is scored by every tool that can read it (Met-A per cell, the C-Scores, IAM-A where molecules exist), flagged where not commissioned; gathered per person, against years to diagnosis where known. Explore on spent or common data; the rare sets are kept for their sealed tests",
    "done_when": "every spent pre-diagnosis and plasma series read this way, the per-person readings delivered as one table per series, and each rare set's sealed test written",
