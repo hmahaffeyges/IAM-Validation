@@ -1048,6 +1048,9 @@ percentiles of the tile means for the shape check. When the gain-side counts are
 ### stage_q2_selfref.py::_mol
 The loose share counted molecule by molecule (development, recorded only): of the molecules with at least six calls on the tile half of the file, the share below the 0.70 cut the tile loose share uses and the share held neither marked nor unmarked (between 20 and 80 % methylated). Unlike the tile loose share, both add linearly when cell types mix, so a mix of cells reads the same share as one of them (synthetic test cfDNA 2).
 
+### stage_q2_selfref.py::count_pat_sites
+The held error counted only at a chosen set of sites (development, Met-A's derived baseline, step 3 version 2): Stage Q2's own rules unchanged, the same held and held-absent molecules classed from all their calls, only the calls counted restricted to the sites. A synthetic file with planted rates 0.06 and 0.05 at a site set returns them once the neighbors' rate is divided out.
+
 ### stage_q2_selfref.py::count_pat
 The `.pat` reader: even lines are added to their tile; odd lines that qualify as held runs add their interior calls and isolated holes. Since DEV-METAA-HEALTHY-01 it also counts the gain side, the mirror image: on molecules held unmarked (at least 6 calls, at most 20 % methylated, QUAL_MAX_METH), a lone methylated call between two unmethylated ones over the interior calls (gain_err, gain_opp). The loss side and every earlier output are unchanged.
 

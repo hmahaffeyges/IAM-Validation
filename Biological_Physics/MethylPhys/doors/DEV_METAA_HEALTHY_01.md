@@ -213,3 +213,14 @@ agrees (atlas median 0.0654, derived 0.0617); the held side does not (atlas medi
 are held less firmly than the cell's backbone, the constitutively marked sites layer 1 counted. **Version 2 (to be written and committed
 before it runs):** the held error counted on the granulocyte molecules at Met-A's own identity sites, the mark derived from it; still the
 cell's own molecules, nothing fitted.
+
+## Step 3 version 2: the held error at the identity sites (written and committed before its counts exist)
+
+Written after version 1 was scored and its diagnostic read (disclosed). One change: the granulocytes' held error is counted only at Met-A's
+neutrophil identity sites (`run_sample.py --dev-count-sites neutrophils`, `stage_q2_selfref.count_pat_sites`: Stage Q2's own rules, the
+same held and held-absent molecules classed from all their calls; only the calls counted are restricted). A lone error at a site reads
+eps_site (1 - eps_nb)^2, its neighbors being mostly backbone CpGs, so eps_site = r / (1 - eps_nb)^2 with eps_nb version 1's genome-wide
+per-call rate on the same side. **Synthetic check (laptop):** planted rates 0.06 (loss) and 0.05 (gain) at a site set, 0.03 and 0.02
+elsewhere: counted 0.058 and 0.0461, corrected 0.0616 and 0.048. The derivation, the sites, the six arrays and bar 1 are version 1's.
+Counts: the three granulocyte samples again, on GitHub (`count_atlas_01.py ... step3_samples.csv --dev-count-sites neutrophils`).
+Scorer `step3_score_v2.py`.

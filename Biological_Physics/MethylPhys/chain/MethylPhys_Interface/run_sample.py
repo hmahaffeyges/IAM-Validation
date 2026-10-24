@@ -374,6 +374,7 @@ def main():
     ap.add_argument("--dev-count-only", action="store_true",
                     help="DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse)")
     ap.add_argument("--dev-count-genome", default="hg19", choices=("hg19", "mm10"), help="--dev-count-only: the genome the .pat was made on (recorded)")
+    ap.add_argument("--dev-count-sites", default=None, metavar="CELL", help="DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites)")
     ap.add_argument("--dev-metaa-specific", default=None, metavar="DELTA[,DELTA]",
                     help="DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel")
     ap.add_argument("--dev-seq-beta", default=None, metavar="FILE.beta[.gz]",
@@ -948,6 +949,14 @@ def main():
                                          genome=a.dev_count_genome, intake_decision=qi.get("decision"), intake_refusal=qi.get("refusal"),
                                          count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share")},
                                          note=(None if a.dev_count_genome == "hg19" else "the loose share uses hg19 tiles and has no meaning on " + a.dev_count_genome + "; the held error does not depend on the genome"))
+            if a.dev_count_sites:   # 2026-10-24 (step 3 version 2): the same count at Met-A's identity sites only
+                import gzip as _gz, pyarrow.parquet as _pqs, stage_q2_selfref as _Q2s
+                _MF = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3.json")))["platforms"]["EPIC"][a.dev_count_sites]
+                _K = _pqs.read_table(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1", "sites_sequencing_key.parquet")).to_pandas()
+                _K = _K[_K.probe.isin(set(_MF["sites"]))]; _idx = _K.loyfer_cpg_index.dropna().astype(int).tolist()
+                with (_gz.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: _cs = _Q2s.count_pat_sites(_fh, _idx)
+                o["iam_a_count_only"]["count_sites"] = dict(cell=a.dev_count_sites, sites="Met-A's commissioned identity sites (metA_floors_v1_3.json, EPIC)", n_probes=len(_MF["sites"]), n_with_cpg_index=len(_idx), **_cs)
+                print(f"Stage Q2 at {a.dev_count_sites} identity sites: {_cs}", flush=True)
         _mixed = _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or str(a.specimen).lower() in ("whole blood", "buffy coat")
         _only_q07 = [c["step"] for c in (qi.get("checks") or []) if c.get("result") == "REFUSED"] == ["Q0.7 specimen"]
         if qi.get("refusal_code") and _mixed and _only_q07:   # 2026-10-23 (read and flag): a mixed specimen has no single cell's healthy shape, so

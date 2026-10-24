@@ -15,7 +15,7 @@ for r in rows:
     else: print(g, "download failed", flush=True); continue
     b = os.path.join(out, g + "_bundle.json")
     p = subprocess.run([sys.executable, RS, "--pat", f, "--specimen", "purified cells", "--seq-cell", r["cell"], "--dev-count-only", "--id", g,
-                        "--out", os.path.join(out, g + ".html"), "--bundle", b], capture_output=True, text=True)
+                        "--out", os.path.join(out, g + ".html"), "--bundle", b] + sys.argv[5:], capture_output=True, text=True)   # 2026-10-24: further run_sample.py flags (step 3 version 2)
     os.remove(f); c = (json.load(open(b)).get("iam_a_count_only") or {}).get("count") if os.path.exists(b) else None
     for x in os.listdir(out):
         if x.startswith(g) and not x.endswith("_bundle.json"): os.remove(os.path.join(out, x))

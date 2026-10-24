@@ -111,6 +111,27 @@ def count_pat(lines, tiles):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
     return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M)), g_iso, g_opp)
 
+def count_pat_sites(lines, sites):
+    """2026-10-24 (DEV-METAA-HEALTHY-01 step 3 version 2): the held error counted only at a set of sites (genome-wide CpG indices, the .pat
+    numbering), by count_pat's own rules: the same split (odd lines), the same held and held-absent molecules, classed from ALL their calls
+    (at least QUAL_MIN_CALLS; marked share at least QUAL_MIN_METH, or at most QUAL_MAX_METH), the same isolated error; only the calls
+    counted, errors and opportunities, are those at the given sites. Returns the loss and gain sides with their opportunities."""
+    S = set(int(x) for x in sites); e_iso = e_opp = g_iso = g_opp = 0
+    for k, line in enumerate(lines):
+        if k % 2 == 0: continue
+        p = line.rstrip("\n").split("\t")
+        if len(p) < 4: continue
+        i, pat, n = int(p[1]), p[2], int(p[3])
+        pos = [i + q for q, x in enumerate(pat) if x != "."]; s_ = [x for x in pat if x != "."]
+        if len(s_) < QUAL_MIN_CALLS: continue
+        f = s_.count("C") / len(s_)
+        for q in range(1, len(s_) - 1):
+            if pos[q] not in S: continue
+            if f >= QUAL_MIN_METH: e_opp += n; e_iso += n * (s_[q] == "T" and s_[q - 1] == "C" and s_[q + 1] == "C")
+            elif f <= QUAL_MAX_METH: g_opp += n; g_iso += n * (s_[q] == "C" and s_[q - 1] == "T" and s_[q + 1] == "T")
+    return dict(held_iso=int(e_iso), held_opp=int(e_opp), held_err=(e_iso / e_opp if e_opp else None),
+                gain_iso=int(g_iso), gain_opp=int(g_opp), gain_err=(g_iso / g_opp if g_opp else None), n_sites=len(S))
+
 # ---------------------------------------------------------------- the aligned-read reader (port of secondlab.py, plus Bismark XM)
 AUTOSOMES = [f"chr{i}" for i in range(1, 23)]
 def _cpg_index(seq):
