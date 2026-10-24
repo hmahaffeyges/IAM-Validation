@@ -1500,6 +1500,13 @@
      "status": "open",
      "what": "A chapter on how every instrument references itself with no healthy cohort (author: 'researchers will be deeply skeptical ... answer all their concerns head on'). One table generated from the catalogue, the same columns for every instrument (what it is referenced against, what is derived, what is measured once, what it is blind to, which instrument covers that blind spot): IAM-A; Met-A for the whole sample; Met-A for each cell; the territories (islands and loosely held domains); all four C-Scores (commissioned neutrophil C-Score, whole-genome C-Score against the atlas, each cell's C-Score, IAM-A's C-Score version 2); Group-A; the IAM-Deconvolver (with its leftover and unexpected-cell flag); the information sphere; the distance to the ceiling. The central argument is the last column (author: 'those are also filling blind spots'): no instrument stands alone, and every blind spot is covered by another instrument. Each derivation in full, with how the atlas is used and why it works. Then the objections head on: a healthy cohort is needed; batch effects (the anchor measurement and the five-laboratory test); the atlas is just another cohort (a shared standard, built once, with an uncertainty at every site); self-reference hides whole-sample changes (which instrument sees what); circularity (which data built each piece and which tested it). Every table and number generated from the records.",
      "next": "write once testing and the derivations are done (DEV-METAA-HEALTHY-01, the firm rate, layer 2); its drafts start from docs/book/drafts/p6_metaa_healthy_line.tex"
+    },
+    {
+     "id": "45.2",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "The atlas chapter: how central IAM-Atlas v2.1 has become, and why (author: 'we should REALLY explain how important it has become to our work and WHY'). Written once in CANON/atlas_story.json, which writes the atlas README, the book's atlas section and the website. In order: what was set out to build (one map of healthy cells from many sources, made the way cosmology makes one sky map from many detectors); why that method makes it a ruler (each source's offset fitted alongside the cells, so every site carries a stated uncertainty); what came to rest on it (the IAM-Deconvolver, Met-A in a mix, the anchor sites that let an array measure its own blur, the territories, the information sphere's layout, layer 1's healthy levels); the evidence (the five-laboratory test, stated as it came out); its limits and what covers each.",
+     "next": "after the five-laboratory test (DEV-METAA-HEALTHY-01 bar 2): if it passes, write the section; if not, record what the result shows about the ruler"
     }
    ]
   },
