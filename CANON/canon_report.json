@@ -3421,25 +3421,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
-"line": 12,
-"pattern": "reference line",
-"use": "the baseline (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "**The gates before it:** the self-reference line (PHY-049) and the island prediction (PHY-043) met; the clean room reproduced every"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
-"line": 12,
-"pattern": "self-reference line",
-"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "**The gates before it:** the self-reference line (PHY-049) and the island prediction (PHY-043) met; the clean room reproduced every"
-},
-{
-"file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
-"line": 18,
+"line": 22,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3448,7 +3430,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
-"line": 18,
+"line": 22,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
