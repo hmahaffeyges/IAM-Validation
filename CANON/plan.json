@@ -172,9 +172,10 @@
     {
      "id": "49.4",
      "date": "2026-10-24",
-     "status": "open",
-     "what": "The study's pre-B2 controls come from the published whole-genome methylome of human B-cell differentiation (Nature Genetics 2015, BLUEPRINT), held in the European Genome-phenome Archive under controlled access (its array data is EGAS00001001196); reading it needs a data access application. The public controls in GSE116229 are the 3 cord-blood CD19+ samples. IAM-A needs no control (each sample against its own loose share); the controls matter for setting the chain's readings beside the study's group comparisons",
-     "next": "the author decides whether to apply for access; until then the cord-blood controls stand in"
+     "status": "done",
+     "what": "The study's pre-B2 controls are controlled-access and are not used (public data only, author). The controls are the study's 3 public cord-blood CD19+ samples in GSE116229; IAM-A itself needs no control",
+     "next": null,
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     },
     {
      "id": "49.5",
@@ -189,6 +190,13 @@
      "status": "open",
      "what": "A research package for this group, in this order (author: 'IAM's Law is what they will adapt once they trust it ... Our atlas is the key to reading other samples they cant, without needing another reference ... MCMC is the key to that'): (1) the law and its floor, the derivation step by step with every assumption named, the maintenance knockout as a direct test (14.10); (2) IAM-Atlas v2.1, fitted once from 21 sources with each source's offset fitted alongside and every site's posterior sampled (No-U-Turn, R-hat and effective sample size at every site, half-atlas null maps), as the shared ruler that lets a shallow or array sample be read with no reference of its own, the answer to informME's need to fit each region inside each deeply sequenced sample; (3) the study's own data through the chain beside its published findings; (4) the globe and the sphere as ways of seeing it. Stated plainly: the atlas is fitted (measured once, with its uncertainties); the floor is derived; each reading of a sample fits nothing",
      "next": "after 49.3"
+    },
+    {
+     "id": "49.7",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "The package repository, private, under the author's account; the authors invited when it is ready (author's choice). Generated from this repository by one build script, never copied by hand, with a push check that refuses a package out of step. Contents: the chain (the one command and every function with its Decoder entry); IAM-Atlas v2.1 with the link to its posterior draws and convergence certificates; the study's 36 samples read by the chain, each with its report and its own globe and information sphere, built from their samples (no website examples); the knockout pair; the replication beside the study's five findings; the derivation with every assumption named; a one-click workflow to rerun any of it. From our other work: IAM-A's self-reference line and the mouse reproduction; the eraser recount and the cell-free DNA synthetic test; the read-count correction and the ceiling; the atlas half-maps and Met-A's healthy line; the three-laboratory and deconvolution reproductions",
+     "next": "the author creates the repository and names it; then the build script"
     }
    ]
   },

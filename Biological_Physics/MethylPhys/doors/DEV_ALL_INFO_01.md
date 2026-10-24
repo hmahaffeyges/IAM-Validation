@@ -19,8 +19,8 @@ compared with normal controls (sorted pre-B2 precursors from an earlier study, a
    methylation went almost to zero, the entropy fell instead.
 
 **Data spent (author: "Spend the whole series"):** GEO GSE116229, all 36 WGBS samples with reads (31 leukemias, the Reh control and UHRF1 knockout,
-3 cord-blood CD19+ samples; `data/DEV_ALL_INFO_01/all_samples.csv`). The study's pre-B2 controls come from an earlier study and are to be
-found. Its RNA sequencing is not read.
+3 cord-blood CD19+ samples; `data/DEV_ALL_INFO_01/all_samples.csv`). The study's pre-B2 controls are controlled-access and are not used (public data only); the
+controls here are its 3 public cord-blood samples. Its RNA sequencing is not read.
 
 **Pass 1:** IAM-A's count on every sample at the eraser recount's fixed 10 million read pairs (`erase_gh.sh`, unchanged), each through
 `run_sample.py`. Compared with findings 1 and 5: do the leukemias read beyond the cord-blood controls on the held error and loose share,
