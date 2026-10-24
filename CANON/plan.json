@@ -211,9 +211,10 @@
     {
      "id": "50.1",
      "date": "2026-10-24",
-     "status": "open",
+     "status": "built",
      "what": "Outline and figure plan in the journal's format (abstract, introduction, Results under finding headings, Discussion, Methods with equations, Data and Code availability, 5-6 main figures, supplement). Framing: building on the published information-theory study, not answering it. Statistical names only (Bayesian hierarchical model sampled by Hamiltonian Monte Carlo; joint calibration of laboratory and platform offsets; split-half null tests; information-geometric embedding; thermodynamic lower bound)",
-     "next": "draft now"
+     "next": "the paper's generator (values read from the canon); then the Methods draft (50.2)",
+     "record": "Biological_Physics/MethylPhys/paper/OUTLINE.md"
     },
     {
      "id": "50.2",
