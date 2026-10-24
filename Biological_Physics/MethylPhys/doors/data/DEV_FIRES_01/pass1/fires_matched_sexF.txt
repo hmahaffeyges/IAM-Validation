@@ -1,0 +1,7 @@
+DEV-FIRES-01 matched on every quality measure, women only: 45 of 230 breast cases paired with a cancer-free array on the same chip (each measure within 0.25 of the cancer-free SD)
+all        45 pairs | case minus control, tared Met-A: mean +0.99 %, median +0.52 % | case higher in 27 of 45 (sign p 0.23) | Wilcoxon p 0.018
+0-2 y      19 pairs | case minus control, tared Met-A: mean -0.16 %, median -0.21 % | case higher in 8 of 19 (sign p 0.65) | Wilcoxon p 0.89
+2-5 y      11 pairs | case minus control, tared Met-A: mean +1.20 %, median +1.01 % | case higher in 7 of 11 (sign p 0.55) | Wilcoxon p 0.24
+5-10 y     10 pairs | case minus control, tared Met-A: mean +1.78 %, median +1.08 % | case higher in 7 of 10 (sign p 0.34) | Wilcoxon p 0.16
+over 10 y 5 pairs, too few
+quality after matching, case minus control (in cancer-free SD): conversion II -0.027, conversion I -0.016, signal red +0.006, call rate -0.021
