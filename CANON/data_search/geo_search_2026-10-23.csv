@@ -1,0 +1,81 @@
+gse,n,platform,tags,known,title
+GSE158064,1934,450K/EPIC v1,buffy coat,False,Smaller stature in childhood following assisted reproductive technologies (ART) is not explained by parental o
+GSE157896,1019,450K,buffy coat,False,Smaller stature in childhood following assisted reproductive technologies (ART) is not explained by parental o
+GSE141065,557,EPIC v1,buffy coat,False,Epigenome analysis of cord blood DNA from infants born into the UPBEAT study
+GSE183040,484,EPIC v1,buffy coat,False,Integrative tissue analyses of men with prostate cancer [BI]
+GSE147004,348,450K,buffy coat,False,DNA Methylation Study of Huntington's Disease and Motor Progression in Three Species
+GSE183015,174,EPIC v1,buffy coat,False,Integrative tissue analysis of men with prostate cancer IV
+GSE109914,119,450K,buffy coat,False,Genome wide DNA methylation analysis of arsenic exposure and non-exposure population and patients with skin le
+GSE350403,96,EPIC v2/EPIC v1,buffy coat,False,"DNAm age differences between infinium methylationEPICv1 vs EPICv2 in buffy coat, PBMC, and saliva samples"
+GSE255929,93,EPIC v1,buffy coat,False,Cannabis smoking is associated with advanced epigenetic age
+GSE241763,60,EPIC v1,buffy coat,False,Powell-Wiley: The Washington DC Cardiovascular Health and Needs Assessment
+GSE318387,32,EPIC v2,buffy coat,False,Promoter hypomethylation of cadherin-7: a novel epigenetic marker associated with cerebral small vessel diseas
+GSE103189,16,EPIC v1,buffy coat,False,Cord blood buffy coat DNA methylation is comparable to whole cord blood methylation
+GSE231459,180,EPIC v1,"buffy coat, cfDNA arrays",False,Resting CD4+ T cells exposed to oleic acid upregulate genes involved in immunometabolism resulting in increase
+GSE231457,90,EPIC v1,"buffy coat, cfDNA arrays",False,Resting CD4+ T cells exposed to oleic acid upregulate genes involved in immunometabolism resulting in increase
+GSE158063,915,EPIC v1,"buffy coat, longitudinal blood",False,Smaller stature in childhood following assisted reproductive technologies (ART) is not explained by parental o
+GSE226206,102,EPIC v1,"buffy coat, longitudinal blood",False,Longitudinal study of DNA methylation changes in patients with severe COVID-19
+GSE74548,174,450K,"buffy coat, plasma + blood same people",False,The effects of long-term daily folic acid and vitamin B12 supplementation on genome-wide DNA methylation in el
+GSE108462,181,450K,cfDNA arrays,False,Cell-free DNA modification dynamics in abiraterone acetate-treated prostate cancer patients
+GSE193208,137,EPIC v1,cfDNA arrays,False,Cell-free DNA methylation as a predictive biomarker of response to neoadjuvant chemotherapy for patients with 
+GSE208055,40,EPIC v1,cfDNA arrays,False,Characterizing DNA methylation signatures of retinoblastoma using the aqueous humor liquid biopsy
+GSE139307,37,450K,cfDNA arrays,False,Serum Dioxin and DNA Methylation in the Sperm of Operation Ranch Hand Veterans Exposed to Agent Orange
+GSE79329,34,450K,cfDNA arrays,False,Association between DNA methylation profiles in leukocytes and serum levels of persistent organic pollutants i
+GSE87798,24,450K,cfDNA arrays,False,Mesenchymal stromal cells in platelet lysate versus fetal calf serum
+GSE208758,23,EPIC v1,cfDNA arrays,False,Circulating cell-free DNA methylation mirrors alterations in cerebral patterns in epilepsy 
+GSE87797,12,450K,cfDNA arrays,False,DNA methylation of mesenchymal stromal cells in platelet lysate versus fetal calf serum
+GSE179849,824,EPIC v1,"cfDNA arrays, longitudinal blood",False,"Longitudinal DNA methylation and RNA-seq datasets in primary human fibroblasts with mitochondrial genetic, met"
+GSE179847,479,EPIC v1,"cfDNA arrays, longitudinal blood",False,"A longitudinal DNA methylation dataset in primary human fibroblasts with mitochondrial genetic, metabolic, and"
+GSE202554,63,EPIC v1,"cfDNA arrays, longitudinal blood",False,Longitudinal DNA methylation in exhaustively passaged astrocytes
+GSE157273,48,EPIC v1,"cfDNA arrays, longitudinal blood",False,Longitudinal analysis of personal cfDNA methylome patterns in metastatic prostate cancer [plasma]
+GSE220622,391,EPIC v1,"cfDNA arrays, plasma + blood same people",False,A multi-omics approach unveils an association between subclinical atherosclerosis and epigenetic age accelerat
+GSE298750,270,EPIC v1,"cfDNA arrays, plasma + blood same people",False,Predicting immune responsiveness in ER-positive breast cancer
+GSE203399,121,450K,"cfDNA arrays, plasma + blood same people",False,Study of the DNA methylation in the stroke outcome: an Epigenome-Wide Association Study
+GSE307029,80,EPIC v1,"cfDNA arrays, plasma + blood same people",False,Multi-omics reveals heterogeneity in  advanced small cell lung cancers
+GSE188573,59,EPIC v1,"cfDNA arrays, plasma + blood same people",False,Epigenetic and transcriptomic remodeling in monocytes of severe COVID-19 patients mirrors systemic changes in 
+GSE274821,31,EPIC v1,"cfDNA arrays, plasma + blood same people",False,Prior chemotherapy deteriorates T-cell quality for CAR T-cell therapy in B-cell non-Hodgkin’s lymphoma
+GSE268584,12,EPIC v1,"cfDNA arrays, plasma + blood same people",False,Genome-wide DNA methylation analysis of driver genes in blood of high-altitude pulmonary edema
+GSE289988,9,EPIC v1,"cfDNA arrays, plasma + blood same people",False,Comparative DNA methylation profiling of human and murine ALK-positive B-cell neoplasms [EPIC]
+GSE301573,8,EPIC v2,"cfDNA arrays, plasma + blood same people",False,Folate Receptor Beta Regulates Macrophage NLRP3 Inflammasome Activation and Pyroptosis in a Folate-Independent
+GSE316251,8,EPIC v1,"cfDNA arrays, plasma + blood same people",False,"NR3C1, LAX1 and RCAN3 as circulating epigenetic biomarkers for prognosis and chemotherapy response prediction "
+GSE289985,7,450K,"cfDNA arrays, plasma + blood same people",False,Comparative DNA methylation profiling of human and murine ALK-positive B-cell neoplasms [450K]
+GSE275452,3,450K,"cfDNA arrays, plasma + blood same people",False,Circulating eosinophil cell-free DNA as a noninvasive biomarker for perforated appendicitis in pediatric patie
+GSE191331,286,EPIC v1,longitudinal blood,False,Longitudinal multi-omics analysis identifies early blood-based predictors of anti-TNF therapy response in infl
+GSE224573,164,EPIC v1,longitudinal blood,False,Longitudinal analysis of birthweight and epigenetic aging among children from birth to age three in the Democr
+GSE161778,125,EPIC v1,longitudinal blood,False,"Longitudinal multi-omics identifies responses of megakaryocytes, erythroid cells and plasmablasts as hallmarks"
+GSE335141,82,EPIC v2,longitudinal blood,False,Genome-wide DNA Methylation Profiling in Postpartum Depression: A Longitudinal Whole-Blood Study
+GSE176394,77,EPIC v1,longitudinal blood,False,Longitudinal DNA methylation profiling of individuals at baseline and 6 and 12 months following Gender Affirmi
+GSE291053,32,EPIC v1,longitudinal blood,False,Genome wide DNA methylation analysis in a prospective observational study identifies several epigenetically de
+GSE62219,60,450K,plasma + blood same people,False,Age-associated DNA methylation changes within 5 years after birth in human blood leukocytes
+GSE51032,845,450K,buffy coat,True,EPIC-Italy at HuGeF
+GSE51057,329,450K,buffy coat,True,Methylome Analysis and Epigenetic Changes Associated with Menarcheal Age
+GSE282666,51,EPIC v2,buffy coat,True,Biological Age Acceleration and Colonic Polyps in Persons Under Age 50
+GSE147740,1129,EPIC v1,"buffy coat, cfDNA arrays",True,DNA methylation analysis of human peripheral blood cells collected in the AIRWAVE study
+GSE130748,37,EPIC v1,"buffy coat, longitudinal blood",True,Longitudinal Study of Leukocyte DNA Methylation and Biomarkers for Cancer Risk in Older Adults
+GSE298812,245,EPIC v1,cfDNA arrays,True,Circulating Cell-free DNA Methylation Biomarkers for Hepatocellular Carcinoma Risk Prediction in HIV-Positive 
+GSE292312,181,EPIC v1,cfDNA arrays,True,Robust classification of pediatric brain tumors from cell-free DNA methylomes
+GSE207998,123,EPIC v1/450K,cfDNA arrays,True,DNA methylation biomarkers for non-invasive detection of triple negative breast cancer using liquid biopsy
+GSE303824,61,EPIC v1,cfDNA arrays,True,Identification and validation of liquid biopsy-based methylation biomarkers for germ cell tumor subtypes [2]
+GSE303825,54,450K,cfDNA arrays,True,Identification and validation of liquid biopsy-based methylation biomarkers for germ cell tumor subtypes [3]
+GSE282216,43,450K,cfDNA arrays,True,Plasma DNA Methylation-Based Biomarkers for MPNST Detection in Patients With Neurofibromatosis Type 1
+GSE303826,17,EPIC v1,cfDNA arrays,True,Identification and validation of liquid biopsy-based methylation biomarkers for germ cell tumor subtypes [7]
+GSE295456,245,EPIC v1,"cfDNA arrays, longitudinal blood, plasma + blood same people",True,Chronic lymphocytic leukemia with IGH::BCL3-translocation is characterized by a homogenous and distinct geneti
+GSE287261,77,EPIC v2,"cfDNA arrays, longitudinal blood, plasma + blood same people",True,Longitudinal Methylomic changes in PTSD following Sub-Anaesthetic Oral Ketamine Administration
+GSE237299,989,450K,"cfDNA arrays, plasma + blood same people",True,DNA methylation-based classification of hematolymphoid neoplasms
+GSE277078,185,EPIC v1,"cfDNA arrays, plasma + blood same people",True,Plasma cell-free DNA methylation profile of patients with non-small cell lung cancer (NSCLC).
+GSE280465,163,EPIC v2,"cfDNA arrays, plasma + blood same people",True,Cross-Tissue Comparison of Epigenetic Aging Clocks in Humans
+GSE122126,101,450K/EPIC v1,"cfDNA arrays, plasma + blood same people",True,Comprehensive human cell-type methylation atlas reveals origins of circulating cell-free DNA in health and dis
+GSE311578,70,EPIC v1,"cfDNA arrays, plasma + blood same people",True,Advancing Personalized Medicine in Alzheimer’s Disease: Liquid Biopsy Epigenomics Unveil APOE ε4-Linked Methyl
+GSE287137,32,EPIC v2/EPIC v1,"cfDNA arrays, plasma + blood same people",True,Cell-free DNA Methylomics Identify Tissue Injury Patterns in Pediatric ARDS
+GSE304107,30,EPIC v2,"cfDNA arrays, plasma + blood same people",True,DNA methylation patterns associated with prior tuberculosis infection in people with HIV
+GSE119260,16,EPIC v1,"cfDNA arrays, plasma + blood same people",True,Evaluating Liquid Biopsies for Methylomic Profiling of Prostate Cancer
+GSE325660,6,EPIC v1,"cfDNA arrays, plasma + blood same people",True,Plasma cfDNA and Peripheral Blood gDNA Provide Complementary Information for Molecular Monitoring in Myeloprol
+GSE142512,395,450K/EPIC v1,longitudinal blood,True,Longitudinal DNA methylation differences precede type 1 diabetes
+GSE161476,229,EPIC v1,longitudinal blood,True,A longitudinal and transancestral analysis of DNA methylation patterns and disease activity in lupus patients
+GSE216906,162,EPIC v1,longitudinal blood,True,Longitudinal DNA methylation profile of peripheral blood in women delivering preterm informs predictive biomar
+GSE237561,126,EPIC v1/450K,longitudinal blood,True,Longitudinal changes in DNA methylation associated with clozapine use in treatment-resistant schizophrenia fro
+GSE191297,85,EPIC v1,longitudinal blood,True,Longitudinal multi-omics analysis identifies early blood-based predictors of anti-TNF therapy response in infl
+GSE315367,46,EPIC v1,longitudinal blood,True,Blood-based epigenetic instability linked to human aging and disease [longitudinal_AML]
+GSE161678,24,EPIC v1,longitudinal blood,True,"Longitudinal multi-omics identifies responses of megakaryocytes, erythroid cells and plasmablasts as hallmarks"
+GSE110530,12,EPIC v1,longitudinal blood,True,Longitudinal dataset: An optimized library for reference-based deconvolution of whole-blood biospecimens assay
+GSE276323,6,EPIC v1,longitudinal blood,True,Longitudinal transcriptomic and epigenetic analysis in astronauts reveals dynamic immune response to spaceflig
