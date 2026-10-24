@@ -1,0 +1,12 @@
+{
+ "cell": "megakaryocytes",
+ "flag": "PROVISIONAL REFERENCE, not part of IAM-Atlas v2.1 (development): shares from a second deconvolution with the column added",
+ "samples": "mk_d1.csv",
+ "n_samples": 33,
+ "sites": 708961,
+ "median_reads": 3,
+ "annotation": "https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.tsv.gz",
+ "annotation_sha256": "93fc4de126c9ad8bcfba3d16f2fddb8a2e2a6695a49c7cd1ce1de7198ac7ee56",
+ "transfer": "transfer_v21_smooth.json",
+ "column_sha256": "05c2a97ae641dac56546c529eac34d061216338ed011bad2e64f4a351e2b6017"
+}

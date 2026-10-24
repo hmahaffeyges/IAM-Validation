@@ -267,7 +267,12 @@ plasmas reread against it; the length correction separately.
 ## A provisional megakaryocyte reference: test 1 (written and committed before any donor 2 file is read; plan 40.18)
 
 **Prior reading:** GSE87197 donor 1 (33 single megakaryocytes) was spent for absorption test 1; donor 2 (19 cells) is spent for this test
-(author); donor 3 (19 cells) stays unread.
+(author); donor 3 (19 cells) stays unread. The spent healthy plasma (SRR23279758) is plasma_seq_01's; earlier sections of this record read GSE122126's
+plasma arrays and mixtures (spent); none of them is read again here.
+
+**Synthetic test:** chain/stage_provisional.py, DEV_ONE_DRAW_01/mk_absorb_01/mk_provisional_01.py
+
+The test is itself constructed: real megakaryocyte reads planted into a spent plasma at known shares; no patient sample is read. The column (built, donor 1): 708,961 atlas sites with reads, a median of 3 per site.
 
 **The idea (author):** until purified data good enough for a full atlas fit exist, a cell the atlas lacks gets a provisional column, kept
 apart from IAM-Atlas v2.1, so its DNA is named instead of absorbed into look-alike cells. **Built:** `chain/stage_provisional.py` (the
