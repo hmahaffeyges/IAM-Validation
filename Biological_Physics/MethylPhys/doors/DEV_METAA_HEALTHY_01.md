@@ -152,3 +152,18 @@ atlas median put on the sequencing scale through the atlas's own measured transf
 sites, predictions and bars unchanged; it rereads the same counts. Version 1's result stands as scored. If version 2 also misses, a second
 cause is stated now: the predictions are each cell's genome-wide held error, while the bars' sites are those held most firmly in all 79
 cell types.
+
+**Layer 1 version 2, scored** (`data/DEV_METAA_HEALTHY_01/layer1_v2_summary.txt`, all 153 samples; `layer1_v2_summary_same148.txt`, the 148
+version 1 read): **bar 2 met (54 of 56), bar 3 met (56 of 56), on both sets.** Version 1's scorer rerun on the same 148 gives its 22 and 37
+again, so the scale is the only change. Outside 0.02: erythrocyte progenitors on the marked side (-0.067; the atlas holds them below the
+prediction) and smooth muscle (+0.021).
+
+**Disclosed:** (1) version 2 was written after version 1's gaps were seen, on the same counts, so this is a development result, not a sealed
+one; a confirmation on samples that played no part (another laboratory's sequencing of healthy cell types) is the next step. (2) The first
+run of version 2 printed 0 of 56 for both bars: a comment added in the edit had cut off the line that keeps the tally; the per-cell gaps
+were right; the tally was restored and the scorer rerun (commit after `a75d1610`). (3) Five samples (GSM5652176, GSM5652220, GSM5652267,
+GSM5652304, GSM5652348) landed after version 1 was scored; the result is the same with and without them.
+
+**What it means:** each healthy cell type's level at the sites it holds is set by its own held error, counted on its own molecules (1 - eps
+where the mark is held, eps where it is held absent), to within 0.02 in 54 of 56 cell types, with nothing fitted. The levels come from
+physics; only which sites each cell holds is measured.

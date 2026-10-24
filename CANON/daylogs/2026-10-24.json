@@ -68,6 +68,16 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Met-A's healthy levels from the held error: layer 1 (GRP-019, DEV-METAA-HEALTHY-01)",
+     "status": "development",
+     "what": "Each healthy cell type's level at the sites it holds predicted from its own held error, counted on its molecules, against IAM-Atlas v2.1.",
+     "outcome": "Within 0.02 in 54 of 56 cell types where the mark is held and 56 of 56 where it is held absent, once both are on the same scale; nothing fitted.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   },

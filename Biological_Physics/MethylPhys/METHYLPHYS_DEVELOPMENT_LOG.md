@@ -3164,3 +3164,6 @@ One donor's megakaryocytes read as plasma by the one command land on four atlas 
 
 ### 2026-10-24 · The loose share counted molecule by molecule: synthetic test cfDNA 2 (GRP-016, DEV-ONE-DRAW-01)
 Stage Q2 now also records the loose share molecule by molecule. Mixing two constructed cells raises the tile share from 0.1295 to 0.1750 while the molecule-level shares stay flat (0.1271 to 0.1268 below the cut; 0.0554 to 0.0551 undecided), so a mix reads as its cells do. Next: a line built on it. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-10-24 · Met-A's healthy levels from the held error: layer 1 (GRP-019, DEV-METAA-HEALTHY-01)
+Version 1 missed both bars (22 and 37 of 56) because it compared the atlas's array-scale levels with sequencing predictions; the misses split by platform. Version 2, the atlas put on the sequencing scale through its own transfer, met both: 54 of 56 cell types on the marked side and 56 of 56 on the islands, the same on the samples version 1 read. Development result; confirmation on independent samples next. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).

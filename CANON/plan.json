@@ -684,7 +684,7 @@
      "status": "running",
      "what": "Layer 1: the atlas's healthy levels predicted from each cell type's loss-side and gain-side held errors; the gain side added to Stage Q2's counter (synthetic test met); the gap measured",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
-     "next": "layer 1 version 2 (atlas on the sequencing scale), written before it runs; version 1 scored not met, misses split by platform"
+     "next": "confirm on samples that played no part (another laboratory's sequencing of healthy cell types), written before it runs; version 2 met both bars (54 and 56 of 56) as a development result"
     },
     {
      "id": "14.8",

@@ -36,7 +36,7 @@ T = [f"DEV-METAA-HEALTHY-01 layer 1 version 2 (atlas on the sequencing scale): {
 ok_m = ok_u = 0
 for c, x in X.groupby("cell"):
     el = per_call((x.held_err * x.held_opp).sum() / x.held_opp.sum()); eg = per_call((x.gain_err * x.gain_opp).sum() / x.gain_opp.sum())
-    am, ai = float(G(MU.loc[marked, c].median())), float(G(MU.loc[isl, c].median())); gm, gu = am - (1 - el), ai - eg   # v2: sequencing scale; ok_m += abs(gm) <= 0.02; ok_u += abs(gu) <= 0.02
+    am, ai = float(G(MU.loc[marked, c].median())), float(G(MU.loc[isl, c].median())); gm, gu = am - (1 - el), ai - eg; ok_m += abs(gm) <= 0.02; ok_u += abs(gu) <= 0.02   # v2: sequencing scale (2026-10-24 fix: this comment had cut off the tally; disclosed)
     T.append(f"{c} | {len(x)} | {el:.4f} | {1 - el:.4f} | {am:.4f} | {gm:+.4f} | {eg:.4f} | {eg:.4f} | {ai:.4f} | {gu:+.4f}")
 n = X.cell.nunique() if len(X) else 0
 T.append(f"bar 2 (marked side, |gap| <= 0.02 in at least 45 of 56): {ok_m} of {n}: {'met' if n == 56 and ok_m >= 45 else 'not met'}")
