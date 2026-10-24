@@ -1497,6 +1497,13 @@
      "status": "open",
      "what": "IAM-A by cell of origin in plasma: assign each sequenced fragment to a cell type by its identity pattern (fragment-level assignment is published), then count the held error on each cell type's own molecules, against the physics floor, in one person. Where it could add: the sick cells themselves (megakaryocytes in myeloproliferative neoplasms and megakaryoblastic leukemia; a tumor's own fragments), not cells merely responding (author: 'only the percentage ... UNLESS they are the ones in trouble themselves'). Untested",
      "next": "synthetic test first: constructed plasma from two cell types with different held errors through the one command; does the per-origin count recover each"
+    },
+    {
+     "id": "40.15",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction with the abnormal A score for colon or other cells then it is a second indicator that the A score being abnormal is probably accurate'): an abnormal IAM-A on one cell type's own molecules (40.14) together with a raised megakaryocyte share (IAM-Deconvolver, 40.13), each against the person's own level. Independent data paths (molecule counts against the physics floor; fragments against the atlas). The share supports, never replaces, the A score: raised platelet production also follows inflammation, infection, iron deficiency and blood loss",
+     "next": "after 40.13 and 40.14: constructed plasma with both changes planted, then the reserved plasma sets"
     }
    ]
   },
