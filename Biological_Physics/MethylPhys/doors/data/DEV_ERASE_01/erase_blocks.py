@@ -3,8 +3,8 @@ read pairs, centred at (k + 1/2)/20 of the sample's spots; a block that crosses 
 (1-based spot ids, inclusive), one block piece per line."""
 import sys, pandas as pd
 N, K = 10_000_000, 20
-def plan(runs):
-    tot = sum(s for _, s in runs); size = min(N, tot) // K; out = []
+def plan(runs, n=None):   # 2026-10-23: n, the pairs to take (default N, the recount's); plasma_seq_01 takes every pair
+    tot = sum(s for _, s in runs); size = min(n or N, tot) // K; out = []
     for k in range(K):
         g0 = max(0, min(tot - size, int((k + 0.5) * tot / K) - size // 2)); left = size; pos = g0
         for r, s in runs:
@@ -14,4 +14,4 @@ def plan(runs):
     return out
 if __name__ == "__main__":
     S = pd.read_csv(sys.argv[1]); x = S[S.gsm == sys.argv[2]]
-    for r, a, b in plan(list(zip(x.srr, x.spots))): print(r, a, b)
+    for r, a, b in plan(list(zip(x.srr, x.spots)), int(sys.argv[3]) if len(sys.argv) > 3 else None): print(r, a, b)

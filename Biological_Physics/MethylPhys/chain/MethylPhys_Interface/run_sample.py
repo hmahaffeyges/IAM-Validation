@@ -856,7 +856,7 @@ def main():
     if beta is not None and (not o.get("refusal") or _450):   # chain v4: the cell shares (D21) and the C-Score drawn on the sphere
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
-        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel())
+        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv))
         if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
@@ -871,10 +871,10 @@ def main():
                 if a.dev_metaa_allsites: o["met_a_each_cell_allsites"] = SA.read_in_mix_allsites(_vals, _shr)
                 _rv, o["atlas_ruler"] = (None, {"reason": "sequencing values are not mapped" if a._seqv else "the atlas ruler is off (--dev-ruler turns it on; development)"}) if (a._seqv or not a.dev_ruler) else _ST.ruler_map(_pd.Series(beta, dtype="float64"))   # 2026-10-23: the atlas ruler
                 _vr = _rv if _rv is not None else _vals
-                try: o["met_a_whole"] = SA.read_whole(_vr, _shr); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
+                try: o["met_a_whole"] = SA.read_whole(_vr, _shr, counts=getattr(a, "_seqc", None)); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
                 except Exception as e: o["met_a_whole"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix
-                    try: o["territories"] = SA.territory_reading(_vr, _shr); o["territories"]["state"] = o["met_a_whole"].get("state")
+                    try: o["territories"] = SA.territory_reading(_vr, _shr, counts=getattr(a, "_seqc", None)); o["territories"]["state"] = o["met_a_whole"].get("state")
                     except Exception as e: o["territories"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_metaa_specific:   # 2026-10-22 (39.9): the same reading on sites held by each cell and not by the others
                     o["met_a_each_cell_specific"] = {d.strip(): SA.read_in_mix(_vals, _shr, counts=getattr(a, "_seqc", None), specific=float(d)) for d in a.dev_metaa_specific.split(",") if d.strip()}
@@ -944,7 +944,24 @@ def main():
                                          genome=a.dev_count_genome, intake_decision=qi.get("decision"), intake_refusal=qi.get("refusal"),
                                          count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles")},
                                          note=(None if a.dev_count_genome == "hg19" else "the loose share uses hg19 tiles and has no meaning on " + a.dev_count_genome + "; the held error does not depend on the genome"))
-        if qi.get("refusal_code"):
+        _mixed = _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or str(a.specimen).lower() in ("whole blood", "buffy coat")
+        _only_q07 = [c["step"] for c in (qi.get("checks") or []) if c.get("result") == "REFUSED"] == ["Q0.7 specimen"]
+        if qi.get("refusal_code") and _mixed and _only_q07:   # 2026-10-23 (read and flag): a mixed specimen has no single cell's healthy shape, so
+            # IAM-A is read on its cell-independent part, the self-reference line (the held error against the one predicted from the sample's own
+            # loose share), with the shape check not applied, and flagged; every other intake rule still stops the file
+            print("Stage Q2: a mixed specimen: IAM-A read on the self-reference line, flagged (no healthy shape reference for a mix)", flush=True)
+            _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
+            _B = _Q2.band(1); _r = _Q2.reading(_cnt) if _cnt.get("held_opp") and _cnt.get("loose_share") is not None else None
+            o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": "mixed specimen (" + str(a.specimen) + ")", "input": src, "A": None,
+                          "count": {k: _cnt.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10")}, "band": {"lo": _B["lo"], "hi": _B["hi"]},
+                          "development": "DEVELOPMENT - read and flagged: a mixed specimen has no healthy shape reference, so the sample-shape check is not applied; "
+                                         "IAM-A is commissioned on healthy blood CD8 T cells"}
+            if _r is not None:
+                _A = float(_r["A"]); o["iam_a"].update(A=round(_A, 4), predicted=round(_r["predicted"], 6), held_err=round(_r["held_err"], 6), loose_share=round(_r["loose_share"], 4),
+                                                       state="Normal" if _B["lo"] <= _A <= _B["hi"] else ("above Normal" if _A > _B["hi"] else "below Normal"), shape_check="not applied (mixed specimen)")
+                o["iam_a"]["counting"] = V4.counting_error(_cnt, _A, _B)
+            else: o["iam_a"]["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
+        elif qi.get("refusal_code"):
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": a.seq_cell, "A": None, "refusal_code": qi["refusal_code"], "refusal": f"Stage Q0 stopped the file: {qi['refusal']}", "input": src}
         else:
             print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)

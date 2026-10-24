@@ -116,3 +116,31 @@ the counting; the Deconvolver's resampled range (too narrow; a plan branch of st
 **Exploration 6 at 60 reads (explore run 39904799192):** CD4 T cells 5 % moves 11.0 of its own error, 20 % 43.0; NK cells 20 % 14.2; the closest relative 17 to 26 % as much (`run_06/seq_plant_06_depth60_summary.txt`). Over 3, 10, 30 and 60 reads, a 5 % CD4 T loss moves 4.6, 6.2, 8.7 and 11.0 of its error.
 
 **Exploration 5 at 30 reads (explore run 39904630856):** `run_05/constructed_draw_05_depth30_summary.txt`. Hepatocyte added at 0.005, 0.01, 0.02 and 0.05 found at 0.0013, 0.0067, 0.0192 and 0.0507; vascular endothelium found at 0.0028 with none added; colon epithelium found from 0.02 (0.0047) and at 0.05 (0.0326). As at 10 and 60 reads: below about 0.02 the small shares move with the draw. The largest share not added is a blood cell the constructed plasma carries (naive CD8 T cells, basophils, eosinophils), not a tissue.
+
+## Real plasma, sequenced (plasma_seq_01)
+
+Written and committed before any read of these plasmas is opened (tuning, not sealed; author: "Spend 30 healthy only").
+
+**The instrument's job:** the one command reads a real healthy plasma's molecules end to end, and every instrument either reads it, flagged,
+or says why it cannot.
+
+**Data.** PRJNA929650 (public SRA): plasma cell-free DNA, shallow genome-wide bisulfite sequencing (about 0.58 times coverage, `plasma_seq_01/source_publication.txt`; about 16
+million read pairs per sample, DNBSEQ-G400) of 278 healthy women and 239 with nonmetastatic breast cancer, Ho Chi Minh City (the
+publication 10.3389/fonc.2023.1127086; its Table S1 gives each sample's group, matched to all 517 runs by sample code,
+`data/DEV_ONE_DRAW_01/plasma_seq_01/prjna929650_labels.csv`). Spent for tuning: 30 healthy, chosen by a fixed rule from the labels alone (the
+healthy runs in run-accession order, every ninth, the first 30), listed in `plasma_seq_01_samples.csv`. The other 248 healthy and all 239
+cases stay unread, reserved (CANON/data_spent.csv).
+
+**The run.** For each sample, `erase_test.yml` with `full=1`: the committed reads-to-molecules pipeline of DEV-ERASE-01 (bwa-meth 0.2.0 on hg19
+with lambda and pUC19, Sambamba markdup, wgbstools bam2pat) on every read pair, then `run_sample.py --pat ... --specimen plasma
+--dev-seq-values 1`. For shallow sequencing three readings were set to read and flag, written before any plasma is read: the
+IAM-Deconvolver reads with at least 500 of its marker sites measured (`stage_v4.SEQ_READ_MARKERS`, flagged below half); Met-A for each cell
+with a tenth of its identity sites (`READ_COVER_MIN_SEQ`); and IAM-A on a mixed specimen is read on its self-reference line with the
+sample-shape check not applied (a mix has no single cell's healthy shape). Whole-sample Met-A and the territories now take each site's
+expected disorder at its own read count (`expected_H_counts`), as each cell's Met-A already did. Checked on one saved human file before any
+plasma: on GSM2387333 (cultured embryonic stem cells, spent), read as plasma, the Deconvolver found embryonic stem cells at 81 % on 22 % of
+its markers, IAM-A read on the line, and every reading fired; a whole blood array reads exactly as before (`plasma_seq_01/precheck_summary.txt`).
+
+**What will be reported, nothing scored:** each plasma's cell shares, IAM-A on the line, Met-A for the whole sample and each cell, the
+territories, the distance to the ceiling, the globe and the sphere; and how they spread across the 30 healthy plasmas, the first healthy
+band for plasma on sequencing.

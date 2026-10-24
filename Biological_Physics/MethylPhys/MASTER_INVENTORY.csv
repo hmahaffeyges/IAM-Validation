@@ -441,6 +441,7 @@ PRJNA876296,,,,,,,,PROC_TUMOUR_01_PREREG,,,,,,
 PRJNA878698,downloads/C_stool/PRJNA878698/,311.78,,,unspent,,,,,,,,Stool sequencing,S3 register
 PRJNA892473,,,,,,,,PROC_RIMOUSKI_01_PREREG,,,,,,
 PRJNA892473 (Rimouski River salmonids) - derived,,,,,spent,,,,,,,,,
+PRJNA929650,,,,,partly spent,,,DEV_ONE_DRAW_01,,,,,,
 PRJNA937312,downloads/F_coho_rrbs/PRJNA937312/,226.71,,,unspent,,,,,,,,Coho RRBS reads,S3 register
 PRJNA944546,,,,,,,,PROC_CHARR_01_PREREG,,,,,,
 PRJNA944546 / GSE227271 (brook charr) - derived,,,,,spent,,,,,,,,,

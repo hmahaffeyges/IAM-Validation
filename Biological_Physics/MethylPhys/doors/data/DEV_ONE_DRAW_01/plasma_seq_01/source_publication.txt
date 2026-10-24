@@ -1,0 +1,1 @@
+PRJNA929650's publication (10.3389/fonc.2023.1127086), as stated there: 239 nonmetastatic breast cancer and 278 healthy; shallow whole-genome bisulfite sequencing, depth 0.58X for breast cancer and 0.57X for controls; about 20 million 100-bp paired-end reads on DNBSEQ-G400; Table S1 lists each sample's group.

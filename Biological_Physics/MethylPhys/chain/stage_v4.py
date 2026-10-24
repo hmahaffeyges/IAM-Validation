@@ -16,6 +16,7 @@ import stage_deconv_v21 as D21, stage_q2_selfref as Q2
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MIN_MARKER_SHARE = 0.5   # operational: below half the marker sites measured, the shares are withheld (the tool says it cannot read)
+SEQ_READ_MARKERS = 500   # 2026-10-23 (read and flag): on sequencing values, read with at least this many marker sites measured, flagged below MIN_MARKER_SHARE (stated)
 CD8_TYPES = ("cd8 t cells", "naive cd8 t cells", "effector memory cd8 t cells", "t effector cell cd8")
 _REF = {}
 
@@ -29,7 +30,7 @@ def atlas_panel():
     import pyarrow.parquet as pq
     return [n for k in (1, 2, 3) for n in pq.ParquetFile(os.path.join(D21.ATLAS, f"mu_part{k}.parquet")).schema_arrow.names if n not in ("cpg", "__index_level_0__")]
 
-def stage_d21(beta, panel=None):
+def stage_d21(beta, panel=None, sequencing=False):
     panel = list(panel or D21.BLOOD6)
     if tuple(panel) not in _REF:
         R = D21.reference(panel); _REF[tuple(panel)] = (R, D21.markers(R))
@@ -38,7 +39,10 @@ def stage_d21(beta, panel=None):
     have = int(b.reindex(M).notna().sum()); rec = {"stage": "D21", "reading": "cell shares", "tool": "IAM-Deconvolver (version 2)",
         "reference": "IAM-Atlas v2.1", "panel": panel, "markers": len(M), "markers_measured": have,
         "commissioning": D21.DECONV_V21_COMMISSIONING, "error_bars": "information, not calibrated"}
-    if have < MIN_MARKER_SHARE * len(M):
+    if sequencing and SEQ_READ_MARKERS <= have < MIN_MARKER_SHARE * len(M):   # 2026-10-23: shallow sequencing (plasma), read and flagged
+        rec["coverage_flag"] = (f"read on {have} of {len(M)} marker sites ({have / len(M):.0%}; below the half an array needs): shallow sequencing, "
+                                "each site from a few molecules; shares read and flagged")
+    elif have < MIN_MARKER_SHARE * len(M):
         rec["withheld"] = f"only {have} of {len(M)} marker sites measured (at least {int(np.ceil(MIN_MARKER_SHARE * len(M)))} needed): shares withheld"
         rec["explained"] = _ex("cell shares (Stage D21)", "withheld", f"{have} of {len(M)} marker sites measured", f"at least {int(np.ceil(MIN_MARKER_SHARE * len(M)))} (half)",
                                "stage_v4.MIN_MARKER_SHARE (operational, not measured)", "too few of the sites that tell the six blood cells apart were measured to solve the shares",

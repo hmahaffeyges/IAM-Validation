@@ -146,6 +146,7 @@ def plant(beta, cell, loss=0.01):
     b.loc[x[ok].index] = (x[ok] + loss * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6); return b
 
 
+READ_COVER_MIN_SEQ = 0.10   # 2026-10-23: on sequencing (read counts given), each cell is read with a tenth of its identity sites measured, flagged (stated)
 READ_COVER_MIN = 0.50   # 2026-10-23: each cell is read when at least half its identity sites are measured, flagged below RULE coverage_min (stated)
 MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
 def read_in_mix(beta, shares, counts=None, specific=None):
@@ -173,8 +174,9 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
         e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
-        if ok.sum() < READ_COVER_MIN * len(S):   # 2026-10-23 (author: read and flag): withheld only below half; between half and RULE's 90 %, read and flagged
-            r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {READ_COVER_MIN:.0%} needed to read)"; out["cells"].append(r); continue
+        _rmin = READ_COVER_MIN_SEQ if counts is not None else READ_COVER_MIN
+        if ok.sum() < _rmin * len(S):   # 2026-10-23 (author: read and flag): withheld only below half (a tenth on sequencing); above that and below RULE's 90 %, read and flagged
+            r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {_rmin:.0%} needed to read)"; out["cells"].append(r); continue
         if ok.sum() < RULE["coverage_min"] * len(S): r["coverage_flag"] = f"read on {int(ok.sum())} of {len(S)} identity sites ({ok.sum() / len(S):.0%}; below the {RULE['coverage_min']:.0%} of the commissioned rule)"
         he = float(_H(e[ok]).mean())
         if counts is not None:   # sequencing: the expectation at each site's own read count (40.3)
@@ -330,7 +332,7 @@ def ceiling_reading(xs, es, w=None):
                 turnover_share=round(float((w * crossed).sum() / w.sum()), 5), methylated_sites_mean_beta=None if m is None else round(m, 4),
                 past_entropy_ceiling=None if m is None else bool(m < 0.5), rule="(A_sat - A) / (A_sat - 1); A_sat = sum w / sum w H(e)")
 
-def territory_reading(beta, shares):
+def territory_reading(beta, shares, counts=None):
     """The sample's disorder at each territory against IAM-Atlas v2.1 mixed in its own shares (read_in_mix's mix rule): A = mean H(beta) over
     mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of
     the set this array measures. Development, flagged; healthy is read first and its spread sets any line, not this function."""
@@ -343,7 +345,7 @@ def territory_reading(beta, shares):
         cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
-        hx = np.asarray(_H(xs), dtype="float64"); he = np.asarray(_H(es), dtype="float64"); A = float(hx.mean() / he.mean())
+        hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts); A = float(hx.mean() / he.mean())
         r["ceiling"] = ceiling_reading(xs.to_numpy(), es.to_numpy())   # 2026-10-23: distance to the entropy ceiling
         se = float(np.std(hx - A * he, ddof=1) / np.sqrt(len(hx)) / he.mean()); d = (xs - es).to_numpy()
         r.update(A=round(A, 5), se_over_sites=round(se, 6), level_change=round(float(d.mean()), 5), level_change_se=round(float(d.std(ddof=1) / np.sqrt(len(d))), 6),
@@ -361,7 +363,11 @@ def plant_territory(beta, name, frac, size, seed=20261023):
 
 
 
-def read_whole(beta, shares):
+def _he(es, counts):   # 2026-10-23: the healthy expectation of H, at each site's own read count on sequencing (expected_H_counts), else H(e)
+    if counts is None: return np.asarray(_H(es), dtype="float64")
+    n = pd.Series(counts).reindex(es.index).fillna(0).astype("int64").to_numpy(); return np.asarray(expected_H_counts(es.to_numpy(), n), dtype="float64")
+
+def read_whole(beta, shares, counts=None):
     """Met-A for the whole sample over EVERY IAM-Atlas v2.1 site (development, 2026-10-23; author: 'adjust Met-A to read from the entire
     IAM-Atlas'). One reading per sample: e = the atlas mixed in the sample's own shares (read_in_mix's rule, MIX_COVER); each site counts by how
     firmly a healthy sample of this mix holds it, w = |0.5 - e| (a site held near 0 or 1 counts most, a half-held one least; nothing chosen,
@@ -378,7 +384,7 @@ def read_whole(beta, shares):
     cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
     ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
     if ok.sum() < 10000: out["reason"] = f"only {int(ok.sum())} sites with an expectation"; return out
-    w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = np.asarray(_H(es), dtype="float64")
+    w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts)
     def one(m):
         if m.sum() < 500: return None
         _c = ceiling_reading(xs.to_numpy()[m], es.to_numpy()[m], w[m])   # 2026-10-23: distance to the entropy ceiling, for this group of sites

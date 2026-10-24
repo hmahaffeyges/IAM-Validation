@@ -1,0 +1,4 @@
+DEV-ONE-DRAW-01 plasma_seq_01 precheck (before any plasma is read): run_sample.py on one saved human file read as plasma, and on a whole blood array
+GSM2387333.pat.gz (cultured embryonic stem cells, spent) as plasma: markers measured 1757 of 7892 (22%); largest share embryonic stem cells 0.808 (81%)
+  IAM-A on the line 0.9492 (Normal); whole-sample Met-A 1.53548; globe drawn True; each cell read 79
+GSM7508429 whole blood array: whole-sample Met-A 1.11291 (unchanged)
