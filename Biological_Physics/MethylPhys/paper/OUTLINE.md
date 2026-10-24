@@ -49,36 +49,56 @@ leukemia*
 
 ## Results (each heading states its finding once the test has run; until then it states the question)
 
+The instruments are reported as a family: each answers one question about a sample, and each is set beside the one that covers its blind
+spot. That design is itself a result (R8).
+
 **R1. A thermodynamic bound sets the floor and the ceiling of methylation fidelity.** The derivation: the cost of holding one mark
 (M = 20.94 k_BT per ATP); the energy actually spent holding a mark, measured on single molecules in 56 healthy cell types (3.08 k_BT); the
-floor and the ceiling; the read-count correction, derived exactly. A prediction made before the data: methyl-donor restriction in mice,
-window 1.016 to 1.135, read 1.1239. *Sources: `doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`; `doors/DEV_SAM_LEVER_01_OUTCOME.md`; the
-ceiling and read-count records.* **Figure 1.**
+floor and the ceiling; the read-count correction, derived exactly; the distance to the ceiling. A prediction made before the data:
+methyl-donor restriction in mice, window 1.016 to 1.135, read 1.1239. *Sources: `doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`;
+`doors/DEV_SAM_LEVER_01_OUTCOME.md`; the ceiling and read-count records.* **Figure 1.** Supplementary Note 1 (below): the same bound in
+two engineered records.
 
-**R2. A sample's own loosely held share sets its expected error.** IAM-A: held errors on held molecules against the sample's own loose
+**R2. A sample's own loosely held share sets its expected error (IAM-A).** Held errors on held molecules against the sample's own loose
 share; the self-reference line from healthy cell types; why this is not circular (synthetic tests); reproduction in a second laboratory
-and in mouse. *Sources: IAM-A records; `doors/DEV_REPLICATE_01.md`.* **Figure 2.**
+and in mouse; the molecule-level loose share for mixtures. *Sources: IAM-A records; `doors/DEV_REPLICATE_01.md`.* **Figure 2.**
 
-**R3. A jointly calibrated atlas lets any sample be read without a reference of its own.** IAM-Atlas v2.1: 21 sources, laboratory and platform
-terms calibrated across them, posteriors and convergence diagnostics at every site, split-half null maps; deconvolution reproduced across laboratories; Met-A
-and its healthy line derived laboratory by laboratory. *Sources: `atlas/v2.1/README.md`; `doors/DEV_METAA_HEALTHY_01.md` (bar 2), layer 1
-(plan 14.7), `[pending]`.* **Figure 3.**
+**R3. A calibrated atlas lets any sample be read without a reference of its own.** IAM-Atlas v2.1: 21 sources, laboratory and platform
+terms calibrated across them, posteriors and convergence diagnostics at every site, split-half null maps; the IAM-Deconvolver reproduced
+across laboratories, its residual reported, unexpected cell types flagged; Met-A of the whole sample and of each cell, and its healthy line
+derived laboratory by laboratory. *Sources: `atlas/v2.1/README.md`; the deconvolution reproductions; `doors/DEV_METAA_HEALTHY_01.md`,
+`[pending]`.* **Figure 3.**
 
-**R4. The published leukemia data reread.** Pass 1 (IAM-A at fixed depth, all 36 samples); pass 2 (full depth, region by region beside the
-study's five findings: entropy gains, bivalent domains, promoters, discordant genes, the UHRF1 knockout). *Source:
-`doors/DEV_ALL_INFO_01.md`, `[pending]`.* **Figure 4.**
+**R4. The published leukemia data reread.** Every leukemia and control read by itself (IAM-A, Met-A, the territories, the C-Scores,
+the distance to the ceiling), and the groups compared within the series by Group-A, the instrument that reads groups against the healthy
+in the same series, on the study's own terms. Pass 1 at fixed depth on all 36 samples; pass 2 at full depth region by region beside the
+study's five findings. *Source: `doors/DEV_ALL_INFO_01.md`, `[pending]`.* **Figure 4.**
 
 **R5. Loss of a maintenance factor read against the bound.** The UHRF1 knockout read molecule by molecule: held error against loose share;
 the entropy turnover in heterochromatic domains read as the distance to the ceiling. *Source: `doors/DEV_ERASE_01.md` (UHRF1),
-`[pending]`.* **Figure 4 or 5.**
+`[pending]`.* **Figure 5.**
 
-**R6. Beyond deep sequencing: arrays and cell-free DNA.** The same readings on arrays and on shallow plasma sequencing; the molecule-level
-loose share that does not change under mixing; cell types the atlas lacks, flagged. *Source: `doors/DEV_ONE_DRAW_01.md`, `[pending]`.*
-**Figure 5.**
+**R6. How a change lies along the genome, not only how large it is (the C-Scores and the territories).** Ordinary wear is scattered;
+tumors break whole stretches. The C-Score reads clustering apart from size, for one cell, each cell and the whole genome; the territories
+read the islands no healthy cell marks and the domains some cell types hold loosely, where early cancer acts and identity sites do not
+look; the genome-wide projection and the information-geometric embedding show both, built for the study's own samples; each site's
+sensitivity to a small loss of holding (after the study's methylation sensitivity, derived analytically). *Sources: the C-Score records,
+DEV-TERRITORIES-01, DEV-SPHERE-01, plan 49.5, `[pending]`.* **Figure 6.**
 
-**R7. Genome-wide departures in one picture.** The genome-wide projection and the information-geometric embedding of a sample's departures,
-built for the study's own samples; each site's sensitivity to a small loss of holding (after the study's methylation sensitivity, derived
-analytically here). *Source: plan 49.5, `[pending]`.* **Figure 6.**
+**R7. Beyond deep sequencing: arrays and cell-free DNA.** The same readings on arrays (Group-A across replays of published case-control
+series) and on shallow plasma sequencing; the molecule-level loose share under mixing; cell types the atlas lacks, flagged. *Sources:
+the replays, `doors/DEV_ONE_DRAW_01.md`, `[pending]`.* **Extended Data.**
+
+**R8. What each reading cannot see, and how the chain checks itself.** The blind-spot table: each instrument, what it is referenced
+against, what it cannot see and which instrument covers it (from `CANON/catalogue.json`). The checks: synthetic tests before real data,
+every test written and committed before it ran, split-half and null tests, held-out laboratories. Results that went against the method,
+reported as results: the first atlas ruler, which overcorrected and was switched off; the half-and-half firm-rate rule, not supported on
+recount; sampling the atlas's laboratory terms inside the fit, tested and not adopted. **Table 1; Extended Data.**
+
+**Supplementary Note 1. The same bound in two engineered records.** The held-record floor p = 1 / (1 + e^M), M = E / k_BT, applied with
+measured values to superconducting qubits and to transistor logic, beside the cell (from `CANON/four_domains.json`, qubits and chips
+only), to show the bound is general physics and not tuned to cells. The cosmological domain is not part of this paper: in the book it rests
+on an assumption tagged as a conjecture, and the cell results stand on Landauer's principle alone.
 
 ## Discussion (about 1,500 words)
 
@@ -110,6 +130,8 @@ written instructions (plan 50.4).
 | 1 | the bound: cost of a mark, floor and ceiling, energy measured across 56 cell types, the mouse prediction | data in hand |
 | 2 | IAM-A: held error against loose share, the line, second-laboratory and mouse reproduction | data in hand |
 | 3 | the atlas: offsets, posterior widths, convergence, split-half null; Met-A's healthy line | the healthy line pending |
-| 4 | the published leukemia data reread, beside the study's findings; the knockout | pending |
-| 5 | arrays and cell-free DNA | partly pending |
-| 6 | the genome-wide projection and embedding of the study's own samples; sensitivity | pending |
+| 4 | the published leukemia data reread, each sample by itself and by group (Group-A), beside the study's findings | pending |
+| 5 | the UHRF1 knockout against the bound | pending |
+| 6 | the C-Scores and the territories; the projection and embedding of the study's own samples; sensitivity | pending |
+| Table 1 | what each reading cannot see and what covers it; results that went against the method | data in hand |
+| Extended Data | arrays and cell-free DNA; the checks | partly pending |
