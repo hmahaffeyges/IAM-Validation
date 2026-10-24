@@ -198,10 +198,9 @@
     {
      "id": "0.7",
      "date": "2026-10-23",
-     "status": "running",
+     "status": "done",
      "what": "R4: Alzheimer's on AIBL GSE153712 (726 EPIC v1 bloods), against the earlier engine's CPG-VAL-008 and 009",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
-     "next": "read the two batches; then r23_score.py r4"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r4/r4_summary.txt"
     },
     {
      "id": "0.8",

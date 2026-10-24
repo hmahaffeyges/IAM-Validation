@@ -1,0 +1,47 @@
+DEV-REPLICATE-01 r4: 726 of 726 arrays read (pass 1, untared)
+-- Alzheimer's disease (161) against healthy control (471), Alzheimer's
+site cg05575921                            current 0.8300 never 0.8460 | d -0.11 | p 0.13
+site cg03636183                            current 0.6820 never 0.6890 | d -0.19 | p 0.077
+site cg16867657                            current 0.7580 never 0.7290 | d +0.45 | p 1.4e-06
+share neutrophils                          current 0.6092 never 0.5745 | d +0.30 | p 0.0011
+share cd4 t cells                          current 0.0000 never 0.0000 | d -0.08 | p 0.33
+share cd8 t cells                          current 0.0000 never 0.0000 | d -0.19 | p 0.029
+share b cells                              current 0.0000 never 0.0000 | d -0.05 | p 0.29
+share nk cells                             current 0.0000 never 0.0000 | d -0.11 | p 0.26
+share monocytes                            current 0.0467 never 0.0479 | d -0.09 | p 0.48
+Met-A whole                                current 0.9852 never 0.9831 | d +0.09 | p 0.38
+ceiling distance                           current 1.0111 never 1.0128 | d -0.10 | p 0.35
+Met-A whole, identity sites of the cells found current 0.9462 never 0.9444 | d +0.14 | p 0.15
+Met-A whole, islands                       current 0.9484 never 0.9445 | d +0.12 | p 0.24
+Met-A whole, domains                       current 0.9936 never 0.9914 | d +0.09 | p 0.42
+Met-A whole, the rest                      current 0.9905 never 0.9887 | d +0.07 | p 0.38
+Met-A neutrophils                          current 0.9387 never 0.9380 | d +0.13 | p 0.17
+Met-A cd4 t cells                          current 0.9468 never 0.9447 | d +0.15 | p 0.11
+Met-A cd8 t cells                          current 0.9626 never 0.9608 | d +0.15 | p 0.12
+Met-A b cells                              current 0.9580 never 0.9562 | d +0.15 | p 0.12
+Met-A monocytes                            current 0.9386 never 0.9390 | d +0.04 | p 0.98
+territory islands                          current 0.9491 never 0.9448 | d +0.13 | p 0.24
+territory domains                          current 0.9963 never 0.9947 | d +0.07 | p 0.53
+-- Mild Cognitive Impairment (94) against healthy control (471), mild cognitive impairment
+site cg05575921                            current 0.8325 never 0.8460 | d -0.12 | p 0.24
+site cg03636183                            current 0.6765 never 0.6890 | d -0.15 | p 0.041
+site cg16867657                            current 0.7440 never 0.7290 | d +0.29 | p 0.0083
+share neutrophils                          current 0.5946 never 0.5745 | d +0.10 | p 0.086
+share cd4 t cells                          current 0.0000 never 0.0000 | d +0.01 | p 0.81
+share cd8 t cells                          current 0.0000 never 0.0000 | d -0.08 | p 0.5
+share b cells                              current 0.0000 never 0.0000 | d +0.02 | p 0.54
+share nk cells                             current 0.0000 never 0.0000 | d -0.02 | p 0.58
+share monocytes                            current 0.0452 never 0.0479 | d +0.01 | p 0.45
+Met-A whole                                current 0.9835 never 0.9831 | d +0.09 | p 0.34
+ceiling distance                           current 1.0117 never 1.0128 | d -0.09 | p 0.34
+Met-A whole, identity sites of the cells found current 0.9477 never 0.9444 | d +0.20 | p 0.056
+Met-A whole, islands                       current 0.9496 never 0.9445 | d +0.24 | p 0.034
+Met-A whole, domains                       current 0.9914 never 0.9914 | d +0.06 | p 0.39
+Met-A whole, the rest                      current 0.9878 never 0.9887 | d +0.04 | p 0.59
+Met-A neutrophils                          current 0.9419 never 0.9380 | d +0.18 | p 0.068
+Met-A cd4 t cells                          current 0.9470 never 0.9447 | d +0.19 | p 0.1
+Met-A cd8 t cells                          current 0.9617 never 0.9608 | d +0.18 | p 0.12
+Met-A b cells                              current 0.9574 never 0.9562 | d +0.19 | p 0.097
+Met-A monocytes                            current 0.9399 never 0.9390 | d +0.14 | p 0.29
+territory islands                          current 0.9501 never 0.9448 | d +0.24 | p 0.034
+territory domains                          current 0.9950 never 0.9947 | d +0.06 | p 0.42

@@ -134,3 +134,13 @@ gave it. **Met-A rises with age:** whole sample rho +0.209 (p 1.2e-08), most in 
 age on Hannum (r -0.197); the direction differs because that reading was not Met-A (higher meant healthier there), so the two are not
 compared as like for like. **In plain words:** held marks become more disordered with age across blood, as the physics expects for marks
 copied over more divisions, and the chain measures it in one person against the atlas with no cohort.
+
+**R4 Alzheimer's, read** (`data/DEV_REPLICATE_01/r4/r4_summary.txt`; all 726 AIBL arrays, EPIC, pass 1, untared). In that file the
+columns labeled "current" and "never" (the scorer's R2 wording, reused) mean the named group and the healthy controls. **The cell mix
+moves:** Alzheimer's bloods carry more neutrophils (median 0.609 against 0.575, d +0.30, p 0.0011), the direction the literature reports
+(a raised neutrophil share in Alzheimer's blood). **Met-A does not:** whole sample d +0.09 (p 0.38), every cell d +0.04 to +0.15, none
+significant; mild cognitive impairment the same (islands d +0.24, p 0.034, one of many readings, uncorrected). The earlier engine reported
+a per-cell reading lower in Alzheimer's for 106 of 115 cell types and a distance from the healthy centroid of d +0.200; the chain finds the
+mix change and no disorder change once the mix is taken out. The shares of the five panel names (CD4, CD8, B, NK) read 0 here because the
+79-cell atlas names these cells more finely; the finer shares are in each bundle. **In plain words:** in Alzheimer's blood the chain sees
+more neutrophils, not more disordered marks.
