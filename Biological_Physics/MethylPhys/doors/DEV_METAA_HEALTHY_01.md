@@ -136,3 +136,19 @@ or differently between cells of one type), measured once.
 Every file through `run_sample.py --dev-count-only` (`count_atlas_01.py`, on GitHub's machines); scorer `layer1_score.py`. If the unmarked
 side misses with the atlas above the prediction, that excess is the healthy islands' accumulated drift, a reading in its own right
 (plan 48.3).
+
+**Layer 1, scored** (`data/DEV_METAA_HEALTHY_01/layer1_summary.txt`; 148 of 153 samples counted, 56 cell types, each file through
+`run_sample.py --dev-count-only` on GitHub's machines): bar 2 **not met** (22 of 56 within 0.02 on the marked side; 45 needed); bar 3
+**not met** (37 of 56 on the islands). The misses split by platform, not by biology:
+
+| Cells in the atlas | Marked side, median gap | Islands, median gap |
+|---|---|---|
+| measured by sequencing and arrays (17) | -0.004 | +0.028 |
+| measured by sequencing only (39) | +0.027 | +0.004 |
+
+IAM-Atlas v2.1 stores its levels on the array scale; the predictions come from sequencing molecules; the scorer compared them without
+conversion. **Version 2** (`layer1_score_v2.py`, written and committed after version 1's gaps were seen, before it runs): one change, each
+atlas median put on the sequencing scale through the atlas's own measured transfer (`DEV_ATLAS_V21_01/transfer_v21_final.json`); counts,
+sites, predictions and bars unchanged; it rereads the same counts. Version 1's result stands as scored. If version 2 also misses, a second
+cause is stated now: the predictions are each cell's genome-wide held error, while the bars' sites are those held most firmly in all 79
+cell types.
