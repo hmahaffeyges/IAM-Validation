@@ -143,6 +143,58 @@
   {
    "status": "open",
    "rows": [
+    "GRP-020"
+   ],
+   "task": "Replicate the published information-theory study of paediatric leukaemia through the chain, for its authors (author 2026-10-24: 'prioritize their work, replicating it ... make sure our chain is bulletproof')",
+   "done_when": "every finding of the study set beside the chain's readings in DEV_ALL_INFO_01.md, and the package for its authors built",
+   "branches": [
+    {
+     "id": "49.1",
+     "date": "2026-10-24",
+     "status": "running",
+     "what": "Pass 1: IAM-A's count on all 36 samples at 10 million read pairs",
+     "next": "read on landing (pass1_score.py)"
+    },
+    {
+     "id": "49.2",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "The split alignment: each sample's reads spread over machines, one index; the firm-rate recount (14.5) needs it too",
+     "next": "build and test on one sample"
+    },
+    {
+     "id": "49.3",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Pass 2 at full depth: Met-A on sequencing, the territories, the globe and the distance to the ceiling, region by region beside the study's five findings",
+     "next": "after 49.2"
+    },
+    {
+     "id": "49.4",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "The study's pre-B2 controls (an earlier study of B-cell development)",
+     "next": "find the dataset"
+    },
+    {
+     "id": "49.5",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "What we learned from the study, each with a synthetic test and a Decoder entry: nearest-neighbour coupling (whether held errors cluster), a physics-derived sensitivity (dH per small change in how well a mark is held, analytic, nothing fitted) as a globe layer and a sphere layer",
+     "next": "synthetic first"
+    },
+    {
+     "id": "49.6",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "A research package for this group: the derivation step by step with every assumption named, the answer to circularity, every Decoder link, the replication beside their published results, and the MCMC and sky-map methods they could adapt",
+     "next": "after 49.3"
+    }
+   ]
+  },
+  {
+   "status": "open",
+   "rows": [
     "OTH-082",
     "CAN-005"
    ],
