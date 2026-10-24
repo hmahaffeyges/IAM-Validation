@@ -6,7 +6,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,061 | 18 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,070 | 18 | 11 | 10 |
 | `stage_0_intake.py` | 1,185 | 42 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -237,7 +237,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 284 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 288 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -245,7 +245,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 221 (61 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `import pyarrow.parquet`, `sites.parquet`, `truth.json`
+*Code:* `MethylPhys_Interface/run_sample.py` line 225 (61 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `import pyarrow.parquet`, `sites.parquet`, `truth.json`
 
 ### `run_sample.py::_dev_run`
 
@@ -253,7 +253,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 307 (41 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 311 (41 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -261,14 +261,14 @@ The orchestration described above, from parsing the command to writing the ledge
 exit code 2 or 3 at the stops listed, carries the same-run references (columns A and C) into the conductor, adds the v4 stages, and
 hands everything to the report.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 350 (709 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 354 (714 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `sequencing_values.csv`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 783 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 787 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -276,13 +276,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 548 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 552 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1002 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1006 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3186,7 +3186,7 @@ The mean jump of the mean-level map across HEALPix base-face edges over the jump
 
 With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 254 (1 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 258 (1 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::save_layout`
 

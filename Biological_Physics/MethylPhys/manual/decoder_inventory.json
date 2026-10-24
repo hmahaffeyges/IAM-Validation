@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1061,
+   "lines": 1070,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -207,8 +207,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build",
      "name": "_build",
-     "line": 221,
-     "end": 281,
+     "line": 225,
+     "end": 285,
      "args": [
       "a"
      ],
@@ -228,8 +228,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 254,
-     "end": 254,
+     "line": 258,
+     "end": 258,
      "args": [
       "m"
      ],
@@ -243,8 +243,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 284,
-     "end": 304,
+     "line": 288,
+     "end": 308,
      "args": [
       "a",
       "cnt",
@@ -260,8 +260,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 307,
-     "end": 347,
+     "line": 311,
+     "end": 351,
      "args": [
       "a",
       "o",
@@ -281,13 +281,15 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 350,
-     "end": 1058,
+     "line": 354,
+     "end": 1067,
      "args": [],
-     "lines": 709,
+     "lines": 714,
      "doc": "",
      "constants": [
       "BIO",
+      "CONTROL_SITES",
+      "CONTROL_SITES_ABOUT",
       "ENG",
       "_ISV_ABOUT"
      ],
@@ -307,8 +309,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 548,
-     "end": 552,
+     "line": 552,
+     "end": 556,
      "args": [
       "r"
      ],
@@ -324,8 +326,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 783,
-     "end": 790,
+     "line": 787,
+     "end": 794,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -337,8 +339,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1002,
-     "end": 1003,
+     "line": 1006,
+     "end": 1007,
      "args": [
       "b",
       "it",

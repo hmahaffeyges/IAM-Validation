@@ -85,4 +85,4 @@ batches each; the labels are not used until every reading is in. **Compared, onc
 smokers (all, and the controls alone), and for R3, each reading against age (rank correlation), on: the cell shares (neutrophils and the
 lymphocytes first); Met-A for the whole sample and each cell; the territories; the distance to the ceiling. **Positive control, R2:** the
 chain's own calibrated value at cg05575921 (the AHRR site that smoking lowers most strongly in blood), current against never; if the chain
-does not show it, its intake or calibration is wrong.
+does not show it, its intake or calibration is wrong. R3 has its own: cg16867657 (ELOVL2), which rises with age in blood. Both are recorded by `run_sample.py` as `control_sites` (values only, no reading uses them). The scorer, `data/DEV_REPLICATE_01/r23_score.py`, is committed before any reading exists.
