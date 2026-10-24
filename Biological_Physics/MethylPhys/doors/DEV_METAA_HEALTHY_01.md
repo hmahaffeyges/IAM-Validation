@@ -16,7 +16,7 @@ For each probe design d (I, II), from the array's own anchor sites (the atlas ru
 0.95 in every one of the 79 cell types, `Runtime Matrices/Stage_T/atlas_ruler_v1.json`):
 
 - the array's own straight line, x = a_d + b_d e, through the medians of its low and high anchors against the atlas's medians there;
-- the array's own noise, s_d = 1.4826 x the median absolute residual of x from that line at the anchors.
+- the array's own noise, s_d = the median absolute residual of x from that line at the anchors, scaled to a standard deviation.
 
 Then, at every site the whole-sample reading uses, the healthy expectation of disorder is what that array would show if the blood were
 exactly the atlas in this sample's mix:
