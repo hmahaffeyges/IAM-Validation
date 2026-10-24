@@ -141,11 +141,11 @@ never by half, so the half-and-half rule is not supported where we count. The de
 ## A maintenance knockout: UHRF1 (written and committed before it runs; plan 14.10)
 
 **The question:** UHRF1 brings DNMT1 to each newly copied strand; without it the cell cannot hold a mark through division. The published
-information-theory study of paediatric leukaemia (Nature Biomedical Engineering 2021) knocked it out in the Reh leukaemia line and found
+information-theory study of pediatric leukemia (Nature Biomedical Engineering 2021) knocked it out in the Reh leukemia line and found
 methylation lost and entropy raised genome-wide. What does IAM-A's count see on the same molecules?
 
 **Data spent (author: "Knockout pair only"):** GEO GSE116229, WGBS of Reh with a non-targeting control (GSM4914798, SRR13085130) and with
-UHRF1 knocked out (GSM4914799, SRR13085131); the study's leukaemias and normal B-cell precursors stay unread. `data/DEV_ERASE_01/uhrf1_samples.csv`,
+UHRF1 knocked out (GSM4914799, SRR13085131); the study's leukemias and normal B-cell precursors stay unread. `data/DEV_ERASE_01/uhrf1_samples.csv`,
 the eraser recount's pipeline unchanged (`erase_gh.sh`, the same fixed 10 million read pairs from each), counted by `run_sample.py`
 (Stage Q2, count only: a cultured line has no healthy shape reference).
 
@@ -155,3 +155,14 @@ the eraser recount's pipeline unchanged (`erase_gh.sh`, the same fixed 10 millio
 - **The loose share rises and the held error barely moves:** maintenance failure removes whole molecules from the held class (as the
   decitabine test found), and the floor's derivation must take the loose route.
 Nothing scored.
+
+**The maintenance knockout, read** (`data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt` and both bundles; scored by `uhrf1_score.py`, written
+before either count existed): **the first outcome.** Held error 0.03216 in the control, 0.09407 in the knockout (2.925 times); loose share
+0.0490 in the control, 1.0 in the knockout (every tile loose). Maintenance failure makes holes in the molecules that are still held, the route
+the firm-rate derivation needs, and it also removes most molecules from the held class: the knockout's held opportunities are 121,693 against
+the control's 1,879,870.
+
+**What it does and does not settle:** missed restores during maintenance are a real source of held error, so they are the leading candidate
+for the second term of the firm rate (the eraser supplied only a small part of it). A total knockout cannot size that term in a healthy
+cell. Sizing it needs a graded reduction of maintenance, or the division route (replication error, plan 14.3) measured on one cell type
+resting and dividing.

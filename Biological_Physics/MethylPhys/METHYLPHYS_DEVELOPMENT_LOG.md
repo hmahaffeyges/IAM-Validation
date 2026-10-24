@@ -3167,3 +3167,6 @@ Stage Q2 now also records the loose share molecule by molecule. Mixing two const
 
 ### 2026-10-24 · Met-A's healthy levels from the held error: layer 1 (GRP-019, DEV-METAA-HEALTHY-01)
 Version 1 missed both bars (22 and 37 of 56) because it compared the atlas's array-scale levels with sequencing predictions; the misses split by platform. Version 2, the atlas put on the sequencing scale through its own transfer, met both: 54 of 56 cell types on the marked side and 56 of 56 on the islands, the same on the samples version 1 read. Development result; confirmation on independent samples next. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).
+
+### 2026-10-24 · A maintenance knockout read against the firm rate (PHY-006, PHY-050, DEV-ERASE-01)
+The UHRF1 knockout of the published leukemia study, counted by the chain: held error 2.9 times the control's, and nearly every molecule lost from the held class. The written first outcome: maintenance failure makes holes in held molecules, so missed restores are the leading candidate for the firm rate's second term, after the eraser knockouts showed erasure supplies only a small part. Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md).

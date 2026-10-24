@@ -78,6 +78,17 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "A maintenance knockout read against the firm rate (PHY-006, PHY-050)",
+     "status": "development",
+     "what": "The UHRF1 knockout and its control from the published leukemia study, counted by the chain.",
+     "outcome": "Held error 2.9 times the control's: maintenance failure makes holes in held molecules, the route the firm-rate derivation needs.",
+     "rows": [
+      "PHY-006",
+      "PHY-050"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   },

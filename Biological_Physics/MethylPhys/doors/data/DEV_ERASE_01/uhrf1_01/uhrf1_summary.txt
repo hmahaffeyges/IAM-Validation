@@ -1,0 +1,4 @@
+DEV-ERASE-01 maintenance knockout (GSE116229 Reh pair), Stage Q2 counts
+control (Reh-NT)   held error 0.03216 (opportunities 1879870) | loose share 0.04903677758318739 (tiles 571)
+UHRF1 knockout     held error 0.09407 (opportunities 121693) | loose share 1.0 (tiles 617)
+knockout against control: held error x 2.925 | loose share x 20.393
