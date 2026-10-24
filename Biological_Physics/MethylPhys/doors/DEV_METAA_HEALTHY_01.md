@@ -34,7 +34,7 @@ cell's gap sit inside it; replacing e with a value predicted from the held error
 
 **Synthetic test:** DEV_METAA_HEALTHY_01/synthetic_02.py, DEV_METAA_HEALTHY_01/synthetic_02_summary.txt, DEV_METAA_HEALTHY_01/gain_counter_01.py, DEV_METAA_HEALTHY_01/gain_counter_01_summary.txt
 
-**Prior reading:** every series here was read before by this project: GSE235717 (the example healthy blood), GSE42861, GSE87571 and GSE153712 (replays R1 to R4), GSE51032 (EPIC-Italy) and GSE186458 (the atlas's own molecules); this is development, chosen from spent data on purpose, and no commissioning claim rests on it.
+**Prior reading:** every series here was read before by this project: GSE235717 (the example healthy blood), GSE42861, GSE87571 and GSE153712 (replays R1 to R4), GSE51032 (EPIC-Italy) and GSE186458 (the atlas's own molecules); this is development, chosen from spent data on purpose, and no commissioning claim rests on it. GSE116229 (confirmation 1): spent for the leukemia replication; no count of its three cord-blood samples had landed or been read when confirmation 1 was written.
 
 ## Bars (at most three)
 

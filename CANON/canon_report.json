@@ -2548,7 +2548,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 66,
+"line": 68,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2557,7 +2557,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 66,
+"line": 68,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2566,7 +2566,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 71,
+"line": 73,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2575,7 +2575,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 114,
+"line": 116,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2584,7 +2584,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 114,
+"line": 116,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2593,7 +2593,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 115,
+"line": 117,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2602,7 +2602,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 135,
+"line": 137,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2611,7 +2611,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 135,
+"line": 137,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
