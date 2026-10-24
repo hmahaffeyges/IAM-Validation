@@ -33,6 +33,33 @@ def fetch(gsm, d):
         time.sleep(20 * (t + 1))
     raise RuntimeError(f"{gsm}: IDATs not fetched from GEO")
 
+def matrix_values(src, gsms, d):
+    """2026-10-24: a series whose arrays are published only as a GEO series matrix (no IDATs), e.g. GSE49031. SRC is the matrix (.txt.gz, a URL
+    or a path), named in the samples CSV's 'matrix' column. Each array's column is written as a values file (cpg, beta) that run_sample.py
+    reads with --betas, the same values route the replays use; nothing is changed in the values. The chip-level intake checks need IDATs and
+    do not run; each reading carries that in its bundle (no IDAT intake)."""
+    import gzip
+    p = os.path.join(d, "series_matrix.txt.gz")
+    if not os.path.exists(p):
+        if str(src).startswith("http"):
+            for t in range(6):
+                try: urllib.request.urlretrieve(src, p); break
+                except Exception as e: print("matrix fetch retry", type(e).__name__, flush=True); time.sleep(20 * (t + 1))
+            else: raise RuntimeError(f"series matrix not fetched: {src}")
+        else: p = src
+    skip = None
+    with gzip.open(p, "rt") as f:
+        for i, l in enumerate(f):
+            if l.startswith("!series_matrix_table_begin"): skip = i + 1; break
+    if skip is None: raise RuntimeError(f"{src}: no series matrix table")
+    cols = list(pd.read_csv(p, sep="\t", skiprows=skip, nrows=0).columns)
+    use = [cols[0]] + [g for g in gsms if g in cols]
+    M = pd.read_csv(p, sep="\t", skiprows=skip, usecols=use, index_col=0, comment="!", dtype={g: "float64" for g in use[1:]})
+    out = {}
+    for g in use[1:]:
+        q = os.path.join(d, g + "_matrix_values.csv"); M[g].dropna().rename("beta").rename_axis("cpg").to_frame().to_csv(q); out[g] = q
+    return out
+
 def run(args, log):
     r = subprocess.run([PY, RS] + args, capture_output=True, text=True)
     open(log, "w").write(r.stdout[-20000:] + "\n--- stderr ---\n" + r.stderr[-20000:]); return r.returncode
@@ -67,10 +94,17 @@ def read(a, extra):
         P1 = pd.DataFrame(_rows).merge(sl, on="gsm")
         PV = [dict(gsm=os.path.basename(p)[:-12], **bundle_row(p)) for p in glob.glob(os.path.join(d1, "*_values.json"))]
         P1v = pd.DataFrame(PV).merge(sl, on="gsm") if PV else None   # the values route's references: the unplanted half read from its saved values
+    MD = os.path.join(out, f"matrix_{a.shard}"); os.makedirs(MD, exist_ok=True)   # kept apart from W, which is cleared after every array
+    MV = matrix_values(S["matrix"].iloc[0], list(S.gsm), MD) if "matrix" in S.columns else None   # 2026-10-24: series published only as a matrix
     for k, r in enumerate(S.itertuples()):
         t0 = time.time()
         try:
-            f = fetch(r.gsm, W); base = ["--grn", f["grn"], "--red", f["red"], "--specimen", a.specimen, "--id", r.gsm]
+            sp = str(getattr(r, "specimen", "") or "") if "specimen" in S.columns and str(getattr(r, "specimen", "")) not in ("", "nan") else a.specimen   # a per-array specimen column, when given
+            if MV is not None:
+                if r.gsm not in MV: raise RuntimeError(f"{r.gsm}: not in the series matrix")
+                base = ["--betas", MV[r.gsm], "--specimen", sp, "--id", r.gsm]
+            else:
+                f = fetch(r.gsm, W); base = ["--grn", f["grn"], "--red", f["red"], "--specimen", sp, "--id", r.gsm]
             if a.pass_ == 1:
                 bv1 = os.path.join(W, r.gsm + "_betas.parquet")
                 rc = run(base + ["--out", os.path.join(W, r.gsm + ".html"), "--bundle", os.path.join(d1, r.gsm + ".json"), "--save-betas", bv1] + extra, os.path.join(d1, r.gsm + ".log"))

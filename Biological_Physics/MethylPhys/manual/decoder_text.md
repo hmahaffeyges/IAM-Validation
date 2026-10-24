@@ -270,7 +270,7 @@ the body) and Met-A reads each source it finds against the atlas in the sample's
 blood and are not applied.
 
 ### stage_0_intake.py::is_tissue
-True for a solid tissue, a tumor, a biopsy, or a specimen not named ('unknown', for blind runs). Such a sample is read on IAM-Atlas v2.1's full panel, flagged, as plasma is: the IAM-Deconvolver says what it is made of, and Met-A reads each cell it finds against the atlas in the sample's own shares. The commissioned readers read blood and are not applied.
+True for a solid tissue, a tumor, a biopsy, or a specimen not named ('unknown', for blind runs). Such a sample is read on IAM-Atlas v2.1's full panel, flagged, as plasma is: the IAM-Deconvolver says what it is made of, and Met-A reads each cell it finds against the atlas in the sample's own shares. The commissioned readers read blood and are not applied. Bone marrow, a marrow aspirate and a blood-and-marrow mix are read on this route too, with the marrow progenitors kept in the mix (read and flag; it was refused at intake before).
 
 ### stage_0_intake.py::specimen_refusal
 Returns nothing when the specimen is accepted, otherwise the plain refusal: which specimen, why the chain has no reference for it,
@@ -2149,6 +2149,9 @@ The value pictures for the atlas globe's sliders (best value, and half-width of 
 
 ### reference_globes.py::atlas_masks.code
 Codes a map 1 to 255 on its scale, 0 where no site.
+
+### run_series.py::matrix_values
+Reads a series published only as a GEO value table (no IDATs): each array's column becomes a values file (cpg, beta) read by run_sample.py with --betas, the replays' values route; nothing in the values is changed, and the chip-level intake checks, which need IDATs, do not run. Synthetic check: a matrix holding the example healthy blood gives the same Met-A (0.9845), C-Score (0.9686) and cell shares as reading the same values directly.
 
 ### run_series.py::fetch
 An array's two IDATs from GEO, retried.

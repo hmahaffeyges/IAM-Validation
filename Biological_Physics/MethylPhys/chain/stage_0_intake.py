@@ -68,7 +68,6 @@ REFUSED_SPECIMEN_REASONS = (
     (("pbmc", "mononuclear"), "PBMC (peripheral blood mononuclear cells) has no reference in the chain: the neutrophil reading needs whole blood or isolated neutrophils"),
     (("sorted", "purified", "isolated", "gmdsc", "mdsc", "cd4", "cd8", "t cells", "b cells", "nk cells", "monocytes", "basophils", "eosinophils"),
      "a sorted cell fraction other than neutrophils has no reference in the chain yet; each cell type is added only after the three new-cell tests (SOP section 2b)"),
-    (("bone marrow", "marrow"), "bone marrow has no reference in the chain"),
     (("cell line", "cultured", "culture"), "a cell line has no reference in the chain"),
     (("unspecified", "unknown", "not given", ""), "the specimen is not stated: intake reads only a stated specimen it has a reference for"),
 )
@@ -108,6 +107,9 @@ def is_tissue(specimen):
     not named. Read on IAM-Atlas v2.1's full panel, flagged, as plasma is: the IAM-Deconvolver says what the sample is made of, and Met-A reads
     each cell it finds against the atlas in the sample's own shares. The commissioned readers read blood and are not applied."""
     s = normalise_specimen(specimen)
+    # 2026-10-24 (author: read and flag): bone marrow, marrow aspirate and blood-and-marrow mixes are read on this route, the full atlas panel
+    # with the marrow progenitors kept in the mix; it was refused at intake before ("no reference"), against the read-and-flag rule.
+    if "marrow" in s: return True
     return s in TISSUE_WORDS or s.endswith(" tissue") or s.endswith(" tumor") or s.endswith(" biopsy")
 
 def specimen_refusal(specimen):
