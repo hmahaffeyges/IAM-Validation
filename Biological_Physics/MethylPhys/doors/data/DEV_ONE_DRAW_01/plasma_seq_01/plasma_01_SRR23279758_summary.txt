@@ -1,0 +1,7 @@
+plasma_seq_01, first plasma SRR23279758 (K0784, healthy), erase_test run 40044254433, chain commit 58279b6e
+pairs 11602460; index 5764 s, fetch 210 s, align 5245 s, to molecules 390 s
+sites with a value 407263 of 813951; median calls 1.0
+IAM-A on the self-reference line 0.722 (below Normal); held error 0.039202; loose share 0.4052
+cell shares: lung interstitial macrophages 0.305, erythrocyte progenitors 0.245, MEP (bone marrow) 0.139, neutrophils 0.110, eosinophils 0.075, lung alveolar macrophages 0.044
+Met-A whole 0.79127; identity sites of the cells found 0.66821, islands 0.8461, domains 0.83422, the rest 0.77596
+globe changed blocks 12 of 21158; sphere territories changed 0 of 26; each cell read 79

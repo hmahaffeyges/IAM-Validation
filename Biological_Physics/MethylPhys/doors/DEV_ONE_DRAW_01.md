@@ -144,3 +144,9 @@ its markers, IAM-A read on the line, and every reading fired; a whole blood arra
 **What will be reported, nothing scored:** each plasma's cell shares, IAM-A on the line, Met-A for the whole sample and each cell, the
 territories, the distance to the ceiling, the globe and the sphere; and how they spread across the 30 healthy plasmas, the first healthy
 band for plasma on sequencing.
+
+**First plasma read end to end** (`plasma_seq_01/plasma_01_SRR23279758_summary.txt`): every instrument read it, flagged. Two things the
+healthy band must settle before any of it means anything: IAM-A's self-reference line was built on purified cells, and cell-free DNA's
+short fragments give a loose share (0.405) far above any purified cell's, so its "below Normal" may only be plasma lying off the cells' line;
+and the IAM-Deconvolver's answer (lung interstitial macrophages, erythrocyte progenitors and bone-marrow progenitors largest) is recorded
+as the instrument gave it. The other 28 were dispatched on this result.

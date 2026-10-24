@@ -1460,7 +1460,7 @@
      "date": "2026-10-22",
      "status": "parked",
      "what": "GSE186888: whole-genome bisulfite sequencing (85x) of white blood cells and matched plasma from the same 23 healthy donors (per-CpG counts, no molecules). WHOLLY UNREAD and reserved for the one-draw test that counts (scarce-data rule); an exploration on 3 donors was withdrawn before any reading",
-     "next": "explore the one-draw path on constructed or other spent data first; read GSE186888 only in the sealed one-draw test, or if the author chooses otherwise",
+     "next": "the other 28 running; then the healthy plasma band (IAM-A, Met-A, shares) across the 30",
      "record": "chain/stage_seq_values.py (values_from_beta, checked on a constructed file)"
     },
     {
