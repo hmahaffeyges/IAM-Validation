@@ -190,3 +190,11 @@ frozen sites (`metA_floors_v1_3_loo.csv`); against the derived mark each reading
 **Stated before:** the derivation leaves out the array's own measurement blur, which can only raise the entropy an array reads. If the
 derived mark falls below the measured one so that the arrays read above Normal, the gap is that blur, and the chain already measures blur
 on the atlas's anchor sites; adding it would be version 2, written before it runs.
+
+## Confirmation 1: layer 1 on samples that played no part (written and committed before any of them is counted)
+
+Version 2 was written after version 1 was seen, so it is confirmed on another laboratory's samples: the three cord-blood CD19+ B cells of
+GSE116229 (GSM4914800, GSM4914801, GSM4914802), counted by the leukemia replication's pass 1 (10 million read pairs, `run_sample.py
+--dev-count-only`). Version 2's rule unchanged, against IAM-Atlas v2.1's B-cell level. **Bars:** marked side within 0.02; unmarked side
+within 0.02 (the three pooled). Scorer `confirm_01_score.py`. **Stated before:** cord blood is newborn and the atlas's B cells adult; the count
+is at fixed depth, while layer 1 read whole files. A second confirmation on another cell type follows, its series chosen by a fixed rule.

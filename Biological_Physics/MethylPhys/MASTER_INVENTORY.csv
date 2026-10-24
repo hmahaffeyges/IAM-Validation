@@ -45,7 +45,7 @@ GSE113061,,,,,,,,,not usable (cell line (commercial)),smooth muscle,yes,IDAT lis
 GSE114753,,,,,,,,,atlas build,sperm,yes,IDAT listed for 156/156 samples,Cigarette smoking significantly alters sperm DNA methylation patterns,gold-mine map
 GSE114989,,,,,,,,,,,,,Global DNA methylation reflects spatial heterogeneity and molecular evolution of lung adenocarcinomas,candidates DEV_FINGERPRINT_03
 GSE115920,,,,,,,,,not usable (not purified (semen)),sperm,yes,IDAT listed for 6/6 samples,Epigenome analysis of Chinese Han male semen samples,gold-mine map
-GSE116229,,,,,spent,,,DEV_ALL_INFO_01; DEV_ERASE_01,,,,,,
+GSE116229,,,,,spent,,,DEV_ALL_INFO_01; DEV_ERASE_01; DEV_METAA_HEALTHY_01,,,,,,
 GSE116754,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01,atlas build,embryonic stem cells,yes,IDAT listed for 38/38 samples,"Methylation analysis of human embryonic stem cells (hESCs), hESC-derived splanchnic mesoderm and hESC-derived mesothelium (mesenchymal form)",gold-mine map
 GSE117050,,,,,,,,,not usable (not healthy),t cells cd3,yes,IDAT listed for 38/38 samples,Identification of kidney transplant patients at risk for cutaneous squamous cell carcinoma by differentially methylated regions in T cells (II),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE118144,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_BASE_CHAIN_01; DEV_INTAKE_02; DEV_METAA_SELFLINE_0,held-out test,neutrophils | cd4 t cells | cd8 t cells | b cells,yes,IDAT listed for 145/145 samples,Cell lineage-specific genome-wide DNA methylation analysis of patients with paediatric-onset systemic lupus erythematosus,gold-mine map
