@@ -153,5 +153,5 @@ as the instrument gave it. The other 28 were dispatched on this result.
 
 **The band's scorer, committed before 28 of the 30 are read** (`plasma_seq_01/plasma_band.py`): for each reading, the median and the 25-75 %
 and 5-95 % ranges over the healthy plasmas; IAM-A's held error and loose share apart, and whether IAM-A follows the loose share (the second
-plasma, K0619, read held error 0.0383 against the first's 0.0392, loose share 0.185 against 0.405, IAM-A 0.82 Normal against 0.72); the
+plasma, K0619, `plasma_seq_01/plasma_02_SRR23279768_summary.txt`, read held error 0.0383 against the first's 0.0392 (rounded), loose share 0.185 against 0.405, IAM-A 0.82 Normal against 0.72); the
 cell shares' medians. Nothing fitted; whatever band the 30 give is the first one for plasma on sequencing.
