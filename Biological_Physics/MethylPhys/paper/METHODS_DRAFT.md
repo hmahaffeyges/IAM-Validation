@@ -34,8 +34,8 @@ discusses under "information thermodynamics of methylation", entries 494-495) ar
 ## Counting molecules: the loose share and the held error (IAM-A)
 
 Reads are aligned by bwa-meth to hg19 and converted to per-molecule methylation patterns (wgbstools .pat format) by the chain's alignment
-script (`doors/data/DEV_ERASE_01/erase_gh.sh`); for fixed-depth readings a fixed seed draws the same number of read pairs (10 million) from
-each sample. Stage Q2 (`chain/stage_q2_selfref.py`) then reads each molecule once, alternating lines between two disjoint uses so that no
+script (`doors/data/DEV_ERASE_01/erase_gh.sh`); for fixed-depth readings the same fixed range of 10 million read pairs is taken from each run, by
+position in the archive's run (`fastq-dump -N/-X`), in blocks aligned on separate machines `[check: block layout, erase_blocks.py]`. Stage Q2 (`chain/stage_q2_selfref.py`) then reads each molecule once, alternating lines between two disjoint uses so that no
 molecule informs both quantities:
 
 - **The loose share L.** The genome is cut into tiles of 2,000 CpGs; a tile with at least 200 calls is loose when its mean methylation is
