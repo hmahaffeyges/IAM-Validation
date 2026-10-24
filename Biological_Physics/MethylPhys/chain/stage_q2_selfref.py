@@ -83,8 +83,15 @@ def _finish(tile_calls, e_iso, e_opp, extra=None, g_iso=None, g_opp=None):
         out.update(gain_err=g_iso / max(g_opp, 1), gain_opp=int(g_opp))
     if extra: out.update(extra)
     return out
+def _mol(M):
+    """2026-10-24 (DEVELOPMENT, plan 40.11): the molecule-level loose shares, recorded beside the tile loose share and used by no reading yet.
+    mol_low_share: of the molecules with at least QUAL_MIN_CALLS calls on the tile half, the share whose methylated fraction is below CUT (the
+    tile rule applied to each molecule); mol_mid_share: the share held neither marked nor unmarked (between QUAL_MAX_METH and QUAL_MIN_METH).
+    Both add linearly when cell types are mixed, so a mix of cells with the same shares reads the same share; the tile loose share does not
+    (synthetic test cfDNA 1)."""
+    return dict(mol_n=int(M[0]), mol_low_share=(M[1] / M[0] if M[0] else None), mol_mid_share=(M[2] / M[0] if M[0] else None))
 def count_pat(lines, tiles):
-    tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0
+    tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
     for k, line in enumerate(lines):
         p = line.rstrip("\n").split("\t")
         if len(p) < 4: continue
@@ -96,11 +103,13 @@ def count_pat(lines, tiles):
             j = np.searchsorted(w[:, 0], i, side="right") - 1
             if j < 0 or i > w[j, 1]: continue
             a = tile_calls.setdefault((c, j), [0, 0]); a[0] += n * s.count("C"); a[1] += n * len(s)
+            if len(s) >= QUAL_MIN_CALLS:   # the loose share counted molecule by molecule, which adds linearly when cell types mix (the tile share does not)
+                f = s.count("C") / len(s); M[0] += n; M[1] += n * (f < CUT); M[2] += n * (QUAL_MAX_METH < f < QUAL_MIN_METH)
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") >= QUAL_MIN_METH * len(s):
             e_opp += n * (len(s) - 2); e_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
-    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19"), g_iso, g_opp)
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M)), g_iso, g_opp)
 
 # ---------------------------------------------------------------- the aligned-read reader (port of secondlab.py, plus Bismark XM)
 AUTOSOMES = [f"chr{i}" for i in range(1, 23)]

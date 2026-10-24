@@ -1561,8 +1561,8 @@
      "id": "40.11",
      "date": "2026-10-22",
      "status": "open",
-     "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads. Synthetic test cfDNA 1: mixing doubles the tile loose share with the held error unchanged; short molecules lower the held error through the qualifying rule; both pull IAM-A down; neither involves the atlas",
-     "next": "build the molecule-level loose share and the exact length correction in Stage Q2 (development), each with its own synthetic test; then reread the 30 plasmas",
+     "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads. Synthetic test cfDNA 1: mixing doubles the tile loose share with the held error unchanged; short molecules lower the held error through the qualifying rule; both pull IAM-A down; neither involves the atlas. Synthetic test cfDNA 2: the molecule-level shares stay flat under mixing (within 3 %) while the tile share rises by a third",
+     "next": "a self-reference line on the molecule-level share, built on the purified healthy cells counted again with the new fields; then the 30 plasmas against it; the length correction separately",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
     },
     {

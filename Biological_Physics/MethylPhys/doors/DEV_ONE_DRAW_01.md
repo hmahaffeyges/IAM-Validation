@@ -247,3 +247,19 @@ the reading, output `mk_standin_summary.txt`). Donor 1's 33 megakaryocyte sample
   0.850 predicted.
 - **So the stand-in is the sum of the four,** read against the person's own level. It is a noisy stand-in: it also holds real erythroid
   and macrophage DNA, and one donor at about 3 reads per site built it. The sealed atlas entry on donors 2 and 3 replaces it.
+
+**Synthetic test cfDNA 2** (`data/DEV_ONE_DRAW_01/synthetic_cfdna_02.py`, output `synthetic_cfdna_02_summary.txt`; written with its expectation
+before it ran, committed together with its result): Stage Q2 now also records the loose share molecule by molecule (`mol_low_share`, below the
+2/3 cut; `mol_mid_share`, held neither marked nor unmarked), beside the tile loose share, used by no reading yet. Test 1's two cells, each
+with 5 % of tiles held undecided in its own set:
+
+| Sample | Tile loose share | Molecules below the cut | Undecided molecules |
+|---|---|---|---|
+| cell A | 0.1295 | 0.1271 | 0.0554 |
+| cell B | 0.1295 | 0.1258 | 0.0554 |
+| mix 70/30 | 0.1727 | 0.1286 | 0.0569 |
+| mix 50/50 | 0.1750 | 0.1268 | 0.0551 |
+
+**Met as written:** mixing raises the tile share by a third; both molecule-level shares stay within 3 %. Next: a self-reference line on the
+molecule-level share, built on the purified healthy cells (which needs their molecule files counted again with the new fields), then the 30
+plasmas reread against it; the length correction separately.

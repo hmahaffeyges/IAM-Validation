@@ -84,6 +84,16 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "The loose share counted molecule by molecule (GRP-016, DEV-ONE-DRAW-01)",
+     "status": "synthetic only",
+     "what": "Stage Q2 records a loose share that does not change when cell types mix, beside the tile share; synthetic test cfDNA 2 confirms it.",
+     "outcome": null,
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   }

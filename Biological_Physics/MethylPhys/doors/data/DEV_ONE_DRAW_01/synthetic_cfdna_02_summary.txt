@@ -1,0 +1,5 @@
+DEV-ONE-DRAW-01 synthetic test cfDNA 2: 880 tiles on 22 autosomes, 70 molecules per tile, per-call loss 0.035, seed 20261024
+cell_A_12_calls        loose share 0.1295 | held error 0.03209 (opportunities 266340) | molecule shares: below the cut 0.1271, undecided 0.0554 | IAM-A 0.717 below Normal
+cell_B_12_calls        loose share 0.1295 | held error 0.03188 (opportunities 266410) | molecule shares: below the cut 0.1258, undecided 0.0554 | IAM-A 0.7123 below Normal
+mix_70-30_12_calls     loose share 0.1727 | held error 0.03225 (opportunities 266880) | molecule shares: below the cut 0.1286, undecided 0.0569 | IAM-A 0.6973 below Normal
+mix_50-50_12_calls     loose share 0.1750 | held error 0.03223 (opportunities 265880) | molecule shares: below the cut 0.1268, undecided 0.0551 | IAM-A 0.6956 below Normal

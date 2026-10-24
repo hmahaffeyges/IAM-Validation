@@ -3161,3 +3161,6 @@ Constructed molecules through the one command: mixing two cell types nearly doub
 
 ### 2026-10-24 · Where megakaryocyte DNA lands in plasma (GRP-016, DEV-ONE-DRAW-01)
 One donor's megakaryocytes read as plasma by the one command land on four atlas cells (lung interstitial macrophages, erythrocyte progenitors, MEP, eosinophils; together 0.979). The same four make up 0.764 of a healthy plasma, and planted megakaryocyte DNA raises their sum as simple mixing predicts. Their sum is the stand-in for the megakaryocyte share until the cell enters the atlas. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-10-24 · The loose share counted molecule by molecule: synthetic test cfDNA 2 (GRP-016, DEV-ONE-DRAW-01)
+Stage Q2 now also records the loose share molecule by molecule. Mixing two constructed cells raises the tile share from 0.1295 to 0.1750 while the molecule-level shares stay flat (0.1271 to 0.1268 below the cut; 0.0554 to 0.0551 undecided), so a mix reads as its cells do. Next: a line built on it. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
