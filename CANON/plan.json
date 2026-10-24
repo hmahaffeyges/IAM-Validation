@@ -592,6 +592,20 @@
      "status": "open",
      "what": "Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary's chromosome index ranges (hg19_cpg_chrom_ranges.json) for chr15 to chr22: the first tile starts 626 CpGs early on chr15 and about 256,000 early on chr22. The lookup is by chromosome, so no tile mixes chromosomes, but tile boundaries there are shifted; the self-reference line and band were built on the same tiles, so readings are consistent with each other. Found by the constructed molecules of synthetic test cfDNA 1",
      "next": "find which source HG19_CPGS came from and whether the line changes when the tiles follow the dictionary; nothing changed until then"
+    },
+    {
+     "id": "14.10",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "A maintenance knockout as a test of the floor: the published information-theory study of paediatric ALL (Nature Biomedical Engineering 2021; informME, an Ising model of methylation fitted per 3-kb region) knocked out UHRF1, DNMT1's partner in maintenance methylation, in the Reh leukaemia line and found methylation lost and entropy raised genome-wide, with entropy falling in heterochromatic B domains where methylation went almost to zero (the ceiling turnover). Its WGBS is public (GEO GSE116229: pre-B ALL of four subtypes, normal pre-B2 and cord-blood B cells, Reh control and UHRF1 knockout), unread and reserved. Questions: does IAM-A's held error rise on the knockout; do the leukaemias read beyond Normal against their own loose share; does the distance to the ceiling show the B-domain turnover",
+     "next": "the author decides whether to spend GSE116229; then alignment and the one command on GitHub's machines"
+    },
+    {
+     "id": "14.11",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Cross-check against informME on the same files: their normalized methylation entropy and Jensen-Shannon distance against IAM-A, Met-A and the information sphere's Fisher-Rao distance; their nearest-neighbour coupling as a test of whether held errors cluster along a molecule (with IAM-A's C-Score version 2, 41.1); their methylation sensitivity index as a candidate reading for loosely held domains",
+     "next": "after 14.10, on the same spent files"
     }
    ]
   },
