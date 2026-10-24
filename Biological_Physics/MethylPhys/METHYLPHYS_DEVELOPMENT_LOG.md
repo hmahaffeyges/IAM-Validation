@@ -3176,3 +3176,6 @@ Intake refused bone marrow ('no reference'), against the read-and-flag rule; it 
 
 ### 2026-10-24 · Full-depth sequencing in pieces; the aligner index built once (GRP-020)
 A full-depth sample is cut into up to 20 contiguous ranges of read pairs, each aligned on its own machine by the committed pipeline, and the molecules merged and read once by the one command; the merge reproduces a split file byte for byte. The pass-1 timings showed each job spending about 6,000 s of about 9,500 rebuilding the same aligner index; it is now built once and streamed in with a checksum. Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
+
+### 2026-10-24 · Met-A's derived neutrophil mark: not met; identity marks held less firmly than the backbone (GRP-019)
+The neutrophil mark derived from the granulocytes' genome-wide held error came out at 0.288 bits against the measured 0.330, so the six commissioned arrays read 1.14 to 1.16 instead of Normal: not met. The atlas's own levels at the same sites give 0.351 bits, so the arrays' blur is not the cause; the identity sites sit at 0.939 on the held side, not the derived 0.959. Version 2 counts the error at the identity sites themselves. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).

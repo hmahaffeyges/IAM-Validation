@@ -11,7 +11,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 317 | 20 | 18 | 0 |
-| `stage_m_met_a.py` | 98 | 7 | 3 | 0 |
+| `stage_m_met_a.py` | 102 | 7 | 3 | 0 |
 | `MethylPhys_Interface/report_v4.py` | 430 | 29 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
@@ -1114,7 +1114,7 @@ both names for older scripts.
 
 Met-A's healthy mark derived from the cell's own held errors (development, DEV-METAA-HEALTHY-01 step 3): at each identity site the healthy level is 1 - eps_loss where the cell holds the mark and eps_gain where it is held absent, put on the array scale through IAM-Atlas v2.1's measured transfer, and the mark is the mean entropy over the sites. Nothing is fitted; the array's own measurement blur is not included.
 
-*Code:* `stage_m_met_a.py` line 89 (9 lines) · arguments: held, eps_loss, eps_gain · calls: not called on the traced runs · constants read: `TRANSFER`
+*Code:* `stage_m_met_a.py` line 89 (13 lines) · arguments: held, eps_loss, eps_gain · calls: not called on the traced runs · constants read: `TRANSFER`
 
 ### `stage_m_met_a.py::_floors`
 

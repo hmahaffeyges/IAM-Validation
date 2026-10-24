@@ -200,3 +200,16 @@ GSE116229 (GSM4914800, GSM4914801, GSM4914802), counted by the leukemia replicat
 --dev-count-only`). Version 2's rule unchanged, against IAM-Atlas v2.1's B-cell level. **Bars:** marked side within 0.02; unmarked side
 within 0.02 (the three pooled). Scorer `confirm_01_score.py`. **Stated before:** cord blood is newborn and the atlas's B cells adult; the count
 is at fixed depth, while layer 1 read whole files. A second confirmation on another cell type follows, its series chosen by a fixed rule.
+
+**Step 3, scored** (`data/DEV_METAA_HEALTHY_01/step3_01/step3_summary.txt`): **bar 1 not met (0 of 6).** Granulocyte held error: loss
+0.04182, gain 0.01385; on the array scale, held 0.9591 and held absent 0.0617; derived mark 0.28792 bits against the measured 0.33026
+(derived / measured 0.8718); the six arrays read 1.139 to 1.156 against it. **Disclosed:** the first scoring stopped with an error: the
+derivation inverted the 42-knot transfer table directly, which fails where the curve is flat; it now inverts the smooth curve the atlas
+was built with, exactly as the atlas converted its sequencing readings (`atlas_block_v21.py`, mode v21inv). That is the run scored here.
+
+**Diagnostic, after the result (disclosed):** the stated candidate was the arrays' measurement blur. IAM-Atlas v2.1's own neutrophil levels at
+the same 5,553 sites give a mean entropy of 0.35084 bits, above the arrays' 0.33026, so blur does not explain the gap. The held-absent side
+agrees (atlas median 0.0654, derived 0.0617); the held side does not (atlas median 0.9387, derived 0.9591). The neutrophil's identity marks
+are held less firmly than the cell's backbone, the constitutively marked sites layer 1 counted. **Version 2 (to be written and committed
+before it runs):** the held error counted on the granulocyte molecules at Met-A's own identity sites, the mark derived from it; still the
+cell's own molecules, nothing fitted.

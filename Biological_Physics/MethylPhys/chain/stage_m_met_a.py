@@ -85,13 +85,17 @@ if __name__ == "__main__":
 # level at the sites it holds to be 1 - eps_loss where the mark is held and eps_gain where it is held absent (sequencing scale). At each
 # identity site that level is put on the array scale through IAM-Atlas v2.1's measured transfer (inverse of g, PCHIP through its knots), and
 # the mark is the mean entropy over the sites. Nothing is fitted. Not included: the array's own measurement blur (it can only raise H).
-TRANSFER = os.path.join(HERE, "..", "doors", "data", "DEV_ATLAS_V21_01", "transfer_v21_final.json")
+TRANSFER = os.path.join(HERE, "..", "doors", "data", "DEV_ATLAS_V21_01", "transfer_v21_smooth.json")   # 2026-10-24: the curve the atlas was built with (run_v21_block.py), not the 42-knot table
 def derived_baseline(held, eps_loss, eps_gain):
     """held: per identity site, True where the cell holds the mark (array level >= 0.5), False where it is held absent.
     Returns dict(H=mean bits, n_held, n_absent, level_held, level_absent) on the array scale."""
     import json as _j, numpy as _n
     from scipy.interpolate import PchipInterpolator as _P
-    T = _j.load(open(TRANSFER)); ginv = _P(T["knots_y"], T["knots_x"])   # sequencing scale -> array scale (g is increasing)
+    # sequencing scale -> array scale exactly as the atlas converted its sequencing readings (atlas_block_v21.py, mode v21inv): g the PCHIP
+    # through the smooth curve's knots, inverted on a grid of 200,001 points with a 1e-12 tie-breaker, so g's flat ends invert to a definite
+    # value (2026-10-24: the first version inverted the 42-knot table directly, which fails where g is flat; disclosed)
+    T = _j.load(open(TRANSFER)); _g = _P(T["knots_x"], T["knots_y"]); _gx = _n.linspace(0, 1, 200001); _gv = _g(_gx) + 1e-12 * _gx
+    ginv = lambda y: _n.interp(y, _gv, _gx)
     H = lambda b: float(-(b * _n.log2(b) + (1 - b) * _n.log2(1 - b)))
     xh, xa = float(ginv(1 - eps_loss)), float(ginv(eps_gain)); h = _n.asarray(held, bool)
     return dict(H=(h.sum() * H(xh) + (~h).sum() * H(xa)) / len(h), n_held=int(h.sum()), n_absent=int((~h).sum()), level_held=xh, level_absent=xa)

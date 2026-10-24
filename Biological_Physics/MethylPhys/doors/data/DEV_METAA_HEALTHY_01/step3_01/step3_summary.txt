@@ -1,0 +1,11 @@
+DEV-METAA-HEALTHY-01 step 3: 3 of 3 granulocyte samples counted (GSM5652313, GSM5652314, GSM5652315); sites with an atlas level 5553 of 6000
+eps_loss 0.04182 | eps_gain 0.01385 | array-scale level held 0.9591, held absent 0.0617 | sites held 2931, absent 2622
+derived mark 0.28792 bits | measured mark 0.33026 bits (6 arrays) | derived / measured 0.8718
+array | Met-A against the measured mark (frozen sites) | against the derived mark
+GSM2998021 | 1.0038 | 1.1515
+GSM2998057 | 0.9934 | 1.1395
+GSM2998116 | 0.9986 | 1.1455
+GSM2998023 | 0.9930 | 1.1391
+GSM2998143 | 1.0034 | 1.1510
+GSM2998030 | 1.0077 | 1.1560
+bar 1 (all six Normal, 0.95-1.05, against the derived mark): 0 of 6: not met
