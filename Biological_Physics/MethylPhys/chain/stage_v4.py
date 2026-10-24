@@ -58,6 +58,20 @@ def stage_d21(beta, panel=None, sequencing=False):
     rec.update(sites_used=d["sites_used"], raw_sum=round(d["raw_sum"], 4))
     return rec
 
+def stage_d21_provisional(beta, panel, cells, sequencing=False):
+    """2026-10-24 (plan 40.18, development): the same deconvolution with provisional columns added beside IAM-Atlas v2.1 (stage_provisional);
+    recorded beside the atlas's own shares, never in place of them, and flagged."""
+    import stage_provisional as PV
+    key = ("prov", tuple(panel), tuple(cells))
+    if key not in _REF:
+        R0 = D21.reference(panel); R, added = PV.with_provisional(R0, cells); _REF[key] = (R, D21.markers(R), added)
+    R, M, added = _REF[key]
+    if not added: return {"stage": "D21-provisional", "status": "NOT_RUN", "reason": "no provisional column built for " + ", ".join(cells)}
+    b = pd.Series(beta, dtype="float64"); b.index = b.index.astype(str); d = D21.deconvolve(b, R, M)
+    return {"stage": "D21-provisional", "flag": PV.FLAG, "added": added, "markers": len(M), "markers_measured": int(b.reindex(M).notna().sum()),
+            "cells": [{"cell": c, "share": round(d["shares"][c], 4), "interval_95": [round(x, 4) for x in d["interval_95"][c]]} for c in R["cells"]],
+            "sites_used": d["sites_used"]}
+
 # ---------------------------------------------------------------- Q2: IAM-A against the sample's own reference
 def count_sequencing(pat=None, bam=None, ref_fasta=None, workers=4, assembly="hg19"):
     if pat:

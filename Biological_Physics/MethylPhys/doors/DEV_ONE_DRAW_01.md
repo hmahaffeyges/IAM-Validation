@@ -263,3 +263,21 @@ with 5 % of tiles held undecided in its own set:
 **Met as written:** mixing raises the tile share by a third; both molecule-level shares stay within 3 %. Next: a self-reference line on the
 molecule-level share, built on the purified healthy cells (which needs their molecule files counted again with the new fields), then the 30
 plasmas reread against it; the length correction separately.
+
+## A provisional megakaryocyte reference: test 1 (written and committed before any donor 2 file is read; plan 40.18)
+
+**Prior reading:** GSE87197 donor 1 (33 single megakaryocytes) was spent for absorption test 1; donor 2 (19 cells) is spent for this test
+(author); donor 3 (19 cells) stays unread.
+
+**The idea (author):** until purified data good enough for a full atlas fit exist, a cell the atlas lacks gets a provisional column, kept
+apart from IAM-Atlas v2.1, so its DNA is named instead of absorbed into look-alike cells. **Built:** `chain/stage_provisional.py` (the
+column's level is the pooled reads through the atlas's own inverse transfer; its spread is the counting spread, the median donor spread of
+the 79 atlas cells, and the atlas reference's laboratory and floor terms), built by the one command (`run_sample.py --build provisional`)
+from donor 1 only, and read beside the atlas (`run_sample.py --dev-provisional megakaryocytes`: a second deconvolution with the column
+added, recorded as `cell_shares_provisional`, flagged; the atlas's own shares unchanged).
+
+**The test** (`data/DEV_ONE_DRAW_01/mk_absorb_01/mk_provisional_01.py`, absorption test 1's code with the donor and the reading flag
+changed): donor 2's pool read pure, then planted into the same spent healthy plasma at 0, 10, 25 and 40 %. **The instrument's job:** name
+the megakaryocyte DNA instead of absorbing it. **Bars:** (1) the pure donor 2 pool reads megakaryocytes (provisional) as its largest share,
+at least 0.50; (2) the megakaryocyte share follows simple mixing within 0.05 at 10, 25 and 40 %; (3) the four stand-ins summed rise by at
+most 0.02 from 0 to 40 %.

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1079,
+   "lines": 1089,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -208,11 +208,11 @@
      "function": "_build",
      "name": "_build",
      "line": 225,
-     "end": 285,
+     "end": 289,
      "args": [
       "a"
      ],
-     "lines": 61,
+     "lines": 65,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -228,8 +228,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 258,
-     "end": 258,
+     "line": 262,
+     "end": 262,
      "args": [
       "m"
      ],
@@ -243,8 +243,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 288,
-     "end": 308,
+     "line": 292,
+     "end": 312,
      "args": [
       "a",
       "cnt",
@@ -260,8 +260,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 311,
-     "end": 351,
+     "line": 315,
+     "end": 355,
      "args": [
       "a",
       "o",
@@ -281,10 +281,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 354,
-     "end": 1076,
+     "line": 358,
+     "end": 1086,
      "args": [],
-     "lines": 723,
+     "lines": 729,
      "doc": "",
      "constants": [
       "BIO",
@@ -312,8 +312,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 553,
-     "end": 557,
+     "line": 560,
+     "end": 564,
      "args": [
       "r"
      ],
@@ -329,8 +329,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 788,
-     "end": 795,
+     "line": 795,
+     "end": 802,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1015,
-     "end": 1016,
+     "line": 1025,
+     "end": 1026,
      "args": [
       "b",
       "it",
@@ -3435,7 +3435,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 170,
+   "lines": 184,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3499,10 +3499,30 @@
     },
     {
      "file": "stage_v4.py",
+     "function": "stage_d21_provisional",
+     "name": "stage_d21_provisional",
+     "line": 61,
+     "end": 73,
+     "args": [
+      "beta",
+      "panel",
+      "cells",
+      "sequencing"
+     ],
+     "lines": 13,
+     "doc": "2026-10-24 (plan 40.18, development): the same deconvolution with provisional columns added beside IAM-Atlas v2.1 (stage_provisional); recorded beside the atlas's own shares, never in place of them, and flagged.",
+     "constants": [
+      "_REF"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_v4.py",
      "function": "count_sequencing",
      "name": "count_sequencing",
-     "line": 62,
-     "end": 66,
+     "line": 76,
+     "end": 80,
      "args": [
       "pat",
       "bam",
@@ -3522,8 +3542,8 @@
      "file": "stage_v4.py",
      "function": "counting_error",
      "name": "counting_error",
-     "line": 68,
-     "end": 79,
+     "line": 82,
+     "end": 93,
      "args": [
       "rec",
       "A",
@@ -3539,8 +3559,8 @@
      "file": "stage_v4.py",
      "function": "stage_q2",
      "name": "stage_q2",
-     "line": 81,
-     "end": 107,
+     "line": 95,
+     "end": 121,
      "args": [
       "rec",
       "cell",
@@ -3563,8 +3583,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 115,
-     "end": 117,
+     "line": 129,
+     "end": 131,
      "args": [
       "v"
      ],
@@ -3580,8 +3600,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 118,
-     "end": 127,
+     "line": 132,
+     "end": 141,
      "args": [
       "nside",
       "ipix"
@@ -3601,8 +3621,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 129,
-     "end": 166,
+     "line": 143,
+     "end": 180,
      "args": [
       "z",
       "out_png",
@@ -3622,8 +3642,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 168,
-     "end": 169,
+     "line": 182,
+     "end": 183,
      "args": [
       "path"
      ],
@@ -7973,5 +7993,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 408
+ "n_functions": 409
 }

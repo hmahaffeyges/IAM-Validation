@@ -238,6 +238,10 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "provisional":   # 2026-10-24 (plan 40.18, development): a provisional reference column, kept apart from IAM-Atlas v2.1
+        if not (a.build_samples and a.build_cell): print("--build provisional needs --build-samples CSV and --build-cell NAME"); return 2
+        import stage_provisional as _PV; m = _PV.build(a.build_cell, a.build_samples, os.path.join(os.path.dirname(a.build_out or ".") or ".", "_pool_work"), a.build_out)
+        print(json.dumps(m, indent=1)); return 0
     if a.build == "info-globe":   # 2026-10-23 (DEV-SPHERE-01, development): the information sphere as a picture, from IAM-Atlas v2.1
         if not a.build_out: print("--build info-globe needs --build-out PAGE.html"); return 2
         import pyarrow.parquet as _pq, info_sphere_viewer as _ISV
@@ -437,7 +441,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -448,6 +452,9 @@ def main():
                     "('pool': the sites random groups are drawn from)")
     ap.add_argument("--build-random", type=int, default=500, help="with --build info-sphere: random groups per named group for its line (default 500)")
     ap.add_argument("--build-out", default=None, help="with --build: where the built reference is written (.npz)")
+    ap.add_argument("--dev-provisional", default=None, metavar="CELL[,CELL]", help="DEVELOPMENT (plan 40.18): with the full atlas panel, a second deconvolution with provisional columns (stage_provisional) beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged")
+    ap.add_argument("--build-samples", default=None, help="--build provisional: the samples CSV (gsm, file) of per-CpG read files to pool")
+    ap.add_argument("--build-cell", default=None, help="--build provisional: the cell's name")
     ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
     ap.add_argument("--dev-genome-globe", action="store_true", help="DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe "
@@ -862,6 +869,9 @@ def main():
         import stage_v4 as V4
         print("Stage D21: cell shares against IAM-Atlas v2.1", flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv))
+        if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
+            print("Stage D21: a second deconvolution with provisional columns (" + a.dev_provisional + "), flagged", flush=True)
+            o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
         if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST

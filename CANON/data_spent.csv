@@ -214,3 +214,4 @@ GSE87197,partly spent,"donor 1's 33 megakaryocyte samples read for the absorptio
 GSE116229,spent,the whole series of 36 WGBS samples read for tuning (DEV-ALL-INFO-01; author: 'Spend the whole series'); RNA sequencing not read,"GEO; SRA SRR13085130, SRR13085131"
 GSE186458 blood granulocytes (GSM5652313; GSM5652314; GSM5652315),spent (development),Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md (step 3),GEO
 GSE48580 IMR90 proliferating; senescent; SV40 (WGBS),spent (earlier work PROC-LINES-02; division route),Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md,GEO
+GSE87197 megakaryocytes donor 2 (19 single cells),spent (development; provisional reference test 1),Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md,GEO
