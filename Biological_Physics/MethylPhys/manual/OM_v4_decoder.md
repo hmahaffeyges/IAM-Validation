@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **33 Python files** holding **409 functions** (nested ones included); 408 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **33 Python files** holding **409 functions** (nested ones included); 409 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -3464,3 +3464,9 @@ Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which
 The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. Below 1 % of the sample the C is flagged, not withheld (*stated*): there a cell's departure map is mostly the other cells'. Which cells are there is the IAM-Deconvolver's answer.
 
 *Code:* `stage_metaa_atlas.py` line 262 (28 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_FLAG_SHARE`, `FLAG`, `MIX_COVER`
+
+### `stage_v4.py::stage_d21_provisional`
+
+A second deconvolution with provisional columns beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged (development, plan 40.18).
+
+*Code:* `stage_v4.py` line 61 (13 lines) · arguments: beta, panel, cells, sequencing · calls: not called on the traced runs · constants read: `_REF`

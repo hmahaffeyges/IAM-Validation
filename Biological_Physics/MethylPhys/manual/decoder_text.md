@@ -2208,3 +2208,21 @@ Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which
 
 ### stage_metaa_atlas.py::cscore_in_mix
 The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. Below 1 % of the sample the C is flagged, not withheld (*stated*): there a cell's departure map is mostly the other cells'. Which cells are there is the IAM-Deconvolver's answer.
+
+### stage_provisional.py::pool_hg38
+Pools per-CpG methylated and total read files (GEO, GRCh38) at IAM-Atlas v2.1's sites, through the public EPIC hg38 annotation; a position listed twice is summed.
+
+### stage_provisional.py::column
+A provisional reference column from pooled reads: the level through the atlas's own inverse transfer (as the atlas converted its sequencing readings), the spread from counting (q = (m + 1/2)/(n + 1)), the median donor spread of the 79 atlas cells, and the atlas reference's laboratory and floor terms. Nothing fitted.
+
+### stage_provisional.py::build
+Builds and saves a provisional column with its provenance (samples, annotation and column checksums); run by run_sample.py --build provisional.
+
+### stage_provisional.py::load
+Loads a saved provisional column, if one was built.
+
+### stage_provisional.py::with_provisional
+The atlas reference with provisional columns added, as a copy; IAM-Atlas v2.1 itself is never changed.
+
+### stage_v4.py::stage_d21_provisional
+A second deconvolution with provisional columns beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged (development, plan 40.18).
