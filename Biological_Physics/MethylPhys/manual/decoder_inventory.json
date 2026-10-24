@@ -1841,7 +1841,7 @@
   },
   {
    "file": "stage_m_met_a.py",
-   "lines": 81,
+   "lines": 98,
    "functions": [
     {
      "file": "stage_m_met_a.py",
@@ -1951,6 +1951,25 @@
       "CELLS_IN_SCOPE",
       "NORMAL",
       "SITE_COVERAGE_MIN"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_m_met_a.py",
+     "function": "derived_baseline",
+     "name": "derived_baseline",
+     "line": 89,
+     "end": 97,
+     "args": [
+      "held",
+      "eps_loss",
+      "eps_gain"
+     ],
+     "lines": 9,
+     "doc": "held: per identity site, True where the cell holds the mark (array level >= 0.5), False where it is held absent. Returns dict(H=mean bits, n_held, n_absent, level_held, level_absent) on the array scale.",
+     "constants": [
+      "TRANSFER"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -7914,5 +7933,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 405
+ "n_functions": 406
 }

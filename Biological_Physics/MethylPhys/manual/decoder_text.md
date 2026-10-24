@@ -770,6 +770,9 @@ Stage T step 1, as described above: maps each design's values by β' = L_r + (β
 recorded and returns the maps' anchors and slopes. Moved unchanged from `dev_stages.py` on 2026-10-22 (finding F23); `dev_stages` keeps
 both names for older scripts.
 
+### stage_m_met_a.py::derived_baseline
+Met-A's healthy mark derived from the cell's own held errors (development, DEV-METAA-HEALTHY-01 step 3): at each identity site the healthy level is 1 - eps_loss where the cell holds the mark and eps_gain where it is held absent, put on the array scale through IAM-Atlas v2.1's measured transfer, and the mark is the mean entropy over the sites. Nothing is fitted; the array's own measurement blur is not included.
+
 ### stage_m_met_a.py::_floors
 Loads `metA_floors_v1_3.json` (the 6,000 identity sites and the healthy reference H_ref) once.
 

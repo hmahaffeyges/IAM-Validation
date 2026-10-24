@@ -167,3 +167,26 @@ GSM5652304, GSM5652348) landed after version 1 was scored; the result is the sam
 **What it means:** each healthy cell type's level at the sites it holds is set by its own held error, counted on its own molecules (1 - eps
 where the mark is held, eps where it is held absent), to within 0.02 in 54 of 56 cell types, with nothing fitted. The levels come from
 physics; only which sites each cell holds is measured.
+
+## Step 3: the derived neutrophil mark (written and committed before any granulocyte molecule is counted)
+
+**The instrument's job:** a healthy neutrophil array reads Normal on Met-A against a mark derived from the cell's own held errors, with no
+reference arrays.
+
+**Derivation** (`chain/stage_m_met_a.derived_baseline`): at each of Met-A's 6,000 commissioned neutrophil identity sites
+(`metA_floors_v1_3.json`), the healthy level is 1 - eps_loss where the mark is held and eps_gain where it is held absent (layer 1), put on
+the array scale through IAM-Atlas v2.1's measured transfer (its inverse, PCHIP through the knots of `transfer_v21_final.json`); the mark is
+the mean entropy over the sites. Held or held absent is IAM-Atlas v2.1's neutrophil level at the site (>= 0.5). Nothing is fitted. IAM-Atlas v2.1 has a neutrophil level at 5,553 of the 6,000 sites (2,931
+held, 2,622 held absent); the other 447 take the same proportion, so the mark is computed on the 5,553.
+
+**Data:** the three healthy blood granulocyte samples of the published sequencing atlas (GSE186458: GSM5652313, GSM5652314, GSM5652315;
+`data/DEV_METAA_HEALTHY_01/step3_samples.csv`), molecules never counted before, each read by `run_sample.py --dev-count-only` through
+`count_atlas_01.py` (now taking a sample list; default unchanged) on GitHub's machines. Granulocytes are mostly neutrophils; the atlas has no
+purified-neutrophil sequencing. The six arrays: the commissioned neutrophil references, read by the chain against the measured mark on the
+frozen sites (`metA_floors_v1_3_loo.csv`); against the derived mark each reading is multiplied by measured / derived.
+
+**Bar 1:** all six read Normal (0.95 to 1.05) against the derived mark. Scorer `step3_score.py`.
+
+**Stated before:** the derivation leaves out the array's own measurement blur, which can only raise the entropy an array reads. If the
+derived mark falls below the measured one so that the arrays read above Normal, the gap is that blur, and the chain already measures blur
+on the atlas's anchor sites; adding it would be version 2, written before it runs.

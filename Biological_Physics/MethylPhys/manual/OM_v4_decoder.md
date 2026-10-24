@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **33 Python files** holding **405 functions** (nested ones included); 405 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **33 Python files** holding **406 functions** (nested ones included); 406 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -11,7 +11,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
 | `conductor_v3.py` | 317 | 20 | 18 | 0 |
-| `stage_m_met_a.py` | 81 | 6 | 3 | 0 |
+| `stage_m_met_a.py` | 98 | 7 | 3 | 0 |
 | `MethylPhys_Interface/report_v4.py` | 430 | 29 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
@@ -1109,6 +1109,12 @@ recorded and returns the maps' anchors and slopes. Moved unchanged from `dev_sta
 both names for older scripts.
 
 *Code:* `stage_t_selftare.py` line 42 (12 lines) · arguments: beta, st · calls: not called on the traced runs · files named: `Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json`
+
+### `stage_m_met_a.py::derived_baseline`
+
+Met-A's healthy mark derived from the cell's own held errors (development, DEV-METAA-HEALTHY-01 step 3): at each identity site the healthy level is 1 - eps_loss where the cell holds the mark and eps_gain where it is held absent, put on the array scale through IAM-Atlas v2.1's measured transfer, and the mark is the mean entropy over the sites. Nothing is fitted; the array's own measurement blur is not included.
+
+*Code:* `stage_m_met_a.py` line 89 (9 lines) · arguments: held, eps_loss, eps_gain · calls: not called on the traced runs · constants read: `TRANSFER`
 
 ### `stage_m_met_a.py::_floors`
 

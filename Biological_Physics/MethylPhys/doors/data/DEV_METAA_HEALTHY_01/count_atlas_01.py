@@ -5,7 +5,8 @@ healthy shape reference for the cell type; flagged), its bundle kept and the fil
 import os, sys, csv, json, time, subprocess, urllib.request
 H = os.path.dirname(os.path.abspath(__file__)); RS = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface", "run_sample.py"))
 out, k, n = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]); os.makedirs(out, exist_ok=True)
-rows = [r for i, r in enumerate(csv.DictReader(open(os.path.join(H, "layer1_samples.csv")))) if i % n == k]
+SL = sys.argv[4] if len(sys.argv) > 4 else "layer1_samples.csv"   # 2026-10-24: optional sample list (step 3); default unchanged
+rows = [r for i, r in enumerate(csv.DictReader(open(os.path.join(H, SL)))) if i % n == k]
 for r in rows:
     g = r["gsm"]; f = os.path.join(out, r["file"]); t0 = time.time()
     for a in range(5):
