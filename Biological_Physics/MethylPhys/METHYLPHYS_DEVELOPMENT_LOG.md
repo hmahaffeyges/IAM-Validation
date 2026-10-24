@@ -3179,3 +3179,6 @@ A full-depth sample is cut into up to 20 contiguous ranges of read pairs, each a
 
 ### 2026-10-24 · Met-A's derived neutrophil mark: not met; identity marks held less firmly than the backbone (GRP-019)
 The neutrophil mark derived from the granulocytes' genome-wide held error came out at 0.288 bits against the measured 0.330, so the six commissioned arrays read 1.14 to 1.16 instead of Normal: not met. The atlas's own levels at the same sites give 0.351 bits, so the arrays' blur is not the cause; the identity sites sit at 0.939 on the held side, not the derived 0.959. Version 2 counts the error at the identity sites themselves. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).
+
+### 2026-10-24 · Met-A's derived neutrophil mark, version 2: not met; identity sites are set by loose molecules (GRP-019)
+Counting the granulocytes' held error at Met-A's identity sites made the derived mark worse (0.077 bits against the measured 0.330): isolated errors there are rarer than across the genome. The identity sites' lower level comes from molecules that do not hold the mark at all. Version 3 counts those molecule classes at the sites. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).

@@ -224,3 +224,12 @@ per-call rate on the same side. **Synthetic check (laptop, `sites_synthetic_01.p
 rates 0.06 (loss) and 0.05 (gain) at a site set, 0.03 and 0.02 elsewhere, are recovered once the neighbors' rate is divided out. The derivation, the sites, the six arrays and bar 1 are version 1's.
 Counts: the three granulocyte samples again, on GitHub (`count_atlas_01.py ... step3_samples.csv --dev-count-sites neutrophils`).
 Scorer `step3_score_v2.py`.
+
+**Step 3 version 2, scored** (`data/DEV_METAA_HEALTHY_01/step3_02/step3_v2_summary.txt`): **bar 1 not met (0 of 6), further off than
+version 1.** At the identity sites the lone error on held molecules is lower than genome-wide (loss 0.03160 against 0.04182), so the
+derived level moves away from the atlas's (held 0.9909 on the array scale against the atlas's median 0.9387) and the mark falls to 0.07700
+bits against the measured 0.33026. **What it shows:** isolated errors on held molecules do not set an identity site's level; the share of
+molecules there that do not hold the mark (the loose share at those sites) does. Layer 1's backbone sites carry almost none, which is why
+layer 1 met. **Next (version 3, to be written before it runs):** the molecule classes at the identity sites (held, held absent, loose) and
+each class's level, from the same counts. **Disclosed:** a version 3 would be the third on the same three granulocyte samples and six
+arrays; whatever it reads stays development until confirmed on samples that played no part.
