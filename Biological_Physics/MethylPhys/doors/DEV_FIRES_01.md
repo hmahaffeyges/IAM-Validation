@@ -57,3 +57,8 @@ which is why the every-site reading and the territories are read here beside Met
 effect sizes, variance by class, five windows) chose sites or tests on the same arrays; the chain's readings are fixed before any array is read,
 so smaller effects than the earlier ones are expected if part of those came from the selection.
 
+**The scorer (committed before any reading is opened).** `data/DEV_FIRES_01/fires_score.py` reads the pass-1 bundles and compares each reading
+by Group-A's own rule, the chain's `stage_groupa.compare` unchanged: each reading tared against the cancer-free references on its chip (else the
+series), then cases against the cancer-free, |t| >= 2 "groups differ", every result preliminary. Because Group-A tares against the cancer-free
+references itself, no separate pass 2 is run. Checked on stand-in bundles before any reading: a planted 3 % shift in 20 of 40 is found, and a
+reading with no spread is reported, not divided by.
