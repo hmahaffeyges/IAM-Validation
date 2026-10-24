@@ -479,9 +479,9 @@
    },
    "cells_meta": {
     "native": "healthy",
-    "formula": "measured on healthy references of the same cell on the same platform (purified neutrophils on EPIC: H = 0.330263 bits); in a mixed sample, IAM-Atlas v2.1 mixed in the sample's own IAM-Deconvolver shares. Not derived. A whiteboard check on the atlas put about half of a methylated site's healthy drop from 1 on the held error and half on a gap that differs by cell type (both read from the same molecules, so not independent); the atlas as the ruler for every array (plan 35.14) is the route to a reference with no same-run healthy arrays",
+    "formula": "Commissioned, measured on healthy references of the same cell on the same platform (purified neutrophils on EPIC: H = 0.330263 bits); in a mixed sample, IAM-Atlas v2.1 mixed in the sample's own IAM-Deconvolver shares. In development (DEV-METAA-HEALTHY-01): the healthy reading predicted from the array itself, A_pred = sum w E[H(a + b e + noise)] / sum w H(e), with each probe design's line a, b and noise measured on the atlas's anchor sites (held below about 0.05 or above about 0.95 in all 79 cell types), so a healthy sample reads A / A_pred = 1 with no healthy cohort; blind spot: a loss spread evenly over every site, the anchors included, looks like a weaker array. Next layer: the atlas's healthy levels themselves from each cell type's loss-side and gain-side held errors (1 - eps_loss where the mark is held, eps_gain where it is held absent), leaving only a measured per-cell gap",
     "status": "measured",
-    "source": "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md; Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py; CANON/plan.json 35.14"
+    "source": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py (predicted_healthy, array_blur); Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
    }
   },
   {

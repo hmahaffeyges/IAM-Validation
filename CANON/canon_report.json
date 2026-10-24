@@ -442,7 +442,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 181,
+"line": 185,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -451,7 +451,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 257,
+"line": 261,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

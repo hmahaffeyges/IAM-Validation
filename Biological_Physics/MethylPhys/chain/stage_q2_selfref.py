@@ -19,6 +19,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 LINE_DIR = os.path.join(HERE, "Runtime Matrices", "IAM_A_SelfRef")
 CUT, TILE, MIN_TILE_CALLS = 0.70, 2000, 200
 QUAL_MIN_CALLS, QUAL_MIN_METH = 6, 0.8
+QUAL_MAX_METH = 0.2   # 2026-10-24 (DEV-METAA-HEALTHY-01 layer 1): the gain side's mirror of QUAL_MIN_METH, a molecule held unmarked (stated)
 STAGE = "Q2 self-reference"
 HG19_CPGS = [("chr1",2284470),("chr2",2164335),("chr3",1623646),("chr4",1473930),("chr5",1506454),("chr6",1475569),("chr7",1568666),("chr8",1309135),
              ("chr9",1226821),("chr10",1351291),("chr11",1289987),("chr12",1277218),("chr13",803708),("chr14",859154),("chr15",825117),("chr16",1047108),
@@ -71,17 +72,19 @@ def hg19_tiles():
         for s in range(off, off + n - TILE + 1, TILE): T[c].append((s - 1, s - 1 + TILE))
         off += n
     return {c: np.array(v) for c, v in T.items()}
-def _finish(tile_calls, e_iso, e_opp, extra=None):
+def _finish(tile_calls, e_iso, e_opp, extra=None, g_iso=None, g_opp=None):
     m = np.array([a[0] / a[1] for a in tile_calls.values() if a[1] >= MIN_TILE_CALLS])
     out = dict(loose_share=float((m < CUT).mean()) if len(m) else None, tiles=int(len(m)), held_err=e_iso / max(e_opp, 1), held_opp=int(e_opp),
                cut=CUT, tile_cpgs=TILE, min_tile_calls=MIN_TILE_CALLS,
                # the tile distribution's shape, for the sample-shape check (COM-IAMA-053, added 2026-10-15): percentiles of the tile means
                tile_p10=float(np.quantile(m, 0.10)) if len(m) else None, tile_p50=float(np.quantile(m, 0.50)) if len(m) else None,
                tile_p90=float(np.quantile(m, 0.90)) if len(m) else None)
+    if g_opp is not None:   # 2026-10-24: the gain side, the mirror of held_err: a lone methylated call between two unmethylated ones, on molecules held unmarked
+        out.update(gain_err=g_iso / max(g_opp, 1), gain_opp=int(g_opp))
     if extra: out.update(extra)
     return out
 def count_pat(lines, tiles):
-    tile_calls = {}; e_iso = e_opp = 0
+    tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0
     for k, line in enumerate(lines):
         p = line.rstrip("\n").split("\t")
         if len(p) < 4: continue
@@ -95,7 +98,9 @@ def count_pat(lines, tiles):
             a = tile_calls.setdefault((c, j), [0, 0]); a[0] += n * s.count("C"); a[1] += n * len(s)
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") >= QUAL_MIN_METH * len(s):
             e_opp += n * (len(s) - 2); e_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
-    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19"))
+        elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
+            g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19"), g_iso, g_opp)
 
 # ---------------------------------------------------------------- the aligned-read reader (port of secondlab.py, plus Bismark XM)
 AUTOSOMES = [f"chr{i}" for i in range(1, 23)]
@@ -155,6 +160,8 @@ def count_bam_region(args):
                                        # including unmethylated ones that never qualify, which biased the curve (LESSONS C23, DEV-CFDNA-SHORT-01)
                 st["qualifying"] += 1; st["e_opp"] += n - 2
                 st["e_iso"] += sum(1 for i in range(1, n - 1) if (not calls[i][1]) and calls[i - 1][1] and calls[i + 1][1])
+            elif n >= QUAL_MIN_CALLS and mm <= QUAL_MAX_METH * n:   # 2026-10-24: the gain side
+                st["g_opp"] += n - 2; st["g_iso"] += sum(1 for i in range(1, n - 1) if calls[i][1] and (not calls[i - 1][1]) and (not calls[i + 1][1]))
     for r in B.fetch(chrom, s0, e0):
         if r.reference_start < s0 or r.is_unmapped or r.is_secondary or r.is_supplementary or r.is_duplicate or r.mapping_quality < 10: continue
         st["reads"] += 1
@@ -167,14 +174,14 @@ def count_bam_region(args):
             if r.next_reference_start >= r.reference_start and r.next_reference_start < e0: buf[r.query_name] = c; continue
         done(sorted(c.items()))
     for c in buf.values(): done(sorted(c.items()))
-    return dict(chrom=chrom, tiles={int(t): v for t, v in T.items()}, n_hist={int(a): int(b) for a, b in nh.items()}, **{x: int(st[x]) for x in ("e_iso", "e_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n")})
+    return dict(chrom=chrom, tiles={int(t): v for t, v in T.items()}, n_hist={int(a): int(b) for a, b in nh.items()}, **{x: int(st[x]) for x in ("e_iso", "e_opp", "g_iso", "g_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n")})
 def combine_bam(parts, assembly):
     T = {}; s = collections.Counter()
     for p in parts:
         for t, v in p["tiles"].items():
             a = T.setdefault((p["chrom"], int(t)), [0, 0]); a[0] += v[0]; a[1] += v[1]
-        for x in ("e_iso", "e_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n"): s[x] += p[x]
-    return _finish(T, s["e_iso"], s["e_opp"], dict(reader="aligned reads", assembly=assembly, sub_err=s["at_mm"] / max(s["at_n"], 1),
+        for x in ("e_iso", "e_opp", "g_iso", "g_opp", "molecules", "qualifying", "reads", "nc_m", "nc_t", "at_mm", "at_n"): s[x] += p[x]
+    return _finish(T, s["e_iso"], s["e_opp"], g_iso=s["g_iso"], g_opp=s["g_opp"], extra=dict(reader="aligned reads", assembly=assembly, sub_err=s["at_mm"] / max(s["at_n"], 1),
                    conv_fail=s["nc_m"] / max(s["nc_t"], 1), molecules=int(s["molecules"]), qualifying=int(s["qualifying"]), reads=int(s["reads"])))
 def count_bam(bam, fa, workers, assembly, chroms=AUTOSOMES, span=10_000_000):
     import pysam, multiprocessing as mp

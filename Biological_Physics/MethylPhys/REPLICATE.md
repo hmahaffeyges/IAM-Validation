@@ -53,7 +53,7 @@ test on is held to the rule by the push gate (CANON/chain_gate.py, rule 23b).
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**52 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**54 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -98,6 +98,8 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_IAMA_NEURON_01 | `DEV_LEVERS_01/levers_synth_04.py` | no chain import | COM-METAA-006, COM-METAA-018, COM-METAA-031, COM-IAMA-013, COM-IAMA-015, COM-IAMA-019 |
 | DEV_IAMA_READACROSS_01 | `DEV_IAMA_READACROSS_01/planted_readacross_01.py` | declares NO CHAIN | COM-IAMA-012, COM-IAMA-024 |
 | DEV_IAMA_TRIM_01 | `DEV_IAMA_TRIM_01/planted_trim_01.py` | declares NO CHAIN | COM-IAMA-016, CAN-002, CAN-008, CAN-010, CAN-024, CAN-025 |
+| DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/synthetic_02.py` | no chain import | GRP-019 |
+| DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/gain_counter_01.py` | no chain import | GRP-019 |
 | DEV_POSITION_EXPR_01 | `DEV_POSITION_EXPR_01/planted_position_expr_01.py` | declares NO CHAIN | PHY-041 |
 | DEV_SPHERE_01 | `DEV_SPHERE_01/planted_sphere_07.py` | no chain import | CAN-018, PHY-035, SCO-059, ATL-046, ATL-047, ATL-048 |
 | DEV_TERRITORY_01 | `DEV_TERRITORY_01/territory_synth_01.py` | declares NO CHAIN | CAN-012 |

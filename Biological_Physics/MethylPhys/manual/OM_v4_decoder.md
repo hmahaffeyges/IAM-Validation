@@ -18,7 +18,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `dev_stages.py` | 339 | 27 | 1 | 0 |
 | `stage_v4.py` | 170 | 10 | 4 | 2 |
 | `stage_deconv_v21.py` | 200 | 6 | 4 | 0 |
-| `stage_q2_selfref.py` | 270 | 29 | 0 | 11 |
+| `stage_q2_selfref.py` | 277 | 29 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
@@ -1445,74 +1445,74 @@ the one command). Hand it a cell type with no healthy reference: it must not rea
 
 The SHA-256 over every `.py` file of the chain folder, names and contents, in sorted order.
 
-*Code:* `stage_q2_selfref.py` line 28 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE`
+*Code:* `stage_q2_selfref.py` line 29 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE`
 
 ### `stage_q2_selfref.py::_canon`
 
 A result in canonical JSON (sorted keys, no spaces), so the same result always hashes the same.
 
-*Code:* `stage_q2_selfref.py` line 32 (1 lines) · arguments: obj · calls: bam run 4
+*Code:* `stage_q2_selfref.py` line 33 (1 lines) · arguments: obj · calls: bam run 4
 
 ### `stage_q2_selfref.py::payload_sha`
 
 The SHA-256 of a result without its stamp.
 
-*Code:* `stage_q2_selfref.py` line 33 (1 lines) · arguments: obj · calls: bam run 4
+*Code:* `stage_q2_selfref.py` line 34 (1 lines) · arguments: obj · calls: bam run 4
 
 ### `stage_q2_selfref.py::file_sha`
 
 The SHA-256 of a file, read in 16 MB pieces.
 
-*Code:* `stage_q2_selfref.py` line 34 (5 lines) · arguments: path, chunk · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 35 (5 lines) · arguments: path, chunk · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_rows`
 
 The manifest rows a result belongs to, given directly or through the `IAM_MANIFEST` environment variable.
 
-*Code:* `stage_q2_selfref.py` line 44 (3 lines) · arguments: manifest · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 45 (3 lines) · arguments: manifest · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::stamp`
 
 Attaches the chain stamp to a result, hashing it exactly as it will be stored (JSON turns number keys into text).
 
-*Code:* `stage_q2_selfref.py` line 47 (8 lines) · arguments: obj, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`
+*Code:* `stage_q2_selfref.py` line 48 (8 lines) · arguments: obj, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`
 
 ### `stage_q2_selfref.py::write_json`
 
 Writes a stamped result and reads it back to confirm the stored file verifies.
 
-*Code:* `stage_q2_selfref.py` line 55 (6 lines) · arguments: obj, path, inputs, manifest · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 56 (6 lines) · arguments: obj, path, inputs, manifest · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::write_csv`
 
 Writes a table and its stamp beside it, as `<file>.stamp.json`.
 
-*Code:* `stage_q2_selfref.py` line 61 (4 lines) · arguments: df, path, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`
+*Code:* `stage_q2_selfref.py` line 62 (4 lines) · arguments: df, path, inputs, manifest · calls: not called on the traced runs · constants read: `STAGE`
 
 ### `stage_q2_selfref.py::hg19_tiles`
 
 The hg19 tiles of 2,000 consecutive CpGs on each autosome, in CpG-index coordinates; a partial last tile is dropped.
 
-*Code:* `stage_q2_selfref.py` line 67 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `HG19_CPGS`
+*Code:* `stage_q2_selfref.py` line 68 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `HG19_CPGS`
 
 ### `stage_q2_selfref.py::_finish`
 
 Turns tile counts and hole counts into the record: L, the number of tiles, ε and its opportunities, and the 10th, 50th and 90th
-percentiles of the tile means for the shape check.
+percentiles of the tile means for the shape check. When the gain-side counts are given, it adds gain_err and gain_opp.
 
-*Code:* `stage_q2_selfref.py` line 74 (9 lines) · arguments: tile_calls, e_iso, e_opp, extra · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 75 (11 lines) · arguments: tile_calls, e_iso, e_opp, extra, g_iso, g_opp · calls: bam run 1
 
 ### `stage_q2_selfref.py::count_pat`
 
-The `.pat` reader: even lines are added to their tile; odd lines that qualify as held runs add their interior calls and isolated holes.
+The `.pat` reader: even lines are added to their tile; odd lines that qualify as held runs add their interior calls and isolated holes. Since DEV-METAA-HEALTHY-01 it also counts the gain side, the mirror image: on molecules held unmarked (at least 6 calls, at most 20 % methylated, QUAL_MAX_METH), a lone methylated call between two unmethylated ones over the interior calls (gain_err, gain_opp). The loss side and every earlier output are unchanged.
 
-*Code:* `stage_q2_selfref.py` line 83 (16 lines) · arguments: lines, tiles · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 86 (18 lines) · arguments: lines, tiles · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::_cpg_index`
 
 The positions of every CpG in a chromosome's sequence.
 
-*Code:* `stage_q2_selfref.py` line 102 (2 lines) · arguments: seq · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 107 (2 lines) · arguments: seq · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_calls_of`
 
@@ -1520,75 +1520,75 @@ One aligned read's methylation calls at CpGs, from the Bismark XM tag or, for ge
 and last 3 aligned bases. Also counts non-CpG conversion (a check on bisulfite conversion) and, on every 20th read, A/T mismatches (a check
 on sequencing error).
 
-*Code:* `stage_q2_selfref.py` line 104 (27 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 109 (27 lines) · arguments: r, ref, ref0, sub · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::_merge`
 
 Merges the calls of the two reads of a pair into one molecule; a CpG on which they disagree is dropped.
 
-*Code:* `stage_q2_selfref.py` line 131 (6 lines) · arguments: a, b · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 136 (6 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::count_bam_region`
 
 Counts one 10 Mb region of an alignment file: primary, mapped, non-duplicate reads with mapping quality at least 10, pairs merged, then
 the same alternation and the same two counts as the `.pat` reader. Also counts calls per qualifying molecule for the response curve.
 
-*Code:* `stage_q2_selfref.py` line 137 (34 lines) · arguments: args · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 142 (36 lines) · arguments: args · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::count_bam_region.done`
 
 Counts one finished molecule: even molecules to their tile, odd held runs to ε.
 
-*Code:* `stage_q2_selfref.py` line 144 (14 lines) · arguments: calls · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 149 (16 lines) · arguments: calls · calls: not called on the traced runs · constants read: `QUAL_MAX_METH`
 
 ### `stage_q2_selfref.py::combine_bam`
 
 Adds the regions' counts into one record, with the conversion-failure and substitution rates.
 
-*Code:* `stage_q2_selfref.py` line 171 (8 lines) · arguments: parts, assembly · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 178 (8 lines) · arguments: parts, assembly · calls: bam run 1
 
 ### `stage_q2_selfref.py::count_bam`
 
 Splits the autosomes into 10 Mb regions and counts them in parallel.
 
-*Code:* `stage_q2_selfref.py` line 179 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`
+*Code:* `stage_q2_selfref.py` line 186 (5 lines) · arguments: bam, fa, workers, assembly, chroms, span · calls: bam run 1 · constants read: `AUTOSOMES`
 
 ### `stage_q2_selfref.py::build_line`
 
 How the line was built: per cell type, the median L and the opportunity-weighted ε, then a Theil–Sen line across cell types. Not called at
 run time; the line is read from its frozen file.
 
-*Code:* `stage_q2_selfref.py` line 186 (10 lines) · arguments: per_sample · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 193 (10 lines) · arguments: per_sample · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::line`
 
 Loads the frozen line and refuses it if it was edited after the chain wrote it.
 
-*Code:* `stage_q2_selfref.py` line 196 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 203 (6 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::predict`
 
 ε predicted at a loose share: firm + slope × L.
 
-*Code:* `stage_q2_selfref.py` line 202 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 209 (2 lines) · arguments: loose_share, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::residual`
 
 A count against the line: measured ε, predicted ε, and their difference.
 
-*Code:* `stage_q2_selfref.py` line 204 (5 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 211 (5 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_shape_reference`
 
 How the shape reference was built: per cell type, the lowest healthy 10th percentile, and the margin. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 215 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
+*Code:* `stage_q2_selfref.py` line 222 (8 lines) · arguments: records · calls: not called on the traced runs · constants read: `SHAPE_Q`
 
 ### `stage_q2_selfref.py::shape_reference`
 
 Loads the frozen shape reference and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 223 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 230 (6 lines) · arguments: version · calls: bam run 2 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::shape_check`
 
@@ -1599,32 +1599,32 @@ chromosome and the loose share on the autosomes; the aligned-read route counts b
 line, counting the held error on the autosomes only moved IAM-A by a mean of −0.32 % (range −0.71 % to +0.09 %), at most about 2.5 % of the
 band's width (`doors/DEV_IAMA_SEX_01.md`). The commissioned line and band were built on the `.pat` route and are kept.
 
-*Code:* `stage_q2_selfref.py` line 229 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 236 (9 lines) · arguments: rec, cell, version, ref · calls: bam run 1
 
 ### `stage_q2_selfref.py::reading`
 
 IAM-A = measured ε / predicted ε.
 
-*Code:* `stage_q2_selfref.py` line 240 (4 lines) · arguments: rec, version · calls: bam run 1
+*Code:* `stage_q2_selfref.py` line 247 (4 lines) · arguments: rec, version · calls: bam run 1
 
 ### `stage_q2_selfref.py::build_band`
 
 How band v1 was built: the 2.5th to 97.5th percentile of pooled healthy readings. Not called at run time.
 
-*Code:* `stage_q2_selfref.py` line 244 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
+*Code:* `stage_q2_selfref.py` line 251 (6 lines) · arguments: healthy, version · calls: not called on the traced runs
 
 ### `stage_q2_selfref.py::band`
 
 Loads band v1 and refuses it if edited.
 
-*Code:* `stage_q2_selfref.py` line 254 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
+*Code:* `stage_q2_selfref.py` line 261 (2 lines) · arguments: version · calls: bam run 1 · constants read: `LINE_DIR`
 
 ### `stage_q2_selfref.py::grand_verdict`
 
 The sealed grand test's scorer: each healthy sample shape-checked, each read sample inside or outside the band; met when at least 75 % of at
 least 8 read samples are inside.
 
-*Code:* `stage_q2_selfref.py` line 258 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
+*Code:* `stage_q2_selfref.py` line 265 (12 lines) · arguments: records, version, B, ref · calls: not called on the traced runs · constants read: `GRAND_MIN_READ`, `GRAND_SHARE`
 
 ## 10. Stage Q0, intake for sequencing files: `stage_q0_intake.py`
 

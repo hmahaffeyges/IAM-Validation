@@ -3757,14 +3757,14 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 270,
+   "lines": 277,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
      "function": "chain_sha",
      "name": "chain_sha",
-     "line": 28,
-     "end": 31,
+     "line": 29,
+     "end": 32,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -3778,23 +3778,6 @@
      "file": "stage_q2_selfref.py",
      "function": "_canon",
      "name": "_canon",
-     "line": 32,
-     "end": 32,
-     "args": [
-      "obj"
-     ],
-     "lines": 1,
-     "doc": "",
-     "constants": [],
-     "data_files": [],
-     "traced_calls": {
-      "bam": 4
-     }
-    },
-    {
-     "file": "stage_q2_selfref.py",
-     "function": "payload_sha",
-     "name": "payload_sha",
      "line": 33,
      "end": 33,
      "args": [
@@ -3810,10 +3793,27 @@
     },
     {
      "file": "stage_q2_selfref.py",
+     "function": "payload_sha",
+     "name": "payload_sha",
+     "line": 34,
+     "end": 34,
+     "args": [
+      "obj"
+     ],
+     "lines": 1,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {
+      "bam": 4
+     }
+    },
+    {
+     "file": "stage_q2_selfref.py",
      "function": "file_sha",
      "name": "file_sha",
-     "line": 34,
-     "end": 38,
+     "line": 35,
+     "end": 39,
      "args": [
       "path",
       "chunk"
@@ -3828,8 +3828,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_rows",
      "name": "_rows",
-     "line": 44,
-     "end": 46,
+     "line": 45,
+     "end": 47,
      "args": [
       "manifest"
      ],
@@ -3843,8 +3843,8 @@
      "file": "stage_q2_selfref.py",
      "function": "stamp",
      "name": "stamp",
-     "line": 47,
-     "end": 54,
+     "line": 48,
+     "end": 55,
      "args": [
       "obj",
       "inputs",
@@ -3862,8 +3862,8 @@
      "file": "stage_q2_selfref.py",
      "function": "write_json",
      "name": "write_json",
-     "line": 55,
-     "end": 60,
+     "line": 56,
+     "end": 61,
      "args": [
       "obj",
       "path",
@@ -3880,8 +3880,8 @@
      "file": "stage_q2_selfref.py",
      "function": "write_csv",
      "name": "write_csv",
-     "line": 61,
-     "end": 64,
+     "line": 62,
+     "end": 65,
      "args": [
       "df",
       "path",
@@ -3900,8 +3900,8 @@
      "file": "stage_q2_selfref.py",
      "function": "hg19_tiles",
      "name": "hg19_tiles",
-     "line": 67,
-     "end": 73,
+     "line": 68,
+     "end": 74,
      "args": [],
      "lines": 7,
      "doc": "{chrom: array of [start, end) CpG-index tiles}, consecutive 2,000-CpG tiles, partial last tile dropped (own_reads_genome.tiles).",
@@ -3915,15 +3915,17 @@
      "file": "stage_q2_selfref.py",
      "function": "_finish",
      "name": "_finish",
-     "line": 74,
-     "end": 82,
+     "line": 75,
+     "end": 85,
      "args": [
       "tile_calls",
       "e_iso",
       "e_opp",
-      "extra"
+      "extra",
+      "g_iso",
+      "g_opp"
      ],
-     "lines": 9,
+     "lines": 11,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -3935,15 +3937,17 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat",
      "name": "count_pat",
-     "line": 83,
-     "end": 98,
+     "line": 86,
+     "end": 103,
      "args": [
       "lines",
       "tiles"
      ],
-     "lines": 16,
+     "lines": 18,
      "doc": "",
-     "constants": [],
+     "constants": [
+      "QUAL_MAX_METH"
+     ],
      "data_files": [],
      "traced_calls": {}
     },
@@ -3951,8 +3955,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_cpg_index",
      "name": "_cpg_index",
-     "line": 102,
-     "end": 103,
+     "line": 107,
+     "end": 108,
      "args": [
       "seq"
      ],
@@ -3966,8 +3970,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_calls_of",
      "name": "_calls_of",
-     "line": 104,
-     "end": 130,
+     "line": 109,
+     "end": 135,
      "args": [
       "r",
       "ref",
@@ -3984,8 +3988,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 131,
-     "end": 136,
+     "line": 136,
+     "end": 141,
      "args": [
       "a",
       "b"
@@ -4000,14 +4004,16 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 137,
-     "end": 170,
+     "line": 142,
+     "end": 177,
      "args": [
       "args"
      ],
-     "lines": 34,
+     "lines": 36,
      "doc": "One region of one alignment file -> partial counts. args = (bam, ref_fasta, chrom, start, end).",
-     "constants": [],
+     "constants": [
+      "QUAL_MAX_METH"
+     ],
      "data_files": [],
      "traced_calls": {}
     },
@@ -4015,14 +4021,16 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 144,
-     "end": 157,
+     "line": 149,
+     "end": 164,
      "args": [
       "calls"
      ],
-     "lines": 14,
+     "lines": 16,
      "doc": "",
-     "constants": [],
+     "constants": [
+      "QUAL_MAX_METH"
+     ],
      "data_files": [],
      "traced_calls": {}
     },
@@ -4030,8 +4038,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 171,
-     "end": 178,
+     "line": 178,
+     "end": 185,
      "args": [
       "parts",
       "assembly"
@@ -4048,8 +4056,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 179,
-     "end": 183,
+     "line": 186,
+     "end": 190,
      "args": [
       "bam",
       "fa",
@@ -4072,8 +4080,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 186,
-     "end": 195,
+     "line": 193,
+     "end": 202,
      "args": [
       "per_sample"
      ],
@@ -4087,8 +4095,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 196,
-     "end": 201,
+     "line": 203,
+     "end": 208,
      "args": [
       "version"
      ],
@@ -4106,8 +4114,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 202,
-     "end": 203,
+     "line": 209,
+     "end": 210,
      "args": [
       "loose_share",
       "version"
@@ -4122,8 +4130,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 204,
-     "end": 208,
+     "line": 211,
+     "end": 215,
      "args": [
       "rec",
       "version"
@@ -4140,8 +4148,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 215,
-     "end": 222,
+     "line": 222,
+     "end": 229,
      "args": [
       "records"
      ],
@@ -4157,8 +4165,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 223,
-     "end": 228,
+     "line": 230,
+     "end": 235,
      "args": [
       "version"
      ],
@@ -4176,8 +4184,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 229,
-     "end": 237,
+     "line": 236,
+     "end": 244,
      "args": [
       "rec",
       "cell",
@@ -4196,8 +4204,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 240,
-     "end": 243,
+     "line": 247,
+     "end": 250,
      "args": [
       "rec",
       "version"
@@ -4214,8 +4222,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 244,
-     "end": 249,
+     "line": 251,
+     "end": 256,
      "args": [
       "healthy",
       "version"
@@ -4230,8 +4238,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 254,
-     "end": 255,
+     "line": 261,
+     "end": 262,
      "args": [
       "version"
      ],
@@ -4249,8 +4257,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 258,
-     "end": 269,
+     "line": 265,
+     "end": 276,
      "args": [
       "records",
       "version",

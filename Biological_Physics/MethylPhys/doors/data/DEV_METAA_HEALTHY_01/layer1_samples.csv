@@ -1,0 +1,154 @@
+gsm,file,cell
+GSM5652194,GSM5652194_Pancreas-Endothel-Z0000042D.pat.gz,pancreas endothelium
+GSM5652196,GSM5652196_Pancreas-Endothel-Z00000430.pat.gz,pancreas endothelium
+GSM5652189,GSM5652189_Kidney-Tubular-Endothel-Z0000042R.pat.gz,kidney tubular endothelium
+GSM5652188,GSM5652188_Kidney-Tubular-Endothel-Z000000Q3.pat.gz,kidney tubular endothelium
+GSM5652195,GSM5652195_Pancreas-Endothel-Z0000042X.pat.gz,pancreas endothelium
+GSM5652186,GSM5652186_Kidney-Glomerular-Endothel-Z0000045J.pat.gz,kidney glomerular endothelium
+GSM5652193,GSM5652193_Lung-Alveolar-Endothel-Z0000045H.pat.gz,lung alveolar endothelium
+GSM5652191,GSM5652191_Lung-Alveolar-Endothel-Z000000Q1.pat.gz,lung alveolar endothelium
+GSM5652192,GSM5652192_Lung-Alveolar-Endothel-Z000000QK.pat.gz,lung alveolar endothelium
+GSM5652187,GSM5652187_Kidney-Tubular-Endothel-Z000000PX.pat.gz,kidney tubular endothelium
+GSM5652199,GSM5652199_Colon-Fibroblasts-Z0000042C.pat.gz,colon fibroblasts
+GSM5652202,GSM5652202_Heart-Fibroblasts-Z0000041W.pat.gz,heart fibroblasts
+GSM5652198,GSM5652198_Colon-Fibroblasts-Z0000042A.pat.gz,colon fibroblasts
+GSM5652201,GSM5652201_Heart-Fibroblasts-Z0000041V.pat.gz,heart fibroblasts
+GSM5652206,GSM5652206_Skeletal-Muscle-Z00000429.pat.gz,striated muscle
+GSM5652203,GSM5652203_Heart-Fibroblasts-Z0000041X.pat.gz,heart fibroblasts
+GSM5652205,GSM5652205_Skeletal-Muscle-Z00000427.pat.gz,striated muscle
+GSM5652209,GSM5652209_Bladder-Smooth-Muscle-Z0000041Z.pat.gz,smooth muscle
+GSM5652207,GSM5652207_Aorta-Smooth-Muscle-Z0000041U.pat.gz,smooth muscle
+GSM5652208,GSM5652208_Coronary-Artery-Smooth-Muscle-Z00000420.pat.gz,smooth muscle
+GSM5652219,GSM5652219_Oligodendrocytes-Z000000TK.pat.gz,oligodendrocytes
+GSM5652216,GSM5652216_Heart-Cardiomyocyte-Z0000044Q.pat.gz,cardiomyocyte
+GSM5652223,GSM5652223_Cortex-Neuron-Z000000TF.pat.gz,cortical neurons
+GSM5652224,GSM5652224_Neuron-Z000000TH.pat.gz,cortical neurons
+GSM5652213,GSM5652213_Heart-Cardiomyocyte-Z0000044K.pat.gz,cardiomyocyte
+GSM5652212,GSM5652212_Heart-Cardiomyocyte-Z0000044G.pat.gz,cardiomyocyte
+GSM5652221,GSM5652221_Oligodendrocytes-Z0000042L.pat.gz,oligodendrocytes
+GSM5652220,GSM5652220_Oligodendrocytes-Z0000042E.pat.gz,oligodendrocytes
+GSM5652225,GSM5652225_Cortex-Neuron-Z0000042F.pat.gz,cortical neurons
+GSM5652233,GSM5652233_Liver-Hepatocytes-Z000000R3.pat.gz,hepatocyte
+GSM5652241,GSM5652241_Pancreas-Duct-Z0000043V.pat.gz,pancreatic duct
+GSM5652234,GSM5652234_Liver-Hepatocytes-Z000000T3.pat.gz,hepatocyte
+GSM5652239,GSM5652239_Pancreas-Duct-Z0000043T.pat.gz,pancreatic duct
+GSM5652240,GSM5652240_Pancreas-Duct-Z0000043U.pat.gz,pancreatic duct
+GSM5652235,GSM5652235_Liver-Hepatocytes-Z0000043Q.pat.gz,hepatocyte
+GSM5652247,GSM5652247_Pancreas-Delta-Z00000451.pat.gz,pancreatic delta
+GSM5652245,GSM5652245_Pancreas-Acinar-Z0000043X.pat.gz,pancreatic acinar
+GSM5652244,GSM5652244_Pancreas-Acinar-Z0000043W.pat.gz,pancreatic acinar
+GSM5652243,GSM5652243_Pancreas-Acinar-Z000000QX.pat.gz,pancreatic acinar
+GSM5652248,GSM5652248_Pancreas-Delta-Z00000454.pat.gz,pancreatic delta
+GSM5652249,GSM5652249_Pancreas-Delta-Z00000457.pat.gz,pancreatic delta
+GSM5652250,GSM5652250_Pancreas-Beta-Z00000452.pat.gz,pancreatic beta
+GSM5652252,GSM5652252_Pancreas-Beta-Z00000458.pat.gz,pancreatic beta
+GSM5652251,GSM5652251_Pancreas-Beta-Z00000455.pat.gz,pancreatic beta
+GSM5652254,GSM5652254_Pancreas-Alpha-Z00000456.pat.gz,pancreatic alpha
+GSM5652255,GSM5652255_Pancreas-Alpha-Z00000459.pat.gz,pancreatic alpha
+GSM5652256,GSM5652256_Kidney-Glomerular-Epithelial-Z0000045K.pat.gz,kidney glomerular epithelium
+GSM5652253,GSM5652253_Pancreas-Alpha-Z00000453.pat.gz,pancreatic alpha
+GSM5652257,GSM5652257_Kidney-Glomerular-Epithelial-Z0000045L.pat.gz,kidney glomerular epithelium
+GSM5652258,GSM5652258_Kidney-Tubular-Epithelial-Z000000QH.pat.gz,kidney tubular epithelium
+GSM5652259,GSM5652259_Kidney-Tubular-Epithelial-Z0000043Z.pat.gz,kidney tubular epithelium
+GSM5652260,GSM5652260_Kidney-Tubular-Epithelial-Z00000440.pat.gz,kidney tubular epithelium
+GSM5652264,GSM5652264_Thyroid-Epithelial-Z0000042S.pat.gz,thyroid epithelium
+GSM5652265,GSM5652265_Thyroid-Epithelial-Z0000042T.pat.gz,thyroid epithelium
+GSM5652266,GSM5652266_Thyroid-Epithelial-Z0000042U.pat.gz,thyroid epithelium
+GSM5652268,GSM5652268_Fallopian-Epithelial-Z000000S9.pat.gz,fallopien tubes epithelium
+GSM5652269,GSM5652269_Fallopian-Epithelial-Z000000UV.pat.gz,fallopien tubes epithelium
+GSM5652267,GSM5652267_Fallopian-Epithelial-Z000000Q7.pat.gz,fallopien tubes epithelium
+GSM5652271,GSM5652271_Endometrium-Epithelial-Z00000434.pat.gz,endometrium epithelium
+GSM5652272,GSM5652272_Endometrium-Epithelial-Z00000435.pat.gz,endometrium epithelium
+GSM5652273,GSM5652273_Endometrium-Epithelial-Z0000043S.pat.gz,endometrium epithelium
+GSM5652276,GSM5652276_Bone_marrow-Erythrocyte_progenitors-Z000000RK.pat.gz,erythrocyte progenitors
+GSM5652280,GSM5652280_Blood-T-CD4-Z000000U7.pat.gz,cd4 t cells
+GSM5652279,GSM5652279_Blood-T-CD4-Z000000TT.pat.gz,cd4 t cells
+GSM5652281,GSM5652281_Blood-T-CD4-Z000000UM.pat.gz,cd4 t cells
+GSM5652283,GSM5652283_Blood-T-CD8-Z000000U5.pat.gz,cd8 t cells
+GSM5652282,GSM5652282_Blood-T-CD8-Z000000TR.pat.gz,cd8 t cells
+GSM5652284,GSM5652284_Blood-T-CD8-Z000000UK.pat.gz,cd8 t cells
+GSM5652275,GSM5652275_Bone_marrow-Erythrocyte_progenitors-Z000000RH.pat.gz,erythrocyte progenitors
+GSM5652274,GSM5652274_Bone_marrow-Erythrocyte_progenitors-Z000000RF.pat.gz,erythrocyte progenitors
+GSM5652287,GSM5652287_Blood-T-CenMem-CD4-Z0000041N.pat.gz,t central memory cd4
+GSM5652286,GSM5652286_Blood-T-CenMem-CD4-Z0000041D.pat.gz,t central memory cd4
+GSM5652285,GSM5652285_Blood-T-CenMem-CD4-Z00000417.pat.gz,t central memory cd4
+GSM5652288,GSM5652288_Blood-T-Eff-CD8-Z00000419.pat.gz,t effector cell cd8
+GSM5652291,GSM5652291_Blood-T-EffMem-CD4-Z00000416.pat.gz,t effector memory cd4
+GSM5652289,GSM5652289_Blood-T-Eff-CD8-Z0000041F.pat.gz,t effector cell cd8
+GSM5652290,GSM5652290_Blood-T-Eff-CD8-Z0000041Q.pat.gz,t effector cell cd8
+GSM5652293,GSM5652293_Blood-T-EffMem-CD4-Z0000041M.pat.gz,t effector memory cd4
+GSM5652292,GSM5652292_Blood-T-EffMem-CD4-Z0000041C.pat.gz,t effector memory cd4
+GSM5652295,GSM5652295_Blood-T-EffMem-CD8-Z0000041G.pat.gz,effector memory cd8 t cells
+GSM5652296,GSM5652296_Blood-T-Naive-CD4-Z0000041E.pat.gz,naive cd4 t cells
+GSM5652298,GSM5652298_Blood-T-Naive-CD8-Z0000041H.pat.gz,naive cd8 t cells
+GSM5652299,GSM5652299_Blood-NK-Z000000TM.pat.gz,nk cells
+GSM5652302,GSM5652302_Blood-Monocytes-Z000000TP.pat.gz,monocytes
+GSM5652301,GSM5652301_Blood-NK-Z000000UF.pat.gz,nk cells
+GSM5652300,GSM5652300_Blood-NK-Z000000U1.pat.gz,nk cells
+GSM5652303,GSM5652303_Blood-Monocytes-Z000000U3.pat.gz,monocytes
+GSM5652304,GSM5652304_Blood-Monocytes-Z000000UH.pat.gz,monocytes
+GSM5652308,GSM5652308_Lung-Alveolar-Macrophages-Z00000448.pat.gz,lung alveolar macrophages
+GSM5652306,GSM5652306_Colon-Macrophages-Z00000446.pat.gz,colon macrophages
+GSM5652305,GSM5652305_Colon-Macrophages-Z00000444.pat.gz,colon macrophages
+GSM5652309,GSM5652309_Lung-Alveolar-Macrophages-Z0000044C.pat.gz,lung alveolar macrophages
+GSM5652310,GSM5652310_Lung-Interstitial-Macrophages-Z00000447.pat.gz,lung interstitial macrophages
+GSM5652317,GSM5652317_Blood-B-Z000000UB.pat.gz,b cells
+GSM5652316,GSM5652316_Blood-B-Z000000TX.pat.gz,b cells
+GSM5652312,GSM5652312_Lung-Interstitial-Macrophages-Z0000044E.pat.gz,lung interstitial macrophages
+GSM5652311,GSM5652311_Lung-Interstitial-Macrophages-Z0000044D.pat.gz,lung interstitial macrophages
+GSM5652319,GSM5652319_Blood-B-Mem-Z0000041J.pat.gz,memory b cells
+GSM5652320,GSM5652320_Blood-B-Mem-Z0000041K.pat.gz,memory b cells
+GSM5652318,GSM5652318_Blood-B-Z000000UR.pat.gz,b cells
+GSM5652322,GSM5652322_Tonsil-Palatine-Epithelial-Z000000QF.pat.gz,tonsil palatine epithelium
+GSM5652326,GSM5652326_Tonsil-Pharyngeal-Epithelial-Z000000S1.pat.gz,tonsil pharyngeal epithelium
+GSM5652324,GSM5652324_Tonsil-Palatine-Epithelial-Z000000RR.pat.gz,tonsil palatine epithelium
+GSM5652327,GSM5652327_Tongue-Epithelial-Z000000QV.pat.gz,tongue epithelium
+GSM5652323,GSM5652323_Tonsil-Palatine-Epithelial-Z000000RP.pat.gz,tonsil palatine epithelium
+GSM5652325,GSM5652325_Tonsil-Pharyngeal-Epithelial-Z000000Q9.pat.gz,tonsil pharyngeal epithelium
+GSM5652328,GSM5652328_Tongue-Epithelial-Z00000449.pat.gz,tongue epithelium
+GSM5652336,GSM5652336_Lung-Bronchus-Epithelial-Z000000RZ.pat.gz,lung bronchus epithelium
+GSM5652335,GSM5652335_Lung-Bronchus-Epithelial-Z000000QD.pat.gz,lung bronchus epithelium
+GSM5652329,GSM5652329_Tongue-Epithelial-Z0000044F.pat.gz,tongue epithelium
+GSM5652338,GSM5652338_Prostate-Epithelial-Z000000RV.pat.gz,prostate epithelium
+GSM5652339,GSM5652339_Prostate-Epithelial-Z000000S3.pat.gz,prostate epithelium
+GSM5652344,GSM5652344_Bladder-Epithelial-Z0000043F.pat.gz,bladder epithelium
+GSM5652343,GSM5652343_Bladder-Epithelial-Z000000QP.pat.gz,bladder epithelium
+GSM5652342,GSM5652342_Bladder-Epithelial-Z000000QM.pat.gz,bladder epithelium
+GSM5652340,GSM5652340_Prostate-Epithelial-Z0000045F.pat.gz,prostate epithelium
+GSM5652337,GSM5652337_Lung-Bronchus-Epithelial-Z000000S5.pat.gz,lung bronchus epithelium
+GSM5652348,GSM5652348_Breast-Luminal-Epithelial-Z000000VJ.pat.gz,breast luminal epithelium
+GSM5652349,GSM5652349_Breast-Luminal-Epithelial-Z000000VN.pat.gz,breast luminal epithelium
+GSM5652347,GSM5652347_Breast-Luminal-Epithelial-Z000000V2.pat.gz,breast luminal epithelium
+GSM5652350,GSM5652350_Breast-Basal-Epithelial-Z000000V6.pat.gz,breast basal epithelium
+GSM5652351,GSM5652351_Breast-Basal-Epithelial-Z000000VG.pat.gz,breast basal epithelium
+GSM5652352,GSM5652352_Breast-Basal-Epithelial-Z000000VL.pat.gz,breast basal epithelium
+GSM5652355,GSM5652355_Lung-Alveolar-Epithelial-Z000000VC.pat.gz,lung alveolar epithelium
+GSM5652356,GSM5652356_Lung-Alveolar-Epithelial-Z000000VE.pat.gz,lung alveolar epithelium
+GSM5652359,GSM5652359_Gastric-fundus-Epithelial-Z000000RX.pat.gz,gastric fundus epithelium
+GSM5652354,GSM5652354_Lung-Alveolar-Epithelial-Z000000T1.pat.gz,lung alveolar epithelium
+GSM5652360,GSM5652360_Gastric-fundus-Epithelial-Z000000SK.pat.gz,gastric fundus epithelium
+GSM5652361,GSM5652361_Gastric-fundus-Epithelial-Z000000SV.pat.gz,gastric fundus epithelium
+GSM5652362,GSM5652362_Gastric-body-Epithelial-Z000000SD.pat.gz,gastric body epithelium
+GSM5652363,GSM5652363_Gastric-body-Epithelial-Z000000SM.pat.gz,gastric body epithelium
+GSM5652364,GSM5652364_Gastric-body-Epithelial-Z000000ST.pat.gz,gastric body epithelium
+GSM5652365,GSM5652365_Gastric-antrum-Epithelial-Z000000SF.pat.gz,gastric antrum epithelium
+GSM5652366,GSM5652366_Gastric-antrum-Epithelial-Z000000SP.pat.gz,gastric antrum epithelium
+GSM5652370,GSM5652370_Colon-Right-Epithelial-Z000000V0.pat.gz,colon epithelium
+GSM5652371,GSM5652371_Colon-Right-Epithelial-Z000000V8.pat.gz,colon epithelium
+GSM5652367,GSM5652367_Gastric-antrum-Epithelial-Z000000SR.pat.gz,gastric antrum epithelium
+GSM5652373,GSM5652373_Colon-Left-Epithelial-Z000000VA.pat.gz,colon epithelium
+GSM5652375,GSM5652375_Colon-Left-Endocrine-Z0000044T.pat.gz,colon enteroendocrine
+GSM5652372,GSM5652372_Colon-Right-Endocrine-Z0000044S.pat.gz,colon enteroendocrine
+GSM5652379,GSM5652379_Small-int-Epithelial-Z000000RT.pat.gz,small intestine epithelium
+GSM5652381,GSM5652381_Small-int-Epithelial-Z000000UY.pat.gz,small intestine epithelium
+GSM5652380,GSM5652380_Small-int-Epithelial-Z000000UW.pat.gz,small intestine epithelium
+GSM5652181,GSM5652181_Saphenous-Vein-Endothel-Z000000RM.pat.gz,vascular saphenous endothelium
+GSM5652184,GSM5652184_Kidney-Glomerular-Endothel-Z000000Q5.pat.gz,kidney glomerular endothelium
+GSM5652179,GSM5652179_Aorta-Endothel-Z00000422.pat.gz,aorta endothelium
+GSM5652182,GSM5652182_Saphenous-Vein-Endothel-Z000000S7.pat.gz,vascular saphenous endothelium
+GSM5652176,GSM5652176_Adipocytes-Z000000T7.pat.gz,adipocytes
+GSM5652178,GSM5652178_Adipocytes-Z000000T5.pat.gz,adipocytes
+GSM5652180,GSM5652180_Aorta-Endothel-Z0000043G.pat.gz,aorta endothelium
+GSM5652185,GSM5652185_Kidney-Glomerular-Endothel-Z00000443.pat.gz,kidney glomerular endothelium
+GSM5652183,GSM5652183_Saphenous-Vein-Endothel-Z000000SB.pat.gz,vascular saphenous endothelium
+GSM5652177,GSM5652177_Adipocytes-Z000000T9.pat.gz,adipocytes

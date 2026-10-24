@@ -32,6 +32,10 @@ cell's gap sit inside it; replacing e with a value predicted from the held error
 
 **Sources:** IAM-Atlas v2.1 (public, committed in this repository: each cell type's healthy level at every site) and its ruler file (public, committed: each site's probe design and the anchor sites); GEO GSE235717, GSE42861, GSE87571, GSE153712 and GSE51032 (public: raw IDATs of healthy whole bloods, all spent).
 
+**Synthetic test:** DEV_METAA_HEALTHY_01/synthetic_02.py, DEV_METAA_HEALTHY_01/synthetic_02_summary.txt, DEV_METAA_HEALTHY_01/gain_counter_01.py, DEV_METAA_HEALTHY_01/gain_counter_01_summary.txt
+
+**Prior reading:** every series here was read before by this project: GSE235717 (the example healthy blood), GSE42861, GSE87571 and GSE153712 (replays R1 to R4), GSE51032 (EPIC-Italy) and GSE186458 (the atlas's own molecules); this is development, chosen from spent data on purpose, and no commissioning claim rests on it.
+
 ## Bars (at most three)
 
 1. **Synthetic:** arrays built from the atlas mix with a known line and noise. A / A_pred reads 1.000 within 0.005 across the line and noise
@@ -103,3 +107,32 @@ Every array through `run_sample.py`.
   grows (the shares move by a total of 0.0499, 0.0904 and 0.1033 on the mild, typical and weak arrays; `share_drift.py`, added after the run, output `share_drift_summary.txt`), so the atlas expectation the
   prediction uses is not the one the array was built from. The typical array drifts almost as much and reads within 0.002, so the drift
   alone does not explain the miss.
+
+## Layer 1: the atlas's healthy levels from the held error (written and committed before any file is counted)
+
+**The instrument's job:** a healthy cell's level at a site it holds is set by how faithfully it holds the mark, so the atlas's healthy values
+there come from physics and only which sites each cell holds is measured.
+
+**The prediction.** Each healthy cell type c has two held errors, counted on its own molecules by Stage Q2: on the loss side (a lone
+unmethylated call between two methylated ones, on molecules held marked: `held_err`) and, new, on the gain side (a lone methylated call
+between two unmethylated ones, on molecules held unmarked, at least 6 calls and at most 20 % methylated: `gain_err`). Each counted lone rate
+r is a per-call rate eps through r = eps (1 - eps)^2. Then, where c holds the mark, its healthy level is **1 - eps_loss(c)**; where c holds it
+absent, **eps_gain(c)**. What is left, the atlas's level minus the prediction, is **the gap**: the part only biology sets (sites held partly,
+or differently between cells of one type), measured once.
+
+**Sources:** the published sequencing atlas of human cell types, GEO GSE186458 (public: 153 healthy .pat files of 56 cell types, spent;
+`data/DEV_METAA_HEALTHY_01/layer1_samples.csv`), and IAM-Atlas v2.1 (public, committed: each cell type's healthy level at every site).
+
+**Bars:**
+1. **The counter (synthetic; `gain_counter_01.py`, output `gain_counter_01_summary.txt`; first run by calling the counter directly, then rewritten so each constructed file is read by `run_sample.py --dev-count-only`, with identical results):** constructed
+   molecules with known loss and gain rates, recovered within 5 %, and the two sides within 5 % of each other at equal rates. **Met:** held
+   side 0.956 to 0.965 of the expected rate, gain side 0.969 to 0.992; at equal rates gain over held 1.011. The slight shortfall is the same
+   on both sides (the qualifying filter drops molecules carrying many errors); it is stated, not corrected.
+2. **Marked side:** at the sites marked at 0.75 or above in all 79 cell types, |atlas median - (1 - eps_loss)| <= 0.02 in at least 45 of
+   the 56 cell types.
+3. **Unmarked side:** at the islands unmarked in all 79 (`stage_metaa_atlas.territory_sets`), |atlas median - eps_gain| <= 0.02 in at
+   least 45 of the 56.
+
+Every file through `run_sample.py --dev-count-only` (`count_atlas_01.py`, on GitHub's machines); scorer `layer1_score.py`. If the unmarked
+side misses with the atlas above the prediction, that excess is the healthy islands' accumulated drift, a reading in its own right
+(plan 48.3).

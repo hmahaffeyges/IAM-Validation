@@ -570,6 +570,21 @@
      "what": "The five DEV-ERASE-01 primary units recounted on the commissioned counter: U2-U5 complete, U1 first pair; every ratio within 0.04 of the earlier count (0.79 to 0.99), so the half-and-half rule is not supported on the commissioned counter either",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
      "run": "39994306888"
+    },
+    {
+     "id": "14.7",
+     "date": "2026-10-24",
+     "status": "running",
+     "what": "Layer 1: the atlas's healthy levels predicted from each cell type's loss-side and gain-side held errors; the gain side added to Stage Q2's counter (synthetic test met); the gap measured",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "next": "the count on GitHub (153 files, run_sample.py --dev-count-only); then layer1_score.py"
+    },
+    {
+     "id": "14.8",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Layer 2: the held error region by region, from each region's own loose share (shares the work of IAM-A's C-Score version 2, plan 41.1)",
+     "next": "after layer 1"
     }
    ]
   },

@@ -1,0 +1,43 @@
+% DRAFT (plan 14.4, 14.7). Not loaded by main.tex. It goes into the book at the book pass, once the five-laboratory test (bar 2) and
+% layer 1 have run. Every number below is printed by the chain in a committed file:
+%   doors/data/DEV_METAA_HEALTHY_01/synthetic_02_summary.txt (run_sample.py on a real healthy blood and on synthetic arrays)
+%   doors/data/DEV_METAA_HEALTHY_01/gain_counter_01_summary.txt (Stage Q2's gain-side count on constructed molecules)
+% Still to write before it goes in: bar 2 (100 healthy bloods, five laboratories), layer 1 (the 56 cell types), the per-cell gap, figures.
+
+\section{Where Met-A's healthy middle line comes from}\label{sec:metaa_healthy_line}
+
+IAM-A's middle line is derived: a sample's own loose share predicts the error a healthy cell of its kind should make, and the reading is
+the measured error over that prediction. Met-A's middle line has so far been measured: the disorder a healthy sample of the same kind
+reads on the same platform, or IAM-Atlas v2.1 mixed in the sample's own cell shares. This section is the route from measuring that line
+to predicting it, in two layers.
+
+\subsection{Why a healthy blood does not read 1}
+
+The same healthy blood reads differently in different laboratories. Before any correction, healthy whole blood reads about 1.11 in one
+series and about 0.96 in another. The blood is not the difference; the arrays are. An array does not report a site's true level. It
+reports a compressed, noisy copy: a probe design's lowest readings sit a little above 0, its highest a little below 1, and every reading
+carries noise. Disorder is curved, and it rises steeply near 0 and near 1, so even a small offset at a site that is almost never marked
+adds disorder that is not in the blood.
+
+\subsection{Layer one: the array measures its own blur}
+
+Some sites are held the same way in all 79 healthy cell types of the atlas, either firmly marked or firmly unmarked. Whatever an array
+reads at those anchor sites is the array, not the blood. On them the chain measures, for each probe design, the array's own straight line
+(where its 0 and its 1 actually fall) and its own noise. From those three numbers it predicts what the array would read if the sample
+were exactly healthy, the atlas mixed in the sample's own shares, and divides the measured reading by that prediction. Nothing is fitted:
+the line and the noise are measurements of the array where every healthy cell agrees.
+
+On one real healthy blood read from its raw files, the prediction takes the reading from 1.11291 to 1.0127. Through the whole chain, on
+synthetic arrays built with a known blur, a healthy sample reads 0.99689, 0.99866 and 0.99278 on mild, typical and weak arrays, and a loss
+placed away from the anchors keeps most of its rise. One limit is physical and stays: a loss spread evenly over every site, the anchors
+included, looks exactly like a weaker array, and no reading made on the array alone can tell the two apart. Cancer's losses are not even;
+they fall in the loosely held stretches of the genome, not at sites every cell type holds firmly.
+
+\subsection{Layer two: the atlas's healthy levels from the held error}
+
+The prediction still uses the atlas's measured healthy levels. The next layer asks where those levels come from. A cell that holds a mark
+at a site keeps it on every copy except where a copy drops it, so its level there should be one minus its held error on the loss side. A
+cell that holds a site unmarked should sit at its held error on the gain side, how often a copy adds a mark it should not. Stage Q2 now
+counts both on a cell's own molecules; on constructed molecules it recovers known rates within a few percent, the same on both sides.
+Whatever is left after the prediction is the gap: sites a cell holds only partly, the part only biology sets, measured once. If the
+prediction holds, the atlas need only say which sites each cell holds; the levels come from physics and the blur from the array.

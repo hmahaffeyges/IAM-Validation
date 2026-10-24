@@ -30,6 +30,22 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": [
+    {
+     "title": "The gain side of the held error, counted by Stage Q2 (GRP-019, DEV-METAA-HEALTHY-01 layer 1)",
+     "status": "synthetic only",
+     "what": "The counter now also counts a mark gained by error on molecules held unmarked, the mirror of the held error; it recovers known rates on constructed molecules.",
+     "outcome": null,
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
   }
  ],
  "open_at_turnover": "Running on GitHub's machines: 28 of the 30 healthy plasmas (sequencing to molecules, then the one command), and the rest of the earlier engine's series with raw arrays: Crohn's and colitis blood and sorted cells, stroke, prostate, pancreas, brain and aorta tissues, glioma patients' blood and cultured endothelial cells. Open: why EPIC-Italy's case arrays carry weaker signal.",

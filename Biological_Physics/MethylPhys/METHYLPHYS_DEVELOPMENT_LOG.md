@@ -3146,3 +3146,6 @@ Each array's own line and noise, measured at the atlas's firmly held anchor site
 
 ### 2026-10-24 · Met-A's healthy middle line, synthetic test 2 through the one command (GRP-019, DEV-METAA-HEALTHY-01)
 Every array through run_sample.py: healthy A / A_pred 0.99689 and 0.99866 on the mild and typical synthetic arrays, 0.99278 on the weak one (bar 1 not fully met); a 5 % loss off the anchors keeps 66 to 79 % of its rise. The real healthy blood GSM7508429 reads 1.0127 against 1.11291 raw. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).
+
+### 2026-10-24 · The gain side of the held error, counted by Stage Q2 (GRP-019, DEV-METAA-HEALTHY-01 layer 1)
+Stage Q2 now also counts a lone methylated call on molecules held unmarked. On constructed molecules it recovers the gain rate at 0.969 to 0.992 of the built-in value and the loss rate at 0.956 to 0.965, and at equal rates the two sides agree (1.011). Layer 1, written before any real file is counted, predicts the atlas's healthy levels from the two held errors of each of 56 cell types. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).

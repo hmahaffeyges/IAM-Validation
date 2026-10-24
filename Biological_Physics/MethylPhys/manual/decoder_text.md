@@ -1040,10 +1040,10 @@ The hg19 tiles of 2,000 consecutive CpGs on each autosome, in CpG-index coordina
 
 ### stage_q2_selfref.py::_finish
 Turns tile counts and hole counts into the record: L, the number of tiles, ε and its opportunities, and the 10th, 50th and 90th
-percentiles of the tile means for the shape check.
+percentiles of the tile means for the shape check. When the gain-side counts are given, it adds gain_err and gain_opp.
 
 ### stage_q2_selfref.py::count_pat
-The `.pat` reader: even lines are added to their tile; odd lines that qualify as held runs add their interior calls and isolated holes.
+The `.pat` reader: even lines are added to their tile; odd lines that qualify as held runs add their interior calls and isolated holes. Since DEV-METAA-HEALTHY-01 it also counts the gain side, the mirror image: on molecules held unmarked (at least 6 calls, at most 20 % methylated, QUAL_MAX_METH), a lone methylated call between two unmethylated ones over the interior calls (gain_err, gain_opp). The loss side and every earlier output are unchanged.
 
 ### stage_q2_selfref.py::_cpg_index
 The positions of every CpG in a chromosome's sequence.

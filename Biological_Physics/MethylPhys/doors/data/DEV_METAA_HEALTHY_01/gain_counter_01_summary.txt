@@ -1,0 +1,4 @@
+DEV-METAA-HEALTHY-01 counter test 1: constructed molecules, 12 calls, seed 20261024, each file read by run_sample.py --dev-count-only
+built loss 0.045 gain 0.045 | held_err 0.03931 (expected about 0.04104, ratio 0.958) | gain_err 0.03976 (expected about 0.04104, ratio 0.969) | gain/held 1.011
+built loss 0.045 gain 0.012 | held_err 0.03925 (expected about 0.04104, ratio 0.956) | gain_err 0.01162 (expected about 0.01171, ratio 0.992) | gain/held 0.296
+built loss 0.03 gain 0.006 | held_err 0.02724 (expected about 0.02823, ratio 0.965) | gain_err 0.00587 (expected about 0.00593, ratio 0.990) | gain/held 0.215
