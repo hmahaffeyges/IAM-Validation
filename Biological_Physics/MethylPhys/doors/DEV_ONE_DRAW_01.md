@@ -250,7 +250,7 @@ the reading, output `mk_standin_summary.txt`). Donor 1's 33 megakaryocyte sample
 
 **Synthetic test cfDNA 2** (`data/DEV_ONE_DRAW_01/synthetic_cfdna_02.py`, output `synthetic_cfdna_02_summary.txt`; written with its expectation
 before it ran, committed together with its result): Stage Q2 now also records the loose share molecule by molecule (`mol_low_share`, below the
-2/3 cut; `mol_mid_share`, held neither marked nor unmarked), beside the tile loose share, used by no reading yet. Test 1's two cells, each
+0.70 cut the tile share uses; `mol_mid_share`, held neither marked nor unmarked), beside the tile loose share, used by no reading yet. Test 1's two cells, each
 with 5 % of tiles held undecided in its own set:
 
 | Sample | Tile loose share | Molecules below the cut | Undecided molecules |

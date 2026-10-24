@@ -1504,7 +1504,7 @@ percentiles of the tile means for the shape check. When the gain-side counts are
 
 ### `stage_q2_selfref.py::_mol`
 
-The loose share counted molecule by molecule (development, recorded only): of the molecules with at least six calls on the tile half of the file, the share below the two-thirds cut and the share held neither marked nor unmarked (between 20 and 80 % methylated). Unlike the tile loose share, both add linearly when cell types mix, so a mix of cells reads the same share as one of them (synthetic test cfDNA 2).
+The loose share counted molecule by molecule (development, recorded only): of the molecules with at least six calls on the tile half of the file, the share below the 0.70 cut the tile loose share uses and the share held neither marked nor unmarked (between 20 and 80 % methylated). Unlike the tile loose share, both add linearly when cell types mix, so a mix of cells reads the same share as one of them (synthetic test cfDNA 2).
 
 *Code:* `stage_q2_selfref.py` line 86 (7 lines) · arguments: M · calls: not called on the traced runs
 
