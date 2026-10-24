@@ -596,9 +596,9 @@
     {
      "id": "14.10",
      "date": "2026-10-24",
-     "status": "open",
+     "status": "running",
      "what": "A maintenance knockout as a test of the floor: the published information-theory study of paediatric ALL (Nature Biomedical Engineering 2021; informME, an Ising model of methylation fitted per 3-kb region) knocked out UHRF1, DNMT1's partner in maintenance methylation, in the Reh leukaemia line and found methylation lost and entropy raised genome-wide, with entropy falling in heterochromatic B domains where methylation went almost to zero (the ceiling turnover). Its WGBS is public (GEO GSE116229: pre-B ALL of four subtypes, normal pre-B2 and cord-blood B cells, Reh control and UHRF1 knockout), unread and reserved. Questions: does IAM-A's held error rise on the knockout; do the leukaemias read beyond Normal against their own loose share; does the distance to the ceiling show the B-domain turnover",
-     "next": "the author decides whether to spend GSE116229; then alignment and the one command on GitHub's machines"
+     "next": "the two counts on GitHub (erase_test, uhrf1_samples.csv); then the record"
     },
     {
      "id": "14.11",

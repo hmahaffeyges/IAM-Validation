@@ -137,3 +137,21 @@ counts in `data/DEV_ERASE_01/recount_01/`, the units in `recount_01/recount_unit
 U1's second pair (GSM3618718, GSM3618720) stopped at the machines' 6-hour limit while aligning, nothing saved; it waits on a split run (plan
 14.5). **In plain words.** On the commissioned counter the result is the same: removing the eraser lowers the held error by a tenth to a fifth,
 never by half, so the half-and-half rule is not supported where we count. The derivation of the firm rate needs another route.
+
+## A maintenance knockout: UHRF1 (written and committed before it runs; plan 14.10)
+
+**The question:** UHRF1 brings DNMT1 to each newly copied strand; without it the cell cannot hold a mark through division. The published
+information-theory study of paediatric leukaemia (Nature Biomedical Engineering 2021) knocked it out in the Reh leukaemia line and found
+methylation lost and entropy raised genome-wide. What does IAM-A's count see on the same molecules?
+
+**Data spent (author: "Knockout pair only"):** GEO GSE116229, WGBS of Reh with a non-targeting control (GSM4914798, SRR13085130) and with
+UHRF1 knocked out (GSM4914799, SRR13085131); the study's leukaemias and normal B-cell precursors stay unread. `data/DEV_ERASE_01/uhrf1_samples.csv`,
+the eraser recount's pipeline unchanged (`erase_gh.sh`, the same fixed 10 million read pairs from each), counted by `run_sample.py`
+(Stage Q2, count only: a cultured line has no healthy shape reference).
+
+**Written before it runs, both outcomes informative:**
+- **The held error rises in the knockout:** maintenance failure appears as holes in held molecules, the route the firm-rate derivation
+  needs.
+- **The loose share rises and the held error barely moves:** maintenance failure removes whole molecules from the held class (as the
+  decitabine test found), and the floor's derivation must take the loose route.
+Nothing scored.
