@@ -196,6 +196,14 @@
      "what": "R3: aging on GSE87571 (732 healthy bloods, 14 to 94) in place of Hannum GSE40279, which has no IDATs",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
      "next": "read the two batches; then each reading against age"
+    },
+    {
+     "id": "0.7",
+     "date": "2026-10-23",
+     "status": "running",
+     "what": "R4: Alzheimer's on AIBL GSE153712 (726 EPIC v1 bloods), against the earlier engine's CPG-VAL-008 and 009",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "next": "read the two batches; then r23_score.py r4"
     }
    ]
   },

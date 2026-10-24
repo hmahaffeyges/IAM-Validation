@@ -86,3 +86,14 @@ smokers (all, and the controls alone), and for R3, each reading against age (ran
 lymphocytes first); Met-A for the whole sample and each cell; the territories; the distance to the ceiling. **Positive control, R2:** the
 chain's own calibrated value at cg05575921 (the AHRR site that smoking lowers most strongly in blood), current against never; if the chain
 does not show it, its intake or calibration is wrong. R3 has its own: cg16867657 (ELOVL2), which rises with age in blood. Both are recorded by `run_sample.py` as `control_sites` (values only, no reading uses them). The scorer, `data/DEV_REPLICATE_01/r23_score.py`, is committed before any reading exists.
+
+## R4, Alzheimer's disease: AIBL (written and committed before any of these arrays is read by the chain)
+
+**Data.** GSE153712 (AIBL, EPIC v1, raw IDATs): 726 whole bloods, 471 healthy controls, 161 Alzheimer's disease, 94 mild cognitive
+impairment (`data/DEV_REPLICATE_01/r4_aibl_labels.csv`; GEO records no age). Spent: the earlier engine read it (CPG-VAL-008, 009, 012).
+**Earlier results to compare** (`r4_earlier_results.txt`): its per-cell reading lower in Alzheimer's for most cell types, strongest in
+eosinophils, neutrophils, monocytes and B cells; its distance from healthy higher in Alzheimer's. **The reading:** every array by
+`run_sample.py` (`--cell-panel atlas --dev-metaa-allsites`), pass 1, two batches. **Compared** by `r23_score.py r4`: Alzheimer's and mild
+cognitive impairment each against healthy controls, on the cell shares, Met-A for the whole sample and each cell, the territories and the
+distance to the ceiling. EPIC v1 whole blood is the platform and specimen the chain is commissioned on, so here the readings are as close to
+the commissioned ones as any replay gets.

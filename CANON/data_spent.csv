@@ -134,7 +134,7 @@ PRJNA325786 (Methow steelhead) - derived,spent,PROC-SALMON-01,s3_roadmap_invento
 "PRJNA389610 (coho, Le Luyer) - derived",spent,DEV-COHO-CC-01 (Salmonid/DEV_COHO_CC_01),s3_roadmap_inventory 2026-10-11
 PRJNA892473 (Rimouski River salmonids) - derived,spent,PROC-RIMOUSKI-01 (doors/PROC_RIMOUSKI_01_PREREG.md; FISH_DEVELOPMENT_LOG),s3_roadmap_inventory 2026-10-11
 PRJNA944546 / GSE227271 (brook charr) - derived,spent,PROC-CHARR-01 (doors/PROC_CHARR_01_*),s3_roadmap_inventory 2026-10-11
-GSE153712,spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
+GSE153712,spent,"old VAL / H_min tests (old_val_datasets.csv); DEV-REPLICATE-01 R4 (all 726, tuning)",old_val_reuse 2026-10-11
 GSE243529,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
 GSE283951,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11
 GSE281691,partly spent,old VAL / H_min tests (old_val_datasets.csv),old_val_reuse 2026-10-11

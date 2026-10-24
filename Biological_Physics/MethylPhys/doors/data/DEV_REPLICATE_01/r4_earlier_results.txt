@@ -1,0 +1,3 @@
+The earlier engine's AIBL results compared in R4, quoted from the author's CPG VAL TESTING PACKAGE (not in this repository; class-era instrument):
+CPG-VAL-008 (AD VAL_TESTING/CPG_VAL_008_AD_AIBL_per_celltype/CPG_VAL_008_OUTCOME.md), GSE153712, 161 Alzheimer's against 471 healthy: the per-cell reading lower in Alzheimer's for 106 of 115 cell types; strongest eosinophils d -0.426, neutrophils -0.408, CD14 monocytes -0.393, B cells -0.380.
+CPG-VAL-009 (VAL009-014/CPG_VAL_009_OUTCOME.md): distance from the healthy centroid, Alzheimer's against healthy, d +0.200.

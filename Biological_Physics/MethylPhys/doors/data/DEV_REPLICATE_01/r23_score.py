@@ -4,11 +4,12 @@ against never smokers, all and the controls alone: each reading's medians, the d
 p. R3: each reading against age, Spearman's rho and its p. Readings: the control sites (recorded values), the cell shares of neutrophils, CD4,
 CD8 and B cells, NK cells and monocytes, Met-A for the whole sample and each place, Met-A for neutrophils, CD4 and CD8 T cells, B cells and
 monocytes, the two territories, and the whole sample's distance to the ceiling.
-Usage: python3 r23_score.py r2|r3 FOLDER_OF_BUNDLES [OUT.txt]"""
+R4 (added before any R4 reading exists): AIBL GSE153712, Alzheimer's disease and mild cognitive impairment each against healthy controls, by
+the same statistics as R2. Usage: python3 r23_score.py r2|r3|r4 FOLDER_OF_BUNDLES [OUT.txt]"""
 import sys, os, glob, json, numpy as np, pandas as pd
 from scipy import stats
 H = os.path.dirname(os.path.abspath(__file__)); which, src = sys.argv[1], sys.argv[2]; out = sys.argv[3] if len(sys.argv) > 3 else os.path.join(src, f"{which}_summary.txt")
-L = pd.read_csv(os.path.join(H, "r2_smoking_labels.csv" if which == "r2" else "r3_aging_labels.csv"), dtype=str).set_index("gsm")
+L = pd.read_csv(os.path.join(H, {"r2": "r2_smoking_labels.csv", "r3": "r3_aging_labels.csv", "r4": "r4_aibl_labels.csv"}[which]), dtype=str).set_index("gsm")
 SH = ("neutrophils", "cd4 t cells", "cd8 t cells", "b cells", "nk cells", "monocytes"); EC = ("neutrophils", "cd4 t cells", "cd8 t cells", "b cells", "monocytes")
 rows, seen = [], set()
 for f in sorted(glob.glob(os.path.join(src, "**", "GSM*.json"), recursive=True)):
@@ -27,9 +28,11 @@ for f in sorted(glob.glob(os.path.join(src, "**", "GSM*.json"), recursive=True))
     rows.append(r)
 X = pd.DataFrame(rows).set_index("gsm").join(L); feats = [c for c in X.columns if c not in L.columns]
 T = [f"DEV-REPLICATE-01 {which}: {len(X)} of {len(L)} arrays read (pass 1, untared)"]
-if which == "r2":
-    for name, M in (("all", X), ("controls only", X[X.disease_state.str.lower() == "normal"])):
-        a, b = M[M.smoking_status == "current"], M[M.smoking_status == "never"]; T.append(f"-- current ({len(a)}) against never ({len(b)}), {name}")
+if which in ("r2", "r4"):
+    pairs = ((("all", X), "current", "never", "smoking_status"), (("controls only", X[X.disease_state.str.lower() == "normal"] if which == "r2" else X), "current", "never", "smoking_status")) if which == "r2" else \
+            ((("Alzheimer's", X), "Alzheimer's disease", "healthy control", "status"), (("mild cognitive impairment", X), "Mild Cognitive Impairment", "healthy control", "status"))
+    for (name, M), ga, gb, col in pairs:
+        a, b = M[M[col] == ga], M[M[col] == gb]; T.append(f"-- {ga} ({len(a)}) against {gb} ({len(b)}), {name}")
         for c in feats:
             x, y = pd.to_numeric(a[c], errors="coerce").dropna(), pd.to_numeric(b[c], errors="coerce").dropna()
             if len(x) < 5 or len(y) < 5: continue
