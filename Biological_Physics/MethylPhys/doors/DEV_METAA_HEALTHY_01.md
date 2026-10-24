@@ -30,6 +30,8 @@ agrees; the atlas and the shares are the chain's own.
 **What is not derived yet, stated:** the atlas expectation e itself is measured (built from healthy cells), and the held error and each
 cell's gap sit inside it; replacing e with a value predicted from the held error and the gap is the next layer (plan 14.4).
 
+**Sources:** IAM-Atlas v2.1 (public, committed in this repository: each cell type's healthy level at every site) and its ruler file (public, committed: each site's probe design and the anchor sites); GEO GSE235717, GSE42861, GSE87571, GSE153712 and GSE51032 (public: raw IDATs of healthy whole bloods, all spent).
+
 ## Bars (at most three)
 
 1. **Synthetic:** arrays built from the atlas mix with a known line and noise. A / A_pred reads 1.000 within 0.005 across the line and noise
