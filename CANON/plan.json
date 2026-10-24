@@ -173,8 +173,8 @@
      "id": "49.4",
      "date": "2026-10-24",
      "status": "open",
-     "what": "The study's pre-B2 controls (an earlier study of B-cell development)",
-     "next": "find the dataset"
+     "what": "The study's pre-B2 controls come from the published whole-genome methylome of human B-cell differentiation (Nature Genetics 2015, BLUEPRINT), held in the European Genome-phenome Archive under controlled access (its array data is EGAS00001001196); reading it needs a data access application. The public controls in GSE116229 are the 3 cord-blood CD19+ samples. IAM-A needs no control (each sample against its own loose share); the controls matter for setting the chain's readings beside the study's group comparisons",
+     "next": "the author decides whether to apply for access; until then the cord-blood controls stand in"
     },
     {
      "id": "49.5",

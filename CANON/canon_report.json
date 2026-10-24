@@ -1050,7 +1050,7 @@
 "use": "IAM-A",
 "severity": "warn",
 "status": "LIVE",
-"text": "**Question.** Does the gate-error reading rise in a primary tumor against the same patient's adjacent normal tissue \u2014 no culture, no cell line,"
+"text": "**Question.** Does the gate-error reading rise in a primary tumour against the same patient's adjacent normal tissue \u2014 no culture, no cell line,"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_PREREG.md",
