@@ -9,8 +9,9 @@ equations; Data availability and Code availability; five or six main figures and
 - No number is typed by hand in the paper. Every value is read from the canon (`CANON/manifest.json` rows and the test records named
   below) by the paper's generator, which is to be written; a value whose test has not run shows as `[pending: TEST]`. The values quoted
   in this outline are copied from `INTRODUCTION.md` for orientation only.
-- Statistical and information-theoretic names only: a Bayesian hierarchical model sampled by Hamiltonian Monte Carlo (No-U-Turn), joint
-  calibration of laboratory and platform offsets, split-half null tests, an information-geometric embedding (Fisher-Rao distance), a
+- Statistical and information-theoretic names only: a Bayesian hierarchical model sampled by Hamiltonian Monte Carlo (No-U-Turn),
+  laboratory and platform terms estimated in a calibration stage and held fixed in the sampling (not sampled jointly: that was tested and
+  not adopted), split-half null tests, an information-geometric embedding (Fisher-Rao distance), a
   thermodynamic lower bound (Landauer). How the methods were arrived at belongs to the book, not the paper.
 - The framing builds on the published study: it shows what a derived bound adds to its approach, tested on its own data, and credits what
   was taken from it.
@@ -29,8 +30,8 @@ leukemia*
    each deeply sequenced sample, which excludes arrays, shallow sequencing and cell-free DNA.
 2. What we introduce: a lower bound on the error of a maintained mark from the thermodynamics of information, and readings of each sample
    against that bound and against its own reference, with nothing fitted per sample.
-3. The shared reference: a 79-cell-type methylation atlas built by a Bayesian hierarchical model with laboratory and platform offsets
-   calibrated jointly, with full posteriors and convergence diagnostics at every site.
+3. The shared reference: a 79-cell-type methylation atlas built by a Bayesian hierarchical model with laboratory and platform terms
+   calibrated across 21 sources, with full posteriors and convergence diagnostics at every site.
 4. The test: the published leukemia whole-genome bisulfite data reread, `[pending: DEV-ALL-INFO-01]`; the UHRF1 knockout,
    `[pending: DEV-ERASE-01 UHRF1]`.
 5. Reach: arrays and cell-free DNA, `[pending]`. All code, data and the atlas are public.
@@ -58,8 +59,8 @@ ceiling and read-count records.* **Figure 1.**
 share; the self-reference line from healthy cell types; why this is not circular (synthetic tests); reproduction in a second laboratory
 and in mouse. *Sources: IAM-A records; `doors/DEV_REPLICATE_01.md`.* **Figure 2.**
 
-**R3. A jointly calibrated atlas lets any sample be read without a reference of its own.** IAM-Atlas v2.1: 21 sources, offsets calibrated
-jointly, posteriors and convergence diagnostics at every site, split-half null maps; deconvolution reproduced across laboratories; Met-A
+**R3. A jointly calibrated atlas lets any sample be read without a reference of its own.** IAM-Atlas v2.1: 21 sources, laboratory and platform
+terms calibrated across them, posteriors and convergence diagnostics at every site, split-half null maps; deconvolution reproduced across laboratories; Met-A
 and its healthy line derived laboratory by laboratory. *Sources: `atlas/v2.1/README.md`; `doors/DEV_METAA_HEALTHY_01.md` (bar 2), layer 1
 (plan 14.7), `[pending]`.* **Figure 3.**
 
