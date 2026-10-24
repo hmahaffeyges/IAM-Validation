@@ -140,6 +140,8 @@ never by half, so the half-and-half rule is not supported where we count. The de
 
 ## A maintenance knockout: UHRF1 (written and committed before it runs; plan 14.10)
 
+**Prior reading:** GSE116229 (the maintenance knockout): only the Reh control and UHRF1 knockout counts were read for this record; the series is spent for the leukemia replication (DEV_ALL_INFO_01.md).
+
 **The question:** UHRF1 brings DNMT1 to each newly copied strand; without it the cell cannot hold a mark through division. The published
 information-theory study of pediatric leukemia (Nature Biomedical Engineering 2021) knocked it out in the Reh leukemia line and found
 methylation lost and entropy raised genome-wide. What does IAM-A's count see on the same molecules?
