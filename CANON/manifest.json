@@ -28103,7 +28103,9 @@
    "purpose": "Does the one command find again what the earlier instruments found, on the same arrays?",
    "instrument_or_term": "run_sample.py, every reading, flagged",
    "sources": [
-    "GEO: GSE42861, GSE87571, GSE288652, GSE166212 (R1); the retired evidence report's series next"
+    "GEO: GSE42861, GSE87571, GSE288652, GSE166212 (R1); the retired evidence report's series next",
+    "GEO: GSE42861 (R2 smoking)",
+    "GEO: GSE87571 (R3 aging)"
    ],
    "data_status": "spent (opened by the earlier instruments)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
@@ -28115,7 +28117,7 @@
    "id": "OTH-082",
    "sources_of_row": [],
    "runs": [],
-   "notes": "2026-10-23: started (author: get the chain working and recreate all the signals before commissioning). | 2026-10-23 R1 tissue: 3 of 4 read (one stopped at intake, bisulfite conversion 0.749); islands highest in the two adenomas; each cell's Met-A now read at half its sites or more, flagged. | 2026-10-23: three faults R1 found fixed (globe and sphere for every mixed specimen; each cell read at half its sites, flagged); R1 tissue rerun. | 2026-10-23 R1 blood: 7 of 7 read; the series offset is the largest effect; the globe's lookup made fast (DEV-SPEED-01). | 2026-10-23 R1 tissue rerun with the three fixes: globe drawn, sphere read, Met-A each cell read on all three; sphere lights nothing (self-scaling)."
+   "notes": "2026-10-23: started (author: get the chain working and recreate all the signals before commissioning). | 2026-10-23 R1 tissue: 3 of 4 read (one stopped at intake, bisulfite conversion 0.749); islands highest in the two adenomas; each cell's Met-A now read at half its sites or more, flagged. | 2026-10-23: three faults R1 found fixed (globe and sphere for every mixed specimen; each cell read at half its sites, flagged); R1 tissue rerun. | 2026-10-23 R1 blood: 7 of 7 read; the series offset is the largest effect; the globe's lookup made fast (DEV-SPEED-01). | 2026-10-23 R1 tissue rerun with the three fixes: globe drawn, sphere read, Met-A each cell read on all three; sphere lights nothing (self-scaling). | 2026-10-23: R2 smoking (GSE42861) and R3 aging (GSE87571) written before reading; GSE50660 and GSE40279 have no IDATs."
   }
  ],
  "not_tests": {

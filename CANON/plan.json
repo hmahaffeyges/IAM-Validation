@@ -180,6 +180,22 @@
      "what": "Distance to the ceiling read by the chain on every atlas reading (saturation, distance, turnover share), in every report (CAN-005; author: 'so we can start collecting data')",
      "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_AUDIT_01.md",
      "next": "collect it on every replay series; re-read the three sealed tissue sets with it recorded"
+    },
+    {
+     "id": "0.5",
+     "date": "2026-10-23",
+     "status": "running",
+     "what": "R2: smoking on GSE42861 (689 bloods, IDATs) in place of GSE50660, which has no IDATs; positive control AHRR cg05575921",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "next": "read the two batches; then the comparison as written"
+    },
+    {
+     "id": "0.6",
+     "date": "2026-10-23",
+     "status": "running",
+     "what": "R3: aging on GSE87571 (732 healthy bloods, 14 to 94) in place of Hannum GSE40279, which has no IDATs",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "next": "read the two batches; then each reading against age"
     }
    ]
   },

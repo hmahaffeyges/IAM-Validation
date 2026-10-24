@@ -1,0 +1,3 @@
+The earlier engine's results compared in R2 and R3, quoted from the author's CPG VAL TESTING PACKAGE (not in this repository; class-era instrument):
+CPG-VAL-022 (cpg_val_015-022/cpg_val_022/OUTCOME.md), smoking, GSE50660 (n 464; 22 current smokers): current against never, d +0.11, p 0.65; NULL.
+CPG-VAL-017 (cpg_val_015-022/cpg_val_017/OUTCOME.md), aging, GSE40279 Hannum (n 656, ages 19-101): the immune reading against age, r -0.197.

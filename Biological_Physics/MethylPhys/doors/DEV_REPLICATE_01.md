@@ -67,3 +67,22 @@ laptop afterwards.
 All three fixes hold on real tissue: the globe is drawn on each (changed blocks rise from the two adenomas to the stage 4 carcinoma), the
 sphere reads 26 or 27 territories, and Met-A reads 75 to 79 cells on each. The sphere lights no territory even on the carcinoma: a change
 spread over the whole sample is scaled away by its own territories, the blind spot the plan already carries.
+
+## R2, smoking, and R3, aging (written and committed before any of these arrays is read by the chain)
+
+The earlier engine's smoking and aging tests (CPG-VAL-022, CPG-VAL-017) used GSE50660 and GSE40279, which post no IDATs on GEO (their
+file lists hold only the array manifest, signal intensities and processed values), so the chain, which starts from each array's own control
+probes, cannot read them. The same two questions are asked on two series with IDATs, both already opened (spent, for tuning):
+
+- **R2, smoking: GSE42861** (450K, 689 whole bloods; 354 rheumatoid arthritis and 335 controls; smoking recorded: current, former, occasional,
+  never; `data/DEV_REPLICATE_01/r2_smoking_labels.csv`). Earlier result to compare: CPG-VAL-022 on GSE50660, current against never smokers,
+  d +0.11, p 0.65 (22 current smokers), NULL.
+- **R3, aging: GSE87571** (450K, 732 healthy whole bloods, ages 14 to 94; `r3_aging_labels.csv`). Earlier result to compare: CPG-VAL-017 on
+  Hannum, the immune reading falling with age, r -0.197.
+
+**The reading.** Every array by `run_sample.py` (`--cell-panel atlas --dev-metaa-allsites`), pass 1, untared, through `series.yml` in two
+batches each; the labels are not used until every reading is in. **Compared, once every array is read:** for R2, current against never
+smokers (all, and the controls alone), and for R3, each reading against age (rank correlation), on: the cell shares (neutrophils and the
+lymphocytes first); Met-A for the whole sample and each cell; the territories; the distance to the ceiling. **Positive control, R2:** the
+chain's own calibrated value at cg05575921 (the AHRR site that smoking lowers most strongly in blood), current against never; if the chain
+does not show it, its intake or calibration is wrong.
