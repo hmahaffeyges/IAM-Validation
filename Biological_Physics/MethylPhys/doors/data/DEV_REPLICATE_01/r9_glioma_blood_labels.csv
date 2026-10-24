@@ -1,0 +1,77 @@
+gsm,slide,series,group,time.point,sex
+GSM5467948,203127070004,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5467949,203127070004,GSE180683,2 new lgg,8 postsurg/no chemorad,Male
+GSM5467950,203127070004,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5467951,203127070004,GSE180683,"4 rec lgg, now gbm",1 pre surg,Male
+GSM5467952,203127070004,GSE180683,2 new lgg,3 postchemorad/pre adj tmz,Female
+GSM5467953,203127070004,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467954,203127070005,GSE180683,1 new gbm,2 postsurg/prechemorad,Female
+GSM5467955,203127070005,GSE180683,2 new lgg,8 postsurg/no chemorad,Male
+GSM5467956,203127070005,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5467957,203127070005,GSE180683,"4 rec lgg, now gbm",1 pre surg,Male
+GSM5467958,203127070005,GSE180683,"3 rec lgg, still lgg",8 postsurg/no chemorad,Female
+GSM5467959,203127070015,GSE180683,1 new gbm,1 pre surg,Female
+GSM5467960,203127070015,GSE180683,"4 rec lgg, now gbm",8 postsurg/no chemorad,Male
+GSM5467961,203127070015,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467962,203127070015,GSE180683,1 new gbm,1 pre surg,Female
+GSM5467963,203127070015,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467964,203127070015,GSE180683,2 new lgg,1 pre surg,Male
+GSM5467965,203127070047,GSE180683,1 new gbm,4 during chemorad,Female
+GSM5467966,203127070047,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5467967,203127070047,GSE180683,1 new gbm,2 postsurg/prechemorad,Female
+GSM5467968,203127070047,GSE180683,"4 rec lgg, now gbm",3 postchemorad/pre adj tmz,Male
+GSM5467969,203127070047,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467970,203127070047,GSE180683,"3 rec lgg, still lgg",8 postsurg/no chemorad,Male
+GSM5467971,203127070047,GSE180683,"3 rec lgg, still lgg",2 postsurg/prechemorad,Female
+GSM5467972,203127070047,GSE180683,"4 rec lgg, now gbm",8 postsurg/no chemorad,Male
+GSM5467973,203135920098,GSE180683,2 new lgg,2 postsurg/prechemorad,Female
+GSM5467974,203135920098,GSE180683,2 new lgg,1 pre surg,Female
+GSM5467975,203135920098,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467976,203135920098,GSE180683,"3 rec lgg, still lgg",1 pre surg,Male
+GSM5467977,203135920098,GSE180683,"3 rec lgg, still lgg",1 pre surg,Female
+GSM5467978,203135920103,GSE180683,"3 rec lgg, still lgg",1 pre surg,Male
+GSM5467979,203135920103,GSE180683,"4 rec lgg, now gbm",1 pre surg,Male
+GSM5467980,203135920103,GSE180683,2 new lgg,1 pre surg,Male
+GSM5467981,203135920103,GSE180683,"3 rec lgg, still lgg",8 postsurg/no chemorad,Male
+GSM5467982,203135920103,GSE180683,2 new lgg,1 pre surg,Male
+GSM5467983,203135920103,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467984,203135920104,GSE180683,"4 rec lgg, now gbm",1 pre surg,Male
+GSM5467985,203135920104,GSE180683,"4 rec lgg, now gbm",2 postsurg/prechemorad,Female
+GSM5467986,203135920104,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467987,203135920104,GSE180683,"3 rec lgg, still lgg",1 pre surg,Male
+GSM5467988,203135920104,GSE180683,2 new lgg,1 pre surg,Male
+GSM5467989,203135920107,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5467990,203135920107,GSE180683,2 new lgg,8 postsurg/no chemorad,Female
+GSM5467991,203135920107,GSE180683,1 new gbm,7 postchemorad/no adjtmz,Male
+GSM5467992,203135920107,GSE180683,"4 rec lgg, now gbm",1 pre surg,Male
+GSM5467993,203135920107,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467994,203135920107,GSE180683,1 new gbm,1 pre surg,Female
+GSM5467995,203135920107,GSE180683,"3 rec lgg, still lgg",1 pre surg,Male
+GSM5467996,203135920134,GSE180683,1 new gbm,4 during chemorad,Female
+GSM5467997,203135920134,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5467998,203135920134,GSE180683,1 new gbm,1 pre surg,Male
+GSM5467999,203135920134,GSE180683,"3 rec lgg, still lgg",8 postsurg/no chemorad,Male
+GSM5468000,203135920134,GSE180683,1 new gbm,1 pre surg,Male
+GSM5468001,203135920134,GSE180683,"3 rec lgg, still lgg",2 postsurg/prechemorad,Female
+GSM5468002,203135920140,GSE180683,1 new gbm,2 postsurg/prechemorad,Female
+GSM5468003,203135920140,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5468004,203135920140,GSE180683,"3 rec lgg, still lgg",1 pre surg,Female
+GSM5468005,203135920140,GSE180683,1 new gbm,1 pre surg,Female
+GSM5468006,203135920140,GSE180683,"4 rec lgg, now gbm",1 pre surg,Male
+GSM5468007,203135920140,GSE180683,1 new gbm,4 during chemorad,Female
+GSM5468008,203135920140,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5468009,203135920143,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5468010,203135920143,GSE180683,1 new gbm,4 during chemorad,Male
+GSM5468011,203135920143,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5468012,203135920143,GSE180683,1 new gbm,1 pre surg,Male
+GSM5468013,203135920143,GSE180683,1 new gbm,1 pre surg,Male
+GSM5468014,203135920143,GSE180683,"3 rec lgg, still lgg",1 pre surg,Female
+GSM5468015,203135920143,GSE180683,2 new lgg,9 postsurg/nochemorad/during adjtmz,Male
+GSM5468016,203135920146,GSE180683,1 new gbm,2 postsurg/prechemorad,Male
+GSM5468017,203135920146,GSE180683,2 new lgg,8 postsurg/no chemorad,Male
+GSM5468018,203135920146,GSE180683,1 new gbm,3 postchemorad/pre adj tmz,Male
+GSM5468019,203135920146,GSE180683,1 new gbm,1 pre surg,Male
+GSM5468020,203135920146,GSE180683,2 new lgg,2 postsurg/prechemorad,Male
+GSM5468021,203135920146,GSE180683,1 new gbm,1 pre surg,Female
+GSM5468022,203135920146,GSE180683,1 new gbm,1 pre surg,Female
+GSM5468023,203135920146,GSE180683,2 new lgg,2 postsurg/prechemorad,Female

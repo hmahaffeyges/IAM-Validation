@@ -1,0 +1,11 @@
+The earlier engine's results for R5 to R9, as the retired GAPE evidence report records them (its text kept in the author's folders, not in
+this repository; class-era instrument). Where the saved text gives a number it is quoted; otherwise only the test's name and outcome label.
+VAL-128 (GSE87650, sorted-cell sub-experiment, n 240: Crohn's 77, ulcerative colitis 79, healthy 84): module_3 Crohn's-pathway amendment; number not in the saved text.
+VAL-108 (GSE69138, stroke bloods): cardio-epic; number not in the saved text.
+VAL-058 (GSE269244, prostate tumor against adjacent normal): the prostate card's first test on its own tissue; number not in the saved text.
+VAL-067 (GSE49149, pancreas, unpaired, n 196): d +0.25 [-0.15, +0.64], O3_TISSUE_NULL_LARGE_COHORT.
+VAL-068 (GSE74071, pancreas, paired, n 7): d -0.31 [-1.07, +0.45], O3_TUMOR_NULL.
+VAL-089 (GSE60274, glioblastoma tissue): glioma card, tissue arm; number not in the saved text.
+VAL-110 (GSE84274, ascending aorta: normal 6, dissection 12, bicuspid valve with dilation 6): cardio-epic; number not in the saved text.
+VAL-088 (GSE180683, glioma patients' blood): glioma card, blood arm; number not in the saved text.
+VAL-109 (GSE84395, cultured pulmonary endothelial cells, control 18, PAH 21): cardio-epic; number not in the saved text.

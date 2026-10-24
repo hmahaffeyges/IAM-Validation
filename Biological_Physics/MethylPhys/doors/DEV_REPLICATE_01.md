@@ -97,3 +97,23 @@ eosinophils, neutrophils, monocytes and B cells; its distance from healthy highe
 cognitive impairment each against healthy controls, on the cell shares, Met-A for the whole sample and each cell, the territories and the
 distance to the ceiling. EPIC v1 whole blood is the platform and specimen the chain is commissioned on, so here the readings are as close to
 the commissioned ones as any replay gets.
+
+## R5 to R9: the rest of the earlier engine's series with IDATs (written and committed before any of these arrays is read by the chain)
+
+Each array by `run_sample.py` (`--cell-panel atlas --dev-metaa-allsites`), pass 1, through `series.yml`; specimens named as the chain names
+them, and a sorted or cultured cell is named "unknown" so the IAM-Deconvolver must say what it is. All spent (the earlier engine read them).
+Earlier results: `data/DEV_REPLICATE_01/r5_r9_earlier_results.txt`. Scorer: `replay_score.py`, committed now.
+
+| Run | Series | Arrays (with IDATs) | Specimen | Compared |
+|---|---|---|---|---|
+| R5 blood | GSE87650 | 384 whole bloods | whole blood | Crohn's (CD), ulcerative colitis (UC) against healthy (HC; HS and HL as the series labels them) |
+| R5 sorted | GSE87650 | 240 (monocytes, CD4, CD8, whole blood of the sorted sub-experiment) | unknown | each cell type: what the Deconvolver finds; CD and UC against HC within each |
+| R6 | GSE69138 | 185 stroke bloods | whole blood | the three stroke subtypes against each other (no controls with IDATs) |
+| R7 | GSE269244 | 238 prostate tissues | tissue | tumor against normal |
+| R8 | GSE49149, GSE60274, GSE74071, GSE84274 | 325 pancreas, brain and aorta tissues | tissue | tumor against adjacent or normal; aortic disease against normal |
+| R9 | GSE180683 | 76 bloods of glioma patients | whole blood | glioma groups; time points |
+| R9 | GSE84395 | 39 cultured pulmonary endothelial cells | unknown | PAH against control |
+
+GSE256092 (VAL-097) posts no IDATs for its samples on GEO, so it is not read. **What each tissue run shows first is the Deconvolver's
+answer:** a prostate, a pancreas, a brain and an aorta should each read mostly as that tissue's cells in the atlas, and a sorted monocyte as
+monocytes. That is the plainest check of the chain on specimens it is not commissioned on.

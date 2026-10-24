@@ -204,6 +204,14 @@
      "what": "R4: Alzheimer's on AIBL GSE153712 (726 EPIC v1 bloods), against the earlier engine's CPG-VAL-008 and 009",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
      "next": "read the two batches; then r23_score.py r4"
+    },
+    {
+     "id": "0.8",
+     "date": "2026-10-23",
+     "status": "running",
+     "what": "R5 to R9: Crohn's and colitis (GSE87650), stroke (GSE69138), prostate (GSE269244), pancreas, brain and aorta tissues (GSE49149, GSE60274, GSE74071, GSE84274), glioma patients' blood (GSE180683), cultured endothelial cells (GSE84395); 1,487 arrays",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "next": "read each run; replay_score.py"
     }
    ]
   },
