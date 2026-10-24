@@ -125,3 +125,12 @@ another laboratory's 450K arrays correctly. **Met-A:** no clear smoking effect (
 territories d -0.11 and -0.22), as the earlier engine found on GSE50660 (d +0.11, NULL). Among the controls alone, neutrophils' Met-A
 reads slightly lower in current smokers (d -0.42, p 0.023, one of many readings, uncorrected). **In plain words:** smoking moves a few
 sites strongly, which the chain sees; it does not make blood's held marks more disordered.
+
+**R3 aging, read** (`data/DEV_REPLICATE_01/r3/r3_summary.txt`; 731 of 732 arrays, pass 1, untared; ages 14 to 94). **Positive control
+met:** ELOVL2 (cg16867657) rises with age, rho +0.956, the strongest known age site, read correctly. **The cell mix ages as expected in
+part:** CD4 T cells fall (rho -0.537), NK and CD8 T cells fall, monocytes rise (+0.363); B cells rise (+0.243), recorded as the instrument
+gave it. **Met-A rises with age:** whole sample rho +0.209 (p 1.2e-08), most in the sites outside the identity sites, islands and domains
+("the rest", +0.314); the islands do not move (-0.007). Neutrophils' own Met-A rises (+0.143). The earlier engine's immune reading fell with
+age on Hannum (r -0.197); the direction differs because that reading was not Met-A (higher meant healthier there), so the two are not
+compared as like for like. **In plain words:** held marks become more disordered with age across blood, as the physics expects for marks
+copied over more divisions, and the chain measures it in one person against the atlas with no cohort.

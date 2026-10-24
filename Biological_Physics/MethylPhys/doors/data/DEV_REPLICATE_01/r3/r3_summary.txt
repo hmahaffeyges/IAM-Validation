@@ -1,0 +1,23 @@
+DEV-REPLICATE-01 r3: 731 of 732 arrays read (pass 1, untared)
+site cg05575921                            rho -0.164 | p 9.2e-06 | n 728
+site cg03636183                            rho -0.320 | p 8.6e-19 | n 728
+site cg16867657                            rho +0.956 | p 0 | n 728
+share neutrophils                          rho +0.044 | p 0.24 | n 728
+share cd4 t cells                          rho -0.537 | p 1.2e-55 | n 728
+share cd8 t cells                          rho -0.211 | p 8.7e-09 | n 728
+share b cells                              rho +0.243 | p 3.2e-11 | n 728
+share nk cells                             rho -0.392 | p 3.4e-28 | n 728
+share monocytes                            rho +0.363 | p 4.6e-24 | n 728
+Met-A whole                                rho +0.209 | p 1.2e-08 | n 728
+ceiling distance                           rho -0.181 | p 8.7e-07 | n 728
+Met-A whole, identity sites of the cells found rho +0.188 | p 3.3e-07 | n 728
+Met-A whole, islands                       rho -0.007 | p 0.84 | n 728
+Met-A whole, domains                       rho +0.136 | p 0.00022 | n 728
+Met-A whole, the rest                      rho +0.314 | p 4e-18 | n 728
+Met-A neutrophils                          rho +0.143 | p 0.00011 | n 728
+Met-A cd4 t cells                          rho +0.098 | p 0.0082 | n 728
+Met-A cd8 t cells                          rho +0.053 | p 0.15 | n 728
+Met-A b cells                              rho +0.011 | p 0.78 | n 728
+Met-A monocytes                            rho +0.073 | p 0.048 | n 727
+territory islands                          rho -0.015 | p 0.68 | n 728
+territory domains                          rho +0.117 | p 0.0015 | n 728

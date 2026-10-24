@@ -191,10 +191,9 @@
     {
      "id": "0.6",
      "date": "2026-10-23",
-     "status": "running",
+     "status": "done",
      "what": "R3: aging on GSE87571 (732 healthy bloods, 14 to 94) in place of Hannum GSE40279, which has no IDATs",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
-     "next": "read the two batches; then each reading against age"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r3/r3_summary.txt"
     },
     {
      "id": "0.7",
