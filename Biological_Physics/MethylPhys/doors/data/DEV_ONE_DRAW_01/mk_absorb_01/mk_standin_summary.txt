@@ -1,0 +1,6 @@
+stand-in = lung interstitial macrophages, erythrocyte progenitors, MEP (bone marrow), eosinophils
+pure megakaryocyte pool: 0.979
+healthy plasma, nothing planted: 0.764
+planted 10 %: 0.796 | simple mixing predicts 0.786
+planted 25 %: 0.831 | simple mixing predicts 0.818
+planted 40 %: 0.878 | simple mixing predicts 0.850

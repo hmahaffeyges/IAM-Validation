@@ -29,10 +29,10 @@ for g, f in zip(S.gsm, S.file):
     for a in range(4):
         try: urllib.request.urlretrieve(f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{g[:7]}nnn/{g}/suppl/{f}", p); break
         except Exception: import time; time.sleep(30)
-    M = pd.read_csv(p, sep="\t", header=None, names=["chr", "pos", "m", "n"]).set_index(["chr", "pos"])
-    j = M.index.intersection(A.index); m.loc[j] += M.loc[j, "m"].to_numpy(); n.loc[j] += M.loc[j, "n"].to_numpy(); os.remove(p)
+    M = pd.read_csv(p, sep="\t", header=None, names=["chr", "pos", "m", "n"]).groupby(["chr", "pos"]).sum()   # a position listed twice is summed
+    R = M.reindex(A.index); m += R["m"].fillna(0).to_numpy(np.int64); n += R["n"].fillna(0).to_numpy(np.int64); os.remove(p)
 ok = n > 0; L.append(f"pooled {len(S)} samples: {int(ok.sum())} of {len(A)} atlas sites with reads; median reads at those {int(n[ok].median())}")
-idx = A["loyfer_cpg_index"].to_numpy(np.int64); NMAX = int(K.loyfer_cpg_index.max())
+idx = A["loyfer_cpg_index"].to_numpy(np.int64); NMAX = SV.HG19_CPGS   # the whole hg19 numbering, as values_from_beta requires
 def lbeta(path, mm, nn):
     a = np.zeros((NMAX, 2), np.uint16); a[idx - 1, 0] = np.clip(mm, 0, 65535); a[idx - 1, 1] = np.clip(nn, 0, 65535); a.tofile(path)
 def read(tag, path):
@@ -50,5 +50,5 @@ lv = np.where(ok, m / np.maximum(n, 1), np.nan); g = np.random.default_rng(20261
 for f in (0.0, 0.10, 0.25, 0.40):
     add = np.where(np.isfinite(lv), g.poisson(pc * f / (1 - f)), 0); am = g.binomial(add, np.nan_to_num(lv))
     q = os.path.join(out, f"plasma_mk{int(100 * f):02d}.lbeta"); lbeta(q, pmeth + am, pc + add)
-    L.append(read(f"plasma + {int(100 * f)} % megakaryocyte", q)); print(L[-1], flush=True)
+    L.append(read(f"plasma_plus_mk_{int(100 * f):02d}pct", q)); print(L[-1], flush=True)
 open(os.path.join(out, "mk_absorb_01_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))

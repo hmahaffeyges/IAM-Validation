@@ -234,3 +234,16 @@ donors 2 and 3 stay unread for the sealed test. The files are on GRCh38; each at
 EPIC annotation (one single cell matched 84,563 atlas sites). `data/DEV_ONE_DRAW_01/mk_absorb_01/mk_absorb_01.py`: the pool read as plasma,
 then planted into one spent healthy plasma at 0, 10, 25 and 40 % of its reads; every file through `run_sample.py --dev-seq-beta`.
 **Expected:** the pool lands mostly on one or a few atlas cells, and those cells' shares rise as more is planted.
+
+**Absorption test 1, read** (`data/DEV_ONE_DRAW_01/mk_absorb_01/mk_absorb_01_summary.txt`; the stand-in check `mk_standin.py`, added after
+the reading, output `mk_standin_summary.txt`). Donor 1's 33 megakaryocyte samples pooled: 708961 of 786902 atlas sites with reads, a median of 3.
+
+- **Pure megakaryocyte DNA lands on four atlas cells:** lung interstitial macrophages 0.429, erythrocyte progenitors 0.293, MEP (bone
+  marrow) 0.146, eosinophils 0.111 (together 0.979).
+- **The same four already make up most of a healthy plasma** (0.764 in SRR23279758), and they are its largest shares in all 30 plasmas. The
+  published plasma work first deconvolved its plasma to about 30 % erythrocyte progenitors, then found megakaryocytes once it had their
+  profile; the same absorption appears here.
+- **Planted megakaryocyte DNA raises their sum as mixing predicts:** 0.796, 0.831 and 0.878 at 10, 25 and 40 % against 0.786, 0.818 and
+  0.850 predicted.
+- **So the stand-in is the sum of the four,** read against the person's own level. It is a noisy stand-in: it also holds real erythroid
+  and macrophage DNA, and one donor at about 3 reads per site built it. The sealed atlas entry on donors 2 and 3 replaces it.

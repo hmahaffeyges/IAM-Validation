@@ -3158,3 +3158,6 @@ All 30 healthy plasmas read end to end. The held error is nearly constant (0.038
 
 ### 2026-10-24 · Why IAM-A reads low on plasma: synthetic test cfDNA 1 (GRP-016, DEV-ONE-DRAW-01)
 Constructed molecules through the one command: mixing two cell types nearly doubles the tile loose share (0.0795 to 0.1534) with the held error unchanged, and short molecules lower the held error (0.03186 at 12 calls, 0.02786 at 8); both pull IAM-A down, and neither involves the atlas. Only 0.1125 to 0.1395 of real plasma molecules reach 6 calls. Next: a molecule-level loose share and an exact length correction. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-10-24 · Where megakaryocyte DNA lands in plasma (GRP-016, DEV-ONE-DRAW-01)
+One donor's megakaryocytes read as plasma by the one command land on four atlas cells (lung interstitial macrophages, erythrocyte progenitors, MEP, eosinophils; together 0.979). The same four make up 0.764 of a healthy plasma, and planted megakaryocyte DNA raises their sum as simple mixing predicts. Their sum is the stand-in for the megakaryocyte share until the cell enters the atlas. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).

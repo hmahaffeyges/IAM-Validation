@@ -1,0 +1,8 @@
+DEV-ONE-DRAW-01 megakaryocyte absorption test 1 (GSE87197 donor 1; hg38 annotation https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.tsv.gz)
+annotation sha256 93fc4de126c9ad8bcfba3d16f2fddb8a2e2a6695a49c7cd1ce1de7198ac7ee56
+pooled 33 samples: 708961 of 786902 atlas sites with reads; median reads at those 3
+megakaryocytes       markers 7320 | lung interstitial macrophages 0.429, erythrocyte progenitors 0.293, MEP (bone marrow) 0.146, eosinophils 0.111, kidney tubular endothelium 0.014, cardiomyocyte 0.006, CMP (bone marrow) 0.000, GMP (bone marrow) 0.000
+plasma_plus_mk_00pct markers 4463 | lung interstitial macrophages 0.305, erythrocyte progenitors 0.245, MEP (bone marrow) 0.139, neutrophils 0.110, eosinophils 0.075, lung alveolar macrophages 0.044, vascular saphenous endothelium 0.027, cardiomyocyte 0.023
+plasma_plus_mk_10pct markers 4463 | lung interstitial macrophages 0.335, erythrocyte progenitors 0.259, MEP (bone marrow) 0.137, neutrophils 0.106, eosinophils 0.066, cardiomyocyte 0.027, vascular saphenous endothelium 0.026, lung alveolar macrophages 0.021
+plasma_plus_mk_25pct markers 4463 | lung interstitial macrophages 0.343, erythrocyte progenitors 0.279, MEP (bone marrow) 0.147, neutrophils 0.094, eosinophils 0.063, cardiomyocyte 0.036, vascular saphenous endothelium 0.022, lung alveolar macrophages 0.011
+plasma_plus_mk_40pct markers 4463 | lung interstitial macrophages 0.404, erythrocyte progenitors 0.312, neutrophils 0.085, MEP (bone marrow) 0.083, eosinophils 0.079, cardiomyocyte 0.027, vascular saphenous endothelium 0.009, CMP (bone marrow) 0.000

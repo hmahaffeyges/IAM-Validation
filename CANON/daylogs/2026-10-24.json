@@ -58,6 +58,16 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Where megakaryocyte DNA lands in plasma (GRP-016, DEV-ONE-DRAW-01)",
+     "status": "development",
+     "what": "One donor's megakaryocytes read as plasma, then planted into a healthy plasma at known amounts, each through the one command.",
+     "outcome": "Megakaryocyte DNA lands on four atlas cells; their summed share is a stand-in until the cell enters the atlas.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },
