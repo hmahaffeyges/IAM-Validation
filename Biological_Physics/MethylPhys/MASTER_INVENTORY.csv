@@ -328,7 +328,8 @@ GSE42861,downloads/A_blood_immune/GSE42861/,29.62,IDAT,yes,partly spent,,,DEV_ME
 GSE43976,,,,,,,,,not usable (not healthy (MS cohort); input 1 called it healthy),monocytes,yes,IDAT listed for 95/95 samples,An evaluation of analysis pipelines for DNA methylation profiling using the Illumina Human Methylation 450k platform,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE46306,,,,,partly spent,,,,,,,,,
 GSE47966,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
-GSE48580,,,,,,,,PROC_LINES_01_BJ_OUTCOME,,,,,,
+GSE48580,,,,,,,,DEV_ERASE_01; PROC_LINES_01_BJ_OUTCOME,,,,,,
+GSE48580 IMR90 proliferating; senescent; SV40 (WGBS),,,,,spent (earlier work PROC-LINES-02; division route),,,,,,,,,
 GSE49149,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE49618,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01,atlas build,granulocytes | t cells cd3 | b cells | monocytes,yes,IDAT listed for 21/21 samples,Sorted normal bone marrow cells from healthy volunteers at Washington University,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE49627,,,,,"partly spent (loose share of the 3 resting B cells read, 2026-10-15; molecules and held error not read)",,,DEV_CHAIN_Q2_01; DEV_IAMA_BAND_01; DEV_SECONDLAB_01; DEV_SECONDLAB_02,,,,,,

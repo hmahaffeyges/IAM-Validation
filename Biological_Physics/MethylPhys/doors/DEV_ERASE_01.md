@@ -168,3 +168,19 @@ the control's 1,879,870.
 for the second term of the firm rate (the eraser supplied only a small part of it). A total knockout cannot size that term in a healthy
 cell. Sizing it needs a graded reduction of maintenance, or the division route (replication error, plan 14.3) measured on one cell type
 resting and dividing.
+
+## The division route: dividing and non-dividing cells of one type (written and committed before any count exists; plan 14.3)
+
+**Prior reading:** GSE48580 was read by the earlier work (PROC-LINES-02, methylation channels); it was never counted by Stage Q2.
+
+**The question:** the firm rate is about twice the writer's own miss rate; erasure supplies only a small part of the second half, and missed
+restores during maintenance do make held error (the UHRF1 knockout). Does dividing add to it (replication error, the author's division
+route)? **Data:** GSE48580, IMR90 lung fibroblasts by whole-genome bisulfite sequencing: proliferating (3), replicatively senescent, no
+longer dividing (3), and dividing past senescence with SV40 large T antigen (3); `data/DEV_ERASE_01/division_samples.csv`. Each counted by
+the eraser recount's pipeline unchanged at 10 million read pairs (`erase_gh.sh`, `run_sample.py --dev-count-only`); scorer
+`division_score.py`. **Written before, both outcomes informative:**
+- **Held error lower in the senescent cells than the proliferating ones, loose share aside:** dividing adds held error, and the difference
+  sizes the division term, a candidate for the firm rate's second half.
+- **Held error the same within the replicates' spread:** dividing adds none at steady state; the second half is maintenance itself.
+**Stated before:** senescent cells reached senescence by dividing, and senescence reorganizes chromatin; IAM-A reads the reorganization in the
+loose share, not the held error. SV40 also disables p53 and Rb, so its reading is reported, not used to size the term. Nothing scored.
