@@ -117,3 +117,11 @@ Earlier results: `data/DEV_REPLICATE_01/r5_r9_earlier_results.txt`. Scorer: `rep
 GSE256092 (VAL-097) posts no IDATs for its samples on GEO, so it is not read. **What each tissue run shows first is the Deconvolver's
 answer:** a prostate, a pancreas, a brain and an aorta should each read mostly as that tissue's cells in the atlas, and a sorted monocyte as
 monocytes. That is the plainest check of the chain on specimens it is not commissioned on.
+
+**R2 smoking, read** (`data/DEV_REPLICATE_01/r2/r2_summary.txt`; all 689 arrays, pass 1, untared; series runs in `r23_runs.json`'s R2 ids,
+commit c66d07a1). **Positive control met:** at AHRR (cg05575921) current smokers read 0.595 against never-smokers' 0.853 (d -2.83,
+p 6.5e-57), and at F2RL3 (cg03636183) 0.622 against 0.739 (d -2.04), the known direction and size; the chain's intake and calibration read
+another laboratory's 450K arrays correctly. **Met-A:** no clear smoking effect (whole sample d -0.17, p 0.19; neutrophils d -0.17;
+territories d -0.11 and -0.22), as the earlier engine found on GSE50660 (d +0.11, NULL). Among the controls alone, neutrophils' Met-A
+reads slightly lower in current smokers (d -0.42, p 0.023, one of many readings, uncorrected). **In plain words:** smoking moves a few
+sites strongly, which the chain sees; it does not make blood's held marks more disordered.

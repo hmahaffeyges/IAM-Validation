@@ -184,10 +184,9 @@
     {
      "id": "0.5",
      "date": "2026-10-23",
-     "status": "running",
+     "status": "done",
      "what": "R2: smoking on GSE42861 (689 bloods, IDATs) in place of GSE50660, which has no IDATs; positive control AHRR cg05575921",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
-     "next": "read the two batches; then the comparison as written"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r2/r2_summary.txt"
     },
     {
      "id": "0.6",
