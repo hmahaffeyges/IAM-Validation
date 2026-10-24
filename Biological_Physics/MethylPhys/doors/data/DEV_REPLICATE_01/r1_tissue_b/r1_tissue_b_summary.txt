@@ -1,0 +1,4 @@
+R1 tissue rerun (series run 40032094322, chain commit 1369dd0f): the globe, sphere and per-cell coverage fixes on the three colon tissues
+GSM8772491: globe drawn True, changed blocks 194 of 51419; sphere territories changed 0 of 26; Met-A cells read 75; whole-sample Met-A 1.14022
+GSM8772492: globe drawn True, changed blocks 246 of 61893; sphere territories changed 0 of 26; Met-A cells read 79; whole-sample Met-A 1.21579
+GSM5065985: globe drawn True, changed blocks 1057 of 75970; sphere territories changed 0 of 27; Met-A cells read 79; whole-sample Met-A 1.08983

@@ -63,3 +63,7 @@ platform absorbed into a progenitor share rather than something of that person.
 A hashed lookup gives the same count (260 of the test blocks) in 0.04 s instead of 83 s; a whole blood through the one command took 29 s on the
 laptop afterwards.
 
+**R1 tissue rerun, with the three fixes (series run 40032094322, chain commit 1369dd0f; `data/DEV_REPLICATE_01/r1_tissue_b/r1_tissue_b_summary.txt`).**
+All three fixes hold on real tissue: the globe is drawn on each (changed blocks rise from the two adenomas to the stage 4 carcinoma), the
+sphere reads 26 or 27 territories, and Met-A reads 75 to 79 cells on each. The sphere lights no territory even on the carcinoma: a change
+spread over the whole sample is scaled away by its own territories, the blind spot the plan already carries.
