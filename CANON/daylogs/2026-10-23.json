@@ -264,6 +264,16 @@
       "ATL-063"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
+    },
+    {
+     "title": "IAM-A states its own counting error (PHY-065, Decoder finding F38)",
+     "status": "development",
+     "what": "Every IAM-A reading records its own counting error (stage_v4.counting_error), shown in the report; recorded only, the reading and its state unchanged.",
+     "outcome": null,
+     "rows": [
+      "PHY-065"
+     ],
+     "record": "Biological_Physics/MethylPhys/manual/decoder_text.md"
     }
    ]
   },
