@@ -1492,7 +1492,16 @@
    "rows": [
     "OTH-072"
    ],
-   "status": "open"
+   "status": "open",
+   "branches": [
+    {
+     "id": "45.1",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "A chapter on how every instrument references itself with no healthy cohort (author: 'researchers will be deeply skeptical ... answer all their concerns head on'). One table, the same rows for every instrument (IAM-A, Met-A, the C-Score, the IAM-Deconvolver, the information sphere): what it is referenced against, what is derived, what is measured once, where it is blind. Each derivation in full, with how the atlas is used and why it works. Then the objections head on: a healthy cohort is needed; batch effects (the anchor measurement and the five-laboratory test); the atlas is just another cohort (it is a shared standard, built once, with an uncertainty at every site); self-reference hides whole-sample changes (which instrument sees what, and that the blind spots do not overlap); circularity (which data built each piece and which tested it). Every table and number generated from the records.",
+     "next": "write once testing and the derivations are done (DEV-METAA-HEALTHY-01, the firm rate, layer 2); its drafts start from docs/book/drafts/p6_metaa_healthy_line.tex"
+    }
+   ]
   },
   {
    "status": "open",
