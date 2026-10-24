@@ -1671,6 +1671,13 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
      "what": "Provisional reference columns beside IAM-Atlas v2.1 for cells it lacks (author's idea): first megakaryocytes, built from GSE87197 donor 1, tested on donor 2; the Deconvolver's leftover and unreferenced sites reported as what else is there, unscored",
      "next": "build the column (donor 1); run provisional reference test 1 (donor 2)"
+    },
+    {
+     "id": "40.19",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Provisional columns for liver sinusoidal endothelium and Kupffer cells (author): both shed into plasma with liver injury; with their own columns the chain could tell liver damage (more of their DNA, hepatocyte marks normal) from a liver tumor (hepatocyte DNA with departed identity marks); a hypothesis to test. Public purified data to be found first.",
+     "next": "search public purified methylation data for both"
     }
    ]
   },
@@ -1796,6 +1803,13 @@
      "next": "write CANON/systems.json from Part V's tables (tab:qp_which, tab:platforms, the chip-generation tables) and the 56-cell table; then the generator and the chart"
     }
    ]
+  },
+  {
+   "status": "open",
+   "rows": [],
+   "task": "Whole-genome atlas and globe, built together (author 2026-10-24): IAM-Atlas extended from 813,951 chip sites to the genome's CpGs (28,217,448 in the hg19 dictionary) from its sequencing sources, for sequencing samples only (arrays keep v2.1); then the globe's whole-genome layer read against it in the person's own mix; synthetic test first. AWS scale (about 35 times today's sites). After the send gate (step 49).",
+   "done_when": null,
+   "branches": []
   }
  ],
  "scheduled": [

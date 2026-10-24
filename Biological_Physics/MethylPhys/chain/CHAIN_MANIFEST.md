@@ -34,6 +34,7 @@ The LIVE column is computed by walking imports from the commissioned entry point
 | `stage_info_sphere.py` | yes | live |
 | `stage_m_met_a.py` | yes | live |
 | `stage_metaa_atlas.py` | yes | live |
+| `stage_provisional.py` | yes | live |
 | `stage_q0_intake.py` | yes | live |
 | `stage_q2_globe.py` | yes | live |
 | `stage_q2_selfref.py` | yes | live |
