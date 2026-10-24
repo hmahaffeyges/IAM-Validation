@@ -335,5 +335,133 @@
     "significance": "It answers how far from the ceiling a sample arrives, with no free parameter, and it guards every reading against the one way the gauge could under-read. It is informative near the ceiling and says little about a sample in the healthy range, which is expected to read close to 1."
    }
   }
+ },
+ "coverage": {
+  "_rule": "One source for the table of what each instrument is referenced against and which instrument covers its blind spot (author: 'those are also filling blind spots'; 'that table belongs in the instrument document'). Status is read from each instrument's commissioned field, never typed here.",
+  "intro": "No instrument here needs a healthy cohort from the same laboratory. Each is referenced against something it carries with it: the sample's own molecules, the atlas mixed in the person's own cells, the sample's own departures, or physics. Each also has a blind spot, and the last column names the instrument that sees what it cannot. No instrument stands alone.",
+  "rows": [
+   {
+    "name": "IAM-A",
+    "inst": "iama",
+    "commissioned_form": true,
+    "against": "the sample's own molecules: its loose share predicts the held error a healthy cell of its kind makes",
+    "derived": "the floor, the ceiling and the self-reference line",
+    "measured_once": "the line's slope (being derived)",
+    "blind_to": "arrays: it needs single molecules, so a sequenced sample",
+    "covered_by": "Met-A, which reads arrays"
+   },
+   {
+    "name": "Met-A, whole sample",
+    "inst": null,
+    "commissioned_form": false,
+    "against": "IAM-Atlas v2.1 mixed in the person's own cell shares, with the array's own blur measured on the atlas's anchor sites",
+    "derived": "the ceiling, the read-count correction, the array's blur",
+    "measured_once": "the atlas",
+    "blind_to": "a loss spread evenly over every site, the anchors included; which cell changed",
+    "covered_by": "Met-A for each cell, the territories, IAM-A"
+   },
+   {
+    "name": "Met-A, each cell",
+    "inst": "meta",
+    "commissioned_form": true,
+    "against": "each cell's identity sites in IAM-Atlas v2.1 (commissioned: healthy references of the same cell on the same platform)",
+    "derived": "the ceiling, the read-count correction",
+    "measured_once": "the atlas",
+    "blind_to": "changes outside a cell's identity sites, such as the islands and loosely held domains",
+    "covered_by": "Met-A for the whole sample, the territories",
+    "status_also": "in a mix, each cell's reading is in development"
+   },
+   {
+    "name": "The territories (islands and loosely held domains)",
+    "inst": null,
+    "commissioned_form": false,
+    "against": "IAM-Atlas v2.1 at sites no healthy cell type marks, and at marked sites some cell types hold loosely",
+    "derived": "the expectation at each site's read count",
+    "measured_once": "the two site sets, by fixed rules on the atlas",
+    "blind_to": "changes at a cell's identity sites",
+    "covered_by": "Met-A for each cell"
+   },
+   {
+    "name": "C-Score, neutrophils",
+    "inst": "cscore",
+    "commissioned_form": true,
+    "against": "the sample's own departures: how they lie along the genome, not how large they are",
+    "derived": "its value for scattered departures, 1",
+    "measured_once": "its healthy upper limit",
+    "blind_to": "an even shift with no layout; cells other than neutrophils",
+    "covered_by": "the other C-Scores, Met-A",
+    "status_also": "the other cells' C-Scores are in development"
+   },
+   {
+    "name": "C-Score, whole genome",
+    "inst": null,
+    "commissioned_form": false,
+    "against": "the same statistic at every atlas site, against the atlas in the person's own mix",
+    "derived": "its value for scattered departures, 1",
+    "measured_once": "its healthy limit, not set yet",
+    "blind_to": "which cell; an even shift",
+    "covered_by": "the C-Score for each cell, Met-A"
+   },
+   {
+    "name": "C-Score, each cell",
+    "inst": null,
+    "commissioned_form": false,
+    "against": "each cell's departure map at its identity sites",
+    "derived": "its value for scattered departures, 1",
+    "measured_once": "its healthy limit, not set yet",
+    "blind_to": "a loss spread evenly through one cell",
+    "covered_by": "Met-A for each cell"
+   },
+   {
+    "name": "IAM-A's C-Score (version 2)",
+    "inst": null,
+    "commissioned_form": false,
+    "against": "each region's held error predicted from that region's own loose share",
+    "derived": "being derived",
+    "measured_once": "nothing yet",
+    "blind_to": "arrays",
+    "covered_by": "the array C-Scores"
+   },
+   {
+    "name": "Group-A",
+    "inst": "groupa",
+    "commissioned_form": true,
+    "against": "a group against the healthy in the same series, each reading tared on its own chip",
+    "derived": "the comparison, a difference in standard errors",
+    "measured_once": "nothing",
+    "blind_to": "one person: it reads groups",
+    "covered_by": "every per-person reading"
+   },
+   {
+    "name": "IAM-Deconvolver",
+    "inst": "deconv",
+    "commissioned_form": true,
+    "against": "IAM-Atlas v2.1",
+    "derived": "nothing: it is a fit to known healthy cells",
+    "measured_once": "the atlas",
+    "blind_to": "cells the atlas does not hold, which are absorbed into a share",
+    "covered_by": "its leftover reading and the unexpected-cell flag"
+   },
+   {
+    "name": "The information sphere",
+    "inst": null,
+    "commissioned_form": false,
+    "against": "the person's own other territories",
+    "derived": "the geometry (the Fisher-Rao distance)",
+    "measured_once": "the layout, once, from the atlas",
+    "blind_to": "changes shared by the whole sample, which it scales away",
+    "covered_by": "its own Fisher-Rao distance, Met-A for the whole sample"
+   },
+   {
+    "name": "Distance to the ceiling",
+    "inst": null,
+    "commissioned_form": false,
+    "against": "the entropy ceiling physics sets for the sample's own expectation",
+    "derived": "entirely",
+    "measured_once": "nothing",
+    "blind_to": "a sample in the healthy range, where it says nothing",
+    "covered_by": "every other reading"
+   }
+  ]
  }
 }

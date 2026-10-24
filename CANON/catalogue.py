@@ -30,6 +30,15 @@ def stage(inst, M):
 def markdown(C, M):
     L = ["# The IAM instrument catalogue", "", "*Generated from CANON/catalogue.json; every status line comes from the Master Testing Manifest.*", "",
          "## Why a self-reference matters", "", C["why_self_reference"], "", "## How they work together", "", C["together"], ""]
+    if C.get("coverage"):   # 2026-10-24 (author): what each instrument is referenced against, and which instrument covers its blind spot
+        _I = {i["id"]: i for i in C["instruments"]}; _cv = C["coverage"]
+        L += ["## What each instrument is referenced against, and who covers its blind spot", "", _cv["intro"], "",
+              "| Instrument | Referenced against | Derived | Measured once | Blind to | Covered by | Status |", "|---|---|---|---|---|---|---|"]
+        for r in _cv["rows"]:
+            st = ("commissioned: " + _I[r["inst"]]["commissioned"]) if r.get("commissioned_form") and r.get("inst") in _I and _I[r["inst"]].get("commissioned") else "in development"
+            if r.get("status_also"): st += "; " + r["status_also"]
+            L.append(f"| **{r['name']}** | {r['against']} | {r['derived']} | {r['measured_once']} | {r['blind_to']} | {r['covered_by']} | {st} |")
+        L.append("")
     if C.get("methods"):   # lab methods and what each instrument reads (author's downtime item 3, 2026-10-16)
         L += ["## Lab methods: what the chemistry and the machines give, and which instrument reads each", "", C["chemistry_intro"], "",
               "| Method | What it gives | Single molecules? | Who uses it | Which IAM instruments read it |", "|---|---|---|---|---|"]
