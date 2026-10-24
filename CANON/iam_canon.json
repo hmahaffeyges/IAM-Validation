@@ -456,9 +456,12 @@
    "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md",
    "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md",
    "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md",
-   "Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt"
+   "Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt",
+   "Biological_Physics/MethylPhys/daylogs/",
+   "MANIFEST.md",
+   "Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md"
   ],
-  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction. 2026-10-20: the 18th chain's raw sampler output is data, not prose; number patterns match only a whole number (never digits inside a longer one).",
+  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction. 2026-10-20: the 18th chain's raw sampler output is data, not prose; number patterns match only a whole number (never digits inside a longer one). 2026-10-24: day logs, MANIFEST.md (generated from the manifest's dated notes) and DEV_SPECIES_AGEING_01.md (sealed record) keep the name 'Mahaffey number' as written; live text says 'the M number'.",
   "cell_scope": {
    "value": [
     "neutrophils"

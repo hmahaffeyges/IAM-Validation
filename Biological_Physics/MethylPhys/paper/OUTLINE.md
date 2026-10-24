@@ -17,8 +17,11 @@ equations; Data availability and Code availability; five or six main figures and
   was taken from it.
 - Gate (plan step 49): nothing is circulated until the chain is complete, Met-A's healthy line is derived, and the study is replicated.
 
-## Working title
-
+**Working title:** *Information physics of the methylome: a thermodynamic bound on maintained DNA methylation reads epigenetic disorder in
+single samples* (alternative: *The methylome as a maintained information store: a thermodynamic bound reads cell-type disorder without
+matched controls*). **Opening frame of the Introduction** (author): the methylome as a dynamic digital-analog information store, each CpG
+on one molecule a bit, a cell population's level continuous, governed by statistical mechanics, thermodynamics and Shannon information
+theory; the proposed fidelity bound (IAM's Law) defined in the text, not in the title.
 *A thermodynamic bound on the fidelity of maintained DNA methylation reads epigenetic disorder in single samples without matched controls*
 
 Alternative: *Reading methylation disorder against a physical floor: a control-free, platform-independent framework tested on pediatric
