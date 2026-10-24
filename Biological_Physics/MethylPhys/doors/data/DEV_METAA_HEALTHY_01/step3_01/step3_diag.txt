@@ -1,0 +1,3 @@
+sites 5553 | atlas level held: median 0.9387 mean 0.9362 | absent: median 0.0654 mean 0.0699
+mean entropy of the atlas's own levels: 0.35084 bits | held 0.34044 | absent 0.36246
+held-site atlas level deciles 10/25/50/75/90: 0.923 0.932 0.939 0.944 0.948
