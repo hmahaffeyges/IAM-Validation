@@ -2282,7 +2282,7 @@
       "o"
      ],
      "lines": 32,
-     "doc": "AstroGenetics: each reading in the physics it rests on. Every number from this run's record or a committed reference file.",
+     "doc": "Each reading in the physics it rests on. Every number from this run's record or a committed reference file.",
      "constants": [
       "E"
      ],

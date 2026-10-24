@@ -40,7 +40,7 @@ and its scale means whatever the training set made it mean. IAM's scale comes fr
 even the middle mark comes from the sample itself, so a reading means the same thing in any laboratory, for any cell type, before anyone
 has trained anything.
 
-## 3. AstroGenetics: reading the genome with the tools of the sky
+## 3. Reading the genome with the methods built to map the sky
 
 Cosmologists solved a problem that methylation research shares: how to read a faint signal spread across millions of positions,
 through noisy instruments that each have their own offsets, and still say how sure you are at every point. The Planck and WMAP missions

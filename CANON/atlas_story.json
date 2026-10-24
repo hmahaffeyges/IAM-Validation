@@ -1,11 +1,11 @@
 {
  "_rule": "One source for the IAM-Atlas v2.1 story (author, 2026-10-16: the commentary must feed the repo, the webpage and the book). CANON/atlas_story.py writes the README section and the book section from this file; the page builder reads it directly. Every number here is from a committed record named in 'record'. Status is one of: now (in IAM-Atlas v2.1), gift (a complementary addition, ready or in progress), after (on the horizon). 'them' is IAM-Atlas's unique capability, written for anyone: geneticist, donor or cosmologist. Public tone (author 2026-10-17): what was built and commissioned, no sales words, no other researcher named in prose (describe the work, cite it). Edit here only.",
- "title": "IAM-Atlas v2.1: outfitted with AstroGenetics",
+ "title": "IAM-Atlas v2.1: a reference built and checked as a calibrated map",
  "opening": [
-  "IAM-Atlas v2.1 is outfitted with the latest in AstroGenetics ingenuity, blending the most advanced tools geneticists created to learn the unbelievably complex coding language of a human cell with the tools cosmologists created to study the faintest traces of the early universe, light that has traveled for more than 13 billion years to reach us. These are two of the most respected and revered fields of research, run by some of the most brilliant and talented scientists on the planet, who over the past few decades developed ingenious toolkits independently because the advancement of their fields demanded it. A geneticist knows little if anything at all about the language of dark matter, horizons or the cosmic microwave background. Nor does the cosmologist speak the language of CpG islands, chromatin surfaces or the methylome.",
-  "IAM speaks both, because IAM's Law is the physics underneath both. We are not only bringing IAM's Law to biology from cosmology; we are bringing the toolkit too."
+  "IAM-Atlas v2.1 joins two bodies of method that developed apart. Genomics built the assays, the reference cell types and the deconvolution that read a cell's methylation; cosmology built the statistics that turn many noisy, differently calibrated scans of one faint signal into a single map with a stated uncertainty at every point. Each field built its toolkit because its data demanded it, and neither had reason to borrow the other's.",
+  "The atlas applies the second toolkit to the first field's data, because both problems are the same kind of problem: a faint signal at hundreds of thousands of positions, read through instruments that each carry their own offset, where the value at each position is only as useful as its stated uncertainty."
  ],
- "not_this": "This is not a bigger table built for the sake of putting more cells in one place. A blended 79-cell atlas with MCMC posteriors would be interesting, but not new. What is new is how it was built and how it was checked: the way cosmologists build and check a map of the sky. That is what we mean by AstroGenetics and the physics of the methylome, and every tool below is something a geneticist can use in their own work, not only in ours.",
+ "not_this": "This is not a bigger table built for the sake of putting more cells in one place. A blended 79-cell atlas with MCMC posteriors would be interesting, but not new. What is new is how it was built and how it was checked: the way cosmologists build and check a map of the sky. That is what we mean by the information physics of the methylome, and every tool below is something a geneticist can use in their own work, not only in ours.",
  "facts": {
   "cells": 79,
   "sites": 813951,
@@ -123,6 +123,6 @@
    "record": "CANON/v21_release.json (M04-M07)"
   }
  ],
- "closing": "The tools of the sky, brought to the cell, because one law runs underneath both.",
+ "closing": "Methods built to map a faint signal on a sphere, applied to the cell, because the same statistics serve both records.",
  "commissioned": "IAM-Atlas v2.1 is commissioned use by use, each on its own sealed test: as the reference for cortical neurons, lung bronchus epithelium and naive CD4 T cells; as the source of the blind sites in the colon and lung tissue tests; and, read by the IAM-Deconvolver, for the blood-cell shares of neutrophils, monocytes, CD4 and CD8 T cells (mean share error 0.016 on mixtures from a laboratory the atlas never saw). Every one of its 813,951 sites is keyed both to its array probe and to its CpG position in the published sequencing atlas, so array and sequencing tools open the same atlas."
 }

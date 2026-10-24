@@ -63,33 +63,6 @@
 "text": "CH = {\"astro\": (48, 437, \"AstroGenetics and the Cosmic Methylome: the cell read as a thermometer\"), \"landauer\": (49, 448, \"Landauer's cost at body temperature\")"
 },
 {
-"file": "website/build/build_home.py",
-"line": 307,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "<p class=\"sub\">To read the genome, we use the measurement methods cosmologists built for the microwave sky: calibration against a reference, null tests, simulat"
-},
-{
-"file": "website/build/build_home.py",
-"line": 356,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "<h3>Why AstroGenetics</h3>"
-},
-{
-"file": "website/build/build_home.py",
-"line": 360,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "<p>Cosmology spent decades learning to read a faint record on a sphere against noise: combining many instruments into one map, fitting each instrument's quirks,"
-},
-{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 285,
 "pattern": "class H_min",
@@ -1152,6 +1125,24 @@
 "text": "\\textbf{AstroGenetics} & The name used here for reading the methylome as cosmology reads the sky: calibration, component separation, residual maps and null test"
 },
 {
+"file": "docs/book/appendices/app_F_glossary.tex",
+"line": 66,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\textbf{AstroGenetics} & The name used here for reading the methylome as cosmology reads the sky: calibration, component separation, residual maps and null test"
+},
+{
+"file": "docs/book/appendices/app_F_glossary.tex",
+"line": 66,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\textbf{AstroGenetics} & The name used here for reading the methylome as cosmology reads the sky: calibration, component separation, residual maps and null test"
+},
+{
 "file": "docs/book/appendices/app_E_formulas.tex",
 "line": 598,
 "pattern": "AstroGenetics|Cosmic Methylome",
@@ -1231,15 +1222,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "\\section{A count, not a score}"
-},
-{
-"file": "docs/book/part6/p6_14_atlas.tex",
-"line": 140,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "AstroGenetics is not a metaphor laid over the biology: it is the same mathematics applied to a different signal. The atlas is one"
 },
 {
 "file": "docs/book/part6/p6_00b_astrogenetics.tex",
@@ -1395,53 +1377,17 @@
 "text": "The simplest way to describe the instrument is as a cellular thermometer built with AstroGenetics. A thermometer does not diagnose and"
 },
 {
-"file": "docs/book/part6/p6_20b_walkthrough.tex",
-"line": 89,
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 6,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
 "status": "LIVE",
-"text": "The Researcher view opens with a table, one line per instrument with its reading, state and status, then \\emph{AstroGenetics: the physics behind"
+"text": "cosmology reads the sky (Chapter~\\ref{ch:astrogenetics} tells how the idea arose and the name it was first given). A telescope records the brightness of the cos"
 },
 {
 "file": "docs/book/part6/p6_01_bridge.tex",
-"line": 3,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\section{AstroGenetics}"
-},
-{
-"file": "docs/book/part6/p6_01_bridge.tex",
-"line": 5,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\emph{AstroGenetics} is our name for one idea: read the methylome the way"
-},
-{
-"file": "docs/book/part6/p6_01_bridge.tex",
-"line": 15,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "where it should be. AstroGenetics hands that toolkit to the cell. The work is cartography: we map what is there. We do not invent the"
-},
-{
-"file": "docs/book/part6/p6_01_bridge.tex",
-"line": 17,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "measured. Stargazers see what is there; trailblazers go where no one has been. AstroGenetics does both at once: it reads the methylome"
-},
-{
-"file": "docs/book/part6/p6_01_bridge.tex",
-"line": 110,
+"line": 109,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -1450,39 +1396,12 @@
 },
 {
 "file": "docs/book/part6/p6_01_bridge.tex",
-"line": 269,
+"line": 268,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
 "status": "LIVE",
 "text": "Chapter~\\ref{ch:astrogenetics} says the same for geneticists and clinicians in plain language: what the instrument reads, what a reading"
-},
-{
-"file": "docs/book/part6/p6_14b_atlas_v21.tex",
-"line": 2,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\section{IAM-Atlas v2.1: outfitted with AstroGenetics}\\label{sec:atlas:v21story}"
-},
-{
-"file": "docs/book/part6/p6_14b_atlas_v21.tex",
-"line": 4,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "IAM-Atlas v2.1 is outfitted with the latest in AstroGenetics ingenuity, blending the most advanced tools geneticists created to learn the unbelievably complex c"
-},
-{
-"file": "docs/book/part6/p6_14b_atlas_v21.tex",
-"line": 8,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "This is not a bigger table built for the sake of putting more cells in one place. A blended 79-cell atlas with MCMC posteriors would be interesting, but not new"
 },
 {
 "file": "docs/book/part6/16a_skytools_map79.tex",
@@ -1528,15 +1447,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "the [A-score database](ASCORES/README.md) hold the details."
-},
-{
-"file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 43,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "## 3. AstroGenetics: reading the genome with the tools of the sky"
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
@@ -1962,42 +1872,6 @@
 "text": "- Pooled A-score is near baseline (within `pooled_near_baseline_tolerance` of 1.0)"
 },
 {
-"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
-"line": 5,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "(results table; AstroGenetics, the physics behind each reading; the sample's sky beside its cell's healthy sky from IAM-Atlas v2.1; one section"
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
-"line": 202,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "return (\"<h2 id='v4-physics'>AstroGenetics: the physics behind each reading</h2><p>\" + PHYS_INTRO + \"</p>\""
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
-"line": 207,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\"\"\"AstroGenetics: each reading in the physics it rests on. Every number from this run's record or a committed reference file.\"\"\""
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
-"line": 406,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\"<p class='sub2'>AstroGenetics: the physics of methylation, read on one sample</p>\","
-},
-{
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_series.py",
 "line": 4,
 "pattern": "\\bA[- ]score",
@@ -2005,24 +1879,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "for Met-A against the atlas), and a scorer reads only the bundles."
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_pdf_v4.py",
-"line": 37,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "P(\"AstroGenetics: the physics of methylation, read on one sample\", \"sub\"),"
-},
-{
-"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_pdf_v4.py",
-"line": 68,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "st += [P(\"AstroGenetics: the physics behind each reading\", \"h2\"), P(R.PHYS_INTRO), Spacer(1, 4),"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/CPG_Null_Runner/cpg_null_runner.py",
@@ -2476,33 +2332,6 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 1898,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its"
-},
-{
-"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 2017,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The AstroGenetics section as HTML."
-},
-{
-"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 2844,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from"
-},
-{
-"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
 "line": 3304,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
@@ -2512,66 +2341,12 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1300,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its"
-},
-{
-"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1373,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "The AstroGenetics section as HTML."
-},
-{
-"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1854,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from"
-},
-{
-"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
 "line": 2123,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles."
-},
-{
-"file": "Biological_Physics/MethylPhys/atlas/v2.1/README.md",
-"line": 2,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "## IAM-Atlas v2.1: outfitted with AstroGenetics"
-},
-{
-"file": "Biological_Physics/MethylPhys/atlas/v2.1/README.md",
-"line": 4,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "IAM-Atlas v2.1 is outfitted with the latest in AstroGenetics ingenuity, blending the most advanced tools geneticists created to learn the unbelievably complex c"
-},
-{
-"file": "Biological_Physics/MethylPhys/atlas/v2.1/README.md",
-"line": 8,
-"pattern": "AstroGenetics|Cosmic Methylome",
-"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-"severity": "warn",
-"status": "LIVE",
-"text": "This is not a bigger table built for the sake of putting more cells in one place. A blended 79-cell atlas with MCMC posteriors would be interesting, but not new"
 },
 {
 "file": "Biological_Physics/MethylPhys/atlas/v2/scripts/stage_1_idat_calibration.py",

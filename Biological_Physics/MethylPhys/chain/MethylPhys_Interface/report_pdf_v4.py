@@ -34,7 +34,7 @@ def _img(path, w=7.0):
 
 def _head(o, sid, when, view):
     return [P(f"IAM chain v4 · run {o.get('run_id')} · {when} · {view} view", "meta"), P(f"Sample report: {sid}", "h1"),
-            P("AstroGenetics: the physics of methylation, read on one sample", "sub"),
+            P("The information physics of methylation, read on one sample", "sub"),
             P(f"Specimen {o.get('specimen', '')} · platform {o.get('platform') or o.get('array_type') or 'sequencing'}", "meta"), Spacer(1, 6),
             *([P(f"<b>{o['banner']}</b>", "flag"), Spacer(1, 4)] if o.get("banner") else []),
             P("<b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: <i>commissioned</i> means it "
@@ -65,7 +65,7 @@ def build_pdfs(o, F, out, sid, when):
     _ri = R.report_text()["intro"]; st += [P(html.escape(_ri["title"]), "h2")] + [y for x in _ri["paragraphs"] for y in (P(html.escape(x), "small"), Spacer(1, 5))]
     ph = R.physics_rows(o)
     if ph:
-        st += [P("AstroGenetics: the physics behind each reading", "h2"), P(R.PHYS_INTRO), Spacer(1, 4),
+        st += [P("The physics behind each reading", "h2"), P(R.PHYS_INTRO), Spacer(1, 4),
                _tbl([[P("<b>Instrument</b>"), P("<b>What was measured</b>"), P("<b>The physics</b>")]] + [[P(f"<b>{a}</b>"), P(b), P(c)] for a, b, c in ph], [0.8, 3.1, 3.4])]
     sh = o.get("cell_shares") or {}
     if sh.get("cells"):

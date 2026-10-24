@@ -2,7 +2,7 @@
 """Report for chain v4 (2026-10-17; two views 2026-10-18). One self-contained HTML page per sample, and the same report as two PDFs.
 
 Two views of the same readings (author 2026-10-16/18: researchers get the table, everyone else the gauge): the RESEARCHER view opens first
-(results table; AstroGenetics, the physics behind each reading; the sample's sky beside its cell's healthy sky from IAM-Atlas v2.1; one section
+(results table; the physics behind each reading; the sample's sky beside its cell's healthy sky from IAM-Atlas v2.1; one section
 per instrument), and the PLAIN view (the floor-to-ceiling gauges, one sentence each, and the sky). The technical record follows both.
 
 Front: the reading at a glance (every commissioned instrument, its reading, its state and its commissioning status), then one section per
@@ -199,12 +199,12 @@ PHYS_INTRO = ("One law runs under every reading here: a mark held against therma
 def _physics(o):
     rows = physics_rows(o)
     if not rows: return ""
-    return ("<h2 id='v4-physics'>AstroGenetics: the physics behind each reading</h2><p>" + PHYS_INTRO + "</p>"
+    return ("<h2 id='v4-physics'>The physics behind each reading</h2><p>" + PHYS_INTRO + "</p>"
             "<table class='phys'><tr><th>Instrument</th><th>What was measured</th><th>The physics</th></tr>"
             + "".join(f"<tr><td>{E(a)}</td><td>{b}</td><td>{c_}</td></tr>" for a, b, c_ in rows) + "</table>")
 
 def physics_rows(o):
-    """AstroGenetics: each reading in the physics it rests on. Every number from this run's record or a committed reference file."""
+    """Each reading in the physics it rests on. Every number from this run's record or a committed reference file."""
     G = _marks(); M = G["M_cell"]["value"]; rows = []; m, t, c, q = o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
     if q.get("A") is not None and q.get("predicted") and q.get("held_err") is not None:   # the own-reference reading only (the retired position form has no prediction)
         e, ep, L = float(q["held_err"]), float(q["predicted"]), float(q.get("loose_share") or 0); emin = 1 / (1 + math.exp(M))
@@ -403,7 +403,7 @@ def build(o, out, sid):
     when = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     o["_figs"] = F = _figs(o, os.path.splitext(os.path.abspath(out))[0])
     front = [f"<p class='meta'>IAM chain v4 · run {E(str(o.get('run_id')))} · {when}</p>", f"<h1>Sample report: {E(sid)}</h1>",
-             "<p class='sub2'>AstroGenetics: the physics of methylation, read on one sample</p>",
+             "<p class='sub2'>The information physics of methylation, read on one sample</p>",
              f"<p class='meta'>Specimen {E(str(o.get('specimen', '')))} · platform {E(str(o.get('platform') or o.get('array_type') or 'sequencing'))}</p>",
              (f"<p class='note' style='border-left-color:#b33;background:#fdf0f0'><b>{E(o['banner'])}</b></p>" if o.get("banner") else ""),
              "<p class='note'><b>Research use only. Not a diagnostic test.</b> Each reading is printed with its commissioning status: "

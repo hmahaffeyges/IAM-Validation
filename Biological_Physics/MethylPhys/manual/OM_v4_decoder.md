@@ -1895,7 +1895,7 @@ a committed reference file.
 **Its parts, in page order.**
 
 1. **The researcher view**: the reading at a glance (each instrument, the question it answers, its reading, its state and its
-   commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its
+   commissioning status); the physics behind each reading with this run's own numbers; the cell shares; Met-A on its
    gauge; the C-Score with its sky and the overlay of the sample on its healthy reference; IAM-A on its gauge.
 2. **The plain view**: one gauge and one sentence per reading, and the sky.
 3. **The technical record** (`report_v3.build`): every stage's record, the red flags, the safeguards, troubleshooting, and the
@@ -2014,7 +2014,7 @@ Draws this sample's gauge and C-Score pictures beside the report.
 
 ### `report_v4.py::_physics`
 
-The AstroGenetics section as HTML.
+The physics section as HTML.
 
 *Code:* `MethylPhys_Interface/report_v4.py` line 199 (6 lines) · arguments: o · calls: array run 1, bam run 1 · constants read: `E`, `PHYS_INTRO`
 
@@ -2841,7 +2841,7 @@ Draws one section's explanation as a shaded block under its table in the HTML re
 
 ### `report_v4.py::_intro_html`
 
-Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from the same source.
+Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, the methods' origin in sky mapping, and what each status means) from the same source.
 
 *Code:* `MethylPhys_Interface/report_v4.py` line 385 (3 lines) · arguments: none · calls: not called on the traced runs · constants read: `E`
 

@@ -1297,7 +1297,7 @@ a committed reference file.
 **Its parts, in page order.**
 
 1. **The researcher view**: the reading at a glance (each instrument, the question it answers, its reading, its state and its
-   commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its
+   commissioning status); the physics behind each reading with this run's own numbers; the cell shares; Met-A on its
    gauge; the C-Score with its sky and the overlay of the sample on its healthy reference; IAM-A on its gauge.
 2. **The plain view**: one gauge and one sentence per reading, and the sky.
 3. **The technical record** (`report_v3.build`): every stage's record, the red flags, the safeguards, troubleshooting, and the
@@ -1370,7 +1370,7 @@ The IAM-A section: its gauge, or the refusal.
 Draws this sample's gauge and C-Score pictures beside the report.
 
 ### report_v4.py::_physics
-The AstroGenetics section as HTML.
+The physics section as HTML.
 
 ### report_v4.py::physics_rows
 Each reading set in the physics it rests on, with this run's numbers. IAM-A: ε measured, ε predicted at the sample's own L, saturation
@@ -1851,7 +1851,7 @@ The explanation of one report section as (label, text) pairs, in a fixed order: 
 Draws one section's explanation as a shaded block under its table in the HTML report.
 
 ### report_v4.py::_intro_html
-Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from the same source.
+Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, the methods' origin in sky mapping, and what each status means) from the same source.
 
 ### report_pdf_v4.py::_explain
 Draws one section's explanation in the researcher PDF, from the same source as the HTML report.
