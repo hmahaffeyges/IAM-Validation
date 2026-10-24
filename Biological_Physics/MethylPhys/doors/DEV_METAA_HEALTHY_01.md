@@ -233,3 +233,10 @@ molecules there that do not hold the mark (the loose share at those sites) does.
 layer 1 met. **Next (version 3, to be written before it runs):** the molecule classes at the identity sites (held, held absent, loose) and
 each class's level, from the same counts. **Disclosed:** a version 3 would be the third on the same three granulocyte samples and six
 arrays; whatever it reads stays development until confirmed on samples that played no part.
+
+**Which cells stand on each side of step 3** (checked after version 2, before any version 3; `atlas/sources/roster_v2/atlas_v2_roster.csv`,
+`atlas/v2/inputs/roster_samples.csv`): the three granulocyte samples (GSE186458) were candidates for IAM-Atlas v2.1 and were left out as a
+mixture of neutrophils, eosinophils and basophils; the atlas's neutrophil column comes from purified neutrophil arrays only (two published
+array series, 12 samples). So the comparison is not circular, but its two sides are not the same cells: the derived side is granulocytes, the
+measured mark purified neutrophils. Part of any step 3 gap may be that difference. A version 3 states it before it runs; a confirmation
+needs sequenced purified neutrophils, if a public set exists.
