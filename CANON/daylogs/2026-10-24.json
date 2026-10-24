@@ -28,6 +28,16 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "R5, Crohn's disease and colitis in whole blood (OTH-082, DEV-REPLICATE-01)",
+     "status": "development",
+     "what": "382 bloods with Crohn's disease, colitis and none, each read by the one command.",
+     "outcome": "The disorder readings do not separate the groups; the smoking site and the neutrophil share do, as the known biology predicts.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   },

@@ -144,3 +144,16 @@ a per-cell reading lower in Alzheimer's for 106 of 115 cell types and a distance
 mix change and no disorder change once the mix is taken out. The shares of the five panel names (CD4, CD8, B, NK) read 0 here because the
 79-cell atlas names these cells more finely; the finer shares are in each bundle. **In plain words:** in Alzheimer's blood the chain sees
 more neutrophils, not more disordered marks.
+
+**R5 Crohn's and colitis, whole blood, read** (`data/DEV_REPLICATE_01/r5/r5_ibd_blood_summary.txt`; 382 of 384 arrays of GSE87650, 450K, pass 1,
+untared; groups as GEO labels them: CD Crohn's disease 103, UC ulcerative colitis 101, HL healthy 103, HS symptomatic controls without
+inflammatory bowel disease 75). **Earlier engine:** its test on this series (VAL-128) used only the sorted-cell sub-experiment, so the whole
+blood has no earlier result to compare; R5's sorted cells are still running.
+
+- **Met-A, the territories and the whole-genome C-Score do not separate the groups** (Crohn's against healthy: whole-sample Met-A
+  1.0301 against 1.0310, d +0.04; islands 1.0801 against 1.0902; C-Score 1.0092 against 1.0085).
+- **The smoking site does:** AHRR cg05575921 reads lower in Crohn's than in healthy (0.8080 against 0.8620, d -0.52, p 0.00019) and than in
+  colitis (d -0.57), while colitis and healthy match (d -0.05). Smoking is an established risk factor for Crohn's disease and is protective
+  in colitis, so this is the known biology appearing through the chain's own calibrated values.
+- **The IAM-Deconvolver's largest shares:** neutrophils 0.57 in Crohn's and 0.52 in colitis against 0.42 in healthy, the raised neutrophil
+  share of active inflammation. The 450K bone-marrow progenitor shares (GMP, HSC) appear again, as on every 450K series, and are flagged.

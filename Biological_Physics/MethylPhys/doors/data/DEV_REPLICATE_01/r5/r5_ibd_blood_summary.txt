@@ -1,0 +1,114 @@
+DEV-REPLICATE-01 r5_ibd_blood: 382 of 384 arrays read (pass 1, untared)
+== GSE87650: CD 103, HL 103, HS 75, UC 101
+   CD: largest shares neutrophils 0.57, GMP (bone marrow) 0.08, HSC (bone marrow) 0.04
+   HL: largest shares neutrophils 0.42, naive cd8 t cells 0.08, HSC (bone marrow) 0.08
+   HS: largest shares neutrophils 0.48, GMP (bone marrow) 0.09, naive cd8 t cells 0.07
+   UC: largest shares neutrophils 0.52, HSC (bone marrow) 0.08, GMP (bone marrow) 0.07
+-- CD (103) against HL (103)
+   site cg05575921                            0.8080 against 0.8620 | d -0.52 | p 0.00019
+   site cg03636183                            0.7420 against 0.7620 | d -0.38 | p 0.018
+   site cg16867657                            0.5010 against 0.4970 | d +0.20 | p 0.39
+   Met-A whole                                1.0301 against 1.0310 | d +0.04 | p 0.86
+   ceiling distance                           0.9805 against 0.9795 | d -0.02 | p 0.93
+   Met-A whole, identity sites of the cells found 1.0215 against 1.0433 | d +0.00 | p 0.82
+   Met-A whole, islands                       1.0886 against 1.0999 | d +0.05 | p 0.79
+   Met-A whole, domains                       1.0326 against 1.0370 | d +0.03 | p 0.67
+   Met-A whole, the rest                      1.0172 against 1.0216 | d +0.03 | p 0.78
+   Met-A neutrophils                          1.0828 against 1.0894 | d +0.03 | p 0.68
+   Met-A cd4 t cells                          1.0290 against 1.0476 | d -0.02 | p 0.96
+   Met-A cd8 t cells                          1.0041 against 1.0231 | d -0.02 | p 0.96
+   Met-A b cells                              0.9698 against 0.9865 | d -0.01 | p 0.99
+   Met-A monocytes                            1.0198 against 1.0298 | d +0.04 | p 0.85
+   territory islands                          1.0801 against 1.0902 | d +0.05 | p 0.78
+   territory domains                          1.0245 against 1.0257 | d +0.01 | p 0.73
+   C-Score whole genome                       1.0092 against 1.0085 | d -0.03 | p 0.91
+-- CD (103) against HS (75)
+   site cg05575921                            0.8080 against 0.8590 | d -0.37 | p 0.0046
+   site cg03636183                            0.7420 against 0.7500 | d -0.33 | p 0.082
+   site cg16867657                            0.5010 against 0.5130 | d +0.09 | p 0.82
+   Met-A whole                                1.0301 against 1.0359 | d -0.05 | p 0.89
+   ceiling distance                           0.9805 against 0.9765 | d +0.05 | p 0.87
+   Met-A whole, identity sites of the cells found 1.0215 against 1.0369 | d -0.04 | p 0.97
+   Met-A whole, islands                       1.0886 against 1.0773 | d +0.04 | p 0.78
+   Met-A whole, domains                       1.0326 against 1.0392 | d -0.08 | p 0.52
+   Met-A whole, the rest                      1.0172 against 1.0207 | d -0.08 | p 0.63
+   Met-A neutrophils                          1.0828 against 1.0848 | d -0.02 | p 0.87
+   Met-A cd4 t cells                          1.0290 against 1.0523 | d -0.03 | p 0.96
+   Met-A cd8 t cells                          1.0041 against 1.0307 | d -0.02 | p 1
+   Met-A b cells                              0.9698 against 0.9858 | d -0.02 | p 0.94
+   Met-A monocytes                            1.0198 against 1.0380 | d -0.05 | p 0.89
+   territory islands                          1.0801 against 1.0720 | d +0.04 | p 0.78
+   territory domains                          1.0245 against 1.0338 | d -0.09 | p 0.43
+   C-Score whole genome                       1.0092 against 1.0066 | d +0.11 | p 0.28
+-- CD (103) against UC (101)
+   site cg05575921                            0.8080 against 0.8580 | d -0.57 | p 0.00017
+   site cg03636183                            0.7420 against 0.7550 | d -0.36 | p 0.038
+   site cg16867657                            0.5010 against 0.5020 | d +0.10 | p 0.65
+   Met-A whole                                1.0301 against 1.0339 | d -0.04 | p 0.84
+   ceiling distance                           0.9805 against 0.9768 | d +0.04 | p 0.83
+   Met-A whole, identity sites of the cells found 1.0215 against 1.0355 | d -0.00 | p 0.82
+   Met-A whole, islands                       1.0886 against 1.1064 | d +0.03 | p 0.69
+   Met-A whole, domains                       1.0326 against 1.0400 | d -0.09 | p 0.7
+   Met-A whole, the rest                      1.0172 against 1.0216 | d -0.06 | p 0.7
+   Met-A neutrophils                          1.0828 against 1.0885 | d -0.00 | p 0.85
+   Met-A cd4 t cells                          1.0290 against 1.0464 | d -0.01 | p 0.84
+   Met-A cd8 t cells                          1.0041 against 1.0192 | d -0.01 | p 0.86
+   Met-A b cells                              0.9698 against 0.9818 | d -0.01 | p 0.95
+   Met-A monocytes                            1.0198 against 1.0424 | d -0.08 | p 0.69
+   territory islands                          1.0801 against 1.0983 | d +0.03 | p 0.69
+   territory domains                          1.0245 against 1.0317 | d -0.11 | p 0.59
+   C-Score whole genome                       1.0092 against 1.0083 | d -0.09 | p 0.93
+-- HL (103) against HS (75)
+   site cg05575921                            0.8620 against 0.8590 | d +0.13 | p 0.63
+   site cg03636183                            0.7620 against 0.7500 | d +0.06 | p 0.59
+   site cg16867657                            0.4970 against 0.5130 | d -0.12 | p 0.61
+   Met-A whole                                1.0310 against 1.0359 | d -0.08 | p 0.75
+   ceiling distance                           0.9795 against 0.9765 | d +0.07 | p 0.8
+   Met-A whole, identity sites of the cells found 1.0433 against 1.0369 | d -0.04 | p 0.85
+   Met-A whole, islands                       1.0999 against 1.0773 | d -0.01 | p 0.95
+   Met-A whole, domains                       1.0370 against 1.0392 | d -0.11 | p 0.39
+   Met-A whole, the rest                      1.0216 against 1.0207 | d -0.11 | p 0.47
+   Met-A neutrophils                          1.0894 against 1.0848 | d -0.05 | p 0.77
+   Met-A cd4 t cells                          1.0476 against 1.0523 | d -0.01 | p 0.96
+   Met-A cd8 t cells                          1.0231 against 1.0307 | d -0.01 | p 0.97
+   Met-A b cells                              0.9865 against 0.9858 | d -0.01 | p 1
+   Met-A monocytes                            1.0298 against 1.0380 | d -0.08 | p 0.68
+   territory islands                          1.0902 against 1.0720 | d -0.01 | p 0.95
+   territory domains                          1.0257 against 1.0338 | d -0.10 | p 0.36
+   C-Score whole genome                       1.0085 against 1.0066 | d +0.14 | p 0.31
+-- HL (103) against UC (101)
+   site cg05575921                            0.8620 against 0.8580 | d -0.05 | p 0.96
+   site cg03636183                            0.7620 against 0.7550 | d +0.03 | p 0.7
+   site cg16867657                            0.4970 against 0.5020 | d -0.10 | p 0.66
+   Met-A whole                                1.0310 against 1.0339 | d -0.07 | p 0.64
+   ceiling distance                           0.9795 against 0.9768 | d +0.06 | p 0.68
+   Met-A whole, identity sites of the cells found 1.0433 against 1.0355 | d -0.00 | p 0.94
+   Met-A whole, islands                       1.0999 against 1.1064 | d -0.02 | p 0.97
+   Met-A whole, domains                       1.0370 against 1.0400 | d -0.12 | p 0.37
+   Met-A whole, the rest                      1.0216 against 1.0216 | d -0.10 | p 0.44
+   Met-A neutrophils                          1.0894 against 1.0885 | d -0.03 | p 0.78
+   Met-A cd4 t cells                          1.0476 against 1.0464 | d +0.01 | p 0.97
+   Met-A cd8 t cells                          1.0231 against 1.0192 | d +0.00 | p 0.9
+   Met-A b cells                              0.9865 against 0.9818 | d -0.01 | p 0.98
+   Met-A monocytes                            1.0298 against 1.0424 | d -0.12 | p 0.46
+   territory islands                          1.0902 against 1.0983 | d -0.02 | p 0.97
+   territory domains                          1.0257 against 1.0317 | d -0.12 | p 0.4
+   C-Score whole genome                       1.0085 against 1.0083 | d -0.06 | p 0.59
+-- HS (75) against UC (101)
+   site cg05575921                            0.8590 against 0.8580 | d -0.17 | p 0.6
+   site cg03636183                            0.7500 against 0.7550 | d -0.03 | p 0.83
+   site cg16867657                            0.5130 against 0.5020 | d +0.02 | p 0.92
+   Met-A whole                                1.0359 against 1.0339 | d +0.01 | p 0.92
+   ceiling distance                           0.9765 against 0.9768 | d -0.01 | p 0.95
+   Met-A whole, identity sites of the cells found 1.0369 against 1.0355 | d +0.04 | p 0.96
+   Met-A whole, islands                       1.0773 against 1.1064 | d -0.01 | p 0.99
+   Met-A whole, domains                       1.0392 against 1.0400 | d -0.01 | p 0.8
+   Met-A whole, the rest                      1.0207 against 1.0216 | d +0.02 | p 0.93
+   Met-A neutrophils                          1.0848 against 1.0885 | d +0.01 | p 0.97
+   Met-A cd4 t cells                          1.0523 against 1.0464 | d +0.02 | p 0.88
+   Met-A cd8 t cells                          1.0307 against 1.0192 | d +0.01 | p 0.94
+   Met-A b cells                              0.9858 against 0.9818 | d +0.01 | p 0.99
+   Met-A monocytes                            1.0380 against 1.0424 | d -0.04 | p 0.78
+   territory islands                          1.0720 against 1.0983 | d -0.01 | p 0.99
+   territory domains                          1.0338 against 1.0317 | d -0.00 | p 0.73
+   C-Score whole genome                       1.0066 against 1.0083 | d -0.20 | p 0.13

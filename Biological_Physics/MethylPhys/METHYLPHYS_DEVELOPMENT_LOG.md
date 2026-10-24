@@ -3149,3 +3149,6 @@ Every array through run_sample.py: healthy A / A_pred 0.99689 and 0.99866 on the
 
 ### 2026-10-24 · The gain side of the held error, counted by Stage Q2 (GRP-019, DEV-METAA-HEALTHY-01 layer 1)
 Stage Q2 now also counts a lone methylated call on molecules held unmarked. On constructed molecules it recovers the gain rate at 0.969 to 0.992 of the built-in value and the loss rate at 0.956 to 0.965, and at equal rates the two sides agree (1.011). Layer 1, written before any real file is counted, predicts the atlas's healthy levels from the two held errors of each of 56 cell types. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).
+
+### 2026-10-24 · R5, Crohn's disease and colitis in whole blood, through the one command (OTH-082, DEV-REPLICATE-01)
+382 of 384 GSE87650 bloods read. Met-A, the territories and the whole-genome C-Score do not separate Crohn's, colitis and healthy. The smoking site AHRR reads lower in Crohn's (0.8080 against 0.8620 in healthy, d -0.52), as smoking's known link to Crohn's predicts, and the neutrophil share is higher in both diseases. Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
