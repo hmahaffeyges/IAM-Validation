@@ -38,6 +38,16 @@
       "OTH-082"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "The healthy plasma band on sequencing, 30 plasmas (GRP-016, DEV-ONE-DRAW-01)",
+     "status": "development",
+     "what": "Thirty healthy plasmas, each read end to end by the one command.",
+     "outcome": "The held error is nearly constant from person to person; IAM-A on cell-free DNA needs its own band; the atlas lacks one of plasma's main source cells.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },

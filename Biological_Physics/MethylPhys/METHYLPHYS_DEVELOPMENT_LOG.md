@@ -3152,3 +3152,6 @@ Stage Q2 now also counts a lone methylated call on molecules held unmarked. On c
 
 ### 2026-10-24 · R5, Crohn's disease and colitis in whole blood, through the one command (OTH-082, DEV-REPLICATE-01)
 382 of 384 GSE87650 bloods read. Met-A, the territories and the whole-genome C-Score do not separate Crohn's, colitis and healthy. The smoking site AHRR reads lower in Crohn's (0.8080 against 0.8620 in healthy, d -0.52), as smoking's known link to Crohn's predicts, and the neutrophil share is higher in both diseases. Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
+
+### 2026-10-24 · The healthy plasma band on sequencing, 30 plasmas (GRP-016, DEV-ONE-DRAW-01)
+All 30 healthy plasmas read end to end. The held error is nearly constant (0.03854; 5-95 % 0.03716 to 0.04019). IAM-A tracks the loose share (rho -0.94) and sits around the low edge of the purified-cell band (median 0.7733), so cell-free DNA needs its own band. Met-A whole reads 0.8302. The atlas holds no megakaryocytes, which the published work names as a main source of plasma DNA. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).

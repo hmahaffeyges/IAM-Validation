@@ -1,0 +1,17 @@
+plasma_seq_01 healthy band: 30 plasmas read by the one command
+IAM-A                                      n 30 | median 0.7733 | 25-75 % 0.755 to 0.8103 | 5-95 % 0.7145 to 0.8398
+held error                                 n 30 | median 0.03854 | 25-75 % 0.03805 to 0.03914 | 5-95 % 0.03716 to 0.04019
+loose share                                n 30 | median 0.2864 | 25-75 % 0.1996 to 0.3216 | 5-95 % 0.1305 to 0.4019
+sites with a value                         n 30 | median 4.312e+05 | 25-75 % 3.947e+05 to 5.113e+05 | 5-95 % 3.234e+05 to 5.54e+05
+Met-A whole                                n 30 | median 0.8302 | 25-75 % 0.7938 to 0.8798 | 5-95 % 0.7583 to 0.9406
+ceiling distance                           n 30 | median 1.582 | 25-75 % 1.55 to 1.627 | 5-95 % 1.512 to 1.743
+globe changed blocks                       n 30 | median 21.5 | 25-75 % 19 to 26.75 | 5-95 % 12 to 41.85
+sphere territories changed                 n 30 | median 0 | 25-75 % 0 to 0 | 5-95 % 0 to 1
+Met-A whole, identity sites of the cells found n 30 | median 0.7594 | 25-75 % 0.695 to 0.775 | 5-95 % 0.6624 to 0.8185
+Met-A whole, islands                       n 30 | median 0.8514 | 25-75 % 0.8276 to 0.881 | 5-95 % 0.7067 to 0.982
+Met-A whole, domains                       n 30 | median 0.8601 | 25-75 % 0.8083 to 0.9531 | 5-95 % 0.7453 to 1.075
+Met-A whole, the rest                      n 30 | median 0.8194 | 25-75 % 0.7895 to 0.8581 | 5-95 % 0.7639 to 0.946
+territory islands                          n 30 | median 0.8391 | 25-75 % 0.8156 to 0.8671 | 5-95 % 0.6967 to 0.9684
+territory domains                          n 30 | median 0.86 | 25-75 % 0.8084 to 0.9457 | 5-95 % 0.7499 to 1.059
+IAM-A against the loose share: Spearman rho -0.94 (p 2.7e-14, n 30)
+cell shares, median over the plasmas: lung interstitial macrophages 0.385, neutrophils 0.178, erythrocyte progenitors 0.174, MEP (bone marrow) 0.047, eosinophils 0.034, colon macrophages 0.018, cardiomyocyte 0.009, CMP (bone marrow) 0.000, oligodendrocytes 0.000, oligodendrocyte precursors 0.000

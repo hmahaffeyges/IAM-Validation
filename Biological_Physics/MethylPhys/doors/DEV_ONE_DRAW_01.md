@@ -155,3 +155,31 @@ as the instrument gave it. The other 28 were dispatched on this result.
 and 5-95 % ranges over the healthy plasmas; IAM-A's held error and loose share apart, and whether IAM-A follows the loose share (the second
 plasma, K0619, `plasma_seq_01/plasma_02_SRR23279768_summary.txt`, read held error 0.038256 against the first's 0.039202, loose share 0.1852 against 0.4052, IAM-A 0.8196 Normal against 0.722); the
 cell shares' medians. Nothing fitted; whatever band the 30 give is the first one for plasma on sequencing.
+
+## The healthy plasma band, 30 plasmas (`data/DEV_ONE_DRAW_01/plasma_seq_01/plasma_band_summary.txt`; scorer `plasma_band.py`, committed before 28 of them were read)
+
+All 30 healthy plasmas of PRJNA929650 read end to end by the one command (shallow bisulfite sequencing). Medians, with the 5 % to 95 % range:
+
+| Reading | Median | 5 % to 95 % |
+|---|---|---|
+| held error | 0.03854 | 0.03716 to 0.04019 |
+| loose share | 0.2864 | 0.1305 to 0.4019 |
+| IAM-A | 0.7733 | 0.7145 to 0.8398 |
+| Met-A, whole sample | 0.8302 | 0.7583 to 0.9406 |
+| territory islands | 0.8391 | 0.6967 to 0.9684 |
+| territory domains | 0.86 | 0.7499 to 1.059 |
+| globe changed blocks | 21.5 | 12 to 41.85 |
+| sphere territories changed | 0 | 0 to 1 |
+
+- **The held error barely moves between people,** a few percent across all 30, inside the range seen in purified healthy cells. On
+  cell-free DNA too it behaves like a constant.
+- **IAM-A tracks the loose share almost exactly** (Spearman rho -0.94, p 2.7e-14), and half the plasmas sit just below the Normal band
+  built on purified cells. The plasmas' loose shares lie far above any purified cell's, so the self-reference line is read beyond the range
+  it was built on. **Lesson:** cell-free DNA needs its own healthy band for IAM-A, or a loose share measured in a way short fragments do not
+  inflate; the purified-cell line does not carry over as it stands.
+- **Met-A and the territories read below 1** (whole sample 0.8302), less disorder than the atlas mix predicts. Open: the read-count
+  expectation at one or two reads per site, or the mix itself (next point), each of which would bias it this way.
+- **The IAM-Deconvolver's largest shares:** lung interstitial macrophages 0.385, neutrophils 0.178, erythrocyte progenitors 0.174.
+  IAM-Atlas v2.1 holds no megakaryocytes, which the published work on plasma names as a main source of its DNA; that DNA has to land in
+  some held cell type, and the macrophage share is a candidate for where it went. This is the atlas's known limit (a cell type it does not
+  hold) appearing on real data; the shares are recorded as the Deconvolver returned them, flagged.
