@@ -65,6 +65,10 @@ This file is the single source of truth for constants and names. To change a val
 | Noise map (posterior draws) | current | The atlas's uncertainty shown as its own pictures: the average of the first k of a cell's 100 posterior draws at every site (k = 1, 2, 4 ... 100, draws taken in turn from the four sampling chains); the map settles onto the atlas's value as k grows (atlas/tools/noise_maps_v21.py). |
 | Anchor range (preliminary) | current | A whole-blood reading of the span between an array's low and high fixed-site anchors, tared on its slide, that keeps a loss spread evenly over every site, which Met-A's self-tare cancels (GRP-014, DEV-SELFTARE-03). Preliminary: read and flagged, not commissioned. |
 | Hard-to-map probes | current | EPIC v1 probes whose sequence matches the genome with mapping quality under 10 or not at all (3.14 % of the array). Removing them moves no IAM instrument beyond its own repeat noise (DEV-MAPPABILITY-01, OTH-079); IAM-A's read counter already drops reads with mapping quality under 10. |
+| floor | current | The least error heat allows for a mark held with the full drive: eps_min = 1/(1 + e^M), H_min = H(eps_min). Status: derived. |
+| ceiling | current | One bit per site: a mark lost entirely, read as a coin flip. Status: derived. |
+| baseline | current | Where a healthy cell of its kind sits between the floor and the ceiling, for every instrument (Met-A's baseline, IAM-A's baseline). One name; how its value is known is a status label: derived (from the physics, nothing estimated), calibrated (a derived form with constants measured once on healthy cells and frozen), measured (taken from reference samples), candidate (derivation written, its test not yet passed). Only the label changes when a test passes (author, 2026-10-24). Today: Met-A's baseline measured (six commissioned neutrophil arrays), its derived value a candidate (DEV-METAA-HEALTHY-01 step 3); IAM-A's baseline calibrated (selfref_line_v1.json). |
+| reference | current | Only what is measured: the reference atlas (IAM-Atlas v2.1) and the healthy reference cells and arrays in it. Never the baseline. |
 
 ## Retired or pending names
 
@@ -97,3 +101,9 @@ This file is the single source of truth for constants and names. To change a val
 | `0\.024 ?(--|–|-|to) ?0\.042` | 0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19) | block |
 | `Mahaffey number` | the M number (named like the Mach number; author 2026-10-24) | block |
 | `AstroGenetics|Cosmic Methylome` | the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24) | warn |
+| `derived minimum` | the floor (author 2026-10-24: one name, a status label) | warn |
+| `derived limit` | the floor or the ceiling (author 2026-10-24: one name, a status label) | warn |
+| `healthy line` | the baseline (author 2026-10-24: one name, a status label) | warn |
+| `reference line` | the baseline (author 2026-10-24: one name, a status label) | warn |
+| `self-reference line` | IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label) | warn |
+| `healthy middle` | the baseline (author 2026-10-24: one name, a status label) | warn |
