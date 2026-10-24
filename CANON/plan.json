@@ -1490,6 +1490,13 @@
      "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads. Synthetic test cfDNA 1: mixing doubles the tile loose share with the held error unchanged; short molecules lower the held error through the qualifying rule; both pull IAM-A down; neither involves the atlas",
      "next": "build the molecule-level loose share and the exact length correction in Stage Q2 (development), each with its own synthetic test; then reread the 30 plasmas",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
+    },
+    {
+     "id": "40.14",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "IAM-A by cell of origin in plasma: assign each sequenced fragment to a cell type by its identity pattern (fragment-level assignment is published), then count the held error on each cell type's own molecules, against the physics floor, in one person. Where it could add: the sick cells themselves (megakaryocytes in myeloproliferative neoplasms and megakaryoblastic leukemia; a tumor's own fragments), not cells merely responding (author: 'only the percentage ... UNLESS they are the ones in trouble themselves'). Untested",
+     "next": "synthetic test first: constructed plasma from two cell types with different held errors through the one command; does the per-origin count recover each"
     }
    ]
   },
