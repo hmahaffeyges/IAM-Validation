@@ -1,0 +1,3 @@
+planted at the sites: loss 0.06, gain 0.05; elsewhere 0.03, 0.02
+counted at the sites: loss 0.0580 (45326 opportunities), gain 0.0461 (45447)
+neighbors divided out: loss 0.0616, gain 0.0480
