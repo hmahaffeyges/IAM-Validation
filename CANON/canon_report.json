@@ -82,6 +82,15 @@
 },
 {
 "file": "MANIFEST.md",
+"line": 335,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **PHY-021** | DEV-FLOOR-HEIGHT-02 section 5: half-law conjecture (E_hold = dmu/2) and the Mahaffey number | Tested the author's conjecture that the copying ma"
+},
+{
+"file": "MANIFEST.md",
 "line": 339,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
@@ -100,6 +109,24 @@
 },
 {
 "file": "MANIFEST.md",
+"line": 341,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **PHY-027** | Half-law conjecture and the Mahaffey number: driving cost per site | Tests the conjecture that the copying machine spends twice what it holds (a"
+},
+{
+"file": "MANIFEST.md",
+"line": 341,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **PHY-027** | Half-law conjecture and the Mahaffey number: driving cost per site | Tests the conjecture that the copying machine spends twice what it holds (a"
+},
+{
+"file": "MANIFEST.md",
 "line": 351,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
@@ -115,6 +142,24 @@
 "severity": "block",
 "status": "RECORD",
 "text": "| **PHY-037** | Gauge marks anchored: Mahaffey number M = 20.94, drive fraction phi, floor and ceiling derived | Writes into the foundation that both ends of th"
+},
+{
+"file": "MANIFEST.md",
+"line": 351,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **PHY-037** | Gauge marks anchored: Mahaffey number M = 20.94, drive fraction phi, floor and ceiling derived | Writes into the foundation that both ends of th"
+},
+{
+"file": "MANIFEST.md",
+"line": 354,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "| **PHY-040** | The author's half-law: half writing, half erasing, two forms of energy (not the copying-only check) | Test whether the held energy splits betwee"
 },
 {
 "file": "MANIFEST.md",
@@ -226,12 +271,39 @@
 },
 {
 "file": "MANIFEST.md",
+"line": 480,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "LIVE",
+"text": "| **TIS-055** | Salmon track: IAM-A on fish, its Mahaffey number scaled by water temperature (gated on PHY-057) | If the temperature law is MET: synthetic first"
+},
+{
+"file": "MANIFEST.md",
 "line": 508,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "| **FLD-004** | Class-era adjacent-normal elevation across 28 cancer types (VAL-003), as summarized | Historical: in the class era, tissue next to tumors read h"
+},
+{
+"file": "MANIFEST.md",
+"line": 938,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **OTH-041** | Plain-language series part 1: What is AstroGenetics and the Cosmic Methylome: Tools of Cosmology Applied to DNA Methylation | 'IAM's Law Explain"
+},
+{
+"file": "MANIFEST.md",
+"line": 938,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| **OTH-041** | Plain-language series part 1: What is AstroGenetics and the Cosmic Methylome: Tools of Cosmology Applied to DNA Methylation | 'IAM's Law Explain"
 },
 {
 "file": "MANIFEST.md",
@@ -271,6 +343,24 @@
 },
 {
 "file": "MANIFEST.md",
+"line": 969,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "| **OTH-072** | Book audit: the cellular part (AstroGenetics, the cosmic methylome, the cell, DNA, the instruments, the atlas) | Chapter by chapter: every state"
+},
+{
+"file": "MANIFEST.md",
+"line": 969,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "| **OTH-072** | Book audit: the cellular part (AstroGenetics, the cosmic methylome, the cell, DNA, the instruments, the atlas) | Chapter by chapter: every state"
+},
+{
+"file": "MANIFEST.md",
 "line": 975,
 "pattern": "0\\.024 ?(--|\u2013|-|to) ?0\\.042",
 "use": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
@@ -279,6 +369,69 @@
 "text": "| **OTH-078** | Documentation audit: every manifest cell, the instrument catalogue and every referenced document checked against its records | Before any resear"
 },
 {
+"file": "FOLLOW.md",
+"line": 229,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| The idea in full | [Chapter 48, AstroGenetics and the Cosmic Methylome: the cell read as a thermometer](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs"
+},
+{
+"file": "FOLLOW.md",
+"line": 229,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| The idea in full | [Chapter 48, AstroGenetics and the Cosmic Methylome: the cell read as a thermometer](https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs"
+},
+{
+"file": "website/build/build_home.py",
+"line": 16,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "CH = {\"astro\": (48, 437, \"AstroGenetics and the Cosmic Methylome: the cell read as a thermometer\"), \"landauer\": (49, 448, \"Landauer's cost at body temperature\")"
+},
+{
+"file": "website/build/build_home.py",
+"line": 16,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "CH = {\"astro\": (48, 437, \"AstroGenetics and the Cosmic Methylome: the cell read as a thermometer\"), \"landauer\": (49, 448, \"Landauer's cost at body temperature\")"
+},
+{
+"file": "website/build/build_home.py",
+"line": 307,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "<p class=\"sub\">To read the genome, we use the measurement methods cosmologists built for the microwave sky: calibration against a reference, null tests, simulat"
+},
+{
+"file": "website/build/build_home.py",
+"line": 356,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "<h3>Why AstroGenetics</h3>"
+},
+{
+"file": "website/build/build_home.py",
+"line": 360,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "<p>Cosmology spent decades learning to read a faint record on a sphere against noise: combining many instruments into one map, fitting each instrument's quirks,"
+},
+{
 "file": "docs/verification/PAPER_ERRATA.md",
 "line": 285,
 "pattern": "class H_min",
@@ -322,6 +475,996 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "| two A-score definitions; class H_min; AIBL 46 % below 1; seminoma inversion | superseded by Met-A (per-cell floors, CANON 2026-10-01); class H_min retired |"
+},
+{
+"file": "docs/verification/scripts/verify_astrogenetics_book.py",
+"line": 2,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\"\"\"Recompute every number printed in docs/book/part6/p6_00b_astrogenetics.tex"
+},
+{
+"file": "docs/verification/scripts/verify_astrogenetics_book.py",
+"line": 4,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "python3 docs/verification/scripts/verify_astrogenetics_book.py"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 621,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "DATA_FILES['docs/verification/scripts/verify_astrogenetics_book_output.txt'] = 'committed output of verify_astrogenetics_book.py'   # 2 kB"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 621,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "DATA_FILES['docs/verification/scripts/verify_astrogenetics_book_output.txt'] = 'committed output of verify_astrogenetics_book.py'   # 2 kB"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 1744,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# helpers of the part6/p6_00b_astrogenetics checks"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29957,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# ======== Part 6 | ch:astrogenetics | docs/book/part6/p6_00b_astrogenetics.tex"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29957,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# ======== Part 6 | ch:astrogenetics | docs/book/part6/p6_00b_astrogenetics.tex"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29958,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L40', chapter='ch:astrogenetics', part=6, title='holding energy',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29958,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L40', chapter='ch:astrogenetics', part=6, title='holding energy',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29959,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29966,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L40:4.9', chapter='ch:astrogenetics', part=6, title='Landauer units',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29966,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L40:4.9', chapter='ch:astrogenetics', part=6, title='Landauer units',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29967,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=40, status='measured', kind='num', printed='4.45', tol=0)"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29973,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L63', chapter='ch:astrogenetics', part=6, title='Met-A at a coin flip: 1/0.330263 (canon floor)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29973,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L63', chapter='ch:astrogenetics', part=6, title='Met-A at a coin flip: 1/0.330263 (canon floor)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29974,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=63, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29980,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L88:Hmin', chapter='ch:astrogenetics', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29980,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L88:Hmin', chapter='ch:astrogenetics', part=6, title='the floor H_min on the neutrophil IAM-A gauge: H(1/(1+e^M)) / (P H(eps0))',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29981,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=85, status='calc', kind='file', printed='1e-7', tol=5e-8, source='CANON/iam_canon.json')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29990,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L89', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file th"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29990,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L89', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file th"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29990,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L89', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file th"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29991,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=89, status='calibrated', kind='file', printed='0.330263', tol=0.0, source='docs/verification/scripts/verify_astrogenetic"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29991,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=89, status='calibrated', kind='file', printed='0.330263', tol=0.0, source='docs/verification/scripts/verify_astrogenetic"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29992,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29992,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29994,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 89, printed 0.330263.'"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29995,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '0.330263')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29998,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L90', chapter='ch:astrogenetics', part=6, title='Met-A at a coin flip',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29998,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L90', chapter='ch:astrogenetics', part=6, title='Met-A at a coin flip',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 29999,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=90, status='calc', kind='file', printed='3.03', tol=0, source='CANON/iam_canon.json')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30005,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L98', chapter='ch:astrogenetics', part=6, title='H(beta) is symmetric: H(beta) = H(1 - beta)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30005,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L98', chapter='ch:astrogenetics', part=6, title='H(beta) is symmetric: H(beta) = H(1 - beta)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30006,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=98, status='derived', kind='sym', printed='', tol=0.0)"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30018,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L116', chapter='ch:astrogenetics', part=6, title='white-dwarf gauge full at the Chandrasekhar mass, A = 1.44/0.6',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30018,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L116', chapter='ch:astrogenetics', part=6, title='white-dwarf gauge full at the Chandrasekhar mass, A = 1.44/0.6',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30019,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=116, status='calc', kind='num', printed='2.40', tol=0.0)"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30029,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L139', chapter='ch:astrogenetics', part=6, title='IMR90 senescent cultures, methylated-channel Met-A, highest',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30029,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L139', chapter='ch:astrogenetics', part=6, title='IMR90 senescent cultures, methylated-channel Met-A, highest',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30030,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=139, status='measured', kind='file', printed='1.016', tol=0.0, source='Biological_Physics/MethylPhys/doors/PROC_LINES_02"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30032,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'Senescent IMR90 cultures hold the methylated channel at 0.941-1.016: the largest A_meth over the Senescent rows of imr90_channels.csv (as verify_astrogenetics_"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30036,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L140', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file t"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30036,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L140', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file t"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30036,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L140', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file t"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30037,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=140, status='measured', kind='file', printed='0.695', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30037,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=140, status='measured', kind='file', printed='0.695', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30038,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30038,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30040,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 140, printed 0.695.'"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30041,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '0.695')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30044,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L140:1.120', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a "
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30044,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L140:1.120', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a "
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30044,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L140:1.120', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a "
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30045,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=140, status='measured', kind='file', printed='1.120', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30045,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=140, status='measured', kind='file', printed='1.120', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30046,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30046,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30048,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 140, printed 1.120.'"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30049,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '1.120')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30052,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L141', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file t"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30052,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L141', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file t"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30052,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L141', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a file t"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30053,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=141, status='measured', kind='file', printed='0.664', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30053,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=141, status='measured', kind='file', printed='0.664', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30054,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30054,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30056,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 141, printed 0.664.'"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30057,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '0.664')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30060,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L141:0.975', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a "
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30060,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L141:0.975', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a "
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30060,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L141:0.975', chapter='ch:astrogenetics', part=6, title='measured: printed value found in verify_astrogenetics_book_output.txt, a "
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30061,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=141, status='measured', kind='file', printed='0.975', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30061,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=141, status='measured', kind='file', printed='0.975', tol=0.0, source='docs/verification/scripts/verify_astrogenetics_bo"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30062,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30062,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "heavy=True, rerun='python3 docs/verification/scripts/verify_astrogenetics_book.py > docs/verification/scripts/verify_astrogenetics_book_output.txt')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30064,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'measured: printed value found in verify_astrogenetics_book_output.txt, a file the chapter names. Book line 141, printed 0.975.'"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30065,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "ok = file_has('docs/verification/scripts/verify_astrogenetics_book_output.txt', '0.975')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30068,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L280', chapter='ch:astrogenetics', part=6, title='beta_m',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30068,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L280', chapter='ch:astrogenetics', part=6, title='beta_m',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30069,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=280, status='derived', kind='num', printed='0.15765', tol=0)"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30075,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L283', chapter='ch:astrogenetics', part=6, title='18th chain eta below Planck 2018, per cent',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30075,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L283', chapter='ch:astrogenetics', part=6, title='18th chain eta below Planck 2018, per cent',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30076,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=283, status='measured', kind='file', printed='0.2', tol=0.0, source='Cosmological_Physics/mgcamb_validation/CHAIN_EXTRAC"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30087,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L283:0.3', chapter='ch:astrogenetics', part=6, title='18th chain eta from nucleosynthesis with deuterium, sigma',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30087,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L283:0.3', chapter='ch:astrogenetics', part=6, title='18th chain eta from nucleosynthesis with deuterium, sigma',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30088,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=283, status='measured', kind='file', printed='0.3', tol=0.0, source=_B08_LB_OUT,"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30101,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L285', chapter='ch:astrogenetics', part=6, title='rho_L/rho_vac from (2/pi)(l_P/l_H)^2 (Ob/Om) sqrt(OL)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30101,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L285', chapter='ch:astrogenetics', part=6, title='rho_L/rho_vac from (2/pi)(l_P/l_H)^2 (Ob/Om) sqrt(OL)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30102,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=285, status='openprob', kind='num', printed='1.142\\\\times10^{-123}', tol=0.0)"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30110,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L286', chapter='ch:astrogenetics', part=6, title='measured rho_L/rho_vac',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30110,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L286', chapter='ch:astrogenetics', part=6, title='measured rho_L/rho_vac',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30111,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=286, status='fitted', kind='num', printed='1.133\\\\times10^{-123}', tol=0.0)"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30119,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L286:0.79', chapter='ch:astrogenetics', part=6, title='expression above the measured ratio, per cent',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30119,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L286:0.79', chapter='ch:astrogenetics', part=6, title='expression above the measured ratio, per cent',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30120,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=286, status='fitted', kind='num', printed='0.79', tol=0.0)"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30127,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L288', chapter='ch:astrogenetics', part=6, title='Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only chain',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30127,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:L288', chapter='ch:astrogenetics', part=6, title='Ob/Om = (3/16) sqrt(OL) holds to 0.5 % on the CMB-only chain',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 30128,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=288, status='observed', kind='file', printed='0.5', tol=0.0, source=_B08_LB_OUT,"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 31813,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:floor_eps', chapter='ch:astrogenetics', part=6, title='floor held error 1/(1+e^M)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 31813,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:astrogenetics:floor_eps', chapter='ch:astrogenetics', part=6, title='floor held error 1/(1+e^M)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 31814,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "file='part6/p6_00b_astrogenetics', line=85, status='calc', kind='file', printed='8e-10', tol=5e-11, source='CANON/iam_canon.json')"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 34840,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='ch:onegauge:L42', chapter='ch:onegauge', part=7, title='same value as p6_00b_astrogenetics:63 (H(eps0), bits)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 34843,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'same value as p6_00b_astrogenetics:63 (H(eps0), bits). Book line 42, printed 0.259.'"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 37537,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "@check(label='app:notation:L112', chapter='app:notation', part=8, title='same value as p6_00b_astrogenetics:63 (H(eps0), bits)',"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 37540,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "'same value as p6_00b_astrogenetics:63 (H(eps0), bits). Book line 112, printed 0.259.'"
+},
+{
+"file": "docs/book/verify_book.py",
+"line": 42686,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "CHAPTER_ORDER = ['front/p0_abstract', 'front/p0_preface', 'front/p0_giants', 'front/p0_how_to_read', 'part1/p1_02_iams_law', 'part1/p1_03_virial_law', 'part1/p1"
+},
+{
+"file": "docs/book/main.tex",
+"line": 71,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\input{part6/p6_00b_astrogenetics}"
+},
+{
+"file": "docs/book/figscripts/make_skytools_tables.py",
+"line": 58,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "chk = subprocess.run([sys.executable, str(REPO / \"docs/verification/scripts/verify_astrogenetics_book.py\")], cwd=REPO,"
+},
+{
+"file": "docs/book/figscripts/make_skytools_tables.py",
+"line": 62,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "CHECKS = f\"derivation and calculation checks {n_ok}/{n_ok} (verify\\\\_astrogenetics\\\\_book.py)\""
+},
+{
+"file": "docs/book/figscripts/make_skytools_tables.py",
+"line": 162,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "r\"% reference_floors_v1/sky, the HEALPix mapping in atlas/healpix_mapping, and verify_astrogenetics_book.py); do not edit by hand\","
 },
 {
 "file": "docs/book/drafts/p6_16c_information_sphere.tex",
@@ -333,6 +1476,60 @@
 "text": "\\item \\textbf{Distance from one's own healthy state}, as an angle rather than a score we define."
 },
 {
+"file": "docs/book/appendices/app_I_provenance.tex",
+"line": 385,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\ref{tab:caught} & Problems the borrowed tools found before they reached a reading. (Ch.~\\ref{ch:skytools}) & verify\\_astrogenetics\\_book.py\\\\"
+},
+{
+"file": "docs/book/appendices/app_F_glossary.tex",
+"line": 66,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\textbf{AstroGenetics} & The name used here for reading the methylome as cosmology reads the sky: calibration, component separation, residual maps and null test"
+},
+{
+"file": "docs/book/appendices/app_E_formulas.tex",
+"line": 598,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\subsection*{Chapter~\\ref{ch:astrogenetics}: AstroGenetics and the Cosmic Methylome: the cell read as a thermometer}"
+},
+{
+"file": "docs/book/appendices/app_E_formulas.tex",
+"line": 598,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\subsection*{Chapter~\\ref{ch:astrogenetics}: AstroGenetics and the Cosmic Methylome: the cell read as a thermometer}"
+},
+{
+"file": "docs/book/appendices/app_E_formulas.tex",
+"line": 598,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\subsection*{Chapter~\\ref{ch:astrogenetics}: AstroGenetics and the Cosmic Methylome: the cell read as a thermometer}"
+},
+{
+"file": "docs/book/appendices/app_E_formulas.tex",
+"line": 599,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\iamfsentry{483}{H(\\beta)=-\\beta\\log_2\\beta-(1-\\beta)\\log_2(1-\\beta),}{Shannon (binary) entropy of a locus with methylated fraction $\\beta$, in bits.}{definitio"
+},
+{
 "file": "docs/book/part6/p6_09_cscore.tex",
 "line": 30,
 "pattern": "\\bA[- ]score",
@@ -340,6 +1537,24 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "with $c_{\\rm healthy}$ the median over the six reference arrays, each read against the other five. \\calibrated{} The healthy reference arrays read $C=0.954$--$1"
+},
+{
+"file": "docs/book/part6/p6_20_report.tex",
+"line": 52,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "does not diagnose. Chapter~\\ref{ch:astrogenetics} sets out in plain language what such a reading does and does not mean, and why a benign"
+},
+{
+"file": "docs/book/part6/p6_16a_skytools.tex",
+"line": 190,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "(verify\\_astrogenetics\\_book.py: 36 of 36 pass) \\\\\\bottomrule"
 },
 {
 "file": "docs/book/part6/p6_22_leukocyte.tex",
@@ -360,13 +1575,283 @@
 "text": "\\section{A count, not a score}"
 },
 {
+"file": "docs/book/part6/p6_14_atlas.tex",
+"line": 140,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "AstroGenetics is not a metaphor laid over the biology: it is the same mathematics applied to a different signal. The atlas is one"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 2,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "% Placed directly after the Part 4 opening chapter (ch:bridge). Numbers recomputed by docs/verification/scripts/verify_astrogenetics_book.py."
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 3,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\chapter{AstroGenetics and the Cosmic Methylome: the cell read as a thermometer}\\label{ch:astrogenetics}"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 3,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\chapter{AstroGenetics and the Cosmic Methylome: the cell read as a thermometer}\\label{ch:astrogenetics}"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 3,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\chapter{AstroGenetics and the Cosmic Methylome: the cell read as a thermometer}\\label{ch:astrogenetics}"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 16,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Biology has a measurement problem that cosmology solved the tooling for more than twenty years ago, and AstroGenetics is what happens"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 19,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "be what reading a cell requires. AstroGenetics points that toolkit at the cell. The tools transfer because the underlying accounting is"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 29,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\textbf{AstroGenetics} is the use of cosmology's measurement toolkit on DNA methylation. The tools are imported from the field that built"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 34,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\textbf{The Cosmic Methylome} is the methylome read the way the microwave background is read: each specimen separated into the healthy"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 142,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Both AstroGenetics and cosmology reduce their central question to a single dimensionless number. We call it $A$. It is a ratio: the"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 327,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "question of signal with statistics and scale, training large models on labeled groups. AstroGenetics answers it with precision and"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 335,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "AstroGenetics is a verifiable claim, not an analogy. The strongest way to see it is a check made in the right order: write down what the"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 362,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\caption{One toolkit, two scales: each row is one tool doing the same job in cosmology and in AstroGenetics. The instruments were built by"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 363,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "cosmology; AstroGenetics points them at the cell. \\analogy{} of structure; each tool's status in the chain is in Chapter~\\ref{ch:skytools}.}"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 366,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "shared tool & in cosmology & in AstroGenetics \\\\\\midrule"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 375,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\section{Why it is called AstroGenetics}\\label{sec:ag_name}"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 378,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "yet do this for a cell (Chapter~\\ref{ch:skytools}). AstroGenetics is the transfer of that toolkit. It uses Markov-chain Monte Carlo to"
+},
+{
+"file": "docs/book/part6/p6_00b_astrogenetics.tex",
+"line": 405,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The simplest way to describe the instrument is as a cellular thermometer built with AstroGenetics. A thermometer does not diagnose and"
+},
+{
+"file": "docs/book/part6/p6_20b_walkthrough.tex",
+"line": 89,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The Researcher view opens with a table, one line per instrument with its reading, state and status, then \\emph{AstroGenetics: the physics behind"
+},
+{
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 3,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\section{AstroGenetics}"
+},
+{
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 5,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\emph{AstroGenetics} is our name for one idea: read the methylome the way"
+},
+{
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 15,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "where it should be. AstroGenetics hands that toolkit to the cell. The work is cartography: we map what is there. We do not invent the"
+},
+{
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 17,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "measured. Stargazers see what is there; trailblazers go where no one has been. AstroGenetics does both at once: it reads the methylome"
+},
+{
 "file": "docs/book/part6/p6_01_bridge.tex",
 "line": 110,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the Mahaffey number"
+"text": "ATP at 310\\,K it is about 21 ($\\mathcal M=20.94$). \\calc{} The chip gauge is the efficiency one, how far above $\\kB T\\ln2$ each switch runs; the M number is its"
+},
+{
+"file": "docs/book/part6/p6_01_bridge.tex",
+"line": 269,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Chapter~\\ref{ch:astrogenetics} says the same for geneticists and clinicians in plain language: what the instrument reads, what a reading"
+},
+{
+"file": "docs/book/part6/p6_14b_atlas_v21.tex",
+"line": 2,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\section{IAM-Atlas v2.1: outfitted with AstroGenetics}\\label{sec:atlas:v21story}"
+},
+{
+"file": "docs/book/part6/p6_14b_atlas_v21.tex",
+"line": 4,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "IAM-Atlas v2.1 is outfitted with the latest in AstroGenetics ingenuity, blending the most advanced tools geneticists created to learn the unbelievably complex c"
+},
+{
+"file": "docs/book/part6/p6_14b_atlas_v21.tex",
+"line": 8,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "This is not a bigger table built for the sake of putting more cells in one place. A blended 79-cell atlas with MCMC posteriors would be interesting, but not new"
+},
+{
+"file": "docs/book/part6/16a_skytools_map79.tex",
+"line": 2,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "% reference_floors_v1/sky, the HEALPix mapping in atlas/healpix_mapping, and verify_astrogenetics_book.py); do not edit by hand"
+},
+{
+"file": "docs/book/part6/16a_skytools_map79.tex",
+"line": 41,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "33 & Boltzmann solver & the physics floor: $\\varepsilon_0$ = 1/(1+exp(E\\_hold/kT)), M = 20.94 & in use & IAM-A floor; derivation and calculation checks 36/36 (v"
+},
+{
+"file": "docs/book/part6/16a_skytools_map79.tex",
+"line": 87,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "79 & Reproducibility & bit-identical calibration; tests that read the frozen files & in use & derivation and calculation checks 36/36 (verify\\_astrogenetics\\_bo"
 },
 {
 "file": "Biological_Physics/README.md",
@@ -385,6 +1870,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "the [A-score database](ASCORES/README.md) hold the details."
+},
+{
+"file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+"line": 43,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "## 3. AstroGenetics: reading the genome with the tools of the sky"
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
@@ -439,6 +1933,15 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "- **14.3** [open] Held error and replication error are two routes with different physics (author: the held error 'requires a constant force to maintain it'; the"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 131,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **39.14** [open] One source per fact (author 2026-10-23: 'we are not hand updating things like this because that is how we end up with all kinds of stale info"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
@@ -505,6 +2008,15 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 247,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- **39.14** (step 44, 2026-10-23) [open] One source per fact (author 2026-10-23: 'we are not hand updating things like this because that is how we end up with a"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
 "line": 303,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
@@ -568,12 +2080,30 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
+"line": 18,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- [x] Fold Cosmic Methylome Background back in as **Stage 4.6** \u2014 collapsible with the reference plate thumbnail + the per-patient projection note (full 8-panel"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
 "line": 31,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "- [x] `flowchart_vKISS.html` (cfDNA removed, hull verdict, Mode-2 A-score, NILC\u2192shelf, v1_13)."
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
+"line": 54,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- Push scope: `Biological_Physics/MethylPhys/chain/...` (2026-09-19 layout; formerly AstroGenetics/CPG_KISS_Commercial_Engine). `RETIRED/` read-only. Version-bu"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
@@ -594,6 +2124,24 @@
 "text": "- [x] AD = suppression toward H_min (20 neg/0 pos); -0.398 labeled directional-panel score, not an A-score."
 },
 {
+"file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
+"line": 67,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- [x] \"How CPG works\" AstroGenetics explainer wired (collapsible); source CPG_AstroGenetics_explainer_section.html."
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/ROADMAP_TaskTracker.md",
+"line": 67,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- [x] \"How CPG works\" AstroGenetics explainer wired (collapsible); source CPG_AstroGenetics_explainer_section.html."
+},
+{
 "file": "Biological_Physics/MethylPhys/chain/CPG_Lessons_Learned_2026-06-29.md",
 "line": 17,
 "pattern": "\\bA[- ]score",
@@ -601,6 +2149,24 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "which is exactly correct: the cohort supplies the *direction*, the A-score supplies the *magnitude*."
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/CPG_Lessons_Learned_2026-06-29.md",
+"line": 34,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "## L-4 \u00b7 Fold, don't cut (the AstroGenetics layer earns its place)"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/CPG_Lessons_Learned_2026-06-29.md",
+"line": 36,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "CI \u2192 gauges \u2192 matches \u2192 refer) and **fold** the deep material below as collapsibles (Cosmic Methylome"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/CPG_Lessons_Learned_2026-06-29.md",
@@ -738,6 +2304,42 @@
 "text": "- Pooled A-score is near baseline (within `pooled_near_baseline_tolerance` of 1.0)"
 },
 {
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
+"line": 5,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "(results table; AstroGenetics, the physics behind each reading; the sample's sky beside its cell's healthy sky from IAM-Atlas v2.1; one section"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
+"line": 202,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "return (\"<h2 id='v4-physics'>AstroGenetics: the physics behind each reading</h2><p>\" + PHYS_INTRO + \"</p>\""
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
+"line": 207,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\"\"\"AstroGenetics: each reading in the physics it rests on. Every number from this run's record or a committed reference file.\"\"\""
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
+"line": 406,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\"<p class='sub2'>AstroGenetics: the physics of methylation, read on one sample</p>\","
+},
+{
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_series.py",
 "line": 4,
 "pattern": "\\bA[- ]score",
@@ -745,6 +2347,24 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "for Met-A against the atlas), and a scorer reads only the bundles."
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_pdf_v4.py",
+"line": 37,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "P(\"AstroGenetics: the physics of methylation, read on one sample\", \"sub\"),"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_pdf_v4.py",
+"line": 68,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "st += [P(\"AstroGenetics: the physics behind each reading\", \"h2\"), P(R.PHYS_INTRO), Spacer(1, 4),"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/CPG_Null_Runner/cpg_null_runner.py",
@@ -891,6 +2511,33 @@
 "text": "| B7 A-scores (recorded, cannot pass or fail) | Only the immune class is gauged, and only where a laboratory zero exists. GSE288652 and GSE166212 have none, so "
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md",
+"line": 26,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "LIVE",
+"text": "| C12 | Mahaffey number M = E_drive / (k_B T), E_drive = one ATP = 54 kJ/mol (per molecule 54,000 / N_A J), T = AnAge \"Temperature (K)\"; missing if AnAge has no"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md",
+"line": 85,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "LIVE",
+"text": "Ref Met-A range is on the species-specific probe set; the conserved-panel ranges are in `per_species_summary.csv`. M = Mahaffey number (\u00a75)."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md",
+"line": 94,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "LIVE",
+"text": "## 5. Mahaffey number"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md",
 "line": 4,
 "pattern": "\\bA[- ]score",
@@ -910,9 +2557,27 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
+"line": 65,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "| Recipe, `_mphys_constants_private.py`, patents, correspondence | **YOUR FOLDER** (vault IP) | no | never in repo or kit; `_mphys_constants_private.py` still n"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
 "line": 94,
 "pattern": "n_bio",
 "use": "none (removed from the method)",
+"severity": "block",
+"status": "RECORD",
+"text": "7. rename `n_bio` -> Mahaffey number (20.94) in cpg_gauge_engine.py (archived privately), `_mphys_constants_private.py`, and the 002 card text; reconcile IAM_Hu"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMPONENT_MAP.md",
+"line": 94,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
 "severity": "block",
 "status": "RECORD",
 "text": "7. rename `n_bio` -> Mahaffey number (20.94) in cpg_gauge_engine.py (archived privately), `_mphys_constants_private.py`, and the 002 card text; reconcile IAM_Hu"
@@ -943,6 +2608,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "fidelity is compromised.\" And: \"an elevated A score is not the same as the severely suppressed A score. When it can no longer maintain its"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md",
+"line": 12,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "LIVE",
+"text": "surface holds, the surface saturating. This is the tumour direction \u2014 the black-hole analogue (Mahaffey number at saturation)."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/CLASS_USE_INVENTORY.md",
@@ -1198,12 +2872,66 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 1898,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 2017,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The AstroGenetics section as HTML."
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 2844,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
 "line": 3304,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
 "text": "or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles."
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 1300,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "commissioning status); AstroGenetics, the physics behind each reading with this run's own numbers; the cell shares; Met-A on its"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 1373,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The AstroGenetics section as HTML."
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 1854,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Draws the report's 'How to read this report' section (the law, the ratio to healthy, the person's own reference, AstroGenetics, and what each status means) from"
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
@@ -1215,6 +2943,33 @@
 "text": "or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles."
 },
 {
+"file": "Biological_Physics/MethylPhys/atlas/v2.1/README.md",
+"line": 2,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "## IAM-Atlas v2.1: outfitted with AstroGenetics"
+},
+{
+"file": "Biological_Physics/MethylPhys/atlas/v2.1/README.md",
+"line": 4,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "IAM-Atlas v2.1 is outfitted with the latest in AstroGenetics ingenuity, blending the most advanced tools geneticists created to learn the unbelievably complex c"
+},
+{
+"file": "Biological_Physics/MethylPhys/atlas/v2.1/README.md",
+"line": 8,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "This is not a bigger table built for the sake of putting more cells in one place. A blended 79-cell atlas with MCMC posteriors would be interesting, but not new"
+},
+{
 "file": "Biological_Physics/MethylPhys/atlas/v2/scripts/stage_1_idat_calibration.py",
 "line": 11,
 "pattern": "\\bA[- ]score",
@@ -1224,6 +2979,15 @@
 "text": "compressed (~0.85 instead of ~0.95) and inflates every downstream A-score. The"
 },
 {
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-14.md",
+"line": 98,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "LIVE",
+"text": "Cosmos Mahaffey number filled from our own 2026-10-02 computation (black hole 2 ln2, horizon ln2 per bit); cosmos fidelity ratio: none for the whole universe (a"
+},
+{
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-21.md",
 "line": 36,
 "pattern": "0\\.024 ?(--|\u2013|-|to) ?0\\.042",
@@ -1231,6 +2995,15 @@
 "severity": "block",
 "status": "RECORD",
 "text": "The glossary gained ten entries (IAM-Atlas v2.1, IAM-Deconvolver, Group-A, the tare, the sky sphere, the information sphere, the Globe Explorer, noise maps, the"
+},
+{
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-18.md",
+"line": 17,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "LIVE",
+"text": "One HTML report with a Researcher view (results table; AstroGenetics, the physics behind each reading; the sample's sky beside the healthy IAM-Atlas v2.1 sky at"
 },
 {
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-19.md",
@@ -1243,12 +3016,30 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/daylogs/2026-10-13.md",
+"line": 46,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "LIVE",
+"text": "Every quantity the physics rests on is now an entry with its status and its layer - core or medium - checked on every push. The gauge's three marks, the three e"
+},
+{
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-13.md",
 "line": 251,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
 "status": "RECORD",
 "text": "- **\"Can the atlas not help us sort the whole blood enough... or is that old IAM's class h_min illusion?\"**"
+},
+{
+"file": "Biological_Physics/MethylPhys/daylogs/2026-10-17.md",
+"line": 118,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- **IAM-A gauge ends brought to the commissioned reading; AstroGenetics chapter pass 2 (OTH-07** \u2014 _structure_"
 },
 {
 "file": "Biological_Physics/MethylPhys/ASCORES/README.md",

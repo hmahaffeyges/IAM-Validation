@@ -14,7 +14,7 @@ particles and gaps in eV, meV or $\mu$eV ($1~\mathrm{eV}=1.602176634\times10^{-1
 thermodynamic entropy written $S$ is in J\,K$^{-1}$, that is in units of $\kB$ (nats times $\kB$). A horizon entropy in bits is $S/(\kB\ln2)$.
 \item $\kB T$ is the thermal energy quantum; ``$3.08\,\kB T$'' means $3.08$ times $\kB T$ at the stated temperature. \emph{Landauer units} measure an energy in units
 of $\kB T\ln2$, the Landauer cost of one bit: an energy $x\,\kB T$ is $x/\ln2$ Landauer units.
-\item The Mahaffey number $\mathcal M=E_{\rm drive}/\kB T$ (also written $M$) is defined without a factor $\ln2$; $\mathcal M/\ln2$ is the same quantity in Landauer units. For
+\item The M number $\mathcal M=E_{\rm drive}/\kB T$ (also written $M$) is defined without a factor $\ln2$; $\mathcal M/\ln2$ is the same quantity in Landauer units. For
 the cell $\mathcal M=\dGATP/(R\Tb)=20.94$, which is $30.21$ in Landauer units (canon value 30.2).
 \item The gate error of a qubit is expressed in nats, $\varepsilon=-\ln(1-p_{2Q})$; for $p_{2Q}<10^{-2}$ it equals $p_{2Q}$ to within about $0.5\,\%$ ($\varepsilon/p_{2Q}-1\simeq p_{2Q}/2$).
 \item Temperatures: $\Tb=T_{\rm cell}=310.15$~K (37\,\textdegree C) for human cells; $T_j$ is a chip's junction temperature (nominal 348.15~K, 75\,\textdegree C); a
@@ -103,7 +103,7 @@ All values are those of the canon file (v1.1), recomputed here from their defini
 $T_{\rm cell}$, $\Tb$ & body temperature of human cells & 310.15~K & 37\,\textdegree C \\\iamrowrule
 $\dGATP$ & cytosolic free energy of ATP hydrolysis & 54~kJ\,mol$^{-1}$ & inside the 50--65~kJ\,mol$^{-1}$ range in cells~\cite{Nelson2017}; \observed \\\iamrowrule
 $\kB\Tb\ln2$ & Landauer cost of one bit at body temperature & $2.968\times10^{-21}$~J & $=1.787$~kJ\,mol$^{-1}$; \calc \\\iamrowrule
-$\mathcal M$, $M_{\rm cell}$ & Mahaffey number of the cell & 20.94 & $\dGATP/(R\Tb)$, no $\ln2$; \calc \\\iamrowrule
+$\mathcal M$, $M_{\rm cell}$ & M number of the cell & 20.94 & $\dGATP/(R\Tb)$, no $\ln2$; \calc \\\iamrowrule
 $\mathcal M/\ln2$ & the same in Landauer units (bits one ATP can pay for) & 30.2 (30.21) & a unit conversion, not a second definition \\\iamrowrule
 $E_{\rm hold}$ & holding energy per methylated site & $3.08\,\kB T$ & $\ln[(1-\varepsilon)/\varepsilon]$ on single molecules; \measured \\\iamrowrule
 $E_{\rm hold}/\ln2$ & the same in Landauer units & 4.45 & conversion \\\iamrowrule
@@ -135,7 +135,7 @@ $S$, $\Delta S$ & thermodynamic entropy, and its change & J\,K$^{-1}$ & Ch.~\ref
 $Q$ & heat released or dissipated (virial identity; measurement criterion) & J & Ch.~\ref{ch:virial_law}\\\iamrowrule
 $Q_L$ & Landauer heat $\kB T_D\ln2$ at a detector temperature $T_D$ & J (eV) & Ch.~\ref{ch:measurement}\\\iamrowrule
 $E_{\rm L}$ & minimum Landauer cost of an irreversible transition & J & Ch.~\ref{ch:virial_law}\\\iamrowrule
-$\mathcal M$, $M$ & Mahaffey number $E_{\rm drive}/\kB T$ & dimensionless & Ch.~\ref{ch:landauer}\\\iamrowrule
+$\mathcal M$, $M$ & M number $E_{\rm drive}/\kB T$ & dimensionless & Ch.~\ref{ch:landauer}\\\iamrowrule
 $E_{\rm drive}$ & drive energy per irreversible event (one ATP; a chip's switching energy) & J & Ch.~\ref{ch:landauer}\\\iamrowrule
 $H(x)$ & binary Shannon entropy $-x\log_2x-(1-x)\log_2(1-x)$ & bit & Ch.~\ref{ch:surface}\\\iamrowrule
 $\langle K\rangle$, $\langle V\rangle$, $\langle U\rangle$ & time-averaged kinetic and potential energy & J & Ch.~\ref{ch:virial_law}\\\iamrowrule
@@ -305,7 +305,7 @@ Each field keeps its own letters. The context always fixes the meaning; this tab
 {\small\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.1\textwidth}>{\raggedright\arraybackslash}p{0.84\textwidth}@{}}
 \toprule letter & meanings\\\midrule\endhead
 $A$ & horizon area (Part~\ref{part:2}); the informational fidelity ratio, reading over healthy reference (Parts~\ref{part:3}--\ref{part:4}); $A_s$, primordial amplitude; $A$ in the Sheth--Tormen multiplicity; $A_{\rm ISW}$, ISW amplitude\\\iamrowrule
-$M$ & mass; the Mahaffey number (written $\mathcal M$ where a mass is nearby); an array's methylated intensity; the eigenvalue sum of the Horodecki criterion; $M_W$, $M_Z$\\\iamrowrule
+$M$ & mass; the M number (written $\mathcal M$ where a mass is nearby); an array's methylated intensity; the eigenvalue sum of the Horodecki criterion; $M_W$, $M_Z$\\\iamrowrule
 $n$ & the structure exponent in $D^n$, $7/2$ (Part~\ref{part:2}); $n_s$, spectral tilt; number of phases in the Koide construction; number of sites; densities $n_{\rm qp}$, $\ncp$, $n_b$\\\iamrowrule
 $\beta$ & the coupling $\beta_m$ (cosmology); the methylated fraction (cells); the fitted coefficient in $\exp(\alpha-\beta/a)$ (Chapter~\ref{ch:theory})\\\iamrowrule
 $\varepsilon$ & qubit gate error in nats; a cell's held error; $\varepsilon_{\min}$, the thermal floor on error; $\epsilon_i$, mixture noise\\\iamrowrule

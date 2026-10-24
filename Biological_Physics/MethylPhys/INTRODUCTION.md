@@ -20,7 +20,7 @@ where a sample sits on that scale, in bits, and whether it has moved.
 
 ## 2. The physics of holding a methyl mark
 
-- **The price.** A cell pays about one ATP to keep each methylated site, the Mahaffey number M = 20.94 in units of the thermal energy
+- **The price.** A cell pays about one ATP to keep each methylated site, the M number M = 20.94 in units of the thermal energy
   k_B T at body temperature ([the Landauer chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_landauer.html)).
 - **What the cell actually spends.** Counting single DNA molecules in 56 healthy human cell types, the energy that holds a methyl mark
   is 3.08 k_B T, the same in every cell type to within its spread: about 0.147 of one ATP

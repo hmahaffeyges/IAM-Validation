@@ -131,7 +131,7 @@ scipy.constants G = 6.6743e-11  hbar = 1.0545718176461565e-34  lP = 1.616255e-35
   matches 1.380e-123, 1.22x, 1.142e-123, +0.8 %: OK
   eta = 273.9e-10 x 0.02232 = 6.1134e-10; prior width ratio (0.040-0.010)/(0.025-0.020) = 6.0
 
-[V18] Mahaffey number
+[V18] M number
   cell: 54 kJ/mol at 310.15 K: M = 20.94, /ln2 = 30.2: OK
   black hole: Mc^2/(k_B T_BH) = 8 pi G M^2/(hbar c) = 2 S_BH/k_B: OK
   1 Msun: 2.10e+77; 4.3e6 Msun: 3.88e+90

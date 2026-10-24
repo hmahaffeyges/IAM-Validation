@@ -42,7 +42,7 @@ S.panel_letter(a2, "b", dx=-0.15)
 print("w_info at 0.5, 1, 2:", [round(w(x), 3) for x in (0.5, 1, 2)], " E(0.5) =", round(E(0.5), 4))
 S.save(fig, "part1", "fig_activation")
 
-# ---------------- Mahaffey number -----------------
+# ---------------- M number -----------------
 k, hbar, c, G = C.k, C.hbar, C.c, C.G; Msun = 1.98847e30
 Tj = 348.15
 M_cell = 54000 / (C.R * 310.15)
@@ -63,7 +63,7 @@ ax.set_yticks(range(len(rows))); ax.set_yticklabels([r[0] for r in rows[::-1]], 
 ax.set_xscale("log"); ax.set_xlim(0.5, 1e95)
 ax.set_xticks([1, 1e20, 1e40, 1e60, 1e80])
 ax.axvline(1, color=S.GR, lw=0.8, ls=":")
-ax.set_xlabel("Mahaffey number $\\mathcal{M}=E_{\\rm drive}/k_BT$  (1 = drive equal to the thermal quantum)")
+ax.set_xlabel("M number $\\mathcal{M}=E_{\\rm drive}/k_BT$  (1 = drive equal to the thermal quantum)")
 ax.set_ylim(-0.6, len(rows) - 0.4)
 ax.set_title("Every record-keeping system runs far above the thermal quantum")
 S.save(fig, "part1", "fig_mahaffey_number")

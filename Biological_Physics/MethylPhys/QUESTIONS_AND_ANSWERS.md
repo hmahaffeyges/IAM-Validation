@@ -114,7 +114,7 @@ what lets each person be read against their own sample.
 
 **Where do the gauge's ends come from? Are they fitted?**
 They are derived, not fitted. The floor comes from Landauer's bound, k_B T ln 2 per bit, at body temperature, with the cell paying about one
-ATP per site to hold a mark (the Mahaffey number, M = 20.94). The saturation end is every identity site fully scrambled: 3.03 for Met-A, and
+ATP per site to hold a mark (the M number, M = 20.94). The saturation end is every identity site fully scrambled: 3.03 for Met-A, and
 0.5 / ε_pred(L) for IAM-A, the sample's own. Evidence: the book, [the gauge chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_gauge.html), and its one-command derivation check (`python3 docs/book/verify_book.py`).
 
 **Is there a test where the physics predicted a number before the data were read?**

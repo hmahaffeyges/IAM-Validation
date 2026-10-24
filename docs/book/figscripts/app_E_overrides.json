@@ -823,7 +823,7 @@
   },
   "ch:iams_law|eq:law_mahaffey": {
    "entry": 55,
-   "sheet": "The Mahaffey number: drive energy over the thermal quantum."
+   "sheet": "The M number: drive energy over the thermal quantum."
   },
   "ch:virial_law|eq:vl_euler": {
    "entry": 56,
@@ -1199,11 +1199,11 @@
   },
   "ch:landauer|eq:M": {
    "entry": 492,
-   "sheet": "The Mahaffey number of the cell: cytosolic ATP drive over $RT$ at body temperature."
+   "sheet": "The M number of the cell: cytosolic ATP drive over $RT$ at body temperature."
   },
   "ch:landauer|body:M=\\frac{\\Edrive}{\\kBT}.": {
    "entry": 493,
-   "sheet": "The Mahaffey number for any system: drive energy per event over $k_BT$ (no $\\ln2$)."
+   "sheet": "The M number for any system: drive energy per event over $k_BT$ (no $\\ln2$)."
   },
   "ch:landauer|eq:bitsperATP": {
    "entry": 494,

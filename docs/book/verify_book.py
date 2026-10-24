@@ -4,7 +4,7 @@
 Order: docs/book/main.tex, the order the book walks IAM: the horizon and IAM's Law, the virial partition (Part 1); the coupling
 beta_m = Omega_m/2, the theory (dual sector, mu, Sigma, growth) and the chains' numbers (Part 2); black holes and the horizon coefficient
 (Part 3); records, decoherence, measurement, electroweak, the baryon density, Koide, the electron mass (Part 4); the qubit thermal floor and
-the chip k_B T ln 2 (Part 5); the cell: holding energy, eps0, the Mahaffey number (Part 6); the web of the thirty-seven orders (Part 7);
+the chip k_B T ln 2 (Part 5); the cell: holding energy, eps0, the M number (Part 6); the web of the thirty-seven orders (Part 7);
 the appendices (8). Part 0 is the front matter.
 
 Each check is one function registered with @check(label=..., chapter=..., part=..., title=...). Its docstring names the equation or
@@ -80,7 +80,7 @@ kB       = _cv("k_B")                 # J/K, SI 2019 exact
 R_gas    = _cv("R")                   # J/(mol K)
 T_cell   = _cv("T_cell")              # K, 37 C
 dG_ATP   = _cv("dG_ATP")              # J/mol
-M_cell   = _cv("M_cell")              # Mahaffey number of the cell, dG_ATP/(R T_cell)
+M_cell   = _cv("M_cell")              # M number of the cell, dG_ATP/(R T_cell)
 M_cell_L = _cv("M_cell_Landauer")     # M_cell / ln 2
 E_hold   = _cv("E_hold_meth")         # kT per methylated site (measured)
 phi_hold = _cv("phi")                 # E_hold / M_cell
@@ -1735,7 +1735,7 @@ def _b07_bib_title(key):
     return re.search(r'title\s*=\s*\{(.*?)\},', entry).group(1)
 
 # helpers of the part5/p5_10_qubit_platforms checks
-def _b08_M(f, T):                     # Mahaffey number of a record with gap h f at bath temperature T (Eq. eq:qp_peq)
+def _b08_M(f, T):                     # M number of a record with gap h f at bath temperature T (Eq. eq:qp_peq)
     return h * f / (kB * T)
 
 def _b08_eps(F_percent):              # gate error in nats, eps = -ln(1 - p), p = 1 - F (Eq. eq:Agate)
@@ -3132,10 +3132,10 @@ def check_0012():
 
 
 # ======== Part 0 | ch:p0_how_to_read | docs/book/front/p0_how_to_read.tex
-@check(label='ch:p0_how_to_read:L50', chapter='ch:p0_how_to_read', part=0, title='Mahaffey number M_cell for one ATP at 37C',
+@check(label='ch:p0_how_to_read:L50', chapter='ch:p0_how_to_read', part=0, title='M number M_cell for one ATP at 37C',
        file='front/p0_how_to_read', line=50, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_0013():
-    'Mahaffey number M_cell for one ATP at 37C. Book line 50, printed 20.94.'
+    'M number M_cell for one ATP at 37C. Book line 50, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
@@ -4258,24 +4258,24 @@ def check_0185():
     rhs=sp.Rational(1,4)
     return locals()
 
-@check(label='ch:iams_law:L957', chapter='ch:iams_law', part=1, title='cell Mahaffey number',
+@check(label='ch:iams_law:L957', chapter='ch:iams_law', part=1, title='cell M number',
        file='part1/p1_02_iams_law', line=957, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_0186():
-    'cell Mahaffey number. Book line 957, printed 20.94.'
+    'cell M number. Book line 957, printed 20.94.'
     value=dG_ATP/(R_gas*T_cell)
     return locals()
 
-@check(label='ch:iams_law:L957:30.2', chapter='ch:iams_law', part=1, title='cell Mahaffey number, Landauer units',
+@check(label='ch:iams_law:L957:30.2', chapter='ch:iams_law', part=1, title='cell M number, Landauer units',
        file='part1/p1_02_iams_law', line=957, status='calc', kind='num', printed='30.2', tol=0.001656)
 def check_0187():
-    'cell Mahaffey number, Landauer units. Book line 957, printed 30.2.'
+    'cell M number, Landauer units. Book line 957, printed 30.2.'
     value=(dG_ATP/(R_gas*T_cell))/LN2
     return locals()
 
-@check(label='ch:iams_law:L957:399', chapter='ch:iams_law', part=1, title='chip Mahaffey number',
+@check(label='ch:iams_law:L957:399', chapter='ch:iams_law', part=1, title='chip M number',
        file='part1/p1_02_iams_law', line=957, status='calc', kind='num', printed='399', tol=0.001253)
 def check_0188():
-    'chip Mahaffey number. Book line 957, printed 399.'
+    'chip M number. Book line 957, printed 399.'
     TDP=170.0
     N=20.6e9
     f=4.3e9
@@ -4283,33 +4283,33 @@ def check_0188():
     value=(TDP/(N*f))/(kB*Tj)
     return locals()
 
-@check(label='ch:iams_law:L957:2.1\\times10^{77}', chapter='ch:iams_law', part=1, title='BH Mahaffey number, one solar mass',
+@check(label='ch:iams_law:L957:2.1\\times10^{77}', chapter='ch:iams_law', part=1, title='BH M number, one solar mass',
        file='part1/p1_02_iams_law', line=957, status='calc', kind='num', printed='2.1\\times10^{77}', tol=0.0238)
 def check_0189():
-    'BH Mahaffey number, one solar mass. Book line 957, printed 2.1\\times10^{77}.'
+    'BH M number, one solar mass. Book line 957, printed 2.1\\times10^{77}.'
     M=Msun
     value=8*math.pi*G*M**2/(hbar*c)
     return locals()
 
-@check(label='ch:iams_law:L957:3.9\\times10^{90}', chapter='ch:iams_law', part=1, title='BH Mahaffey number, Sgr A*',
+@check(label='ch:iams_law:L957:3.9\\times10^{90}', chapter='ch:iams_law', part=1, title='BH M number, Sgr A*',
        file='part1/p1_02_iams_law', line=957, status='calc', kind='num', printed='3.9\\times10^{90}', tol=0.0128)
 def check_0190():
-    'BH Mahaffey number, Sgr A*. Book line 957, printed 3.9\\times10^{90}.'
+    'BH M number, Sgr A*. Book line 957, printed 3.9\\times10^{90}.'
     M=4.3e6*Msun
     value=8*math.pi*G*M**2/(hbar*c)
     return locals()
 
-@check(label='ch:iams_law:L979', chapter='ch:iams_law', part=1, title='cell Mahaffey number, repeat',
+@check(label='ch:iams_law:L979', chapter='ch:iams_law', part=1, title='cell M number, repeat',
        file='part1/p1_02_iams_law', line=979, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_0191():
-    'cell Mahaffey number, repeat. Book line 979, printed 20.94.'
+    'cell M number, repeat. Book line 979, printed 20.94.'
     value=dG_ATP/(R_gas*T_cell)
     return locals()
 
-@check(label='ch:iams_law:L980', chapter='ch:iams_law', part=1, title='cell Mahaffey number Landauer, repeat',
+@check(label='ch:iams_law:L980', chapter='ch:iams_law', part=1, title='cell M number Landauer, repeat',
        file='part1/p1_02_iams_law', line=980, status='calc', kind='num', printed='30.2', tol=0.001656)
 def check_0192():
-    'cell Mahaffey number Landauer, repeat. Book line 980, printed 30.2.'
+    'cell M number Landauer, repeat. Book line 980, printed 30.2.'
     value=(dG_ATP/(R_gas*T_cell))/LN2
     return locals()
 
@@ -23339,10 +23339,10 @@ def check_3036():
     value = M_Ch / M_typ
     return locals()
 
-@check(label='ch:blackholes:L358', chapter='ch:blackholes', part=3, title='Mahaffey number M c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun',
+@check(label='ch:blackholes:L358', chapter='ch:blackholes', part=3, title='M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun',
        file='part3/p3_01_blackholes', line=358, status='derived', kind='num', printed='2.1\\times10^{77}', tol=0)
 def check_1907():
-    'Mahaffey number M c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun. Book line 358, printed 2.1\\times10^{77}.'
+    'M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun. Book line 358, printed 2.1\\times10^{77}.'
     value=8*math.pi*(Msun/mP)**2
     return locals()
 
@@ -32312,7 +32312,7 @@ def check_3965():
 @check(label='ch:temperature:L111', chapter='ch:temperature', part=6, title='M for a dog at 38.5 C',
        file='part6/p6_10_temperature', line=87, status='prediction', kind='num', printed='20.84', tol=0.0)
 def check_3969():
-    'The Mahaffey number for a dog, M = dG_ATP/(R T) at a body temperature of 38.5 C with dG_ATP held fixed. Book line 111, printed 20.84. Inputs: dG_ATP, R (CANON); 38.5 C (book).'
+    'The M number for a dog, M = dG_ATP/(R T) at a body temperature of 38.5 C with dG_ATP held fixed. Book line 111, printed 20.84. Inputs: dG_ATP, R (CANON); 38.5 C (book).'
     T_dog = 38.5 + 273.15
     value = dG_ATP / (R_gas * T_dog)
     return locals()
@@ -34169,7 +34169,7 @@ def check_4326():
     value = kB * T_cell * LN2
     return locals()
 
-@check(label='ch:status:L10', chapter='ch:status', part=6, title='Mahaffey number of the cell M = dG_ATP/(R T)',
+@check(label='ch:status:L10', chapter='ch:status', part=6, title='M number of the cell M = dG_ATP/(R T)',
        file='part6/p6_24_status', line=10, status='calc', kind='num', printed='20.94', tol=0.0)
 def check_4327():
     'M = dG_ATP/(R T_cell) with dG_ATP = 54 kJ/mol and T_cell = 310.15 K (CANON). Book line 10, printed 20.94.'
@@ -34892,7 +34892,7 @@ def check_4412():
     value = math.log(sel_high)
     return locals()
 
-@check(label='ch:onegauge:L67', chapter='ch:onegauge', part=7, title='Mahaffey number M = dG_ATP/(R T_cell)',
+@check(label='ch:onegauge:L67', chapter='ch:onegauge', part=7, title='M number M = dG_ATP/(R T_cell)',
        file='part7/p7_08_one_gauge', line=67, status='openprob', kind='num', printed='20.94', tol=0.0)
 def check_4413():
     'M = dG_ATP/(R T_cell) with dG_ATP = 54 kJ/mol, R and T_cell = 310.15 K (CANON). Book line 67, printed 20.94.'
@@ -37053,10 +37053,10 @@ def check_2671():
     value = kB*T_cell*LN2
     return locals()
 
-@check(label='ch:statusall:L91', chapter='ch:statusall', part=7, title='same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)',
+@check(label='ch:statusall:L91', chapter='ch:statusall', part=7, title='same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)',
        file='part7/p7_11_status_all', line=90, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2672():
-    'same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C). Book line 90, printed 20.94.'
+    'same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C). Book line 90, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
@@ -37390,10 +37390,10 @@ def check_2688():
     value = kB*T_cell*LN2
     return locals()
 
-@check(label='app:constants:L13', chapter='app:constants', part=8, title='same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)',
+@check(label='app:constants:L13', chapter='app:constants', part=8, title='same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)',
        file='appendices/app_A2_frozen_values', line=13, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2689():
-    'same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C). Book line 13, printed 20.94.'
+    'same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C). Book line 13, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
@@ -37497,10 +37497,10 @@ def check_2696():
     value=R_gas*T_cell*LN2/1e3
     return locals()
 
-@check(label='app:notation:L106', chapter='app:notation', part=8, title='same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)',
+@check(label='app:notation:L106', chapter='app:notation', part=8, title='same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)',
        file='appendices/app_N_notation', line=106, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2697():
-    'same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C). Book line 106, printed 20.94.'
+    'same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C). Book line 106, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
@@ -38005,10 +38005,10 @@ def check_4679():
     value = kB * T_cell * LN2
     return locals()
 
-@check(label='app:formulas:L611', chapter='app:formulas', part=8, title='same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)',
+@check(label='app:formulas:L611', chapter='app:formulas', part=8, title='same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)',
        file='appendices/app_E_formulas', line=602, status='calc', kind='num', printed='20.94', tol=0.000239)
 def check_2730():
-    'same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C). Book line 602, printed 20.94.'
+    'same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C). Book line 602, printed 20.94.'
     value = dG_ATP/(R_gas*T_cell)
     return locals()
 
@@ -40347,7 +40347,7 @@ def check_2861():
 
 @check(label='app:glossary:L72:54', title='ATP free energy of hydrolysis, kJ/mol', line=72, status='observed', kind='file', printed='54', tol=0.0, source='CANON/iam_canon.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4787():
-    'Cytosolic free energy of ATP hydrolysis in kJ/mol, read from the canon (dG_ATP in J/mol); its Mahaffey number dG_ATP/(R T_cell) is also formed. Book line 72, printed 54.'
+    'Cytosolic free energy of ATP hydrolysis in kJ/mol, read from the canon (dG_ATP in J/mol); its M number dG_ATP/(R T_cell) is also formed. Book line 72, printed 54.'
     M_check = dG_ATP / (R_gas * T_cell)
     value = dG_ATP / 1000
     return locals()
@@ -41385,7 +41385,7 @@ def check_4899():
 @check(label='app:glossary:L520', chapter='app:glossary', part=8, title='M = hc/(lambda k_B T) of a 1550 nm photon at 300 K',
        file='appendices/app_F_glossary', line=510, status='observed', kind='num', printed='30.9', tol=0.0)
 def check_4900():
-    'Mahaffey number of a photonic qubit, M = h f/(k_B T) with f = c/lambda, lambda = 1550 nm, T = 300 K (the book inputs). Book line 519, printed 30.9.'
+    'M number of a photonic qubit, M = h f/(k_B T) with f = c/lambda, lambda = 1550 nm, T = 300 K (the book inputs). Book line 519, printed 30.9.'
     lam, T = 1550e-9, 300.0
     value = h * c / (lam * kB * T)
     return locals()
@@ -42736,7 +42736,7 @@ INVENTORY = [
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 806, '', 'derived', '1', 'Sigma=1 sector rule, trivial restatement'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 921, '', 'none', '', 'restates law eq:law, definition'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 948, '', 'none', '1', 'trivial restatement E(1)=exp(0)=1'),
-    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 963, 'eq:law_mahaffey', 'none', '', 'defines Mahaffey number M'),
+    (1, 'ch:iams_law', 'part1/p1_02_iams_law', 963, 'eq:law_mahaffey', 'none', '', 'defines M number'),
     (1, 'ch:iams_law', 'part1/p1_02_iams_law', 996, '', 'none', '7/2', 'definition, exponent value restated'),
     (1, 'ch:virial_law', 'part1/p1_03_virial_law', 69, '', 'none', '13.6057', 'trivial sign restatement K=-E1'),
     (1, 'ch:virial_law', 'part1/p1_03_virial_law', 69, '', 'none', '1/2', 'trivial ratio K/|V| by construction'),

@@ -148,9 +148,9 @@
    "definition": "Every irreversible transition from quantum superposition to classical record pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature.",
    "note": "The performance-floor relationship of the device gauges is named the IAM floor."
   },
-  "Mahaffey number (M)": {
+  "M number (M)": {
    "status": "current",
-   "definition": "The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime; for a record held in a gap hf, M = hf/(k_B T) and its thermal floor is 1/(1+e^M). Cell: 20.94 (30.2 in Landauer units). Chips: M = E_sw/(k_B T_j) = A x ln 2 (chip gauge). The only quantity named 'Mahaffey'."
+   "definition": "The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime; for a record held in a gap hf, M = hf/(k_B T) and its thermal floor is 1/(1+e^M). Cell: 20.94 (30.2 in Landauer units). Chips: M = E_sw/(k_B T_j) = A x ln 2 (chip gauge). The only quantity named 'Mahaffey'. Named like the Mach number: a ratio to a natural scale (drive over k_BT, as Mach is speed over the speed of sound). Not named after a person (author, 2026-10-24)."
   },
   "IAM floor": {
    "status": "current",
@@ -310,11 +310,11 @@
    "severity": "warn"
   },
   "Mahaffey value": {
-   "replaced_by": "Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
+   "replaced_by": "M number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
    "severity": "warn"
   },
   "Mahaffey ratio": {
-   "replaced_by": "Mahaffey number (M)",
+   "replaced_by": "M number (M)",
    "severity": "warn"
   },
   "Aristotelian Principle": {
@@ -386,6 +386,14 @@
   "0\\.024 ?(--|–|-|to) ?0\\.042": {
    "replaced_by": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
    "severity": "block"
+  },
+  "Mahaffey number": {
+   "replaced_by": "the M number (named like the Mach number; author 2026-10-24)",
+   "severity": "block"
+  },
+  "AstroGenetics|Cosmic Methylome": {
+   "replaced_by": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+   "severity": "warn"
   }
  },
  "scope": {

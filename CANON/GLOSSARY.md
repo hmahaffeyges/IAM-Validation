@@ -34,7 +34,7 @@ This file is the single source of truth for constants and names. To change a val
 | name | status | definition |
 |---|---|---|
 | IAM's law | current | Every irreversible transition from quantum superposition to classical record pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature. |
-| Mahaffey number (M) | current | The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime; for a record held in a gap hf, M = hf/(k_B T) and its thermal floor is 1/(1+e^M). Cell: 20.94 (30.2 in Landauer units). Chips: M = E_sw/(k_B T_j) = A x ln 2 (chip gauge). The only quantity named 'Mahaffey'. |
+| M number (M) | current | The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime; for a record held in a gap hf, M = hf/(k_B T) and its thermal floor is 1/(1+e^M). Cell: 20.94 (30.2 in Landauer units). Chips: M = E_sw/(k_B T_j) = A x ln 2 (chip gauge). The only quantity named 'Mahaffey'. Named like the Mach number: a ratio to a natural scale (drive over k_BT, as Mach is speed over the speed of sound). Not named after a person (author, 2026-10-24). |
 | IAM floor | current | Synonym of H_min (the floor): the lowest error a system can hold at its temperature before thermal kicks win. |
 | Informational fidelity ratio (A) | current | A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = 1 is the system working as itself, in the middle of the gauge. Below it lies H_min, the lowest error the system can hold before thermal kicks win; nothing reads below H_min. Above 1 = more error than healthy. Cells: Met-A = mean H(beta) over identity sites / the healthy reference (purified healthy cells, same platform); IAM-A = H(eps)/(P_cell H(eps0)). Qubits: eps/eps(as built), eps = -ln(1-p). Chips: E_sw/E_sw(as built). A is never the temperature exponent n. |
 | Landauer metrology | current | Measuring how far above its thermal floor an information-writing process operates, against a fixed physical zero, in any substrate. |
@@ -76,8 +76,8 @@ This file is the single source of truth for constants and names. To change a val
 | `gate-error reading` | IAM-A | warn |
 | `program reading` | Met-A | warn |
 | `M\s*=\s*30\.2` | M = 20.94 (30.2 only as the Landauer-unit conversion) | warn |
-| `Mahaffey value` | Mahaffey number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor | warn |
-| `Mahaffey ratio` | Mahaffey number (M) | warn |
+| `Mahaffey value` | M number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor | warn |
+| `Mahaffey ratio` | M number (M) | warn |
 | `Aristotelian Principle` | the virial theorem (with IAM's thermodynamic completion); physics names only | block |
 | `class H_min` | H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired | warn |
 | `\bA[- ]score` | eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference) | warn |
@@ -95,3 +95,5 @@ This file is the single source of truth for constants and names. To change a val
 | `(?<![\d.])3\.41 to 3\.77|(?<![\d.])3\.41--3\.77|ln\[\(1-\\varepsilon\)/\\varepsilon\]=3\.41|=3\.41/20\.94|e\^\{3\.41\}|\(\$3\.41\$` | the commissioned counter's holding energy (CANON E_hold_meth, 3.08 kT; superseded 2026-10-19) | block |
 | `(?<![\d.])0\.163\s*(\\pm|±)|=0\.163(?!\d)` | phi = 0.147 on the commissioned counter (CANON phi; superseded 2026-10-19) | block |
 | `0\.024 ?(--|–|-|to) ?0\.042` | 0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19) | block |
+| `Mahaffey number` | the M number (named like the Mach number; author 2026-10-24) | block |
+| `AstroGenetics|Cosmic Methylome` | the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24) | warn |

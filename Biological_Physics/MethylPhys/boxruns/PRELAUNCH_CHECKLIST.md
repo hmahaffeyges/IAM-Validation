@@ -58,7 +58,7 @@ checked on non-CpG C, not on a plastid.
 **Arrays.** EPIC v1 only for Met-A; EPIC v2 and 450K are refused. The Illumina manifest must be in place before Stage 1, and a batch runs
 its first array alone so the download is not raced.
 
-**Salmonids (planned).** Body temperature is the water's; the Mahaffey number scales by 310.15 K / T. Fin clips; duplication and conversion
+**Salmonids (planned).** Body temperature is the water's; the M number scales by 310.15 K / T. Fin clips; duplication and conversion
 failure must be removed before any reading (Part 7, "What it would take").
 
 ## Known AWS and transfer caveats

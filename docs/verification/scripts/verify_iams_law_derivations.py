@@ -339,8 +339,8 @@ print(f"  baseline (2/pi)(lP/lH)^2 Ob/Om (Ob 0.0493, Om 0.3153) = {base:.4e} = {
 print("  matches 1.380e-123, 1.22x, 1.142e-123, +0.8 %:", OK(round(base * 1e123, 3) == 1.380 and round(corr * 1e123, 3) == 1.142 and abs(100 * (corr / meas - 1) - 0.8) < 0.05))
 print(f"  eta = 273.9e-10 x 0.02232 = {273.9e-10*0.02232:.4e}; prior width ratio (0.040-0.010)/(0.025-0.020) = {(0.040-0.010)/(0.025-0.020):.1f}")
 
-# ------------------------------------------------------------------ V18 Mahaffey number
-print("\n[V18] Mahaffey number")
+# ------------------------------------------------------------------ V18 M number
+print("\n[V18] M number")
 Mcell = 54000 / (C.R * 310.15)
 print(f"  cell: 54 kJ/mol at 310.15 K: M = {Mcell:.2f}, /ln2 = {Mcell/np.log(2):.1f}:", OK(round(Mcell, 2) == 20.94))
 print("  black hole: Mc^2/(k_B T_BH) = 8 pi G M^2/(hbar c) = 2 S_BH/k_B:",

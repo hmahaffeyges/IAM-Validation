@@ -47,7 +47,7 @@ Prior checks it depends on: `EXPONENT_LINE_BY_LINE.md`, `THEORY_CHECK.md`, `viri
 14. **§14.4–14.5**: "the second law is a corollary", "a law, not a framework", the measurement problem and the "boundary between quantum and classical"
     landscape are interpretation → Part 5.
 15. **§14.6**: "1/a exponent confirmed to 1 % by Sheth–Tormen" not reproduced (item 7); M–σ removed (M1).
-16. **§14.7 Mahaffey number**: canon M = E_drive/(k_B T) (no ln 2); cell value 20.94 (30.2 only in Landauer units); the old cell drive symbol is retired; the cell criterion
+16. **§14.7 M number**: canon M = E_drive/(k_B T) (no ln 2); cell value 20.94 (30.2 only in Landauer units); the old cell drive symbol is retired; the cell criterion
     "A = H(β)/H_min(c) ≥ 1 breach" is retired (Met-A and IAM-A now); the quantum-processor report/the semiconductor report's "IAM's Law" relation is the IAM floor. Black hole: Mc²/(k_B T_BH) = 8πGM²/(ħc)
     = 2 S_BH/k_B (Smarr), and "M ≥ 1/(4ℓ_P²)" mixes a number with an inverse area.
 
@@ -60,4 +60,4 @@ Prior checks it depends on: `EXPONENT_LINE_BY_LINE.md`, `THEORY_CHECK.md`, `viri
 Carried: the law (canon wording); decoherence and the bit (Eqs. 2–5); the cost per bit at the horizon (Eq. 6); the virial completion (cross-reference
 ch. 1.3); the Jacobson → Cai–Kim → S_info chain with the 1/4 reading; two information sources; E(a) and its properties with the corrected integral; the
 variational form and w_info; β_m = Ω_m/2; the dual-sector split and δφ = 0; µ and Σ; numerical validation; n = 7/2 top-down; the three assumptions and
-three failure levels; µ0 forecasts; the Mahaffey number per canon. Part 5: the landscape, law-vs-framework, arrow of time, coincidence, weak force.
+three failure levels; µ0 forecasts; the M number per canon. Part 5: the landscape, law-vs-framework, arrow of time, coincidence, weak force.

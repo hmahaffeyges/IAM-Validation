@@ -152,11 +152,11 @@
    "name": "Drive energy E_drive",
    "definition": "The energy spent per event to write or hold the record.",
    "cosmos": {
-    "native": "gravitational binding energy (cosmological Mahaffey row); energy written = kinetic half of each bound structure",
+    "native": "gravitational binding energy (cosmological M-number row); energy written = kinetic half of each bound structure",
     "formula": "E_drive = gravitational binding energy; written share K ~ |W|/2 per halo (bottom-up); identity T_H S = M_H c^2 for the cosmic horizon (App C3)",
     "status": "derived",
-    "source": "p1_02 sec \"The Mahaffey number\" (Cosmological bullet); p4_14 sec:qr_exponent (bottom-up); app_C3 sec:app:der:horizons \"Cosmic horizon\"; App. E #47",
-    "tag_in_book": "no tag on the Mahaffey bullet; K=|W|/2 \\derived; T_H S = M_H c^2 \\derived (App C3)"
+    "source": "p1_02 sec \"The M number\" (Cosmological bullet); p4_14 sec:qr_exponent (bottom-up); app_C3 sec:app:der:horizons \"Cosmic horizon\"; App. E #47",
+    "tag_in_book": "no tag on the M-number bullet; K=|W|/2 \\derived; T_H S = M_H c^2 \\derived (App C3)"
    },
    "qubits": {
     "native": "the gap of its encoding degree of freedom; 'the energy holding it against the thermal quantum'",
@@ -188,31 +188,31 @@
   },
   {
    "id": "mahaffey",
-   "name": "Mahaffey number M",
+   "name": "M number",
    "definition": "Drive over the thermal quantum, M = E_drive / k_B T_s (App. E #47, #485).",
    "cosmos": {
-    "native": "Mahaffey number, cosmological row (no number given)",
+    "native": "M number, cosmological row (no number given)",
     "formula": "M = E_drive/(k_B T_H) with E_drive = gravitational binding energy; \"M integrated self-consistently over cosmic time with gravitational feedback is read as the activation function\". ADDED 2026-10-14 (computed 2026-10-02, errata V17): counting one bit on the surface as the event, the drive per bit is the rest energy over the bits, so M = Mc^2/(N k_B T). Black hole (Smarr, Mc^2 = 2 T_H S): M = 2 ln2 = 1.386 per bit (2 in Landauer units), half of it held. Cosmic horizon (T_GH S = M_H c^2): M = ln2 = 0.693 per bit (1 in Landauer units), all of it held. Checked: N k_B T ln2 / Mc^2 = 0.500000 (1 and 4.3e6 Msun) and 1.000000 (cosmic horizon). The event choice (one bit, not one halo or the whole horizon) matches the qubit, chip and cell rows",
     "status": "derived",
-    "source": "p1_02 sec \"The Mahaffey number\", cosmological bullet; App. E #47 (definition); p2_12 eq:lam_smarr; App. E #348, #499; docs/verification/PAPER_ERRATA.md V17",
+    "source": "p1_02 sec \"The M number\", cosmological bullet; App. E #47 (definition); p2_12 eq:lam_smarr; App. E #348, #499; docs/verification/PAPER_ERRATA.md V17",
     "tag_in_book": "\\conjecture"
    },
    "qubits": {
-    "native": "the Mahaffey number of the record",
+    "native": "the M number of the record",
     "formula": "M = E/k_BT = hf/k_BT; 6.86 (5 GHz, 35 mK), 16.0 (15 mK); per platform: fluxonium 0.48-2.4; ion spin ~5e-4-2e-3 at 300 K (not thermalized); ion motion 0.10-0.20; Rydberg 0.0016-0.016 (0.12-1.2 at 4 K); NV 4.6e-4 (0.034); Si 7.2 (15 GHz, 0.1 K), 0.11 (3.5 GHz, 1.5 K); photon 30.9",
     "status": "definition",
     "source": "part5/p5_10_qubit_platforms.tex §Three marks, Table qp_which; part5/p5_01_sc_primer.tex §The qubit is hotter than its refrigerator; part5/p5_04_thermal_n.tex §Why the slope matters; part3/p3_07_saturation.tex Fig four_floors(c); App. E #475 (M = E/k_BT); #47, #485 (general definition); conflicting #",
     "tag_in_book": "definition; values \\calc"
    },
    "chips": {
-    "native": "Mahaffey number M ('the dimensionless operating ratio M=E_drive/k_B T' in p6_02)",
+    "native": "M number M ('the dimensionless operating ratio M=E_drive/k_B T' in p6_02)",
     "formula": "M = E_sw/k_B T_j = 399–411; M/ln2 = 576–593 (Landauer units)",
     "status": "calculated",
-    "source": "part5/p5_06_cmos.tex §The floor for logic; part6/p6_02_landauer.tex §The cell beside a transistor and a qubit, Table tab:p4operating and Summary; part1/p1_02_iams_law.tex §The Mahaffey number, Fig. fig:mahaffey_number (M=399 at 20.6e9); App. E 47, 485 (definition only; no chip-specific entry)",
+    "source": "part5/p5_06_cmos.tex §The floor for logic; part6/p6_02_landauer.tex §The cell beside a transistor and a qubit, Table tab:p4operating and Summary; part1/p1_02_iams_law.tex §The M number, Fig. fig:mahaffey_number (M=399 at 20.6e9); App. E 47, 485 (definition only; no chip-specific entry)",
     "tag_in_book": "\\calc (value); M itself a definition (App. E #47, #485)"
    },
    "cells": {
-    "native": "Mahaffey number of the cell",
+    "native": "M number of the cell",
     "formula": "M = Delta G_ATP / R T_b = 20.94",
     "status": "calculated",
     "source": "App. E #484"
@@ -831,7 +831,7 @@
    },
    "qubits": {
     "native": "not stated",
-    "formula": "the book gives two Mahaffey numbers for the transmon (6.86 at 35 mK; ln2 at the gap temperature, App. E #487); no held share stated. ADDED 2026-10-14: at thermal equilibrium E_hold/k_BT = ln((1-p_eq)/p_eq) = M exactly, so the held share is 1 (true by detailed balance; for a real device it is definitional, because T_q is read from the excited population)",
+    "formula": "the book gives two M numbers for the transmon (6.86 at 35 mK; ln2 at the gap temperature, App. E #487); no held share stated. ADDED 2026-10-14: at thermal equilibrium E_hold/k_BT = ln((1-p_eq)/p_eq) = M exactly, so the held share is 1 (true by detailed balance; for a real device it is definitional, because T_q is read from the excited population)",
     "status": "open",
     "source": "p5_10; App. E #475, #487 (book inconsistency)"
    },
@@ -1224,7 +1224,7 @@
   },
   {
    "claim": "Data and working instruments",
-   "what": "The same law measured on chips, qubits and living cells; two commissioned cell instruments (Met-A, the C-score), the cell floor from the Mahaffey number (20.94), and the self-reference line. No one in the lineage took the law into a cell and built a working instrument.",
+   "what": "The same law measured on chips, qubits and living cells; two commissioned cell instruments (Met-A, the C-score), the cell floor from the M number (20.94), and the self-reference line. No one in the lineage took the law into a cell and built a working instrument.",
    "status": "measured and commissioned (records in the repository)"
   },
   {
@@ -1341,7 +1341,7 @@
    "note": "calculated"
   },
   {
-   "fact": "A cell's methyl writer would hold its mark at 4.15 k_B T against a drive of 20.94 k_B T (the Mahaffey number) from ATP.",
+   "fact": "A cell's methyl writer would hold its mark at 4.15 k_B T against a drive of 20.94 k_B T (the M number) from ATP.",
    "source": "book Part 6; DEV_BACKBONE_01",
    "note": "derived; drive measured"
   }
@@ -1373,7 +1373,7 @@
   "intro": "Each number below is a row of the schematic (its slot id in brackets); the values are the cell's, from those rows.",
   "rows": [
    [
-    "**M**, the Mahaffey number [mahaffey]",
+    "**M**, the M number [mahaffey]",
     "The energy spent to write one bit, in units of thermal noise. Every bit faces the same noise, so this is the write budget.",
     "20.94 (a present chip spends 399 to 411)"
    ],

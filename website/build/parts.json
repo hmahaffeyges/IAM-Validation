@@ -58,7 +58,7 @@
    "theme": "genome",
    "banner": "genome_banner.jpg",
    "opening": "genome_opening.jpg",
-   "summary": "Part VI reads the methylome the way cosmology reads the sky: one cell read against a calibrated reference, to say how far it sits from where it should be. Its physical claim is that the cost that governs an encoding surface in cosmology governs the methylation record too, with the per-site holding energy, the floor and the Mahaffey number of the cell set from k_B T ln 2 at body temperature. The chapters build the instrument and report its first readings.",
+   "summary": "Part VI reads the methylome the way cosmology reads the sky: one cell read against a calibrated reference, to say how far it sits from where it should be. Its physical claim is that the cost that governs an encoding surface in cosmology governs the methylation record too, with the per-site holding energy, the floor and the M number of the cell set from k_B T ln 2 at body temperature. The chapters build the instrument and report its first readings.",
    "referee": "Check the holding-energy and floor derivations, the frozen references the instrument reads against, and the committed readings behind each reported number."
   },
   {
