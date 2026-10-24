@@ -48,6 +48,16 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Why IAM-A reads low on plasma: synthetic test cfDNA 1 (GRP-016, DEV-ONE-DRAW-01)",
+     "status": "synthetic only",
+     "what": "Constructed molecules from two cell types, mixed and cut short, each read by the one command.",
+     "outcome": "Both mixing and short molecules pull IAM-A down, neither through the atlas; each has its own fix to build.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },

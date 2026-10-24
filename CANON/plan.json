@@ -585,6 +585,13 @@
      "status": "open",
      "what": "Layer 2: the held error region by region, from each region's own loose share (shares the work of IAM-A's C-Score version 2, plan 41.1)",
      "next": "after layer 1"
+    },
+    {
+     "id": "14.9",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary's chromosome index ranges (hg19_cpg_chrom_ranges.json) for chr15 to chr22: the first tile starts 626 CpGs early on chr15 and about 256,000 early on chr22. The lookup is by chromosome, so no tile mixes chromosomes, but tile boundaries there are shifted; the self-reference line and band were built on the same tiles, so readings are consistent with each other. Found by the constructed molecules of synthetic test cfDNA 1",
+     "next": "find which source HG19_CPGS came from and whether the line changes when the tiles follow the dictionary; nothing changed until then"
     }
    ]
   },
@@ -1480,8 +1487,8 @@
      "id": "40.11",
      "date": "2026-10-22",
      "status": "open",
-     "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads",
-     "next": "3, 10, 30 and 60 reads recorded (CD4 T 5 %: 4.6, 6.2, 8.7, 11.0 of its own error); then a tare against healthy sequencing samples",
+     "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads. Synthetic test cfDNA 1: mixing doubles the tile loose share with the held error unchanged; short molecules lower the held error through the qualifying rule; both pull IAM-A down; neither involves the atlas",
+     "next": "build the molecule-level loose share and the exact length correction in Stage Q2 (development), each with its own synthetic test; then reread the 30 plasmas",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
     }
    ]

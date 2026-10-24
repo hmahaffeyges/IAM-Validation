@@ -1,0 +1,17 @@
+DEV-ONE-DRAW-01 synthetic test cfDNA 1: 880 tiles on 22 autosomes, 70 molecules per tile, per-call loss 0.035, seed 20261024
+cell_A_12_calls        loose share 0.0795 | held error 0.03186 (opportunities 281510) | IAM-A 0.7407 below Normal
+cell_B_12_calls        loose share 0.0795 | held error 0.03203 (opportunities 281500) | IAM-A 0.7446 below Normal
+mix_70-30_12_calls     loose share 0.1159 | held error 0.03134 (opportunities 281000) | IAM-A 0.7078 below Normal
+mix_50-50_12_calls     loose share 0.1534 | held error 0.03195 (opportunities 280490) | IAM-A 0.701 below Normal
+cell_A_8_calls         loose share 0.0795 | held error 0.02786 (opportunities 164988) | IAM-A 0.6475 below Normal
+cell_B_8_calls         loose share 0.0795 | held error 0.02745 (opportunities 165018) | IAM-A 0.638 below Normal
+mix_70-30_8_calls      loose share 0.1182 | held error 0.02812 (opportunities 165096) | IAM-A 0.634 below Normal
+mix_50-50_8_calls      loose share 0.1534 | held error 0.02820 (opportunities 164586) | IAM-A 0.6187 below Normal
+cell_A_6_calls         loose share 0.0795 | held error 0.03000 (opportunities 111416) | IAM-A 0.6975 below Normal
+cell_B_6_calls         loose share 0.0795 | held error 0.02965 (opportunities 111584) | IAM-A 0.6891 below Normal
+mix_70-30_6_calls      loose share 0.1026 | held error 0.03072 (opportunities 111524) | IAM-A 0.7011 below Normal
+mix_50-50_6_calls      loose share 0.1339 | held error 0.02942 (opportunities 111732) | IAM-A 0.6552 below Normal
+cell_A_5_calls         loose share none | held error 0.00000 (opportunities 0) | IAM-A None no qualifying molecules or tiles in this file: IAM-A not read
+cell_B_5_calls         loose share none | held error 0.00000 (opportunities 0) | IAM-A None no qualifying molecules or tiles in this file: IAM-A not read
+mix_70-30_5_calls      loose share 0.1081 | held error 0.00000 (opportunities 0) | IAM-A None no qualifying molecules or tiles in this file: IAM-A not read
+mix_50-50_5_calls      loose share 0.1333 | held error 0.00000 (opportunities 0) | IAM-A None no qualifying molecules or tiles in this file: IAM-A not read

@@ -3155,3 +3155,6 @@ Stage Q2 now also counts a lone methylated call on molecules held unmarked. On c
 
 ### 2026-10-24 · The healthy plasma band on sequencing, 30 plasmas (GRP-016, DEV-ONE-DRAW-01)
 All 30 healthy plasmas read end to end. The held error is nearly constant (0.03854; 5-95 % 0.03716 to 0.04019). IAM-A tracks the loose share (rho -0.94) and sits around the low edge of the purified-cell band (median 0.7733), so cell-free DNA needs its own band. Met-A whole reads 0.8302. The atlas holds no megakaryocytes, which the published work names as a main source of plasma DNA. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-10-24 · Why IAM-A reads low on plasma: synthetic test cfDNA 1 (GRP-016, DEV-ONE-DRAW-01)
+Constructed molecules through the one command: mixing two cell types nearly doubles the tile loose share (0.0795 to 0.1534) with the held error unchanged, and short molecules lower the held error (0.03186 at 12 calls, 0.02786 at 8); both pull IAM-A down, and neither involves the atlas. Only 0.1125 to 0.1395 of real plasma molecules reach 6 calls. Next: a molecule-level loose share and an exact length correction. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).

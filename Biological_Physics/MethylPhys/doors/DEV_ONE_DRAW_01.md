@@ -183,3 +183,42 @@ All 30 healthy plasmas of PRJNA929650 read end to end by the one command (shallo
   IAM-Atlas v2.1 holds no megakaryocytes, which the published work on plasma names as a main source of its DNA; that DNA has to land in
   some held cell type, and the macrophage share is a candidate for where it went. This is the atlas's known limit (a cell type it does not
   hold) appearing on real data; the shares are recorded as the Deconvolver returned them, flagged.
+
+## Why IAM-A reads low on plasma: synthetic test cfDNA 1 (written and committed before it runs; plan 40.11)
+
+**The instrument's job:** a healthy plasma reads Normal on IAM-A.
+
+Two explanations of the 30 plasmas (IAM-A tracking the loose share, rho -0.94), each with its own fix:
+- **Mixing.** The loose share is the share of 2,000-site tiles whose mean over every molecule falls below 2/3. Plasma mixes many cell types;
+  where they disagree, a tile's mean falls although no molecule is loose, while the held error, counted molecule by molecule, is untouched.
+  Then the fix is a loose share counted molecule by molecule, and IAM-A on plasma stays free of the atlas.
+- **Fragment length.** Cell-free DNA comes in short pieces, so fewer calls per molecule. Then the fix is a correction for length.
+
+`data/DEV_ONE_DRAW_01/synthetic_cfdna_01.py`: constructed molecules on every autosome, two cell types with the same held error, each holding
+a different 8 % of tiles unmarked; read alone, mixed 70/30 and 50/50, and cut from 12 calls to 5. Every file through `run_sample.py
+--specimen plasma`. **Expected if mixing is the cause:** the loose share rises with mixing (about twice as high at 50/50) while the held error
+stays within 3 %, and IAM-A falls. **Expected if length is the cause:** cutting the molecules moves the loose share; mixing does not. Nothing
+scored; the test says which fix to build.
+
+**Synthetic test cfDNA 1, read** (`data/DEV_ONE_DRAW_01/synthetic_cfdna_01_summary.txt`; run 1 stopped at intake because the constructed
+molecules began at CpG index 0, and the tiles of chr15 to chr22 had to be chosen inside the genome dictionary's ranges, plan 14.9; run 2 added
+the 8- and 6-call cuts after 5 calls proved too short to count). **Both causes are real, and both pull IAM-A down.**
+
+| Molecules | Cell A alone | Mix 70/30 | Mix 50/50 |
+|---|---|---|---|
+| 12 calls: loose share | 0.0795 | 0.1159 | 0.1534 |
+| 12 calls: held error | 0.03186 | 0.03134 | 0.03195 |
+| 12 calls: IAM-A | 0.7407 | 0.7078 | 0.701 |
+| 8 calls: held error | 0.02786 | 0.02812 | 0.02820 |
+| 6 calls: held error | 0.03000 | 0.03072 | 0.02942 |
+| 5 calls | not read: no molecule qualifies | | |
+
+- **Mixing nearly doubles the loose share** (0.0795 to 0.1534 at 50/50) while the held error does not move, so IAM-A falls: as predicted
+  for mixing. Real plasma mixes many cell types; its loose share (median 0.2864) sits far above any purified cell's.
+- **Short molecules lower the held error** (0.03186 at 12 calls, 0.02786 at 8), and below 6 calls nothing is counted. The qualifying rule
+  (at least 6 calls, at least 80 % methylated) allows 2 errors in 12 calls but only 1 in 8, so shorter molecules carrying a second error are
+  dropped. In the 30 real plasmas only 0.1125 to 0.1395 of molecules reach 6 calls (`plasma_read_length_summary.txt`).
+- The absolute IAM-A of a constructed cell (0.7407) is set by the loss rate chosen for it; only the movements are the result.
+- **Neither involves the atlas:** IAM-A reads the molecules directly. **The fixes, each for its own synthetic test (plan 40.11):** a loose
+  share counted molecule by molecule (the share of long molecules that are loose), which a mix leaves unchanged because it is an average
+  over molecules; and the qualifying rule's length bias computed exactly for each molecule length, as the read-count correction was.
