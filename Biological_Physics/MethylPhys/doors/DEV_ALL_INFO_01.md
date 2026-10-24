@@ -26,3 +26,19 @@ controls here are its 3 public cord-blood samples. Its RNA sequencing is not rea
 `run_sample.py`. Compared with findings 1 and 5: do the leukemias read beyond the cord-blood controls on the held error and loose share,
 and does the knockout. **Pass 2:** full depth through a split alignment, then the chain's regional readings (Met-A on sequencing, the
 territories, the globe, the distance to the ceiling) set region by region beside findings 2 to 5.
+
+## Pass 2: the split alignment (written and checked before any full-depth sample is aligned)
+
+A full-depth sample (about 150 to 220 million read pairs) does not fit one GitHub machine's 6-hour limit, so its read pairs are cut into up to
+20 contiguous ranges (`data/DEV_ERASE_01/erase_blocks.py`, `chunk`: every pair exactly once, across run boundaries), each aligned on its
+own machine by the committed pipeline unchanged (`erase_gh.sh`, `CHUNK`, `PATONLY`), then the chunks' molecules merged
+(`merge_pats.py`, a streaming merge in genome order, identical molecules summed) and read once by the one command through the pipeline's
+saved-molecules route (`.github/workflows/split_align.yml`). **Checks:** the chunk plan covers 157 of 157 pairs of a two-run example once; a
+saved molecule file split into three sorted pieces and merged is byte-identical to the original (4,216,305 lines), and a piece merged with
+itself doubles its molecules exactly. **Disclosed:** duplicates are marked within each chunk; a duplicate pair whose copies fall in two
+chunks is kept. **First real test:** the Reh control (GSM4914798) at full depth, against its pass-1 count at 10 million pairs.
+
+**The aligner index, built once.** Every alignment job spent about 6,000 s rebuilding the same hg19 + lambda + pUC19 index (pass-1 timings:
+6,006, 6,276 and 6,425 s of about 9,500 s). `build_index.yml` builds it once through the same block of `erase_gh.sh` and keeps it as release
+files with the SHA-256 of the whole stream; each job streams it in and checks it, and builds it itself if the release is missing or the
+check fails. The index is the same either way, so alignments are unchanged.

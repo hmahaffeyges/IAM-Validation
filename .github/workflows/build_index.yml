@@ -1,0 +1,25 @@
+name: build_index
+# 2026-10-24: the hg19 + lambda + pUC19 bwa-meth index and wgbstools' hg19 dictionary, built once by the committed pipeline's own block
+# (erase_gh.sh, INDEXONLY=1, unchanged otherwise) and kept as release files with the stream's SHA-256, so alignment jobs stream them in
+# instead of rebuilding them (about 6,000 s per job). Run again only if that block changes.
+on:
+  workflow_dispatch:
+    inputs:
+      tag: {description: "release tag", required: true, default: "hg19-bwameth-index-v1"}
+permissions: {contents: write}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost || true; df -h / | tail -1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5   # 2026-10-23: the chain's requirements are written for Python 3.11 (run 39974702740 failed to build on the default Python)
+        with: {python-version: "3.11"}
+      - name: Build the index through the pipeline and publish it
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          export MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$HOME/idx NW=4 INDEXONLY=1 SAMPLES=Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/all_samples.csv
+          bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh GSM4914798 > run.log 2>&1 || { tail -40 run.log; exit 1; }
+          tail -8 run.log; ls -la $HOME/idx
+          gh release create "${{ inputs.tag }}" -R "$GITHUB_REPOSITORY" --title "hg19 bwa-meth index (alignment pipeline)" --notes "Built by build_index.yml at ${{ github.sha }} through erase_gh.sh's index block. SHA256SUMS holds the SHA-256 of the whole zstd tar stream and the part order." $HOME/idx/SHA256SUMS $HOME/idx/hg19idx.tar.zst.part*

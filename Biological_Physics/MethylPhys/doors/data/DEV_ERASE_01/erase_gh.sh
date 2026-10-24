@@ -36,6 +36,16 @@ if [ "$gen" = "mm10" ]; then
   fi
 else   # 2026-10-22: hg19 with lambda and pUC19, built as the committed pipeline built it (boxruns/run2/session1.sh: UCSC hg19, NCBI NC_001416.1, L09137.2)
   REF=$S/ref/hg19_lambda_puc19.fa
+  # 2026-10-24: the index (and wgbstools' hg19 dictionary) built once by build_index.yml through this same block, unchanged, and kept as
+  # release files; each job streams them in and checks the stream's SHA-256 instead of rebuilding (about 6,000 s per job). INDEX_TAG unset,
+  # or a failed check: built here, as before.
+  if [ -n "${INDEX_TAG:-}" ] && [ ! -s $REF.bwameth.c2t.sa ]; then
+    U="https://github.com/$GITHUB_REPOSITORY/releases/download/$INDEX_TAG"; /usr/bin/curl -fsSL --retry 5 -o $S/idx_sums "$U/SHA256SUMS" \
+      && for q in $(awk '$2=="parts"{for(i=3;i<=NF;i++) print $i}' $S/idx_sums); do /usr/bin/curl -fsSL --retry 5 "$U/$q" || exit 1; done \
+         | tee >(sha256sum | cut -d' ' -f1 > $S/idx_got) | zstd -dc -T4 | tar -C $S -xf - \
+      && sleep 2 && [ "$(cat $S/idx_got)" = "$(awk '$2=="stream"{print $1}' $S/idx_sums)" ] \
+      && log "index fetched from release $INDEX_TAG, stream checksum verified" || { log "index fetch failed: building"; rm -rf $S/ref/* $S/wgbs_tools/references/hg19; }
+  fi
   if [ ! -s $REF.bwameth.c2t.sa ]; then
     /usr/bin/curl -fsSL --retry 5 --retry-delay 30 -o $S/ref/hg19.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz || exit 18
     gunzip -f $S/ref/hg19.fa.gz && bgzip -@ 4 -f $S/ref/hg19.fa || exit 23
@@ -49,7 +59,11 @@ else   # 2026-10-22: hg19 with lambda and pUC19, built as the committed pipeline
   fi
 fi
 TI=$(date +%s); log "index ready after $((TI-T0)) s"; df -h $S | tail -1
-python3 $E/erase_blocks.py ${SAMPLES:-$E/erase_samples.csv} $GSM ${MAXPAIRS:-10000000} > $S/${GSM}_blocks.txt; rm -rf $S/fq/*; i=0
+if [ "${INDEXONLY:-0}" = 1 ]; then   # 2026-10-24 (build_index.yml): stop once the index is built
+  tar -C $S -cf - ref wgbs_tools/references/hg19 | zstd -T4 -6 | tee >(sha256sum | cut -d' ' -f1 > $OUT/stream_sha) | split -b 1900M - $OUT/hg19idx.tar.zst.part
+  sleep 2; { echo "$(cat $OUT/stream_sha) stream"; echo "x parts $(cd $OUT && ls hg19idx.tar.zst.part* | tr '\n' ' ')"; } > $OUT/SHA256SUMS; cat $OUT/SHA256SUMS; exit 0
+fi
+python3 $E/erase_blocks.py ${SAMPLES:-$E/erase_samples.csv} $GSM ${CHUNK:-${MAXPAIRS:-10000000}} > $S/${GSM}_blocks.txt   # CHUNK=k/n: one contiguous range (split alignment, 2026-10-24); rm -rf $S/fq/*; i=0
 while read r a b; do i=$((i+1)); ( for t in 1 2 3 4 5; do fastq-dump --split-files -N $a -X $b -O $S/fq/b$i $r > /dev/null 2>> $S/logs/${GSM}_fetch.err && break; rm -rf $S/fq/b$i; sleep $((30*t)); done ) &
   while [ $(jobs -r | wc -l) -ge 10 ]; do sleep 2; done; done < $S/${GSM}_blocks.txt; wait
 cat $S/fq/b*/*_1.fastq > $S/fq/${GSM}_1.fq; cat $S/fq/b*/*_2.fastq > $S/fq/${GSM}_2.fq; rm -rf $S/fq/b*
@@ -62,6 +76,10 @@ sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 1000000
 samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt
 wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || exit 34
 PAT=$(ls $S/pat/$GSM*.pat.gz | head -1); rm -f $S/bam/$GSM.bam*; cp $PAT $OUT/; TP=$(date +%s); log "pat in $((TP-TA)) s"
+if [ "${PATONLY:-0}" = 1 ]; then   # 2026-10-24 (split alignment): one chunk's molecules only; the merge job counts them all once
+  C=$(echo "${CHUNK:-0/1}" | tr / _); mv $OUT/$(basename $PAT) $OUT/${GSM}_c${C}.pat.gz
+  echo "{\"gsm\": \"$GSM\", \"chunk\": \"${CHUNK:-}\", \"pairs\": $n1, \"fetch_s\": $((TF-TI)), \"align_s\": $((TA-TF)), \"to_pat_s\": $((TP-TA))}" > $OUT/${GSM}_c${C}_timing.json; exit 0
+fi
 fi
 # 2026-10-22 (author: "if the chain didnt do it, it didnt happen"): the count is the one command's, run_sample.py --dev-count-only, flagged; the
 # older Stage Q cross-check (erase_read_one.py) called chain pieces directly and is no longer run; the .pat file is kept, so it can be rerun

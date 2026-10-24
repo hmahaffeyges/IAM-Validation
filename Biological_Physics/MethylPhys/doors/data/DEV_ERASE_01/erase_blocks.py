@@ -12,6 +12,16 @@ def plan(runs, n=None):   # 2026-10-23: n, the pairs to take (default N, the rec
             if pos >= s: pos -= s; continue
             take = min(left, s - pos); out.append((r, pos + 1, pos + take)); left -= take; pos = 0
     return out
+def chunk(runs, k, n):   # 2026-10-24 (split alignment, plan 49.8): the k-th of n contiguous ranges of the sample's spots, every pair once
+    tot = sum(s for _, s in runs); g0, g1 = k * tot // n, (k + 1) * tot // n; out = []; pos = 0
+    for r, s in runs:
+        a, b = max(g0, pos), min(g1, pos + s)
+        if a < b: out.append((r, a - pos + 1, b - pos))
+        pos += s
+    return out
 if __name__ == "__main__":
     S = pd.read_csv(sys.argv[1]); x = S[S.gsm == sys.argv[2]]
-    for r, a, b in plan(list(zip(x.srr, x.spots)), int(sys.argv[3]) if len(sys.argv) > 3 else None): print(r, a, b)
+    R = list(zip(x.srr, x.spots))
+    if len(sys.argv) > 3 and "/" in sys.argv[3]: k, n = map(int, sys.argv[3].split("/")); B = chunk(R, k, n)   # CHUNK=k/n
+    else: B = plan(R, int(sys.argv[3]) if len(sys.argv) > 3 else None)
+    for r, a, b in B: print(r, a, b)
