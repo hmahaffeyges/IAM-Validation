@@ -217,7 +217,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 431,
+"line": 432,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -226,7 +226,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 507,
+"line": 508,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -235,7 +235,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 947,
+"line": 948,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -244,7 +244,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 948,
+"line": 949,
 "pattern": "class H_min",
 "use": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
 "severity": "warn",
@@ -253,7 +253,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 950,
+"line": 951,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -262,7 +262,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 955,
+"line": 956,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -271,7 +271,7 @@
 },
 {
 "file": "MANIFEST.md",
-"line": 974,
+"line": 975,
 "pattern": "0\\.024 ?(--|\u2013|-|to) ?0\\.042",
 "use": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
 "severity": "block",
