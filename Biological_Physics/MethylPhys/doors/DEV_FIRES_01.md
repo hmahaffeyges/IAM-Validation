@@ -62,3 +62,34 @@ by Group-A's own rule, the chain's `stage_groupa.compare` unchanged: each readin
 series), then cases against the cancer-free, |t| >= 2 "groups differ", every result preliminary. Because Group-A tares against the cancer-free
 references itself, no separate pass 2 is run. Checked on stand-in bundles before any reading: a planted 3 % shift in 20 of 40 is found, and a
 reading with no spread is reported, not divided by.
+
+## First reading of the whole series (exploration; the scorer as committed, then checks added after it, each disclosed)
+
+**As committed** (`data/DEV_FIRES_01/pass1/fires_summary.txt`; 837 of 845 arrays read, pass 1, series runs 40033292750, 40033341848,
+40041618829, 40041658839): breast cases read more disorder than the cancer-free on every Met-A reading, in every cell and in both
+territories, at 0-2, 2-5 and 5-10 years before diagnosis; over 10 years the same direction without reaching the line. The cell shares do not
+differ. Colorectal: small differences, mostly at the islands.
+
+**Added after the first reading, because the breast cases are 233 women and 2 men and the cancer-free 340 women and 84 men:** women only
+(`--sex F`, `pass1/fires_summary_sexF.txt`). The breast shift stays (whole-sample Met-A +2.40 %, t +5.51); the colorectal shift mostly
+goes. Every case sits on a chip with 3 to 10 cancer-free arrays, so each case is tared against the cancer-free run on its own chip.
+
+**Effect sizes beside the earlier engine** (`pass1/fires_effect_sexF.txt`, `fires_effect.py`; `earlier_pattern_summary.txt`): breast,
+whole-sample Met-A, d +0.44, +0.82, +0.67, +0.46 at 0-2, 2-5, 5-10 and over 10 years (earlier 0.28, 0.47, 0.44, 0.37); colorectal, all,
+d +0.06 (earlier 0.18). The shape repeats, peaking at 2-5 years.
+
+**But the case arrays are of lower quality** (Stage 0's own measures, women): lower bisulfite conversion control, lower signal and fewer
+probes detected than the cancer-free on the same chips. Lower signal and conversion pull values toward the middle, which every Met-A reading
+reads as more disorder, in every cell at once, the pattern seen. **Within thirds of each quality measure** (`pass1/fires_quality_sexF.txt`,
+`fires_quality.py`; cut points from the cancer-free alone): within the middle and best thirds of conversion and signal the shift stays,
+smaller (about 1 %, d 0.5 to 0.7); within the best third of the call rate it fades (d 0.24, p 0.49).
+
+**Matched on every quality measure at once** (`pass1/fires_matched_sexF.txt`, `fires_matched.py`): each breast case paired with the
+cancer-free woman on its own chip nearest in all four quality measures, kept only if each is within a quarter of the cancer-free spread.
+Only 45 of 230 cases find such a partner (the cases' arrays are mostly weaker than any cancer-free array on their chip). In the 45 pairs,
+quality is equal (differences under 0.03 SD) and the case reads higher by a median 0.52 % (Wilcoxon p 0.018; higher in 27 of 45, sign p
+0.23); at 0-2 years no difference (19 pairs), at 2-5 and 5-10 years about 1 % (11 and 10 pairs, not significant at this size).
+
+**In plain words:** part of the breast signal is the arrays' quality, which the earlier engine also read; with quality held equal a small
+shift remains, about a quarter of the unmatched one, on too few pairs to place it by year. Not settled. Open: why the case samples carry
+weaker signal (storage, handling, or the blood itself).

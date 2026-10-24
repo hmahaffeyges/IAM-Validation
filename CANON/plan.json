@@ -252,6 +252,14 @@
      "what": "GEO search for buffy coat, matched blood and plasma, cfDNA arrays and the same people over time, IDATs only: 80 relevant series, 48 not on our lists (buffy coat beside tissue GSE183040/GSE183015; Huntington's buffy coat GSE147004; prostate cfDNA through treatment GSE108462; cfDNA before and after therapy GSE193208; one person's cfDNA over time GSE157273; longitudinal blood GSE191331, GSE176394). All unread, reserved for commissioning (author's rule)",
      "record": "CANON/data_search/geo_search_2026-10-23.csv",
      "next": "choose for each commissioning test from this list; nothing opened before"
+    },
+    {
+     "id": "42.6",
+     "date": "2026-10-23",
+     "status": "open",
+     "what": "EPIC-Italy first reading: the breast shift repeats the earlier pattern, but the case arrays are lower quality; matched on every quality measure (45 pairs) a small shift remains",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md",
+     "next": "why the case samples carry weaker signal; more pairs by relaxing the match one step, stated before"
     }
    ]
   },
