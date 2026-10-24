@@ -197,6 +197,13 @@
      "status": "open",
      "what": "The package for the study's authors, built inside this repository like all other work (author: 'This can all be in our current one ... so we dont start missing stuff'): its own folder, generated from the canon, never hand-written, with a push check that refuses it out of step. When the author is ready to present, he creates a private repository and one export step copies the package folder, the chain and the atlas into it, a clean clone with links back to this repository and the book. Contents: the chain (the one command and every function with its Decoder entry); IAM-Atlas v2.1 with the link to its posterior draws and convergence certificates; the study's 36 samples read by the chain, each with its report and its own globe and information sphere, built from their samples (no website examples); the knockout pair; the replication beside the study's five findings; the derivation with every assumption named; a one-click workflow to rerun any of it. From our other work: IAM-A's self-reference line and the mouse reproduction; the eraser recount and the cell-free DNA synthetic test; the read-count correction and the ceiling; the atlas half-maps and Met-A's healthy line; the three-laboratory and deconvolution reproductions",
      "next": "build the package folder and its generator here; export only when the author creates the presentation repository"
+    },
+    {
+     "id": "49.8",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Order (author): (1) finish the chain and the derived baselines (the send gate); (2) the study's own dataset, GSE116229, in full: pass 1 (36 samples at 10 million read pairs) and pass 2 (full depth through a split alignment, tested first on the knockout pair), every finding set beside its published result, with a public leukemia array series as a companion if one with public values exists (GSE49031 has none); (3) a blind run on unread public data, readings deposited before unblinding; (4) the 'run your own datasets' invitation, limited to specimens that passed. The report shows each found cell against its healthy range, between the baseline and the ceiling; the chain names no disease.",
+     "next": "pass 1 landing; the split alignment written and tested on the knockout pair"
     }
    ]
   },
