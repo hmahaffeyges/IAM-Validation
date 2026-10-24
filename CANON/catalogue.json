@@ -344,7 +344,7 @@
     "name": "IAM-Atlas v2.1",
     "inst": "atlas",
     "commissioned_form": true,
-    "against": "healthy cells from 21 published sources, arrays and sequencing, fit jointly with each source's own offset fitted alongside, as Planck's maps were made from every detector's scans",
+    "against": "healthy cells from 21 published sources, arrays and sequencing, fit in one hierarchical model, with each source's own offset measured in a calibration stage and held apart from the cells",
     "derived": "nothing: it is the measured ruler, with a stated uncertainty at every site",
     "measured_once": "every site in each of its 79 cell types, built once and shared by every laboratory",
     "blind_to": "cell types it does not hold, and sites no source measured (left blank, never filled in)",

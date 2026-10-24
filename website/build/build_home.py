@@ -339,7 +339,7 @@ number stays with its instrument.</p></div></div></section>
 <details class="fold"><summary>How it was built, where the reference is sure, and what a researcher sees (5 maps)</summary>
 <h3>How it was built</h3>
 <ul><li><b>One map per cell type, every site in its place.</b> The sites are laid on the sphere in genome order, chromosome 1 through Y, on HEALPix, the pixel grid the Planck and WMAP missions used to map the microwave sky: 786,432 pixels, arranged so that a stretch of the genome fills a compact patch of sky. The layout is fixed in advance and identical for every cell and every sample. Nothing is fitted to draw it.</li>
-<li><b>Fitted the way a sky map is fitted.</b> The atlas combines 21 public sources the way a sky map combines many detectors: one model for every sample at once, with each source's own offset fitted alongside the cells, so a laboratory's habits are not mistaken for biology.</li>
+<li><b>Fitted the way a sky map is fitted.</b> The atlas combines 21 public sources the way a sky map combines many detectors: one model for every sample at once, with each source's own offset measured first and held apart from the cells, so a laboratory's habits are not mistaken for biology.</li>
 <li><b>Every value comes with its range.</b> Each site of each cell has a best value and a 95&nbsp;% range, so each cell has a second map: how sure the atlas is. That map is new with v2.1.</li></ul>
 <figure><img src="{art("sky_v21_two_cells.jpg")}" alt="Neutrophils beside liver cells on the sphere."><figcaption>Blood neutrophils beside liver hepatocytes: same sites, same places, two different healthy identities.</figcaption></figure>
 <h3>Where the reference is sure, and where it is not</h3>
