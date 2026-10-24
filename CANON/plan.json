@@ -203,6 +203,51 @@
   {
    "status": "open",
    "rows": [
+    "GRP-020"
+   ],
+   "task": "The paper (author 2026-10-24): IAM's Law and the chain introduced in the format of the published information-theory study of pediatric leukemia, built on it, tested on its data",
+   "done_when": "the paper is posted as a preprint with every number generated from the canon",
+   "branches": [
+    {
+     "id": "50.1",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Outline and figure plan in the journal's format (abstract, introduction, Results under finding headings, Discussion, Methods with equations, Data and Code availability, 5-6 main figures, supplement). Framing: building on the published information-theory study, not answering it. Statistical names only (Bayesian hierarchical model sampled by Hamiltonian Monte Carlo; joint calibration of laboratory and platform offsets; split-half null tests; information-geometric embedding; thermodynamic lower bound)",
+     "next": "draft now"
+    },
+    {
+     "id": "50.2",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Methods drafted from the Decoder and the records: the law and its floor, the atlas, IAM-A, Met-A, the territories, the globe and sphere, the replication",
+     "next": "draft now"
+    },
+    {
+     "id": "50.3",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "Results filled from the canon only as each gated test lands (plan 49 gate); no number typed by hand",
+     "next": "after 49"
+    },
+    {
+     "id": "50.4",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "An independent reproducibility audit by a second author from a clean clone, following only the written instructions",
+     "next": "when the package is exported"
+    },
+    {
+     "id": "50.5",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "bioRxiv preprint; then the study's authors asked to read it critically and to collaborate",
+     "next": "after 50.3"
+    }
+   ]
+  },
+  {
+   "status": "open",
+   "rows": [
     "OTH-082",
     "CAN-005"
    ],
