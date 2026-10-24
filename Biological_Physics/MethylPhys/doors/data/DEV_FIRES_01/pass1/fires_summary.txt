@@ -1,0 +1,171 @@
+DEV-FIRES-01: 837 of 845 arrays read (pass 1); cases against the cancer-free by Group-A (stage_groupa.compare), preliminary
+-- breast, all (232 cases, 419 cancer-free)
+   share neutrophils                          diff -2.03 % | t -1.13 | no difference found
+   share lymphocytes                          diff -2.20 % | t -0.75 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +2.49 % | t +5.78 | groups differ
+   ceiling distance                           diff -2.91 % | t -5.13 | groups differ
+   Met-A whole, identity sites of the cells found diff +3.46 % | t +5.70 | groups differ
+   Met-A whole, islands                       diff +3.64 % | t +4.76 | groups differ
+   Met-A whole, domains                       diff +3.17 % | t +6.07 | groups differ
+   Met-A whole, the rest                      diff +1.68 % | t +5.61 | groups differ
+   Met-A neutrophils                          diff +4.44 % | t +5.73 | groups differ
+   Met-A cd4 t cells                          diff +3.84 % | t +5.64 | groups differ
+   Met-A cd8 t cells                          diff +3.50 % | t +5.57 | groups differ
+   Met-A b cells                              diff +3.19 % | t +5.52 | groups differ
+   Met-A monocytes                            diff +3.14 % | t +5.20 | groups differ
+   territory islands                          diff +3.53 % | t +4.73 | groups differ
+   territory domains                          diff +2.82 % | t +6.04 | groups differ
+-- breast, 0-2 y (66 cases, 419 cancer-free)
+   share neutrophils                          diff -2.18 % | t -0.67 | no difference found
+   share lymphocytes                          diff +5.34 % | t +1.08 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +1.52 % | t +2.67 | groups differ
+   ceiling distance                           diff -1.77 % | t -2.02 | groups differ
+   Met-A whole, identity sites of the cells found diff +1.93 % | t +2.45 | groups differ
+   Met-A whole, islands                       diff +2.05 % | t +1.93 | no difference found
+   Met-A whole, domains                       diff +2.01 % | t +2.74 | groups differ
+   Met-A whole, the rest                      diff +1.08 % | t +2.79 | groups differ
+   Met-A neutrophils                          diff +2.09 % | t +2.06 | groups differ
+   Met-A cd4 t cells                          diff +2.19 % | t +2.31 | groups differ
+   Met-A cd8 t cells                          diff +2.00 % | t +2.30 | groups differ
+   Met-A b cells                              diff +1.95 % | t +2.42 | groups differ
+   Met-A monocytes                            diff +1.56 % | t +1.92 | no difference found
+   territory islands                          diff +1.99 % | t +1.92 | no difference found
+   territory domains                          diff +1.83 % | t +2.78 | groups differ
+-- breast, 2-5 y (53 cases, 419 cancer-free)
+   share neutrophils                          diff -0.13 % | t -0.04 | no difference found
+   share lymphocytes                          diff -8.76 % | t -1.93 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +3.36 % | t +3.49 | groups differ
+   ceiling distance                           diff -4.63 % | t -3.21 | groups differ
+   Met-A whole, identity sites of the cells found diff +4.64 % | t +3.41 | groups differ
+   Met-A whole, islands                       diff +5.55 % | t +3.23 | groups differ
+   Met-A whole, domains                       diff +3.91 % | t +3.47 | groups differ
+   Met-A whole, the rest                      diff +2.25 % | t +3.43 | groups differ
+   Met-A neutrophils                          diff +5.88 % | t +3.44 | groups differ
+   Met-A cd4 t cells                          diff +5.32 % | t +3.48 | groups differ
+   Met-A cd8 t cells                          diff +4.86 % | t +3.45 | groups differ
+   Met-A b cells                              diff +4.42 % | t +3.44 | groups differ
+   Met-A monocytes                            diff +4.43 % | t +3.25 | groups differ
+   territory islands                          diff +5.40 % | t +3.22 | groups differ
+   territory domains                          diff +3.46 % | t +3.45 | groups differ
+-- breast, 5-10 y (79 cases, 419 cancer-free)
+   share neutrophils                          diff -3.49 % | t -1.45 | no difference found
+   share lymphocytes                          diff -2.30 % | t -0.49 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +2.77 % | t +4.08 | groups differ
+   ceiling distance                           diff -2.84 % | t -3.61 | groups differ
+   Met-A whole, identity sites of the cells found diff +4.01 % | t +4.07 | groups differ
+   Met-A whole, islands                       diff +3.84 % | t +3.12 | groups differ
+   Met-A whole, domains                       diff +3.71 % | t +4.52 | groups differ
+   Met-A whole, the rest                      diff +1.82 % | t +3.90 | groups differ
+   Met-A neutrophils                          diff +5.45 % | t +4.32 | groups differ
+   Met-A cd4 t cells                          diff +4.31 % | t +4.01 | groups differ
+   Met-A cd8 t cells                          diff +3.89 % | t +3.95 | groups differ
+   Met-A b cells                              diff +3.49 % | t +3.84 | groups differ
+   Met-A monocytes                            diff +3.67 % | t +3.78 | groups differ
+   territory islands                          diff +3.73 % | t +3.10 | groups differ
+   territory domains                          diff +3.28 % | t +4.47 | groups differ
+-- breast, over 10 y (34 cases, 419 cancer-free)
+   share neutrophils                          diff -1.31 % | t -0.30 | no difference found
+   share lymphocytes                          diff -6.53 % | t -1.16 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +2.44 % | t +1.81 | no difference found
+   ceiling distance                           diff -2.55 % | t -1.98 | no difference found
+   Met-A whole, identity sites of the cells found diff +3.46 % | t +1.86 | no difference found
+   Met-A whole, islands                       diff +3.45 % | t +1.50 | no difference found
+   Met-A whole, domains                       diff +3.16 % | t +1.88 | no difference found
+   Met-A whole, the rest                      diff +1.64 % | t +1.74 | no difference found
+   Met-A neutrophils                          diff +4.70 % | t +1.96 | no difference found
+   Met-A cd4 t cells                          diff +3.90 % | t +1.84 | no difference found
+   Met-A cd8 t cells                          diff +3.58 % | t +1.83 | no difference found
+   Met-A b cells                              diff +3.18 % | t +1.78 | no difference found
+   Met-A monocytes                            diff +3.12 % | t +1.71 | no difference found
+   territory islands                          diff +3.34 % | t +1.49 | no difference found
+   territory domains                          diff +2.78 % | t +1.85 | no difference found
+-- colorectal, all (166 cases, 419 cancer-free)
+   share neutrophils                          diff -0.29 % | t -0.17 | no difference found
+   share lymphocytes                          diff -2.95 % | t -0.97 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +0.55 % | t +2.20 | groups differ
+   ceiling distance                           diff +0.38 % | t +1.29 | no difference found
+   Met-A whole, identity sites of the cells found diff +0.67 % | t +2.08 | groups differ
+   Met-A whole, islands                       diff +1.22 % | t +3.03 | groups differ
+   Met-A whole, domains                       diff +0.48 % | t +1.63 | no difference found
+   Met-A whole, the rest                      diff +0.42 % | t +2.14 | groups differ
+   Met-A neutrophils                          diff +0.87 % | t +2.22 | groups differ
+   Met-A cd4 t cells                          diff +0.89 % | t +2.43 | groups differ
+   Met-A cd8 t cells                          diff +0.85 % | t +2.42 | groups differ
+   Met-A b cells                              diff +0.71 % | t +2.11 | groups differ
+   Met-A monocytes                            diff +0.68 % | t +2.28 | groups differ
+   territory islands                          diff +1.19 % | t +3.00 | groups differ
+   territory domains                          diff +0.43 % | t +1.60 | no difference found
+-- colorectal, 0-2 y (20 cases, 419 cancer-free)
+   share neutrophils                          diff +2.53 % | t +0.65 | no difference found
+   share lymphocytes                          diff -4.36 % | t -0.77 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +0.47 % | t +1.11 | no difference found
+   ceiling distance                           diff -0.04 % | t -0.05 | no difference found
+   Met-A whole, identity sites of the cells found diff +0.46 % | t +0.83 | no difference found
+   Met-A whole, islands                       diff +0.78 % | t +1.04 | no difference found
+   Met-A whole, domains                       diff +0.44 % | t +0.85 | no difference found
+   Met-A whole, the rest                      diff +0.42 % | t +1.30 | no difference found
+   Met-A neutrophils                          diff +0.33 % | t +0.44 | no difference found
+   Met-A cd4 t cells                          diff +0.61 % | t +0.95 | no difference found
+   Met-A cd8 t cells                          diff +0.64 % | t +1.08 | no difference found
+   Met-A b cells                              diff +0.66 % | t +1.13 | no difference found
+   Met-A monocytes                            diff +0.56 % | t +1.07 | no difference found
+   territory islands                          diff +0.78 % | t +1.05 | no difference found
+   territory domains                          diff +0.41 % | t +0.89 | no difference found
+-- colorectal, 2-5 y (52 cases, 419 cancer-free)
+   share neutrophils                          diff -2.79 % | t -1.05 | no difference found
+   share lymphocytes                          diff +0.34 % | t +0.07 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +0.75 % | t +2.06 | groups differ
+   ceiling distance                           diff +0.62 % | t +1.68 | no difference found
+   Met-A whole, identity sites of the cells found diff +0.96 % | t +2.14 | groups differ
+   Met-A whole, islands                       diff +1.85 % | t +3.15 | groups differ
+   Met-A whole, domains                       diff +0.51 % | t +1.26 | no difference found
+   Met-A whole, the rest                      diff +0.59 % | t +2.04 | groups differ
+   Met-A neutrophils                          diff +1.34 % | t +2.61 | groups differ
+   Met-A cd4 t cells                          diff +1.20 % | t +2.38 | groups differ
+   Met-A cd8 t cells                          diff +1.07 % | t +2.13 | groups differ
+   Met-A b cells                              diff +0.86 % | t +1.82 | no difference found
+   Met-A monocytes                            diff +0.76 % | t +2.03 | groups differ
+   territory islands                          diff +1.81 % | t +3.12 | groups differ
+   territory domains                          diff +0.45 % | t +1.22 | no difference found
+-- colorectal, 5-10 y (68 cases, 419 cancer-free)
+   share neutrophils                          diff +0.24 % | t +0.10 | no difference found
+   share lymphocytes                          diff -2.38 % | t -0.54 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +0.60 % | t +1.81 | no difference found
+   ceiling distance                           diff +0.02 % | t +0.07 | no difference found
+   Met-A whole, identity sites of the cells found diff +0.68 % | t +1.67 | no difference found
+   Met-A whole, islands                       diff +1.32 % | t +2.53 | groups differ
+   Met-A whole, domains                       diff +0.57 % | t +1.40 | no difference found
+   Met-A whole, the rest                      diff +0.42 % | t +1.60 | no difference found
+   Met-A neutrophils                          diff +0.78 % | t +1.70 | no difference found
+   Met-A cd4 t cells                          diff +0.98 % | t +2.11 | groups differ
+   Met-A cd8 t cells                          diff +1.04 % | t +2.24 | groups differ
+   Met-A b cells                              diff +0.87 % | t +1.95 | no difference found
+   Met-A monocytes                            diff +0.83 % | t +2.27 | groups differ
+   territory islands                          diff +1.30 % | t +2.52 | groups differ
+   territory domains                          diff +0.50 % | t +1.36 | no difference found
+-- colorectal, over 10 y (26 cases, 419 cancer-free)
+   share neutrophils                          diff +1.11 % | t +0.33 | no difference found
+   share lymphocytes                          diff -9.88 % | t -1.43 | no difference found
+   share monocytes                            diff +nan % | t +nan | no difference found
+   Met-A whole                                diff +0.07 % | t +0.12 | no difference found
+   ceiling distance                           diff +1.07 % | t +1.67 | no difference found
+   Met-A whole, identity sites of the cells found diff +0.22 % | t +0.29 | no difference found
+   Met-A whole, islands                       diff +0.06 % | t +0.07 | no difference found
+   Met-A whole, domains                       diff +0.23 % | t +0.31 | no difference found
+   Met-A whole, the rest                      diff +0.05 % | t +0.11 | no difference found
+   Met-A neutrophils                          diff +0.60 % | t +0.60 | no difference found
+   Met-A cd4 t cells                          diff +0.23 % | t +0.26 | no difference found
+   Met-A cd8 t cells                          diff +0.11 % | t +0.12 | no difference found
+   Met-A b cells                              diff +0.03 % | t +0.04 | no difference found
+   Met-A monocytes                            diff +0.19 % | t +0.28 | no difference found
+   territory islands                          diff +0.04 % | t +0.04 | no difference found
+   territory domains                          diff +0.21 % | t +0.32 | no difference found

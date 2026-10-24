@@ -1,0 +1,17 @@
+DEV-FIRES-01 quality check, women only: 230 breast, 336 cancer-free; tared whole-sample Met-A
+-- conversion II: among the cancer-free, rho with tared Met-A -0.16 (p 0.0041); cases' median 1.101e+04, cancer-free 1.245e+04
+   low    third: 123 cases, 112 cancer-free | diff +3.44 % | d +0.50 | p 0.0019
+   middle third:  83 cases, 112 cancer-free | diff +1.10 % | d +0.69 | p 2.1e-06
+   high   third:  24 cases, 112 cancer-free | diff +1.08 % | d +0.51 | p 0.0051
+-- conversion I: among the cancer-free, rho with tared Met-A -0.09 (p 0.12); cases' median 551.2, cancer-free 647.5
+   low    third: 113 cases, 112 cancer-free | diff +3.79 % | d +0.55 | p 0.00054
+   middle third:  73 cases, 112 cancer-free | diff +1.48 % | d +0.66 | p 1.8e-06
+   high   third:  44 cases, 112 cancer-free | diff +0.57 % | d +0.34 | p 0.016
+-- signal red: among the cancer-free, rho with tared Met-A -0.13 (p 0.016); cases' median 4766, cancer-free 5544
+   low    third: 128 cases, 112 cancer-free | diff +3.35 % | d +0.49 | p 0.0025
+   middle third:  73 cases, 112 cancer-free | diff +1.22 % | d +0.75 | p 7.2e-07
+   high   third:  29 cases, 112 cancer-free | diff +1.06 % | d +0.52 | p 0.0031
+-- call rate: among the cancer-free, rho with tared Met-A -0.20 (p 0.00026); cases' median 0.9691, cancer-free 0.9719
+   low    third: 120 cases, 112 cancer-free | diff +2.95 % | d +0.58 | p 3e-07
+   middle third:  56 cases, 112 cancer-free | diff +1.99 % | d +0.43 | p 0.063
+   high   third:  54 cases, 112 cancer-free | diff +0.92 % | d +0.24 | p 0.49
