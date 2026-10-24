@@ -1,0 +1,4 @@
+DEV-METAA-HEALTHY-01 synthetic test 2: the IAM-Deconvolver's shares on each healthy synthetic array against the shares built in
+mild_healthy     total variation 0.0499 | largest: neutrophils -0.024, nk cells +0.021, cd4 t cells +0.017
+typical_healthy  total variation 0.0904 | largest: cd8 t cells -0.048, cd4 t cells +0.044, neutrophils -0.031
+weak_healthy     total variation 0.1033 | largest: neutrophils -0.053, nk cells +0.045, b cells +0.032

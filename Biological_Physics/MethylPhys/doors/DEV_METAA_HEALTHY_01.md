@@ -83,3 +83,23 @@ IAM-Deconvolver act on them as on any array. Same bar 1.
 Twenty healthy whole bloods from each of five laboratories, the first twenty healthy arrays of each series in accession order
 (`data/DEV_METAA_HEALTHY_01/bar2_labels.csv`): GSE235717, GSE42861 (its normal controls), GSE87571, GSE153712 (AIBL's healthy controls),
 GSE51032 (cancer-free); all spent. Each through `run_sample.py` on GitHub's machines; scorer `bar2_score.py`.
+
+## Synthetic test 2 (explore run 40101305939, commit f22216a4; `data/DEV_METAA_HEALTHY_01/synthetic_02_summary.txt`): bar 1 not fully met
+
+Every array through `run_sample.py`.
+
+| Array | A | A_pred | A / A_pred | a 5 % loss off the anchors: A rises | A / A_pred rises |
+|---|---|---|---|---|---|
+| real healthy blood GSM7508429 (raw IDATs) | 1.11291 | 1.09895 | 1.0127 | | |
+| mild | 1.29338 | 1.29741 | 0.99689 | 0.1207 | 0.0948 |
+| typical | 1.41335 | 1.41524 | 0.99866 | 0.1034 | 0.0736 |
+| weak | 1.5511 | 1.56238 | 0.99278 | 0.0878 | 0.0583 |
+
+- **Healthy within 0.005 of 1 on the mild and typical arrays, not on the weak one** (0.0072 below). Bar 1 is not fully met.
+- **A loss still shows:** 66 % to 79 % of its rise kept, above the half required.
+- **The real healthy blood:** its own measured line is nearly ideal (design I offset 0.0084, noise 0.00492), yet that small offset raises the
+  disorder at nearly unmarked sites steeply; predicting it takes the reading from 1.11291 to 1.0127.
+- **Open, not settled:** through the whole chain the IAM-Deconvolver re-reads each synthetic array's mix, and the mix drifts as the blur
+  grows (the shares move by a total of 0.0499, 0.0904 and 0.1033 on the mild, typical and weak arrays; `share_drift.py`, added after the run, output `share_drift_summary.txt`), so the atlas expectation the
+  prediction uses is not the one the array was built from. The typical array drifts almost as much and reads within 0.002, so the drift
+  alone does not explain the miss.

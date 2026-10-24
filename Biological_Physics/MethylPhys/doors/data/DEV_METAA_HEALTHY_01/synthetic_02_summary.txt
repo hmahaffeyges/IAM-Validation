@@ -1,0 +1,9 @@
+DEV-METAA-HEALTHY-01 synthetic test 2, every array through run_sample.py
+real healthy blood GSM7508429 (raw IDATs): A 1.11291 | A_pred 1.09895 | A/A_pred 1.0127 | measured line {'I': {'a': 0.0084, 'b': 0.98172, 's': 0.00492, 'anchors': 3413}, 'II': {'a': 0.01284, 'b': 0.97062, 's': 0.00808, 'anchors': 4791}}
+synthetic arrays: 813181 sites, the atlas in the shares the chain found for GSM7508429; seed 20261024
+mild     healthy: A 1.29338 | A_pred 1.29741 | A/A_pred 0.99689 | measured line {'I': {'a': 0.01953, 'b': 0.9501, 's': 0.02064, 'anchors': 3414}, 'II': {'a': 0.0394, 'b': 0.90053, 's': 0.02964, 'anchors': 4791}}
+         5 % loss off the anchors: A 1.41407 (+0.1207) | A/A_pred 1.09172 (+0.0948)
+typical  healthy: A 1.41335 | A_pred 1.41524 | A/A_pred 0.99866 | measured line {'I': {'a': 0.02928, 'b': 0.93044, 's': 0.02976, 'anchors': 3414}, 'II': {'a': 0.0575, 'b': 0.85263, 's': 0.04008, 'anchors': 4791}}
+         5 % loss off the anchors: A 1.51671 (+0.1034) | A/A_pred 1.0723 (+0.0736)
+weak     healthy: A 1.5511 | A_pred 1.56238 | A/A_pred 0.99278 | measured line {'I': {'a': 0.05146, 'b': 0.87806, 's': 0.04998, 'anchors': 3414}, 'II': {'a': 0.08861, 'b': 0.78054, 's': 0.05905, 'anchors': 4791}}
+         5 % loss off the anchors: A 1.63888 (+0.0878) | A/A_pred 1.05104 (+0.0583)

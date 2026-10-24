@@ -23,7 +23,7 @@
      "title": "Met-A's healthy middle line predicted from the array itself, synthetic (GRP-019, DEV-METAA-HEALTHY-01)",
      "status": "synthetic only",
      "what": "Each array's own line and noise, measured at the atlas's firmly held sites, predict what a healthy sample reads on whole-sample Met-A.",
-     "outcome": "A first synthetic test called the Met-A stage directly and does not count; it showed the method works and named its blind spot. Synthetic test 2 and the five-laboratory test are written before reading, every array through the one command.",
+     "outcome": "Through the one command, healthy reads within 0.005 of 1 on two of three synthetic arrays (0.007 off on the weakest), a loss still shows, and a real healthy blood moves from 1.11 to 1.01. The first synthetic test called the Met-A stage directly and does not count.",
      "rows": [
       "GRP-019"
      ],
