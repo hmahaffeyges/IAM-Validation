@@ -691,7 +691,7 @@
      "status": "running",
      "what": "Layer 1: the atlas's healthy levels predicted from each cell type's loss-side and gain-side held errors; the gain side added to Stage Q2's counter (synthetic test met); the gap measured",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
-     "next": "step 3 (derived neutrophil mark against the six commissioned arrays) counting on GitHub; then the confirmation of layer 1 on independent samples"
+     "next": "step 3 version 3: the loose share at Met-A's identity sites (the site rule selects 0.75-0.95, so a fully held prediction cannot match); a molecule-measured baseline first, the derivation of the loose share after"
     },
     {
      "id": "14.8",

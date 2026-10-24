@@ -240,3 +240,18 @@ mixture of neutrophils, eosinophils and basophils; the atlas's neutrophil column
 array series, 12 samples). So the comparison is not circular, but its two sides are not the same cells: the derived side is granulocytes, the
 measured mark purified neutrophils. Part of any step 3 gap may be that difference. A version 3 states it before it runs; a confirmation
 needs sequenced purified neutrophils, if a public set exists.
+
+**Why versions 1 and 2 missed: the site rule** (author: "what are we missing?"; read in `chain/stage_m_met_a.py`, the commissioned rule):
+Met-A's identity sites are chosen on purified neutrophil arrays with a mean of 0.75 to 0.95 (or 0.05 to 0.25) and a spread across arrays of
+at most 0.05, up to 3,000 per side. Fully held sites (0.97 to 0.99) are excluded by design, because a mark pinned at the end shows no wear.
+So the atlas's 0.939 at those sites is partly the selection itself. Layer 1 matched because its backbone sites are not filtered this way;
+versions 1 and 2 predicted a fully held level (0.959 and 0.991) for sites selected for not being fully held. Version 2 also showed that
+isolated errors are rarer at these sites than genome-wide, so their lower level comes from copies that do not hold the mark (a loose share at
+the sites). Smaller contributors: the transfer's flat top near 0.959 on the sequencing scale (any level above it inverts to the end), and
+granulocytes standing in for purified neutrophils.
+
+**The question, restated:** at sites in the 0.75 to 0.95 window, how much of the drop below full holding is a loose share and how much is
+error? That is IAM-A's question (the loose share against the held error), asked at Met-A's sites. **Version 3 (to be written before it
+runs):** at each identity site, every call on the granulocyte molecules, split into held molecules, held-absent molecules and loose
+molecules; the site's level from all of them; the mark from those levels on the array scale. That is a baseline measured from the cell's own
+molecules, not yet a derivation: the derivation is the physics of the loose share at those sites, an open question beside the firm rate's.
