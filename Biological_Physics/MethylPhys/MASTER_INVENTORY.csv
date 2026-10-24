@@ -126,7 +126,7 @@ GSE152444,,,,,,,,DEV_SYNTH_LEVERS_01,,,,,,
 GSE153309,,,,,,,,,not usable (cultured with no uncultured comparison),breast luminal epithelium,yes,SRA run links for 10/10 samples,Loss of epigenetic suppression of retrotransposons with oncogenic potential in aging mammary luminal epithelial cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE153343,downloads/F_salmonid/GSE153343/,0.0,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
 GSE153459,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,research,cd4 t cells,yes,IDAT listed for 35/35 samples,"Epigenome analysis of CD4+ T cells from non-pregnant, 1st and 2nd trimester pregnant women",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE153712,,,,,spent,,,DEV_REPLICATE_01,,,,,,
+GSE153712,,,,,spent,,,DEV_METAA_HEALTHY_01; DEV_REPLICATE_01,,,,,,
 GSE154946,downloads/C_tissue_tests/GSE154946/,0.92,IDAT,yes,unspent,,,,,,,,Solid-tissue arrays,S3 register
 GSE154971,,,,,,,,,not usable (not purified (mixed lymphocytes)),,yes,IDAT listed for 24/24 samples,DNA methylation analysis of methamphetamine abusers with different addiction susceptibility,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE155952,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
@@ -334,7 +334,7 @@ GSE50386,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE50660,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE50797,,,,,,,,,not usable (no raw data (TXT only)),neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE50797_RAW.tar; GSE50797_methylated_unmethylated_signal_intensities.txt.gz),Analysis of the DNA methylome and transcriptome in granulopoiesis reveal timed changes and dynamic enhancer methylation,gold-mine map
 GSE50853,,,,,,,,,research,cortical neurons | oligodendrocytes,yes,SRA run links for 6/30 samples,Differences in DNA methylation between human neuronal and glial cells are concentrated in enhancers and non-CpG sites,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE51032,downloads/A_blood_immune/GSE51032/,15.15,IDAT,yes,spent,,,DEV_FIRES_01; PROC_EPIC_01_PREREG; PROC_MF_02_OUTCOME; PROC_MF_03_OUTCOME; PROC_PREDX_NEUT_01_PREREG; PROC_PREDX_SEQUENCE_01_PREREG,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
+GSE51032,downloads/A_blood_immune/GSE51032/,15.15,IDAT,yes,spent,,,DEV_FIRES_01; DEV_METAA_HEALTHY_01; PROC_EPIC_01_PREREG; PROC_MF_02_OUTCOME; PROC_MF_03_OUTCOME; PROC_PREDX_NEUT_01_PREREG; PROC_PREDX_SEQUENCE_01_PREREG,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE51057,downloads/A_blood_immune/GSE51057/,6.13,IDAT,yes,partly spent,,,PROC_EPIC_01_PREREG; PROC_PREDX_NEUT_01_OUTCOME; PROC_PREDX_NEUT_01_PREREG; PROC_PREDX_SEQUENCE_01_PREREG; PROC_PREDX_SLIDE_01_OUTCOME; PROC_PREDX_SLIDE_01_PRER,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE52025,,,,,,,,,"not usable (cell lines (Coriell/McGill cell bank), cultured)",ad-dermal fibroblasts,yes,IDAT listed for 62/62 samples,"The relationship between DNA methylation, genetic and expression inter-individual variation in untransformed human fibroblasts [methylation profiling]",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE52074,,,,,,,,DEV_ATLAS_V21_01,,,,,,

@@ -67,3 +67,17 @@ Healthy reads within 0.005 of 1 on every array, and A / A_pred keeps 68 % to 100
 line and noise were measured within 0.003 of what was built in. **In plain words:** the prediction removes the array's own blur, so a healthy
 sample reads 1 on any array, and a loss off the firmly held sites still shows. Next, bar 2: real healthy bloods from five laboratories,
 through `run_sample.py` on GitHub's machines.
+
+## Test 1 does not count (the chain gate, rule 23b)
+
+Test 1 called the Met-A stage directly and took its shares from a file copied out of a chain result by hand. Under the rule that a result
+the chain did not produce did not happen, it is kept above as the record of what was learned (the mean-based line; the even-loss blind
+spot) and is replaced by **synthetic test 2** (`data/DEV_METAA_HEALTHY_01/synthetic_02.py`, written before it ran): a real healthy blood
+read from its raw IDATs, then the synthetic arrays written as betas files, every one read by `run_sample.py`, so the self-tare and the
+IAM-Deconvolver act on them as on any array. Same bar 1.
+
+## Bar 2 and bar 3 (lists and scorer committed before any reading)
+
+Twenty healthy whole bloods from each of five laboratories, the first twenty healthy arrays of each series in accession order
+(`data/DEV_METAA_HEALTHY_01/bar2_labels.csv`): GSE235717, GSE42861 (its normal controls), GSE87571, GSE153712 (AIBL's healthy controls),
+GSE51032 (cancer-free); all spent. Each through `run_sample.py` on GitHub's machines; scorer `bar2_score.py`.

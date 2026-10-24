@@ -28167,7 +28167,7 @@
    "id": "GRP-019",
    "sources_of_row": [],
    "runs": [],
-   "notes": "2026-10-24: prediction and bars written before any test; synthetic run 1 not met as written (median line; even loss absorbed: the stated blind spot); run 2 met bar 1 (healthy 0.99581 to 1.0; 68 to 100 % of a loss kept)."
+   "notes": "2026-10-24: prediction and bars written before any test; synthetic run 1 not met as written (median line; even loss absorbed: the stated blind spot); run 2 met bar 1 in a test that called the Met-A stage directly, so it does not count (rule 23b); synthetic test 2 and bar 2's lists and scorer written before reading, every array through run_sample.py."
   }
  ],
  "not_tests": {
