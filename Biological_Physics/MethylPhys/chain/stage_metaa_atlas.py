@@ -367,6 +367,46 @@ def _he(es, counts):   # 2026-10-23: the healthy expectation of H, at each site'
     if counts is None: return np.asarray(_H(es), dtype="float64")
     n = pd.Series(counts).reindex(es.index).fillna(0).astype("int64").to_numpy(); return np.asarray(expected_H_counts(es.to_numpy(), n), dtype="float64")
 
+RULER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Stage_T", "atlas_ruler_v1.json")
+GH_NODES = 20   # Gauss-Hermite points for the expectation over the array's noise (stated; 20 is exact to well below the reading's own error)
+
+def _ruler():
+    if "ruler" not in _cache:
+        import json as _j; R = _j.load(open(RULER)); _cache["ruler"] = (pd.Series(R["design"]), {k: list(v) for k, v in R["sets"].items()}, R["ref_anchors"])
+    return _cache["ruler"]
+
+def array_blur(xs, es):
+    """The array's own straight line and noise, per probe design (development, DEV-METAA-HEALTHY-01; 2026-10-24). At the atlas ruler's anchor
+    sites (held below about 0.05 or above about 0.95 in every one of the 79 cell types): the line x = a + b e through the means of the array's
+    low and high anchors against the atlas's means there, and the noise s = 1.4826 x the median absolute residual from that line. Measured on
+    the array, nothing fitted to any reading."""
+    des, sets, _ = _ruler(); out = {}
+    for d in ("I", "II"):
+        lo, hi = [pd.Index(sets[f"{d}_{k}"]).intersection(xs.index) for k in ("low", "high")]
+        if len(lo) < 200 or len(hi) < 200: continue
+        xl, xh, el, eh = xs[lo].mean(), xs[hi].mean(), es[lo].mean(), es[hi].mean()   # means: x = a + b e holds for means exactly (run 1 used medians)
+        if not (eh - el) > 0.5: continue
+        b_ = float((xh - xl) / (eh - el)); a_ = float(xl - b_ * el); res = pd.concat([xs[lo], xs[hi]]) - (a_ + b_ * pd.concat([es[lo], es[hi]]))
+        out[d] = dict(a=round(a_, 5), b=round(b_, 5), s=round(float(1.4826 * np.median(np.abs(res - np.median(res)))), 5), anchors=int(len(lo) + len(hi)))
+    return out
+
+def predicted_healthy(xs, es, w, blur=None):
+    """Met-A's healthy middle line predicted from the array itself (development, DEV-METAA-HEALTHY-01). At each site, the disorder this array
+    would show if the sample were exactly the atlas in its own mix: E[H(clip(a_d + b_d e + noise, 0, 1))] over noise N(0, s_d^2), by
+    Gauss-Hermite quadrature, with d the site's probe design; A_pred = sum w E[H] / sum w H(e). A healthy sample should read A / A_pred = 1."""
+    blur = blur if blur is not None else array_blur(xs, es)
+    if not blur: return dict(reason="too few anchor sites on this array for its own line and noise")
+    des, _, _ = _ruler(); dd = des.reindex(xs.index).to_numpy(); e = es.to_numpy(); EH = np.full(len(e), np.nan)
+    z, wz = np.polynomial.hermite_e.hermegauss(GH_NODES); wz = wz / wz.sum()
+    for d, q in blur.items():
+        m = dd == d
+        if not m.any(): continue
+        mu = q["a"] + q["b"] * e[m]; v = np.clip(mu[:, None] + q["s"] * z[None, :], 1e-6, 1 - 1e-6)
+        EH[m] = (-(v * np.log2(v) + (1 - v) * np.log2(1 - v)) * wz[None, :]).sum(1)
+    k = np.isfinite(EH); he = np.asarray(_H(es), dtype="float64")
+    if k.sum() < 10000: return dict(reason=f"only {int(k.sum())} sites carry a recorded probe design", blur=blur)
+    return dict(A_pred=round(float((w[k] * EH[k]).sum() / (w[k] * he[k]).sum()), 5), sites=int(k.sum()), blur=blur)
+
 def read_whole(beta, shares, counts=None):
     """Met-A for the whole sample over EVERY IAM-Atlas v2.1 site (development, 2026-10-23; author: 'adjust Met-A to read from the entire
     IAM-Atlas'). One reading per sample: e = the atlas mixed in the sample's own shares (read_in_mix's rule, MIX_COVER); each site counts by how
@@ -399,4 +439,9 @@ def read_whole(beta, shares, counts=None):
     out.update(A=r["A"], se_over_sites=r["se_over_sites"], sites=r["sites"], ceiling=r["ceiling"], shift_per_1pct_loss=round(sh, 5),
                effective_sites=int(w.sum() ** 2 / (w ** 2).sum()), state="untared",
                by_place={"identity sites of the cells found": one(mi), "islands": one(ms), "domains": one(md), "the rest": one(~mi & ~ms & ~md)})
+    if counts is None:   # 2026-10-24 (DEV-METAA-HEALTHY-01): arrays; sequencing's own blur is the read count, already in _he
+        try:
+            hp = predicted_healthy(xs, es, w); out["healthy_prediction"] = hp
+            if hp.get("A_pred"): hp["A_over_pred"] = round(r["A"] / hp["A_pred"], 5)
+        except Exception as ex: out["healthy_prediction"] = {"reason": f"{type(ex).__name__}: {ex}"[:200]}
     return out

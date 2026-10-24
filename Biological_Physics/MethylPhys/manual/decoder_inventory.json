@@ -6462,7 +6462,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 403,
+   "lines": 448,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6889,16 +6889,67 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "_ruler",
+     "name": "_ruler",
+     "line": 373,
+     "end": 376,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "RULER"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "array_blur",
+     "name": "array_blur",
+     "line": 378,
+     "end": 391,
+     "args": [
+      "xs",
+      "es"
+     ],
+     "lines": 14,
+     "doc": "The array's own straight line and noise, per probe design (development, DEV-METAA-HEALTHY-01; 2026-10-24). At the atlas ruler's anchor sites (held below about 0.05 or above about 0.95 in every one of the 79 cell types): the line x = a + b e through the means of the array's low and high anchors against the atlas's means there, and the noise s = 1.4826 x the median absolute residual from that line. ",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "predicted_healthy",
+     "name": "predicted_healthy",
+     "line": 393,
+     "end": 408,
+     "args": [
+      "xs",
+      "es",
+      "w",
+      "blur"
+     ],
+     "lines": 16,
+     "doc": "Met-A's healthy middle line predicted from the array itself (development, DEV-METAA-HEALTHY-01). At each site, the disorder this array would show if the sample were exactly the atlas in its own mix: E[H(clip(a_d + b_d e + noise, 0, 1))] over noise N(0, s_d^2), by Gauss-Hermite quadrature, with d the site's probe design; A_pred = sum w E[H] / sum w H(e). A healthy sample should read A / A_pred = 1.",
+     "constants": [
+      "GH_NODES"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 370,
-     "end": 402,
+     "line": 410,
+     "end": 447,
      "args": [
       "beta",
       "shares",
       "counts"
      ],
-     "lines": 33,
+     "lines": 38,
      "doc": "Met-A for the whole sample over EVERY IAM-Atlas v2.1 site (development, 2026-10-23; author: 'adjust Met-A to read from the entire IAM-Atlas'). One reading per sample: e = the atlas mixed in the sample's own shares (read_in_mix's rule, MIX_COVER); each site counts by how firmly a healthy sample of this mix holds it, w = |0.5 - e| (a site held near 0 or 1 counts most, a half-held one least; nothing ",
      "constants": [
       "FLAG",
@@ -6911,8 +6962,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 388,
-     "end": 393,
+     "line": 428,
+     "end": 433,
      "args": [
       "m"
      ],
@@ -7839,5 +7890,5 @@
   }
  ],
  "n_files": 33,
- "n_functions": 401
+ "n_functions": 404
 }

@@ -18,6 +18,16 @@
       "OTH-082"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "Met-A's healthy middle line predicted from the array itself, synthetic (GRP-019, DEV-METAA-HEALTHY-01)",
+     "status": "synthetic only",
+     "what": "Each array's own line and noise, measured at the atlas's firmly held sites, predict what a healthy sample reads on whole-sample Met-A.",
+     "outcome": "Healthy reads within 0.005 of 1 on every synthetic array, and most of a planted loss still shows (second run; the first missed, both recorded).",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   }

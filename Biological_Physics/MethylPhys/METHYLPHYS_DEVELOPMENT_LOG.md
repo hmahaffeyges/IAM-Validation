@@ -3140,3 +3140,6 @@ The chain read three large public blood series end to end and its positive contr
 
 ### 2026-10-24 · Alzheimer's blood replay (OTH-082, DEV-REPLICATE-01 R4)
 All 726 AIBL arrays: Alzheimer's bloods carry more neutrophils (median 0.609 against 0.575, d +0.30); Met-A does not differ (whole sample d +0.09). Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
+
+### 2026-10-24 · Met-A's healthy middle line predicted from the array itself, synthetic (GRP-019, DEV-METAA-HEALTHY-01)
+Each array's own line and noise, measured at the atlas's firmly held anchor sites, predict what a healthy sample of its mix reads (stage_metaa_atlas.predicted_healthy). Run 1 missed (a median-based line; a loss planted at every site, anchors included, is absorbed, the reading's stated blind spot); run 2 (means; loss off the anchors) met bar 1: healthy A / A_pred 0.99581 to 1.0 on every synthetic array, and 68 to 100 % of a 5 % loss kept. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).

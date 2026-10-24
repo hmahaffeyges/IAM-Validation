@@ -28148,6 +28148,26 @@
    "depends_on": [],
    "id": "GRP-018",
    "sources_of_row": []
+  },
+  {
+   "title": "Met-A's healthy middle line predicted from the array itself (DEV-METAA-HEALTHY-01)",
+   "purpose": "Does a healthy sample read 1 on whole-sample Met-A from any laboratory, with no healthy cohort, once the array's own blur is predicted?",
+   "instrument_or_term": "stage_metaa_atlas.predicted_healthy in run_sample.py (development)",
+   "sources": [
+    "synthetic arrays from IAM-Atlas v2.1",
+    "GEO healthy bloods: GSE235717, GSE42861, GSE87571, GSE153712, GSE51032 (all spent)"
+   ],
+   "data_status": "synthetic, then spent healthy only",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+   "status": "run",
+   "next_step": "bar 2: healthy bloods from five laboratories through run_sample.py",
+   "cost": "GitHub machines only",
+   "impact": "a derived healthy line for Met-A, laboratory by laboratory, with no cohort",
+   "legacy_ids": [],
+   "id": "GRP-019",
+   "sources_of_row": [],
+   "runs": [],
+   "notes": "2026-10-24: prediction and bars written before any test; synthetic run 1 not met as written (median line; even loss absorbed: the stated blind spot); run 2 met bar 1 (healthy 0.99581 to 1.0; 68 to 100 % of a loss kept)."
   }
  ],
  "not_tests": {

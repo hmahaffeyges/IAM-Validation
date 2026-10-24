@@ -1,0 +1,9 @@
+DEV-METAA-HEALTHY-01 synthetic test 1: 405328 sites with an expectation; seed 20261024
+ideal    healthy: A 1.0 | A_pred 1.0 | A/A_pred 1.0 | measured line I a 0.0 b 1.0 s 0.0, II a 0.0 b 1.0 s 0.0
+         5 % loss: A 1.17835 (+0.1784) | A/A_pred 1.0 (+0.0000)
+mild     healthy: A 1.28102 | A_pred 1.29601 | A/A_pred 0.98843 | measured line I a 0.02276 b 0.94542 s 0.02026, II a 0.04256 b 0.89534 s 0.02905
+         5 % loss: A 1.4167 (+0.1357) | A/A_pred 0.99422 (+0.0058)
+typical  healthy: A 1.39365 | A_pred 1.40497 | A/A_pred 0.99194 | measured line I a 0.03337 b 0.92546 s 0.02876, II a 0.06204 b 0.84662 s 0.03963
+         5 % loss: A 1.51366 (+0.1200) | A/A_pred 0.99641 (+0.0045)
+weak     healthy: A 1.53856 | A_pred 1.54297 | A/A_pred 0.99714 | measured line I a 0.05214 b 0.87736 s 0.05049, II a 0.09106 b 0.77895 s 0.05922
+         5 % loss: A 1.63618 (+0.0976) | A/A_pred 0.99945 (+0.0023)

@@ -1,0 +1,14 @@
+{
+ "GMP (bone marrow)": 0.0263,
+ "HSC (bone marrow)": 0.0078,
+ "MEP (bone marrow)": 0.0332,
+ "b cells": 0.0297,
+ "basophils": 0.0009,
+ "cd4 t cells": 0.053,
+ "cd8 t cells": 0.1166,
+ "central memory th1 cells": 0.0816,
+ "monocytes": 0.0521,
+ "neutrophils": 0.5601,
+ "nk cells": 0.0321,
+ "t effector cell cd8": 0.0066
+}
