@@ -35,7 +35,7 @@ GSE303826,unspent,no read record,s3_roadmap_inventory 2026-10-11
 GSE311578,unspent,no read record,s3_roadmap_inventory 2026-10-11
 GSE325660,unspent,no read record,s3_roadmap_inventory 2026-10-11
 PRJNA878698,unspent,no read record,s3_roadmap_inventory 2026-10-11
-GSE131013,partly spent,"PROC-TISSUE-01 (sealed 2026-09-26, class-era) scored 238 of 240 arrays INCLUDING tumours from the submitted matrix; chain v3: only normal/mucosa side fetched for DEV-TISSUE-COLON-01",s3_roadmap_inventory 2026-10-11
+GSE131013,partly spent,"PROC-TISSUE-01 (sealed 2026-09-26, class-era) scored 238 of 240 arrays INCLUDING tumors from the submitted matrix; chain v3: only normal/mucosa side fetched for DEV-TISSUE-COLON-01",s3_roadmap_inventory 2026-10-11
 GSE132804,unspent,planning mention only (SUBSTRATE_STRATEGY.md),s3_roadmap_inventory 2026-10-11
 GSE142257,unspent,planning mention only (SUBSTRATE_STRATEGY.md),s3_roadmap_inventory 2026-10-11
 GSE154946,unspent,no read record,s3_roadmap_inventory 2026-10-11
@@ -43,7 +43,7 @@ GSE166212,partly spent,PROC-E2E-01 (2026-09-23) read 2 arrays,s3_roadmap_invento
 GSE199057,unspent,planning mention only (SUBSTRATE_STRATEGY.md),s3_roadmap_inventory 2026-10-11
 GSE288652,partly spent,PROC-E2E-01 (2026-09-23) read 2 arrays,s3_roadmap_inventory 2026-10-11
 GSE304513,unspent,no read record,s3_roadmap_inventory 2026-10-11
-GSE69914,partly spent,"old VAL record (early_gape_evidence); DECONVOLVER_REPAIR 2026-09-26 read tumour/adjacent/normal arrays; 2026-10-11 breach: GSM1712367 (cancer) opened, excluded",s3_roadmap_inventory 2026-10-11
+GSE69914,partly spent,"old VAL record (early_gape_evidence); DECONVOLVER_REPAIR 2026-09-26 read tumor/adjacent/normal arrays; 2026-10-11 breach: GSM1712367 (cancer) opened, excluded",s3_roadmap_inventory 2026-10-11
 GSE157131,unspent,not read (boxruns/run3 lists it out of scope),s3_roadmap_inventory 2026-10-11
 GSE280465,unspent,no read record,s3_roadmap_inventory 2026-10-11
 GSE40279,partly spent,"old VAL/CPG-VAL record (CPG VAL TESTING PACKAGE, early_gape_evidence); PROC-RECORD-02 is a record review, not a read",s3_roadmap_inventory 2026-10-11
@@ -129,7 +129,7 @@ GSE77079 / PRJNA309409 (Mat1a KO mouse liver) - derived reads,spent,DEV-SAM-LEVE
 "GSE86833 / PRJNA342657 (LNCaP, PrEC WGBS) - derived reads",spent,DEV-FINGERPRINT-01 (doors/data/DEV_FINGERPRINT_01/fingerprint_01_rows.csv),s3_roadmap_inventory 2026-10-11
 G_chain_tests 56 series - Stage 1 betas,spent,DEV-BASE-CHAIN-01,s3_roadmap_inventory 2026-10-11
 PRJNA802599 subset realigned - derived reads,spent,DEV-XSPECIES-TEMP-01 follow-up (withdrawn 2026-10-10),s3_roadmap_inventory 2026-10-11
-"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived",spent,"PROC-TUMOUR-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumour tiles, PROC-DNMT-01 Part B. Provenance IS in the repo (PROC_TUMOUR_01_PREREG.md), contrary to the earlier note",s3_roadmap_inventory 2026-10-11
+"GSE284325/PRJNA1198593 (early-onset CRC), GSE212634/PRJNA876296 (OSCC), DNMT EM-seq - derived",spent,"PROC-TUMOUR-01 (prereg names GSE284325 and GSE212634), DEV-STOOL-01 (b) tumor tiles, PROC-DNMT-01 Part B. Provenance IS in the repo (PROC_TUMOUR_01_PREREG.md), contrary to the earlier note",s3_roadmap_inventory 2026-10-11
 PRJNA325786 (Methow steelhead) - derived,spent,PROC-SALMON-01,s3_roadmap_inventory 2026-10-11
 "PRJNA389610 (coho, Le Luyer) - derived",spent,DEV-COHO-CC-01 (Salmonid/DEV_COHO_CC_01),s3_roadmap_inventory 2026-10-11
 PRJNA892473 (Rimouski River salmonids) - derived,spent,PROC-RIMOUSKI-01 (doors/PROC_RIMOUSKI_01_PREREG.md; FISH_DEVELOPMENT_LOG),s3_roadmap_inventory 2026-10-11

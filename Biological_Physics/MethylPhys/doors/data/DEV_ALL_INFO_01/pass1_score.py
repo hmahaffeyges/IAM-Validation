@@ -1,6 +1,6 @@
 """DEV-ALL-INFO-01 pass 1 scorer (written and committed before any count exists). It only summarizes what run_sample.py's Stage Q2 count
 recorded for each sample (held error, its opportunities, loose share, tiles) by group from all_samples.csv, with each group's median and
-the leukaemias against the cord-blood controls (two-sided Mann-Whitney p).  Usage: python3 pass1_score.py FOLDER [OUT.txt]"""
+the leukemias against the cord-blood controls (two-sided Mann-Whitney p).  Usage: python3 pass1_score.py FOLDER [OUT.txt]"""
 import sys, os, glob, json, csv, numpy as np
 from scipy import stats
 H = os.path.dirname(os.path.abspath(__file__)); d = sys.argv[1]; out = sys.argv[2] if len(sys.argv) > 2 else os.path.join(d, "pass1_summary.txt")
@@ -19,9 +19,9 @@ for g, r in sorted(S.items()):
 for k, v in G.items():
     v = [q for q in v if q]
     if v: L.append(f"{k:18} n {len(v):2} | held error median {np.median([q['held_err'] for q in v]):.5f} | loose share median {np.median([q['loose_share'] for q in v if q.get('loose_share') is not None]):.4f}")
-a = [q for q in G.get("leukaemia", []) if q]; b = [q for q in G.get("cord-blood B cells", []) if q]
+a = [q for q in G.get("leukemia", []) if q]; b = [q for q in G.get("cord-blood B cells", []) if q]
 if len(a) >= 3 and len(b) >= 2:
     for f in ("held_err", "loose_share"):
         x = [q[f] for q in a if q.get(f) is not None]; y = [q[f] for q in b if q.get(f) is not None]
-        L.append(f"leukaemia against cord-blood B cells, {f}: {np.median(x):.5f} against {np.median(y):.5f} | Mann-Whitney p {stats.mannwhitneyu(x, y).pvalue:.2g}")
+        L.append(f"leukemia against cord-blood B cells, {f}: {np.median(x):.5f} against {np.median(y):.5f} | Mann-Whitney p {stats.mannwhitneyu(x, y).pvalue:.2g}")
 open(out, "w").write("\n".join(L) + "\n"); print("\n".join(L))
