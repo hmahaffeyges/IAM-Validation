@@ -149,6 +149,7 @@ def plant(beta, cell, loss=0.01):
 READ_COVER_MIN_SEQ = 0.10   # 2026-10-23: on sequencing (read counts given), each cell is read with a tenth of its identity sites measured, flagged (stated)
 READ_COVER_MIN = 0.50   # 2026-10-23: each cell is read when at least half its identity sites are measured, flagged below RULE coverage_min (stated)
 MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
+NOT_FOUND_SHARE = 0.01   # 2026-10-24: below 1 % of the sample a cell is reported as not found; its Met-A is flagged, not withheld (stated)
 def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
@@ -167,6 +168,9 @@ def read_in_mix(beta, shares, counts=None, specific=None):
     for c in cells:
         S = identity_sites(c) if specific is None else specific_sites(c, [k for k in cells if k != c], specific)
         r = dict(cell=c, share=round(float(shares[c]), 4), n_identity_sites=len(S), A=None)
+        if float(shares[c]) < NOT_FOUND_SHARE:   # 2026-10-24: read and flagged, never presented as that cell's reading
+            r["not_found_flag"] = (f"the IAM-Deconvolver found {float(shares[c]):.1%} of this cell in the sample, so its identity sites here carry "
+                                   "other cells' DNA: this number is not a reading of this cell")
         if len(S) < (1 if specific is None else 200): r["reason"] = f"{len(S)} sites meet the site rule" + ("" if specific is None else f" with {specific} from every other cell (at least 200 needed)"); out["cells"].append(r); continue
         # 2026-10-22: the expectation is mixed over the cells with an atlas value at each site, renormalized, and a site is kept when those cells
         # hold at least MIX_COVER of the shares (on the full 79-cell panel a single small cell without a value had dropped about half the sites)

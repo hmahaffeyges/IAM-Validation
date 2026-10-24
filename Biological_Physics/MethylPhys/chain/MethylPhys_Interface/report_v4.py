@@ -307,7 +307,7 @@ def detail_tables(o):
     T.append(("v4-each", "Met-A for each cell: which cell moved",
               "Each cell found, read at its own identity sites against its healthy profile in the atlas, in this sample's mix. When the whole-sample reading moves, these say which cell.",
               ["Cell", "Share", "Met-A", "Note"],
-              [[cellname(x["cell"]), f"{100*(x.get('share') or 0):.1f} %", _f(x.get("A")) or "-", x.get("coverage_flag") or x.get("reason") or ""] for x in cells],
+              [[cellname(x["cell"]), f"{100*(x.get('share') or 0):.1f} %", _f(x.get("A")) or "-", x.get("not_found_flag") or x.get("coverage_flag") or x.get("reason") or ""] for x in cells],   # 2026-10-24: a cell not found says so first
               DEV + ". Untared." if cells else "Not read: " + str(ec.get("reason") or "no cell shares") + "."))
     m = o.get("met_a") or {}; t = o.get("tare") or {}
     T.append(("v4-meta-c", "Met-A, commissioned: the neutrophil on its gauge",

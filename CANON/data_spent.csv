@@ -210,3 +210,4 @@ GSE157611,partly spent,METAA-ATLAS-SEAL-02: the 24 healthy monocyte arrays (the 
 GSE196007,partly spent,METAA-ATLAS-SEAL-02: the 12 healthy controls (the systemic sclerosis arrays unread),METAA_ATLAS_SEAL_02.md 2026-10-23
 PRJNA929650,partly spent,"30 healthy plasmas read for tuning (DEV-ONE-DRAW-01 plasma_seq_01, plan 40.10; author: 'Spend 30 healthy only'); the other 248 healthy and all 239 breast cancer runs unread, reserved",SRA; labels from the publication's Table S1 (10.3389/fonc.2023.1127086)
 GSE87571,spent,opened by the earlier CPG engine (its test arrays) and DEV-REPLICATE-01 R1; all 732 read for tuning in R3 (aging),GEO
+GSE87197,partly spent,"donor 1's 33 megakaryocyte samples read for the absorption test (DEV-ONE-DRAW-01 mk_absorb_01, plan 40.13; author: 'Spend donor 1 only'); donors 2 and 3 megakaryocytes and every other cell type unread, reserved",GEO

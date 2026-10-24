@@ -442,7 +442,61 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 193,
+"line": 146,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **40.15** [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction with the abnormal A sco"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 146,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **40.15** [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction with the abnormal A sco"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 146,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **40.15** [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction with the abnormal A sco"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 173,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **40.15** (step 44, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 173,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **40.15** (step 44, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 173,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **40.15** (step 44, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 199,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -451,7 +505,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 268,
+"line": 274,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

@@ -33,7 +33,7 @@ Read from the code at build time: the one command can load **33 Python files** h
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 445 | 23 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 448 | 27 | 0 | 0 |
+| `stage_metaa_atlas.py` | 452 | 27 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
@@ -2867,61 +2867,61 @@ The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v
 
 The healthy expectation of disorder at each site: on sequencing, the expected entropy of k of n reads at that site's own read count (expected_H_counts), so a site read from one molecule, which can only read 0 or 1, is not taken as order; on arrays, the entropy of the expected level.
 
-*Code:* `stage_metaa_atlas.py` line 366 (3 lines) · arguments: es, counts · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 370 (3 lines) · arguments: es, counts · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::_ruler`
 
 Loads the atlas ruler's frozen file once: every site's probe design (I or II), the anchor sites per design (held below about 0.05 or above about 0.95 in every one of the 79 cell types) and the atlas's values there.
 
-*Code:* `stage_metaa_atlas.py` line 373 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `RULER`
+*Code:* `stage_metaa_atlas.py` line 377 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `RULER`
 
 ### `stage_metaa_atlas.py::array_blur`
 
 Measures the array's own blur, per probe design, at its anchor sites: the straight line x = a + b e through the means of its low and high anchors against the atlas's means there, and its noise, 1.4826 times the median absolute residual from that line. Nothing is fitted to any reading; these are measurements of the array where every healthy cell agrees (DEV-METAA-HEALTHY-01).
 
-*Code:* `stage_metaa_atlas.py` line 378 (14 lines) · arguments: xs, es · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 382 (14 lines) · arguments: xs, es · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::predicted_healthy`
 
 Met-A's healthy middle line predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
 
-*Code:* `stage_metaa_atlas.py` line 393 (16 lines) · arguments: xs, es, w, blur · calls: not called on the traced runs · constants read: `GH_NODES`
+*Code:* `stage_metaa_atlas.py` line 397 (16 lines) · arguments: xs, es, w, blur · calls: not called on the traced runs · constants read: `GH_NODES`
 
 ### `stage_metaa_atlas.py::read_whole`
 
 Met-A for the whole sample over every atlas site: the atlas mixed in the sample's own shares is the expectation, each site counts by how firmly that mix holds it (|0.5 - e|), and the reading is weighted disorder over weighted expected disorder. Reported overall and split by place (identity sites of the cells found, islands, domains, the rest), with the shift a 1 % loss would make. The per-cell readings say which cell; this one says whether the sample has departed. Development, flagged, on by default.
 
-*Code:* `stage_metaa_atlas.py` line 410 (38 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 414 (38 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`
 
 ### `stage_metaa_atlas.py::read_whole.one`
 
 The weighted reading over one group of sites (all, or one place), with its standard error over sites; a group with fewer than 500 sites is not read.
 
-*Code:* `stage_metaa_atlas.py` line 428 (6 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 432 (6 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::territory_sets`
 
 The two sets where early cancer is known to act, by fixed rules on IAM-Atlas v2.1 over the sites measured in all 79 cell types: islands (every cell type below 0.2) and loosely held domains (mean at least 0.75, none below 0.2, at least one between 0.2 and 0.7). Read column by column so memory stays near one column.
 
-*Code:* `stage_metaa_atlas.py` line 295 (17 lines) · arguments: none · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`, `sites.parquet`
+*Code:* `stage_metaa_atlas.py` line 299 (17 lines) · arguments: none · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`, `sites.parquet`
 
 ### `stage_metaa_atlas.py::ceiling_reading`
 
 Distance to the entropy ceiling (CAN-005), derived and unfitted: a reading's saturation A_sat = sum w / sum w H(e) (every site at 1 bit), the distance (A_sat - A) / (A_sat - 1) (1 at the healthy expectation, 0 at the ceiling), and the turnover share, the weighted share of sites whose level has crossed 0.5 to the far side of their healthy state, past which the reading falls as loss continues. Attached to Met-A for the whole sample (and each place), each cell's Met-A, and each territory.
 
-*Code:* `stage_metaa_atlas.py` line 313 (21 lines) · arguments: xs, es, w · calls: not called on the traced runs · files named: `CANON/foundation.json`
+*Code:* `stage_metaa_atlas.py` line 317 (21 lines) · arguments: xs, es, w · calls: not called on the traced runs · files named: `CANON/foundation.json`
 
 ### `stage_metaa_atlas.py::territory_reading`
 
 The sample's disorder at each set against the atlas mixed in its own shares: mean H(beta) over mean H(e), the mean level change, the standard error over sites, and how much of the set the array measures. Development, flagged.
 
-*Code:* `stage_metaa_atlas.py` line 335 (20 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `TERR_RULES`
+*Code:* `stage_metaa_atlas.py` line 339 (20 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `TERR_RULES`
 
 ### `stage_metaa_atlas.py::plant_territory`
 
 Tests only: a constructed gain at a seeded fraction of the islands, or loss at the domains, so a test of the territory readings runs through the one command.
 
-*Code:* `stage_metaa_atlas.py` line 356 (7 lines) · arguments: beta, name, frac, size, seed · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 360 (7 lines) · arguments: beta, name, frac, size, seed · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::read_in_mix_allsites`
 
@@ -2930,14 +2930,14 @@ of that cell would make there, share × |0.5 − μ| (the chain's own shift rule
 loss, its standard error over sites and its effective number of sites. The standard error is within one sample; how much healthy people
 differ is measured on many healthy samples, not here.
 
-*Code:* `stage_metaa_atlas.py` line 208 (30 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 212 (30 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`
 
 ### `stage_metaa_atlas.py::departure_in_mix`
 
 The per-site departure behind Met-A for one cell of a mixed sample: at the cell's identity sites,
 H(β) − H(e), e the atlas mixed in the sample's own shares by `read_in_mix`'s rule; by site id. Used by the globe's layer for each cell.
 
-*Code:* `stage_metaa_atlas.py` line 194 (12 lines) · arguments: beta, shares, cell · calls: not called on the traced runs · constants read: `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 198 (12 lines) · arguments: beta, shares, cell · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::_H`
 
@@ -3007,7 +3007,7 @@ On a wide panel (`--cell-panel atlas`) the expectation at each site is mixed ove
 site counts when those cells hold at least `MIX_COVER` (99 %) of the sample's shares: before this rule (2026-10-22), one small cell without a
 value dropped the site, and on the 79-cell panel most cells lost about half their identity sites.
 
-*Code:* `stage_metaa_atlas.py` line 152 (40 lines) · arguments: beta, shares, counts, specific · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `READ_COVER_MIN`, `READ_COVER_MIN_SEQ`, `RULE`
+*Code:* `stage_metaa_atlas.py` line 153 (43 lines) · arguments: beta, shares, counts, specific · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `NOT_FOUND_SHARE`, `READ_COVER_MIN`, `READ_COVER_MIN_SEQ`, `RULE`
 
 ### `stage_metaa_atlas.py::plant_all`
 
@@ -3427,16 +3427,16 @@ its buffy-coat share by more than its 95 % interval.
 
 The commissioned C-Score's statistic, unchanged: the departures in genome order, the variance of the means of blocks of 10 neighboring sites (times the square root of 10) over the variance of the sites. Departures independent from site to site give 1; departures that run along the genome give more. Only the layout counts, not the size. *Derived* (the variance of a mean of independent values).
 
-*Code:* `stage_metaa_atlas.py` line 243 (7 lines) · arguments: z, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
+*Code:* `stage_metaa_atlas.py` line 247 (7 lines) · arguments: z, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
 
 ### `stage_metaa_atlas.py::_genome_order`
 
 Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which the planted runs and the globe use.
 
-*Code:* `stage_metaa_atlas.py` line 251 (6 lines) · arguments: ids · calls: not called on the traced runs · constants read: `ATLAS` · files named: `import pyarrow.parquet`, `s sites.parquet`, `sites.parquet`
+*Code:* `stage_metaa_atlas.py` line 255 (6 lines) · arguments: ids · calls: not called on the traced runs · constants read: `ATLAS` · files named: `import pyarrow.parquet`, `s sites.parquet`, `sites.parquet`
 
 ### `stage_metaa_atlas.py::cscore_in_mix`
 
 The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. Below 1 % of the sample the C is flagged, not withheld (*stated*): there a cell's departure map is mostly the other cells'. Which cells are there is the IAM-Deconvolver's answer.
 
-*Code:* `stage_metaa_atlas.py` line 258 (28 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_FLAG_SHARE`, `FLAG`, `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 262 (28 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_FLAG_SHARE`, `FLAG`, `MIX_COVER`

@@ -222,3 +222,15 @@ the 8- and 6-call cuts after 5 calls proved too short to count). **Both causes a
 - **Neither involves the atlas:** IAM-A reads the molecules directly. **The fixes, each for its own synthetic test (plan 40.11):** a loose
   share counted molecule by molecule (the share of long molecules that are loose), which a mix leaves unchanged because it is an average
   over molecules; and the qualifying rule's length bias computed exactly for each molecule length, as the read-count correction was.
+
+## Where megakaryocyte DNA lands: absorption test 1 (written and committed before it runs; plan 40.13)
+
+**The question:** IAM-Atlas v2.1 holds no megakaryocytes, which the published plasma work puts at about a quarter of healthy cell-free DNA. Until
+the cell enters the atlas through its own sealed test, which atlas cells does the IAM-Deconvolver give their DNA to? Those cells' share is then
+a stand-in for the megakaryocyte share, read with an abnormal IAM-A on another cell's molecules as a second, independent indicator (plan branch 40, the paired indicators).
+
+**Data spent (author: "Spend donor 1 only"):** GSE87197 donor 1, 33 megakaryocyte samples from bone marrow (23 single cells, 10 pools of 5);
+donors 2 and 3 stay unread for the sealed test. The files are on GRCh38; each atlas site is taken at its hg38 CpG from the Zhou lab's public
+EPIC annotation (one single cell matched 84,563 atlas sites). `data/DEV_ONE_DRAW_01/mk_absorb_01/mk_absorb_01.py`: the pool read as plasma,
+then planted into one spent healthy plasma at 0, 10, 25 and 40 % of its reads; every file through `run_sample.py --dev-seq-beta`.
+**Expected:** the pool lands mostly on one or a few atlas cells, and those cells' shares rise as more is planted.

@@ -1504,6 +1504,22 @@
      "status": "open",
      "what": "Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction with the abnormal A score for colon or other cells then it is a second indicator that the A score being abnormal is probably accurate'): an abnormal IAM-A on one cell type's own molecules (40.14) together with a raised megakaryocyte share (IAM-Deconvolver, 40.13), each against the person's own level. Independent data paths (molecule counts against the physics floor; fragments against the atlas). The share supports, never replaces, the A score: raised platelet production also follows inflammation, infection, iron deficiency and blood loss",
      "next": "after 40.13 and 40.14: constructed plasma with both changes planted, then the reserved plasma sets"
+    },
+    {
+     "id": "40.16",
+     "date": "2026-10-24",
+     "status": "built",
+     "what": "Each cell's Met-A for a cell the IAM-Deconvolver did not find (below 1 % of the sample) is flagged as not a reading of that cell (stage_metaa_atlas.NOT_FOUND_SHARE; report_v4 shows the flag first). Found on the 30 plasmas: colon epithelium read 0.71 to 0.93 at a share of 0",
+     "record": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "status_note": "built",
+     "next": "the next release check; then done"
+    },
+    {
+     "id": "40.17",
+     "date": "2026-10-24",
+     "status": "open",
+     "what": "A colorectal cancer plasma set with whole-genome bisulfite reads (none found yet); the breast set PRJNA929650's 239 cases stay reserved until IAM-A reads healthy plasma as Normal (40.11) and the per-origin count works (40.14)",
+     "next": "search SRA and ENA for colorectal cancer cfDNA bisulfite sequencing"
     }
    ]
   },
