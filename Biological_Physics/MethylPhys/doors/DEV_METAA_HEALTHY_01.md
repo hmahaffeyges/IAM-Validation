@@ -375,3 +375,25 @@ nearly unmarked DNA, not by the cell. Those sites were chosen because the neutro
 probes where the array reads above a nearly unmarked truth. **What follows:** the term version 1 named as not included, each array's own
 measurement blur, is the remaining part; the healthy line measures it on each array's own anchor sites (bars 2 and 3 met in five
 laboratories). The four reserved BLUEPRINT donors stay unread.
+
+## Step 3 version 6: each array's own reading of bare and of fully marked DNA (written and committed before its readings exist)
+
+**Prior reading:** the six commissioned neutrophil arrays (GSE110554) and the three development BLUEPRINT donors (version 5) are spent;
+the four reserved BLUEPRINT donors stay unread. This is the sixth version on these arrays; development.
+
+**What it rests on (lesson C41):** version 5 found the neutrophil's DNA nearly bare (about 0.005) at Met-A's unmarked identity sites, where
+the arrays read about 0.07; the array's blur (0.004 to 0.008) and reference purity (the other blood cells are also nearly unmarked there)
+cannot account for it. An array reads bare DNA above zero and fully marked DNA below one. **Version 6 measures that on each array itself:**
+F0, its mean reading at sites the neutrophil's molecules hold bare (at most 0.01), and F1, at sites they hold fully marked (at least 0.99),
+over atlas sites that are not identity sites. At each identity site the array should read the straight line through (m0, F0) and (m1, F1),
+m0 and m1 the molecules' mean levels at those anchors; the array's derived mark is the mean entropy over the identity sites
+(`v6_read.py`, `v6_score.py`). Two means per side on the array's own sites; nothing fitted; the identity sites take no part in the line.
+**Bar 1 (version 1's):** all six commissioned arrays read Normal (0.95-1.05), each against its own derived mark. **What it would mean:** Met-A's
+healthy mark comes from the cell's own molecules and the array's own reading of bare and fully marked DNA, with no reference arrays of the
+cell; development until the four reserved donors confirm it.
+
+**Synthetic test:** DEV_METAA_HEALTHY_01/v6_synthetic.py, DEV_METAA_HEALTHY_01/step3_06/v6_synthetic.txt
+
+The synthetic (constructed molecules and two constructed arrays with their own lines, read by the one command) recovers each array's line
+and reads both arrays 1.0000. Its first run read 0.977 and 0.969: the rule took the bare anchors as exactly 0; corrected to the line through
+the anchors' own molecule levels before any real reading (disclosed).

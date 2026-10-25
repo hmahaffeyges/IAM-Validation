@@ -1,0 +1,6 @@
+donors SYN | arrays 2 | anchor sites (not identity sites, every donor read): bare 325166, fully marked 325745 | identity sites with molecules 5553 of 6000
+array | F0 (bare) | F1 (fully marked) | mean entropy at identity sites | derived mark | Met-A against it
+ARR1 | 0.0626 | 0.9256 | 0.44538 | 0.44538 | 1.0000
+ARR2 | 0.0427 | 0.9454 | 0.37923 | 0.37923 | 1.0000
+bar 1 (all six Normal, 0.95-1.05, each against its own derived mark): 2 of 2: not met
+planted: ARR1 F0 0.06, F1 0.93; ARR2 F0 0.04, F1 0.95; expected Met-A 1.0000 for both
