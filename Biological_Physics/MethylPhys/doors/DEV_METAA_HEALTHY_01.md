@@ -436,3 +436,6 @@ confirmation reading on the four reserved donors, decided before version 7 was s
 donors, read once as decided before version 7 was scored; 4312 identity sites with molecules): **not met (0 of 6; 0.8449 to 0.8972)**, the
 development reading reproduced on donors that took no part (0.8423 to 0.9026). The gap is a property of the commissioned sites, not of the
 donors; the conclusion of step 3 stands. The BLUEPRINT neutrophil donors are now all spent.
+
+**Distance to the ceiling, captured** (`data/DEV_METAA_HEALTHY_01/bar2_01/bar2_rows.csv`, written by `CANON/bundle_rows.py` from the one command's
+bundles; values copied, nothing computed): every reading of the 100 healthy bloods with its ceiling fields; listed in the A-score database.

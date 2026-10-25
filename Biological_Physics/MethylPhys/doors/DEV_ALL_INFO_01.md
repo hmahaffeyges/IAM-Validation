@@ -115,3 +115,8 @@ samples only.
 and the C-Score for each cell now each state that they were not read and why, instead of being left out. Checked before any further sample
 is sent: the pipeline script's own reading command run on a 10-million-pair molecule file under each specimen in the sample list (cell
 line, not stated, sorted B cells); every reading is present or states its reason.
+
+**Distance to the ceiling, captured** (`data/DEV_ALL_INFO_01/full_depth/full_depth_rows.csv`, written by `CANON/bundle_rows.py` from the newest
+bundle of each full-depth sample; values copied, nothing computed): the samples read at full depth so far, each reading with its ceiling
+fields; listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atlas, plan 40.11).
+Rebuilt as each sample lands.

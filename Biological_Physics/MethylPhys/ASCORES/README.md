@@ -35,5 +35,16 @@ reading made another way (an earlier tare), so those rows show none.
 | IAM-A | held error eps, earlier counter (end CpGs counted), conversion-corrected | oral tissue | tumor | 8 | 0.04093 | 0.03451 to 0.04639 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | IAM-A | island gain error (PROC-CHANNEL-01 rule) | colon tissue | normal tissue of a cancer patient | 6 | 0.01383 | 0.01037 to 0.01871 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | IAM-A | island gain error (PROC-CHANNEL-01 rule) | colon tissue | tumor | 6 | 0.01714 | 0.01022 to 0.02194 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Ceiling | distance to the ceiling, Met-A whole sample, arrays | whole blood | healthy | 100 | 1.002 | 0.9395 to 1.038 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | distance to the ceiling, islands territory, arrays | whole blood | healthy | 100 | 0.9986 | 0.9617 to 1.029 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | distance to the ceiling, domains territory, arrays | whole blood | healthy | 100 | 0.9973 | 0.9275 to 1.059 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | distance to the ceiling, Met-A whole sample, sequencing | not stated | leukemia | 5 | 1.382 | 1.326 to 1.468 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | distance to the ceiling, Met-A whole sample, sequencing | cell line | control line | 1 | 1.54 | 1.54 to 1.54 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | distance to the ceiling, Met-A whole sample, sequencing | cell line | knockout | 1 | 1.044 | 1.044 to 1.044 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | distance to the ceiling, Met-A whole sample, sequencing | sorted b cells | cord-blood B cells | 3 | 1.287 | 1.273 to 1.314 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | ceiling turnover share, Met-A whole sample, sequencing | not stated | leukemia | 5 | 0.06649 | 0.04592 to 0.07291 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | ceiling turnover share, Met-A whole sample, sequencing | cell line | control line | 1 | 0.09296 | 0.09296 to 0.09296 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | ceiling turnover share, Met-A whole sample, sequencing | cell line | knockout | 1 | 0.4188 | 0.4188 to 0.4188 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
+| Ceiling | ceiling turnover share, Met-A whole sample, sequencing | sorted b cells | cord-blood B cells | 3 | 0.01339 | 0.01325 to 0.01425 | no line set for this reading | [Ceiling.csv](Ceiling.csv) |
 
-1294 readings from 16 sources. Status and record for every row are in the tables.
+1614 readings from 21 sources. Status and record for every row are in the tables.
