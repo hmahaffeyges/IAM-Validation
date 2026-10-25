@@ -1,0 +1,646 @@
+group,assay,cell_type,biomaterial,health,disease,healthy,life,donor,n_tracks,open_tracks,raw,dataset,release
+CEEHRC,WGB-Seq,eosinophil,primary cell,,None,True,unknown,McGill0327,2,True,https://ega-archive.org/datasets/EGAD00001001281,IHECRE00000639.1_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0036,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000642.1_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,None,True,adult,McGill0001,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000645.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,Leigh Disease,False,adult,McGill0012,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000648.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0027,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000663.3_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,Renal Cell Carcinoma,False,adult,McGill0022,2,True,https://ega-archive.org/datasets/EGAD00001001287,IHECRE00000665.1_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0008,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000666.1_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0049,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000668.1_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0025,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000675.3_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,None,True,adult,McGill0001,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000682.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0096,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000683.3_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,None,True,adult,McGill0103,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000694.3_WGB-Seq,38
+CEEHRC,WGB-Seq,eosinophil,primary cell,,None,True,unknown,McGill0326,2,True,https://ega-archive.org/datasets/EGAD00001001281,IHECRE00000697.1_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0011,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000704.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0027,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000706.3_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,Renal Cell Carcinoma,False,adult,McGill0022,2,True,https://ega-archive.org/datasets/EGAD00001001287,IHECRE00000709.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0033,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000714.1_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0079,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000716.3_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,B Acute Lymphoblastic Leukemia with t(12;21)(p13.2;q22.1); E,False,child,McGill0270,2,True,https://ega-archive.org/datasets/EGAD00001001278,IHECRE00000717.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0079,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000718.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0050,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000721.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0007,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000728.1_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0029,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000734.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0024,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000738.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0005,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000743.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0011,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000752.3_WGB-Seq,38
+CEEHRC,WGB-Seq,eosinophil,primary cell,,Asthma,False,unknown,McGill0328,2,True,https://ega-archive.org/datasets/EGAD00001001281,IHECRE00000765.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0007,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000774.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0037,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000775.1_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,None,True,adult,McGill0002,2,True,https://ega-archive.org/datasets/EGAD00001001278,IHECRE00000778.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0018,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000781.1_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,Leigh Disease,False,adult,McGill0013,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000784.3_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,None,True,adult,McGill0127,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000785.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0024,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000789.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0030,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000800.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0009,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000808.1_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0004,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000810.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0045,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000816.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0010,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000817.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0026,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000821.3_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,None,True,adult,McGill0091,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000823.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0002,2,True,https://ega-archive.org/datasets/EGAD00001001282,IHECRE00000828.1_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,None,True,adult,McGill0002,2,True,https://ega-archive.org/datasets/EGAD00001001283,IHECRE00000829.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0127,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000831.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,Scleroderma,False,adult,McGill0176,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000833.3_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,B Acute Lymphoblastic Leukemia with t(12;21)(p13.2;q22.1); E,False,adult,McGill0266,2,True,https://ega-archive.org/datasets/EGAD00001001278,IHECRE00000843.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,Scleroderma,False,adult,McGill0261,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000845.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0017,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000848.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,Scleroderma,False,adult,McGill0180,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000849.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0039,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000857.1_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,Leigh Disease,False,adult,McGill0015,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000864.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0124,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000866.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0010,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000867.3_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,None,True,adult,McGill0124,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000868.3_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,None,True,adult,McGill0100,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000871.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0051,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000875.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0002,2,True,https://ega-archive.org/datasets/EGAD00001001282,IHECRE00000878.1_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,None,True,adult,McGill0127,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000882.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0006,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000886.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0001,2,True,https://ega-archive.org/datasets/EGAD00001001282,IHECRE00000887.1_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0047,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000889.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,None,True,adult,McGill0028,2,True,https://ega-archive.org/datasets/EGAD00001001279,IHECRE00000891.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0064,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000898.3_WGB-Seq,38
+CEEHRC,WGB-Seq,cd4-positive helper t cell,primary cell,,Scleroderma,False,adult,McGill0176,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000911.3_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0008,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00000912.3_WGB-Seq,38
+CEEHRC,WGB-Seq,skeletal muscle tissue,primary tissue,,None,True,adult,McGill0019,2,True,https://ega-archive.org/datasets/EGAD00001001288,IHECRE00000915.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0479,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001973.1_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,None,True,unknown,McGill0112,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001974.1_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,None,True,unknown,McGill0134,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001977.1_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,,True,adult,McGill0483,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001978.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0481,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001984.1_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,Scleroderma,False,adult,McGill0179,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001987.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0473,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001990.1_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,Renal Cell Carcinoma,False,adult,McGill0403,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001992.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0475,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00001997.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0472,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002005.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,Scleroderma,False,adult,McGill0179,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002027.1_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,Renal Cell Carcinoma,False,adult,McGill0401,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002029.1_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,Scleroderma,False,adult,McGill0261,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002033.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,Scleroderma,False,unknown,McGill0255,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002042.1_WGB-Seq,38
+CEEHRC,WGB-Seq,monocyte,primary cell,,None,True,adult,McGill0112,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002043.1_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,Renal Cell Carcinoma,False,adult,McGill0403,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002048.1_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,,True,adult,McGill0483,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002052.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0474,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002058.1_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,None,True,unknown,McGill0135,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002060.1_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,Renal Cell Carcinoma,False,adult,McGill0401,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002061.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0482,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002063.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0477,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002065.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0478,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002067.1_WGB-Seq,38
+CEEHRC,WGB-Seq,kidney,primary tissue,,Renal Cell Carcinoma,False,adult,McGill0402,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002071.1_WGB-Seq,38
+CEEHRC,WGB-Seq,b cell,primary cell,,None,True,unknown,McGill0124,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002074.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0476,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002076.1_WGB-Seq,38
+CEEHRC,WGB-Seq,amygdala,primary tissue,,None,True,adult,McGill0480,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002086.1_WGB-Seq,38
+CEEHRC,WGB-Seq,t cell,primary cell,,Scleroderma,False,adult,McGill0180,2,True,https://ega-archive.org/datasets/EGAD00001002705,IHECRE00002087.1_WGB-Seq,38
+CEEHRC,WGB-Seq,mcf 10a,cell line,Breast Fibrocystic Change,Breast Fibrocystic Change,False,unknown,CEMT0007,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000001.4_WGB-Seq,39
+CEEHRC,WGB-Seq,brain,primary tissue,Glioblastoma,Glioblastoma,False,adult,SM2582,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000221.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Follicular adenoma,Thyroid Gland Follicular Adenoma,False,adult,SW-TTP-156,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000222.3_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,Disease type AND/OR category unknown,None,False,adult,CEMT_35-38_pool,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000223.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Follicular adenoma,Thyroid Gland Follicular Adenoma,False,adult,SW-TTP-170,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000224.3_WGB-Seq,39
+CEEHRC,WGB-Seq,184-htert,cell line,None,None,True,unknown,CEMT0008,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000225.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,237-26,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000226.3_WGB-Seq,39
+CEEHRC,WGB-Seq,184-htert,cell line,None,None,True,unknown,CEMT0009,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000227.3_WGB-Seq,39
+CEEHRC,WGB-Seq,stromal cell,primary cell,Disease type AND/OR category unknown,None,False,adult,CEMT_35-38_pool,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000228.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Stage II Chronic Lymphocytic Leukemia,Stage II Chronic Lymphocytic Leukemia,False,adult,232-14,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000229.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Follicular adenoma,None,False,adult,SW-TTP-156,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000230.3_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,Disease type AND/OR category unknown,None,False,adult,CEMT_35-38_pool,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000231.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,237-06,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000232.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,None,False,adult,SW-TTP-177,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000233.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,236-11,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000234.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,Goiter,False,adult,SW-TTP-177,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000235.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Follicular adenoma,None,False,adult,SW-TTP-170,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000236.3_WGB-Seq,39
+CEEHRC,WGB-Seq,hematopoietic cell,primary cell,None,None,True,newborn,CEMT_32_pool,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000237.3_WGB-Seq,39
+CEEHRC,WGB-Seq,left frontal lobe,primary tissue,Glioblastoma,Glioblastoma,False,adult,VNA73,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000238.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Stage II Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,235-68,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000239.3_WGB-Seq,39
+CEEHRC,WGB-Seq,left temporal lobe,primary tissue,Brain Oligodendroglioma,Brain Oligodendroglioma,False,adult,VNA42,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000240.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,231-73,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000241.3_WGB-Seq,39
+CEEHRC,WGB-Seq,basal-myoepithelial cell of mammary gland,primary cell,Disease type AND/OR category unknown,None,False,adult,CEMT_35-38_pool,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000242.3_WGB-Seq,39
+CEEHRC,WGB-Seq,brain,primary tissue,Anaplastic Oligodendroglioma,Anaplastic Oligodendroglioma,False,adult,SM2515,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000243.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,237-07,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000244.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,231-74,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000246.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Stage II Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,234-99,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00000247.3_WGB-Seq,39
+CEEHRC,WGB-Seq,right frontal lobe,primary tissue,Adult Anaplastic Oligodendroglioma,Adult Anaplastic Oligodendroglioma,False,adult,VNA96,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001002.4_WGB-Seq,39
+CEEHRC,WGB-Seq,sigmoid colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC70,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001003.4_WGB-Seq,39
+CEEHRC,WGB-Seq,"cd34-positive, cd38-positive common myeloid progenitor or cd34-positive, cd38-positive common lymphoid progenitor",primary cell,"Chronic Myeloid Leukemia, Philadelphia Chromosome Positive, ","Chronic Myeloid Leukemia, Philadelphia Chromosome Positive, ",False,adult,203-44,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001004.4_WGB-Seq,39
+CEEHRC,WGB-Seq,colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC55,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001005.4_WGB-Seq,39
+CEEHRC,WGB-Seq,sigmoid colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC70,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001006.4_WGB-Seq,39
+CEEHRC,WGB-Seq,colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC58,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001007.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Colon Undifferentiated Carcinoma,Colon Undifferentiated Carcinoma,False,adult,AKCC63,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001008.4_WGB-Seq,39
+CEEHRC,WGB-Seq,sigmoid colon,primary tissue,Grade 1 Colon Adenocarcinoma,Grade 1 Colon Adenocarcinoma,False,adult,AKCC70,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001009.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Colon Carcinoma,None,False,adult,AKCC-46,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001010.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC-52,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001011.4_WGB-Seq,39
+CEEHRC,WGB-Seq,sigmoid colon,primary tissue,Diverticulitis of rectosigmoid,None,False,adult,AK-DIV-01,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001012.4_WGB-Seq,39
+CEEHRC,WGB-Seq,colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC52,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001013.4_WGB-Seq,39
+CEEHRC,WGB-Seq,sigmoid colon,primary tissue,Diverticulitis of rectosigmoid,None,False,adult,AK-DIV-02,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001014.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Grade 1 Colon Adenocarcinoma,Grade 1 Colon Adenocarcinoma,False,adult,AKCC52,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001015.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Colon Adenoma,None,False,adult,AKCC46,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001016.4_WGB-Seq,39
+CEEHRC,WGB-Seq,colon,primary tissue,Colon Undifferentiated Carcinoma,None,False,adult,AKCC63,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001017.4_WGB-Seq,39
+CEEHRC,WGB-Seq,colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC58,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001018.4_WGB-Seq,39
+CEEHRC,WGB-Seq,colon,primary tissue,Colon Undifferentiated Carcinoma,None,False,adult,AKCC63,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001019.4_WGB-Seq,39
+CEEHRC,WGB-Seq,colon,primary tissue,Grade 1 Colon Adenocarcinoma,None,False,adult,AKCC55,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001020.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Grade 1 Colon Adenocarcinoma,Grade 1 Colon Adenocarcinoma,False,adult,AKCC58,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001021.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Grade 1 Colon Adenocarcinoma,Grade 1 Colon Adenocarcinoma,False,adult,AKCC55,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001022.4_WGB-Seq,39
+CEEHRC,WGB-Seq,ascending colon,primary tissue,Colon Adenoma,Colon Adenoma,False,adult,AKCC46,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001232.5_WGB-Seq,39
+CEEHRC,WGB-Seq,sigmoid colon,primary tissue,Diverticulitis of rectosigmoid,Diverticulitis of rectosigmoid,False,adult,AKDIV03,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001233.5_WGB-Seq,39
+CEEHRC,WGB-Seq,sigmoid colon,primary tissue,Diverticulitis of rectosigmoid,None,False,adult,AKDIV05,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001234.5_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Thyroid Gland Papillary Carcinoma,None,False,adult,SW-TTP-141,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001235.5_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Thyroid Gland Papillary Carcinoma,Thyroid Gland Papillary Carcinoma,False,adult,SW-TTP-141,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00001236.5_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,GE0340,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003660.4_WGB-Seq,39
+CEEHRC,WGB-Seq,right occipital lobe,primary tissue,Oligodendroglioma,Oligodendroglioma,False,adult,VNA175,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003675.3_WGB-Seq,39
+CEEHRC,WGB-Seq,right temporal lobe,primary tissue,Oligodendroglioma,Oligodendroglioma,False,adult,VNA173,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003676.3_WGB-Seq,39
+CEEHRC,WGB-Seq,left frontal lobe,primary tissue,Adult Anaplastic Oligodendroglioma,Adult Anaplastic Oligodendroglioma,False,adult,VNA169,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003677.3_WGB-Seq,39
+CEEHRC,WGB-Seq,left frontal lobe,primary tissue,Oligodendroglioma,Oligodendroglioma,False,adult,VNA168,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003678.3_WGB-Seq,39
+CEEHRC,WGB-Seq,right frontal lobe,primary tissue,Oligodendroglioma,Oligodendroglioma,False,adult,VNA146,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003679.3_WGB-Seq,39
+CEEHRC,WGB-Seq,right frontal lobe,primary tissue,Oligodendroglioma,Oligodendroglioma,False,adult,VNA136,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003680.3_WGB-Seq,39
+CEEHRC,WGB-Seq,right frontal lobe,primary tissue,Adult Anaplastic Oligodendroglioma,Adult Anaplastic Oligodendroglioma,False,adult,VNA118,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003682.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Thyroid Gland Papillary Carcinoma,None,False,adult,SW-TTP-184,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003683.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Thyroid Gland Papillary Carcinoma,Thyroid Gland Papillary Carcinoma,False,adult,SW-TTP-184,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003684.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Thyroid Gland Papillary Carcinoma,None,False,adult,SW-TTP-193,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003685.2_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Thyroid Gland Papillary Carcinoma,Thyroid Gland Papillary Carcinoma,False,adult,SW-TTP-193,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003686.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,GE0341,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003687.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,GE0391,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003688.3_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,Recurrent Chronic Lymphocytic Leukemia,Recurrent Chronic Lymphocytic Leukemia,False,adult,269-54,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003689.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,None,False,adult,SW-TTP-168,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003690.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,Goiter,False,adult,SW-TTP-168,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003691.3_WGB-Seq,39
+CEEHRC,WGB-Seq,tonsil germinal center b cell,primary cell,Disease type AND/OR category unknown,None,False,child,JLK_V2,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003692.4_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,None,False,adult,SW-TTP-163,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003693.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,Goiter,False,adult,SW-TTP-163,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003694.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,None,False,adult,SW-TTP-164,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003695.3_WGB-Seq,39
+CEEHRC,WGB-Seq,thyroid gland,primary tissue,Goiter,Goiter,False,adult,SW-TTP-164,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003696.3_WGB-Seq,39
+CEEHRC,WGB-Seq,sperm,primary cell,None,None,True,adult,399ROQ,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003820.2_WGB-Seq,39
+CEEHRC,WGB-Seq,tonsil germinal center b cell,primary cell,None,None,True,child,JLK_V3,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003821.3_WGB-Seq,39
+CEEHRC,WGB-Seq,"naive thymus-derived cd4-positive, alpha-beta t cell",primary cell,,None,True,newborn,000N3,2,True,https://ega-archive.org/datasets/EGAD00001004300,IHECRE00003822.3_WGB-Seq,39
+CEEHRC,WGB-Seq,sperm,primary cell,None,None,True,adult,399ROQ,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003823.2_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_357-17,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003824.4_WGB-Seq,39
+CEEHRC,WGB-Seq,megakaryocyte-erythroid progenitor cell,primary cell,None,None,True,newborn,CEMT0161,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003825.5_WGB-Seq,39
+CEEHRC,WGB-Seq,"common myeloid progenitor, cd34-positive",primary cell,None,None,True,newborn,CEMT0159,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003826.4_WGB-Seq,39
+CEEHRC,WGB-Seq,naive t cell,primary cell,,None,True,newborn,000N1,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003827.1_WGB-Seq,39
+CEEHRC,WGB-Seq,tonsil germinal center b cell,primary cell,None,None,True,child,JLK_V4,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003828.3_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_215-82,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003829.4_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_231-98,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003830.4_WGB-Seq,39
+CEEHRC,WGB-Seq,naive t cell,primary cell,None,None,True,adult,A2,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003832.2_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_230-55,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003833.4_WGB-Seq,39
+CEEHRC,WGB-Seq,erythroid progenitor cell,primary cell,None,None,True,child,CEMT0163,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003834.5_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_353-21,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003835.4_WGB-Seq,39
+CEEHRC,WGB-Seq,tonsil germinal center b cell,primary cell,None,None,True,child,JLK_V8,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003836.3_WGB-Seq,39
+CEEHRC,WGB-Seq,"cd34-positive, cd38-negative hematopoietic stem cell",primary cell,None,None,True,newborn,CEMT0158,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003837.4_WGB-Seq,39
+CEEHRC,WGB-Seq,granulocyte monocyte progenitor cell,primary cell,None,None,True,newborn,CEMT0160,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003838.5_WGB-Seq,39
+CEEHRC,WGB-Seq,tonsil germinal center b cell,primary cell,None,None,True,child,JLK_V5,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003839.3_WGB-Seq,39
+CEEHRC,WGB-Seq,tonsil germinal center b cell,primary cell,None,None,True,child,JLK_V6,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003841.3_WGB-Seq,39
+CEEHRC,WGB-Seq,naive t cell,primary cell,None,None,True,adult,A1,2,True,https://ega-archive.org/datasets/EGAD00001003963,IHECRE00003842.2_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_230-60,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003843.4_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_76-51,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003844.4_WGB-Seq,39
+CEEHRC,WGB-Seq,naive t cell,primary cell,,None,True,adult,000A3,2,True,https://ega-archive.org/datasets/EGAD00001004300,IHECRE00003845.2_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_95-81,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003846.4_WGB-Seq,39
+CEEHRC,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,AML_354-80,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003847.4_WGB-Seq,39
+CEEHRC,WGB-Seq,monocyte,primary cell,None,None,True,adult,CEMT0162,2,True,https://ega-archive.org/datasets/EGAD00001004950,IHECRE00003848.5_WGB-Seq,39
+CEEHRC,WGB-Seq,b cell,primary cell,None,None,True,child,CEMT0189_pool,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004602.2_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,14-17,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004603.3_WGB-Seq,39
+CEEHRC,WGB-Seq,stromal cell,primary cell,None,None,True,adult,14-17,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004604.3_WGB-Seq,39
+CEEHRC,WGB-Seq,basal-myoepithelial cell of mammary gland,primary cell,None,None,True,adult,11-18,2,True,https://ega-archive.org/datasets/EGAD00001005060,IHECRE00004605.1_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,11-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004606.2_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,11-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004607.2_WGB-Seq,39
+CEEHRC,WGB-Seq,stromal cell,primary cell,None,None,True,adult,11-18,2,True,https://ega-archive.org/datasets/EGAD00001005060,IHECRE00004608.1_WGB-Seq,39
+CEEHRC,WGB-Seq,basal-myoepithelial cell of mammary gland,primary cell,None,None,True,adult,22-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004609.2_WGB-Seq,39
+CEEHRC,WGB-Seq,basal-myoepithelial cell of mammary gland,primary cell,None,None,True,adult,24-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004610.2_WGB-Seq,39
+CEEHRC,WGB-Seq,basal-myoepithelial cell of mammary gland,primary cell,None,None,True,adult,14-17,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004611.2_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,14-17,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004612.2_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,22-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004613.1_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,22-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004614.1_WGB-Seq,39
+CEEHRC,WGB-Seq,stromal cell,primary cell,None,None,True,adult,22-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004615.1_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,24-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004616.1_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,24-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004617.2_WGB-Seq,39
+CEEHRC,WGB-Seq,stromal cell,primary cell,None,None,True,adult,24-18,2,True,https://ega-archive.org/datasets/EGAD00001005335,IHECRE00004618.1_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,38-18,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004619.2_WGB-Seq,39
+CEEHRC,WGB-Seq,basal-myoepithelial cell of mammary gland,primary cell,None,None,True,adult,38-18,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004726.1_WGB-Seq,39
+CEEHRC,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,None,None,True,adult,38-18,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004727.1_WGB-Seq,39
+CEEHRC,WGB-Seq,fibroblast of mammary gland,primary cell,None,None,True,adult,38-18,2,True,https://ega-archive.org/datasets/EGAD00001006220,IHECRE00004728.1_WGB-Seq,39
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,C0010K,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000004.3_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,adult,S00390,2,True,https://ega-archive.org/datasets/EGAD00001002501,IHECRE00000008.3_WGB-Seq,40
+Blueprint,WGB-Seq,alternatively activated macrophage,primary cell culture,,None,True,adult,S00BS4,2,True,https://ega-archive.org/datasets/EGAD00001002305,IHECRE00000013.3_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00017,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000014.2_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002501,IHECRE00000016.3_WGB-Seq,40
+Blueprint,WGB-Seq,inflammatory macrophage,primary cell culture,,None,True,child,S0018A,2,True,https://ega-archive.org/datasets/EGAD00001002429,IHECRE00000019.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta t cell",primary cell,,None,True,child,S00C2F,2,True,https://ega-archive.org/datasets/EGAD00001002496,IHECRE00000022.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd16-positive, cd56-dim natural killer cell, human",primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002403,IHECRE00000024.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd14-positive, cd16-negative classical monocyte",primary cell,,None,True,adult,C000S5,2,True,https://ega-archive.org/datasets/EGAD00001002523,IHECRE00000027.3_WGB-Seq,40
+Blueprint,WGB-Seq,cd38-negative naive b cell,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002520,IHECRE00000034.3_WGB-Seq,40
+Blueprint,WGB-Seq,inflammatory macrophage,primary cell culture,,None,True,adult,S001S7,2,True,https://ega-archive.org/datasets/EGAD00001002429,IHECRE00000043.3_WGB-Seq,40
+Blueprint,WGB-Seq,endothelial cell of umbilical vein,primary cell culture,,None,True,child,S00DCS,2,True,https://ega-archive.org/datasets/EGAD00001002294,IHECRE00000045.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd14-positive, cd16-negative classical monocyte",primary cell,,None,True,child,S000RD,2,True,https://ega-archive.org/datasets/EGAD00001002523,IHECRE00000048.3_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Promyelocytic Leukemia with t(15;17)(q24.1;q21.2); PML,Acute Promyelocytic Leukemia with t(15;17)(q24.1;q21.2); PML,False,adult,pz 284,2,True,https://ega-archive.org/datasets/EGAD00001002472,IHECRE00000051.3_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00018,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000053.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd16-positive, cd56-dim natural killer cell, human",primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002403,IHECRE00000054.3_WGB-Seq,40
+Blueprint,WGB-Seq,alternatively activated macrophage,primary cell culture,,None,True,child,S00C1H,2,True,https://ega-archive.org/datasets/EGAD00001002305,IHECRE00000055.3_WGB-Seq,40
+Blueprint,WGB-Seq,alternatively activated macrophage,primary cell culture,,None,True,adult,S006VI,2,True,https://ega-archive.org/datasets/EGAD00001002305,IHECRE00000059.3_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,child,S00DVR,2,True,https://ega-archive.org/datasets/EGAD00001002501,IHECRE00000060.3_WGB-Seq,40
+Blueprint,WGB-Seq,mature eosinophil,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002309,IHECRE00000070.3_WGB-Seq,40
+Blueprint,WGB-Seq,alternatively activated macrophage,primary cell culture,,None,True,adult,S00FTN,2,True,https://ega-archive.org/datasets/EGAD00001002305,IHECRE00000071.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta t cell",primary cell,,None,True,child,C0066P,2,True,https://ega-archive.org/datasets/EGAD00001002496,IHECRE00000076.3_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,adult,S001S7,2,True,https://ega-archive.org/datasets/EGAD00001002501,IHECRE00000084.3_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Promyelocytic Leukemia with t(15;17)(q24.1;q21.2); PML,Acute Promyelocytic Leukemia with t(15;17)(q24.1;q21.2); PML,False,adult,pz 289,2,True,https://ega-archive.org/datasets/EGAD00001002407,IHECRE00000087.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd14-positive, cd16-negative classical monocyte",primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002523,IHECRE00000090.3_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,C001UY,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000094.3_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,child,C00184,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000095.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd14-positive, cd16-negative classical monocyte",primary cell,,None,True,adult,C0010K,2,True,https://ega-archive.org/datasets/EGAD00001002523,IHECRE00000096.3_WGB-Seq,40
+Blueprint,WGB-Seq,endothelial cell of umbilical vein,primary cell culture,,None,True,child,S00BJM,2,True,https://ega-archive.org/datasets/EGAD00001002294,IHECRE00000099.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd14-positive, cd16-negative classical monocyte",primary cell,,None,True,adult,C004SQ,2,True,https://ega-archive.org/datasets/EGAD00001002523,IHECRE00000101.3_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,Multiple Myeloma,Multiple Myeloma,False,adult,25386,2,True,https://ega-archive.org/datasets/EGAD00001002521,IHECRE00000104.2_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-negative, cd41-positive, cd42-positive megakaryocyte cell",primary cell culture,,None,True,child,S004BT,2,True,https://ega-archive.org/datasets/EGAD00001002311,IHECRE00000105.3_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,C000S5,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000109.3_WGB-Seq,40
+Blueprint,WGB-Seq,erythroblast,primary cell culture,,None,True,child,S002S3,2,True,https://ega-archive.org/datasets/EGAD00001002423,IHECRE00000112.3_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Promyelocytic Leukemia with t(15;17)(q24.1;q21.2); PML,Acute Promyelocytic Leukemia with t(15;17)(q24.1;q21.2); PML,False,adult,pz 284,2,True,https://ega-archive.org/datasets/EGAD00001002407,IHECRE00000118.3_WGB-Seq,40
+Blueprint,WGB-Seq,class switched memory b cell,primary cell,,None,True,adult,C003JB,2,True,https://ega-archive.org/datasets/EGAD00001002354,IHECRE00000119.2_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,child,S00BHQ,2,True,https://ega-archive.org/datasets/EGAD00001002501,IHECRE00000121.3_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,child,C004GD,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000124.3_WGB-Seq,40
+Blueprint,WGB-Seq,endothelial cell of umbilical vein,primary cell culture,,None,True,child,S00DCS,2,True,https://ega-archive.org/datasets/EGAD00001002451,IHECRE00000126.3_WGB-Seq,40
+Blueprint,WGB-Seq,cd38-negative naive b cell,primary cell,,None,True,child,,2,True,https://ega-archive.org/datasets/EGAD00001002520,IHECRE00000128.3_WGB-Seq,40
+Blueprint,WGB-Seq,alternatively activated macrophage,primary cell culture,,None,True,adult,S00622,2,True,https://ega-archive.org/datasets/EGAD00001002305,IHECRE00000129.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta t cell",primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002496,IHECRE00000133.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd16-positive, cd56-dim natural killer cell, human",primary cell,,None,True,child,,2,True,https://ega-archive.org/datasets/EGAD00001002403,IHECRE00000142.3_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,Multiple Myeloma,Multiple Myeloma,False,adult,25145,2,True,https://ega-archive.org/datasets/EGAD00001002521,IHECRE00000145.2_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,S007DD,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00000147.3_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,110CLL,2,True,https://ega-archive.org/datasets/EGAD00001002396,IHECRE00000152.3_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,12CLL,2,True,https://ega-archive.org/datasets/EGAD00001002396,IHECRE00000153.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd14-positive, cd16-negative classical monocyte",primary cell,,None,True,child,C005PS,2,True,https://ega-archive.org/datasets/EGAD00001002523,IHECRE00000155.3_WGB-Seq,40
+Blueprint,WGB-Seq,conventional dendritic cell,primary cell culture,,None,True,child,,2,True,https://ega-archive.org/datasets/EGAD00001002437,IHECRE00000158.3_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,C0011I,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000159.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,S008H1,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00000160.3_WGB-Seq,40
+Blueprint,WGB-Seq,inflammatory macrophage,primary cell culture,,None,True,adult,S0022I,2,True,https://ega-archive.org/datasets/EGAD00001002429,IHECRE00000161.3_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,,None,True,adult,MO7071,2,True,https://ega-archive.org/datasets/EGAD00001002322,IHECRE00000168.3_WGB-Seq,40
+Blueprint,WGB-Seq,cd38-negative naive b cell,primary cell,,None,True,child,,2,True,https://ega-archive.org/datasets/EGAD00001002520,IHECRE00000171.3_WGB-Seq,40
+Blueprint,WGB-Seq,inflammatory macrophage,primary cell culture,,None,True,adult,S001MJ,2,True,https://ega-archive.org/datasets/EGAD00001002429,IHECRE00000174.3_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,pz 290,2,True,https://ega-archive.org/datasets/EGAD00001002333,IHECRE00000176.3_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,adult,S0022I,2,True,https://ega-archive.org/datasets/EGAD00001002501,IHECRE00000177.3_WGB-Seq,40
+Blueprint,WGB-Seq,endothelial cell of umbilical vein,primary cell culture,,None,True,child,S00BJM,2,True,https://ega-archive.org/datasets/EGAD00001002451,IHECRE00000184.3_WGB-Seq,40
+Blueprint,WGB-Seq,"effector memory cd8-positive, alpha-beta t cell",primary cell,,None,True,adult,C00256,2,True,https://ega-archive.org/datasets/EGAD00001002383,IHECRE00000186.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta t cell",primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002496,IHECRE00000187.3_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,182CLL,2,True,https://ega-archive.org/datasets/EGAD00001002396,IHECRE00000188.3_WGB-Seq,40
+Blueprint,WGB-Seq,erythroblast,primary cell culture,,None,True,child,S002R5,2,True,https://ega-archive.org/datasets/EGAD00001002423,IHECRE00000193.3_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,S009W4,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00000194.3_WGB-Seq,40
+Blueprint,WGB-Seq,inflammatory macrophage,primary cell culture,,None,True,child,S007SK,2,True,https://ega-archive.org/datasets/EGAD00001002429,IHECRE00000195.3_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophilic metamyelocyte,primary cell,,None,True,adult,BM060814,2,True,https://ega-archive.org/datasets/EGAD00001002497,IHECRE00000248.2_WGB-Seq,40
+Blueprint,WGB-Seq,mesenchymal stem cell of the bone marrow,primary cell,,None,True,child,S00YAM,2,True,https://ega-archive.org/datasets/EGAD00001002519,IHECRE00000250.2_WGB-Seq,40
+Blueprint,WGB-Seq,conventional dendritic cell,primary cell culture,,None,True,child,S00D71,2,True,https://ega-archive.org/datasets/EGAD00001002437,IHECRE00000255.2_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,PB270313,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000256.2_WGB-Seq,40
+Blueprint,WGB-Seq,cd38-negative naive b cell,primary cell,,None,True,adult,S00DM8,2,True,https://ega-archive.org/datasets/EGAD00001002520,IHECRE00000259.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00002,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000260.2_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,S007G7,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00000261.2_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta thymocyte",primary cell,,None,True,child,TH91,2,True,https://ega-archive.org/datasets/EGAD00001002370,IHECRE00000264.2_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,PB130513,2,True,https://ega-archive.org/datasets/EGAD00001002412,IHECRE00000265.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00026,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000267.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00005,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000270.2_WGB-Seq,40
+Blueprint,WGB-Seq,class switched memory b cell,primary cell,,None,True,adult,S004P1,2,True,https://ega-archive.org/datasets/EGAD00001002354,IHECRE00000274.2_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophilic myelocyte,primary cell,,None,True,adult,BM190913,2,True,https://ega-archive.org/datasets/EGAD00001002331,IHECRE00000276.2_WGB-Seq,40
+Blueprint,WGB-Seq,mononuclear cell of bone marrow,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00015,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000277.2_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,Multiple Myeloma,Multiple Myeloma,False,adult,15548,2,True,https://ega-archive.org/datasets/EGAD00001002521,IHECRE00000279.2_WGB-Seq,40
+Blueprint,WGB-Seq,"double-positive, alpha-beta thymocyte",primary cell,,None,True,child,TH91,2,True,https://ega-archive.org/datasets/EGAD00001002325,IHECRE00000281.2_WGB-Seq,40
+Blueprint,WGB-Seq,tonsil germinal center b cell,primary cell,,None,True,child,,2,True,https://ega-archive.org/datasets/EGAD00001002511,IHECRE00000283.2_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,PB100713,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000284.2_WGB-Seq,40
+Blueprint,WGB-Seq,band form neutrophil,primary cell,,None,True,adult,BM060814,2,True,https://ega-archive.org/datasets/EGAD00001002378,IHECRE00000285.2_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,1525CLL,2,True,https://ega-archive.org/datasets/EGAD00001002396,IHECRE00000290.2_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,,None,True,adult,V156,2,True,https://ega-archive.org/datasets/EGAD00001002322,IHECRE00000293.2_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,1532CLL,2,True,https://ega-archive.org/datasets/EGAD00001002396,IHECRE00000297.2_WGB-Seq,40
+Blueprint,WGB-Seq,naive b cell,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002361,IHECRE00000298.2_WGB-Seq,40
+Blueprint,WGB-Seq,segmented neutrophil of bone marrow,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002393,IHECRE00000301.2_WGB-Seq,40
+Blueprint,WGB-Seq,adult endothelial progenitor cell,primary cell,,None,True,child,S00UJK,2,True,https://ega-archive.org/datasets/EGAD00001002404,IHECRE00000303.2_WGB-Seq,40
+Blueprint,WGB-Seq,band form neutrophil,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002378,IHECRE00000304.2_WGB-Seq,40
+Blueprint,WGB-Seq,band form neutrophil,primary cell,,None,True,adult,BM190913,2,True,https://ega-archive.org/datasets/EGAD00001002378,IHECRE00000306.2_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,PB270313,2,True,https://ega-archive.org/datasets/EGAD00001002412,IHECRE00000308.2_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophilic metamyelocyte,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002497,IHECRE00000309.2_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophilic myelocyte,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002331,IHECRE00000310.2_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,adult,N000314138902,2,True,https://ega-archive.org/datasets/EGAD00001002373,IHECRE00000314.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00003,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000315.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00021,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000316.2_WGB-Seq,40
+Blueprint,WGB-Seq,segmented neutrophil of bone marrow,primary cell,,None,True,adult,BM060814,2,True,https://ega-archive.org/datasets/EGAD00001002393,IHECRE00000317.2_WGB-Seq,40
+Blueprint,WGB-Seq,inflammatory macrophage,primary cell culture,,None,True,adult,S00H6O,2,True,https://ega-archive.org/datasets/EGAD00001002429,IHECRE00000318.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00008,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000321.2_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,Multiple Myeloma,Multiple Myeloma,False,adult,22965,2,True,https://ega-archive.org/datasets/EGAD00001002521,IHECRE00000324.2_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophilic myelocyte,primary cell,,None,True,adult,BM060814,2,True,https://ega-archive.org/datasets/EGAD00001002331,IHECRE00000330.2_WGB-Seq,40
+Blueprint,WGB-Seq,tonsil germinal center b cell,primary cell,,None,True,child,T14_10,2,True,https://ega-archive.org/datasets/EGAD00001002511,IHECRE00000332.2_WGB-Seq,40
+Blueprint,WGB-Seq,class switched memory b cell,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002354,IHECRE00000335.2_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophilic metamyelocyte,primary cell,,None,True,adult,BM190913,2,True,https://ega-archive.org/datasets/EGAD00001002497,IHECRE00000336.2_WGB-Seq,40
+Blueprint,WGB-Seq,macrophage,primary cell culture,,None,True,adult,N000314138902,2,True,https://ega-archive.org/datasets/EGAD00001002410,IHECRE00000337.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00007,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000339.2_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,,None,True,child,,2,True,https://ega-archive.org/datasets/EGAD00001002322,IHECRE00000341.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,pz 298,2,True,https://ega-archive.org/datasets/EGAD00001002333,IHECRE00000343.2_WGB-Seq,40
+Blueprint,WGB-Seq,segmented neutrophil of bone marrow,primary cell,,None,True,adult,BM190913,2,True,https://ega-archive.org/datasets/EGAD00001002393,IHECRE00000345.2_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,PB130513,2,True,https://ega-archive.org/datasets/EGAD00001002508,IHECRE00000346.2_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,,None,True,child,T14_10,2,True,https://ega-archive.org/datasets/EGAD00001002322,IHECRE00000347.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00012,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00000348.2_WGB-Seq,40
+Blueprint,WGB-Seq,"effector memory cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,S001U3,2,True,https://ega-archive.org/datasets/EGAD00001002367,IHECRE00000351.2_WGB-Seq,40
+Blueprint,WGB-Seq,mature neutrophil,primary cell,,None,True,adult,PB100713,2,True,https://ega-archive.org/datasets/EGAD00001002412,IHECRE00000353.2_WGB-Seq,40
+Blueprint,WGB-Seq,naive b cell,primary cell,,None,True,adult,,2,True,https://ega-archive.org/datasets/EGAD00001002361,IHECRE00000354.2_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00019,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001246.1_WGB-Seq,40
+Blueprint,WGB-Seq,osteoclast,primary cell,,None,True,adult,BC2_0,2,True,https://ega-archive.org/datasets/EGAD00001002427,IHECRE00001249.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,Type 1 Diabetes Mellitus,Type 1 Diabetes Mellitus,False,adult,145.1,2,True,https://ega-archive.org/datasets/EGAD00001002392,IHECRE00001265.1_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00014,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001306.1_WGB-Seq,40
+Blueprint,WGB-Seq,mature eosinophil,primary cell,,None,True,adult,S00V65,2,True,https://ega-archive.org/datasets/EGAD00001002309,IHECRE00001311.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Mantle Cell Lymphoma,Mantle Cell Lymphoma,False,adult,8761MCL,2,True,https://ega-archive.org/datasets/EGAD00001002505,IHECRE00001315.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-negative, cd41-positive, cd42-positive megakaryocyte cell",primary cell culture,,None,True,child,S004AV,2,True,https://ega-archive.org/datasets/EGAD00001002311,IHECRE00001320.1_WGB-Seq,40
+Blueprint,WGB-Seq,peripheral blood mononuclear cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00010,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001326.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,299.2,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00001330.1_WGB-Seq,40
+Blueprint,WGB-Seq,mesenchymal stem cell of the bone marrow,primary cell,,None,True,child,S00W8Y,2,True,https://ega-archive.org/datasets/EGAD00001002519,IHECRE00001335.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,Type 1 Diabetes Mellitus,Type 1 Diabetes Mellitus,False,adult,329.1,2,True,https://ega-archive.org/datasets/EGAD00001002392,IHECRE00001356.1_WGB-Seq,40
+Blueprint,WGB-Seq,"effector memory cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,S014QS,2,True,https://ega-archive.org/datasets/EGAD00001002367,IHECRE00001361.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,Type 1 Diabetes Mellitus,Type 1 Diabetes Mellitus,False,adult,299.1,2,True,https://ega-archive.org/datasets/EGAD00001002392,IHECRE00001367.1_WGB-Seq,40
+Blueprint,WGB-Seq,tonsil germinal center b cell,primary cell,,None,True,child,T14_11,2,True,https://ega-archive.org/datasets/EGAD00001002511,IHECRE00001375.1_WGB-Seq,40
+Blueprint,WGB-Seq,naive b cell,primary cell,,None,True,adult,NC11_83,2,True,https://ega-archive.org/datasets/EGAD00001002361,IHECRE00001376.1_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00023,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001378.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Mantle Cell Lymphoma,Mantle Cell Lymphoma,False,adult,007MCL,2,True,https://ega-archive.org/datasets/EGAD00001002505,IHECRE00001379.1_WGB-Seq,40
+Blueprint,WGB-Seq,alternatively activated macrophage,primary cell culture,,None,True,child,S00E8W,2,True,https://ega-archive.org/datasets/EGAD00001002305,IHECRE00001384.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,329.2,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00001386.1_WGB-Seq,40
+Blueprint,WGB-Seq,immature conventional dendritic cell,primary cell,,None,True,adult,B272,2,True,https://ega-archive.org/datasets/EGAD00001002284,IHECRE00001387.1_WGB-Seq,40
+Blueprint,WGB-Seq,"double-positive, alpha-beta thymocyte",primary cell,,None,True,child,TH101,2,True,https://ega-archive.org/datasets/EGAD00001002325,IHECRE00001412.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,Type 1 Diabetes Mellitus,Type 1 Diabetes Mellitus,False,adult,5.1,2,True,https://ega-archive.org/datasets/EGAD00001002392,IHECRE00001415.1_WGB-Seq,40
+Blueprint,WGB-Seq,mature conventional dendritic cell,primary cell,,None,True,adult,B270,2,True,https://ega-archive.org/datasets/EGAD00001002428,IHECRE00001439.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Chronic Lymphocytic Leukemia,Chronic Lymphocytic Leukemia,False,adult,1228CLL,2,True,https://ega-archive.org/datasets/EGAD00001002396,IHECRE00001447.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd16-positive, cd56-dim natural killer cell, human",primary cell,,None,True,child,S01E8O,2,True,https://ega-archive.org/datasets/EGAD00001002403,IHECRE00001453.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta thymocyte",primary cell,,None,True,child,TH101,2,True,https://ega-archive.org/datasets/EGAD00001002370,IHECRE00001456.1_WGB-Seq,40
+Blueprint,WGB-Seq,immature conventional dendritic cell,primary cell,,None,True,adult,B271,2,True,https://ega-archive.org/datasets/EGAD00001002284,IHECRE00001457.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,T-Cell Prolymphocytic Leukemia,T-Cell Prolymphocytic Leukemia,False,adult,MS49,2,True,https://ega-archive.org/datasets/EGAD00001002303,IHECRE00001458.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Mantle Cell Lymphoma,Mantle Cell Lymphoma,False,adult,2392MCL,2,True,https://ega-archive.org/datasets/EGAD00001002505,IHECRE00001460.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Mantle Cell Lymphoma,Mantle Cell Lymphoma,False,adult,6902MCL,2,True,https://ega-archive.org/datasets/EGAD00001002505,IHECRE00001467.1_WGB-Seq,40
+Blueprint,WGB-Seq,osteoclast,primary cell,,None,True,adult,BC2_10,2,True,https://ega-archive.org/datasets/EGAD00001002427,IHECRE00001471.1_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00028,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001482.1_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,,None,True,child,,2,True,https://ega-archive.org/datasets/EGAD00001002322,IHECRE00001486.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,T-Cell Prolymphocytic Leukemia,T-Cell Prolymphocytic Leukemia,False,adult,WR27,2,True,https://ega-archive.org/datasets/EGAD00001002303,IHECRE00001488.1_WGB-Seq,40
+Blueprint,WGB-Seq,mature conventional dendritic cell,primary cell,,None,True,adult,B272,2,True,https://ega-archive.org/datasets/EGAD00001002428,IHECRE00001490.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,5.2,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00001497.1_WGB-Seq,40
+Blueprint,WGB-Seq,monocyte,primary cell,,None,True,adult,Primary_monocytes_Donor_G,2,True,https://ega-archive.org/datasets/EGAD00001002395,IHECRE00001498.1_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00011,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001508.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,T-Cell Prolymphocytic Leukemia,T-Cell Prolymphocytic Leukemia,False,adult,TA37,2,True,https://ega-archive.org/datasets/EGAD00001002303,IHECRE00001517.1_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00009,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001518.1_WGB-Seq,40
+Blueprint,WGB-Seq,venous blood,primary tissue,Mantle Cell Lymphoma,Mantle Cell Lymphoma,False,adult,817-03MCL,2,True,https://ega-archive.org/datasets/EGAD00001002505,IHECRE00001526.1_WGB-Seq,40
+Blueprint,WGB-Seq,mature conventional dendritic cell,primary cell,,None,True,adult,B271,2,True,https://ega-archive.org/datasets/EGAD00001002428,IHECRE00001546.1_WGB-Seq,40
+Blueprint,WGB-Seq,immature conventional dendritic cell,primary cell,,None,True,adult,B270,2,True,https://ega-archive.org/datasets/EGAD00001002284,IHECRE00001548.1_WGB-Seq,40
+Blueprint,WGB-Seq,plasma cell,primary cell,Multiple Myeloma,Multiple Myeloma,False,adult,23977,2,True,https://ega-archive.org/datasets/EGAD00001002521,IHECRE00001549.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,None,True,adult,145.2,2,True,https://ega-archive.org/datasets/EGAD00001002460,IHECRE00001552.1_WGB-Seq,40
+Blueprint,WGB-Seq,adult endothelial progenitor cell,primary cell,,None,True,child,S01GU9,2,True,https://ega-archive.org/datasets/EGAD00001002404,IHECRE00001555.1_WGB-Seq,40
+Blueprint,WGB-Seq,myeloid cell,primary cell,Acute Myeloid Leukemia,Acute Myeloid Leukemia,False,adult,UMCG00016,2,True,https://ega-archive.org/datasets/EGAD00001002419,IHECRE00001557.1_WGB-Seq,40
+Blueprint,WGB-Seq,b cell,primary cell,,,True,unknown,44,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002734.1_WGB-Seq,40
+Blueprint,WGB-Seq,b cell,primary cell,,,True,adult,45,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002735.1_WGB-Seq,40
+Blueprint,WGB-Seq,b cell,primary cell,,,True,unknown,53,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002736.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,,True,unknown,44,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002737.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,,True,unknown,45,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002738.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd4-positive, alpha-beta t cell",primary cell,,,True,unknown,53,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002739.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta t cell",primary cell,,,True,unknown,44,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002740.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta t cell",primary cell,,,True,unknown,45,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002741.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd8-positive, alpha-beta t cell",primary cell,,,True,unknown,53,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002742.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-positive common lymphoid progenitor",primary cell,,,True,adult,12,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002743.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-positive common lymphoid progenitor",primary cell,,,True,adult,19,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002744.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-positive common lymphoid progenitor",primary cell,,,True,adult,20,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002745.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-positive common myeloid progenitor",primary cell,,,True,adult,13,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002747.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-positive common myeloid progenitor",primary cell,,,True,adult,14,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002748.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-positive common myeloid progenitor",primary cell,,,True,adult,15,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002749.1_WGB-Seq,40
+Blueprint,WGB-Seq,granulocyte monocyte progenitor cell,primary cell,,,True,adult,47,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002753.1_WGB-Seq,40
+Blueprint,WGB-Seq,granulocyte monocyte progenitor cell,primary cell,,,True,adult,48,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002754.1_WGB-Seq,40
+Blueprint,WGB-Seq,granulocyte monocyte progenitor cell,primary cell,,,True,unknown,49,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002755.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,unknown,23,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002756.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,adult,56,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002758.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,newborn,26,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002759.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,newborn,28,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002760.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,newborn,29,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002761.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,fetal,55,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002763.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,adult,24,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002764.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,adult,30,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002765.1_WGB-Seq,40
+Blueprint,WGB-Seq,hematopoietic stem cell,primary cell,,,True,adult,31,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002766.1_WGB-Seq,40
+Blueprint,WGB-Seq,megakaryocyte-erythroid progenitor cell,primary cell,,,True,adult,16,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002768.1_WGB-Seq,40
+Blueprint,WGB-Seq,megakaryocyte-erythroid progenitor cell,primary cell,,,True,adult,17,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002769.1_WGB-Seq,40
+Blueprint,WGB-Seq,megakaryocyte-erythroid progenitor cell,primary cell,,,True,adult,18,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002770.1_WGB-Seq,40
+Blueprint,WGB-Seq,megakaryocyte,primary cell,,,True,adult,1,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002771.2_WGB-Seq,40
+Blueprint,WGB-Seq,megakaryocyte,primary cell,,,True,adult,21,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002773.1_WGB-Seq,40
+Blueprint,WGB-Seq,megakaryocyte,primary cell,,,True,adult,22,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002774.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,50,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002776.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,51,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002777.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,52,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002778.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,6,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002779.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,7,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002780.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,8,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002781.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,3,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002784.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,4,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002785.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,5,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002786.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,9,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002788.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,10,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002789.1_WGB-Seq,40
+Blueprint,WGB-Seq,lymphoid lineage restricted progenitor cell,primary cell,,,True,adult,11,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002790.1_WGB-Seq,40
+Blueprint,WGB-Seq,cd14-positive monocyte,primary cell,,,True,unknown,44,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002792.1_WGB-Seq,40
+Blueprint,WGB-Seq,cd14-positive monocyte,primary cell,,,True,unknown,45,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002793.1_WGB-Seq,40
+Blueprint,WGB-Seq,cd14-positive monocyte,primary cell,,,True,unknown,53,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002794.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,adult,27,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002795.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,newborn,26,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002796.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,newborn,28,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002797.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,newborn,29,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002798.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,adult,25,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002799.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,adult,30,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002800.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,adult,31,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002801.1_WGB-Seq,40
+Blueprint,WGB-Seq,"cd34-positive, cd38-negative multipotent progenitor cell",primary cell,,,True,adult,57,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002804.1_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophil,primary cell,,,True,unknown,44,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002805.1_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophil,primary cell,,,True,unknown,45,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002806.1_WGB-Seq,40
+Blueprint,WGB-Seq,neutrophil,primary cell,,,True,unknown,53,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002807.1_WGB-Seq,40
+Blueprint,WGB-Seq,natural killer cell,primary cell,,,True,unknown,44,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002808.1_WGB-Seq,40
+Blueprint,WGB-Seq,natural killer cell,primary cell,,,True,unknown,45,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002809.1_WGB-Seq,40
+Blueprint,WGB-Seq,natural killer cell,primary cell,,,True,unknown,53,2,True,https://ega-archive.org/datasets/EGAD00001002732,IHECRE00002810.1_WGB-Seq,40
+ENCODE,WGB-Seq,hela-s3,cell line,None,Cervical Adenocarcinoma,False,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR550RTN,IHECRE00001851.6_WGB-Seq,41
+ENCODE,WGB-Seq,hepatocyte,primary cell,None,None,True,embryonic,ENCDO222AAA,2,True,https://www.encodeproject.org/experiments/ENCSR351IPU,IHECRE00001852.7_WGB-Seq,41
+ENCODE,WGB-Seq,gm23248,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR625HZA,IHECRE00001854.6_WGB-Seq,41
+ENCODE,WGB-Seq,oci-ly7,cell line,None,B-Cell Lymphomas,False,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR999CXD,IHECRE00001856.6_WGB-Seq,41
+ENCODE,WGB-Seq,k562,cell line,None,"Chronic Myeloid Leukemia, BCR-ABL1 Positive",False,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR765JPC,IHECRE00001887.6_WGB-Seq,41
+ENCODE,WGB-Seq,mammary gland epithelial cell,primary cell,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR656TQD,IHECRE00001888.7_WGB-Seq,41
+ENCODE,WGB-Seq,h1-hesc,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR617FKV,IHECRE00001889.7_WGB-Seq,41
+ENCODE,WGB-Seq,skeletal muscle myoblast,primary cell,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR328TBS,IHECRE00001891.6_WGB-Seq,41
+ENCODE,WGB-Seq,gm12878,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR890UQO,IHECRE00001892.7_WGB-Seq,41
+ENCODE,WGB-Seq,hepg2,cell line,None,Hepatoblastoma,False,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR881XOU,IHECRE00001893.6_WGB-Seq,41
+ENCODE,WGB-Seq,body of pancreas,primary tissue,None,None,True,adult,ENCDO845WKR,2,True,https://www.encodeproject.org/experiments/ENCSR996BJT,IHECRE00004622.5_WGB-Seq,41
+ENCODE,WGB-Seq,sk-n-sh,cell line,None,Neuroblastoma,False,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR145HNT,IHECRE00004628.5_WGB-Seq,41
+ENCODE,WGB-Seq,smooth muscle cell,primary cell,None,None,True,embryonic,ENCDO222AAA,2,True,https://www.encodeproject.org/experiments/ENCSR076OHG,IHECRE00004635.6_WGB-Seq,41
+ENCODE,WGB-Seq,adrenal gland,primary tissue,None,None,True,adult,ENCDO451RUA,2,True,https://www.encodeproject.org/experiments/ENCSR042LOG,IHECRE00004637.5_WGB-Seq,41
+ENCODE,WGB-Seq,thyroid gland,primary tissue,None,None,True,adult,ENCDO845WKR,2,True,https://www.encodeproject.org/experiments/ENCSR403DTW,IHECRE00004641.5_WGB-Seq,41
+ENCODE,WGB-Seq,upper lobe of left lung,primary tissue,None,None,True,adult,ENCDO271OUW,2,True,https://www.encodeproject.org/experiments/ENCSR674VXR,IHECRE00004643.5_WGB-Seq,41
+ENCODE,WGB-Seq,spleen,primary tissue,None,None,True,adult,ENCDO845WKR,2,True,https://www.encodeproject.org/experiments/ENCSR757JTX,IHECRE00004647.5_WGB-Seq,41
+ENCODE,WGB-Seq,adrenal gland,primary tissue,None,None,True,adult,ENCDO793LXB,2,True,https://www.encodeproject.org/experiments/ENCSR741FVM,IHECRE00004648.5_WGB-Seq,41
+ENCODE,WGB-Seq,right lobe of liver,primary tissue,None,None,True,adult,ENCDO793LXB,2,True,https://www.encodeproject.org/experiments/ENCSR108ESU,IHECRE00004649.5_WGB-Seq,41
+ENCODE,WGB-Seq,tibial nerve,primary tissue,None,None,True,adult,ENCDO793LXB,2,True,https://www.encodeproject.org/experiments/ENCSR752OCM,IHECRE00004655.5_WGB-Seq,41
+ENCODE,WGB-Seq,body of pancreas,primary tissue,None,None,True,adult,ENCDO451RUA,2,True,https://www.encodeproject.org/experiments/ENCSR344YUA,IHECRE00004656.5_WGB-Seq,41
+ENCODE,WGB-Seq,esophagus squamous epithelium,primary tissue,None,None,True,adult,ENCDO451RUA,2,True,https://www.encodeproject.org/experiments/ENCSR853BXB,IHECRE00004660.5_WGB-Seq,41
+ENCODE,WGB-Seq,heart left ventricle,primary tissue,None,None,True,adult,ENCDO793LXB,2,True,https://www.encodeproject.org/experiments/ENCSR766GKN,IHECRE00004664.5_WGB-Seq,41
+ENCODE,WGB-Seq,gastroesophageal sphincter,primary tissue,None,None,True,adult,ENCDO793LXB,2,True,https://www.encodeproject.org/experiments/ENCSR839GNN,IHECRE00004679.5_WGB-Seq,41
+ENCODE,WGB-Seq,esophagus squamous epithelium,primary tissue,None,None,True,adult,ENCDO793LXB,2,True,https://www.encodeproject.org/experiments/ENCSR515MHO,IHECRE00004681.5_WGB-Seq,41
+ENCODE,WGB-Seq,a549,cell line,None,Lung Adenocarcinoma,False,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR481JIW,IHECRE00004694.5_WGB-Seq,41
+ENCODE,WGB-Seq,upper lobe of left lung,primary tissue,None,None,True,adult,ENCDO845WKR,2,True,https://www.encodeproject.org/experiments/ENCSR224CTR,IHECRE00004703.5_WGB-Seq,41
+NIH Roadmap,WGB-Seq,ovary,primary tissue,Bipolar Disorder::Iron Deficiency,None,False,adult,ENCDO424HVB,2,True,https://www.encodeproject.org/experiments/ENCSR417YFD,IHECRE00000928.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,right cardiac atrium,primary tissue,None,Substance Abuse,False,adult,ENCDO058AAA,2,True,https://www.encodeproject.org/experiments/ENCSR925GVY,IHECRE00000936.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,aorta,primary tissue,None,Substance Abuse,False,adult,ENCDO058AAA,2,True,https://www.encodeproject.org/experiments/ENCSR482HXU,IHECRE00000938.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,pancreas,primary tissue,None,Substance Abuse,False,adult,ENCDO058AAA,2,True,https://www.encodeproject.org/experiments/ENCSR781LIC,IHECRE00000942.6_WGB-Seq,42
+NIH Roadmap,WGB-Seq,mesenchymal stem cell,primary cell,None,None,True,embryonic,ENCDO000AAW,2,True,https://www.encodeproject.org/experiments/ENCSR163TTI,IHECRE00000943.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,small intestine,primary tissue,None,None,True,embryonic,,2,True,https://www.encodeproject.org/experiments/ENCSR522UKJ,IHECRE00000949.6_WGB-Seq,42
+NIH Roadmap,WGB-Seq,stomach,primary tissue,None,Substance Abuse,False,adult,ENCDO058AAA,2,True,https://www.encodeproject.org/experiments/ENCSR999RWT,IHECRE00000953.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,heart left ventricle,primary tissue,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR579AXB,IHECRE00000957.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,hues64,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR354DMU,IHECRE00000961.6_WGB-Seq,42
+NIH Roadmap,WGB-Seq,lung,primary tissue,Bipolar Disorder::Iron Deficiency,None,False,adult,ENCDO424HVB,2,True,https://www.encodeproject.org/experiments/ENCSR556KEJ,IHECRE00000964.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,thymus,primary tissue,None,None,True,child,ENCDO478OMA,2,True,https://www.encodeproject.org/experiments/ENCSR914REH,IHECRE00000969.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,ectodermal cell,primary cell,None,None,True,embryonic,ENCDO424FTP,2,True,https://www.encodeproject.org/experiments/ENCSR093NGZ,IHECRE00000970.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,spleen,primary tissue,None,Substance Abuse,False,adult,ENCDO058AAA,2,True,https://www.encodeproject.org/experiments/ENCSR652ELW,IHECRE00000972.6_WGB-Seq,42
+NIH Roadmap,WGB-Seq,trophoblast cell,primary cell,None,None,True,embryonic,ENCDO000AAW,2,True,https://www.encodeproject.org/experiments/ENCSR551AYL,IHECRE00000974.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,heart right ventricle,primary tissue,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR626YZN,IHECRE00000980.8_WGB-Seq,42
+NIH Roadmap,WGB-Seq,mesodermal cell,primary cell,None,None,True,embryonic,ENCDO424FTP,2,True,https://www.encodeproject.org/experiments/ENCSR200KWM,IHECRE00000981.6_WGB-Seq,42
+NIH Roadmap,WGB-Seq,small intestine,primary tissue,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR265ZHH,IHECRE00000983.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,h9,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR744UGB,IHECRE00000985.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,large intestine,primary tissue,None,None,True,embryonic,,2,True,https://www.encodeproject.org/experiments/ENCSR462KQY,IHECRE00000987.6_WGB-Seq,42
+NIH Roadmap,WGB-Seq,neural stem cell,primary cell,None,None,True,embryonic,ENCDO000AAW,2,True,https://www.encodeproject.org/experiments/ENCSR540ONK,IHECRE00000992.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,ips df 19.11,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR561YHA,IHECRE00000997.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,ips df 6.9,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR542QVE,IHECRE00000999.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,mesodermal cell,primary cell,None,None,True,embryonic,ENCDO000AAW,2,True,https://www.encodeproject.org/experiments/ENCSR255DLP,IHECRE00001023.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,sigmoid colon,primary tissue,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR331PWE,IHECRE00001025.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,psoas muscle,primary tissue,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR414XEF,IHECRE00001027.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,esophagus,primary tissue,None,Substance Abuse,False,adult,ENCDO058AAA,2,True,https://www.encodeproject.org/experiments/ENCSR559QOU,IHECRE00001030.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,endodermal cell,primary cell,None,None,True,embryonic,ENCDO424FTP,2,True,https://www.encodeproject.org/experiments/ENCSR457CPG,IHECRE00001039.6_WGB-Seq,42
+NIH Roadmap,WGB-Seq,imr-90,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR888FON,IHECRE00001041.8_WGB-Seq,42
+NIH Roadmap,WGB-Seq,"common myeloid progenitor, cd34-positive",primary cell,None,None,True,adult,,2,True,https://www.encodeproject.org/experiments/ENCSR388RMS,IHECRE00001044.7_WGB-Seq,42
+NIH Roadmap,WGB-Seq,h1-hesc,cell line,None,None,True,unknown,,2,True,https://www.encodeproject.org/experiments/ENCSR482VHG,IHECRE00001050.8_WGB-Seq,42
+NIH Roadmap,WGB-Seq,mammary gland epithelial cell,primary cell,,,True,newborn,RM071,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838263,IHECRE00004875.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,trophoblast,primary tissue,,,True,newborn,CTL04,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838234,IHECRE00004876.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,brodmann (1909) area 11,primary tissue,,,True,unknown,NB141,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838257,IHECRE00004878.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,cerebellum,primary tissue,,,True,adult,NB141,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838251,IHECRE00004881.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,brodmann (1909) area 11,primary tissue,,,True,adult,NB141,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838252,IHECRE00004882.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,placenta,primary tissue,,,True,unknown,CTL01,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838239,IHECRE00004884.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,fibroblast of breast,primary cell,,,True,adult,RM071,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838254,IHECRE00004885.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,chorion membrane,primary tissue,,,True,unknown,CTL01,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838240,IHECRE00004886.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,neural progenitor cell,primary cell,,,True,unknown,HuFNSC04,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX271300,IHECRE00004887.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,fibroblast of breast,primary cell,,,True,adult,RM070,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838265,IHECRE00004888.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,astrocyte,primary cell,,,True,embryonic,NHA,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838247,IHECRE00004889.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,trophoblast,primary tissue,,,True,unknown,CTL05,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838244,IHECRE00004890.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,hippocampal formation,primary tissue,,,True,unknown,NB141,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838264,IHECRE00004892.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,luminal epithelial cell of mammary gland,primary cell,,,True,adult,RM070,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838253,IHECRE00004893.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,basal-myoepithelial cell of mammary gland,primary cell,,,True,adult,RM070,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838248,IHECRE00004896.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,insular cortex,primary tissue,,,True,unknown,NB141,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838269,IHECRE00004899.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,placenta,primary tissue,,,True,unknown,CTL01,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838236,IHECRE00004900.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,liver,primary tissue,,Coronary Artery Disease,False,adult,STL011,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX213280,IHECRE00004901.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,trophoblast,primary tissue,,,True,newborn,CTL07,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838260,IHECRE00004903.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,neural progenitor cell,primary cell,,,True,unknown,HuFNSC04,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX271303,IHECRE00004904.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,peripheral blood mononuclear cell,primary cell,,,True,adult,TC017,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838249,IHECRE00004905.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,cerebellum,primary tissue,,,True,embryonic,HuFGM01,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838259,IHECRE00004906.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,mole,primary tissue,,,True,unknown,Nevus03,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838250,IHECRE00004907.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,cerebellum,primary tissue,,,True,unknown,NB141,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838272,IHECRE00004911.1_WGB-Seq,42
+NIH Roadmap,WGB-Seq,placenta,primary tissue,,,True,unknown,CTL01,2,True,http://www.ncbi.nlm.nih.gov/sra/SRX838238,IHECRE00004912.1_WGB-Seq,42
+DEEP,WGB-Seq,hepatocyte,cell line,,Hepatitis C Infection::Hepatocellular Carcinoma,False,unknown,01_HepaRG,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001895.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,cell line,,Hepatoblastoma,False,unknown,01_HepG2,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001898.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Liver Hemangioma,None,False,adult,41_Hf01,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001900.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,None,False,adult,41_Hf02,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001901.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,None,False,adult,41_Hf03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001902.1_WGB-Seq,43
+DEEP,WGB-Seq,macrophage,primary cell culture,,,True,adult,43_Hm03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001903.1_WGB-Seq,43
+DEEP,WGB-Seq,macrophage,primary cell culture,,,True,adult,43_Hm03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001904.1_WGB-Seq,43
+DEEP,WGB-Seq,monocyte,primary cell,,,True,adult,43_Hm03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001905.1_WGB-Seq,43
+DEEP,WGB-Seq,macrophage,primary cell culture,,,True,adult,43_Hm05,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001906.1_WGB-Seq,43
+DEEP,WGB-Seq,macrophage,primary cell culture,,,True,adult,43_Hm05,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001907.1_WGB-Seq,43
+DEEP,WGB-Seq,monocyte,primary cell,,,True,adult,43_Hm05,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001908.1_WGB-Seq,43
+DEEP,WGB-Seq,"central memory cd4-positive, alpha-beta t cell",primary cell,,,True,adult,51_Hf01,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001909.1_WGB-Seq,43
+DEEP,WGB-Seq,"central memory cd4-positive, alpha-beta t cell",primary cell,,,True,adult,51_Hf03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001913.1_WGB-Seq,43
+DEEP,WGB-Seq,"effector memory cd4-positive, alpha-beta t cell",primary cell,,,True,adult,51_Hf03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001914.1_WGB-Seq,43
+DEEP,WGB-Seq,"naive thymus-derived cd4-positive, alpha-beta t cell",primary cell,,,True,adult,51_Hf03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001915.1_WGB-Seq,43
+DEEP,WGB-Seq,"central memory cd4-positive, alpha-beta t cell",primary cell,,,True,adult,51_Hf04,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001916.1_WGB-Seq,43
+DEEP,WGB-Seq,"effector memory cd4-positive, alpha-beta t cell",primary cell,,,True,adult,51_Hf04,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001917.1_WGB-Seq,43
+DEEP,WGB-Seq,"naive thymus-derived cd4-positive, alpha-beta t cell",primary cell,,,True,adult,51_Hf04,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001918.1_WGB-Seq,43
+DEEP,WGB-Seq,"effector memory cd4-positive, alpha-beta t cell, terminally differentiated",primary cell,,,True,adult,51_Hf05,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001921.1_WGB-Seq,43
+DEEP,WGB-Seq,"cd4-positive, alpha-beta memory t cell",primary cell,,,True,adult,51_Hf07,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001931.1_WGB-Seq,43
+DEEP,WGB-Seq,macrophage,primary cell culture,,,True,adult,43_Hm03,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001935.1_WGB-Seq,43
+DEEP,WGB-Seq,macrophage,primary cell culture,,,True,adult,43_Hm05,2,True,https://ega-archive.org/datasets/EGAD00001002527,IHECRE00001936.1_WGB-Seq,43
+DEEP,WGB-Seq,mucosa,primary tissue,,Ulcerative Colitis,False,adult,52_Hm1b,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003803.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,Hepatic Steatosis,False,adult,41_Hm07,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003804.1_WGB-Seq,43
+DEEP,WGB-Seq,"effector memory cd4-positive, alpha-beta t cell, terminally differentiated",primary cell,,None,True,adult,51_Hf13,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003805.1_WGB-Seq,43
+DEEP,WGB-Seq,macrophage,primary cell,,Rheumatoid Arthritis,False,adult,51_Hf10,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003806.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,Hepatic Steatosis,False,adult,41_Hm04,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003808.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Hilar Cholangiocarcinoma,None,False,adult,41_Hm09,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003809.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,None,False,adult,41_Hm25,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003810.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Liver Cavernous Hemangioma,Hepatic Steatosis,False,adult,41_Hf14,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003811.1_WGB-Seq,43
+DEEP,WGB-Seq,mucosa,primary tissue,,Ulcerative Colitis,False,adult,52_Hf3b,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003812.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Hilar Cholangiocarcinoma,Hepatic Steatosis,False,adult,41_Hm08,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003813.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,Hepatic Steatosis,False,adult,41_Hf05,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003814.1_WGB-Seq,43
+DEEP,WGB-Seq,"cd4-positive, alpha-beta memory t cell",primary cell,,Rheumatoid Arthritis,False,adult,51_Hf10,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003816.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,Hepatic Steatosis,False,adult,41_Hf11,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003817.1_WGB-Seq,43
+DEEP,WGB-Seq,mucosa,primary tissue,,None,True,adult,52_Hm1a,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003818.1_WGB-Seq,43
+DEEP,WGB-Seq,hepatocyte,primary cell,Metastatic Malignant Neoplasm in the Liver,None,False,adult,41_Hm16,2,True,https://ega-archive.org/datasets/EGAD00001003974,IHECRE00003819.1_WGB-Seq,43
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC20,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001873.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC28,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001874.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC27,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001875.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC17,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001876.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC35,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001877.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC25,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001878.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC6,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001879.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,hepatocyte,primary cell,Liver carcinoma,None,False,adult,HPC8,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000026,IHECRE00001880.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,fetal,JKU015,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001952.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,syncytiotrophoblast cell,primary cell,None,None,True,unknown,JKU007,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001953.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,fetal,JKU004,2,True,None,IHECRE00001954.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,extravillous trophoblast,primary cell,None,None,True,unknown,JKU016,2,True,None,IHECRE00001955.3_WGB-Seq,44
+AMED-CREST,WGB-Seq,stromal cell of endometrium,primary cell,None,None,True,adult,JKU013,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001956.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,fetal,JKU003,2,True,None,IHECRE00001957.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,extravillous trophoblast,primary cell,None,None,True,fetal,JKU017,2,True,None,IHECRE00001958.3_WGB-Seq,44
+AMED-CREST,WGB-Seq,epithelial cell of endometrial gland,primary cell,None,None,True,adult,JKU009,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001959.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,syncytiotrophoblast cell,primary cell,None,None,True,unknown,JKU008,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001960.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,epithelial cell of endometrial gland,primary cell,None,None,True,adult,JKU011,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001961.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,syncytiotrophoblast cell,primary cell,None,None,True,fetal,JKU006,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001962.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,syncytiotrophoblast cell,primary cell,None,None,True,fetal,JKU005,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001963.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,newborn,JKU002,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001964.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,newborn,JKU001,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001965.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,stromal cell of endometrium,primary cell,None,None,True,adult,JKU014,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000073,IHECRE00001966.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC6,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003396.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC7,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003397.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC16,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003398.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC4,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003399.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC20,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003400.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC15,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003401.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC21,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003402.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC5,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003403.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC8,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003404.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC14,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003405.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC11,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003406.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,epithelial cell of endometrial gland,primary cell,None,None,True,adult,JKU010,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00003715.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,extravillous trophoblast,primary cell,None,None,True,adult,JKU012,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00003716.2_WGB-Seq,44
+AMED-CREST,WGB-Seq,colon epithelial cell,primary cell,Colon Carcinoma,None,False,adult,COC22,2,True,https://ddbj.nig.ac.jp/resource/jga-dataset/JGAD000078,IHECRE00003730.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,Hydatidiform Mole,Hydatidiform Mole,False,fetal,JKU053,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004590.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,Complete Trisomy 18 Syndrome,Complete Trisomy 18 Syndrome,False,fetal,,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004591.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,fetal,JKU050,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004592.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,Hydatidiform Mole,Hydatidiform Mole,False,fetal,JKU052,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004593.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,fetal,JKU051,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004594.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,mononuclear cytotrophoblast cell,primary cell,None,None,True,fetal,JKU048,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004595.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,placenta,cell line,None,None,True,unknown,JKU043,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004599.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,placenta,cell line,None,None,True,unknown,JKU042,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004600.1_WGB-Seq,44
+AMED-CREST,WGB-Seq,placenta,cell line,None,None,True,unknown,JKU044,2,True,https://ddbj.nig.ac.jp/jga/viewer/view/datasets,IHECRE00004601.1_WGB-Seq,44
+KNIH,WGB-Seq,pancreatic endocrine cell,primary cell,Solid Pseudopapillary Neoplasm of the Pancreas,None,False,adult,KEP20140004,2,True,https://ega-archive.org/datasets/EGAD00001002752,IHECRE00001862.2_WGB-Seq,45
+KNIH,WGB-Seq,pancreatic endocrine cell,primary cell,Solid Pseudopapillary Neoplasm of the Pancreas,None,False,adult,KEP20140005,2,True,https://ega-archive.org/datasets/EGAD00001002753,IHECRE00001863.2_WGB-Seq,45
+KNIH,WGB-Seq,adipocyte,primary cell,Adenosquamous Carcinoma,None,False,adult,KEP20140007,2,True,https://ega-archive.org/datasets/EGAD00001002756,IHECRE00001864.2_WGB-Seq,45
+KNIH,WGB-Seq,pancreatic endocrine cell,primary cell,Pancreatic Neuroendocrine Tumor G1,None,False,adult,KEP20140002,2,True,https://ega-archive.org/datasets/EGAD00001002750,IHECRE00001865.2_WGB-Seq,45
+KNIH,WGB-Seq,podocyte,primary cell,Kidney Oncocytoma,None,False,adult,KEP20140008,2,True,https://ega-archive.org/datasets/EGAD00001002758,IHECRE00001866.2_WGB-Seq,45
+KNIH,WGB-Seq,adipocyte,primary cell,Ampulla of Vater Adenocarcinoma,None,False,adult,KEP20140006,2,True,https://ega-archive.org/datasets/EGAD00001002755,IHECRE00001867.2_WGB-Seq,45
+KNIH,WGB-Seq,type b pancreatic cell,primary cell,Solid Pseudopapillary Neoplasm of the Pancreas,None,False,adult,KEP20140005,2,True,https://ega-archive.org/datasets/EGAD00001002754,IHECRE00001868.2_WGB-Seq,45
+KNIH,WGB-Seq,podocyte,primary cell,Hypertensive Nephropathy,Hypertensive Nephropathy,False,adult,KEP20140009,2,True,https://ega-archive.org/datasets/EGAD00001002759,IHECRE00001869.2_WGB-Seq,45
+KNIH,WGB-Seq,pancreatic endocrine cell,primary cell,Pancreatic Intraductal Papillary-Mucinous Carcinoma,None,False,adult,KEP20140003,2,True,https://ega-archive.org/datasets/EGAD00001002751,IHECRE00001870.2_WGB-Seq,45
+KNIH,WGB-Seq,pancreatic endocrine cell,primary cell,Pancreatic Mucinous-Cystic Neoplasm,None,False,adult,KEP20140001,2,True,https://ega-archive.org/datasets/EGAD00001002749,IHECRE00001871.2_WGB-Seq,45
+KNIH,WGB-Seq,preadipocyte,primary cell,Adenosquamous Carcinoma,None,False,adult,KEP20140007,2,True,https://ega-archive.org/datasets/EGAD00001002757,IHECRE00001872.2_WGB-Seq,45
+KNIH,WGB-Seq,pancreatic a cell,primary cell,None,None,True,adult,KEP20140010,2,True,https://ega-archive.org/datasets/EGAD00001003472,IHECRE00003717.1_WGB-Seq,45
+KNIH,WGB-Seq,preadipocyte,primary cell,None,None,True,adult,KEP20140010,2,True,https://ega-archive.org/datasets/EGAD00001003479,IHECRE00003718.1_WGB-Seq,45
+KNIH,WGB-Seq,preadipocyte,primary cell,Type 2 Diabetes Mellitus,Type 2 Diabetes Mellitus,False,adult,KEP20140011,2,True,https://ega-archive.org/datasets/EGAD00001003480,IHECRE00003719.1_WGB-Seq,45
+KNIH,WGB-Seq,mesangial cell,primary cell,Hypertensive Nephropathy,Hypertensive Nephropathy,False,adult,KEP20140012,2,True,https://ega-archive.org/datasets/EGAD00001003468,IHECRE00003720.1_WGB-Seq,45
+KNIH,WGB-Seq,podocyte,primary cell,Hypertensive Nephropathy,Hypertensive Nephropathy,False,adult,KEP20140013,2,True,https://ega-archive.org/datasets/EGAD00001003469,IHECRE00003721.1_WGB-Seq,45
+KNIH,WGB-Seq,podocyte,primary cell,Hypertensive Nephropathy,Hypertensive Nephropathy,False,adult,KEP20140014,2,True,https://ega-archive.org/datasets/EGAD00001003470,IHECRE00003722.1_WGB-Seq,45
+KNIH,WGB-Seq,mesangial cell,primary cell,Hypertensive Nephropathy,Hypertensive Nephropathy,False,adult,KEP20140015,2,True,https://ega-archive.org/datasets/EGAD00001003471,IHECRE00003723.1_WGB-Seq,45
+KNIH,WGB-Seq,ipsc derived cell line,cell line,None,None,True,newborn,KEP20150001,2,True,https://ega-archive.org/datasets/EGAD00001003473,IHECRE00003724.1_WGB-Seq,45
+KNIH,WGB-Seq,ipsc derived cell line,cell line,None,None,True,newborn,KEP20150002,2,True,https://ega-archive.org/datasets/EGAD00001003474,IHECRE00003725.1_WGB-Seq,45
+KNIH,WGB-Seq,ipsc derived cell line,cell line,None,None,True,newborn,KEP20150003,2,True,https://ega-archive.org/datasets/EGAD00001003475,IHECRE00003726.1_WGB-Seq,45
+KNIH,WGB-Seq,ipsc derived cell line,cell line,,Childhood cerebral X-linked adrenoleukodystrophy,False,child,KEP20150004,2,True,https://ega-archive.org/datasets/EGAD00001003476,IHECRE00003727.1_WGB-Seq,45
+KNIH,WGB-Seq,ipsc derived cell line,cell line,,Childhood cerebral X-linked adrenoleukodystrophy,False,child,KEP20150005,2,True,https://ega-archive.org/datasets/EGAD00001003477,IHECRE00003728.1_WGB-Seq,45
+KNIH,WGB-Seq,ipsc derived cell line,cell line,,Childhood cerebral X-linked adrenoleukodystrophy,False,child,KEP20150006,2,True,https://ega-archive.org/datasets/EGAD00001003478,IHECRE00003729.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,None,None,True,adult,KEP20160001,2,True,https://ega-archive.org/datasets/EGAD00001003871,IHECRE00003731.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,None,None,True,adult,KEP20160002,2,True,https://ega-archive.org/datasets/EGAD00001003872,IHECRE00003732.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,None,None,True,adult,KEP20160003,2,True,https://ega-archive.org/datasets/EGAD00001003888,IHECRE00003733.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,None,None,True,adult,KEP20160004,2,True,https://ega-archive.org/datasets/EGAD00001003889,IHECRE00003734.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,Type 2 Diabetes Mellitus,Type 2 Diabetes Mellitus,False,adult,KEP20160005,2,True,https://ega-archive.org/datasets/EGAD00001003873,IHECRE00003735.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,Type 2 Diabetes Mellitus,Type 2 Diabetes Mellitus,False,adult,KEP20160006,2,True,https://ega-archive.org/datasets/EGAD00001003874,IHECRE00003736.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,Type 2 Diabetes Mellitus,Type 2 Diabetes Mellitus,False,adult,KEP20160007,2,True,https://ega-archive.org/datasets/EGAD00001003875,IHECRE00003737.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,Type 2 Diabetes Mellitus,Type 2 Diabetes Mellitus,False,adult,KEP20160008,2,True,https://ega-archive.org/datasets/EGAD00001003876,IHECRE00003738.1_WGB-Seq,45
+KNIH,WGB-Seq,muscle cell,primary cell,,,True,adult,KEP20150007,2,True,https://ega-archive.org/datasets/EGAD00001003877,IHECRE00003739.1_WGB-Seq,45
+KNIH,WGB-Seq,mesenchymal stem cell of adipose tissue,primary cell,None,None,True,adult,KEP20160009,2,True,https://ega-archive.org/datasets/EGAD00001003878,IHECRE00003740.1_WGB-Seq,45
+KNIH,WGB-Seq,mesenchymal stem cell of adipose tissue,primary cell,None,None,True,adult,KEP20160002,2,True,https://ega-archive.org/datasets/EGAD00001003879,IHECRE00003741.1_WGB-Seq,45
+KNIH,WGB-Seq,mesenchymal stem cell of adipose tissue,primary cell,Type 2 Diabetes Mellitus,Type 2 Diabetes Mellitus,False,adult,KEP20160008,2,True,https://ega-archive.org/datasets/EGAD00001003880,IHECRE00003742.1_WGB-Seq,45
+KNIH,WGB-Seq,mesenchymal stem cell of adipose tissue,primary cell,Type 2 Diabetes Mellitus,Type 2 Diabetes Mellitus,False,adult,KEP20160006,2,True,https://ega-archive.org/datasets/EGAD00001003881,IHECRE00003743.1_WGB-Seq,45
+EpiHK,WGB-Seq,melanocyte,primary cell culture,None,None,True,adult,1712285,2,True,https://ega-archive.org/datasets/EGAD00001005486,IHECRE00004713.2_WGB-Seq,47
