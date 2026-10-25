@@ -187,3 +187,13 @@ unrun tissues land (`data/DEV_REPLICATE_01/r7_prostate_unrun_samples.csv`); R8's
 tumors; supersedes the 169-array reading): **the islands territory reads higher in tumors, 1.4400 against 1.3587 (p 1.2e-06)**, and Met-A on
 the island sites likewise (1.4505 against 1.3693, p 1.4e-06). Whole-sample Met-A does not separate them (p 0.58), nor the domains (p 0.6). The
 whole-genome C-Score is lower in tumors (0.9966 against 0.9997, p 3.9e-06). Per-cell readings are flagged (tissue, not commissioned).
+
+**R6 stroke and R8 tissues, all arrays** (`data/DEV_REPLICATE_01/r6_full/r6_stroke_summary.txt`,
+`data/DEV_REPLICATE_01/r8_full/r8_tissues_summary.txt`; supersede the partial readings). Each summary sets about 15 readings side by side
+in every pair of groups, so a p near 0.02 to 0.05 is expected by chance somewhere; only results far below that are read as findings.
+- **R6 stroke (184 of 185):** no reading separates the subtypes beyond chance (the smallest p is 0.02, among 45 comparisons). As before:
+  all three groups are stroke; the series has no healthy controls with raw files.
+- **R8 tissues (295 of 325; the other 30 stopped at intake within seconds, read below):** glioblastoma against non-tumor brain, the islands
+  territory 1.0715 against 0.9249 (p 7.6e-07; 71 against 5 samples); tumors against adjacent tissue, Met-A at the identity sites of the cells
+  found 1.0195 against 0.9871 (p 0.00034) and the rest of the genome 1.0464 against 1.0256 (p 0.00072). The pancreatic groups hold 1 to 10
+  samples each; none of their readings is beyond chance.

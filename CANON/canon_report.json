@@ -2646,6 +2646,114 @@
 "text": "built from the atlas at the sample's own shares. **The healthy line** (Met-A's healthy reference derived laboratory by laboratory with no"
 },
 {
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 18,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- Gate (plan step 49): nothing is circulated until the chain is complete, Met-A's healthy line is derived, and the study is replicated."
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 71,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "share; the self-reference line from healthy cell types; why this is not circular (synthetic tests); reproduction in a second laboratory"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 71,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "share; the self-reference line from healthy cell types; why this is not circular (synthetic tests); reproduction in a second laboratory"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 76,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "across laboratories, its residual reported, unexpected cell types flagged; Met-A of the whole sample and of each cell, and its healthy line"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 123,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "share (tile and molecule-level), held error, the self-reference line. The atlas: the hierarchical model, priors, sampler settings,"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 123,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "share (tile and molecule-level), held error, the self-reference line. The atlas: the hierarchical model, priors, sampler settings,"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 124,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "convergence, joint offsets, split-half nulls. Deconvolution. Met-A and its healthy line. The territories. The genome-wide projection and"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 144,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 3 | the atlas: offsets, posterior widths, convergence, split-half null; Met-A's healthy line | the healthy line pending |"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/OUTLINE.md",
+"line": 144,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| 3 | the atlas: offsets, posterior widths, convergence, split-half null; Met-A's healthy line | the healthy line pending |"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/METHODS_DRAFT.md",
+"line": 49,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**The self-reference line.** A cell's design leaves a share L of its genome loosely held, and its expected held error follows from that"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/METHODS_DRAFT.md",
+"line": 49,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**The self-reference line.** A cell's design leaves a share L of its genome loosely held, and its expected held error follows from that"
+},
+{
+"file": "Biological_Physics/MethylPhys/paper/build/METHODS_DRAFT.md",
+"line": 91,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "built from the atlas at the sample's own shares. **The healthy line** (Met-A's healthy reference derived laboratory by laboratory with no"
+},
+{
 "file": "Biological_Physics/MethylPhys/reproduce/README.md",
 "line": 31,
 "pattern": "reference line",

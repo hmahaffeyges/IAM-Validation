@@ -1,0 +1,161 @@
+DEV-REPLICATE-01 r8_tissues: 295 of 325 arrays read (pass 1, untared)
+== GSE49149: Adjacent 29, Tumor 167
+   Adjacent: largest shares pancreatic acinar 0.32, pancreatic duct 0.16, vascular endothelium 0.09
+   Tumor: largest shares vascular endothelium 0.16, pancreatic acinar 0.08, adipocytes 0.08
+-- Adjacent (29) against Tumor (167)
+   site cg05575921                            0.6370 against 0.6820 | d -0.44 | p 0.0067
+   site cg03636183                            0.5580 against 0.5190 | d +0.51 | p 0.012
+   site cg16867657                            0.6600 against 0.7280 | d -0.42 | p 0.0015
+   Met-A whole                                1.0353 against 1.0402 | d -0.33 | p 0.072
+   ceiling distance                           0.9741 against 0.9662 | d +0.42 | p 0.03
+   Met-A whole, identity sites of the cells found 0.9871 against 1.0195 | d -0.65 | p 0.00034
+   Met-A whole, islands                       1.0750 against 1.1012 | d -0.39 | p 0.035
+   Met-A whole, domains                       1.0272 against 1.0188 | d +0.09 | p 0.27
+   Met-A whole, the rest                      1.0256 against 1.0464 | d -0.56 | p 0.00072
+   Met-A neutrophils                          0.9425 against 0.9464 | d -0.08 | p 0.65
+   Met-A cd4 t cells                          1.0033 against 1.0147 | d -0.32 | p 0.089
+   Met-A cd8 t cells                          1.0144 against 1.0261 | d -0.25 | p 0.16
+   Met-A b cells                              1.0019 against 1.0112 | d -0.25 | p 0.16
+   Met-A monocytes                            0.9767 against 0.9829 | d -0.09 | p 0.43
+   territory islands                          1.0703 against 1.1009 | d -0.42 | p 0.025
+   territory domains                          1.0188 against 1.0127 | d +0.12 | p 0.24
+   C-Score whole genome                       1.0042 against 1.0001 | d +0.57 | p 0.015
+== GSE60274: GBM 71, Non-tumor brain 5
+   GBM: largest shares oligodendrocytes 0.22, oligodendrocyte precursors 0.12, adipocytes 0.07
+   Non-tumor brain: largest shares cortical neurons 0.29, oligodendrocytes 0.23, microglia 0.11
+-- GBM (71) against Non-tumor brain (5)
+   site cg05575921                            0.7270 against 0.8160 | d -0.94 | p 0.021
+   site cg03636183                            0.4380 against 0.6090 | d -1.10 | p 0.0076
+   site cg16867657                            0.7990 against 0.5240 | d +2.22 | p 0.00077
+   Met-A whole                                1.0120 against 1.0009 | d +0.16 | p 0.46
+   ceiling distance                           0.9905 against 0.9993 | d -0.16 | p 0.45
+   Met-A whole, identity sites of the cells found 0.9921 against 0.9437 | d +0.81 | p 0.012
+   Met-A whole, islands                       1.0731 against 0.9261 | d +2.22 | p 7.6e-07
+   Met-A whole, domains                       1.0368 against 1.0142 | d +0.03 | p 0.89
+   Met-A whole, the rest                      0.9828 against 1.0040 | d -0.54 | p 0.16
+   Met-A neutrophils                          0.9131 against 0.8879 | d +0.34 | p 0.26
+   Met-A cd4 t cells                          0.9928 against 0.9467 | d +0.85 | p 0.0093
+   Met-A cd8 t cells                          1.0129 against 0.9576 | d +1.00 | p 0.0053
+   Met-A b cells                              0.9975 against 0.9556 | d +0.85 | p 0.0086
+   Met-A monocytes                            0.9561 against 0.9668 | d -0.27 | p 0.6
+   territory islands                          1.0715 against 0.9249 | d +2.24 | p 7.6e-07
+   territory domains                          1.0162 against 1.0173 | d -0.19 | p 0.67
+   C-Score whole genome                       1.0077 against 1.0068 | d +0.46 | p 0.31
+== GSE74071: adjacent normal pancreas 5, juice circulating cancer cells 4, pancreatic cancer 10, primary cancer associated fibroblasts 3, primary culture cancer cells 1
+   adjacent normal pancreas: largest shares pancreatic acinar 0.54, pancreatic duct 0.20, vascular endothelium 0.10
+   juice circulating cancer cells: largest shares neutrophils 0.63, pancreatic acinar 0.04, colon epithelium 0.03
+   pancreatic cancer: largest shares vascular endothelium 0.17, pancreatic acinar 0.15, pancreatic duct 0.15
+   primary cancer associated fibroblasts: largest shares vascular endothelium 0.37, smooth muscle 0.32, heart fibroblasts 0.09
+   primary culture cancer cells: largest shares prostate epithelium 0.19, pancreatic acinar 0.14, colon epithelium 0.11
+-- adjacent normal pancreas (5) against juice circulating cancer cells (4)
+   site cg05575921                            0.6610 against 0.6125 | d +0.81 | p 0.41
+   site cg03636183                            0.5400 against 0.5785 | d -0.93 | p 0.41
+   site cg16867657                            0.5860 against 0.7105 | d -1.01 | p 0.19
+   Met-A whole                                1.0947 against 1.0802 | d +1.07 | p 0.29
+   ceiling distance                           0.9323 against 0.9430 | d -1.12 | p 0.29
+   Met-A whole, identity sites of the cells found 1.0528 against 1.0819 | d +0.20 | p 0.73
+   Met-A whole, islands                       1.2331 against 1.2243 | d +0.18 | p 0.9
+   Met-A whole, domains                       1.0879 against 1.0484 | d +1.20 | p 0.19
+   Met-A whole, the rest                      1.0673 against 1.0543 | d +1.07 | p 0.41
+   Met-A neutrophils                          1.0107 against 1.1048 | d -0.49 | p 0.29
+   Met-A cd4 t cells                          1.0878 against 1.0993 | d +0.40 | p 1
+   Met-A cd8 t cells                          1.1237 against 1.0805 | d +1.04 | p 0.19
+   Met-A b cells                              1.0929 against 1.0463 | d +1.52 | p 0.032
+   Met-A monocytes                            1.0420 against 1.0529 | d +0.19 | p 0.9
+   territory islands                          1.2281 against 1.2156 | d +0.20 | p 0.9
+   territory domains                          1.0753 against 1.0425 | d +1.08 | p 0.19
+   C-Score whole genome                       1.0009 against 0.9982 | d +0.10 | p 0.9
+-- adjacent normal pancreas (5) against pancreatic cancer (10)
+   site cg05575921                            0.6610 against 0.7080 | d -0.33 | p 0.59
+   site cg03636183                            0.5400 against 0.5225 | d -0.46 | p 0.81
+   site cg16867657                            0.5860 against 0.6215 | d -0.08 | p 0.58
+   Met-A whole                                1.0947 against 1.0701 | d +1.14 | p 0.099
+   ceiling distance                           0.9323 against 0.9402 | d -0.95 | p 0.16
+   Met-A whole, identity sites of the cells found 1.0528 against 1.0497 | d +0.68 | p 0.16
+   Met-A whole, islands                       1.2331 against 1.1800 | d +1.07 | p 0.075
+   Met-A whole, domains                       1.0879 against 1.0537 | d +1.45 | p 0.04
+   Met-A whole, the rest                      1.0673 against 1.0637 | d +0.78 | p 0.44
+   Met-A neutrophils                          1.0107 against 0.9955 | d +0.67 | p 0.25
+   Met-A cd4 t cells                          1.0878 against 1.0493 | d +0.89 | p 0.21
+   Met-A cd8 t cells                          1.1237 against 1.0635 | d +1.00 | p 0.13
+   Met-A b cells                              1.0929 against 1.0386 | d +1.06 | p 0.099
+   Met-A monocytes                            1.0420 against 1.0109 | d +1.04 | p 0.099
+   territory islands                          1.2281 against 1.1772 | d +1.06 | p 0.075
+   territory domains                          1.0753 against 1.0424 | d +1.34 | p 0.055
+   C-Score whole genome                       1.0009 against 1.0002 | d +0.03 | p 0.95
+-- adjacent normal pancreas (5) against primary cancer associated fibroblasts (3)
+   site cg05575921                            0.6610 against 0.7730 | d -1.47 | p 0.14
+   site cg03636183                            0.5400 against 0.5830 | d -0.98 | p 0.39
+   site cg16867657                            0.5860 against 0.7970 | d -1.03 | p 0.25
+   Met-A whole                                1.0947 against 1.0936 | d +0.63 | p 0.57
+   ceiling distance                           0.9323 against 0.9280 | d -0.44 | p 0.79
+   Met-A whole, identity sites of the cells found 1.0528 against 1.1133 | d -0.85 | p 0.25
+   Met-A whole, islands                       1.2331 against 1.3409 | d -1.04 | p 0.25
+   Met-A whole, domains                       1.0879 against 1.0973 | d +0.54 | p 0.79
+   Met-A whole, the rest                      1.0673 against 1.0332 | d +1.58 | p 0.14
+   Met-A neutrophils                          1.0107 against 1.0203 | d +0.54 | p 1
+   Met-A cd4 t cells                          1.0878 against 1.1042 | d +0.15 | p 0.79
+   Met-A cd8 t cells                          1.1237 against 1.1266 | d +0.21 | p 1
+   Met-A b cells                              1.0929 against 1.0930 | d +0.33 | p 1
+   Met-A monocytes                            1.0420 against 1.0388 | d +0.70 | p 0.57
+   territory islands                          1.2281 against 1.3372 | d -1.08 | p 0.25
+   territory domains                          1.0753 against 1.0606 | d +0.98 | p 0.39
+   C-Score whole genome                       1.0009 against 1.0012 | d +0.05 | p 1
+-- adjacent normal pancreas (5) against primary culture cancer cells (1)
+-- juice circulating cancer cells (4) against pancreatic cancer (10)
+   site cg05575921                            0.6125 against 0.7080 | d -1.08 | p 0.24
+   site cg03636183                            0.5785 against 0.5225 | d +0.74 | p 0.64
+   site cg16867657                            0.7105 against 0.6215 | d +1.25 | p 0.14
+   Met-A whole                                1.0802 against 1.0701 | d +0.39 | p 0.84
+   ceiling distance                           0.9430 against 0.9402 | d -0.22 | p 0.84
+   Met-A whole, identity sites of the cells found 1.0819 against 1.0497 | d +0.59 | p 0.24
+   Met-A whole, islands                       1.2243 against 1.1800 | d +0.83 | p 0.45
+   Met-A whole, domains                       1.0484 against 1.0537 | d +0.17 | p 0.95
+   Met-A whole, the rest                      1.0543 against 1.0637 | d +0.03 | p 0.54
+   Met-A neutrophils                          1.1048 against 0.9955 | d +1.42 | p 0.036
+   Met-A cd4 t cells                          1.0993 against 1.0493 | d +0.67 | p 0.19
+   Met-A cd8 t cells                          1.0805 against 1.0635 | d +0.27 | p 0.84
+   Met-A b cells                              1.0463 against 1.0386 | d +0.12 | p 0.95
+   Met-A monocytes                            1.0529 against 1.0109 | d +0.96 | p 0.076
+   territory islands                          1.2156 against 1.1772 | d +0.80 | p 0.45
+   territory domains                          1.0425 against 1.0424 | d +0.20 | p 0.73
+   C-Score whole genome                       0.9982 against 1.0002 | d -0.12 | p 0.73
+-- juice circulating cancer cells (4) against primary cancer associated fibroblasts (3)
+   site cg05575921                            0.6125 against 0.7730 | d -1.44 | p 0.11
+   site cg03636183                            0.5785 against 0.5830 | d -0.28 | p 1
+   site cg16867657                            0.7105 against 0.7970 | d -0.05 | p 1
+   Met-A whole                                1.0802 against 1.0936 | d -0.45 | p 0.63
+   ceiling distance                           0.9430 against 0.9280 | d +0.63 | p 0.4
+   Met-A whole, identity sites of the cells found 1.0819 against 1.1133 | d -2.78 | p 0.057
+   Met-A whole, islands                       1.2243 against 1.3409 | d -1.02 | p 0.23
+   Met-A whole, domains                       1.0484 against 1.0973 | d -0.78 | p 0.4
+   Met-A whole, the rest                      1.0543 against 1.0332 | d +0.89 | p 0.63
+   Met-A neutrophils                          1.1048 against 1.0203 | d +2.48 | p 0.057
+   Met-A cd4 t cells                          1.0993 against 1.1042 | d -0.75 | p 0.86
+   Met-A cd8 t cells                          1.0805 against 1.1266 | d -1.87 | p 0.057
+   Met-A b cells                              1.0463 against 1.0930 | d -2.64 | p 0.057
+   Met-A monocytes                            1.0529 against 1.0388 | d +0.88 | p 0.4
+   territory islands                          1.2156 against 1.3372 | d -1.06 | p 0.23
+   territory domains                          1.0425 against 1.0606 | d -0.12 | p 0.86
+   C-Score whole genome                       0.9982 against 1.0012 | d -0.08 | p 0.63
+-- juice circulating cancer cells (4) against primary culture cancer cells (1)
+-- pancreatic cancer (10) against primary cancer associated fibroblasts (3)
+   site cg05575921                            0.7080 against 0.7730 | d -1.02 | p 0.22
+   site cg03636183                            0.5225 against 0.5830 | d -0.98 | p 0.57
+   site cg16867657                            0.6215 against 0.7970 | d -1.33 | p 0.37
+   Met-A whole                                1.0701 against 1.0936 | d -0.62 | p 0.47
+   ceiling distance                           0.9402 against 0.9280 | d +0.59 | p 0.57
+   Met-A whole, identity sites of the cells found 1.0497 against 1.1133 | d -1.42 | p 0.028
+   Met-A whole, islands                       1.1800 against 1.3409 | d -1.86 | p 0.007
+   Met-A whole, domains                       1.0537 against 1.0973 | d -0.97 | p 0.22
+   Met-A whole, the rest                      1.0637 against 1.0332 | d +0.73 | p 0.29
+   Met-A neutrophils                          0.9955 against 1.0203 | d -0.16 | p 0.47
+   Met-A cd4 t cells                          1.0493 against 1.1042 | d -0.83 | p 0.16
+   Met-A cd8 t cells                          1.0635 against 1.1266 | d -0.90 | p 0.22
+   Met-A b cells                              1.0386 against 1.0930 | d -0.86 | p 0.29
+   Met-A monocytes                            1.0109 against 1.0388 | d -0.53 | p 0.47
+   territory islands                          1.1772 against 1.3372 | d -1.88 | p 0.007
+   territory domains                          1.0424 against 1.0606 | d -0.32 | p 0.57
+   C-Score whole genome                       1.0002 against 1.0012 | d +0.04 | p 0.94
+-- pancreatic cancer (10) against primary culture cancer cells (1)
+-- primary cancer associated fibroblasts (3) against primary culture cancer cells (1)
