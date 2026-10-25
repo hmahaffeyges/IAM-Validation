@@ -125,12 +125,14 @@ def _jpg_b64(rgb):
 def reference(specimen, shares):
     """(name, {atlas cell: weight}) of the healthy reference for this specimen, or (None, reason)."""
     s = str(specimen or "").strip().lower()
-    _mixed = s in BLOOD or any(k in s for k in ("tissue", "tumor", "biopsy", "plasma", "cfdna", "cell-free", "unknown", "not stated"))   # 2026-10-23: every mixed specimen
+    _mixed = s in BLOOD or any(k in s for k in ("tissue", "tumor", "biopsy", "plasma", "cfdna", "cell-free", "unknown", "not stated", "cell line", "cultured", "culture", "marrow"))   # 2026-10-25: cell lines and marrow, read on the full-atlas route   # 2026-10-23: every mixed specimen
     if _mixed:   # the person's own mix as the IAM-Deconvolver found it, every cell (2026-10-23: the 79-cell panel's names are atlas names already)
         w = {PANEL.get(c, c): float(v) for c, v in (shares or {}).items() if v is not None and np.isfinite(v) and v > 0}
         if not w: return None, "no cell shares from Stage D21, so the healthy reference for this person's mix cannot be drawn"
         t = sum(w.values()); return ("healthy blood" if s in BLOOD else "healthy " + s) + " for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares)", {c: v / t for c, v in w.items()}
     c = s[9:] if s.startswith("isolated ") else s
+    import stage_0_intake as _S0   # 2026-10-25: "sorted b cells", "purified monocytes" and the like name the atlas cell intake already maps them to
+    c = _S0.atlas_cell_of(specimen) or c
     c = {"neutrophil": "neutrophils", "cd8": "cd8 t cells", "cd8 t cell": "cd8 t cells", "cd4 t cell": "cd4 t cells", "monocyte": "monocytes", "b cell": "b cells", "nk cell": "nk cells"}.get(c, c)
     return (f"healthy {c} (IAM-Atlas v2.1)", {c: 1.0}) if c else (None, "no specimen given")
 

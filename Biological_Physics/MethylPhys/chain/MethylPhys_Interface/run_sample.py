@@ -447,7 +447,7 @@ def main():
     ap.add_argument("--dev-allow-partial", action="store_true", help="development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1)")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
     ap.add_argument("--seq-pipeline", default=None, help="the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it")
-    ap.add_argument("--seq-cell", default="neutrophils", help="cell type of the sequenced specimen (Stage Q)")
+    ap.add_argument("--seq-cell", default=None, help="cell type of the sequenced specimen (Stage Q); default: the stated specimen's IAM-Atlas v2.1 cell when it names one (2026-10-25: 'sorted b cells' was read as neutrophils and refused), else neutrophils")
     ap.add_argument("--prior-betas", default=None, help="stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle")
     ap.add_argument("--prior-bundle", default=None, help="stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline")
     ap.add_argument("--save-betas", default=None, help="also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle")
@@ -964,6 +964,8 @@ def main():
         except Exception as e: o["globe"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
     if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)
         import stage_v4 as V4, stage_q2_selfref as _Q2
+        if a.seq_cell is None:   # 2026-10-25: the stated specimen's atlas cell (the cord-blood B cells were refused as "neutrophils" before)
+            import stage_0_intake as _S0; a.seq_cell = _S0.atlas_cell_of(a.specimen) or "neutrophils"; print(f"Stage Q2: the sequenced cell is {a.seq_cell} (from the specimen)", flush=True)
         cells = set(_Q2.shape_reference()["cells"]); src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
         if a.pat:
             import stage_q0_intake as Q0

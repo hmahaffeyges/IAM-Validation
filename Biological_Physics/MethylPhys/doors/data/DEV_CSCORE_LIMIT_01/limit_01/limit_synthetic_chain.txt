@@ -1,0 +1,89 @@
+constructed whole bloods: 780851 sites, mix {'neutrophils': 0.6, 'monocytes': 0.1, 'naive cd4 t cells': 0.12, 'naive cd8 t cells': 0.08, 'naive b cells': 0.05, 'nk cells': 0.05}
+reading | C | limit | at or below
+IND00 neutrophils | 0.9469 | 1.0907 | True
+IND00 monocytes | 0.8495 | 1.0926 | True
+IND00 b cells | 1.0157 | 1.0901 | True
+IND00 cd4 t cells | 1.0243 | 1.0902 | True
+IND00 cd8 t cells | 0.9879 | 1.0907 | True
+IND00 nk cells | 1.0286 | 1.0907 | True
+IND00 whole genome | 0.9908 | 1.0079 | True
+IND01 neutrophils | 1.0551 | 1.0907 | True
+IND01 monocytes | 0.9914 | 1.0926 | True
+IND01 b cells | 0.9717 | 1.0901 | True
+IND01 cd4 t cells | 0.967 | 1.0902 | True
+IND01 cd8 t cells | 1.0512 | 1.0907 | True
+IND01 nk cells | 0.9993 | 1.0907 | True
+IND01 whole genome | 1.0025 | 1.0079 | True
+IND02 neutrophils | 0.9192 | 1.0907 | True
+IND02 monocytes | 0.9813 | 1.0926 | True
+IND02 b cells | 1.0361 | 1.0901 | True
+IND02 cd4 t cells | 0.9001 | 1.0902 | True
+IND02 cd8 t cells | 0.9854 | 1.0907 | True
+IND02 nk cells | 1.032 | 1.0907 | True
+IND02 whole genome | 1.0003 | 1.0079 | True
+IND03 neutrophils | 0.906 | 1.0907 | True
+IND03 monocytes | 0.9155 | 1.0926 | True
+IND03 b cells | 1.1053 | 1.0901 | False
+IND03 cd4 t cells | 1.1917 | 1.0902 | False
+IND03 cd8 t cells | 0.9729 | 1.0907 | True
+IND03 nk cells | 0.981 | 1.0907 | True
+IND03 whole genome | 0.9994 | 1.0079 | True
+IND04 neutrophils | 0.9207 | 1.0907 | True
+IND04 monocytes | 0.9924 | 1.0926 | True
+IND04 b cells | 0.9536 | 1.0901 | True
+IND04 cd4 t cells | 0.938 | 1.0902 | True
+IND04 cd8 t cells | 1.0482 | 1.0907 | True
+IND04 nk cells | 0.9829 | 1.0907 | True
+IND04 whole genome | 0.9954 | 1.0079 | True
+IND05 neutrophils | 0.9976 | 1.0907 | True
+IND05 monocytes | 0.9143 | 1.0926 | True
+IND05 b cells | 1.0672 | 1.0901 | True
+IND05 cd4 t cells | 1.0553 | 1.0902 | True
+IND05 cd8 t cells | 1.0452 | 1.0907 | True
+IND05 nk cells | 1.0218 | 1.0907 | True
+IND05 whole genome | 0.9963 | 1.0079 | True
+IND06 neutrophils | 1.0183 | 1.0907 | True
+IND06 monocytes | 0.9621 | 1.0926 | True
+IND06 b cells | 0.9363 | 1.0901 | True
+IND06 cd4 t cells | 0.9138 | 1.0902 | True
+IND06 cd8 t cells | 0.8937 | 1.0907 | True
+IND06 nk cells | 1.0833 | 1.0907 | True
+IND06 whole genome | 0.9957 | 1.0079 | True
+IND07 neutrophils | 1.019 | 1.0907 | True
+IND07 monocytes | 0.9785 | 1.0926 | True
+IND07 b cells | 0.9181 | 1.0901 | True
+IND07 cd4 t cells | 0.9642 | 1.0902 | True
+IND07 cd8 t cells | 0.9631 | 1.0907 | True
+IND07 nk cells | 1.0587 | 1.0907 | True
+IND07 whole genome | 0.9926 | 1.0079 | True
+IND08 neutrophils | 0.9587 | 1.0907 | True
+IND08 monocytes | 1.1038 | 1.0926 | False
+IND08 b cells | 0.988 | 1.0901 | True
+IND08 cd4 t cells | 0.9466 | 1.0902 | True
+IND08 cd8 t cells | 0.9454 | 1.0907 | True
+IND08 nk cells | 1.0005 | 1.0907 | True
+IND08 whole genome | 1.0016 | 1.0079 | True
+IND09 neutrophils | 0.9896 | 1.0907 | True
+IND09 monocytes | 1.0754 | 1.0926 | True
+IND09 b cells | 0.9609 | 1.0901 | True
+IND09 cd4 t cells | 1.0172 | 1.0902 | True
+IND09 cd8 t cells | 1.0507 | 1.0907 | True
+IND09 nk cells | 1.0047 | 1.0907 | True
+IND09 whole genome | 0.9995 | 1.0079 | True
+IND10 neutrophils | 1.0705 | 1.0907 | True
+IND10 monocytes | 0.9663 | 1.0926 | True
+IND10 b cells | 1.0282 | 1.0901 | True
+IND10 cd4 t cells | 1.0008 | 1.0902 | True
+IND10 cd8 t cells | 0.9704 | 1.0907 | True
+IND10 nk cells | 0.9674 | 1.0907 | True
+IND10 whole genome | 0.997 | 1.0079 | True
+IND11 neutrophils | 1.075 | 1.0907 | True
+IND11 monocytes | 1.0148 | 1.0926 | True
+IND11 b cells | 0.9948 | 1.0901 | True
+IND11 cd4 t cells | 1.0583 | 1.0902 | True
+IND11 cd8 t cells | 0.9967 | 1.0907 | True
+IND11 nk cells | 1.0076 | 1.0907 | True
+IND11 whole genome | 0.9992 | 1.0079 | True
+independent arrays: 84 values, share at or below the limit 0.9643
+planted run: neutrophil C 1.9623 | limit 1.090699693506707
+bar 1 (at least 90 % at or below the limit; the planted run above it): met

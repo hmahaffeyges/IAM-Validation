@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1128,
+   "lines": 1130,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -299,9 +299,9 @@
      "function": "main",
      "name": "main",
      "line": 374,
-     "end": 1125,
+     "end": 1127,
      "args": [],
-     "lines": 752,
+     "lines": 754,
      "doc": "",
      "constants": [
       "BIO",
@@ -361,8 +361,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1061,
-     "end": 1062,
+     "line": 1063,
+     "end": 1064,
      "args": [
       "b",
       "it",
@@ -6197,7 +6197,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 445,
+   "lines": 447,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
@@ -6403,12 +6403,12 @@
      "function": "reference",
      "name": "reference",
      "line": 125,
-     "end": 135,
+     "end": 137,
      "args": [
       "specimen",
       "shares"
      ],
-     "lines": 11,
+     "lines": 13,
      "doc": "(name, {atlas cell: weight}) of the healthy reference for this specimen, or (None, reason).",
      "constants": [
       "BLOOD",
@@ -6421,8 +6421,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 137,
-     "end": 143,
+     "line": 139,
+     "end": 145,
      "args": [
       "v"
      ],
@@ -6438,8 +6438,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 145,
-     "end": 153,
+     "line": 147,
+     "end": 155,
      "args": [
       "fractions",
       "specimen"
@@ -6459,8 +6459,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_paint_blocks",
      "name": "_paint_blocks",
-     "line": 155,
-     "end": 168,
+     "line": 157,
+     "end": 170,
      "args": [
       "sky",
       "vals",
@@ -6478,8 +6478,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_patch",
      "name": "_patch",
-     "line": 170,
-     "end": 177,
+     "line": 172,
+     "end": 179,
      "args": [
       "v"
      ],
@@ -6495,8 +6495,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_cell_change",
      "name": "_cell_change",
-     "line": 179,
-     "end": 197,
+     "line": 181,
+     "end": 199,
      "args": [
       "d",
       "ids_ordered",
@@ -6516,8 +6516,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 199,
-     "end": 374,
+     "line": 201,
+     "end": 376,
      "args": [
       "beta",
       "specimen",
@@ -6556,8 +6556,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 242,
-     "end": 243,
+     "line": 244,
+     "end": 245,
      "args": [
       "m"
      ],
@@ -6571,8 +6571,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 245,
-     "end": 250,
+     "line": 247,
+     "end": 252,
      "args": [
       "v",
       "full"
@@ -6587,8 +6587,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 391,
-     "end": 434,
+     "line": 393,
+     "end": 436,
      "args": [
       "beta",
       "ref_beta",
@@ -6618,8 +6618,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 413,
-     "end": 414,
+     "line": 415,
+     "end": 416,
      "args": [
       "m"
      ],

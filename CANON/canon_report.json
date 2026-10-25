@@ -3277,7 +3277,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1009,
+"line": 1011,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3286,7 +3286,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1009,
+"line": 1011,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3295,7 +3295,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1011,
+"line": 1013,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3304,7 +3304,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1011,
+"line": 1013,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3409,6 +3409,33 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "What the sprint still gets right, for later: C1 (two-point correlation per class with MASTER-style mode coupling), C3 (2D posterior shape for A-score pairs \u2014 th"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 3,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Written and committed before any healthy C-Score is scored against the derived limit. Development; nothing here is commissioned."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 23,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "below the derived limit; one more blood with a planted run of 200 neighboring neutrophil identity sites reads its neutrophil C above it."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 25,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "below the derived limit: the neutrophil C-Score's raw statistic, each cell's C (cells at a share of at least 1 %), the whole genome's C."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
