@@ -6,6 +6,8 @@ on:
   workflow_dispatch:
     inputs:
       tag: {description: "release tag", required: true, default: "hg19-bwameth-index-v1"}
+      gsm: {description: "a sample whose genome sets the index built (2026-10-25: mm10 too)", required: true, default: "GSM4914798"}
+      samples: {description: "the sample list holding gsm", required: true, default: "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/all_samples.csv"}
 permissions: {contents: write}
 jobs:
   build:
@@ -19,7 +21,7 @@ jobs:
       - name: Build the index through the pipeline and publish it
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
-          export MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$HOME/idx NW=4 INDEXONLY=1 SAMPLES=Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/all_samples.csv
-          bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh GSM4914798 > run.log 2>&1 || { tail -40 run.log; exit 1; }
+          export MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$HOME/idx NW=4 INDEXONLY=1 SAMPLES=${{ inputs.samples }}
+          bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1 || { tail -40 run.log; exit 1; }
           tail -8 run.log; ls -la $HOME/idx
-          gh release create "${{ inputs.tag }}" -R "$GITHUB_REPOSITORY" --title "hg19 bwa-meth index (alignment pipeline)" --notes "Built by build_index.yml at ${{ github.sha }} through erase_gh.sh's index block. SHA256SUMS holds the SHA-256 of the whole zstd tar stream and the part order." $HOME/idx/SHA256SUMS $HOME/idx/hg19idx.tar.zst.part*
+          gh release create "${{ inputs.tag }}" -R "$GITHUB_REPOSITORY" --title "${{ inputs.tag }} (bwa-meth index, alignment pipeline)" --notes "Built by build_index.yml at ${{ github.sha }} through erase_gh.sh's index block. SHA256SUMS holds the SHA-256 of the whole zstd tar stream and the part order." $HOME/idx/SHA256SUMS $HOME/idx/*idx.tar.zst.part*

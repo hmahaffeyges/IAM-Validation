@@ -40,7 +40,7 @@ jobs:
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt   # 2026-10-23: the one command needs the chain's own requirements (run 39911507208 stopped on matplotlib)
           python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1   # stops in seconds if a package is missing (2026-10-23)
           ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -h / | awk 'NR==2{print $3}')"; sleep 300; done ) &
-          set +e; export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} CHUNK=${{ matrix.k }}/${{ inputs.nchunks }} PATONLY=1; [ "${{ inputs.full }}" = 1 ] && export MAXPAIRS=999999999; [ "${{ inputs.samples }}" != none ] && export SAMPLES=$PWD/${{ inputs.samples }}
+          set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} CHUNK=${{ matrix.k }}/${{ inputs.nchunks }} PATONLY=1; [ "${{ inputs.full }}" = 1 ] && export MAXPAIRS=999999999; [ "${{ inputs.samples }}" != none ] && export SAMPLES=$PWD/${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
       - uses: actions/upload-artifact@v4
         if: always() && matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
@@ -70,7 +70,7 @@ jobs:
           E=Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01; C=$(find chunks -name "${{ inputs.gsm }}_c*.pat.gz" | sort -V); n=$(echo "$C" | grep -c . || true); echo "chunks with molecules: $n of ${{ inputs.nchunks }}"   # 2026-10-25: the artifacts keep eout/, so the files land in chunks/eout/
           [ "$n" = "${{ inputs.nchunks }}" ] || { echo "MISSING CHUNKS: merge refused"; exit 40; }
           python3 $E/merge_pats.py $PWD/${{ inputs.gsm }}.pat.gz $C
-          set +e; export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} PATFILE=$PWD/${{ inputs.gsm }}.pat.gz SAMPLES=${{ inputs.samples }}
+          set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} PATFILE=$PWD/${{ inputs.gsm }}.pat.gz SAMPLES=${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; find chunks -name '*_timing.json' -exec cp {} eout/ \; 2>/dev/null; true
       - uses: actions/upload-artifact@v4
         if: always()

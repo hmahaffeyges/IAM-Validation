@@ -32,6 +32,15 @@ else
 T0=$(date +%s)
 if [ "$gen" = "mm10" ]; then
   REF=$S/ref/mm10.fa
+  # 2026-10-25: as for hg19, the mm10 index can come from a release (INDEX_TAG_MM10, built once by build_index.yml through this block); a failed
+  # fetch or checksum builds it here, as before.
+  if [ -n "${INDEX_TAG_MM10:-}" ] && [ ! -s $REF.bwameth.c2t.sa ]; then
+    U="https://github.com/$GITHUB_REPOSITORY/releases/download/$INDEX_TAG_MM10"; /usr/bin/curl -fsSL --retry 5 -o $S/idx_sums "$U/SHA256SUMS" \
+      && for q in $(awk '$2=="parts"{for(i=3;i<=NF;i++) print $i}' $S/idx_sums); do /usr/bin/curl -fsSL --retry 5 "$U/$q" || exit 1; done \
+         | tee >(sha256sum | cut -d' ' -f1 > $S/idx_got) | zstd -dc -T4 | tar -C $S -xf - \
+      && sleep 2 && [ "$(cat $S/idx_got)" = "$(awk '$2=="stream"{print $1}' $S/idx_sums)" ] \
+      && log "index fetched from release $INDEX_TAG_MM10, stream checksum verified" || { log "index fetch failed: building"; rm -rf $S/ref/* $S/wgbs_tools/references/mm10; }
+  fi
   if [ ! -s $REF.bwameth.c2t.sa ]; then
     /usr/bin/curl -fsSL --retry 5 --retry-delay 30 -o $S/ref/mm10.fa.gz https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/mm10.fa.gz || exit 18
     gunzip -f $S/ref/mm10.fa.gz && bgzip -@ 4 -c $REF > $S/ref/mm10.fa.gz || exit 23
@@ -64,8 +73,8 @@ else   # 2026-10-22: hg19 with lambda and pUC19, built as the committed pipeline
 fi
 TI=$(date +%s); log "index ready after $((TI-T0)) s"; df -h $S | tail -1
 if [ "${INDEXONLY:-0}" = 1 ]; then   # 2026-10-24 (build_index.yml): stop once the index is built
-  tar -C $S -cf - ref wgbs_tools/references/hg19 | zstd -T4 -6 | tee >(sha256sum | cut -d' ' -f1 > $OUT/stream_sha) | split -b 1900M - $OUT/hg19idx.tar.zst.part
-  sleep 2; { echo "$(cat $OUT/stream_sha) stream"; echo "x parts $(cd $OUT && ls hg19idx.tar.zst.part* | tr '\n' ' ')"; } > $OUT/SHA256SUMS; cat $OUT/SHA256SUMS; exit 0
+  tar -C $S -cf - ref wgbs_tools/references/$gen | zstd -T4 -6 | tee >(sha256sum | cut -d' ' -f1 > $OUT/stream_sha) | split -b 1900M - $OUT/${gen}idx.tar.zst.part   # $gen: hg19 or mm10 (2026-10-25)
+  sleep 2; { echo "$(cat $OUT/stream_sha) stream"; echo "x parts $(cd $OUT && ls ${gen}idx.tar.zst.part* | tr '\n' ' ')"; } > $OUT/SHA256SUMS; cat $OUT/SHA256SUMS; exit 0
 fi
 python3 $E/erase_blocks.py ${SAMPLES:-$E/erase_samples.csv} $GSM ${CHUNK:-${MAXPAIRS:-10000000}} > $S/${GSM}_blocks.txt   # CHUNK=k/n: one contiguous range (split alignment, 2026-10-24); the comment once swallowed the two commands before it (fixed 2026-10-24)
 fetch_all(){ rm -rf $S/fq/*; i=0   # --split-3 (2026-10-25): only true pairs go to _1 and _2; a spot with one empty read goes to a third file, unused

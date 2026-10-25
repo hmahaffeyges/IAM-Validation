@@ -240,3 +240,9 @@ call's error rate as p (1 - p)^2 = e, which ignores that the counter only counts
 by 0.06 and 0.2. Run 3 plants each rate through the counter's own held-molecule rule, enumerated over every pattern, and recovers both cases
 within 0.05: the uniform shift reads R (slope and intercept as in the output), the proportional scaling reads Phi. What run 2 teaches is
 recorded for the real counts: the lone-error rate depends on which molecules count as held.
+
+**The mouse index, built once:** the graded test's three deep runs are aligned by the split alignment, 20 machines each. The mm10 bwa-meth
+index and wgbstools' mm10 dictionary are now built once by `build_index.yml` through `erase_gh.sh`'s own index block and published as release
+files with the stream's SHA-256, as the hg19 index is; each job streams them in and checks them, and builds them itself if the fetch or the
+check fails. Bar 3 reads the deep pair (DMSO day 14 against 2 uM day 14): on the small runs a dosed sample keeps too few held-molecule
+opportunities for the tile reading (only 2 tiles pass the stated minimums).
