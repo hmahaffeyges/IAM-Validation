@@ -338,3 +338,11 @@ hypothesis, not a finding. **Ploidy check 1** (`data/DEV_ONE_DRAW_01/mk_absorb_0
 donor 1, spent): donor 1's 2N cells (8) and its 8N-and-up cells (19) pooled separately and each read once through the one command, the atlas
 only. If the young pool lands on the marrow progenitors and the mature pool does not, the next column is built from mature cells only, the
 cells that shed into plasma.
+
+**Ploidy check 1, read** (`data/DEV_ONE_DRAW_01/mk_absorb_01/ploidy_01/`): **ploidy does not separate them.** Donor 1's mature cells (8N and
+up, 19 pooled, median 2 reads a site) read lung interstitial macrophages 0.419, erythrocyte progenitors 0.319, MEP (bone marrow) 0.144,
+eosinophils 0.091; its young cells (2N, 8 pooled, median 1 read) read erythrocyte progenitors 0.256, lung interstitial macrophages 0.229, lung
+alveolar macrophages 0.189. Both land on the same stand-ins, so the young-cell explanation of test 2 is not supported. **What it leaves:**
+single cells at 1 to 3 reads a site are too thin to build a reference column from, however the spread is handled. **Next:** look for public
+megakaryocyte methylation from bulk cells at real depth (purified or cultured megakaryocytes, sequencing or arrays) before a version 3
+column; GSE87197 donor 3 stays unread.

@@ -1,0 +1,4 @@
+DEV-ONE-DRAW-01 megakaryocyte absorption test 1 (GSE87197 donor 1; hg38 annotation https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.tsv.gz)
+annotation sha256 93fc4de126c9ad8bcfba3d16f2fddb8a2e2a6695a49c7cd1ce1de7198ac7ee56
+pooled 8 samples: 253669 of 786902 atlas sites with reads; median reads at those 1
+young_2N             markers 2728 | erythrocyte progenitors 0.256, lung interstitial macrophages 0.229, lung alveolar macrophages 0.189, basophils 0.116, eosinophils 0.112, MEP (bone marrow) 0.052, cardiomyocyte 0.024, neutrophils 0.022

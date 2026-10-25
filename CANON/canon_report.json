@@ -3429,6 +3429,15 @@
 "text": "healthy line is not commissioned. **What it shows:** each healthy blood's whole-sample Met-A is predicted from the array's own measured"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 308,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "levels on each array through that array's own measured line (the healthy line's measurements, which met bars 2 and 3 in five laboratories),"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
 "line": 22,
 "pattern": "reference line",
