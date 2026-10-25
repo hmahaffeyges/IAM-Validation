@@ -12,10 +12,11 @@ on:
       threads: {description: "aligner threads", required: true, default: "4"}
       full: {description: "1 = the one command's full reading; 0 = the count only", required: true, default: "0"}
       chunksfrom: {description: "none, or the run id of an earlier split_align run whose chunks to merge without aligning again", required: false, default: "none"}
+      onlychunks: {description: "all, or a comma list of chunk numbers to align (the rest are taken from chunksfrom)", required: false, default: "all"}
 permissions: {contents: read, issues: write, actions: read}
 jobs:
   chunk:
-    if: inputs.chunksfrom == 'none' || inputs.chunksfrom == ''
+    if: inputs.chunksfrom == 'none' || inputs.chunksfrom == '' || (inputs.onlychunks != 'all' && inputs.onlychunks != '')
     runs-on: ubuntu-latest
     timeout-minutes: 355
     strategy:
@@ -24,15 +25,15 @@ jobs:
     steps:
       - if: matrix.k >= fromJSON(inputs.nchunks)
         run: echo "chunk ${{ matrix.k }} not needed"
-      - if: matrix.k < fromJSON(inputs.nchunks)
+      - if: matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
         run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost || true; df -h / | tail -1
-      - if: matrix.k < fromJSON(inputs.nchunks)
+      - if: matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
         uses: actions/checkout@v4
-      - if: matrix.k < fromJSON(inputs.nchunks)
+      - if: matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
         uses: actions/setup-python@v5   # 2026-10-23: the chain's requirements are written for Python 3.11 (run 39974702740 failed to build on the default Python)
         with: {python-version: "3.11"}
       - name: One chunk, SRA to molecules
-        if: matrix.k < fromJSON(inputs.nchunks)
+        if: matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
         run: |
           sudo fallocate -l 8G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt   # 2026-10-23: the one command needs the chain's own requirements (run 39911507208 stopped on matplotlib)
@@ -41,7 +42,7 @@ jobs:
           set +e; export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} CHUNK=${{ matrix.k }}/${{ inputs.nchunks }} PATONLY=1; [ "${{ inputs.full }}" = 1 ] && export MAXPAIRS=999999999; [ "${{ inputs.samples }}" != none ] && export SAMPLES=$PWD/${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
       - uses: actions/upload-artifact@v4
-        if: always() && matrix.k < fromJSON(inputs.nchunks)
+        if: always() && matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
         with: {name: "split-${{ inputs.gsm }}-c${{ matrix.k }}", path: "eout/\nrun.log\nrc.txt", if-no-files-found: ignore}
   merge:
     needs: chunk
@@ -53,12 +54,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5   # 2026-10-23: the chain's requirements are written for Python 3.11 (run 39974702740 failed to build on the default Python)
         with: {python-version: "3.11"}
-      - uses: actions/download-artifact@v4
-        with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true, run-id: "${{ (inputs.chunksfrom != 'none' && inputs.chunksfrom != '') && inputs.chunksfrom || github.run_id }}", github-token: "${{ secrets.GITHUB_TOKEN }}"}
+      - uses: actions/download-artifact@v4   # an earlier run's chunks, when merging without aligning again
+        if: inputs.chunksfrom != 'none' && inputs.chunksfrom != ''
+        with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true, run-id: "${{ inputs.chunksfrom }}", github-token: "${{ secrets.GITHUB_TOKEN }}"}
+      - uses: actions/download-artifact@v4   # this run's chunks (all of them, or the ones named in onlychunks)
+        continue-on-error: true
+        with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true}
       - name: Merge the chunks' molecules; read once by the one command
         run: |
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1
-          E=Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01; C=$(find chunks -name "${{ inputs.gsm }}_c*.pat.gz" | sort -V); n=$(echo "$C" | grep -c .)   # 2026-10-25: the artifacts keep eout/, so the files land in chunks/eout/; echo "chunks with molecules: $n of ${{ inputs.nchunks }}"
+          E=Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01; C=$(find chunks -name "${{ inputs.gsm }}_c*.pat.gz" | sort -V); n=$(echo "$C" | grep -c . || true); echo "chunks with molecules: $n of ${{ inputs.nchunks }}"   # 2026-10-25: the artifacts keep eout/, so the files land in chunks/eout/
           [ "$n" = "${{ inputs.nchunks }}" ] || { echo "MISSING CHUNKS: merge refused"; exit 40; }
           python3 $E/merge_pats.py $PWD/${{ inputs.gsm }}.pat.gz $C
           set +e; export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} PATFILE=$PWD/${{ inputs.gsm }}.pat.gz SAMPLES=${{ inputs.samples }}
