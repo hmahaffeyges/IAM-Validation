@@ -1,0 +1,3 @@
+SYN_CTRL against SYN_SHIFT: 600 tiles | slope 1.0029 [0.9889, 1.0170] | intercept -0.7149 [-0.7615, -0.6677] | R (restoring slowed)
+SYN_CTRL against SYN_SCALE: 600 tiles | slope 0.7991 [0.7883, 0.8102] | intercept +0.0023 [-0.0354, +0.0392] | Phi (holding fraction lowered)
+planted: SYN_SHIFT slope 1, intercept -0.7 (R); SYN_SCALE slope 0.8, intercept 0 (Phi); bar 1 met if each is recovered within 0.05 and called correctly

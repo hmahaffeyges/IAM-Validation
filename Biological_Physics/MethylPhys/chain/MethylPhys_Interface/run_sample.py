@@ -391,6 +391,7 @@ def main():
     ap.add_argument("--dev-count-only", action="store_true",
                     help="DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse)")
     ap.add_argument("--dev-count-genome", default="hg19", choices=("hg19", "mm10"), help="--dev-count-only: the genome the .pat was made on (recorded)")
+    ap.add_argument("--dev-count-tiles", default=None, metavar="OUT.csv[.gz]", help="DEVELOPMENT (DEV-ERASE-01 graded maintenance test, 2026-10-25): with --dev-count-only, also write the held error tile by tile (2,000 consecutive CpGs per tile, two independent halves of the molecules)")
     ap.add_argument("--dev-count-sites", default=None, metavar="CELL", help="DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites)")
     ap.add_argument("--dev-metaa-specific", default=None, metavar="DELTA[,DELTA]",
                     help="DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel")
@@ -977,6 +978,13 @@ def main():
                                          genome=a.dev_count_genome, intake_decision=qi.get("decision"), intake_refusal=qi.get("refusal"),
                                          count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share")},
                                          note=(None if a.dev_count_genome == "hg19" else "the loose share uses hg19 tiles and has no meaning on " + a.dev_count_genome + "; the held error does not depend on the genome"))
+            if a.dev_count_tiles:   # 2026-10-25 (DEV-ERASE-01 graded maintenance test): the held error tile by tile, two independent halves
+                import gzip as _gzt, stage_q2_selfref as _Q2t
+                with (_gzt.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: _T = _Q2t.count_pat_tile_errors(_fh)
+                with (_gzt.open if str(a.dev_count_tiles).endswith(".gz") else open)(a.dev_count_tiles, "wt") as _fo:
+                    _fo.write("chrom,tile,iso_a,opp_a,iso_b,opp_b\n"); [_fo.write(f"{c},{j},{v[0]},{v[1]},{v[2]},{v[3]}\n") for (c, j), v in sorted(_T.items())]
+                o["iam_a_count_only"]["count_tiles"] = dict(file=os.path.basename(a.dev_count_tiles), tiles=len(_T), tile_cpgs=_Q2t.TILE, halves="even and odd lines of the .pat (no shared molecule)")
+                print(f"Stage Q2 held error by tile: {len(_T)} tiles written to {a.dev_count_tiles}", flush=True)
             if a.dev_count_sites:   # 2026-10-24 (step 3 version 2): the same count at Met-A's identity sites only
                 import gzip as _gz, pyarrow.parquet as _pqs, stage_q2_selfref as _Q2s
                 _MF = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3.json")))["platforms"]["EPIC"][a.dev_count_sites]

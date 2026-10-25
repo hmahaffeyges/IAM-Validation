@@ -227,3 +227,16 @@ maintenance down lowers E, and two physically different ways of doing so are tol
 **Reported, not scored:** the triple knockouts (held error undefined without held molecules), 5-azacytidine (a different mechanism: it is
 built into the DNA and traps the enzyme), day 6 against day 14 at each dose (equal within intervals would mean a steady state). Mouse
 embryonic stem cells run at 37 C like human cells, so M is the canon's; the control is each series' own DMSO cells (self-reference).
+
+**Synthetic test:** `DEV_ERASE_01/graded_synthetic.py` (through the one command)
+
+Scored by `data/DEV_ERASE_01/graded_score.py`; output `data/DEV_ERASE_01/graded_01/graded_synthetic.txt`. New in the chain for this test: `stage_q2_selfref.count_pat_tile_errors` and
+`run_sample.py --dev-count-tiles` (the held error tile by tile, in two independent halves of the molecules), written into the counting call
+of `erase_gh.sh`.
+
+**Graded test, bar 1 (synthetic), read: met.** Three runs, all disclosed: the first two stopped on faults in the synthetic itself, not in the
+counter or scorer. Run 1 planted E from 2.0, so a shift of -0.7 asked for more lone errors than a molecule can carry. Run 2 planted each
+call's error rate as p (1 - p)^2 = e, which ignores that the counter only counts molecules it holds as marked, and it read back slopes off
+by 0.06 and 0.2. Run 3 plants each rate through the counter's own held-molecule rule, enumerated over every pattern, and recovers both cases
+within 0.05: the uniform shift reads R (slope and intercept as in the output), the proportional scaling reads Phi. What run 2 teaches is
+recorded for the real counts: the lone-error rate depends on which molecules count as held.

@@ -111,6 +111,22 @@ def count_pat(lines, tiles):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
     return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M)), g_iso, g_opp)
 
+def count_pat_tile_errors(lines, tile=TILE):
+    """2026-10-25 (DEV-ERASE-01, the graded maintenance test; plan 14.1): the held error tile by tile, in two independent halves. Held
+    molecules and lone errors by count_pat's own rules (at least QUAL_MIN_CALLS calls, at least QUAL_MIN_METH methylated; a lone unmethylated
+    call between two methylated ones, over the len - 2 interior opportunities). A molecule belongs to the tile of its first CpG, tiles being
+    blocks of `tile` consecutive CpG indices on each chromosome (index // tile), so the tiling needs no genome table and works on any genome.
+    Half A takes the even lines, half B the odd lines, so the two halves share no molecule. Returns {(chrom, tile): [iso_A, opp_A, iso_B, opp_B]}."""
+    T = {}
+    for k, line in enumerate(lines):
+        p = line.rstrip("\n").split("\t")
+        if len(p) < 4: continue
+        c, i, pat, n = p[0], int(p[1]), p[2], int(p[3]); s_ = [x for x in pat if x != "."]
+        if len(s_) < QUAL_MIN_CALLS or s_.count("C") < QUAL_MIN_METH * len(s_): continue
+        a = T.setdefault((c, i // tile), [0, 0, 0, 0]); h = 2 * (k % 2)
+        a[h + 1] += n * (len(s_) - 2); a[h] += n * sum(1 for q in range(1, len(s_) - 1) if s_[q] == "T" and s_[q - 1] == "C" and s_[q + 1] == "C")
+    return T
+
 def count_pat_sites(lines, sites):
     """2026-10-24 (DEV-METAA-HEALTHY-01 step 3 version 2): the held error counted only at a set of sites (genome-wide CpG indices, the .pat
     numbering), by count_pat's own rules: the same split (odd lines), the same held and held-absent molecules, classed from ALL their calls
