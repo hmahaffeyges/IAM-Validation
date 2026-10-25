@@ -1,0 +1,19 @@
+array | Met-A on its own curve | above its curve at the identity sites | identity sites read | state | note
+GSM5701493 | 1.00428 | 0.0012 | 5670 | Normal | OK
+GSM5701503 | 1.00122 | 0.00142 | 5670 | Normal | OK
+GSM5701494 | 1.00167 | 0.00134 | 5670 | Normal | OK
+GSM5701550 | 1.00885 | 0.00131 | 5670 | Normal | OK
+GSM5701495 | 0.99592 | 0.0011 | 5670 | Normal | OK
+GSM5701551 | 0.99048 | 0.00036 | 5670 | Normal | OK
+GSM5701496 | 1.00562 | 0.00169 | 5670 | Normal | OK
+GSM5701552 | 1.00049 | 0.00096 | 5670 | Normal | OK
+GSM5701497 | 1.00033 | 0.00143 | 5671 | Normal | OK
+GSM5701553 | 1.03315 | 0.00177 | 5671 | Normal | OK
+GSM5701498 | 0.98612 | -0.0028 | 5669 | Normal | OK
+GSM5701499 | 1.00125 | -0.00065 | 5671 | Normal | OK
+GSM5701500 | 1.01294 | 0.00145 | 5671 | Normal | OK
+GSM5701501 | 1.00323 | 0.00131 | 5671 | Normal | OK
+GSM5701502 | 1.00352 | 0.00128 | 5669 | Normal | OK
+read 15 of 15 arrays | Met-A median 1.0017, range 0.9861 to 1.0332
+bar 2 (at least 90 % of healthy arrays Normal, 0.95-1.05): 15 of 15: met
+bar 3 (median above-curve within 0.005 of zero): 0.00131: met

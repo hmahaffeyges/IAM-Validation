@@ -3,7 +3,8 @@ series run (pass 1), the record at bundle["development"]["metaa_atlas"] (stage M
 Usage: python3 mono_curve_score.py RUN_DIR OUT.txt"""
 import sys, os, glob, json, numpy as np
 D, OUT = sys.argv[1], sys.argv[2]; rows = []
-for f in sorted(glob.glob(os.path.join(D, "**", "pass1", "GSM*.json"), recursive=True)):
+# pass1-0, pass1-1, ...: the shards (folder pattern fixed 2026-10-25; the first scoring found no folder named pass1 and printed no array)
+for f in sorted(glob.glob(os.path.join(D, "**", "pass1*", "GSM*.json"), recursive=True)):
     if f.endswith(("_values.json", "_planted.json")): continue
     B = json.load(open(f)); r = (B.get("development") or {}).get("metaa_atlas") or {}
     rows.append((os.path.basename(f)[:-5], r.get("A"), r.get("above_curve"), r.get("n_sites"), r.get("state"), r.get("reason") or r.get("status")))

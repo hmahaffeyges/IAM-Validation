@@ -40,3 +40,9 @@ Run 3 takes the array's own spread about its curve and reads all three cases wit
 
 **Reported, not scored:** the patients' arrays in the same series (giant cell arteritis, systemic sclerosis, undifferentiated arthritis),
 read and flagged after the healthy bars.
+
+**Development, read: bars 2 and 3 met** (`data/DEV_METAA_ATLAS_CURVE_01/dev_01/mono_curve_dev_summary.txt`; series run 40202293656, scored
+from its shards' bundles). Every one of the 15 healthy monocyte arrays reads Normal on its own curve, and the identity sites chosen on the
+atlas sit on each array's curve (median above-curve in the file), where the commissioned sites, chosen on their own arrays, read well above
+it. Disclosed: the scorer's folder pattern was fixed before it printed any array (it looked for a folder named pass1; the shards are saved
+as pass1-0, pass1-1 and so on). **Next, as written:** the 43 confirmation arrays from the other two laboratories.
