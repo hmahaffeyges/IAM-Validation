@@ -1,0 +1,45 @@
+gsm,platform,cell,file
+GSM2998024,array,b cells,
+GSM2998029,array,b cells,
+GSM2998087,array,b cells,
+GSM2998100,array,b cells,
+GSM2998122,array,b cells,
+GSM2998134,array,b cells,
+GSM2998028,array,cd4 t cells,
+GSM2998042,array,cd4 t cells,
+GSM2998048,array,cd4 t cells,
+GSM2998140,array,cd4 t cells,
+GSM2998146,array,cd4 t cells,
+GSM2998032,array,cd8 t cells,
+GSM2998035,array,cd8 t cells,
+GSM2998054,array,cd8 t cells,
+GSM2998069,array,cd8 t cells,
+GSM2998075,array,cd8 t cells,
+GSM2998094,array,cd8 t cells,
+GSM2998039,array,monocytes,
+GSM2998051,array,monocytes,
+GSM2998060,array,monocytes,
+GSM2998072,array,monocytes,
+GSM2998090,array,monocytes,
+GSM2998128,array,monocytes,
+GSM2998022,array,nk cells,
+GSM2998025,array,nk cells,
+GSM2998027,array,nk cells,
+GSM2998126,array,nk cells,
+GSM2998131,array,nk cells,
+GSM2998149,array,nk cells,
+GSM5652316,sequencing,b cells,GSM5652316_Blood-B-Z000000TX.beta
+GSM5652317,sequencing,b cells,GSM5652317_Blood-B-Z000000UB.beta
+GSM5652318,sequencing,b cells,GSM5652318_Blood-B-Z000000UR.beta
+GSM5652279,sequencing,cd4 t cells,GSM5652279_Blood-T-CD4-Z000000TT.beta
+GSM5652280,sequencing,cd4 t cells,GSM5652280_Blood-T-CD4-Z000000U7.beta
+GSM5652281,sequencing,cd4 t cells,GSM5652281_Blood-T-CD4-Z000000UM.beta
+GSM5652282,sequencing,cd8 t cells,GSM5652282_Blood-T-CD8-Z000000TR.beta
+GSM5652283,sequencing,cd8 t cells,GSM5652283_Blood-T-CD8-Z000000U5.beta
+GSM5652284,sequencing,cd8 t cells,GSM5652284_Blood-T-CD8-Z000000UK.beta
+GSM5652302,sequencing,monocytes,GSM5652302_Blood-Monocytes-Z000000TP.beta
+GSM5652303,sequencing,monocytes,GSM5652303_Blood-Monocytes-Z000000U3.beta
+GSM5652304,sequencing,monocytes,GSM5652304_Blood-Monocytes-Z000000UH.beta
+GSM5652299,sequencing,nk cells,GSM5652299_Blood-NK-Z000000TM.beta
+GSM5652300,sequencing,nk cells,GSM5652300_Blood-NK-Z000000U1.beta
+GSM5652301,sequencing,nk cells,GSM5652301_Blood-NK-Z000000UF.beta

@@ -34,7 +34,7 @@ cell's gap sit inside it; replacing e with a value predicted from the held error
 
 **Synthetic test:** DEV_METAA_HEALTHY_01/synthetic_02.py, DEV_METAA_HEALTHY_01/synthetic_02_summary.txt, DEV_METAA_HEALTHY_01/gain_counter_01.py, DEV_METAA_HEALTHY_01/gain_counter_01_summary.txt
 
-**Prior reading:** every series here was read before by this project: GSE235717 (the example healthy blood), GSE42861, GSE87571 and GSE153712 (replays R1 to R4), GSE51032 (EPIC-Italy) and GSE186458 (the atlas's own molecules); this is development, chosen from spent data on purpose, and no commissioning claim rests on it. GSE116229 (confirmation 1): spent for the leukemia replication; no count of its three cord-blood samples had landed or been read when confirmation 1 was written.
+**Prior reading:** every series here was read before by this project: GSE110554 (atlas sources and Met-A's six commissioning arrays; step 3 version 4), GSE235717 (the example healthy blood), GSE42861, GSE87571 and GSE153712 (replays R1 to R4), GSE51032 (EPIC-Italy) and GSE186458 (the atlas's own molecules); this is development, chosen from spent data on purpose, and no commissioning claim rests on it. GSE116229 (confirmation 1): spent for the leukemia replication; no count of its three cord-blood samples had landed or been read when confirmation 1 was written.
 
 ## Bars (at most three)
 
@@ -307,3 +307,26 @@ unmarked sites were chosen because the arrays read them at 0.05 to 0.25, so this
 at nearly unmarked sites, a property of the array, not of the cell. **Next (version 4, to be written before it runs):** put the molecule
 levels on each array through that array's own measured line (the healthy line's measurements, which met bars 2 and 3 in five laboratories),
 not through the atlas's population transfer. Disclosed: a fourth version on the same samples; development until confirmed on untouched ones.
+
+## Step 3 version 4: each site's array-against-sequencing difference, measured on other cells (written and committed before any file is read)
+
+**Prior reading:** GSE110554 (its B, CD4, CD8, NK and monocyte arrays: atlas sources; its six neutrophil arrays are Met-A's commissioning
+references and are not read here) and GSE186458 (the same five cell types by sequencing: atlas sources) are spent; this is development, the
+fourth version on the same three granulocyte samples and six arrays.
+
+**What it rests on (lesson C41):** version 3 predicted the marked side from the cell's own molecules (0.9344 against the arrays' 0.9362);
+the whole gap was the unmarked side, where the arrays read nearly unmarked sites at about 0.07, and Met-A's site rule selected those sites
+on the arrays (0.05 to 0.25). A whole-array line cannot move particular sites, so version 4 measures each identity site's own
+array-against-sequencing difference on OTHER cells: B, CD4, CD8 and NK cells and monocytes, 29 arrays of the same laboratory's purified blood
+(GSE110554) and 15 sequencing samples (GSE186458), every one read by the one command (`v4_read.py`; `v4_samples.csv`). At each site the
+difference is array mean minus the sequencing mean on the array scale (the atlas's own inverse transfer), per cell, using only cells nearly
+unmarked there for the unmarked side (at most 0.25) and nearly marked for the marked side (at least 0.75), the median over them. Version 4's
+level = version 3's level for the side + the site's difference; the mark is the mean entropy (`v4_score.py`). No neutrophil or granulocyte
+array is used. **Known:** the arrays are the same laboratory's as the six commissioned ones, so a laboratory term at those probes is shared.
+**Bar 1 (version 1's):** all six commissioned arrays read Normal (0.95-1.05) against the derived mark. **What it would mean:** the
+neutrophil's healthy mark from the cell's own molecules and a measured property of each probe, with no neutrophil array; development.
+
+**Synthetic test:** DEV_METAA_HEALTHY_01/v4_synthetic.py, DEV_METAA_HEALTHY_01/step3_04/v4_synthetic.txt
+
+The synthetic (one made-up cell type on both platforms through the one command; per-site differences planted at the identity sites)
+recovers them exactly (median error 0.0000 on both sides). A first run at 40 calls a site rounded 0.01 to 0 reads; rebuilt at 100.
