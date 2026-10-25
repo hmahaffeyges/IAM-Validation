@@ -8,9 +8,14 @@ opportunities and MIN_ISO lone errors in each control half and in the dose. R if
 Usage: python3 graded_score.py DIR OUT.txt [CTRL_ID DOSE_ID ...]   (pairs given: bar 3 on each; none given: bars 2 and 3 on GSE184116)"""
 import sys, os, glob, json, numpy as np, pandas as pd
 MIN_OPP, MIN_ISO = 500, 5
+# 2026-10-25, amended before the deep pair is read (disclosed): bar 3 reads tiles of GROUP x 2,000 = 50,000 CpGs (the counter's 2,000-CpG tiles
+# summed in genome order within each chromosome). From the small runs' own tile counts scaled to the deep runs' depth, about 14 tiles of 2,000
+# CpGs would pass at 2 uM, against about 290 of 50,000; the control's tile-to-tile spread survives at that size. MIN_OPP and MIN_ISO apply to
+# the summed tiles. Synthetic: graded_synthetic_v2.py.
+GROUP = 25
 D, OUT = sys.argv[1], sys.argv[2]; H = os.path.dirname(os.path.abspath(__file__))
 def tiles(i):
-    f = glob.glob(os.path.join(D, "**", f"{i}_tiles.csv.gz"), recursive=True); return pd.read_csv(f[0]).set_index(["chrom", "tile"]) if f else None
+    f = glob.glob(os.path.join(D, "**", f"{i}_tiles.csv.gz"), recursive=True); return pd.read_csv(f[0]).assign(tile=lambda t: t.tile // GROUP).groupby(["chrom", "tile"]).sum() if f else None
 def E(iso, opp): return np.log((opp - iso) / iso)
 def bar3(c, d):
     C, X = tiles(c), tiles(d)

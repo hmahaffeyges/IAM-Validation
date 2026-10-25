@@ -254,3 +254,11 @@ than about two standard errors of counting at these opportunity counts, so the b
 the held error saturates by 2 uM. 5-azacytidine, a different route to the same loss, rises with dose at both doses (100 and 300 nM).
 Bar 3 (the deep pair, tile by tile) is what separates a slowed restoring rate from a smaller holding fraction; it runs once the mouse index
 release is built.
+
+**Bar 3 amended before the deep pair is read (disclosed):** tiles of 50,000 CpGs (the counter's 2,000-CpG tiles summed in genome order,
+25 at a time), the same minimums applied to the summed tiles. Reason, from the small runs' own tile counts scaled to the deep runs' read
+depth: about 14 tiles of 2,000 CpGs would pass at 2 uM, too few for a slope; about 290 of 50,000 CpGs would. The control's tile-to-tile
+spread in held-mark energy survives at that size (about 0.10 in log, against counting noise that falls below it at the deep runs' depth).
+Everything else in bar 3 is unchanged. **Synthetic test:** DEV_ERASE_01/graded_synthetic_v2.py, DEV_ERASE_01/graded_03/graded_synthetic_v2.txt
+(met: the planted shift read as slope 1.0128, intercept -0.7391, called R; the planted scaling as slope 0.8065, intercept -0.0185, called
+Phi). If bar 3 is not met, plan 14.1 moves to the human degron series; IAM-A's baseline stays calibrated either way.
