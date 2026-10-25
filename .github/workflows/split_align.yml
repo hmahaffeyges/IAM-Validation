@@ -11,9 +11,11 @@ on:
       nchunks: {description: "chunks (machines), at most 20", required: true, default: "20"}
       threads: {description: "aligner threads", required: true, default: "4"}
       full: {description: "1 = the one command's full reading; 0 = the count only", required: true, default: "0"}
+      chunksfrom: {description: "none, or the run id of an earlier split_align run whose chunks to merge without aligning again", required: false, default: "none"}
 permissions: {contents: read, issues: write, actions: read}
 jobs:
   chunk:
+    if: inputs.chunksfrom == 'none' || inputs.chunksfrom == ''
     runs-on: ubuntu-latest
     timeout-minutes: 355
     strategy:
@@ -52,15 +54,15 @@ jobs:
       - uses: actions/setup-python@v5   # 2026-10-23: the chain's requirements are written for Python 3.11 (run 39974702740 failed to build on the default Python)
         with: {python-version: "3.11"}
       - uses: actions/download-artifact@v4
-        with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true}
+        with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true, run-id: "${{ (inputs.chunksfrom != 'none' && inputs.chunksfrom != '') && inputs.chunksfrom || github.run_id }}", github-token: "${{ secrets.GITHUB_TOKEN }}"}
       - name: Merge the chunks' molecules; read once by the one command
         run: |
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1
-          E=Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01; n=$(ls chunks/${{ inputs.gsm }}_c*.pat.gz | wc -l); echo "chunks with molecules: $n of ${{ inputs.nchunks }}"
+          E=Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01; C=$(find chunks -name "${{ inputs.gsm }}_c*.pat.gz" | sort -V); n=$(echo "$C" | grep -c .)   # 2026-10-25: the artifacts keep eout/, so the files land in chunks/eout/; echo "chunks with molecules: $n of ${{ inputs.nchunks }}"
           [ "$n" = "${{ inputs.nchunks }}" ] || { echo "MISSING CHUNKS: merge refused"; exit 40; }
-          python3 $E/merge_pats.py $PWD/${{ inputs.gsm }}.pat.gz chunks/${{ inputs.gsm }}_c*.pat.gz
+          python3 $E/merge_pats.py $PWD/${{ inputs.gsm }}.pat.gz $C
           set +e; export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} PATFILE=$PWD/${{ inputs.gsm }}.pat.gz SAMPLES=${{ inputs.samples }}
-          bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; cp chunks/*_timing.json eout/ 2>/dev/null; true
+          bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; find chunks -name '*_timing.json' -exec cp {} eout/ \; 2>/dev/null; true
       - uses: actions/upload-artifact@v4
         if: always()
         with: {name: "split-${{ inputs.gsm }}-merged", path: "eout/\nrun.log\nrc.txt"}

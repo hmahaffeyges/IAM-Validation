@@ -20,6 +20,22 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": [
+    {
+     "title": "Full-depth sequencing: the molecule step and the merge fixed (GRP-020)",
+     "status": "built",
+     "what": "The molecule step rebuilds wgbstools' dictionary and retries when the prebuilt one fails; the merge finds the chunks' files where the artifacts put them, and can merge an earlier run's chunks without aligning again.",
+     "outcome": "Every chunk of the Reh control wrote its molecules; the merge is run on them.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    }
+   ]
   }
  ],
  "open_at_turnover": "Running on GitHub's machines: the leukemia study's Reh control and its UHRF1 knockout at full depth, each split across 20 machines, then merged and read by the one command.",
