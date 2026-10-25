@@ -3200,3 +3200,15 @@ Met-A's healthy mark was taken as far as the data allow: at the marked identity 
 
 ### 2026-10-25 · The division route read (PHY-006, plan 14.3)
 Proliferating IMR90 cells' held error is a little above the senescent cells' (the replicates do not overlap), about a twentieth of the held error; SV40 cells, still dividing, read the senescent level. Replication error is not the firm rate's missing half. Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md).
+
+### 2026-10-25 · Glioma blood and endothelial replays read (OTH-082)
+New glioblastoma blood reads higher whole-sample Met-A than lower-grade glioma blood, with far more neutrophils; endothelial cells from idiopathic pulmonary arterial hypertension read lower than controls, most on the domains territory. Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
+
+### 2026-10-25 · The first leukemia at full depth (GRP-020)
+ALL-45, aligned across 20 machines, reproduces its pass-1 held error within a few percent. Two pipeline faults fixed: the full reading had fallen back to plasma (each sample now carries its stated specimen, and cell lines are read and flagged at intake), and a last chunk's read files differed in length (the fetch keeps true pairs). Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
+
+### 2026-10-25 · The graded maintenance test written (PHY-006, plan 14.1)
+A DNMT1 inhibitor at three doses in mouse stem cells tells a slowed restoring rate (every region's holding energy lowered by the same amount) from a lowered holding fraction (each region's lowered in proportion). The held error is now counted tile by tile in two independent halves; the synthetic recovers both cases on its third run. Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md).
+
+### 2026-10-25 · Met-A with the atlas as the ruler (GRP-019, plan 14.14)
+Identity sites chosen on IAM-Atlas v2.1 and each array read on its own response curve against the atlas, with no cohort and no same-run references; healthy purified monocytes from three laboratories the atlas does not hold. The synthetic is met on its third run. Bulk purified megakaryocyte sequencing (BLUEPRINT, two donors) found for the next provisional column. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).

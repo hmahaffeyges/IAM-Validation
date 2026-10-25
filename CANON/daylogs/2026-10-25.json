@@ -3,7 +3,7 @@
  "title": "Where the held error comes from, and the leukemia study at full depth",
  "_convention": "see 2026-10-13.json",
  "check_completeness": false,
- "set_out": "Read the division route and the leukemia study's first full-depth samples; keep every machine working.",
+ "set_out": "The leukemia study first, then the firm rate, then Met-A with the atlas as the ruler, then megakaryocytes and plasma, then replays if machines are free (author's order).",
  "sections": [
   {
    "kind": "ran",
@@ -18,6 +18,46 @@
       "PHY-006"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "R9, glioma patients' blood and cultured endothelial cells (OTH-082, DEV-REPLICATE-01)",
+     "status": "development",
+     "what": "76 glioma bloods and 39 endothelial cultures, each read by the one command.",
+     "outcome": "New glioblastoma blood reads higher whole-sample Met-A than lower-grade glioma blood, with far more neutrophils; endothelial cells from idiopathic pulmonary arterial hypertension read lower than controls, most on the domains territory.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "The first leukemia at full depth (GRP-020, DEV-ALL-INFO-01)",
+     "status": "development",
+     "what": "ALL-45 aligned across 20 machines and read by the one command.",
+     "outcome": "Its held error reproduces its pass-1 count within a few percent.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The graded maintenance test written; its synthetic met (PHY-006, DEV-ERASE-01)",
+     "status": "development",
+     "what": "Mouse stem cells with a DNMT1 inhibitor at three doses, to tell a slowed restoring rate from a lowered holding fraction; written before any count.",
+     "outcome": "The synthetic recovers both cases on its third run; the counts are on GitHub.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "Met-A with the atlas as the ruler: test written; its synthetic met (GRP-019, DEV-METAA-ATLAS-CURVE-01)",
+     "status": "development",
+     "what": "Identity sites chosen on IAM-Atlas v2.1, each array read on its own response curve; healthy purified monocytes from three laboratories the atlas does not hold.",
+     "outcome": "The synthetic is met on its third run; the first laboratory's 15 arrays are on GitHub.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   },
@@ -30,6 +70,27 @@
      "status": "built",
      "what": "The molecule step rebuilds wgbstools' dictionary and retries when the prebuilt one fails; the merge finds the chunks' files where the artifacts put them, and can merge an earlier run's chunks without aligning again.",
      "outcome": "Every chunk of the Reh control wrote its molecules; the merge is run on them.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The held error tile by tile, and the split alignment's last chunk (PHY-006, GRP-020)",
+     "status": "development",
+     "what": "Stage Q2 counts the held error per tile in two independent halves; a fetch block whose read files differ keeps its true pairs.",
+     "outcome": "Both tested before use.",
+     "rows": [
+      "PHY-006",
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "Each sample read as its stated specimen; cell lines read and flagged (GRP-020)",
+     "status": "development",
+     "what": "The leukemia study's sample list carries each sample's specimen; intake reads a cell line on the full-atlas route.",
+     "outcome": "Every full-depth sample is read again from its merged molecules.",
      "rows": [
       "GRP-020"
      ],

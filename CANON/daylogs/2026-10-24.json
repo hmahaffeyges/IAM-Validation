@@ -89,6 +89,46 @@
       "PHY-050"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "The leukemia study's pass 1, 34 samples at 10 million read pairs (GRP-020, DEV-ALL-INFO-01)",
+     "status": "development",
+     "what": "IAM-A's count by the one command on every sample of the published leukemia study with reads.",
+     "outcome": "The leukemias' held error sits above the cord-blood B cells'; the UHRF1 knockout moves it most.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "Met-A's derived neutrophil mark, versions 1 to 7 (GRP-019, DEV-METAA-HEALTHY-01 step 3)",
+     "status": "development",
+     "what": "Seven ways of computing the neutrophil's healthy mark from its own molecules, each written before it was scored.",
+     "outcome": "Concluded: the marked side is predicted from the molecules, but the commissioned sites, chosen on the arrays they are scored against, read above each array's own curve; the commissioned baseline stays measured and the next version chooses its sites on the atlas.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "The provisional megakaryocyte column, versions 1 and 2 (GRP-016, DEV-ONE-DRAW-01)",
+     "status": "development",
+     "what": "A megakaryocyte column beside the atlas built from donor 1's single cells and tested on donor 2's.",
+     "outcome": "Not met: single cells are too thin for a column; bulk purified data is needed and donor 3 stays unread.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Replays on every array: prostate, tissues, stroke, Crohn's and colitis sorted cells (OTH-082, DEV-REPLICATE-01)",
+     "status": "development",
+     "what": "The earlier engine's series read again on all their arrays after the unrun shards were found (lesson C42).",
+     "outcome": "The islands territory reads higher in prostate tumors and in glioblastoma; stroke and the sorted cells of Crohn's and colitis show nothing beyond chance.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   },
@@ -145,6 +185,27 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The paper's outline, Methods draft and generator (plan 50)",
+     "status": "development",
+     "what": "The paper in the format of the leukemia study's own paper; every number read from the records at build time.",
+     "outcome": "Results fill in as each gated test lands.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "Provisional reference columns and public bigWig calls read by the chain (GRP-016, GRP-019)",
+     "status": "development",
+     "what": "stage_provisional (a cell the atlas lacks, read in a second flagged deconvolution) and values_from_bigwig with the atlas's GRCh38 site key.",
+     "outcome": "Both used in the day's tests.",
+     "rows": [
+      "GRP-016",
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   }
