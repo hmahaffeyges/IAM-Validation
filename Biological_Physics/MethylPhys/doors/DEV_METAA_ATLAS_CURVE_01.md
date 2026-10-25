@@ -15,7 +15,7 @@ and its own spread about that curve, bin by bin. The array's healthy mark is the
 curve with its own spread; Met-A is its own mean entropy there over that mark. No cohort, no same-run references, nothing fitted.
 
 **Prior reading:** none of the arrays. GSE189426, GSE201754 and GSE196071 had only their sample labels and file lists read; none is in the
-atlas roster or the spent list.
+atlas roster or the spent list. GSE110554 and GSE167998 (spent, atlas sources) are named in the B and T section only to place a laboratory; nothing of theirs is read in this record.
 
 **Data:** purified monocytes from healthy donors on the EPIC chip, raw IDATs, read by the one command (`series.yml`, specimen "isolated
 monocytes"). Development: GSE189426's 15 healthy donors (`data/DEV_METAA_ATLAS_CURVE_01/mono_dev_samples.csv`). Confirmation, untouched until
@@ -54,19 +54,23 @@ past the array's own detection check (the counts are in each array's bundle); no
 sites sit on each array's own curve in both laboratories (bar 3). **Not commissioned:** bar 2 as written is not met. Stated for the next
 test: arrays the reading withholds for detection are reported apart from the arrays it reads, and the bar is set on the arrays read.
 
-## B and T cells (written and committed before any B or T array is read; plan 14.15)
+## B and T cells (written and committed before any B or T array is read; plan branch for B and T cells)
 
 **The instrument's job:** a healthy sorted B or T cell array, read against its own subtype's column of IAM-Atlas v2.1 on its own
 response curve, reads Normal. Same reading, same bars as the monocytes; B and T cells carry the same priority (author).
 
-**Prior reading:** none of the arrays. Six series had only their sample labels and file lists read; none is in the atlas roster or the
+**Prior reading:** GSE110554 and GSE167998 (spent, atlas sources) are named only to place GSE174666's laboratory; nothing of theirs is read here.
+
+None of the B or T arrays has been read. Six series had only their sample labels and file lists read; none is in the atlas roster or the
 spent list. GSE288076 (naive CD4 T cells of preterm neonates) is left out: not adult blood.
 
 **Data, one subtype to one atlas column** (stated mapping, from each array's own labels; ambiguous subsets such as mixed effector-memory
 and TEMRA sorts, PBMC, NK and monocytes left out): development `data/DEV_METAA_ATLAS_CURVE_01/bt_development_samples.csv`, 78 arrays from
 one laboratory (GSE252045: naive and switched-memory B, naive and central-memory CD4, naive, central-memory, effector-memory and TEMRA
-CD8); confirmation `data/DEV_METAA_ATLAS_CURVE_01/bt_confirmation_samples.csv`, 78 arrays from four other laboratories (GSE174666,
-GSE192451, GSE146093 healthy donors, GSE184500 controls). New in the chain for this test: `run_series.py` takes a per-array `atlas_cell`
+CD8); confirmation `data/DEV_METAA_ATLAS_CURVE_01/bt_confirmation_samples.csv`, 35 arrays from three other laboratories (GSE192451
+naive and memory B, GSE146093 healthy donors' CD4, GSE184500 controls' CD8). GSE174666 (43 arrays) shares its contributors with the
+sorted-blood reference series the atlas was built from (GSE110554, GSE167998), so it is not independent of the atlas: read and reported
+apart (`data/DEV_METAA_ATLAS_CURVE_01/bt_samelab_samples.csv`), not counted in the confirmation. New in the chain for this test: `run_series.py` takes a per-array `atlas_cell`
 column, so one run reads every subtype against its own column.
 
 **Synthetic test:** DEV_METAA_ATLAS_CURVE_01/bt_synthetic.py, DEV_METAA_ATLAS_CURVE_01/bt_01/bt_synthetic_naive_cd8_t_cells.txt, DEV_METAA_ATLAS_CURVE_01/bt_01/bt_synthetic_naive_b_cells.txt
