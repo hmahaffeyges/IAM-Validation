@@ -3609,6 +3609,15 @@
 "text": "| B7 A-scores (recorded, cannot pass or fail) | Only the immune class is gauged, and only where a laboratory zero exists. GSE288652 and GSE166212 have none, so "
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+"line": 121,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "fields; listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atlas: the chemistry offset in the "
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md",
 "line": 4,
 "pattern": "\\bA[- ]score",
@@ -3652,6 +3661,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "measurement blur, is the remaining part; the healthy line measures it on each array's own anchor sites (bars 2 and 3 met in five"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 441,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "bundles; values copied, nothing computed): every reading of the 100 healthy bloods with its ceiling fields; listed in the A-score database."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
