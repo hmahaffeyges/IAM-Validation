@@ -186,3 +186,13 @@ the eraser recount's pipeline unchanged at 10 million read pairs (`erase_gh.sh`,
 loose share, not the held error. SV40 also disables p53 and Rb, so its reading is reported, not used to size the term. Nothing scored.
 
 **The prebuilt index and the molecule step:** the first jobs to use the index from the release (the division counts and the Reh control's split alignment) aligned and sorted, then stopped at bam2pat (exit 34); the jobs reported success because the script's exit code was only posted to issue 32. Fixed: bam2pat's log is kept; on a failure the genome dictionary is rebuilt from the fetched FASTA the committed way (init_genome, the CpG count checked) and bam2pat is run once more; the exit code is uploaded with each job. No count was made on the failed jobs; all were sent again.
+
+**The division route, read** (`data/DEV_ERASE_01/division_01/division_summary.txt`; all 9 samples, exit 0; the molecule step ran after the
+dictionary was rebuilt, as above): **the first outcome as written, and small.** Held error pooled 0.05070 in the proliferating cells (0.04960,
+0.05180, 0.05070) and 0.04828 in the senescent cells (0.04725, 0.04945, 0.04813); the two sets of replicates do not overlap. The difference is
+0.0024, about 5 % of the held error, so dividing adds at most a small part of it, far less than the firm rate's second half. **Reported, not
+used to size the term (stated before):** the SV40 cells, which keep dividing, read 0.04825, the senescent level, so the difference may come
+from the culture's state rather than division itself. The loose share rises with senescence (median 0.5807 to 0.6353) and further past it
+with SV40 (0.6877), as stated before for the chromatin's reorganization. **What it settles:** replication error is not the firm rate's
+missing second half; it is at most about a twentieth of the held error at steady state. The second half stays with maintenance itself (the
+UHRF1 knockout's route).

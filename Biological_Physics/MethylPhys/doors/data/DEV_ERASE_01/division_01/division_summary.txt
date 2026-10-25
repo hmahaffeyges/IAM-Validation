@@ -1,0 +1,13 @@
+DEV-ERASE-01 division route (GSE48580 IMR90), Stage Q2 counts at 10 million read pairs
+  proliferating  GSM1181642 held error 0.04960 (opp 677289) | loose share 0.55625
+  proliferating  GSM1181646 held error 0.05180 (opp 679966) | loose share 0.5806761736901138
+  proliferating  GSM1181647 held error 0.05070 (opp 756886) | loose share 0.5916406437665145
+proliferating  3 of 3 | pooled held error 0.05070 | loose share median 0.5807
+  senescent      GSM1181649 held error 0.04725 (opp 649982) | loose share 0.5861489191353082
+  senescent      GSM1181650 held error 0.04945 (opp 652502) | loose share 0.6419535628502803
+  senescent      GSM1181652 held error 0.04813 (opp 628583) | loose share 0.6352931752643384
+senescent      3 of 3 | pooled held error 0.04828 | loose share median 0.6353
+  SV40 bypass    GSM1181655 held error 0.04893 (opp 753371) | loose share 0.6877100336053769
+  SV40 bypass    GSM1181657 held error 0.04846 (opp 807262) | loose share 0.7457247882371744
+  SV40 bypass    GSM1181659 held error 0.04735 (opp 754531) | loose share 0.6864156072599344
+SV40 bypass    3 of 3 | pooled held error 0.04825 | loose share median 0.6877

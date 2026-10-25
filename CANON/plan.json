@@ -657,9 +657,9 @@
     {
      "id": "14.3",
      "date": "2026-10-23",
-     "status": "running",
+     "status": "read",
      "what": "Held error and replication error are two routes with different physics (author: the held error 'requires a constant force to maintain it'; the error made when DNA is copied is separate, rarer in healthy cells, and rises as the A score rises and a tumor grows). Stage Q2 counts one total, eps_obs = eps_held + eps_replication, and E_hold = kT ln((1-eps)/eps) reads the total as holding. Healthy references: the replication part is small (turnover does not predict the error across 26 cell types, rho 0.03; colon epithelium and cardiomyocytes both about 0.031). Dividing tumors: a rise can be weaker holding or more replication, and the energy read from the total understates the holding energy. Temperature: the held balance follows the holding energy; the replication error follows the writer's discrimination at the fork, a different barrier",
-     "next": "GSE48580 counted on GitHub once the aligner index is published; scored by division_score.py"
+     "next": "read: dividing adds at most about 5 % of the held error (proliferating 0.0507, senescent 0.0483; SV40 dividing cells at the senescent level); the firm rate's second half is maintenance itself; next: a graded reduction of maintenance (DNMT1 or UHRF1 dose) to size it"
     },
     {
      "id": "14.4",
