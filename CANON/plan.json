@@ -1349,7 +1349,33 @@
      "status": "open",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "A whole-genome IAM-Atlas: every CpG sequencing reads, for the globe and the information sphere (author)",
-     "next": "sized from v2.1's record: 21-26 h at 16 x 8 cores for 813,951 sites; a whole-genome atlas is about 34 times the sites. Data: 80 of 87 cell types have healthy sequencing (216 samples; median 3 per cell, 19 cells with one sample), but 207 come from one published sequencing atlas, so away from the array sites the lab term cannot be calibrated across labs. Before any rental: (1) test that a lab's term measured at the array sites holds elsewhere; (2) add BLUEPRINT, ENCODE and Roadmap sequencing for blood cells first; (3) time one whole-genome block on one Hetzner hourly machine; (4) test whether sequencing-only sites can take the model's closed form; (5) Hetzner hourly against AWS spot, priced the day of the decision | Megakaryocyte sources (labels only, nothing read): (a) BLUEPRINT bulk purified megakaryocytes, cord blood (CD34-negative CD41+ CD42+), two donors S004AV and S004BT, GRCh38 bigWig pairs; (b) GSE206818, platelet bisulfite sequencing from three healthy adults, merged into one track (bedGraph/bigWig, no per-donor files, no raw reads: submitter privacy); platelets carry the megakaryocyte genome, so adult megakaryocyte methylation, but with no donor spread; (c) GSE87197 single megakaryocytes (donors 1 and 2 spent, donor 3 reserved), too thin for a column. No megakaryocyte array series found. The study behind (b) estimates megakaryocytes at about 26 % of healthy plasma cfDNA. Whole-genome atlas: megakaryocytes from (a) with (b) as an adult check; a real column, replacing the provisional one. | BLUEPRINT listing (labels only; data/DEV_ATLAS_V21_01/blueprint_wgbs_listing.tsv, 205 bisulfite-sequenced samples): healthy uncultured cells that fill array-only atlas cells (naive B 3, regulatory T 2, mature eosinophils 2, mature neutrophils 7 (spent for Met-A step 3; may build, may not test)) and missing cells (plasma cells 5, conventional dendritic cells 2, megakaryocytes 2, erythroblasts 2); a second laboratory for CD4 T, memory B, classical monocytes, NK and CD8 subsets. Cultured or stimulated samples are excluded. | Two tests from the law, on v2.1 before any build: (1) a floor-bounded prior, every held level within 1 - eps_min and eps_min of the derived floor, checked for whether it hurts the fit anywhere; (2) the held-error check: at firmly held sites each cell column's level must equal 1 minus that cell's molecule-measured held error (layer 1), a physics check on every column with no cohort. | Prior art to search before any public claim: whole-genome healthy methylation atlases exist (the published sequencing atlas of human cell types; BLUEPRINT; ENCODE; Roadmap); check whether any pools laboratories with a full posterior per site. | IHEC data portal index (labels only; data/DEV_ATLAS_V21_01/ihec_wgbs_listing.csv, ihec_healthy_by_cell.csv): 645 bisulfite datasets across BLUEPRINT, CEEHRC, Roadmap, ENCODE, AMED-CREST, DEEP and KNIH; 360 from healthy donors, primary cells or tissue, with open processed tracks, in 105 cell or tissue types. New beyond BLUEPRINT: CEEHRC's breast luminal and basal epithelium (breast cancer's cells of origin), CD4 helper T (16 donors), B cells, monocytes, skeletal muscle; Roadmap tissues. DEEP and KNIH raw data are controlled access: their processed tracks are checked for open use before any is counted. Cultured or stimulated samples (e.g. GM-CSF dendritic cells) are excluded. Next: the ranked cell list, each IHEC cell type mapped by hand to the atlas (new, second laboratory, or array-only filled), ranked by plasma contribution and cancer origin; shown to the author before any build. | Ranked cell list, mapped by hand (data/DEV_ATLAS_V21_01/wg_cell_ranking.csv): of IHEC's 105 healthy types, 30 give a second laboratory to an atlas column, 8 fill an array-only column (neutrophils, naive B, eosinophils, memory CD4), 20 are new cell types (megakaryocytes, plasma cells, germinal center B, marrow progenitors, breast fibroblasts and others), 21 are tissues (checks on the Deconvolver, not columns), 26 are excluded (cultured, stem-cell derived, placental, mixtures). Still missing from every open source found: regulatory T and basophils by sequencing, uncultured dendritic cells, liver Kupffer and sinusoidal cells. Shown to the author before any build."
+     "next": "the author reviews the ranked cell list; then one real block timed on GitHub and on one small paid machine, so the cost is measured",
+     "build_plan": {
+      "purpose": "every CpG, not only the array sites, so a shallow plasma draw is read with every read it has (author: plasma first)",
+      "carried_from_v2.1": [
+       "each cell's level with its posterior width",
+       "the donor spread",
+       "laboratory terms (second laboratories from the IHEC list)",
+       "the seeds rule",
+       "spent and sealed data recorded before the fit"
+      ],
+      "decided_at_build_time": [
+       "two half-atlases (F07, F08): each cell's donors split in half and sealed before the fit, both fitted the same way, for half-difference noise maps (M03H) and half-cross spectra (M04)",
+       "posterior draws for noise maps (M03): each site's mean and width, a few draws and the seeds, so any draw can be regenerated exactly",
+       "coverage recorded per site and per cell, for masks and apodized masks (M02, APODMASK)",
+       "healthy covariance of neighboring sites (M07), computed while the donors' values are in memory; also what the whole-genome C-Score needs",
+       "neighbor-pair counts on each molecule, for nearest-neighbor coupling and the ceiling turnover (plan 49.5)",
+       "a fixed HEALPix address for every CpG, so every map, mask and spectrum lines up",
+       "a planted synthetic methylome through the same pipeline (M05), measuring what the build does to a known signal"
+      ],
+      "cost": "scaled from v2.1 (about 21 hours on 128 cores, about 2,700 core-hours, $150-170): about 90,000 core-hours for every CpG, about twice with the half-atlases; free on GitHub if one block fits 16 GB and 6 hours (weeks), or paid (Hetzner or AWS) at a price measured on one block first. Ways down without leaving anything useful out: fit neighboring CpGs that move together as one block; fit the ranked cell list by priority",
+      "order": [
+       "the ranked cell list reviewed by the author (data/DEV_ATLAS_V21_01/wg_cell_ranking.csv)",
+       "this plan",
+       "one real block timed on GitHub and on one small paid machine",
+       "the author decides where it runs and the spend"
+      ]
+     }
     }
    ]
   },
