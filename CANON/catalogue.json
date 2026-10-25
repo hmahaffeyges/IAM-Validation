@@ -44,7 +44,7 @@
    "id": "meta",
    "name": "Met-A",
    "question": "How far has a tissue's tagging level drifted toward the ceiling?",
-   "how": "Reads the methylation level at sites a healthy cell holds firmly, against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4). Read and flagged development: Met-A for every cell the IAM-Deconvolver finds, each against its own profile in IAM-Atlas v2.1, on arrays and on sequencing values.",
+   "how": "Reads the methylation level at each cell's identity sites, sites a healthy cell holds mostly marked or mostly unmarked, steadily from one healthy sample to the next, chosen away from the ends so that wear can show; against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4). Read and flagged development: Met-A for every cell the IAM-Deconvolver finds, each against its own profile in IAM-Atlas v2.1, on arrays and on sequencing values.",
    "reads": "arrays",
    "rows": [
     "COM-METAA-003"
@@ -261,7 +261,7 @@
    "v4-each": {
     "instrument": null,
     "measures": "How far each cell found in the sample has drifted from its own healthy identity, cell by cell.",
-    "source": "Each cell's identity sites: up to 6,000 sites the cell holds firmly marked or unmarked, and where its healthy level is steady. Read against that cell's healthy profile in IAM-Atlas v2.1, inside this sample's mix. A cell is read when at least half its identity sites are measured, and flagged below the commissioned coverage.",
+    "source": "Each cell's identity sites: up to 6,000 sites the cell holds mostly marked or mostly unmarked, steady from one healthy sample to the next, and chosen away from the ends so that wear can show. Read against that cell's healthy profile in IAM-Atlas v2.1, inside this sample's mix. A cell is read when at least half its identity sites are measured, and flagged below the commissioned coverage.",
     "compares": "Each cell's own healthy profile in the atlas, weighted by its share in this sample.",
     "physics": "Identity sites are where a cell's record is most firmly held, so drift there is the cell losing hold of what it is. Entropy rises from near 0 toward 1 bit as a site drifts toward a coin flip.",
     "significance": "When the whole-sample reading moves, these say where: which cell's identity is slipping. A rare cell needs a larger change to show, because its DNA is a smaller part of the sample."

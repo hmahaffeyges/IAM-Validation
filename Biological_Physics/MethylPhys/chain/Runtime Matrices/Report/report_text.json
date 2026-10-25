@@ -41,7 +41,7 @@
   },
   "v4-each": {
    "measures": "How far each cell found in the sample has drifted from its own healthy identity, cell by cell.",
-   "source": "Each cell's identity sites: up to 6,000 sites the cell holds firmly marked or unmarked, and where its healthy level is steady. Read against that cell's healthy profile in IAM-Atlas v2.1, inside this sample's mix. A cell is read when at least half its identity sites are measured, and flagged below the commissioned coverage.",
+   "source": "Each cell's identity sites: up to 6,000 sites the cell holds mostly marked or mostly unmarked, steady from one healthy sample to the next, and chosen away from the ends so that wear can show. Read against that cell's healthy profile in IAM-Atlas v2.1, inside this sample's mix. A cell is read when at least half its identity sites are measured, and flagged below the commissioned coverage.",
    "compares": "Each cell's own healthy profile in the atlas, weighted by its share in this sample.",
    "physics": "Identity sites are where a cell's record is most firmly held, so drift there is the cell losing hold of what it is. Entropy rises from near 0 toward 1 bit as a site drifts toward a coin flip.",
    "significance": "When the whole-sample reading moves, these say where: which cell's identity is slipping. A rare cell needs a larger change to show, because its DNA is a smaller part of the sample.",
