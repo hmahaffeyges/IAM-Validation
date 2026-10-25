@@ -303,3 +303,25 @@ scoring stopped on an error; the chain's sample-id hashing had replaced the cell
 word ("megakaryocytes"); the same bars were read from the saved bundles by `mk_provisional_01_score.py`. The hashing fault goes on the
 chain's fix list. **Next:** a version 2 column, written before it runs, using only sites with enough reads and a spread honest about
 single-cell noise; development on donor 2 (spent); confirmation on donor 3 (unread).
+
+## Provisional megakaryocyte column, version 2: test 2 (written and committed before version 2 is read on donor 2; plan 40.18)
+
+**Prior reading:** GSE87197 donor 1 built both columns; donor 2 was read in test 1 (spent), so this test is **development**; donor 3 stays
+unread for the confirmation.
+
+**What was wrong with version 1** (found after test 1): the counting spread was put on the array scale with the transfer's local slope, which
+at the ends understated it. Sites with 1 or 2 reads (all read as exactly 0 or 1) came out narrower (median spread 0.111 and 0.075) than sites
+with 3 (0.208), so the Deconvolver trusted the thinnest sites most and chose donor 1's chance extremes as markers. **Version 2**
+(`chain/stage_provisional.py::column_v2`, stated before it was read): the level from the shrunk proportion (m + 1/2)/(n + 1); the counting
+spread carried through the atlas's own inverse transfer by its interval's two ends, no slope; only sites with at least 5 reads (197,580 of
+donor 1's). Built by the one command (`--build-cell megakaryocytes@2`); read with `--dev-provisional megakaryocytes@2`. Its spread now falls
+with depth (median 0.154 at 5 reads, 0.107 at 10).
+
+**The test** (`data/DEV_ONE_DRAW_01/mk_absorb_01/mk_provisional_02.py`): test 1's saved donor 2 readings (the pure pool; the spent healthy
+plasma with 0, 10, 25 and 40 % planted), read again with version 2. **The instrument's job:** name the megakaryocyte DNA instead of
+absorbing it. **Bars:** test 1's three.
+
+**Synthetic test:** chain/stage_provisional.py, DEV_ONE_DRAW_01/mk_absorb_01/provisional_synthetic_01.py, DEV_ONE_DRAW_01/mk_absorb_01/provisional_03/provisional_synthetic_v2.txt
+
+The synthetic is donor 1 in-sample: version 2 reads its own donor's pure pool 0.880 (version 1: 1.000, its own noise), and with 40 %
+planted the megakaryocyte share rises from 0.085 to 0.358 while the stand-ins fall (0.679 to 0.538).

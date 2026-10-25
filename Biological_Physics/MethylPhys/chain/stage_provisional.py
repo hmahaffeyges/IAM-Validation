@@ -50,14 +50,41 @@ def column(P):
     sd = np.sqrt(q * (1 - q) / (P.n * k ** 2) + d.reindex(P.probe).fillna(d.median()).to_numpy() ** 2 + A21.lab_sd() ** 2 + A21.FLOOR)
     return pd.DataFrame({"mu": x.astype("float32"), "sd": np.asarray(sd, "float32"), "n": P.n.to_numpy(np.int32)}, index=P.probe.astype(str).to_numpy())
 
+MIN_READS_V2 = 5   # stated before version 2 was read (2026-10-24)
+
+def column_v2(P):
+    """Version 2 (2026-10-24, after provisional reference test 1 was not met; disclosed). Version 1 put the counting spread on the array scale
+    with the transfer's local slope, which at the ends (where every single-read site sits, read as exactly 0 or 1) understated it: sites with
+    1 or 2 reads came out NARROWER (median 0.111, 0.075) than sites with 3 (0.208), so the Deconvolver trusted the thinnest sites most and
+    chose donor 1's chance extremes as markers. Version 2: (1) the level from the shrunk proportion q = (m + 1/2)/(n + 1), so no site sits at
+    exactly 0 or 1 on one read; (2) the counting spread carried through the atlas's own inverse transfer by the two ends of its interval,
+    q -/+ sqrt(q (1 - q)/(n + 1)), half their distance on the array scale, no slope; (3) only sites with at least MIN_READS_V2 reads. The
+    donor spread, laboratory and floor terms are version 1's. Nothing fitted."""
+    import stage_atlas_commission as A21
+    from scipy.interpolate import PchipInterpolator
+    T = json.load(open(SMOOTH)); g = PchipInterpolator(T["knots_x"], T["knots_y"]); gx = np.linspace(0, 1, 200001); gv = g(gx) + 1e-12 * gx
+    P = P[P.n >= MIN_READS_V2].copy(); q = (P.m + 0.5) / (P.n + 1); e = np.sqrt(q * (1 - q) / (P.n + 1))
+    inv = lambda v: np.interp(np.clip(v, 0, 1), gv, gx); x = inv(q); half = (inv(q + e) - inv(q - e)) / 2
+    sites = pd.read_parquet(os.path.join(ATLAS, "sites.parquet")).cpg.astype(str).values; ds = []
+    for i in (1, 2, 3):
+        D = pd.read_parquet(os.path.join(ATLAS, f"donor_sd_part{i}.parquet")); ds.append(D.where(D != 65535) / 10000.0)
+    d = pd.concat(ds, axis=1).median(1); d.index = sites
+    sd = np.sqrt(half ** 2 + d.reindex(P.probe).fillna(d.median()).to_numpy() ** 2 + A21.lab_sd() ** 2 + A21.FLOOR)
+    return pd.DataFrame({"mu": np.asarray(x, "float32"), "sd": np.asarray(sd, "float32"), "n": P.n.to_numpy(np.int32)}, index=P.probe.astype(str).to_numpy())
+
+def _name_version(cell):
+    """'megakaryocytes@2' -> ('megakaryocytes', 2); a bare name is version 1."""
+    c, _, v = str(cell).partition("@"); return c, int(v or 1)
+
 def build(cell, samples_csv, work, out=None):
-    P, ann = pool_hg38(samples_csv, work); C = column(P); out = out or os.path.join(DIR, f"{cell}_v1.parquet"); os.makedirs(os.path.dirname(out), exist_ok=True)
-    C.to_parquet(out); meta = dict(cell=cell, flag=FLAG, samples=os.path.basename(samples_csv), n_samples=int(len(pd.read_csv(samples_csv))), sites=int(len(C)),
+    cell, ver = _name_version(cell)
+    P, ann = pool_hg38(samples_csv, work); C = column_v2(P) if ver == 2 else column(P); out = out or os.path.join(DIR, f"{cell}_v{ver}.parquet"); os.makedirs(os.path.dirname(out), exist_ok=True)
+    C.to_parquet(out); meta = dict(cell=cell, version=ver, flag=FLAG, samples=os.path.basename(samples_csv), n_samples=int(len(pd.read_csv(samples_csv))), sites=int(len(C)),
         median_reads=int(np.median(C.n)), annotation=ANN, annotation_sha256=ann, transfer=os.path.basename(SMOOTH), column_sha256=hashlib.sha256(open(out, "rb").read()).hexdigest())
     json.dump(meta, open(out.replace(".parquet", ".json"), "w"), indent=1); return meta
 
 def load(cell):
-    p = os.path.join(DIR, f"{cell}_v1.parquet"); return pd.read_parquet(p) if os.path.exists(p) else None
+    c, v = _name_version(cell); p = os.path.join(DIR, f"{c}_v{v}.parquet"); return pd.read_parquet(p) if os.path.exists(p) else None
 
 def with_provisional(R, cells):
     """The atlas reference R (stage_deconv_v21.reference) with provisional columns added; R itself is not changed."""
@@ -65,5 +92,6 @@ def with_provisional(R, cells):
     for c in cells:
         C = load(c)
         if C is None: continue
-        mu[c + " (provisional)"] = C.mu.reindex(mu.index).astype("float32"); sd[c + " (provisional)"] = C.sd.reindex(sd.index).astype("float32"); added.append(c + " (provisional)")
+        nm = _name_version(c)[0] + " (provisional)"   # the version is in the bundle's flag, not the cell's name
+        mu[nm] = C.mu.reindex(mu.index).astype("float32"); sd[nm] = C.sd.reindex(sd.index).astype("float32"); added.append(nm)
     return dict(R, mu=mu, sd=sd, cells=list(R["cells"]) + added), added

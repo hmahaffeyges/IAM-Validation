@@ -3115,7 +3115,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 295,
+"line": 308,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3124,7 +3124,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 295,
+"line": 308,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3133,7 +3133,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 979,
+"line": 992,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3142,7 +3142,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 979,
+"line": 992,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3151,7 +3151,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 981,
+"line": 994,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3160,7 +3160,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 981,
+"line": 994,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3889,7 +3889,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 797,
+"line": 803,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3898,7 +3898,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 1422,
+"line": 1428,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3907,7 +3907,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 1422,
+"line": 1428,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3916,7 +3916,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 1432,
+"line": 1438,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3925,7 +3925,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 2911,
+"line": 2917,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3934,7 +3934,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3066,
+"line": 3072,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3943,7 +3943,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3066,
+"line": 3072,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3952,7 +3952,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3323,
+"line": 3329,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -3970,7 +3970,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 546,
+"line": 549,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3979,7 +3979,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 988,
+"line": 991,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3988,7 +3988,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 988,
+"line": 991,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3997,7 +3997,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 998,
+"line": 1001,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4006,7 +4006,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1887,
+"line": 1890,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4015,7 +4015,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1980,
+"line": 1983,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4024,7 +4024,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1980,
+"line": 1983,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4033,7 +4033,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2132,
+"line": 2135,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

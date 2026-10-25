@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **34 Python files** holding **416 functions** (nested ones included); 416 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **34 Python files** holding **418 functions** (nested ones included); 418 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -29,7 +29,7 @@ Read from the code at build time: the one command can load **34 Python files** h
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
 | `stage_q0_intake.py` | 174 | 7 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
-| `stage_provisional.py` | 70 | 5 | 0 | 0 |
+| `stage_provisional.py` | 98 | 7 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 445 | 23 | 0 | 0 |
@@ -3494,22 +3494,34 @@ A provisional reference column from pooled reads: the level through the atlas's 
 
 Builds and saves a provisional column with its provenance (samples, annotation and column checksums); run by run_sample.py --build provisional.
 
-*Code:* `stage_provisional.py` line 53 (5 lines) · arguments: cell, samples_csv, work, out · calls: not called on the traced runs · constants read: `ANN`, `DIR`, `FLAG`, `SMOOTH` · files named: `_v1.parquet`
+*Code:* `stage_provisional.py` line 79 (6 lines) · arguments: cell, samples_csv, work, out · calls: not called on the traced runs · constants read: `ANN`, `DIR`, `FLAG`, `SMOOTH`
 
 ### `stage_provisional.py::load`
 
 Loads a saved provisional column, if one was built.
 
-*Code:* `stage_provisional.py` line 59 (2 lines) · arguments: cell · calls: not called on the traced runs · constants read: `DIR` · files named: `_v1.parquet`
+*Code:* `stage_provisional.py` line 86 (2 lines) · arguments: cell · calls: not called on the traced runs · constants read: `DIR`
 
 ### `stage_provisional.py::with_provisional`
 
 The atlas reference with provisional columns added, as a copy; IAM-Atlas v2.1 itself is never changed.
 
-*Code:* `stage_provisional.py` line 62 (8 lines) · arguments: R, cells · calls: not called on the traced runs
+*Code:* `stage_provisional.py` line 89 (9 lines) · arguments: R, cells · calls: not called on the traced runs
 
 ### `stage_v4.py::stage_d21_provisional`
 
 A second deconvolution with provisional columns beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged (development, plan 40.18).
 
 *Code:* `stage_v4.py` line 61 (13 lines) · arguments: beta, panel, cells, sequencing · calls: not called on the traced runs · constants read: `_REF`
+
+### `stage_provisional.py::column_v2`
+
+Version 2 of a provisional column (after test 1): the level from the shrunk proportion (m + 1/2)/(n + 1), the counting spread carried through the atlas's inverse transfer by the two ends of its interval (no local slope, so thin sites at the ends are not made narrow), and only sites with at least 5 reads.
+
+*Code:* `stage_provisional.py` line 55 (19 lines) · arguments: P · calls: not called on the traced runs · constants read: `ATLAS`, `MIN_READS_V2`, `SMOOTH` · files named: `sites.parquet`
+
+### `stage_provisional.py::_name_version`
+
+Reads a column name with its version ('megakaryocytes@2'); a bare name is version 1. The version is recorded in the bundle, the cell keeps its plain name.
+
+*Code:* `stage_provisional.py` line 75 (3 lines) · arguments: cell · calls: not called on the traced runs

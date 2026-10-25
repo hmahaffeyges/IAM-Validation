@@ -68,7 +68,7 @@ def stage_d21_provisional(beta, panel, cells, sequencing=False):
     R, M, added = _REF[key]
     if not added: return {"stage": "D21-provisional", "status": "NOT_RUN", "reason": "no provisional column built for " + ", ".join(cells)}
     b = pd.Series(beta, dtype="float64"); b.index = b.index.astype(str); d = D21.deconvolve(b, R, M)
-    return {"stage": "D21-provisional", "flag": PV.FLAG, "added": added, "markers": len(M), "markers_measured": int(b.reindex(M).notna().sum()),
+    return {"stage": "D21-provisional", "flag": PV.FLAG, "columns": list(cells), "added": added, "markers": len(M), "markers_measured": int(b.reindex(M).notna().sum()),
             "cells": [{"cell": c, "share": round(d["shares"][c], 4), "interval_95": [round(x, 4) for x in d["interval_95"][c]]} for c in R["cells"]],
             "sites_used": d["sites_used"]}
 

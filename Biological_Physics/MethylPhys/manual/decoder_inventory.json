@@ -5830,7 +5830,7 @@
   },
   {
    "file": "stage_provisional.py",
-   "lines": 70,
+   "lines": 98,
    "functions": [
     {
      "file": "stage_provisional.py",
@@ -5875,17 +5875,53 @@
     },
     {
      "file": "stage_provisional.py",
+     "function": "column_v2",
+     "name": "column_v2",
+     "line": 55,
+     "end": 73,
+     "args": [
+      "P"
+     ],
+     "lines": 19,
+     "doc": "Version 2 (2026-10-24, after provisional reference test 1 was not met; disclosed). Version 1 put the counting spread on the array scale with the transfer's local slope, which at the ends (where every single-read site sits, read as exactly 0 or 1) understated it: sites with 1 or 2 reads came out NARROWER (median 0.111, 0.075) than sites with 3 (0.208), so the Deconvolver trusted the thinnest sites ",
+     "constants": [
+      "ATLAS",
+      "MIN_READS_V2",
+      "SMOOTH"
+     ],
+     "data_files": [
+      "sites.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_provisional.py",
+     "function": "_name_version",
+     "name": "_name_version",
+     "line": 75,
+     "end": 77,
+     "args": [
+      "cell"
+     ],
+     "lines": 3,
+     "doc": "'megakaryocytes@2' -> ('megakaryocytes', 2); a bare name is version 1.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_provisional.py",
      "function": "build",
      "name": "build",
-     "line": 53,
-     "end": 57,
+     "line": 79,
+     "end": 84,
      "args": [
       "cell",
       "samples_csv",
       "work",
       "out"
      ],
-     "lines": 5,
+     "lines": 6,
      "doc": "",
      "constants": [
       "ANN",
@@ -5893,17 +5929,15 @@
       "FLAG",
       "SMOOTH"
      ],
-     "data_files": [
-      "_v1.parquet"
-     ],
+     "data_files": [],
      "traced_calls": {}
     },
     {
      "file": "stage_provisional.py",
      "function": "load",
      "name": "load",
-     "line": 59,
-     "end": 60,
+     "line": 86,
+     "end": 87,
      "args": [
       "cell"
      ],
@@ -5912,22 +5946,20 @@
      "constants": [
       "DIR"
      ],
-     "data_files": [
-      "_v1.parquet"
-     ],
+     "data_files": [],
      "traced_calls": {}
     },
     {
      "file": "stage_provisional.py",
      "function": "with_provisional",
      "name": "with_provisional",
-     "line": 62,
-     "end": 69,
+     "line": 89,
+     "end": 97,
      "args": [
       "R",
       "cells"
      ],
-     "lines": 8,
+     "lines": 9,
      "doc": "The atlas reference R (stage_deconv_v21.reference) with provisional columns added; R itself is not changed.",
      "constants": [],
      "data_files": [],
@@ -8137,5 +8169,5 @@
   }
  ],
  "n_files": 34,
- "n_functions": 416
+ "n_functions": 418
 }

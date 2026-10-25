@@ -2232,3 +2232,9 @@ The atlas reference with provisional columns added, as a copy; IAM-Atlas v2.1 it
 
 ### stage_v4.py::stage_d21_provisional
 A second deconvolution with provisional columns beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged (development, plan 40.18).
+
+### stage_provisional.py::column_v2
+Version 2 of a provisional column (after test 1): the level from the shrunk proportion (m + 1/2)/(n + 1), the counting spread carried through the atlas's inverse transfer by the two ends of its interval (no local slope, so thin sites at the ends are not made narrow), and only sites with at least 5 reads.
+
+### stage_provisional.py::_name_version
+Reads a column name with its version ('megakaryocytes@2'); a bare name is version 1. The version is recorded in the bundle, the cell keeps its plain name.

@@ -1,0 +1,4 @@
+provisional reference, synthetic check 1 (donor 1, in-sample)
+donor1_pool: atlas only, stand-ins summed 0.9792 | with the column: megakaryocytes 0.8802, stand-ins summed 0.1199, largest megakaryocytes (provisional) | markers 7911
+plasma_00pct: atlas only, stand-ins summed 0.7640 | with the column: megakaryocytes 0.0847, stand-ins summed 0.6787, largest lung interstitial macrophages | markers 7911
+plasma_40pct: atlas only, stand-ins summed 0.8782 | with the column: megakaryocytes 0.3577, stand-ins summed 0.5378, largest lung interstitial macrophages | markers 7911
