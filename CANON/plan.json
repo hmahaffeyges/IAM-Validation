@@ -1859,6 +1859,18 @@
    "task": "Whole-genome atlas and globe, built together (author 2026-10-24): IAM-Atlas extended from 813,951 chip sites to the genome's CpGs (28,217,448 in the hg19 dictionary) from its sequencing sources, for sequencing samples only (arrays keep v2.1); then the globe's whole-genome layer read against it in the person's own mix; synthetic test first. AWS scale (about 35 times today's sites). After the send gate (step 49).",
    "done_when": null,
    "branches": []
+  },
+  {
+   "task": "After the cell work: the patent review and the law's other scales (parked by the author)",
+   "branches": [
+    {
+     "id": "99.1",
+     "date": "2026-10-25",
+     "status": "parked",
+     "what": "The cosmological equivalent of the cell gauge's floor, middle line and ceiling (author: 'it would be fun to try someday'), including whether the law can give G's value: an M for gravity built from independent quantities with no G inside them, the predicted G written down before it is compared with the measured value. Not part of the methylation paper.",
+     "next": "after the cell work, beside the patent review"
+    }
+   ]
   }
  ],
  "scheduled": [
