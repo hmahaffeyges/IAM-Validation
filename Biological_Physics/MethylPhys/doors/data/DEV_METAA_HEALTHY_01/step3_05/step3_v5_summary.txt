@@ -1,0 +1,13 @@
+donors read: C000S5, C0011I, PB100713 | identity sites with a value 5407 of 5553
+held: sequencing level 0.9355 (granulocytes 0.9344; per donor 0.9326, 0.9358, 0.9457) | version 5 array-scale level 0.9414 (neutrophil arrays 0.9362) | entropy 0.2964
+absent: sequencing level 0.0053 (granulocytes 0.0114; per donor 0.0056, 0.0043, 0.0062) | version 5 array-scale level 0.0409 (neutrophil arrays 0.0699) | entropy 0.2167
+cause split: purified neutrophils at the unmarked sites 0.0053: the stand-in does not account for it; the probe offset is larger in neutrophils
+derived mark 0.25940 bits | measured mark 0.33026 bits (6 arrays) | derived / measured 0.7854
+array | Met-A against the measured mark (frozen sites) | against the derived mark
+GSM2998021 | 1.0038 | 1.2781
+GSM2998057 | 0.9934 | 1.2648
+GSM2998116 | 0.9986 | 1.2714
+GSM2998023 | 0.9930 | 1.2643
+GSM2998143 | 1.0034 | 1.2775
+GSM2998030 | 1.0077 | 1.2830
+bar 1 (all six Normal, 0.95-1.05, against the derived mark): 0 of 6: not met

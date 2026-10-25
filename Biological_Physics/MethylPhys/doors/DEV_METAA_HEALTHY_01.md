@@ -363,3 +363,15 @@ measured property of each probe, with no neutrophil array; development until the
 The synthetic (a constructed bigWig pair at the atlas sites, one site in ten at the next base, read by the one command) runs on GitHub, where
 the bigWig reader installs, before any donor is read. **Result:** every identity site found (2931 of 2931 marked, 2622 of 2622 unmarked), levels read exactly (max error
 0.0000), 78,914 sites read at the next base as planted.
+
+**Step 3 version 5, scored** (`data/DEV_METAA_HEALTHY_01/step3_05/step3_v5_summary.txt`; the three development donors, 5407 of 5553 identity
+sites with at least 10 reads; the watcher fetched only .json files, so the readings were downloaded by hand, nothing changed): **bar 1 not
+met (0 of 6); the derived mark is 0.7854 of the measured one.** **The cause split is decided:** purified neutrophils read **0.0053** at the
+unmarked identity sites (per donor 0.0056, 0.0043, 0.0062), lower than the granulocytes' 0.0114, so **the granulocyte stand-in does not
+account for the gap.** At the marked sites they read 0.9355 (granulocytes 0.9344). **What it shows:** at Met-A's unmarked identity sites the
+neutrophil's DNA is almost entirely unmarked (about half a percent), and the neutrophil arrays read about 0.07 there, more than other blood
+cells' arrays read at the same probes (0.030 above their sequencing). The unmarked half of Met-A's healthy mark is set by how the array reads
+nearly unmarked DNA, not by the cell. Those sites were chosen because the neutrophil arrays read them between 0.05 and 0.25, which selects
+probes where the array reads above a nearly unmarked truth. **What follows:** the term version 1 named as not included, each array's own
+measurement blur, is the remaining part; the healthy line measures it on each array's own anchor sites (bars 2 and 3 met in five
+laboratories). The four reserved BLUEPRINT donors stay unread.

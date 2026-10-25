@@ -3191,3 +3191,6 @@ Each healthy blood's whole-sample Met-A predicted from its own array's measured 
 
 ### 2026-10-24 · Met-A's marked side predicted from molecules; the gap is the array at unmarked sites (GRP-019)
 Counting molecule classes at Met-A's identity sites (version 3) predicts the marked side from the cell's own molecules (0.9344 against the arrays' 0.9362): a loose share beside the held error. The remaining gap is the unmarked side, where arrays read nearly unmarked sites at about 0.07. Version 4 uses each array's own measured line. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).
+
+### 2026-10-24 · Purified neutrophils: Met-A's unmarked sites are nearly bare; the array sets that half of the mark (GRP-019)
+Public whole-genome bisulfite sequencing of purified neutrophils (three healthy donors) reads Met-A's unmarked identity sites at 0.0053; the neutrophil arrays read them near 0.07. The granulocyte stand-in was not the cause of the gap. The unmarked half of the healthy mark is the array's measurement of nearly unmarked DNA. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).
