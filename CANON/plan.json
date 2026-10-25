@@ -151,23 +151,25 @@
     {
      "id": "49.1",
      "date": "2026-10-24",
-     "status": "running",
+     "status": "done",
      "what": "Pass 1: IAM-A's count on all 36 samples at 10 million read pairs",
-     "next": "read on landing (pass1_score.py)"
+     "next": "read: all 34 samples with reads; leukemias' held error above the cord-blood controls' (0.0412 vs 0.0367, p 0.022); the UHRF1 knockout 2.9 times its control (DEV_ALL_INFO_01.md, Pass 1, read)",
+     "closed": "2026-10-24"
     },
     {
      "id": "49.2",
      "date": "2026-10-24",
-     "status": "open",
+     "status": "built",
      "what": "The split alignment: each sample's reads spread over machines, one index; the firm-rate recount (14.5) needs it too",
-     "next": "build and test on one sample"
+     "next": "built and fixed (the molecule step on the prebuilt index, the merge's file search, the last chunk's unpaired reads); next: the Reh control's merged full-depth count checked against its pass-1 count",
+     "closed": "2026-10-25"
     },
     {
      "id": "49.3",
      "date": "2026-10-24",
-     "status": "open",
+     "status": "running",
      "what": "Pass 2 at full depth: Met-A on sequencing, the territories, the globe and the distance to the ceiling, region by region beside the study's five findings",
-     "next": "after 49.2"
+     "next": "at full depth on GitHub: the Reh control, the UHRF1 knockout, the three cord-blood controls and the first two leukemias; the other 29 leukemias after the Reh check"
     },
     {
      "id": "49.4",
@@ -203,7 +205,7 @@
      "date": "2026-10-24",
      "status": "open",
      "what": "Order (author): (1) finish the chain and the derived baselines (the send gate); (2) the study's own dataset, GSE116229, in full: pass 1 (36 samples at 10 million read pairs) and pass 2 (full depth through a split alignment, tested first on the knockout pair), every finding set beside its published result, with a public leukemia array series as a companion if one with public values exists (GSE49031 has none); (3) a blind run on unread public data, readings deposited before unblinding; (4) the 'run your own datasets' invitation, limited to specimens that passed. The report shows each found cell against its healthy range, between the baseline and the ceiling; the chain names no disease.",
-     "next": "pass 1 landing; the split alignment written and tested on the knockout pair"
+     "next": "order (author 2026-10-25): the leukemia study first, then the firm rate (14.1), then Met-A on the atlas (14.14), then replays if there is room"
     }
    ]
   },
@@ -276,7 +278,7 @@
      "date": "2026-10-23",
      "status": "open",
      "what": "The atlas ruler, so healthy reads 1 on the whole-sample Met-A and the territories (healthy 1.113 untared)",
-     "next": "the many-level ruler (sites every cell type holds alike at several levels), synthetic first; the two-anchor line overcorrects (healthy 1.113 untared, 0.938 on it)",
+     "next": "the straight-line ruler overcorrected and is off; its successors are the healthy line (14.4) and each array's own response curve (step 3 version 7); applied in 14.14",
      "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
     },
     {
@@ -319,10 +321,11 @@
     {
      "id": "0.8",
      "date": "2026-10-23",
-     "status": "running",
+     "status": "done",
      "what": "R5 to R9: Crohn's and colitis (GSE87650), stroke (GSE69138), prostate (GSE269244), pancreas, brain and aorta tissues (GSE49149, GSE60274, GSE74071, GSE84274), glioma patients' blood (GSE180683), cultured endothelial cells (GSE84395); 1,487 arrays",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
-     "next": "read each run; replay_score.py"
+     "next": "all read on every array and recorded (DEV_REPLICATE_01.md): prostate islands p 1.2e-06; glioblastoma islands p 7.6e-07; stroke and Crohn's/colitis nothing beyond chance; glioma blood and endothelial development signals",
+     "closed": "2026-10-25"
     }
    ]
   },
@@ -659,15 +662,17 @@
      "date": "2026-10-23",
      "status": "read",
      "what": "Held error and replication error are two routes with different physics (author: the held error 'requires a constant force to maintain it'; the error made when DNA is copied is separate, rarer in healthy cells, and rises as the A score rises and a tumor grows). Stage Q2 counts one total, eps_obs = eps_held + eps_replication, and E_hold = kT ln((1-eps)/eps) reads the total as holding. Healthy references: the replication part is small (turnover does not predict the error across 26 cell types, rho 0.03; colon epithelium and cardiomyocytes both about 0.031). Dividing tumors: a rise can be weaker holding or more replication, and the energy read from the total understates the holding energy. Temperature: the held balance follows the holding energy; the replication error follows the writer's discrimination at the fork, a different barrier",
-     "next": "read: dividing adds at most about 5 % of the held error (proliferating 0.0507, senescent 0.0483; SV40 dividing cells at the senescent level); the firm rate's second half is maintenance itself; next: a graded reduction of maintenance (DNMT1 or UHRF1 dose) to size it"
+     "next": "read: dividing adds at most about 5 % of the held error (proliferating 0.0507, senescent 0.0483; SV40 dividing cells at the senescent level); the firm rate's second half is maintenance itself; next: a graded reduction of maintenance (DNMT1 or UHRF1 dose) to size it",
+     "closed": "2026-10-25"
     },
     {
      "id": "14.4",
      "date": "2026-10-23",
-     "status": "running",
+     "status": "read",
      "what": "Met-A's healthy number from physics and the atlas, the independent test: predict healthy EPIC neutrophil arrays' level at methylated identity sites from neutrophil molecules sequenced in another laboratory (the held error from Stage Q2, the per-cell gap from IAM-Atlas v2.1, the array's blur from its own control probes), with nothing shared between the prediction and the arrays. The whiteboard check on the atlas (about half of the drop from 1 on the held error, half on a per-cell gap; both from the same molecules, so not independent) is the reason to run it",
-     "next": "bar 2: healthy bloods from five laboratories through run_sample.py; then the held-error-and-gap layer for e itself",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+     "next": "bars 2 and 3 met in five laboratories (spread 0.0921 to 0.0303); bar 1 (synthetic) missed by 0.0072, so development; a confirmation needs laboratories not yet read",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "closed": "2026-10-24"
     },
     {
      "id": "14.5",
@@ -675,7 +680,7 @@
      "status": "open",
      "what": "GSM3618718 in the firm-rate recount stopped at GitHub's 6-hour limit while downloading and aligning (run 39994316396, nothing saved): one machine is too small for it. It needs its read sets spread over machines, as the mouse test's were (mice_split.yml), with the human index built once and shared",
      "run": "39994316396",
-     "next": "a general split workflow for one human sample (index once, read sets in parallel, counts gathered by the one command); then rerun GSM3618718 and GSM3618720 (U1's second pair)"
+     "next": "re-run through the split alignment (49.2) now that it works"
     },
     {
      "id": "14.6",
@@ -688,10 +693,11 @@
     {
      "id": "14.7",
      "date": "2026-10-24",
-     "status": "running",
+     "status": "done",
      "what": "Layer 1: the atlas's healthy levels predicted from each cell type's loss-side and gain-side held errors; the gain side added to Stage Q2's counter (synthetic test met); the gap measured",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
-     "next": "step 3 concluded after seven versions: the mark at Met-A's array-chosen identity sites carries a selection effect (+0.026 above each array's own response curve) and stays measured. Next: a Met-A version whose identity sites are chosen on molecules (purified sequencing), its mark then predicted for each array from the array's own response curve; designed and tested in its own record, synthetic first; the confirmation reading of version 7 recorded when it lands"
+     "next": "concluded after seven versions: the marked side is predicted from the cell's molecules, but the commissioned sites, ranked on the arrays they are scored against, read above each array's own response curve; continued as 14.14 (sites chosen on the atlas)",
+     "closed": "2026-10-25"
     },
     {
      "id": "14.8",
@@ -1678,7 +1684,7 @@
      "status": "running",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
      "what": "Provisional reference columns beside IAM-Atlas v2.1 for cells it lacks (author's idea): first megakaryocytes, built from GSE87197 donor 1, tested on donor 2; the Deconvolver's leftover and unreferenced sites reported as what else is there, unscored",
-     "next": "single-cell megakaryocytes (GSE87197) too thin for a column (tests 1 and 2 not met; ploidy does not separate): find public bulk megakaryocyte methylation at real depth; donor 3 unread"
+     "next": "versions 1 and 2 not met on donor 2; ploidy does not separate; single cells are too thin for a column: find deep bulk megakaryocyte methylation data; donor 3 stays unread"
     },
     {
      "id": "40.19",
