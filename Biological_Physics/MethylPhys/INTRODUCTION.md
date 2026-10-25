@@ -120,6 +120,13 @@ against 0.0248, and 0.0232 against 0.0484 with cells it does not hold mixed in (
 [10.5281/zenodo.23441999](https://doi.org/10.5281/zenodo.23441999).
 **Different because** published references are built from a handful of sorted samples per cell type and give one number per site with no
 uncertainty. This atlas says how sure it is, site by site and cell by cell, and every cell has its own page on the website.
+**What is a tool and what is physics.** The atlas is a ruler, and a ruler has to be one anyone can rebuild: the same public data and the
+same model give the same atlas. Others use their atlases to find which cells a sample came from. IAM uses this one to build each
+person's own expected healthy self, from their own cell mix, and reads every site's departure from it with no cohort. IAM's law is what
+gives those departures their meaning: the floor and the ceiling, the entropy of a mark measured against the floor, and how sensitive each
+site is at its held level turn a departure into an instrument reading, in bits, the same in any laboratory. The law also checks the
+ruler: at the sites a cell holds firmly, the atlas's healthy level matches one minus the error that cell's own molecules show, counted
+directly ([the record](doors/DEV_METAA_HEALTHY_01.md)).
 
 ### IAM-Deconvolver: the cell mix of a sample
 

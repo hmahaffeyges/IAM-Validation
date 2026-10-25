@@ -115,7 +115,10 @@ What a derived bound changes, set beside the cohort scores (epimutation burden, 
 points: (1) composition removed per person, each site's expectation the reference atlas's healthy cells in that person's own measured mix;
 (2) absolute physical units, floor and ceiling from the law in bits, the same in any laboratory; (3) self-reference on molecules, IAM-A read
 against the sample's own loose share, so laboratory batch largely drops out. Stated with it: the atlas is a measured reference of healthy
-donors, and inherited variation sits inside its donor spread, so a genome-wide score must first show healthy people reading Normal. What was taken from the published study (nearest-neighbor coupling, methylation sensitivity, the knockout as
+donors, and inherited variation sits inside its donor spread, so a genome-wide score must first show healthy people reading Normal. The division of labor, stated plainly: the atlas is a reproducible
+statistical ruler that anyone can rebuild from the same data and model (others build such atlases for cell-of-origin markers; here it
+builds each person's expected healthy self from their own cell mix); the law bounds it, checks it (held levels against molecule-counted
+held error) and decides what its readings mean (floor, ceiling, entropy against the floor, sensitivity at the held level). What was taken from the published study (nearest-neighbor coupling, methylation sensitivity, the knockout as
 a test) and how it was built in; what neither method yet does; limitations, stated plainly; the next study.
 
 ## Methods (subsections)
