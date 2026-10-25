@@ -3420,6 +3420,15 @@
 "text": "# DEV-METAA-HEALTHY-01: Met-A's healthy middle line, predicted from the array itself (development)"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 290,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "healthy line is not commissioned. **What it shows:** each healthy blood's whole-sample Met-A is predicted from the array's own measured"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
 "line": 22,
 "pattern": "reference line",
