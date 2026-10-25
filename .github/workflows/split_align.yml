@@ -40,7 +40,7 @@ jobs:
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
       - uses: actions/upload-artifact@v4
         if: always() && matrix.k < fromJSON(inputs.nchunks)
-        with: {name: "split-${{ inputs.gsm }}-c${{ matrix.k }}", path: "eout/\nrun.log", if-no-files-found: ignore}
+        with: {name: "split-${{ inputs.gsm }}-c${{ matrix.k }}", path: "eout/\nrun.log\nrc.txt", if-no-files-found: ignore}
   merge:
     needs: chunk
     if: ${{ !cancelled() }}
@@ -63,4 +63,4 @@ jobs:
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; cp chunks/*_timing.json eout/ 2>/dev/null; true
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: "split-${{ inputs.gsm }}-merged", path: "eout/\nrun.log"}
+        with: {name: "split-${{ inputs.gsm }}-merged", path: "eout/\nrun.log\nrc.txt"}

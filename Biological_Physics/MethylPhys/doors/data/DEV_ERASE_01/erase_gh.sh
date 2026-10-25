@@ -74,7 +74,15 @@ rm -f $S/fq/${GSM}_*.fq; TA=$(date +%s); log "aligned in $((TA-TF)) s"
 samtools sort -@ $T -m 1G -T $S/bam/$GSM.tmp -o $S/bam/$GSM.s.bam $S/bam/$GSM.u.bam && rm -f $S/bam/$GSM.u.bam || exit 32
 sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 10000000 --tmpdir $S/bam $S/bam/$GSM.s.bam $S/bam/$GSM.bam > $S/logs/${GSM}_markdup.log 2>&1 && rm -f $S/bam/$GSM.s.bam || exit 33
 samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt
-wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || exit 34
+wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || {
+  # 2026-10-24: with the index fetched from the release, bam2pat stopped (exit 34) in every job; its log is kept, the genome dictionary is
+  # rebuilt from the fetched hg19 FASTA the committed way (init_genome, the CpG count checked), and bam2pat is run once more
+  cp $S/logs/${GSM}_bam2pat.log $OUT/ 2>/dev/null; ls -la $S/wgbs_tools/references/$gen > $OUT/${GSM}_references_ls.txt 2>&1; tail -20 $S/logs/${GSM}_bam2pat.log
+  log "bam2pat failed; rebuilding the $gen dictionary and retrying once"
+  wgbstools init_genome $gen --fasta_path $S/ref/$gen.fa.gz -@ $T -f > $S/logs/init_genome_retry.log 2>&1 || { cp $S/logs/init_genome_retry.log $OUT/; exit 25; }
+  if [ "$gen" = hg19 ]; then N=$(zcat $S/wgbs_tools/references/hg19/CpG.bed.gz | wc -l); log "CpG sites in the hg19 dictionary: $N (must be 28217448)"; [ "$N" = 28217448 ] || exit 27; fi
+  rm -rf $S/pat/*; wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || { cp $S/logs/${GSM}_bam2pat.log $OUT/; exit 34; }
+  log "bam2pat succeeded after the dictionary was rebuilt"; }
 PAT=$(ls $S/pat/$GSM*.pat.gz | head -1); rm -f $S/bam/$GSM.bam*; cp $PAT $OUT/; TP=$(date +%s); log "pat in $((TP-TA)) s"
 if [ "${PATONLY:-0}" = 1 ]; then   # 2026-10-24 (split alignment): one chunk's molecules only; the merge job counts them all once
   C=$(echo "${CHUNK:-0/1}" | tr / _); mv $OUT/$(basename $PAT) $OUT/${GSM}_c${C}.pat.gz

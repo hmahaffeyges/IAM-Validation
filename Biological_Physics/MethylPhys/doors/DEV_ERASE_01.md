@@ -184,3 +184,5 @@ the eraser recount's pipeline unchanged at 10 million read pairs (`erase_gh.sh`,
 - **Held error the same within the replicates' spread:** dividing adds none at steady state; the second half is maintenance itself.
 **Stated before:** senescent cells reached senescence by dividing, and senescence reorganizes chromatin; IAM-A reads the reorganization in the
 loose share, not the held error. SV40 also disables p53 and Rb, so its reading is reported, not used to size the term. Nothing scored.
+
+**The prebuilt index and the molecule step:** the first jobs to use the index from the release (the division counts and the Reh control's split alignment) aligned and sorted, then stopped at bam2pat (exit 34); the jobs reported success because the script's exit code was only posted to issue 32. Fixed: bam2pat's log is kept; on a failure the genome dictionary is rebuilt from the fetched FASTA the committed way (init_genome, the CpG count checked) and bam2pat is run once more; the exit code is uploaded with each job. No count was made on the failed jobs; all were sent again.
