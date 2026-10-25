@@ -361,4 +361,5 @@ measured property of each probe, with no neutrophil array; development until the
 **Synthetic test:** DEV_METAA_HEALTHY_01/v5_synthetic.py, DEV_METAA_HEALTHY_01/step3_05/v5_synthetic.txt
 
 The synthetic (a constructed bigWig pair at the atlas sites, one site in ten at the next base, read by the one command) runs on GitHub, where
-the bigWig reader installs, before any donor is read.
+the bigWig reader installs, before any donor is read. **Result:** every identity site found (2931 of 2931 marked, 2622 of 2622 unmarked), levels read exactly (max error
+0.0000), 78,914 sites read at the next base as planted.

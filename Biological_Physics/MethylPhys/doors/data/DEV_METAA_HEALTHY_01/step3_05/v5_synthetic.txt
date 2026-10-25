@@ -1,0 +1,3 @@
+run_sample exit 0 | sites with a value 786765 of 786899 written | read at the next base: 78914
+held: 2931 of 2931 identity sites found | planted 0.93 | read mean 0.9300, max error 0.0000
+absent: 2622 of 2622 identity sites found | planted 0.01 | read mean 0.0100, max error 0.0000
