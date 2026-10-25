@@ -1,0 +1,9 @@
+donors PB100713, C000S5, C0011I | arrays 6 | anchor sites (not identity sites, every donor read): bare 66003, fully marked 9585 | identity sites with molecules 2540 of 6000
+array | F0 (bare) | F1 (fully marked) | mean entropy at identity sites | derived mark | Met-A against it
+GSM2998021 | 0.0517 | 0.9345 | 0.33339 | 0.42227 | 0.7895
+GSM2998023 | 0.0509 | 0.9382 | 0.33097 | 0.41477 | 0.7980
+GSM2998030 | 0.0598 | 0.9333 | 0.33472 | 0.43700 | 0.7660
+GSM2998057 | 0.0500 | 0.9400 | 0.33096 | 0.41017 | 0.8069
+GSM2998116 | 0.0482 | 0.9357 | 0.33217 | 0.41422 | 0.8019
+GSM2998143 | 0.0540 | 0.9373 | 0.33335 | 0.42114 | 0.7915
+bar 1 (all six Normal, 0.95-1.05, each against its own derived mark): 0 of 6: not met

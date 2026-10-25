@@ -1,0 +1,6 @@
+donors SYN | arrays 2 | curve sites (not identity sites, every donor read) 808398 | identity sites with molecules 5553 of 6000
+array | curve at molecules 0.005 / 0.94 | mean entropy at identity sites | derived mark | Met-A against it
+ARR1 | 0.0580 / 0.9343 | 0.33524 | 0.33532 | 0.9998
+ARR2 | 0.0464 / 0.9322 | 0.31646 | 0.31656 | 0.9997
+bar 1 (all six Normal, 0.95-1.05, each against its own derived mark): 2 of 2: not met
+planted: ARR1 0.05 + 0.89 (1 - (1 - m)^1.8); ARR2 0.04 + 0.91 (1 - (1 - m)^1.4); expected Met-A 1.0000 for both (binning error only)

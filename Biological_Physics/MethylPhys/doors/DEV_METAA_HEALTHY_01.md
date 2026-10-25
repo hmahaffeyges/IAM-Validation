@@ -397,3 +397,25 @@ cell; development until the four reserved donors confirm it.
 The synthetic (constructed molecules and two constructed arrays with their own lines, read by the one command) recovers each array's line
 and reads both arrays 1.0000. Its first run read 0.977 and 0.969: the rule took the bare anchors as exactly 0; corrected to the line through
 the anchors' own molecule levels before any real reading (disclosed).
+
+**Step 3 version 6, scored** (`data/DEV_METAA_HEALTHY_01/step3_06/step3_v6_summary.txt`): **bar 1 not met (0 of 6); the arrays read 0.77 to
+0.81 against their derived marks, now above them.** Each array reads DNA the molecules hold bare at about 0.05 (F0 0.048 to 0.060) and
+fully marked DNA at about 0.935. **Side diagnostic** (added after the scoring, disclosed: `v6_side.py`, `step3_06/v6_side.txt`): at the
+unmarked identity sites the line predicts 0.0557 where the arrays read 0.0636 (molecules 0.0049), **so the unmarked half of the gap is the
+array reading bare DNA above zero.** At the marked sites the arrays read 0.9390 where the molecules read 0.9391 and the straight line predicts
+0.8871: **the array's response is a curve, not a line;** binned by molecule level it is raised at the bottom (0.0527 at 0 to 0.01) and flat
+at the top (0.9112 at 0.90 to 0.95, 0.9305 at 0.95 to 0.99, 0.9365 above 0.99). Only 2540 identity sites were read by all three donors (one donor
+is shallower).
+
+## Step 3 version 7: each array's own response curve (written after version 6's diagnostic, committed before it is scored)
+
+**Disclosed:** written after version 6's side diagnostic was read, on the same arrays and donors; the seventh version. **The rule:** each
+array's own response curve, binned means of its readings against the molecules' level at atlas sites that are not identity sites, with fixed
+bin edges stated in `v7_score.py`; each identity site's expected reading is the curve at its molecule level; nothing fitted; the identity
+sites take no part in the curve. **Bar 1 (version 1's):** all six arrays Normal. **The confirmation, decided now:** whatever version 7 reads on
+the development donors, it is then read once on the four reserved BLUEPRINT donors (`v6_read.py OUT confirmation`), with the same scorer and
+bar, and that reading decides it.
+
+**Synthetic test:** DEV_METAA_HEALTHY_01/v7_synthetic.py, DEV_METAA_HEALTHY_01/step3_07/v7_synthetic.txt
+
+The synthetic (constructed curved arrays, read by the one command) recovers both arrays at 0.9998 and 0.9997.
