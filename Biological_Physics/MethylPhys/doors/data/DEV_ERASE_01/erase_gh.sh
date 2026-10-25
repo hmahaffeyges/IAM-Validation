@@ -67,6 +67,15 @@ python3 $E/erase_blocks.py ${SAMPLES:-$E/erase_samples.csv} $GSM ${CHUNK:-${MAXP
 fetch_all(){ rm -rf $S/fq/*; i=0   # --split-3 (2026-10-25): only true pairs go to _1 and _2; a spot with one empty read goes to a third file, unused
   while read r a b; do i=$((i+1)); ( for t in 1 2 3 4 5; do fastq-dump --split-3 -N $a -X $b -O $S/fq/b$i $r > /dev/null 2>> $S/logs/${GSM}_fetch.err && break; rm -rf $S/fq/b$i; sleep $((30*t)); done ) &
     while [ $(jobs -r | wc -l) -ge 10 ]; do sleep 2; done; done < $S/${GSM}_blocks.txt; wait
+  # 2026-10-25: a block whose read-1 and read-2 files differ in length (seen on the last chunk of cord-blood control 3: 7,060,310 against
+  # 7,217,487, no error) keeps the pairs that are true pairs, record by record by read name, up to the shorter file; it fails if the names do
+  # not match there. What was dropped is logged. The fetch's error log is copied into the run log on any mismatch.
+  for d in $S/fq/b*; do f1=$(ls $d/*_1.fastq 2>/dev/null); f2=$(ls $d/*_2.fastq 2>/dev/null); [ -n "$f1" ] && [ -n "$f2" ] || continue
+    c1=$(awk 'END{print NR/4}' $f1); c2=$(awk 'END{print NR/4}' $f2); [ "$c1" = "$c2" ] && continue
+    m=$(( c1 < c2 ? c1 : c2 )); x1=$(awk -v n=$((4*m-3)) 'NR==n{sub(/\/[12]$/,"",$1); print $1; exit}' $f1); x2=$(awk -v n=$((4*m-3)) 'NR==n{sub(/\/[12]$/,"",$1); print $1; exit}' $f2)
+    log "block $(basename $d): read 1 $c1, read 2 $c2 records; name at record $m: $x1 / $x2"; tail -5 $S/logs/${GSM}_fetch.err 2>/dev/null | sed 's/^/  fetch.err: /'
+    if [ -n "$x1" ] && [ "$x1" = "$x2" ]; then head -n $((4*m)) $f1 > $f1.t && mv $f1.t $f1; head -n $((4*m)) $f2 > $f2.t && mv $f2.t $f2; log "block $(basename $d): kept $m true pairs, dropped $(( c1 + c2 - 2*m )) unpaired records"; fi
+  done
   cat $S/fq/b*/*_1.fastq > $S/fq/${GSM}_1.fq; cat $S/fq/b*/*_2.fastq > $S/fq/${GSM}_2.fq; rm -rf $S/fq/b*
   n1=$(awk 'END{print NR/4}' $S/fq/${GSM}_1.fq); n2=$(awk 'END{print NR/4}' $S/fq/${GSM}_2.fq); }
 fetch_all; TF=$(date +%s); log "fetched pairs $n1/$n2 in $((TF-TI)) s"
