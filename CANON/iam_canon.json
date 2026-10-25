@@ -341,7 +341,8 @@
   },
   "class H_min": {
    "replaced_by": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-   "severity": "warn"
+   "severity": "warn",
+   "history": "Never derived (author, 2026-10-25). The eight architecture-class values were early exploratory predictions, made by analogy with the quantum-computing class method to see whether cells behave similarly; they came to be treated as canon by repetition, and the MCMC tests that followed took them as given. The provisional patent named as their source holds only the quantum-computing class exponents (themselves calibrated from published data, not derived). The class readings were not wasted: they showed the cohort signals that led to the atlas and to reading each sample against itself."
   },
   "\\bA[- ]score": {
    "replaced_by": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
