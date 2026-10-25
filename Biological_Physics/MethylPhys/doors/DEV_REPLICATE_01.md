@@ -180,3 +180,5 @@ epithelium 0.30; tumor: prostate epithelium 0.31, vascular endothelium 0.23), an
 so shards 10 to 13 and 10 to 17 never ran. **R7's result above covers 169 of 238 tissues, not the series;** it is read again when the 68
 unrun tissues land (`data/DEV_REPLICATE_01/r7_prostate_unrun_samples.csv`); R8's 144 unrun arrays likewise
 (`data/DEV_REPLICATE_01/r8_tissues_unrun_samples.csv`). Same settings, 20 machines each. The workflow now refuses any other machine count.
+
+**R5 and R6 had unrun shards too (lesson C42):** R5 sorted cells read 172 of 240 arrays and R6 stroke 154 of 185 because shards past the tenth never ran; their results above cover those arrays only. The 68 and 31 arrays without a reading (`data/DEV_REPLICATE_01/r5_ibd_sorted_unrun_samples.csv`, `data/DEV_REPLICATE_01/r6_stroke_unrun_samples.csv`) are read with the same settings (R5 specimen unknown, R6 whole blood), and each replay is scored again on all of its arrays. R9 endothelial read 39 of 39.
