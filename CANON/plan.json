@@ -154,7 +154,8 @@
      "status": "done",
      "what": "Pass 1: IAM-A's count on all 36 samples at 10 million read pairs",
      "next": "read: all 34 samples with reads; leukemias' held error above the cord-blood controls' (0.0412 vs 0.0367, p 0.022); the UHRF1 knockout 2.9 times its control (DEV_ALL_INFO_01.md, Pass 1, read)",
-     "closed": "2026-10-24"
+     "closed": "2026-10-24",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     },
     {
      "id": "49.2",
@@ -162,14 +163,16 @@
      "status": "built",
      "what": "The split alignment: each sample's reads spread over machines, one index; the firm-rate recount (14.5) needs it too",
      "next": "built and fixed (the molecule step on the prebuilt index, the merge's file search, the last chunk's unpaired reads); next: the Reh control's merged full-depth count checked against its pass-1 count",
-     "closed": "2026-10-25"
+     "closed": "2026-10-25",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     },
     {
      "id": "49.3",
      "date": "2026-10-24",
      "status": "running",
      "what": "Pass 2 at full depth: Met-A on sequencing, the territories, the globe and the distance to the ceiling, region by region beside the study's five findings",
-     "next": "at full depth on GitHub: the Reh control, the UHRF1 knockout, the three cord-blood controls and the first two leukemias; the other 29 leukemias after the Reh check"
+     "next": "at full depth on GitHub: the Reh control, the UHRF1 knockout, the three cord-blood controls and the first two leukemias; the other 29 leukemias after the Reh check",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     },
     {
      "id": "49.4",
@@ -663,7 +666,8 @@
      "status": "read",
      "what": "Held error and replication error are two routes with different physics (author: the held error 'requires a constant force to maintain it'; the error made when DNA is copied is separate, rarer in healthy cells, and rises as the A score rises and a tumor grows). Stage Q2 counts one total, eps_obs = eps_held + eps_replication, and E_hold = kT ln((1-eps)/eps) reads the total as holding. Healthy references: the replication part is small (turnover does not predict the error across 26 cell types, rho 0.03; colon epithelium and cardiomyocytes both about 0.031). Dividing tumors: a rise can be weaker holding or more replication, and the energy read from the total understates the holding energy. Temperature: the held balance follows the holding energy; the replication error follows the writer's discrimination at the fork, a different barrier",
      "next": "read: dividing adds at most about 5 % of the held error (proliferating 0.0507, senescent 0.0483; SV40 dividing cells at the senescent level); the firm rate's second half is maintenance itself; next: a graded reduction of maintenance (DNMT1 or UHRF1 dose) to size it",
-     "closed": "2026-10-25"
+     "closed": "2026-10-25",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     },
     {
      "id": "14.4",
