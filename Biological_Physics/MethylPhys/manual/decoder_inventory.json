@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1095,
+   "lines": 1111,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -151,10 +151,27 @@
     },
     {
      "file": "MethylPhys_Interface/run_sample.py",
+     "function": "_id_collides",
+     "name": "_id_collides",
+     "line": 184,
+     "end": 195,
+     "args": [
+      "sid"
+     ],
+     "lines": 12,
+     "doc": "2026-10-24 (provisional reference test 1: the id 'megakaryocytes' erased the cell's name in the bundle): True when the typed sample id is, ignoring case, the name of an IAM-Atlas v2.1 cell type or of a provisional column, the words the bundle must keep.",
+     "constants": [],
+     "data_files": [
+      "import pyarrow.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/run_sample.py",
      "function": "_redact",
      "name": "_redact",
-     "line": 184,
-     "end": 194,
+     "line": 197,
+     "end": 207,
      "args": [
       "obj",
       "typed",
@@ -173,8 +190,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_redact.f",
      "name": "f",
-     "line": 189,
-     "end": 193,
+     "line": 202,
+     "end": 206,
      "args": [
       "v"
      ],
@@ -191,8 +208,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_metaa_atlas",
      "name": "_metaa_atlas",
-     "line": 197,
-     "end": 216,
+     "line": 210,
+     "end": 229,
      "args": [
       "a",
       "b"
@@ -207,8 +224,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build",
      "name": "_build",
-     "line": 225,
-     "end": 289,
+     "line": 238,
+     "end": 302,
      "args": [
       "a"
      ],
@@ -228,8 +245,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 262,
-     "end": 262,
+     "line": 275,
+     "end": 275,
      "args": [
       "m"
      ],
@@ -243,8 +260,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 292,
-     "end": 312,
+     "line": 305,
+     "end": 325,
      "args": [
       "a",
       "cnt",
@@ -260,8 +277,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 315,
-     "end": 355,
+     "line": 328,
+     "end": 368,
      "args": [
       "a",
       "o",
@@ -281,10 +298,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 358,
-     "end": 1092,
+     "line": 371,
+     "end": 1108,
      "args": [],
-     "lines": 735,
+     "lines": 738,
      "doc": "",
      "constants": [
       "BIO",
@@ -313,8 +330,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 560,
-     "end": 564,
+     "line": 573,
+     "end": 577,
      "args": [
       "r"
      ],
@@ -330,8 +347,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 795,
-     "end": 802,
+     "line": 808,
+     "end": 815,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -343,8 +360,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1031,
-     "end": 1032,
+     "line": 1044,
+     "end": 1045,
      "args": [
       "b",
       "it",
@@ -8120,5 +8137,5 @@
   }
  ],
  "n_files": 34,
- "n_functions": 415
+ "n_functions": 416
 }

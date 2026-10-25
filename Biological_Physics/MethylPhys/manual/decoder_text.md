@@ -148,6 +148,9 @@ own block.
 Replaces a typed identifier with the first 32 characters of its SHA-256. An identifier that already looks like a hash (16 or more
 hexadecimal characters) is kept. The engine never stores a cleartext identifier.
 
+### run_sample.py::_id_collides
+True when the typed sample id is the name of an IAM-Atlas v2.1 cell type or of a provisional column. Then the id is hashed in its own field only and the bundle's text is not searched for it, so a cell's name is never erased (found when the id 'megakaryocytes' erased the cell's name in provisional reference test 1).
+
 ### run_sample.py::_redact
 Walks the whole bundle (every string, dictionary key and list) and replaces each whole-token occurrence of the typed identifier with
 its hash, so neither the bundle nor the ledger carries the typed name. The printed report keeps the typed name for the operator.

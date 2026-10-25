@@ -181,6 +181,19 @@ def _hash_id(x):
     return x if (len(y) >= 16 and y.isalnum() and all(c in "0123456789abcdef" for c in y.lower())) else _h.sha256(x.encode()).hexdigest()[:32]
 
 
+def _id_collides(sid):
+    """2026-10-24 (provisional reference test 1: the id 'megakaryocytes' erased the cell's name in the bundle): True when the typed sample id
+    is, ignoring case, the name of an IAM-Atlas v2.1 cell type or of a provisional column, the words the bundle must keep."""
+    try:
+        import pyarrow.parquet as _pq
+        AT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1")
+        names = {c.lower() for k in (1, 2, 3) for c in _pq.ParquetFile(os.path.join(AT, f"mu_part{k}.parquet")).schema.names}
+        PD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Runtime Matrices", "Provisional_References")
+        names |= {f.split("_v")[0].lower() for f in (os.listdir(PD) if os.path.isdir(PD) else []) if f.endswith(".parquet")}
+        return str(sid).strip().lower() in names
+    except Exception:
+        return False
+
 def _redact(obj, typed, hid):
     """Every whole-token occurrence of the typed id in strings of obj replaced by its hash (decision B: no typed id in bundle or ledger)."""
     import re as _re
@@ -1063,9 +1076,12 @@ def main():
     o["run_id"] = _assign_run_id(led)
     o["versions"] = _versions(ENG)   # every frozen input and chain module, with a short hash, so runs months apart are poolable
     typed = sid; hid = _hash_id(sid)
+    _rtyped = typed
+    if _id_collides(typed):   # 2026-10-24: the redaction below replaces every whole-word match of the id; an id that is a cell name would erase that name
+        _rtyped = None; o.setdefault("safeguards", []).append("the sample id equals a cell name the chain uses; it is hashed in the id field only, and the text is not searched for it")
     r = R3.build(o, a.out, typed)    # the printed report keeps the operator's typed id (author decision B, 2026-10-04)
     _gf = o.pop("geo_fetch", None)   # 2026-10-22: a public GEO accession is the file's source address, not a person's id; kept as fetched so it can be re-fetched and checked
-    o = _redact(o, typed, hid); o["sample_id"] = hid; o["sample_id_hashed"] = True   # bundle and ledger carry the hash only
+    o = _redact(o, _rtyped, hid); o["sample_id"] = hid; o["sample_id_hashed"] = True   # bundle and ledger carry the hash only
     if _gf: o["geo_fetch"] = _gf
     m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
     print(f"\n{sid}: Met-A (neutrophils) {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
