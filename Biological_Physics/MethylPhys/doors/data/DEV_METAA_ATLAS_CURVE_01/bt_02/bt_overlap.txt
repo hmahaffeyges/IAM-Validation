@@ -1,0 +1,4 @@
+list | arrays | IAM-Atlas v2.1 inputs among them | series that are atlas sources
+bt_development_samples.csv | 78 | 63 | GSE252045
+bt_confirmation_samples.csv | 35 | 0 | none
+bt_samelab_samples.csv | 43 | 0 | none

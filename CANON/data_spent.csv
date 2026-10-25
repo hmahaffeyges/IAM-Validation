@@ -220,3 +220,4 @@ BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313),reserved (
 BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313) read,spent (confirmation of step 3 version 7),Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md (step 3 version 7),EBI BLUEPRINT FTP
 GSE189426 healthy donor monocytes (15),spent (development),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
 GSE201754 and GSE196071 healthy donor monocytes (43),reserved (confirmation),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
+GSE252045 (IAM-Atlas v2.1 source: sorted B and T cells),spent (atlas build; DEV-METAA-ATLAS-CURVE-01 development),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md (B and T cells),GEO

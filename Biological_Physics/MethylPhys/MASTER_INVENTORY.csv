@@ -258,6 +258,7 @@ GSE250556,downloads/G_chain_tests/GSE250556/,1.12,,,spent,,,COMMISSIONING_NOTE_C
 GSE251932,,,,,,,,DEV_HORIZON_01,,,,,,
 GSE252024,,,,,,,,DEV_METAA_ATLAS_01,,,,,,
 GSE252045,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_METAA_ATLAS_CURVE_01,atlas build,naive cd8 t cells | effector memory cd8 t cells | t central memory cd4 | naive cd4 t cells | nk cells | monocytes | naive b cells | memory b cells,yes,IDAT listed for 130/130 samples,Development of an Epigenetic Clock Resistant to Changes in Immune Composition,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE252045 (IAM-Atlas v2.1 source: sorted B and T cells),,,,,spent (atlas build; DEV-METAA-ATLAS-CURVE-01 development),,,,,,,,,
 GSE255057,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_DETECTION_01,not usable (not purified (PBMC)),,yes,IDAT listed for 24/24 samples,Transcriptome and DNA methylation cell-type deconvolutions produce similar estimates of bulk differential gene expression and differential methylation [bead arr,gold-mine map
 GSE255776,,,,,spent,,,,,,,,,
 GSE256092,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,

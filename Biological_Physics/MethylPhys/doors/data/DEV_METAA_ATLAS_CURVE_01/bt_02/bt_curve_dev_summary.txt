@@ -1,0 +1,92 @@
+array | laboratory | atlas column | Met-A on its own curve | above its curve | identity sites read | note
+GSM7992734 | GSE252045 | naive cd8 t cells | 1.01938 | -0.0025 | 5998 | OK
+GSM7992744 | GSE252045 | cd8 central memory t cells | 1.04301 | -0.00151 | 6000 | OK
+GSM7992754 | GSE252045 | cd8 temra t cells | 0.98087 | -0.00192 | 6000 | OK
+GSM7992767 | GSE252045 | naive b cells | 1.09554 | -0.00095 | 5895 | OK
+GSM7992786 | GSE252045 | naive cd8 t cells | 0.93785 | 0.0021 | 5995 | OK
+GSM7992811 | GSE252045 | naive b cells | 1.09171 | -0.00228 | 5998 | OK
+GSM7992826 | GSE252045 | cd8 central memory t cells | 0.98763 | 0.00116 | 6000 | OK
+GSM7992846 | GSE252045 | cd8 central memory t cells | 0.97174 | -0.00038 | 5998 | OK
+GSM7992735 | GSE252045 | naive cd8 t cells | 1.03672 | -0.00141 | 5996 | OK
+GSM7992745 | GSE252045 | cd8 central memory t cells | 1.01402 | 0.00145 | 5968 | OK
+GSM7992755 | GSE252045 | cd8 temra t cells | 0.97017 | -0.00079 | 6000 | OK
+GSM7992768 | GSE252045 | memory b cells | 0.96442 | -0.00164 | 5998 | OK
+GSM7992787 | GSE252045 | naive b cells | 0.97655 | -0.00397 | 5999 | OK
+GSM7992812 | GSE252045 | memory b cells | 0.96112 | -0.00074 | 6000 | OK
+GSM7992830 | GSE252045 | naive cd4 t cells | 0.96923 | -0.00043 | 6000 | OK
+GSM7992849 | GSE252045 | naive b cells | 0.96977 | -0.00381 | 6000 | OK
+GSM7992736 | GSE252045 | naive cd8 t cells | 1.00784 | -0.00139 | 5999 | OK
+GSM7992746 | GSE252045 | cd8 central memory t cells | 1.0102 | -0.00103 | 6000 | OK
+GSM7992756 | GSE252045 | cd8 temra t cells | 1.00411 | 0.00106 | 6000 | OK
+GSM7992772 | GSE252045 | naive cd8 t cells | 0.99083 | -0.00188 | 5998 | OK
+GSM7992788 | GSE252045 | memory b cells | 0.93961 | -0.00388 | 5988 | OK
+GSM7992813 | GSE252045 | t central memory cd4 | 0.94231 | 0.00489 | 6000 | OK
+GSM7992831 | GSE252045 | t central memory cd4 | 0.92832 | 0.00425 | 6000 | OK
+GSM7992852 | GSE252045 | naive cd4 t cells | 1.02189 | -0.00162 | 5998 | OK
+GSM7992737 | GSE252045 | naive cd8 t cells | 0.97942 | -0.00143 | 6000 | OK
+GSM7992747 | GSE252045 | effector memory cd8 t cells | 0.95706 | -0.00501 | 5999 | OK
+GSM7992757 | GSE252045 | cd8 temra t cells | 1.04701 | -0.00115 | 6000 | OK
+GSM7992773 | GSE252045 | cd8 central memory t cells | 0.98491 | 0.00064 | 6000 | OK
+GSM7992792 | GSE252045 | cd8 central memory t cells | 0.97729 | 0.00065 | 5965 | OK
+GSM7992815 | GSE252045 | naive cd8 t cells | 0.97071 | 0.00085 | 5999 | OK
+GSM7992835 | GSE252045 | naive cd8 t cells | 0.9897 | -0.00082 | 5999 | OK
+GSM7992853 | GSE252045 | t central memory cd4 | 1.11377 | 0.00532 | 5999 | OK
+GSM7992738 | GSE252045 | naive cd8 t cells | 0.97226 | 8e-05 | 6000 | OK
+GSM7992748 | GSE252045 | effector memory cd8 t cells | 0.99864 | -0.00223 | 6000 | OK
+GSM7992758 | GSE252045 | cd8 temra t cells | 0.99992 | 0.00185 | 6000 | OK
+GSM7992776 | GSE252045 | naive b cells | 0.98319 | -0.00284 | 5999 | OK
+GSM7992796 | GSE252045 | naive cd4 t cells | 1.06355 | -0.00131 | 5998 | OK
+GSM7992816 | GSE252045 | cd8 central memory t cells | 0.92887 | 0.00195 | 6000 | OK
+GSM7992836 | GSE252045 | cd8 central memory t cells | 0.98272 | 0.00025 | 5996 | OK
+GSM7992854 | GSE252045 | cd8 central memory t cells | 0.9843 | -0.00098 | 6000 | OK
+GSM7992739 | GSE252045 | naive cd8 t cells | 0.99176 | -0.00183 | 5999 | OK
+GSM7992749 | GSE252045 | effector memory cd8 t cells | 0.95718 | -0.00248 | 6000 | OK
+GSM7992759 | GSE252045 | cd8 temra t cells | 1.00662 | -0.00012 | 6000 | OK
+GSM7992777 | GSE252045 | memory b cells | 0.96018 | -0.00165 | 5998 | OK
+GSM7992797 | GSE252045 | t central memory cd4 | 1.17058 | 0.0042 | 5658 | OK
+GSM7992818 | GSE252045 | naive b cells | 0.96708 | -0.00299 | 6000 | OK
+GSM7992840 | GSE252045 | naive b cells | 0.97623 | -0.00286 | 6000 | OK
+GSM7992857 | GSE252045 | naive cd8 t cells | 0.97861 | -0.00026 | 6000 | OK
+GSM7992740 | GSE252045 | cd8 central memory t cells | 1.02732 | -0.00053 | 6000 | OK
+GSM7992750 | GSE252045 | effector memory cd8 t cells | 1.00067 | -0.00462 | 5999 | OK
+GSM7992760 | GSE252045 | naive cd4 t cells | 0.98623 | -0.00038 | 6000 | OK
+GSM7992779 | GSE252045 | naive cd4 t cells | 0.98654 | -0.00135 | 6000 | OK
+GSM7992800 | GSE252045 | naive cd8 t cells | 0.92178 | 0.00257 | 6000 | OK
+GSM7992820 | GSE252045 | t central memory cd4 | 0.93401 | 0.00281 | 6000 | OK
+GSM7992841 | GSE252045 | memory b cells | 0.94339 | -0.00134 | 5999 | OK
+GSM7992858 | GSE252045 | naive b cells | 0.98006 | -0.00311 | 6000 | OK
+GSM7992741 | GSE252045 | cd8 central memory t cells | 1.02444 | 0.00022 | 6000 | OK
+GSM7992751 | GSE252045 | effector memory cd8 t cells | 1.00168 | -0.00423 | 6000 | OK
+GSM7992761 | GSE252045 | t central memory cd4 | 0.95156 | 0.00282 | 6000 | OK
+GSM7992780 | GSE252045 | t central memory cd4 | 0.95295 | 0.00315 | 6000 | OK
+GSM7992801 | GSE252045 | cd8 central memory t cells | 0.96812 | 0.00031 | 5999 | OK
+GSM7992821 | GSE252045 | naive cd8 t cells | 0.99972 | -0.0009 | 6000 | OK
+GSM7992843 | GSE252045 | naive cd4 t cells | 0.98812 | -0.00275 | 5998 | OK
+GSM7992859 | GSE252045 | memory b cells | 1.02812 | -0.00117 | 5973 | OK
+GSM7992742 | GSE252045 | cd8 central memory t cells | 1.01217 | -0.00067 | 6000 | OK
+GSM7992752 | GSE252045 | effector memory cd8 t cells | 0.97822 | -0.00244 | 6000 | OK
+GSM7992762 | GSE252045 | naive cd8 t cells | 0.99796 | -0.00083 | 5999 | OK
+GSM7992783 | GSE252045 | naive cd4 t cells | 0.94621 | -0.0005 | 5999 | OK
+GSM7992806 | GSE252045 | naive b cells | 0.98811 | -0.00433 | 6000 | OK
+GSM7992822 | GSE252045 | memory b cells | 0.94125 | -0.00244 | 6000 | OK
+GSM7992844 | GSE252045 | t central memory cd4 | 1.06413 | 0.0052 | 5957 | OK
+GSM7992743 | GSE252045 | cd8 central memory t cells | 1.04265 | -0.00034 | 6000 | OK
+GSM7992753 | GSE252045 | effector memory cd8 t cells | 0.98295 | -0.00368 | 6000 | OK
+GSM7992763 | GSE252045 | cd8 central memory t cells | 0.9585 | 0.00097 | 6000 | OK
+GSM7992784 | GSE252045 | t central memory cd4 | 0.94253 | 0.00143 | 6000 | OK
+GSM7992807 | GSE252045 | memory b cells | 0.95838 | -0.00251 | 6000 | OK
+GSM7992823 | GSE252045 | naive cd4 t cells | 0.97481 | -0.00237 | 6000 | OK
+GSM7992845 | GSE252045 | naive cd8 t cells | 0.98716 | 0.00071 | 5999 | OK
+arrays in the list 78 | bundles found 78
+read 78 | withheld 0: 
+laboratory GSE252045: 78 of 78 read, median 0.9831, Normal 61
+atlas column cd8 central memory t cells: 16 of 16 read, median 0.9863, Normal 15
+atlas column cd8 temra t cells: 6 of 6 read, median 1.0020, Normal 6
+atlas column effector memory cd8 t cells: 7 of 7 read, median 0.9829, Normal 7
+atlas column memory b cells: 8 of 8 read, median 0.9593, Normal 5
+atlas column naive b cells: 9 of 9 read, median 0.9801, Normal 7
+atlas column naive cd4 t cells: 8 of 8 read, median 0.9864, Normal 6
+atlas column naive cd8 t cells: 15 of 15 read, median 0.9897, Normal 13
+atlas column t central memory cd4: 9 of 9 read, median 0.9516, Normal 2
+bar 2 (at least 90 % of the arrays read Normal, 0.95-1.05): 61 of 78: not met
+bar 3 (median above-curve within 0.005 of zero): -0.000925: met

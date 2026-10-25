@@ -84,3 +84,13 @@ column, so one run reads every subtype against its own column.
 3. **Selection:** the median of each array's mean reading above its own curve at the identity sites lies within half a hundredth of zero.
 
 **Scorer:** `data/DEV_METAA_ATLAS_CURVE_01/bt_curve_score.py`, committed before any array lands.
+
+**B and T cells, development read, and a correction** (`data/DEV_METAA_ATLAS_CURVE_01/bt_02/bt_curve_dev_summary.txt`). **Correction first:**
+GSE252045 is one of IAM-Atlas v2.1's own sources (`DEV_ATLAS_V21_01/final_samples_v21.csv`); 63 of the 78 development arrays are atlas inputs
+(`bt_02/bt_overlap.txt`). The record above said none of the B or T arrays had been read: wrong for this laboratory, which the atlas read. The
+check before writing looked at the atlas's v2 roster and its README, not the v2.1 sample list (LESSONS C44). The confirmation list (three
+laboratories) and the same-laboratory list hold no atlas inputs and no atlas source (same file), and remain unread.
+**The read, as it stands (mostly in-sample): bar 2 not met** (61 of 78 Normal), **bar 3 met** (median above-curve -0.0009). The CD8 columns
+read Normal (TEMRA 6 of 6, effector memory 7 of 7, naive 13 of 15, central memory 15 of 16); CD4 central memory (2 of 9, median 0.9516) and
+memory B (5 of 8, median 0.9593) read low, even on arrays the atlas was built from. **What follows:** the confirmation is not read; first,
+why those two columns read low on their own inputs (both pool this array laboratory with sequencing laboratories through the lab terms).
