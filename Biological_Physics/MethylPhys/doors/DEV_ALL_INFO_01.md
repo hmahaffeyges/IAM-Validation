@@ -64,3 +64,5 @@ sample is compared with a control to make its reading.
 - **Not yet compared:** findings 2 to 4 are regional (bivalent domains, promoters, translocation genes); they need pass 2 (full depth and the
   regional readings). The controls are cord-blood B cells, not the study's sorted pre-B2 precursors (controlled access), so the comparison
   is with a related, not the same, normal cell.
+
+**First split alignment, stopped by a script fault:** the Reh control's 20 chunks (run 40157833589) each stopped after the index step: a comment added to `erase_gh.sh` for the chunk mode had swallowed the two commands after it (`rm -rf $S/fq/*; i=0`), leaving the block counter unset. No chunk aligned; the merge refused (0 of 20). Fixed and sent again; no other alignment ran on that version of the script.

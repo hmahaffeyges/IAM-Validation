@@ -63,7 +63,7 @@ if [ "${INDEXONLY:-0}" = 1 ]; then   # 2026-10-24 (build_index.yml): stop once t
   tar -C $S -cf - ref wgbs_tools/references/hg19 | zstd -T4 -6 | tee >(sha256sum | cut -d' ' -f1 > $OUT/stream_sha) | split -b 1900M - $OUT/hg19idx.tar.zst.part
   sleep 2; { echo "$(cat $OUT/stream_sha) stream"; echo "x parts $(cd $OUT && ls hg19idx.tar.zst.part* | tr '\n' ' ')"; } > $OUT/SHA256SUMS; cat $OUT/SHA256SUMS; exit 0
 fi
-python3 $E/erase_blocks.py ${SAMPLES:-$E/erase_samples.csv} $GSM ${CHUNK:-${MAXPAIRS:-10000000}} > $S/${GSM}_blocks.txt   # CHUNK=k/n: one contiguous range (split alignment, 2026-10-24); rm -rf $S/fq/*; i=0
+python3 $E/erase_blocks.py ${SAMPLES:-$E/erase_samples.csv} $GSM ${CHUNK:-${MAXPAIRS:-10000000}} > $S/${GSM}_blocks.txt; rm -rf $S/fq/*; i=0   # CHUNK=k/n: one contiguous range (split alignment, 2026-10-24); the comment once swallowed the two commands before it (fixed 2026-10-24)
 while read r a b; do i=$((i+1)); ( for t in 1 2 3 4 5; do fastq-dump --split-files -N $a -X $b -O $S/fq/b$i $r > /dev/null 2>> $S/logs/${GSM}_fetch.err && break; rm -rf $S/fq/b$i; sleep $((30*t)); done ) &
   while [ $(jobs -r | wc -l) -ge 10 ]; do sleep 2; done; done < $S/${GSM}_blocks.txt; wait
 cat $S/fq/b*/*_1.fastq > $S/fq/${GSM}_1.fq; cat $S/fq/b*/*_2.fastq > $S/fq/${GSM}_2.fq; rm -rf $S/fq/b*
