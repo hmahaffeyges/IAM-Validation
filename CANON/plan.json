@@ -737,7 +737,7 @@
      "date": "2026-10-24",
      "status": "running",
      "what": "The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is measured. A derivation of that limit from block size and counting noise, with its own synthetic test. IAM-A's C-Score (version 2) becomes derived with the firm rate, not with layer 1.",
-     "next": "derived limit holds for each cell's C (0.9495 of 1,009 healthy values); next: a neighbor-site term for the whole genome's limit, derived from the atlas's own site-to-site correlation, with its own test",
+     "next": "derived limit holds for each cell's C (0.9495 of 1,009 healthy values). Whole genome, design (not yet tested): a healthy sample's departures at neighboring sites share a source the independent limit leaves out, the IAM-Deconvolver's share uncertainty: an error in one cell's share moves every site that cell marks apart from the mix, and those sites run along the genome. Covariance of departures = independent scatter + J S J', J the atlas's dH/dshare at each site, S the shares' covariance from the Deconvolver; the limit is the C that covariance gives, computed from the atlas and the sample's own shares, no healthy cohort. Open question before writing the test: the Deconvolver's error bars are labeled 'information, not calibrated'; their calibration is a prerequisite",
      "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
     },
     {
