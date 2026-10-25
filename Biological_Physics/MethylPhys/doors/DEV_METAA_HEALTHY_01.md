@@ -289,3 +289,21 @@ samples that played no part. **Checks:** a constructed molecule file over the id
 - **Bar 1 (synthetic) is not fully met** (synthetic test 2: the weak array 0.0072 below the 0.005 line), so by the test's own rule the
   healthy line is not commissioned. **What it shows:** each healthy blood's whole-sample Met-A is predicted from the array's own measured
   line, with no healthy cohort and no reference arrays, in five laboratories. All five series are spent, so this is development.
+
+**Step 3 version 3, scored** (`data/DEV_METAA_HEALTHY_01/step3_03/step3_v3_summary.txt`): **bar 1 not met (0 of 6)**, but the gap closes
+from version 2's 0.2332 of the measured mark to **0.8087** (0.26707 bits against 0.33026). The molecule classes at the identity sites: at held
+sites 0.9053 of calls on held molecules, 0.0929 on loose molecules, 0.0018 on held-absent ones; at held-absent sites 0.9754 held absent, 0.0239
+loose. **Where the gap is** (side diagnostic, added after the scoring, disclosed: `step3_side_v3.py`, output `step3_03/step3_side_v3.txt`):
+
+| Side | Sites | Atlas level (arrays) | Its entropy | Version 3 level | Its entropy |
+|---|---|---|---|---|---|
+| held | 2931 | 0.9362 | 0.3404 | 0.9344 | 0.3493 |
+| held absent | 2622 | 0.0699 | 0.3625 | 0.0263 | 0.1755 |
+
+**The held side is predicted from the molecules** (0.9344 against 0.9362): the loose share beside the held error is what sets it. **The whole
+gap is on the unmarked side:** the molecules say these sites are nearly unmarked (0.0114 on the sequencing scale), the arrays read them at
+0.0699. Probe design does not explain it (type I unmarked sites 0.0646, type II 0.0701; 98 % of the identity sites are type II). The
+unmarked sites were chosen because the arrays read them at 0.05 to 0.25, so this half of the measured mark carries the array's own reading
+at nearly unmarked sites, a property of the array, not of the cell. **Next (version 4, to be written before it runs):** put the molecule
+levels on each array through that array's own measured line (the healthy line's measurements, which met bars 2 and 3 in five laboratories),
+not through the atlas's population transfer. Disclosed: a fourth version on the same samples; development until confirmed on untouched ones.

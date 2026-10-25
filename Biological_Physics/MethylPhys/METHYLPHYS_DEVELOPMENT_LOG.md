@@ -3188,3 +3188,6 @@ Built from donor 1's 33 single cells (about 3 reads a site), the column named do
 
 ### 2026-10-24 · Met-A's healthy line holds in five laboratories (GRP-019)
 Each healthy blood's whole-sample Met-A predicted from its own array's measured line: all five laboratories' medians within 0.03 of 1, and the laboratories close up (0.0921 to 0.0303). The synthetic bar is not fully met, so not commissioned. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md). The prostate replay reads the island gain in tumors (p 5.1e-06); record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
+
+### 2026-10-24 · Met-A's marked side predicted from molecules; the gap is the array at unmarked sites (GRP-019)
+Counting molecule classes at Met-A's identity sites (version 3) predicts the marked side from the cell's own molecules (0.9344 against the arrays' 0.9362): a loose share beside the held error. The remaining gap is the unmarked side, where arrays read nearly unmarked sites at about 0.07. Version 4 uses each array's own measured line. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).

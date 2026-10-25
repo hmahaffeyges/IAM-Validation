@@ -1,0 +1,13 @@
+DEV-METAA-HEALTHY-01 step 3 version 3 (molecule classes at the identity sites): sequencing-scale level held 0.9344 (329675 calls), held absent 0.0114 (268984 calls)
+call shares by molecule class (held, held absent, loose): at held sites {'held': 0.9053, 'absent': 0.0018, 'loose': 0.0929} | at held-absent sites {'held': 0.0006, 'absent': 0.9754, 'loose': 0.0239}
+3 of 3 granulocyte samples counted (GSM5652313, GSM5652314, GSM5652315); sites with an atlas level 5553 of 6000
+eps_loss 0.06556 | eps_gain 0.01145 | array-scale level held 0.9344, held absent 0.0263 | sites held 2931, absent 2622
+derived mark 0.26707 bits | measured mark 0.33026 bits (6 arrays) | derived / measured 0.8087
+array | Met-A against the measured mark (frozen sites) | against the derived mark
+GSM2998021 | 1.0038 | 1.2413
+GSM2998057 | 0.9934 | 1.2285
+GSM2998116 | 0.9986 | 1.2349
+GSM2998023 | 0.9930 | 1.2280
+GSM2998143 | 1.0034 | 1.2408
+GSM2998030 | 1.0077 | 1.2462
+bar 1 (all six Normal, 0.95-1.05, against the derived mark): 0 of 6: not met

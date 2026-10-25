@@ -1,0 +1,8 @@
+side | sites | atlas mean level | atlas mean entropy | version 3 level | its entropy
+held | 2931 | 0.9362 | 0.3404 | 0.9344 | 0.3493
+absent | 2622 | 0.0699 | 0.3625 | 0.0263 | 0.1755
+side, probe design | sites | atlas mean level
+absent, type I | 60 | 0.0646
+absent, type II | 2562 | 0.0701
+held, type I | 22 | 0.9408
+held, type II | 2909 | 0.9362
