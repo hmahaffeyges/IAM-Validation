@@ -176,6 +176,7 @@ GSE180970,,,,,,,,DEV_COMPOSITION_TRUTH_02; DEV_SYNTH_LEVERS_01,not usable (same 
 GSE181034,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_NEWCELL_01; DEV_NILC_01,,,,,,
 GSE182379,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_EPIC_01; DEV_BASE_CHAIN_01; DEV_COMPOSITION_TRUTH_02; DEV_DECONV_V21_01; DEV_NILC_01; D,,,,,,
 GSE184047,,,,,spent,,,,,,,,,
+GSE184116,,,,,,,,DEV_ERASE_01,,,,,,
 GSE184269,,,,,partly spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUPA_COMMISSION_01; DEV_GROUP_01; DEV_METAA_ATLAS_01; PROC_STAGE0_04_OU,atlas build,monocytes | naive cd4 t cells | naive cd8 t cells | naive b cells | nk cells | granulocytes,yes,IDAT listed for 167/167 samples,Specification of human immune cell epigenetic identity by combinations of transcription factors (MethylationEPIC),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE185556,,,,,,,,DEV_ATLAS_V21_01,not usable (not healthy (cystic fibrosis children)),lung alveolar macrophages | granulocytes | lung alveolar epithelium,yes,IDAT listed for 20/20 samples,DNA methylation profiles of cells commonly found in bronchoalveolar lavage,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE186458,,,,,,,,COMMISSIONING_NOTE_DECONV_V21; COMMISSIONING_NOTE_IAMA; DEV_ATLAS_USE_02; DEV_IAMA_NEURON_01; DEV_IAMA_P_WHOLE_01; DEV_IAMA_REAL_01; DEV_METAA_HEALTHY_01; DEV_P,,,,,,

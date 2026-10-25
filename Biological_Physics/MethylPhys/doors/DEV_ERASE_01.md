@@ -196,3 +196,34 @@ from the culture's state rather than division itself. The loose share rises with
 with SV40 (0.6877), as stated before for the chromatin's reorganization. **What it settles:** replication error is not the firm rate's
 missing second half; it is at most about a twentieth of the held error at steady state. The second half stays with maintenance itself (the
 UHRF1 knockout's route).
+
+## The graded maintenance test (written and committed before any count exists; plan 14.1)
+
+**The instrument's job:** IAM-A's counter reads the held error of cells whose maintenance is turned down by a known amount, and the way it
+rises says which term of the law the maintenance supplies.
+
+**Prior reading:** none. GSE184116 (mouse embryonic stem cells, bisulfite sequencing, 18 runs) has only had its sample labels read.
+**Data:** the DNMT1 inhibitor GSK-3484862 at 0 (DMSO), 2 and 10 uM, from two suppliers, on days 6 and 14; 5-azacytidine at 100 and 300 nM
+with its own DMSO control; Dnmt1/3a/3b triple knockouts (no methylation) on days 6 and 14; three deep runs (DMSO day 14, 2 uM days 6 and
+14). `data/DEV_ERASE_01/graded_samples.csv`. Each run counted by the eraser recount's pipeline unchanged (`erase_gh.sh`, mm10), at most 10
+million read pairs (most runs hold fewer), the deep runs in full by the split alignment.
+
+**What the law says, stated before:** a held mark's error is e = 1/(1 + exp(E)), E = phi M (the canon: healthy E_hold 3.084 kT). Turning
+maintenance down lowers E, and two physically different ways of doing so are told apart without fitting anything:
+- **R, restoring slowed:** maintenance restores a lost mark at a rate; cutting the rate by a factor f lowers E by ln(1/f) everywhere, the
+  same amount in every region. Across 2,000-CpG tiles, E at a dose against E in the control has **slope 1 and a negative intercept**.
+- **Phi, less of the drive spent holding:** E = phi M with phi lowered by a factor g; every region's E shrinks in proportion to its own E.
+  Across tiles, **slope g below 1 and intercept 0**.
+
+**Bars (at most three):**
+1. **Synthetic first, through the one command:** constructed molecules over mm10 tiles whose E is shifted uniformly (by 0.7) and, separately,
+   scaled (by 0.8) are read; the scorer recovers each slope and intercept within 0.05 and calls each correctly.
+2. **The counter reads maintenance:** pooled held error rises with dose, DMSO < 2 uM < 10 uM, on both days and for both suppliers.
+3. **The discriminating reading, on the deep pair (DMSO day 14 against 2 uM day 14):** slope and intercept of E(dose) on E(control) across
+   tiles, the control's E taken from one half of its molecules and the slope's errors-in-variables bias removed with the other half (both
+   halves independent); **R** if the slope's 95 % interval holds 1 and the intercept's lies below 0; **Phi** if the slope's interval lies
+   below 1 and the intercept's holds 0; otherwise neither, recorded as such.
+
+**Reported, not scored:** the triple knockouts (held error undefined without held molecules), 5-azacytidine (a different mechanism: it is
+built into the DNA and traps the enzyme), day 6 against day 14 at each dose (equal within intervals would mean a steady state). Mouse
+embryonic stem cells run at 37 C like human cells, so M is the canon's; the control is each series' own DMSO cells (self-reference).
