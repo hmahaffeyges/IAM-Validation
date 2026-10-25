@@ -22,7 +22,7 @@ jobs:
           python3 "${{ inputs.script }}" ${{ inputs.args }} > xout/run.log 2>&1; echo $? > xout/rc.txt; tail -60 xout/run.log; true
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: explore-out, path: "xout/*.json\nxout/*.txt\nxout/*.csv\nxout/*.tar.gz\nxout/*.npz\nxout/run.log\nxout/*.png\nxout/*.html"}
+        with: {name: explore-out, path: "xout/*.json\nxout/*.txt\nxout/*.csv\nxout/*.tar.gz\nxout/*.npz\nxout/*.parquet\nxout/run.log\nxout/*.png\nxout/*.html"}
       - name: Result to issue 32
         if: always()
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
