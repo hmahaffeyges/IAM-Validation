@@ -12,6 +12,7 @@ on:
       threads: {description: "aligner threads", required: true, default: "4"}
       full: {description: "1 = the one command's full reading; 0 = the count only", required: true, default: "0"}
       chunksfrom: {description: "none, or the run id of an earlier split_align run whose chunks to merge without aligning again", required: false, default: "none"}
+      chunksalso: {description: "none, or a second earlier run whose chunks are added (e.g. a re-sent last chunk), downloaded after chunksfrom", required: false, default: "none"}
       onlychunks: {description: "all, or a comma list of chunk numbers to align (the rest are taken from chunksfrom)", required: false, default: "all"}
 permissions: {contents: read, issues: write, actions: read}
 jobs:
@@ -57,6 +58,9 @@ jobs:
       - uses: actions/download-artifact@v4   # an earlier run's chunks, when merging without aligning again
         if: inputs.chunksfrom != 'none' && inputs.chunksfrom != ''
         with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true, run-id: "${{ inputs.chunksfrom }}", github-token: "${{ secrets.GITHUB_TOKEN }}"}
+      - uses: actions/download-artifact@v4   # 2026-10-25: a second earlier run's chunks (a re-sent chunk), so a merge can take chunks from two runs
+        if: inputs.chunksalso != 'none' && inputs.chunksalso != ''
+        with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true, run-id: "${{ inputs.chunksalso }}", github-token: "${{ secrets.GITHUB_TOKEN }}"}
       - uses: actions/download-artifact@v4   # this run's chunks (all of them, or the ones named in onlychunks)
         continue-on-error: true
         with: {pattern: "split-${{ inputs.gsm }}-c*", path: chunks, merge-multiple: true}

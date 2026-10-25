@@ -89,3 +89,7 @@ full-depth sample is read again from its merged molecules with its stated specim
 control 1 and ALL-45 at full depth each reproduce their pass-1 held error closely (ratios in the file), and the knockout still reads about
 three times its control. The rest of the leukemias go out at full depth, four at a time; each full-depth sample is read again from its
 merged molecules with its stated specimen.
+
+**Re-reads from two runs:** a sample whose last chunk was re-sent has its chunks in two runs, so the split-alignment workflow takes a second
+source run (`chunksalso`); the first re-reads of the Reh control, the knockout and cord-blood control 1 found 19 chunks missing and refused,
+as they should.
