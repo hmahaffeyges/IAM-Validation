@@ -15,6 +15,8 @@ derivation assumes departures independent from site to site. Met-A's identity si
 The whole genome's sites lie close together, where healthy cells co-vary and the atlas's own errors run along the genome, so the
 whole-genome C may sit above its limit; if it does, that reading needs a term for neighboring sites, not a measured band.
 
+**Prior reading:** the five laboratories' healthy bloods (DEV-METAA-HEALTHY-01, spent); GSE235717 (spent) is one of them, read again in the neighbor-correlation check.
+
 **Synthetic test:** DEV_CSCORE_LIMIT_01/limit_synthetic_chain.py, DEV_CSCORE_LIMIT_01/limit_01/limit_synthetic_chain.txt
 
 **Bars (at most three):**
@@ -43,3 +45,10 @@ neighboring sites, not a measured band. **The commissioned neutrophil C-Score's 
 the others'; its sites were chosen on the same arrays they are scored on, the selection effect Met-A step 3 found for the same sites.
 **What follows:** the derived limit can replace the measured band for each cell's C-Score; the whole genome's limit needs the
 neighbor term (next); the commissioned neutrophil C-Score keeps its measured band.
+
+**The whole genome, by array (added after bar 2, disclosed; nothing new scored).** `data/DEV_CSCORE_LIMIT_01/limit_02/limit_by_platform.txt`
+(`limit_by_platform.py`): on EPIC the healthy bloods' whole-genome C sits above its derived limit about as often as a 95 % limit allows;
+the excess is on the 450K arrays (values in the file). Through the one command, which now reports the whole-genome map's correlation between neighboring sites (lags 1 to 9), one spent healthy EPIC
+blood (GSE235717 GSM7508429) shows none (`limit_02/neighbor_epic_one.txt`). **What follows:** the whole genome does not need a neighbor term on EPIC; what the 450K
+needs is a platform term, which matches the 450K bloods' marrow-progenitor share (the Deconvolver absorbing the chip's own differences).
+Next: the neighbor correlation of the whole-genome map, reported by the one command itself, on spent EPIC and 450K bloods, split by probe design.

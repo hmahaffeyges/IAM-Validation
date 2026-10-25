@@ -2215,15 +2215,6 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 80,
-"pattern": "derived limit",
-"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "RECORD",
-"text": "- **14.12** [running] The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is measured. A derivation of "
-},
-{
-"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
 "line": 81,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
@@ -2401,15 +2392,6 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
-},
-{
-"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 218,
-"pattern": "derived limit",
-"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- **14.12** (step 20, 2026-10-24) [running] The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is meas"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
@@ -3151,7 +3133,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
-"line": 429,
+"line": 432,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3439,7 +3421,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
-"line": 23,
+"line": 25,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3448,7 +3430,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
-"line": 25,
+"line": 27,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3457,7 +3439,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
-"line": 39,
+"line": 41,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3466,7 +3448,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
-"line": 39,
+"line": 41,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3475,12 +3457,21 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
-"line": 44,
+"line": 46,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
 "text": "**What follows:** the derived limit can replace the measured band for each cell's C-Score; the whole genome's limit needs the"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 50,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "(`limit_by_platform.py`): on EPIC the healthy bloods' whole-genome C sits above its derived limit about as often as a 95 % limit allows;"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
@@ -4203,6 +4194,15 @@
 "text": "or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles."
 },
 {
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 3495,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map a"
+},
+{
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
 "line": 32,
 "pattern": "healthy middle",
@@ -4282,6 +4282,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles."
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 2225,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map a"
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_chain.md",

@@ -1,0 +1,3 @@
+array | bloods | above the derived limit | share above | median C | median sites
+EPIC_v1 | 40 | 2 | 0.0500 | 1.0013 | 758622
+HM450K | 60 | 18 | 0.3000 | 1.0082 | 386991

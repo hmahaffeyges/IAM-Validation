@@ -6759,7 +6759,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 483,
+   "lines": 486,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7094,13 +7094,13 @@
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
      "line": 293,
-     "end": 320,
+     "end": 323,
      "args": [
       "beta",
       "shares",
       "deps"
      ],
-     "lines": 28,
+     "lines": 31,
      "doc": "The C-Score for each cell found in a mixed sample, and for the whole genome (development, written 2026-10-23 before it runs; plan 41.2, 41.3; author: 'I wish we had the C-Scores wired in ... they could potentially shine here'). For each cell c with a share of at least any share the IAM-Deconvolver found (the instrument says what is there; below CS_FLAG_SHARE the C is flagged, not withheld): its de",
      "constants": [
       "CS_BLOCK",
@@ -7115,8 +7115,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_sets",
      "name": "territory_sets",
-     "line": 330,
-     "end": 346,
+     "line": 333,
+     "end": 349,
      "args": [],
      "lines": 17,
      "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
@@ -7134,8 +7134,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_reading",
      "name": "ceiling_reading",
-     "line": 348,
-     "end": 368,
+     "line": 351,
+     "end": 371,
      "args": [
       "xs",
       "es",
@@ -7153,8 +7153,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_reading",
      "name": "territory_reading",
-     "line": 370,
-     "end": 389,
+     "line": 373,
+     "end": 392,
      "args": [
       "beta",
       "shares",
@@ -7174,8 +7174,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 391,
-     "end": 397,
+     "line": 394,
+     "end": 400,
      "args": [
       "beta",
       "name",
@@ -7193,8 +7193,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_he",
      "name": "_he",
-     "line": 401,
-     "end": 403,
+     "line": 404,
+     "end": 406,
      "args": [
       "es",
       "counts"
@@ -7209,8 +7209,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 408,
-     "end": 411,
+     "line": 411,
+     "end": 414,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -7224,8 +7224,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 413,
-     "end": 426,
+     "line": 416,
+     "end": 429,
      "args": [
       "xs",
       "es"
@@ -7240,8 +7240,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 428,
-     "end": 443,
+     "line": 431,
+     "end": 446,
      "args": [
       "xs",
       "es",
@@ -7260,8 +7260,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 445,
-     "end": 482,
+     "line": 448,
+     "end": 485,
      "args": [
       "beta",
       "shares",
@@ -7280,8 +7280,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 463,
-     "end": 468,
+     "line": 466,
+     "end": 471,
      "args": [
       "m"
      ],

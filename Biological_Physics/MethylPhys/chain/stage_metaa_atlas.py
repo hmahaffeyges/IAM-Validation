@@ -317,6 +317,9 @@ def cscore_in_mix(beta, shares, deps=None):
     dw = pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)
     C = _clustering(dw.reindex(_genome_order(dw.index)).to_numpy()) if len(dw) >= 10 * CS_BLOCK else None
     out["whole_genome"] = dict(C=None if C is None else round(C, 4), n_sites=int(len(dw)))
+    if C is not None:   # 2026-10-25 (DEV-CSCORE-LIMIT-01, development): the map's correlation between neighboring sites, lags 1-9, in genome order
+        z = dw.reindex(_genome_order(dw.index)).to_numpy(); z = z - z.mean()
+        out["whole_genome"]["neighbor_corr"] = [round(float(np.corrcoef(z[:-k], z[k:])[0, 1]), 4) for k in range(1, CS_BLOCK)]
     return out
 
 
