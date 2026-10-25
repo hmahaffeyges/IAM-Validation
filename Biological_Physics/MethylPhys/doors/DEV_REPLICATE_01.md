@@ -173,3 +173,5 @@ both lower in tumors. Whole-sample Met-A does not separate them (p 0.98). The ti
 epithelium 0.30; tumor: prostate epithelium 0.31, vascular endothelium 0.23), and blood-cell readings in a tissue are flagged, not commissioned.
 
 **R8 tissues, shard 3 re-sent:** shard 3 of the 18 (every 18th array from the fourth, `data/DEV_REPLICATE_01/r8_tissues_shard3_samples.csv`) ran out of the machine's time limit; the same arrays are read again with the same settings (tissue, `--cell-panel atlas --dev-metaa-allsites`, pass 1), split over 10 machines; nothing else changes.
+
+**R9 glioma blood, shards 0 and 9 re-sent:** two of its 10 shards ran out of the machine's time limit; their arrays (`data/DEV_REPLICATE_01/r9_glioma_blood_shards0_9_samples.csv`) are read again with the same settings (whole blood, `--cell-panel atlas --dev-metaa-allsites`, pass 1), split over 10 machines; nothing else changes.
