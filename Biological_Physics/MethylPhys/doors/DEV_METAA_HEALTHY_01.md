@@ -419,3 +419,15 @@ bar, and that reading decides it.
 **Synthetic test:** DEV_METAA_HEALTHY_01/v7_synthetic.py, DEV_METAA_HEALTHY_01/step3_07/v7_synthetic.txt
 
 The synthetic (constructed curved arrays, read by the one command) recovers both arrays at 0.9998 and 0.9997.
+
+**Step 3 version 7, scored on the development donors** (`data/DEV_METAA_HEALTHY_01/step3_07/step3_v7_summary.txt`): **bar 1 not met (0 of
+6; 0.8423 to 0.9026).** **Selection diagnostic** (added after the scoring, disclosed: `v7_select.py`, `step3_07/v7_select.txt`): against each
+array's own response curve, the marked identity sites read **+0.0257** above it; other sites passing Met-A's array window read +0.0025, and
+all other sites at the same molecule levels +0.0011. At the unmarked side the identity sites read +0.0053, other sites passing the window
++0.0136. **What it shows:** the window alone does not lift a site; what lifts the marked identity sites is the rest of their selection, the
+ranking on these same arrays of where neutrophils differ most from other cells. Sites ranked on array readings are probes that read high, so
+**Met-A's healthy mark at array-chosen sites carries a selection effect that no prediction from the molecules can give.** **Conclusion of
+step 3 (seven versions):** the mark at the commissioned sites is a measured quantity and stays measured. A derived Met-A baseline needs its
+identity sites chosen on the molecules (the sequencing atlas, or purified sequencing such as BLUEPRINT), not on arrays, so that the sites
+are not selected on the readings they are later compared with; that is a new Met-A version, designed and tested in its own record. The
+confirmation reading on the four reserved donors, decided before version 7 was scored, is read and recorded when it lands.

@@ -1,0 +1,7 @@
+group | sites | molecules (mean) | arrays (mean) | residual above the curve (mean)
+marked identity sites | 1478 | 0.9391 | 0.9390 | +0.0257
+marked: other sites passing Met-A's array rule | 196858 | 0.9102 | 0.8952 | +0.0025
+marked: all other sites at the identity sites' molecule levels | 231366 | 0.9532 | 0.9235 | +0.0011
+unmarked identity sites | 1062 | 0.0049 | 0.0636 | +0.0053
+unmarked: other sites passing Met-A's array rule | 46094 | 0.0233 | 0.0990 | +0.0136
+unmarked: all other sites at the identity sites' molecule levels | 73187 | 0.0028 | 0.0538 | -0.0011
