@@ -2168,6 +2168,9 @@ The value pictures for the atlas globe's sliders (best value, and half-width of 
 ### reference_globes.py::atlas_masks.code
 Codes a map 1 to 255 on its scale, 0 where no site.
 
+### run_series.py::read.atlas_cell
+A per-array atlas cell (samples column atlas_cell) replaces --dev-metaa-atlas CELL for that array, so one series run reads each sorted subtype against its own IAM-Atlas v2.1 column.
+
 ### run_series.py::matrix_values
 Reads a series published only as a GEO value table (no IDATs): each array's column becomes a values file (cpg, beta) read by run_sample.py with --betas, the replays' values route; nothing in the values is changed, and the chip-level intake checks, which need IDATs, do not run. Synthetic check: a matrix holding the example healthy blood gives the same Met-A (0.9845), C-Score (0.9686) and cell shares as reading the same values directly.
 

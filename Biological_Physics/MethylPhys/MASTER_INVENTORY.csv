@@ -113,6 +113,7 @@ GSE144691,,,,,,,,COMMISSIONING_NOTE_IAMA; DEV_IAMA_GRAND_01,,,,,,
 GSE144858,,,,,partly spent,,,,,,,,,
 GSE145745,,,,,,,,,not usable (cultured with no uncultured comparison),kidney tubular epithelium,yes,IDAT listed for 24/24 samples,Integrative omics analyses reveal epigenetic memory in diabetic cells regulating genes associated with kidney dysfunction. [microarray],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE145887,downloads/F_salmonid/GSE145887/,0.99,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
+GSE146093,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE146376,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_TISSUE_LUNG_03,not usable (cultured with no uncultured comparison),smooth muscle,yes,IDAT listed for 280/280 samples,Genome-wide gene methylation study in primary cultured airway smooth muscle cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE146502,,,,,spent,,,,,,,,,
 GSE146552,,,,,,,,DEV_ATLAS_V21_01,atlas build,ovary epithelium | fallopien tubes epithelium,yes,IDAT listed for 38/38 samples,Global DNA hypomethylation in ovarian cancer (450K_data),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -161,6 +162,7 @@ GSE168779,,,,,spent (declared before reading),,,DEV_METAA_ATLAS_01,,,,,,
 GSE173330,downloads/E_dog_animal/GSE173330/,0.85,,,unspent,,,,,,,,Dog and other mammal arrays,S3 register
 GSE173787,,,,,,,,DEV_ATLAS_V21_01,held-out test,b cells | cd4 t cells | cd8 t cells | monocytes,yes,SRA run links for 133/133 samples,DNA methylation profiles of four immune cell types from MS patients and healthy controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE174047,,,,,spent (declared before reading),,,DEV_ERASE_01,,,,,,
+GSE174666,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE174818,,,,,spent,,,,,,,,,
 GSE175458,,,,,,,,,not usable (not purified (lung tissue)),,yes,IDAT listed for 547/547 samples,Functional Validation of Common Idiopathic Pulmonary Fibrosis Genetic Risk Variants [850k methylation arrays],gold-mine map
 GSE175758,downloads/A_blood_immune/GSE175758/,2.39,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
@@ -178,6 +180,7 @@ GSE182379,,,,,spent,,,COMMISSIONING_NOTE_METAA_NEUTROPHILS; DEV_ATLAS_COMMISSION
 GSE184047,,,,,spent,,,,,,,,,
 GSE184116,,,,,,,,DEV_ERASE_01,,,,,,
 GSE184269,,,,,partly spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE; DEV_BLOOD_SENSITIVITY_01; DEV_GROUPA_COMMISSION_01; DEV_GROUP_01; DEV_METAA_ATLAS_01; PROC_STAGE0_04_OU,atlas build,monocytes | naive cd4 t cells | naive cd8 t cells | naive b cells | nk cells | granulocytes,yes,IDAT listed for 167/167 samples,Specification of human immune cell epigenetic identity by combinations of transcription factors (MethylationEPIC),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE184500,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE185556,,,,,,,,DEV_ATLAS_V21_01,not usable (not healthy (cystic fibrosis children)),lung alveolar macrophages | granulocytes | lung alveolar epithelium,yes,IDAT listed for 20/20 samples,DNA methylation profiles of cells commonly found in bronchoalveolar lavage,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE186458,,,,,,,,COMMISSIONING_NOTE_DECONV_V21; COMMISSIONING_NOTE_IAMA; DEV_ATLAS_USE_02; DEV_IAMA_NEURON_01; DEV_IAMA_P_WHOLE_01; DEV_IAMA_REAL_01; DEV_METAA_HEALTHY_01; DEV_P,,,,,,
 GSE186458 blood granulocytes (GSM5652313; GSM5652314; GSM5652315),,,,,spent (development),,,,,,,,,
@@ -191,6 +194,7 @@ GSE189426 healthy donor monocytes (15),,,,,spent (development),,,,,,,,,
 GSE190164,,,,,,,,,not usable (not purified),,yes,IDAT listed for 48/48 samples,DNA methylation profiling in blood of OSA patients and controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE191200,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,microglia,yes,IDAT listed for 56/56 samples,"Contribution of Age, Brain Region, Mood Disorder Pathology, and Interindividual Factors on the Methylome of Human Microglia",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE191297,,,,,spent,,,DEV_INTAKE_02,,,,,,
+GSE192451,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE195869,,,,,,,,DEV_XSPECIES_TEMP_01,,,,,,
 GSE196007,,,,,partly spent,,,,,,,,,
 GSE196071,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
@@ -253,7 +257,7 @@ GSE248933,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE250556,downloads/G_chain_tests/GSE250556/,1.12,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_ATLAS_EPIC_01; DEV_ATLAS_EPIC_02; DEV_BASE_CHAIN_01; DEV_CHAIN_V3_RUN2; DEV_CHAIN_V3_RUN3; DEV_DETECTION_01; DEV_DIRECTION_01; DE,,,,,Chain test sets (commissioning and development),S3 register
 GSE251932,,,,,,,,DEV_HORIZON_01,,,,,,
 GSE252024,,,,,,,,DEV_METAA_ATLAS_01,,,,,,
-GSE252045,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21,atlas build,naive cd8 t cells | effector memory cd8 t cells | t central memory cd4 | naive cd4 t cells | nk cells | monocytes | naive b cells | memory b cells,yes,IDAT listed for 130/130 samples,Development of an Epigenetic Clock Resistant to Changes in Immune Composition,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE252045,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_METAA_ATLAS_CURVE_01,atlas build,naive cd8 t cells | effector memory cd8 t cells | t central memory cd4 | naive cd4 t cells | nk cells | monocytes | naive b cells | memory b cells,yes,IDAT listed for 130/130 samples,Development of an Epigenetic Clock Resistant to Changes in Immune Composition,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE255057,,,,,spent,,,DEV_BASE_CHAIN_01; DEV_DETECTION_01,not usable (not purified (PBMC)),,yes,IDAT listed for 24/24 samples,Transcriptome and DNA methylation cell-type deconvolutions produce similar estimates of bulk differential gene expression and differential methylation [bead arr,gold-mine map
 GSE255776,,,,,spent,,,,,,,,,
 GSE256092,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
@@ -291,6 +295,7 @@ GSE287137,downloads/B_cfDNA_plasma/GSE287137/,2.16,IDAT,yes,unspent,,,,,,,,Plasm
 GSE287261,downloads/A_blood_immune/GSE287261/,2.32,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE287331,,,,,spent,,,DEV_BREACH_01; DEV_FIELD_01,,,,,,
 GSE287994,,,,,partly spent,,,,,,,,,
+GSE288076,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE288100,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE288337,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE288652,downloads/C_tissue_tests/GSE288652/,1.3,IDAT,yes,partly spent,,,DEV_REPLICATE_01; PROC_E2E_01_OUTCOME,,,,,Solid-tissue arrays,S3 register

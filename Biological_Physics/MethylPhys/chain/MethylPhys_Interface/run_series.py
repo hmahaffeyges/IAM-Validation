@@ -100,6 +100,11 @@ def read(a, extra):
         t0 = time.time()
         try:
             sp = str(getattr(r, "specimen", "") or "") if "specimen" in S.columns and str(getattr(r, "specimen", "")) not in ("", "nan") else a.specimen   # a per-array specimen column, when given
+            ex = list(extra)   # 2026-10-25: a per-array atlas cell (column atlas_cell) replaces --dev-metaa-atlas CELL for that array, so one run reads each
+            if "atlas_cell" in S.columns and str(getattr(r, "atlas_cell", "")) not in ("", "nan"):   # sorted subtype against its own atlas column
+                ac = str(getattr(r, "atlas_cell"))
+                if "--dev-metaa-atlas" in ex: ex[ex.index("--dev-metaa-atlas") + 1] = ac
+                else: ex += ["--dev-metaa-atlas", ac]
             if MV is not None:
                 if r.gsm not in MV: raise RuntimeError(f"{r.gsm}: not in the series matrix")
                 base = ["--betas", MV[r.gsm], "--specimen", sp, "--id", r.gsm]
@@ -107,16 +112,16 @@ def read(a, extra):
                 f = fetch(r.gsm, W); base = ["--grn", f["grn"], "--red", f["red"], "--specimen", sp, "--id", r.gsm]
             if a.pass_ == 1:
                 bv1 = os.path.join(W, r.gsm + "_betas.parquet")
-                rc = run(base + ["--out", os.path.join(W, r.gsm + ".html"), "--bundle", os.path.join(d1, r.gsm + ".json"), "--save-betas", bv1] + extra, os.path.join(d1, r.gsm + ".log"))
+                rc = run(base + ["--out", os.path.join(W, r.gsm + ".html"), "--bundle", os.path.join(d1, r.gsm + ".json"), "--save-betas", bv1] + ex, os.path.join(d1, r.gsm + ".log"))
                 if a.plant == "neutrophil" and "half" in S.columns and getattr(r, "half") == "unplanted" and rc == 0 and os.path.exists(bv1):
                     uv = os.path.join(W, r.gsm + "_values.csv"); pd.read_parquet(bv1).iloc[:, 0].rename("beta").to_frame().to_csv(uv)
                     run(["--betas", uv, "--specimen", a.specimen, "--id", r.gsm + "_values", "--out", os.path.join(W, r.gsm + "_values.html"),
-                         "--bundle", os.path.join(d1, r.gsm + "_values.json")] + extra, os.path.join(d1, r.gsm + "_values.log"))
+                         "--bundle", os.path.join(d1, r.gsm + "_values.json")] + ex, os.path.join(d1, r.gsm + "_values.log"))
             else:
                 tab, n, at = refs_for(r.gsm, r.slide, P1, a.scope, W)
                 ref = (["--slide-ref-table", tab] if n else []) + (["--metaa-atlas-ref-A", ",".join(at)] if at else [])
                 bv = os.path.join(W, r.gsm + "_betas.parquet")
-                rc = run(base + ref + ["--out", os.path.join(W, r.gsm + ".html"), "--bundle", os.path.join(d2, r.gsm + ".json"), "--save-betas", bv] + extra, os.path.join(d2, r.gsm + ".log"))
+                rc = run(base + ref + ["--out", os.path.join(W, r.gsm + ".html"), "--bundle", os.path.join(d2, r.gsm + ".json"), "--save-betas", bv] + ex, os.path.join(d2, r.gsm + ".log"))
                 half = getattr(r, "half", None) if "half" in S.columns else None
                 if a.plant == "neutrophil" and rc == 0 and os.path.exists(bv):   # Group-A's sealed design: planted half against unplanted half, both by saved values
                     sys.path.insert(0, os.path.dirname(HERE)); import conductor_v3 as C3
@@ -128,17 +133,17 @@ def read(a, extra):
                     if f_neu is not None and (half in (None, "planted")):
                         x, n = C3.plant_neutrophil_loss(b, f_neu); pv = os.path.join(W, r.gsm + "_planted.csv"); x.rename("beta").to_frame().to_csv(pv)
                         run(["--betas", pv, "--specimen", a.specimen, "--id", r.gsm + "_planted", "--banner", "PLANTED: a constructed 1 % loss of the neutrophil pattern, not a person."]
-                            + vref + ["--out", os.path.join(W, r.gsm + "_planted.html"), "--bundle", os.path.join(d2, r.gsm + "_planted.json")] + extra, os.path.join(d2, r.gsm + "_planted.log"))
+                            + vref + ["--out", os.path.join(W, r.gsm + "_planted.html"), "--bundle", os.path.join(d2, r.gsm + "_planted.json")] + ex, os.path.join(d2, r.gsm + "_planted.log"))
                     if half == "unplanted":
                         uv = os.path.join(W, r.gsm + "_values.csv"); b.rename("beta").to_frame().to_csv(uv)
                         run(["--betas", uv, "--specimen", a.specimen, "--id", r.gsm + "_values"] + vref
-                            + ["--out", os.path.join(W, r.gsm + "_values.html"), "--bundle", os.path.join(d2, r.gsm + "_values.json")] + extra, os.path.join(d2, r.gsm + "_values.log"))
+                            + ["--out", os.path.join(W, r.gsm + "_values.html"), "--bundle", os.path.join(d2, r.gsm + "_values.json")] + ex, os.path.join(d2, r.gsm + "_values.log"))
                 if a.plant == "metaa_atlas" and rc == 0 and os.path.exists(bv):
                     sys.path.insert(0, os.path.dirname(HERE)); import stage_metaa_atlas as SA, stage_0_intake as S0
                     cell = S0.atlas_cell_of(a.specimen); b = pd.read_parquet(bv).iloc[:, 0]; pv = os.path.join(W, r.gsm + "_planted.csv")
                     SA.plant(b, cell).rename("beta").to_frame().to_csv(pv)
                     run(["--betas", pv, "--specimen", a.specimen, "--id", r.gsm + "_planted", "--banner", f"PLANTED: a constructed 1 % loss of the {cell} pattern, not a person."]
-                        + ref + ["--out", os.path.join(W, r.gsm + "_planted.html"), "--bundle", os.path.join(d2, r.gsm + "_planted.json")] + extra, os.path.join(d2, r.gsm + "_planted.log"))
+                        + ref + ["--out", os.path.join(W, r.gsm + "_planted.html"), "--bundle", os.path.join(d2, r.gsm + "_planted.json")] + ex, os.path.join(d2, r.gsm + "_planted.log"))
             print(k + 1, "of", len(S), r.gsm, "pass", a.pass_, "exit", rc, f"{time.time() - t0:.0f} s", flush=True)
         except Exception as e: print(k + 1, "of", len(S), r.gsm, "ERROR", f"{type(e).__name__}: {e}"[:200], flush=True)
         import shutil; shutil.rmtree(W, ignore_errors=True); os.makedirs(W, exist_ok=True)

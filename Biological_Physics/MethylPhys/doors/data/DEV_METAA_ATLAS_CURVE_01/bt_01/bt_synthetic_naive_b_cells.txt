@@ -1,0 +1,5 @@
+atlas monocyte sites 780933 | identity sites 6000 | ARR1_LOSS predicted A 1.0960
+ARR1 | exit 0 | A 0.99975 | above curve 0.00053 | sites 6000 | curve sites 774933 | 
+ARR2 | exit 0 | A 0.99845 | above curve -0.0002 | sites 6000 | curve sites 774933 | 
+ARR1_LOSS | exit 0 | A 1.09571 | above curve 0.01465 | sites 6000 | curve sites 774933 | 
+synthetic (ARR1, ARR2 within 0.01 of 1; ARR1_LOSS within 0.005 of 1.0960): met

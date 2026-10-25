@@ -1,0 +1,79 @@
+gsm,slide,gse,atlas_cell,specimen
+GSM5322134,203991450040_R01C01,GSE174666,memory b cells,isolated memory b cells
+GSM5322135,203991450040_R06C01,GSE174666,memory b cells,isolated memory b cells
+GSM5322136,203991450040_R08C01,GSE174666,memory b cells,isolated memory b cells
+GSM5322137,203991450045_R03C01,GSE174666,memory b cells,isolated memory b cells
+GSM5322138,203991450045_R05C01,GSE174666,memory b cells,isolated memory b cells
+GSM5322139,203991450045_R08C01,GSE174666,memory b cells,isolated memory b cells
+GSM5322140,203991450040_R04C01,GSE174666,naive b cells,isolated naive b cells
+GSM5322141,203991450040_R07C01,GSE174666,naive b cells,isolated naive b cells
+GSM5322142,203991450045_R01C01,GSE174666,naive b cells,isolated naive b cells
+GSM5322143,203991450045_R04C01,GSE174666,naive b cells,isolated naive b cells
+GSM5322144,203991450045_R06C01,GSE174666,naive b cells,isolated naive b cells
+GSM5322145,203991450045_R07C01,GSE174666,naive b cells,isolated naive b cells
+GSM5322146,204237140011_R01C01,GSE174666,naive cd4 t cells,isolated naive cd4 t cells
+GSM5322147,204237140011_R04C01,GSE174666,naive cd4 t cells,isolated naive cd4 t cells
+GSM5322148,204237140013_R03C01,GSE174666,naive cd4 t cells,isolated naive cd4 t cells
+GSM5322149,204237140014_R03C01,GSE174666,naive cd4 t cells,isolated naive cd4 t cells
+GSM5322150,204237140014_R06C01,GSE174666,naive cd4 t cells,isolated naive cd4 t cells
+GSM5322151,204237140015_R08C01,GSE174666,naive cd4 t cells,isolated naive cd4 t cells
+GSM5322164,203013220070_R01C01,GSE174666,cd8 t cells,isolated cd8 t cells
+GSM5322165,203027390051_R01C01,GSE174666,cd8 t cells,isolated cd8 t cells
+GSM5322166,203027390092_R03C01,GSE174666,cd8 t cells,isolated cd8 t cells
+GSM5322167,203027390094_R05C01,GSE174666,cd8 t cells,isolated cd8 t cells
+GSM5322168,203027390100_R06C01,GSE174666,cd8 t cells,isolated cd8 t cells
+GSM5322169,203028210044_R01C01,GSE174666,cd8 t cells,isolated cd8 t cells
+GSM5322170,204373100002_R02C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322171,204373100002_R05C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322172,204373100002_R06C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322173,204373100002_R08C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322174,204372030109_R01C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322175,204372030109_R04C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322176,204372030109_R06C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322177,204372030109_R07C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322178,204373100025_R01C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322179,204373100025_R03C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322180,204373100025_R06C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM5322181,204373100025_R08C01,GSE174666,memory cd4 t cells,isolated memory cd4 t cells
+GSM6071128,205624860110_R01C01,GSE174666,memory b cells,isolated memory b cells
+GSM6071138,205624860032_R04C01,GSE174666,naive cd8 t cells,isolated naive cd8 t cells
+GSM6071139,205624860032_R01C01,GSE174666,naive cd8 t cells,isolated naive cd8 t cells
+GSM6071140,205689130135_R04C01,GSE174666,naive cd8 t cells,isolated naive cd8 t cells
+GSM6071141,205689130106_R02C01,GSE174666,naive cd8 t cells,isolated naive cd8 t cells
+GSM6071142,205689130135_R02C01,GSE174666,naive cd8 t cells,isolated naive cd8 t cells
+GSM6071143,205689130106_R08C01,GSE174666,naive cd8 t cells,isolated naive cd8 t cells
+GSM5747293,202176290165_R05C01,GSE192451,memory b cells,isolated memory b cells
+GSM5747294,202176290165_R06C01,GSE192451,memory b cells,isolated memory b cells
+GSM5747295,202176290165_R07C01,GSE192451,memory b cells,isolated memory b cells
+GSM5747296,202176290165_R08C01,GSE192451,memory b cells,isolated memory b cells
+GSM5747297,202176290085_R02C01,GSE192451,memory b cells,isolated memory b cells
+GSM5747298,202176290085_R03C01,GSE192451,memory b cells,isolated memory b cells
+GSM5747299,202176290085_R04C01,GSE192451,naive b cells,isolated naive b cells
+GSM5747300,202176290085_R05C01,GSE192451,naive b cells,isolated naive b cells
+GSM5747301,202176290085_R06C01,GSE192451,naive b cells,isolated naive b cells
+GSM5747302,202176290085_R07C01,GSE192451,naive b cells,isolated naive b cells
+GSM4364698,201004220126_R03C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364699,201004220126_R04C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364700,201004220126_R05C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364701,201004220126_R06C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364702,201004220126_R07C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364703,201004220126_R08C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364704,201004220209_R01C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364705,201004220209_R02C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364706,201004220209_R03C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364707,201004220209_R04C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364756,202163550095_R01C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364757,202163550097_R01C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364758,202163550095_R03C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364759,202163550097_R03C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364760,202163550095_R05C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM4364761,202163550097_R04C01,GSE146093,cd4 t cells,isolated cd4 t cells
+GSM5590368,203789410080_R01C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590369,203789410080_R02C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590370,203789410080_R03C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590376,203752110084_R01C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590377,203752110084_R02C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590378,203752110084_R03C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590384,203930200006_R02C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590385,203930200006_R03C01,GSE184500,cd8 t cells,isolated cd8 t cells
+GSM5590398,204367410133_R08C01,GSE184500,cd8 t cells,isolated cd8 t cells

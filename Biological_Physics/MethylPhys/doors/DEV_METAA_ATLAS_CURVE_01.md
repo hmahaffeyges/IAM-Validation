@@ -53,3 +53,30 @@ Normal; bar 2 counts all 43, so 35 of 43. The 7 not read were withheld by the re
 past the array's own detection check (the counts are in each array's bundle); no array was read and called abnormal for that. The identity
 sites sit on each array's own curve in both laboratories (bar 3). **Not commissioned:** bar 2 as written is not met. Stated for the next
 test: arrays the reading withholds for detection are reported apart from the arrays it reads, and the bar is set on the arrays read.
+
+## B and T cells (written and committed before any B or T array is read; plan 14.15)
+
+**The instrument's job:** a healthy sorted B or T cell array, read against its own subtype's column of IAM-Atlas v2.1 on its own
+response curve, reads Normal. Same reading, same bars as the monocytes; B and T cells carry the same priority (author).
+
+**Prior reading:** none of the arrays. Six series had only their sample labels and file lists read; none is in the atlas roster or the
+spent list. GSE288076 (naive CD4 T cells of preterm neonates) is left out: not adult blood.
+
+**Data, one subtype to one atlas column** (stated mapping, from each array's own labels; ambiguous subsets such as mixed effector-memory
+and TEMRA sorts, PBMC, NK and monocytes left out): development `data/DEV_METAA_ATLAS_CURVE_01/bt_development_samples.csv`, 78 arrays from
+one laboratory (GSE252045: naive and switched-memory B, naive and central-memory CD4, naive, central-memory, effector-memory and TEMRA
+CD8); confirmation `data/DEV_METAA_ATLAS_CURVE_01/bt_confirmation_samples.csv`, 78 arrays from four other laboratories (GSE174666,
+GSE192451, GSE146093 healthy donors, GSE184500 controls). New in the chain for this test: `run_series.py` takes a per-array `atlas_cell`
+column, so one run reads every subtype against its own column.
+
+**Synthetic test:** DEV_METAA_ATLAS_CURVE_01/bt_synthetic.py, DEV_METAA_ATLAS_CURVE_01/bt_01/bt_synthetic_naive_cd8_t_cells.txt, DEV_METAA_ATLAS_CURVE_01/bt_01/bt_synthetic_naive_b_cells.txt
+
+**Bars (at most three):**
+1. **Synthetic:** the monocyte synthetic on two of these columns (naive CD8 T, naive B): two curved responses read within 0.01 of 1 and a
+   planted 5 % loss within half a hundredth of its prediction. **Read: met on both** (the files above).
+2. **The job:** at least 90 % of the arrays read Normal (0.95-1.05), in development and then in the confirmation. **Quality rule, stated
+   now:** arrays the reading withholds (too few identity sites past the array's own detection check) are reported apart with their reason
+   and not counted; a laboratory with more than a quarter withheld is reported as not assessed.
+3. **Selection:** the median of each array's mean reading above its own curve at the identity sites lies within half a hundredth of zero.
+
+**Scorer:** `data/DEV_METAA_ATLAS_CURVE_01/bt_curve_score.py`, committed before any array lands.
