@@ -46,7 +46,7 @@
 },
 {
 "file": "FOLLOW.md",
-"line": 229,
+"line": 230,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -55,7 +55,7 @@
 },
 {
 "file": "FOLLOW.md",
-"line": 229,
+"line": 230,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -2184,7 +2184,7 @@
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "RECORD",
-"text": "- **14.3** [running] Held error and replication error are two routes with different physics (author: the held error 'requires a constant force to maintain it'; "
+"text": "- **14.3** [read] Held error and replication error are two routes with different physics (author: the held error 'requires a constant force to maintain it'; the"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
@@ -2463,7 +2463,7 @@
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "RECORD",
-"text": "- **14.3** (step 20, 2026-10-23) [running] Held error and replication error are two routes with different physics (author: the held error 'requires a constant f"
+"text": "- **14.3** (step 20, 2026-10-23) [read] Held error and replication error are two routes with different physics (author: the held error 'requires a constant forc"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",

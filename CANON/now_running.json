@@ -90,6 +90,11 @@
      "date": "2026-10-17",
      "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
      "record": "development/LIMITS_STUDY_2026-10-17.md"
+    },
+    {
+     "date": "2026-10-25",
+     "text": "Still paused while we finish the chain researchers will receive first. Nothing in this test has been read since it was paused, so it resumes exactly where it stopped.",
+     "record": "development/LIMITS_STUDY_2026-10-17.md"
     }
    ]
   },
@@ -116,6 +121,11 @@
      "date": "2026-10-17",
      "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
      "record": "development/LIMITS_STUDY_2026-10-17.md"
+    },
+    {
+     "date": "2026-10-25",
+     "text": "Still paused. Neither independent laboratory's neurons has been opened, so the test is still blind when it resumes.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md"
     }
    ]
   },
@@ -142,6 +152,11 @@
      "date": "2026-10-17",
      "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
      "record": "development/LIMITS_STUDY_2026-10-17.md"
+    },
+    {
+     "date": "2026-10-25",
+     "text": "Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread until then.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
     }
    ]
   },
@@ -161,6 +176,11 @@
      "date": "2026-10-17",
      "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
      "record": "development/LIMITS_STUDY_2026-10-17.md"
+    },
+    {
+     "date": "2026-10-25",
+     "text": "Still paused. Meanwhile the same chain read whole series of tissues: in prostate tumors the CpG islands read higher than in the neighboring normal tissue, across 237 samples, the early change this reading was built to catch.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ],
    "why": "Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today."
@@ -187,12 +207,17 @@
      "date": "2026-10-17",
      "text": "Paused so the commissioned chain reaches researchers first; this picks up after that.",
      "record": "development/LIMITS_STUDY_2026-10-17.md"
+    },
+    {
+     "date": "2026-10-25",
+     "text": "Two new tests of where a cell's tagging mistakes come from. When we knocked out a protein that keeps the tags in repair, mistakes in the molecules that are still held nearly tripled. When we compared dividing and resting cells of one kind, dividing added only about a twentieth. Most of the mistakes come from the upkeep itself, not from copying the DNA.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ],
    "why": "A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it."
   }
  ],
- "as_of": "2026-10-17",
+ "as_of": "2026-10-25",
  "off_board": [
   {
    "id": "temperature_law",

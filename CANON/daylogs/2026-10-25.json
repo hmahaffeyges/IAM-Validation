@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-25",
+ "title": "Where the held error comes from, and the leukemia study at full depth",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Read the division route and the leukemia study's first full-depth samples; keep every machine working.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The division route, IMR90 dividing and resting (PHY-006, DEV-ERASE-01)",
+     "status": "development",
+     "what": "Nine IMR90 samples (proliferating, senescent, dividing past senescence with SV40) counted by the one command at 10 million read pairs.",
+     "outcome": "Dividing adds about a twentieth of the held error; the cells still dividing with SV40 read the senescent level. Replication error is not the firm rate's missing half; upkeep itself is.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    }
+   ]
+  }
+ ],
+ "open_at_turnover": "Running on GitHub's machines: the leukemia study's Reh control and its UHRF1 knockout at full depth, each split across 20 machines, then merged and read by the one command.",
+ "closing": "",
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ }
+}

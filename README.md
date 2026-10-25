@@ -83,11 +83,11 @@ use ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 | experiment | status | newest update |
 |---|---|---|
 | Building a bigger map of healthy cells: IAM-Atlas v2.1 | Result is in | Commissioned. [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
-| Does our second instrument read the same DNA the same way everywhere? | On hold | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| Brain cells: does healthy order hold in cells that never divide? | On hold | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| Lung cancer: waiting for a better map of the lung | On hold | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| Can a tube of blood tell us about a GROUP of people? | On hold | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| Testing the physics itself: the levers | On hold | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
+| Does our second instrument read the same DNA the same way everywhere? | On hold | Still paused while we finish the chain researchers will receive first. [record](development/LIMITS_STUDY_2026-10-17.md) |
+| Brain cells: does healthy order hold in cells that never divide? | On hold | Still paused. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
+| Lung cancer: waiting for a better map of the lung | On hold | Still on hold for the same reason: the map needs measured lung support cells first. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
+| Can a tube of blood tell us about a GROUP of people? | On hold | Still paused. [record](Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md) |
+| Testing the physics itself: the levers | On hold | Two new tests of where a cell's tagging mistakes come from. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
 
 <!-- NOW_RUNNING:END -->
 

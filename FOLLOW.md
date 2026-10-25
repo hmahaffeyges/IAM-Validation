@@ -35,9 +35,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still paused while we finish the chain researchers will receive first. Nothing in this test has been read since it was paused, so it resumes exactly where it stopped. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | | The cause of the failed laboratory check is now known, and it was not the laboratories. The reading had been taken from the very beginning of each sequencing file, and the beginning reads differently - the three disagreeing libraries sit 11 to 14 percent below the controls read at the same spot, while both controls read flat. Our first fix, reading several places and averaging, failed its own test on made-up data: averaging shrinks a bad measurement, it does not remove it. The replacement skips the unsettled beginning, and how much to skip is decided by the sequencing chemistry itself rather than by whether our answer improves. It passed six tests on made-up files, including recovering a planted 12 percent error to within a fifth of a percent. Nothing real has been trimmed yet. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_TRIM_01.md) |
-| | The cause test is running on a rented computer: the three low files and two normal ones, each read from its start, middle and end. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_CAUSE_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#iama-commission).*
 
@@ -50,9 +50,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still paused. Neither independent laboratory's neurons has been opened, so the test is still blind when it resumes. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
 | | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | | The rule for what counts as a healthy brain-cell reference is now sealed: cleanly sorted cells only. That was a decision made after looking at the data, so it is labeled as one, and it was sealed before either independent laboratory was opened. Neither has been read. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
-| | Healthy brain-cell reference built by its rule, from seven samples of five donors. Cleanly sorted cells read tightly together; unsorted cells read higher. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#neurons).*
 
@@ -65,9 +65,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread until then. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
 | | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | | Still on hold, and now with a named condition for coming off hold: measured lung support cells in the map. Four lung attempts failed for one reason - a healthy lung whose cell mixture leans one way can imitate the signal - and in three of the four no tumor was ever opened. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
-| | Four lung sets tried: one read with no clear cancer signal; three stopped by their made-up tests before any tumor was opened, so none was wasted. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_04.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#lung).*
 
@@ -80,6 +80,7 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still paused. Meanwhile the same chain read whole series of tissues: in prostate tumors the CpG islands read higher than in the neighboring normal tissue, across 237 samples, the early change this reading was built to catch. [record](Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md) |
 | | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | | First test done, and it is the honesty test rather than the detection one. Two groups of HEALTHY people, read in two different laboratories: in the raw reading they differ by 3.69 percent - as much as a tumor would - and after the chain's correction, which compares each person against healthy people measured in the same run, they agree to 0.16 percent. The rule this forces, written before any patient data is opened: patients and their healthy comparisons must be measured in the same run, or the comparison is measuring the laboratories. [record](Biological_Physics/MethylPhys/doors/DEV_GROUP_01.md) |
 
@@ -94,9 +95,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Two new tests of where a cell's tagging mistakes come from. When we knocked out a protein that keeps the tags in repair, mistakes in the molecules that are still held nearly tripled. When we compared dividing and resting cells of one kind, dividing added only about a twentieth. Most of the mistakes come from the upkeep itself, not from copying the DNA. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
 | | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 | | A healthy cell can be its own reference. Across 56 kinds of healthy human cells, the rate of tagging mistakes follows one straight line set by how loosely the cell holds its own DNA (r 0.87; 53 of 56 cells within 0.003 of the line). That means a sample's expected healthy reading can come from the sample itself, instead of from a library of other people's cells. [record](development/loose_end_2026-10-15/loose_end_line.py) |
-| | The three-channel test came back: a cell has three jobs at a methylation site - copy the pattern, write a new mark, remove a mark - and we asked whether our readings can tell which one has been damaged. Damaging the removal job is the only one that makes the reading go DOWN, so that one is identifiable on its own. The other two both push it up and can only be told apart if the damage size is already known, which in a patient it would not be. That limit is why a third reading is being built. All of this is on made-up data; no lever has yet been read against the world except one mouse result. [record](Biological_Physics/MethylPhys/doors/DEV_LEVERS_01.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#levers).*
 

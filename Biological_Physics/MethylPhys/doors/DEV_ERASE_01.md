@@ -190,7 +190,7 @@ loose share, not the held error. SV40 also disables p53 and Rb, so its reading i
 **The division route, read** (`data/DEV_ERASE_01/division_01/division_summary.txt`; all 9 samples, exit 0; the molecule step ran after the
 dictionary was rebuilt, as above): **the first outcome as written, and small.** Held error pooled 0.05070 in the proliferating cells (0.04960,
 0.05180, 0.05070) and 0.04828 in the senescent cells (0.04725, 0.04945, 0.04813); the two sets of replicates do not overlap. The difference is
-0.0024, about 5 % of the held error, so dividing adds at most a small part of it, far less than the firm rate's second half. **Reported, not
+about a twentieth of the held error, so dividing adds at most a small part of it, far less than the firm rate's second half. **Reported, not
 used to size the term (stated before):** the SV40 cells, which keep dividing, read 0.04825, the senescent level, so the difference may come
 from the culture's state rather than division itself. The loose share rises with senescence (median 0.5807 to 0.6353) and further past it
 with SV40 (0.6877), as stated before for the chromatin's reorganization. **What it settles:** replication error is not the firm rate's

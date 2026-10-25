@@ -115,6 +115,36 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Bone marrow read and flagged; series published only as value tables (GRP-020)",
+     "status": "built",
+     "what": "Bone marrow and blood-and-marrow mixes are read on the full-atlas route and flagged, no longer refused at intake; series published only as value tables are read through the same values route.",
+     "outcome": "The value-table route matches a direct reading exactly.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "EPIC-Italy through the one command, first reading (GRP-018, DEV-FIRES-01)",
+     "status": "built",
+     "what": "The first EPIC-Italy arrays read through the one command, beside the earlier engine's pattern recorded before reading.",
+     "outcome": "The earlier breast pattern repeats; the case arrays are of lower quality.",
+     "rows": [
+      "GRP-018"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_FIRES_01.md"
+    },
+    {
+     "title": "Full-depth sequencing in pieces; the aligner index built once (GRP-020)",
+     "status": "built",
+     "what": "A full-depth sample is cut into up to 20 ranges aligned on separate machines and merged; the aligner index is built once and kept as release files.",
+     "outcome": "The chunk plan uses every read pair once and a split-then-merged molecule file is byte-identical to the original.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     }
    ]
   }
