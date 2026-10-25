@@ -4,3 +4,5 @@ r8_tissues_unrun_samples.csv
 r7_prostate_unrun_samples.csv
 r5_ibd_sorted_unrun_samples.csv
 r6_stroke_unrun_samples.csv
+val_retest_plan.csv
+val_retest_by_dataset.csv

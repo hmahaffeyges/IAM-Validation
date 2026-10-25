@@ -329,6 +329,14 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
      "next": "all read on every array and recorded (DEV_REPLICATE_01.md): prostate islands p 1.2e-06; glioblastoma islands p 7.6e-07; stroke and Crohn's/colitis nothing beyond chance; glioma blood and endothelial development signals",
      "closed": "2026-10-25"
+    },
+    {
+     "id": "0.9",
+     "date": "2026-10-25",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "what": "Every earlier test read line by line into a retest plan (author: 'go line by line ... cancer by cancer and test by test'): 119 tests, waves A-D by dataset",
+     "next": "wave A on free machines (GSE51057 with DEV-FIRES-01; GSE122126 plasma arrays; GSE256092; GSE287994; GSE99511; GSE141682; GSE281691); wave B format checks on the laptop in downtime"
     }
    ]
   },

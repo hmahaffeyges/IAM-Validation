@@ -214,3 +214,16 @@ endothelial cells (vascular 0.33, aorta 0.20, lung alveolar 0.16 in the controls
 than the controls on whole-sample Met-A (0.9839 against 1.0094, p 0.023) and most on the domains territory (1.0013 against 1.0821, p 0.0098);
 the heritable form does not separate. The per-cell readings for blood cells in this culture are of cells the sample does not contain and are
 not interpreted.
+
+## Every earlier test, line by line (the retest plan)
+
+The author's list of every earlier validation (VAL-001 to VAL-128, CPG_VAL_001 to 022, and the open predictions G-2026-P005 to P022) read
+line by line: `data/DEV_REPLICATE_01/val_retest_plan.csv` (one row per test: condition, specimen, the chain route that reads it, its
+datasets and their spend status, the earlier result, and what the chain reads now) and `data/DEV_REPLICATE_01/val_retest_by_dataset.csv`
+(one row per dataset, since one dataset serves several tests and is read once). Datasets are only those the list names or the earlier
+dataset map records; where neither names one the row says so. Run order, on machines the higher priorities leave free:
+**A** spent series with raw files (EPIC-Italy's second series and the published plasma arrays first); **B** series published only as
+processed values, read by the values route, flagged, after a format check on each; **C** TCGA tissue, one project at a time; **D**
+unread series, of which a replay reads a fixed half, the other half kept unread for a blind run. Not read: controlled-access cohorts,
+non-human arrays, retired fitted methods (panels, Mahalanobis hulls, principal components, age subtraction), and tests whose dataset is
+not yet found.
