@@ -1,0 +1,67 @@
+{
+ "_rule": "Every number in the paper is read at build time from the canon or a committed output; nothing is typed. Each value: a source file (repo path) and a regular expression whose first group is the value. build_paper.py fills {{name}} in the drafts and lists any value whose source is missing as pending.",
+ "M_cell": {
+  "canon": "M_cell"
+ },
+ "M_cell_Landauer": {
+  "canon": "M_cell_Landauer"
+ },
+ "dG_ATP": {
+  "canon": "dG_ATP"
+ },
+ "T_cell": {
+  "canon": "T_cell"
+ },
+ "all_held_err_leuk": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/pass1_01/all_pass1_summary.txt",
+  "re": "^leukemia +n 31 \\| held error median ([0-9.]+)"
+ },
+ "all_held_err_cord": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/pass1_01/all_pass1_summary.txt",
+  "re": "^cord-blood B cells n +3 \\| held error median ([0-9.]+)"
+ },
+ "all_held_err_p": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/pass1_01/all_pass1_summary.txt",
+  "re": "held_err: .* p ([0-9.e-]+)"
+ },
+ "all_loose_leuk": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/pass1_01/all_pass1_summary.txt",
+  "re": "^leukemia +n 31 .*loose share median ([0-9.]+)"
+ },
+ "metaa_v5_unmarked_neutrophil_seq": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_HEALTHY_01/step3_05/step3_v5_summary.txt",
+  "re": "^absent: sequencing level ([0-9.]+)"
+ },
+ "metaa_v5_marked_neutrophil_seq": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_HEALTHY_01/step3_05/step3_v5_summary.txt",
+  "re": "^held: sequencing level ([0-9.]+)"
+ },
+ "r7_islands_normal": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r7_full/r7_prostate_summary.txt",
+  "re": "territory islands +([0-9.]+) against"
+ },
+ "r7_islands_tumor": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r7_full/r7_prostate_summary.txt",
+  "re": "territory islands +[0-9.]+ against ([0-9.]+)"
+ },
+ "r7_islands_p": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r7_full/r7_prostate_summary.txt",
+  "re": "territory islands .* p ([0-9.e-]+)"
+ },
+ "r7_arrays": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r7_full/r7_prostate_summary.txt",
+  "re": ": ([0-9]+ of [0-9]+) arrays read"
+ },
+ "uhrf1_held_err_ctrl": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt",
+  "re": "^control \\(Reh-NT\\) +held error ([0-9.]+)"
+ },
+ "uhrf1_held_err_ko": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt",
+  "re": "^UHRF1 knockout +held error ([0-9.]+)"
+ },
+ "uhrf1_held_err_ratio": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt",
+  "re": "held error x ([0-9.]+)"
+ }
+}

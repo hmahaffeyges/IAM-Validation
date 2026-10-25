@@ -37,8 +37,8 @@ fidelity bound (IAM's Law) defined in the text, not in the title.
    against that bound and against its own reference, with nothing fitted per sample.
 3. The shared reference: a 79-cell-type methylation atlas built by a Bayesian hierarchical model with laboratory and platform terms
    calibrated across 21 sources, with full posteriors and convergence diagnostics at every site.
-4. The test: the published leukemia whole-genome bisulfite data reread, `[pending: DEV-ALL-INFO-01]`; the UHRF1 knockout,
-   `[pending: DEV-ERASE-01 UHRF1]`.
+4. The test: the published leukemia whole-genome bisulfite data reread, pass 1: held error {{all_held_err_leuk}} in 31 leukemias against {{all_held_err_cord}} in 3 cord-blood B-cell controls (p {{all_held_err_p}}), each read against its own molecules; regional readings pending pass 2; the UHRF1 knockout,
+   held error {{uhrf1_held_err_ctrl}} in the control and {{uhrf1_held_err_ko}} in the knockout ({{uhrf1_held_err_ratio}} times).
 5. Reach: arrays and cell-free DNA, `[pending]`. All code, data and the atlas are public.
 
 ## Introduction (about 500 words; 4 paragraphs)

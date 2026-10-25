@@ -1,0 +1,149 @@
+# The paper: outline and figure plan (plan step 50; draft, not for circulation)
+
+Format: that of the published information-theory study of pediatric acute lymphoblastic leukemia (Koldobskiy et al., *Nature Biomedical
+Engineering* 2021), whose structure this mirrors: an abstract of about 150 words; an introduction of about 500 words ending in what the
+paper shows; Results under headings that each state one finding; a Discussion of about 1,500 words; Methods by subsection with the
+equations; Data availability and Code availability; five or six main figures and a supplement.
+
+**Rules for this draft.**
+- No number is typed by hand in the paper. Every value is read from the canon (`CANON/manifest.json` rows and the test records named
+  below) by the paper's generator, which is to be written; a value whose test has not run shows as `[pending: TEST]`. The values quoted
+  in this outline are copied from `INTRODUCTION.md` for orientation only.
+- Statistical and information-theoretic names only: a Bayesian hierarchical model sampled by Hamiltonian Monte Carlo (No-U-Turn),
+  laboratory and platform terms estimated in a calibration stage and held fixed in the sampling (not sampled jointly: that was tested and
+  not adopted), split-half null tests, an information-geometric embedding (Fisher-Rao distance), a
+  thermodynamic lower bound (Landauer). How the methods were arrived at belongs to the book, not the paper.
+- The framing builds on the published study: it shows what a derived bound adds to its approach, tested on its own data, and credits what
+  was taken from it.
+- Gate (plan step 49): nothing is circulated until the chain is complete, Met-A's healthy line is derived, and the study is replicated.
+
+## Working title
+
+*Information physics of the methylome: a thermodynamic bound on maintained DNA methylation reads epigenetic disorder in single
+samples*
+
+Alternative: *The methylome as a maintained information store: a thermodynamic bound reads cell-type disorder without matched
+controls*
+
+Opening frame of the Introduction (author): the methylome as a dynamic digital-analog information store, each CpG on one molecule a
+bit, a cell population's level continuous, governed by statistical mechanics, thermodynamics and Shannon information theory; the proposed
+fidelity bound (IAM's Law) defined in the text, not in the title.
+
+## Abstract (about 150 words; written last)
+
+1. The problem: methylation disorder is central to cancer, but measuring it needs either matched normal controls or a model fitted inside
+   each deeply sequenced sample, which excludes arrays, shallow sequencing and cell-free DNA.
+2. What we introduce: a lower bound on the error of a maintained mark from the thermodynamics of information, and readings of each sample
+   against that bound and against its own reference, with nothing fitted per sample.
+3. The shared reference: a 79-cell-type methylation atlas built by a Bayesian hierarchical model with laboratory and platform terms
+   calibrated across 21 sources, with full posteriors and convergence diagnostics at every site.
+4. The test: the published leukemia whole-genome bisulfite data reread, pass 1: held error 0.04121 in 31 leukemias against 0.03668 in 3 cord-blood B-cell controls (p 0.022), each read against its own molecules; regional readings pending pass 2; the UHRF1 knockout,
+   held error 0.03216 in the control and 0.09407 in the knockout (2.925 times).
+5. Reach: arrays and cell-free DNA, `[pending]`. All code, data and the atlas are public.
+
+## Introduction (about 500 words; 4 paragraphs)
+
+1. Methylation disorder in cancer: stochasticity as a hallmark; the information-theory study of pediatric leukemia (Ising model, normalized
+   methylation entropy, Jensen-Shannon distance, UHRF1) and the earlier work on epigenetic stochasticity it builds on.
+2. Two limits such measures share: the scale is set by controls (in that study, 5 normal samples), and the model is fitted inside each
+   sample, so it needs deep sequencing.
+   Genome-wide scores built on cohorts share the first limit: epimutation burden (epigenetic mutation load, sites outside a healthy
+   cohort's range), epigenetic clocks and methylation risk scores. Their "normal" mixes age, inherited variation, laboratory batch and each
+   person's cell mix, and their unit (deviations from that cohort) changes with the cohort. Cite these by DOI, each checked.
+3. What physics offers: a maintained mark is a stored bit; holding it against thermal noise has a minimum cost (Landauer), and that cost
+   bounds the error a cell can reach. The bound gives a scale whose ends are derived, not learned.
+4. This paper: the bound and the readings built on it; the reference atlas; a test on the published data, including the knockout of the
+   maintenance factor UHRF1; reach beyond deep sequencing.
+
+## Results (each heading states its finding once the test has run; until then it states the question)
+
+The instruments are reported as a family: each answers one question about a sample, and each is set beside the one that covers its blind
+spot. That design is itself a result (R8).
+
+**R1. A thermodynamic bound sets the floor and the ceiling of methylation fidelity.** The derivation: the cost of holding one mark
+(M = 20.94 k_BT per ATP); the energy actually spent holding a mark, measured on single molecules in 56 healthy cell types (3.08 k_BT); the
+floor and the ceiling; the read-count correction, derived exactly; the distance to the ceiling. A prediction made before the data:
+methyl-donor restriction in mice, window 1.016 to 1.135, read 1.1239. *Sources: `doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`;
+`doors/DEV_SAM_LEVER_01_OUTCOME.md`; the ceiling and read-count records.* **Figure 1.** Supplementary Note 1 (below): the same bound in
+two engineered records.
+
+**R2. A sample's own loosely held share sets its expected error (IAM-A).** Held errors on held molecules against the sample's own loose
+share; the self-reference line from healthy cell types; why this is not circular (synthetic tests); reproduction in a second laboratory
+and in mouse; the molecule-level loose share for mixtures. *Sources: IAM-A records; `doors/DEV_REPLICATE_01.md`.* **Figure 2.**
+
+**R3. A calibrated atlas lets any sample be read without a reference of its own.** IAM-Atlas v2.1: 21 sources, laboratory and platform
+terms calibrated across them, posteriors and convergence diagnostics at every site, split-half null maps; the IAM-Deconvolver reproduced
+across laboratories, its residual reported, unexpected cell types flagged; Met-A of the whole sample and of each cell, and its healthy line
+derived laboratory by laboratory. *Sources: `atlas/v2.1/README.md`; the deconvolution reproductions; `doors/DEV_METAA_HEALTHY_01.md`,
+`[pending]`.* **Figure 3.**
+
+**R4. The published leukemia data reread.** Every leukemia and control read by itself (IAM-A, Met-A, the territories, the C-Scores,
+the distance to the ceiling), and the groups compared within the series by Group-A, the instrument that reads groups against the healthy
+in the same series, on the study's own terms. Pass 1 at fixed depth on all 36 samples; pass 2 at full depth region by region beside the
+study's five findings. *Source: `doors/DEV_ALL_INFO_01.md`, `[pending]`.* **Figure 4.**
+
+**R5. Loss of a maintenance factor read against the bound.** The UHRF1 knockout read molecule by molecule: held error against loose share;
+the entropy turnover in heterochromatic domains read as the distance to the ceiling. *Source: `doors/DEV_ERASE_01.md` (UHRF1),
+`[pending]`.* **Figure 5.**
+
+**R6. How a change lies along the genome, not only how large it is (the C-Scores and the territories).** Ordinary wear is scattered;
+tumors break whole stretches. The C-Score reads clustering apart from size, for one cell, each cell and the whole genome; the territories
+read the islands no healthy cell marks and the domains some cell types hold loosely, where early cancer acts and identity sites do not
+look; the genome-wide projection and the information-geometric embedding show both, built for the study's own samples; each site's
+sensitivity to a small loss of holding (after the study's methylation sensitivity, derived analytically). *Sources: the C-Score records,
+DEV-TERRITORIES-01, DEV-SPHERE-01, plan 49.5, `[pending]`.* **Figure 6.**
+
+**R7. Beyond deep sequencing: arrays and cell-free DNA.** The same readings on arrays (Group-A across replays of published case-control
+series) and on shallow plasma sequencing; the molecule-level loose share under mixing; cell types the atlas lacks, flagged. *Sources:
+the replays, `doors/DEV_ONE_DRAW_01.md`, `[pending]`.* **Extended Data.**
+
+**R8. What each reading cannot see, and how the chain checks itself.** The blind-spot table: each instrument, what it is referenced
+against, what it cannot see and which instrument covers it (from `CANON/catalogue.json`). The checks: synthetic tests before real data,
+every test written and committed before it ran, split-half and null tests, held-out laboratories. Results that went against the method,
+reported as results: the first atlas ruler, which overcorrected and was switched off; the half-and-half firm-rate rule, not supported on
+recount; sampling the atlas's laboratory terms inside the fit, tested and not adopted. **Table 1; Extended Data.**
+
+**Supplementary Note 1. The same bound in two engineered records.** The held-record floor p = 1 / (1 + e^M), M = E / k_BT, applied with
+measured values to superconducting qubits and to transistor logic, beside the cell (from `CANON/four_domains.json`, qubits and chips
+only), to show the bound is general physics and not tuned to cells. The cosmological domain is not part of this paper: in the book it rests
+on an assumption tagged as a conjecture, and the cell results stand on Landauer's principle alone.
+
+## Discussion (about 1,500 words)
+
+What a derived bound changes, set beside the cohort scores (epimutation burden, clocks, risk scores, methylation entropy) on three
+points: (1) composition removed per person, each site's expectation the reference atlas's healthy cells in that person's own measured mix;
+(2) absolute physical units, floor and ceiling from the law in bits, the same in any laboratory; (3) self-reference on molecules, IAM-A read
+against the sample's own loose share, so laboratory batch largely drops out. Stated with it: the atlas is a measured reference of healthy
+donors, and inherited variation sits inside its donor spread, so a genome-wide score must first show healthy people reading Normal. What was taken from the published study (nearest-neighbor coupling, methylation sensitivity, the knockout as
+a test) and how it was built in; what neither method yet does; limitations, stated plainly; the next study.
+
+## Methods (subsections)
+
+Data (all public; the accession list generated from `CANON/data_spent.csv`). The bound (equations). IAM-A: molecule counting, the loose
+share (tile and molecule-level), held error, the self-reference line. The atlas: the hierarchical model, priors, sampler settings,
+convergence, joint offsets, split-half nulls. Deconvolution. Met-A and its healthy line. The territories. The genome-wide projection and
+the embedding. Alignment (bisulfite read alignment, fixed read sampling). Pre-registration: every test written and committed before it
+ran. Statistics.
+
+## Data availability and Code availability
+
+All data are public (accessions listed). The chain, the atlas and every test record are public in the IAM-Validation repository; one
+command reproduces every figure.
+
+## Author contributions (draft)
+
+Conception, derivation, software, analysis and writing; an independent reproducibility audit from a clean clone, following only the
+written instructions (plan 50.4).
+
+## Figures
+
+| Figure | Panels | Status |
+|---|---|---|
+| 1 | the bound: cost of a mark, floor and ceiling, energy measured across 56 cell types, the mouse prediction | data in hand |
+| 2 | IAM-A: held error against loose share, the line, second-laboratory and mouse reproduction | data in hand |
+| 3 | the atlas: offsets, posterior widths, convergence, split-half null; Met-A's healthy line | the healthy line pending |
+| 4 | the published leukemia data reread, each sample by itself and by group (Group-A), beside the study's findings | pending |
+| 5 | the UHRF1 knockout against the bound | pending |
+| 6 | the C-Scores and the territories; the projection and embedding of the study's own samples; sensitivity | pending |
+| Table 1 | what each reading cannot see and what covers it; results that went against the method | data in hand |
+| Extended Data | arrays and cell-free DNA; the checks | partly pending |
