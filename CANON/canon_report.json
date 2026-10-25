@@ -3438,6 +3438,15 @@
 "text": "levels on each array through that array's own measured line (the healthy line's measurements, which met bars 2 and 3 in five laboratories),"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 376,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "measurement blur, is the remaining part; the healthy line measures it on each array's own anchor sites (bars 2 and 3 met in five"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
 "line": 22,
 "pattern": "reference line",

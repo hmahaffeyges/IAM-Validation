@@ -691,7 +691,7 @@
      "status": "running",
      "what": "Layer 1: the atlas's healthy levels predicted from each cell type's loss-side and gain-side held errors; the gain side added to Stage Q2's counter (synthetic test met); the gap measured",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
-     "next": "step 3 versions 1-4 not met (best 0.88 of the mark; marked side predicted from molecules, unmarked side short by 0.022): find purified neutrophils measured by sequencing to split granulocyte stand-in from neutrophil probe offset; no fifth version on these samples"
+     "next": "step 3 versions 1-5 not met. Settled: the marked side is predicted from the cell's own molecules; the unmarked side is not the granulocyte stand-in (purified neutrophils are even barer), not the array's blur (too small on these arrays) and not reference-array purity (the other blood cells are also nearly unmarked there). Open: why neutrophil arrays read Met-A's unmarked sites above the neutrophil's molecules plus the probe offset other cells show. Next: the same comparison for a second cell type with purified arrays and purified sequencing (monocytes: BLUEPRINT and GSE110554) to see whether it is neutrophil-specific; the four reserved BLUEPRINT donors stay unread"
     },
     {
      "id": "14.8",
