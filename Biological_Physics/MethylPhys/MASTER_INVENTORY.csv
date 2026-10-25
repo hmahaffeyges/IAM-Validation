@@ -186,12 +186,14 @@ GSE187291,,,,,spent,,,DEV_DIRECTION_01; DEV_DIRECTION_02,,,,,,
 GSE188573,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 59/59 samples,Epigenetic and transcriptomic remodeling in monocytes of severe COVID-19 patients mirrors systemic changes in cytokines and immune cell crosstalk,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE189255,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cd4 t cells,yes,IDAT listed for 14/14 samples,Genome-wide DNA methylation profiling identifies epigenetic changes in CD4+ and CD14+ cells of multiple sclerosis patients [CD4],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE189256,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 14/14 samples,Genome-wide DNA methylation profiling identifies epigenetic changes in CD4+ and CD14+ cells of multiple sclerosis patients [CD14],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE189426,,,,,,,,DEV_METAA_ATLAS_01,,,,,,
+GSE189426,,,,,,,,DEV_METAA_ATLAS_01; DEV_METAA_ATLAS_CURVE_01,,,,,,
+GSE189426 healthy donor monocytes (15),,,,,spent (development),,,,,,,,,
 GSE190164,,,,,,,,,not usable (not purified),,yes,IDAT listed for 48/48 samples,DNA methylation profiling in blood of OSA patients and controls,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE191200,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,microglia,yes,IDAT listed for 56/56 samples,"Contribution of Age, Brain Region, Mood Disorder Pathology, and Interindividual Factors on the Methylome of Human Microglia",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE191297,,,,,spent,,,DEV_INTAKE_02,,,,,,
 GSE195869,,,,,,,,DEV_XSPECIES_TEMP_01,,,,,,
 GSE196007,,,,,partly spent,,,,,,,,,
+GSE196071,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE196148,,,,,,,,,not usable (too few donors),ad-dermal fibroblasts,yes,IDAT listed for 7/7 samples,DNA methylation of fibroblasts from one HGPS patient,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE197512,,,,,,,,DEV_ATLAS_V21_01,research,ad-dermal fibroblasts | vascular endothelium | smooth muscle | keratinocyte,yes,IDAT listed for 372/372 samples,Cell division drives DNA methylation loss in late-replicating domains in primary human cells [methylation array],gold-mine map
 GSE198972,,,,,,,,,not usable (cultured with no uncultured comparison (likely)),keratinocyte,yes,IDAT listed for 12/12 samples,Hippo pathway component WWC1 is a key regulator of apoptosis and photosensitivity in lupus keratinocytes,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
@@ -199,7 +201,8 @@ GSE199057,downloads/C_tissue_tests/GSE199057/,5.79,IDAT,yes,unspent,not suitable
 GSE199815,,,,,,,,DEV_SYNTH_LEVERS_01,,,,,,
 GSE200376,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE201689,,,,,spent,,,,,,,,,
-GSE201754,,,,,,,,DEV_METAA_ATLAS_01,,,,,,
+GSE201754,,,,,,,,DEV_METAA_ATLAS_01; DEV_METAA_ATLAS_CURVE_01,,,,,,
+GSE201754 and GSE196071 healthy donor monocytes (43),,,,,reserved (confirmation),,,,,,,,,
 GSE201872,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,lung bronchus epithelium,yes,IDAT listed for 142/142 samples,DNA methylation signatures in airway cells from adult children of asthmatic mothers reflect subtypes of severe asthma (DNA methylation),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE202067,,,,,,,,,not usable (cultured; tumor series),osteoblasts,yes,IDAT listed for 45/45 samples,"Genome-wide DNA methylation profiling of GCTB, ABC, CB, NOF, BT, MSC, OB",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE206709,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_ATLAS_LAVAGE_02; DEV_SYNTH_LEVERS_01,,,,,,

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1124,
+   "lines": 1128,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -209,12 +209,12 @@
      "function": "_metaa_atlas",
      "name": "_metaa_atlas",
      "line": 210,
-     "end": 229,
+     "end": 232,
      "args": [
       "a",
       "b"
      ],
-     "lines": 20,
+     "lines": 23,
      "doc": "--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (stage_t_selftare.selftare_map, the map the commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched.",
      "constants": [],
      "data_files": [],
@@ -224,8 +224,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build",
      "name": "_build",
-     "line": 238,
-     "end": 302,
+     "line": 241,
+     "end": 305,
      "args": [
       "a"
      ],
@@ -245,8 +245,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 275,
-     "end": 275,
+     "line": 278,
+     "end": 278,
      "args": [
       "m"
      ],
@@ -260,8 +260,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 305,
-     "end": 325,
+     "line": 308,
+     "end": 328,
      "args": [
       "a",
       "cnt",
@@ -277,8 +277,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 328,
-     "end": 368,
+     "line": 331,
+     "end": 371,
      "args": [
       "a",
       "o",
@@ -298,10 +298,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 371,
-     "end": 1121,
+     "line": 374,
+     "end": 1125,
      "args": [],
-     "lines": 751,
+     "lines": 752,
      "doc": "",
      "constants": [
       "BIO",
@@ -331,8 +331,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 579,
-     "end": 583,
+     "line": 583,
+     "end": 587,
      "args": [
       "r"
      ],
@@ -348,8 +348,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 814,
-     "end": 821,
+     "line": 818,
+     "end": 825,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -361,8 +361,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1057,
-     "end": 1058,
+     "line": 1061,
+     "end": 1062,
      "args": [
       "b",
       "it",
@@ -6759,7 +6759,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 452,
+   "lines": 483,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6890,10 +6890,30 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "read_on_curve",
+     "name": "read_on_curve",
+     "line": 112,
+     "end": 139,
+     "args": [
+      "beta",
+      "cell"
+     ],
+     "lines": 28,
+     "doc": "2026-10-25 (DEVELOPMENT, plan 14.14; author: 'the atlas is our ruler'): Met-A with the atlas as the ruler and each array self-referenced. Sites: identity_sites(cell), chosen on the atlas, never on the array read. Ruler: the array's own response curve against the atlas cell's best value, measured at every atlas site that is not an identity site and that the array read: sites binned by the atlas lev",
+     "constants": [
+      "CURVE_EDGES",
+      "FLAG",
+      "RULE"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "tare",
      "name": "tare",
-     "line": 110,
-     "end": 119,
+     "line": 141,
+     "end": 150,
      "args": [
       "A",
       "refs"
@@ -6911,8 +6931,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_all",
      "name": "plant_all",
-     "line": 121,
-     "end": 125,
+     "line": 152,
+     "end": 156,
      "args": [
       "beta",
       "cell",
@@ -6928,8 +6948,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_runs",
      "name": "plant_runs",
-     "line": 128,
-     "end": 140,
+     "line": 159,
+     "end": 171,
      "args": [
       "beta",
       "cell",
@@ -6954,8 +6974,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant",
      "name": "plant",
-     "line": 142,
-     "end": 146,
+     "line": 173,
+     "end": 177,
      "args": [
       "beta",
       "cell",
@@ -6971,8 +6991,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 153,
-     "end": 195,
+     "line": 184,
+     "end": 226,
      "args": [
       "beta",
       "shares",
@@ -6996,8 +7016,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 198,
-     "end": 209,
+     "line": 229,
+     "end": 240,
      "args": [
       "beta",
       "shares",
@@ -7015,8 +7035,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 212,
-     "end": 241,
+     "line": 243,
+     "end": 272,
      "args": [
       "beta",
       "shares"
@@ -7034,8 +7054,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_clustering",
      "name": "_clustering",
-     "line": 247,
-     "end": 253,
+     "line": 278,
+     "end": 284,
      "args": [
       "z",
       "w"
@@ -7052,8 +7072,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_genome_order",
      "name": "_genome_order",
-     "line": 255,
-     "end": 260,
+     "line": 286,
+     "end": 291,
      "args": [
       "ids"
      ],
@@ -7073,8 +7093,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
-     "line": 262,
-     "end": 289,
+     "line": 293,
+     "end": 320,
      "args": [
       "beta",
       "shares",
@@ -7095,8 +7115,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_sets",
      "name": "territory_sets",
-     "line": 299,
-     "end": 315,
+     "line": 330,
+     "end": 346,
      "args": [],
      "lines": 17,
      "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
@@ -7114,8 +7134,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_reading",
      "name": "ceiling_reading",
-     "line": 317,
-     "end": 337,
+     "line": 348,
+     "end": 368,
      "args": [
       "xs",
       "es",
@@ -7133,8 +7153,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_reading",
      "name": "territory_reading",
-     "line": 339,
-     "end": 358,
+     "line": 370,
+     "end": 389,
      "args": [
       "beta",
       "shares",
@@ -7154,8 +7174,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 360,
-     "end": 366,
+     "line": 391,
+     "end": 397,
      "args": [
       "beta",
       "name",
@@ -7173,8 +7193,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_he",
      "name": "_he",
-     "line": 370,
-     "end": 372,
+     "line": 401,
+     "end": 403,
      "args": [
       "es",
       "counts"
@@ -7189,8 +7209,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 377,
-     "end": 380,
+     "line": 408,
+     "end": 411,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -7204,8 +7224,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 382,
-     "end": 395,
+     "line": 413,
+     "end": 426,
      "args": [
       "xs",
       "es"
@@ -7220,8 +7240,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 397,
-     "end": 412,
+     "line": 428,
+     "end": 443,
      "args": [
       "xs",
       "es",
@@ -7240,8 +7260,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 414,
-     "end": 451,
+     "line": 445,
+     "end": 482,
      "args": [
       "beta",
       "shares",
@@ -7260,8 +7280,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 432,
-     "end": 437,
+     "line": 463,
+     "end": 468,
      "args": [
       "m"
      ],
@@ -8207,5 +8227,5 @@
   }
  ],
  "n_files": 34,
- "n_functions": 420
+ "n_functions": 421
 }

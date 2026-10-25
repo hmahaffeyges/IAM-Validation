@@ -216,6 +216,9 @@ def _metaa_atlas(a, b):
         rec = {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "values": "sequencing values (stage_seq_values); no self-tare (arrays only)"}
         if a.metaa_atlas_ref_A: rec["tare"] = SA.tare(r.get("A"), [float(x) for x in a.metaa_atlas_ref_A.split(",") if x.strip()])
         return rec
+    if getattr(a, "dev_metaa_curve", False):   # 2026-10-25 (plan 14.14): the atlas as the ruler, on Stage 1's values and the array's own curve
+        r = SA.read_on_curve(b, a.dev_metaa_atlas)
+        return {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "values": "Stage 1 (no self-tare: the array's own curve is the ruler's map)"}
     import stage_t_selftare as _ST; bs, info = _ST.selftare_map(b)   # Stage T step 1 (F23: stage_t_selftare)
     if bs is None: return {"label": DV.DEV_LABEL, "status": "NOT_RUN", "reason": "Stage T step 1 could not run: " + str(info.get("reason"))}
     maps = info.get("maps") or {}
@@ -479,6 +482,7 @@ def main():
     ap.add_argument("--genome-region", type=int, default=1000, help="with --dev-genome-globe: CpGs per region (default 1000)")
     ap.add_argument("--dev-info-sphere", action="store_true", default=True, help="DEVELOPMENT - not commissioned (DEV-SPHERE-01): the sample's change on the information sphere (page OUT_info_sphere.html; needs the layout from --build info-globe). On by default since 2026-10-23 (author: 'it still gets created by the chain and we learn each time it does')")
     ap.add_argument("--no-info-sphere", dest="dev_info_sphere", action="store_false", help="skip the information sphere reading")
+    ap.add_argument("--dev-metaa-curve", action="store_true", help="DEVELOPMENT (plan 14.14, 2026-10-25): with --dev-metaa-atlas CELL, read Met-A with the atlas as the ruler on the array's own response curve (stage_metaa_atlas.read_on_curve) instead of the same-run tare")
     ap.add_argument("--dev-metaa-atlas", default=None, metavar="CELL",
                     help="DEVELOPMENT - not commissioned (DEV-METAA-ATLAS-01, 2026-10-22): Met-A of an isolated CELL (an IAM-Atlas v2.1 cell name, e.g. monocytes) "
                          "against that cell in IAM-Atlas v2.1, read on the self-tared values (Stage T step 1, the same map the commissioned Met-A reads); "

@@ -107,6 +107,37 @@ def read(beta, cell, specimen="isolated", counts=None):
                state="untared: read A_rel against same-run healthy references of the same cell (tare)")
     return rec
 
+CURVE_EDGES = [0, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 0.97, 0.98, 0.99, 1.0]   # step 3 v7's, stated
+
+def read_on_curve(beta, cell):
+    """2026-10-25 (DEVELOPMENT, plan 14.14; author: 'the atlas is our ruler'): Met-A with the atlas as the ruler and each array self-referenced.
+    Sites: identity_sites(cell), chosen on the atlas, never on the array read. Ruler: the array's own response curve against the atlas cell's
+    best value, measured at every atlas site that is not an identity site and that the array read: sites binned by the atlas level
+    (CURVE_EDGES), each bin's mean atlas level and the array's mean reading make one point; straight segments between points, end values
+    outside (step 3 version 7's rule, the atlas in place of a donor's molecules). The array's healthy mark is the mean, over the identity sites, of the expected entropy of a reading at the curve's value
+    with the array's own spread around its curve there (each bin's standard deviation of the readings about the curve; 21-point Gauss-Hermite); A = the array's own mean entropy there over that mark. Binned means only; nothing fitted; no cohort,
+    no same-run references. Also returned: the mean of the array above its own curve at the identity sites, the selection check."""
+    S = identity_sites(cell); mu = _col("mu", cell); x = beta.astype("float64")
+    rec = dict(stage="M-atlas-curve", reading="Met-A with IAM-Atlas v2.1 as the ruler, on the array's own response curve", cell=cell, flag=FLAG,
+               rule=dict(sites="identity_sites (atlas)", curve_edges=CURVE_EDGES, curve_sites="atlas sites read by the array, identity sites excluded"), A=None)
+    ids = pd.Index(S); off = mu.index[mu.notna()].difference(ids).intersection(x.dropna().index)
+    if len(off) < 10000: rec["reason"] = f"only {len(off)} curve sites read"; return rec
+    P = pd.DataFrame({"m": mu[off], "a": x[off], "b": pd.cut(mu[off], CURVE_EDGES, include_lowest=True)}).groupby("b", observed=True).mean().sort_values("m")
+    # the array's own scatter around its curve, bin by bin (run 3, disclosed: binned entropy, run 2, also averaged over the levels inside a bin)
+    _r = x[off] - np.interp(mu[off].to_numpy(), P.m.to_numpy(), P.a.to_numpy())
+    P["s"] = _r.groupby(pd.cut(mu[off], CURVE_EDGES, include_lowest=True), observed=True).std().reindex(P.index)
+    k = ids.intersection(x.dropna().index).intersection(mu.dropna().index)
+    if len(k) < RULE["coverage_min"] * len(S): rec["reason"] = f"only {len(k)} of {len(S)} identity sites read"; return rec
+    # the healthy mark includes the array's own scatter (synthetic run 1, disclosed: the entropy of the curve's mean reading alone left every
+    # array about 0.8 % low, as scatter lowers mean entropy)
+    c = np.interp(mu[k].to_numpy(), P.m.to_numpy(), P.a.to_numpy()); sd = np.interp(mu[k].to_numpy(), P.m.to_numpy(), P.s.to_numpy())
+    gx, gw = np.polynomial.hermite_e.hermegauss(21); gw = gw / gw.sum()   # expected entropy of a reading at the curve with the array's own spread
+    d = float((np.asarray(_H(pd.Series(np.clip(c[:, None] + sd[:, None] * gx[None, :], 1e-6, 1 - 1e-6).ravel()))).reshape(len(c), -1) @ gw).mean()); h = float(_H(x[k]).mean())
+    rec.update(A=round(h / d, 5), n_sites=int(len(k)), n_curve_sites=int(len(off)), H_array=round(h, 5), H_mark=round(d, 5),
+               above_curve=round(float((x[k].to_numpy() - c).mean()), 5), curve=[[round(float(u), 4), round(float(v), 4)] for u, v in zip(P.m, P.a)],
+               state="Normal" if RULE["normal"][0] <= h / d <= RULE["normal"][1] else ("above Normal" if h / d > RULE["normal"][1] else "below Normal"))
+    return rec
+
 def tare(A, refs):
     """The same-run tare: A_rel = A / median(refs); spread of the references and the detection limit as conductor_v3.stage_t_tare."""
     r = [float(v) for v in refs if v is not None and np.isfinite(v)]

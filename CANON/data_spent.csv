@@ -218,3 +218,5 @@ GSE87197 megakaryocytes donor 2 (19 single cells),spent (development; provisiona
 BLUEPRINT mature neutrophil WGBS (C000S5; C0011I; PB100713),spent (development),Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md (step 3 version 5),EBI BLUEPRINT FTP
 BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313),reserved (confirmation),Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md (step 3 version 5),EBI BLUEPRINT FTP
 BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313) read,spent (confirmation of step 3 version 7),Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md (step 3 version 7),EBI BLUEPRINT FTP
+GSE189426 healthy donor monocytes (15),spent (development),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
+GSE201754 and GSE196071 healthy donor monocytes (43),reserved (confirmation),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
