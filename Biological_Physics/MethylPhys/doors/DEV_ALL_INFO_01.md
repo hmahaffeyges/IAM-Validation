@@ -110,3 +110,8 @@ pass-1 values. Pass 1 read the first 10 million pairs of each run in the archive
 run as a whole (as when lanes of different quality are stacked). **Full depth stands; pass 1 is superseded** for each sample as its full
 depth lands, and the group comparison is made again on full depth. The earlier statement that full depth reproduces pass 1 held for four
 samples only.
+
+**No silent skips:** when the cell shares are withheld (too few marker sites measured), Met-A for each cell, the whole sample, the territories
+and the C-Score for each cell now each state that they were not read and why, instead of being left out. Checked before any further sample
+is sent: the pipeline script's own reading command run on a 10-million-pair molecule file under each specimen in the sample list (cell
+line, not stated, sorted B cells); every reading is present or states its reason.
