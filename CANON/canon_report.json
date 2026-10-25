@@ -2215,6 +2215,15 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 79,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- **14.12** [running] The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is measured. A derivation of "
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
 "line": 80,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
@@ -2392,6 +2401,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 211,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **14.12** (step 20, 2026-10-24) [running] The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is meas"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
@@ -3436,6 +3454,33 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "below the derived limit: the neutrophil C-Score's raw statistic, each cell's C (cells at a share of at least 1 %), the whole genome's C."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 39,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "identity sites chosen on IAM-Atlas v2.1, sits at or below its derived limit in 0.9495 of 1,009 values: the derived limit holds where its"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 39,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "identity sites chosen on IAM-Atlas v2.1, sits at or below its derived limit in 0.9495 of 1,009 values: the derived limit holds where its"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 44,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**What follows:** the derived limit can replace the measured band for each cell's C-Score; the whole genome's limit needs the"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",

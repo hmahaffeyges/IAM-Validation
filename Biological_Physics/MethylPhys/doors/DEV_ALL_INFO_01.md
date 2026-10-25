@@ -93,3 +93,12 @@ merged molecules with its stated specimen.
 **Re-reads from two runs:** a sample whose last chunk was re-sent has its chunks in two runs, so the split-alignment workflow takes a second
 source run (`chunksalso`); the first re-reads of the Reh control, the knockout and cord-blood control 1 found 19 chunks missing and refused,
 as they should.
+
+**Sorted cells on sequencing:** cord-blood control 1's re-read as "sorted b cells" stopped at IAM-A's intake, because the sequenced cell
+defaulted to neutrophils, and so read nothing after it. Three fixes: the sequenced cell now follows the stated specimen's atlas cell when it
+is not given (`run_sample.py --seq-cell`); the globe names the atlas cell for a sorted, isolated or purified specimen and reads cell lines
+and marrow as mixed; Met-A for each cell, for the whole sample and the territories now run for an isolated atlas cell too, against the cells
+the IAM-Deconvolver finds. Tested on a small saved molecule file read as sorted B cells: IAM-A reads B cells and the globe is drawn; the
+file was too shallow for the cell shares (marker sites withheld), so the atlas readings are checked on the control's own re-read.
+**The Reh line and its knockout, re-read as cell lines** (full-atlas route): IAM-A's held error is unchanged from the full-depth count, the
+knockout still about three times its control; the Deconvolver finds no single healthy cell type in a cultured line, as expected.
