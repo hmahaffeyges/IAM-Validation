@@ -102,3 +102,11 @@ the IAM-Deconvolver finds. Tested on a small saved molecule file read as sorted 
 file was too shallow for the cell shares (marker sites withheld), so the atlas readings are checked on the control's own re-read.
 **The Reh line and its knockout, re-read as cell lines** (full-atlas route): IAM-A's held error is unchanged from the full-depth count, the
 knockout still about three times its control; the Deconvolver finds no single healthy cell type in a cultured line, as expected.
+
+**Pass 1 against full depth, seven samples** (`data/DEV_ALL_INFO_01/pass2/full_vs_pass1.txt`, which replaces the four-sample table): four
+samples reproduce their pass-1 held error closely; three (cord-blood controls 2 and 3, ALL-100) read 6 to 9 % lower at full depth. The
+counter is not the cause: pass 1's own molecule files for cord-blood controls 1 and 3, recounted with today's chain, give exactly their
+pass-1 values. Pass 1 read the first 10 million pairs of each run in the archive's order, so for some runs those first reads differ from the
+run as a whole (as when lanes of different quality are stacked). **Full depth stands; pass 1 is superseded** for each sample as its full
+depth lands, and the group comparison is made again on full depth. The earlier statement that full depth reproduces pass 1 held for four
+samples only.
