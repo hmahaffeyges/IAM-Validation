@@ -1,0 +1,5 @@
+reading | values | median C | median limit | share at or below its limit
+neutrophil (commissioned sites) | 40 | 1.0539 | 1.0900 | 0.8000
+each cell | 1009 | 0.9979 | 1.0917 | 0.9495
+whole genome | 100 | 1.0042 | 1.0110 | 0.8000
+bar 2 (at least 90 % of healthy values at or below the derived limit, each reading): not met

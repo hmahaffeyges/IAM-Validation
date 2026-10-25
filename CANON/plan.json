@@ -737,7 +737,7 @@
      "date": "2026-10-24",
      "status": "running",
      "what": "The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is measured. A derivation of that limit from block size and counting noise, with its own synthetic test. IAM-A's C-Score (version 2) becomes derived with the firm rate, not with layer 1.",
-     "next": "limit derived exactly; bar 2 on the five laboratories' healthy bloods next",
+     "next": "derived limit holds for each cell's C (0.9495 of 1,009 healthy values); next: a neighbor-site term for the whole genome's limit, derived from the atlas's own site-to-site correlation, with its own test",
      "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
     },
     {

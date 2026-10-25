@@ -34,3 +34,12 @@ the file), and the simulated 95th percentile matches the limit to the fourth dec
 
 **Bar 1, read: met** (`data/DEV_CSCORE_LIMIT_01/limit_01/limit_synthetic_chain.txt`): 84 values from the 12 independent bloods, share at or
 below the limit 0.9643; the planted run's neutrophil C 1.9623 against its limit.
+
+**Bar 2, read: not met overall; met for each cell** (`data/DEV_CSCORE_LIMIT_01/limit_01/limit_score_bar2.txt`). **Each cell's C**, at
+identity sites chosen on IAM-Atlas v2.1, sits at or below its derived limit in 0.9495 of 1,009 values: the derived limit holds where its
+assumption, sites far apart and departures independent, holds. **The whole genome's C** does so in 0.8000 of 100: its median sits under
+the limit, but the genome's neighboring sites co-vary in healthy cells, as stated before scoring, so the whole genome needs a term for
+neighboring sites, not a measured band. **The commissioned neutrophil C-Score's raw statistic** does so in 0.8000 of 40, its median above
+the others'; its sites were chosen on the same arrays they are scored on, the selection effect Met-A step 3 found for the same sites.
+**What follows:** the derived limit can replace the measured band for each cell's C-Score; the whole genome's limit needs the
+neighbor term (next); the commissioned neutrophil C-Score keeps its measured band.
