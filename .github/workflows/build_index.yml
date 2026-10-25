@@ -21,6 +21,8 @@ jobs:
       - name: Build the index through the pipeline and publish it
         env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
+          pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt   # the workflow check's rule for every workflow that runs the chain's scripts (2026-10-25)
+          python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1
           export MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$HOME/idx NW=4 INDEXONLY=1 SAMPLES=${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1 || { tail -40 run.log; exit 1; }
           tail -8 run.log; ls -la $HOME/idx
