@@ -1,3 +1,4 @@
 blueprint_wgbs_listing.tsv
 ihec_wgbs_listing.csv
 ihec_healthy_by_cell.csv
+wg_cell_ranking.csv
