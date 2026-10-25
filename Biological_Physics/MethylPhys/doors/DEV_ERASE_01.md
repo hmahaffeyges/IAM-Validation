@@ -208,7 +208,7 @@ with its own DMSO control; Dnmt1/3a/3b triple knockouts (no methylation) on days
 14). `data/DEV_ERASE_01/graded_samples.csv`. Each run counted by the eraser recount's pipeline unchanged (`erase_gh.sh`, mm10), at most 10
 million read pairs (most runs hold fewer), the deep runs in full by the split alignment.
 
-**What the law says, stated before:** a held mark's error is e = 1/(1 + exp(E)), E = phi M (the canon: healthy E_hold 3.084 kT). Turning
+**What the law says, stated before:** a held mark's error is e = 1/(1 + exp(E)), E = phi M (the canon's E_hold_meth, measured on healthy cells' held error). Turning
 maintenance down lowers E, and two physically different ways of doing so are told apart without fitting anything:
 - **R, restoring slowed:** maintenance restores a lost mark at a rate; cutting the rate by a factor f lowers E by ln(1/f) everywhere, the
   same amount in every region. Across 2,000-CpG tiles, E at a dose against E in the control has **slope 1 and a negative intercept**.

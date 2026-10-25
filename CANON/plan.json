@@ -1688,7 +1688,7 @@
      "status": "running",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
      "what": "Provisional reference columns beside IAM-Atlas v2.1 for cells it lacks (author's idea): first megakaryocytes, built from GSE87197 donor 1, tested on donor 2; the Deconvolver's leftover and unreferenced sites reported as what else is there, unscored",
-     "next": "versions 1 and 2 not met on donor 2; ploidy does not separate; single cells are too thin for a column: find deep bulk megakaryocyte methylation data; donor 3 stays unread"
+     "next": "versions 1 and 2 (single cells, GSE87197 donor 1) not met on donor 2; single cells are too thin. Found, unread (labels only): BLUEPRINT bulk purified megakaryocytes (cord blood, CD34-negative CD41+ CD42+), two donors, S004AV and S004BT, bisulfite calls and coverage as GRCh38 bigWig pairs (about 115-130 MB each), the format run_sample.py --dev-seq-beta CALL.bw,COV.bw already reads. Next (author's order: after the leukemia study, the firm rate and Met-A on the atlas): column version 3 built from S004AV, tested on S004BT planted into a spent plasma, and on GSE87197 donor 3 (unread) as a second test; stated before: cord-blood megakaryocytes are neonatal, and whether BLUEPRINT's were cultured is read from their metadata before the test is written"
     },
     {
      "id": "40.19",
