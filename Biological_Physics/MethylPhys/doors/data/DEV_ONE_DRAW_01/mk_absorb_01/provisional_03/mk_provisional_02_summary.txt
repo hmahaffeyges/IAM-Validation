@@ -1,0 +1,9 @@
+DEV-ONE-DRAW-01 provisional reference test 2 (column version 2 from donor 1; read on donor 2, spent: development)
+markers 7911 | pure donor 2 pool: megakaryocytes 0.1954 (largest: False) | stand-ins 0.7770
+bar 1 (largest share and at least 0.50): not met
+  0 %: megakaryocytes 0.0847 | stand-ins 0.6787
+  10 %: megakaryocytes 0.1065 | simple mixing 0.0958 | stand-ins 0.6930
+  25 %: megakaryocytes 0.0992 | simple mixing 0.1124 | stand-ins 0.7310
+  40 %: megakaryocytes 0.1062 | simple mixing 0.1290 | stand-ins 0.7781
+bar 2 (rises at each step): not met
+bar 3 (stand-ins rise at most 0.02, 0 to 40 %): rise 0.0994: not met

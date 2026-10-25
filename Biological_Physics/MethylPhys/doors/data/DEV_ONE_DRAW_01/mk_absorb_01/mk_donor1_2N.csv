@@ -1,0 +1,9 @@
+gsm,title,tissue,donor,sex,age_group,cell_number,file
+GSM2324748,MK_1_D1_2N_1_R1,bone_marrow,1,F,,1,GSM2324748_MK_1_D1_2N_1_R1.txt.gz
+GSM2324749,MK_1_D1_2N_2_R1,bone_marrow,1,F,,1,GSM2324749_MK_1_D1_2N_2_R1.txt.gz
+GSM2324750,MK_1_D1_2N_3_R1,bone_marrow,1,F,,1,GSM2324750_MK_1_D1_2N_3_R1.txt.gz
+GSM2324751,MK_1_D1_2N_4_R1,bone_marrow,1,F,,1,GSM2324751_MK_1_D1_2N_4_R1.txt.gz
+GSM2324752,MK_1_D1_2N_5_R1,bone_marrow,1,F,,1,GSM2324752_MK_1_D1_2N_5_R1.txt.gz
+GSM2324753,MK_1_D1_2N_6_R1,bone_marrow,1,F,,1,GSM2324753_MK_1_D1_2N_6_R1.txt.gz
+GSM2324769,MK_5_D1_2N_1_R1,bone_marrow,1,F,,5,GSM2324769_MK_5_D1_2N_1_R1.txt.gz
+GSM2324770,MK_5_D1_2N_2_R1,bone_marrow,1,F,,5,GSM2324770_MK_5_D1_2N_2_R1.txt.gz

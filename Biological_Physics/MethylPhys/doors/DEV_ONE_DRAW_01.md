@@ -325,3 +325,16 @@ absorbing it. **Bars:** test 1's three.
 
 The synthetic is donor 1 in-sample: version 2 reads its own donor's pure pool 0.880 (version 1: 1.000, its own noise), and with 40 %
 planted the megakaryocyte share rises from 0.085 to 0.358 while the stand-ins fall (0.679 to 0.538).
+
+**Provisional reference test 2, read** (`data/DEV_ONE_DRAW_01/mk_absorb_01/provisional_03/mk_provisional_02_summary.txt`): **not met**, all
+three bars. Donor 2's pure pool reads megakaryocytes 0.1954 with version 2 (not its largest share; the stand-ins take 0.7770); planted into
+the plasma the share does not rise at each step (0.0847, 0.1065, 0.0992, 0.1062) and the stand-ins rise by 0.0994. Version 2 fixed the
+spread, but donor 2's DNA is still read as marrow progenitors, so the column's spread was not the main problem.
+
+**What the sample titles show:** each cell's ploidy (megakaryocytes copy their DNA as they mature: 2N young, 8N to 32N mature, the
+platelet-making cells that shed into plasma). Donor 1: 2N 8, 4N 6, 8N 6, 16N 6, 32N 7. Donor 2: 2N 8, 4N 2, 8N 2, 16N 0, 32N 7. Donor 3: 2N 9,
+4N 2, 8N 1, 16N 2, 32N 5. Donor 2's set leans young, and a young megakaryocyte is close to its progenitor (MEP), one of the stand-ins. A
+hypothesis, not a finding. **Ploidy check 1** (`data/DEV_ONE_DRAW_01/mk_absorb_01/mk_ploidy_01.py`, written before it runs; development on
+donor 1, spent): donor 1's 2N cells (8) and its 8N-and-up cells (19) pooled separately and each read once through the one command, the atlas
+only. If the young pool lands on the marrow progenitors and the mature pool does not, the next column is built from mature cells only, the
+cells that shed into plasma.
