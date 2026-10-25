@@ -1,0 +1,41 @@
+DEV-ALL-INFO-01 pass 1: Stage Q2 counts at 10 million read pairs, 34 of 36 samples
+GSM4914781 WGBS ALL-45            leukemia           held error 0.03743 (opp 1313112) | loose share 0.034009873834339004
+GSM4914782 WGBS ALL-100           leukemia           held error 0.04134 (opp 1843869) | loose share 0.08370702541106129
+GSM4914783 WGBS ALL-127           leukemia           held error 0.04281 (opp 2283485) | loose share 0.030620467365028204
+GSM4914784 WGBS ALL-137           leukemia           held error 0.03486 (opp 1461734) | loose share 0.029411764705882353
+GSM4914785 WGBS ALL-251           leukemia           held error 0.03216 (opp 1463343) | loose share 0.015463917525773196
+GSM4914786 WGBS ALL-276           leukemia           held error 0.03848 (opp 1829001) | loose share 0.03489640130861505
+GSM4914787 WGBS ALL-289           leukemia           held error 0.04543 (opp 2001515) | loose share 0.02869757174392936
+GSM4914788 WGBS ALL-311           leukemia           held error 0.03859 (opp 1607622) | loose share 0.05400192864030858
+GSM4914789 WGBS ALL-321           leukemia           held error 0.03685 (opp 1348585) | loose share 0.04764851485148515
+GSM4914790 WGBS ALL-370           leukemia           held error 0.03989 (opp 1620146) | loose share 0.03862894450489663
+GSM4914791 WGBS ALL-227           leukemia           held error 0.04175 (opp 1206579) | loose share 0.42136854741896757
+GSM4914792 WGBS ALL-232           leukemia           held error 0.04792 (opp 1824262) | loose share 0.46309403437815977
+GSM4914793 WGBS ALL-281           leukemia           held error 0.04600 (opp 1969521) | loose share 0.38636363636363635
+GSM4914794 WGBS ALL-337           leukemia           held error 0.04341 (opp 2185253) | loose share 0.21037998146431883
+GSM4914795 WGBS ALL-169           leukemia           held error 0.03977 (opp 2204098) | loose share 0.16582406471183014
+GSM4914796 WGBS ALL-336           leukemia           held error 0.03899 (opp 2022466) | loose share 0.11122881355932203
+GSM4914797 WGBS ALL-199           leukemia           held error 0.04629 (opp 1664268) | loose share 0.08165829145728644
+GSM4914798 WGBS Reh-NT            control line       no count
+GSM4914799 WGBS Reh-UHRF1         knockout           no count
+GSM4914800 WGBS CD19-1            cord-blood B cells held error 0.03206 (opp 2399882) | loose share 0.01542111506524318
+GSM4914801 WGBS CD19-2            cord-blood B cells held error 0.03668 (opp 2351847) | loose share 0.09112709832134293
+GSM4914802 WGBS CD19-3            cord-blood B cells held error 0.03745 (opp 2346185) | loose share 0.09004237288135593
+GSM4914803 WGBS ALL-493           leukemia           held error 0.04234 (opp 1030427) | loose share 0.20652173913043478
+GSM4914804 WGBS ALL-883           leukemia           held error 0.04268 (opp 1933824) | loose share 0.22715627668659266
+GSM4914805 WGBS ALL-3392          leukemia           held error 0.03718 (opp 1438279) | loose share 0.08495981630309989
+GSM4914806 WGBS ALL-3576          leukemia           held error 0.05117 (opp 1614644) | loose share 0.558258642765685
+GSM4914807 WGBS ALL-4192          leukemia           held error 0.04345 (opp 971120) | loose share 0.19130434782608696
+GSM4914808 WGBS ALL-4599          leukemia           held error 0.04014 (opp 1377741) | loose share 0.12079701120797011
+GSM4914809 WGBS ALL-5651          leukemia           held error 0.04439 (opp 1237444) | loose share 0.09928229665071771
+GSM4914810 WGBS ALL-6065          leukemia           held error 0.04080 (opp 1140159) | loose share 0.13815789473684212
+GSM4914811 WGBS ALL-7494          leukemia           held error 0.03557 (opp 1735461) | loose share 0.12939958592132506
+GSM4914812 WGBS ALL-8131          leukemia           held error 0.04068 (opp 1656434) | loose share 0.14331550802139037
+GSM4914813 WGBS ALL-8655          leukemia           held error 0.04121 (opp 1151664) | loose share 0.1676168757126568
+GSM4914814 WGBS ALL-1398          leukemia           held error 0.04445 (opp 1118688) | loose share 0.231311706629055
+GSM4914815 WGBS ALL-1811          leukemia           held error 0.04744 (opp 1687509) | loose share 0.2888198757763975
+GSM4914816 WGBS ALL-7258          leukemia           held error 0.03675 (opp 1341140) | loose share 0.054388133498145856
+leukemia           n 31 | held error median 0.04121 | loose share median 0.1208
+cord-blood B cells n  3 | held error median 0.03668 | loose share median 0.0900
+leukemia against cord-blood B cells, held_err: 0.04121 against 0.03668 | Mann-Whitney p 0.022
+leukemia against cord-blood B cells, loose_share: 0.12080 against 0.09004 | Mann-Whitney p 0.24

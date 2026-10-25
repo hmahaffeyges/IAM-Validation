@@ -42,3 +42,25 @@ chunks is kept. **First real test:** the Reh control (GSM4914798) at full depth,
 6,006, 6,276 and 6,425 s of about 9,500 s). `build_index.yml` builds it once through the same block of `erase_gh.sh` and keeps it as release
 files with the SHA-256 of the whole stream; each job streams it in and checks it, and builds it itself if the release is missing or the
 check fails. The index is the same either way, so alignments are unchanged.
+
+## Pass 1, read
+
+`data/DEV_ALL_INFO_01/pass1_01/all_pass1_summary.txt` (scored by `pass1_score.py`, written before the counts; 34 of 36 samples here, the Reh
+pair counted earlier in DEV-ERASE-01 at the same depth). Each sample is counted against its own molecules at 10 million read pairs; no
+sample is compared with a control to make its reading.
+
+| Group | n | held error, median | loose share, median |
+|---|---|---|---|
+| leukemias | 31 | 0.04121 | 0.1208 |
+| cord-blood CD19+ B cells | 3 | 0.03668 | 0.0900 |
+| Reh control (DEV-ERASE-01) | 1 | 0.03216 | 0.0490 |
+| Reh, UHRF1 knocked out (DEV-ERASE-01) | 1 | 0.09407 | 1.0 |
+
+- **Beside finding 1 (leukemias more stochastic):** the leukemias' held error is higher than the cord-blood B cells' (Mann-Whitney p 0.022,
+  with only 3 controls); the loose share does not separate the groups (p 0.24) but spreads widely across the leukemias (0.015 to 0.558; six
+  above 0.2), the samples where whole molecules have left the held class.
+- **Beside finding 5 (the knockout):** knocking out UHRF1 multiplies the held error 2.9 times and leaves no tile held, the largest change in
+  the series.
+- **Not yet compared:** findings 2 to 4 are regional (bivalent domains, promoters, translocation genes); they need pass 2 (full depth and the
+  regional readings). The controls are cord-blood B cells, not the study's sorted pre-B2 precursors (controlled access), so the comparison
+  is with a related, not the same, normal cell.
