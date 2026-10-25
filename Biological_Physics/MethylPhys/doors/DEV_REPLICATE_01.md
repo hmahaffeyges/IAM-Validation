@@ -203,3 +203,14 @@ in every pair of groups, so a p near 0.02 to 0.05 is expected by chance somewher
 172-array reading): in the 8 comparisons of a disease against healthy controls within one cell type (Crohn's disease and ulcerative colitis;
 CD4, CD8, monocytes, whole blood), no reading falls below p 0.01. The instruments stay quiet in a disease that does not change these cells'
 own marks.
+
+**R9 glioma blood and endothelial cells, all arrays** (`data/DEV_REPLICATE_01/r9_full/`; development, read after the fact, many readings
+and comparisons, none corrected for multiple comparisons). **Glioma patients' blood (GSE180683, 76 of 76):** blood, not tumor. New
+glioblastoma bloods read whole-sample Met-A 0.9932 against 0.9801 in new lower-grade glioma (p 0.026) and 0.9768 in recurrent lower-grade
+glioma (p 0.0053), the domains and the rest of the genome the same way; new glioblastoma blood is dominated by neutrophils (0.74), and
+treatment of these patients commonly raises neutrophils, so the cell mix may carry part of this; the recurrent tumors that became
+glioblastoma do not separate from either. **Cultured pulmonary artery endothelial cells (GSE84395, 39 of 39):** the Deconvolver finds
+endothelial cells (vascular 0.33, aorta 0.20, lung alveolar 0.16 in the controls). Idiopathic pulmonary arterial hypertension reads lower
+than the controls on whole-sample Met-A (0.9839 against 1.0094, p 0.023) and most on the domains territory (1.0013 against 1.0821, p 0.0098);
+the heritable form does not separate. The per-cell readings for blood cells in this culture are of cells the sample does not contain and are
+not interpreted.

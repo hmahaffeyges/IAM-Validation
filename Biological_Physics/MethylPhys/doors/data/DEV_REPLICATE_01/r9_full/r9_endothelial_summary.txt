@@ -1,0 +1,59 @@
+DEV-REPLICATE-01 r9_endothelial: 39 of 39 arrays read (pass 1, untared)
+== GSE84395: control 18, heritable Pulmonary arterial hypertension (hPAH) 10, idiopathic Pulmonary arterial hypertension (iPAH) 11
+   control: largest shares vascular endothelium 0.33, aorta endothelium 0.20, lung alveolar endothelium 0.16
+   heritable Pulmonary arterial hypertension (hPAH): largest shares vascular endothelium 0.37, aorta endothelium 0.29, lung alveolar endothelium 0.11
+   idiopathic Pulmonary arterial hypertension (iPAH): largest shares vascular endothelium 0.39, aorta endothelium 0.28, lung alveolar endothelium 0.07
+-- control (18) against heritable Pulmonary arterial hypertension (hPAH) (10)
+   site cg05575921                            0.9035 against 0.8530 | d +1.05 | p 0.039
+   site cg03636183                            0.3695 against 0.3925 | d -0.13 | p 0.55
+   site cg16867657                            0.7450 against 0.5860 | d +0.80 | p 0.033
+   Met-A whole                                1.0094 against 0.9903 | d +0.39 | p 0.16
+   ceiling distance                           0.9931 against 1.0073 | d -0.40 | p 0.16
+   Met-A whole, identity sites of the cells found 0.9920 against 0.9828 | d +0.41 | p 0.24
+   Met-A whole, islands                       1.1774 against 1.1860 | d -0.06 | p 0.43
+   Met-A whole, domains                       1.0821 against 1.0252 | d +0.66 | p 0.072
+   Met-A whole, the rest                      0.9333 against 0.9261 | d +0.10 | p 0.61
+   Met-A neutrophils                          0.9795 against 0.9506 | d +0.66 | p 0.072
+   Met-A cd4 t cells                          1.0606 against 1.0398 | d +0.57 | p 0.14
+   Met-A cd8 t cells                          1.0639 against 1.0378 | d +0.81 | p 0.065
+   Met-A b cells                              1.0759 against 1.0511 | d +0.70 | p 0.13
+   Met-A monocytes                            1.0322 against 1.0118 | d +0.63 | p 0.08
+   territory islands                          1.1756 against 1.1840 | d -0.05 | p 0.52
+   territory domains                          1.0600 against 1.0147 | d +0.57 | p 0.11
+   C-Score whole genome                       0.9959 against 0.9982 | d -0.27 | p 0.55
+-- control (18) against idiopathic Pulmonary arterial hypertension (iPAH) (11)
+   site cg05575921                            0.9035 against 0.9170 | d +0.15 | p 1
+   site cg03636183                            0.3695 against 0.3970 | d -0.41 | p 0.23
+   site cg16867657                            0.7450 against 0.6760 | d +0.72 | p 0.08
+   Met-A whole                                1.0094 against 0.9839 | d +0.76 | p 0.023
+   ceiling distance                           0.9931 against 1.0123 | d -0.77 | p 0.023
+   Met-A whole, identity sites of the cells found 0.9920 against 0.9865 | d +0.50 | p 0.33
+   Met-A whole, islands                       1.1774 against 1.2096 | d -0.43 | p 0.18
+   Met-A whole, domains                       1.0821 against 1.0013 | d +1.13 | p 0.0098
+   Met-A whole, the rest                      0.9333 against 0.9156 | d +0.46 | p 0.17
+   Met-A neutrophils                          0.9795 against 0.9245 | d +1.04 | p 0.016
+   Met-A cd4 t cells                          1.0606 against 1.0405 | d +0.83 | p 0.018
+   Met-A cd8 t cells                          1.0639 against 1.0513 | d +0.77 | p 0.045
+   Met-A b cells                              1.0759 against 1.0569 | d +0.80 | p 0.037
+   Met-A monocytes                            1.0322 against 0.9971 | d +0.90 | p 0.016
+   territory islands                          1.1756 against 1.2073 | d -0.42 | p 0.18
+   territory domains                          1.0600 against 0.9935 | d +1.07 | p 0.013
+   C-Score whole genome                       0.9959 against 0.9988 | d -0.38 | p 0.31
+-- heritable Pulmonary arterial hypertension (hPAH) (10) against idiopathic Pulmonary arterial hypertension (iPAH) (11)
+   site cg05575921                            0.8530 against 0.9170 | d -0.71 | p 0.084
+   site cg03636183                            0.3925 against 0.3970 | d -0.35 | p 0.46
+   site cg16867657                            0.5860 against 0.6760 | d +0.02 | p 0.75
+   Met-A whole                                0.9903 against 0.9839 | d +0.40 | p 0.13
+   ceiling distance                           1.0073 against 1.0123 | d -0.41 | p 0.13
+   Met-A whole, identity sites of the cells found 0.9828 against 0.9865 | d +0.12 | p 1
+   Met-A whole, islands                       1.1860 against 1.2096 | d -0.48 | p 0.13
+   Met-A whole, domains                       1.0252 against 1.0013 | d +0.50 | p 0.084
+   Met-A whole, the rest                      0.9261 against 0.9156 | d +0.40 | p 0.34
+   Met-A neutrophils                          0.9506 against 0.9245 | d +0.48 | p 0.17
+   Met-A cd4 t cells                          1.0398 against 1.0405 | d +0.26 | p 0.75
+   Met-A cd8 t cells                          1.0378 against 1.0513 | d -0.04 | p 0.86
+   Met-A b cells                              1.0511 against 1.0569 | d +0.09 | p 0.92
+   Met-A monocytes                            1.0118 against 0.9971 | d +0.30 | p 0.38
+   territory islands                          1.1840 against 1.2073 | d -0.47 | p 0.13
+   territory domains                          1.0147 against 0.9935 | d +0.55 | p 0.062
+   C-Score whole genome                       0.9982 against 0.9988 | d -0.04 | p 1
