@@ -3182,3 +3182,6 @@ The neutrophil mark derived from the granulocytes' genome-wide held error came o
 
 ### 2026-10-24 · Met-A's derived neutrophil mark, version 2: not met; identity sites are set by loose molecules (GRP-019)
 Counting the granulocytes' held error at Met-A's identity sites made the derived mark worse (0.077 bits against the measured 0.330): isolated errors there are rarer than across the genome. The identity sites' lower level comes from molecules that do not hold the mark at all. Version 3 counts those molecule classes at the sites. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md).
+
+### 2026-10-24 · The provisional megakaryocyte column does not carry to a second donor (GRP-016)
+Built from donor 1's 33 single cells (about 3 reads a site), the column named donor 1's own megakaryocytes perfectly and donor 2's poorly (0.208 for a pure pool); its marker sites were partly donor 1's chance extremes. Version 2 needs read-depth rules; donor 3 stays unread for its confirmation. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).

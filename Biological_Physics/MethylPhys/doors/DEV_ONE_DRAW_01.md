@@ -293,3 +293,13 @@ the pure pool reads megakaryocytes 1.0 with the column (the four stand-ins 0.979
 mixing) was replaced, before donor 2 was read, by a rise at each step; the distance to simple mixing is recorded, not scored. **Noted for
 later:** in the healthy plasma the stand-ins still hold 0.691 with the column (lung interstitial macrophages the largest), so megakaryocytes
 explain only part of what those cells take in plasma.
+
+**Provisional reference test 1, read** (`data/DEV_ONE_DRAW_01/mk_absorb_01/provisional_02/mk_provisional_01_summary.txt`): **not met**
+(bar 1 not met, bar 2 met, bar 3 not met). Donor 2's pure pool reads megakaryocytes (provisional) 0.2082, the largest share but below 0.50;
+planted into the plasma the share rises at each step but only from 0.1205 to 0.1378 at 40 % (simple mixing 0.1556), and the stand-ins rise
+by 0.0373. **What it shows:** the column worked on donor 1 (1.000 pure, 0.366 at 40 %) because it read donor 1's own noise: at about 3 reads
+a site, the sites chosen as megakaryocyte markers were partly sites where donor 1 looked extreme by chance. **Disclosed:** the test's own
+scoring stopped on an error; the chain's sample-id hashing had replaced the cell name inside the pure pool's bundle, whose id was the same
+word ("megakaryocytes"); the same bars were read from the saved bundles by `mk_provisional_01_score.py`. The hashing fault goes on the
+chain's fix list. **Next:** a version 2 column, written before it runs, using only sites with enough reads and a spread honest about
+single-cell noise; development on donor 2 (spent); confirmation on donor 3 (unread).

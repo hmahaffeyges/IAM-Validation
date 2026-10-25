@@ -1,0 +1,9 @@
+DEV-ONE-DRAW-01 provisional reference test 1 (column from GSE87197 donor 1; read on donor 2)
+pure donor 2 pool: megakaryocytes (provisional) 0.2082 (largest: True) | stand-ins summed 0.6022
+bar 1 (largest share and at least 0.50): not met
+  0 %: megakaryocytes 0.1205 | stand-ins 0.6906
+  10 %: megakaryocytes 0.1269 | simple mixing 0.1293 | stand-ins 0.7086
+  25 %: megakaryocytes 0.1315 | simple mixing 0.1424 | stand-ins 0.6966
+  40 %: megakaryocytes 0.1378 | simple mixing 0.1556 | stand-ins 0.7279
+bar 2 (rises at each step): met
+bar 3 (stand-ins rise at most 0.02, 0 to 40 %): rise 0.0373: not met
