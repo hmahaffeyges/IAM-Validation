@@ -735,6 +735,14 @@
      "status": "open",
      "what": "Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'healthy middle' (174 live uses) become the baseline with its status; the canon's 'Healthy reference' and 'H_ref' entries folded into 'baseline'; the chain's Met_A_Floors files, which call Met-A's baseline a floor, renamed with a compatibility note; the book, website, report and Decoder regenerated.",
      "next": "next language batch"
+    },
+    {
+     "id": "14.14",
+     "date": "2026-10-25",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "A Met-A version with identity sites chosen on molecules, not on arrays (after step 3: the commissioned sites, ranked on the same arrays, read above each array's own response curve). The same rule (mostly marked or mostly unmarked, steady across donors, distinct from the other atlas cells) applied to purified sequencing; sites chosen on some donors and the mark predicted on the others; each array's mark predicted through its own response curve (step 3 version 7). First cell: monocytes (BLUEPRINT purified monocyte WGBS, unread, with unread purified monocyte arrays), because every public purified neutrophil sequencing set found is spent; neutrophils follow if it holds. A pass makes the baseline measured from molecules; derived only when the held error is (14.1).",
+     "next": "count BLUEPRINT's monocyte donors; find an unread purified monocyte array series; write the test before reading either"
     }
    ]
   },
