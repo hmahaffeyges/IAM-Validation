@@ -46,3 +46,10 @@ from its shards' bundles). Every one of the 15 healthy monocyte arrays reads Nor
 atlas sit on each array's curve (median above-curve in the file), where the commissioned sites, chosen on their own arrays, read well above
 it. Disclosed: the scorer's folder pattern was fixed before it printed any array (it looked for a folder named pass1; the shards are saved
 as pass1-0, pass1-1 and so on). **Next, as written:** the 43 confirmation arrays from the other two laboratories.
+
+**Confirmation, read: bar 2 not met as written; bar 3 met** (`data/DEV_METAA_ATLAS_CURVE_01/confirm_01/mono_curve_confirm_summary.txt`;
+series run 40204936759; GSE201754 and GSE196071, the two laboratories reserved). 36 of the 43 healthy arrays were read and 35 of those read
+Normal; bar 2 counts all 43, so 35 of 43. The 7 not read were withheld by the reading itself, each with too few of its 6,000 identity sites
+past the array's own detection check (the counts are in each array's bundle); no array was read and called abnormal for that. The identity
+sites sit on each array's own curve in both laboratories (bar 3). **Not commissioned:** bar 2 as written is not met. Stated for the next
+test: arrays the reading withholds for detection are reported apart from the arrays it reads, and the bar is set on the arrays read.

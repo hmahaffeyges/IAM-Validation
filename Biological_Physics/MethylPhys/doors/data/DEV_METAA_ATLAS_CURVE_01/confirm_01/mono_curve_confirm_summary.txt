@@ -1,0 +1,47 @@
+array | Met-A on its own curve | above its curve at the identity sites | identity sites read | state | note
+GSM5857861 | 0.97588 | 0.00167 | 5670 | Normal | OK
+GSM6070581 | None | None | None | None | only 1222 of 6000 identity sites read
+GSM6070648 | 1.00562 | -0.00023 | 5669 | Normal | OK
+GSM5857862 | 0.97624 | 0.00116 | 5665 | Normal | OK
+GSM6070587 | None | None | None | None | only 2882 of 6000 identity sites read
+GSM6070650 | 1.02172 | 0.001 | 5655 | Normal | OK
+GSM6070627 | 1.0256 | -2e-05 | 5666 | Normal | OK
+GSM6070685 | 1.00324 | -0.00136 | 5669 | Normal | OK
+GSM5857852 | 0.99955 | 0.00178 | 5666 | Normal | OK
+GSM6070629 | 1.03049 | 0.00026 | 5669 | Normal | OK
+GSM5857853 | 0.98294 | 0.00169 | 5669 | Normal | OK
+GSM6070632 | 1.01376 | 0.00073 | 5668 | Normal | OK
+GSM5857854 | 0.98971 | 0.00204 | 5670 | Normal | OK
+GSM6070633 | 1.03676 | -0.00213 | 5669 | Normal | OK
+GSM5857855 | 0.97951 | 0.00283 | 5669 | Normal | OK
+GSM6070634 | 0.98824 | 0.00056 | 5669 | Normal | OK
+GSM5857856 | 0.98402 | 0.00269 | 5669 | Normal | OK
+GSM6070637 | 1.01869 | 0.00134 | 5664 | Normal | OK
+GSM5857857 | 0.98595 | 0.0018 | 5669 | Normal | OK
+GSM6070640 | 1.02841 | 0.00131 | 5671 | Normal | OK
+GSM5857858 | 0.98243 | 0.00203 | 5670 | Normal | OK
+GSM6070642 | 1.01858 | 0.00176 | 5671 | Normal | OK
+GSM5857859 | 0.97984 | 0.00122 | 5670 | Normal | OK
+GSM6070644 | 1.04865 | 0.00168 | 5671 | Normal | OK
+GSM5857860 | 0.97577 | 0.00095 | 5670 | Normal | OK
+GSM6070647 | 1.02668 | 0.00076 | 5662 | Normal | OK
+GSM5857863 | 0.9881 | 0.00213 | 5670 | Normal | OK
+GSM6070597 | None | None | None | None | only 5364 of 6000 identity sites read
+GSM6070654 | 1.0097 | 9e-05 | 5671 | Normal | OK
+GSM6070598 | 1.03205 | -0.00071 | 5602 | Normal | OK
+GSM6070655 | 1.0157 | -0.00066 | 5670 | Normal | OK
+GSM6070605 | None | None | None | None | only 4313 of 6000 identity sites read
+GSM6070668 | 1.01663 | 0.00109 | 5668 | Normal | OK
+GSM6070607 | None | None | None | None | only 3548 of 6000 identity sites read
+GSM6070674 | 1.07571 | 0.0031 | 5458 | above Normal | OK
+GSM6070613 | None | None | None | None | only 3694 of 6000 identity sites read
+GSM6070676 | 1.02052 | 0.00091 | 5664 | Normal | OK
+GSM6070614 | None | None | None | None | only 5157 of 6000 identity sites read
+GSM6070680 | 1.02086 | 0.002 | 5654 | Normal | OK
+GSM6070624 | 0.99259 | -0.00069 | 5669 | Normal | OK
+GSM6070682 | 1.0017 | -0.00076 | 5670 | Normal | OK
+GSM6070625 | 1.0176 | 0.00198 | 5662 | Normal | OK
+GSM6070683 | 1.0264 | -0.00206 | 5670 | Normal | OK
+read 36 of 43 arrays | Met-A median 1.0117, range 0.9758 to 1.0757
+bar 2 (at least 90 % of healthy arrays Normal, 0.95-1.05): 35 of 43: not met
+bar 3 (median above-curve within 0.005 of zero): 0.0011250000000000001: met
