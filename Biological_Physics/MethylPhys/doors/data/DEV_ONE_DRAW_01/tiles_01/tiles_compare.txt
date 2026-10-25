@@ -1,0 +1,3 @@
+tiles from | tiles counted | loose share | held error | held opportunities
+table | 12535 | 0.405185 | 0.039202 | 1348908
+dictionary | 13213 | 0.404299 | 0.039202 | 1348908

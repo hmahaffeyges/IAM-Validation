@@ -394,6 +394,7 @@ def main():
     ap.add_argument("--dev-count-only", action="store_true",
                     help="DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse)")
     ap.add_argument("--dev-count-genome", default="hg19", choices=("hg19", "mm10"), help="--dev-count-only: the genome the .pat was made on (recorded)")
+    ap.add_argument("--dev-tiles", default="table", choices=["table", "dictionary"], help="DEVELOPMENT (plan 14.9): Stage Q2's tiles from the commissioned table (default) or from the genome dictionary's chromosome ranges")
     ap.add_argument("--dev-count-tiles", default=None, metavar="OUT.csv[.gz]", help="DEVELOPMENT (DEV-ERASE-01 graded maintenance test, 2026-10-25): with --dev-count-only, also write the held error tile by tile (2,000 consecutive CpGs per tile, two independent halves of the molecules)")
     ap.add_argument("--dev-count-sites", default=None, metavar="CELL", help="DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites)")
     ap.add_argument("--dev-metaa-specific", default=None, metavar="DELTA[,DELTA]",
@@ -492,6 +493,8 @@ def main():
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
+    if a.dev_tiles != "table":   # 2026-10-25 (plan 14.9, development)
+        import stage_q2_selfref as _Q2tile; _Q2tile.TILE_SOURCE = a.dev_tiles
     if a.geo_pat or a.prior_geo_pat:   # 2026-10-22 (lesson C34): the chain fetches sequencing files from GEO itself, always on the build it reads
         import stage_q0_intake as _Q0g, tempfile as _tf
         _gd = a.geo_dir or _tf.mkdtemp(prefix="geo_pat_"); os.makedirs(_gd, exist_ok=True); _geo = {}

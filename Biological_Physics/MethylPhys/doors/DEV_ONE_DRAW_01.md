@@ -346,3 +346,10 @@ alveolar macrophages 0.189. Both land on the same stand-ins, so the young-cell e
 single cells at 1 to 3 reads a site are too thin to build a reference column from, however the spread is handled. **Next:** look for public
 megakaryocyte methylation from bulk cells at real depth (purified or cultured megakaryocytes, sequencing or arrays) before a version 3
 column; GSE87197 donor 3 stays unread.
+
+**The tile table, checked (plan 14.9, development):** Stage Q2's chromosome counts (`stage_q2_selfref.HG19_CPGS`) are exact for chr1 to chr13
+and short from chr14 to chr22 against the genome dictionary's ranges (`Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json`), so tiles
+from chr15 on sit at shifted addresses and many chr21 and chr22 molecules fall in no tile. `run_sample.py --dev-tiles dictionary` builds the
+tiles from the dictionary instead. On one spent healthy plasma (`data/DEV_ONE_DRAW_01/tiles_01/tiles_compare.txt`): more tiles are read,
+the loose share moves in the fourth decimal, the held error is unchanged (it uses no tiles). The commissioned tiles stay the default until
+the self-reference line's healthy samples are recounted with the dictionary's tiles.

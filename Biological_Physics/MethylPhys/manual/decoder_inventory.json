@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1134,
+   "lines": 1137,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -299,9 +299,9 @@
      "function": "main",
      "name": "main",
      "line": 374,
-     "end": 1131,
+     "end": 1134,
      "args": [],
-     "lines": 758,
+     "lines": 761,
      "doc": "",
      "constants": [
       "BIO",
@@ -331,8 +331,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 583,
-     "end": 587,
+     "line": 586,
+     "end": 590,
      "args": [
       "r"
      ],
@@ -348,8 +348,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 818,
-     "end": 825,
+     "line": 821,
+     "end": 828,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -361,8 +361,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1067,
-     "end": 1068,
+     "line": 1070,
+     "end": 1071,
      "args": [
       "b",
       "it",
@@ -3818,7 +3818,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 348,
+   "lines": 360,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -3961,23 +3961,27 @@
      "file": "stage_q2_selfref.py",
      "function": "hg19_tiles",
      "name": "hg19_tiles",
-     "line": 68,
-     "end": 74,
+     "line": 69,
+     "end": 86,
      "args": [],
-     "lines": 7,
-     "doc": "{chrom: array of [start, end) CpG-index tiles}, consecutive 2,000-CpG tiles, partial last tile dropped (own_reads_genome.tiles).",
+     "lines": 18,
+     "doc": "{chrom: array of [start, end) CpG-index tiles}, consecutive 2,000-CpG tiles, partial last tile dropped (own_reads_genome.tiles). TILE_SOURCE \"table\" (the commissioned line's tiles): chromosome counts from HG19_CPGS, exact for chr1-chr13 and short for chr14-chr22, so tiles from chr15 on sit at shifted addresses and many chr21-chr22 molecules fall in no tile (plan 14.9). \"dictionary\" (development): ",
      "constants": [
-      "HG19_CPGS"
+      "HG19_CPGS",
+      "TILE_SOURCE"
      ],
-     "data_files": [],
+     "data_files": [
+      "hg19_cpg_chrom_ranges.json",
+      "s range from Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json"
+     ],
      "traced_calls": {}
     },
     {
      "file": "stage_q2_selfref.py",
      "function": "_finish",
      "name": "_finish",
-     "line": 75,
-     "end": 85,
+     "line": 87,
+     "end": 97,
      "args": [
       "tile_calls",
       "e_iso",
@@ -3998,8 +4002,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_mol",
      "name": "_mol",
-     "line": 86,
-     "end": 92,
+     "line": 98,
+     "end": 104,
      "args": [
       "M"
      ],
@@ -4013,8 +4017,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat",
      "name": "count_pat",
-     "line": 93,
-     "end": 112,
+     "line": 105,
+     "end": 124,
      "args": [
       "lines",
       "tiles"
@@ -4031,8 +4035,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_tile_errors",
      "name": "count_pat_tile_errors",
-     "line": 114,
-     "end": 128,
+     "line": 126,
+     "end": 140,
      "args": [
       "lines",
       "tile"
@@ -4047,8 +4051,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_sites",
      "name": "count_pat_sites",
-     "line": 130,
-     "end": 149,
+     "line": 142,
+     "end": 161,
      "args": [
       "lines",
       "sites"
@@ -4065,8 +4069,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_site_classes",
      "name": "count_pat_site_classes",
-     "line": 151,
-     "end": 174,
+     "line": 163,
+     "end": 186,
      "args": [
       "lines",
       "groups"
@@ -4083,8 +4087,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_cpg_index",
      "name": "_cpg_index",
-     "line": 178,
-     "end": 179,
+     "line": 190,
+     "end": 191,
      "args": [
       "seq"
      ],
@@ -4098,8 +4102,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_calls_of",
      "name": "_calls_of",
-     "line": 180,
-     "end": 206,
+     "line": 192,
+     "end": 218,
      "args": [
       "r",
       "ref",
@@ -4116,8 +4120,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 207,
-     "end": 212,
+     "line": 219,
+     "end": 224,
      "args": [
       "a",
       "b"
@@ -4132,8 +4136,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 213,
-     "end": 248,
+     "line": 225,
+     "end": 260,
      "args": [
       "args"
      ],
@@ -4149,8 +4153,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 220,
-     "end": 235,
+     "line": 232,
+     "end": 247,
      "args": [
       "calls"
      ],
@@ -4166,8 +4170,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 249,
-     "end": 256,
+     "line": 261,
+     "end": 268,
      "args": [
       "parts",
       "assembly"
@@ -4184,8 +4188,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 257,
-     "end": 261,
+     "line": 269,
+     "end": 273,
      "args": [
       "bam",
       "fa",
@@ -4208,8 +4212,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 264,
-     "end": 273,
+     "line": 276,
+     "end": 285,
      "args": [
       "per_sample"
      ],
@@ -4223,8 +4227,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 274,
-     "end": 279,
+     "line": 286,
+     "end": 291,
      "args": [
       "version"
      ],
@@ -4242,8 +4246,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 280,
-     "end": 281,
+     "line": 292,
+     "end": 293,
      "args": [
       "loose_share",
       "version"
@@ -4258,8 +4262,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 282,
-     "end": 286,
+     "line": 294,
+     "end": 298,
      "args": [
       "rec",
       "version"
@@ -4276,8 +4280,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 293,
-     "end": 300,
+     "line": 305,
+     "end": 312,
      "args": [
       "records"
      ],
@@ -4293,8 +4297,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 301,
-     "end": 306,
+     "line": 313,
+     "end": 318,
      "args": [
       "version"
      ],
@@ -4312,8 +4316,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 307,
-     "end": 315,
+     "line": 319,
+     "end": 327,
      "args": [
       "rec",
       "cell",
@@ -4332,8 +4336,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 318,
-     "end": 321,
+     "line": 330,
+     "end": 333,
      "args": [
       "rec",
       "version"
@@ -4350,8 +4354,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 322,
-     "end": 327,
+     "line": 334,
+     "end": 339,
      "args": [
       "healthy",
       "version"
@@ -4366,8 +4370,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 332,
-     "end": 333,
+     "line": 344,
+     "end": 345,
      "args": [
       "version"
      ],
@@ -4385,8 +4389,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 336,
-     "end": 347,
+     "line": 348,
+     "end": 359,
      "args": [
       "records",
       "version",

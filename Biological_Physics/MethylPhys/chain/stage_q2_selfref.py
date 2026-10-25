@@ -65,9 +65,21 @@ def write_csv(df, path, inputs=(), manifest=None):
     json.dump({"chain_stamp": s}, open(path + ".stamp.json", "w"), indent=1); return s
 
 # ---------------------------------------------------------------- tiles and the .pat reader (exact port of own_reads_loose.one)
+TILE_SOURCE = "table"   # 2026-10-25 (plan 14.9, development): "dictionary" builds the tiles from the genome dictionary's own chromosome ranges
 def hg19_tiles():
-    """{chrom: array of [start, end) CpG-index tiles}, consecutive 2,000-CpG tiles, partial last tile dropped (own_reads_genome.tiles)."""
-    T = collections.defaultdict(list); off = 1
+    """{chrom: array of [start, end) CpG-index tiles}, consecutive 2,000-CpG tiles, partial last tile dropped (own_reads_genome.tiles).
+    TILE_SOURCE "table" (the commissioned line's tiles): chromosome counts from HG19_CPGS, exact for chr1-chr13 and short for chr14-chr22, so
+    tiles from chr15 on sit at shifted addresses and many chr21-chr22 molecules fall in no tile (plan 14.9). "dictionary" (development): each
+    chromosome's range from Runtime Matrices/IAM_A_Positions/hg19_cpg_chrom_ranges.json (wgbstools init_genome hg19), the ranges intake checks."""
+    T = collections.defaultdict(list)
+    if TILE_SOURCE == "dictionary":
+        import json as _j
+        R = _j.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "IAM_A_Positions", "hg19_cpg_chrom_ranges.json")))["ranges"]
+        for c, _ in HG19_CPGS:
+            a0, b0 = R[c]
+            for s in range(a0, b0 - TILE + 2, TILE): T[c].append((s - 1, s - 1 + TILE))
+        return {c: np.array(v) for c, v in T.items()}
+    off = 1
     for c, n in HG19_CPGS:
         for s in range(off, off + n - TILE + 1, TILE): T[c].append((s - 1, s - 1 + TILE))
         off += n

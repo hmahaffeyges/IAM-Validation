@@ -1048,7 +1048,7 @@ Writes a stamped result and reads it back to confirm the stored file verifies.
 Writes a table and its stamp beside it, as `<file>.stamp.json`.
 
 ### stage_q2_selfref.py::hg19_tiles
-The hg19 tiles of 2,000 consecutive CpGs on each autosome, in CpG-index coordinates; a partial last tile is dropped.
+The hg19 tiles of 2,000 consecutive CpGs on each autosome, in CpG-index coordinates; a partial last tile is dropped. With TILE_SOURCE "dictionary" (run_sample.py --dev-tiles dictionary, development, plan 14.9) the tiles follow the genome dictionary's chromosome ranges instead of the table's counts, which are short from chr14 on.
 
 ### stage_q2_selfref.py::_finish
 Turns tile counts and hole counts into the record: L, the number of tiles, ε and its opportunities, and the 10th, 50th and 90th

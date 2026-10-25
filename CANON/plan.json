@@ -723,7 +723,7 @@
      "date": "2026-10-24",
      "status": "open",
      "what": "Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary's chromosome index ranges (hg19_cpg_chrom_ranges.json) for chr15 to chr22: the first tile starts 626 CpGs early on chr15 and about 256,000 early on chr22. The lookup is by chromosome, so no tile mixes chromosomes, but tile boundaries there are shifted; the self-reference line and band were built on the same tiles, so readings are consistent with each other. Found by the constructed molecules of synthetic test cfDNA 1",
-     "next": "find which source HG19_CPGS came from and whether the line changes when the tiles follow the dictionary; nothing changed until then"
+     "next": "cause found: the table's chromosome counts are short from chr14 on; --dev-tiles dictionary built; one plasma: loose share moves in the fourth decimal. Next: recount the self-reference line's healthy samples with the dictionary's tiles on GitHub; switch the default only if the line holds"
     },
     {
      "id": "14.10",
