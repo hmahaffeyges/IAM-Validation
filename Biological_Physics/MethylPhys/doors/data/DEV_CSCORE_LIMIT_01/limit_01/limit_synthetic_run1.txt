@@ -1,0 +1,6 @@
+sites | maps | limit | share above the limit
+6000 | 2000 | 1.0969 | 0.0450
+60000 | 2000 | 1.0302 | 0.0335
+770000 | 300 | 1.0084 | 0.0633
+planted run of 200 sites, shift 1 spread, 6,000 sites: share above the limit 0.9980 (at least 0.80)
+bar 1 (independent maps 4-6 % above, 2-8 % at 300 maps; planted runs at least 80 % above): not met

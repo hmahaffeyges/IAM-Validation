@@ -1,0 +1,3 @@
+sites | maps | simulated 95th percentile | derived limit | share above the limit
+6000 | 20000 | 1.08935 | 1.09002 | 0.0490
+60000 | 6000 | 1.02843 | 1.02849 | 0.0497
