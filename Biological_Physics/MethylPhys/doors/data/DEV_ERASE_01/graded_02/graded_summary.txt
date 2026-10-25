@@ -1,0 +1,25 @@
+counted 15 of 18 runs
+SRR15898019 | Dnmt1/3a/3b TKO 0.1% DMSO 14d | held error 0.03498349834983498 | opportunities 1515.0
+SRR15898020 | Dnmt1/3a/3b TKO 0.1% DMSO 6d | held error 0.05928853754940711 | opportunities 253.0
+SRR15898021 | WT DMSO d14 (GSK-3484862 control) | held error 0.059643467151446326 | opportunities 218381.0
+SRR15898022 | WT DMSO d6 (GSK-3484862 control) | held error 0.058002887812096955 | opportunities 194611.0
+SRR15898023 | WT 10uM GSK-3484862 d14 (ChemieTek) | held error 0.10662273476112026 | opportunities 15175.0
+SRR15898024 | WT 10uM GSK-3484862 d6 (ChemieTek) | held error 0.10243386243386243 | opportunities 14175.0
+SRR15898025 | WT 2uM GSK-3484862 d14 (ChemieTek) | held error 0.1019644047802226 | opportunities 19497.0
+SRR15898026 | WT 2uM GSK-3484862 d6 (ChemieTek) | held error 0.10629897708919064 | opportunities 16717.0
+SRR15898027 | WT 10uM GSK-3484862 d14 (MedChemExpress) | held error 0.10455752013317136 | opportunities 22227.0
+SRR15898028 | WT 10uM GSK-3484862 d6 (MedChemExpress) | held error 0.1091482926401613 | opportunities 22813.0
+SRR15898029 | WT 2uM GSK-3484862 d14 (MedChemExpress) | held error 0.10166666666666667 | opportunities 18000.0
+SRR15898030 | WT 2uM GSK-3484862 d6 (MedChemExpress) | held error 0.10236220472440945 | opportunities 14351.0
+SRR15898031 | WT DMSO (5-aza control) | held error 0.05241316257508768 | opportunities 140003.0
+SRR15898032 | WT 100nM 5-azacytidine | held error 0.06071511069505064 | opportunities 82253.0
+SRR15898033 | WT 300nM 5-azacytidine | held error 0.06475572060752963 | opportunities 89938.0
+SRR17261405 | WT DMSO d14 (GSK-3484862 control) | held error nan | opportunities nan
+SRR17261406 | WT 2uM GSK-3484862 d14 (MedChemExpress) | held error nan | opportunities nan
+SRR17261407 | WT 2uM GSK-3484862 d6 (MedChemExpress) | held error nan | opportunities nan
+bar 2, d6, ChemieTek: DMSO 0.058002887812096955 < 2 uM 0.10629897708919064 < 10 uM 0.10243386243386243: no
+bar 2, d6, MedChemExpress: DMSO 0.058002887812096955 < 2 uM 0.10236220472440945 < 10 uM 0.1091482926401613: yes
+bar 2, d14, ChemieTek: DMSO 0.059643467151446326 < 2 uM 0.1019644047802226 < 10 uM 0.10662273476112026: yes
+bar 2, d14, MedChemExpress: DMSO 0.059643467151446326 < 2 uM 0.10166666666666667 < 10 uM 0.10455752013317136: yes
+bar 2 (held error rises with dose on both days and both suppliers): not met
+bar 3, the deep pair (DMSO day 14 against 2 uM day 14): SRR17261405 against SRR17261406: tiles missing

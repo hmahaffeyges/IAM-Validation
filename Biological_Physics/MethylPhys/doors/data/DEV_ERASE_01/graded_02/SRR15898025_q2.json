@@ -1,0 +1,14 @@
+{
+ "gsm": "SRR15898025",
+ "genome": "mm10",
+ "counter": "run_sample.py --dev-count-only (chain Stage Q2)",
+ "held_err": 0.1019644047802226,
+ "held_opp": 19497,
+ "loose_share": 1.0,
+ "tiles": 1091,
+ "gain_err": 0.028649141957303653,
+ "gain_opp": 726479,
+ "mol_n": 12481,
+ "mol_low_share": 0.9601794727986539,
+ "mol_mid_share": 0.2893998878295008
+}

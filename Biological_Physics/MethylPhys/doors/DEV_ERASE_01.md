@@ -246,3 +246,11 @@ index and wgbstools' mm10 dictionary are now built once by `build_index.yml` thr
 files with the stream's SHA-256, as the hg19 index is; each job streams them in and checks them, and builds them itself if the fetch or the
 check fails. Bar 3 reads the deep pair (DMSO day 14 against 2 uM day 14): on the small runs a dosed sample keeps too few held-molecule
 opportunities for the tile reading (only 2 tiles pass the stated minimums).
+
+**Graded test, bar 2, read: not met as written** (`data/DEV_ERASE_01/graded_02/graded_summary.txt`, 15 of 18 runs counted; the three deep
+runs wait for bar 3). The held error roughly doubles from the DMSO control to 2 uM in every series (day 6 and day 14, both suppliers), and the
+two suppliers agree. From 2 uM to 10 uM it barely moves: it rises in three of the four series and falls in one (day 6, ChemieTek), by less
+than about two standard errors of counting at these opportunity counts, so the bar's strict ordering fails on that one. Read as written:
+the held error saturates by 2 uM. 5-azacytidine, a different route to the same loss, rises with dose at both doses (100 and 300 nM).
+Bar 3 (the deep pair, tile by tile) is what separates a slowed restoring rate from a smaller holding fraction; it runs once the mouse index
+release is built.
