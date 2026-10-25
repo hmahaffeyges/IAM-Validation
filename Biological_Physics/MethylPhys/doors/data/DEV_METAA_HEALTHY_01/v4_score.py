@@ -23,7 +23,7 @@ def offsets(X, side):
     D = pd.DataFrame({c: M[("array", c)] - inv(M[("sequencing", c)].to_numpy()) for c in cells}).reindex(side.index)
     S = pd.DataFrame({c: M[("sequencing", c)] for c in cells}).reindex(side.index)
     use = pd.DataFrame({c: np.where(side == "absent", S[c] <= 0.25, S[c] >= 0.75) for c in cells}, index=side.index)
-    d = D.where(use).median(1); return d.fillna(d.groupby(side).transform("median")), D, use, cells
+    d = D.where(use).median(axis=1); return d.fillna(d.groupby(side).transform("median")), D, use, cells
 if __name__ == "__main__":
   pass
 if __name__ == "__main__" and len(sys.argv) > 2:
@@ -35,7 +35,7 @@ if __name__ == "__main__" and len(sys.argv) > 2:
     LOO = pd.read_csv(os.path.join(CH, "Runtime Matrices", "Met_A_Floors", "metA_floors_v1_3_loo.csv"))
     col = next(c for c in LOO.columns if "frozen" in c.lower() and "A" in c); ref = next(c for c in LOO.columns if c.lower() in ("ref", "gsm", "array", "sample"))
     L = [f"cells measured on both platforms: {', '.join(cells)} | arrays {int(X[X.platform == 'array'].gsm.nunique())}, sequencing samples {int(X[X.platform == 'sequencing'].gsm.nunique())}",
-         f"identity sites with a measured difference: held {int(D.where(use)[side == 'held'].notna().any(1).sum())} of {int((side == 'held').sum())}, absent {int(D.where(use)[side == 'absent'].notna().any(1).sum())} of {int((side == 'absent').sum())}"]
+         f"identity sites with a measured difference: held {int(D.where(use)[side == 'held'].notna().any(axis=1).sum())} of {int((side == 'held').sum())}, absent {int(D.where(use)[side == 'absent'].notna().any(axis=1).sum())} of {int((side == 'absent').sum())}"]
     for s_ in ("held", "absent"):
         L.append(f"{s_}: median difference {d[side == s_].median():.4f} | version 3 level {base[side == s_].iloc[0]:.4f} -> version 4 mean level {lvl[side == s_].mean():.4f} (atlas {st[side == s_].mean():.4f}) | entropy {Hb(lvl[side == s_]).mean():.4f}")
     L += [f"derived mark {mark:.5f} bits | measured mark {F['floor']:.5f} bits (6 arrays) | derived / measured {mark / F['floor']:.4f}", "array | Met-A against the measured mark (frozen sites) | against the derived mark"]

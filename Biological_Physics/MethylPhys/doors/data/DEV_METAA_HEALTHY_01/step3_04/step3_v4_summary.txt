@@ -1,0 +1,13 @@
+cells measured on both platforms: b cells, cd4 t cells, cd8 t cells, monocytes, nk cells | arrays 29, sequencing samples 15
+identity sites with a measured difference: held 2925 of 2931, absent 2622 of 2622
+held: median difference 0.0032 | version 3 level 0.9344 -> version 4 mean level 0.9344 (atlas 0.9362) | entropy 0.3249
+absent: median difference 0.0300 | version 3 level 0.0263 -> version 4 mean level 0.0479 (atlas 0.0699) | entropy 0.2529
+derived mark 0.29092 bits | measured mark 0.33026 bits (6 arrays) | derived / measured 0.8809
+array | Met-A against the measured mark (frozen sites) | against the derived mark
+GSM2998021 | 1.0038 | 1.1396
+GSM2998057 | 0.9934 | 1.1278
+GSM2998116 | 0.9986 | 1.1337
+GSM2998023 | 0.9930 | 1.1273
+GSM2998143 | 1.0034 | 1.1391
+GSM2998030 | 1.0077 | 1.1440
+bar 1 (all six Normal, 0.95-1.05, against the derived mark): 0 of 6: not met

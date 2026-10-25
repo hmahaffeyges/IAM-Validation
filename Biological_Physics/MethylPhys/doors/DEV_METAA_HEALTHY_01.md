@@ -330,3 +330,13 @@ neutrophil's healthy mark from the cell's own molecules and a measured property 
 
 The synthetic (one made-up cell type on both platforms through the one command; per-site differences planted at the identity sites)
 recovers them exactly (median error 0.0000 on both sides). A first run at 40 calls a site rounded 0.01 to 0 reads; rebuilt at 100.
+
+**Step 3 version 4, scored** (`data/DEV_METAA_HEALTHY_01/step3_04/step3_v4_summary.txt`; 44 of 44 readings; the scorer's count line was
+fixed for the installed pandas before it ran, nothing else changed): **bar 1 not met (0 of 6)**; the derived mark is 0.29092 bits against
+0.33026, **0.8809** of it (version 3: 0.8087). Each identity site's array-against-sequencing difference was measured on five other blood
+cell types at 2925 of 2931 marked and all 2622 unmarked sites: median 0.0032 on the marked side, **0.0300 on the unmarked side**. That moves
+the unmarked side's mean level from 0.0263 to 0.0479; the neutrophil arrays read 0.0699. **What is left:** about 0.022 on the unmarked side,
+the part of the neutrophil arrays' reading that is neither the granulocytes' molecules nor the probe offset other blood cells show there. Two
+causes cannot be told apart on these data: the granulocyte samples stand in for purified neutrophils, and the offset may be larger in
+neutrophils than in lymphocytes and monocytes. **Four versions on the same samples:** tuning stops here; the next step is data that splits
+the two causes (purified neutrophils measured on both platforms), not a fifth version on these.
