@@ -36,5 +36,7 @@ array's mark at the entropy of its curve's mean reading alone, which left every 
 took the scatter from each bin's mean entropy, which also averages over the levels inside a bin and left every array high by about as much.
 Run 3 takes the array's own spread about its curve and reads all three cases within the bars.
 
+**Scorer:** `data/DEV_METAA_ATLAS_CURVE_01/mono_curve_score.py`, committed before the development arrays land (series run 40202293656).
+
 **Reported, not scored:** the patients' arrays in the same series (giant cell arteritis, systemic sclerosis, undifferentiated arthritis),
 read and flagged after the healthy bars.
