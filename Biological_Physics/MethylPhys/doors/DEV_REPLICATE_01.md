@@ -198,3 +198,8 @@ in every pair of groups, so a p near 0.02 to 0.05 is expected by chance somewher
   territory 1.0715 against 0.9249 (p 7.6e-07; 71 against 5 samples); tumors against adjacent tissue, Met-A at the identity sites of the cells
   found 1.0195 against 0.9871 (p 0.00034) and the rest of the genome 1.0464 against 1.0256 (p 0.00072). The pancreatic groups hold 1 to 10
   samples each; none of their readings is beyond chance.
+
+**R5 sorted cells, all arrays** (`data/DEV_REPLICATE_01/r5_full/r5_ibd_sorted_summary.txt`; 240 of 240, groups of 18 to 25; supersedes the
+172-array reading): in the 8 comparisons of a disease against healthy controls within one cell type (Crohn's disease and ulcerative colitis;
+CD4, CD8, monocytes, whole blood), no reading falls below p 0.01. The instruments stay quiet in a disease that does not change these cells'
+own marks.
