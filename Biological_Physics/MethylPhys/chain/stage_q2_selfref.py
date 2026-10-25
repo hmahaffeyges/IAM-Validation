@@ -132,6 +132,31 @@ def count_pat_sites(lines, sites):
     return dict(held_iso=int(e_iso), held_opp=int(e_opp), held_err=(e_iso / e_opp if e_opp else None),
                 gain_iso=int(g_iso), gain_opp=int(g_opp), gain_err=(g_iso / g_opp if g_opp else None), n_sites=len(S))
 
+def count_pat_site_classes(lines, groups):
+    """2026-10-24 (DEV-METAA-HEALTHY-01 step 3 version 3): every call at given sites, by group (groups: site index -> label, e.g. the cell's
+    held and held-absent identity sites), split by the molecule's class from ALL its calls, Stage Q2's own rules: held (marked share at least
+    QUAL_MIN_METH), held absent (at most QUAL_MAX_METH), loose (in between), or short (fewer than QUAL_MIN_CALLS calls; counted in the level,
+    not classed). Both halves of the file are read (the level uses every molecule). Returns, per group: calls and marked calls per class, the
+    site level (marked calls over all calls), each class's share of the classed calls and its own level."""
+    G = {int(k): v for k, v in groups.items()}; T = {}
+    for line in lines:
+        p = line.rstrip("\n").split("\t")
+        if len(p) < 4: continue
+        i, pat, n = int(p[1]), p[2], int(p[3]); pos = [i + q for q, x in enumerate(pat) if x != "."]; s_ = [x for x in pat if x != "."]
+        hit = [(G[pp], x) for pp, x in zip(pos, s_) if pp in G]
+        if not hit: continue
+        f = s_.count("C") / len(s_)
+        k = "short" if len(s_) < QUAL_MIN_CALLS else ("held" if f >= QUAL_MIN_METH else ("absent" if f <= QUAL_MAX_METH else "loose"))
+        for g, x in hit:
+            a = T.setdefault(g, {c: [0, 0] for c in ("held", "absent", "loose", "short")}); a[k][0] += n; a[k][1] += n * (x == "C")
+    out = {}
+    for g, a in T.items():
+        tot = sum(v[0] for v in a.values()); cl = sum(a[c][0] for c in ("held", "absent", "loose"))
+        out[g] = dict(calls=int(tot), level=(sum(v[1] for v in a.values()) / tot if tot else None),
+                      **{f"{c}_calls": int(a[c][0]) for c in a}, **{f"{c}_share": (a[c][0] / cl if cl else None) for c in ("held", "absent", "loose")},
+                      **{f"{c}_level": (a[c][1] / a[c][0] if a[c][0] else None) for c in a})
+    return out
+
 # ---------------------------------------------------------------- the aligned-read reader (port of secondlab.py, plus Bismark XM)
 AUTOSOMES = [f"chr{i}" for i in range(1, 23)]
 def _cpg_index(seq):

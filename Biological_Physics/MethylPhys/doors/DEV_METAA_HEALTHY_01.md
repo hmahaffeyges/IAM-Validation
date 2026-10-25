@@ -255,3 +255,19 @@ error? That is IAM-A's question (the loose share against the held error), asked 
 runs):** at each identity site, every call on the granulocyte molecules, split into held molecules, held-absent molecules and loose
 molecules; the site's level from all of them; the mark from those levels on the array scale. That is a baseline measured from the cell's own
 molecules, not yet a derivation: the derivation is the physics of the loose share at those sites, an open question beside the firm rate's.
+
+## Step 3 version 3: the molecule classes at the identity sites (written and committed before its counts exist)
+
+Written after versions 1 and 2 were scored (not met) and the site rule read (disclosed). **What it rests on, stated before the bars (lesson
+C41):** Met-A's site rule (mean 0.75 to 0.95 or 0.05 to 0.25, spread at most 0.05, chosen on purified neutrophil arrays); and IAM-A's
+physics, already stated as the source of Met-A's baseline: a site's level = held share x held level + loose share x loose level + absent
+share x absent level. Each term is counted on the granulocytes' molecules at the identity sites (`run_sample.py --dev-count-sites
+neutrophils`, now also `stage_q2_selfref.count_pat_site_classes`: every call, the molecule classed from all its calls by Stage Q2's rules),
+the sites split by the atlas's neutrophil level (held at 0.5 or above). The site level goes through the atlas's own inverse transfer to the
+array scale and the mark follows; scorer `step3_score_v3.py`; the sites, the six arrays and bar 1 are version 1's. **What it is:** a baseline
+measured from the cell's own molecules, not yet a derivation (the physics of the loose share at these sites is open). **Known differences:**
+granulocytes stand in for purified neutrophils; third version on the same samples and arrays, so a pass stays development until confirmed on
+samples that played no part. **Checks:** a constructed molecule file over the identity sites, read by the one command, is recovered: planted levels 0.8944 and
+0.0964, read 0.8939 and 0.0973 (`step3_03/sites_synthetic_02.txt`); the one command also ran the count on a spent plasma molecule file.
+
+**Synthetic test:** chain/stage_q2_selfref.py, DEV_METAA_HEALTHY_01/sites_synthetic_02.py, DEV_METAA_HEALTHY_01/step3_03/sites_synthetic_02.txt

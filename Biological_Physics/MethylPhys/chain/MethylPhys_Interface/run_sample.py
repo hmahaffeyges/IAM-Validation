@@ -966,6 +966,12 @@ def main():
                 _K = _K[_K.probe.isin(set(_MF["sites"]))]; _idx = _K.loyfer_cpg_index.dropna().astype(int).tolist()
                 with (_gz.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: _cs = _Q2s.count_pat_sites(_fh, _idx)
                 o["iam_a_count_only"]["count_sites"] = dict(cell=a.dev_count_sites, sites="Met-A's commissioned identity sites (metA_floors_v1_3.json, EPIC)", n_probes=len(_MF["sites"]), n_with_cpg_index=len(_idx), **_cs)
+                # 2026-10-24 (step 3 version 3): every call at those sites by molecule class, the sites split by the atlas's level in the cell (>= 0.5 held)
+                _AT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"); _ids = _pqs.read_table(os.path.join(_AT, "sites.parquet")).column("cpg").to_pylist()
+                _u = next(_pqs.read_table(os.path.join(_AT, f"mu_part{_n}.parquet"), columns=[a.dev_count_sites]).column(0).to_numpy() for _n in (1, 2, 3) if a.dev_count_sites in _pqs.ParquetFile(os.path.join(_AT, f"mu_part{_n}.parquet")).schema.names)
+                _lv = dict(zip(_ids, _u)); _grp = {int(r.loyfer_cpg_index): ("held" if _lv.get(r.probe, 65535) / 1e4 >= 0.5 else "absent") for r in _K.dropna(subset=["loyfer_cpg_index"]).itertuples() if _lv.get(r.probe, 65535) != 65535}
+                with (_gz.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: o["iam_a_count_only"]["count_site_classes"] = _Q2s.count_pat_site_classes(_fh, _grp)
+                print("Stage Q2 molecule classes at the identity sites:", o["iam_a_count_only"]["count_site_classes"], flush=True)
                 print(f"Stage Q2 at {a.dev_count_sites} identity sites: {_cs}", flush=True)
         _mixed = _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or str(a.specimen).lower() in ("whole blood", "buffy coat")
         _only_q07 = [c["step"] for c in (qi.get("checks") or []) if c.get("result") == "REFUSED"] == ["Q0.7 specimen"]

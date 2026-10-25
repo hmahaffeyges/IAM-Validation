@@ -1048,6 +1048,9 @@ percentiles of the tile means for the shape check. When the gain-side counts are
 ### stage_q2_selfref.py::_mol
 The loose share counted molecule by molecule (development, recorded only): of the molecules with at least six calls on the tile half of the file, the share below the 0.70 cut the tile loose share uses and the share held neither marked nor unmarked (between 20 and 80 % methylated). Unlike the tile loose share, both add linearly when cell types mix, so a mix of cells reads the same share as one of them (synthetic test cfDNA 2).
 
+### stage_q2_selfref.py::count_pat_site_classes
+Every call at a set of sites, grouped (for Met-A: the cell's held and held-absent identity sites), split by the molecule's class from all its calls by Stage Q2's rules (held, held absent, loose, short): the site level and each class's share and level, so a site's level is shown as the loose share beside the held error (development, step 3 version 3). A synthetic file with planted classes is recovered.
+
 ### stage_q2_selfref.py::count_pat_sites
 The held error counted only at a chosen set of sites (development, Met-A's derived baseline, step 3 version 2): Stage Q2's own rules unchanged, the same held and held-absent molecules classed from all their calls, only the calls counted restricted to the sites. A synthetic file with planted rates 0.06 and 0.05 at a site set returns them once the neighbors' rate is divided out.
 

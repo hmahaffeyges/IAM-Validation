@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1089,
+   "lines": 1095,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -282,9 +282,9 @@
      "function": "main",
      "name": "main",
      "line": 358,
-     "end": 1086,
+     "end": 1092,
      "args": [],
-     "lines": 729,
+     "lines": 735,
      "doc": "",
      "constants": [
       "BIO",
@@ -301,6 +301,7 @@
       "pip install -r Biological_Physics/MethylPhys/chain/requirements.txt",
       "pyarrow.parquet",
       "sequencing_values.csv",
+      "sites.parquet",
       "sites_sequencing_key.parquet"
      ],
      "traced_calls": {
@@ -342,8 +343,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1025,
-     "end": 1026,
+     "line": 1031,
+     "end": 1032,
      "args": [
       "b",
       "it",
@@ -3799,7 +3800,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 307,
+   "lines": 332,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4028,10 +4029,28 @@
     },
     {
      "file": "stage_q2_selfref.py",
+     "function": "count_pat_site_classes",
+     "name": "count_pat_site_classes",
+     "line": 135,
+     "end": 158,
+     "args": [
+      "lines",
+      "groups"
+     ],
+     "lines": 24,
+     "doc": "2026-10-24 (DEV-METAA-HEALTHY-01 step 3 version 3): every call at given sites, by group (groups: site index -> label, e.g. the cell's held and held-absent identity sites), split by the molecule's class from ALL its calls, Stage Q2's own rules: held (marked share at least QUAL_MIN_METH), held absent (at most QUAL_MAX_METH), loose (in between), or short (fewer than QUAL_MIN_CALLS calls; counted in t",
+     "constants": [
+      "QUAL_MAX_METH"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
      "function": "_cpg_index",
      "name": "_cpg_index",
-     "line": 137,
-     "end": 138,
+     "line": 162,
+     "end": 163,
      "args": [
       "seq"
      ],
@@ -4045,8 +4064,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_calls_of",
      "name": "_calls_of",
-     "line": 139,
-     "end": 165,
+     "line": 164,
+     "end": 190,
      "args": [
       "r",
       "ref",
@@ -4063,8 +4082,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 166,
-     "end": 171,
+     "line": 191,
+     "end": 196,
      "args": [
       "a",
       "b"
@@ -4079,8 +4098,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 172,
-     "end": 207,
+     "line": 197,
+     "end": 232,
      "args": [
       "args"
      ],
@@ -4096,8 +4115,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 179,
-     "end": 194,
+     "line": 204,
+     "end": 219,
      "args": [
       "calls"
      ],
@@ -4113,8 +4132,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 208,
-     "end": 215,
+     "line": 233,
+     "end": 240,
      "args": [
       "parts",
       "assembly"
@@ -4131,8 +4150,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 216,
-     "end": 220,
+     "line": 241,
+     "end": 245,
      "args": [
       "bam",
       "fa",
@@ -4155,8 +4174,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 223,
-     "end": 232,
+     "line": 248,
+     "end": 257,
      "args": [
       "per_sample"
      ],
@@ -4170,8 +4189,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 233,
-     "end": 238,
+     "line": 258,
+     "end": 263,
      "args": [
       "version"
      ],
@@ -4189,8 +4208,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 239,
-     "end": 240,
+     "line": 264,
+     "end": 265,
      "args": [
       "loose_share",
       "version"
@@ -4205,8 +4224,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 241,
-     "end": 245,
+     "line": 266,
+     "end": 270,
      "args": [
       "rec",
       "version"
@@ -4223,8 +4242,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 252,
-     "end": 259,
+     "line": 277,
+     "end": 284,
      "args": [
       "records"
      ],
@@ -4240,8 +4259,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 260,
-     "end": 265,
+     "line": 285,
+     "end": 290,
      "args": [
       "version"
      ],
@@ -4259,8 +4278,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 266,
-     "end": 274,
+     "line": 291,
+     "end": 299,
      "args": [
       "rec",
       "cell",
@@ -4279,8 +4298,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 277,
-     "end": 280,
+     "line": 302,
+     "end": 305,
      "args": [
       "rec",
       "version"
@@ -4297,8 +4316,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 281,
-     "end": 286,
+     "line": 306,
+     "end": 311,
      "args": [
       "healthy",
       "version"
@@ -4313,8 +4332,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 291,
-     "end": 292,
+     "line": 316,
+     "end": 317,
      "args": [
       "version"
      ],
@@ -4332,8 +4351,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 295,
-     "end": 306,
+     "line": 320,
+     "end": 331,
      "args": [
       "records",
       "version",
@@ -8101,5 +8120,5 @@
   }
  ],
  "n_files": 34,
- "n_functions": 414
+ "n_functions": 415
 }
