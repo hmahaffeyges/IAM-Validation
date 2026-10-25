@@ -3185,3 +3185,6 @@ Counting the granulocytes' held error at Met-A's identity sites made the derived
 
 ### 2026-10-24 · The provisional megakaryocyte column does not carry to a second donor (GRP-016)
 Built from donor 1's 33 single cells (about 3 reads a site), the column named donor 1's own megakaryocytes perfectly and donor 2's poorly (0.208 for a pure pool); its marker sites were partly donor 1's chance extremes. Version 2 needs read-depth rules; donor 3 stays unread for its confirmation. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-10-24 · Met-A's healthy line holds in five laboratories (GRP-019)
+Each healthy blood's whole-sample Met-A predicted from its own array's measured line: all five laboratories' medians within 0.03 of 1, and the laboratories close up (0.0921 to 0.0303). The synthetic bar is not fully met, so not commissioned. Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md). The prostate replay reads the island gain in tumors (p 5.1e-06); record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).

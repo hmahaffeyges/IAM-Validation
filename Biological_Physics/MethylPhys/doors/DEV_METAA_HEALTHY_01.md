@@ -271,3 +271,21 @@ samples that played no part. **Checks:** a constructed molecule file over the id
 0.0964, read 0.8939 and 0.0973 (`step3_03/sites_synthetic_02.txt`); the one command also ran the count on a spent plasma molecule file.
 
 **Synthetic test:** chain/stage_q2_selfref.py, DEV_METAA_HEALTHY_01/sites_synthetic_02.py, DEV_METAA_HEALTHY_01/step3_03/sites_synthetic_02.txt
+
+## Bars 2 and 3, read (`data/DEV_METAA_HEALTHY_01/bar2_01/bar2_summary.txt`): both met
+
+100 of 100 healthy bloods read through `run_sample.py` on GitHub's machines, 20 from each of five laboratories.
+
+| Series | median A | A_pred | A / A_pred |
+|---|---|---|---|
+| GSE153712 | 0.9834 | 0.9940 | 0.9869 |
+| GSE235717 | 1.0536 | 1.0541 | 0.9986 |
+| GSE42861 | 1.0257 | 1.0236 | 1.0022 |
+| GSE51032 | 0.9932 | 1.0192 | 0.9719 |
+| GSE87571 | 0.9614 | 0.9834 | 0.9779 |
+
+- **Bar 2 met:** every laboratory's median A / A_pred lies within 0.03 of 1.
+- **Bar 3 met:** the laboratories close up; the spread of the five medians falls from 0.0921 (A) to 0.0303 (A / A_pred).
+- **Bar 1 (synthetic) is not fully met** (synthetic test 2: the weak array 0.0072 below the 0.005 line), so by the test's own rule the
+  healthy line is not commissioned. **What it shows:** each healthy blood's whole-sample Met-A is predicted from the array's own measured
+  line, with no healthy cohort and no reference arrays, in five laboratories. All five series are spent, so this is development.

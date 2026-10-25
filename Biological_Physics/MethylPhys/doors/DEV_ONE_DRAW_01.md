@@ -315,7 +315,7 @@ with 3 (0.208), so the Deconvolver trusted the thinnest sites most and chose don
 (`chain/stage_provisional.py::column_v2`, stated before it was read): the level from the shrunk proportion (m + 1/2)/(n + 1); the counting
 spread carried through the atlas's own inverse transfer by its interval's two ends, no slope; only sites with at least 5 reads (197,580 of
 donor 1's). Built by the one command (`--build-cell megakaryocytes@2`); read with `--dev-provisional megakaryocytes@2`. Its spread now falls
-with depth (median 0.154 at 5 reads, 0.107 at 10).
+with depth (median 0.154 at 5 reads, 0.111 at 10; `provisional_03/column_spread.txt`).
 
 **The test** (`data/DEV_ONE_DRAW_01/mk_absorb_01/mk_provisional_02.py`): test 1's saved donor 2 readings (the pure pool; the spent healthy
 plasma with 0, 10, 25 and 40 % planted), read again with version 2. **The instrument's job:** name the megakaryocyte DNA instead of

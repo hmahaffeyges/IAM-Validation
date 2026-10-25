@@ -157,3 +157,17 @@ blood has no earlier result to compare; R5's sorted cells are still running.
   in colitis, so this is the known biology appearing through the chain's own calibrated values.
 - **The IAM-Deconvolver's largest shares:** neutrophils 0.57 in Crohn's and 0.52 in colitis against 0.42 in healthy, the raised neutrophil
   share of active inflammation. The 450K bone-marrow progenitor shares (GMP, HSC) appear again, as on every 450K series, and are flagged.
+
+**R5 Crohn's and colitis, sorted cells, read** (`data/DEV_REPLICATE_01/r5/r5_ibd_sorted_summary.txt`; 172 of 240 arrays of GSE87650, pass 1,
+untared): the Deconvolver finds each sorted cell type as its largest share (CD4 T cells 0.73 to 0.82, CD8 T cells 0.59 to 0.70, monocytes 0.81
+to 0.86). Crohn's or colitis against healthy within the same cell type (8 comparisons, 11 to 20 arrays a group): no reading reaches p 0.05.
+
+**R6 stroke, read** (`data/DEV_REPLICATE_01/r6/r6_stroke_summary.txt`; 154 of 185 arrays of GSE69138): the three stroke subtypes against each
+other; no Met-A, territory or C-Score reading reaches p 0.05 (closest: the islands, cardioembolic against small-vessel disease, p 0.055). The
+series has no controls with IDATs.
+
+**R7 prostate, read** (`data/DEV_REPLICATE_01/r7/r7_prostate_summary.txt`; 169 of 238 tissues of GSE269244, pass 1, untared): tumor against
+adjacent normal. **The islands territory reads higher in tumors** (1.4546 against 1.3568, p 5.1e-06), the early gain at islands the territory
+was built to read. Also: Met-A monocytes 0.9958 against 1.0231 (p 0.00036) and the whole-genome C-Score 0.9966 against 0.9998 (p 0.00019),
+both lower in tumors. Whole-sample Met-A does not separate them (p 0.98). The tissue mixes differ (normal: vascular endothelium 0.35, prostate
+epithelium 0.30; tumor: prostate epithelium 0.31, vascular endothelium 0.23), and blood-cell readings in a tissue are flagged, not commissioned.

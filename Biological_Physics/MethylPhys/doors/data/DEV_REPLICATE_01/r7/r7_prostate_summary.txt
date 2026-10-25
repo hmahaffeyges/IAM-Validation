@@ -1,0 +1,22 @@
+DEV-REPLICATE-01 r7_prostate: 169 of 238 arrays read (pass 1, untared)
+== GSE269244: Normal 85, Tumor 84
+   Normal: largest shares vascular endothelium 0.35, prostate epithelium 0.30, embryonic stem cells 0.06
+   Tumor: largest shares prostate epithelium 0.31, vascular endothelium 0.23, cd8 temra t cells 0.11
+-- Normal (85) against Tumor (84)
+   site cg05575921                            0.8225 against 0.8510 | d -0.42 | p 0.0082
+   site cg03636183                            0.5040 against 0.4930 | d +0.06 | p 0.35
+   site cg16867657                            0.4280 against 0.4120 | d +0.31 | p 0.062
+   Met-A whole                                1.0355 against 1.0344 | d -0.01 | p 0.98
+   ceiling distance                           0.9720 against 0.9728 | d +0.03 | p 0.94
+   Met-A whole, identity sites of the cells found 1.0872 against 1.0794 | d +0.13 | p 0.52
+   Met-A whole, islands                       1.3652 against 1.4657 | d -0.73 | p 5.5e-06
+   Met-A whole, domains                       1.0045 against 0.9999 | d +0.11 | p 0.39
+   Met-A whole, the rest                      1.0088 against 1.0026 | d +0.07 | p 0.61
+   Met-A neutrophils                          1.0934 against 1.0944 | d +0.27 | p 0.23
+   Met-A cd4 t cells                          1.1106 against 1.1066 | d +0.00 | p 1
+   Met-A cd8 t cells                          1.1316 against 1.1265 | d -0.16 | p 0.38
+   Met-A b cells                              1.0982 against 1.0941 | d -0.02 | p 0.92
+   Met-A monocytes                            1.0231 against 0.9958 | d +0.63 | p 0.00036
+   territory islands                          1.3568 against 1.4546 | d -0.73 | p 5.1e-06
+   territory domains                          0.9839 against 0.9758 | d +0.14 | p 0.31
+   C-Score whole genome                       0.9998 against 0.9966 | d +0.58 | p 0.00019

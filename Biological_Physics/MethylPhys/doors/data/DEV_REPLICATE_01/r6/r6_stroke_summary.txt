@@ -1,0 +1,59 @@
+DEV-REPLICATE-01 r6_stroke: 154 of 185 arrays read (pass 1, untared)
+== GSE69138: atherotrombotic 15, cardioembolic 91, small-vessel disease 48
+   atherotrombotic: largest shares neutrophils 0.67, GMP (bone marrow) 0.07, central memory th1 cells 0.03
+   cardioembolic: largest shares neutrophils 0.66, monocytes 0.04, central memory th1 cells 0.02
+   small-vessel disease: largest shares neutrophils 0.65, central memory th1 cells 0.05, monocytes 0.04
+-- atherotrombotic (15) against cardioembolic (91)
+   site cg05575921                            0.7630 against 0.8640 | d -0.71 | p 0.041
+   site cg03636183                            0.6670 against 0.7060 | d -0.71 | p 0.025
+   site cg16867657                            0.8040 against 0.7960 | d +0.09 | p 0.91
+   Met-A whole                                1.0292 against 1.0116 | d +0.09 | p 0.59
+   ceiling distance                           0.9793 against 0.9924 | d -0.08 | p 0.6
+   Met-A whole, identity sites of the cells found 1.0544 against 1.0334 | d +0.12 | p 0.41
+   Met-A whole, islands                       1.1116 against 1.0700 | d +0.34 | p 0.15
+   Met-A whole, domains                       1.0374 against 1.0182 | d -0.04 | p 1
+   Met-A whole, the rest                      1.0085 against 0.9988 | d +0.02 | p 0.88
+   Met-A neutrophils                          1.0592 against 1.0360 | d -0.13 | p 0.92
+   Met-A cd4 t cells                          1.0527 against 1.0413 | d +0.07 | p 0.54
+   Met-A cd8 t cells                          1.0496 against 1.0206 | d +0.15 | p 0.34
+   Met-A b cells                              1.0505 against 1.0060 | d +0.19 | p 0.27
+   Met-A monocytes                            1.0348 against 1.0240 | d -0.01 | p 0.87
+   territory islands                          1.1084 against 1.0680 | d +0.35 | p 0.15
+   territory domains                          1.0259 against 1.0108 | d -0.03 | p 1
+   C-Score whole genome                       1.0072 against 1.0051 | d +0.37 | p 0.13
+-- atherotrombotic (15) against small-vessel disease (48)
+   site cg05575921                            0.7630 against 0.8500 | d -0.46 | p 0.27
+   site cg03636183                            0.6670 against 0.7025 | d -0.47 | p 0.16
+   site cg16867657                            0.8040 against 0.7560 | d +0.54 | p 0.09
+   Met-A whole                                1.0292 against 1.0262 | d -0.19 | p 0.49
+   ceiling distance                           0.9793 against 0.9817 | d +0.20 | p 0.49
+   Met-A whole, identity sites of the cells found 1.0544 against 1.0536 | d -0.16 | p 0.68
+   Met-A whole, islands                       1.1116 against 1.1126 | d +0.03 | p 0.95
+   Met-A whole, domains                       1.0374 against 1.0317 | d -0.27 | p 0.29
+   Met-A whole, the rest                      1.0085 against 1.0074 | d -0.26 | p 0.44
+   Met-A neutrophils                          1.0592 against 1.0285 | d -0.19 | p 0.84
+   Met-A cd4 t cells                          1.0527 against 1.0551 | d -0.14 | p 0.68
+   Met-A cd8 t cells                          1.0496 against 1.0503 | d -0.10 | p 0.58
+   Met-A b cells                              1.0505 against 1.0399 | d -0.08 | p 0.72
+   Met-A monocytes                            1.0348 against 1.0402 | d -0.20 | p 0.4
+   territory islands                          1.1084 against 1.1109 | d +0.04 | p 0.97
+   territory domains                          1.0259 against 1.0241 | d -0.29 | p 0.29
+   C-Score whole genome                       1.0072 against 1.0059 | d +0.23 | p 0.31
+-- cardioembolic (91) against small-vessel disease (48)
+   site cg05575921                            0.8640 against 0.8500 | d +0.22 | p 0.19
+   site cg03636183                            0.7060 against 0.7025 | d +0.27 | p 0.11
+   site cg16867657                            0.7960 against 0.7560 | d +0.43 | p 0.0094
+   Met-A whole                                1.0116 against 1.0262 | d -0.26 | p 0.12
+   ceiling distance                           0.9924 against 0.9817 | d +0.25 | p 0.13
+   Met-A whole, identity sites of the cells found 1.0334 against 1.0536 | d -0.26 | p 0.1
+   Met-A whole, islands                       1.0700 against 1.1126 | d -0.31 | p 0.055
+   Met-A whole, domains                       1.0182 against 1.0317 | d -0.20 | p 0.26
+   Met-A whole, the rest                      0.9988 against 1.0074 | d -0.23 | p 0.19
+   Met-A neutrophils                          1.0360 against 1.0285 | d -0.05 | p 0.76
+   Met-A cd4 t cells                          1.0413 against 1.0551 | d -0.18 | p 0.17
+   Met-A cd8 t cells                          1.0206 against 1.0503 | d -0.24 | p 0.086
+   Met-A b cells                              1.0060 against 1.0399 | d -0.25 | p 0.08
+   Met-A monocytes                            1.0240 against 1.0402 | d -0.16 | p 0.23
+   territory islands                          1.0680 against 1.1109 | d -0.31 | p 0.053
+   territory domains                          1.0108 against 1.0241 | d -0.21 | p 0.18
+   C-Score whole genome                       1.0051 against 1.0059 | d -0.15 | p 0.58
