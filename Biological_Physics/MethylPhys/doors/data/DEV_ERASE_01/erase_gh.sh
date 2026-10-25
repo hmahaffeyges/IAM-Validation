@@ -63,6 +63,9 @@ if [ "${INDEXONLY:-0}" = 1 ]; then   # 2026-10-24 (build_index.yml): stop once t
   tar -C $S -cf - ref wgbs_tools/references/hg19 | zstd -T4 -6 | tee >(sha256sum | cut -d' ' -f1 > $OUT/stream_sha) | split -b 1900M - $OUT/hg19idx.tar.zst.part
   sleep 2; { echo "$(cat $OUT/stream_sha) stream"; echo "x parts $(cd $OUT && ls hg19idx.tar.zst.part* | tr '\n' ' ')"; } > $OUT/SHA256SUMS; cat $OUT/SHA256SUMS; exit 0
 fi
+# 2026-10-25: SPECIMEN from the sample list's specimen column when the list has one and SPECIMEN is not set (the leukemia study's samples:
+# leukemias "not stated", cord-blood B cells "sorted b cells", the Reh line "cell line"); the full reading once fell back to plasma
+[ -z "${SPECIMEN:-}" ] && SPECIMEN=$(python3 -c "import csv,sys; r=[x for x in csv.DictReader(open(sys.argv[1])) if x['gsm']==sys.argv[2]]; print(r[0].get('specimen') or '' if r else '')" ${SAMPLES:-$E/erase_samples.csv} $GSM); export SPECIMEN; log "specimen: ${SPECIMEN:-plasma (default)}"
 python3 $E/erase_blocks.py ${SAMPLES:-$E/erase_samples.csv} $GSM ${CHUNK:-${MAXPAIRS:-10000000}} > $S/${GSM}_blocks.txt   # CHUNK=k/n: one contiguous range (split alignment, 2026-10-24); the comment once swallowed the two commands before it (fixed 2026-10-24)
 fetch_all(){ rm -rf $S/fq/*; i=0   # --split-3 (2026-10-25): only true pairs go to _1 and _2; a spot with one empty read goes to a third file, unused
   while read r a b; do i=$((i+1)); ( for t in 1 2 3 4 5; do fastq-dump --split-3 -N $a -X $b -O $S/fq/b$i $r > /dev/null 2>> $S/logs/${GSM}_fetch.err && break; rm -rf $S/fq/b$i; sleep $((30*t)); done ) &

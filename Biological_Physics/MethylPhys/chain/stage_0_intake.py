@@ -110,6 +110,9 @@ def is_tissue(specimen):
     # 2026-10-24 (author: read and flag): bone marrow, marrow aspirate and blood-and-marrow mixes are read on this route, the full atlas panel
     # with the marrow progenitors kept in the mix; it was refused at intake before ("no reference"), against the read-and-flag rule.
     if "marrow" in s: return True
+    # 2026-10-25 (author: read and flag; the leukemia study's Reh line): a cell line or cultured cells are read on this route too, flagged; they
+    # were refused at intake ("no reference"), against the read-and-flag rule. The Deconvolver says what the cells resemble.
+    if any(w in s for w in ("cell line", "cultured", "culture")): return True
     return s in TISSUE_WORDS or s.endswith(" tissue") or s.endswith(" tumor") or s.endswith(" biopsy")
 
 def specimen_refusal(specimen):

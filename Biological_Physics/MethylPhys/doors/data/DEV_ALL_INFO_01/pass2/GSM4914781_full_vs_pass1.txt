@@ -1,0 +1,3 @@
+GSM4914781 (ALL-45) full depth (split alignment run 40190157807) against pass 1 (10 million pairs, run 40117965585)
+held error full 0.038382 | pass 1 0.037431 | ratio 1.0254
+molecule lines full 32705429 | specimen of this reading: plasma (the pipeline's default; re-read with the stated specimen)

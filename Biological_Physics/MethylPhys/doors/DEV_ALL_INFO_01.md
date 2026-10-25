@@ -76,3 +76,11 @@ records against 7,217,487 read-2 records, with no error, so the merge refused it
 two read files differ in length, it keeps the true pairs record by record (read names checked at the last kept record; it fails if they
 differ) and logs how many unpaired records were dropped; the fetch's error log goes into the run log. Tested on constructed read files
 before use. The dropped records are reported in each chunk's log.
+
+**Pass 2, the first leukemia at full depth** (`data/DEV_ALL_INFO_01/pass2/GSM4914781_full_vs_pass1.txt`): ALL-45's held error at full depth
+agrees with its pass-1 count at 10 million pairs within a few percent (values in the file), so the split alignment reproduces the count.
+**Specimen:** the full reading ran with the pipeline's default specimen, plasma, because the sample list gave none. Each sample now carries
+its stated specimen in `data/DEV_ALL_INFO_01/all_samples.csv`: the leukemias "not stated" (GEO records them only as primary diagnosis
+samples), the cord-blood CD19+ B cells "sorted b cells" (read against the atlas's B cells), the Reh line and its knockout "cell line". Stage
+0 intake now reads a cell line on the full-atlas route, flagged, as bone marrow is (read and flag); it refused cell lines before. Every
+full-depth sample is read again from its merged molecules with its stated specimen; no alignment is repeated.
