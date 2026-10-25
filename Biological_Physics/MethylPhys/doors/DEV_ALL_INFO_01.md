@@ -116,7 +116,7 @@ and the C-Score for each cell now each state that they were not read and why, in
 is sent: the pipeline script's own reading command run on a 10-million-pair molecule file under each specimen in the sample list (cell
 line, not stated, sorted B cells); every reading is present or states its reason.
 
-**Distance to the ceiling, captured** (`data/DEV_ALL_INFO_01/full_depth/full_depth_rows.csv`, written by `CANON/bundle_rows.py` from the newest
-bundle of each full-depth sample; values copied, nothing computed): the samples read at full depth so far, each reading with its ceiling
-fields; listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atlas: the chemistry offset in the plan's Met-A-on-sequencing branch).
+**The ceiling's A, captured** (`data/DEV_ALL_INFO_01/full_depth/full_depth_rows.csv`, written by `CANON/bundle_rows.py` from the newest
+bundle of each full-depth sample; values copied, nothing computed): the samples read at full depth so far, each reading with its A and the A
+its ceiling sits at; the ceiling's A is listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atlas: the chemistry offset in the plan's Met-A-on-sequencing branch).
 Rebuilt as each sample lands.

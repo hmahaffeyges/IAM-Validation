@@ -2207,6 +2207,24 @@
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
 "line": 77,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- **14.9** [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary's chromosome index ra"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 77,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- **14.9** [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary's chromosome index ra"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 77,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2380,6 +2398,24 @@
 "line": 216,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 216,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 216,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
 "text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
@@ -2863,7 +2899,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
-"line": 276,
+"line": 288,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2872,7 +2908,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_q2_selfref.py",
-"line": 276,
+"line": 288,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3277,7 +3313,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1015,
+"line": 1018,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3286,7 +3322,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1015,
+"line": 1018,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3295,7 +3331,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1017,
+"line": 1020,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3304,7 +3340,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1017,
+"line": 1020,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3546,6 +3582,24 @@
 "text": "**Met as written:** mixing raises the tile share by a third; both molecule-level shares stay within 3 %. Next: a self-reference line on the"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+"line": 355,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "the self-reference line's healthy samples are recounted with the dictionary's tiles."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+"line": 355,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "the self-reference line's healthy samples are recounted with the dictionary's tiles."
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/PROC_PREDX_SEQUENCE_01_PREREG.md",
 "line": 27,
 "pattern": "program reading",
@@ -3615,7 +3669,7 @@
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "RECORD",
-"text": "fields; listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atlas: the chemistry offset in the "
+"text": "its ceiling sits at; the ceiling's A is listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atl"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md",
@@ -3664,12 +3718,21 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
-"line": 441,
+"line": 442,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "bundles; values copied, nothing computed): every reading of the 100 healthy bloods with its ceiling fields; listed in the A-score database."
+"text": "A-score database, on the A-score scale (1 healthy; the ceiling to the right, the floor to the left)."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 442,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "A-score database, on the A-score scale (1 healthy; the ceiling to the right, the floor to the left)."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
