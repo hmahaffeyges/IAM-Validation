@@ -1,0 +1,88 @@
+cell,gse,n,spent,in_atlas,suppl,title
+B cells,GSE307998,89,,,"IDAT, XLSX",Continuous DNA methylation deconvolution-based surrogate for B-cell differentiation state in chronic lymphocytic leukemia
+B cells,GSE281305,40,,,"IDAT, RDS",Generation of multi-omic datasets using high-throughput molecular profiling of DNA methylation human data
+B cells,GSE289988,9,,,"IDAT, TXT",Comparative DNA methylation profiling of human and murine ALK-positive B-cell neoplasms [EPIC]
+B cells,GSE306846,48,,,"CSV, IDAT",The Effect of Epstein Barr Virus Latency on Cellular DNA Methylation Profile of DiffuseLarge B Cell Lymphoma 
+B cells,GSE289415,52,,,"CSV, IDAT",Identification of two epitypes of IGHV unmutated chronic lymphocytic leukemia with distinct B cell-related epigenetic imprinting and genetic alteratio
+B cells,GSE274821,31,,,"CSV, IDAT",Prior chemotherapy deteriorates T-cell quality for CAR T-cell therapy in B-cell non-Hodgkin’s lymphoma
+B cells,GSE268066,28,,,"IDAT, MTX, TSV",Memory-like natural killer cell and CD19-antibody based immunotherapy in combination with tyrosine-kinase inhibition of Ph(-like) acute lymphoblastic 
+B cells,GSE268065,14,,,"IDAT, TSV",Memory-like natural killer cell and CD19-antibody based immunotherapy in combination with tyrosine-kinase inhibition of Ph(-like) acute lymphoblastic 
+B cells,GSE279602,20,,,"IDAT, XLSX",Epigenetic features support the diagnosis of B-cell prolymphocytic leukemia and identify two clinico-biological subtypes
+B cells,GSE273657,71,,,CSV,Epigenetic aging in immune response to HBV vaccine in B cells isolated from health care workers
+B cells,GSE260667,52,,,"CSV, IDAT",Epigenome analysis of nodal marginal zone lymphoma and diffuse large b cell lymphoma
+B cells,GSE270901,78,yes,,IDAT,The life-saving benefit of dexamethasone in severe COVID-19 is linked to a reversal of monocyte dysregulation
+B cells,GSE229056,52,,,IDAT,MIR4435-2HG as a novel predictive biomarker of chemotherapy response and death in pediatric B-cell ALL
+B cells,GSE229052,26,,,"IDAT, TXT",MIR4435-2HG as a novel predictive biomarker of chemotherapy response and death in pediatric B-cell ALL [methylation]
+B cells,GSE255869,97,,,"IDAT, TXT","Semimethylation is a feature of Diffuse Large B-cell Lymphoma, and subgroups with poor prognosis are characterized by global hypomethylation and short"
+B cells,GSE192451,10,,,IDAT,Methylation profiles of B cells subpopulations
+B cells,GSE174248,17,,,"CSV, IDAT",IG-MYC rearrangement defines a high-risk subgroup of B-cell precursor acute lymphoblastic leukaemia
+B cells,GSE171424,37,,,"CSV, IDAT",Methylation array profiling of small B-cell lymphomas
+B cells,GSE179414,157,,,CSV,Epigenetic profiling and response to CD19 chimeric antigen receptor (CAR) T-cell therapy in B-cell malignancies
+B cells,GSE150417,30,,,"IDAT, TXT",Genome-wide DNA Methylation Analysis along the Progression of Gastric Marginal Zone B-cell Lymphoma of MALT Type
+B cells,GSE137634,436,,,IDAT,Lymphocyte DNA methylation mediates genetic risk at shared immune mediated disease loci
+B cells,GSE137594,119,,,"IDAT, TXT",Early arthritis B cell DNA methylation profiling
+B cells,GSE118144,145,yes,,"IDAT, TXT",Cell lineage-specific genome-wide DNA methylation analysis of patients with paediatric-onset systemic lupus erythematosus
+B cells,GSE114210,7,,,CSV,IG-MYC-positive neoplasms with precursor B-cell phenotype are molecularly distinct from Burkitt lymphomas
+B cells,GSE103541,145,yes,,"CSV, IDAT",DNA methylation profiles of Purified Blood Cell types
+B cells,GSE93373,16,,,"IDAT, TXT",Epigenome analysis of B cell and  B cells infected with Epstein-Barr virus (EBV)
+T cells,GSE288076,32,,,"IDAT, TXT",Genome wide DNA methylation of naive CD4+ T cells from various ages
+T cells,GSE330395,16,,,"IDAT, TSV",Clinical development of tacrolimus-resistant regulatory T cells to enable simultaneous immunosuppression and support of immune regulation
+T cells,GSE311289,20,,,"CSV, IDAT",Multi-omics Analysis Revealed Unique Features of Age-associated Type2 CD8 Memory T cells [array]
+T cells,GSE308436,29,,,"CSV, IDAT","Multimodal integration of epigenetics, spatial transcriptomics and immune microenvironment in sacral chordoma"
+T cells,GSE281929,16,,,IDAT,Human LY9 governs CD4+ T-cell IFN-γ immunity to Mycobacterium tuberculosis
+T cells,GSE252024,196,,,IDAT,Decoding CD4+ T cell transcriptome in giant cell arteritis: novel pathways and altered cross-talk with monocytes
+T cells,GSE252021,98,,,"IDAT, TXT",Decoding CD4+ T cell transcriptome in giant cell arteritis: novel pathways and altered cross-talk with monocytes [methylation]
+T cells,GSE269608,56,,,"IDAT, TSV",DNA methylomes undergo distinct waves of remodeling during thymic T cell development and do not acquire a proliferation-induced imprint.
+T cells,GSE269760,68,,,"BEDGRAPH, IDAT, SF",Epigenetic editing at individual age-associated CpGs affects the genome-wide epigenetic aging landscape
+T cells,GSE269759,6,,,"CSV, IDAT",Epigenetic editing at individual age-associated CpGs affects the genome-wide epigenetic aging landscape [T_cell_hypo]
+T cells,GSE269758,6,,,"CSV, IDAT",Epigenetic editing at individual age-associated CpGs affects the genome-wide epigenetic aging landscape [T_cell_hyper]
+T cells,GSE283742,12,,,"CSV, IDAT",Characterization of rationally designed CRISPR/Cas9-based DNA methyltransferases with distinct methyltransferase and gene silencing activities in huma
+T cells,GSE272021,131,,,TXT,CpG island methylator phenotype classification improves risk assessment in pediatric T-cell Acute Lymphoblastic Leukemia [methylation array]
+T cells,GSE249566,20,,,IDAT,DNA methylation profiles of SMARCB1-deficient T cell lymphomas
+T cells,GSE261190,20,,,IDAT,Epigenetic priming induces cancer testis antigens and human endogenous retroviruses in glioma for enhanced T cell responses at single cell resolution 
+T cells,GSE261191,44,,,"IDAT, MTX, TSV",Epigenetic priming induces cancer testis antigens and human endogenous retroviruses in glioma for enhanced T cell responses at single cell resolution
+T cells,GSE231459,180,,,IDAT,Resting CD4+ T cells exposed to oleic acid upregulate genes involved in immunometabolism resulting in increased IL-9+ frequencies post-activation
+T cells,GSE231457,90,,,"IDAT, RDATA",Resting CD4+ T cells exposed to oleic acid upregulate genes involved in immunometabolism resulting in increased IL-9+ frequencies post-activation [DNA
+T cells,GSE252045,130,,,"CSV, IDAT, TSV",Development of an Epigenetic Clock Resistant to Changes in Immune Composition
+T cells,GSE236695,22,,,"CSV, IDAT","DNA methylation patterns in CD4+ T cells separate psoriasis patients from healthy controls, and skin psoriasis from psoriatic arthritis II"
+T cells,GSE236694,26,,,"CSV, IDAT","DNA methylation patterns in CD4+ T cells separate psoriasis patients from healthy controls, and skin psoriasis from psoriatic arthritis I"
+T cells,GSE220581,40,,,"IDAT, TXT",Culture expansion of CAR T cells evokes aberrant DNA methylation that is associated with adverse clinical outcome
+T cells,GSE220157,32,,,IDAT,Culture expansion of CAR T cells evokes aberrant DNA methylation that is associated with adverse clinical outcome (Methylation)
+T cells,GSE206709,72,,,IDAT,Multi-omic signatures of Chronic Beryllium Disease bronchoalveolar lavage cells relate to T cell function and innate immunity [Methylation]
+T cells,GSE206719,144,,,"IDAT, TXT",Multi-omic signatures of Chronic Beryllium Disease bronchoalveolar lavage cells relate to T cell function and innate immunity
+T cells,GSE207861,22,,,"IDAT, TXT, XLSX",Sex-based comparison of CD4+ T cell DNA methylation patterns in SLE reveals pro-inflammatory epigenetic changes in men
+T cells,GSE189604,12,,,"CEL, CHP, IDAT",DNA demethylating agents and EZH2 inhibitors for Adult T cell leukemia
+T cells,GSE189602,4,,,"CSV, IDAT, TXT",DNA demethylating agents and EZH2 inhibitors for Adult T cell leukemia [Illumina]
+T cells,GSE182317,171,,,"HIC, IDAT, NARROWPEAK, RDS, TXT",Elevated enhancer-oncogene contacts and higher oncogene expression levels by recurrent CTCF inactivating mutations in acute T cell leukemia
+T cells,GSE182313,8,,,IDAT,Elevated enhancer-oncogene contacts and higher oncogene expression levels by recurrent CTCF inactivating mutations in acute T cell leukemia [BeadChip 
+T cells,GSE174666,57,,,"IDAT, TXT","Comparative analysis of the DNA methylation landscape in CD4, CD8, and B memory lineages"
+T cells,GSE199236,50,,,IDAT,Epigenome and gene expression analysis of glycine chloramine treated Jurkat T cells
+T cells,GSE198566,24,,,"CSV, IDAT, TXT",Epigenome analysis of glycine chloramine treated Jurkat T cells
+T cells,GSE165360,23,,,"IDAT, TXT","Evidence for CD04+ T Cell Methylation Signatures of Network-oriented SOCS3, ITGAL, and NR4A2 Genes with Hemodynamics in Patients with Pulmonary Arteri"
+T cells,GSE165357,6,,,"IDAT, TXT","Evidence for CD04+ T Cell Methylation Signatures of Network-oriented SOCS3, ITGAL, and NR4A2 Genes with Hemodynamics in Patients with Pulmonary Arteri"
+T cells,GSE165356,3,,,"IDAT, TXT","Evidence for CD04+ T Cell Methylation Signatures of Network-oriented SOCS3, ITGAL, and NR4A2 Genes with Hemodynamics in Patients with Pulmonary Arteri"
+T cells,GSE188586,8,,,TXT,CD4+CCR6+ T cells dominate the BCG-induced transcriptional signature
+T cells,GSE162350,32,,,IDAT,Epigenetic Signature of Chronic Low Back Pain in Human T Cells
+T cells,GSE184500,31,,,"CSV, IDAT",DNA methylation patterns in CD8+ T cells discern psoriasis from psoriatic arthritis and correlate with cutaneous disease activity
+T cells,GSE164149,16,,,"CSV, IDAT, TXT","Genome-wide DNA methylation profile of expanded human CRISPR/HDR-mediated FOXP3-KO naive Tregs, Cas9 naive Tregs, and conventional T cells"
+T cells,GSE180130,104,yes,,"IDAT, TXT",Abrupt and altered cell-type-specific DNA methylation profiles in blood during Acute HIV infection persists despite prompt initiation of ART
+T cells,GSE166844,217,yes,,CSV,DNA methylation profiles of Purified Blood Cell types
+T cells,GSE145664,32,,,"IDAT, TXT",Epigenetic therapy strengthens immune synapses to potentiate susceptibility of lung cancer cells to adoptive γδ T cell therapy
+T cells,GSE164468,22,,,IDAT,Distinct DNA methylation patterns of rheumatoid arthritis peripheral blood and synovial tissue T cells
+T cells,GSE161506,8,,,"IDAT, TXT",Low-dose decitabine priming endows CAR T cells with enhanced and persistent anti-tumor potential by epigenetic reprogramming in vivo and in vitro.
+T cells,GSE155339,259,,,"IDAT, TAB",Aging of preleukemic thymocytes drives CpG island hypermethylation in T-cell acute lymphoblastic leukemia
+T cells,GSE155334,12,,,"IDAT, TXT",Aging of preleukemic thymocytes drives CpG island hypermethylation in T-cell acute lymphoblastic leukemia [EPICarray_PDX]
+T cells,GSE155333,129,,,"IDAT, TXT",Aging of preleukemic thymocytes drives CpG island hypermethylation in T-cell acute lymphoblastic leukemia [EPICarray_109TALL]
+T cells,GSE146093,128,,,"CEL, CHP, IDAT",Epigenomic and transcriptomic analysis of Systemic Sclerosis CD4+ T cells
+T cells,GSE146092,64,,,"IDAT, TXT",Epigenomic and transcriptomic analysis of Systemic Sclerosis CD4+ T cells [Illumina]
+T cells,GSE136189,40,,,TXT,Genome-wide methylation analysis of T-cells using Infinium HumanMethylation BeadChip
+T cells,GSE138747,320,,,,Multi-omics and Machine Learning Accurately Predicts Clinical Response to Adalimumab and Etanercept Therapy in Patients with Rheumatoid Arthritis
+T cells,GSE131677,49,,,"IDAT, TXT",Epigenome analysis of relapse and relapse-free T-cell lymphoblastic lymphoma
+T cells,GSE137593,103,,,"IDAT, TXT",Early arthritis CD4+ T cell DNA methylation profiling
+T cells,GSE123003,16,,,"IDAT, TXT",Hypomethylation of STAT1 and HLA-DRB1 is associated with type-I interferon-dependent HLA-DRB1 expression in lupus CD8+ T cells
+T cells,GSE138311,13,,,IDAT,Adipose derived stem cells (ASCs) methylation differences between Crohn Disease and No-Crohn individuals
+T cells,GSE130494,110,,,"CEL, CHP, IDAT",Therapeutic efficacy of dimethyl fumarate in relapsing-remitting multiple sclerosis is linked with monocytic oxidative responses
+T cells,GSE130491,82,,,IDAT,Therapeutic efficacy of dimethyl fumarate in relapsing-remitting multiple sclerosis is linked with monocytic oxidative responses [Illumina]
+T cells,GSE114135,342,,,,Transcriptomes and methylomes from naïve CD4+ T-cells from infants and children with and without food allergy
+T cells,GSE114134,205,,,CSV,Methylomes from naïve CD4+ T-cells from infants and children with and without food allergy [methylation]
+T cells,GSE112596,112,,,CSV,Epigenome analysis of CD4 T cells from treated and untreated patients with multiple sclerosis (MS)
