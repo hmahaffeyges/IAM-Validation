@@ -171,7 +171,7 @@
      "date": "2026-10-24",
      "status": "running",
      "what": "Pass 2 at full depth: Met-A on sequencing, the territories, the globe and the distance to the ceiling, region by region beside the study's five findings",
-     "next": "at full depth on GitHub: the Reh control, the UHRF1 knockout, the three cord-blood controls and the first two leukemias; the other 29 leukemias after the Reh check",
+     "next": "check on four samples met (data/DEV_ALL_INFO_01/pass2/full_vs_pass1.txt); 25 leukemias left after the wave of four now running; each re-read with its stated specimen",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     },
     {

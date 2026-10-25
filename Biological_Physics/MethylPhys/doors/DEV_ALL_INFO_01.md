@@ -84,3 +84,8 @@ its stated specimen in `data/DEV_ALL_INFO_01/all_samples.csv`: the leukemias "no
 samples), the cord-blood CD19+ B cells "sorted b cells" (read against the atlas's B cells), the Reh line and its knockout "cell line". Stage
 0 intake now reads a cell line on the full-atlas route, flagged, as bone marrow is (read and flag); it refused cell lines before. Every
 full-depth sample is read again from its merged molecules with its stated specimen; no alignment is repeated.
+
+**Pass 2, the check on four samples** (`data/DEV_ALL_INFO_01/pass2/full_vs_pass1.txt`): the Reh control, the UHRF1 knockout, cord-blood
+control 1 and ALL-45 at full depth each reproduce their pass-1 held error closely (ratios in the file), and the knockout still reads about
+three times its control. The rest of the leukemias go out at full depth, four at a time; each full-depth sample is read again from its
+merged molecules with its stated specimen.

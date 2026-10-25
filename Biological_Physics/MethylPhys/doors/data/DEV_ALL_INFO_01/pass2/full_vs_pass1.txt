@@ -1,0 +1,5 @@
+sample | full depth held error (split alignment run) | pass 1 held error (10 million pairs) | ratio
+GSM4914798 | 0.032187 (run 40188002515) | 0.032157 | 1.0009
+GSM4914799 | 0.094497 (run 40188013334) | 0.094073 | 1.0045
+GSM4914800 | 0.031743 (run 40190054817) | 0.032063 | 0.9900
+GSM4914781 | 0.038382 (run 40190157807) | 0.037431 | 1.0254
