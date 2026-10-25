@@ -225,7 +225,7 @@
      "date": "2026-10-24",
      "status": "built",
      "what": "Outline and figure plan in the journal's format (abstract, introduction, Results under finding headings, Discussion, Methods with equations, Data and Code availability, 5-6 main figures, supplement). Framing: building on the published information-theory study, not answering it. Statistical names only (Bayesian hierarchical model sampled by Hamiltonian Monte Carlo; laboratory and platform terms estimated in a calibration stage and held fixed in the sampling; split-half null tests; information-geometric embedding; thermodynamic lower bound)",
-     "next": "paper generator built (paper/build_paper.py, paper/values.json: every number read from the canon or a committed output at build time); next: the Results drafts whose data are in",
+     "next": "paper generator built (paper/build_paper.py, paper/values.json: every number read from the canon or a committed output at build time); next: the Results drafts whose data are in | 2026-10-25: Results reordered (author): the single-sample reading without a cohort leads, the physics follows",
      "record": "Biological_Physics/MethylPhys/paper/OUTLINE.md"
     },
     {
@@ -753,6 +753,20 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
      "what": "A Met-A version whose identity sites are chosen on IAM-Atlas v2.1 and tested on arrays the atlas does not hold (after step 3: the commissioned sites, ranked on the same arrays they are scored against, read above each array's own response curve; the selection effect comes from choosing and testing on the same arrays, so the cure is independence). The same site rule applied to the atlas's cell column (pooled over many donors and laboratories with their terms removed, so little chance noise at each site; posterior widths say how much); each test array's healthy mark predicted through its own response curve (step 3 version 7, the successor of the atlas ruler that overcorrected); bar: healthy purified arrays from laboratories outside the atlas read Normal. First cell: monocytes (atlas column: 3 sequencing + 11 array samples); candidate test series, unread, labels not yet read: GSE270223, GSE201754, GSE196071, GSE189426. Neutrophils (atlas column: 12 arrays, the six commissioned among them) need neutrophil arrays from outside the atlas (candidate GSE281305). BLUEPRINT monocyte WGBS (4 donors, unread) checks the atlas's monocyte levels against purified molecules. Measured, not derived, until the held error is (14.1).",
      "next": "development met (15 of 15 Normal; identity sites on each array's curve); the 43 confirmation arrays (GSE201754, GSE196071) on GitHub"
+    },
+    {
+     "id": "14.15",
+     "date": "2026-10-25",
+     "status": "open",
+     "what": "Commission Met-A with the atlas as the ruler on B cells first (the leukemia study's cells), then CD4 and CD8 T cells, on sequencing and on arrays, for the Johns Hopkins package (author: 'the opera singers of IAM'); each test written before any data is read, on data the atlas does not hold",
+     "next": "after the monocyte confirmation; find unread healthy B-cell sequencing (BLUEPRINT first) and sorted B and T EPIC series"
+    },
+    {
+     "id": "14.16",
+     "date": "2026-10-25",
+     "status": "parked",
+     "what": "Blood and immune cell movements before diagnosis and during treatment, on arrays and sequencing, for the Johns Hopkins package",
+     "next": "author: find those datasets after everything else is finished"
     }
    ]
   },

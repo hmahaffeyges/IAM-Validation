@@ -55,27 +55,28 @@ fidelity bound (IAM's Law) defined in the text, not in the title.
 4. This paper: the bound and the readings built on it; the reference atlas; a test on the published data, including the knockout of the
    maintenance factor UHRF1; reach beyond deep sequencing.
 
+<!-- order (author 2026-10-25): what researchers will first find most useful is reading a single dataset without lab offsets or cohort noise, so it leads; the physics follows as why it works -->
 ## Results (each heading states its finding once the test has run; until then it states the question)
 
 The instruments are reported as a family: each answers one question about a sample, and each is set beside the one that covers its blind
 spot. That design is itself a result (R8).
 
-**R1. A thermodynamic bound sets the floor and the ceiling of methylation fidelity.** The derivation: the cost of holding one mark
-(M = 20.94 k_BT per ATP); the energy actually spent holding a mark, measured on single molecules in 56 healthy cell types (3.08 k_BT); the
-floor and the ceiling; the read-count correction, derived exactly; the distance to the ceiling. A prediction made before the data:
-methyl-donor restriction in mice, window 1.016 to 1.135, read 1.1239. *Sources: `doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`;
-`doors/DEV_SAM_LEVER_01_OUTCOME.md`; the ceiling and read-count records.* **Figure 1.** Supplementary Note 1 (below): the same bound in
-two engineered records.
-
-**R2. A sample's own loosely held share sets its expected error (IAM-A).** Held errors on held molecules against the sample's own loose
-share; the self-reference line from healthy cell types; why this is not circular (synthetic tests); reproduction in a second laboratory
-and in mouse; the molecule-level loose share for mixtures. *Sources: IAM-A records; `doors/DEV_REPLICATE_01.md`.* **Figure 2.**
-
-**R3. A calibrated atlas lets any sample be read without a reference of its own.** IAM-Atlas v2.1: 21 sources, laboratory and platform
+**R1. A single sample is read without a cohort or matched controls, across laboratories.** The first thing the reader meets: one array or one sequenced sample, read on its own, with laboratory offsets carried by the atlas and each array on its own response curve (Met-A with the atlas as the ruler: healthy cells of one type from laboratories the atlas does not hold read alike; the healthy line across five laboratories). Then how: IAM-Atlas v2.1, IAM-Atlas v2.1: 21 sources, laboratory and platform
 terms calibrated across them, posteriors and convergence diagnostics at every site, split-half null maps; the IAM-Deconvolver reproduced
 across laboratories, its residual reported, unexpected cell types flagged; Met-A of the whole sample and of each cell, and its healthy line
 derived laboratory by laboratory. *Sources: `atlas/v2.1/README.md`; the deconvolution reproductions; `doors/DEV_METAA_HEALTHY_01.md`,
-`[pending]`.* **Figure 3.**
+`[pending]`.* **Figure 1.**
+
+**R2. A thermodynamic bound sets the floor and the ceiling of methylation fidelity.** The derivation: the cost of holding one mark
+(M = 20.94 k_BT per ATP); the energy actually spent holding a mark, measured on single molecules in 56 healthy cell types (3.08 k_BT); the
+floor and the ceiling; the read-count correction, derived exactly; the distance to the ceiling. A prediction made before the data:
+methyl-donor restriction in mice, window 1.016 to 1.135, read 1.1239. *Sources: `doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`;
+`doors/DEV_SAM_LEVER_01_OUTCOME.md`; the ceiling and read-count records.* **Figure 2.** Supplementary Note 1 (below): the same bound in
+two engineered records.
+
+**R3. A sample's own loosely held share sets its expected error (IAM-A).** Held errors on held molecules against the sample's own loose
+share; the self-reference line from healthy cell types; why this is not circular (synthetic tests); reproduction in a second laboratory
+and in mouse; the molecule-level loose share for mixtures. *Sources: IAM-A records; `doors/DEV_REPLICATE_01.md`.* **Figure 3.**
 
 **R4. The published leukemia data reread.** Every leukemia and control read by itself (IAM-A, Met-A, the territories, the C-Scores,
 the distance to the ceiling), and the groups compared within the series by Group-A, the instrument that reads groups against the healthy
@@ -139,9 +140,9 @@ written instructions (plan 50.4).
 
 | Figure | Panels | Status |
 |---|---|---|
-| 1 | the bound: cost of a mark, floor and ceiling, energy measured across 56 cell types, the mouse prediction | data in hand |
-| 2 | IAM-A: held error against loose share, the line, second-laboratory and mouse reproduction | data in hand |
-| 3 | the atlas: offsets, posterior widths, convergence, split-half null; Met-A's healthy line | the healthy line pending |
+| 1 | a single sample without a cohort: the atlas as the ruler (monocytes from laboratories the atlas does not hold), the healthy line across five laboratories; the atlas: offsets, posterior widths, convergence, split-half null; Met-A's healthy line | the healthy line pending |
+| 2 | the bound: cost of a mark, floor and ceiling, energy measured across 56 cell types, the mouse prediction | data in hand |
+| 3 | IAM-A: held error against loose share, the line, second-laboratory and mouse reproduction | data in hand |
 | 4 | the published leukemia data reread, each sample by itself and by group (Group-A), beside the study's findings | pending |
 | 5 | the UHRF1 knockout against the bound | pending |
 | 6 | the C-Scores and the territories; the projection and embedding of the study's own samples; sensitivity | pending |
