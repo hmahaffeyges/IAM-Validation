@@ -227,3 +227,8 @@ processed values, read by the values route, flagged, after a format check on eac
 unread series, of which a replay reads a fixed half, the other half kept unread for a blind run. Not read: controlled-access cohorts,
 non-human arrays, retired fitted methods (panels, Mahalanobis hulls, principal components, age subtraction), and tests whose dataset is
 not yet found.
+
+**Specimen check on the retest plan:** each test's datasets are now only those the list names or the earlier dataset map records, and each
+row carries the dataset's own specimen beside the test's (`specimen_check`). Two earlier mappings did not match their test and are not
+used: VAL-006, the neuron sequencing anchor, had been mapped to GSE40279 (whole-blood arrays), and VAL-010 to the plasma arrays and liver
+tissue; VAL-006's dataset is now to find, VAL-010 stays excluded (controlled access). VAL-059's specimen is taken from its datasets.
