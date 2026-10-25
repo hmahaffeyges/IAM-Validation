@@ -1320,7 +1320,7 @@
      "date": "2026-10-23",
      "status": "open",
      "what": "IAM-Atlas v2.1 as the ruler for every array (author: 'a standard, a ruler, something to calibrate each sample to'): Stage T's self-tare keeps its map (the array's own low and high anchors per probe design, nothing fitted) but its targets become the atlas's values at anchor sites that read the same in all 79 healthy cell types and are on 450K, EPIC v1 and EPIC v2, instead of the frozen reference arrays' scale (selftare_typeII_EPIC_v1.json); the anchor shift before the map is reported as a reading and flagged when large (a laboratory offset or a whole-genome change must never be silently tared away)",
-     "next": "synthetic first; then the same person's buffy coat on EPIC v1 and EPIC v2 (AK0005) must read alike after the map; then the many-labs test (35.6)"
+     "next": "sized from v2.1's record: 21-26 h at 16 x 8 cores for 813,951 sites; a whole-genome atlas is about 34 times the sites. Data: 80 of 87 cell types have healthy sequencing (216 samples; median 3 per cell, 19 cells with one sample), but 207 come from one published sequencing atlas, so away from the array sites the lab term cannot be calibrated across labs. Before any rental: (1) test that a lab's term measured at the array sites holds elsewhere; (2) add BLUEPRINT, ENCODE and Roadmap sequencing for blood cells first; (3) time one whole-genome block on one Hetzner hourly machine; (4) test whether sequencing-only sites can take the model's closed form; (5) Hetzner hourly against AWS spot, priced the day of the decision"
     },
     {
      "id": "35.15",
