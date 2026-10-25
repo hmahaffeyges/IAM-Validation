@@ -2,6 +2,7 @@ accession,in_s3,s3_gb,format,chain_readable,spent,test_status,tested_by,test_rec
 "450K purified-cell sets GSE35069, GSE88824, GSE65097, GSE124565, GSE224807, GSE318669 - calibrated betas",,,,,spent,,,,,,,,,
 BLUEPRINT mature neutrophil WGBS (C000S5; C0011I; PB100713),,,,,spent (development),,,,,,,,,
 BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313),,,,,reserved (confirmation),,,,,,,,,
+BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313) read,,,,,spent (confirmation of step 3 version 7),,,,,,,,,
 E-MTAB-11545,,,,,,,,,"not usable (organoids only (culture), 5 donors)",colon epithelium | small intestine epithelium,yes,IDAT files listed in SDRF: 84 files for 42 samples,Culture associated DNA methylation changes impact on cellular function of Human Intestinal Organoids (Methylation),gold-mine map
 E-MTAB-13654,,,,,,,,,not usable (pooled donors (4-5 per pool); HLA-risk carriers with family history of T1D),cd4 t cells | b cells,yes,IDAT files listed in SDRF: 64 files for 32 samples,DNA methylation of CD4+ T cells and CD19+ B cells in autoimmune-disease associated HLA class II genotype carriers,gold-mine map
 E-MTAB-15426,,,,,,,,,not usable (cultured cells (3 HUASMC + 1 HAoSMC)),smooth muscle,yes,IDAT files listed in SDRF: 8 files for 4 samples,Methylation profiling by EPIC microarray of HUASMCs and HAoSMCs,gold-mine map

@@ -431,3 +431,8 @@ step 3 (seven versions):** the mark at the commissioned sites is a measured quan
 identity sites chosen on the molecules (the sequencing atlas, or purified sequencing such as BLUEPRINT), not on arrays, so that the sites
 are not selected on the readings they are later compared with; that is a new Met-A version, designed and tested in its own record. The
 confirmation reading on the four reserved donors, decided before version 7 was scored, is read and recorded when it lands.
+
+**Step 3 version 7, the confirmation** (`data/DEV_METAA_HEALTHY_01/step3_07/step3_v7_confirm_summary.txt`; the four reserved BLUEPRINT
+donors, read once as decided before version 7 was scored; 4312 identity sites with molecules): **not met (0 of 6; 0.8449 to 0.8972)**, the
+development reading reproduced on donors that took no part (0.8423 to 0.9026). The gap is a property of the commissioned sites, not of the
+donors; the conclusion of step 3 stands. The BLUEPRINT neutrophil donors are now all spent.

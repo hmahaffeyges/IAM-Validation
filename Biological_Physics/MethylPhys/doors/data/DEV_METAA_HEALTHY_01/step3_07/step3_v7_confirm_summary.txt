@@ -1,0 +1,9 @@
+donors C0010K, C001UY, PB130513, PB270313 | arrays 6 | curve sites (not identity sites, every donor read) 652005 | identity sites with molecules 4312 of 6000
+array | curve at molecules 0.005 / 0.94 | mean entropy at identity sites | derived mark | Met-A against it
+GSM2998021 | 0.0610 / 0.9192 | 0.33071 | 0.37427 | 0.8836
+GSM2998023 | 0.0616 / 0.9214 | 0.32777 | 0.36941 | 0.8873
+GSM2998030 | 0.0670 / 0.9153 | 0.33181 | 0.39274 | 0.8449
+GSM2998057 | 0.0604 / 0.9227 | 0.32773 | 0.36528 | 0.8972
+GSM2998116 | 0.0586 / 0.9172 | 0.32932 | 0.37244 | 0.8842
+GSM2998143 | 0.0635 / 0.9210 | 0.33063 | 0.37371 | 0.8847
+bar 1 (all six Normal, 0.95-1.05, each against its own derived mark): 0 of 6: not met
