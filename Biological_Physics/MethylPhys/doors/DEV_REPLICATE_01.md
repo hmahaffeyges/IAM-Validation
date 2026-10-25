@@ -175,3 +175,8 @@ epithelium 0.30; tumor: prostate epithelium 0.31, vascular endothelium 0.23), an
 **R8 tissues, shard 3 re-sent:** shard 3 of the 18 (every 18th array from the fourth, `data/DEV_REPLICATE_01/r8_tissues_shard3_samples.csv`) ran out of the machine's time limit; the same arrays are read again with the same settings (tissue, `--cell-panel atlas --dev-metaa-allsites`, pass 1), split over 10 machines; nothing else changes.
 
 **R9 glioma blood, shards 0 and 9 re-sent:** two of its 10 shards ran out of the machine's time limit; their arrays (`data/DEV_REPLICATE_01/r9_glioma_blood_shards0_9_samples.csv`) are read again with the same settings (whole blood, `--cell-panel atlas --dev-metaa-allsites`, pass 1), split over 10 machines; nothing else changes.
+
+**Unrun shards found (lesson C42):** the series workflow runs 10 or 20 machines; R7 prostate was sent with 14 shards and R8 tissues with 18,
+so shards 10 to 13 and 10 to 17 never ran. **R7's result above covers 169 of 238 tissues, not the series;** it is read again when the 68
+unrun tissues land (`data/DEV_REPLICATE_01/r7_prostate_unrun_samples.csv`); R8's 144 unrun arrays likewise
+(`data/DEV_REPLICATE_01/r8_tissues_unrun_samples.csv`). Same settings, 20 machines each. The workflow now refuses any other machine count.

@@ -26,6 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: Biological_Physics}
+      - run: case "${{ inputs.nshards }}" in 10|20) ;; *) echo "nshards must be 10 or 20 (the matrix runs only those; another number leaves shards unrun)"; exit 1;; esac
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
@@ -44,6 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: Biological_Physics}
+      - run: case "${{ inputs.nshards }}" in 10|20) ;; *) echo "nshards must be 10 or 20 (the matrix runs only those; another number leaves shards unrun)"; exit 1;; esac
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
@@ -71,6 +73,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {sparse-checkout: Biological_Physics}
+      - run: case "${{ inputs.nshards }}" in 10|20) ;; *) echo "nshards must be 10 or 20 (the matrix runs only those; another number leaves shards unrun)"; exit 1;; esac
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - run: pip install -q pandas pyarrow
