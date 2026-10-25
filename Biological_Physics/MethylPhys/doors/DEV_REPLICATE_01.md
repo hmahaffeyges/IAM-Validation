@@ -182,3 +182,8 @@ unrun tissues land (`data/DEV_REPLICATE_01/r7_prostate_unrun_samples.csv`); R8's
 (`data/DEV_REPLICATE_01/r8_tissues_unrun_samples.csv`). Same settings, 20 machines each. The workflow now refuses any other machine count.
 
 **R5 and R6 had unrun shards too (lesson C42):** R5 sorted cells read 172 of 240 arrays and R6 stroke 154 of 185 because shards past the tenth never ran; their results above cover those arrays only. The 68 and 31 arrays without a reading (`data/DEV_REPLICATE_01/r5_ibd_sorted_unrun_samples.csv`, `data/DEV_REPLICATE_01/r6_stroke_unrun_samples.csv`) are read with the same settings (R5 specimen unknown, R6 whole blood), and each replay is scored again on all of its arrays. R9 endothelial read 39 of 39.
+
+**R7 prostate, all arrays** (`data/DEV_REPLICATE_01/r7_full/r7_prostate_summary.txt`; 237 of 238 tissues, 118 adjacent normal and 119
+tumors; supersedes the 169-array reading): **the islands territory reads higher in tumors, 1.4400 against 1.3587 (p 1.2e-06)**, and Met-A on
+the island sites likewise (1.4505 against 1.3693, p 1.4e-06). Whole-sample Met-A does not separate them (p 0.58), nor the domains (p 0.6). The
+whole-genome C-Score is lower in tumors (0.9966 against 0.9997, p 3.9e-06). Per-cell readings are flagged (tissue, not commissioned).
