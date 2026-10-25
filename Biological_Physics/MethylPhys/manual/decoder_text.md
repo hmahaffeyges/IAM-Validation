@@ -734,6 +734,9 @@ Loads the self-tare matrix once, `Runtime Matrices/Stage_T/selftare_typeII_EPIC_
 and the reference arrays' anchors. Moved unchanged from `Runtime Matrices/Development/` on 2026-10-22 (finding F23; the same sha256) and
 pinned by the release check as a frozen input (F1): Stage T step 1 runs on every reading, so its matrix is frozen like every other reference.
 
+### stage_seq_values.py::values_from_bigwig
+Reads a public pair of GRCh38 bigWig tracks (per-CpG methylation level and read coverage, the form consortia such as BLUEPRINT release whole-genome bisulfite calls in) at each atlas site's GRCh38 position (the C of the CpG, or the next base where the caller reports the reverse strand), giving a value at each site for every reader but IAM-A, which needs molecules. Used by `run_sample.py --dev-seq-beta CALL.bw,COV.bw`.
+
 ### stage_seq_values.py::key
 Loads the frozen site key (`atlas/v2.1/sites_sequencing_key.parquet`: each IAM-Atlas v2.1 site's EPIC v1 probe name, hg19 position and CpG index
 in the .pat files' numbering) once, sorted by CpG index. Development (to-do step 40).

@@ -340,3 +340,25 @@ the part of the neutrophil arrays' reading that is neither the granulocytes' mol
 causes cannot be told apart on these data: the granulocyte samples stand in for purified neutrophils, and the offset may be larger in
 neutrophils than in lymphocytes and monocytes. **Four versions on the same samples:** tuning stops here; the next step is data that splits
 the two causes (purified neutrophils measured on both platforms), not a fifth version on these.
+
+## Step 3 version 5: purified neutrophils by sequencing (written and committed before any BLUEPRINT file is read)
+
+**Prior reading:** none of the seven BLUEPRINT donors' purified mature neutrophil sequencing (public GRCh38 per-CpG level and coverage
+tracks) has been read by this project. Three are spent here for development (C000S5, C0011I, PB100713: every other donor in name order);
+four stay unread for the confirmation (C0010K, C001UY, PB130513, PB270313), read only after this result is recorded, with the same scorer and
+bar. Version 4's per-site differences (`step3_04/v4_offsets.csv`, from GSE110554 and GSE186458, spent) are reused unchanged.
+
+**What it rests on (lesson C41):** version 4 left 0.022 on the unmarked side, from either the granulocyte stand-in or a probe offset larger
+in neutrophils. Purified neutrophils measured by sequencing split the two. **The cause split, stated before reading:** their mean sequencing
+level at the unmarked identity sites against the granulocytes' 0.0114: at least 0.020, the stand-in accounts for part of the gap; below 0.015,
+it does not; between, undecided. **Version 5's mark:** at each site the donors' mean sequencing level on the array scale (the atlas's inverse
+transfer) plus version 4's per-site difference; per site, where version 4 used one level per side (disclosed). Read by the one command's new
+bigWig route (`run_sample.py --dev-seq-beta CALL.bw,COV.bw`, `stage_seq_values.values_from_bigwig`, the sites' GRCh38 positions in
+`atlas/v2.1/sites_key_hg38.parquet`); `v5_read.py`, `v5_score.py`. **Bar 1 (version 1's):** all six commissioned arrays read Normal
+(0.95-1.05) against the derived mark. **What it would mean:** the neutrophil's healthy mark from purified neutrophils' molecules and a
+measured property of each probe, with no neutrophil array; development until the four reserved donors confirm it.
+
+**Synthetic test:** DEV_METAA_HEALTHY_01/v5_synthetic.py, DEV_METAA_HEALTHY_01/step3_05/v5_synthetic.txt
+
+The synthetic (a constructed bigWig pair at the atlas sites, one site in ten at the next base, read by the one command) runs on GitHub, where
+the bigWig reader installs, before any donor is read.

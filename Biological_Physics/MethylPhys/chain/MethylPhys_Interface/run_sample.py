@@ -396,7 +396,8 @@ def main():
                     help="DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel")
     ap.add_argument("--dev-seq-beta", default=None, metavar="FILE.beta[.gz]",
                     help="DEVELOPMENT (40.10): read a .beta file of per-CpG counts (hg19 CpG numbering) as values at IAM-Atlas v2.1's sites; "
-                         "every reader but IAM-A (no molecules); with --dev-seq-values N, sites with fewer than N reads have no value")
+                         "every reader but IAM-A (no molecules); with --dev-seq-values N, sites with fewer than N reads have no value; "
+                         "or CALL.bw,COV.bw, a GRCh38 bigWig pair of per-CpG levels and coverage (2026-10-24)")
     ap.add_argument("--dev-metaa-allsites", action="store_true",
                     help="DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make "
                          "(stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading")
@@ -507,7 +508,11 @@ def main():
     if a.dev_seq_beta:   # 2026-10-22 (40.10): a .beta file of per-CpG counts; values at the atlas sites, no molecules (IAM-A not read)
         if a.betas or a.grn or a.pat: ap.error("--dev-seq-beta makes the values itself; do not also give --betas, IDATs or --pat")
         import stage_seq_values as _SV, tempfile as _tf
-        _vb, _vc, a._seqv = _SV.values_from_beta(a.dev_seq_beta, a.dev_seq_values or 1); a._seqc = _vc
+        if a.dev_seq_beta.count(",") == 1 and all(x.strip().lower().endswith((".bw", ".bigwig")) for x in a.dev_seq_beta.split(",")):   # 2026-10-24: CALL.bw,COV.bw (GRCh38)
+            _vb, _vc, a._seqv = _SV.values_from_bigwig(*[x.strip() for x in a.dev_seq_beta.split(",")], a.dev_seq_values or 1)
+        else:
+            _vb, _vc, a._seqv = _SV.values_from_beta(a.dev_seq_beta, a.dev_seq_values or 1)
+        a._seqc = _vc
         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
         print(f"Sequencing values from {os.path.basename(a.dev_seq_beta)}: {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites; median {a._seqv['calls_per_site_median']:.0f} calls", flush=True)
     elif a.dev_seq_values is not None:   # 2026-10-22 (step 40): the same molecules give a value at each atlas site

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1111,
+   "lines": 1116,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -299,9 +299,9 @@
      "function": "main",
      "name": "main",
      "line": 371,
-     "end": 1108,
+     "end": 1113,
      "args": [],
-     "lines": 738,
+     "lines": 743,
      "doc": "",
      "constants": [
       "BIO",
@@ -330,8 +330,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 573,
-     "end": 577,
+     "line": 578,
+     "end": 582,
      "args": [
       "r"
      ],
@@ -347,8 +347,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 808,
-     "end": 815,
+     "line": 813,
+     "end": 820,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -360,8 +360,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1044,
-     "end": 1045,
+     "line": 1049,
+     "end": 1050,
      "args": [
       "b",
       "it",
@@ -4896,7 +4896,7 @@
   },
   {
    "file": "stage_seq_values.py",
-   "lines": 114,
+   "lines": 140,
    "functions": [
     {
      "file": "stage_seq_values.py",
@@ -5005,6 +5005,27 @@
      ],
      "data_files": [
       "truth.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_values.py",
+     "function": "values_from_bigwig",
+     "name": "values_from_bigwig",
+     "line": 118,
+     "end": 139,
+     "args": [
+      "call_bw",
+      "cov_bw",
+      "min_calls"
+     ],
+     "lines": 22,
+     "doc": "A value at each atlas site from a pair of GRCh38 bigWig tracks (2026-10-24, DEV-METAA-HEALTHY-01 step 3): a per-CpG methylation level (0 to 1) and its read coverage, the form public consortia (e.g. BLUEPRINT) release whole-genome bisulfite calls in. Each atlas site is read at its CpG's GRCh38 position (atlas/v2.1/sites_key_hg38.parquet: the 0-based start of the C); where the track has no value the",
+     "constants": [
+      "KEY38"
+     ],
+     "data_files": [
+      "atlas/v2.1/sites_key_hg38.parquet"
      ],
      "traced_calls": {}
     }
@@ -8169,5 +8190,5 @@
   }
  ],
  "n_files": 34,
- "n_functions": 418
+ "n_functions": 419
 }

@@ -15,3 +15,4 @@ pyarrow==17.0.0
 reportlab>=3.6
 pysam==0.24.1   # chain v4 Stage Q2 reads aligned BAM files (--bam); missing until 2026-10-18 (LESSONS C28)
 healpy==1.16.6   # sky_statistics.py power spectrum (2026-10-23)
+pyBigWig==0.3.26   # chain v4: --dev-seq-beta CALL.bw,COV.bw reads public GRCh38 bigWig calls (2026-10-24); Linux wheel for Python 3.11

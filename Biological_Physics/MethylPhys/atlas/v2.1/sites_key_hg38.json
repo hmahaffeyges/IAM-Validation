@@ -1,0 +1,7 @@
+{
+ "rule": "IAM-Atlas v2.1's sites (sites_sequencing_key.parquet) with each EPIC v1 probe's CpG position on GRCh38 (0-based start of the C of the CpG) from the public Infinium annotation EPIC.hg38.manifest.tsv.gz (zhou-lab/InfiniumAnnotationV1, GitHub), columns CpG_chrm and CpG_beg; probes it does not place are left out",
+ "source_url": "https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.tsv.gz",
+ "source_sha256": "93fc4de126c9ad8bcfba3d16f2fddb8a2e2a6695a49c7cd1ce1de7198ac7ee56",
+ "sites": 786902,
+ "written": "2026-10-24"
+}

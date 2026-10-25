@@ -111,3 +111,29 @@ def construct_draw(blood, add, depth_buffy, depth_plasma, out_dir, seed=20261022
         a[k["idx"][ok] - 1, 0] = m; a[k["idx"][ok] - 1, 1] = n
         with gzip.open(os.path.join(out_dir, f"{half}.beta.gz"), "wb", compresslevel=1) as f: f.write(a.tobytes())
     json.dump(rec, open(os.path.join(out_dir, "truth.json"), "w"), indent=1); return rec
+
+
+KEY38 = os.path.join(HERE, "..", "atlas", "v2.1", "sites_key_hg38.parquet")
+
+def values_from_bigwig(call_bw, cov_bw, min_calls=1):
+    """A value at each atlas site from a pair of GRCh38 bigWig tracks (2026-10-24, DEV-METAA-HEALTHY-01 step 3): a per-CpG methylation level
+    (0 to 1) and its read coverage, the form public consortia (e.g. BLUEPRINT) release whole-genome bisulfite calls in. Each atlas site is read
+    at its CpG's GRCh38 position (atlas/v2.1/sites_key_hg38.parquet: the 0-based start of the C); where the track has no value there, at the
+    next base (the G, where a caller reports the reverse strand). Gives the same three things as values_from_beta; no molecules, so IAM-A
+    cannot read it. Needs pyBigWig (chain requirements)."""
+    import pyBigWig
+    K = pd.read_parquet(KEY38); bc, bv = pyBigWig.open(call_bw), pyBigWig.open(cov_bw); lv = np.full(len(K), np.nan); cv = np.zeros(len(K)); at_g = 0
+    for ch, g in K.groupby("chrom_hg38").groups.items():
+        if ch not in bc.chroms(): continue
+        iv = bc.intervals(ch) or []; jv = bv.intervals(ch) or []
+        L = dict((a, v) for a, b, v in iv); C = dict((a, v) for a, b, v in jv); pos = K.beg0_hg38.to_numpy()[g]
+        for k, q in zip(g, pos):
+            q = int(q); w = q if q in L else (q + 1 if (q + 1) in L else None)
+            if w is None: continue
+            at_g += w != q; lv[k] = L[w]; cv[k] = C.get(w, 0)
+    ok = np.isfinite(lv) & (cv >= max(1, int(min_calls)))
+    beta = pd.Series(np.where(ok, np.clip(lv, 0, 1), np.nan), index=K.probe.to_numpy()).dropna()
+    calls = pd.Series(cv, index=K.probe.to_numpy())[beta.index]
+    return beta, calls, dict(source=os.path.basename(call_bw) + " + " + os.path.basename(cov_bw), format="bigWig pair (GRCh38 per-CpG level and coverage)",
+                             atlas_sites=int(len(K)), sites_with_value=int(ok.sum()), read_at_next_base=int(at_g),
+                             calls_per_site_median=float(np.median(calls)) if len(calls) else 0.0, min_calls=int(min_calls))
