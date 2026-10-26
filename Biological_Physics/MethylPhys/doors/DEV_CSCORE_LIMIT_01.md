@@ -52,3 +52,10 @@ the excess is on the 450K arrays (values in the file). Through the one command, 
 blood (GSE235717 GSM7508429) shows none (`limit_02/neighbor_epic_one.txt`). **What follows:** the whole genome does not need a neighbor term on EPIC; what the 450K
 needs is a platform term, which matches the 450K bloods' marrow-progenitor share (the Deconvolver absorbing the chip's own differences).
 Next: the neighbor correlation of the whole-genome map, reported by the one command itself, on spent EPIC and 450K bloods, split by probe design.
+
+**The 450K neighbor reading** (`data/DEV_CSCORE_LIMIT_01/limit_03/`; the 100 healthy bloods through the one command with the healthy line's
+flags; the first run was sent without them and the 450K arrays' six-cell shares were withheld, recorded in the plan's C-Score branch). EPIC: 2 of 40 above the derived
+limit, neighbor correlation zero. 450K: 18 of 60 above, with a small positive correlation between neighboring sites (about 0.001 at lags 1 to
+3). `limit_inflation.py` (added after the reading, disclosed): the C each map's own correlation predicts sits where the measured C does, so
+the 450K excess is that correlation, not a change in the sites. **What follows:** the limit carries each map's own measured neighbor
+correlation (self-referenced, nothing fitted), written as a test with its synthetic before it is scored; EPIC is unchanged by it.

@@ -1,0 +1,6 @@
+array | bloods | above the derived limit | share above | median C | median sites
+EPIC_v1 | 40 | 2 | 0.0500 | 1.0013 | 758622
+HM450K | 60 | 18 | 0.3000 | 1.0082 | 386991
+array | bloods with the neighbor reading | median correlation of neighboring sites, lags 1-9 (the one command's neighbor_corr)
+EPIC_v1 | 40 | 0.0000 0.0003 0.0000 -0.0003 0.0002 -0.0003 0.0000 0.0002 0.0007
+HM450K | 60 | 0.0011 0.0012 0.0013 0.0006 0.0003 0.0005 0.0004 0.0010 -0.0001

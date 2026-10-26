@@ -3528,6 +3528,15 @@
 "text": "(`limit_by_platform.py`): on EPIC the healthy bloods' whole-genome C sits above its derived limit about as often as a 95 % limit allows;"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 56,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**The 450K neighbor reading** (`data/DEV_CSCORE_LIMIT_01/limit_03/`; the 100 healthy bloods through the one command with the healthy line's"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
 "line": 138,
 "pattern": "reference line",
