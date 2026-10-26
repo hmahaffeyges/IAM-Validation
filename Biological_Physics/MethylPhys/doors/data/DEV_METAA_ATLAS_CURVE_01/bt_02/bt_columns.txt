@@ -1,0 +1,9 @@
+atlas column | development arrays | median Met-A | Normal | atlas samples | sources | sequencing samples | sequencing share
+cd8 central memory t cells | 16 | 0.9863 | 15 | 9 | 1 | 0 | 0.000
+cd8 temra t cells | 6 | 1.0020 | 6 | 6 | 1 | 0 | 0.000
+effector memory cd8 t cells | 7 | 0.9829 | 7 | 11 | 3 | 1 | 0.091
+memory b cells | 8 | 0.9593 | 5 | 16 | 3 | 2 | 0.125
+naive b cells | 9 | 0.9801 | 7 | 12 | 2 | 0 | 0.000
+naive cd4 t cells | 8 | 0.9864 | 6 | 19 | 4 | 1 | 0.053
+naive cd8 t cells | 15 | 0.9897 | 13 | 22 | 4 | 1 | 0.045
+t central memory cd4 | 9 | 0.9516 | 2 | 10 | 2 | 3 | 0.300

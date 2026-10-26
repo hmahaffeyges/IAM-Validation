@@ -94,3 +94,10 @@ laboratories) and the same-laboratory list hold no atlas inputs and no atlas sou
 read Normal (TEMRA 6 of 6, effector memory 7 of 7, naive 13 of 15, central memory 15 of 16); CD4 central memory (2 of 9, median 0.9516) and
 memory B (5 of 8, median 0.9593) read low, even on arrays the atlas was built from. **What follows:** the confirmation is not read; first,
 why those two columns read low on their own inputs (both pool this array laboratory with sequencing laboratories through the lab terms).
+
+**Why two columns read low** (`data/DEV_METAA_ATLAS_CURVE_01/bt_02/bt_columns.txt`, added after the development read, disclosed; nothing
+scored). Every B and T column built from arrays with at most one sequencing sample reads 0.980 to 1.002; the two that read low carry the most
+sequencing: memory B cells (2 of 16 samples) 0.9593, CD4 central memory (3 of 10) 0.9516. Likely cause: in a column where sequencing carries
+real weight, the atlas's laboratory terms do not fully remove the chemistry difference between sequencing and arrays (the same difference
+that reads sequencing samples lower against the array-built atlas). **Next:** measure that shift at the identity sites from the atlas's
+own inputs before any change; the confirmation lists stay unread until it is understood.

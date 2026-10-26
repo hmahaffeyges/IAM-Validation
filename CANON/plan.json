@@ -768,7 +768,7 @@
      "date": "2026-10-25",
      "status": "open",
      "what": "Commission Met-A with the atlas as the ruler on B cells first (the leukemia study's cells), then CD4 and CD8 T cells, on sequencing and on arrays, for the Johns Hopkins package (author: 'the opera singers of IAM'); each test written before any data is read, on data the atlas does not hold",
-     "next": "B and T cells on the atlas as ruler (same priority as monocytes, author). Found, labels only, nothing read: six unread EPIC series of sorted cells from healthy donors with raw files, none in the atlas or spent: development GSE252045 (sorted B, CD8 naive and memory, NK and more, several ages); confirmation, other labs: GSE174666 (naive and memory CD4, CD8 and B), GSE192451 (naive and memory B), GSE288076 (naive CD4), GSE146093 (healthy-donor CD4 only), GSE184500 (control CD8 only). Next: the test record written before any array is read, with the quality rule stated (arrays the reading withholds for detection reported apart; the bar on arrays read), then the sample lists from labels, then development on free machines"
+     "next": "the two low columns carry the most sequencing (memory B 2 of 16, CD4 central memory 3 of 10): measure the sequencing-array shift at their identity sites from the atlas's own inputs; confirmation stays unread until then"
     },
     {
      "id": "14.16",
