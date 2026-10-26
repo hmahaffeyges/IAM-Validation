@@ -776,6 +776,14 @@
      "status": "parked",
      "what": "Blood and immune cell movements before diagnosis and during treatment, on arrays and sequencing, for the Johns Hopkins package",
      "next": "author: find those datasets after everything else is finished"
+    },
+    {
+     "id": "14.17",
+     "date": "2026-10-25",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+     "what": "A 450K whole blood read on the default six-cell blood panel measures 145 of its 600 marker sites, so the IAM-Deconvolver withholds the shares (stage_v4.MIN_MARKER_SHARE); the 79-cell atlas panel reads the same arrays (7,872 of 7,892). Found when the 450K neighbor check was sent without the healthy line's flags (run 40239984355; re-sent with --cell-panel atlas)",
+     "next": "choose the six-cell panel's markers among sites both chips measure, with its own synthetic first; until then a 450K blood is read with --cell-panel atlas"
     }
    ]
   },
