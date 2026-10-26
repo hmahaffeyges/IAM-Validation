@@ -18,6 +18,16 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The graded maintenance test, the deep pair (PHY-006, DEV-ERASE-01)",
+     "status": "development",
+     "what": "The deep control and the deep 2 uM sample, each aligned across 20 machines, read tile by tile by the one command's counter.",
+     "outcome": "Neither prediction: under the inhibitor the regions' holding energies converge toward one value (slope 0.26). The next test is the human degron series; IAM-A's baseline stays calibrated.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   }

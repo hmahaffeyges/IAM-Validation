@@ -1,0 +1,1 @@
+SRR17261405 against SRR17261406: 430 tiles | slope 0.2582 [0.1620, 0.3624] | intercept +1.4171 [+1.1228, +1.6903] | neither

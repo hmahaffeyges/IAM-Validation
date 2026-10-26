@@ -268,3 +268,12 @@ Phi). If bar 3 is not met, plan 14.1 moves to the human degron series; IAM-A's b
 alignment now re-sends a chunk as its two halves (input split N:OFF: chunk k of 20 is exactly chunks 2k and 2k + 1 of 40, since the
 planner cuts at k x total / n; checked on this sample's own pair count) and merges chunks of both splits (keepchunks k or k/N). Chunks that
 finish are kept; any that time out are re-sent as halves.
+
+**Bar 3, read: neither** (`data/DEV_ERASE_01/graded_04/graded_deep_summary.txt`; the deep control's 20 chunks, 32,157,060 molecules; the
+deep 2 uM sample's 17 chunks with its 3 timed-out chunks re-aligned as halves, 23 pieces, 169,382,384 molecules). Across 430 tiles of
+50,000 CpGs: **slope 0.2582 [0.1620, 0.3624], intercept +1.4171 [+1.1228, +1.6903]**. Neither R (slope 1) nor Phi (intercept 0): under
+the inhibitor the tiles' holding energies move most of the way to one common value, so the regional differences the control holds are
+largely lost, rather than shifted or scaled. **Caveat:** at 2 uM most marks are gone and the counter reads only molecules still held, the
+survivors, which by itself pulls tiles toward a common level; the reading cannot tell that from the biology. **What follows, as stated
+before:** plan 14.1 moves to the human degron series (maintenance turned off over days, so the counted molecules stay many); IAM-A's
+baseline stays calibrated.
