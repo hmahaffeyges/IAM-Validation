@@ -1,0 +1,26 @@
+[
+ {
+  "control": "GSM7516959",
+  "dose": "GSM7516962",
+  "line": "UHRF1-AID",
+  "day": 2
+ },
+ {
+  "control": "GSM7516959",
+  "dose": "GSM7516965",
+  "line": "UHRF1-AID",
+  "day": 4
+ },
+ {
+  "control": "GSM7516977",
+  "dose": "GSM7516980",
+  "line": "DNMT1-AID",
+  "day": 2
+ },
+ {
+  "control": "GSM7516977",
+  "dose": "GSM7516983",
+  "line": "DNMT1-AID",
+  "day": 4
+ }
+]

@@ -277,3 +277,26 @@ largely lost, rather than shifted or scaled. **Caveat:** at 2 uM most marks are 
 survivors, which by itself pulls tiles toward a common level; the reading cannot tell that from the biology. **What follows, as stated
 before:** plan 14.1 moves to the human degron series (maintenance turned off over days, so the counted molecules stay many); IAM-A's
 baseline stays calibrated.
+
+## The degron series: maintenance turned off over days (written and committed before any of its reads are aligned; plan 14.1)
+
+**Prior reading:** GSE236026 (HCT116 with UHRF1 or DNMT1 tagged for degradation, whole-genome bisulfite, days 0 to 12 in triplicate):
+labels and read counts only. **Spent for development:** replicate 1 of the UHRF1-AID and DNMT1-AID lines at days 0, 2 and 4 (6 samples,
+`data/DEV_ERASE_01/degron_samples.csv`). **Reserved, unread:** replicates 2 and 3 of the same, for the confirmation; every other sample.
+
+**The instrument's job:** say whether turning maintenance off lowers every region's holding energy by the same amount (R, restoring slowed)
+or in proportion (Phi, less of the drive spent holding), as the graded test asked; here maintenance falls over days, so at day 2 most marks
+are still held and the counted molecules are not only the survivors of a near-complete loss (the graded test's caveat).
+**Synthetic test:** DEV_ERASE_01/graded_synthetic_v2.py, DEV_ERASE_01/graded_03/graded_synthetic_v2.txt
+(the same scorer, `graded_score.py`, unchanged; met: a planted shift read R, a planted scaling read Phi).
+
+**Bars (at most three):**
+1. The synthetic, met above.
+2. Held error at day 2 and at day 4 above day 0, in both lines (the one command's count).
+3. Day 2 against day 0 in each line, tiles of 50,000 CpGs, read by `graded_score.py` with the rule stated before: R if the slope's 95 %
+   interval holds 1 and the intercept's lies below 0; Phi if the slope's lies below 1 and the intercept's holds 0; otherwise neither.
+   Day 4 is read the same way and reported, not scored. Pairs: UHRF1-AID day 2: GSM7516959 against GSM7516962; UHRF1-AID day 4: GSM7516959 against GSM7516965; DNMT1-AID day 2: GSM7516977 against GSM7516980; DNMT1-AID day 4: GSM7516977 against GSM7516983.
+
+**Expected outcomes, stated before:** R in both lines says maintenance sets the restoring rate, the firm rate's missing half; Phi says the
+holding fraction; neither, with the regions converging as in the graded test, says the convergence is not only survivor selection. The
+confirmation reads replicates 2 and 3 the same way. IAM-A's baseline stays calibrated whatever this reads.

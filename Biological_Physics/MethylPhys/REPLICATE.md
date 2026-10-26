@@ -53,7 +53,7 @@ test on is held to the rule by the push gate (CANON/chain_gate.py, rule 23b).
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**66 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**67 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -66,6 +66,7 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_BREACH_01 | `DEV_BREACH_01/planted_breach_01.py` | declares NO CHAIN | BRE-003, BRE-004, BRE-007, DAT-124, SCO-049 |
 | DEV_CEILING_02 | `DEV_CEILING_02/ceiling_position_02.py` | declares NO CHAIN | CAN-003, CAN-006, TIS-001, TIS-002 |
 | DEV_ERASE_01 | `DEV_ERASE_01/graded_synthetic.py` | no chain import | PHY-006 |
+| DEV_ERASE_01 | `DEV_ERASE_01/graded_synthetic_v2.py` | no chain import | PHY-006 |
 | DEV_FIELD_01 | `DEV_FIELD_01/planted_field_01.py` | declares NO CHAIN | FLD-001, FLD-002, FLD-006, HYP-004, DAT-129, SCO-052 |
 | DEV_FINGERPRINT_02 | `DEV_FINGERPRINT_02/plant_fingerprint_02.py` | no chain import | DAT-063, SCO-048 |
 | DEV_FINGERPRINT_02 | `DEV_FINGERPRINT_02/power_fingerprint_02.py` | no chain import | DAT-063, SCO-048 |

@@ -221,3 +221,4 @@ BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313) read,spent
 GSE189426 healthy donor monocytes (15),spent (development),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
 GSE201754 and GSE196071 healthy donor monocytes (43),reserved (confirmation),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
 GSE252045 (IAM-Atlas v2.1 source: sorted B and T cells),spent (atlas build; DEV-METAA-ATLAS-CURVE-01 development),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md (B and T cells),GEO
+GSE236026 HCT116 UHRF1-AID and DNMT1-AID degron WGBS (replicate 1 days 0 2 4),spent (development),Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md (the degron series),GEO

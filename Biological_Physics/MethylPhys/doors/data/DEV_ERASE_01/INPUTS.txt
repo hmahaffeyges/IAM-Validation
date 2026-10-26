@@ -1,3 +1,5 @@
 uhrf1_samples.csv
 division_samples.csv
 graded_samples.csv
+degron_samples.csv
+degron_pairs.json
