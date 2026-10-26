@@ -1376,7 +1376,7 @@
        "a fixed HEALPix address for every CpG, so every map, mask and spectrum lines up",
        "a planted synthetic methylome through the same pipeline (M05), measuring what the build does to a known signal"
       ],
-      "cost": "scaled from v2.1 (about 21 hours on 128 cores, about 2,700 core-hours, $150-170): about 90,000 core-hours for every CpG, about twice with the half-atlases; free on GitHub if one block fits 16 GB and 6 hours (weeks), or paid (Hetzner or AWS) at a price measured on one block first. Ways down without leaving anything useful out: fit neighboring CpGs that move together as one block; fit the ranked cell list by priority",
+      "cost": "Scaled from v2.1's measured block (13.8 core-seconds per site; data/DEV_ATLAS_V21_01/wg_cost.txt), a floor until the whole genome's observations per site are known: every CpG (28.2 million) about 108,000 core-hours, about 56 days on 20 GitHub machines or about $2,800-3,000 on AWS spot; CpGs fitted in fours about 27,000 core-hours, about 14 days on GitHub or about $700-750 on AWS spot; twice either with the two half-atlases. A v2.1 block peaks at 15.6 GB, so GitHub blocks must be smaller.",
       "order": [
        "the ranked cell list reviewed by the author (data/DEV_ATLAS_V21_01/wg_cell_ranking.csv)",
        "this plan",

@@ -1,0 +1,6 @@
+measured: 2000.8 s on 8 cores for 1,163 sites = 13.8 core-seconds per site; peak 15.63 GB per block
+hg19 CpGs in the chromosome ranges: 28,217,448
+sites | core-hours | GitHub machine-hours (4 cores) | days on 20 GitHub machines | AWS spot dollars (one atlas) | with the two half-atlases
+every CpG (28,217,448) | 107,877 | 26,969 | 56.2 | 2,798-2,975 | x2
+CpGs in fours (7,054,362) | 26,969 | 6,742 | 14.0 | 700-744 | x2
+memory: a block peaked at 15.63 GB against a GitHub machine's 16 GB, so on GitHub a block must be smaller than v2.1's
