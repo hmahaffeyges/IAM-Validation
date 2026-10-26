@@ -300,3 +300,9 @@ are still held and the counted molecules are not only the survivors of a near-co
 **Expected outcomes, stated before:** R in both lines says maintenance sets the restoring rate, the firm rate's missing half; Phi says the
 holding fraction; neither, with the regions converging as in the graded test, says the convergence is not only survivor selection. The
 confirmation reads replicates 2 and 3 the same way. IAM-A's baseline stays calibrated whatever this reads.
+
+**The degron libraries are PBAT:** the first sample's 20 chunks ran out of memory (15.8 GB and growing swap, machines shut down 25 minutes
+in), and one chunk on 2 threads ran past five and a half hours without finishing. GSE236026's own description gives the cause: its libraries
+are tPBAT (post-bisulfite adaptor tagging), whose first mate is read from the strand a directional library reads with its second, so the
+aligner was fitting every read against the wrong strand. The alignment script now gives the mates in swapped order for a sample listed
+with library `pbat` (`degron_samples.csv`); directional libraries, every earlier sample, are unchanged. One chunk is re-sent to confirm.

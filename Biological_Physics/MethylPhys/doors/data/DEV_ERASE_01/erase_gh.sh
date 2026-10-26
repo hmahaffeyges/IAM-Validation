@@ -94,7 +94,11 @@ fetch_all(){ rm -rf $S/fq/*; i=0   # --split-3 (2026-10-25): only true pairs go 
 fetch_all; TF=$(date +%s); log "fetched pairs $n1/$n2 in $((TF-TI)) s"
 if [ "$n1" != "$n2" ] || [ "$n1" = 0 ]; then log "short fetch ($n1/$n2): fetching once more"; fetch_all; TF=$(date +%s); log "fetched pairs $n1/$n2 in $((TF-TI)) s"; fi   # 2026-10-25: a read file came back short with no error
 [ "$n1" = "$n2" ] && [ "$n1" -gt 0 ] || { echo "$GSM FETCH FAILED pairs $n1/$n2"; exit 30; }
-bwameth.py --threads $T --reference $REF $S/fq/${GSM}_1.fq $S/fq/${GSM}_2.fq 2> $S/logs/${GSM}_align.log | samtools view -b -o $S/bam/$GSM.u.bam - || exit 31
+LIB=$(python3 -c "import csv,sys; r=[x for x in csv.DictReader(open(sys.argv[1])) if x['gsm']==sys.argv[2]]; print((r[0].get('library') or '').lower() if r else '')" ${SAMPLES:-$E/erase_samples.csv} $GSM)
+# 2026-10-26: a PBAT library (post-bisulfite adaptor tagging; e.g. GSE236026's tPBAT) reads its first mate from the strand a directional
+# library reads with its second, so bwa-meth is given the mates in swapped order; directional libraries are unchanged.
+if [ "$LIB" = "pbat" ]; then R1=$S/fq/${GSM}_2.fq; R2=$S/fq/${GSM}_1.fq; log "PBAT library: mates given to the aligner in swapped order"; else R1=$S/fq/${GSM}_1.fq; R2=$S/fq/${GSM}_2.fq; fi
+bwameth.py --threads $T --reference $REF $R1 $R2 2> $S/logs/${GSM}_align.log | samtools view -b -o $S/bam/$GSM.u.bam - || exit 31
 rm -f $S/fq/${GSM}_*.fq; TA=$(date +%s); log "aligned in $((TA-TF)) s"
 samtools sort -@ $T -m 1G -T $S/bam/$GSM.tmp -o $S/bam/$GSM.s.bam $S/bam/$GSM.u.bam && rm -f $S/bam/$GSM.u.bam || exit 32
 sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 10000000 --tmpdir $S/bam $S/bam/$GSM.s.bam $S/bam/$GSM.bam > $S/logs/${GSM}_markdup.log 2>&1 && rm -f $S/bam/$GSM.s.bam || exit 33
