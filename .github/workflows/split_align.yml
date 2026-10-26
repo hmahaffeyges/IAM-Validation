@@ -14,7 +14,8 @@ on:
       chunksfrom: {description: "none, or the run id of an earlier split_align run whose chunks to merge without aligning again", required: false, default: "none"}
       chunksalso: {description: "none, or a second earlier run whose chunks are added (e.g. a re-sent last chunk), downloaded after chunksfrom", required: false, default: "none"}
       onlychunks: {description: "all, or a comma list of chunk numbers to align (the rest are taken from chunksfrom)", required: false, default: "all"}
-      keepchunks: {description: "all, or a comma list of chunk numbers the merge reads (2026-10-25: a spread fraction of the run, e.g. 0,4,8,12,16)", required: false, default: "all"}
+      keepchunks: {description: "all, or a comma list of chunks the merge reads: k (of nchunks) or k/N (of an N-way split), e.g. 0,4,8 or 0,1,6/40,7/40", required: false, default: "all"}
+      split: {description: "none, or N:OFF: machine k aligns chunk (k + OFF) of N (2026-10-25: a timed-out chunk of 20 re-sent as its two halves of 40)", required: false, default: "none"}
 permissions: {contents: read, issues: write, actions: read}
 jobs:
   chunk:
@@ -37,11 +38,12 @@ jobs:
       - name: One chunk, SRA to molecules
         if: matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
         run: |
+          SP="${{ inputs.split }}"; SPLIT_N=${SP%%:*}; SPLIT_OFF=${SP##*:}   # used only when split is N:OFF
           sudo fallocate -l 8G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt   # 2026-10-23: the one command needs the chain's own requirements (run 39911507208 stopped on matplotlib)
           python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1   # stops in seconds if a package is missing (2026-10-23)
           ( while true; do echo "MEM $(date -u +%H:%M:%S) used $(free -m | awk '/Mem:/{print $3}') MB swap $(free -m | awk '/Swap:/{print $3}') MB disk $(df -h / | awk 'NR==2{print $3}')"; sleep 300; done ) &
-          set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} CHUNK=${{ matrix.k }}/${{ inputs.nchunks }} PATONLY=1; [ "${{ inputs.full }}" = 1 ] && export MAXPAIRS=999999999; [ "${{ inputs.samples }}" != none ] && export SAMPLES=$PWD/${{ inputs.samples }}
+          set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} CHUNK=$( [ "${{ inputs.split }}" != "none" ] && [ -n "${{ inputs.split }}" ] && echo "$(( ${{ matrix.k }} + ${SPLIT_OFF} ))/${SPLIT_N}" || echo "${{ matrix.k }}/${{ inputs.nchunks }}" ) PATONLY=1; [ "${{ inputs.full }}" = 1 ] && export MAXPAIRS=999999999; [ "${{ inputs.samples }}" != none ] && export SAMPLES=$PWD/${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
       - uses: actions/upload-artifact@v4
         if: always() && matrix.k < fromJSON(inputs.nchunks) && (inputs.onlychunks == 'all' || inputs.onlychunks == '' || contains(format(',{0},', inputs.onlychunks), format(',{0},', matrix.k)))
@@ -70,7 +72,7 @@ jobs:
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1
           E=Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01; C=$(find chunks -name "${{ inputs.gsm }}_c*.pat.gz" | sort -V); n=$(echo "$C" | grep -c . || true); echo "chunks with molecules: $n of ${{ inputs.nchunks }}"   # 2026-10-25: the artifacts keep eout/, so the files land in chunks/eout/
           K="${{ inputs.keepchunks }}"; X=${{ inputs.nchunks }}   # 2026-10-25: keep only the listed chunks; the merge then expects exactly those
-          if [ -n "$K" ] && [ "$K" != "all" ]; then C=$(for k in ${K//,/ }; do echo "$C" | grep -E "_c${k}_${{ inputs.nchunks }}\.pat\.gz$|_c${k}\.pat\.gz$"; done); n=$(echo "$C" | grep -c . || true); X=$(echo ${K//,/ } | wc -w | tr -d ' '); echo "kept chunks $K: $n files"; fi
+          if [ -n "$K" ] && [ "$K" != "all" ]; then C=$(for k in ${K//,/ }; do case $k in (*/*) echo "$C" | grep -E "_c${k%%/*}_${k##*/}\.pat\.gz$" | head -1;; (*) echo "$C" | grep -E "_c${k}_${{ inputs.nchunks }}\.pat\.gz$|_c${k}\.pat\.gz$" | head -1;; esac; done); n=$(echo "$C" | grep -c . || true); X=$(echo ${K//,/ } | wc -w | tr -d ' '); echo "kept chunks $K: $n files"; fi
           [ "$n" = "$X" ] || { echo "MISSING CHUNKS: merge refused ($n of $X)"; exit 40; }
           python3 $E/merge_pats.py $PWD/${{ inputs.gsm }}.pat.gz $C
           set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} PATFILE=$PWD/${{ inputs.gsm }}.pat.gz SAMPLES=${{ inputs.samples }}

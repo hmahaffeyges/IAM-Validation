@@ -262,3 +262,9 @@ spread in held-mark energy survives at that size (about 0.10 in log, against cou
 Everything else in bar 3 is unchanged. **Synthetic test:** DEV_ERASE_01/graded_synthetic_v2.py, DEV_ERASE_01/graded_03/graded_synthetic_v2.txt
 (met: the planted shift read as slope 1.0128, intercept -0.7391, called R; the planted scaling as slope 0.8065, intercept -0.0185, called
 Phi). If bar 3 is not met, plan 14.1 moves to the human degron series; IAM-A's baseline stays calibrated either way.
+
+**The deep dose sample and GitHub's six-hour limit:** the deep 2 uM sample has 373,587,918 read pairs, 5.1 times the deep control's
+72,835,211, whose 20 chunks took 1.1 to 1.5 hours each; its chunks are expected to take 5.5 to 7.4 hours, past the job limit. The split
+alignment now re-sends a chunk as its two halves (input split N:OFF: chunk k of 20 is exactly chunks 2k and 2k + 1 of 40, since the
+planner cuts at k x total / n; checked on this sample's own pair count) and merges chunks of both splits (keepchunks k or k/N). Chunks that
+finish are kept; any that time out are re-sent as halves.
