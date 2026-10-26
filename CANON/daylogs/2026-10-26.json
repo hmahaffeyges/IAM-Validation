@@ -28,11 +28,41 @@
       "PHY-006"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "The C-Score on 450K arrays (GRP-019, DEV-CSCORE-LIMIT-01)",
+     "status": "development",
+     "what": "The 100 healthy bloods read again by the one command, with the neighbor correlation recorded.",
+     "outcome": "EPIC holds the derived limit; on 450K a small correlation between neighboring sites explains the excess. A per-sample term would be circular, so 450K gets a platform term measured once.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
+    },
+    {
+     "title": "Why two B and T atlas columns read low (GRP-019, DEV-METAA-ATLAS-CURVE-01)",
+     "status": "development",
+     "what": "Each column's reading set beside what the atlas built it from.",
+     "outcome": "The two that read low carry the most sequencing samples; every column built from arrays reads 0.980 to 1.002.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The degron series written (PHY-006, DEV-ERASE-01)",
+     "status": "development",
+     "what": "HCT116 with UHRF1 or DNMT1 removed over days: the test written before any read is aligned; replicate 1 spent, replicates 2 and 3 reserved.",
+     "outcome": "Its first samples ran out of memory on four alignment threads; a one-chunk test on two threads is running.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   }
  ],
- "open_at_turnover": "Running on GitHub's machines: the leukemia study at full depth and the deep firm-rate pair.",
+ "open_at_turnover": "Running on GitHub's machines: the leukemia study at full depth (20 of 36 read) and the degron series' memory test.",
  "closing": "",
  "off_page_rows": [],
  "compute": {
