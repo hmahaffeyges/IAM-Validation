@@ -1,0 +1,5 @@
+after an error | coupling | error share | held error
+0.02 | 0.982 | 0.0199 | 0.0192
+0.1 | 2.870 | 0.0205 | 0.0174
+0.3 | 4.206 | 0.0210 | 0.0133
+bars (independent 0.9-1.1; R 0.1 at least 2; in order): met

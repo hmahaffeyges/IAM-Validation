@@ -3818,7 +3818,7 @@
   },
   {
    "file": "stage_q2_selfref.py",
-   "lines": 360,
+   "lines": 372,
    "functions": [
     {
      "file": "stage_q2_selfref.py",
@@ -4018,12 +4018,12 @@
      "function": "count_pat",
      "name": "count_pat",
      "line": 105,
-     "end": 124,
+     "end": 126,
      "args": [
       "lines",
       "tiles"
      ],
-     "lines": 20,
+     "lines": 22,
      "doc": "",
      "constants": [
       "QUAL_MAX_METH"
@@ -4033,10 +4033,25 @@
     },
     {
      "file": "stage_q2_selfref.py",
+     "function": "_coupling",
+     "name": "_coupling",
+     "line": 128,
+     "end": 136,
+     "args": [
+      "K"
+     ],
+     "lines": 9,
+     "doc": "2026-10-25 (plan 49.5, development, recorded only; from the published information-theory study's nearest-neighbor coupling): whether held errors cluster along a molecule. On the held molecules (the held error's own rule), the adjacent pairs of unmethylated calls are counted and set against the number random placement gives each molecule from its own length L and its own count k of unmethylated cal",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_q2_selfref.py",
      "function": "count_pat_tile_errors",
      "name": "count_pat_tile_errors",
-     "line": 126,
-     "end": 140,
+     "line": 138,
+     "end": 152,
      "args": [
       "lines",
       "tile"
@@ -4051,8 +4066,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_sites",
      "name": "count_pat_sites",
-     "line": 142,
-     "end": 161,
+     "line": 154,
+     "end": 173,
      "args": [
       "lines",
       "sites"
@@ -4069,8 +4084,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_pat_site_classes",
      "name": "count_pat_site_classes",
-     "line": 163,
-     "end": 186,
+     "line": 175,
+     "end": 198,
      "args": [
       "lines",
       "groups"
@@ -4087,8 +4102,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_cpg_index",
      "name": "_cpg_index",
-     "line": 190,
-     "end": 191,
+     "line": 202,
+     "end": 203,
      "args": [
       "seq"
      ],
@@ -4102,8 +4117,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_calls_of",
      "name": "_calls_of",
-     "line": 192,
-     "end": 218,
+     "line": 204,
+     "end": 230,
      "args": [
       "r",
       "ref",
@@ -4120,8 +4135,8 @@
      "file": "stage_q2_selfref.py",
      "function": "_merge",
      "name": "_merge",
-     "line": 219,
-     "end": 224,
+     "line": 231,
+     "end": 236,
      "args": [
       "a",
       "b"
@@ -4136,8 +4151,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region",
      "name": "count_bam_region",
-     "line": 225,
-     "end": 260,
+     "line": 237,
+     "end": 272,
      "args": [
       "args"
      ],
@@ -4153,8 +4168,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam_region.done",
      "name": "done",
-     "line": 232,
-     "end": 247,
+     "line": 244,
+     "end": 259,
      "args": [
       "calls"
      ],
@@ -4170,8 +4185,8 @@
      "file": "stage_q2_selfref.py",
      "function": "combine_bam",
      "name": "combine_bam",
-     "line": 261,
-     "end": 268,
+     "line": 273,
+     "end": 280,
      "args": [
       "parts",
       "assembly"
@@ -4188,8 +4203,8 @@
      "file": "stage_q2_selfref.py",
      "function": "count_bam",
      "name": "count_bam",
-     "line": 269,
-     "end": 273,
+     "line": 281,
+     "end": 285,
      "args": [
       "bam",
       "fa",
@@ -4212,8 +4227,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_line",
      "name": "build_line",
-     "line": 276,
-     "end": 285,
+     "line": 288,
+     "end": 297,
      "args": [
       "per_sample"
      ],
@@ -4227,8 +4242,8 @@
      "file": "stage_q2_selfref.py",
      "function": "line",
      "name": "line",
-     "line": 286,
-     "end": 291,
+     "line": 298,
+     "end": 303,
      "args": [
       "version"
      ],
@@ -4246,8 +4261,8 @@
      "file": "stage_q2_selfref.py",
      "function": "predict",
      "name": "predict",
-     "line": 292,
-     "end": 293,
+     "line": 304,
+     "end": 305,
      "args": [
       "loose_share",
       "version"
@@ -4262,8 +4277,8 @@
      "file": "stage_q2_selfref.py",
      "function": "residual",
      "name": "residual",
-     "line": 294,
-     "end": 298,
+     "line": 306,
+     "end": 310,
      "args": [
       "rec",
       "version"
@@ -4280,8 +4295,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_shape_reference",
      "name": "build_shape_reference",
-     "line": 305,
-     "end": 312,
+     "line": 317,
+     "end": 324,
      "args": [
       "records"
      ],
@@ -4297,8 +4312,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_reference",
      "name": "shape_reference",
-     "line": 313,
-     "end": 318,
+     "line": 325,
+     "end": 330,
      "args": [
       "version"
      ],
@@ -4316,8 +4331,8 @@
      "file": "stage_q2_selfref.py",
      "function": "shape_check",
      "name": "shape_check",
-     "line": 319,
-     "end": 327,
+     "line": 331,
+     "end": 339,
      "args": [
       "rec",
       "cell",
@@ -4336,8 +4351,8 @@
      "file": "stage_q2_selfref.py",
      "function": "reading",
      "name": "reading",
-     "line": 330,
-     "end": 333,
+     "line": 342,
+     "end": 345,
      "args": [
       "rec",
       "version"
@@ -4354,8 +4369,8 @@
      "file": "stage_q2_selfref.py",
      "function": "build_band",
      "name": "build_band",
-     "line": 334,
-     "end": 339,
+     "line": 346,
+     "end": 351,
      "args": [
       "healthy",
       "version"
@@ -4370,8 +4385,8 @@
      "file": "stage_q2_selfref.py",
      "function": "band",
      "name": "band",
-     "line": 344,
-     "end": 345,
+     "line": 356,
+     "end": 357,
      "args": [
       "version"
      ],
@@ -4389,8 +4404,8 @@
      "file": "stage_q2_selfref.py",
      "function": "grand_verdict",
      "name": "grand_verdict",
-     "line": 348,
-     "end": 359,
+     "line": 360,
+     "end": 371,
      "args": [
       "records",
       "version",
@@ -8231,5 +8246,5 @@
   }
  ],
  "n_files": 34,
- "n_functions": 421
+ "n_functions": 422
 }

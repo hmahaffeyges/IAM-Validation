@@ -989,7 +989,7 @@ def main():
             _c0 = V4.count_sequencing(pat=a.pat)
             o["iam_a_count_only"] = dict(stage="Q2 count (development)", flag="DEVELOPMENT, NOT COMMISSIONED: Stage Q2's count only; no IAM-A reading",
                                          genome=a.dev_count_genome, intake_decision=qi.get("decision"), intake_refusal=qi.get("refusal"),
-                                         count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share")},
+                                         count={k: _c0.get(k) for k in ("held_err", "held_opp", "loose_share", "tiles", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share", "coupling", "coupling_err_share", "coupling_pair_share", "coupling_pairs")},
                                          note=(None if a.dev_count_genome == "hg19" else "the loose share uses hg19 tiles and has no meaning on " + a.dev_count_genome + "; the held error does not depend on the genome"))
             if a.dev_count_tiles:   # 2026-10-25 (DEV-ERASE-01 graded maintenance test): the held error tile by tile, two independent halves
                 import gzip as _gzt, stage_q2_selfref as _Q2t
@@ -1021,7 +1021,7 @@ def main():
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
             _B = _Q2.band(1); _r = _Q2.reading(_cnt) if _cnt.get("held_opp") and _cnt.get("loose_share") is not None else None
             o["iam_a"] = {"stage": "Q2", "reading": "IAM-A", "cell": "mixed specimen (" + str(a.specimen) + ")", "input": src, "A": None,
-                          "count": {k: _cnt.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share")}, "band": {"lo": _B["lo"], "hi": _B["hi"]},
+                          "count": {k: _cnt.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share", "coupling", "coupling_err_share", "coupling_pair_share", "coupling_pairs")}, "band": {"lo": _B["lo"], "hi": _B["hi"]},
                           "development": "DEVELOPMENT - read and flagged: a mixed specimen has no healthy shape reference, so the sample-shape check is not applied; "
                                          "IAM-A is commissioned on healthy blood CD8 T cells"}
             if _r is not None:

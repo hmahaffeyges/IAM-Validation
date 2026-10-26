@@ -146,3 +146,15 @@ on sequencing falls with fewer reads per site (a site read once or twice looks f
 bar 2 is amended to the order across samples, and **every sample of this study is read at the same depth**: if the test passes, the 10
 already read at full depth are re-merged from 5 of their chunks, and the remaining samples are aligned on those 5 chunks only.
 
+## Nearest-neighbor coupling (plan 49.5; written and committed before any real sample's coupling is read)
+
+**The instrument's job:** say whether a sample's held errors fall independently along a molecule or cluster, as the published study's
+nearest-neighbor coupling asks. Stage Q2 now records it on every count (`stage_q2_selfref._coupling`, recorded only, nothing changed in
+IAM-A): adjacent unmethylated pairs on held molecules over what each molecule's own length and error count give at random. 1 is independent.
+**Synthetic test:** DEV_ALL_INFO_01/coupling_01/coupling_synthetic.py, DEV_ALL_INFO_01/coupling_01/coupling_synthetic.txt
+Constructed molecules through `run_sample.py --dev-count-only`: independent errors read 0.982; clustered errors (chance 0.1 and 0.3 after an
+error) read 2.870 and 4.206; bars met (run 2; run 1, `coupling_synthetic_run1.txt`, used pairs over the error share squared, which the held
+rule pulls to 0.8728 under independence, computed exactly, and read 0.875; disclosed). **Also seen:** clustered errors lower the lone-error
+count IAM-A uses (0.0192, 0.0174, 0.0133) at nearly the same error share, so the coupling is reported beside the held error.
+**Next:** read on this study's samples as they are counted; the question first asked is whether the UHRF1 knockout's coupling differs from its
+control line's. No bar is set on real samples before that question is written with its expected outcome.
