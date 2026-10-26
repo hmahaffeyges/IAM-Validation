@@ -1,0 +1,5 @@
+molecules: whole 103148271 | quarter 25789082 (0.2500)
+reading | whole | quarter | diff
+IAM-A | 0.8124 | 0.8122 | -0.0002
+Met-A whole sample | 0.7756 | 0.7538 | -0.0218
+synthetic (both within 0.02): not met

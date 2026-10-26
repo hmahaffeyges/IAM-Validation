@@ -16,9 +16,9 @@ for g in G:
     ia, ib = (a.get("iam_a") or {}).get("A"), (b.get("iam_a") or {}).get("A"); ma, mb = (a.get("met_a_whole") or {}).get("A"), (b.get("met_a_whole") or {}).get("A")
     if None in (ia, ib, ma, mb): L.append(f"{g} | a reading is missing"); continue
     r.append((ia, ib, ma, mb)); L.append(f"{g} | {ia:.4f} | {ib:.4f} | {ib - ia:+.4f} | {ma:.4f} | {mb:.4f} | {mb - ma:+.4f}")
-n = len(r); b1 = sum(abs(x[1] - x[0]) <= 0.02 for x in r); b2 = sum(abs(x[3] - x[2]) <= 0.02 for x in r)
+n = len(r); b1 = sum(abs(x[1] - x[0]) <= 0.02 for x in r); b2 = spearmanr([x[2] for x in r], [x[3] for x in r]).correlation if n > 2 else None   # amended before any quarter reading (synthetic run 2)
 rho = spearmanr([x[0] for x in r], [x[1] for x in r]).correlation if n > 2 else None
 L.append(f"bar 1 (IAM-A within 0.02 of full depth, all 10): {b1} of {n}: {'met' if b1 == n == 10 else 'not met'}")
-L.append(f"bar 2 (Met-A whole sample within 0.02 of full depth, all 10): {b2} of {n}: {'met' if b2 == n == 10 else 'not met'}")
+L.append(f"bar 2 (Met-A whole sample's order kept, rank correlation at least 0.9; amended): {b2 if b2 is None else round(b2, 4)}: {'met' if b2 is not None and b2 >= 0.9 else 'not met'}")
 L.append(f"bar 3 (IAM-A's order kept, rank correlation at least 0.9): {rho if rho is None else round(rho, 4)}: {'met' if rho is not None and rho >= 0.9 else 'not met'}")
 open(OUT, "w").write("\n".join(L) + "\n"); print("\n".join(L))

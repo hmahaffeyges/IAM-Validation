@@ -324,7 +324,7 @@ def shape_check(rec, cell, version=None, ref=None):
     if p is None: return dict(read=False, reason="not read: no tile shape in this count", cell=cell)
     ok = p >= lo
     return dict(read=bool(ok), cell=cell, tile_p10=p, healthy_min_p10=c["min_p10"], margin=J["margin"], limit=lo, healthy_n=c["n"],
-                reason="read" if ok else f"not read: tile 10th percentile {p:.3f} is below its healthy type's limit {lo:.3f} (sample shape outside healthy)")
+                reason="read" if ok else f"not read: its lowest tenth of tiles reads {p:.3f}, below its healthy type's limit {lo:.3f} (sample shape outside healthy)")   # 2026-10-25: plain words; the report may not print "percentile"
 
 # ---------------------------------------------------------------- the reading and its healthy band (COM-IAMA-054, sealed by the author 2026-10-16)
 def reading(rec, version=None):

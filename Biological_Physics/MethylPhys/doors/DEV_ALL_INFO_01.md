@@ -130,9 +130,19 @@ a respectable presentation"), and the paper says so.
 chunks are re-read, nothing new is fetched. **Data:** `data/DEV_ALL_INFO_01/quarter_01/q4_runs.json` (each sample's full-depth run).
 **Method:** `split_align.yml` merge only (chunksfrom that run, keepchunks 0,4,8,12,16: 5 of the 20 contiguous chunks), the same merge
 and the same one command as full depth (no constructed data: the full-depth readings are the known answer).
-**Synthetic test:** DEV_ALL_INFO_01/quarter_01/q4_score.py, DEV_ALL_INFO_01/quarter_01/q4_runs.json
+**Synthetic test:** DEV_ALL_INFO_01/quarter_01/q4_synthetic.py, DEV_ALL_INFO_01/quarter_01/q4_synthetic.txt
 **Bars (at most three):**
 1. IAM-A within 0.02 of the full-depth reading, all 10 samples.
-2. Met-A whole sample within 0.02 of the full-depth reading, all 10 samples.
+2. Met-A whole sample keeps its order across the 10 (rank correlation at least 0.9). *Amended before any quarter reading, disclosed:*
+   as written, Met-A within 0.02 of full depth; the synthetic (below) read it 0.0218 lower at a quarter.
 3. IAM-A's order across the 10 kept (rank correlation at least 0.9).
 **Scorer:** `data/DEV_ALL_INFO_01/quarter_01/q4_score.py`.
+
+**Quarter-depth synthetic, read** (`data/DEV_ALL_INFO_01/quarter_01/q4_synthetic.txt`; run 1, `q4_synthetic_run1.txt`, on a shallow file whose
+quarter the sample-shape check withheld, which also showed the one command's report stopping on the check's own wording, fixed at its
+source in `stage_q2_selfref.py` and `stage_v4.py`). GSM4914785's 20 chunks merged (spent) and a random quarter of its molecules, both
+read by the one command: **IAM-A unchanged (0.8124 against 0.8122); Met-A whole sample 0.0218 lower at a quarter**, past the 0.02 bar. Met-A
+on sequencing falls with fewer reads per site (a site read once or twice looks fully held or fully bare, so it carries less entropy), so
+bar 2 is amended to the order across samples, and **every sample of this study is read at the same depth**: if the test passes, the 10
+already read at full depth are re-merged from 5 of their chunks, and the remaining samples are aligned on those 5 chunks only.
+

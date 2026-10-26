@@ -106,7 +106,7 @@ def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
     s = Q2.shape_check(rec, cell); out["shape_check"] = s
     if not s["read"]:
         out["refusal"] = s["reason"]
-        out["explained"] = _ex("sample shape (Stage Q2)", "not read", f"tile 10th percentile {s.get('tile_p10')}" if s.get("tile_p10") is not None else s["reason"],
+        out["explained"] = _ex("sample shape (Stage Q2)", "not read", f"lowest tenth of tiles {s.get('tile_p10')}" if s.get("tile_p10") is not None else s["reason"],
                                f"at least {s['limit']:.4f} (the lowest healthy {cell} minus the margin {s['margin']:.4f})" if s.get("limit") is not None else "a healthy shape reference for this cell type",
                                "Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json (healthy samples of GSE186458; the margin is computed from them, never typed)",
                                "the sample's spread of methylation across the genome is outside what healthy samples of its type show, so its own loose share is not a healthy state the line can be read from",
