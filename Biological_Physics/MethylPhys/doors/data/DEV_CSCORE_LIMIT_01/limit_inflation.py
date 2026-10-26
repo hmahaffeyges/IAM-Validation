@@ -13,4 +13,7 @@ for f in glob.glob(os.path.join(sys.argv[1], "**", "GSM*.json"), recursive=True)
 L = ["array | bloods | median measured C | median C its own neighbor correlation predicts | median derived limit | median limit x prediction"]
 for a, v in sorted(G.items()):
     c, p, l = map(np.array, zip(*v)); L.append(f"{a} | {len(v)} | {np.median(c):.4f} | {np.median(p):.4f} | {np.median(l):.4f} | {np.median(l * p):.4f}")
+L.append("array | per-blood correlation of measured C with its own prediction | median of measured C minus its own prediction | spread of that difference")
+for a, v in sorted(G.items()):
+    c, p, l = map(np.array, zip(*v)); L.append(f"{a} | {np.corrcoef(c, p)[0, 1]:.4f} | {np.median(c - p):+.4f} | {np.std(c - p):.4f}")
 open(sys.argv[2], "w").write("\n".join(L) + "\n"); print("\n".join(L))

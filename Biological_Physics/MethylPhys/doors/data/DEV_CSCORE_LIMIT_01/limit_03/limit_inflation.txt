@@ -1,3 +1,6 @@
 array | bloods | median measured C | median C its own neighbor correlation predicts | median derived limit | median limit x prediction
 EPIC_v1 | 40 | 1.0013 | 1.0003 | 1.0080 | 1.0083
 HM450K | 60 | 1.0082 | 1.0079 | 1.0112 | 1.0192
+array | per-blood correlation of measured C with its own prediction | median of measured C minus its own prediction | spread of that difference
+EPIC_v1 | 0.7878 | +0.0004 | 0.0026
+HM450K | 0.8400 | +0.0007 | 0.0038

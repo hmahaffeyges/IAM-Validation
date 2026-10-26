@@ -57,5 +57,8 @@ Next: the neighbor correlation of the whole-genome map, reported by the one comm
 flags; the first run was sent without them and the 450K arrays' six-cell shares were withheld, recorded in the plan's C-Score branch). EPIC: 2 of 40 above the derived
 limit, neighbor correlation zero. 450K: 18 of 60 above, with a small positive correlation between neighboring sites (about 0.001 at lags 1 to
 3). `limit_inflation.py` (added after the reading, disclosed): the C each map's own correlation predicts sits where the measured C does, so
-the 450K excess is that correlation, not a change in the sites. **What follows:** the limit carries each map's own measured neighbor
-correlation (self-referenced, nothing fitted), written as a test with its synthetic before it is scored; EPIC is unchanged by it.
+the 450K excess is that correlation, not a change in the sites. **What follows (corrected before anything was built on it):** a limit carrying each map's own neighbor correlation would be circular. C
+is itself close to the weighted sum of the map's own neighbor correlations, so each blood's own prediction tracks its measured C
+(per-blood correlation 0.7878 on EPIC, 0.8400 on 450K, `limit_03/limit_inflation.txt`), and such a limit would rise with any real clumping
+and hide it. The 450K term is instead a **platform term**: the healthy 450K neighbor correlation measured once on these spent healthy bloods,
+frozen (calibrated, not derived), and tested on healthy 450K bloods it has not seen, with its synthetic first. EPIC needs no term.
