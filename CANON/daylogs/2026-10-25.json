@@ -58,6 +58,36 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The graded maintenance test, small counts (PHY-006, DEV-ERASE-01)",
+     "status": "development",
+     "what": "Fifteen mouse stem-cell samples at three doses of a DNMT1 inhibitor and of 5-azacytidine, counted by the one command.",
+     "outcome": "The held error about doubles by the first dose and then holds; bar 2 (a rise at every dose) not met as written. The deep pair for bar 3 was sent.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "The C-Score's healthy limit derived (GRP-019, DEV-CSCORE-LIMIT-01)",
+     "status": "development",
+     "what": "An exact limit from each reading's own site count, checked through the one command and on 100 healthy bloods.",
+     "outcome": "It holds for each cell's C-Score and, on EPIC, for the whole genome (2 of 80 above, no neighbor correlation).",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
+    },
+    {
+     "title": "Met-A with the atlas as the ruler, B and T cells (GRP-019, DEV-METAA-ATLAS-CURVE-01)",
+     "status": "development",
+     "what": "78 sorted B and T cell arrays, each read on its own subtype's atlas column.",
+     "outcome": "61 of 78 read Normal (bar 2 not met); the CD8 columns read Normal; the laboratory proved to be an atlas source, so the read was mostly in-sample.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   },
@@ -95,11 +125,39 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The ceiling in the A-score database",
+     "status": "development",
+     "what": "Every reading's ceiling recorded as the A it sits at, copied from the one command's bundles (CANON/bundle_rows.py), for the healthy bloods and the full-depth samples.",
+     "rows": [
+      "GRP-019",
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "Nearest-neighbor coupling in Stage Q2",
+     "status": "development",
+     "what": "Whether held errors cluster along a molecule, recorded on every count; its synthetic met through the one command.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The mouse aligner index built once",
+     "status": "development",
+     "what": "Published as release files with a checksum, so mouse samples no longer rebuild it on every machine.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   }
  ],
- "open_at_turnover": "Running on GitHub's machines: the leukemia study's Reh control and its UHRF1 knockout at full depth, each split across 20 machines, then merged and read by the one command.",
+ "open_at_turnover": "Running on GitHub's machines: the leukemia study at full depth, the deep firm-rate pair, and the 450K healthy bloods with the neighbor reading.",
  "closing": "",
  "off_page_rows": [],
  "compute": {

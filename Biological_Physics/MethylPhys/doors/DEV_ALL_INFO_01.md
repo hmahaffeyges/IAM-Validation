@@ -158,3 +158,10 @@ rule pulls to 0.8728 under independence, computed exactly, and read 0.875; discl
 count IAM-A uses (0.0192, 0.0174, 0.0133) at nearly the same error share, so the coupling is reported beside the held error.
 **Next:** read on this study's samples as they are counted; the question first asked is whether the UHRF1 knockout's coupling differs from its
 control line's. No bar is set on real samples before that question is written with its expected outcome.
+
+**Quarter-depth test, read: not met** (`data/DEV_ALL_INFO_01/quarter_01/q4_summary.txt`). Bar 1 not met (IAM-A within 0.02 of full depth in 4 of
+7; every quarter reads higher, by +0.0004 to +0.0528); bars 2 and 3 met (both orders kept, rank correlation 1.0); the 3 cord-blood controls
+lost their cell shares at a quarter (136 of 600 marker sites measured), so Met-A, the territories and each cell's readings were withheld.
+**Why:** the synthetic's random quarter of the same sample (GSM4914785) moved IAM-A by -0.0002, the 5 contiguous chunks by +0.0186: the
+archive's stretches (lanes) differ, as pass 1's first 10 million reads did. **Decision:** this study stays at full depth, every sample with
+every reading; speed comes from more machines, not fewer reads. A sample sent on its 5 chunks (GSM4914788) gets its other 15 added.

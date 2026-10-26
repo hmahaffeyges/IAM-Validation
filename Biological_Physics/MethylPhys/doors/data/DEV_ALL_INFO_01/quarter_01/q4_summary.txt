@@ -1,0 +1,14 @@
+sample | IAM-A full | quarter | diff | Met-A whole full | quarter | diff
+GSM4914781 | 0.9123 | 0.9301 | +0.0178 | 0.7065 | 0.7229 | +0.0165
+GSM4914782 | 0.8962 | 0.9287 | +0.0325 | 0.6400 | 0.6271 | -0.0129
+GSM4914783 | 0.8867 | 0.9210 | +0.0343 | 0.6738 | 0.6806 | +0.0068
+GSM4914784 | 0.8478 | 0.8584 | +0.0106 | 0.6453 | 0.6544 | +0.0091
+GSM4914785 | 0.8124 | 0.8310 | +0.0186 | 0.7756 | 0.7717 | -0.0039
+GSM4914798 | 0.7654 | 0.8182 | +0.0528 | 0.5176 | 0.5378 | +0.0202
+GSM4914799 | 1.2618 | 1.2622 | +0.0004 | 1.0775 | 1.0660 | -0.0115
+GSM4914800 | a reading is missing
+GSM4914801 | a reading is missing
+GSM4914802 | a reading is missing
+bar 1 (IAM-A within 0.02 of full depth, all 10): 4 of 7: not met
+bar 2 (Met-A whole sample's order kept, rank correlation at least 0.9; amended): 1.0: met
+bar 3 (IAM-A's order kept, rank correlation at least 0.9): 1.0: met
