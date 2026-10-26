@@ -14,6 +14,7 @@ on:
       chunksfrom: {description: "none, or the run id of an earlier split_align run whose chunks to merge without aligning again", required: false, default: "none"}
       chunksalso: {description: "none, or a second earlier run whose chunks are added (e.g. a re-sent last chunk), downloaded after chunksfrom", required: false, default: "none"}
       onlychunks: {description: "all, or a comma list of chunk numbers to align (the rest are taken from chunksfrom)", required: false, default: "all"}
+      keepchunks: {description: "all, or a comma list of chunk numbers the merge reads (2026-10-25: a spread fraction of the run, e.g. 0,4,8,12,16)", required: false, default: "all"}
 permissions: {contents: read, issues: write, actions: read}
 jobs:
   chunk:
@@ -68,7 +69,9 @@ jobs:
         run: |
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1
           E=Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01; C=$(find chunks -name "${{ inputs.gsm }}_c*.pat.gz" | sort -V); n=$(echo "$C" | grep -c . || true); echo "chunks with molecules: $n of ${{ inputs.nchunks }}"   # 2026-10-25: the artifacts keep eout/, so the files land in chunks/eout/
-          [ "$n" = "${{ inputs.nchunks }}" ] || { echo "MISSING CHUNKS: merge refused"; exit 40; }
+          K="${{ inputs.keepchunks }}"; X=${{ inputs.nchunks }}   # 2026-10-25: keep only the listed chunks; the merge then expects exactly those
+          if [ -n "$K" ] && [ "$K" != "all" ]; then C=$(for k in ${K//,/ }; do echo "$C" | grep -E "_c${k}_${{ inputs.nchunks }}\.pat\.gz$|_c${k}\.pat\.gz$"; done); n=$(echo "$C" | grep -c . || true); X=$(echo ${K//,/ } | wc -w | tr -d ' '); echo "kept chunks $K: $n files"; fi
+          [ "$n" = "$X" ] || { echo "MISSING CHUNKS: merge refused ($n of $X)"; exit 40; }
           python3 $E/merge_pats.py $PWD/${{ inputs.gsm }}.pat.gz $C
           set +e; export INDEX_TAG=hg19-bwameth-index-v1 INDEX_TAG_MM10=mm10-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=${{ inputs.threads }} FULL=${{ inputs.full }} PATFILE=$PWD/${{ inputs.gsm }}.pat.gz SAMPLES=${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh ${{ inputs.gsm }} > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; find chunks -name '*_timing.json' -exec cp {} eout/ \; 2>/dev/null; true

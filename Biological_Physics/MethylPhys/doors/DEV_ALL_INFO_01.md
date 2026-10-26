@@ -120,3 +120,19 @@ line, not stated, sorted B cells); every reading is present or states its reason
 bundle of each full-depth sample; values copied, nothing computed): the samples read at full depth so far, each reading with its A and the A
 its ceiling sits at; the ceiling's A is listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atlas: the chemistry offset in the plan's Met-A-on-sequencing branch).
 Rebuilt as each sample lands.
+
+## A quarter of each run: quarter-depth test (written and committed before any quarter reading is made)
+
+**The instrument's job:** a quarter of a sample's read pairs, spread across its run, reads the sample the same as all of them. If it does,
+the remaining samples of this study are aligned at a quarter of the machine time (author: "whatever we can do to cut time and still have
+a respectable presentation"), and the paper says so.
+**Prior reading:** the 10 samples already read at full depth (5 leukemias, the Reh control and knockout, 3 cord-blood controls); their
+chunks are re-read, nothing new is fetched. **Data:** `data/DEV_ALL_INFO_01/quarter_01/q4_runs.json` (each sample's full-depth run).
+**Method:** `split_align.yml` merge only (chunksfrom that run, keepchunks 0,4,8,12,16: 5 of the 20 contiguous chunks), the same merge
+and the same one command as full depth (no constructed data: the full-depth readings are the known answer).
+**Synthetic test:** DEV_ALL_INFO_01/quarter_01/q4_score.py, DEV_ALL_INFO_01/quarter_01/q4_runs.json
+**Bars (at most three):**
+1. IAM-A within 0.02 of the full-depth reading, all 10 samples.
+2. Met-A whole sample within 0.02 of the full-depth reading, all 10 samples.
+3. IAM-A's order across the 10 kept (rank correlation at least 0.9).
+**Scorer:** `data/DEV_ALL_INFO_01/quarter_01/q4_score.py`.
