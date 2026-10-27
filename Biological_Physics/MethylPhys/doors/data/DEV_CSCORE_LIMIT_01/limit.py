@@ -10,3 +10,9 @@ W = 10
 def limit(n_sites, q=0.95, w=W):
     nb = int(n_sites) // w; n = nb * w
     return None if nb < 10 else float(n / nb * beta.ppf(q, (nb - 1) / 2, (n - nb) / 2))
+
+def limit_450k(n_sites, term_file=None, q=0.95):
+    """2026-10-26: the whole-genome limit on a 450K array: limit(n) times the frozen platform term (limit_04/platform_term_450k.json)."""
+    import json, os
+    t = json.load(open(term_file or os.path.join(os.path.dirname(os.path.abspath(__file__)), "limit_04", "platform_term_450k.json")))
+    l = limit(n_sites, q); return None if l is None else l * t["factor"]

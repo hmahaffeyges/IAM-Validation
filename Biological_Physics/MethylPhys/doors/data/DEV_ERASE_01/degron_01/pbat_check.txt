@@ -1,0 +1,1 @@
+GSM7516959_c2_20.pat.gz: molecules 2097466, methylated share 0.701

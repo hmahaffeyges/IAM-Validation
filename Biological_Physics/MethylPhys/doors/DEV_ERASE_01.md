@@ -306,3 +306,8 @@ in), and one chunk on 2 threads ran past five and a half hours without finishing
 are tPBAT (post-bisulfite adaptor tagging), whose first mate is read from the strand a directional library reads with its second, so the
 aligner was fitting every read against the wrong strand. The alignment script now gives the mates in swapped order for a sample listed
 with library `pbat` (`degron_samples.csv`); directional libraries, every earlier sample, are unchanged. One chunk is re-sent to confirm.
+
+**PBAT order confirmed:** in the archive, read 1 of these libraries is depleted of G and read 2 of C, the reverse of a directional
+library. One chunk re-sent with the mates swapped (split alignment run 40414265040, chunk 2 of GSM7516959): 5,982,361 pairs fetched,
+aligned in 5,398 s on 4 threads, memory steady near 13 GB, molecules written; methylated share 0.701 over 2,097,466 molecules (`data/DEV_ERASE_01/degron_01/pbat_check.txt`), as expected
+for HCT116 before any degron is triggered. The six development samples go out in full.

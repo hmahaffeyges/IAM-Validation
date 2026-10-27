@@ -1,0 +1,18 @@
+{
+ "platform": "HM450K",
+ "bloods": 60,
+ "neighbor_corr_median": [
+  0.0011,
+  0.00125,
+  0.0013,
+  0.00065,
+  0.00025,
+  0.0005,
+  0.00045,
+  0.001,
+  -5e-05
+ ],
+ "factor": 1.00789,
+ "rule": "limit(n) x factor for a 450K whole-genome C; EPIC unchanged",
+ "source": "the spent healthy 450K bloods of DEV-METAA-HEALTHY-01 (five-lab line), read by the one command"
+}
