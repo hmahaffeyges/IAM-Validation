@@ -15,7 +15,7 @@ derivation assumes departures independent from site to site. Met-A's identity si
 The whole genome's sites lie close together, where healthy cells co-vary and the atlas's own errors run along the genome, so the
 whole-genome C may sit above its limit; if it does, that reading needs a term for neighboring sites, not a measured band.
 
-**Prior reading:** the five laboratories' healthy bloods (DEV-METAA-HEALTHY-01, spent); GSE235717 (spent) is one of them, read again in the neighbor-correlation check.
+**Prior reading:** the five laboratories' healthy bloods (DEV-METAA-HEALTHY-01, spent); GSE235717 (spent) is one of them, read again in the neighbor-correlation check. GSE42861, GSE51032 and GSE87571 (spent, the five-lab line's 450K bloods) also give the 450K platform term.
 
 **Synthetic test:** DEV_CSCORE_LIMIT_01/limit_synthetic_chain.py, DEV_CSCORE_LIMIT_01/limit_01/limit_synthetic_chain.txt
 
@@ -69,6 +69,9 @@ frozen (calibrated, not derived), and tested on healthy 450K bloods it has not s
 order, `gse67393_test.csv`); **reserved** (58, `gse67393_reserved.csv`).
 
 **The instrument's job:** a healthy 450K blood's whole-genome C-Score reads at or under its limit.
+
+**Sources:** GSE67393 (public, GEO): 117 normal peripheral blood 450K arrays with IDATs, the healthy bloods the term is tested on; GSE42861,
+GSE51032, GSE87571 (public, GEO, spent): the healthy 450K bloods the term is measured on; IAM-Atlas v2.1 (this repository): the cells read.
 
 **The term:** the median neighbor correlation of the 60 spent healthy 450K bloods (the five-lab line), measured once by the one command and
 frozen (`limit_04/platform_term_450k.json`, factor 1.00789; calibrated, not derived; nothing taken from the blood being read). The 450K

@@ -3537,6 +3537,15 @@
 "text": "**The 450K neighbor reading** (`data/DEV_CSCORE_LIMIT_01/limit_03/`; the 100 healthy bloods through the one command with the healthy line's"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 78,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "limit is the derived limit times this factor (`limit.py::limit_450k`); EPIC is unchanged."
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
 "line": 138,
 "pattern": "reference line",

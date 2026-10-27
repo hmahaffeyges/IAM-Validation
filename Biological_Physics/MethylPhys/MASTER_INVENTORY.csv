@@ -338,7 +338,7 @@ GSE40279,downloads/D_ageing/GSE40279/,12.08,,,partly spent,,,DEV_REPLICATE_01; P
 GSE40699,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE41826,,,,,,,,,not usable (no raw data (TXT only)),cortical neurons | oligodendrocytes,yes,no per-sample IDAT or SRA link (series files: GSE41826_FinalReport_zkaminsky_CETStrimmed.txt.gz; GSE41826_RAW.tar),A Cell Epigenotype Specific Model for the Correction of Cellular Heterogeneity in the Brain,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE42752,,,,,partly spent,,,,,,,,,
-GSE42861,downloads/A_blood_immune/GSE42861/,29.62,IDAT,yes,partly spent,,,DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_MAHA_03_OUTCOME; PROC_MAHA_03_PR,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
+GSE42861,downloads/A_blood_immune/GSE42861/,29.62,IDAT,yes,partly spent,,,DEV_CSCORE_LIMIT_01; DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_MAHA_03_OUT,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE43976,,,,,,,,,not usable (not healthy (MS cohort); input 1 called it healthy),monocytes,yes,IDAT listed for 95/95 samples,An evaluation of analysis pipelines for DNA methylation profiling using the Illumina Human Methylation 450k platform,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE46306,,,,,partly spent,,,,,,,,,
 GSE47966,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
@@ -351,7 +351,7 @@ GSE50386,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE50660,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE50797,,,,,,,,,not usable (no raw data (TXT only)),neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE50797_RAW.tar; GSE50797_methylated_unmethylated_signal_intensities.txt.gz),Analysis of the DNA methylome and transcriptome in granulopoiesis reveal timed changes and dynamic enhancer methylation,gold-mine map
 GSE50853,,,,,,,,,research,cortical neurons | oligodendrocytes,yes,SRA run links for 6/30 samples,Differences in DNA methylation between human neuronal and glial cells are concentrated in enhancers and non-CpG sites,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE51032,downloads/A_blood_immune/GSE51032/,15.15,IDAT,yes,spent,,,DEV_FIRES_01; DEV_METAA_HEALTHY_01; PROC_EPIC_01_PREREG; PROC_MF_02_OUTCOME; PROC_MF_03_OUTCOME; PROC_PREDX_NEUT_01_PREREG; PROC_PREDX_SEQUENCE_01_PREREG,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
+GSE51032,downloads/A_blood_immune/GSE51032/,15.15,IDAT,yes,spent,,,DEV_CSCORE_LIMIT_01; DEV_FIRES_01; DEV_METAA_HEALTHY_01; PROC_EPIC_01_PREREG; PROC_MF_02_OUTCOME; PROC_MF_03_OUTCOME; PROC_PREDX_NEUT_01_PREREG; PROC_PREDX_SEQU,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE51057,downloads/A_blood_immune/GSE51057/,6.13,IDAT,yes,partly spent,,,PROC_EPIC_01_PREREG; PROC_PREDX_NEUT_01_OUTCOME; PROC_PREDX_NEUT_01_PREREG; PROC_PREDX_SEQUENCE_01_PREREG; PROC_PREDX_SLIDE_01_OUTCOME; PROC_PREDX_SLIDE_01_PRER,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE52025,,,,,,,,,"not usable (cell lines (Coriell/McGill cell bank), cultured)",ad-dermal fibroblasts,yes,IDAT listed for 62/62 samples,"The relationship between DNA methylation, genetic and expression inter-individual variation in untransformed human fibroblasts [methylation profiling]",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE52074,,,,,,,,DEV_ATLAS_V21_01,,,,,,
@@ -424,7 +424,7 @@ GSE87196,,,,,,,,,not usable (controlled access: raw reads at EGA under data-acce
 GSE87197,,,,,partly spent,,,DEV_ONE_DRAW_01,,,,,,
 GSE87197 megakaryocytes donor 2 (19 single cells),,,,,spent (development; provisional reference test 1),,,,,,,,,
 GSE87297,,,,,,,,,not usable (cell-line mixtures (MCF7) and no SRA reads listed),,yes,no per-sample IDAT or SRA link (series files: GSE87297_RAW.tar),Epigenomic deconvolution of breast tumors reveals metabolic coupling between constituent cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE87571,,,,,spent,,,DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_FOREIGNSCORE_01_OUTCOME; PROC_IN,,,,,,
+GSE87571,,,,,spent,,,DEV_CSCORE_LIMIT_01; DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_FOREIGNSCOR,,,,,,
 GSE87623,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE87640,downloads/A_blood_immune/GSE87640/,5.19,IDAT,yes,unspent,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_DECONV_V21_01,held-out test,cd4 t cells | cd8 t cells | monocytes,yes,IDAT listed for 240/240 samples,Human blood and immune-disease arrays (blood cancers first); Integrative Epigenome-Wide Analysis Shows That DNA Methylation May Mediate Genetic Risk In Inflamma,S3 register; gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE87650,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
