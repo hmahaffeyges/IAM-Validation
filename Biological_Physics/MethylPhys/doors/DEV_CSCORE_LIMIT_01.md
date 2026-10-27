@@ -100,3 +100,10 @@ a declared array type takes the derived limit. The reserved half of GSE67393 con
 **The confirmation (written before the reserved half is read):** GSE67393's reserved 58 bloods (`gse67393_reserved.csv`), read the same way,
 scored by the same `limit_450k_score.py` (pass 1). Bar unchanged: at least 90 % at or below the 450K limit. Met: the 450K whole-genome
 C-Score's limit is commissioned as calibrated. Not met: it stays development.
+
+**The confirmation, read: not met** (`data/DEV_CSCORE_LIMIT_01/limit_07/cs450k_confirm_summary.txt`; series run 40521995981). 56 of the 58
+reserved bloods read (2 stopped at intake); 45 of 56 (0.8036) at or below the 450K limit, against the bar of 0.90 (25 of 56 at or below the
+plain limit). Both halves of GSE67393 read near the same median C (test 1.0132, confirmation 1.0120), each above the five laboratories' 450K
+bloods the term was measured on (1.0082); the confirmation half's upper tail is heavier. **What it means:** one frozen 450K term does not
+carry across laboratories well enough; the 450K whole-genome C-Score stays development, its limit shown and flagged, and is not
+commissioned. The term is not re-tuned on these bloods: both halves are now spent. EPIC holds the derived limit without any term.

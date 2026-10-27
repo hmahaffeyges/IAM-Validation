@@ -43,7 +43,7 @@
      "title": "The 450K term's confirmation (GRP-019, DEV-CSCORE-LIMIT-01)",
      "status": "development",
      "what": "The 58 reserved healthy bloods, read the same way against the same bar, written before reading.",
-     "outcome": "Running on GitHub's machines.",
+     "outcome": "Not met: 45 of 56 within the 450K limit, against 90 % needed; one frozen term does not carry across laboratories, so the 450K whole-genome C-Score stays development. EPIC holds without any term.",
      "rows": [
       "GRP-019"
      ],
