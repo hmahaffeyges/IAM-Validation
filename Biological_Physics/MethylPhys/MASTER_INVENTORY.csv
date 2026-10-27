@@ -379,6 +379,8 @@ GSE65163,,,,,,,,,not usable (not purified (brushing)),nasal epithelium,yes,IDAT 
 GSE66351,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cortical neurons | oligodendrocytes,yes,IDAT listed for 190/190 samples,"DNA methylation profiling of neuron and glia for the dissection of cell type, age and Alzheimer’s disease-specific changes in the human brain; DNA methylation p",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE66836,,,,,,,,,,,,,Genome-wide DNA methylation signature in lung adenocarcinomas has prognostic impact,candidates DEV_FINGERPRINT_03
 GSE67170,,,,,,,,,held-out test,t cells cd3,yes,IDAT listed for 89/89 samples,The signature of liver cancer in host peripheral blood mononuclear cells and T cells DNA methylation,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE67393,,,,,,,,DEV_CSCORE_LIMIT_01,,,,,,
+GSE67393 normal peripheral blood 450K (test half),,,,,spent (development),,,,,,,,,
 GSE68339,,,,,partly spent,,,,,,,,,
 GSE68456,,,,,,,,DEV_ATLAS_V21_01,atlas build,monocytes | b cells | cd4 t cells | granulocytes | cd8 t cells | nk cells | t cells cd3,yes,IDAT listed for 62/62 samples,Impact of red blood cells on genome-wide DNA methylation and expression analyses of cord blood hematopoietic cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE69138,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,

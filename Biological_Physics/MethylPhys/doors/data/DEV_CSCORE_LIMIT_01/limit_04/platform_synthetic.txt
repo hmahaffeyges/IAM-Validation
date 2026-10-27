@@ -1,17 +1,17 @@
 constructed 450K whole bloods: 386658 sites; frozen term 1.00789; MA weights [1.0, 0.0332, 0.0354, 0.0361, 0.0255, 0.0158, 0.0224, 0.0212, 0.0316, 0.0]
 array | array type | C | plain limit | limit_450k | lag-1 neighbor corr
-P00 | None | not read
-P01 | None | not read
-P02 | None | not read
-P03 | None | not read
-P04 | None | not read
-P05 | None | not read
-P06 | None | not read
-P07 | None | not read
-P08 | None | not read
-P09 | None | not read
-P10 | None | not read
-P11 | None | not read
-PLANTED | None | None | limit_450k None
-at or below limit_450k 0 of 0; above the plain limit 0; planted above limit_450k: False
-synthetic (>= 90 % under limit_450k; >= 2 above the plain limit; planted above): not met
+P00 | None | 1.0126 | 1.0112 | 1.0192 | 0.0009
+P01 | None | 1.0157 | 1.0112 | 1.0192 | 0.0023
+P02 | None | 1.0107 | 1.0112 | 1.0192 | 0.004
+P03 | None | 1.0252 | 1.0112 | 1.0192 | 0.0041
+P04 | None | 1.0138 | 1.0112 | 1.0192 | 0.0006
+P05 | None | 1.0145 | 1.0112 | 1.0192 | 0.0033
+P06 | None | 1.001 | 1.0112 | 1.0192 | 0.001
+P07 | None | 1.0075 | 1.0112 | 1.0192 | 0.0003
+P08 | None | 1.013 | 1.0112 | 1.0192 | 0.0022
+P09 | None | 1.0074 | 1.0113 | 1.0193 | 0.0023
+P10 | None | 1.0158 | 1.0113 | 1.0193 | 0.0009
+P11 | None | 1.0021 | 1.0112 | 1.0192 | 0.0006
+PLANTED | None | 1.1506 | limit_450k 1.0192149886301336
+at or below limit_450k 11 of 12; above the plain limit 7; planted above limit_450k: True
+synthetic (>= 90 % under limit_450k; >= 2 above the plain limit; planted above): met

@@ -62,3 +62,21 @@ is itself close to the weighted sum of the map's own neighbor correlations, so e
 (per-blood correlation 0.7878 on EPIC, 0.8400 on 450K, `limit_03/limit_inflation.txt`), and such a limit would rise with any real clumping
 and hide it. The 450K term is instead a **platform term**: the healthy 450K neighbor correlation measured once on these spent healthy bloods,
 frozen (calibrated, not derived), and tested on healthy 450K bloods it has not seen, with its synthetic first. EPIC needs no term.
+
+## The 450K platform term (written and committed before any GSE67393 array is read)
+
+**Prior reading:** GSE67393 (117 normal peripheral bloods, 450K, IDATs): labels only. **Test half** (59, every other array in accession
+order, `gse67393_test.csv`); **reserved** (58, `gse67393_reserved.csv`).
+
+**The instrument's job:** a healthy 450K blood's whole-genome C-Score reads at or under its limit.
+
+**The term:** the median neighbor correlation of the 60 spent healthy 450K bloods (the five-lab line), measured once by the one command and
+frozen (`limit_04/platform_term_450k.json`, factor 1.00789; calibrated, not derived; nothing taken from the blood being read). The 450K
+limit is the derived limit times this factor (`limit.py::limit_450k`); EPIC is unchanged.
+
+**Synthetic test:** DEV_CSCORE_LIMIT_01/platform_synthetic.py, DEV_CSCORE_LIMIT_01/limit_04/platform_synthetic.txt
+(met: 11 of 12 constructed 450K bloods at or below the 450K limit, 7 of 12 above the plain limit, a planted run of 2,000 sites above it).
+
+**Bar:** at least 90 % of the test half's bloods at or below the 450K limit (`limit_450k_score.py`), read with the five-lab run's flags
+(`--cell-panel atlas --dev-metaa-allsites`). Met: the term goes into the chain for 450K arrays, flagged as calibrated, and the reserved half
+confirms. Not met: 450K whole-genome C-Scores stay withheld as not commissioned.
