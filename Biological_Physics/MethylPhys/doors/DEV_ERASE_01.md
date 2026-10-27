@@ -311,3 +311,13 @@ with library `pbat` (`degron_samples.csv`); directional libraries, every earlier
 library. One chunk re-sent with the mates swapped (split alignment run 40414265040, chunk 2 of GSM7516959): 5,982,361 pairs fetched,
 aligned in 5,398 s on 4 threads, memory steady near 13 GB, molecules written; methylated share 0.701 over 2,097,466 molecules (`data/DEV_ERASE_01/degron_01/pbat_check.txt`), as expected
 for HCT116 before any degron is triggered. The six development samples go out in full.
+
+**The degron series, bar 3, read: neither in both lines** (`data/DEV_ERASE_01/degron_02/degron_bar3.txt`, counts in
+`degron_02/degron_counts.txt`; the committed scorer `graded_score.py`, unchanged). Day 2 against day 0, 579 tiles of 50,000 CpGs each:
+UHRF1-AID slope 0.9053 [0.8585, 0.9530], intercept +0.2462 [+0.0992, +0.3934]; DNMT1-AID slope 0.8274 [0.7908, 0.8661], intercept
++0.4350 [+0.3184, +0.5483]. Neither is R (slope 1, intercept below 0) nor Phi (slope below 1, intercept 0): as in the mouse graded test,
+the regions' holding energies move toward one another. Held error rises a little by day 2 in both lines (bar 2's day 2 half). **Caveat:**
+the loose share rises steeply by day 2 (UHRF1 0.339 to 0.996; DNMT1 0.382 to 0.827), so the held molecules still counted are in part the
+survivors, as in the graded test, though less so in the DNMT1 line. Day 4 is reported when it lands, not scored. **What it means:** the firm
+rate is not derived from these tests; IAM-A's baseline stays calibrated (measured once on healthy samples, frozen), as the plan already
+states. The reserved replicates 2 and 3 stay unread.

@@ -18,6 +18,16 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
+    },
+    {
+     "title": "The degron series: maintenance switched off over days (PHY-006, DEV-ERASE-01)",
+     "status": "development",
+     "what": "Human cells with UHRF1 or DNMT1 removed: day 2 against day 0, region by region.",
+     "outcome": "Neither predicted answer in either line; the regions converge, as in the mouse test. IAM-A's baseline stays calibrated.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   }

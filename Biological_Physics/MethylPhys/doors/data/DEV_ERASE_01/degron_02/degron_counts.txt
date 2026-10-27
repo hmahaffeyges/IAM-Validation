@@ -1,0 +1,4 @@
+GSM7516959 | held error 0.0444 | opportunities 10492311 | loose share 0.3391
+GSM7516962 | held error 0.0458 | opportunities 9598396 | loose share 0.9958
+GSM7516977 | held error 0.0467 | opportunities 9194839 | loose share 0.3819
+GSM7516980 | held error 0.0502 | opportunities 7857948 | loose share 0.8269
