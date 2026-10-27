@@ -38,6 +38,24 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The 450K term's confirmation (GRP-019, DEV-CSCORE-LIMIT-01)",
+     "status": "development",
+     "what": "The 58 reserved healthy bloods, read the same way against the same bar, written before reading.",
+     "outcome": "Running on GitHub's machines.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
+    },
+    {
+     "title": "A launcher for Google Cloud spot machines (plan 35.30)",
+     "status": "development",
+     "what": "Each alignment chunk on its own spot machine, saving its results as it finishes, so a reclaim loses only that chunk.",
+     "outcome": "Written; it runs when the account is set up, to measure the reclaim rate and the real cost.",
+     "rows": [],
+     "record": "Biological_Physics/MethylPhys/boxruns/gcp_spot/gcp_chunks.py"
     }
    ]
   }

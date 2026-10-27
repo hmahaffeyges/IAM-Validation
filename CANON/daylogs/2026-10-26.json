@@ -58,6 +58,36 @@
       "PHY-006"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "The 450K platform term on unread healthy bloods (GRP-019, DEV-CSCORE-LIMIT-01)",
+     "status": "development",
+     "what": "The term measured once on spent healthy 450K bloods and frozen, then tested on healthy bloods never read before.",
+     "outcome": "Met: 52 of 57 sit within the 450K limit, against 22 within the plain limit; the reserved half confirms next.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
+    },
+    {
+     "title": "The degron libraries are PBAT (PHY-006, DEV-ERASE-01)",
+     "status": "development",
+     "what": "The first degron samples ran out of memory; the series' own description shows PBAT libraries, which read the opposite strand.",
+     "outcome": "The aligner now takes PBAT mates in swapped order; one chunk aligned cleanly and read 70 % methylated, as expected for these cells.",
+     "rows": [
+      "PHY-006"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "An early stop's explanation crashed (GRP-019)",
+     "status": "development",
+     "what": "A message in the one command reused the name of the function that explains why a run stopped.",
+     "outcome": "Renamed; a stopped run now says why, and normal readings are unchanged.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md"
     }
    ]
   }
