@@ -1383,7 +1383,8 @@
        "one real block timed on GitHub and on one small paid machine",
        "the author decides where it runs and the spend"
       ]
-     }
+     },
+     "gcp_test": "Google Cloud spot launcher written (Biological_Physics/MethylPhys/boxruns/gcp_spot/gcp_chunks.py; nothing run): one spot VM per alignment chunk, each saving its molecules, log and exit code to a Cloud Storage bucket and deleting itself; a reclaimed chunk is the only loss and is sent again. The author's test: one sample's 20 chunks, the reclaim rate and the measured cost per chunk-hour, before deciding on the whole-genome atlas."
     }
    ]
   },
