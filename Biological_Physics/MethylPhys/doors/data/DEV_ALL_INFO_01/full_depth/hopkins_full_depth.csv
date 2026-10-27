@@ -1,0 +1,33 @@
+gsm,sample,group,specimen,iam_a,iam_a_state,held_error,met_a_whole,met_a_ceiling,islands_A,domains_A,top_cell,top_share
+GSM4914798,Reh-NT,control line,cell line,0.7654,below Normal,0.032187,0.51762,,0.54594,0.49246,cd8 temra t cells,0.32
+GSM4914800,CD19-1,cord-blood B cells,sorted b cells,0.769,below Normal,0.031743,0.67729,,0.37541,0.68652,b cells,1.0
+GSM4914801,CD19-2,cord-blood B cells,sorted b cells,0.7945,Normal,0.03401,0.70302,,0.18695,0.77511,naive b cells,0.665
+GSM4914802,CD19-3,cord-blood B cells,sorted b cells,0.7906,Normal,0.034218,0.74346,,0.21462,0.83382,naive b cells,0.649
+GSM4914799,Reh-UHRF1,knockout,cell line,1.2618,above Normal,0.094497,1.07751,,0.70865,0.91771,t effector cell cd8,0.342
+GSM4914781,ALL-45,leukemia,not stated,0.9123,Normal,0.038382,0.70648,,0.53536,0.70065,b cells,0.446
+GSM4914782,ALL-100,leukemia,not stated,0.8962,Normal,0.038707,0.63996,,0.34131,0.68934,b cells,0.355
+GSM4914783,ALL-127,leukemia,not stated,0.8867,Normal,0.03699,0.67377,,0.50142,0.68316,b cells,0.66
+GSM4914784,ALL-137,leukemia,not stated,0.8478,Normal,0.035261,0.64529,,0.49758,0.62872,b cells,0.37
+GSM4914785,ALL-251,leukemia,not stated,0.8124,Normal,0.033516,0.77559,,0.51514,0.76496,b cells,0.501
+GSM4914786,ALL-276,leukemia,not stated,0.8423,Normal,0.034946,0.70803,,0.45582,0.71584,b cells,0.654
+GSM4914787,ALL-289,leukemia,not stated,0.921,Normal,0.038152,0.70153,,0.5602,0.69606,b cells,0.495
+GSM4914788,ALL-311,leukemia,not stated,0.9105,Normal,0.038385,0.74124,,0.33289,0.79549,b cells,0.619
+GSM4914789,ALL-321,leukemia,not stated,0.9035,Normal,0.037858,0.77852,,0.51972,0.81083,b cells,0.678
+GSM4914790,ALL-370,leukemia,not stated,0.9356,Normal,0.039076,0.70148,,0.56416,0.7148,b cells,0.577
+GSM4914791,ALL-227,leukemia,not stated,0.8184,Normal,0.043886,0.81009,,0.44449,0.88183,b cells,0.331
+GSM4914792,ALL-232,leukemia,not stated,0.8597,Normal,0.04697,0.7935,,0.448,0.87263,b cells,0.318
+GSM4914793,ALL-281,leukemia,not stated,0.8797,Normal,0.044891,0.72663,,0.33403,0.81313,b cells,0.327
+GSM4914794,ALL-337,leukemia,not stated,0.9289,Normal,0.044508,0.75973,,0.34323,0.84901,b cells,0.445
+GSM4914795,ALL-169,leukemia,not stated,0.9313,Normal,0.042333,0.76918,,0.27964,0.85585,b cells,0.687
+GSM4914796,ALL-336,leukemia,not stated,0.9003,Normal,0.039535,0.77044,,0.31066,0.84202,b cells,0.694
+GSM4914797,ALL-199,leukemia,not stated,0.9769,Normal,0.044119,0.78265,,0.56584,0.78214,memory b cells,0.417
+GSM4914803,ALL-493,leukemia,not stated,0.9107,Normal,0.044371,0.77385,,0.30546,0.88831,b cells,0.507
+GSM4914804,ALL-883,leukemia,not stated,0.9221,Normal,0.042983,0.70007,,0.30431,0.77266,b cells,0.511
+GSM4914805,ALL-3392,leukemia,not stated,0.8742,Normal,0.038116,0.84546,,0.27926,0.91873,b cells,0.412
+GSM4914806,ALL-3576,leukemia,not stated,0.8412,Normal,0.050068,0.70081,,0.33028,0.77879,memory b cells,0.353
+GSM4914807,ALL-4192,leukemia,not stated,0.9273,Normal,0.044361,0.72104,,0.32533,0.81169,b cells,0.503
+GSM4914808,ALL-4599,leukemia,not stated,0.9025,Normal,0.038969,0.60997,,0.3942,0.62226,b cells,0.345
+GSM4914809,ALL-5651,leukemia,not stated,0.9985,Normal,0.044735,0.77028,,0.31246,0.88672,b cells,0.529
+GSM4914810,ALL-6065,leukemia,not stated,0.8898,Normal,0.040681,0.91552,,0.24549,1.04811,b cells,0.725
+GSM4914811,ALL-7494,leukemia,not stated,0.8219,Normal,0.035911,0.61557,,0.36004,0.60692,memory b cells,0.388
+GSM4914812,ALL-8131,leukemia,not stated,0.9043,Normal,0.04039,0.6623,,0.35344,0.70027,b cells,0.321

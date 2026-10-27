@@ -28,6 +28,16 @@
       "PHY-006"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "The leukemia study at full depth, interim (GRP-020, DEV-ALL-INFO-01)",
+     "status": "development",
+     "what": "27 of the study's 31 leukemias, its cord-blood B-cell controls and the knockout, each read against its own molecules.",
+     "outcome": "Every leukemia reads above the highest control on IAM-A; the knockout reads furthest right.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     }
    ]
   }
