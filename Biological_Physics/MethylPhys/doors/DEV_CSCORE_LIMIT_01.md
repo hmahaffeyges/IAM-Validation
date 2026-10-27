@@ -96,3 +96,7 @@ whole-genome C-Score, flagged as calibrated; the reserved 58 confirm.
 frozen 450K term on a 450K array (`Runtime Matrices/CScore_Limits/platform_term_450k.json`). Checked through the one command on a
 constructed 450K array declared and not declared (`data/DEV_CSCORE_LIMIT_01/limit_06/chain_limits_check.txt`). A values file read without
 a declared array type takes the derived limit. The reserved half of GSE67393 confirms before the C-Score is commissioned.
+
+**The confirmation (written before the reserved half is read):** GSE67393's reserved 58 bloods (`gse67393_reserved.csv`), read the same way,
+scored by the same `limit_450k_score.py` (pass 1). Bar unchanged: at least 90 % at or below the 450K limit. Met: the 450K whole-genome
+C-Score's limit is commissioned as calibrated. Not met: it stays development.

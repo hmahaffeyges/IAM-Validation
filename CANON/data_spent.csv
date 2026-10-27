@@ -223,3 +223,4 @@ GSE201754 and GSE196071 healthy donor monocytes (43),reserved (confirmation),Bio
 GSE252045 (IAM-Atlas v2.1 source: sorted B and T cells),spent (atlas build; DEV-METAA-ATLAS-CURVE-01 development),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md (B and T cells),GEO
 GSE236026 HCT116 UHRF1-AID and DNMT1-AID degron WGBS (replicate 1 days 0 2 4),spent (development),Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md (the degron series),GEO
 GSE67393 normal peripheral blood 450K (test half),spent (development),Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md (the 450K platform term),GEO
+GSE67393 normal peripheral blood 450K (reserved half),spent (confirmation),Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md (the 450K platform term),GEO
