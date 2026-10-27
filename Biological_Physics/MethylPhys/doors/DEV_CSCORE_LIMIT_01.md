@@ -83,3 +83,10 @@ limit is the derived limit times this factor (`limit.py::limit_450k`); EPIC is u
 **Bar:** at least 90 % of the test half's bloods at or below the 450K limit (`limit_450k_score.py`), read with the five-lab run's flags
 (`--cell-panel atlas --dev-metaa-allsites`). Met: the term goes into the chain for 450K arrays, flagged as calibrated, and the reserved half
 confirms. Not met: 450K whole-genome C-Scores stay withheld as not commissioned.
+
+**The 450K platform term, read: met** (`data/DEV_CSCORE_LIMIT_01/limit_05/cs450k_test_summary.txt`; series run 40436632921). 57 of the 59
+test bloods were read (2 stopped at intake on GitHub, exit 2, before any reading); 52 of 57 (0.9123) sit at or below the 450K limit, against
+22 of 57 (0.3860) at or below the plain limit. The scorer was corrected before this was reported (disclosed; first scoring
+`limit_05/cs450k_test_summary_run1.txt`): it had counted pass 1 and pass 2 (the series tare), so each blood twice; the term was measured on
+pass 1 readings only, and the test now reads pass 1 only. Both scorings give the same share. **Next:** the term into the chain's 450K
+whole-genome C-Score, flagged as calibrated; the reserved 58 confirm.

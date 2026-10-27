@@ -900,8 +900,8 @@ def main():
             o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
         _atlas_spec = (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.atlas_cell_of(a.specimen))
         if _atlas_spec and not (o["cell_shares"] or {}).get("cells"):   # 2026-10-25: say why the atlas readings did not run, instead of leaving them out
-            _why = "not read: the cell shares were withheld (" + str((o["cell_shares"] or {}).get("withheld") or (o["cell_shares"] or {}).get("reason") or "no shares") + ")"
-            for _k in ("met_a_each_cell", "met_a_whole", "territories", "cscore_each_cell"): o[_k] = {"flag": "development", "reason": _why}
+            _withheld_why = "not read: the cell shares were withheld (" + str((o["cell_shares"] or {}).get("withheld") or (o["cell_shares"] or {}).get("reason") or "no shares") + ")"
+            for _k in ("met_a_each_cell", "met_a_whole", "territories", "cscore_each_cell"): o[_k] = {"flag": "development", "reason": _withheld_why}
         if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.atlas_cell_of(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development); 2026-10-25: isolated atlas cells too (the cord-blood B cells read no Met-A)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
