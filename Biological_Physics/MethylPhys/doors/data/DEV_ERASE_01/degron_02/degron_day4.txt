@@ -1,0 +1,2 @@
+GSM7516959 against GSM7516965: 579 tiles | slope 0.6254 [0.5683, 0.6770] | intercept +1.0003 [+0.8401, +1.1775] | neither
+GSM7516977 against GSM7516983: 579 tiles | slope 0.5706 [0.5313, 0.6053] | intercept +1.0970 [+0.9908, +1.2181] | neither

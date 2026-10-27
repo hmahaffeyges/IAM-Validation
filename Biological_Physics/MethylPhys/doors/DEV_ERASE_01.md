@@ -321,3 +321,8 @@ the loose share rises steeply by day 2 (UHRF1 0.339 to 0.996; DNMT1 0.382 to 0.8
 survivors, as in the graded test, though less so in the DNMT1 line. Day 4 is reported when it lands, not scored. **What it means:** the firm
 rate is not derived from these tests; IAM-A's baseline stays calibrated (measured once on healthy samples, frozen), as the plan already
 states. The reserved replicates 2 and 3 stay unread.
+
+**The degron series, day 4 (reported, not scored)** (`data/DEV_ERASE_01/degron_02/degron_day4.txt`; counts in `degron_counts.txt`):
+- GSM7516959 against GSM7516965: 579 tiles | slope 0.6254 [0.5683, 0.6770] | intercept +1.0003 [+0.8401, +1.1775] | neither
+- GSM7516977 against GSM7516983: 579 tiles | slope 0.5706 [0.5313, 0.6053] | intercept +1.0970 [+0.9908, +1.2181] | neither
+The convergence strengthens from day 2 to day 4 in both lines, and the loose share keeps rising; this does not change bar 3.

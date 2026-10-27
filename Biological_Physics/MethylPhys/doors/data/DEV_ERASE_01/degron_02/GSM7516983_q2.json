@@ -1,0 +1,18 @@
+{
+ "gsm": "GSM7516983",
+ "genome": "hg19",
+ "counter": "run_sample.py --dev-count-only (chain Stage Q2)",
+ "held_err": 0.05575341279627585,
+ "held_opp": 9158399,
+ "loose_share": 0.9984190973045609,
+ "tiles": 12651,
+ "gain_err": 0.03373291845482156,
+ "gain_opp": 8278086,
+ "mol_n": 3527144,
+ "mol_low_share": 0.5813207512933977,
+ "mol_mid_share": 0.4252026568804676,
+ "coupling": 1.5734574345768866,
+ "coupling_err_share": 0.07814367652619907,
+ "coupling_pair_share": 0.0041135118459193765,
+ "coupling_pairs": 48548
+}
