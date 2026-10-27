@@ -1,0 +1,2 @@
+one command, run_sample.py --betas limit_04 constructed 450K array P03 (array declared HM450K): array_type HM450K | whole-genome C 1.0252 | limit 1.0192 | within False | rule derived x the 450K platform term (calibrated)
+one command, run_sample.py --betas limit_04 constructed 450K array P03 (array declared none): array_type None | whole-genome C 1.0252 | limit 1.0112 | within False | rule derived

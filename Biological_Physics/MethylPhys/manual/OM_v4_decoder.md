@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **34 Python files** holding **422 functions** (nested ones included); 422 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **34 Python files** holding **424 functions** (nested ones included); 424 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -34,7 +34,7 @@ Read from the code at build time: the one command can load **34 Python files** h
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 447 | 23 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 486 | 28 | 0 | 0 |
+| `stage_metaa_atlas.py` | 513 | 30 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
@@ -2911,6 +2911,18 @@ All the new sections in their order, after the cell shares.
 The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v2.1's means at sites every cell type holds alike (islands and shores never anchors). Development; off unless run_sample.py is given --dev-ruler.
 
 *Code:* `stage_t_selftare.py` line 32 (8 lines) · arguments: beta · calls: not called on the traced runs · constants read: `RULER`, `_C` · files named: `Runtime Matrices/Stage_T/atlas_ruler_v1.json`
+
+### `stage_metaa_atlas.py::cscore_limits`
+
+Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 450K platform term on a 450K array (measured once on spent healthy 450K bloods and frozen, Runtime Matrices/CScore_Limits/platform_term_450k.json; calibrated).
+
+*Code:* `stage_metaa_atlas.py` line 500 (13 lines) · arguments: cs, array_type · calls: not called on the traced runs · constants read: `HERE` · files named: `platform_term_450k.json`
+
+### `stage_metaa_atlas.py::cscore_limit`
+
+The C-Score's derived healthy upper limit (development): with departures independent from site to site, C over nb = n // 10 blocks follows a scaled Beta((nb - 1) / 2, (n - nb) / 2); the limit is its 95th percentile. Nothing is measured.
+
+*Code:* `stage_metaa_atlas.py` line 495 (4 lines) · arguments: n_sites, q, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
 
 ### `stage_metaa_atlas.py::read_on_curve`
 

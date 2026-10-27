@@ -483,3 +483,30 @@ def read_whole(beta, shares, counts=None):
             if hp.get("A_pred"): hp["A_over_pred"] = round(r["A"] / hp["A_pred"], 5)
         except Exception as ex: out["healthy_prediction"] = {"reason": f"{type(ex).__name__}: {ex}"[:200]}
     return out
+
+
+
+# ---- the C-Score's healthy upper limit (DEVELOPMENT; 2026-10-27; DEV-CSCORE-LIMIT-01, plan 14.12) ----------------------------------------
+# Derived, nothing measured: with departures independent from site to site, C = (n / nb) SSB / (SSB + SSW) over nb = n // 10 blocks, and
+# SSB / (SSB + SSW) follows Beta((nb - 1) / 2, (n - nb) / 2); the limit is its 95th percentile. On a 450K array, neighboring sites move
+# together very slightly, so the whole genome's limit is multiplied by a platform term measured once on spent healthy 450K bloods and frozen
+# (Runtime Matrices/CScore_Limits/platform_term_450k.json; calibrated). EPIC is unchanged. Each cell's limit carries no term (its identity
+# sites lie far apart on the genome).
+def cscore_limit(n_sites, q=0.95, w=CS_BLOCK):
+    from scipy.stats import beta as _beta
+    nb = int(n_sites) // w; n = nb * w
+    return None if nb < 10 else float(n / nb * _beta.ppf(q, (nb - 1) / 2, (n - nb) / 2))
+
+def cscore_limits(cs, array_type):
+    """Adds each reading's limit to the C-Score record from cscore_in_mix: limit, within (C at or below it) and the rule used."""
+    if not isinstance(cs, dict): return cs
+    for c in cs.get("cells") or []:
+        if c.get("C") is not None and c.get("n_sites"):
+            l = cscore_limit(c["n_sites"]); c.update(limit=None if l is None else round(l, 4), within=None if l is None else bool(c["C"] <= l), limit_rule="derived")
+    w = cs.get("whole_genome") or {}
+    if w.get("C") is not None and w.get("n_sites"):
+        l = cscore_limit(w["n_sites"]); rule = "derived"
+        if l is not None and array_type == "HM450K":
+            t = json.load(open(os.path.join(HERE, "Runtime Matrices", "CScore_Limits", "platform_term_450k.json"))); l *= t["factor"]; rule = "derived x the 450K platform term (calibrated)"
+        w.update(limit=None if l is None else round(l, 4), within=None if l is None else bool(w["C"] <= l), limit_rule=rule)
+    return cs

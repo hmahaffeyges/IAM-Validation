@@ -90,3 +90,9 @@ test bloods were read (2 stopped at intake on GitHub, exit 2, before any reading
 `limit_05/cs450k_test_summary_run1.txt`): it had counted pass 1 and pass 2 (the series tare), so each blood twice; the term was measured on
 pass 1 readings only, and the test now reads pass 1 only. Both scorings give the same share. **Next:** the term into the chain's 450K
 whole-genome C-Score, flagged as calibrated; the reserved 58 confirm.
+
+**In the chain** (development): every C-Score reading now carries its limit, whether it sits within it, and the rule
+(`stage_metaa_atlas.cscore_limits`, called by `run_sample.py`): each cell the derived limit; the whole genome the derived limit, times the
+frozen 450K term on a 450K array (`Runtime Matrices/CScore_Limits/platform_term_450k.json`). Checked through the one command on a
+constructed 450K array declared and not declared (`data/DEV_CSCORE_LIMIT_01/limit_06/chain_limits_check.txt`). A values file read without
+a declared array type takes the derived limit. The reserved half of GSE67393 confirms before the C-Score is commissioned.

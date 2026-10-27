@@ -1886,6 +1886,12 @@ All the new sections in their order, after the cell shares.
 ### stage_t_selftare.py::ruler_map
 The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v2.1's means at sites every cell type holds alike (islands and shores never anchors). Development; off unless run_sample.py is given --dev-ruler.
 
+### stage_metaa_atlas.py::cscore_limits
+Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 450K platform term on a 450K array (measured once on spent healthy 450K bloods and frozen, Runtime Matrices/CScore_Limits/platform_term_450k.json; calibrated).
+
+### stage_metaa_atlas.py::cscore_limit
+The C-Score's derived healthy upper limit (development): with departures independent from site to site, C over nb = n // 10 blocks follows a scaled Beta((nb - 1) / 2, (n - nb) / 2); the limit is its 95th percentile. Nothing is measured.
+
 ### stage_metaa_atlas.py::read_on_curve
 Met-A with IAM-Atlas v2.1 as the ruler on the array's own response curve (plan 14.14, development): identity sites chosen on the atlas; the array's mean reading and its spread at each atlas level, measured at every other site it read; its healthy mark is the expected entropy at the identity sites of a reading on that curve with that spread; Met-A is its own mean entropy there over the mark. No cohort and no same-run references; also returns how far the array reads above its own curve at the identity sites.
 

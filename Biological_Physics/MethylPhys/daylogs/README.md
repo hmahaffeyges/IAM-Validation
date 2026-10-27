@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-10-27](2026-10-27.md) | The leukemia study's depth settled |
 | [2026-10-26](2026-10-26.md) | The leukemia study's depth settled |
 | [2026-10-25](2026-10-25.md) | Where the held error comes from, and the leukemia study at full depth |
 | [2026-10-24](2026-10-24.md) | Replays of the earlier work, read through the chain |

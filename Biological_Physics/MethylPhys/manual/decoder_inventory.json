@@ -6778,7 +6778,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 486,
+   "lines": 513,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7308,6 +7308,45 @@
      "doc": "",
      "constants": [],
      "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "cscore_limit",
+     "name": "cscore_limit",
+     "line": 495,
+     "end": 498,
+     "args": [
+      "n_sites",
+      "q",
+      "w"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "CS_BLOCK"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "cscore_limits",
+     "name": "cscore_limits",
+     "line": 500,
+     "end": 512,
+     "args": [
+      "cs",
+      "array_type"
+     ],
+     "lines": 13,
+     "doc": "Adds each reading's limit to the C-Score record from cscore_in_mix: limit, within (C at or below it) and the rule used.",
+     "constants": [
+      "HERE"
+     ],
+     "data_files": [
+      "platform_term_450k.json"
+     ],
      "traced_calls": {}
     }
    ],
@@ -8246,5 +8285,5 @@
   }
  ],
  "n_files": 34,
- "n_functions": 422
+ "n_functions": 424
 }

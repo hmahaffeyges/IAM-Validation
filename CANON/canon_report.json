@@ -3546,6 +3546,33 @@
 "text": "limit is the derived limit times this factor (`limit.py::limit_450k`); EPIC is unchanged."
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 95,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "(`stage_metaa_atlas.cscore_limits`, called by `run_sample.py`): each cell the derived limit; the whole genome the derived limit, times the"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 95,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "(`stage_metaa_atlas.cscore_limits`, called by `run_sample.py`): each cell the derived limit; the whole genome the derived limit, times the"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
+"line": 98,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "a declared array type takes the derived limit. The reserved half of GSE67393 confirms before the C-Score is commissioned."
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
 "line": 138,
 "pattern": "reference line",
@@ -4276,7 +4303,25 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 2941,
+"line": 2917,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 45"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 2917,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 45"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 2953,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4285,7 +4330,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3096,
+"line": 3108,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4294,7 +4339,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3096,
+"line": 3108,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4303,7 +4348,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3353,
+"line": 3365,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4312,7 +4357,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3501,
+"line": 3513,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4366,7 +4411,25 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1902,
+"line": 1890,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 45"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 1890,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 45"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 1908,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4375,7 +4438,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1995,
+"line": 2001,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4384,7 +4447,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1995,
+"line": 2001,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4393,7 +4456,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2147,
+"line": 2153,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4402,7 +4465,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2228,
+"line": 2234,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
