@@ -1,0 +1,4 @@
+IAM-A Normal band v1 (Biological_Physics/MethylPhys/doors/data/DEV_IAMA_GRAND_01/grand_rule.json): {"test": "DEV-IAMA-GRAND-01 (COM-IAMA-052)", "sealed_by_author": "2026-10-16, 'okay, seal it', before any CD8 read was downloaded", "instruments_job": "a healthy CD8 T-cell sample from a laboratory IAM-A has never seen reads Normal on IAM-A's gauge", "band_lo": 0.7787, "band_hi": 1.0551, "share": 0.
+naive cd4 t cells (line_v1_cells.json): loose share 0.0304, held error 0.0344, samples 1
+naive cd8 t cells (line_v1_cells.json): loose share 0.0343, held error 0.0333, samples 1
+b cells (line_v1_cells.json): loose share 0.0548, held error 0.0380, samples 3

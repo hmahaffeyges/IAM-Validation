@@ -176,7 +176,7 @@ Whole-sample Met-A and the territories still do not separate them on sequencing 
 **How to read these IAM-A values (added after the complete reading):** IAM-A is commissioned on healthy blood CD8 T cells; its Normal band
 v1 is 0.7787 to 1.0551, and that is the gauge used here. Two of the three cord-blood controls read inside it (0.794, 0.791) and one just
 below (0.769). Cord-blood B cells are naive, with a low loose share (0.029), and at that end the self-reference line predicts more held error
-than healthy naive cells carry: in the line's own build (DEV_CHAIN_Q2_01, line_v1_cells.json) healthy naive CD4 T cells hold 0.0344 at a
+than healthy naive cells carry: in the line's own build (DEV_CHAIN_Q2_01, line_v1_cells.json; copied in `full_depth/iama_reference_values.txt`) healthy naive CD4 T cells hold 0.0344 at a
 loose share of 0.030, and the commissioning shape check declined all four naive CD8 samples. So healthy naive cells read near the band's
 lower edge. Every sample here was also read as a mixed specimen (the leukemias "not stated", most controls "plasma"), so the shape check was
 not applied; all are flagged development. **Next:** the line's naive end, read on healthy naive cells (adult naive B, CD4 and CD8 from the
