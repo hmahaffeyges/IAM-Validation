@@ -105,6 +105,11 @@ def read(beta, cell, specimen="isolated", counts=None):
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),
                shift_per_1pct_loss=round(float(_H(xd).mean() / _H(x[ok]).mean() * A - A), 5),
                state="untared: read A_rel against same-run healthy references of the same cell (tare)")
+    _hi, _lo = mu[ok] > 0.5, mu[ok] <= 0.5   # 2026-10-28 (DEV-METAA-ATLAS-CURVE-01, the shift's cause): recorded only, never used in A
+    rec["levels_at_identity"] = dict(n_methylated=int(_hi.sum()), sample_median_methylated=round(float(x[ok][_hi].median()), 5) if _hi.any() else None,
+                                     atlas_median_methylated=round(float(mu[ok][_hi].median()), 5) if _hi.any() else None, n_unmethylated=int(_lo.sum()),
+                                     sample_median_unmethylated=round(float(x[ok][_lo].median()), 5) if _lo.any() else None,
+                                     atlas_median_unmethylated=round(float(mu[ok][_lo].median()), 5) if _lo.any() else None)
     return rec
 
 CURVE_EDGES = [0, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 0.97, 0.98, 0.99, 1.0]   # step 3 v7's, stated

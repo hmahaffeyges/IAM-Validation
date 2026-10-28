@@ -1973,6 +1973,9 @@ negligible). It was added after the depth test (DEV-ONE-DRAW-01 exploration 1) f
 Met-A against the atlas cell, untared, on the values given (the one command passes the self-tared values), with the shift a 1 % loss would
 make; refuses, with the reason, a cell with no qualifying site or a sample measuring under 90 % of them.
 
+Each reading also records `levels_at_identity`: the sample's and the atlas column's median level at the column's methylated and
+unmethylated identity sites (recorded only, never used in A), to measure whether the atlas's levels sit nearer the middle than sequencing.
+
 ### stage_metaa_atlas.py::tare
 A_rel = A over the median of at least 3 same-run healthy references (never the sample), the references' spread and the detection limit.
 

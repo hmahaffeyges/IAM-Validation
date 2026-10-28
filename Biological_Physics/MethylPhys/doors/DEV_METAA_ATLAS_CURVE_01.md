@@ -124,3 +124,14 @@ reads far below 1 against its own column of IAM-Atlas v2.1, while arrays of the 
 therefore cannot be read by Met-A against the atlas as built; IAM-A on the same files reads Normal, so the files are sound. **What follows:**
 Met-A on sequencing needs its own healthy reference before any sequencing sample (the leukemia study included) is read on Met-A's gauge; the
 cause of the offset (a site's value from few reads, or the chemistry) is measured next on the 153 healthy sequencing readings now running.
+
+## The shift's cause: are the atlas's levels blurred toward the middle? (written and committed before the rerun)
+
+**The question:** the atlas columns are built mostly from arrays, which pull every level slightly toward the middle; sequencing counts
+molecules. If the atlas's level at an identity site is blurred, a healthy sequencing sample is more extreme there than the atlas says,
+holds less disorder than the expectation and reads below 1, and more so the deeper it is (the read-count damping that offsets the gap
+fades with depth), as the shift readings showed. **The prediction:** at the column's methylated identity sites the sample's median level is
+above the atlas's, and at its unmethylated sites below. **The reading:** the same 17 sequencing inputs (`shift_01/seq_inputs.csv`), read again
+by the one command on the chain that records each reading's levels at its identity sites (`stage_metaa_atlas`, `levels_at_identity`,
+recorded only, never used in A). **Compared** by `shift_02/levels_compare.py`. Nothing scored; the answer decides what Met-A on sequencing
+is read against.

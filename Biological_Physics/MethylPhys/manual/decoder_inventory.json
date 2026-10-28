@@ -6778,7 +6778,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 513,
+   "lines": 518,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6891,14 +6891,14 @@
      "function": "read",
      "name": "read",
      "line": 91,
-     "end": 108,
+     "end": 113,
      "args": [
       "beta",
       "cell",
       "specimen",
       "counts"
      ],
-     "lines": 18,
+     "lines": 23,
      "doc": "Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1.",
      "constants": [
       "FLAG",
@@ -6911,8 +6911,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_on_curve",
      "name": "read_on_curve",
-     "line": 112,
-     "end": 139,
+     "line": 117,
+     "end": 144,
      "args": [
       "beta",
       "cell"
@@ -6931,8 +6931,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "tare",
      "name": "tare",
-     "line": 141,
-     "end": 150,
+     "line": 146,
+     "end": 155,
      "args": [
       "A",
       "refs"
@@ -6950,8 +6950,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_all",
      "name": "plant_all",
-     "line": 152,
-     "end": 156,
+     "line": 157,
+     "end": 161,
      "args": [
       "beta",
       "cell",
@@ -6967,8 +6967,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_runs",
      "name": "plant_runs",
-     "line": 159,
-     "end": 171,
+     "line": 164,
+     "end": 176,
      "args": [
       "beta",
       "cell",
@@ -6993,8 +6993,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant",
      "name": "plant",
-     "line": 173,
-     "end": 177,
+     "line": 178,
+     "end": 182,
      "args": [
       "beta",
       "cell",
@@ -7010,8 +7010,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 184,
-     "end": 226,
+     "line": 189,
+     "end": 231,
      "args": [
       "beta",
       "shares",
@@ -7035,8 +7035,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 229,
-     "end": 240,
+     "line": 234,
+     "end": 245,
      "args": [
       "beta",
       "shares",
@@ -7054,8 +7054,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 243,
-     "end": 272,
+     "line": 248,
+     "end": 277,
      "args": [
       "beta",
       "shares"
@@ -7073,8 +7073,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_clustering",
      "name": "_clustering",
-     "line": 278,
-     "end": 284,
+     "line": 283,
+     "end": 289,
      "args": [
       "z",
       "w"
@@ -7091,8 +7091,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_genome_order",
      "name": "_genome_order",
-     "line": 286,
-     "end": 291,
+     "line": 291,
+     "end": 296,
      "args": [
       "ids"
      ],
@@ -7112,8 +7112,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
-     "line": 293,
-     "end": 323,
+     "line": 298,
+     "end": 328,
      "args": [
       "beta",
       "shares",
@@ -7134,8 +7134,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_sets",
      "name": "territory_sets",
-     "line": 333,
-     "end": 349,
+     "line": 338,
+     "end": 354,
      "args": [],
      "lines": 17,
      "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
@@ -7153,8 +7153,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_reading",
      "name": "ceiling_reading",
-     "line": 351,
-     "end": 371,
+     "line": 356,
+     "end": 376,
      "args": [
       "xs",
       "es",
@@ -7172,8 +7172,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_reading",
      "name": "territory_reading",
-     "line": 373,
-     "end": 392,
+     "line": 378,
+     "end": 397,
      "args": [
       "beta",
       "shares",
@@ -7193,8 +7193,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 394,
-     "end": 400,
+     "line": 399,
+     "end": 405,
      "args": [
       "beta",
       "name",
@@ -7212,8 +7212,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_he",
      "name": "_he",
-     "line": 404,
-     "end": 406,
+     "line": 409,
+     "end": 411,
      "args": [
       "es",
       "counts"
@@ -7228,8 +7228,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 411,
-     "end": 414,
+     "line": 416,
+     "end": 419,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -7243,8 +7243,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 416,
-     "end": 429,
+     "line": 421,
+     "end": 434,
      "args": [
       "xs",
       "es"
@@ -7259,8 +7259,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 431,
-     "end": 446,
+     "line": 436,
+     "end": 451,
      "args": [
       "xs",
       "es",
@@ -7279,8 +7279,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 448,
-     "end": 485,
+     "line": 453,
+     "end": 490,
      "args": [
       "beta",
       "shares",
@@ -7299,8 +7299,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 466,
-     "end": 471,
+     "line": 471,
+     "end": 476,
      "args": [
       "m"
      ],
@@ -7314,8 +7314,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limit",
      "name": "cscore_limit",
-     "line": 495,
-     "end": 498,
+     "line": 500,
+     "end": 503,
      "args": [
       "n_sites",
       "q",
@@ -7333,8 +7333,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limits",
      "name": "cscore_limits",
-     "line": 500,
-     "end": 512,
+     "line": 505,
+     "end": 517,
      "args": [
       "cs",
       "array_type"
