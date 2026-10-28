@@ -1,7 +1,7 @@
-leukemias 27 | cord-blood controls 3
+leukemias 31 | cord-blood controls 3
 reading | leukemia median | control median | leukemias above the highest control | Mann-Whitney p
-iam_a | 0.9025 | 0.7906 | 27 of 27 | 0.000493
-held_error | 0.0395 | 0.0340 | 26 of 27 | 0.00197
-met_a_whole | 0.7266 | 0.7030 | 12 of 27 | 0.554
-islands_A | 0.3534 | 0.2146 | 12 of 27 | 0.0857
-domains_A | 0.7821 | 0.7751 | 9 of 27 | 0.695
+iam_a | 0.9025 | 0.7906 | 31 of 31 | 0.000334
+held_error | 0.0404 | 0.0340 | 30 of 31 | 0.00134
+met_a_whole | 0.7266 | 0.7030 | 14 of 31 | 0.604
+islands_A | 0.3600 | 0.2146 | 14 of 31 | 0.0792
+domains_A | 0.7788 | 0.7751 | 10 of 31 | 0.775

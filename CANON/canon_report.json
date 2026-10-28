@@ -3762,6 +3762,24 @@
 "text": "its ceiling sits at; the ceiling's A is listed in the A-score database, kept apart from array readings (sequencing reads Met-A lower against the array-built atl"
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+"line": 177,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "that cell type's healthy line. Every sample here was read as a mixed specimen (the leukemias with specimen \"not stated\", most cord-blood"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+"line": 179,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "ruler (every leukemia above every control); they are not positions on a healthy B-cell gauge. **Next (plan 14.15):** IAM-A's healthy line"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md",
 "line": 4,
 "pattern": "\\bA[- ]score",

@@ -31,3 +31,7 @@ GSM4914809,ALL-5651,leukemia,not stated,0.9985,Normal,0.044735,0.77028,,0.31246,
 GSM4914810,ALL-6065,leukemia,not stated,0.8898,Normal,0.040681,0.91552,,0.24549,1.04811,b cells,0.725
 GSM4914811,ALL-7494,leukemia,not stated,0.8219,Normal,0.035911,0.61557,,0.36004,0.60692,memory b cells,0.388
 GSM4914812,ALL-8131,leukemia,not stated,0.9043,Normal,0.04039,0.6623,,0.35344,0.70027,b cells,0.321
+GSM4914813,ALL-8655,leukemia,not stated,0.9168,Normal,0.04122,0.77354,,0.30068,0.84442,b cells,0.767
+GSM4914814,ALL-1398,leukemia,not stated,0.9396,Normal,0.044811,0.74659,,0.45621,0.76901,b cells,0.423
+GSM4914815,ALL-1811,leukemia,not stated,0.8829,Normal,0.045336,0.66845,,0.41772,0.69159,memory b cells,0.479
+GSM4914816,ALL-7258,leukemia,not stated,0.8685,Normal,0.036675,0.61338,,0.36443,0.61928,b cells,0.562

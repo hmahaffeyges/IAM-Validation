@@ -1,0 +1,24 @@
+DEV-REPLICATE-01 r5: 481 of 481 arrays read (pass 1, untared)
+-- metabolic HCC case (221) against control (260), all
+site cg05575921                            case 0.8610 control 0.8675 | d -0.17 | p 0.21
+site cg03636183                            case 0.6790 control 0.6810 | d -0.10 | p 0.22
+site cg16867657                            case 0.7160 control 0.7125 | d +0.03 | p 0.62
+share neutrophils                          case 0.6272 control 0.5764 | d +0.33 | p 0.00015
+share cd4 t cells                          case 0.0000 control 0.0000 | d -0.09 | p 0.69
+share cd8 t cells                          case 0.0000 control 0.0000 | d -0.04 | p 0.42
+share b cells                              case 0.0000 control 0.0000 | d +0.06 | p 0.3
+share nk cells                             case 0.0000 control 0.0000 | d -0.08 | p 0.91
+share monocytes                            case 0.0439 control 0.0349 | d +0.19 | p 0.0052
+Met-A whole                                case 1.0132 control 1.0111 | d +0.07 | p 0.51
+ceiling distance                           case 0.9901 control 0.9911 | d -0.07 | p 0.52
+Met-A whole, identity sites of the cells found case 0.9956 control 0.9944 | d +0.04 | p 0.72
+Met-A whole, islands                       case 0.9677 control 0.9666 | d -0.01 | p 0.95
+Met-A whole, domains                       case 1.0167 control 1.0144 | d +0.09 | p 0.39
+Met-A whole, the rest                      case 1.0167 control 1.0156 | d +0.08 | p 0.51
+Met-A neutrophils                          case 0.9766 control 0.9724 | d +0.04 | p 0.62
+Met-A cd4 t cells                          case 1.0139 control 1.0135 | d +0.02 | p 0.84
+Met-A cd8 t cells                          case 1.0325 control 1.0295 | d +0.02 | p 0.76
+Met-A b cells                              case 1.0306 control 1.0293 | d +0.02 | p 0.73
+Met-A monocytes                            case 0.9968 control 0.9946 | d +0.02 | p 0.88
+territory islands                          case 0.9700 control 0.9688 | d -0.01 | p 0.93
+territory domains                          case 1.0146 control 1.0121 | d +0.09 | p 0.42

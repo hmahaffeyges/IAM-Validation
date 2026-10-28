@@ -242,3 +242,10 @@ current testing is done (GRP-007). **The reading:** every array by `run_sample.p
 one batch over 20 machines. **Compared** by `r23_score.py r5`: cases against controls on the cell shares, Met-A for the whole sample and
 each cell, the territories and the distance to the ceiling (medians, Cohen's d, two-sided Mann-Whitney p). Nothing is scored against a
 bar; this is a replay, reported as read. EPIC v1 blood is the commissioned platform and specimen. **Prior reading:** none of its arrays.
+
+**R5 liver cancer in blood, read** (`data/DEV_REPLICATE_01/r5/r5_summary.txt`; all 481 arrays, EPIC v1, pass 1, untared; series run
+40621291852). The cell shares differ: neutrophils higher in the liver cancer cases (median 0.627 against 0.576, d +0.33, p 0.00015) and
+monocytes higher (0.044 against 0.035, p 0.0052). Met-A for the whole sample (p 0.51), for each of the five cells (p 0.62 to 0.88), the two
+territories (p 0.93, 0.42) and the distance to the ceiling (p 0.52) do not differ between cases and controls. **Note on the scorer:** it
+reads the shares of the classic six blood cells by name; on the atlas panel the lymphocytes are split into finer types, so the CD4, CD8,
+B and NK shares it lists read 0 and are not readings. Reported as read; nothing is scored against a bar.
