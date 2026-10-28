@@ -202,6 +202,18 @@ One tube, two halves: the buffy coat (the person's own white cells, long DNA) an
 
 **Next:** The smallest share each instrument reads at each depth; then the test on the held set. **Record:** [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md)
 
+### The territories
+
+Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands, sites every healthy cell type keeps unmarked, where a mark gained is disorder; and the domains, marked sites some healthy cell types hold loosely, where the hold is lost first. Every run of the one command reads both, on arrays and on sequencing, so a change outside a cell's identity sites is seen where it starts. The synthetic tests pass, and tumors read above their own normal tissue on the islands.
+
+**Next:** Healthy samples read Normal first, on arrays and on sequencing against the same atlas columns; then tumors and blood cancers against their own healthy cells. **Record:** [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
+
+### Nearest-neighbor coupling
+
+Whether a molecule's held errors fall one at a time or together. On every sequencing count the chain's IAM-A counter records the pairs of neighboring CpGs that lost their mark together on held molecules, over what each molecule's own length and error count give at random; 1 is independent. It asks a question from the information-theory study of methylation: is a mark kept site by site, or by a stretch of DNA as a unit? It is read beside IAM-A's held error, because clustered errors change the lone-error count IAM-A uses. On constructed molecules, independent errors read 0.98 and clustered errors read 2.9 and 4.2.
+
+**Next:** A healthy reference for its gauge from healthy sorted cells on sequencing; then the first question, written before it is read: does switching off the maintenance machinery change how the errors cluster? **Record:** [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md)
+
 ## Sex and the X chromosome
 
 <!-- SEX-SECTION:BEGIN -->
