@@ -5903,6 +5903,49 @@
    "first_entered": null
   },
   {
+   "file": "stage_coupling.py",
+   "lines": 30,
+   "functions": [
+    {
+     "file": "stage_coupling.py",
+     "function": "reference",
+     "name": "reference",
+     "line": 14,
+     "end": 15,
+     "args": [
+      "path"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "REF"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_coupling.py",
+     "function": "read",
+     "name": "read",
+     "line": 17,
+     "end": 29,
+     "args": [
+      "q",
+      "cell",
+      "ref"
+     ],
+     "lines": 13,
+     "doc": "q: the IAM-A record of Stage Q2 (its count carries coupling and coupling_max); cell: the sample's cell type.",
+     "constants": [
+      "FLAG"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
    "file": "stage_provisional.py",
    "lines": 98,
    "functions": [
@@ -8301,6 +8344,6 @@
    "first_entered": null
   }
  ],
- "n_files": 34,
- "n_functions": 425
+ "n_files": 35,
+ "n_functions": 427
 }

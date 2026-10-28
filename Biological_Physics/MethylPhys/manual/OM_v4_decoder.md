@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **34 Python files** holding **425 functions** (nested ones included); 424 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **35 Python files** holding **427 functions** (nested ones included); 427 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -29,6 +29,7 @@ Read from the code at build time: the one command can load **34 Python files** h
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
 | `stage_q0_intake.py` | 174 | 7 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
+| `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
 | `stage_groupa.py` | 100 | 4 | 0 | 0 |
@@ -3577,3 +3578,26 @@ Version 2 of a provisional column (after test 1): the level from the shrunk prop
 Reads a column name with its version ('megakaryocytes@2'); a bare name is version 1. The version is recorded in the bundle, the cell keeps its plain name.
 
 *Code:* `stage_provisional.py` line 75 (3 lines) · arguments: cell · calls: not called on the traced runs
+
+### `stage_coupling.py::read`
+
+Nearest-neighbor coupling on the A-score gauge (in development, plan 49.5). coupling-A is the sample's coupling (Stage Q2) over the healthy
+coupling of its cell type (`Runtime Matrices/Coupling/coupling_reference_v1.json`, built from IAM-Atlas v2.1's healthy sequencing inputs).
+The gauge runs from 0 (errors never neighbors) to the ceiling `coupling_max` over the same healthy coupling (every molecule's errors in one
+run), both counted. Output `coupling_a`: A, healthy, floor, ceiling, band, state, flag; without a reference, the reason.
+
+*Code:* `stage_coupling.py` line 17 (13 lines) · arguments: q, cell, ref · calls: not called on the traced runs · constants read: `FLAG`
+
+### `report_v4.py::_coupling`
+
+The report's nearest-neighbor coupling section: coupling-A's state and Normal band beside the healthy coupling of the sample's cell,
+flagged in development, with its gauge; without a reference, the coupling and the reason it has no gauge position.
+
+*Code:* `MethylPhys_Interface/report_v4.py` line 177 (11 lines) · arguments: o · calls: not called on the traced runs · constants read: `E`
+
+### `stage_coupling.py::reference`
+
+Loads the healthy coupling reference (`Runtime Matrices/Coupling/coupling_reference_v1.json`): each cell type's healthy coupling and the
+Normal band of coupling-A. Returns nothing until the reference is built, and the reading then says so.
+
+*Code:* `stage_coupling.py` line 14 (2 lines) · arguments: path · calls: not called on the traced runs · constants read: `REF`

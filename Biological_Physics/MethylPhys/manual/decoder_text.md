@@ -2281,3 +2281,11 @@ coupling of its cell type (`Runtime Matrices/Coupling/coupling_reference_v1.json
 The gauge runs from 0 (errors never neighbors) to the ceiling `coupling_max` over the same healthy coupling (every molecule's errors in one
 run), both counted. Output `coupling_a`: A, healthy, floor, ceiling, band, state, flag; without a reference, the reason.
 
+### report_v4.py::_coupling
+The report's nearest-neighbor coupling section: coupling-A's state and Normal band beside the healthy coupling of the sample's cell,
+flagged in development, with its gauge; without a reference, the coupling and the reason it has no gauge position.
+
+
+### stage_coupling.py::reference
+Loads the healthy coupling reference (`Runtime Matrices/Coupling/coupling_reference_v1.json`): each cell type's healthy coupling and the
+Normal band of coupling-A. Returns nothing until the reference is built, and the reading then says so.
