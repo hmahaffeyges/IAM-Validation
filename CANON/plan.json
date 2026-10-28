@@ -692,7 +692,7 @@
      "status": "running",
      "what": "GSM3618718 in the firm-rate recount stopped at GitHub's 6-hour limit while downloading and aligning (run 39994316396, nothing saved): one machine is too small for it. It needs its read sets spread over machines, as the mouse test's were (mice_split.yml), with the human index built once and shared",
      "run": "39994316396",
-     "next": "sent as a 60-way split (462 million read pairs, about 7.7 million per machine, under the 6-hour limit): runs 40604230242 (pieces 0-19) and 40604253625 (20-39); the third run aligns 40-59 and merges all 60; then the count joins layer 1"
+     "next": "GSM3618718 (U1 second pair, wild type) counted at full depth by the 60-way split (run 40705309743); its knockout GSM3618720 (547 million pairs) runs the same way as machine filler only: the recount already reads not met on 4 of 5 units and the firm rate stays calibrated"
     },
     {
      "id": "14.6",
