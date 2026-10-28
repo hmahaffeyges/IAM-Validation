@@ -148,6 +148,14 @@ and men came out 0.36 % apart, and a 1 % loss planted into half of them was foun
 physical reading per person, each against its own expected value for that person's cell mix, with nothing fitted, and prints the
 smallest difference the study could have found.
 
+### The territories and nearest-neighbor coupling: read on every run, in development
+
+Two more readings come out of every run. **The territories** read disorder where the identity readings do not reach: the islands, sites
+every healthy cell type keeps unmarked, and the domains, marked sites some cell types hold loosely, each on the same A-score gauge against
+IAM-Atlas v2.1. **Nearest-neighbor coupling** reads, on single molecules, whether lost marks fall one at a time or together along a stretch
+of DNA, a question from the information-theory study of methylation; 1 is independent. Both are shown beside the commissioned readings and
+flagged as in development ([the instruments](INSTRUMENTS.md)).
+
 ### The chain: one command
 
 The instruments run as one chain: intake, calibration of each array on its own, the readings, and a report with a plain view and a

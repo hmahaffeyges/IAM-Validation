@@ -298,6 +298,14 @@
   "reference": {
    "status": "current",
    "definition": "Only what is measured: the reference atlas (IAM-Atlas v2.1) and the healthy reference cells and arrays in it. Never the baseline."
+  },
+  "The territories": {
+   "status": "current",
+   "definition": "In development (DEV-TERRITORIES-01): disorder at two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands (sites every healthy cell type keeps unmarked) and the domains (marked sites some healthy cell types hold loosely). Read on every run of the one command and flagged; not commissioned until healthy samples read Normal on a sealed test."
+  },
+  "Nearest-neighbor coupling": {
+   "status": "current",
+   "definition": "In development (plan 49.5): on held molecules, the pairs of neighboring CpGs that lost their mark together, over what each molecule's own length and error count give at random; 1 is independent. Recorded by chain Stage Q2 (stage_q2_selfref._coupling) on every sequencing count, beside IAM-A's held error. Not commissioned until it has a healthy reference and a sealed test."
   }
  },
  "retired": {

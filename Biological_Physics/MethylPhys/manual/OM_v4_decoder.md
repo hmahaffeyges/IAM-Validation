@@ -1460,6 +1460,11 @@ edited after the chain wrote them, because the result's hash no longer matches i
 **How to break it.** Plant isolated holes into held runs of a constructed BAM: ε and IAM-A must rise (release check V7 does this through
 the one command). Hand it a cell type with no healthy reference: it must not read. Edit one number in `band_v1.json`: the chain must refuse it.
 
+**Nearest-neighbor coupling, a second reading on the same count.** Every count also records whether a molecule's lost marks fall one at a
+time or together: the pairs of neighboring CpGs unmethylated together on held molecules, over what each molecule's own length and error count
+give at random (`_coupling`); 1 is independent. It is written beside the held error because clustered errors lower the lone-error count IAM-A
+uses. In development: recorded and flagged, no gauge yet (INSTRUMENTS.md, In development).
+
 ### `stage_q2_selfref.py::_coupling`
 
 Nearest-neighbor coupling on held molecules (development, recorded only, plan 49.5): the adjacent pairs of unmethylated calls, set against what random placement gives each molecule from its own length L and its own number k of unmethylated calls, k (k - 1) / L. 1 when errors fall independently, above 1 when they cluster along the molecule. Nothing fitted. Clustered errors lower the lone-error count IAM-A uses at the same error share, so the two are reported together.
@@ -2845,6 +2850,11 @@ predicts there. A held site sits near 0 or 1; a loss moves it toward 0.5, where 
 spread combined with the atlas's own uncertainty, half its 95 % range over 1.96), and a best value from 0.75 to 0.95 (methylated side) or 0.05
 to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
 measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
+
+**The territories, read on every run.** Besides each cell's identity sites, this stage reads two fixed site sets the identity readings do not
+reach (`territory_sets`, `territory_reading`): the islands, sites every healthy cell type keeps unmarked, and the domains, marked sites some
+healthy cell types hold loosely, each on the A-score gauge against IAM-Atlas v2.1 at each site's own read count. In development: read and
+flagged on arrays and sequencing (INSTRUMENTS.md, In development).
 
 ### `report_v4.py::_fam_of`
 

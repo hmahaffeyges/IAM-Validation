@@ -31,6 +31,10 @@ def build():
         L += [f"\\subsection*{{{tex(i['name'])}}}", f"\\textbf{{The question.}} {tex(i['question'])}\\par",
               f"\\textbf{{How it reads.}} {tex(i['how'])}\\par", f"\\textbf{{Its specialty.}} {tex(i['specialty'])}{ref}\\par",
               f"\\textbf{{Reads from.}} {tex(i['reads'])}. \\textbf{{Status.}} {tex(stage_word(i, M))}.\\par", ""]
+    L += [r"\section{In development}", "", "Readings the one command makes on every run, shown beside the commissioned ones and "
+          "flagged as in development until each passes tests written before its data are read.", ""]   # 2026-10-28 (author): in the book too
+    for d in C.get("in_development", []):
+        L += [f"\\subsection*{{{tex(d['name'])}}}", f"{tex(d['what'])}\\par", f"\\textbf{{Next.}} {tex(d['next'])}\\par", ""]
     L += [r"\section{The tools the instruments run on}", "", r"\begin{itemize}"]
     for t in C["support_tools"]: L.append(f"\\item \\textbf{{{tex(t['name'])}.}} {tex(t['what'])} (Chapter~\\ref{{{t['chapter']}}})")
     L += [r"\end{itemize}", "", r"\section{Candidates}", "",

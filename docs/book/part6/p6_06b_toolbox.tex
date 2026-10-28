@@ -41,6 +41,34 @@ Every reading in this part comes from one of a small set of tools. Each answers 
 \textbf{Its specialty.} Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series. (Chapter~\ref{ch:groupa})\par
 \textbf{Reads from.} arrays. \textbf{Status.} Commissioned (groups of whole bloods run in one series, EPIC v1).\par
 
+\section{In development}
+
+Readings the one command makes on every run, shown beside the commissioned ones and flagged as in development until each passes tests written before its data are read.
+
+\subsection*{The information sphere}
+The second sphere. The sky sphere places a site by where it sits on the genome; the information sphere places it by how it behaves across the 79 healthy cells, so sites that act alike land together wherever they are on the DNA, and the distance between two states is the Fisher-Rao distance of information geometry, the local form of relative entropy. The sky sphere says where a change is; the information sphere says what kind of change it is. Its construction takes each site's level out first, because on real cells a site's level otherwise sets its place. The synthetic tests pass; on the real atlas it met two of three checks, and the next test reads the third against level-matched groups.\par
+\textbf{Next.} The test on the real atlas with level-matched lines; then a person's information sphere against their own healthy one.\par
+
+\subsection*{The C-Score family}
+The C-Score reads how a change is laid out along the genome, not how large it is, against the sample's own spread, so a laboratory's offset cancels. Three versions: the commissioned one at Met-A's neutrophil sites; the whole-genome version on the globe's change map against IAM-Atlas v2.1; and IAM-A's, the clustering of held-error departures along the genome on single molecules.\par
+\textbf{Next.} Each version read on healthy samples first, then on tumors.\par
+
+\subsection*{Every cell in a mix}
+One run of the one command finds every cell of IAM-Atlas v2.1 in a sample and reads Met-A for each, against its own healthy profile; each cell also gets its own change layer on the globe. Sites held by one cell alone are the next test, so a loss across a cell's whole pattern can be put on the right cell.\par
+\textbf{Next.} Each cell's healthy spread across Group-A's 278 bloods.\par
+
+\subsection*{One blood draw}
+One tube, two halves: the buffy coat (the person's own white cells, long DNA) and the plasma (cell-free DNA). The one command reads both and writes one record, including what the plasma holds that the person's own white cells do not explain, and IAM-Atlas v2.1 says which tissue it came from. Constructed draws with known answers test it; a public set of matched halves from healthy people is held unread for the test that counts.\par
+\textbf{Next.} The smallest share each instrument reads at each depth; then the test on the held set.\par
+
+\subsection*{The territories}
+Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands, sites every healthy cell type keeps unmarked, where a mark gained is disorder; and the domains, marked sites some healthy cell types hold loosely, where the hold is lost first. Every run of the one command reads both, on arrays and on sequencing, so a change outside a cell's identity sites is seen where it starts. The synthetic tests pass, and tumors read above their own normal tissue on the islands.\par
+\textbf{Next.} Healthy samples read Normal first, on arrays and on sequencing against the same atlas columns; then tumors and blood cancers against their own healthy cells.\par
+
+\subsection*{Nearest-neighbor coupling}
+Whether a molecule's held errors fall one at a time or together. On every sequencing count the chain's IAM-A counter records the pairs of neighboring CpGs that lost their mark together on held molecules, over what each molecule's own length and error count give at random; 1 is independent. It asks a question from the information-theory study of methylation: is a mark kept site by site, or by a stretch of DNA as a unit? It is read beside IAM-A's held error, because clustered errors change the lone-error count IAM-A uses. On constructed molecules, independent errors read 0.98 and clustered errors read 2.9 and 4.2.\par
+\textbf{Next.} A healthy reference for its gauge from healthy sorted cells on sequencing; then the first question, written before it is read: does switching off the maintenance machinery change how the errors cluster?\par
+
 \section{The tools the instruments run on}
 
 \begin{itemize}
