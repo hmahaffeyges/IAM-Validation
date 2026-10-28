@@ -113,3 +113,5 @@ saved-molecules route (`.github/workflows/geo_pat.yml`, erase_gh.sh with PATFILE
 **Compared** by `shift_01/shift_compare.py`: per column, the sequencing inputs' Met-A, the arrays' median and the difference. Nothing is
 scored or tuned; the result decides whether Met-A on sequencing needs its own reference before the B-cell confirmation is read, and sets the
 size of the chemistry offset on these cells (the plan branch for Met-A on sequencing).
+**First dispatch refused at intake** (series run 40710832318): the sample list was not in the pipeline's format, so every sample stopped
+before any molecule was read (rc 19); no reading was made. The list was rewritten in that format and sent again.
