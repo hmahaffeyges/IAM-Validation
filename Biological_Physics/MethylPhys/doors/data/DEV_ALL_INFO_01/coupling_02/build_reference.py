@@ -2,7 +2,7 @@
 atlas's healthy sequencing samples (healthy_seq.csv): each cell type's healthy coupling (median of its samples), and the Normal band of
 coupling-A, each sample's coupling over the median of the OTHER samples of its own cell type (leave-one-out, cell types with 2 or more
 samples), 2.5th to 97.5th percentile. Also reported, nothing scored: Met-A against IAM-Atlas v2.1 for each sample (the sequencing offset by
-cell type) and IAM-A. Usage: python3 build_reference.py BUNDLE_DIR OUT_DIR"""
+cell type) and IAM-A. Usage: python3 build_reference.py BUNDLE_DIR OUT_DIR [CHAIN_REFERENCE.json]"""
 import sys, os, json, glob, csv, statistics as st, numpy as np
 H = os.path.dirname(os.path.abspath(__file__)); S = list(csv.DictReader(open(os.path.join(H, "healthy_seq.csv"))))
 rows = []
@@ -25,6 +25,8 @@ band = dict(lo=float(np.percentile(loo, 2.5)), hi=float(np.percentile(loo, 97.5)
 json.dump(dict(rule="coupling-A = coupling / its cell type's healthy coupling; band = 2.5-97.5 percentile of leave-one-out coupling-A",
                reference=ref, band=band, n_read=sum(x["read"] for x in rows), n_listed=len(rows), source="GSE186458 (atlas sequencing inputs), one laboratory"),
           open(os.path.join(sys.argv[2], "coupling_reference_v1.json"), "w"), indent=1)
+if len(sys.argv) > 3:   # 2026-10-28: also write the chain's runtime reference (Runtime Matrices/Coupling), as built, nothing changed
+    import shutil; shutil.copy(os.path.join(sys.argv[2], "coupling_reference_v1.json"), sys.argv[3])
 with open(os.path.join(sys.argv[2], "healthy_readings.csv"), "w", newline="") as h:
     w = csv.DictWriter(h, fieldnames=["gsm", "cell", "read", "coupling", "coupling_A_loo", "iam_a", "met_a_atlas", "depth"]); w.writeheader(); w.writerows(rows)
 L = [f"read {sum(x['read'] for x in rows)} of {len(rows)}; coupling recorded on {sum(len(v) for v in by.values())}",
