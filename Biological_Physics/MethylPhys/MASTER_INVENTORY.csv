@@ -286,7 +286,8 @@ GSE278681,,,,,,,,DEV_HORIZON_01,,,,,,
 GSE279509,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE280465,downloads/D_ageing/GSE280465/,4.06,,,unspent,,,,,,,,Ageing blood arrays,S3 register
 GSE281307,,,,,spent,,,DEV_BREACH_01,,,,,,
-GSE281691,,,,,partly spent,,,,,,,,,
+GSE281691,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
+GSE281691 metabolic HCC blood leukocytes (all 481),,,,,spent (replay R5),,,,,,,,,
 GSE282216,downloads/B_cfDNA_plasma/GSE282216/,0.75,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE282666,,,,,partly spent,,,,,,,,,
 GSE283951,,,,,partly spent,,,,,,,,,

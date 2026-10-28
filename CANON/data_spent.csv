@@ -224,3 +224,4 @@ GSE252045 (IAM-Atlas v2.1 source: sorted B and T cells),spent (atlas build; DEV-
 GSE236026 HCT116 UHRF1-AID and DNMT1-AID degron WGBS (replicate 1 days 0 2 4),spent (development),Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md (the degron series),GEO
 GSE67393 normal peripheral blood 450K (test half),spent (development),Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md (the 450K platform term),GEO
 GSE67393 normal peripheral blood 450K (reserved half),spent (confirmation),Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md (the 450K platform term),GEO
+GSE281691 metabolic HCC blood leukocytes (all 481),spent (replay R5),Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md (R5),GEO

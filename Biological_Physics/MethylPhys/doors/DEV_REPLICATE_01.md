@@ -232,3 +232,13 @@ not yet found.
 row carries the dataset's own specimen beside the test's (`specimen_check`). Two earlier mappings did not match their test and are not
 used: VAL-006, the neuron sequencing anchor, had been mapped to GSE40279 (whole-blood arrays), and VAL-010 to the plasma arrays and liver
 tissue; VAL-006's dataset is now to find, VAL-010 stays excluded (controlled access). VAL-059's specimen is taken from its datasets.
+
+## R5, liver cancer in blood: GSE281691 (written and committed before any of these arrays is read by the chain)
+
+**Data.** GSE281691 (EPIC v1, raw IDATs per sample on GEO): 481 peripheral blood leukocyte samples, 221 metabolic liver cancer (HCC)
+cases and 260 controls (`data/DEV_REPLICATE_01/r5_liver_labels.csv`, from GEO's sample records; age and sex as GEO gives them). Partly
+spent: the earlier work listed it (VAL-059, GRP-005). **Earlier results:** not opened here; the class-era results stay blinded until
+current testing is done (GRP-007). **The reading:** every array by `run_sample.py` (`--cell-panel atlas --dev-metaa-allsites`), pass 1,
+one batch over 20 machines. **Compared** by `r23_score.py r5`: cases against controls on the cell shares, Met-A for the whole sample and
+each cell, the territories and the distance to the ceiling (medians, Cohen's d, two-sided Mann-Whitney p). Nothing is scored against a
+bar; this is a replay, reported as read. EPIC v1 blood is the commissioned platform and specimen. **Prior reading:** none of its arrays.
