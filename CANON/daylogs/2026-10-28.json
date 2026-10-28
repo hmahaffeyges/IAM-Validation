@@ -58,6 +58,26 @@
       "OTH-082"
      ],
      "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md"
+    },
+    {
+     "title": "Why Met-A reads low on sequencing",
+     "status": "development",
+     "what": "The atlas's 17 B and T sequencing inputs read against their own columns, with each reading's levels at the identity sites.",
+     "outcome": "At the unmarked identity sites sequencing reads 0 and the atlas about 0.055, the floor arrays cannot read below; that is the gap.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The coupling on the A-score gauge",
+     "status": "development",
+     "what": "Nearest-neighbor coupling built into the chain as coupling-A, healthy at 1, with a counted floor and ceiling.",
+     "outcome": "Synthetic met; its healthy reference from the atlas's 153 sequencing inputs is landing.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     }
    ]
   }

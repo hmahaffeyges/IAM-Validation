@@ -135,3 +135,12 @@ above the atlas's, and at its unmethylated sites below. **The reading:** the sam
 by the one command on the chain that records each reading's levels at its identity sites (`stage_metaa_atlas`, `levels_at_identity`,
 recorded only, never used in A). **Compared** by `shift_02/levels_compare.py`. Nothing scored; the answer decides what Met-A on sequencing
 is read against.
+
+**The shift's cause, read** (`data/DEV_METAA_ATLAS_CURVE_01/shift_02/levels_summary.txt`; series run 40769726036; all 17). **The prediction
+as written is not supported:** at the methylated identity sites the sequencing samples sit slightly below the atlas (median -0.012), not
+above. **What the reading shows instead is one-sided:** at the unmethylated identity sites every one of the 17 sequencing samples has a
+median level of 0, while the atlas column holds about 0.055 there (0.0548 to 0.0612). The atlas's unmethylated levels carry the floor an
+array cannot read below; sequencing counts unmarked molecules as 0. A level of 0.055 holds about 0.31 bits of disorder and a level of 0 none,
+so a healthy sequencing sample shows far less disorder at those sites than the atlas expects and reads well below 1. **What follows:** Met-A
+on sequencing reads against the atlas's own sequencing inputs for each column (the atlas stays the ruler; its levels for a sequencing
+sample come from the sequencing samples it holds), written as a test before any further sequencing sample is read on Met-A's gauge.

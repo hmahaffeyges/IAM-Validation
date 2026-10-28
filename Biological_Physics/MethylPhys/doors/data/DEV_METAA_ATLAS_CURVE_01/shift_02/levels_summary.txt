@@ -1,0 +1,21 @@
+cell | sample | Met-A | methylated sites: sample, atlas | unmethylated sites: sample, atlas
+cd4 t cells | GSM5652279 | 0.6925 | 0.9403, 0.947 | 0.0, 0.0551
+cd4 t cells | GSM5652280 | 0.76487 | 0.93333, 0.947 | 0.0, 0.0551
+cd4 t cells | GSM5652281 | 0.66683 | 0.93939, 0.947 | 0.0, 0.0551
+cd8 t cells | GSM5652282 | 0.75742 | 0.93548, 0.9473 | 0.0, 0.0549
+cd8 t cells | GSM5652283 | 0.7678 | 0.92857, 0.9473 | 0.0, 0.0549
+cd8 t cells | GSM5652284 | 0.67547 | 0.94286, 0.9473 | 0.0, 0.0549
+t central memory cd4 | GSM5652285 | 0.74857 | 0.92308, 0.93715 | 0.0, 0.0612
+t central memory cd4 | GSM5652286 | 0.78507 | 0.91892, 0.93715 | 0.0, 0.0612
+t central memory cd4 | GSM5652287 | 0.82766 | 0.91667, 0.93715 | 0.0, 0.0612
+effector memory cd8 t cells | GSM5652295 | 0.73758 | 0.92857, 0.9453 | 0.0, 0.0608
+naive cd4 t cells | GSM5652296 | 0.67147 | 0.94118, 0.9442 | 0.0, 0.0563
+naive cd8 t cells | GSM5652298 | 0.63896 | 0.94595, 0.9463 | 0.0, 0.05675
+b cells | GSM5652316 | 0.70925 | 0.93548, 0.9474 | 0.0, 0.0548
+b cells | GSM5652317 | 0.66888 | 0.94619, 0.9474 | 0.0, 0.0548
+b cells | GSM5652318 | 0.61546 | 0.95, 0.9474 | 0.0, 0.0548
+memory b cells | GSM5652319 | 0.71964 | 0.93333, 0.9436 | 0.0, 0.0609
+memory b cells | GSM5652320 | 0.76233 | 0.92857, 0.9436 | 0.0, 0.0609
+
+median (sample minus atlas) at methylated sites -0.0118, at unmethylated sites -0.0551, n 17
+the blur hypothesis (sequencing more extreme than the atlas at both): not supported
