@@ -101,3 +101,15 @@ sequencing: memory B cells (2 of 16 samples) 0.9593, CD4 central memory (3 of 10
 real weight, the atlas's laboratory terms do not fully remove the chemistry difference between sequencing and arrays (the same difference
 that reads sequencing samples lower against the array-built atlas). **Next:** measure that shift at the identity sites from the atlas's
 own inputs before any change; the confirmation lists stay unread until it is understood.
+
+## The sequencing-array shift at the B and T identity sites (diagnostic; written and committed before any of its readings exists)
+
+**The question:** do sequencing samples read lower than arrays against the same IAM-Atlas v2.1 column, and by how much, column by column?
+**Data:** the atlas's own 17 sequencing inputs to its B and T columns (`data/DEV_METAA_ATLAS_CURVE_01/shift_01/seq_inputs.csv`; the
+published sequencing atlas of human cell types, GSE186458; spent, atlas inputs), against the same columns' array readings from the
+development read above (`bt_02/bt_curve_dev_summary.txt`; spent). **Prior reading:** every sample here is an atlas input; nothing new is
+spent. **The reading:** each sample's molecule file (hg19 .pat.gz from GEO) read once by the one command through the committed pipeline's
+saved-molecules route (`.github/workflows/geo_pat.yml`, erase_gh.sh with PATFILE and FULL=1), its own cell type as the specimen.
+**Compared** by `shift_01/shift_compare.py`: per column, the sequencing inputs' Met-A, the arrays' median and the difference. Nothing is
+scored or tuned; the result decides whether Met-A on sequencing needs its own reference before the B-cell confirmation is read, and sets the
+size of the chemistry offset on these cells (plan 40.11).

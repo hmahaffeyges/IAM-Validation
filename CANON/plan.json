@@ -768,7 +768,7 @@
      "date": "2026-10-25",
      "status": "open",
      "what": "Commission Met-A with the atlas as the ruler on B cells first (the leukemia study's cells), then CD4 and CD8 T cells, on sequencing and on arrays, for the Johns Hopkins package (author: 'the opera singers of IAM'); each test written before any data is read, on data the atlas does not hold",
-     "next": "the two low columns carry the most sequencing (memory B 2 of 16, CD4 central memory 3 of 10): measure the sequencing-array shift at their identity sites from the atlas's own inputs; confirmation stays unread until then"
+     "next": "the sequencing-array shift at the B and T identity sites: the atlas's 17 sequencing inputs read by the one command (geo_pat.yml) against their own columns, beside the arrays; written before reading; then the B-cell confirmation"
     },
     {
      "id": "14.16",
