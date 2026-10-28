@@ -258,3 +258,8 @@ healthy band and were read in the chain's earlier base and detection tests, so t
 opened here (blinded until current testing is done). **The reading:** every array by `run_sample.py` (`--cell-panel atlas
 --dev-metaa-allsites`), pass 1, one batch. **Compared** by `r23_score.py r6`: each reading against age (Spearman rho, p, n), as in R3.
 Nothing is scored against a bar; reported as read. EPIC v1 whole blood is the commissioned platform and specimen.
+
+**R6 aging in healthy blood, read** (`data/DEV_REPLICATE_01/r6/r6_summary.txt`; all 42 arrays, EPIC v1, pass 1, untared; series run
+40721125871). Across ages 18 to 62, Met-A for the whole sample (rho +0.179, p 0.26), for each of the five blood cells (p 0.42 to 0.84), the
+two territories (p 0.33, 0.34) and the cell shares (p 0.13, 0.67) do not move with age in these 42 people. The one reading that does is the
+single site cg05575921 (rho -0.443, p 0.0033). Reported as read; nothing is scored against a bar.

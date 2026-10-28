@@ -1188,24 +1188,6 @@
 "text": "\\captionof{figure}{IAM-A $=\\varepsilon/\\varepsilon_{\\rm pred}(L)$, each sample read against what its own loose share predicts, on the chain's self-reference lin"
 },
 {
-"file": "docs/book/drafts/p6_metaa_healthy_line.tex",
-"line": 7,
-"pattern": "healthy middle",
-"use": "the baseline (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\section{Where Met-A's healthy middle line comes from}\\label{sec:metaa_healthy_line}"
-},
-{
-"file": "docs/book/drafts/p6_16c_information_sphere.tex",
-"line": 97,
-"pattern": "\\bA[- ]score",
-"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-"severity": "warn",
-"status": "LIVE",
-"text": "\\item \\textbf{Distance from one's own healthy state}, as an angle rather than a score we define."
-},
-{
 "file": "docs/book/appendices/app_A2_frozen_values.tex",
 "line": 18,
 "pattern": "reference line",
@@ -1420,6 +1402,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "methylated calls, on molecules with at least 6 CpGs and at least 80\\,\\% methylated, on the methylated channel only. The sample is read against its own reference"
+},
+{
+"file": "docs/book/part6/p6_metaa_healthy_line.tex",
+"line": 7,
+"pattern": "healthy middle",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\section{Where Met-A's healthy middle line comes from}\\label{sec:metaa_healthy_line}"
 },
 {
 "file": "docs/book/part6/p6_06_gauge.tex",
@@ -1861,6 +1852,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "Stage Q2 & enough qualifying molecules; the sample-shape check; self-reference line v1; band v1 0.779--1.055 & FROZEN\\_INPUTS\\_v4 \\\\"
+},
+{
+"file": "docs/book/part6/p6_16c_information_sphere.tex",
+"line": 99,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "\\item \\textbf{Distance from one's own healthy state}, as an angle rather than a score we define."
 },
 {
 "file": "docs/book/part6/16a_skytools_map79.tex",

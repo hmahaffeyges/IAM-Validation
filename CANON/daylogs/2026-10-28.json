@@ -28,6 +28,36 @@
       "GRP-005"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "Aging in healthy blood, replayed (DEV-REPLICATE-01)",
+     "status": "development",
+     "what": "42 healthy whole bloods aged 18 to 62 read by the one command.",
+     "outcome": "No instrument reading moves with age across these 42 people.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "The territories and nearest-neighbor coupling in every document",
+     "status": "development",
+     "what": "Both added to the instruments document, the book, the glossary, the Introduction and the Decoder, from their sources.",
+     "outcome": "Every document now carries both, flagged in development.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md"
+    },
+    {
+     "title": "Three chapters loaded into the book",
+     "status": "development",
+     "what": "The Globe Explorer, the information sphere and Met-A's healthy line, each flagged in development.",
+     "outcome": "Everything running in the chain is now in the book.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/INSTRUMENTS.md"
     }
    ]
   }
