@@ -116,3 +116,11 @@ size of the chemistry offset on these cells (the plan branch for Met-A on sequen
 **First dispatch refused at intake** (series run 40710832318): the sample list was not in the pipeline's format, so every sample stopped
 before any molecule was read (rc 19); no reading was made. The list was rewritten in that format and sent again. **Second dispatch refused at intake** (series run 40725273902): the specimen was given as the bare cell name, which intake
 refuses; a sorted cell is named as such ("sorted naive b cells"). Nothing was read; the list now gives each specimen that way.
+
+**The shift, read** (`data/DEV_METAA_ATLAS_CURVE_01/shift_01/shift_summary.txt`; series run 40731928429; all 17 read). **Correction first:**
+the comparison script's first scoring read each sample's mixed-specimen cell reading instead of its sorted-cell reading against its own atlas
+column; it was corrected to read the sorted-cell field and rerun (disclosed; nothing else changed). **Result:** every healthy sequencing input
+reads far below 1 against its own column of IAM-Atlas v2.1, while arrays of the same cells read close to 1. The atlas's own sequencing inputs
+therefore cannot be read by Met-A against the atlas as built; IAM-A on the same files reads Normal, so the files are sound. **What follows:**
+Met-A on sequencing needs its own healthy reference before any sequencing sample (the leukemia study included) is read on Met-A's gauge; the
+cause of the offset (a site's value from few reads, or the chemistry) is measured next on the 153 healthy sequencing readings now running.

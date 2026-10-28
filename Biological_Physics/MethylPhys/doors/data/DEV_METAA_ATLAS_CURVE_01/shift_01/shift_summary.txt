@@ -1,0 +1,28 @@
+column | sample | sequencing Met-A | how read
+cd4 t cells | GSM5652279 | 0.6925 | sorted cell against its atlas column
+cd4 t cells | GSM5652280 | 0.76487 | sorted cell against its atlas column
+cd4 t cells | GSM5652281 | 0.66683 | sorted cell against its atlas column
+cd8 t cells | GSM5652282 | 0.75742 | sorted cell against its atlas column
+cd8 t cells | GSM5652283 | 0.7678 | sorted cell against its atlas column
+cd8 t cells | GSM5652284 | 0.67547 | sorted cell against its atlas column
+t central memory cd4 | GSM5652285 | 0.74857 | sorted cell against its atlas column
+t central memory cd4 | GSM5652286 | 0.78507 | sorted cell against its atlas column
+t central memory cd4 | GSM5652287 | 0.82766 | sorted cell against its atlas column
+effector memory cd8 t cells | GSM5652295 | 0.73758 | sorted cell against its atlas column
+naive cd4 t cells | GSM5652296 | 0.67147 | sorted cell against its atlas column
+naive cd8 t cells | GSM5652298 | 0.63896 | sorted cell against its atlas column
+b cells | GSM5652316 | 0.70925 | sorted cell against its atlas column
+b cells | GSM5652317 | 0.66888 | sorted cell against its atlas column
+b cells | GSM5652318 | 0.61546 | sorted cell against its atlas column
+memory b cells | GSM5652319 | 0.71964 | sorted cell against its atlas column
+memory b cells | GSM5652320 | 0.76233 | sorted cell against its atlas column
+
+column | sequencing inputs read | sequencing median | array median (development read) | sequencing minus array
+b cells | 3 | 0.6689 |  | 
+cd4 t cells | 3 | 0.6925 |  | 
+cd8 t cells | 3 | 0.7574 |  | 
+effector memory cd8 t cells | 1 | 0.7376 | 0.9829 | -0.2453
+memory b cells | 2 | 0.7410 | 0.9593 | -0.2183
+naive cd4 t cells | 1 | 0.6715 | 0.9864 | -0.3149
+naive cd8 t cells | 1 | 0.6390 | 0.9897 | -0.3507
+t central memory cd4 | 3 | 0.7851 | 0.9516 | -0.1665

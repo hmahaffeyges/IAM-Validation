@@ -10,6 +10,8 @@ for l in open(os.path.join(H, "..", "bt_02", "bt_curve_dev_summary.txt")):
     m = re.match(r"atlas column (.+?): (\d+) of \d+ read, median ([0-9.]+)", l)
     if m: arr[m.group(1)] = float(m.group(3))
 def met_a(B, cell):
+    m = (B.get("development") or {}).get("metaa_atlas") or {}   # corrected after the first scoring, disclosed: a sorted cell's reading against its atlas column lives here
+    if m.get("cell") == cell and m.get("A") is not None: return m["A"], "sorted cell against its atlas column"
     for c in (B.get("met_a_each_cell") or {}).get("cells") or []:
         if c.get("cell") == cell and c.get("A") is not None: return c["A"], "each cell"
     m = B.get("met_a") or {}
