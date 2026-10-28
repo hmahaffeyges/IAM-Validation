@@ -191,3 +191,5 @@ the chain that carries the coupling into every reading. **Built** by `coupling_0
 of its samples) and the Normal band, the 2.5th to 97.5th percentile of each sample's coupling over the median of the other samples of its cell
 type; nothing chosen by hand. **Also reported, nothing scored:** Met-A against the atlas for every sample, the sequencing offset by cell type.
 **Before commissioning:** a second laboratory's healthy sequencing inside the band, and a sealed test on a laboratory neither has seen.
+**Added before any of these readings exists:** each sample's depth (held-error opportunities) is recorded, with Met-A and the coupling
+each set against it, because the 17 B and T readings of the shift diagnostic showed Met-A against the atlas falling as depth rises.

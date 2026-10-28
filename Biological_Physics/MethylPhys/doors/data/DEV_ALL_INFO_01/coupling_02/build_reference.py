@@ -10,7 +10,7 @@ for r in S:
     f = glob.glob(os.path.join(sys.argv[1], "**", r["gsm"] + "_bundle.json"), recursive=True)
     if not f: rows.append(dict(gsm=r["gsm"], cell=r["cell"], read=False)); continue
     B = json.load(open(f[0])); q = B.get("iam_a") or {}; c = q.get("count") or {}; m = (B.get("development") or {}).get("metaa_atlas") or {}
-    rows.append(dict(gsm=r["gsm"], cell=r["cell"], read=True, coupling=c.get("coupling"), iam_a=q.get("A"), met_a_atlas=m.get("A")))
+    rows.append(dict(gsm=r["gsm"], cell=r["cell"], read=True, coupling=c.get("coupling"), iam_a=q.get("A"), met_a_atlas=m.get("A"), depth=c.get("held_opp")))
 os.makedirs(sys.argv[2], exist_ok=True)
 by = {}
 for x in rows:
@@ -26,10 +26,15 @@ json.dump(dict(rule="coupling-A = coupling / its cell type's healthy coupling; b
                reference=ref, band=band, n_read=sum(x["read"] for x in rows), n_listed=len(rows), source="GSE186458 (atlas sequencing inputs), one laboratory"),
           open(os.path.join(sys.argv[2], "coupling_reference_v1.json"), "w"), indent=1)
 with open(os.path.join(sys.argv[2], "healthy_readings.csv"), "w", newline="") as h:
-    w = csv.DictWriter(h, fieldnames=["gsm", "cell", "read", "coupling", "coupling_A_loo", "iam_a", "met_a_atlas"]); w.writeheader(); w.writerows(rows)
+    w = csv.DictWriter(h, fieldnames=["gsm", "cell", "read", "coupling", "coupling_A_loo", "iam_a", "met_a_atlas", "depth"]); w.writeheader(); w.writerows(rows)
 L = [f"read {sum(x['read'] for x in rows)} of {len(rows)}; coupling recorded on {sum(len(v) for v in by.values())}",
      f"coupling-A band (leave-one-out): {band}", "cell | samples | healthy coupling | median Met-A against the atlas | median IAM-A"]
 for c in sorted(by):
     X = by[c]; ma = [x["met_a_atlas"] for x in X if x["met_a_atlas"] is not None]; ia = [x["iam_a"] for x in X if x["iam_a"] is not None]
     L.append(f"{c} | {len(X)} | {ref[c]:.4f} | {st.median(ma) if ma else ''} | {st.median(ia) if ia else ''}")
+from scipy.stats import spearmanr   # added before any of these readings exists (the 17 B and T readings showed Met-A falling with depth)
+D = [x for x in rows if x.get("met_a_atlas") is not None and x.get("depth")]
+if len(D) > 2:
+    rr = spearmanr([x["depth"] for x in D], [x["met_a_atlas"] for x in D]); L.append(f"Met-A against the atlas vs depth (held-error opportunities): rho {rr.correlation:+.3f}, p {rr.pvalue:.2g}, n {len(D)}")
+    rr = spearmanr([x["depth"] for x in D if x.get("coupling")], [x["coupling"] for x in D if x.get("coupling")]); L.append(f"coupling vs depth: rho {rr.correlation:+.3f}, p {rr.pvalue:.2g}")
 open(os.path.join(sys.argv[2], "coupling_reference_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L[:3]))
