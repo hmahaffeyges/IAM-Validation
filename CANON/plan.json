@@ -784,6 +784,14 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
      "what": "A 450K whole blood read on the default six-cell blood panel measures 145 of its 600 marker sites, so the IAM-Deconvolver withholds the shares (stage_v4.MIN_MARKER_SHARE); the 79-cell atlas panel reads the same arrays (7,872 of 7,892). Found when the 450K neighbor check was sent without the healthy line's flags (run 40239984355; re-sent with --cell-panel atlas)",
      "next": "choose the six-cell panel's markers among sites both chips measure, with its own synthetic first; until then a 450K blood is read with --cell-panel atlas"
+    },
+    {
+     "id": "14.18",
+     "date": "2026-10-28",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+     "what": "IAM-A at the line's naive end: healthy naive cells (low loose share) hold less error than the self-reference line predicts, so they read near the Normal band's lower edge (cord-blood B cells 0.769 to 0.794; healthy naive CD4 in the line's own build about the same). Read healthy naive B, CD4 and CD8 from the atlas's sequencing sources against the line, synthetic first; the leukemia study's 36 re-read from saved molecules with the cell type given.",
+     "next": "synthetic first through the one command; then the spent healthy naive cells of GSE186458"
     }
    ]
   },
