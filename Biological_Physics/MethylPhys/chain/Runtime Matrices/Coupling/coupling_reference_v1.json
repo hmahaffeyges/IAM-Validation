@@ -1,0 +1,5 @@
+{
+ "status": "not built: the healthy reference is built by doors/data/DEV_ALL_INFO_01/coupling_02/build_reference.py from IAM-Atlas v2.1 healthy sequencing inputs; until then no coupling-A is read",
+ "reference": null,
+ "band": null
+}

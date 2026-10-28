@@ -19,7 +19,7 @@ def read(q, cell, ref=None):
     c = (q or {}).get("count") or {}; R = ref if ref is not None else reference()
     out = dict(stage="Q2-coupling", reading="coupling-A", cell=cell, coupling=c.get("coupling"), flag=FLAG, A=None)
     if c.get("coupling") is None: out["reason"] = "no held molecule with two or more errors: the coupling is not counted"; return out
-    if R is None: out["reason"] = "the healthy coupling reference is not built yet (DEV-ALL-INFO-01, coupling_02)"; return out
+    if R is None or not R.get("reference"): out["reason"] = "the healthy coupling reference is not built yet (DEV-ALL-INFO-01, coupling_02)"; return out
     h = (R.get("reference") or {}).get(cell)
     if h is None: out["reason"] = f"no healthy coupling for '{cell}' in the reference ({len(R.get('reference') or {})} cell types)"; return out
     b = R.get("band") or {}; A = c["coupling"] / h
