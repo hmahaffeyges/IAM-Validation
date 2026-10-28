@@ -6,11 +6,12 @@ CD8 and B cells, NK cells and monocytes, Met-A for the whole sample and each pla
 monocytes, the two territories, and the whole sample's distance to the ceiling.
 R4 (added before any R4 reading exists): AIBL GSE153712, Alzheimer's disease and mild cognitive impairment each against healthy controls, by
 the same statistics as R2. R5 (added before any R5 reading exists): GSE281691, metabolic liver cancer (HCC) cases against controls, blood leukocytes, by the same
-statistics as R2. Usage: python3 r23_score.py r2|r3|r4|r5 FOLDER_OF_BUNDLES [OUT.txt]"""
+statistics as R2. R6 (added before any R6 reading exists): GSE141682, healthy whole bloods, each reading against age, by the same statistics as R3.
+Usage: python3 r23_score.py r2|r3|r4|r5|r6 FOLDER_OF_BUNDLES [OUT.txt]"""
 import sys, os, glob, json, numpy as np, pandas as pd
 from scipy import stats
 H = os.path.dirname(os.path.abspath(__file__)); which, src = sys.argv[1], sys.argv[2]; out = sys.argv[3] if len(sys.argv) > 3 else os.path.join(src, f"{which}_summary.txt")
-L = pd.read_csv(os.path.join(H, {"r2": "r2_smoking_labels.csv", "r3": "r3_aging_labels.csv", "r4": "r4_aibl_labels.csv", "r5": "r5_liver_labels.csv"}[which]), dtype=str).set_index("gsm")
+L = pd.read_csv(os.path.join(H, {"r2": "r2_smoking_labels.csv", "r3": "r3_aging_labels.csv", "r4": "r4_aibl_labels.csv", "r5": "r5_liver_labels.csv", "r6": "r6_aging_labels.csv"}[which]), dtype=str).set_index("gsm")
 SH = ("neutrophils", "cd4 t cells", "cd8 t cells", "b cells", "nk cells", "monocytes"); EC = ("neutrophils", "cd4 t cells", "cd8 t cells", "b cells", "monocytes")
 rows, seen = [], set()
 for f in sorted(glob.glob(os.path.join(src, "**", "GSM*.json"), recursive=True)):

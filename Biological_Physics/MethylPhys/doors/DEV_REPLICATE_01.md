@@ -249,3 +249,12 @@ monocytes higher (0.044 against 0.035, p 0.0052). Met-A for the whole sample (p 
 territories (p 0.93, 0.42) and the distance to the ceiling (p 0.52) do not differ between cases and controls. **Note on the scorer:** it
 reads the shares of the classic six blood cells by name; on the atlas panel the lymphocytes are split into finer types, so the CD4, CD8,
 B and NK shares it lists read 0 and are not readings. Reported as read; nothing is scored against a bar.
+
+## R6, aging in healthy blood: GSE141682 (written and committed before any of these arrays is read by this replay)
+
+**Data.** GSE141682 (EPIC v1, raw IDATs per sample on GEO): 42 healthy whole bloods, ages 18 to 62
+(`data/DEV_REPLICATE_01/r6_aging_labels.csv`, from GEO's sample records). **Prior reading:** spent; its arrays helped build the C-Score's
+healthy band and were read in the chain's earlier base and detection tests, so the C-Score here is in-sample. **Earlier results:** not
+opened here (blinded until current testing is done). **The reading:** every array by `run_sample.py` (`--cell-panel atlas
+--dev-metaa-allsites`), pass 1, one batch. **Compared** by `r23_score.py r6`: each reading against age (Spearman rho, p, n), as in R3.
+Nothing is scored against a bar; reported as read. EPIC v1 whole blood is the commissioned platform and specimen.

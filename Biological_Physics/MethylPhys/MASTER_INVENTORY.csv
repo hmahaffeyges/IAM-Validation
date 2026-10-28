@@ -103,7 +103,7 @@ GSE139307,,,,,,,,,"not usable (same group as the atlas (Kelsey/Koestler, Brown))
 GSE140038,,,,,spent,,,,,,,,,
 GSE140078,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE140295,,,,,,,,DEV_ATLAS_V21_01,not usable (cultured with no uncultured comparison; donor count unknown (commercial lots)),liver endothelium | lung alveolar endothelium | vascular endothelium,yes,IDAT listed for 14/14 samples,Molecular atlas of fetal and adult human liver sinusoidal endothelial cells: a F8 secreting cell [methylation II],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE141682,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; PROC_HISTORY_01_OUTCOME,,,,,,
+GSE141682,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_REPLICATE_01; PROC_HISTORY_01_OUTCOME,,,,,,
 GSE142224,,,,,,,,,not usable (cultured with no uncultured comparison),liver endothelium,yes,SRA run links for 9/9 samples,Molecular atlas of fetal and adult human liver sinusoidal endothelial cells: a F8 secreting cell [methylation III],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE142257,downloads/C_tissue_tests/GSE142257/,4.03,IDAT,yes,unspent,,,,,,,,Solid-tissue arrays,S3 register
 GSE142512,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
