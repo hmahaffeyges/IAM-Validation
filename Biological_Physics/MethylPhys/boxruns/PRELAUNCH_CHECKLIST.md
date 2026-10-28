@@ -41,6 +41,14 @@ comes from (`../LESSONS.md`).
 - **One counter, one definition, everywhere.** The held error is isolated errors over interior opportunities (an end CpG has one neighbor and cannot be isolated). PROC-CHANNEL-01 divided by every CpG and read 0.75 of the rate; its holding energy, healthy held error, φ and H_ref (superseded values: CANON/iam_canon.json superseded) reached the canon, the book and FOUR_DOMAINS and stayed there after the chain was commissioned on the true count (2026-10-19). Constants come from the commissioned counter's committed record, and docs/book/stale_checks.py refuses a book check whose number its chapter no longer prints.
 - **AWS billing is a paid API.** Cost Explorer charges USD 0.01 per request; scripts call it only through boxruns/ce_cache.py (one request per question per 12 hours). Uncached calls on every commit had cost USD 10.34 by 2026-10-20.
 - **The guards scan the whole committed tree** (CANON/canon_tree.py in the push gate). This checkout is partial, so canon_check.py alone passed a number guard that matched digits inside the cosmology sampler output, and the cloud canon check failed on 24 pushes (2026-10-19 to 10-20). Number patterns match whole numbers only.
+- **Every alignment is a commissioning read.** Before unread data is aligned or read, its record lists each healthy sample in it and each
+  instrument not yet commissioned that reads it, each with its one-line job and bar (a healthy sample reads Normal), committed first. Data
+  read without that block is spent for commissioning (the liver replay's 260 healthy controls, the leukemia study's cord-blood controls).
+- **Name a sorted cell as sorted.** Intake refuses a bare cell name; a purified or sorted specimen is given as "sorted naive b cells", and
+  sequencing gets its cell type the same way. Check every specimen with stage_0_intake.atlas_cell_of before dispatch (the leukemia study,
+  then the shift diagnostic, were both refused or misread for this).
+- **Give the pipeline its own sample-list format.** erase_gh.sh looks a sample up by column 3 (gsm) and its genome in column 5; any other
+  layout stops every sample at intake (rc 19).
 **Before a derivation test** (lesson C41): write into the record, before the bars, (1) the instrument's own selection rules for the sites it
 reads (for Met-A: mean 0.75 to 0.95 or 0.05 to 0.25, spread at most 0.05), and (2) what was already stated the derivation rests on (for
 Met-A's baseline: IAM-A's physics, the loose share beside the held error).
