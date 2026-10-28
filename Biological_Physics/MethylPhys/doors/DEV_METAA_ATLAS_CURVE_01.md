@@ -114,4 +114,5 @@ saved-molecules route (`.github/workflows/geo_pat.yml`, erase_gh.sh with PATFILE
 scored or tuned; the result decides whether Met-A on sequencing needs its own reference before the B-cell confirmation is read, and sets the
 size of the chemistry offset on these cells (the plan branch for Met-A on sequencing).
 **First dispatch refused at intake** (series run 40710832318): the sample list was not in the pipeline's format, so every sample stopped
-before any molecule was read (rc 19); no reading was made. The list was rewritten in that format and sent again.
+before any molecule was read (rc 19); no reading was made. The list was rewritten in that format and sent again. **Second dispatch refused at intake** (series run 40725273902): the specimen was given as the bare cell name, which intake
+refuses; a sorted cell is named as such ("sorted naive b cells"). Nothing was read; the list now gives each specimen that way.

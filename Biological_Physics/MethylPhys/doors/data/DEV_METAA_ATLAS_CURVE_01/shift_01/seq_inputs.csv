@@ -1,18 +1,18 @@
 unit,gse,gsm,genotype,genome,title,srr,spots,cell,specimen
-S1,GSE186458,GSM5652279,healthy,hg19,cd4 t cells,,,cd4 t cells,cd4 t cells
-S2,GSE186458,GSM5652280,healthy,hg19,cd4 t cells,,,cd4 t cells,cd4 t cells
-S3,GSE186458,GSM5652281,healthy,hg19,cd4 t cells,,,cd4 t cells,cd4 t cells
-S4,GSE186458,GSM5652282,healthy,hg19,cd8 t cells,,,cd8 t cells,cd8 t cells
-S5,GSE186458,GSM5652283,healthy,hg19,cd8 t cells,,,cd8 t cells,cd8 t cells
-S6,GSE186458,GSM5652284,healthy,hg19,cd8 t cells,,,cd8 t cells,cd8 t cells
-S7,GSE186458,GSM5652285,healthy,hg19,t central memory cd4,,,t central memory cd4,t central memory cd4
-S8,GSE186458,GSM5652286,healthy,hg19,t central memory cd4,,,t central memory cd4,t central memory cd4
-S9,GSE186458,GSM5652287,healthy,hg19,t central memory cd4,,,t central memory cd4,t central memory cd4
-S10,GSE186458,GSM5652295,healthy,hg19,effector memory cd8 t cells,,,effector memory cd8 t cells,effector memory cd8 t cells
-S11,GSE186458,GSM5652296,healthy,hg19,naive cd4 t cells,,,naive cd4 t cells,naive cd4 t cells
-S12,GSE186458,GSM5652298,healthy,hg19,naive cd8 t cells,,,naive cd8 t cells,naive cd8 t cells
-S13,GSE186458,GSM5652316,healthy,hg19,b cells,,,b cells,b cells
-S14,GSE186458,GSM5652317,healthy,hg19,b cells,,,b cells,b cells
-S15,GSE186458,GSM5652318,healthy,hg19,b cells,,,b cells,b cells
-S16,GSE186458,GSM5652319,healthy,hg19,memory b cells,,,memory b cells,memory b cells
-S17,GSE186458,GSM5652320,healthy,hg19,memory b cells,,,memory b cells,memory b cells
+S1,GSE186458,GSM5652279,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells
+S2,GSE186458,GSM5652280,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells
+S3,GSE186458,GSM5652281,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells
+S4,GSE186458,GSM5652282,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells
+S5,GSE186458,GSM5652283,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells
+S6,GSE186458,GSM5652284,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells
+S7,GSE186458,GSM5652285,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4
+S8,GSE186458,GSM5652286,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4
+S9,GSE186458,GSM5652287,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4
+S10,GSE186458,GSM5652295,healthy,hg19,effector memory cd8 t cells,,,effector memory cd8 t cells,sorted effector memory cd8 t cells
+S11,GSE186458,GSM5652296,healthy,hg19,naive cd4 t cells,,,naive cd4 t cells,sorted naive cd4 t cells
+S12,GSE186458,GSM5652298,healthy,hg19,naive cd8 t cells,,,naive cd8 t cells,sorted naive cd8 t cells
+S13,GSE186458,GSM5652316,healthy,hg19,b cells,,,b cells,sorted b cells
+S14,GSE186458,GSM5652317,healthy,hg19,b cells,,,b cells,sorted b cells
+S15,GSE186458,GSM5652318,healthy,hg19,b cells,,,b cells,sorted b cells
+S16,GSE186458,GSM5652319,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells
+S17,GSE186458,GSM5652320,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells
