@@ -1,3 +1,4 @@
 all_samples.csv
 quarter_01/q4_runs.json
 q4_runs.json
+coupling_02/healthy_seq.csv

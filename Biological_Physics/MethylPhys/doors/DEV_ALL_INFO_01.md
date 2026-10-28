@@ -181,3 +181,13 @@ loose share of 0.030, and the commissioning shape check declined all four naive 
 lower edge. Every sample here was also read as a mixed specimen (the leukemias "not stated", most controls "plasma"), so the shape check was
 not applied; all are flagged development. **Next:** the line's naive end, read on healthy naive cells (adult naive B, CD4 and CD8 from the
 atlas's sequencing sources), synthetic first; then all 36 re-read from their saved molecule files with the cell type given.
+
+**The coupling's healthy reference and gauge (written and committed before any of its readings exists).** **The instrument's job:** a
+healthy sample reads 1 on the coupling's A-score gauge. **The reading:** coupling-A, a sample's coupling over the healthy coupling of its own
+cell type, so healthy is 1, more clustered errors to the right, more independent to the left. **Data:** IAM-Atlas v2.1's 153 healthy
+sequencing inputs (56 cell types; the published sequencing atlas of human cell types, GSE186458; spent, atlas inputs;
+`coupling_02/healthy_seq.csv`), each read once by the one command (`.github/workflows/geo_pat.yml`, its sorted cell type as the specimen) on
+the chain that carries the coupling into every reading. **Built** by `coupling_02/build_reference.py`: each cell type's healthy coupling (median
+of its samples) and the Normal band, the 2.5th to 97.5th percentile of each sample's coupling over the median of the other samples of its cell
+type; nothing chosen by hand. **Also reported, nothing scored:** Met-A against the atlas for every sample, the sequencing offset by cell type.
+**Before commissioning:** a second laboratory's healthy sequencing inside the band, and a sealed test on a laboratory neither has seen.

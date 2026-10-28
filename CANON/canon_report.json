@@ -2179,6 +2179,15 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 16,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **49.5** [open] What we learned from the study, each added only after its own synthetic test through the one command, with a Decoder entry: nearest-neighbor c"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
 "line": 18,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
@@ -2455,6 +2464,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "- **14.17** (step 20, 2026-10-25) [open] A 450K whole blood read on the default six-cell blood panel measures 145 of its 600 marker sites, so the IAM-Deconvolve"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 210,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **49.5** (step 1, 2026-10-24) [open] What we learned from the study, each added only after its own synthetic test through the one command, with a Decoder entr"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
@@ -3841,6 +3859,15 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "below (0.769). Cord-blood B cells are naive, with a low loose share (0.029), and at that end the self-reference line predicts more held error"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+"line": 186,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "healthy sample reads 1 on the coupling's A-score gauge. **The reading:** coupling-A, a sample's coupling over the healthy coupling of its own"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/REFERENCE_AUDIT.md",
