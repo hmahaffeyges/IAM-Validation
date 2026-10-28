@@ -1236,6 +1236,9 @@ instrument tell us...not our assumptions"). For example, at a held error of 0.02
 
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 
+The reading's `count` also carries the nearest-neighbor coupling (`coupling`, `coupling_err_share`, `coupling_pairs`), recorded beside
+the held error, never used in A.
+
 *Code:* `stage_v4.py` line 95 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_v4.py::_compress`

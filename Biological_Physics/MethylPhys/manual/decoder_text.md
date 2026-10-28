@@ -852,6 +852,9 @@ instrument tell us...not our assumptions"). For example, at a held error of 0.02
 ### stage_v4.py::stage_q2
 Stage Q2 as above: the refusals, the shape check, the reading A with its predicted value, and the commissioned or development label.
 
+The reading's `count` also carries the nearest-neighbor coupling (`coupling`, `coupling_err_share`, `coupling_pairs`), recorded beside
+the held error, never used in A.
+
 ### stage_v4.py::_compress
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 

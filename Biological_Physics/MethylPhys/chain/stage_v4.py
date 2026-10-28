@@ -95,7 +95,7 @@ def counting_error(rec, A, B):
 def stage_q2(rec, cell, chemistry="whole-genome bisulfite", source=None):
     cell = str(cell).strip().lower(); B = Q2.band(1)
     out = {"stage": "Q2", "reading": "IAM-A", "reference": "the sample's own loose share (self-reference line v1)", "cell": cell,
-           "chemistry": chemistry, "band": {"lo": B["lo"], "hi": B["hi"]}, "count": {k: rec.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share")},
+           "chemistry": chemistry, "band": {"lo": B["lo"], "hi": B["hi"]}, "count": {k: rec.get(k) for k in ("loose_share", "held_err", "held_opp", "tiles", "tile_p10", "gain_err", "gain_opp", "mol_n", "mol_low_share", "mol_mid_share", "coupling", "coupling_err_share", "coupling_pairs")},   # 2026-10-28: the coupling carried into every full reading (plan 49.5)
            "input": source, "A": None}
     if not rec.get("held_opp") or rec.get("loose_share") is None:
         out["refusal"] = "no qualifying molecules or tiles in this file: IAM-A not read"
