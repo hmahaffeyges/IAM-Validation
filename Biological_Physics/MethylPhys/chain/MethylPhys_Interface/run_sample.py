@@ -1035,6 +1035,7 @@ def main():
             print(f"Stage Q2: counting {os.path.basename(a.pat or a.bam)} (held error and loose share, one pass)", flush=True)
             _cnt = V4.count_sequencing(pat=a.pat, bam=a.bam, ref_fasta=a.ref_fasta, workers=a.workers, assembly=a.assembly)
             o["iam_a"] = V4.stage_q2(_cnt, a.seq_cell, chemistry=a.seq_chemistry, source=src)
+            import stage_coupling as _CP; o["coupling_a"] = _CP.read(o["iam_a"], a.seq_cell)   # 2026-10-28: coupling-A, in development (plan 49.5)
             if a.dev_genome_globe:   # 2026-10-22: the whole-genome globe, drawn by the one command (development)
                 o.setdefault("development", {})["genome_globe"] = _genome_globe(a, _cnt, sid)
     elif seq:   # Stage Q (v3, retired position reading): --site-table, or --pat with --dev-iama-position

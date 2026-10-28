@@ -2274,3 +2274,10 @@ Version 2 of a provisional column (after test 1): the level from the shrunk prop
 
 ### stage_provisional.py::_name_version
 Reads a column name with its version ('megakaryocytes@2'); a bare name is version 1. The version is recorded in the bundle, the cell keeps its plain name.
+
+### stage_coupling.py::read
+Nearest-neighbor coupling on the A-score gauge (in development, plan 49.5). coupling-A is the sample's coupling (Stage Q2) over the healthy
+coupling of its cell type (`Runtime Matrices/Coupling/coupling_reference_v1.json`, built from IAM-Atlas v2.1's healthy sequencing inputs).
+The gauge runs from 0 (errors never neighbors) to the ceiling `coupling_max` over the same healthy coupling (every molecule's errors in one
+run), both counted. Output `coupling_a`: A, healthy, floor, ceiling, band, state, flag; without a reference, the reason.
+

@@ -193,3 +193,10 @@ type; nothing chosen by hand. **Also reported, nothing scored:** Met-A against t
 **Before commissioning:** a second laboratory's healthy sequencing inside the band, and a sealed test on a laboratory neither has seen.
 **Added before any of these readings exists:** each sample's depth (held-error opportunities) is recorded, with Met-A and the coupling
 each set against it, because the 17 B and T readings of the shift diagnostic showed Met-A against the atlas falling as depth rises.
+
+**The coupling's gauge, built in the chain (before the healthy reference exists).** `chain/stage_coupling.py` reads coupling-A, the sample's
+coupling over its cell type's healthy coupling, on the A-score gauge: 0 when no two errors are ever neighbors, healthy at 1, and the ceiling
+the sample's own most-clustered arrangement (every molecule's errors in one run, now counted by Stage Q2 as `coupling_max`), both counted,
+not fitted. The one command records it on every sequencing count and the report draws it, flagged in development; until the reference lands
+it reports the coupling with the reason it has no gauge position. **Synthetic test:** DEV_ALL_INFO_01/coupling_02/gauge_synthetic.py, DEV_ALL_INFO_01/coupling_02/gauge_synthetic.txt
+(independent errors read 0.98, errors in runs 6.0, at their ceiling; a sample equal to its healthy cell reads 1, Normal: met).

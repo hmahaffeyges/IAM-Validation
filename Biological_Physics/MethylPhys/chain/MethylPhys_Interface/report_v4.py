@@ -174,6 +174,18 @@ def _iama(o):
                if (q.get("counting") or {}).get("A_95") else ""))
 
 
+def _coupling(o):
+    k = o.get("coupling_a") or {}
+    if not k: return ""
+    h = "<h2 id='v4-coupling'>Nearest-neighbor coupling: do errors cluster along a molecule?</h2>"
+    if k.get("A") is None:
+        return h + f"<p>{chip('in development')} Coupling {k.get('coupling')} (1 when errors fall independently). {E(str(k.get('reason', '')))}</p>"
+    _f = (o.get("_figs") or {}).get("coupling")
+    return (h + (f"<img alt='coupling gauge' src='{_uri(_f)}'>" if _f else "")
+            + f"<p>{chip('in development')} <b>{E(str(k.get('state')))}</b> (Normal {k['band']['lo']:.3f} to {k['band']['hi']:.3f}). Coupling {k['coupling']:.3f} "
+              f"against {k['healthy']:.3f} for healthy {E(cellname(str(k.get('cell'))))}; 1 on this gauge is the healthy cell, above it errors cluster more, "
+              f"below it they fall more independently.</p>")
+
 def _figs(o, base):
     """The gauge pictures for this sample (PNG beside the report); a withheld or unread instrument gets none."""
     F, G = {}, _marks(); m, t, c, q = o.get("met_a") or {}, o.get("tare") or {}, o.get("met_a_cscore") or {}, o.get("iam_a") or {}
@@ -190,6 +202,10 @@ def _figs(o, base):
         M = G["M_cell"]["value"]; ep = float(q["predicted"])
         F["iam_a"] = RF.gauge_png(base + "_gauge_iam_a.png", "IAM-A", float(q["A"]), (1 / (1 + math.exp(M))) / ep, 0.5 / ep, (q["band"]["lo"], q["band"]["hi"]),
                                   f"{cellname(q.get('cell', ''))}, against its own reference", str(q.get("state", "")))
+    k = o.get("coupling_a") or {}
+    if k.get("A") is not None and k.get("ceiling") and (k.get("band") or {}).get("lo") is not None:
+        F["coupling"] = RF.gauge_png(base + "_gauge_coupling.png", "coupling-A", float(k["A"]), 0.0, float(k["ceiling"]), (k["band"]["lo"], k["band"]["hi"]),
+                                     f"{cellname(k.get('cell', ''))}, against healthy coupling", str(k.get("state", "")))
     return F
 
 PHYS_INTRO = ("One law runs under every reading here: a mark held against thermal noise costs energy, and the loss of that hold shows as entropy, "
@@ -410,7 +426,7 @@ def build(o, out, sid):
              "<i>commissioned</i> means it passed a test sealed before its data was seen; a reading outside what an instrument was tested on is still shown, and says so.</p>",
              "<div class='views'><input type='radio' name='v' id='vr' checked><input type='radio' name='v' id='vp'>"
              "<div class='vbar'><label for='vr'>Researcher</label><label for='vp'>Plain</label></div>",
-             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _intro_html(), _physics(o), _shares(o), _explain_html("v4-shares"), _sections_v5(o), _meta(o), _cscore(o), _iama(o), "</div>",
+             "<div class='research'>", "<h2 id='v4-glance'>At a glance</h2>", _glance(o), _intro_html(), _physics(o), _shares(o), _explain_html("v4-shares"), _sections_v5(o), _meta(o), _cscore(o), _iama(o), _coupling(o), "</div>",
              "<div class='plain'>", _plain(o, F), "</div></div>"]
     prose = re.sub(r"<[^>]+>", " ", re.sub(r"src='data:[^']+'", "", re.sub(r"<!--GAUGE-->.*?<!--/GAUGE-->", " ", "\n".join(front), flags=re.S)))   # as report_v3: the gauge's fixed legend is a scale, not prose
     if re.search(CLAIM_SCAN, prose, re.I): raise ValueError("report_v4: front prose carries a word the report may not print: " + re.search(CLAIM_SCAN, prose, re.I).group(0))

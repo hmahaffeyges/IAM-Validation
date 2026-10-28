@@ -104,7 +104,7 @@ def _mol(M):
     return dict(mol_n=int(M[0]), mol_low_share=(M[1] / M[0] if M[0] else None), mol_mid_share=(M[2] / M[0] if M[0] else None))
 def count_pat(lines, tiles):
     tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
-    K = [0, 0, 0, 0]   # 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
+    K = [0, 0, 0, 0, 0]   # 2026-10-28: K[4] the most adjacent pairs possible (each molecule's errors in one run, t - 1); 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
     for k, line in enumerate(lines):
         p = line.rstrip("\n").split("\t")
         if len(p) < 4: continue
@@ -120,7 +120,7 @@ def count_pat(lines, tiles):
                 f = s.count("C") / len(s); M[0] += n; M[1] += n * (f < CUT); M[2] += n * (QUAL_MAX_METH < f < QUAL_MIN_METH)
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") >= QUAL_MIN_METH * len(s):
             e_opp += n * (len(s) - 2); e_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
-            _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s)
+            _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s); K[4] += n * max(_t - 1, 0)
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
     return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K)), g_iso, g_opp)
@@ -133,7 +133,7 @@ def _coupling(K):
     molecule is taken as it is), above 1 when they cluster. Nothing fitted. (Run 1 of its synthetic used pairs over the error share squared,
     which the held rule pulls to 0.87 under independence; disclosed.)"""
     q = K[0] / K[1] if K[1] else None
-    return dict(coupling=(K[2] / K[3]) if K[3] else None, coupling_err_share=q, coupling_pair_share=K[2] / max(K[1], 1), coupling_pairs=int(K[2]))
+    return dict(coupling=(K[2] / K[3]) if K[3] else None, coupling_err_share=q, coupling_pair_share=K[2] / max(K[1], 1), coupling_pairs=int(K[2]), coupling_max=(K[4] / K[3]) if K[3] else None)
 
 def count_pat_tile_errors(lines, tile=TILE):
     """2026-10-25 (DEV-ERASE-01, the graded maintenance test; plan 14.1): the held error tile by tile, in two independent halves. Held

@@ -1,0 +1,4 @@
+independent: coupling 0.9825, ceiling 6.0000
+in runs: coupling 6.0000
+healthy-equal sample: coupling-A 1.0, Normal, floor 0.0, ceiling 6.107
+synthetic (all four): met [True, True, True, True]
