@@ -22,7 +22,7 @@
     {
      "title": "Every A score in the A-score database, with where Normal begins and ends",
      "status": "development",
-     "what": "The A-score database now reads every current-chain reading of the sequencing groups and every replay, reference only where not scored; each row carries its gauge's band, its state and its chain version.",
+     "what": "The A-score database now reads every current-chain reading of the sequencing groups and every replay so far (1,592 samples), reference only where not scored; each row carries its reading's state and chain version, and the gauge's band where the bundle records one (IAM-A, coupling-A, the C-Score's limits).",
      "outcome": "150,771 readings on six instruments; Bands.csv gives, for each instrument, cell, platform and chain version, the gauge's band beside the healthy samples' own spread.",
      "rows": [
       "OTH-051"
