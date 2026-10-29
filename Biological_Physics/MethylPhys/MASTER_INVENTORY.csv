@@ -45,6 +45,7 @@ GSE112618,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; COMMISSIONING_NOTE_METAA_NEUTRO
 "GSE112618 (job E copy, 6 IDAT pairs)",,,,,spent,,,,,,,,,
 GSE112696,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cd4 t cells,yes,IDAT listed for 12/12 samples,Epigenome analysis of normal and T cells from patients with myasthenia gravis,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE113061,,,,,,,,,not usable (cell line (commercial)),smooth muscle,yes,IDAT listed for 8/8 samples,DNA methylation signatures of pulmonary arterial smooth muscle cells in chronic thromboembolic pulmonary hypertension,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE113336,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE114753,,,,,,,,,atlas build,sperm,yes,IDAT listed for 156/156 samples,Cigarette smoking significantly alters sperm DNA methylation patterns,gold-mine map
 GSE114989,,,,,,,,,,,,,Global DNA methylation reflects spatial heterogeneity and molecular evolution of lung adenocarcinomas,candidates DEV_FINGERPRINT_03
 GSE115920,,,,,,,,,not usable (not purified (semen)),sperm,yes,IDAT listed for 6/6 samples,Epigenome analysis of Chinese Han male semen samples,gold-mine map
@@ -90,6 +91,8 @@ GSE132547,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; DEV_ATLAS_USE_01; DEV_ATLAS_V21_0
 GSE132804,downloads/C_tissue_tests/GSE132804/,7.46,IDAT,yes,unspent,,,,,,,,Solid-tissue arrays,S3 register
 GSE133062,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_ATLAS_LAVAGE_01; DEV_ATLAS_LAVAGE_01_OUTCOME; DEV_COMPOSITION_TRUTH_03_OUTCOME; DEV_SYNTH_LEVERS_01,,,,,,
 GSE134217,,,,,,,,DEV_ATLAS_V21_01,,,,,,
+GSE134664,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
+GSE134664 healthy naive and memory B cells WGBS (4 controls; patients not read),,,,,spent (sequencing commissioning test),,,,,,,,,
 GSE135097,,,,,,,,,not usable (too few donors (one normal line)),lung fibroblast,yes,IDAT listed for 12/12 samples,Transforming growth factor beta 1 induces methylation changes in lung fibroblasts [Illumina],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE135205,,,,,,,,PROC_DNMT_01_PARTA_OUTCOME; PROC_DNMT_01_PREREG,,,,,,
 GSE136319,,,,,,,,DEV_FINGERPRINT_03,,,,,DNA methylation data of tumor and non-tumor liver (NTL) tissues from Peruvian patients with hepatocellular carcinoma (HCC).,candidates DEV_FINGERPRINT_03
@@ -442,7 +445,8 @@ GSE94785,,,,,,scored,DEV_TISSUE_LUNG_01,DEV_FINGERPRINT_03; DEV_TISSUE_LUNG_01; 
 GSE95761,,,,,,,,,not usable (cell lines from manipulated embryos),embryonic stem cells,yes,IDAT listed for 6/6 samples,DNA methylation data from ESCs derived by polar body transfer reconstructed embryos (PBTESCs),gold-mine map
 GSE96612,,,,,,,,DEV_IAMA_NEURON_01,atlas build,cortical neurons | oligodendrocytes,yes,SRA run links for 72/72 samples,Neuronal brain region-specific DNA methylation and chromatin accessibility are associated with neuropsychiatric trait heritability [Bisulfite-Seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE98203,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cortical neurons,yes,IDAT listed for 88/88 samples,DNA methylation profiling of human prefrontal cortex neurons in heroin users shows significant difference between genomic contexts of hyper- and hypomethylation,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE98837,,,,,,,,DEV_IAMA_GRAND_01,,,,,,
+GSE98837,,,,,,,,DEV_IAMA_GRAND_01; DEV_METAA_ATLAS_CURVE_01,,,,,,
+GSE98837 healthy CD8 T cell subsets WGBS (8),,,,,spent (sequencing commissioning test),,,,,,,,,
 GSE99511,,,,,partly spent,,,,not usable (not purified (cervico-vaginal self-samples)),,yes,IDAT listed for 68/68 samples,Identification and validation of a novel 3-gene methylation classifier for HPV-based cervical screening on self-samples,gold-mine map
 G_chain_tests 56 series - Stage 1 betas,,,,,spent,,,,,,,,,
 PRJDB12471,,,,,,,,DEV_METHIONINE_01,,,,,,

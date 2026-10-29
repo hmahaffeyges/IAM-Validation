@@ -225,3 +225,5 @@ GSE236026 HCT116 UHRF1-AID and DNMT1-AID degron WGBS (replicate 1 days 0 2 4),sp
 GSE67393 normal peripheral blood 450K (test half),spent (development),Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md (the 450K platform term),GEO
 GSE67393 normal peripheral blood 450K (reserved half),spent (confirmation),Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md (the 450K platform term),GEO
 GSE281691 metabolic HCC blood leukocytes (all 481),spent (replay R5),Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md (R5),GEO
+GSE134664 healthy naive and memory B cells WGBS (4 controls; patients not read),spent (sequencing commissioning test),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md (B and T on sequencing),GEO/SRA
+GSE98837 healthy CD8 T cell subsets WGBS (8),spent (sequencing commissioning test),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md (B and T on sequencing),GEO/SRA

@@ -163,3 +163,17 @@ rule reads below 0.9: 0.43 to 0.46) and 3 (a 5 % loss reads above healthy) uncha
 one command on the amended chain; `seq_term_01/seq_band.py` builds the band (2.5th to 97.5th percentile), each cell type's median and the
 readings against depth; the bar: the median healthy reading within 0.05 of 1. **Then commissioning:** healthy sorted B and T cells sequenced
 by a laboratory the atlas has never seen, read against that band, with the test written before reading.
+
+## Commissioning on sequencing: healthy B and T cells from two new laboratories (written and committed before any of them is read)
+
+**The instruments' job:** a healthy sorted cell, sequenced by a laboratory the atlas has never held, reads Normal on each gauge.
+**Data (unread; spent for this test):** GSE134664, the healthy controls only (2 naive and 2 non-class-switched memory B cells from blood; the
+4 patient samples are not read), and GSE98837 (8 CD8 T cells from 2 people: naive, effector memory, central memory, stem-cell memory).
+GSE113336's non-malignant samples are not in the public archive. Each sample is read by the one command (split_align.yml, 20 machines,
+its sorted cell as the specimen) from its first 140 million read pairs (7 million per machine, under GitHub's 6-hour limit):
+GSM2616068 45 %, GSM2616069 43 %, GSM2616070 39 %, GSM2616071 46 %, GSM2616072 56 %, GSM2616073 39 %, GSM2616074 45 %, GSM2616075 31 %, GSM3963003 79 %, GSM3963004 73 %, GSM3963005 76 %, GSM3963006 76 % of full depth (`bt_seq_01/bt_seq_samples.csv`).
+**Bars** (`bt_seq_01/bt_seq_score.py`): 1, Met-A against the atlas on sequencing, at least 9 of 12 inside its sequencing band (built from
+the atlas's 153 healthy sequencing inputs before these are read); 2, coupling-A, at least 9 of 12 Normal; 3, IAM-A, at least 9 of 12 inside
+band v1 (GSE98837's laboratory is IAM-A's CD8 test laboratory, so its CD8 cells are not new to IAM-A; the B cells are). Read and reported,
+not scored: the territories, the Deconvolver's largest share, the C-Score and depth. Each instrument that meets its bar is commissioned on
+healthy sorted B and T cells on whole-genome bisulfite sequencing.
