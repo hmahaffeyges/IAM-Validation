@@ -4,3 +4,4 @@ ihec_healthy_by_cell.csv
 wg_cell_ranking.csv
 seq_atlas/seq_atlas_inputs.csv
 seq_atlas/seq_atlas_cell_coverage.csv
+seq_atlas/seq_atlas_build_summary.json

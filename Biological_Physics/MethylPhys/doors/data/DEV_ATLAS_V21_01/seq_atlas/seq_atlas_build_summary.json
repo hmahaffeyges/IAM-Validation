@@ -1,0 +1,637 @@
+{
+ "chain": "1cc8064",
+ "pieces": 113,
+ "cpgs_covered": 28217448,
+ "gaps_or_overlaps": 0,
+ "total_gb": 17.49,
+ "machine_hours": 1.9,
+ "cells": 56,
+ "donors_per_cell": {
+  "1": 3,
+  "2": 9,
+  "3": 44
+ },
+ "capped_donor_sites": 605451,
+ "share_of_cpgs_with_reads": {
+  "lowest": 0.973,
+  "median": 0.982,
+  "highest": 0.984
+ },
+ "machines": [
+  {
+   "machine": 0,
+   "pieces": 16,
+   "setup_s": 131,
+   "build_s": 806
+  },
+  {
+   "machine": 1,
+   "pieces": 16,
+   "setup_s": 127,
+   "build_s": 812
+  },
+  {
+   "machine": 2,
+   "pieces": 16,
+   "setup_s": 103,
+   "build_s": 817
+  },
+  {
+   "machine": 3,
+   "pieces": 16,
+   "setup_s": 129,
+   "build_s": 797
+  },
+  {
+   "machine": 4,
+   "pieces": 13,
+   "setup_s": 105,
+   "build_s": 697
+  },
+  {
+   "machine": 5,
+   "pieces": 12,
+   "setup_s": 135,
+   "build_s": 683
+  },
+  {
+   "machine": 6,
+   "pieces": 12,
+   "setup_s": 124,
+   "build_s": 629
+  },
+  {
+   "machine": 7,
+   "pieces": 12,
+   "setup_s": 125,
+   "build_s": 626
+  }
+ ],
+ "pieces_list": [
+  {
+   "start": 0,
+   "end": 250000,
+   "capped_sites": 3972
+  },
+  {
+   "start": 250000,
+   "end": 500000,
+   "capped_sites": 3521
+  },
+  {
+   "start": 500000,
+   "end": 750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 750000,
+   "end": 1000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 1000000,
+   "end": 1250000,
+   "capped_sites": 2809
+  },
+  {
+   "start": 1250000,
+   "end": 1500000,
+   "capped_sites": 18317
+  },
+  {
+   "start": 1500000,
+   "end": 1750000,
+   "capped_sites": 779
+  },
+  {
+   "start": 1750000,
+   "end": 2000000,
+   "capped_sites": 286
+  },
+  {
+   "start": 2000000,
+   "end": 2250000,
+   "capped_sites": 1371
+  },
+  {
+   "start": 2250000,
+   "end": 2500000,
+   "capped_sites": 100
+  },
+  {
+   "start": 2500000,
+   "end": 2750000,
+   "capped_sites": 1
+  },
+  {
+   "start": 2750000,
+   "end": 3000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 3000000,
+   "end": 3250000,
+   "capped_sites": 3847
+  },
+  {
+   "start": 3250000,
+   "end": 3500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 3500000,
+   "end": 3750000,
+   "capped_sites": 82
+  },
+  {
+   "start": 3750000,
+   "end": 4000000,
+   "capped_sites": 1
+  },
+  {
+   "start": 4000000,
+   "end": 4250000,
+   "capped_sites": 0
+  },
+  {
+   "start": 4250000,
+   "end": 4500000,
+   "capped_sites": 9
+  },
+  {
+   "start": 4500000,
+   "end": 4750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 4750000,
+   "end": 5000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 5000000,
+   "end": 5250000,
+   "capped_sites": 4328
+  },
+  {
+   "start": 5250000,
+   "end": 5500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 5500000,
+   "end": 5750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 5750000,
+   "end": 6000000,
+   "capped_sites": 1
+  },
+  {
+   "start": 6000000,
+   "end": 6250000,
+   "capped_sites": 3814
+  },
+  {
+   "start": 6250000,
+   "end": 6500000,
+   "capped_sites": 2194
+  },
+  {
+   "start": 6500000,
+   "end": 6750000,
+   "capped_sites": 12603
+  },
+  {
+   "start": 6750000,
+   "end": 7000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 7000000,
+   "end": 7250000,
+   "capped_sites": 891
+  },
+  {
+   "start": 7250000,
+   "end": 7500000,
+   "capped_sites": 129
+  },
+  {
+   "start": 7500000,
+   "end": 7750000,
+   "capped_sites": 1880
+  },
+  {
+   "start": 7750000,
+   "end": 8000000,
+   "capped_sites": 19947
+  },
+  {
+   "start": 8000000,
+   "end": 8250000,
+   "capped_sites": 53
+  },
+  {
+   "start": 8250000,
+   "end": 8500000,
+   "capped_sites": 2
+  },
+  {
+   "start": 8500000,
+   "end": 8750000,
+   "capped_sites": 158
+  },
+  {
+   "start": 8750000,
+   "end": 9000000,
+   "capped_sites": 8
+  },
+  {
+   "start": 9000000,
+   "end": 9250000,
+   "capped_sites": 143
+  },
+  {
+   "start": 9250000,
+   "end": 9500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 9500000,
+   "end": 9750000,
+   "capped_sites": 9769
+  },
+  {
+   "start": 9750000,
+   "end": 10000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 10000000,
+   "end": 10250000,
+   "capped_sites": 327
+  },
+  {
+   "start": 10250000,
+   "end": 10500000,
+   "capped_sites": 193
+  },
+  {
+   "start": 10500000,
+   "end": 10750000,
+   "capped_sites": 31
+  },
+  {
+   "start": 10750000,
+   "end": 11000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 11000000,
+   "end": 11250000,
+   "capped_sites": 8120
+  },
+  {
+   "start": 11250000,
+   "end": 11500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 11500000,
+   "end": 11750000,
+   "capped_sites": 901
+  },
+  {
+   "start": 11750000,
+   "end": 12000000,
+   "capped_sites": 7
+  },
+  {
+   "start": 12000000,
+   "end": 12250000,
+   "capped_sites": 1322
+  },
+  {
+   "start": 12250000,
+   "end": 12500000,
+   "capped_sites": 91
+  },
+  {
+   "start": 12500000,
+   "end": 12750000,
+   "capped_sites": 39121
+  },
+  {
+   "start": 12750000,
+   "end": 13000000,
+   "capped_sites": 10171
+  },
+  {
+   "start": 13000000,
+   "end": 13250000,
+   "capped_sites": 0
+  },
+  {
+   "start": 13250000,
+   "end": 13500000,
+   "capped_sites": 23
+  },
+  {
+   "start": 13500000,
+   "end": 13750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 13750000,
+   "end": 14000000,
+   "capped_sites": 3186
+  },
+  {
+   "start": 14000000,
+   "end": 14250000,
+   "capped_sites": 128
+  },
+  {
+   "start": 14250000,
+   "end": 14500000,
+   "capped_sites": 70
+  },
+  {
+   "start": 14500000,
+   "end": 14750000,
+   "capped_sites": 9
+  },
+  {
+   "start": 14750000,
+   "end": 15000000,
+   "capped_sites": 20
+  },
+  {
+   "start": 15000000,
+   "end": 15250000,
+   "capped_sites": 8089
+  },
+  {
+   "start": 15250000,
+   "end": 15500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 15500000,
+   "end": 15750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 15750000,
+   "end": 16000000,
+   "capped_sites": 377
+  },
+  {
+   "start": 16000000,
+   "end": 16250000,
+   "capped_sites": 0
+  },
+  {
+   "start": 16250000,
+   "end": 16500000,
+   "capped_sites": 1957
+  },
+  {
+   "start": 16500000,
+   "end": 16750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 16750000,
+   "end": 17000000,
+   "capped_sites": 2653
+  },
+  {
+   "start": 17000000,
+   "end": 17250000,
+   "capped_sites": 41
+  },
+  {
+   "start": 17250000,
+   "end": 17500000,
+   "capped_sites": 67
+  },
+  {
+   "start": 17500000,
+   "end": 17750000,
+   "capped_sites": 17
+  },
+  {
+   "start": 17750000,
+   "end": 18000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 18000000,
+   "end": 18250000,
+   "capped_sites": 12
+  },
+  {
+   "start": 18250000,
+   "end": 18500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 18500000,
+   "end": 18750000,
+   "capped_sites": 5
+  },
+  {
+   "start": 18750000,
+   "end": 19000000,
+   "capped_sites": 178
+  },
+  {
+   "start": 19000000,
+   "end": 19250000,
+   "capped_sites": 0
+  },
+  {
+   "start": 19250000,
+   "end": 19500000,
+   "capped_sites": 164
+  },
+  {
+   "start": 19500000,
+   "end": 19750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 19750000,
+   "end": 20000000,
+   "capped_sites": 68
+  },
+  {
+   "start": 20000000,
+   "end": 20250000,
+   "capped_sites": 1241
+  },
+  {
+   "start": 20250000,
+   "end": 20500000,
+   "capped_sites": 17
+  },
+  {
+   "start": 20500000,
+   "end": 20750000,
+   "capped_sites": 0
+  },
+  {
+   "start": 20750000,
+   "end": 21000000,
+   "capped_sites": 0
+  },
+  {
+   "start": 21000000,
+   "end": 21250000,
+   "capped_sites": 270
+  },
+  {
+   "start": 21250000,
+   "end": 21500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 21500000,
+   "end": 21750000,
+   "capped_sites": 226890
+  },
+  {
+   "start": 21750000,
+   "end": 22000000,
+   "capped_sites": 1
+  },
+  {
+   "start": 22000000,
+   "end": 22250000,
+   "capped_sites": 37
+  },
+  {
+   "start": 22250000,
+   "end": 22500000,
+   "capped_sites": 0
+  },
+  {
+   "start": 22500000,
+   "end": 22750000,
+   "capped_sites": 25837
+  },
+  {
+   "start": 22750000,
+   "end": 23000000,
+   "capped_sites": 4382
+  },
+  {
+   "start": 23000000,
+   "end": 23250000,
+   "capped_sites": 0
+  },
+  {
+   "start": 23250000,
+   "end": 23500000,
+   "capped_sites": 1368
+  },
+  {
+   "start": 23500000,
+   "end": 23750000,
+   "capped_sites": 3106
+  },
+  {
+   "start": 23750000,
+   "end": 24000000,
+   "capped_sites": 20
+  },
+  {
+   "start": 24000000,
+   "end": 24250000,
+   "capped_sites": 16
+  },
+  {
+   "start": 24250000,
+   "end": 24500000,
+   "capped_sites": 113
+  },
+  {
+   "start": 24500000,
+   "end": 24750000,
+   "capped_sites": 3958
+  },
+  {
+   "start": 24750000,
+   "end": 25000000,
+   "capped_sites": 2519
+  },
+  {
+   "start": 25000000,
+   "end": 25250000,
+   "capped_sites": 59
+  },
+  {
+   "start": 25250000,
+   "end": 25500000,
+   "capped_sites": 98
+  },
+  {
+   "start": 25500000,
+   "end": 25750000,
+   "capped_sites": 190
+  },
+  {
+   "start": 25750000,
+   "end": 26000000,
+   "capped_sites": 74327
+  },
+  {
+   "start": 26000000,
+   "end": 26250000,
+   "capped_sites": 186
+  },
+  {
+   "start": 26250000,
+   "end": 26500000,
+   "capped_sites": 19
+  },
+  {
+   "start": 26500000,
+   "end": 26750000,
+   "capped_sites": 95
+  },
+  {
+   "start": 26750000,
+   "end": 27000000,
+   "capped_sites": 1212
+  },
+  {
+   "start": 27000000,
+   "end": 27250000,
+   "capped_sites": 471
+  },
+  {
+   "start": 27250000,
+   "end": 27500000,
+   "capped_sites": 28804
+  },
+  {
+   "start": 27500000,
+   "end": 27750000,
+   "capped_sites": 4570
+  },
+  {
+   "start": 27750000,
+   "end": 28000000,
+   "capped_sites": 24
+  },
+  {
+   "start": 28000000,
+   "end": 28217448,
+   "capped_sites": 57258
+  }
+ ]
+}

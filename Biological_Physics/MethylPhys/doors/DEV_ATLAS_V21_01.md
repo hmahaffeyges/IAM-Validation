@@ -454,7 +454,7 @@ healthy inputs (56 cells), built by the one command in 113 pieces of up to 250,0
 northamerica-northeast2), each piece uploaded the moment it was built (`seq_atlas/gcp_seqatlas.py`, launcher `seq_atlas/gcp_launch.py`). The
 pieces cover the numbering exactly once, with no gaps or overlaps. 17.49 GB; 1.9 machine-hours (about 6 cents); about 15 minutes from launch to
 the last machine's self-delete. No machine was reclaimed (a label in the first version of the shutdown script called every self-delete a
-reclaim; corrected). Each cell has reads at 97.3 % to 98.4 % of all CpGs (`seq_atlas/seq_atlas_cell_coverage.csv`, with its donors); 605,451
+reclaim; corrected). Each cell has reads at 97.3 % to 98.4 % of all CpGs (`seq_atlas/seq_atlas_cell_coverage.csv`, with its donors; totals in `seq_atlas/seq_atlas_build_summary.json`); 605,451
 donor-sites sit at the source files' 255-read cap and are counted. Three cells rest on one donor (naive CD4 T, naive CD8 T, effector memory CD8 T;
 9 on two, 44 on three); for those three the donor-half noise map is blank and the
 read-half map stands in. Stored in the Google bucket (northamerica-northeast2), seq_atlas/pieces/. **Next:** the healthy references for the
