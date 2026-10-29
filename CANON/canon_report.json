@@ -3798,6 +3798,15 @@
 "text": "2. Program reading: \u03b2\u0304 or f_meth against the cell's own healthy value \u2014 the quantity the original floors captured."
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md",
+"line": 91,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "to 97.5th percentile of the healthy readings and the median; **bar:** the median healthy reading within 0.05 of 1 on each. The same pass records the C-Score's h"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_OUTCOME.md",
 "line": 21,
 "pattern": "\\bA[- ]score",
