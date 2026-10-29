@@ -154,7 +154,7 @@ Two more readings come out of every run. **The territories** read disorder where
 every healthy cell type keeps unmarked, and the domains, marked sites some cell types hold loosely, each on the same A-score gauge against
 IAM-Atlas v2.1. **Nearest-neighbor coupling** reads, on single molecules, whether lost marks fall one at a time or together along a stretch
 of DNA, a question from the information-theory study of methylation; 1 is independent. Both are shown beside the commissioned readings and
-flagged as in development ([the instruments](INSTRUMENTS.md)).
+flagged as in development ([the instruments](INSTRUMENTS.md)). It is drawn on the A-score gauge as coupling-A, the sample's coupling over the healthy coupling of its own cell type, so a healthy cell reads 1; its healthy reference comes from the 153 healthy sequencing samples behind the atlas.
 
 ### The chain: one command
 
@@ -235,3 +235,6 @@ find through the repository's issue form, so every result becomes part of the pu
   record.
 - [The A-score database](ASCORES/README.md): every sample each instrument has read, healthy and tumor, and how many cross the healthy line.
 - [The book](https://hmahaffeyges.github.io/IAM-Validation/book/): the physics in full, from cosmology to the cell.
+
+
+**Met-A on sequenced samples.** The atlas is built on the array scale, where a site a cell keeps unmarked reads about 0.055 while sequencing counts it as 0. For a sequenced sample the chain puts each atlas column in sequencing units by the conversion the atlas's own build measured, so a healthy sequenced cell reads 1 against the same atlas. This reading is in development, flagged in every report.

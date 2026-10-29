@@ -206,13 +206,19 @@ One tube, two halves: the buffy coat (the person's own white cells, long DNA) an
 
 Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands, sites every healthy cell type keeps unmarked, where a mark gained is disorder; and the domains, marked sites some healthy cell types hold loosely, where the hold is lost first. Every run of the one command reads both, on arrays and on sequencing, so a change outside a cell's identity sites is seen where it starts. The synthetic tests pass, and tumors read above their own normal tissue on the islands.
 
-**Next:** Healthy samples read Normal first, on arrays and on sequencing against the same atlas columns; then tumors and blood cancers against their own healthy cells. **Record:** [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
+**Next:** Healthy samples read Normal first, on arrays and on sequencing against the same atlas columns, sequencing samples in sequencing units as Met-A is; then tumors and blood cancers against their own healthy cells. **Record:** [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 
 ### Nearest-neighbor coupling
 
-Whether a molecule's held errors fall one at a time or together. On every sequencing count the chain's IAM-A counter records the pairs of neighboring CpGs that lost their mark together on held molecules, over what each molecule's own length and error count give at random; 1 is independent. It asks a question from the information-theory study of methylation: is a mark kept site by site, or by a stretch of DNA as a unit? It is read beside IAM-A's held error, because clustered errors change the lone-error count IAM-A uses. On constructed molecules, independent errors read 0.98 and clustered errors read 2.9 and 4.2.
+Whether a molecule's held errors fall one at a time or together, read on the A-score gauge as coupling-A: the sample's coupling (neighboring CpGs that lost their mark together on held molecules, over what each molecule's own length and error count give at random) over the healthy coupling of its own cell type, so a healthy cell reads 1. The gauge's ends are counted: 0 when no two errors are ever neighbors, and the sample's own most clustered arrangement, every molecule's errors in one run. Its healthy reference comes from the 153 healthy sequencing samples behind IAM-Atlas v2.1, 56 cell types: errors cluster in every healthy cell, more in some, and read against its own cell type a healthy sample sits within 0.935 to 1.062. It asks a question from the information-theory study of methylation: is a mark kept site by site, or by a stretch of DNA as a unit? Every sequencing report draws it.
 
-**Next:** A healthy reference for its gauge from healthy sorted cells on sequencing; then the first question, written before it is read: does switching off the maintenance machinery change how the errors cluster? **Record:** [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md)
+**Next:** Healthy sorted B and T cells from two laboratories the atlas has never held, read against the band; then the first question, written before it is read: does switching off the maintenance machinery change how the errors cluster? **Record:** [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md)
+
+### Met-A on sequencing
+
+Met-A against IAM-Atlas v2.1 for a sample sequenced by whole-genome bisulfite. The atlas is built on the array scale, where a site a cell keeps unmarked reads about 0.055; sequencing counts unmarked molecules as 0. Read on the array scale, healthy sequenced cells read 0.6 to 0.8. The atlas's own build measured how the published sequencing atlas maps onto its scale (sequencing level = -0.0902 + 1.1026 x atlas level, 17 shared cells), so the chain puts each atlas column in sequencing units before comparing. The atlas stays the ruler and nothing new is fitted. Planted healthy sequencing samples read 1.00 on average, and a 5 % loss of pattern reads about 1.9.
+
+**Next:** Its healthy band from the 153 healthy sequencing samples behind the atlas; then healthy sorted B and T cells from two laboratories the atlas has never held, read against that band. Each instrument that meets its bar there is commissioned on sequenced B and T cells. **Record:** [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
 
 ## Sex and the X chromosome
 
