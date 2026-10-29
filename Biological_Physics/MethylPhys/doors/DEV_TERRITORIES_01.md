@@ -90,3 +90,13 @@ in `whole_sample_reference`); mixed specimens are unchanged. **Run 2** (no bar c
 **Built** by `seq_band_01/terr_seq_band.py`: for the islands and the domains, the 2.5th
 to 97.5th percentile of the healthy readings and the median; **bar:** the median healthy reading within 0.05 of 1 on each. The same pass records the C-Score's healthy spread on sequencing (whole genome: how many healthy samples sit within their derived limit, C's median and 97.5th percentile), not scored. **Then:** the
 healthy B and T cells of the sequencing commissioning test (DEV-METAA-ATLAS-CURVE-01) read against these bands.
+
+**The territories' healthy band on sequencing, read: not met** (`seq_band_01/territories_seq_band_summary.txt`; 152 of the 153 healthy
+sequencing inputs read by the one command, one stopped on GitHub). Islands: healthy median 13.9359 (2.5th to 97.5th percentile 1.4057 to
+27.5715); domains: median 1.1323 (0.8345 to 1.3065). Bar (median within 0.05 of 1) not met on either. **What it shows:** on sequencing the
+territories are read against IAM-Atlas v2.1, whose unmarked levels carry the array floor (the shift's cause, read in DEV-METAA-ATLAS-CURVE-01).
+At the islands every healthy cell keeps unmarked, sequencing reads near 0, so the healthy disorder built from array levels is far from what a
+healthy sequenced cell shows. The synthetic planted its truth on the same array levels and could not see it. The territories on sequencing
+are to be read against the IAM Sequencing Atlas (each cell's own healthy disorder, counted at every CpG, plan 35.30); their band is built
+again on it, synthetic first. **Recorded, not scored:** the C-Score on sequencing, whole genome: 145 of 152 healthy within their derived
+limit; C median 1.0010, 97.5th percentile 1.0085.

@@ -1,0 +1,15 @@
+{
+ "islands": {
+  "lo": 1.4057202500000001,
+  "hi": 27.571521999999998,
+  "median": 13.935865,
+  "n": 152
+ },
+ "domains": {
+  "lo": 0.83448625,
+  "hi": 1.306466,
+  "median": 1.132255,
+  "n": 152
+ },
+ "rule": "2.5th to 97.5th percentile of the territory readings of IAM-Atlas v2.1's healthy sequencing inputs, in sequencing units (seq_units)"
+}
