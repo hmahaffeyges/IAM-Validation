@@ -3221,3 +3221,16 @@ The leukemia study's full-depth readings passed thirty samples, every one with a
 
 ### 2026-10-27 · Day summary
 The leukemia study's full-depth readings reached 34 of 36 samples, every leukemia above the highest cord-blood control on IAM-A. The degron series was read in full: neither predicted answer in either line, so the firm rate stays calibrated. The 450K C-Score platform term met its test half and did not meet its confirmation half, so the 450K whole-genome C-Score stays development; every C-Score reading now carries its limit in the chain. A launcher for Google Cloud spot machines was written. The liver cancer replay was written before reading and sent. Overnight, GitHub moved its run results to storage hosts the network did not yet allow, and downloads failed silently until morning; the watcher now stops on any failed download.
+
+### 2026-10-28 · Day summary
+The leukemia study's full-depth readings were completed, all 36 samples; IAM-A sets every leukemia above every cord-blood control, while
+the study's IAM-A values were found to sit on a band pooled across cell types, and the study's samples had gone in as mixed specimens.
+IAM-A's commissioned band was taken apart by cell type: one cell type spans about 0.04, cell types span 0.74 to 1.06. Nearest-neighbor
+coupling got its A-score gauge (counted floor and ceiling) and its healthy reference from the atlas's 153 sequencing samples (Normal
+0.935 to 1.062). Met-A on sequencing was found to read 0.6 to 0.8 on healthy cells because the atlas's array scale holds unmarked sites near
+0.055 where sequencing reads 0; the chain now puts each atlas column in sequencing units by the atlas's own measured conversion (synthetic
+met on the third run, the first two disclosed). A commissioning test for B and T cells on sequencing, two new laboratories, was written
+before reading and queued. The 450K C-Score confirmation was not met; the liver and aging replays were read; three chapters (the Globe
+Explorer, the information sphere, Met-A's healthy line) were loaded into the book flagged in development; the territories and the coupling
+were added to every document. Overnight on the 27th the machines sat idle for about eleven hours after GitHub moved its result storage;
+the watcher now stops on a failed download, re-reads its registry before writing and keeps watching when machines are free.

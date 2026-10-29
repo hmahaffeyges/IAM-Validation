@@ -78,6 +78,46 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The coupling's healthy reference, built",
+     "status": "development",
+     "what": "The 153 healthy sequencing samples behind IAM-Atlas v2.1, 56 cell types, read by the one command.",
+     "outcome": "Healthy coupling differs by cell type (1.30 to 2.18); read against its own cell type a healthy sample sits within 0.935 to 1.062, about a tenth of IAM-A's pooled band. Every sequencing report now draws coupling-A.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "Met-A on sequencing, read in sequencing units",
+     "status": "development",
+     "what": "Each atlas column put in sequencing units by the conversion the atlas's own build measured for the published sequencing atlas.",
+     "outcome": "Planted healthy sequencing samples read 1.00 on average (the array-scale column gave 0.44); its healthy band from the 153 sequencing samples is being read.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "B and T cells on sequencing: commissioning test written",
+     "status": "development",
+     "what": "12 healthy sorted cells from two laboratories the atlas has never held: 4 B cells, 8 CD8 T cells.",
+     "outcome": "Written before reading: Met-A, coupling-A and IAM-A each must read at least 9 of 12 Normal; queued on the GitHub machines, B cells first.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "What Normal means on IAM-A",
+     "status": "development",
+     "what": "IAM-A's commissioned band set beside each healthy cell type's own spread.",
+     "outcome": "Cell types sit 0.74 to 1.06 while one cell type spans about 0.04: the pooled band's width is mostly between cell types. Every new gauge is built per cell type.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     }
    ]
   }
