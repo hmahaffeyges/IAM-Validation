@@ -6,3 +6,7 @@ seq_atlas/seq_atlas_inputs.csv
 seq_atlas/seq_atlas_cell_coverage.csv
 seq_atlas/seq_atlas_build_summary.json
 seq_atlas/mk_build_files.csv
+mk_build_files.csv
+seq_atlas_inputs.csv
+seq_atlas_cell_coverage.csv
+seq_atlas_build_summary.json
