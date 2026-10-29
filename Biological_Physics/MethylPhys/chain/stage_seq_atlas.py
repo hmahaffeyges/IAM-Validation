@@ -11,14 +11,15 @@ Per cell, at every CpG of the block:
   level      median of the donors' own levels (methylated / all, per donor)
   spread     standard deviation of the donors' levels (two or more donors)
   disorder   mean over donors of each donor's binary entropy at the site, in bits (each donor's measured disorder)
-  lo, hi     95 % range of the pooled level from the counts alone (Jeffreys interval of all methylated over all reads; exact, no sampling)
+  meth       methylated reads, summed over donors (capped at 65534); with reads it gives the pooled level and its exact 95 % range from the
+             counts alone (Jeffreys interval: beta quantiles of meth + 0.5 and reads - meth + 0.5; 2026-10-29: stored as the count, not the range)
   halfA, halfB   pooled level in each sealed donor half (IAM-Atlas v2.1 decision 17's split); halfA - halfB is noise map 1
   readA, readB   pooled level when every donor's reads are split in two at random (hypergeometric, seed stated); readA - readB is noise map 2,
                  defined even for a cell with one donor
 """
 import os, io, numpy as np, pandas as pd
 HG19_CPGS = 28217448; BLANK = 65535; SEED = 20261029
-STATS = ("donors", "reads", "level", "spread", "disorder", "lo", "hi", "halfA", "halfB", "readA", "readB")
+STATS = ("donors", "reads", "meth", "level", "spread", "disorder", "halfA", "halfB", "readA", "readB")
 
 def read_block(src, start, end):
     """Methylated and total reads over CpGs [start, end) (0-based) of one .beta file: a local path, or an https URL read by byte range."""
@@ -48,7 +49,6 @@ def _H(p):
 
 def build_block(samples, start, end, source):
     """samples: DataFrame with gsm, cell, half (A or B) and file (local path or URL). Returns (table, summary dict)."""
-    from scipy.stats import beta as B
     rng = np.random.default_rng([SEED, start]); cols = {}; summ = dict(start=start, end=end, cells={}, capped_sites=0)
     for cell, g in samples.groupby("cell", sort=True):
         M, N = [], []
@@ -60,7 +60,6 @@ def build_block(samples, start, end, source):
         level = np.nanmedian(np.where(has, lv, np.nan), axis=0) if len(g) > 1 else lv[0]
         spread = np.where(nd >= 2, np.nanstd(lv, axis=0, ddof=1) if len(g) > 1 else np.nan, np.nan)
         dis = np.where(nd > 0, np.nansum(np.where(has, _H(np.nan_to_num(lv)), 0), 0) / np.maximum(nd, 1), np.nan)
-        lo = np.where(alln > 0, B.ppf(0.025, allm + 0.5, alln - allm + 0.5), np.nan); hi = np.where(alln > 0, B.ppf(0.975, allm + 0.5, alln - allm + 0.5), np.nan)
         hA = g.half.to_numpy() == "A"
         def pooled(sel):
             mm, nn = M[sel].sum(0), N[sel].sum(0)
@@ -69,9 +68,9 @@ def build_block(samples, start, end, source):
         with np.errstate(divide="ignore", invalid="ignore"):
             rA = np.where(n1.sum(0) > 0, m1.sum(0) / n1.sum(0), np.nan); rB = np.where((N - n1).sum(0) > 0, (M - m1).sum(0) / (N - n1).sum(0), np.nan)
         blank = nd == 0
-        vals = dict(level=level, spread=spread, disorder=dis, lo=lo, hi=hi, halfA=pooled(hA), halfB=pooled(~hA), readA=rA, readB=rB)
+        vals = dict(level=level, spread=spread, disorder=dis, halfA=pooled(hA), halfB=pooled(~hA), readA=rA, readB=rB)
         for k, v in vals.items(): v = np.where(blank, np.nan, v); cols[f"{cell}|{k}"] = _u16(v)
-        cols[f"{cell}|donors"] = np.where(blank, BLANK, nd).astype(np.uint16); cols[f"{cell}|reads"] = np.where(blank, BLANK, np.minimum(alln, BLANK - 1)).astype(np.uint16)
+        cols[f"{cell}|donors"] = np.where(blank, BLANK, nd).astype(np.uint16); cols[f"{cell}|reads"] = np.where(blank, BLANK, np.minimum(alln, BLANK - 1)).astype(np.uint16); cols[f"{cell}|meth"] = np.where(blank, BLANK, np.minimum(allm, BLANK - 1)).astype(np.uint16)
         summ["cells"][cell] = dict(donors=len(g), halfA=int(hA.sum()), halfB=int((~hA).sum()), sites_with_reads=int((~blank).sum()), median_reads=float(np.median(alln[~blank])) if (~blank).any() else 0)
     T = pd.DataFrame(cols); T.insert(0, "cpg", np.arange(start + 1, end + 1, dtype=np.int32))   # 1-based hg19 CpG index, as the .pat and .beta numbering
     return T, summ

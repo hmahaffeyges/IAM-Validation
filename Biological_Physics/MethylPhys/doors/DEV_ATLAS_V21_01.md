@@ -440,3 +440,11 @@ counting alone predicts (the same planted donors' reads drawn again independentl
 (0.0201 against 0.0201 and 0.0202); both noise maps average within 0.0002 of 0, and the read-half map's spread matches counting (0.0617
 against 0.0617; 0.0614 against 0.0616); blanks fall exactly where no reads. **The real build's inputs:** `seq_atlas/seq_atlas_inputs.csv`,
 the 153 healthy sequencing inputs with each one's GEO .beta file, cell and sealed half (IAM-Atlas v2.1 decision 17).
+
+**Block 0, measured** (development; CpGs 0 to 1,000,000; chain 62b5a6e): built by the one command from the 153 inputs read from GEO by byte
+range, on one Google spot machine (n2-standard-4, northamerica-northeast2): 203 s to build, 146 s to set up, 758 MB written, 7,493 donor-sites
+at the source files' 255-read cap. The whole numbering (29 blocks) is about 3 machine-hours and about 22 GB. **Change before the other
+blocks:** the two range columns (lo, hi) are replaced by the pooled methylated-read count (`meth`); with `reads`, the pooled level and its
+exact 95 % range follow from the counts (Jeffreys interval), so nothing is lost and each block is smaller. The synthetic was run again on the
+changed stage (seed 20261030): all bars met (`seq_atlas/seq_atlas_synthetic.txt`; the previous run kept as `seq_atlas_synthetic_run2.txt`).
+Block 0 is built again with the other blocks.

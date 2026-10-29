@@ -48,7 +48,7 @@ for cell, t in truth.items():
     nA = (t["n"] // 2).sum(0)[has]; nB = (t["n"] - t["n"] // 2).sum(0)[has]; pp = t["p"][has]
     pred = float(np.sqrt(np.mean(pp * (1 - pp) * (1 / nA + 1 / nB)))); obs = float(np.std(d2))
     b2 = abs(d1.mean()) <= 0.005 and abs(d2.mean()) <= 0.005 and abs(obs / pred - 1) <= 0.2
-    cols = [f"{cell}|{k}" for k in ("level", "lo", "hi", "halfA", "halfB", "readA", "readB", "disorder")]
+    cols = [f"{cell}|{k}" for k in ("level", "meth", "halfA", "halfB", "readA", "readB", "disorder")]   # 2026-10-29: meth replaces lo, hi
     b3 = all((T[c].to_numpy()[t["empty"]] == B).all() for c in cols) and not (lv[has] == B).any()
     ok += [b1ok, b2, b3]
     L_ += [f"{cell}: bar 1 median |level - planted| {b1:.4f} vs counting alone {pr:.4f} ({'met' if b1ok else 'not met'})",
