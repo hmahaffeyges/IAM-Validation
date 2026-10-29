@@ -1199,7 +1199,8 @@
     "GSE124565 (12 healthy, build)",
     "GSE88824 (8 healthy, build)",
     "GSE72338 (18 granulocyte arrays, held-out test)",
-    "GSE224807 (granulocytes; named in notes, now spent)"
+    "GSE224807 (granulocytes; named in notes, now spent)",
+    "GSE87197 megakaryocytes donor 3 (19 cells; GSE87196 parent series)"
    ],
    "data_status": "partial",
    "status": "designed",
