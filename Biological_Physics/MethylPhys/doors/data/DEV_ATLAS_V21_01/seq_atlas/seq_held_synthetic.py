@@ -13,7 +13,7 @@ Usage: python3 seq_held_synthetic.py WORKDIR OUT.txt"""
 import os, sys, json, itertools, subprocess, numpy as np, pandas as pd
 W, OUT = sys.argv[1:3]; os.makedirs(W, exist_ok=True)
 HERE = os.path.dirname(os.path.abspath(__file__)); IF = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", "chain", "MethylPhys_Interface"))
-rng = np.random.default_rng(20261102)   # run 2 (run 1 seed 20261101: bar 1 as first written not met, disclosed); NT, L, M = 40, 10, 300
+rng = np.random.default_rng(20261102); NT, L, M = 40, 10, 300   # run 2 (run 1 seed 20261101: bar 1 as first written not met, disclosed)
 E = {"cell one": [0.03 + 0.001 * t for t in range(NT)], "cell two": [0.07 - 0.001 * t for t in range(NT)]}
 def predict(e):
     num = den = 0.0

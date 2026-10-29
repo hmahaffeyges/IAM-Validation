@@ -1,0 +1,5 @@
+IAM Sequencing Atlas: held-error reference synthetic, counted and built by run_sample.py (--dev-count-tiles, --build seq-held)
+seed 20261102, 2 cells x 4 donors, 40 tiles, 300 molecules of 10 CpGs per tile and donor
+cell one: 40 tiles | median relative difference -0.0116 (limit 0.0295: met) | within 2 sd 0.975 (met) | halves add up: met | held error range 0.0262 to 0.0629 (predicted 0.0278 to 0.0566)
+cell two: 40 tiles | median relative difference +0.0032 (limit 0.0292: met) | within 2 sd 0.975 (met) | halves add up: met | held error range 0.0264 to 0.0606 (predicted 0.0287 to 0.0572)
+synthetic (all bars, both cells): met

@@ -540,3 +540,7 @@ from counting: the median of 40 tiles at these chances scatters by about 0.009 f
 deviations. **Bar 1 amended for run 2, before it runs (disclosed):** within 3 of the median's own counting standard deviations, computed from
 each tile's chances; new seed 20261102. Bars 2 and 3 unchanged. The same lesson as the atlas's own synthetic run 1: a bar is derived from
 counting before it is written.
+
+**The held-error synthetic, run 2: met** (`seq_atlas/seq_held_synthetic.txt`): median relative differences -0.0116 and +0.0032 (limits
+0.0295 and 0.0292), 0.975 of tiles within 2 counting standard deviations in both cells, and the halves add up exactly. **Then:** the 153
+healthy inputs' molecule files counted by the one command on spot machines, and the reference built beside the atlas.
