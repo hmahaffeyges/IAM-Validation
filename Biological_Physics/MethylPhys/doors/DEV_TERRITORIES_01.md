@@ -97,6 +97,6 @@ sequencing inputs read by the one command, one stopped on GitHub). Islands: heal
 territories are read against IAM-Atlas v2.1, whose unmarked levels carry the array floor (the shift's cause, read in DEV-METAA-ATLAS-CURVE-01).
 At the islands every healthy cell keeps unmarked, sequencing reads near 0, so the healthy disorder built from array levels is far from what a
 healthy sequenced cell shows. The synthetic planted its truth on the same array levels and could not see it. The territories on sequencing
-are to be read against the IAM Sequencing Atlas (each cell's own healthy disorder, counted at every CpG, plan 35.30); their band is built
+are to be read against the IAM Sequencing Atlas (each cell's own healthy disorder, counted at every CpG); their band is built
 again on it, synthetic first. **Recorded, not scored:** the C-Score on sequencing, whole genome: 145 of 152 healthy within their derived
 limit; C median 1.0010, 97.5th percentile 1.0085.
