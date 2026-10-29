@@ -254,6 +254,17 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "seq-atlas":   # 2026-10-29 (plan 35.30, development): one block of the IAM Sequencing Atlas, counted from healthy donors' reads
+        if not (a.build_samples and a.build_out and a.build_block): print("--build seq-atlas needs --build-samples CSV (gsm, cell, half, file), --build-block START:END and --build-out"); return 2
+        import stage_seq_atlas as _SQ, warnings as _w; _w.filterwarnings("ignore", category=RuntimeWarning)
+        s, e = (int(x) for x in a.build_block.split(":")); S = _pd.read_csv(a.build_samples, dtype=str)
+        if "file" not in S.columns: S["file"] = [_SQ.geo_url(g, t) for g, t in zip(S.gsm, S.title)]
+        print(f"Build: IAM Sequencing Atlas block {s:,}-{e:,} from {len(S)} healthy donors, {S.cell.nunique()} cells", flush=True)
+        T, summ = _SQ.build_block(S, s, e, a.build_samples); T.to_parquet(a.build_out, compression="zstd", index=False)
+        summ.update(output=os.path.basename(a.build_out), samples_file=os.path.basename(a.build_samples), command=[os.path.basename(sys.argv[0])] + sys.argv[1:],
+                    label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)", stats=list(_SQ.STATS), blank=_SQ.BLANK, seed=_SQ.SEED)
+        if a.bundle: json.dump(summ, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps({k: v for k, v in summ.items() if k not in ("command", "cells")}, default=str)); return 0
     if a.build == "provisional":   # 2026-10-24 (plan 40.18, development): a provisional reference column, kept apart from IAM-Atlas v2.1
         if not (a.build_samples and a.build_cell): print("--build provisional needs --build-samples CSV and --build-cell NAME"); return 2
         import stage_provisional as _PV; m = _PV.build(a.build_cell, a.build_samples, os.path.join(os.path.dirname(a.build_out or ".") or ".", "_pool_work"), a.build_out)
@@ -460,7 +471,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -474,6 +485,7 @@ def main():
     ap.add_argument("--dev-provisional", default=None, metavar="CELL[,CELL]", help="DEVELOPMENT (plan 40.18): with the full atlas panel, a second deconvolution with provisional columns (stage_provisional) beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged")
     ap.add_argument("--build-samples", default=None, help="--build provisional: the samples CSV (gsm, file) of per-CpG read files to pool")
     ap.add_argument("--build-cell", default=None, help="--build provisional: the cell's name")
+    ap.add_argument("--build-block", default=None, metavar="START:END", help="--build seq-atlas (2026-10-29, development): the block of hg19 CpGs, 0-based, end excluded")
     ap.add_argument("--explorer-spec", default=None, help="also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's "
                     "Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew")
     ap.add_argument("--dev-genome-globe", action="store_true", help="DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe "

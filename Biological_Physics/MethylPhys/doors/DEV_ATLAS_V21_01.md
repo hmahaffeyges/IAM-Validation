@@ -408,3 +408,23 @@ laboratory or cell type at little cost; every item of the checklist is built. Th
 comes through working with the Johns Hopkins group: their healthy sequenced data, help with controlled-access sets, and their computers.
 **Cost, measured:** on a Google spot machine (n2-standard-4) one healthy input was read by the chain in 16.5 minutes for about one cent,
 with readings identical to GitHub's; full-depth alignment from raw reads takes about 0.16 machine-hours per million read pairs.
+
+## The IAM Sequencing Atlas, step 1: the counting tables (written and committed before the synthetic runs; plan 35.30)
+
+**The instrument's job:** the atlas reports each cell's healthy level where donors were measured, leaves blank where they were not, and its
+two noise maps carry noise only. **What is built:** `chain/stage_seq_atlas.py`, run by the one command (`run_sample.py --build seq-atlas
+--build-samples CSV --build-block START:END --build-out PARQUET`). Each healthy donor's hg19 .beta file (methylated and total reads at every
+one of the 28,217,448 CpGs) is read only over the block, from a folder or straight from GEO by byte range. Per cell and CpG: donors, reads,
+the median of the donors' levels, the donors' spread, each donor's measured disorder (mean binary entropy), the 95 % range of the pooled level
+from the counts (Jeffreys interval; exact, no sampling), the pooled level in each sealed donor half (IAM-Atlas v2.1 decision 17's split,
+reused: all 153 inputs already hold a half, 79 A and 74 B) and in two random halves of every donor's reads (seed 20261029). Half A minus half
+B is noise map 1; read half A minus read half B is noise map 2, defined for a cell with one donor. Blank (65535) where no donor of the cell
+has a read; nothing is filled. Counts in the source .beta files are capped at 255; capped sites are counted in each block's summary.
+
+**Prior reading:** none of the atlas's 153 sequencing inputs is read by this step's synthetic; they are already spent as atlas inputs.
+
+**Synthetic test:** DEV_ATLAS_V21_01/seq_atlas/seq_atlas_synthetic.py, DEV_ATLAS_V21_01/seq_atlas/seq_atlas_synthetic.txt
+
+**Synthetic bars** (both cells): 1. median |built level - planted donor level| at most 0.02; 2. both noise maps average within 0.005 of 0,
+and the read-half map's spread is within 20 % of what counting predicts; 3. blank exactly where no reads, never where reads.
+**Then:** one real block (CpGs 0 to 1,000,000) from the 153 on one Google spot machine, timed; then all 29 blocks.
