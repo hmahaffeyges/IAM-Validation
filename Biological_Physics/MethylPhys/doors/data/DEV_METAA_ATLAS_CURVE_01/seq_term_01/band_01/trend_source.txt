@@ -1,0 +1,3 @@
+samples 150
+ratio vs depth: rho -0.564 | ratio vs IAM-A: rho +0.080 | IAM-A vs depth: rho +0.029
+ratio vs IAM-A, depth held: +0.117 | ratio vs depth, IAM-A held: -0.569

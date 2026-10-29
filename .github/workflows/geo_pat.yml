@@ -32,6 +32,7 @@ jobs:
           [ -n "$F" ] || { echo "no hg19 .pat.gz for $G on GEO"; exit 21; }
           curl -sfL --retry 5 -o $PWD/$G.pat.gz "$U$F"; ls -la $G.pat.gz
           export SPECIMEN="$(python3 -c "import csv,sys; print([r.get("specimen") or r["cell"] for r in csv.DictReader(open('${{ inputs.samples }}')) if r['gsm']==sys.argv[1]][0])" $G)"
+          export THIN="$(python3 -c "import csv,sys; r=[r for r in csv.DictReader(open('${{ inputs.samples }}')) if r['gsm']==sys.argv[1]][0]; t=r.get('thin') or ''; print('' if t in ('', '1', '1.0') else t)" $G)"   # 2026-10-29: a thinning given in the sample list
           set +e; export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=4 FULL=1 PATFILE=$PWD/$G.pat.gz SAMPLES=${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh $G > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
       - uses: actions/upload-artifact@v4

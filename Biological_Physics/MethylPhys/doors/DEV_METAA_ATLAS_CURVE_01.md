@@ -225,3 +225,13 @@ depth trend comes from, read on the 153 already made (within cells, against the 
 **Where the depth trend comes from, written before it runs** (`seq_term_01/band_01/trend_source.py`; reported, not scored, nothing set from
 it): the healthy ratio against depth and against the same samples' IAM-A (the measured error rate in held marks), each with the other held.
 If the ratio follows IAM-A with depth held, the excess is the library's own error rate; if it follows depth with IAM-A held, it is depth.
+
+**Where the depth trend comes from, read** (`seq_term_01/band_01/trend_source.txt`): not the library's error rate. The ratio follows depth with
+IAM-A held (rho -0.569) and barely follows IAM-A with depth held (+0.117); IAM-A itself does not follow depth (+0.029). It is depth itself.
+
+**The healthy ratio at one common depth, written and committed before any thinned reading** (`seq_term_01/thin_01/`). Each healthy input is
+read by the one command thinned to about 30,000,000 held-error chances (about the 5th percentile of their depths, set before reading;
+`run_sample.py --dev-thin`, the fraction in `healthy_seq_thin.csv`, passed by geo_pat.yml and erase_gh.sh). The test's job: at one depth, the
+ratio no longer follows the original depth. Bar: |Spearman rho| at most 0.2 (`thin_score.py`). If met, Met-A on sequencing is read at the
+common depth; if not, depth acts some other way and is studied before any rule. **Synthetic test:** the thinning is the chain's own, tested in
+step 40 (DEV_ALL_INFO_01 quarter-depth synthetic); this test reads only healthy samples already spent.

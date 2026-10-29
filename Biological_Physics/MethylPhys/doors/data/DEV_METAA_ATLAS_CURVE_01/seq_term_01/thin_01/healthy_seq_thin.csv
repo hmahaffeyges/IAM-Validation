@@ -1,0 +1,154 @@
+unit,gse,gsm,genotype,genome,title,srr,spots,cell,specimen,thin
+H1,GSE186458,GSM5652176,healthy,hg19,adipocytes,,,adipocytes,sorted adipocytes,0.5437
+H2,GSE186458,GSM5652177,healthy,hg19,adipocytes,,,adipocytes,sorted adipocytes,0.5893
+H3,GSE186458,GSM5652178,healthy,hg19,adipocytes,,,adipocytes,sorted adipocytes,0.6639
+H4,GSE186458,GSM5652179,healthy,hg19,aorta endothelium,,,aorta endothelium,sorted aorta endothelium,0.6668
+H5,GSE186458,GSM5652180,healthy,hg19,aorta endothelium,,,aorta endothelium,sorted aorta endothelium,0.7142
+H6,GSE186458,GSM5652181,healthy,hg19,vascular saphenous endothelium,,,vascular saphenous endothelium,sorted vascular saphenous endothelium,0.6322
+H7,GSE186458,GSM5652182,healthy,hg19,vascular saphenous endothelium,,,vascular saphenous endothelium,sorted vascular saphenous endothelium,0.5165
+H8,GSE186458,GSM5652183,healthy,hg19,vascular saphenous endothelium,,,vascular saphenous endothelium,sorted vascular saphenous endothelium,0.565
+H9,GSE186458,GSM5652184,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,0.4655
+H10,GSE186458,GSM5652185,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,0.4764
+H11,GSE186458,GSM5652186,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,0.5599
+H12,GSE186458,GSM5652187,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,0.4416
+H13,GSE186458,GSM5652188,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,0.645
+H14,GSE186458,GSM5652189,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,0.826
+H15,GSE186458,GSM5652191,healthy,hg19,lung alveolar endothelium,,,lung alveolar endothelium,sorted lung alveolar endothelium,0.5663
+H16,GSE186458,GSM5652192,healthy,hg19,lung alveolar endothelium,,,lung alveolar endothelium,sorted lung alveolar endothelium,0.466
+H17,GSE186458,GSM5652193,healthy,hg19,lung alveolar endothelium,,,lung alveolar endothelium,sorted lung alveolar endothelium,0.518
+H18,GSE186458,GSM5652194,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,1.0
+H19,GSE186458,GSM5652195,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,0.6523
+H20,GSE186458,GSM5652196,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,0.9084
+H21,GSE186458,GSM5652198,healthy,hg19,colon fibroblasts,,,colon fibroblasts,sorted colon fibroblasts,0.5775
+H22,GSE186458,GSM5652199,healthy,hg19,colon fibroblasts,,,colon fibroblasts,sorted colon fibroblasts,0.5906
+H23,GSE186458,GSM5652201,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,0.6787
+H24,GSE186458,GSM5652202,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,0.8212
+H25,GSE186458,GSM5652203,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,0.7161
+H26,GSE186458,GSM5652205,healthy,hg19,striated muscle,,,striated muscle,sorted striated muscle,0.6176
+H27,GSE186458,GSM5652206,healthy,hg19,striated muscle,,,striated muscle,sorted striated muscle,0.6091
+H28,GSE186458,GSM5652207,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,0.7697
+H29,GSE186458,GSM5652208,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,0.637
+H30,GSE186458,GSM5652209,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,1.0
+H31,GSE186458,GSM5652212,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,0.5883
+H32,GSE186458,GSM5652213,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,0.5756
+H33,GSE186458,GSM5652216,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,0.6755
+H34,GSE186458,GSM5652219,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,0.8797
+H35,GSE186458,GSM5652220,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,0.5503
+H36,GSE186458,GSM5652221,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,0.6809
+H37,GSE186458,GSM5652223,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,0.8777
+H38,GSE186458,GSM5652224,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,0.6636
+H39,GSE186458,GSM5652225,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,0.5681
+H40,GSE186458,GSM5652233,healthy,hg19,hepatocyte,,,hepatocyte,sorted hepatocyte,0.5625
+H41,GSE186458,GSM5652234,healthy,hg19,hepatocyte,,,hepatocyte,sorted hepatocyte,0.5901
+H42,GSE186458,GSM5652235,healthy,hg19,hepatocyte,,,hepatocyte,sorted hepatocyte,0.4923
+H43,GSE186458,GSM5652239,healthy,hg19,pancreatic duct,,,pancreatic duct,sorted pancreatic duct,0.5796
+H44,GSE186458,GSM5652240,healthy,hg19,pancreatic duct,,,pancreatic duct,sorted pancreatic duct,0.5815
+H45,GSE186458,GSM5652241,healthy,hg19,pancreatic duct,,,pancreatic duct,sorted pancreatic duct,1.0
+H46,GSE186458,GSM5652243,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,0.457
+H47,GSE186458,GSM5652244,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,0.8003
+H48,GSE186458,GSM5652245,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,0.9652
+H49,GSE186458,GSM5652247,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,0.8864
+H50,GSE186458,GSM5652248,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,0.6132
+H51,GSE186458,GSM5652249,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,0.9116
+H52,GSE186458,GSM5652250,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,0.705
+H53,GSE186458,GSM5652251,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,0.7219
+H54,GSE186458,GSM5652252,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,0.6707
+H55,GSE186458,GSM5652253,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,0.5508
+H56,GSE186458,GSM5652254,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,0.6473
+H57,GSE186458,GSM5652255,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,0.6178
+H58,GSE186458,GSM5652256,healthy,hg19,kidney glomerular epithelium,,,kidney glomerular epithelium,sorted kidney glomerular epithelium,0.5763
+H59,GSE186458,GSM5652257,healthy,hg19,kidney glomerular epithelium,,,kidney glomerular epithelium,sorted kidney glomerular epithelium,0.6755
+H60,GSE186458,GSM5652258,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,0.4652
+H61,GSE186458,GSM5652259,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,0.5623
+H62,GSE186458,GSM5652260,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,0.4875
+H63,GSE186458,GSM5652264,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,0.5754
+H64,GSE186458,GSM5652265,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,0.5996
+H65,GSE186458,GSM5652266,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,0.5883
+H66,GSE186458,GSM5652267,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,0.4629
+H67,GSE186458,GSM5652268,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,0.6564
+H68,GSE186458,GSM5652269,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,0.6526
+H69,GSE186458,GSM5652271,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,0.6215
+H70,GSE186458,GSM5652272,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,0.8754
+H71,GSE186458,GSM5652273,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,0.4681
+H72,GSE186458,GSM5652274,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,0.5951
+H73,GSE186458,GSM5652275,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,0.811
+H74,GSE186458,GSM5652276,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,1.0
+H75,GSE186458,GSM5652279,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,0.4634
+H76,GSE186458,GSM5652280,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,0.858
+H77,GSE186458,GSM5652281,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,0.5484
+H78,GSE186458,GSM5652282,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells,0.6723
+H79,GSE186458,GSM5652283,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells,0.9299
+H80,GSE186458,GSM5652284,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells,0.598
+H81,GSE186458,GSM5652285,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4,0.5575
+H82,GSE186458,GSM5652286,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4,0.7089
+H83,GSE186458,GSM5652287,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4,0.8929
+H84,GSE186458,GSM5652288,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,0.804
+H85,GSE186458,GSM5652289,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,0.664
+H86,GSE186458,GSM5652290,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,0.7176
+H87,GSE186458,GSM5652291,healthy,hg19,t effector memory cd4,,,t effector memory cd4,sorted t effector memory cd4,0.808
+H88,GSE186458,GSM5652292,healthy,hg19,t effector memory cd4,,,t effector memory cd4,sorted t effector memory cd4,0.7024
+H89,GSE186458,GSM5652293,healthy,hg19,t effector memory cd4,,,t effector memory cd4,sorted t effector memory cd4,0.7613
+H90,GSE186458,GSM5652295,healthy,hg19,effector memory cd8 t cells,,,effector memory cd8 t cells,sorted effector memory cd8 t cells,1.0
+H91,GSE186458,GSM5652296,healthy,hg19,naive cd4 t cells,,,naive cd4 t cells,sorted naive cd4 t cells,1.0
+H92,GSE186458,GSM5652298,healthy,hg19,naive cd8 t cells,,,naive cd8 t cells,sorted naive cd8 t cells,1.0
+H93,GSE186458,GSM5652299,healthy,hg19,nk cells,,,nk cells,sorted nk cells,0.5741
+H94,GSE186458,GSM5652300,healthy,hg19,nk cells,,,nk cells,sorted nk cells,0.6632
+H95,GSE186458,GSM5652301,healthy,hg19,nk cells,,,nk cells,sorted nk cells,0.756
+H96,GSE186458,GSM5652302,healthy,hg19,monocytes,,,monocytes,sorted monocytes,1.0
+H97,GSE186458,GSM5652303,healthy,hg19,monocytes,,,monocytes,sorted monocytes,0.7607
+H98,GSE186458,GSM5652304,healthy,hg19,monocytes,,,monocytes,sorted monocytes,0.5083
+H99,GSE186458,GSM5652305,healthy,hg19,colon macrophages,,,colon macrophages,sorted colon macrophages,0.4543
+H100,GSE186458,GSM5652306,healthy,hg19,colon macrophages,,,colon macrophages,sorted colon macrophages,0.53
+H101,GSE186458,GSM5652308,healthy,hg19,lung alveolar macrophages,,,lung alveolar macrophages,sorted lung alveolar macrophages,0.6589
+H102,GSE186458,GSM5652309,healthy,hg19,lung alveolar macrophages,,,lung alveolar macrophages,sorted lung alveolar macrophages,0.3944
+H103,GSE186458,GSM5652310,healthy,hg19,lung interstitial macrophages,,,lung interstitial macrophages,sorted lung interstitial macrophages,0.544
+H104,GSE186458,GSM5652311,healthy,hg19,lung interstitial macrophages,,,lung interstitial macrophages,sorted lung interstitial macrophages,0.4177
+H105,GSE186458,GSM5652312,healthy,hg19,lung interstitial macrophages,,,lung interstitial macrophages,sorted lung interstitial macrophages,0.4892
+H106,GSE186458,GSM5652316,healthy,hg19,b cells,,,b cells,sorted b cells,0.7963
+H107,GSE186458,GSM5652317,healthy,hg19,b cells,,,b cells,sorted b cells,0.7483
+H108,GSE186458,GSM5652318,healthy,hg19,b cells,,,b cells,sorted b cells,0.4815
+H109,GSE186458,GSM5652319,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells,0.8449
+H110,GSE186458,GSM5652320,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells,0.9985
+H111,GSE186458,GSM5652322,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,0.6666
+H112,GSE186458,GSM5652323,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,0.5946
+H113,GSE186458,GSM5652324,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,0.6126
+H114,GSE186458,GSM5652325,healthy,hg19,tonsil pharyngeal epithelium,,,tonsil pharyngeal epithelium,sorted tonsil pharyngeal epithelium,0.603
+H115,GSE186458,GSM5652326,healthy,hg19,tonsil pharyngeal epithelium,,,tonsil pharyngeal epithelium,sorted tonsil pharyngeal epithelium,0.8353
+H116,GSE186458,GSM5652327,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,0.614
+H117,GSE186458,GSM5652328,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,0.5142
+H118,GSE186458,GSM5652329,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,0.4763
+H119,GSE186458,GSM5652335,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,0.5489
+H120,GSE186458,GSM5652336,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,0.5902
+H121,GSE186458,GSM5652337,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,0.3821
+H122,GSE186458,GSM5652338,healthy,hg19,prostate epithelium,,,prostate epithelium,sorted prostate epithelium,0.6254
+H123,GSE186458,GSM5652339,healthy,hg19,prostate epithelium,,,prostate epithelium,sorted prostate epithelium,0.6454
+H124,GSE186458,GSM5652340,healthy,hg19,prostate epithelium,,,prostate epithelium,sorted prostate epithelium,0.5157
+H125,GSE186458,GSM5652342,healthy,hg19,bladder epithelium,,,bladder epithelium,sorted bladder epithelium,0.5753
+H126,GSE186458,GSM5652343,healthy,hg19,bladder epithelium,,,bladder epithelium,sorted bladder epithelium,0.544
+H127,GSE186458,GSM5652344,healthy,hg19,bladder epithelium,,,bladder epithelium,sorted bladder epithelium,0.7457
+H128,GSE186458,GSM5652347,healthy,hg19,breast luminal epithelium,,,breast luminal epithelium,sorted breast luminal epithelium,0.5729
+H129,GSE186458,GSM5652348,healthy,hg19,breast luminal epithelium,,,breast luminal epithelium,sorted breast luminal epithelium,0.9189
+H130,GSE186458,GSM5652349,healthy,hg19,breast luminal epithelium,,,breast luminal epithelium,sorted breast luminal epithelium,0.6794
+H131,GSE186458,GSM5652350,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,0.6881
+H132,GSE186458,GSM5652351,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,0.7916
+H133,GSE186458,GSM5652352,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,0.7972
+H134,GSE186458,GSM5652354,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,0.4565
+H135,GSE186458,GSM5652355,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,0.6033
+H136,GSE186458,GSM5652356,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,0.4907
+H137,GSE186458,GSM5652359,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,0.5773
+H138,GSE186458,GSM5652360,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,0.5526
+H139,GSE186458,GSM5652361,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,0.5408
+H140,GSE186458,GSM5652362,healthy,hg19,gastric body epithelium,,,gastric body epithelium,sorted gastric body epithelium,0.5524
+H141,GSE186458,GSM5652363,healthy,hg19,gastric body epithelium,,,gastric body epithelium,sorted gastric body epithelium,0.7553
+H142,GSE186458,GSM5652364,healthy,hg19,gastric body epithelium,,,gastric body epithelium,sorted gastric body epithelium,0.5918
+H143,GSE186458,GSM5652365,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,0.5798
+H144,GSE186458,GSM5652366,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,0.5757
+H145,GSE186458,GSM5652367,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,0.6179
+H146,GSE186458,GSM5652370,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,0.5897
+H147,GSE186458,GSM5652371,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,0.6772
+H148,GSE186458,GSM5652372,healthy,hg19,colon enteroendocrine,,,colon enteroendocrine,sorted colon enteroendocrine,0.5049
+H149,GSE186458,GSM5652373,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,0.7194
+H150,GSE186458,GSM5652375,healthy,hg19,colon enteroendocrine,,,colon enteroendocrine,sorted colon enteroendocrine,0.6661
+H151,GSE186458,GSM5652379,healthy,hg19,small intestine epithelium,,,small intestine epithelium,sorted small intestine epithelium,0.5523
+H152,GSE186458,GSM5652380,healthy,hg19,small intestine epithelium,,,small intestine epithelium,sorted small intestine epithelium,0.5255
+H153,GSE186458,GSM5652381,healthy,hg19,small intestine epithelium,,,small intestine epithelium,sorted small intestine epithelium,0.7822

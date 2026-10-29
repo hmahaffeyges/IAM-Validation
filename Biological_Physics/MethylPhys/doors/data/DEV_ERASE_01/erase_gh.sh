@@ -121,7 +121,7 @@ fi
 # 2026-10-22 (author: "if the chain didnt do it, it didnt happen"): the count is the one command's, run_sample.py --dev-count-only, flagged; the
 # older Stage Q cross-check (erase_read_one.py) called chain pieces directly and is no longer run; the .pat file is kept, so it can be rerun
 if [ "${FULL:-0}" = 1 ]; then   # 2026-10-23: the full reading by the one command (plasma_seq_01)
-( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --specimen "${SPECIMEN:-plasma}" --id $GSM --dev-seq-values 1 \
+( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --specimen "${SPECIMEN:-plasma}" --id $GSM --dev-seq-values 1 ${THIN:+--dev-thin $THIN} \
     --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 35
 echo "{\"gsm\": \"$GSM\", \"pairs\": $n1, \"index_s\": $((TI-T0)), \"fetch_s\": $((TF-TI)), \"align_s\": $((TA-TF)), \"to_pat_s\": $((TP-TA)), \"threads\": $T, \"genome\": \"$gen\"}" > $OUT/${GSM}_timing.json; cat $OUT/${GSM}_timing.json; exit 0
 fi
