@@ -308,7 +308,7 @@ lists the sealed cancer tests used, and U2b: the same rule on v2.1; each panel c
 anchor at >= 0.90 of sites. U3: composition bars 1-2 unchanged. U4: development. Planted test of every scorer, run once: PASSED (a correct atlas reads
 0.9261 coverage; intervals too narrow 0.7336, a shifted laboratory 0.5730 and too wide 1.0000 all FAILED as planted; a disagreeing panel cell 0.7172 FAILED).
 **Original synthetic test (2026-10-14; superseded 2026-10-16 by the amended scorer's planted test below, kept as history):** DEV_ATLAS_V21_01/planted_commission_v21.py, DEV_ATLAS_V21_01/planted_commission_v21_summary.txt
-**Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened.
+**Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened. GSE87197 (GSE87196's megakaryocytes) donors 1 and 2 are spent (the absorption test and the provisional column's test) and are read again to build the sequencing atlas's megakaryocyte column; donor 3 is unread.
 
 ## Amendment to the commissioning bars, sealed 2026-10-16 before the atlas exists
 
@@ -460,7 +460,7 @@ donor-sites sit at the source files' 255-read cap and are counted. Three cells r
 read-half map stands in. Stored in the Google bucket (northamerica-northeast2), seq_atlas/pieces/. **Next:** the healthy references for the
 sequencing instruments, the spheres, spectra and masks, each with its synthetic first.
 
-## The IAM Sequencing Atlas: a megakaryocyte column (written and committed before any of it runs; plan 35.30, plan 40.18)
+## The IAM Sequencing Atlas: a megakaryocyte column (written and committed before any of it runs; plan 35.30 and the provisional megakaryocyte column's branch)
 
 **Why:** the 153 inputs hold no megakaryocytes, a large source of plasma DNA. The only open healthy megakaryocyte sequencing is GSE87197,
 whose parent series GSE87196 (blood progenitors) holds the same three donors: 33, 19 and 19 single megakaryocytes. Donors 1 and 2 are spent
