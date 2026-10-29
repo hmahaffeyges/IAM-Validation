@@ -1,579 +1,583 @@
 {
-  "version": "1.1",
-  "date": "2026-10-18",
-  "rule": "This file is the single source of truth for constants and names. To change a value or a name, change it here first; canon_check.py then lists every file that must follow. A push is blocked while a LIVE file disagrees.",
-  "constants": {
-    "k_B": {
-      "value": 1.380649e-23,
-      "units": "J/K",
-      "source": "SI 2019 exact"
-    },
-    "R": {
-      "value": 8.314462618,
-      "units": "J/(mol K)",
-      "source": "SI 2019 exact (N_A k_B)"
-    },
-    "T_cell": {
-      "value": 310.15,
-      "units": "K",
-      "source": "37 °C, mammalian body temperature"
-    },
-    "dG_ATP": {
-      "value": 54000.0,
-      "units": "J/mol",
-      "source": "cellular ATP hydrolysis free energy (54 kJ/mol)"
-    },
-    "M_cell": {
-      "value": 20.94,
-      "units": "dimensionless (kT units)",
-      "derivation": "M = dG_ATP/(R T_cell) = 54000/(8.314462618 x 310.15)",
-      "source": "defined without ln2; the Landauer-unit value M/ln2 = 30.2 is given separately",
-      "accept": [
-        20.94
-      ]
-    },
-    "M_cell_Landauer": {
-      "value": 30.2,
-      "units": "Landauer units (k_B T ln2 per bit)",
-      "derivation": "M_cell / ln 2",
-      "source": "conversion only; not a second definition",
-      "accept": [
-        30.2,
-        30.21
-      ]
-    },
-    "Landauer_floor_cell": {
-      "value": 2.9681136706905537e-21,
-      "units": "J per bit",
-      "derivation": "k_B T_cell ln 2",
-      "also": "1.787 kJ/mol"
-    },
-    "E_hold_meth": {
-      "value": 3.084,
-      "units": "kT per methylated site",
-      "sd": 0.12,
-      "range": [
-        2.85,
-        3.37
-      ],
-      "derivation": "ln((1-eps)/eps) of the held error per interior opportunity on single molecules, mean over 56 healthy cell types (SD across types 0.12 kT)",
-      "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)",
-      "note": "the instrument-corrected upper value 3.77 kT (ENCODE) was computed on the earlier counter and is not carried; it is to be recomputed on this counter"
-    },
-    "E_hold_meth_Landauer": {
-      "value": 4.45,
-      "units": "Landauer units",
-      "derivation": "E_hold_meth / ln 2"
-    },
-    "phi": {
-      "value": 0.1473,
-      "units": "fraction of one ATP per held bit",
-      "derivation": "E_hold_meth / M_cell",
-      "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)",
-      "sd": 0.0057
-    },
-    "eps0_meth": {
-      "value": 0.04376,
-      "units": "held error per methylated site",
-      "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.084 kT MEASURED from cells' held error: the HEALTHY REFERENCE held error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
-      "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types); a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open"
-    },
-    "Normal_band": {
-      "value": [
-        0.95,
-        1.05
-      ],
-      "units": "A",
-      "source": "healthy is A = 1 within 5 %",
-      "applies_to": [
-        "Met-A"
-      ],
-      "note": "IAM-A has no healthy band of its own yet and does not borrow this one (author 2026-10-15; manifest COM-IAMA-054). Set by hand 2026-10-01 and confirmed on healthy arrays; to be rebuilt from the measured spread (OTH-059)."
-    },
-    "beta_m": {
-      "value": 0.15765,
-      "units": "dimensionless",
-      "derivation": "beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing 68 % limits, Aghanim et al. 2020 Table 2; the best fit is 0.3158); value used in every Level 2 chain",
-      "source": "Cosmological_Physics/camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression)",
-      "accept": [
-        0.1575
-      ]
-    },
-    "E_of_a": {
-      "value": "exp(1 - 1/a)",
-      "units": "activation function",
-      "source": "IAM's Law paper"
-    },
-    "Met_A_floor_EPIC_neutrophil": {
-      "value": 0.330263,
-      "units": "bits (mean per-site H(beta))",
-      "derivation": "mean over 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554; GSE167998 re-deposits the same 6 arrays) of the mean H(beta) over 6000 identity sites, our Stage 1",
-      "source": "chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json (frozen 2026-10-01); held-out precision (sites re-chosen on the other 5 arrays): SD 0.020, 0.983-1.045 (metA_floors_v1_3_loo.csv)",
-      "generated": "read from the frozen file by build_all; never hand-edited"
-    },
-    "Met_A_floor_450K_neutrophil": {
-      "value": null,
-      "units": "bits",
-      "derivation": "pending: v1.2 rebuild from purified 450K neutrophils (GSE88824, 8 donors)",
-      "source": "to be frozen"
-    },
-    "Met_A_site_rule": {
-      "value": "across-array SD <= 0.05; own mean beta 0.75-0.95 (methylated) or 0.05-0.25 (unmethylated); <= 3,000 sites per channel, most stable first",
-      "units": "rule",
-      "source": "Met-A reference floors v1.2"
-    },
-    "P_neutrophil_IAM_A": {
-      "value": 1.1492,
-      "units": "dimensionless (H(eps_healthy) / H_ref)",
-      "derivation": "mean over 3 granulocyte donors of the published sequencing atlas of H(eps of the other donors)/H(eps0), WHOLE files (1.1396-1.1554, CV 1.2 %)",
-      "source": "chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json (frozen 2026-10-08, whole files); valid for the loyfer_pat_v1 pipeline only",
-      "status": "retired (2026-10-17): the position form of IAM-A; development flag only"
-    },
-    "H_ref_cell": {
-      "value": 0.2593,
-      "units": "bits",
-      "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
-      "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)"
-    },
-    "H_min_cell": {
-      "value": 2.5e-08,
-      "units": "bits",
-      "derivation": "H(1/(1+exp(M_cell))): the floor, where thermal kicks win against one full ATP per site (held error 8.1e-10)",
-      "source": "calculated from M_cell = 20.94"
-    }
+ "version": "1.1",
+ "date": "2026-10-18",
+ "rule": "This file is the single source of truth for constants and names. To change a value or a name, change it here first; canon_check.py then lists every file that must follow. A push is blocked while a LIVE file disagrees.",
+ "constants": {
+  "k_B": {
+   "value": 1.380649e-23,
+   "units": "J/K",
+   "source": "SI 2019 exact"
   },
-  "names": {
-    "IAM's law": {
-      "status": "current",
-      "definition": "Every irreversible transition from quantum superposition to classical record pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature.",
-      "note": "The performance-floor relationship of the device gauges is named the IAM floor."
-    },
-    "M number (M)": {
-      "status": "current",
-      "definition": "The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime; for a record held in a gap hf, M = hf/(k_B T) and its thermal floor is 1/(1+e^M). Cell: 20.94 (30.2 in Landauer units). Chips: M = E_sw/(k_B T_j) = A x ln 2 (chip gauge). The only quantity named 'Mahaffey'. Named like the Mach number: a ratio to a natural scale (drive over k_BT, as Mach is speed over the speed of sound). Not named after a person (author, 2026-10-24)."
-    },
-    "IAM floor": {
-      "status": "current",
-      "definition": "Synonym of H_min (the floor): the lowest error a system can hold at its temperature before thermal kicks win."
-    },
-    "Informational fidelity ratio (A)": {
-      "status": "current",
-      "definition": "A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = 1 is the system working as itself, in the middle of the gauge. Below it lies H_min, the lowest error the system can hold before thermal kicks win; nothing reads below H_min. Above 1 = more error than healthy. Cells: Met-A = mean H(beta) over identity sites / the healthy reference (purified healthy cells, same platform); IAM-A = H(eps)/(P_cell H(eps0)). Qubits: eps/eps(as built), eps = -ln(1-p). Chips: E_sw/E_sw(as built). A is never the temperature exponent n.",
-      "note": "One meaning of A in every domain: the reading over the healthy or as-built reading of the same system. For qubits the gate error in nats is epsilon = -ln(1-p_2Q); A is epsilon over the device's as-built value."
-    },
-    "Landauer metrology": {
-      "status": "current",
-      "definition": "Measuring how far above its thermal floor an information-writing process operates, against a fixed physical zero, in any substrate."
-    },
-    "the methylation report": {
-      "status": "current",
-      "definition": "The biological (genetic) application of IAM's law: the umbrella for every cellular and organismal chain. Expansion as in Issue 002: Genomic Analytical & Performance Engine. Chains under it: MethylPhys CPG (methylation, cells), the salmonid chain (in development).",
-      "book": false
-    },
-    "MethylPhys CPG": {
-      "status": "current",
-      "definition": "The cell instrument: Methylation Physics, Cellular Performance Gauge. Reads cells' methylation (Met-A, IAM-A) and places them on the gauge."
-    },
-    "Salmonid chain": {
-      "status": "current (in development)",
-      "definition": "The cell instrument applied to salmonids: IAM-A per fish and tissue at water temperature. Not a cellular performance gauge."
-    },
-    "Met-A (Metrology A)": {
-      "status": "current",
-      "definition": "Array reading of ONE cell type in one specimen (chain Stage M): Met-A = mean over the cell's identity sites of H(beta) / H_ref(cell), H(b) = -b log2 b - (1-b) log2(1-b). H_ref(cell), the healthy reference (the gauge's middle mark, healthy = 1; not the floor H_min) = the same quantity on purified healthy cells of the same type on the same platform, through the chain's own Stage 1 (constant Met_A_floor_EPIC_neutrophil; site rule Met_A_site_rule); >= 90 % of the identity sites must be measured. Whole blood: the denominator is the composition-matched healthy expectation mean_i H(sum_c f_c mu_c,i), with the specimen's own fractions f (Stage A, EPIC blood NNLS) and purified healthy profiles mu (no group comparison; PROC-WB-NEUT-01); read at any neutrophil fraction with its own detection limit (DEV-LOWFRAC-01; no fixed fraction cut). Stage T tare: against >= 3 healthy references run the same way (same slide, else same batch), A_rel = A / median(reference A); with >= 20 reference records the noise-corrected tare A = a + b f_neu + c N (N = noise index, mean H(beta) over 48,528 fixed sites; DEV-NOISE-02). The gauge state is printed on A_rel only; without references the reading is reported as untared. Each reading carries its detection limit (smallest loss of the cell's pattern the specimen could show). Commissioned 2026-10-09 on isolated neutrophils, EPIC v1; whole blood is read and printed with the note that it has not yet been tested with Met-A; 450K and EPIC v2 refused. Normal 0.95-1.05. Information theory only; no energy content. Expansion: Informational Metrology A score."
-    },
-    "IAM-A": {
-      "status": "current",
-      "definition": "Error reading on single-molecule sequencing, each sample against its own reference: IAM-A = eps / eps_pred(L). eps is the held error (isolated unmethylated calls between two methylated calls, over the interior calls of qualifying molecules: at least 6 calls, at least 80 % held), counted by chain Stage Q2; L is the sample's own loose share (share of 2,000-CpG tiles held below 70 %); eps_pred(L) = 0.040265 + 0.034625 L is the healthy self-reference line, measured once on 153 healthy samples of 56 cell types (chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json). No other specimen is a reference. Normal band v1: 0.779-1.055 (band_v1.json). Before reading, the sample-shape check declines a sample whose tile distribution is outside the healthy shape of its cell type (shape_reference_v1.json). Ends on the gauge are the sample's own: full surface 0.5/eps_pred(L) (12.42 at L = 0, 6.68 at L = 1). Commissioned 2026-10-17 on healthy blood CD8 T cells, whole-genome bisulfite sequencing (COMMISSIONING_NOTE_IAMA.md); other cell types are read and printed with the note that they have not yet been tested with IAM-A. The earlier position form, H(eps)/(P_cell H(eps0)), is retired (development flag only)."
-    },
-    "Salmon-A": {
-      "status": "informal",
-      "definition": "Not a separate quantity: IAM-A read by the salmonid chain (body temperature = water temperature)."
-    },
-    "the quantum-processor report": {
-      "status": "current",
-      "definition": "Quantum computing report line.",
-      "book": false
-    },
-    "the semiconductor report": {
-      "status": "current",
-      "definition": "Semiconductor report line.",
-      "book": false
-    },
-    "EPLG": {
-      "status": "current",
-      "definition": "Error Per Layered Gate (IBM): the average error per gate across a 100-qubit chain running layered circuits, including crosstalk and idle errors. It is NOT the same quantity as an isolated median two-qubit error p(2Q) and must not be compared with one.",
-      "book": false
-    },
-    "C-score (sky-map C-score)": {
-      "status": "current",
-      "definition": "Clustering of a specimen's residual sky map on the Met-A identity sites: c = var(sqrt(10) x the means of 10 consecutive sites in genome order) / var(z), over the site variance; C = c / c_healthy, c_healthy = 1.0103 (leave-one-out median of the six reference arrays; neutrophil_reference_v1_2.json), so healthy reads 1 on the same gauge as A. Read one-sided against the healthy band 0.877-1.152 after the same-run tare (above 1.152 is a clustered departure). Commissioned 2026-10-15 on whole blood, EPIC v1 (COMMISSIONING_NOTE_CSCORE.md). Chain v4 also draws the map on a HEALPix sphere (NSIDE 128, nested order) in the report; nothing is scored from the drawing. A cosmology map statistic, not a physics floor. On first use in papers write 'sky-map C-score'. Blocks of 50 and baseline 1.1104 were the construction before 2026-10-09.",
-      "domain": "the methylation report"
-    },
-    "H_min (cell)": {
-      "status": "retired",
-      "definition": "In the cell chain, the floor a reading is divided by. For Met-A: the cell type's reference floor on that platform (Met_A_floor_*), one per cell type, from purified healthy cells - never a class value. For IAM-A: P_cell * H(eps0), the physics floor's entropy at the cell's frozen architecture position P_cell (same read-level pipeline).",
-      "replaced_by": "H_min (the floor) for the physics floor; Healthy reference for the denominator"
-    },
-    "H_min (the floor)": {
-      "status": "current",
-      "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells: thermal kicks win against one full ATP per site, held error 1/(1+e^M) = 8.1e-10, H_min = 2.5e-8 bits (1e-7 on the IAM-A gauge, 8e-8 on Met-A, neutrophils). It is NOT the healthy reference height H_ref = H(eps0) = 0.2593 bits. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2.",
-      "note": "The absolute lowest point a system can operate at before thermal kicks win."
-    },
-    "eps (gate error in nats)": {
-      "status": "current",
-      "definition": "eps = -ln(1 - p(2Q)), the two-qubit gate error expressed in nats; eps ~ p for small p. It is the qubit reading; A = eps / eps(as built).",
-      "note": "Formerly called the 'A score'.",
-      "book": false
-    },
-    "One gauge (convention)": {
-      "status": "current",
-      "definition": "Every score is an error score on one gauge: A = 1 is healthy in the middle, H_min below it is the floor nothing passes, above 1 is more error; a failure point may lie on the high side (qubits: error correction fails near p = 1 %). Each domain keeps its field's form. Always quote a value with its score's name.",
-      "note": "Adopted 2026-10-02: each domain is read with its own physics, so the formulas are not forced to be identical."
-    },
-    "Healthy reference": {
-      "status": "current",
-      "definition": "The denominator of A: the same system's healthy reading on the same instrument. Cells: Met-A, the purified healthy cells of that type on that platform (EPIC neutrophils 0.330263 bits; constant name Met_A_floor_* kept for the chain until the SOP rename); IAM-A, the sample's own predicted held error eps_pred(L) from its own loose share (commissioned 2026-10-17; no other person enters; the earlier P_cell H(eps0) form is retired). Devices: the device as built."
-    },
-    "Thermal floor (qubit)": {
-      "status": "current",
-      "definition": "The qubit H_min and the left-hand mark of the qubit gauge: IAM's Law at the temperature the record sees. p_eq = 1/(1+exp(hf/(k_B T))) for the held record; p_eq t_g/T1 for one gate of duration t_g (detailed balance)."
-    },
-    "H_ref (healthy reference height)": {
-      "status": "current",
-      "definition": "Cells: where healthy cells actually hold their methylated sites, H(eps0) = 0.2593 bits (E_hold 3.084 kT, measured per interior opportunity across 56 healthy cell types; about half hold better than it). Measured, not a limit; the floor is H_min. The distance from H_min to H_ref in energy is phi = 0.1473 of one ATP."
-    },
-    "IAM-Atlas v2.1": {
-      "status": "current",
-      "definition": "The reference map of 79 purified healthy human cell types: 813,951 sites, built from 21 public array and sequencing sources fitted as one Bayesian model, so every site carries a best value and a 95 % range. Commissioned use by use (COMMISSIONING_NOTE_ATLAS_V21.md). Published: fitted atlas 10.5281/zenodo.23441999; 100 posterior draws per block 10.5281/zenodo.23422688."
-    },
-    "IAM-Deconvolver": {
-      "status": "current",
-      "definition": "Reads which blood cells are in a sample and in what shares (chain Stage D21), against IAM-Atlas v2.1's six-cell blood panel; commissioned on the mean share error (0.016, bar 0.03) in a laboratory it never saw."
-    },
-    "Group-A": {
-      "status": "current",
-      "definition": "The group instrument (chain stage_groupa.py, commissioned 2026-10-20): each person's whole-blood Met-A, tared against healthy arrays of the same run, and the two groups' tared means compared (difference, standard error, t). Groups must be run in the same series."
-    },
-    "Tare (same-run tare)": {
-      "status": "current",
-      "definition": "Dividing a reading by the median of at least 3 healthy references run the same way (same slide, else same series), so a laboratory's offset cancels: A_rel = A / median(A_refs). Met-A, the C-Score and Group-A use it."
-    },
-    "Sky sphere (address sphere)": {
-      "status": "current",
-      "definition": "The globe layout every IAM map uses: every atlas site in genome order placed on HEALPix NSIDE 256, NESTED order, site i of n at pixel floor(i x NPIX / n) (atlas/tools/sky_maps_v21.py; frozen for the chain in sky_order_v21.npz). A site's place is its genome address; the information is in the color. Benefits: equal-area pixels, no edges, change along the genome shows as patches, and the sky's tools (masks, nulls, maps with uncertainty) apply."
-    },
-    "Information sphere": {
-      "status": "current",
-      "definition": "In development (DEV-SPHERE-01): a globe on which a site's place comes from how it behaves, not where it sits. Each methylation level b maps to the point (sqrt b, sqrt(1-b)) on a circle of radius 1, and the distance between two states is the Fisher-Rao angle; the whole methylome lies on one high-dimensional sphere. Not adopted until its construction passes its sealed bars."
-    },
-    "Globe Explorer": {
-      "status": "current",
-      "definition": "The site's page of interactive globes (IAM-Atlas v2.1 first; Met-A's purified-array reference; example samples; noise maps), drawn by the chain's one viewer (globe_viewer.py), the same code as every report's globe. Pictures, not readings: nothing is scored from a globe."
-    },
-    "Noise map (posterior draws)": {
-      "status": "current",
-      "definition": "The atlas's uncertainty shown as its own pictures: the average of the first k of a cell's 100 posterior draws at every site (k = 1, 2, 4 ... 100, draws taken in turn from the four sampling chains); the map settles onto the atlas's value as k grows (atlas/tools/noise_maps_v21.py)."
-    },
-    "Anchor range (preliminary)": {
-      "status": "current",
-      "definition": "A whole-blood reading of the span between an array's low and high fixed-site anchors, tared on its slide, that keeps a loss spread evenly over every site, which Met-A's self-tare cancels (GRP-014, DEV-SELFTARE-03). Preliminary: read and flagged, not commissioned."
-    },
-    "Hard-to-map probes": {
-      "status": "current",
-      "definition": "EPIC v1 probes whose sequence matches the genome with mapping quality under 10 or not at all (3.14 % of the array). Removing them moves no IAM instrument beyond its own repeat noise (DEV-MAPPABILITY-01, OTH-079); IAM-A's read counter already drops reads with mapping quality under 10."
-    },
-    "floor": {
-      "status": "current",
-      "definition": "The least error heat allows for a mark held with the full drive: eps_min = 1/(1 + e^M), H_min = H(eps_min). Status: derived."
-    },
-    "ceiling": {
-      "status": "current",
-      "definition": "One bit per site: a mark lost entirely, read as a coin flip. Status: derived."
-    },
-    "baseline": {
-      "status": "current",
-      "definition": "Where a healthy cell of its kind sits between the floor and the ceiling, for every instrument (Met-A's baseline, IAM-A's baseline). One name; how its value is known is a status label: derived (from the physics, nothing estimated), calibrated (a derived form with constants measured once on healthy cells and frozen), measured (taken from reference samples), candidate (derivation written, its test not yet passed). Only the label changes when a test passes (author, 2026-10-24). Today: Met-A's baseline measured (six commissioned neutrophil arrays), its derived value a candidate (DEV-METAA-HEALTHY-01 step 3); IAM-A's baseline calibrated (selfref_line_v1.json)."
-    },
-    "reference": {
-      "status": "current",
-      "definition": "Only what is measured: the reference atlas (IAM-Atlas v2.1) and the healthy reference cells and arrays in it. Never the baseline."
-    },
-    "The territories": {
-      "status": "current",
-      "definition": "In development (DEV-TERRITORIES-01): disorder at two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands (sites every healthy cell type keeps unmarked) and the domains (marked sites some healthy cell types hold loosely). Read on every run of the one command and flagged; not commissioned until healthy samples read Normal on a sealed test."
-    },
-    "Nearest-neighbor coupling": {
-      "status": "current",
-      "definition": "In development (plan 49.5): on held molecules, the pairs of neighboring CpGs that lost their mark together, over what each molecule's own length and error count give at random; 1 is independent. Recorded by chain Stage Q2 (stage_q2_selfref._coupling) on every sequencing count, beside IAM-A's held error. Not commissioned until it has a healthy reference and a sealed test. Drawn on the A-score gauge as coupling-A: the sample's coupling over the healthy coupling of its own cell type (healthy 1), from 0 (errors never neighbors) to the sample's own most clustered arrangement."
-    },
-    "Met-A on sequencing": {
-      "status": "current",
-      "definition": "In development (DEV-METAA-ATLAS-CURVE-01): Met-A against IAM-Atlas v2.1 for a whole-genome bisulfite sample, with each atlas column put in sequencing units by the conversion the atlas's own build measured for the published sequencing atlas, because the atlas's array scale holds unmarked sites near 0.055 where sequencing reads 0."
-    }
+  "R": {
+   "value": 8.314462618,
+   "units": "J/(mol K)",
+   "source": "SI 2019 exact (N_A k_B)"
   },
-  "retired": {
-    "n_bio": {
-      "replaced_by": "none (removed from the method)",
-      "severity": "block"
-    },
-    "\\bold A\\b": {
-      "replaced_by": "Met-A",
-      "severity": "warn"
-    },
-    "\\bnew A\\b": {
-      "replaced_by": "IAM-A",
-      "severity": "warn"
-    },
-    "gate-error reading": {
-      "replaced_by": "IAM-A",
-      "severity": "warn"
-    },
-    "program reading": {
-      "replaced_by": "Met-A",
-      "severity": "warn"
-    },
-    "M\\s*=\\s*30\\.2": {
-      "replaced_by": "M = 20.94 (30.2 only as the Landauer-unit conversion)",
-      "severity": "warn"
-    },
-    "Mahaffey value": {
-      "replaced_by": "M number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
-      "severity": "warn"
-    },
-    "Mahaffey ratio": {
-      "replaced_by": "M number (M)",
-      "severity": "warn"
-    },
-    "Aristotelian Principle": {
-      "replaced_by": "the virial theorem (with IAM's thermodynamic completion); physics names only",
-      "severity": "block",
-      "book": false,
-      "note": "Name dropped 2026-10-02: the rule is stated without it."
-    },
-    "class H_min": {
-      "replaced_by": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
-      "severity": "warn",
-      "history": "Never derived (author, 2026-10-25). The eight architecture-class values were early exploratory predictions, made by analogy with the quantum-computing class method to see whether cells behave similarly; they came to be treated as canon by repetition, and the MCMC tests that followed took them as given. The provisional patent named as their source holds only the quantum-computing class exponents (themselves calibrated from published data, not derived). The class readings were not wasted: they showed the cohort signals that led to the atlas and to reading each sample against itself."
-    },
-    "\\bA[- ]score": {
-      "replaced_by": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
-      "severity": "warn"
-    },
-    "the semiconductor report [Ii]ndex": {
-      "replaced_by": "E_sw/(k_B T_j ln 2): distance above the Landauer floor; on the one gauge the chip as built reads 1",
-      "severity": "warn"
-    },
-    "[Ww]all ratio": {
-      "replaced_by": "A = reading / device as built; the thermal floor lies to its left",
-      "severity": "warn"
-    },
-    "\\bA-floor": {
-      "replaced_by": "H_min (the thermal floor)",
-      "severity": "warn"
-    },
-    "zero adjustable parameters": {
-      "replaced_by": "state which quantities are measured and which are assumed",
-      "severity": "warn"
-    },
-    "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)": {
-      "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "(?<![\\d.])0\\.2043": {
-      "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "(?<![\\d.])0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|(?<![\\d.])0\\.163 of (one|an) ATP": {
-      "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "(?<![\\d.])1905 ?K|(?<![\\d.])1905\\\\,|(?<![\\d.])1,905 ?K": {
-      "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "(varepsilon_0|varepsilon_\\{0\\}|eps0|ε₀|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)": {
-      "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b": {
-      "replaced_by": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "[Ff]irm end": {
-      "replaced_by": "firm rate (the gauge's only ends are the floor and the ceiling; author 2026-10-15)",
-      "severity": "block"
-    },
-    "(?<![\\d.])3\\.41 to 3\\.77|(?<![\\d.])3\\.41--3\\.77|ln\\[\\(1-\\\\varepsilon\\)/\\\\varepsilon\\]=3\\.41|=3\\.41/20\\.94|e\\^\\{3\\.41\\}|\\(\\$3\\.41\\$": {
-      "replaced_by": "the commissioned counter's holding energy (CANON E_hold_meth, 3.08 kT; superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "(?<![\\d.])0\\.163\\s*(\\\\pm|±)|=0\\.163(?!\\d)": {
-      "replaced_by": "phi = 0.147 on the commissioned counter (CANON phi; superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "0\\.024 ?(--|–|-|to) ?0\\.042": {
-      "replaced_by": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
-      "severity": "block"
-    },
-    "Mahaffey number": {
-      "replaced_by": "the M number (named like the Mach number; author 2026-10-24)",
-      "severity": "block"
-    },
-    "AstroGenetics|Cosmic Methylome": {
-      "replaced_by": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
-      "severity": "warn"
-    },
-    "derived minimum": {
-      "replaced_by": "the floor (author 2026-10-24: one name, a status label)",
-      "severity": "warn"
-    },
-    "derived limit": {
-      "replaced_by": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
-      "severity": "warn"
-    },
-    "healthy line": {
-      "replaced_by": "the baseline (author 2026-10-24: one name, a status label)",
-      "severity": "warn"
-    },
-    "reference line": {
-      "replaced_by": "the baseline (author 2026-10-24: one name, a status label)",
-      "severity": "warn"
-    },
-    "self-reference line": {
-      "replaced_by": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
-      "severity": "warn"
-    },
-    "healthy middle": {
-      "replaced_by": "the baseline (author 2026-10-24: one name, a status label)",
-      "severity": "warn"
-    }
+  "T_cell": {
+   "value": 310.15,
+   "units": "K",
+   "source": "37 °C, mammalian body temperature"
   },
-  "scope": {
-    "skip_dirs": [
-      "RETIRED_2026-09",
-      "Record",
-      "Cosmological_Physics/camb_validation/chains",
-      "Cosmological_Physics/mgcamb_validation/chains",
-      ".git",
-      "data",
-      "results",
-      "Biological_Physics/RETIRED_2026-10",
-      "docs/RETIRED_2026-10",
-      "Biological_Physics/RETIRED_2026-09",
-      "Biological_Physics/MethylPhys/ASCORES"
-    ],
-    "record_markers": [
-      "[RECORD]",
-      "RETIRED",
-      "superseded",
-      "historical",
-      "Erratum",
-      "What changed",
-      "RECON",
-      "NO LONGER USED",
-      "[Edition 003 note"
-    ],
-    "extensions": [
-      ".md",
-      ".tex",
-      ".py",
-      ".txt"
-    ],
-    "record_files": [
-      "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py",
-      "Biological_Physics/MethylPhys/manual/om_lib.py",
-      "Biological_Physics/MethylPhys/hmin_calibration/",
-      "Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md",
-      "Biological_Physics/MethylPhys/atlas/v2/COMMUNICATION.md",
-      "Biological_Physics/MethylPhys/kit/ROW9_WORKING_NOTE.md",
-      "docs/book/appendices/app_A_canon.tex",
-      "development/",
-      "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
-      "Biological_Physics/MethylPhys/whiteboard/",
-      "Biological_Physics/MethylPhys/archive/",
-      "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-      "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-      "docs/book/verification/verify_book_output.txt",
-      "docs/book/verification/VERIFY_BOOK_INVENTORY.md",
-      "Biological_Physics/MethylPhys/doors/DEV_FLOOR_HEIGHT_01.md",
-      "Biological_Physics/MethylPhys/doors/DEV_FLOOR_HEIGHT_02.md",
-      "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
-      "Biological_Physics/MethylPhys/doors/DEV_WRITER_01.md",
-      "Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md",
-      "Biological_Physics/MethylPhys/doors/DEV_WRITER_02.md",
-      "Biological_Physics/MethylPhys/doors/DEV_WRITER_02_OUTCOME.md",
-      "Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md",
-      "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02.md",
-      "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
-      "Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md",
-      "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md",
-      "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md",
-      "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md",
-      "Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt",
-      "Biological_Physics/MethylPhys/daylogs/",
-      "MANIFEST.md",
-      "Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md",
-      "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md"
-    ],
-    "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction. 2026-10-20: the 18th chain's raw sampler output is data, not prose; number patterns match only a whole number (never digits inside a longer one). 2026-10-24: day logs, MANIFEST.md (generated from the manifest's dated notes) and DEV_SPECIES_AGEING_01.md (sealed record) keep the name 'Mahaffey number' as written; live text says 'the M number'.",
-    "cell_scope": {
-      "value": [
-        "neutrophils"
-      ],
-      "rule": "The chain reports Met-A, IAM-A and both C-scores for neutrophils only until commissioned with new VALs; cell types are added one at a time, in order of abundance in blood, each after passing healthy-in-Normal, known-2%-damage detection and same-person repeat (author, 2026-10-01)."
-    }
+  "dG_ATP": {
+   "value": 54000.0,
+   "units": "J/mol",
+   "source": "cellular ATP hydrolysis free energy (54 kJ/mol)"
   },
-  "hierarchy": "IAM's law -> applications: cosmology; qubits; semiconductors; the methylation report (biology) -> the methylation report chains: MethylPhys CPG (cells), salmonid chain (in development).",
-  "superseded": {
-    "E_hold_meth": {
-      "value": 3.41,
-      "units": "kT per methylated site",
-      "derivation": "ln((1-eps)/eps) of the measured held error on single molecules (read-level files of the published sequencing atlas, uncorrected)",
-      "source": "PROC-CHANNEL-01",
-      "range_note": "3.41-3.77 kT across datasets (ENCODE, instrument-corrected, upper end)",
-      "superseded": "2026-10-19",
-      "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
-    },
-    "E_hold_meth_Landauer": {
-      "value": 4.9,
-      "units": "Landauer units",
-      "derivation": "E_hold_meth / ln 2",
-      "superseded": "2026-10-19",
-      "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
-    },
-    "phi": {
-      "value": 0.1628,
-      "units": "fraction of one ATP per held bit",
-      "derivation": "E_hold_meth / M_cell",
-      "source": "PROC-CHANNEL-01",
-      "accept": [
-        0.16,
-        0.163,
-        0.1629
-      ],
-      "superseded": "2026-10-19",
-      "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
-    },
-    "eps0_meth": {
-      "value": 0.032,
-      "units": "held error per methylated site",
-      "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' held error: the HEALTHY REFERENCE held error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
-      "source": "PROC-CHANNEL-01; a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open",
-      "accept": [
-        0.032,
-        0.032
-      ],
-      "superseded": "2026-10-19",
-      "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
-    },
-    "H_ref_cell": {
-      "value": 0.2043,
-      "units": "bits",
-      "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
-      "source": "PROC-CHANNEL-01 (holding energy measured across 56 healthy cell types)",
-      "superseded": "2026-10-19",
-      "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
-    }
+  "M_cell": {
+   "value": 20.94,
+   "units": "dimensionless (kT units)",
+   "derivation": "M = dG_ATP/(R T_cell) = 54000/(8.314462618 x 310.15)",
+   "source": "defined without ln2; the Landauer-unit value M/ln2 = 30.2 is given separately",
+   "accept": [
+    20.94
+   ]
+  },
+  "M_cell_Landauer": {
+   "value": 30.2,
+   "units": "Landauer units (k_B T ln2 per bit)",
+   "derivation": "M_cell / ln 2",
+   "source": "conversion only; not a second definition",
+   "accept": [
+    30.2,
+    30.21
+   ]
+  },
+  "Landauer_floor_cell": {
+   "value": 2.9681136706905537e-21,
+   "units": "J per bit",
+   "derivation": "k_B T_cell ln 2",
+   "also": "1.787 kJ/mol"
+  },
+  "E_hold_meth": {
+   "value": 3.084,
+   "units": "kT per methylated site",
+   "sd": 0.12,
+   "range": [
+    2.85,
+    3.37
+   ],
+   "derivation": "ln((1-eps)/eps) of the held error per interior opportunity on single molecules, mean over 56 healthy cell types (SD across types 0.12 kT)",
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)",
+   "note": "the instrument-corrected upper value 3.77 kT (ENCODE) was computed on the earlier counter and is not carried; it is to be recomputed on this counter"
+  },
+  "E_hold_meth_Landauer": {
+   "value": 4.45,
+   "units": "Landauer units",
+   "derivation": "E_hold_meth / ln 2"
+  },
+  "phi": {
+   "value": 0.1473,
+   "units": "fraction of one ATP per held bit",
+   "derivation": "E_hold_meth / M_cell",
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)",
+   "sd": 0.0057
+  },
+  "eps0_meth": {
+   "value": 0.04376,
+   "units": "held error per methylated site",
+   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.084 kT MEASURED from cells' held error: the HEALTHY REFERENCE held error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types); a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open"
+  },
+  "Normal_band": {
+   "value": [
+    0.95,
+    1.05
+   ],
+   "units": "A",
+   "source": "healthy is A = 1 within 5 %",
+   "applies_to": [
+    "Met-A"
+   ],
+   "note": "IAM-A has no healthy band of its own yet and does not borrow this one (author 2026-10-15; manifest COM-IAMA-054). Set by hand 2026-10-01 and confirmed on healthy arrays; to be rebuilt from the measured spread (OTH-059)."
+  },
+  "beta_m": {
+   "value": 0.15765,
+   "units": "dimensionless",
+   "derivation": "beta_m = Omega_m/2 with Omega_m = 0.3153 (Planck 2018 TT,TE,EE+lowE+lensing 68 % limits, Aghanim et al. 2020 Table 2; the best fit is 0.3158); value used in every Level 2 chain",
+   "source": "Cosmological_Physics/camb_validation/equations_iam_level2.f90; IAM's Law paper (cosmological expression)",
+   "accept": [
+    0.1575
+   ]
+  },
+  "E_of_a": {
+   "value": "exp(1 - 1/a)",
+   "units": "activation function",
+   "source": "IAM's Law paper"
+  },
+  "Met_A_floor_EPIC_neutrophil": {
+   "value": 0.330263,
+   "units": "bits (mean per-site H(beta))",
+   "derivation": "mean over 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554; GSE167998 re-deposits the same 6 arrays) of the mean H(beta) over 6000 identity sites, our Stage 1",
+   "source": "chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json (frozen 2026-10-01); held-out precision (sites re-chosen on the other 5 arrays): SD 0.020, 0.983-1.045 (metA_floors_v1_3_loo.csv)",
+   "generated": "read from the frozen file by build_all; never hand-edited"
+  },
+  "Met_A_floor_450K_neutrophil": {
+   "value": null,
+   "units": "bits",
+   "derivation": "pending: v1.2 rebuild from purified 450K neutrophils (GSE88824, 8 donors)",
+   "source": "to be frozen"
+  },
+  "Met_A_site_rule": {
+   "value": "across-array SD <= 0.05; own mean beta 0.75-0.95 (methylated) or 0.05-0.25 (unmethylated); <= 3,000 sites per channel, most stable first",
+   "units": "rule",
+   "source": "Met-A reference floors v1.2"
+  },
+  "P_neutrophil_IAM_A": {
+   "value": 1.1492,
+   "units": "dimensionless (H(eps_healthy) / H_ref)",
+   "derivation": "mean over 3 granulocyte donors of the published sequencing atlas of H(eps of the other donors)/H(eps0), WHOLE files (1.1396-1.1554, CV 1.2 %)",
+   "source": "chain/Runtime Matrices/IAM_A_Positions/iama_positions_v2.json (frozen 2026-10-08, whole files); valid for the loyfer_pat_v1 pipeline only",
+   "status": "retired (2026-10-17): the position form of IAM-A; development flag only"
+  },
+  "H_ref_cell": {
+   "value": 0.2593,
+   "units": "bits",
+   "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
+   "source": "Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json (holding_energy_q2.py; chain Stage Q2 counts of 153 healthy samples, 56 cell types)"
+  },
+  "H_min_cell": {
+   "value": 2.5e-08,
+   "units": "bits",
+   "derivation": "H(1/(1+exp(M_cell))): the floor, where thermal kicks win against one full ATP per site (held error 8.1e-10)",
+   "source": "calculated from M_cell = 20.94"
   }
+ },
+ "names": {
+  "IAM's law": {
+   "status": "current",
+   "definition": "Every irreversible transition from quantum superposition to classical record pays k_B T ln 2 per bit to the nearest encoding surface at the local temperature.",
+   "note": "The performance-floor relationship of the device gauges is named the IAM floor."
+  },
+  "M number (M)": {
+   "status": "current",
+   "definition": "The drive ratio: drive energy over the thermal noise quantum, M = E_drive/(k_B T). Sets the operating regime; for a record held in a gap hf, M = hf/(k_B T) and its thermal floor is 1/(1+e^M). Cell: 20.94 (30.2 in Landauer units). Chips: M = E_sw/(k_B T_j) = A x ln 2 (chip gauge). The only quantity named 'Mahaffey'. Named like the Mach number: a ratio to a natural scale (drive over k_BT, as Mach is speed over the speed of sound). Not named after a person (author, 2026-10-24)."
+  },
+  "IAM floor": {
+   "status": "current",
+   "definition": "Synonym of H_min (the floor): the lowest error a system can hold at its temperature before thermal kicks win."
+  },
+  "Informational fidelity ratio (A)": {
+   "status": "current",
+   "definition": "A = reading / the same system's healthy reading (the healthy reference), measured on the same instrument. Dimensionless; A = 1 is the system working as itself, in the middle of the gauge. Below it lies H_min, the lowest error the system can hold before thermal kicks win; nothing reads below H_min. Above 1 = more error than healthy. Cells: Met-A = mean H(beta) over identity sites / the healthy reference (purified healthy cells, same platform); IAM-A = H(eps)/(P_cell H(eps0)). Qubits: eps/eps(as built), eps = -ln(1-p). Chips: E_sw/E_sw(as built). A is never the temperature exponent n.",
+   "note": "One meaning of A in every domain: the reading over the healthy or as-built reading of the same system. For qubits the gate error in nats is epsilon = -ln(1-p_2Q); A is epsilon over the device's as-built value."
+  },
+  "Landauer metrology": {
+   "status": "current",
+   "definition": "Measuring how far above its thermal floor an information-writing process operates, against a fixed physical zero, in any substrate."
+  },
+  "the methylation report": {
+   "status": "current",
+   "definition": "The biological (genetic) application of IAM's law: the umbrella for every cellular and organismal chain. Expansion as in Issue 002: Genomic Analytical & Performance Engine. Chains under it: MethylPhys CPG (methylation, cells), the salmonid chain (in development).",
+   "book": false
+  },
+  "MethylPhys CPG": {
+   "status": "current",
+   "definition": "The cell instrument: Methylation Physics, Cellular Performance Gauge. Reads cells' methylation (Met-A, IAM-A) and places them on the gauge."
+  },
+  "Salmonid chain": {
+   "status": "current (in development)",
+   "definition": "The cell instrument applied to salmonids: IAM-A per fish and tissue at water temperature. Not a cellular performance gauge."
+  },
+  "Met-A (Metrology A)": {
+   "status": "current",
+   "definition": "Array reading of ONE cell type in one specimen (chain Stage M): Met-A = mean over the cell's identity sites of H(beta) / H_ref(cell), H(b) = -b log2 b - (1-b) log2(1-b). H_ref(cell), the healthy reference (the gauge's middle mark, healthy = 1; not the floor H_min) = the same quantity on purified healthy cells of the same type on the same platform, through the chain's own Stage 1 (constant Met_A_floor_EPIC_neutrophil; site rule Met_A_site_rule); >= 90 % of the identity sites must be measured. Whole blood: the denominator is the composition-matched healthy expectation mean_i H(sum_c f_c mu_c,i), with the specimen's own fractions f (Stage A, EPIC blood NNLS) and purified healthy profiles mu (no group comparison; PROC-WB-NEUT-01); read at any neutrophil fraction with its own detection limit (DEV-LOWFRAC-01; no fixed fraction cut). Stage T tare: against >= 3 healthy references run the same way (same slide, else same batch), A_rel = A / median(reference A); with >= 20 reference records the noise-corrected tare A = a + b f_neu + c N (N = noise index, mean H(beta) over 48,528 fixed sites; DEV-NOISE-02). The gauge state is printed on A_rel only; without references the reading is reported as untared. Each reading carries its detection limit (smallest loss of the cell's pattern the specimen could show). Commissioned 2026-10-09 on isolated neutrophils, EPIC v1; whole blood is read and printed with the note that it has not yet been tested with Met-A; 450K and EPIC v2 refused. Normal 0.95-1.05. Information theory only; no energy content. Expansion: Informational Metrology A score."
+  },
+  "IAM-A": {
+   "status": "current",
+   "definition": "Error reading on single-molecule sequencing, each sample against its own reference: IAM-A = eps / eps_pred(L). eps is the held error (isolated unmethylated calls between two methylated calls, over the interior calls of qualifying molecules: at least 6 calls, at least 80 % held), counted by chain Stage Q2; L is the sample's own loose share (share of 2,000-CpG tiles held below 70 %); eps_pred(L) = 0.040265 + 0.034625 L is the healthy self-reference line, measured once on 153 healthy samples of 56 cell types (chain/Runtime Matrices/IAM_A_SelfRef/selfref_line_v1.json). No other specimen is a reference. Normal band v1: 0.779-1.055 (band_v1.json). Before reading, the sample-shape check declines a sample whose tile distribution is outside the healthy shape of its cell type (shape_reference_v1.json). Ends on the gauge are the sample's own: full surface 0.5/eps_pred(L) (12.42 at L = 0, 6.68 at L = 1). Commissioned 2026-10-17 on healthy blood CD8 T cells, whole-genome bisulfite sequencing (COMMISSIONING_NOTE_IAMA.md); other cell types are read and printed with the note that they have not yet been tested with IAM-A. The earlier position form, H(eps)/(P_cell H(eps0)), is retired (development flag only)."
+  },
+  "Salmon-A": {
+   "status": "informal",
+   "definition": "Not a separate quantity: IAM-A read by the salmonid chain (body temperature = water temperature)."
+  },
+  "the quantum-processor report": {
+   "status": "current",
+   "definition": "Quantum computing report line.",
+   "book": false
+  },
+  "the semiconductor report": {
+   "status": "current",
+   "definition": "Semiconductor report line.",
+   "book": false
+  },
+  "EPLG": {
+   "status": "current",
+   "definition": "Error Per Layered Gate (IBM): the average error per gate across a 100-qubit chain running layered circuits, including crosstalk and idle errors. It is NOT the same quantity as an isolated median two-qubit error p(2Q) and must not be compared with one.",
+   "book": false
+  },
+  "C-score (sky-map C-score)": {
+   "status": "current",
+   "definition": "Clustering of a specimen's residual sky map on the Met-A identity sites: c = var(sqrt(10) x the means of 10 consecutive sites in genome order) / var(z), over the site variance; C = c / c_healthy, c_healthy = 1.0103 (leave-one-out median of the six reference arrays; neutrophil_reference_v1_2.json), so healthy reads 1 on the same gauge as A. Read one-sided against the healthy band 0.877-1.152 after the same-run tare (above 1.152 is a clustered departure). Commissioned 2026-10-15 on whole blood, EPIC v1 (COMMISSIONING_NOTE_CSCORE.md). Chain v4 also draws the map on a HEALPix sphere (NSIDE 128, nested order) in the report; nothing is scored from the drawing. A cosmology map statistic, not a physics floor. On first use in papers write 'sky-map C-score'. Blocks of 50 and baseline 1.1104 were the construction before 2026-10-09.",
+   "domain": "the methylation report"
+  },
+  "H_min (cell)": {
+   "status": "retired",
+   "definition": "In the cell chain, the floor a reading is divided by. For Met-A: the cell type's reference floor on that platform (Met_A_floor_*), one per cell type, from purified healthy cells - never a class value. For IAM-A: P_cell * H(eps0), the physics floor's entropy at the cell's frozen architecture position P_cell (same read-level pipeline).",
+   "replaced_by": "H_min (the floor) for the physics floor; Healthy reference for the denominator"
+  },
+  "H_min (the floor)": {
+   "status": "current",
+   "definition": "The absolute lowest error a system can hold before thermal kicks win; below it the system no longer exists as itself. It is NOT the denominator of A and NOT 1: it sits below 1 at H_min / healthy reference. Cells: thermal kicks win against one full ATP per site, held error 1/(1+e^M) = 8.1e-10, H_min = 2.5e-8 bits (1e-7 on the IAM-A gauge, 8e-8 on Met-A, neutrophils). It is NOT the healthy reference height H_ref = H(eps0) = 0.2593 bits. Qubits: the thermal floor p_eq t_g/T1, p_eq = 1/(1+exp(hf/(k_B T))) at the temperature the qubit's record sees. Chips: the Landauer floor k_B T_j ln 2.",
+   "note": "The absolute lowest point a system can operate at before thermal kicks win."
+  },
+  "eps (gate error in nats)": {
+   "status": "current",
+   "definition": "eps = -ln(1 - p(2Q)), the two-qubit gate error expressed in nats; eps ~ p for small p. It is the qubit reading; A = eps / eps(as built).",
+   "note": "Formerly called the 'A score'.",
+   "book": false
+  },
+  "One gauge (convention)": {
+   "status": "current",
+   "definition": "Every score is an error score on one gauge: A = 1 is healthy in the middle, H_min below it is the floor nothing passes, above 1 is more error; a failure point may lie on the high side (qubits: error correction fails near p = 1 %). Each domain keeps its field's form. Always quote a value with its score's name.",
+   "note": "Adopted 2026-10-02: each domain is read with its own physics, so the formulas are not forced to be identical."
+  },
+  "Healthy reference": {
+   "status": "current",
+   "definition": "The denominator of A: the same system's healthy reading on the same instrument. Cells: Met-A, the purified healthy cells of that type on that platform (EPIC neutrophils 0.330263 bits; constant name Met_A_floor_* kept for the chain until the SOP rename); IAM-A, the sample's own predicted held error eps_pred(L) from its own loose share (commissioned 2026-10-17; no other person enters; the earlier P_cell H(eps0) form is retired). Devices: the device as built."
+  },
+  "Thermal floor (qubit)": {
+   "status": "current",
+   "definition": "The qubit H_min and the left-hand mark of the qubit gauge: IAM's Law at the temperature the record sees. p_eq = 1/(1+exp(hf/(k_B T))) for the held record; p_eq t_g/T1 for one gate of duration t_g (detailed balance)."
+  },
+  "H_ref (healthy reference height)": {
+   "status": "current",
+   "definition": "Cells: where healthy cells actually hold their methylated sites, H(eps0) = 0.2593 bits (E_hold 3.084 kT, measured per interior opportunity across 56 healthy cell types; about half hold better than it). Measured, not a limit; the floor is H_min. The distance from H_min to H_ref in energy is phi = 0.1473 of one ATP."
+  },
+  "IAM-Atlas v2.1": {
+   "status": "current",
+   "definition": "The reference map of 79 purified healthy human cell types: 813,951 sites, built from 21 public array and sequencing sources fitted as one Bayesian model, so every site carries a best value and a 95 % range. Commissioned use by use (COMMISSIONING_NOTE_ATLAS_V21.md). Published: fitted atlas 10.5281/zenodo.23441999; 100 posterior draws per block 10.5281/zenodo.23422688."
+  },
+  "IAM-Deconvolver": {
+   "status": "current",
+   "definition": "Reads which blood cells are in a sample and in what shares (chain Stage D21), against IAM-Atlas v2.1's six-cell blood panel; commissioned on the mean share error (0.016, bar 0.03) in a laboratory it never saw."
+  },
+  "Group-A": {
+   "status": "current",
+   "definition": "The group instrument (chain stage_groupa.py, commissioned 2026-10-20): each person's whole-blood Met-A, tared against healthy arrays of the same run, and the two groups' tared means compared (difference, standard error, t). Groups must be run in the same series."
+  },
+  "Tare (same-run tare)": {
+   "status": "current",
+   "definition": "Dividing a reading by the median of at least 3 healthy references run the same way (same slide, else same series), so a laboratory's offset cancels: A_rel = A / median(A_refs). Met-A, the C-Score and Group-A use it."
+  },
+  "Sky sphere (address sphere)": {
+   "status": "current",
+   "definition": "The globe layout every IAM map uses: every atlas site in genome order placed on HEALPix NSIDE 256, NESTED order, site i of n at pixel floor(i x NPIX / n) (atlas/tools/sky_maps_v21.py; frozen for the chain in sky_order_v21.npz). A site's place is its genome address; the information is in the color. Benefits: equal-area pixels, no edges, change along the genome shows as patches, and the sky's tools (masks, nulls, maps with uncertainty) apply."
+  },
+  "Information sphere": {
+   "status": "current",
+   "definition": "In development (DEV-SPHERE-01): a globe on which a site's place comes from how it behaves, not where it sits. Each methylation level b maps to the point (sqrt b, sqrt(1-b)) on a circle of radius 1, and the distance between two states is the Fisher-Rao angle; the whole methylome lies on one high-dimensional sphere. Not adopted until its construction passes its sealed bars."
+  },
+  "Globe Explorer": {
+   "status": "current",
+   "definition": "The site's page of interactive globes (IAM-Atlas v2.1 first; Met-A's purified-array reference; example samples; noise maps), drawn by the chain's one viewer (globe_viewer.py), the same code as every report's globe. Pictures, not readings: nothing is scored from a globe."
+  },
+  "Noise map (posterior draws)": {
+   "status": "current",
+   "definition": "The atlas's uncertainty shown as its own pictures: the average of the first k of a cell's 100 posterior draws at every site (k = 1, 2, 4 ... 100, draws taken in turn from the four sampling chains); the map settles onto the atlas's value as k grows (atlas/tools/noise_maps_v21.py)."
+  },
+  "Anchor range (preliminary)": {
+   "status": "current",
+   "definition": "A whole-blood reading of the span between an array's low and high fixed-site anchors, tared on its slide, that keeps a loss spread evenly over every site, which Met-A's self-tare cancels (GRP-014, DEV-SELFTARE-03). Preliminary: read and flagged, not commissioned."
+  },
+  "Hard-to-map probes": {
+   "status": "current",
+   "definition": "EPIC v1 probes whose sequence matches the genome with mapping quality under 10 or not at all (3.14 % of the array). Removing them moves no IAM instrument beyond its own repeat noise (DEV-MAPPABILITY-01, OTH-079); IAM-A's read counter already drops reads with mapping quality under 10."
+  },
+  "floor": {
+   "status": "current",
+   "definition": "The least error heat allows for a mark held with the full drive: eps_min = 1/(1 + e^M), H_min = H(eps_min). Status: derived."
+  },
+  "ceiling": {
+   "status": "current",
+   "definition": "One bit per site: a mark lost entirely, read as a coin flip. Status: derived."
+  },
+  "baseline": {
+   "status": "current",
+   "definition": "Where a healthy cell of its kind sits between the floor and the ceiling, for every instrument (Met-A's baseline, IAM-A's baseline). One name; how its value is known is a status label: derived (from the physics, nothing estimated), calibrated (a derived form with constants measured once on healthy cells and frozen), measured (taken from reference samples), candidate (derivation written, its test not yet passed). Only the label changes when a test passes (author, 2026-10-24). Today: Met-A's baseline measured (six commissioned neutrophil arrays), its derived value a candidate (DEV-METAA-HEALTHY-01 step 3); IAM-A's baseline calibrated (selfref_line_v1.json)."
+  },
+  "reference": {
+   "status": "current",
+   "definition": "Only what is measured: the reference atlas (IAM-Atlas v2.1) and the healthy reference cells and arrays in it. Never the baseline."
+  },
+  "The territories": {
+   "status": "current",
+   "definition": "In development (DEV-TERRITORIES-01): disorder at two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands (sites every healthy cell type keeps unmarked) and the domains (marked sites some healthy cell types hold loosely). Read on every run of the one command and flagged; not commissioned until healthy samples read Normal on a sealed test."
+  },
+  "Nearest-neighbor coupling": {
+   "status": "current",
+   "definition": "In development (plan 49.5): on held molecules, the pairs of neighboring CpGs that lost their mark together, over what each molecule's own length and error count give at random; 1 is independent. Recorded by chain Stage Q2 (stage_q2_selfref._coupling) on every sequencing count, beside IAM-A's held error. Its healthy reference is built from the 153 healthy sequencing inputs behind IAM-Atlas v2.1 (56 cell types; Normal 0.935 to 1.062); not commissioned until healthy samples it has never seen read Normal on a sealed test. Drawn on the A-score gauge as coupling-A: the sample's coupling over the healthy coupling of its own cell type (healthy 1), from 0 (errors never neighbors) to the sample's own most clustered arrangement."
+  },
+  "Met-A on sequencing": {
+   "status": "current",
+   "definition": "In development (DEV-METAA-ATLAS-CURVE-01): Met-A against IAM-Atlas v2.1 for a whole-genome bisulfite sample, with each atlas column put in sequencing units by the conversion the atlas's own build measured for the published sequencing atlas, because the atlas's array scale holds unmarked sites near 0.055 where sequencing reads 0."
+  },
+  "IAM Sequencing Atlas": {
+   "status": "current",
+   "definition": "In development (plan 35.30): the reference for sequenced samples, separate from IAM-Atlas v2.1 (arrays). For each healthy cell type at every hg19 CpG: donors, reads, methylated reads, the healthy level (median of the donors' levels), the donors' spread, each donor's measured disorder (mean binary entropy), and two noise maps (sealed donor halves; random halves of every donor's reads). Counted, not fitted; built by chain stage_seq_atlas (run_sample.py --build seq-atlas); GRCh38 read tables are moved to hg19 by --build seq-lift."
+  }
+ },
+ "retired": {
+  "n_bio": {
+   "replaced_by": "none (removed from the method)",
+   "severity": "block"
+  },
+  "\\bold A\\b": {
+   "replaced_by": "Met-A",
+   "severity": "warn"
+  },
+  "\\bnew A\\b": {
+   "replaced_by": "IAM-A",
+   "severity": "warn"
+  },
+  "gate-error reading": {
+   "replaced_by": "IAM-A",
+   "severity": "warn"
+  },
+  "program reading": {
+   "replaced_by": "Met-A",
+   "severity": "warn"
+  },
+  "M\\s*=\\s*30\\.2": {
+   "replaced_by": "M = 20.94 (30.2 only as the Landauer-unit conversion)",
+   "severity": "warn"
+  },
+  "Mahaffey value": {
+   "replaced_by": "M number (M) for the drive ratio; informational fidelity ratio (A) for measured over floor",
+   "severity": "warn"
+  },
+  "Mahaffey ratio": {
+   "replaced_by": "M number (M)",
+   "severity": "warn"
+  },
+  "Aristotelian Principle": {
+   "replaced_by": "the virial theorem (with IAM's thermodynamic completion); physics names only",
+   "severity": "block",
+   "book": false,
+   "note": "Name dropped 2026-10-02: the rule is stated without it."
+  },
+  "class H_min": {
+   "replaced_by": "H_min (cell): the cell type's own reference floor (Met-A) or P_cell H(eps0) (IAM-A); H_min itself is current, only the class floor is retired",
+   "severity": "warn",
+   "history": "Never derived (author, 2026-10-25). The eight architecture-class values were early exploratory predictions, made by analogy with the quantum-computing class method to see whether cells behave similarly; they came to be treated as canon by repetition, and the MCMC tests that followed took them as given. The provisional patent named as their source holds only the quantum-computing class exponents (themselves calibrated from published data, not derived). The class readings were not wasted: they showed the cohort signals that led to the atlas and to reading each sample against itself."
+  },
+  "\\bA[- ]score": {
+   "replaced_by": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+   "severity": "warn"
+  },
+  "the semiconductor report [Ii]ndex": {
+   "replaced_by": "E_sw/(k_B T_j ln 2): distance above the Landauer floor; on the one gauge the chip as built reads 1",
+   "severity": "warn"
+  },
+  "[Ww]all ratio": {
+   "replaced_by": "A = reading / device as built; the thermal floor lies to its left",
+   "severity": "warn"
+  },
+  "\\bA-floor": {
+   "replaced_by": "H_min (the thermal floor)",
+   "severity": "warn"
+  },
+  "zero adjustable parameters": {
+   "replaced_by": "state which quantities are measured and which are assumed",
+   "severity": "warn"
+  },
+  "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "(?<![\\d.])0\\.2043": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "(?<![\\d.])0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|(?<![\\d.])0\\.163 of (one|an) ATP": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "(?<![\\d.])1905 ?K|(?<![\\d.])1905\\\\,|(?<![\\d.])1,905 ?K": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "(varepsilon_0|varepsilon_\\{0\\}|eps0|ε₀|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)": {
+   "replaced_by": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "(?<![\\d.])0\\.0212(?!\\d)|(?<![\\d.])0\\.0497(?!\\d)|\\bD *= *46\\b": {
+   "replaced_by": "the firm and loose rates on the commissioned counter (selfref_line_v1.json: firm 0.0403, loose 0.0749); the Oct 15 values used the earlier counter (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "[Ff]irm end": {
+   "replaced_by": "firm rate (the gauge's only ends are the floor and the ceiling; author 2026-10-15)",
+   "severity": "block"
+  },
+  "(?<![\\d.])3\\.41 to 3\\.77|(?<![\\d.])3\\.41--3\\.77|ln\\[\\(1-\\\\varepsilon\\)/\\\\varepsilon\\]=3\\.41|=3\\.41/20\\.94|e\\^\\{3\\.41\\}|\\(\\$3\\.41\\$": {
+   "replaced_by": "the commissioned counter's holding energy (CANON E_hold_meth, 3.08 kT; superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "(?<![\\d.])0\\.163\\s*(\\\\pm|±)|=0\\.163(?!\\d)": {
+   "replaced_by": "phi = 0.147 on the commissioned counter (CANON phi; superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "0\\.024 ?(--|–|-|to) ?0\\.042": {
+   "replaced_by": "0.0333-0.0549: the healthy held-error range of 56 cell types on chain Stage Q2's counter (holding_energy_q2.json); 0.024-0.042 came from PROC-CHANNEL-01's counter, which divided by every CpG, ends included (superseded 2026-10-19)",
+   "severity": "block"
+  },
+  "Mahaffey number": {
+   "replaced_by": "the M number (named like the Mach number; author 2026-10-24)",
+   "severity": "block"
+  },
+  "AstroGenetics|Cosmic Methylome": {
+   "replaced_by": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+   "severity": "warn"
+  },
+  "derived minimum": {
+   "replaced_by": "the floor (author 2026-10-24: one name, a status label)",
+   "severity": "warn"
+  },
+  "derived limit": {
+   "replaced_by": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+   "severity": "warn"
+  },
+  "healthy line": {
+   "replaced_by": "the baseline (author 2026-10-24: one name, a status label)",
+   "severity": "warn"
+  },
+  "reference line": {
+   "replaced_by": "the baseline (author 2026-10-24: one name, a status label)",
+   "severity": "warn"
+  },
+  "self-reference line": {
+   "replaced_by": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+   "severity": "warn"
+  },
+  "healthy middle": {
+   "replaced_by": "the baseline (author 2026-10-24: one name, a status label)",
+   "severity": "warn"
+  }
+ },
+ "scope": {
+  "skip_dirs": [
+   "RETIRED_2026-09",
+   "Record",
+   "Cosmological_Physics/camb_validation/chains",
+   "Cosmological_Physics/mgcamb_validation/chains",
+   ".git",
+   "data",
+   "results",
+   "Biological_Physics/RETIRED_2026-10",
+   "docs/RETIRED_2026-10",
+   "Biological_Physics/RETIRED_2026-09",
+   "Biological_Physics/MethylPhys/ASCORES"
+  ],
+  "record_markers": [
+   "[RECORD]",
+   "RETIRED",
+   "superseded",
+   "historical",
+   "Erratum",
+   "What changed",
+   "RECON",
+   "NO LONGER USED",
+   "[Edition 003 note"
+  ],
+  "extensions": [
+   ".md",
+   ".tex",
+   ".py",
+   ".txt"
+  ],
+  "record_files": [
+   "Biological_Physics/RETIRED_2026-10/MethylPhys/papers/build_mphys_issue002.py",
+   "Biological_Physics/MethylPhys/manual/om_lib.py",
+   "Biological_Physics/MethylPhys/hmin_calibration/",
+   "Biological_Physics/MethylPhys/doors/CLASS_HISTORY.md",
+   "Biological_Physics/MethylPhys/atlas/v2/COMMUNICATION.md",
+   "Biological_Physics/MethylPhys/kit/ROW9_WORKING_NOTE.md",
+   "docs/book/appendices/app_A_canon.tex",
+   "development/",
+   "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "Biological_Physics/MethylPhys/whiteboard/",
+   "Biological_Physics/MethylPhys/archive/",
+   "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+   "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+   "docs/book/verification/verify_book_output.txt",
+   "docs/book/verification/VERIFY_BOOK_INVENTORY.md",
+   "Biological_Physics/MethylPhys/doors/DEV_FLOOR_HEIGHT_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_FLOOR_HEIGHT_02.md",
+   "Biological_Physics/MethylPhys/doors/PRED_TEMPERATURE_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_01_OUTCOME.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_02.md",
+   "Biological_Physics/MethylPhys/doors/DEV_WRITER_02_OUTCOME.md",
+   "Biological_Physics/MethylPhys/doors/DEV_IAMA_P_WHOLE_01.md",
+   "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02.md",
+   "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "Biological_Physics/MethylPhys/doors/PROC_ENCODE_01_OUTCOME.md",
+   "Biological_Physics/MethylPhys/doors/DEV_LINK_IAMA_METAA_01.md",
+   "Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md",
+   "archive/retired_root_2026-10-19/TODO_to_2026-10-16.md",
+   "Cosmological_Physics/mgcamb_validation/iam_baryon_test.1.txt",
+   "Biological_Physics/MethylPhys/daylogs/",
+   "MANIFEST.md",
+   "Biological_Physics/MethylPhys/doors/DEV_SPECIES_AGEING_01.md",
+   "Biological_Physics/MethylPhys/doors/PHYSICS_LEUKOCYTE_GAUGE.md"
+  ],
+  "record_files_note": "Published editions, provenance scripts and verbatim records: kept as written, never edited to current language. 2026-10-19: dated records of the earlier held-error counter (every CpG in the denominator) keep the values they were sealed or written with; PROC_CHANNEL_01_OUTCOME.md carries the correction. 2026-10-20: the 18th chain's raw sampler output is data, not prose; number patterns match only a whole number (never digits inside a longer one). 2026-10-24: day logs, MANIFEST.md (generated from the manifest's dated notes) and DEV_SPECIES_AGEING_01.md (sealed record) keep the name 'Mahaffey number' as written; live text says 'the M number'.",
+  "cell_scope": {
+   "value": [
+    "neutrophils"
+   ],
+   "rule": "The chain reports Met-A, IAM-A and both C-scores for neutrophils only until commissioned with new VALs; cell types are added one at a time, in order of abundance in blood, each after passing healthy-in-Normal, known-2%-damage detection and same-person repeat (author, 2026-10-01)."
+  }
+ },
+ "hierarchy": "IAM's law -> applications: cosmology; qubits; semiconductors; the methylation report (biology) -> the methylation report chains: MethylPhys CPG (cells), salmonid chain (in development).",
+ "superseded": {
+  "E_hold_meth": {
+   "value": 3.41,
+   "units": "kT per methylated site",
+   "derivation": "ln((1-eps)/eps) of the measured held error on single molecules (read-level files of the published sequencing atlas, uncorrected)",
+   "source": "PROC-CHANNEL-01",
+   "range_note": "3.41-3.77 kT across datasets (ENCODE, instrument-corrected, upper end)",
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "E_hold_meth_Landauer": {
+   "value": 4.9,
+   "units": "Landauer units",
+   "derivation": "E_hold_meth / ln 2",
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "phi": {
+   "value": 0.1628,
+   "units": "fraction of one ATP per held bit",
+   "derivation": "E_hold_meth / M_cell",
+   "source": "PROC-CHANNEL-01",
+   "accept": [
+    0.16,
+    0.163,
+    0.1629
+   ],
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "eps0_meth": {
+   "value": 0.032,
+   "units": "held error per methylated site",
+   "derivation": "1/(1+exp(phi*M_cell)) with phi*M_cell = E_hold_meth = 3.41 kT MEASURED from cells' held error: the HEALTHY REFERENCE held error (not the floor). The form is physics (Boltzmann), the height is measured; about half of healthy cell types hold better than it",
+   "source": "PROC-CHANNEL-01; a physics-only height (phi derived from the writer's discrimination measured outside the cell) is open",
+   "accept": [
+    0.032,
+    0.032
+   ],
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  },
+  "H_ref_cell": {
+   "value": 0.2043,
+   "units": "bits",
+   "derivation": "H(eps0_meth): the healthy reference height, where healthy cells actually hold their methylated sites (56 healthy cell types)",
+   "source": "PROC-CHANNEL-01 (holding energy measured across 56 healthy cell types)",
+   "superseded": "2026-10-19",
+   "reason": "2026-10-19: PROC-CHANNEL-01's counter divided isolated errors by every CpG on a molecule, ends included; an end CpG has one neighbor and cannot be isolated, so the count read about 0.75 of the per-opportunity rate (denominator_check_2026-10-19.json). The commissioned chain (Stage Q2) counts interior opportunities."
+  }
+ }
 }

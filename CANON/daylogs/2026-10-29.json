@@ -38,6 +38,36 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The IAM Sequencing Atlas: every CpG, counted",
+     "status": "development",
+     "what": "A second atlas for sequenced samples, beside IAM-Atlas v2.1: each healthy cell type's level, spread, each donor's disorder and two noise maps at every hg19 CpG, from the 153 healthy sequencing inputs.",
+     "outcome": "Built by the one command over all 28,217,448 CpGs in 113 pieces on Google spot machines, after its synthetic met; each cell has reads at 97 to 98 % of all CpGs.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Google spot machines join GitHub's",
+     "status": "development",
+     "what": "Eight discounted spot machines beside GitHub's twenty, each launch price-checked, capped to delete itself, and logged with its cost.",
+     "outcome": "One healthy sample read the same on Google as on GitHub; the atlas's counting step took about 15 minutes.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A megakaryocyte column for the sequencing atlas",
+     "status": "development",
+     "what": "The plasma cell type the atlases lack, from two healthy donors, moved from GRCh38 to hg19 by a new chain step tested on a known answer first; a third donor is held back to test it.",
+     "outcome": "Under way.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }

@@ -3615,3 +3615,16 @@ sequencing atlas (`Runtime Matrices/Atlas_V21/sequencing_term_v1.json`), clipped
 the atlas goes through it: Met-A for a sorted cell, Met-A for each cell in a mix, and the territories.
 
 *Code:* `stage_metaa_atlas.py` line 80 (5 lines) · arguments: p · calls: not called on the traced runs · constants read: `SEQ_TERM`
+
+## 21. The IAM Sequencing Atlas (development): `stage_seq_atlas.py`
+
+The reference for sequenced samples, kept apart from IAM-Atlas v2.1 (arrays), plan 35.30. Measured, not fitted: every value is counted from
+healthy donors' reads at every one of the 28,217,448 CpGs of the hg19 numbering the .pat and .beta files share. The one command builds it
+one block at a time (`run_sample.py --build seq-atlas --build-samples CSV --build-block START:END --build-out PARQUET`); the blocks together
+are the atlas. Its inputs (`doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv`) are the 153 healthy sequencing inputs behind IAM-Atlas
+v2.1, each with its GEO .beta file, cell and sealed donor half. Each block is a parquet with the CpG index and, per cell, these columns
+(uint16; levels times 10,000; 65535 is blank, where no donor of the cell has a read, and nothing is filled):
+`donors`, `reads`, `meth` (methylated reads; with `reads` it gives the pooled level and its exact 95 % range), `level` (median of the donors'
+levels), `spread` (the donors' standard deviation), `disorder` (each donor's binary entropy, averaged), `halfA`, `halfB` (the pooled level in
+each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
+seed 20261029; their difference is noise map 2, defined for a cell with one donor).

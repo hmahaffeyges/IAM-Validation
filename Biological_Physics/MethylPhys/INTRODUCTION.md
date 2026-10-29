@@ -128,6 +128,17 @@ site is at its held level turn a departure into an instrument reading, in bits, 
 ruler: at the sites a cell holds firmly, the atlas's healthy level matches one minus the error that cell's own molecules show, counted
 directly ([the record](doors/DEV_METAA_HEALTHY_01.md)).
 
+### The IAM Sequencing Atlas: every CpG, in development
+
+A second atlas, for sequenced samples only. IAM-Atlas v2.1 stays the reference for arrays; nothing in the new one touches an array reading.
+For each of 56 healthy cell types, at every one of the 28.2 million CpGs of the genome numbering sequencing uses, it holds the healthy level,
+the spread between donors, each donor's own measured disorder, the reads behind every value, and two noise maps (one from splitting the
+donors in sealed halves, one from splitting every donor's reads). Each cell has reads at 97 to 98 % of all CpGs, about 32 times the sites
+an array reads. It is counted, not fitted, and rebuilds from the public files with one command in minutes. It lets the sequencing
+instruments read a sample's disorder at every CpG against healthy disorder of its own cell type, including clusters far from any array
+site, and it is the reference the plasma readings are being built on. In development: each cell is commissioned when healthy sequenced
+samples it has never held read Normal against it ([the record](doors/DEV_ATLAS_V21_01.md)).
+
 ### IAM-Deconvolver: the cell mix of a sample
 
 Whole-blood differences mostly reflect how many of each cell type a sample holds. The Deconvolver reads the mix against the atlas and

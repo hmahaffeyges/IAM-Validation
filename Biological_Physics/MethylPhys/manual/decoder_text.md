@@ -2301,3 +2301,40 @@ An atlas level, on the array scale, in sequencing units: a + b x level from the 
 sequencing atlas (`Runtime Matrices/Atlas_V21/sequencing_term_v1.json`), clipped to 0 to 1. Every comparison of a sequencing sample against
 the atlas goes through it: Met-A for a sorted cell, Met-A for each cell in a mix, and the territories.
 
+## 21. The IAM Sequencing Atlas (development): `stage_seq_atlas.py`
+
+The reference for sequenced samples, kept apart from IAM-Atlas v2.1 (arrays), plan 35.30. Measured, not fitted: every value is counted from
+healthy donors' reads at every one of the 28,217,448 CpGs of the hg19 numbering the .pat and .beta files share. The one command builds it
+one block at a time (`run_sample.py --build seq-atlas --build-samples CSV --build-block START:END --build-out PARQUET`); the blocks together
+are the atlas. Its inputs (`doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv`) are the 153 healthy sequencing inputs behind IAM-Atlas
+v2.1, each with its GEO .beta file, cell and sealed donor half. Each block is a parquet with the CpG index and, per cell, these columns
+(uint16; levels times 10,000; 65535 is blank, where no donor of the cell has a read, and nothing is filled):
+`donors`, `reads`, `meth` (methylated reads; with `reads` it gives the pooled level and its exact 95 % range), `level` (median of the donors'
+levels), `spread` (the donors' standard deviation), `disorder` (each donor's binary entropy, averaged), `halfA`, `halfB` (the pooled level in
+each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
+seed 20261029; their difference is noise map 2, defined for a cell with one donor).
+
+### stage_seq_atlas.py::read_block
+One input's methylated and all reads over a block of CpGs: a .beta file (uint8 pairs) read locally or straight from GEO by byte range, with
+retries, or an .lbeta (uint16 pairs, this stage's converted files). A file that is not the full hg19 length is refused.
+
+### stage_seq_atlas.py::build_block
+The atlas over one block: for each cell, every column above, from its donors' counts. Returns the table and a summary (each cell's donors,
+halves, CpGs with reads and median reads; sites at the source files' 255-read cap).
+
+### stage_seq_atlas.py::hg19_dictionary
+The pipeline's hg19 CpG dictionary (wgbstools init_genome's CpG.bed.gz: chromosome, 1-based position, index), checked for 28,217,448 CpGs.
+
+### stage_seq_atlas.py::lift_to_hg19
+One donor's GRCh38 per-CpG read tables, pooled on GRCh38 and moved to the hg19 numbering (UCSC hg38ToHg19, pyliftover; a position that does
+not move to one place is dropped and counted), each landing on the hg19 CpG whose C or G it is, so both strands add to one CpG. Written as an
+.lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
+
+### stage_seq_atlas.py::geo_url
+The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).
+
+### stage_seq_atlas.py::_u16
+Values to the stored uint16 form (times 10,000, clipped; blank 65535).
+
+### stage_seq_atlas.py::_H
+Binary entropy in bits, 0 at a level of 0 or 1.
