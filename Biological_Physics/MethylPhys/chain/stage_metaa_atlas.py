@@ -77,6 +77,12 @@ def specific_sites(cell, others, delta):
     _cache[k] = out; return out
 
 N_EXACT = 400   # expected_H_counts: above this many reads the k-of-n bias is below 0.2 % of H and H(p) is used (stated)
+def seq_units(p):
+    """2026-10-28 (DEV-METAA-ATLAS-CURVE-01): an atlas level (array scale) in sequencing units, by the conversion the atlas's own build measured
+    for the published sequencing atlas (sequencing_term_v1: a + b x level), clipped to 0 to 1. Used for every comparison of a sequencing sample
+    against the atlas: its unmarked sites sit near 0.055 on the array scale, where sequencing reads 0."""
+    return (pd.Series(p, dtype="float64") * SEQ_TERM["b"] + SEQ_TERM["a"]).clip(0, 1) if isinstance(p, pd.Series) else np.clip(np.asarray(p, dtype="float64") * SEQ_TERM["b"] + SEQ_TERM["a"], 0, 1)
+
 def expected_H_counts(p, n):
     """The exact expected entropy of a level measured as k of n reads when the true level is p (2026-10-22, to-do 40.3; derived, nothing fitted):
     E[H(k/n)] = sum_k C(n, k) p^k (1 - p)^(n - k) H(k/n), k ~ Binomial(n, p). A level made from few reads is 0 or 1 more often than p, and H(0) =
@@ -101,7 +107,7 @@ def read(beta, cell, specimen="isolated", counts=None):
     if counts is not None:   # sequencing: the healthy expectation at each site's own read count (40.3)
         # 2026-10-28 (DEV-METAA-ATLAS-CURVE-01, the shift's cause): the atlas is on the array scale, whose unmarked sites sit near 0.055 where
         # sequencing reads 0; the column is put in sequencing units by the atlas's own measured source term (Loyfer2023), clipped to [0, 1]
-        ms = mu[ok].clip(lower=-1) * SEQ_TERM["b"] + SEQ_TERM["a"]; ms = ms.clip(0, 1); mu = mu.copy(); mu[ok] = ms
+        mu = mu.copy(); mu[ok] = seq_units(mu[ok])
         _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
         rec["expectation"] = "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)"
     A = float(_H(x[ok]).mean() / href)
@@ -217,6 +223,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
         have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
         e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
+        if counts is not None: e = seq_units(e).where(e.notna())   # 2026-10-28: the mixed expectation in sequencing units on sequencing
         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
         _rmin = READ_COVER_MIN_SEQ if counts is not None else READ_COVER_MIN
         if ok.sum() < _rmin * len(S):   # 2026-10-23 (author: read and flag): withheld only below half (a tenth on sequencing); above that and below RULE's 90 %, read and flagged
@@ -390,6 +397,7 @@ def territory_reading(beta, shares, counts=None):
         idx = pd.Index(S).intersection(x.dropna().index)
         MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
         cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+        if counts is not None: e = seq_units(e).where(e.notna())   # 2026-10-28: the expectation in sequencing units on sequencing
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
         hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts); A = float(hx.mean() / he.mean())

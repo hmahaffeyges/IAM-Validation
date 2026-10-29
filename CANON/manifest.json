@@ -28096,7 +28096,7 @@
    "id": "GRP-017",
    "sources_of_row": [],
    "runs": [],
-   "notes": "2026-10-23: synthetic test 1: island gains and domain losses planted by the chain read cleanly and apart; healthy reads 1.176 and 1.115 untared. | 2026-10-23 test 2: Met-A for the whole sample over every atlas site (read_whole) and each cell's reading, with the territories, all on by default; every plant read where expected; healthy 1.113 untared. | 2026-10-23 test 3: the atlas ruler v1 (two anchors per design) overcorrects: healthy whole-sample 1.113 untared, 0.938 on it; kept off (--dev-ruler); the many-level ruler next."
+   "notes": "2026-10-23: synthetic test 1: island gains and domain losses planted by the chain read cleanly and apart; healthy reads 1.176 and 1.115 untared. | 2026-10-23 test 2: Met-A for the whole sample over every atlas site (read_whole) and each cell's reading, with the territories, all on by default; every plant read where expected; healthy 1.113 untared. | 2026-10-23 test 3: the atlas ruler v1 (two anchors per design) overcorrects: healthy whole-sample 1.113 untared, 0.938 on it; kept off (--dev-ruler); the many-level ruler next. | 2026-10-28: on sequencing the territories' expectation is in sequencing units (seq_units)."
   },
   {
    "title": "The earlier work replayed through the chain (tuning): signals the earlier instruments found, read again by the one command",

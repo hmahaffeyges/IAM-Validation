@@ -2293,3 +2293,9 @@ flagged in development, with its gauge; without a reference, the coupling and th
 ### stage_coupling.py::reference
 Loads the healthy coupling reference (`Runtime Matrices/Coupling/coupling_reference_v1.json`): each cell type's healthy coupling and the
 Normal band of coupling-A. Returns nothing until the reference is built, and the reading then says so.
+
+### stage_metaa_atlas.py::seq_units
+An atlas level, on the array scale, in sequencing units: a + b x level from the conversion the atlas's own build measured for the published
+sequencing atlas (`Runtime Matrices/Atlas_V21/sequencing_term_v1.json`), clipped to 0 to 1. Every comparison of a sequencing sample against
+the atlas goes through it: Met-A for a sorted cell, Met-A for each cell in a mix, and the territories.
+

@@ -70,3 +70,8 @@ the atlas's 0.039, so the line lowers every low value; the whole-sample reading 
 0.877, the domains part from 1.125 to 0.939. **The straight line overcorrects:** the array's departure from the atlas is not a straight line across
 the range. Next: a ruler with many marks (sites every cell type holds alike at several levels between 0 and 1), synthetic first.
 
+**On sequencing, in sequencing units (chain change, nothing scored).** The territories compare a sample with IAM-Atlas v2.1 mixed in its
+shares; the atlas is on the array scale, whose unmarked sites sit near 0.055 where sequencing reads 0, which put every healthy sequencing
+sample's islands far below 1 (DEV-METAA-ATLAS-CURVE-01, the shift's cause). On sequencing the mixed expectation is now put in sequencing
+units by the atlas's own measured conversion (`stage_metaa_atlas.seq_units`), as Met-A's is; arrays are unchanged. Healthy sorted B and T
+cells from two new laboratories are read and reported on it in the sequencing commissioning test (not scored there).
