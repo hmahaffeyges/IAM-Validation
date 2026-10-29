@@ -5,4 +5,3 @@ bt_development_samples.csv
 bt_confirmation_samples.csv
 bt_samelab_samples.csv
 shift_01/seq_inputs.csv
-seq_term_01/healthy_seq.csv

@@ -159,7 +159,7 @@ of about 0.02 at 4 to 30 reads a site. **Run 2 (bar 1 amended, disclosed):** the
 rule reads below 0.9: 0.43 to 0.46) and 3 (a 5 % loss reads above healthy) unchanged. Run 2 met (`seq_term_01/seq_synthetic_run2.txt`).
 **Run 3 (added at the push gate, rule 23):** bar 4, the first plant of each column read by the one command (`run_sample.py --dev-seq-beta`), within
 0.001 of the stage's reading and within 0.06 of 1. The term's two values are printed in the synthetic's output.
-**The healthy band on sequencing:** the atlas's 153 healthy sequencing inputs (`seq_term_01/healthy_seq.csv`, spent, atlas inputs) read by the
+**The healthy band on sequencing:** the atlas's 153 healthy sequencing inputs (`DEV_ALL_INFO_01/coupling_02/healthy_seq.csv`, spent, atlas inputs) read by the
 one command on the amended chain; `seq_term_01/seq_band.py` builds the band (2.5th to 97.5th percentile), each cell type's median and the
 readings against depth; the bar: the median healthy reading within 0.05 of 1. **Then commissioning:** healthy sorted B and T cells sequenced
 by a laboratory the atlas has never seen, read against that band, with the test written before reading.

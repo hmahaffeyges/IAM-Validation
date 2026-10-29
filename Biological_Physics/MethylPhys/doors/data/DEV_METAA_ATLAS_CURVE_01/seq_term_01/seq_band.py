@@ -5,7 +5,7 @@ and the bar: the median healthy reading within 0.05 of 1 (the instrument's job: 
 python3 seq_band.py BUNDLE_DIR OUT_DIR [CHAIN_BAND.json]"""
 import sys, os, json, glob, csv, statistics as st, numpy as np
 from scipy.stats import spearmanr
-H = os.path.dirname(os.path.abspath(__file__)); S = list(csv.DictReader(open(os.path.join(H, "healthy_seq.csv")))); rows = []
+H = os.path.dirname(os.path.abspath(__file__)); S = list(csv.DictReader(open(os.path.join(H, "..", "..", "DEV_ALL_INFO_01", "coupling_02", "healthy_seq.csv"))))   # the list committed for the coupling reference; rows = []
 for r in S:
     f = glob.glob(os.path.join(sys.argv[1], "**", r["gsm"] + "_bundle.json"), recursive=True)
     if not f: continue
