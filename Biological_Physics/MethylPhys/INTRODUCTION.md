@@ -126,7 +126,7 @@ person's own expected healthy self, from their own cell mix, and reads every sit
 gives those departures their meaning: the floor and the ceiling, the entropy of a mark measured against the floor, and how sensitive each
 site is at its held level turn a departure into an instrument reading, in bits, the same in any laboratory. The law also checks the
 ruler: at the sites a cell holds firmly, the atlas's healthy level matches one minus the error that cell's own molecules show, counted
-directly ([the record](doors/DEV_METAA_HEALTHY_01.md)).
+directly ([the record](doors/DEV_METAA_HEALTHY_01.md)). Its values are on the array scale (its sequencing sources are placed on that scale), and it is the ruler for arrays; sequenced samples read against the IAM Sequencing Atlas, counted from sequencing reads, because an array never quite reads 0 or 1 and sequencing does.
 
 ### The IAM Sequencing Atlas: every CpG, in development
 
@@ -138,6 +138,8 @@ an array reads. It is counted, not fitted, and rebuilds from the public files wi
 instruments read a sample's disorder at every CpG against healthy disorder of its own cell type, including clusters far from any array
 site, and it is the reference the plasma readings are being built on. In development: each cell is commissioned when healthy sequenced
 samples it has never held read Normal against it ([the record](doors/DEV_ATLAS_V21_01.md)).
+
+**A ruler for each kind of instrument.** Each kind of instrument reads the same biology through its own chemistry. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts reads, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder; the offset also changes with each laboratory's chemistry and library. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. The physics and the instruments are the same; only the ruler changes with the platform. Read against IAM-Atlas v2.1, healthy sequenced samples showed it: at the islands every healthy cell keeps unmarked they read about 14 where healthy reads 1, and Met-A followed each sample's source.
 
 ### IAM-Deconvolver: the cell mix of a sample
 
