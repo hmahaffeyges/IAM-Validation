@@ -2343,7 +2343,9 @@ error is its lone errors over its chances. It is the healthy held error a plasma
 How far one sample sits from every cell of the atlas (`run_sample.py --build seq-compare`): at the CpGs where the sample has at least 5 reads
 and every cell has a level, the mean distance between the sample's level and each cell's, cells ranked nearest first; and for each cell, the
 mean distance between its two donor halves at the same CpGs. Reads the built pieces in two passes (levels first, halves only at the compared
-CpGs) so a 16 GB machine holds it.
+CpGs) so a 16 GB machine holds it. Also a depth-weighted score per cell: each CpG's squared difference over the scatter counting gives it
+(the sample's and the column's binomial scatter and the column's donors' spread squared), averaged, about 1 for a healthy cell of that column;
+ranked as `weighted_ranked`, so a column pooled from sparse reads is not pushed away by its own counting scatter.
 
 ### stage_seq_atlas.py::geo_url
 The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).

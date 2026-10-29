@@ -53,7 +53,7 @@ test on is held to the rule by the push gate (CANON/chain_gate.py, rule 23b).
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**71 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**72 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -66,6 +66,7 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_ATLAS_V21_01 | `DEV_ATLAS_V21_01/seq_atlas/seq_lift_synthetic.py` | no chain import | COM-METAA-007, COM-METAA-008, COM-METAA-011, COM-METAA-033, ATL-006, ATL-012 |
 | DEV_ATLAS_V21_01 | `DEV_ATLAS_V21_01/seq_atlas/seq_compare_synthetic.py` | no chain import | COM-METAA-007, COM-METAA-008, COM-METAA-011, COM-METAA-033, ATL-006, ATL-012 |
 | DEV_ATLAS_V21_01 | `DEV_ATLAS_V21_01/seq_atlas/seq_held_synthetic.py` | no chain import | COM-METAA-007, COM-METAA-008, COM-METAA-011, COM-METAA-033, ATL-006, ATL-012 |
+| DEV_ATLAS_V21_01 | `DEV_ATLAS_V21_01/seq_atlas/seq_compare_synthetic2.py` | no chain import | COM-METAA-007, COM-METAA-008, COM-METAA-011, COM-METAA-033, ATL-006, ATL-012 |
 | DEV_BLOOD_SENSITIVITY_01 | `DEV_BLOOD_SENSITIVITY_01/blood_sensitivity_01.py` | no chain import | COM-METAA-020, CAN-007, CAN-011, CAN-020, CAN-021, PHY-001 |
 | DEV_BREACH_01 | `DEV_BREACH_01/planted_breach_01.py` | declares NO CHAIN | BRE-003, BRE-004, BRE-007, DAT-124, SCO-049 |
 | DEV_CEILING_02 | `DEV_CEILING_02/ceiling_position_02.py` | declares NO CHAIN | CAN-003, CAN-006, TIS-001, TIS-002 |

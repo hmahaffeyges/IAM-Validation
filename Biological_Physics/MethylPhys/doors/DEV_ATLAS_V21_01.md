@@ -554,3 +554,14 @@ with two halves: a column pooled from sparse single-cell reads carries far more 
 written treats every column as exact, so a noisy column sits far from everything, its own cell included. The synthetic gave every column the
 same depth and could not see this. **Next:** a comparison that weighs each CpG by the counting scatter of both the sample and the column,
 synthetic first with columns of unequal depth; donor 3 is spent, so reading it again with that comparison is development, not a test.
+
+**The depth-weighted comparison** (written and committed before it runs). The comparison (`stage_seq_atlas.compare`, the one command's
+`--build seq-compare`) now also gives each cell a depth-weighted score: at each compared CpG the squared difference between the sample's level
+and the column's, over the scatter counting gives it (the sample's p(1 - p)/n, the column's p(1 - p)/reads, and the column's donors' spread
+squared), averaged; it is about 1 when the sample is a healthy cell of that column. Cells are ranked by it (`weighted_ranked`) beside the plain
+distance.
+
+**Synthetic test:** DEV_ATLAS_V21_01/seq_atlas/seq_compare_synthetic2.py, DEV_ATLAS_V21_01/seq_atlas/seq_compare_synthetic2.txt
+
+**Synthetic bars** (three deep cells and one shallow cell pooled from sparse reads, as the megakaryocyte column is): 1. by the depth-weighted
+score each new donor's nearest cell is its own, the shallow cell's included; 2. the comparison counts exactly the CpGs it should.

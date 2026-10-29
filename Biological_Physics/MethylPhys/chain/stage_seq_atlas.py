@@ -172,6 +172,24 @@ def compare(lbeta, piece_dirs, min_reads=5):
                 sm, n = acc.get(c, (0.0, 0)); acc[c] = (sm + float(np.abs(hA[g] / 1e4 - hB[g] / 1e4).sum()), n + int(g.sum()))
     for c, (sm, n) in acc.items():
         if n and c in out["cells"]: out["cells"][c]["halves_apart"] = round(sm / n, 5)
+    # 2026-10-29 (donor 3's test: a column pooled from sparse reads carries counting scatter the plain distance treats as real): each CpG's
+    # squared difference over the scatter counting gives it, the sample's (p(1-p)/n) plus the column's (p(1-p)/reads) plus its donors' spread
+    # squared; the mean is 1 when the sample is a healthy cell of that column. Ranked by this score (weighted_ranked).
+    ns = a[ok, 1].astype(np.float64); W2 = {}
+    for d in piece_dirs:
+        for f in sorted(glob.glob(os.path.join(d, "piece_*.parquet"))):
+            sch = pq.read_schema(f).names; cells = sorted({w.rsplit("|", 1)[0] for w in sch if w.endswith("|reads")})
+            T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in cells for x in ("reads", "meth", "spread")]).to_pandas(); idx = T.cpg.to_numpy() - 1; k = ok[idx]
+            if not k.any(): continue
+            pos = np.cumsum(ok)[idx[k]] - 1; xs = x[pos]; nn = ns[pos]
+            for c in cells:
+                rc = T[c + "|reads"].to_numpy()[k].astype(np.float64); mc = T[c + "|meth"].to_numpy()[k].astype(np.float64); sp = T[c + "|spread"].to_numpy()[k]
+                g = (rc > 0) & (rc != BLANK) & (mc != BLANK); pc = np.clip(np.where(g, mc / np.where(g, rc, 1), 0.5), 0.01, 0.99)
+                s2 = np.where(sp != BLANK, (sp / 1e4) ** 2, 0.0); v = pc * (1 - pc) / nn + pc * (1 - pc) / np.where(g, rc, 1) + s2
+                sm, n = W2.get(c, (0.0, 0)); W2[c] = (sm + float((((xs - pc) ** 2) / v)[g].sum()), n + int(g.sum()))
+    for c, (sm, n) in W2.items():
+        if n and c in out["cells"]: out["cells"][c]["weighted"] = round(sm / n, 4)
+    out["weighted_ranked"] = sorted([c for c in out["cells"] if "weighted" in out["cells"][c]], key=lambda k: out["cells"][k]["weighted"])
     out["ranked"] = sorted(out["cells"], key=lambda k: out["cells"][k]["distance"]); return out
 
 def geo_url(gsm, title):
