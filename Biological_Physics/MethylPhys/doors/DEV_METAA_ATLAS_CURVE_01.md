@@ -221,3 +221,7 @@ met). Two findings: the real samples' fall with depth is not a counting effect, 
 0.02 about the column raises the reading to about 1.3, because disorder rises steeply near 0 and 1. A healthy sample therefore cannot be read
 against the bare column; it must be read against measured healthy Met-A of its cell (the third approach). **Next:** where the real samples'
 depth trend comes from, read on the 153 already made (within cells, against the cell's healthy median), before any rule is set.
+
+**Where the depth trend comes from, written before it runs** (`seq_term_01/band_01/trend_source.py`; reported, not scored, nothing set from
+it): the healthy ratio against depth and against the same samples' IAM-A (the measured error rate in held marks), each with the other held.
+If the ratio follows IAM-A with depth held, the excess is the library's own error rate; if it follows depth with IAM-A held, it is depth.
