@@ -1,0 +1,298 @@
+{
+ "sites": 582215,
+ "min_reads": 5,
+ "cells": {
+  "adipocytes": {
+   "distance": 0.13802
+  },
+  "aorta endothelium": {
+   "distance": 0.13917,
+   "halves_apart": 0.08683
+  },
+  "b cells": {
+   "distance": 0.11952,
+   "halves_apart": 0.06096
+  },
+  "bladder epithelium": {
+   "distance": 0.15252,
+   "halves_apart": 0.07227
+  },
+  "breast basal epithelium": {
+   "distance": 0.15677,
+   "halves_apart": 0.05888
+  },
+  "breast luminal epithelium": {
+   "distance": 0.15002,
+   "halves_apart": 0.07431
+  },
+  "cardiomyocyte": {
+   "distance": 0.14696,
+   "halves_apart": 0.05234
+  },
+  "cd4 t cells": {
+   "distance": 0.11954,
+   "halves_apart": 0.06222
+  },
+  "cd8 t cells": {
+   "distance": 0.1407,
+   "halves_apart": 0.07664
+  },
+  "colon enteroendocrine": {
+   "distance": 0.1607,
+   "halves_apart": 0.06123
+  },
+  "colon epithelium": {
+   "distance": 0.15803,
+   "halves_apart": 0.05863
+  },
+  "colon fibroblasts": {
+   "distance": 0.142,
+   "halves_apart": 0.07866
+  },
+  "colon macrophages": {
+   "distance": 0.11636
+  },
+  "cortical neurons": {
+   "distance": 0.14292,
+   "halves_apart": 0.06434
+  },
+  "effector memory cd8 t cells": {
+   "distance": 0.15729
+  },
+  "endometrium epithelium": {
+   "distance": 0.15465,
+   "halves_apart": 0.0707
+  },
+  "erythrocyte progenitors": {
+   "distance": 0.20713,
+   "halves_apart": 0.07773
+  },
+  "fallopien tubes epithelium": {
+   "distance": 0.1496,
+   "halves_apart": 0.05482
+  },
+  "gastric antrum epithelium": {
+   "distance": 0.1513,
+   "halves_apart": 0.05658
+  },
+  "gastric body epithelium": {
+   "distance": 0.15322,
+   "halves_apart": 0.05617
+  },
+  "gastric fundus epithelium": {
+   "distance": 0.15458,
+   "halves_apart": 0.05552
+  },
+  "heart fibroblasts": {
+   "distance": 0.1777,
+   "halves_apart": 0.06535
+  },
+  "hepatocyte": {
+   "distance": 0.15045
+  },
+  "kidney glomerular endothelium": {
+   "distance": 0.13326,
+   "halves_apart": 0.06247
+  },
+  "kidney glomerular epithelium": {
+   "distance": 0.14971
+  },
+  "kidney tubular endothelium": {
+   "distance": 0.13105,
+   "halves_apart": 0.05615
+  },
+  "kidney tubular epithelium": {
+   "distance": 0.14703,
+   "halves_apart": 0.06311
+  },
+  "lung alveolar endothelium": {
+   "distance": 0.13604,
+   "halves_apart": 0.07229
+  },
+  "lung alveolar epithelium": {
+   "distance": 0.14833,
+   "halves_apart": 0.05348
+  },
+  "lung alveolar macrophages": {
+   "distance": 0.11235,
+   "halves_apart": 0.05671
+  },
+  "lung bronchus epithelium": {
+   "distance": 0.15476,
+   "halves_apart": 0.05988
+  },
+  "lung interstitial macrophages": {
+   "distance": 0.10823,
+   "halves_apart": 0.05496
+  },
+  "megakaryocytes": {
+   "distance": 0.12175,
+   "halves_apart": 0.14419
+  },
+  "memory b cells": {
+   "distance": 0.14874,
+   "halves_apart": 0.07973
+  },
+  "monocytes": {
+   "distance": 0.10776,
+   "halves_apart": 0.05586
+  },
+  "naive cd4 t cells": {
+   "distance": 0.11832
+  },
+  "naive cd8 t cells": {
+   "distance": 0.11891
+  },
+  "nk cells": {
+   "distance": 0.11519,
+   "halves_apart": 0.0748
+  },
+  "oligodendrocytes": {
+   "distance": 0.14588,
+   "halves_apart": 0.05242
+  },
+  "pancreas endothelium": {
+   "distance": 0.13632,
+   "halves_apart": 0.06681
+  },
+  "pancreatic acinar": {
+   "distance": 0.17355,
+   "halves_apart": 0.06067
+  },
+  "pancreatic alpha": {
+   "distance": 0.1456,
+   "halves_apart": 0.05497
+  },
+  "pancreatic beta": {
+   "distance": 0.14502,
+   "halves_apart": 0.05833
+  },
+  "pancreatic delta": {
+   "distance": 0.14414,
+   "halves_apart": 0.06467
+  },
+  "pancreatic duct": {
+   "distance": 0.14105
+  },
+  "prostate epithelium": {
+   "distance": 0.14805,
+   "halves_apart": 0.05939
+  },
+  "small intestine epithelium": {
+   "distance": 0.15932,
+   "halves_apart": 0.05596
+  },
+  "smooth muscle": {
+   "distance": 0.19265,
+   "halves_apart": 0.12956
+  },
+  "striated muscle": {
+   "distance": 0.14722,
+   "halves_apart": 0.07003
+  },
+  "t central memory cd4": {
+   "distance": 0.13006,
+   "halves_apart": 0.05807
+  },
+  "t effector cell cd8": {
+   "distance": 0.14454,
+   "halves_apart": 0.06992
+  },
+  "t effector memory cd4": {
+   "distance": 0.14494,
+   "halves_apart": 0.0679
+  },
+  "thyroid epithelium": {
+   "distance": 0.14466,
+   "halves_apart": 0.05144
+  },
+  "tongue epithelium": {
+   "distance": 0.164,
+   "halves_apart": 0.05851
+  },
+  "tonsil palatine epithelium": {
+   "distance": 0.16807,
+   "halves_apart": 0.05783
+  },
+  "tonsil pharyngeal epithelium": {
+   "distance": 0.16523,
+   "halves_apart": 0.08478
+  },
+  "vascular saphenous endothelium": {
+   "distance": 0.13315,
+   "halves_apart": 0.06934
+  }
+ },
+ "ranked": [
+  "monocytes",
+  "lung interstitial macrophages",
+  "lung alveolar macrophages",
+  "nk cells",
+  "colon macrophages",
+  "naive cd4 t cells",
+  "naive cd8 t cells",
+  "b cells",
+  "cd4 t cells",
+  "megakaryocytes",
+  "t central memory cd4",
+  "kidney tubular endothelium",
+  "vascular saphenous endothelium",
+  "kidney glomerular endothelium",
+  "lung alveolar endothelium",
+  "pancreas endothelium",
+  "adipocytes",
+  "aorta endothelium",
+  "cd8 t cells",
+  "pancreatic duct",
+  "colon fibroblasts",
+  "cortical neurons",
+  "pancreatic delta",
+  "t effector cell cd8",
+  "thyroid epithelium",
+  "t effector memory cd4",
+  "pancreatic beta",
+  "pancreatic alpha",
+  "oligodendrocytes",
+  "cardiomyocyte",
+  "kidney tubular epithelium",
+  "striated muscle",
+  "prostate epithelium",
+  "lung alveolar epithelium",
+  "memory b cells",
+  "fallopien tubes epithelium",
+  "kidney glomerular epithelium",
+  "breast luminal epithelium",
+  "hepatocyte",
+  "gastric antrum epithelium",
+  "bladder epithelium",
+  "gastric body epithelium",
+  "gastric fundus epithelium",
+  "endometrium epithelium",
+  "lung bronchus epithelium",
+  "breast basal epithelium",
+  "effector memory cd8 t cells",
+  "colon epithelium",
+  "small intestine epithelium",
+  "colon enteroendocrine",
+  "tongue epithelium",
+  "tonsil pharyngeal epithelium",
+  "tonsil palatine epithelium",
+  "pancreatic acinar",
+  "heart fibroblasts",
+  "smooth muscle",
+  "erythrocyte progenitors"
+ ],
+ "input": "mk_donor3.lbeta",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-compare",
+  "--build-input",
+  "/root/w/mk_donor3.lbeta",
+  "--build-samples",
+  "/root/w/p56,/root/w/pmk",
+  "--bundle",
+  "/root/w/mk_donor3_compare.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
+}

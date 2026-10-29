@@ -544,3 +544,13 @@ counting before it is written.
 **The held-error synthetic, run 2: met** (`seq_atlas/seq_held_synthetic.txt`): median relative differences -0.0116 and +0.0032 (limits
 0.0295 and 0.0292), 0.975 of tiles within 2 counting standard deviations in both cells, and the halves add up exactly. **Then:** the 153
 healthy inputs' molecule files counted by the one command on spot machines, and the reference built beside the atlas.
+
+**The megakaryocyte column's test on donor 3, read: not met** (`seq_atlas/mk_donor3_compare.json`, `seq_atlas/mk_donor3_lift.json`). Donor 3's
+19 megakaryocytes, converted by the one command (17,263,359 hg19 CpGs with reads) and compared at 582,215 CpGs, read nearest monocytes
+(0.10776), then lung interstitial macrophages (0.10823); megakaryocytes ranked 10 of 57 (0.12175). Bar 1 not met. Two earlier attempts on the
+spot machine read no atlas pieces (the job looked in the wrong folder; disclosed) and gave no comparison; this is the test's only result.
+**What it shows:** the megakaryocyte column's own two donors sit 0.14419 apart at the same CpGs, against 0.05496 to 0.0748 for the other cells
+with two halves: a column pooled from sparse single-cell reads carries far more counting scatter than the deep columns, and the comparison as
+written treats every column as exact, so a noisy column sits far from everything, its own cell included. The synthetic gave every column the
+same depth and could not see this. **Next:** a comparison that weighs each CpG by the counting scatter of both the sample and the column,
+synthetic first with columns of unequal depth; donor 3 is spent, so reading it again with that comparison is development, not a test.

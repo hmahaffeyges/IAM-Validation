@@ -1,0 +1,25 @@
+{
+ "files": 19,
+ "positions": 17593055,
+ "moved": 17303334,
+ "landed": 17279025,
+ "cpgs_with_reads": 17263359,
+ "capped": 0,
+ "chain": "UCSC hg38ToHg19 (pyliftover)",
+ "output": "mk_donor3.lbeta",
+ "samples_file": "mk_test_files.csv",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-lift",
+  "--build-samples",
+  "/root/w/repo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_test_files.csv",
+  "--build-input",
+  "/root/w/ref/wgbs_tools/references/hg19/CpG.bed.gz",
+  "--build-out",
+  "/root/w/mk_donor3.lbeta",
+  "--bundle",
+  "/root/w/mk_donor3_lift.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
+}

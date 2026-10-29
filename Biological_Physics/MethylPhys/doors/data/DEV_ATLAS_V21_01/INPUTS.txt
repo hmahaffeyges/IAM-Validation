@@ -14,3 +14,5 @@ mk_donor1_lift.json
 mk_donor2_lift.json
 mk_test_files.csv
 seq_held_synthetic_run1.txt
+mk_donor3_compare.json
+mk_donor3_lift.json
