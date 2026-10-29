@@ -73,7 +73,7 @@ def build():
         if g.line.notna().any(): k = int((v > g.line).sum()); past = f"{k} of {len(g)} ({100 * k / len(g):.0f} %) above {g.line.iloc[0]:.3f}"
         elif ln: k = int(((v < ln.get("lo", -1e9)) | (v > ln.get("hi", 1e9))).sum()); past = f"{k} of {len(g)} ({100 * k / len(g):.0f} %)"
         else: past = "no line set for this reading"
-        L.append(f"| {ins} | {rd} | {sp} | {cd} | {len(g)} | {v.median():.4g} | {v.quantile(.05):.4g} to {v.quantile(.95):.4g} | {past} | [{f}]({f}) |")
+        L.append(f"| {ins} | {rd} | {sp} | {cd} | {len(g)} | {v.median():.5g} | {v.quantile(.05):.5g} to {v.quantile(.95):.5g} | {past} | [{f}]({f}) |")
     L += ["", f"{len(T)} readings from {T.source.nunique()} sources. Status and record for every row are in the tables.", "",
           "**Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew",
           "(copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).", ""]

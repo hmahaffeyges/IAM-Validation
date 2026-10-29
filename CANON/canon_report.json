@@ -4698,6 +4698,15 @@
 "text": "| instrument | reading | specimen | condition | samples | median | middle 90 percent | past the healthy line | file |"
 },
 {
+"file": "Biological_Physics/MethylPhys/ASCORES/README.md",
+"line": 456,
+"pattern": "(?<![\\d.])0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|(?<![\\d.])0\\.163 of (one|an) ATP",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "LIVE",
+"text": "| Territories | territory | islands | sorted kidney glomerular epithelium | healthy | 2 | 0.16282 | 0.15927 to 0.16637 | no line set for this reading | [Territo"
+},
+{
 "file": "Biological_Physics/Salmonid/PROC_SALMON_01/PROC_SALMON_01_PREREG.md",
 "line": 3,
 "pattern": "gate-error reading",
