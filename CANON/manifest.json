@@ -28157,8 +28157,8 @@
     "synthetic arrays from IAM-Atlas v2.1",
     "GEO healthy bloods: GSE235717, GSE42861, GSE87571, GSE153712, GSE51032 (all spent)",
     "GEO GSE186458: 153 healthy .pat files, 56 cell types (spent)",
-    "GEO GSE134664: 4 healthy B cells, WGBS (sequencing commissioning test, DEV_METAA_ATLAS_CURVE_01)",
-    "GEO GSE98837: 8 healthy CD8 T cells, WGBS (sequencing commissioning test, DEV_METAA_ATLAS_CURVE_01)"
+    "GSE134664 healthy naive and memory B cells WGBS (4 controls; patients not read)",
+    "GSE98837 healthy CD8 T cell subsets WGBS (8)"
    ],
    "data_status": "synthetic, then spent healthy only",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
