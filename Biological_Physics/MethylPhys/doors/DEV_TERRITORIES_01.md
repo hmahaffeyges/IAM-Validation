@@ -88,5 +88,5 @@ the C-Score) were mixed from the six-cell blood panel's shares, so a naive B cel
 levels differ. A declared sorted cell (specimen "sorted ...") is now read against its own atlas column (`run_sample.py`, the bundle says so
 in `whole_sample_reference`); mixed specimens are unchanged. **Run 2** (no bar changed): met, healthy plants 0.99 to 1.01 on both territories.
 **Built** by `seq_band_01/terr_seq_band.py`: for the islands and the domains, the 2.5th
-to 97.5th percentile of the healthy readings and the median; **bar:** the median healthy reading within 0.05 of 1 on each. **Then:** the
+to 97.5th percentile of the healthy readings and the median; **bar:** the median healthy reading within 0.05 of 1 on each. The same pass records the C-Score's healthy spread on sequencing (whole genome: how many healthy samples sit within their derived limit, C's median and 97.5th percentile), not scored. **Then:** the
 healthy B and T cells of the sequencing commissioning test (DEV-METAA-ATLAS-CURVE-01) read against these bands.

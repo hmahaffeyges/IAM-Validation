@@ -6,18 +6,23 @@ Usage: python3 terr_seq_band.py BUNDLE_DIR OUT_DIR [CHAIN_BAND.json]"""
 import sys, os, json, glob, csv, numpy as np
 H = os.path.dirname(os.path.abspath(__file__))
 S = list(csv.DictReader(open(os.path.join(H, "..", "..", "DEV_ALL_INFO_01", "coupling_02", "healthy_seq.csv"))))
-V = {"islands": [], "domains": []}
+V = {"islands": [], "domains": []}; CS = []   # also the C-Score on sequencing (whole genome: C and its derived limit), recorded, not scored
 for r in S:
     f = glob.glob(os.path.join(sys.argv[1], "**", r["gsm"] + "_bundle.json"), recursive=True)
     if not f: continue
-    t = (json.load(open(f[0])).get("territories") or {}).get("sets") or {}
+    B = json.load(open(f[0])); t = (B.get("territories") or {}).get("sets") or {}
     for k in V:
         a = (t.get(k) or {}).get("A")
         if a is not None: V[k].append(a)
+    w = (B.get("cscore_each_cell") or {}).get("whole_genome") or {}
+    if w.get("C") is not None: CS.append((w["C"], w.get("limit"), bool(w.get("within"))))
 out = {k: dict(lo=float(np.percentile(v, 2.5)), hi=float(np.percentile(v, 97.5)), median=float(np.median(v)), n=len(v)) for k, v in V.items() if v}
 out["rule"] = "2.5th to 97.5th percentile of the territory readings of IAM-Atlas v2.1's healthy sequencing inputs, in sequencing units (seq_units)"
 os.makedirs(sys.argv[2], exist_ok=True); json.dump(out, open(os.path.join(sys.argv[2], "territories_seq_band_v1.json"), "w"), indent=1)
 if len(sys.argv) > 3: json.dump(out, open(sys.argv[3], "w"), indent=1)
 L = [f"{k}: band {x['lo']:.4f} to {x['hi']:.4f}, median {x['median']:.4f}, n {x['n']}; bar (median within 0.05 of 1): {'met' if abs(x['median'] - 1) <= 0.05 else 'not met'}"
      for k, x in out.items() if k != "rule"]
+if CS:
+    c = np.array([x[0] for x in CS]); L.append(f"C-Score on sequencing, whole genome (recorded, not scored): {sum(x[2] for x in CS)} of {len(CS)} healthy within their derived limit; "
+                                                f"C median {np.median(c):.4f}, 97.5th percentile {np.percentile(c, 97.5):.4f}")
 open(os.path.join(sys.argv[2], "territories_seq_band_summary.txt"), "w").write("\n".join(L) + "\n"); print("\n".join(L))
