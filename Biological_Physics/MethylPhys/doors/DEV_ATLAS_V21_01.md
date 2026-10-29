@@ -448,3 +448,14 @@ blocks:** the two range columns (lo, hi) are replaced by the pooled methylated-r
 exact 95 % range follow from the counts (Jeffreys interval), so nothing is lost and each block is smaller. The synthetic was run again on the
 changed stage (seed 20261030): all bars met (`seq_atlas/seq_atlas_synthetic.txt`; the previous run kept as `seq_atlas_synthetic_run2.txt`).
 Block 0 is built again with the other blocks.
+
+**Step 1, the whole numbering, built** (development, not commissioned; chain 1cc8064). Every one of the 28,217,448 hg19 CpGs, from the 153
+healthy inputs (56 cells), built by the one command in 113 pieces of up to 250,000 CpGs on 8 Google spot machines (n2-standard-4,
+northamerica-northeast2), each piece uploaded the moment it was built (`seq_atlas/gcp_seqatlas.py`, launcher `seq_atlas/gcp_launch.py`). The
+pieces cover the numbering exactly once, with no gaps or overlaps. 17.49 GB; 1.9 machine-hours (about 6 cents); about 15 minutes from launch to
+the last machine's self-delete. No machine was reclaimed (a label in the first version of the shutdown script called every self-delete a
+reclaim; corrected). Each cell has reads at 97.3 % to 98.4 % of all CpGs (`seq_atlas/seq_atlas_cell_coverage.csv`, with its donors); 605,451
+donor-sites sit at the source files' 255-read cap and are counted. Three cells rest on one donor (naive CD4 T, naive CD8 T, effector memory CD8 T;
+9 on two, 44 on three); for those three the donor-half noise map is blank and the
+read-half map stands in. Stored in the Google bucket (northamerica-northeast2), seq_atlas/pieces/. **Next:** the healthy references for the
+sequencing instruments, the spheres, spectra and masks, each with its synthetic first.
