@@ -114,6 +114,39 @@ def build_block(samples, start, end, source):
     T = pd.DataFrame(cols); T.insert(0, "cpg", np.arange(start + 1, end + 1, dtype=np.int32))   # 1-based hg19 CpG index, as the .pat and .beta numbering
     return T, summ
 
+def compare(lbeta, piece_dirs, min_reads=5):
+    """How far one sample (an .lbeta or .beta on the hg19 numbering) sits from every cell of the atlas: at the CpGs where the sample has at least
+    min_reads reads and every cell has a level, the mean |sample level - cell level|, per cell, and for each two-donor-half cell the mean
+    |half A - half B| at the same CpGs (how far one half of the cell's own donors sits from the other). piece_dirs: folders of built pieces (the
+    pieces of different folders may cover different blocks; each folder's pieces are joined by CpG index). Returns a dict, cells ranked."""
+    import glob, pyarrow.parquet as pq
+    a = (np.fromfile(lbeta, np.uint16) if str(lbeta).endswith(".lbeta") else np.fromfile(lbeta, np.uint8)).reshape(-1, 2).astype(np.int64)
+    if len(a) != HG19_CPGS: raise ValueError(f"{lbeta}: not the hg19 numbering")
+    full = {}
+    for d in piece_dirs:   # pass 1: every cell's level over the whole numbering (uint16), from its folder's pieces
+        for f in sorted(glob.glob(os.path.join(d, "piece_*.parquet"))):
+            want = ["cpg"] + [c for c in pq.read_schema(f).names if c.endswith("|level")]
+            T = pq.read_table(f, columns=want).to_pandas(); ix = T.cpg.to_numpy() - 1
+            for c in want[1:]:
+                if c not in full: full[c] = np.full(HG19_CPGS, BLANK, np.uint16)
+                full[c][ix] = T[c].to_numpy()
+    lv = sorted(full); ok = a[:, 1] >= min_reads
+    for c in lv: ok &= full[c] != BLANK
+    x = a[ok, 0] / a[ok, 1]; out = dict(sites=int(ok.sum()), min_reads=min_reads, cells={})
+    for c in lv: out["cells"][c[:-6]] = dict(distance=round(float(np.mean(np.abs(x - full[c][ok] / 1e4))), 5))
+    del full; acc = {}   # pass 2: each cell's half A and half B, at the compared CpGs only
+    for d in piece_dirs:
+        for f in sorted(glob.glob(os.path.join(d, "piece_*.parquet"))):
+            want = ["cpg"] + [c for c in pq.read_schema(f).names if c.endswith(("|halfA", "|halfB"))]
+            T = pq.read_table(f, columns=want).to_pandas(); k = ok[T.cpg.to_numpy() - 1]
+            if not k.any(): continue
+            for c in {w.rsplit("|", 1)[0] for w in want[1:]}:
+                hA, hB = T[c + "|halfA"].to_numpy()[k], T[c + "|halfB"].to_numpy()[k]; g = (hA != BLANK) & (hB != BLANK)
+                sm, n = acc.get(c, (0.0, 0)); acc[c] = (sm + float(np.abs(hA[g] / 1e4 - hB[g] / 1e4).sum()), n + int(g.sum()))
+    for c, (sm, n) in acc.items():
+        if n and c in out["cells"]: out["cells"][c]["halves_apart"] = round(sm / n, 5)
+    out["ranked"] = sorted(out["cells"], key=lambda k: out["cells"][k]["distance"]); return out
+
 def geo_url(gsm, title):
     """The hg19 .beta file of one published sequencing sample on GEO."""
     return f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{gsm[:-3]}nnn/{gsm}/suppl/{gsm}_{title}.beta"

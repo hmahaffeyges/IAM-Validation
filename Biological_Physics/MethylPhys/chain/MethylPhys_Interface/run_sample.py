@@ -254,6 +254,11 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "seq-compare":   # 2026-10-29 (plan 35.30, development): how far one sample sits from every cell of the IAM Sequencing Atlas
+        if not (a.build_input and a.build_samples and a.bundle): print("--build seq-compare needs --build-input SAMPLE.lbeta, --build-samples PIECE_DIR[,PIECE_DIR] and --bundle"); return 2
+        import stage_seq_atlas as _SQ; rep = _SQ.compare(a.build_input, a.build_samples.split(","))
+        rep.update(input=os.path.basename(a.build_input), command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        json.dump(rep, open(a.bundle, "w"), indent=1, default=str); print(json.dumps(dict(sites=rep["sites"], nearest=rep["ranked"][:5]))); return 0
     if a.build == "seq-lift":   # 2026-10-29 (plan 35.30, development): GRCh38 per-CpG read tables of one donor, pooled and moved to the hg19 numbering
         if not (a.build_samples and a.build_out and a.build_input): print("--build seq-lift needs --build-samples CSV (file), --build-input hg19 CpG.bed.gz and --build-out X.lbeta"); return 2
         import stage_seq_atlas as _SQ; S = _pd.read_csv(a.build_samples, dtype=str)
@@ -479,7 +484,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "

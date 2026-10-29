@@ -2333,6 +2333,12 @@ One donor's GRCh38 per-CpG read tables, pooled on GRCh38 and moved to the hg19 n
 not move to one place is dropped and counted), each landing on the hg19 CpG whose C or G it is, so both strands add to one CpG. Written as an
 .lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
 
+### stage_seq_atlas.py::compare
+How far one sample sits from every cell of the atlas (`run_sample.py --build seq-compare`): at the CpGs where the sample has at least 5 reads
+and every cell has a level, the mean distance between the sample's level and each cell's, cells ranked nearest first; and for each cell, the
+mean distance between its two donor halves at the same CpGs. Reads the built pieces in two passes (levels first, halves only at the compared
+CpGs) so a 16 GB machine holds it.
+
 ### stage_seq_atlas.py::geo_url
 The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).
 

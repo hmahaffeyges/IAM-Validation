@@ -489,3 +489,23 @@ not move to GRCh38 once and were left out of the construction), a share of 0.995
 original counts (bar at least 0.99), and 0.00024 of the CpGs with reads afterwards had none before (bar at most 0.001), with 30 % of sites
 written on the reverse strand. **Donor 1 converted** (`seq_atlas/mk_donor1_lift.json`): 33 megakaryocytes, 23,871,358 GRCh38 positions,
 23,484,305 moved to hg19, 23,453,776 landed on an hg19 CpG, 23,428,509 hg19 CpGs with reads.
+
+**Donor 2 converted** (`seq_atlas/mk_donor2_lift.json`): 19 megakaryocytes, 19,246,527 GRCh38 positions, 18,950,618 moved, 18,925,280 landed,
+18,909,575 hg19 CpGs with reads. The megakaryocyte column is built from donors 1 and 2 (donor 1 in half A, donor 2 in half B) by the one
+command, in pieces stored beside the 56 cells' (seq_atlas/pieces_mk/).
+
+**The megakaryocyte column's test on donor 3** (written and committed before any donor-3 file is read). **The instrument's job:** donor 3's
+megakaryocytes read as megakaryocytes against the IAM Sequencing Atlas. **The reading:** donor 3's 19 megakaryocytes (`seq_atlas/mk_test_files.csv`)
+are converted by the one command (`--build seq-lift`, the step whose synthetic met) and compared with every cell of the atlas by the one
+command (`--build seq-compare`, new in the chain: at the CpGs where the sample has at least 5 reads and every one of the 57 cells has a
+level, the mean distance between the sample's level and each cell's, and, for each cell, the mean distance between its two donor halves at
+the same CpGs).
+
+**Synthetic test:** DEV_ATLAS_V21_01/seq_atlas/seq_compare_synthetic.py, DEV_ATLAS_V21_01/seq_atlas/seq_compare_synthetic.txt
+
+**Synthetic bars** (a constructed mini-atlas of three cells, and a new sparse donor of each): 1. each new donor's nearest cell is its own;
+2. the comparison counts exactly the CpGs it should.
+
+**Bars on donor 3:** 1. megakaryocytes is donor 3's nearest cell of the 57; 2. donor 3 sits from the megakaryocyte column at most 1.5 times as
+far as the column's own two donors sit from each other at the same CpGs. **Then:** the column in plasma (planted megakaryocyte DNA picked up,
+and the four cells that absorbed it stop rising) once the Deconvolver reads against the sequencing atlas.
