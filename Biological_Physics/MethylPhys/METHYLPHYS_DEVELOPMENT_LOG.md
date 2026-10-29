@@ -3233,4 +3233,5 @@ met on the third run, the first two disclosed). A commissioning test for B and T
 before reading and queued. The 450K C-Score confirmation was not met; the liver and aging replays were read; three chapters (the Globe
 Explorer, the information sphere, Met-A's healthy line) were loaded into the book flagged in development; the territories and the coupling
 were added to every document. Overnight on the 27th the machines sat idle for about eleven hours after GitHub moved its result storage;
-the watcher now stops on a failed download, re-reads its registry before writing and keeps watching when machines are free.
+the watcher now stops on a failed download, re-reads its registry before writing and keeps watching when machines are free. In the evening a declared sorted cell was set to be read against its own atlas column (the territories' synthetic had found a naive B cell
+compared with the blood panel's adult B-cell column), and all 36 study samples were queued for a re-read as sorted naive B cells from their saved pieces.

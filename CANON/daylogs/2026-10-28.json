@@ -118,6 +118,26 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The territories on sequencing, and sorted cells against their own column",
+     "status": "development",
+     "what": "The territories read in sequencing units, synthetic first through the one command.",
+     "outcome": "Run 1 found a sorted naive B cell compared with the blood panel's adult B-cell column; a declared sorted cell is now read against its own atlas column, and run 2 met (healthy 0.99 to 1.01). The territories' healthy band on sequencing is queued.",
+     "rows": [
+      "GRP-017"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "The leukemia study re-read with its cell type given",
+     "status": "development",
+     "what": "All 36 samples read again from their saved alignment pieces, as sorted naive B cells, with no new alignment.",
+     "outcome": "Written before any re-read and queued on the GitHub machines; each re-read must count the same molecules as before.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     }
    ]
   }
