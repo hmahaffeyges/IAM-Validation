@@ -193,3 +193,16 @@ where the conversion clips about half the identity sites to exactly 0 and a real
 here and not put in the chain, so bar 1 of the B and T sequencing test (Met-A) is not scored; bars 2 and 3 are unaffected. The builder's sample
 list line was broken by an edit before it ran (a comment swallowed `rows = []`); fixed, nothing else changed. **Next, written before it is
 run:** the converted column against the healthy readings site by site, by level, to find where the excess comes from.
+
+**Second approach, the atlas's own sequencing columns: synthetic not met** (development, not in the chain). Each cell's column built from the
+atlas's own healthy sequencing inputs (the mean of their values at each site, a sample's own contribution left out), with Met-A's identity
+sites always chosen on the atlas itself. Synthetic (two cells, three planted donors at 20 reads a site as the column): an input donor read
+1.018 and 1.049 (met), a 5 % loss read clearly higher (met), but a donor not among the inputs read 1.075 and 1.052 against a bar of within 0.05
+of 1 (not met): a column from three donors still carries their counting scatter. Bars not changed; the change stays out of the chain.
+
+**Third approach, written before it runs: Met-A over healthy Met-A of its own cell** (the coupling gauge's rule, which met on its first
+build). The instrument's job: a healthy sequenced sample reads 1. A sample's Met-A is divided by the median Met-A of the atlas's healthy
+sequencing inputs of its own cell, its own reading left out when it is one of them; the atlas stays the ruler. First, a depth check on the 153
+healthy readings already made (`seq_term_01/band_01/ratio_depth.py`): |Spearman rho| of the ratio against depth at most 0.2 means one reference
+per cell serves every depth; above 0.2, the reference is matched to depth. Then a synthetic through the one command, the band from the 153,
+and confirmation on healthy B and T cells the atlas does not hold (GSE134664, GSE98837).
