@@ -18,6 +18,26 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "Every A score in the A-score database, with where Normal begins and ends",
+     "status": "development",
+     "what": "The A-score database now reads every current-chain reading of the sequencing groups and every replay, reference only where not scored; each row carries its gauge's band, its state and its chain version.",
+     "outcome": "150,771 readings on six instruments; Bands.csv gives, for each instrument, cell, platform and chain version, the gauge's band beside the healthy samples' own spread.",
+     "rows": [
+      "OTH-051"
+     ],
+     "record": "Biological_Physics/MethylPhys/ASCORES/README.md"
+    },
+    {
+     "title": "Met-A on sequencing: over healthy Met-A of its own cell",
+     "status": "development",
+     "what": "Two approaches recorded as not met (the atlas converted to sequencing units; the atlas's own sequencing columns, synthetic). The third reads a sample over healthy Met-A of its own cell, as the coupling gauge does.",
+     "outcome": "Its depth check: healthy samples center on 1 (median 0.9988) but the ratio falls with depth, so the next step reads every sample at one fixed number of reads per identity site.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   }
