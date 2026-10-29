@@ -1444,6 +1444,14 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "Outreach: the bigger sequencing atlas built with the Johns Hopkins group (their healthy sequenced cells and controls, help with controlled-access data, their computing cluster)",
      "next": "after the package gate: the instruments that read their work commissioned first"
+    },
+    {
+     "id": "35.30.7",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "Sensitivity at every CpG (author: the sequencing atlas exists so the sequencing instruments, the C-Score first, find clusters and abnormalities outside the array's sites). Written before it runs: a healthy sequenced sample the atlas does not hold, with small planted clusters outside the array sites over a range of sizes and strengths, read by the chain on array sites only and on every site. Bars: the healthy sample reads Normal both ways; the every-site reading finds planted clusters the array-site reading misses; the smallest cluster each finds is recorded.",
+     "next": "after the core atlas is built from the 153"
     }
    ]
   },
