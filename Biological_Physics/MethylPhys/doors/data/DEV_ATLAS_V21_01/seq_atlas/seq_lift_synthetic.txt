@@ -1,0 +1,7 @@
+IAM Sequencing Atlas: GRCh38 to hg19 round trip (synthetic), moved back by run_sample.py --build seq-lift
+known answer GSM5652316 (spent): 27,446,949 CpGs with reads; 93,566 did not move to GRCh38 once and were left out; 30 % written on the reverse strand
+bar 1 came back: 0.9959 (at least 0.95): met
+bar 2 exact counts among those: 0.99957 (at least 0.99): met
+bar 3 reads in the wrong place: 0.00024 (at most 0.001): met
+synthetic: met
+conversion report: {"files": 1, "positions": 27350077, "moved": 27349045, "landed": 27347694, "cpgs_with_reads": 27341715, "capped": 0, "chain": "UCSC hg38ToHg19 (pyliftover)", "output": "syn_back.lbeta", "samples_file": "syn_samples.csv", "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"}

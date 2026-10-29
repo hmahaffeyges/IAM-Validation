@@ -10,3 +10,4 @@ mk_build_files.csv
 seq_atlas_inputs.csv
 seq_atlas_cell_coverage.csv
 seq_atlas_build_summary.json
+mk_donor1_lift.json
