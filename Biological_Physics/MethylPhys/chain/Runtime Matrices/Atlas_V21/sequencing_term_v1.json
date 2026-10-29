@@ -1,0 +1,9 @@
+{
+ "source": "IAM-Atlas v2 inputs/source_terms_v1.json, Loyfer2023 (the published sequencing atlas of human cell types)",
+ "rule": "sequencing level = a + b x atlas level (Deming regression measured in the atlas build; 17 shared cells)",
+ "a": -0.090198657658206,
+ "b": 1.1026485876765302,
+ "basis": "17 shared cells, 767,672 pairs, b 95% CI [1.0903, 1.1157]",
+ "status": "MEASURED",
+ "used_for": "Met-A against the atlas on whole-genome bisulfite sequencing (stage_metaa_atlas.read)"
+}

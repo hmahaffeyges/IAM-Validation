@@ -144,3 +144,20 @@ array cannot read below; sequencing counts unmarked molecules as 0. A level of 0
 so a healthy sequencing sample shows far less disorder at those sites than the atlas expects and reads well below 1. **What follows:** Met-A
 on sequencing reads against the atlas's own sequencing inputs for each column (the atlas stays the ruler; its levels for a sequencing
 sample come from the sequencing samples it holds), written as a test before any further sequencing sample is read on Met-A's gauge.
+
+## Met-A on sequencing, read in sequencing units (written and committed before any sequencing sample is read with it)
+
+**The fix, from the atlas itself:** IAM-Atlas v2.1 is on our own array scale; its build measured how the published sequencing atlas's
+levels map onto that scale (`atlas/v2/inputs/source_terms_v1.json`, Loyfer2023: sequencing = -0.0902 + 1.1026 x atlas level; 17 shared
+cells, 767,672 site pairs). An atlas level of 0.055 is a sequencing level of 0, the gap the shift readings found. For a sequencing sample,
+`stage_metaa_atlas.read` now puts the column in sequencing units by that term (clipped to 0 to 1; `chain/Runtime Matrices/Atlas_V21/sequencing_term_v1.json`)
+before the read-count expectation. The atlas stays the ruler; nothing is fitted here. Arrays are unchanged.
+**Synthetic test:** DEV_METAA_ATLAS_CURVE_01/seq_term_01/seq_synthetic.py, DEV_METAA_ATLAS_CURVE_01/seq_term_01/seq_synthetic.txt
+**Run 1 not met as written** (`seq_term_01/seq_synthetic_run1.txt`): bar 1 read one plant per column within 0.03 of 1; b cells read 1.0339
+(the others 1.0226, 0.9885). Over 30 plants the column reads mean 1.0004, sd 0.0209: no bias, but a single plant carries counting scatter
+of about 0.02 at 4 to 30 reads a site. **Run 2 (bar 1 amended, disclosed):** the mean of 30 plants within 0.01 of 1; bars 2 (the previous
+rule reads below 0.9: 0.43 to 0.46) and 3 (a 5 % loss reads above healthy) unchanged.
+**The healthy band on sequencing:** the atlas's 153 healthy sequencing inputs (`seq_term_01/healthy_seq.csv`, spent, atlas inputs) read by the
+one command on the amended chain; `seq_term_01/seq_band.py` builds the band (2.5th to 97.5th percentile), each cell type's median and the
+readings against depth; the bar: the median healthy reading within 0.05 of 1. **Then commissioning:** healthy sorted B and T cells sequenced
+by a laboratory the atlas has never seen, read against that band, with the test written before reading.

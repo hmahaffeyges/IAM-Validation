@@ -1,0 +1,4 @@
+b cells: healthy 1.0339 | array-scale column (previous rule) 0.4581 | 5 % loss 1.9388 | sites 6000
+naive cd4 t cells: healthy 1.0226 | array-scale column (previous rule) 0.4628 | 5 % loss 1.8903 | sites 6000
+cd8 t cells: healthy 0.9885 | array-scale column (previous rule) 0.4284 | 5 % loss 2.0055 | sites 6000
+synthetic (all bars, three columns): not met [False, True, True, True, True, True, True, True, True]

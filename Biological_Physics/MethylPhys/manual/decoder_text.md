@@ -1976,6 +1976,10 @@ make; refuses, with the reason, a cell with no qualifying site or a sample measu
 Each reading also records `levels_at_identity`: the sample's and the atlas column's median level at the column's methylated and
 unmethylated identity sites (recorded only, never used in A), to measure whether the atlas's levels sit nearer the middle than sequencing.
 
+On sequencing (read counts given), the atlas column is first put in sequencing units by the atlas's own measured source term for the
+published sequencing atlas (`Runtime Matrices/Atlas_V21/sequencing_term_v1.json`: sequencing = -0.0902 + 1.1026 x atlas level, clipped to
+0 to 1): the atlas is on the array scale, whose unmarked sites sit near 0.055 where sequencing reads 0. Arrays are read unchanged.
+
 ### stage_metaa_atlas.py::tare
 A_rel = A over the median of at least 3 same-run healthy references (never the sample), the references' spread and the detection limit.
 

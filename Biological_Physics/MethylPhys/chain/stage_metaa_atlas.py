@@ -24,6 +24,7 @@ import numpy as np, pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ATLAS = os.path.join(HERE, "..", "atlas", "v2.1"); NA = 65535
+SEQ_TERM = json.load(open(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "sequencing_term_v1.json")))   # the atlas's measured sequencing source term
 FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-01)"
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
 _cache = {}
@@ -98,8 +99,11 @@ def read(beta, cell, specimen="isolated", counts=None):
         rec["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; return rec
     href = float(_H(mu[ok]).mean())
     if counts is not None:   # sequencing: the healthy expectation at each site's own read count (40.3)
+        # 2026-10-28 (DEV-METAA-ATLAS-CURVE-01, the shift's cause): the atlas is on the array scale, whose unmarked sites sit near 0.055 where
+        # sequencing reads 0; the column is put in sequencing units by the atlas's own measured source term (Loyfer2023), clipped to [0, 1]
+        ms = mu[ok].clip(lower=-1) * SEQ_TERM["b"] + SEQ_TERM["a"]; ms = ms.clip(0, 1); mu = mu.copy(); mu[ok] = ms
         _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
-        rec["expectation"] = "k of n reads at each site's own depth (expected_H_counts)"
+        rec["expectation"] = "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)"
     A = float(_H(x[ok]).mean() / href)
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),
