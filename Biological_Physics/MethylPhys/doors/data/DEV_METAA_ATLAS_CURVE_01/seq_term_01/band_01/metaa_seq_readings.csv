@@ -1,0 +1,154 @@
+gsm,cell,A,depth
+GSM5652176,adipocytes,1.4801,55177439
+GSM5652177,adipocytes,1.50356,50905915
+GSM5652178,adipocytes,1.54937,45184788
+GSM5652179,aorta endothelium,1.33071,44988218
+GSM5652180,aorta endothelium,1.40094,42002727
+GSM5652181,vascular saphenous endothelium,1.66741,47454140
+GSM5652182,vascular saphenous endothelium,1.571,58086067
+GSM5652183,vascular saphenous endothelium,1.59228,53098594
+GSM5652184,kidney glomerular endothelium,1.60224,64450681
+GSM5652185,kidney glomerular endothelium,1.56559,62972467
+GSM5652186,kidney glomerular endothelium,1.61554,53576824
+GSM5652187,kidney tubular endothelium,1.53241,67934648
+GSM5652188,kidney tubular endothelium,1.64773,46509698
+GSM5652189,kidney tubular endothelium,1.72364,36321591
+GSM5652191,lung alveolar endothelium,1.59863,52978188
+GSM5652192,lung alveolar endothelium,1.62291,64382366
+GSM5652193,lung alveolar endothelium,1.62488,57912785
+GSM5652194,pancreas endothelium,1.79598,28353254
+GSM5652195,pancreas endothelium,1.63777,45989020
+GSM5652196,pancreas endothelium,1.76253,33025445
+GSM5652198,colon fibroblasts,1.44007,51948166
+GSM5652199,colon fibroblasts,1.45142,50797028
+GSM5652201,heart fibroblasts,1.60337,44200224
+GSM5652202,heart fibroblasts,1.61622,36531168
+GSM5652203,heart fibroblasts,1.56866,41895135
+GSM5652205,striated muscle,1.40277,48575256
+GSM5652206,striated muscle,1.37659,49251562
+GSM5652207,smooth muscle,1.72042,38977722
+GSM5652208,smooth muscle,1.4813,47094356
+GSM5652209,smooth muscle,1.74245,28853676
+GSM5652212,cardiomyocyte,1.54793,50997676
+GSM5652213,cardiomyocyte,1.50918,52115287
+GSM5652216,cardiomyocyte,1.5973,44412806
+GSM5652219,oligodendrocytes,1.59488,34101337
+GSM5652220,oligodendrocytes,1.51,54513137
+GSM5652221,oligodendrocytes,1.59276,44058061
+GSM5652223,cortical neurons,1.97288,34180616
+GSM5652224,cortical neurons,1.60234,45208854
+GSM5652225,cortical neurons,1.79511,52807879
+GSM5652233,hepatocyte,1.33121,53334570
+GSM5652234,hepatocyte,1.38488,50835064
+GSM5652235,hepatocyte,1.35629,60943073
+GSM5652239,pancreatic duct,1.40838,51764094
+GSM5652240,pancreatic duct,1.49812,51593135
+GSM5652241,pancreatic duct,1.51362,29606463
+GSM5652243,pancreatic acinar,1.36821,65651421
+GSM5652244,pancreatic acinar,1.49966,37486942
+GSM5652245,pancreatic acinar,1.55084,31082977
+GSM5652247,pancreatic delta,1.72712,33843685
+GSM5652248,pancreatic delta,1.57674,48920152
+GSM5652249,pancreatic delta,1.72501,32910585
+GSM5652250,pancreatic beta,1.46084,42551426
+GSM5652251,pancreatic beta,1.47072,41557155
+GSM5652252,pancreatic beta,1.42269,44732434
+GSM5652253,pancreatic alpha,1.5451,54462455
+GSM5652254,pancreatic alpha,1.60419,46346526
+GSM5652255,pancreatic alpha,1.5942,48561723
+GSM5652256,kidney glomerular epithelium,1.28118,52060654
+GSM5652257,kidney glomerular epithelium,1.37508,44410060
+GSM5652258,kidney tubular epithelium,1.53021,64491812
+GSM5652259,kidney tubular epithelium,1.61974,53356391
+GSM5652260,kidney tubular epithelium,1.57505,61532976
+GSM5652264,thyroid epithelium,1.56026,52135437
+GSM5652265,thyroid epithelium,1.56018,50035621
+GSM5652266,thyroid epithelium,1.57012,50997120
+GSM5652267,fallopien tubes epithelium,1.45805,64815118
+GSM5652268,fallopien tubes epithelium,1.51927,45702218
+GSM5652269,fallopien tubes epithelium,1.57332,45968356
+GSM5652271,endometrium epithelium,1.55662,48267394
+GSM5652272,endometrium epithelium,1.74667,34269064
+GSM5652273,endometrium epithelium,1.46889,64091063
+GSM5652274,erythrocyte progenitors,1.4352,50410509
+GSM5652275,erythrocyte progenitors,1.4783,36991609
+GSM5652276,erythrocyte progenitors,1.70675,19384477
+GSM5652279,cd4 t cells,1.54257,64744603
+GSM5652280,cd4 t cells,1.70301,34963416
+GSM5652281,cd4 t cells,1.50205,54699946
+GSM5652282,cd8 t cells,1.68646,44624977
+GSM5652283,cd8 t cells,1.74878,32261810
+GSM5652284,cd8 t cells,1.5207,50171166
+GSM5652285,t central memory cd4,1.52007,53814169
+GSM5652286,t central memory cd4,1.59332,42320404
+GSM5652287,t central memory cd4,1.6753,33598486
+GSM5652288,t effector cell cd8,1.72936,37313260
+GSM5652289,t effector cell cd8,1.63968,45179019
+GSM5652290,t effector cell cd8,1.63898,41806747
+GSM5652291,t effector memory cd4,1.7111,37130544
+GSM5652292,t effector memory cd4,1.6332,42711507
+GSM5652293,t effector memory cd4,1.64666,39403714
+GSM5652295,effector memory cd8 t cells,1.64937,41250548
+GSM5652296,naive cd4 t cells,1.47989,59665013
+GSM5652298,naive cd8 t cells,1.44877,55399147
+GSM5652299,nk cells,1.57133,52252276
+GSM5652300,nk cells,1.88423,45237333
+GSM5652301,nk cells,1.54285,39682778
+GSM5652302,monocytes,1.80464,28960073
+GSM5652303,monocytes,1.65334,39438424
+GSM5652304,monocytes,1.66881,59024300
+GSM5652305,colon macrophages,1.38185,66035521
+GSM5652306,colon macrophages,1.38309,56600858
+GSM5652308,lung alveolar macrophages,1.38329,45528095
+GSM5652309,lung alveolar macrophages,1.24139,76055459
+GSM5652310,lung interstitial macrophages,1.66072,55150770
+GSM5652311,lung interstitial macrophages,1.49517,71819621
+GSM5652312,lung interstitial macrophages,1.49195,61322937
+GSM5652316,b cells,1.60687,37676565
+GSM5652317,b cells,1.50612,40089394
+GSM5652318,b cells,1.3953,62301523
+GSM5652319,memory b cells,1.56867,35508471
+GSM5652320,memory b cells,1.66841,30045349
+GSM5652322,tonsil palatine epithelium,1.59968,45001807
+GSM5652323,tonsil palatine epithelium,1.53604,50457261
+GSM5652324,tonsil palatine epithelium,1.54961,48972075
+GSM5652325,tonsil pharyngeal epithelium,1.35789,49748781
+GSM5652326,tonsil pharyngeal epithelium,1.44266,35916868
+GSM5652327,tongue epithelium,1.53968,48860061
+GSM5652328,tongue epithelium,1.46654,58344986
+GSM5652329,tongue epithelium,1.45283,62984631
+GSM5652335,lung bronchus epithelium,1.45467,54657804
+GSM5652336,lung bronchus epithelium,1.52601,50827968
+GSM5652337,lung bronchus epithelium,1.4049,78509222
+GSM5652338,prostate epithelium,1.58538,47972068
+GSM5652339,prostate epithelium,1.55514,46482472
+GSM5652340,prostate epithelium,1.58429,58168555
+GSM5652342,bladder epithelium,1.57252,52143821
+GSM5652343,bladder epithelium,1.55674,55152081
+GSM5652344,bladder epithelium,1.72754,40229404
+GSM5652347,breast luminal epithelium,1.51923,52369155
+GSM5652348,breast luminal epithelium,1.73927,32648158
+GSM5652349,breast luminal epithelium,1.63312,44158713
+GSM5652350,breast basal epithelium,1.61868,43600838
+GSM5652351,breast basal epithelium,1.68092,37899990
+GSM5652352,breast basal epithelium,1.65446,37631758
+GSM5652354,lung alveolar epithelium,1.57766,65713511
+GSM5652355,lung alveolar epithelium,1.60408,49729849
+GSM5652356,lung alveolar epithelium,1.5679,61138287
+GSM5652359,gastric fundus epithelium,1.51907,51967239
+GSM5652360,gastric fundus epithelium,1.45846,54287323
+GSM5652361,gastric fundus epithelium,1.48705,55472057
+GSM5652362,gastric body epithelium,1.49623,54312843
+GSM5652363,gastric body epithelium,1.56588,39721613
+GSM5652364,gastric body epithelium,1.5114,50696290
+GSM5652365,gastric antrum epithelium,1.47655,51739986
+GSM5652366,gastric antrum epithelium,1.47071,52110466
+GSM5652367,gastric antrum epithelium,1.52642,48551186
+GSM5652370,colon epithelium,1.60891,50874445
+GSM5652371,colon epithelium,1.79102,44302802
+GSM5652372,colon enteroendocrine,1.28997,59421840
+GSM5652373,colon epithelium,1.59699,41702173
+GSM5652375,colon enteroendocrine,1.39442,45039696
+GSM5652379,small intestine epithelium,1.51708,54313636
+GSM5652380,small intestine epithelium,1.53657,57085431
+GSM5652381,small intestine epithelium,1.70602,38353142

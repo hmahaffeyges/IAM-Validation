@@ -1,0 +1,8 @@
+{
+ "lo": 1.33111,
+ "hi": 1.7952839999999999,
+ "median": 1.56018,
+ "n": 153,
+ "rule": "2.5th to 97.5th percentile of Met-A against IAM-Atlas v2.1 on the atlas's healthy sequencing inputs (sequencing_term_v1)",
+ "source": "GSE186458 (atlas sequencing inputs), one laboratory"
+}

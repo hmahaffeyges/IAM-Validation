@@ -1,0 +1,61 @@
+read 153 of 153
+band 1.3311 to 1.7953, median 1.5602
+Met-A vs depth: rho -0.513, p 1.2e-11
+bar (median within 0.05 of 1): not met
+cell | samples | median Met-A
+adipocytes | 3 | 1.5036
+aorta endothelium | 2 | 1.3658
+b cells | 3 | 1.5061
+bladder epithelium | 3 | 1.5725
+breast basal epithelium | 3 | 1.6545
+breast luminal epithelium | 3 | 1.6331
+cardiomyocyte | 3 | 1.5479
+cd4 t cells | 3 | 1.5426
+cd8 t cells | 3 | 1.6865
+colon enteroendocrine | 2 | 1.3422
+colon epithelium | 3 | 1.6089
+colon fibroblasts | 2 | 1.4457
+colon macrophages | 2 | 1.3825
+cortical neurons | 3 | 1.7951
+effector memory cd8 t cells | 1 | 1.6494
+endometrium epithelium | 3 | 1.5566
+erythrocyte progenitors | 3 | 1.4783
+fallopien tubes epithelium | 3 | 1.5193
+gastric antrum epithelium | 3 | 1.4766
+gastric body epithelium | 3 | 1.5114
+gastric fundus epithelium | 3 | 1.4870
+heart fibroblasts | 3 | 1.6034
+hepatocyte | 3 | 1.3563
+kidney glomerular endothelium | 3 | 1.6022
+kidney glomerular epithelium | 2 | 1.3281
+kidney tubular endothelium | 3 | 1.6477
+kidney tubular epithelium | 3 | 1.5751
+lung alveolar endothelium | 3 | 1.6229
+lung alveolar epithelium | 3 | 1.5777
+lung alveolar macrophages | 2 | 1.3123
+lung bronchus epithelium | 3 | 1.4547
+lung interstitial macrophages | 3 | 1.4952
+memory b cells | 2 | 1.6185
+monocytes | 3 | 1.6688
+naive cd4 t cells | 1 | 1.4799
+naive cd8 t cells | 1 | 1.4488
+nk cells | 3 | 1.5713
+oligodendrocytes | 3 | 1.5928
+pancreas endothelium | 3 | 1.7625
+pancreatic acinar | 3 | 1.4997
+pancreatic alpha | 3 | 1.5942
+pancreatic beta | 3 | 1.4608
+pancreatic delta | 3 | 1.7250
+pancreatic duct | 3 | 1.4981
+prostate epithelium | 3 | 1.5843
+small intestine epithelium | 3 | 1.5366
+smooth muscle | 3 | 1.7204
+striated muscle | 2 | 1.3897
+t central memory cd4 | 3 | 1.5933
+t effector cell cd8 | 3 | 1.6397
+t effector memory cd4 | 3 | 1.6467
+thyroid epithelium | 3 | 1.5603
+tongue epithelium | 3 | 1.4665
+tonsil palatine epithelium | 3 | 1.5496
+tonsil pharyngeal epithelium | 2 | 1.4003
+vascular saphenous endothelium | 3 | 1.5923

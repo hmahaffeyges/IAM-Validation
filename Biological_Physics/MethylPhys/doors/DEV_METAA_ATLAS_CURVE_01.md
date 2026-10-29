@@ -184,3 +184,12 @@ healthy sorted B and T cells on whole-genome bisulfite sequencing.
 **Amended before any sample was read (disclosed).** IAM-A and the coupling hold no healthy reference for naive B cells (their references
 come from the published sequencing atlas, whose blood B cells are one type, "b cells"), so the two healthy naive B cells of GSE134664 are
 read as "sorted b cells", a column IAM-Atlas v2.1, IAM-A and the coupling all hold. Bars unchanged.
+
+**Met-A's healthy band on sequencing, read: not met** (`seq_term_01/band_01/metaa_seq_band_summary.txt`, `metaa_seq_readings.csv`; run
+40792965647, all 153 read). The healthy sequencing samples read a median of 1.5602 (2.5th to 97.5th percentile 1.3311 to 1.7953) against the
+atlas in sequencing units; the bar was a median within 0.05 of 1. Met-A falls with depth (rho -0.513, p 1.2e-11). The synthetic met because
+its plants were drawn from the converted column itself; real sequencing does not follow the converted column, most likely at the low end,
+where the conversion clips about half the identity sites to exactly 0 and a real sample still carries a few marked reads. The band is kept
+here and not put in the chain, so bar 1 of the B and T sequencing test (Met-A) is not scored; bars 2 and 3 are unaffected. The builder's sample
+list line was broken by an edit before it ran (a comment swallowed `rows = []`); fixed, nothing else changed. **Next, written before it is
+run:** the converted column against the healthy readings site by site, by level, to find where the excess comes from.
