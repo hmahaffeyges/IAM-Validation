@@ -1,138 +1,138 @@
-gsm,cell,specimen,half,rsflags
-GSM5652179,aorta endothelium,sorted aorta endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652180,aorta endothelium,sorted aorta endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652181,vascular saphenous endothelium,sorted vascular saphenous endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652182,vascular saphenous endothelium,sorted vascular saphenous endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652183,vascular saphenous endothelium,sorted vascular saphenous endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652184,kidney glomerular endothelium,sorted kidney glomerular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652185,kidney glomerular endothelium,sorted kidney glomerular endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652186,kidney glomerular endothelium,sorted kidney glomerular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652187,kidney tubular endothelium,sorted kidney tubular endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652188,kidney tubular endothelium,sorted kidney tubular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652189,kidney tubular endothelium,sorted kidney tubular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652191,lung alveolar endothelium,sorted lung alveolar endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652192,lung alveolar endothelium,sorted lung alveolar endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652193,lung alveolar endothelium,sorted lung alveolar endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652194,pancreas endothelium,sorted pancreas endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652195,pancreas endothelium,sorted pancreas endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652196,pancreas endothelium,sorted pancreas endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652198,colon fibroblasts,sorted colon fibroblasts,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652199,colon fibroblasts,sorted colon fibroblasts,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652201,heart fibroblasts,sorted heart fibroblasts,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652202,heart fibroblasts,sorted heart fibroblasts,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652203,heart fibroblasts,sorted heart fibroblasts,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652205,striated muscle,sorted striated muscle,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652206,striated muscle,sorted striated muscle,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652207,smooth muscle,sorted smooth muscle,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652208,smooth muscle,sorted smooth muscle,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652209,smooth muscle,sorted smooth muscle,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652212,cardiomyocyte,sorted cardiomyocyte,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652213,cardiomyocyte,sorted cardiomyocyte,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652216,cardiomyocyte,sorted cardiomyocyte,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652219,oligodendrocytes,sorted oligodendrocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652220,oligodendrocytes,sorted oligodendrocytes,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652221,oligodendrocytes,sorted oligodendrocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652223,cortical neurons,sorted cortical neurons,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652224,cortical neurons,sorted cortical neurons,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652225,cortical neurons,sorted cortical neurons,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652243,pancreatic acinar,sorted pancreatic acinar,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652244,pancreatic acinar,sorted pancreatic acinar,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652245,pancreatic acinar,sorted pancreatic acinar,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652247,pancreatic delta,sorted pancreatic delta,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652248,pancreatic delta,sorted pancreatic delta,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652249,pancreatic delta,sorted pancreatic delta,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652250,pancreatic beta,sorted pancreatic beta,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652251,pancreatic beta,sorted pancreatic beta,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652252,pancreatic beta,sorted pancreatic beta,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652253,pancreatic alpha,sorted pancreatic alpha,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652254,pancreatic alpha,sorted pancreatic alpha,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652255,pancreatic alpha,sorted pancreatic alpha,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652258,kidney tubular epithelium,sorted kidney tubular epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652259,kidney tubular epithelium,sorted kidney tubular epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652260,kidney tubular epithelium,sorted kidney tubular epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652264,thyroid epithelium,sorted thyroid epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652265,thyroid epithelium,sorted thyroid epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652266,thyroid epithelium,sorted thyroid epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652267,fallopien tubes epithelium,sorted fallopien tubes epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652268,fallopien tubes epithelium,sorted fallopien tubes epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652269,fallopien tubes epithelium,sorted fallopien tubes epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652271,endometrium epithelium,sorted endometrium epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652272,endometrium epithelium,sorted endometrium epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652273,endometrium epithelium,sorted endometrium epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652274,erythrocyte progenitors,sorted erythrocyte progenitors,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652275,erythrocyte progenitors,sorted erythrocyte progenitors,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652276,erythrocyte progenitors,sorted erythrocyte progenitors,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652279,cd4 t cells,sorted cd4 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652280,cd4 t cells,sorted cd4 t cells,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652281,cd4 t cells,sorted cd4 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652282,cd8 t cells,sorted cd8 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652283,cd8 t cells,sorted cd8 t cells,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652284,cd8 t cells,sorted cd8 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652285,t central memory cd4,sorted t central memory cd4,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652286,t central memory cd4,sorted t central memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652287,t central memory cd4,sorted t central memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652288,t effector cell cd8,sorted t effector cell cd8,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652289,t effector cell cd8,sorted t effector cell cd8,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652290,t effector cell cd8,sorted t effector cell cd8,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652291,t effector memory cd4,sorted t effector memory cd4,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652292,t effector memory cd4,sorted t effector memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652293,t effector memory cd4,sorted t effector memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652299,nk cells,sorted nk cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652300,nk cells,sorted nk cells,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652301,nk cells,sorted nk cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652302,monocytes,sorted monocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652303,monocytes,sorted monocytes,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652304,monocytes,sorted monocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652308,lung alveolar macrophages,sorted lung alveolar macrophages,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652309,lung alveolar macrophages,sorted lung alveolar macrophages,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652310,lung interstitial macrophages,sorted lung interstitial macrophages,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652311,lung interstitial macrophages,sorted lung interstitial macrophages,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652312,lung interstitial macrophages,sorted lung interstitial macrophages,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652316,b cells,sorted b cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652317,b cells,sorted b cells,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652318,b cells,sorted b cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652319,memory b cells,sorted memory b cells,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652320,memory b cells,sorted memory b cells,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652322,tonsil palatine epithelium,sorted tonsil palatine epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652323,tonsil palatine epithelium,sorted tonsil palatine epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652324,tonsil palatine epithelium,sorted tonsil palatine epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652325,tonsil pharyngeal epithelium,sorted tonsil pharyngeal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652326,tonsil pharyngeal epithelium,sorted tonsil pharyngeal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652327,tongue epithelium,sorted tongue epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652328,tongue epithelium,sorted tongue epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652329,tongue epithelium,sorted tongue epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652335,lung bronchus epithelium,sorted lung bronchus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652336,lung bronchus epithelium,sorted lung bronchus epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652337,lung bronchus epithelium,sorted lung bronchus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652338,prostate epithelium,sorted prostate epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652339,prostate epithelium,sorted prostate epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652340,prostate epithelium,sorted prostate epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652342,bladder epithelium,sorted bladder epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652343,bladder epithelium,sorted bladder epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652344,bladder epithelium,sorted bladder epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652347,breast luminal epithelium,sorted breast luminal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652348,breast luminal epithelium,sorted breast luminal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652349,breast luminal epithelium,sorted breast luminal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652350,breast basal epithelium,sorted breast basal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652351,breast basal epithelium,sorted breast basal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652352,breast basal epithelium,sorted breast basal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652354,lung alveolar epithelium,sorted lung alveolar epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652355,lung alveolar epithelium,sorted lung alveolar epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652356,lung alveolar epithelium,sorted lung alveolar epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652359,gastric fundus epithelium,sorted gastric fundus epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652360,gastric fundus epithelium,sorted gastric fundus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652361,gastric fundus epithelium,sorted gastric fundus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652362,gastric body epithelium,sorted gastric body epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652363,gastric body epithelium,sorted gastric body epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652364,gastric body epithelium,sorted gastric body epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652365,gastric antrum epithelium,sorted gastric antrum epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652366,gastric antrum epithelium,sorted gastric antrum epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652367,gastric antrum epithelium,sorted gastric antrum epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652370,colon epithelium,sorted colon epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652371,colon epithelium,sorted colon epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652372,colon enteroendocrine,sorted colon enteroendocrine,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652373,colon epithelium,sorted colon epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652375,colon enteroendocrine,sorted colon enteroendocrine,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652379,small intestine epithelium,sorted small intestine epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
-GSM5652380,small intestine epithelium,sorted small intestine epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
-GSM5652381,small intestine epithelium,sorted small intestine epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+unit,gse,gsm,genotype,genome,title,srr,spots,cell,specimen,half,rsflags
+H4,GSE186458,GSM5652179,healthy,hg19,aorta endothelium,,,aorta endothelium,sorted aorta endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H5,GSE186458,GSM5652180,healthy,hg19,aorta endothelium,,,aorta endothelium,sorted aorta endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H6,GSE186458,GSM5652181,healthy,hg19,vascular saphenous endothelium,,,vascular saphenous endothelium,sorted vascular saphenous endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H7,GSE186458,GSM5652182,healthy,hg19,vascular saphenous endothelium,,,vascular saphenous endothelium,sorted vascular saphenous endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H8,GSE186458,GSM5652183,healthy,hg19,vascular saphenous endothelium,,,vascular saphenous endothelium,sorted vascular saphenous endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H9,GSE186458,GSM5652184,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H10,GSE186458,GSM5652185,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H11,GSE186458,GSM5652186,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H12,GSE186458,GSM5652187,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H13,GSE186458,GSM5652188,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H14,GSE186458,GSM5652189,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H15,GSE186458,GSM5652191,healthy,hg19,lung alveolar endothelium,,,lung alveolar endothelium,sorted lung alveolar endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H16,GSE186458,GSM5652192,healthy,hg19,lung alveolar endothelium,,,lung alveolar endothelium,sorted lung alveolar endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H17,GSE186458,GSM5652193,healthy,hg19,lung alveolar endothelium,,,lung alveolar endothelium,sorted lung alveolar endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H18,GSE186458,GSM5652194,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H19,GSE186458,GSM5652195,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H20,GSE186458,GSM5652196,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H21,GSE186458,GSM5652198,healthy,hg19,colon fibroblasts,,,colon fibroblasts,sorted colon fibroblasts,A,--dev-seq-ref auto --dev-seq-ref-half B
+H22,GSE186458,GSM5652199,healthy,hg19,colon fibroblasts,,,colon fibroblasts,sorted colon fibroblasts,B,--dev-seq-ref auto --dev-seq-ref-half A
+H23,GSE186458,GSM5652201,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,B,--dev-seq-ref auto --dev-seq-ref-half A
+H24,GSE186458,GSM5652202,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,B,--dev-seq-ref auto --dev-seq-ref-half A
+H25,GSE186458,GSM5652203,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,A,--dev-seq-ref auto --dev-seq-ref-half B
+H26,GSE186458,GSM5652205,healthy,hg19,striated muscle,,,striated muscle,sorted striated muscle,B,--dev-seq-ref auto --dev-seq-ref-half A
+H27,GSE186458,GSM5652206,healthy,hg19,striated muscle,,,striated muscle,sorted striated muscle,A,--dev-seq-ref auto --dev-seq-ref-half B
+H28,GSE186458,GSM5652207,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,B,--dev-seq-ref auto --dev-seq-ref-half A
+H29,GSE186458,GSM5652208,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,A,--dev-seq-ref auto --dev-seq-ref-half B
+H30,GSE186458,GSM5652209,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,B,--dev-seq-ref auto --dev-seq-ref-half A
+H31,GSE186458,GSM5652212,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,A,--dev-seq-ref auto --dev-seq-ref-half B
+H32,GSE186458,GSM5652213,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,B,--dev-seq-ref auto --dev-seq-ref-half A
+H33,GSE186458,GSM5652216,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,A,--dev-seq-ref auto --dev-seq-ref-half B
+H34,GSE186458,GSM5652219,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
+H35,GSE186458,GSM5652220,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,B,--dev-seq-ref auto --dev-seq-ref-half A
+H36,GSE186458,GSM5652221,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
+H37,GSE186458,GSM5652223,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,A,--dev-seq-ref auto --dev-seq-ref-half B
+H38,GSE186458,GSM5652224,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,A,--dev-seq-ref auto --dev-seq-ref-half B
+H39,GSE186458,GSM5652225,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,B,--dev-seq-ref auto --dev-seq-ref-half A
+H46,GSE186458,GSM5652243,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,B,--dev-seq-ref auto --dev-seq-ref-half A
+H47,GSE186458,GSM5652244,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,A,--dev-seq-ref auto --dev-seq-ref-half B
+H48,GSE186458,GSM5652245,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,A,--dev-seq-ref auto --dev-seq-ref-half B
+H49,GSE186458,GSM5652247,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,B,--dev-seq-ref auto --dev-seq-ref-half A
+H50,GSE186458,GSM5652248,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,A,--dev-seq-ref auto --dev-seq-ref-half B
+H51,GSE186458,GSM5652249,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,A,--dev-seq-ref auto --dev-seq-ref-half B
+H52,GSE186458,GSM5652250,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,B,--dev-seq-ref auto --dev-seq-ref-half A
+H53,GSE186458,GSM5652251,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,A,--dev-seq-ref auto --dev-seq-ref-half B
+H54,GSE186458,GSM5652252,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,A,--dev-seq-ref auto --dev-seq-ref-half B
+H55,GSE186458,GSM5652253,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,B,--dev-seq-ref auto --dev-seq-ref-half A
+H56,GSE186458,GSM5652254,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,A,--dev-seq-ref auto --dev-seq-ref-half B
+H57,GSE186458,GSM5652255,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,A,--dev-seq-ref auto --dev-seq-ref-half B
+H60,GSE186458,GSM5652258,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H61,GSE186458,GSM5652259,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H62,GSE186458,GSM5652260,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H63,GSE186458,GSM5652264,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H64,GSE186458,GSM5652265,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H65,GSE186458,GSM5652266,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H66,GSE186458,GSM5652267,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H67,GSE186458,GSM5652268,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H68,GSE186458,GSM5652269,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H69,GSE186458,GSM5652271,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H70,GSE186458,GSM5652272,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H71,GSE186458,GSM5652273,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H72,GSE186458,GSM5652274,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,A,--dev-seq-ref auto --dev-seq-ref-half B
+H73,GSE186458,GSM5652275,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,B,--dev-seq-ref auto --dev-seq-ref-half A
+H74,GSE186458,GSM5652276,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,A,--dev-seq-ref auto --dev-seq-ref-half B
+H75,GSE186458,GSM5652279,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H76,GSE186458,GSM5652280,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,B,--dev-seq-ref auto --dev-seq-ref-half A
+H77,GSE186458,GSM5652281,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H78,GSE186458,GSM5652282,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H79,GSE186458,GSM5652283,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells,B,--dev-seq-ref auto --dev-seq-ref-half A
+H80,GSE186458,GSM5652284,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H81,GSE186458,GSM5652285,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4,A,--dev-seq-ref auto --dev-seq-ref-half B
+H82,GSE186458,GSM5652286,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
+H83,GSE186458,GSM5652287,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
+H84,GSE186458,GSM5652288,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,A,--dev-seq-ref auto --dev-seq-ref-half B
+H85,GSE186458,GSM5652289,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,B,--dev-seq-ref auto --dev-seq-ref-half A
+H86,GSE186458,GSM5652290,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,B,--dev-seq-ref auto --dev-seq-ref-half A
+H87,GSE186458,GSM5652291,healthy,hg19,t effector memory cd4,,,t effector memory cd4,sorted t effector memory cd4,A,--dev-seq-ref auto --dev-seq-ref-half B
+H88,GSE186458,GSM5652292,healthy,hg19,t effector memory cd4,,,t effector memory cd4,sorted t effector memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
+H89,GSE186458,GSM5652293,healthy,hg19,t effector memory cd4,,,t effector memory cd4,sorted t effector memory cd4,B,--dev-seq-ref auto --dev-seq-ref-half A
+H93,GSE186458,GSM5652299,healthy,hg19,nk cells,,,nk cells,sorted nk cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H94,GSE186458,GSM5652300,healthy,hg19,nk cells,,,nk cells,sorted nk cells,B,--dev-seq-ref auto --dev-seq-ref-half A
+H95,GSE186458,GSM5652301,healthy,hg19,nk cells,,,nk cells,sorted nk cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H96,GSE186458,GSM5652302,healthy,hg19,monocytes,,,monocytes,sorted monocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
+H97,GSE186458,GSM5652303,healthy,hg19,monocytes,,,monocytes,sorted monocytes,B,--dev-seq-ref auto --dev-seq-ref-half A
+H98,GSE186458,GSM5652304,healthy,hg19,monocytes,,,monocytes,sorted monocytes,A,--dev-seq-ref auto --dev-seq-ref-half B
+H101,GSE186458,GSM5652308,healthy,hg19,lung alveolar macrophages,,,lung alveolar macrophages,sorted lung alveolar macrophages,A,--dev-seq-ref auto --dev-seq-ref-half B
+H102,GSE186458,GSM5652309,healthy,hg19,lung alveolar macrophages,,,lung alveolar macrophages,sorted lung alveolar macrophages,B,--dev-seq-ref auto --dev-seq-ref-half A
+H103,GSE186458,GSM5652310,healthy,hg19,lung interstitial macrophages,,,lung interstitial macrophages,sorted lung interstitial macrophages,A,--dev-seq-ref auto --dev-seq-ref-half B
+H104,GSE186458,GSM5652311,healthy,hg19,lung interstitial macrophages,,,lung interstitial macrophages,sorted lung interstitial macrophages,B,--dev-seq-ref auto --dev-seq-ref-half A
+H105,GSE186458,GSM5652312,healthy,hg19,lung interstitial macrophages,,,lung interstitial macrophages,sorted lung interstitial macrophages,B,--dev-seq-ref auto --dev-seq-ref-half A
+H106,GSE186458,GSM5652316,healthy,hg19,b cells,,,b cells,sorted b cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H107,GSE186458,GSM5652317,healthy,hg19,b cells,,,b cells,sorted b cells,B,--dev-seq-ref auto --dev-seq-ref-half A
+H108,GSE186458,GSM5652318,healthy,hg19,b cells,,,b cells,sorted b cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H109,GSE186458,GSM5652319,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells,A,--dev-seq-ref auto --dev-seq-ref-half B
+H110,GSE186458,GSM5652320,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells,B,--dev-seq-ref auto --dev-seq-ref-half A
+H111,GSE186458,GSM5652322,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H112,GSE186458,GSM5652323,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H113,GSE186458,GSM5652324,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H114,GSE186458,GSM5652325,healthy,hg19,tonsil pharyngeal epithelium,,,tonsil pharyngeal epithelium,sorted tonsil pharyngeal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H115,GSE186458,GSM5652326,healthy,hg19,tonsil pharyngeal epithelium,,,tonsil pharyngeal epithelium,sorted tonsil pharyngeal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H116,GSE186458,GSM5652327,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H117,GSE186458,GSM5652328,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H118,GSE186458,GSM5652329,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H119,GSE186458,GSM5652335,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H120,GSE186458,GSM5652336,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H121,GSE186458,GSM5652337,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H122,GSE186458,GSM5652338,healthy,hg19,prostate epithelium,,,prostate epithelium,sorted prostate epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H123,GSE186458,GSM5652339,healthy,hg19,prostate epithelium,,,prostate epithelium,sorted prostate epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H124,GSE186458,GSM5652340,healthy,hg19,prostate epithelium,,,prostate epithelium,sorted prostate epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H125,GSE186458,GSM5652342,healthy,hg19,bladder epithelium,,,bladder epithelium,sorted bladder epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H126,GSE186458,GSM5652343,healthy,hg19,bladder epithelium,,,bladder epithelium,sorted bladder epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H127,GSE186458,GSM5652344,healthy,hg19,bladder epithelium,,,bladder epithelium,sorted bladder epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H128,GSE186458,GSM5652347,healthy,hg19,breast luminal epithelium,,,breast luminal epithelium,sorted breast luminal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H129,GSE186458,GSM5652348,healthy,hg19,breast luminal epithelium,,,breast luminal epithelium,sorted breast luminal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H130,GSE186458,GSM5652349,healthy,hg19,breast luminal epithelium,,,breast luminal epithelium,sorted breast luminal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H131,GSE186458,GSM5652350,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H132,GSE186458,GSM5652351,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H133,GSE186458,GSM5652352,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H134,GSE186458,GSM5652354,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H135,GSE186458,GSM5652355,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H136,GSE186458,GSM5652356,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H137,GSE186458,GSM5652359,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H138,GSE186458,GSM5652360,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H139,GSE186458,GSM5652361,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H140,GSE186458,GSM5652362,healthy,hg19,gastric body epithelium,,,gastric body epithelium,sorted gastric body epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H141,GSE186458,GSM5652363,healthy,hg19,gastric body epithelium,,,gastric body epithelium,sorted gastric body epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H142,GSE186458,GSM5652364,healthy,hg19,gastric body epithelium,,,gastric body epithelium,sorted gastric body epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H143,GSE186458,GSM5652365,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H144,GSE186458,GSM5652366,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H145,GSE186458,GSM5652367,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H146,GSE186458,GSM5652370,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H147,GSE186458,GSM5652371,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H148,GSE186458,GSM5652372,healthy,hg19,colon enteroendocrine,,,colon enteroendocrine,sorted colon enteroendocrine,B,--dev-seq-ref auto --dev-seq-ref-half A
+H149,GSE186458,GSM5652373,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H150,GSE186458,GSM5652375,healthy,hg19,colon enteroendocrine,,,colon enteroendocrine,sorted colon enteroendocrine,A,--dev-seq-ref auto --dev-seq-ref-half B
+H151,GSE186458,GSM5652379,healthy,hg19,small intestine epithelium,,,small intestine epithelium,sorted small intestine epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B
+H152,GSE186458,GSM5652380,healthy,hg19,small intestine epithelium,,,small intestine epithelium,sorted small intestine epithelium,B,--dev-seq-ref auto --dev-seq-ref-half A
+H153,GSE186458,GSM5652381,healthy,hg19,small intestine epithelium,,,small intestine epithelium,sorted small intestine epithelium,A,--dev-seq-ref auto --dev-seq-ref-half B

@@ -275,3 +275,7 @@ command on one spot machine (`chain/Runtime Matrices/Seq_Atlas/metaa_seq_referen
 320,633 identity-site rows, every identity site of every cell present (3,679 to 6,000 per cell, as Met-A's site rule gives), no blank level;
 the provisional megakaryocyte column has no Met-A sites (not a cell of IAM-Atlas v2.1) and is skipped. The unmarked identity sites' median
 healthy level on sequencing is 0.0: where an array reads its floor, sequencing reads none.
+
+**The healthy test's first send read nothing** (disclosed): the pipeline finds a sample by column position (the healthy list's own layout,
+sample third, genome fifth), and the list was written in another order, so all 137 stopped before any reading ("not in erase_samples.csv").
+The list is rewritten in the healthy list's layout with the same 137 samples, halves and flags; no sample was read, so the test is unchanged.
