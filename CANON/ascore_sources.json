@@ -319,6 +319,62 @@
    "platform": "WGBS",
    "status": "development",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+  },
+  {
+   "id": "HOPKINS-FULL",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/full_depth/hopkins_full_depth_rows.csv",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "HOPKINS-REREAD",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/full_depth/hopkins_reread_rows.csv",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "ATLAS-SEQ-HEALTHY",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/coupling_02/healthy_seq_rows.csv",
+   "status": "development",
+   "condition": "healthy",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "BT-SEQ",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/bt_seq_01/bt_seq_rows.csv",
+   "status": "development",
+   "condition": "healthy",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "COUPLING-HEALTHY",
+   "instrument": "Coupling-A",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/coupling_02/healthy_readings.csv",
+   "sample": "gsm",
+   "value": "coupling_A_loo",
+   "kind": "coupling-A, own sample left out of the reference",
+   "specimen_col": "cell",
+   "condition": "healthy",
+   "platform": "sequencing",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+  },
+  {
+   "id": "METAA-SEQ-HEALTHY",
+   "instrument": "Met-A",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_term_01/band_01/metaa_seq_readings.csv",
+   "sample": "gsm",
+   "value": "A",
+   "kind": "Met-A sorted cell (atlas), sequencing units (band not met)",
+   "specimen_col": "cell",
+   "condition": "healthy",
+   "platform": "sequencing",
+   "status": "development (band not met)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
   }
  ],
  "lines": {

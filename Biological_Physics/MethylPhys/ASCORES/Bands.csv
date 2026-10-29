@@ -1,0 +1,587 @@
+instrument,reading,cell,platform,chain_commit,gauge_band_lo,gauge_band_hi,healthy_samples,healthy_lo,healthy_median,healthy_hi,all_samples,status
+C-Score,C-Score each cell,b cells,sequencing,0801c4b,,1.0902,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,0a01f6d,,1.0903,1,,0.9797,,14,development
+C-Score,C-Score each cell,b cells,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,1dcb6df,,1.09,127,0.8974,0.9756,1.0513,127,development
+C-Score,C-Score each cell,b cells,sequencing,22ff8df,,,0,,,,2,development
+C-Score,C-Score each cell,b cells,sequencing,2bcc01f,,1.0902,0,,,,2,development
+C-Score,C-Score each cell,b cells,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,3cfd195,,,0,,,,5,development
+C-Score,C-Score each cell,b cells,sequencing,4545ab1,,,0,,,,3,development
+C-Score,C-Score each cell,b cells,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,9a552a2,,,0,,,,2,development
+C-Score,C-Score each cell,b cells,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,acbc25a,,1.0902,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,c464b26,,,0,,,,5,development
+C-Score,C-Score each cell,b cells,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,e87632c,,,0,,,,2,development
+C-Score,C-Score each cell,cardiomyocyte,sequencing,36f8243,,,0,,,,1,development
+C-Score,C-Score each cell,cardiomyocyte,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,cd4 t cells,sequencing,1dcb6df,,1.09,129,0.9482,1.0343,1.1454,129,development
+C-Score,C-Score each cell,cd8 t cells,sequencing,1dcb6df,,1.09,15,0.987,1.0377,1.1073,15,development
+C-Score,C-Score each cell,cd8 temra t cells,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,colon fibroblasts,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score each cell,colon fibroblasts,sequencing,3cfd195,,,0,,,,2,development
+C-Score,C-Score each cell,colon fibroblasts,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,colon fibroblasts,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,colon fibroblasts,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,colon fibroblasts,sequencing,c464b26,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,0801c4b,,1.1062,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,22ff8df,,,0,,,,2,development
+C-Score,C-Score each cell,colon macrophages,sequencing,2bcc01f,,1.107,0,,,,2,development
+C-Score,C-Score each cell,colon macrophages,sequencing,36f8243,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,3cfd195,,,0,,,,5,development
+C-Score,C-Score each cell,colon macrophages,sequencing,4545ab1,,,0,,,,3,development
+C-Score,C-Score each cell,colon macrophages,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,9a552a2,,,0,,,,3,development
+C-Score,C-Score each cell,colon macrophages,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,acbc25a,,1.1062,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,c464b26,,,0,,,,5,development
+C-Score,C-Score each cell,colon macrophages,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,sequencing,e87632c,,,0,,,,2,development
+C-Score,C-Score each cell,cortical neurons,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,embryonic stem cells,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,endometrium epithelium,sequencing,c464b26,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,22ff8df,,,0,,,,2,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,36f8243,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,3cfd195,,,0,,,,4,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,4545ab1,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,9a552a2,,,0,,,,4,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,acbc25a,,1.0901,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,c464b26,,,0,,,,4,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,heart fibroblasts,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,kidney glomerular endothelium,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,kidney tubular endothelium,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,kidney tubular endothelium,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,kidney tubular endothelium,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,22ff8df,,,0,,,,2,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,36f8243,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,3cfd195,,,0,,,,3,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,4545ab1,,,0,,,,2,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,9a552a2,,,0,,,,3,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,acbc25a,,1.0901,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,c464b26,,,0,,,,5,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,0801c4b,,1.0902,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,0a01f6d,,1.0903,2,,0.9936,,2,development
+C-Score,C-Score each cell,memory b cells,sequencing,2bcc01f,,1.0902,0,,,,2,development
+C-Score,C-Score each cell,memory b cells,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,3cfd195,,,0,,,,4,development
+C-Score,C-Score each cell,memory b cells,sequencing,4545ab1,,,0,,,,2,development
+C-Score,C-Score each cell,memory b cells,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,9a552a2,,,0,,,,4,development
+C-Score,C-Score each cell,memory b cells,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,c464b26,,,0,,,,5,development
+C-Score,C-Score each cell,memory b cells,sequencing,e87632c,,,0,,,,2,development
+C-Score,C-Score each cell,monocytes,sequencing,1dcb6df,,1.09,118,0.9169,0.9787,1.0539,118,development
+C-Score,C-Score each cell,naive b cells,sequencing,2bcc01f,,1.0902,0,,,,1,development
+C-Score,C-Score each cell,naive b cells,sequencing,36f8243,,,0,,,,1,development
+C-Score,C-Score each cell,naive b cells,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,naive b cells,sequencing,3cfd195,,,0,,,,2,development
+C-Score,C-Score each cell,naive b cells,sequencing,4545ab1,,,0,,,,1,development
+C-Score,C-Score each cell,naive b cells,sequencing,9a552a2,,,0,,,,3,development
+C-Score,C-Score each cell,naive cd4 t cells,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,naive cd8 t cells,sequencing,3cfd195,,,0,,,,1,development
+C-Score,C-Score each cell,neutrophils,sequencing,1dcb6df,,1.09,124,0.8644,0.9485,1.0483,124,development
+C-Score,C-Score each cell,neutrophils,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,nk cells,sequencing,1dcb6df,,1.09,118,0.8873,0.9536,1.046,118,development
+C-Score,C-Score each cell,oligodendrocyte precursors,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,oligodendrocytes,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,3cfd195,,,0,,,,2,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,4545ab1,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,c464b26,,,0,,,,2,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,pancreatic acinar,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,prostate epithelium,sequencing,2bcc01f,,1.092,0,,,,1,development
+C-Score,C-Score each cell,prostate epithelium,sequencing,3cfd195,,,0,,,,1,development
+C-Score,C-Score each cell,prostate epithelium,sequencing,4545ab1,,,0,,,,2,development
+C-Score,C-Score each cell,prostate epithelium,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,prostate epithelium,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,prostate epithelium,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,smooth muscle,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,smooth muscle,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,smooth muscle,sequencing,c464b26,,,0,,,,1,development
+C-Score,C-Score each cell,striated muscle,sequencing,9a552a2,,,0,,,,2,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,0801c4b,,1.0902,0,,,,1,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,2bcc01f,,1.0914,0,,,,2,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,3cfd195,,,0,,,,2,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,4545ab1,,,0,,,,2,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,22ff8df,,,0,,,,2,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,3cfd195,,,0,,,,4,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,4545ab1,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,9a552a2,,,0,,,,4,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,acbc25a,,1.0901,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,c464b26,,,0,,,,5,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,tongue epithelium,sequencing,22ff8df,,,0,,,,1,development
+C-Score,C-Score each cell,vascular leptomeningeal cells,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,0801c4b,,1.0077,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,0a01f6d,,1.0078,3,0.9976,0.9977,0.9979,16,development
+C-Score,C-Score whole genome,whole genome,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,1dcb6df,,1.0077,153,0.9917,0.9994,1.0087,153,development
+C-Score,C-Score whole genome,whole genome,sequencing,22ff8df,,,0,,,,2,development
+C-Score,C-Score whole genome,whole genome,sequencing,2bcc01f,,1.0078,0,,,,2,development
+C-Score,C-Score whole genome,whole genome,sequencing,36f8243,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,3cfd195,,,0,,,,5,development
+C-Score,C-Score whole genome,whole genome,sequencing,4545ab1,,,0,,,,3,development
+C-Score,C-Score whole genome,whole genome,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,9a552a2,,,0,,,,6,development
+C-Score,C-Score whole genome,whole genome,sequencing,a04bf22,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,acbc25a,,1.0077,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,b00c2ab,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,c464b26,,,0,,,,5,development
+C-Score,C-Score whole genome,whole genome,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,e87632c,,,0,,,,2,development
+C-Score,"C_rel, chain tare",whole blood,EPIC v1,,,,231,0.8871,0.9967,1.13,231,commissioned
+C-Score,"C_rel, tared to the series",granulocytes,EPIC v1,,,,26,0.6989,1.0312,1.2949,64,development
+C-Score,"C_rel, tared to the series",neutrophils,EPIC v1,,,,62,0.8393,1.0032,1.2611,62,commissioned
+C-Score,"C_rel, tared to the series",whole blood,EPIC v1,,,,553,0.7342,1.0003,1.408,553,commissioned
+Ceiling,"A at the ceiling, Met-A whole sample, arrays",whole blood,EPIC_v1,,,,40,2.1758,2.3029,2.3933,40,development (spent)
+Ceiling,"A at the ceiling, Met-A whole sample, arrays",whole blood,HM450K,,,,60,2.3458,2.4496,2.5369,60,development (spent)
+Ceiling,"A at the ceiling, Met-A whole sample, sequencing",b cells,WGBS,,,,0,,,,3,development
+Ceiling,"A at the ceiling, Met-A whole sample, sequencing",cell line,WGBS,,,,0,,,,2,development
+Ceiling,"A at the ceiling, Met-A whole sample, sequencing",not stated,WGBS,,,,0,,,,5,development
+Ceiling,"A at the ceiling, domains territory, arrays",whole blood,EPIC_v1,,,,40,2.0095,2.1785,2.2487,40,development (spent)
+Ceiling,"A at the ceiling, domains territory, arrays",whole blood,HM450K,,,,60,2.0673,2.207,2.282,60,development (spent)
+Ceiling,"A at the ceiling, islands territory, arrays",whole blood,EPIC_v1,,,,40,3.4658,3.5738,3.6523,40,development (spent)
+Ceiling,"A at the ceiling, islands territory, arrays",whole blood,HM450K,,,,60,3.6744,3.7794,3.9584,60,development (spent)
+Coupling-A,coupling-A,b cells,sequencing,0a01f6d,0.9353,1.0619,1,,1.1266,,14,development (flagged in the bundle)
+Coupling-A,coupling-A,memory b cells,sequencing,0a01f6d,0.9353,1.0619,2,,1.0234,,2,development (flagged in the bundle)
+Coupling-A,"coupling-A, own sample left out of the reference",adipocytes,sequencing,,,,3,0.9707,0.9995,1.0304,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",aorta endothelium,sequencing,,,,2,,1.0028,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",b cells,sequencing,,,,3,0.9813,1.0061,1.0137,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",bladder epithelium,sequencing,,,,3,0.9606,1.0119,1.0302,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",breast basal epithelium,sequencing,,,,3,0.9807,1.0035,1.0166,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",breast luminal epithelium,sequencing,,,,3,0.9343,0.9949,1.0734,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",cardiomyocyte,sequencing,,,,3,0.993,0.999,1.0079,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",cd4 t cells,sequencing,,,,3,0.9585,1.0092,1.0347,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",cd8 t cells,sequencing,,,,3,0.9265,1.0333,1.0484,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",colon enteroendocrine,sequencing,,,,2,,1.0002,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",colon epithelium,sequencing,,,,3,0.9398,1.0243,1.0416,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",colon fibroblasts,sequencing,,,,2,,1.0008,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",colon macrophages,sequencing,,,,2,,1.0003,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",cortical neurons,sequencing,,,,3,0.9702,0.996,1.034,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",endometrium epithelium,sequencing,,,,3,0.9593,1.005,1.0376,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",erythrocyte progenitors,sequencing,,,,3,0.9611,1.0128,1.0289,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",fallopien tubes epithelium,sequencing,,,,3,0.9392,0.9888,1.0736,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",gastric antrum epithelium,sequencing,,,,3,0.9812,0.9843,1.0327,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",gastric body epithelium,sequencing,,,,3,0.9835,0.9935,1.0223,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",gastric fundus epithelium,sequencing,,,,3,0.965,1.0037,1.0327,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",heart fibroblasts,sequencing,,,,3,0.989,0.9936,1.0166,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",hepatocyte,sequencing,,,,3,0.9623,1.0048,1.0345,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",kidney glomerular endothelium,sequencing,,,,3,0.9911,0.9955,1.0128,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",kidney glomerular epithelium,sequencing,,,,2,,1.0,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",kidney tubular endothelium,sequencing,,,,3,0.9827,0.9876,1.0283,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",kidney tubular epithelium,sequencing,,,,3,0.9908,0.9921,1.016,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",lung alveolar endothelium,sequencing,,,,3,0.9382,0.9979,1.0665,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",lung alveolar epithelium,sequencing,,,,3,0.9724,1.0072,1.0219,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",lung alveolar macrophages,sequencing,,,,2,,1.0,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",lung bronchus epithelium,sequencing,,,,3,0.979,0.979,1.0397,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",lung interstitial macrophages,sequencing,,,,3,0.9899,1.0004,1.0098,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",memory b cells,sequencing,,,,2,,1.0,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",monocytes,sequencing,,,,3,0.9727,0.9874,1.0389,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",nk cells,sequencing,,,,3,0.9804,0.9981,1.0215,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",oligodendrocytes,sequencing,,,,3,0.9548,1.0204,1.029,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",pancreas endothelium,sequencing,,,,3,0.9777,1.001,1.0218,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",pancreatic acinar,sequencing,,,,3,0.991,0.9961,1.0124,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",pancreatic alpha,sequencing,,,,3,0.9927,0.9931,1.0132,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",pancreatic beta,sequencing,,,,3,0.9976,0.9983,1.0038,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",pancreatic delta,sequencing,,,,3,0.9684,1.0095,1.0241,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",pancreatic duct,sequencing,,,,3,0.9943,1.0009,1.0049,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",prostate epithelium,sequencing,,,,3,0.9735,0.9976,1.029,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",small intestine epithelium,sequencing,,,,3,0.9739,1.0057,1.0217,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",smooth muscle,sequencing,,,,3,0.9657,1.0135,1.0235,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",striated muscle,sequencing,,,,2,,1.0,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",t central memory cd4,sequencing,,,,3,0.9779,0.9893,1.0317,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",t effector cell cd8,sequencing,,,,3,0.9727,0.9808,1.0447,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",t effector memory cd4,sequencing,,,,3,0.9703,0.998,1.0321,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",thyroid epithelium,sequencing,,,,3,0.9941,0.9985,1.0073,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",tongue epithelium,sequencing,,,,3,0.9661,1.0076,1.0281,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",tonsil palatine epithelium,sequencing,,,,3,0.9967,0.9982,1.0049,3,development
+Coupling-A,"coupling-A, own sample left out of the reference",tonsil pharyngeal epithelium,sequencing,,,,2,,1.0016,,2,development
+Coupling-A,"coupling-A, own sample left out of the reference",vascular saphenous endothelium,sequencing,,,,3,0.9923,1.0028,1.0053,3,development
+IAM-A,IAM-A,adipocytes,sequencing,1dcb6df,0.7787,1.0551,3,1.0065,1.0094,1.0234,3,development
+IAM-A,IAM-A,aorta endothelium,sequencing,1dcb6df,0.7787,1.0551,2,,0.9585,,2,development
+IAM-A,IAM-A,b cells,sequencing,0a01f6d,0.7787,1.0551,1,,0.8055,,12,development
+IAM-A,IAM-A,b cells,sequencing,1dcb6df,0.7787,1.0551,3,0.8572,0.9052,0.9613,3,development
+IAM-A,IAM-A,bladder epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9854,0.9913,1.0157,3,development
+IAM-A,IAM-A,breast basal epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.8932,0.899,0.9016,3,development
+IAM-A,IAM-A,breast luminal epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.8634,0.915,0.9185,3,development
+IAM-A,IAM-A,cardiomyocyte,sequencing,1dcb6df,0.7787,1.0551,3,0.9476,0.9498,0.9527,3,development
+IAM-A,IAM-A,cd4 t cells,sequencing,1dcb6df,0.7787,1.0551,3,0.9271,0.9282,0.9474,3,development
+IAM-A,IAM-A,cd8 t cells,sequencing,1dcb6df,0.7787,1.0551,3,0.8883,0.9518,0.9768,3,development
+IAM-A,IAM-A,colon enteroendocrine,sequencing,1dcb6df,0.7787,1.0551,2,,0.9142,,2,development
+IAM-A,IAM-A,colon epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.8843,0.8883,0.9663,3,development
+IAM-A,IAM-A,colon fibroblasts,sequencing,1dcb6df,0.7787,1.0551,2,,0.9906,,2,development
+IAM-A,IAM-A,colon macrophages,sequencing,1dcb6df,0.7787,1.0551,2,,0.8908,,2,development
+IAM-A,IAM-A,cortical neurons,sequencing,1dcb6df,0.7787,1.0551,3,0.7704,0.7885,0.8465,3,development
+IAM-A,IAM-A,effector memory cd8 t cells,sequencing,1dcb6df,0.7787,1.0551,1,,0.9094,,1,development
+IAM-A,IAM-A,endometrium epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.8895,0.9201,0.9399,3,development
+IAM-A,IAM-A,erythrocyte progenitors,sequencing,1dcb6df,0.7787,1.0551,3,0.7205,0.7374,0.7398,3,development
+IAM-A,IAM-A,fallopien tubes epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.8844,0.9378,0.9532,3,development
+IAM-A,IAM-A,gastric antrum epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9416,0.9684,0.9745,3,development
+IAM-A,IAM-A,gastric body epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9398,0.9479,0.97,3,development
+IAM-A,IAM-A,gastric fundus epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9233,0.9544,0.96,3,development
+IAM-A,IAM-A,heart fibroblasts,sequencing,1dcb6df,0.7787,1.0551,3,0.8847,0.8859,0.8956,3,development
+IAM-A,IAM-A,hepatocyte,sequencing,1dcb6df,0.7787,1.0551,3,0.8772,0.8843,0.9261,3,development
+IAM-A,IAM-A,kidney glomerular endothelium,sequencing,1dcb6df,0.7787,1.0551,3,1.002,1.0349,1.0448,3,development
+IAM-A,IAM-A,kidney glomerular epithelium,sequencing,1dcb6df,0.7787,1.0551,2,,0.992,,2,development
+IAM-A,IAM-A,kidney tubular endothelium,sequencing,1dcb6df,0.7787,1.0551,3,1.024,1.0255,1.0271,3,development
+IAM-A,IAM-A,kidney tubular epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9043,0.9737,0.9901,3,development
+IAM-A,IAM-A,lung alveolar endothelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9304,0.9922,1.0069,3,development
+IAM-A,IAM-A,lung alveolar epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9465,0.9565,0.9652,3,development
+IAM-A,IAM-A,lung alveolar macrophages,sequencing,1dcb6df,0.7787,1.0551,2,,0.8507,,2,development
+IAM-A,IAM-A,lung bronchus epithelium,sequencing,1dcb6df,0.7787,1.0551,3,1.0026,1.0042,1.0265,3,development
+IAM-A,IAM-A,lung interstitial macrophages,sequencing,1dcb6df,0.7787,1.0551,3,0.8442,0.847,0.8608,3,development
+IAM-A,IAM-A,memory b cells,sequencing,0a01f6d,0.7787,1.0551,2,,0.8107,,2,development
+IAM-A,IAM-A,memory b cells,sequencing,1dcb6df,0.7787,1.0551,2,,0.9824,,2,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,0801c4b,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,155b14e,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,22ff8df,0.7787,1.0551,0,,,,2,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,2bcc01f,0.7787,1.0551,0,,,,2,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,3ab30ad,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,3cfd195,0.7787,1.0551,0,,,,5,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,4545ab1,0.7787,1.0551,0,,,,3,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,4b17362,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,9135cc6,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,925d3ce,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,a04bf22,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,acbc25a,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,c464b26,0.7787,1.0551,0,,,,5,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,c543f9e,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (not stated),sequencing,e87632c,0.7787,1.0551,0,,,,2,development
+IAM-A,IAM-A,mixed specimen (plasma),sequencing,36f8243,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,mixed specimen (plasma),sequencing,9a552a2,0.7787,1.0551,0,,,,6,development
+IAM-A,IAM-A,mixed specimen (plasma),sequencing,b00c2ab,0.7787,1.0551,0,,,,1,development
+IAM-A,IAM-A,monocytes,sequencing,1dcb6df,0.7787,1.0551,3,0.8788,0.8997,0.9189,3,development
+IAM-A,IAM-A,naive cd4 t cells,sequencing,1dcb6df,0.7787,1.0551,1,,0.8329,,1,development
+IAM-A,IAM-A,naive cd8 t cells,sequencing,1dcb6df,0.7787,1.0551,1,,0.8031,,1,development
+IAM-A,IAM-A,nk cells,sequencing,1dcb6df,0.7787,1.0551,3,0.8954,0.9105,0.9604,3,development
+IAM-A,IAM-A,oligodendrocytes,sequencing,1dcb6df,0.7787,1.0551,3,0.9075,0.9154,0.9456,3,development
+IAM-A,IAM-A,pancreas endothelium,sequencing,1dcb6df,0.7787,1.0551,3,1.0061,1.0506,1.053,3,development
+IAM-A,IAM-A,pancreatic acinar,sequencing,1dcb6df,0.7787,1.0551,3,0.8223,0.8983,0.9128,3,development
+IAM-A,IAM-A,pancreatic alpha,sequencing,1dcb6df,0.7787,1.0551,3,1.0102,1.0253,1.0281,3,development
+IAM-A,IAM-A,pancreatic beta,sequencing,1dcb6df,0.7787,1.0551,3,0.9922,1.0103,1.0316,3,development
+IAM-A,IAM-A,pancreatic delta,sequencing,1dcb6df,0.7787,1.0551,3,1.0214,1.0545,1.0599,3,development
+IAM-A,IAM-A,pancreatic duct,sequencing,1dcb6df,0.7787,1.0551,3,0.9496,0.9588,0.9755,3,development
+IAM-A,IAM-A,prostate epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9206,0.9435,1.0191,3,development
+IAM-A,IAM-A,small intestine epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9396,0.9421,0.9514,3,development
+IAM-A,IAM-A,smooth muscle,sequencing,1dcb6df,0.7787,1.0551,3,0.86,0.874,0.9009,3,development
+IAM-A,IAM-A,striated muscle,sequencing,1dcb6df,0.7787,1.0551,2,,1.0544,,2,development
+IAM-A,IAM-A,t central memory cd4,sequencing,1dcb6df,0.7787,1.0551,3,1.0195,1.0593,1.0604,3,development
+IAM-A,IAM-A,t effector cell cd8,sequencing,1dcb6df,0.7787,1.0551,3,0.9103,1.0169,1.0418,3,development
+IAM-A,IAM-A,t effector memory cd4,sequencing,1dcb6df,0.7787,1.0551,3,0.9012,0.9412,0.9905,3,development
+IAM-A,IAM-A,thyroid epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9971,0.9983,1.0104,3,development
+IAM-A,IAM-A,tongue epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9974,1.0094,1.0451,3,development
+IAM-A,IAM-A,tonsil palatine epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.957,1.0066,1.0133,3,development
+IAM-A,IAM-A,tonsil pharyngeal epithelium,sequencing,1dcb6df,0.7787,1.0551,2,,0.9848,,2,development
+IAM-A,IAM-A,vascular saphenous endothelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9985,1.0054,1.0391,3,development
+IAM-A,"held error eps, earlier counter (end CpGs counted), conversion-corrected",colon tissue,WGBS,,,,0,,,,10,development
+IAM-A,"held error eps, earlier counter (end CpGs counted), conversion-corrected",oral tissue,WGBS,,,,0,,,,8,development
+IAM-A,"held error eps, earlier counter (end CpGs counted), conversion-corrected",oral tissue,oxWGBS,,,,0,,,,8,development
+IAM-A,"held error eps, per interior opportunity (commissioned counter)",cell types (56),WGBS,,,,56,0.0341,0.0447,0.0533,56,commissioned counter (chain Stage Q2)
+IAM-A,island gain error (PROC-CHANNEL-01 rule),colon tissue,WGBS,,,,0,,,,12,development
+Met-A,"A, tared to the same laboratory",granulocytes,EPIC v1,,,,26,0.9742,1.001,1.0303,64,development
+Met-A,"A, tared to the same laboratory",neutrophils,EPIC v1,,,,13,0.9161,1.0027,1.0636,29,commissioned
+Met-A,"A, untared",neutrophils,EPIC v1,,,,6,0.9942,1.0008,1.006,6,commissioned (reference arrays)
+Met-A,Met-A sorted cell (atlas),adipocytes,sequencing,1dcb6df,,,3,0.8326,0.844,0.8696,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),aorta endothelium,sequencing,1dcb6df,,,2,,1.0098,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),b cells,sequencing,0a01f6d,,,1,,2.0768,,14,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),b cells,sequencing,1dcb6df,,,3,0.6181,0.6689,0.7072,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),bladder epithelium,sequencing,1dcb6df,,,3,0.7576,0.7634,0.8356,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),breast basal epithelium,sequencing,1dcb6df,,,3,0.7796,0.7957,0.8077,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),breast luminal epithelium,sequencing,1dcb6df,,,3,0.7155,0.7667,0.8125,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cardiomyocyte,sequencing,1dcb6df,,,3,0.7292,0.7468,0.768,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cd4 t cells,sequencing,1dcb6df,,,3,0.6681,0.6925,0.7613,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cd8 t cells,sequencing,1dcb6df,,,3,0.6796,0.7574,0.7673,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),colon enteroendocrine,sequencing,1dcb6df,,,2,,0.8574,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),colon epithelium,sequencing,1dcb6df,,,3,0.7688,0.7739,0.8546,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),colon fibroblasts,sequencing,1dcb6df,,,2,,0.9258,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),colon macrophages,sequencing,1dcb6df,,,2,,0.8718,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cortical neurons,sequencing,1dcb6df,,,3,0.7683,0.8606,0.932,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),effector memory cd8 t cells,sequencing,1dcb6df,,,1,,0.7376,,1,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),endometrium epithelium,sequencing,1dcb6df,,,3,0.6902,0.7297,0.815,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),erythrocyte progenitors,sequencing,1dcb6df,,,3,0.7263,0.7469,0.8573,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),fallopien tubes epithelium,sequencing,1dcb6df,,,3,0.6898,0.7179,0.7412,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),gastric antrum epithelium,sequencing,1dcb6df,,,3,0.6913,0.6921,0.7168,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),gastric body epithelium,sequencing,1dcb6df,,,3,0.7054,0.7101,0.7347,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),gastric fundus epithelium,sequencing,1dcb6df,,,3,0.689,0.7017,0.718,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),heart fibroblasts,sequencing,1dcb6df,,,3,0.7438,0.7597,0.7653,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),hepatocyte,sequencing,1dcb6df,,,3,0.7921,0.8068,0.8219,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),kidney glomerular endothelium,sequencing,1dcb6df,,,3,0.7366,0.7549,0.759,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),kidney glomerular epithelium,sequencing,1dcb6df,,,2,,0.9458,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),kidney tubular endothelium,sequencing,1dcb6df,,,3,0.7244,0.7751,0.8095,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),kidney tubular epithelium,sequencing,1dcb6df,,,3,0.7188,0.738,0.7583,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung alveolar endothelium,sequencing,1dcb6df,,,3,0.7531,0.7626,0.7656,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung alveolar epithelium,sequencing,1dcb6df,,,3,0.8183,0.8232,0.8348,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung alveolar macrophages,sequencing,1dcb6df,,,2,,0.8924,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung bronchus epithelium,sequencing,1dcb6df,,,3,0.6651,0.6865,0.7187,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung interstitial macrophages,sequencing,1dcb6df,,,3,0.7043,0.7045,0.7777,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),memory b cells,sequencing,0a01f6d,,,2,,1.9741,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),memory b cells,sequencing,1dcb6df,,,2,,0.741,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),monocytes,sequencing,1dcb6df,,,3,0.742,0.7519,0.8009,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),naive cd4 t cells,sequencing,1dcb6df,,,1,,0.6715,,1,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),naive cd8 t cells,sequencing,1dcb6df,,,1,,0.639,,1,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),nk cells,sequencing,1dcb6df,,,3,0.704,0.7077,0.8398,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),oligodendrocytes,sequencing,1dcb6df,,,3,0.7234,0.755,0.7571,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreas endothelium,sequencing,1dcb6df,,,3,0.7859,0.8445,0.8496,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic acinar,sequencing,1dcb6df,,,3,0.7775,0.8454,0.8628,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic alpha,sequencing,1dcb6df,,,3,0.7271,0.7483,0.7529,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic beta,sequencing,1dcb6df,,,3,0.8245,0.847,0.852,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic delta,sequencing,1dcb6df,,,3,0.7342,0.797,0.7979,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic duct,sequencing,1dcb6df,,,3,0.7695,0.8158,0.8219,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),prostate epithelium,sequencing,1dcb6df,,,3,0.7612,0.7715,0.7728,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),small intestine epithelium,sequencing,1dcb6df,,,3,0.7249,0.7345,0.8133,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),smooth muscle,sequencing,1dcb6df,,,3,0.7538,0.8688,0.8787,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),striated muscle,sequencing,1dcb6df,,,2,,0.9128,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t central memory cd4,sequencing,1dcb6df,,,3,0.7504,0.7851,0.8255,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t effector cell cd8,sequencing,1dcb6df,,,3,0.8225,0.823,0.8638,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t effector memory cd4,sequencing,1dcb6df,,,3,0.7673,0.7731,0.8,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),thyroid epithelium,sequencing,1dcb6df,,,3,0.735,0.7355,0.7401,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),tongue epithelium,sequencing,1dcb6df,,,3,0.7012,0.7077,0.7401,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),tonsil palatine epithelium,sequencing,1dcb6df,,,3,0.7232,0.7305,0.7517,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),tonsil pharyngeal epithelium,sequencing,1dcb6df,,,2,,0.9359,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),vascular saphenous endothelium,sequencing,1dcb6df,,,3,0.736,0.7461,0.7802,3,development (flagged in the bundle)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",adipocytes,sequencing,,,,3,1.4813,1.5036,1.5471,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",aorta endothelium,sequencing,,,,2,,1.3658,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",b cells,sequencing,,,,3,1.4008,1.5061,1.6018,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",bladder epithelium,sequencing,,,,3,1.5575,1.5725,1.7198,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",breast basal epithelium,sequencing,,,,3,1.6205,1.6545,1.6796,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",breast luminal epithelium,sequencing,,,,3,1.5249,1.6331,1.734,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",cardiomyocyte,sequencing,,,,3,1.5111,1.5479,1.5948,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",cd4 t cells,sequencing,,,,3,1.5041,1.5426,1.695,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",cd8 t cells,sequencing,,,,3,1.529,1.6865,1.7457,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",colon enteroendocrine,sequencing,,,,2,,1.3422,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",colon epithelium,sequencing,,,,3,1.5976,1.6089,1.7819,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",colon fibroblasts,sequencing,,,,2,,1.4457,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",colon macrophages,sequencing,,,,2,,1.3825,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",cortical neurons,sequencing,,,,3,1.612,1.7951,1.964,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",effector memory cd8 t cells,sequencing,,,,1,,1.6494,,1,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",endometrium epithelium,sequencing,,,,3,1.4733,1.5566,1.7372,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",erythrocyte progenitors,sequencing,,,,3,1.4374,1.4783,1.6953,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",fallopien tubes epithelium,sequencing,,,,3,1.4611,1.5193,1.5706,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",gastric antrum epithelium,sequencing,,,,3,1.471,1.4766,1.5239,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",gastric body epithelium,sequencing,,,,3,1.497,1.5114,1.5632,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",gastric fundus epithelium,sequencing,,,,3,1.4599,1.487,1.5175,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",heart fibroblasts,sequencing,,,,3,1.5704,1.6034,1.6156,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",hepatocyte,sequencing,,,,3,1.3325,1.3563,1.3835,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",kidney glomerular endothelium,sequencing,,,,3,1.5674,1.6022,1.6149,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",kidney glomerular epithelium,sequencing,,,,2,,1.3281,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",kidney tubular endothelium,sequencing,,,,3,1.5382,1.6477,1.7198,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",kidney tubular epithelium,sequencing,,,,3,1.5325,1.575,1.6175,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",lung alveolar endothelium,sequencing,,,,3,1.5998,1.6229,1.6248,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",lung alveolar epithelium,sequencing,,,,3,1.5684,1.5777,1.6028,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",lung alveolar macrophages,sequencing,,,,2,,1.3123,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",lung bronchus epithelium,sequencing,,,,3,1.4074,1.4547,1.5224,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",lung interstitial macrophages,sequencing,,,,3,1.4921,1.4952,1.6524,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",memory b cells,sequencing,,,,2,,1.6185,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",monocytes,sequencing,,,,3,1.6541,1.6688,1.7978,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",naive cd4 t cells,sequencing,,,,1,,1.4799,,1,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",naive cd8 t cells,sequencing,,,,1,,1.4488,,1,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",nk cells,sequencing,,,,3,1.5443,1.5713,1.8686,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",oligodendrocytes,sequencing,,,,3,1.5141,1.5928,1.5948,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",pancreas endothelium,sequencing,,,,3,1.644,1.7625,1.7943,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",pancreatic acinar,sequencing,,,,3,1.3748,1.4997,1.5483,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",pancreatic alpha,sequencing,,,,3,1.5476,1.5942,1.6037,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",pancreatic beta,sequencing,,,,3,1.4246,1.4608,1.4702,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",pancreatic delta,sequencing,,,,3,1.5842,1.725,1.727,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",pancreatic duct,sequencing,,,,3,1.4129,1.4981,1.5128,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",prostate epithelium,sequencing,,,,3,1.5566,1.5843,1.5853,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",small intestine epithelium,sequencing,,,,3,1.5181,1.5366,1.6975,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",smooth muscle,sequencing,,,,3,1.4933,1.7204,1.7413,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",striated muscle,sequencing,,,,2,,1.3897,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",t central memory cd4,sequencing,,,,3,1.5237,1.5933,1.6712,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",t effector cell cd8,sequencing,,,,3,1.639,1.6397,1.7249,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",t effector memory cd4,sequencing,,,,3,1.6339,1.6467,1.7079,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",thyroid epithelium,sequencing,,,,3,1.5602,1.5603,1.5696,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",tongue epithelium,sequencing,,,,3,1.4535,1.4665,1.536,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",tonsil palatine epithelium,sequencing,,,,3,1.5367,1.5496,1.5972,3,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",tonsil pharyngeal epithelium,sequencing,,,,2,,1.4003,,2,development (band not met)
+Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",vascular saphenous endothelium,sequencing,,,,3,1.5721,1.5923,1.6637,3,development (band not met)
+Met-A,Met-A whole sample,whole sample,sequencing,0801c4b,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,0a01f6d,,,3,0.9598,0.9995,1.0353,16,development
+Met-A,Met-A whole sample,whole sample,sequencing,155b14e,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,1dcb6df,,,153,0.7524,0.9336,1.2956,153,development
+Met-A,Met-A whole sample,whole sample,sequencing,22ff8df,,,0,,,,2,development
+Met-A,Met-A whole sample,whole sample,sequencing,2bcc01f,,,0,,,,2,development
+Met-A,Met-A whole sample,whole sample,sequencing,36f8243,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,3ab30ad,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,3cfd195,,,0,,,,5,development
+Met-A,Met-A whole sample,whole sample,sequencing,4545ab1,,,0,,,,3,development
+Met-A,Met-A whole sample,whole sample,sequencing,4b17362,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,9135cc6,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,925d3ce,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,9a552a2,,,0,,,,6,development
+Met-A,Met-A whole sample,whole sample,sequencing,a04bf22,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,acbc25a,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,b00c2ab,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,c464b26,,,0,,,,5,development
+Met-A,Met-A whole sample,whole sample,sequencing,c543f9e,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,0801c4b,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,0a01f6d,,,3,1.1342,1.2102,1.2567,16,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,1dcb6df,,,153,0.8245,1.1259,1.8074,153,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,22ff8df,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,2bcc01f,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,36f8243,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,3ab30ad,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,3cfd195,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,4545ab1,,,0,,,,3,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,9135cc6,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,925d3ce,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,a04bf22,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,acbc25a,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,b00c2ab,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,c464b26,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,c543f9e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,0801c4b,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,0a01f6d,,,3,0.9061,0.9232,0.9234,16,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,1dcb6df,,,153,0.6456,0.8903,1.3279,153,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,22ff8df,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,2bcc01f,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,36f8243,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,3ab30ad,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,3cfd195,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,4545ab1,,,0,,,,3,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,9135cc6,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,925d3ce,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,a04bf22,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,acbc25a,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,b00c2ab,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,c464b26,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,c543f9e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,0801c4b,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,0a01f6d,,,3,0.2124,0.2179,0.2315,16,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,1dcb6df,,,153,0.1718,0.2086,0.3115,153,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,22ff8df,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,2bcc01f,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,36f8243,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,3ab30ad,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,3cfd195,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,4545ab1,,,0,,,,3,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,9135cc6,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,925d3ce,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,a04bf22,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,acbc25a,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,b00c2ab,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,c464b26,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,c543f9e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,0801c4b,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,0a01f6d,,,3,0.9835,1.0181,1.0526,16,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,1dcb6df,,,153,0.7779,0.9513,1.287,153,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,22ff8df,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,2bcc01f,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,36f8243,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,3ab30ad,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,3cfd195,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,4545ab1,,,0,,,,3,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,9135cc6,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,925d3ce,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,a04bf22,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,acbc25a,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,b00c2ab,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,c464b26,,,0,,,,5,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,c543f9e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,e87632c,,,0,,,,2,development
+Met-A,"R, tumor over the same patient's normal tissue",breast tissue,450K,,,,0,,,,53,development (sealed test met)
+Met-A,"R, tumor over the same patient's normal tissue",colon tissue,450K,,,,0,,,,88,development (sealed test met)
+Met-A,"R, tumor over the same patient's normal tissue",liver tissue,450K,,,,0,,,,50,development
+Territories,territory,domains,sequencing,0801c4b,,,0,,,,1,development
+Territories,territory,domains,sequencing,0a01f6d,,,3,0.7708,0.8189,0.8618,16,development
+Territories,territory,domains,sequencing,155b14e,,,0,,,,1,development
+Territories,territory,domains,sequencing,1dcb6df,,,153,0.74,0.993,1.5715,153,development
+Territories,territory,domains,sequencing,22ff8df,,,0,,,,2,development
+Territories,territory,domains,sequencing,2bcc01f,,,0,,,,2,development
+Territories,territory,domains,sequencing,36f8243,,,0,,,,1,development
+Territories,territory,domains,sequencing,3ab30ad,,,0,,,,1,development
+Territories,territory,domains,sequencing,3cfd195,,,0,,,,5,development
+Territories,territory,domains,sequencing,4545ab1,,,0,,,,3,development
+Territories,territory,domains,sequencing,4b17362,,,0,,,,1,development
+Territories,territory,domains,sequencing,9135cc6,,,0,,,,1,development
+Territories,territory,domains,sequencing,925d3ce,,,0,,,,1,development
+Territories,territory,domains,sequencing,9a552a2,,,0,,,,6,development
+Territories,territory,domains,sequencing,a04bf22,,,0,,,,1,development
+Territories,territory,domains,sequencing,acbc25a,,,0,,,,1,development
+Territories,territory,domains,sequencing,b00c2ab,,,0,,,,1,development
+Territories,territory,domains,sequencing,c464b26,,,0,,,,5,development
+Territories,territory,domains,sequencing,c543f9e,,,0,,,,1,development
+Territories,territory,domains,sequencing,e87632c,,,0,,,,2,development
+Territories,territory,islands,sequencing,0801c4b,,,0,,,,1,development
+Territories,territory,islands,sequencing,0a01f6d,,,3,1.0799,1.0828,3.2036,16,development
+Territories,territory,islands,sequencing,155b14e,,,0,,,,1,development
+Territories,territory,islands,sequencing,1dcb6df,,,153,0.1468,0.1833,0.2652,153,development
+Territories,territory,islands,sequencing,22ff8df,,,0,,,,2,development
+Territories,territory,islands,sequencing,2bcc01f,,,0,,,,2,development
+Territories,territory,islands,sequencing,36f8243,,,0,,,,1,development
+Territories,territory,islands,sequencing,3ab30ad,,,0,,,,1,development
+Territories,territory,islands,sequencing,3cfd195,,,0,,,,5,development
+Territories,territory,islands,sequencing,4545ab1,,,0,,,,3,development
+Territories,territory,islands,sequencing,4b17362,,,0,,,,1,development
+Territories,territory,islands,sequencing,9135cc6,,,0,,,,1,development
+Territories,territory,islands,sequencing,925d3ce,,,0,,,,1,development
+Territories,territory,islands,sequencing,9a552a2,,,0,,,,6,development
+Territories,territory,islands,sequencing,a04bf22,,,0,,,,1,development
+Territories,territory,islands,sequencing,acbc25a,,,0,,,,1,development
+Territories,territory,islands,sequencing,b00c2ab,,,0,,,,1,development
+Territories,territory,islands,sequencing,c464b26,,,0,,,,5,development
+Territories,territory,islands,sequencing,c543f9e,,,0,,,,1,development
+Territories,territory,islands,sequencing,e87632c,,,0,,,,2,development

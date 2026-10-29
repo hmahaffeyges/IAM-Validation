@@ -1,0 +1,155 @@
+gsm,series,condition,specimen,platform,reading,place,share,A,A_sat,distance_to_ceiling,headroom_used,turnover_share,band_lo,band_hi,state,flag,chain_commit
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.82769,2.3804,1.34425,-0.34425,0.07389,,,,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.7868,3.2377,1.25504,-0.25504,0.02119,,,,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.52308,3.9329,1.26134,-0.26134,0.02174,,,,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.88214,2.4645,1.30558,-0.30558,0.05192,,,,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.83417,2.2485,1.36709,-0.36709,0.08479,,,,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,5.52448,91.4302,0.94997,0.05003,0.0222,,,,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.54354,2.3575,1.33624,-0.33624,0.06066,,,,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.9123,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.1014,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.58235,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9947,,,,,,1.0078,within its limit,,0a01f6d
+GSM4914781,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.9259,,,,,,1.0916,within its limit,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.74223,2.3841,1.27203,-0.27203,0.08513,,,,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.68382,3.2352,1.21202,-0.21202,0.02345,,,,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.31356,3.9411,1.26631,-0.26631,0.00923,,,,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.85719,2.4614,1.19229,-0.19229,0.06827,,,,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.75007,2.2482,1.28926,-0.28926,0.09862,,,,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,5.06214,90.6571,0.95469,0.04531,0.00948,,,,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.7029,2.3526,1.21964,-0.21964,0.07846,,,,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.8962,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.1024,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.47046,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9934,,,,,,1.0077,within its limit,,0a01f6d
+GSM4914782,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.9851,,,,,,1.0902,within its limit,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.72113,2.3828,1.33645,-0.33645,0.05615,,,,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.64931,3.2359,1.25667,-0.25667,0.0157,,,,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.46567,3.9377,1.2518,-0.2518,0.00769,,,,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.75684,2.4621,1.30141,-0.30141,0.04046,,,,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.72954,2.2483,1.35923,-0.35923,0.06557,,,,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,6.0996,91.2401,0.94349,0.05651,0.00784,,,,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.55235,2.3538,1.33065,-0.33065,0.04844,,,,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.8867,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.0491,,,,,0.9353191094330514,1.0618894646567048,Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.35433,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9923,,,,,,1.0078,within its limit,,0a01f6d
+GSM4914783,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,1.0087,,,,,,1.0905,within its limit,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.76205,2.3813,1.34801,-0.34801,0.07881,,,,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.7007,3.2374,1.26425,-0.26425,0.0252,,,,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.48251,3.9353,1.25936,-0.25936,0.03536,,,,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.79115,2.4617,1.32185,-0.32185,0.04845,,,,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.77212,2.2475,1.36978,-0.36978,0.09021,,,,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,5.62392,90.8668,0.94855,0.05145,0.03613,,,,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.52008,2.3534,1.35461,-0.35461,0.05639,,,,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.8478,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.1207,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.42761,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,1.0031,,,,,,1.0078,within its limit,,0a01f6d
+GSM4914784,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,1.0297,,,,,,1.0907,within its limit,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.85078,2.3825,1.25412,-0.25412,0.0478,,,,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.74062,3.2365,1.22333,-0.22333,0.01264,,,,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.45802,3.9381,1.25032,-0.25032,0.01252,,,,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.86641,2.4616,1.23839,-0.23839,0.02799,,,,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.87029,2.2477,1.25853,-0.25853,0.0562,,,,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,6.21204,90.8509,0.94199,0.05801,0.0128,,,,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.64439,2.3531,1.2628,-0.2628,0.03461,,,,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.8124,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.0958,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.54088,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,1.0091,,,,,,1.0078,above its limit,,0a01f6d
+GSM4914785,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.9665,,,,,,1.0904,within its limit,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.77353,2.3838,1.2713,-0.2713,0.04556,,,,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.67445,3.2352,1.22541,-0.22541,0.01054,,,,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.40158,3.9405,1.25071,-0.25071,0.00625,,,,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.80791,2.4617,1.24012,-0.24012,0.02804,,,,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.7906,2.248,1.28179,-0.28179,0.05413,,,,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,6.15868,90.7354,0.94251,0.05749,0.0064,,,,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.64168,2.353,1.26484,-0.26484,0.03473,,,,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.8423,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.071,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.45234,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9978,,,,,,1.0077,within its limit,,0a01f6d
+GSM4914786,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.9035,,,,,,1.0902,within its limit,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.79515,2.384,1.21246,-0.21246,0.06512,,,,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.69067,3.2353,1.19011,-0.19011,0.01487,,,,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.54055,3.9414,1.19927,-0.19927,0.02113,,,,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.82718,2.4611,1.18188,-0.18188,0.03735,,,,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.80649,2.248,1.22137,-0.22137,0.07623,,,,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,9.66082,90.6396,0.90338,0.09662,0.02146,,,,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.72656,2.3522,1.20222,-0.20222,0.04539,,,,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.921,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.0973,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.50551,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9931,,,,,,1.0077,within its limit,,0a01f6d
+GSM4914787,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.8979,,,,,,1.0902,within its limit,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.79849,2.3833,1.27636,-0.27636,0.05003,,,,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.69574,3.2354,1.23333,-0.23333,0.01448,,,,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.29127,3.94,1.28014,-0.28014,0.0025,,,,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.88518,2.4618,1.21811,-0.21811,0.03692,,,,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.8142,2.2479,1.28765,-0.28765,0.0589,,,,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,4.13227,90.9379,0.96517,0.03483,0.00253,,,,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.67231,2.3531,1.24217,-0.24217,0.04476,,,,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.9105,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.026,,,,,0.9353191094330514,1.0618894646567048,Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.47634,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9977,,,,,,1.0078,within its limit,,0a01f6d
+GSM4914788,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.9481,,,,,,1.0903,within its limit,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.82726,2.3794,1.33323,-0.33323,0.05986,,,,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.76549,3.2387,1.25695,-0.25695,0.01578,,,,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.47466,3.9316,1.2671,-0.2671,0.01043,,,,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.89254,2.4631,1.29332,-0.29332,0.04404,,,,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.83462,2.2469,1.35342,-0.35342,0.0693,,,,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,5.11636,91.434,0.95448,0.04552,0.01056,,,,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.56299,2.3559,1.32231,-0.32231,0.05209,,,,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.9035,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.1092,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.5183,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9974,,,,,,1.0078,within its limit,,0a01f6d
+GSM4914789,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.9196,,,,,,1.0912,within its limit,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.78055,2.3793,1.36969,-0.36969,0.06418,,,,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.7281,3.2381,1.27205,-0.27205,0.0185,,,,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.51995,3.9315,1.26331,-0.26331,0.0124,,,,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.82371,2.4639,1.33576,-0.33576,0.04519,,,,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.78653,2.2475,1.39575,-0.39575,0.07445,,,,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,5.35073,90.9934,0.95166,0.04834,0.0126,,,,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.50304,2.357,1.36623,-0.36623,0.05318,,,,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.9356,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.0917,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.46028,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9955,,,,,,1.0078,within its limit,,0a01f6d
+GSM4914790,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,1.0669,,,,,,1.0916,within its limit,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.97666,2.384,1.13898,-0.13898,0.0779,,,,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.83629,3.2352,1.15863,-0.15863,0.0144,,,,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.38359,3.9412,1.24453,-0.24453,0.00717,,,,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,1.14042,2.4611,1.04963,-0.04963,0.0607,,,,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.9903,2.2481,1.13737,-0.13737,0.09083,,,,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,6.5746,90.7737,0.9379,0.0621,0.00731,,,,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.91185,2.3521,1.0652,-0.0652,0.07091,,,,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.0917,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.8895,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9957,,,,,,1.0077,within its limit,,0a01f6d
+GSM4914791,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,1.0162,,,,,,1.0901,within its limit,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.83546,2.384,1.2019,-0.2019,0.08615,,,,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.72973,3.2351,1.18093,-0.18093,0.02328,,,,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.28414,3.9414,1.26495,-0.26495,0.00524,,,,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,0.9922,2.4612,1.10439,-0.10439,0.07362,,,,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.84784,2.248,1.20984,-0.20984,0.0996,,,,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,5.15385,90.6769,0.95368,0.04632,0.00538,,,,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.83083,2.3523,1.1251,-0.1251,0.08445,,,,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.0625,,,,,0.9353191094330514,1.0618894646567048,above Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.64733,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9924,,,,,,1.0077,within its limit,,0a01f6d
+GSM4914793,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,0.8971,,,,,,1.0901,within its limit,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A whole sample,whole sample,,0.8566,2.3841,1.21278,-0.21278,0.07143,,,,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",identity sites of the cells found,,0.72463,3.2353,1.1972,-0.1972,0.01726,,,,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",islands,,0.28503,3.9418,1.26934,-0.26934,0.00268,,,,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",domains,,1.0011,2.4618,1.12842,-0.12842,0.0566,,,,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),"Met-A whole sample, by place",the rest,,0.8718,2.2479,1.21933,-0.21933,0.0836,,,,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,islands,,4.85068,90.7805,0.95711,0.04289,0.00275,,,,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),territory,domains,,0.80181,2.3531,1.14647,-0.14647,0.06662,,,,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),IAM-A,b cells,,0.9289,,,,,0.778712674423175,1.0551038505882362,Normal,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),coupling-A,b cells,,1.0368,,,,,0.9353191094330514,1.0618894646567048,Normal,"DEVELOPMENT - not commissioned (nearest-neighbor coupling, plan 49.5)",0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),Met-A sorted cell (atlas),b cells,,1.6431,,,,,,,untared: read A_rel against same-run healthy references of the same cell (tare),read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score whole genome,whole genome,,0.9944,,,,,,1.0077,within its limit,,0a01f6d
+GSM4914794,GSE116229,leukemia,sorted b cells,sequencing values (development),C-Score each cell,b cells,,1.0352,,,,,,1.0901,within its limit,,0a01f6d

@@ -1,0 +1,411 @@
+instrument,source,sample,specimen,condition,platform,reading,value,status,record,line,band_lo,band_hi,state,chain_commit
+Territories,HOPKINS-FULL,GSM4914781,plasma,leukemia,sequencing,territory | islands,0.23681,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914781,plasma,leukemia,sequencing,territory | domains,0.46098,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914782,plasma,leukemia,sequencing,territory | islands,0.23177,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914782,plasma,leukemia,sequencing,territory | domains,0.59492,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914783,plasma,leukemia,sequencing,territory | islands,0.27561,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,b00c2ab
+Territories,HOPKINS-FULL,GSM4914783,plasma,leukemia,sequencing,territory | domains,0.51504,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,b00c2ab
+Territories,HOPKINS-FULL,GSM4914784,not stated,leukemia,sequencing,territory | islands,0.24364,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3ab30ad
+Territories,HOPKINS-FULL,GSM4914784,not stated,leukemia,sequencing,territory | domains,0.44005,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3ab30ad
+Territories,HOPKINS-FULL,GSM4914785,not stated,leukemia,sequencing,territory | islands,0.29009,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,925d3ce
+Territories,HOPKINS-FULL,GSM4914785,not stated,leukemia,sequencing,territory | domains,0.58952,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,925d3ce
+Territories,HOPKINS-FULL,GSM4914786,not stated,leukemia,sequencing,territory | islands,0.29119,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,155b14e
+Territories,HOPKINS-FULL,GSM4914786,not stated,leukemia,sequencing,territory | domains,0.58636,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,155b14e
+Territories,HOPKINS-FULL,GSM4914787,not stated,leukemia,sequencing,territory | islands,0.42603,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,a04bf22
+Territories,HOPKINS-FULL,GSM4914787,not stated,leukemia,sequencing,territory | domains,0.62972,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,a04bf22
+Territories,HOPKINS-FULL,GSM4914788,not stated,leukemia,sequencing,territory | islands,0.19619,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c543f9e
+Territories,HOPKINS-FULL,GSM4914788,not stated,leukemia,sequencing,territory | domains,0.62384,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c543f9e
+Territories,HOPKINS-FULL,GSM4914789,not stated,leukemia,sequencing,territory | islands,0.23282,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914789,not stated,leukemia,sequencing,territory | domains,0.53063,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914790,not stated,leukemia,sequencing,territory | islands,0.24256,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914790,not stated,leukemia,sequencing,territory | domains,0.45553,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914791,not stated,leukemia,sequencing,territory | islands,0.31655,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914791,not stated,leukemia,sequencing,territory | domains,0.74509,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914792,not stated,leukemia,sequencing,territory | islands,0.30778,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914792,not stated,leukemia,sequencing,territory | domains,0.72605,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914793,not stated,leukemia,sequencing,territory | islands,0.25249,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914793,not stated,leukemia,sequencing,territory | domains,0.71215,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,c464b26
+Territories,HOPKINS-FULL,GSM4914794,not stated,leukemia,sequencing,territory | islands,0.24188,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4b17362
+Territories,HOPKINS-FULL,GSM4914794,not stated,leukemia,sequencing,territory | domains,0.70704,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4b17362
+Territories,HOPKINS-FULL,GSM4914795,not stated,leukemia,sequencing,territory | islands,0.20816,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,22ff8df
+Territories,HOPKINS-FULL,GSM4914795,not stated,leukemia,sequencing,territory | domains,0.73001,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,22ff8df
+Territories,HOPKINS-FULL,GSM4914796,not stated,leukemia,sequencing,territory | islands,0.22919,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,22ff8df
+Territories,HOPKINS-FULL,GSM4914796,not stated,leukemia,sequencing,territory | domains,0.71129,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,22ff8df
+Territories,HOPKINS-FULL,GSM4914797,not stated,leukemia,sequencing,territory | islands,0.4358,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914797,not stated,leukemia,sequencing,territory | domains,0.68636,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914798,plasma,control line,sequencing,territory | islands,0.42341,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914798,plasma,control line,sequencing,territory | domains,0.43707,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914799,plasma,knockout,sequencing,territory | islands,0.52802,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914799,plasma,knockout,sequencing,territory | domains,0.83695,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914800,plasma,cord-blood B cells,sequencing,territory | islands,0.24614,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914800,plasma,cord-blood B cells,sequencing,territory | domains,0.61254,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914801,plasma,cord-blood B cells,sequencing,territory | islands,0.14603,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914801,plasma,cord-blood B cells,sequencing,territory | domains,0.65717,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9a552a2
+Territories,HOPKINS-FULL,GSM4914802,plasma,cord-blood B cells,sequencing,territory | islands,0.16695,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,36f8243
+Territories,HOPKINS-FULL,GSM4914802,plasma,cord-blood B cells,sequencing,territory | domains,0.68856,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,36f8243
+Territories,HOPKINS-FULL,GSM4914803,not stated,leukemia,sequencing,territory | islands,0.21056,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914803,not stated,leukemia,sequencing,territory | domains,0.71359,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914804,not stated,leukemia,sequencing,territory | islands,0.19692,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914804,not stated,leukemia,sequencing,territory | domains,0.59148,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914805,not stated,leukemia,sequencing,territory | islands,0.19706,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914805,not stated,leukemia,sequencing,territory | domains,0.73649,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914806,not stated,leukemia,sequencing,territory | islands,0.23989,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914806,not stated,leukemia,sequencing,territory | domains,0.65858,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,3cfd195
+Territories,HOPKINS-FULL,GSM4914807,not stated,leukemia,sequencing,territory | islands,0.21086,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,e87632c
+Territories,HOPKINS-FULL,GSM4914807,not stated,leukemia,sequencing,territory | domains,0.6222,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,e87632c
+Territories,HOPKINS-FULL,GSM4914808,not stated,leukemia,sequencing,territory | islands,0.27559,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,e87632c
+Territories,HOPKINS-FULL,GSM4914808,not stated,leukemia,sequencing,territory | domains,0.51095,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,e87632c
+Territories,HOPKINS-FULL,GSM4914809,not stated,leukemia,sequencing,territory | islands,0.20594,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9135cc6
+Territories,HOPKINS-FULL,GSM4914809,not stated,leukemia,sequencing,territory | domains,0.69137,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,9135cc6
+Territories,HOPKINS-FULL,GSM4914810,not stated,leukemia,sequencing,territory | islands,0.17001,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4545ab1
+Territories,HOPKINS-FULL,GSM4914810,not stated,leukemia,sequencing,territory | domains,0.81805,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4545ab1
+Territories,HOPKINS-FULL,GSM4914811,not stated,leukemia,sequencing,territory | islands,0.25682,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4545ab1
+Territories,HOPKINS-FULL,GSM4914811,not stated,leukemia,sequencing,territory | domains,0.49387,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4545ab1
+Territories,HOPKINS-FULL,GSM4914812,not stated,leukemia,sequencing,territory | islands,0.25466,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4545ab1
+Territories,HOPKINS-FULL,GSM4914812,not stated,leukemia,sequencing,territory | domains,0.56296,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,4545ab1
+Territories,HOPKINS-FULL,GSM4914813,not stated,leukemia,sequencing,territory | islands,0.20414,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,acbc25a
+Territories,HOPKINS-FULL,GSM4914813,not stated,leukemia,sequencing,territory | domains,0.66211,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,acbc25a
+Territories,HOPKINS-FULL,GSM4914814,not stated,leukemia,sequencing,territory | islands,0.31607,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,2bcc01f
+Territories,HOPKINS-FULL,GSM4914814,not stated,leukemia,sequencing,territory | domains,0.63246,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,2bcc01f
+Territories,HOPKINS-FULL,GSM4914815,not stated,leukemia,sequencing,territory | islands,0.28278,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,2bcc01f
+Territories,HOPKINS-FULL,GSM4914815,not stated,leukemia,sequencing,territory | domains,0.55468,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,2bcc01f
+Territories,HOPKINS-FULL,GSM4914816,not stated,leukemia,sequencing,territory | islands,0.25559,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0801c4b
+Territories,HOPKINS-FULL,GSM4914816,not stated,leukemia,sequencing,territory | domains,0.49947,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0801c4b
+Territories,HOPKINS-REREAD,GSM4914781,sorted b cells,leukemia,sequencing,territory | islands,5.52448,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914781,sorted b cells,leukemia,sequencing,territory | domains,0.54354,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914782,sorted b cells,leukemia,sequencing,territory | islands,5.06214,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914782,sorted b cells,leukemia,sequencing,territory | domains,0.7029,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914783,sorted b cells,leukemia,sequencing,territory | islands,6.0996,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914783,sorted b cells,leukemia,sequencing,territory | domains,0.55235,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914784,sorted b cells,leukemia,sequencing,territory | islands,5.62392,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914784,sorted b cells,leukemia,sequencing,territory | domains,0.52008,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914785,sorted b cells,leukemia,sequencing,territory | islands,6.21204,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914785,sorted b cells,leukemia,sequencing,territory | domains,0.64439,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914786,sorted b cells,leukemia,sequencing,territory | islands,6.15868,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914786,sorted b cells,leukemia,sequencing,territory | domains,0.64168,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914787,sorted b cells,leukemia,sequencing,territory | islands,9.66082,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914787,sorted b cells,leukemia,sequencing,territory | domains,0.72656,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914788,sorted b cells,leukemia,sequencing,territory | islands,4.13227,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914788,sorted b cells,leukemia,sequencing,territory | domains,0.67231,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914789,sorted b cells,leukemia,sequencing,territory | islands,5.11636,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914789,sorted b cells,leukemia,sequencing,territory | domains,0.56299,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914790,sorted b cells,leukemia,sequencing,territory | islands,5.35073,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914790,sorted b cells,leukemia,sequencing,territory | domains,0.50304,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914791,sorted b cells,leukemia,sequencing,territory | islands,6.5746,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914791,sorted b cells,leukemia,sequencing,territory | domains,0.91185,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914793,sorted b cells,leukemia,sequencing,territory | islands,5.15385,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914793,sorted b cells,leukemia,sequencing,territory | domains,0.83083,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914794,sorted b cells,leukemia,sequencing,territory | islands,4.85068,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,HOPKINS-REREAD,GSM4914794,sorted b cells,leukemia,sequencing,territory | domains,0.80181,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,0a01f6d
+Territories,ATLAS-SEQ-HEALTHY,GSM5652176,sorted adipocytes,healthy,sequencing,territory | islands,0.17358,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652176,sorted adipocytes,healthy,sequencing,territory | domains,1.25526,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652177,sorted adipocytes,healthy,sequencing,territory | islands,0.1903,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652177,sorted adipocytes,healthy,sequencing,territory | domains,1.22376,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652178,sorted adipocytes,healthy,sequencing,territory | islands,0.23505,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652178,sorted adipocytes,healthy,sequencing,territory | domains,1.19479,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652179,sorted aorta endothelium,healthy,sequencing,territory | islands,0.16404,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652179,sorted aorta endothelium,healthy,sequencing,territory | domains,1.13275,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652180,sorted aorta endothelium,healthy,sequencing,territory | islands,0.17017,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652180,sorted aorta endothelium,healthy,sequencing,territory | domains,1.11518,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652181,sorted vascular saphenous endothelium,healthy,sequencing,territory | islands,0.18943,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652181,sorted vascular saphenous endothelium,healthy,sequencing,territory | domains,1.141,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652182,sorted vascular saphenous endothelium,healthy,sequencing,territory | islands,0.1994,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652182,sorted vascular saphenous endothelium,healthy,sequencing,territory | domains,0.99651,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652183,sorted vascular saphenous endothelium,healthy,sequencing,territory | islands,0.19606,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652183,sorted vascular saphenous endothelium,healthy,sequencing,territory | domains,1.0272,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652184,sorted kidney glomerular endothelium,healthy,sequencing,territory | islands,0.19811,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652184,sorted kidney glomerular endothelium,healthy,sequencing,territory | domains,1.04787,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652185,sorted kidney glomerular endothelium,healthy,sequencing,territory | islands,0.19803,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652185,sorted kidney glomerular endothelium,healthy,sequencing,territory | domains,0.97112,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652186,sorted kidney glomerular endothelium,healthy,sequencing,territory | islands,0.17645,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652186,sorted kidney glomerular endothelium,healthy,sequencing,territory | domains,1.09325,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652187,sorted kidney tubular endothelium,healthy,sequencing,territory | islands,0.20431,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652187,sorted kidney tubular endothelium,healthy,sequencing,territory | domains,0.98939,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652188,sorted kidney tubular endothelium,healthy,sequencing,territory | islands,0.18192,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652188,sorted kidney tubular endothelium,healthy,sequencing,territory | domains,0.97263,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652189,sorted kidney tubular endothelium,healthy,sequencing,territory | islands,0.18591,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652189,sorted kidney tubular endothelium,healthy,sequencing,territory | domains,0.93336,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652191,sorted lung alveolar endothelium,healthy,sequencing,territory | islands,0.16626,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652191,sorted lung alveolar endothelium,healthy,sequencing,territory | domains,1.16591,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652192,sorted lung alveolar endothelium,healthy,sequencing,territory | islands,0.20826,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652192,sorted lung alveolar endothelium,healthy,sequencing,territory | domains,1.0908,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652193,sorted lung alveolar endothelium,healthy,sequencing,territory | islands,0.19838,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652193,sorted lung alveolar endothelium,healthy,sequencing,territory | domains,1.07291,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652194,sorted pancreas endothelium,healthy,sequencing,territory | islands,0.16496,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652194,sorted pancreas endothelium,healthy,sequencing,territory | domains,1.09387,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652195,sorted pancreas endothelium,healthy,sequencing,territory | islands,0.17347,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652195,sorted pancreas endothelium,healthy,sequencing,territory | domains,1.12419,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652196,sorted pancreas endothelium,healthy,sequencing,territory | islands,0.16108,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652196,sorted pancreas endothelium,healthy,sequencing,territory | domains,1.09167,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652198,sorted colon fibroblasts,healthy,sequencing,territory | islands,0.20294,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652198,sorted colon fibroblasts,healthy,sequencing,territory | domains,1.30829,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652199,sorted colon fibroblasts,healthy,sequencing,territory | islands,0.20339,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652199,sorted colon fibroblasts,healthy,sequencing,territory | domains,1.31766,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652201,sorted heart fibroblasts,healthy,sequencing,territory | islands,0.17881,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652201,sorted heart fibroblasts,healthy,sequencing,territory | domains,1.45263,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652202,sorted heart fibroblasts,healthy,sequencing,territory | islands,0.15809,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652202,sorted heart fibroblasts,healthy,sequencing,territory | domains,1.4417,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652203,sorted heart fibroblasts,healthy,sequencing,territory | islands,0.17747,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652203,sorted heart fibroblasts,healthy,sequencing,territory | domains,1.38162,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652205,sorted striated muscle,healthy,sequencing,territory | islands,0.16666,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652205,sorted striated muscle,healthy,sequencing,territory | domains,1.21931,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652206,sorted striated muscle,healthy,sequencing,territory | islands,0.16004,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652206,sorted striated muscle,healthy,sequencing,territory | domains,1.24724,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652207,sorted smooth muscle,healthy,sequencing,territory | islands,0.17877,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652207,sorted smooth muscle,healthy,sequencing,territory | domains,1.58749,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652208,sorted smooth muscle,healthy,sequencing,territory | islands,0.20729,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652208,sorted smooth muscle,healthy,sequencing,territory | domains,1.23218,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652209,sorted smooth muscle,healthy,sequencing,territory | islands,0.16868,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652209,sorted smooth muscle,healthy,sequencing,territory | domains,1.56746,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652212,sorted cardiomyocyte,healthy,sequencing,territory | islands,0.17696,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652212,sorted cardiomyocyte,healthy,sequencing,territory | domains,0.94803,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652213,sorted cardiomyocyte,healthy,sequencing,territory | islands,0.17798,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652213,sorted cardiomyocyte,healthy,sequencing,territory | domains,0.89762,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652216,sorted cardiomyocyte,healthy,sequencing,territory | islands,0.17924,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652216,sorted cardiomyocyte,healthy,sequencing,territory | domains,0.92054,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652219,sorted oligodendrocytes,healthy,sequencing,territory | islands,0.14991,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652219,sorted oligodendrocytes,healthy,sequencing,territory | domains,0.85476,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652220,sorted oligodendrocytes,healthy,sequencing,territory | islands,0.20213,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652220,sorted oligodendrocytes,healthy,sequencing,territory | domains,0.85163,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652221,sorted oligodendrocytes,healthy,sequencing,territory | islands,0.17452,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652221,sorted oligodendrocytes,healthy,sequencing,territory | domains,0.8645,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652223,sorted cortical neurons,healthy,sequencing,territory | islands,0.21803,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652223,sorted cortical neurons,healthy,sequencing,territory | domains,0.94988,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652224,sorted cortical neurons,healthy,sequencing,territory | islands,0.18334,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652224,sorted cortical neurons,healthy,sequencing,territory | domains,0.78633,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652225,sorted cortical neurons,healthy,sequencing,territory | islands,0.18478,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652225,sorted cortical neurons,healthy,sequencing,territory | domains,0.84706,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652233,sorted hepatocyte,healthy,sequencing,territory | islands,0.18657,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652233,sorted hepatocyte,healthy,sequencing,territory | domains,0.96278,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652234,sorted hepatocyte,healthy,sequencing,territory | islands,0.20486,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652234,sorted hepatocyte,healthy,sequencing,territory | domains,0.95029,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652235,sorted hepatocyte,healthy,sequencing,territory | islands,0.21803,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652235,sorted hepatocyte,healthy,sequencing,territory | domains,0.91506,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652239,sorted pancreatic duct,healthy,sequencing,territory | islands,0.16067,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652239,sorted pancreatic duct,healthy,sequencing,territory | domains,0.80894,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652240,sorted pancreatic duct,healthy,sequencing,territory | islands,0.15215,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652240,sorted pancreatic duct,healthy,sequencing,territory | domains,0.88532,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652241,sorted pancreatic duct,healthy,sequencing,territory | islands,0.15895,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652241,sorted pancreatic duct,healthy,sequencing,territory | domains,0.81913,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652243,sorted pancreatic acinar,healthy,sequencing,territory | islands,0.16973,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652243,sorted pancreatic acinar,healthy,sequencing,territory | domains,1.21674,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652244,sorted pancreatic acinar,healthy,sequencing,territory | islands,0.1521,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652244,sorted pancreatic acinar,healthy,sequencing,territory | domains,1.2762,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652245,sorted pancreatic acinar,healthy,sequencing,territory | islands,0.1521,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652245,sorted pancreatic acinar,healthy,sequencing,territory | domains,1.23941,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652247,sorted pancreatic delta,healthy,sequencing,territory | islands,0.16748,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652247,sorted pancreatic delta,healthy,sequencing,territory | domains,0.99305,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652248,sorted pancreatic delta,healthy,sequencing,territory | islands,0.17552,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652248,sorted pancreatic delta,healthy,sequencing,territory | domains,0.96606,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652249,sorted pancreatic delta,healthy,sequencing,territory | islands,0.16495,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652249,sorted pancreatic delta,healthy,sequencing,territory | domains,1.01791,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652250,sorted pancreatic beta,healthy,sequencing,territory | islands,0.18123,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652250,sorted pancreatic beta,healthy,sequencing,territory | domains,0.93854,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652251,sorted pancreatic beta,healthy,sequencing,territory | islands,0.1811,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652251,sorted pancreatic beta,healthy,sequencing,territory | domains,1.00436,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652252,sorted pancreatic beta,healthy,sequencing,territory | islands,0.18623,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652252,sorted pancreatic beta,healthy,sequencing,territory | domains,0.90424,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652253,sorted pancreatic alpha,healthy,sequencing,territory | islands,0.19633,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652253,sorted pancreatic alpha,healthy,sequencing,territory | domains,1.00297,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652254,sorted pancreatic alpha,healthy,sequencing,territory | islands,0.19282,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652254,sorted pancreatic alpha,healthy,sequencing,territory | domains,0.99138,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652255,sorted pancreatic alpha,healthy,sequencing,territory | islands,0.19919,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652255,sorted pancreatic alpha,healthy,sequencing,territory | domains,0.95394,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652256,sorted kidney glomerular epithelium,healthy,sequencing,territory | islands,0.16677,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652256,sorted kidney glomerular epithelium,healthy,sequencing,territory | domains,0.9081,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652257,sorted kidney glomerular epithelium,healthy,sequencing,territory | islands,0.15887,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652257,sorted kidney glomerular epithelium,healthy,sequencing,territory | domains,0.94744,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652258,sorted kidney tubular epithelium,healthy,sequencing,territory | islands,0.16852,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652258,sorted kidney tubular epithelium,healthy,sequencing,territory | domains,0.9146,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652259,sorted kidney tubular epithelium,healthy,sequencing,territory | islands,0.18345,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652259,sorted kidney tubular epithelium,healthy,sequencing,territory | domains,0.96276,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652260,sorted kidney tubular epithelium,healthy,sequencing,territory | islands,0.20019,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652260,sorted kidney tubular epithelium,healthy,sequencing,territory | domains,0.79972,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652264,sorted thyroid epithelium,healthy,sequencing,territory | islands,0.183,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652264,sorted thyroid epithelium,healthy,sequencing,territory | domains,0.82504,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652265,sorted thyroid epithelium,healthy,sequencing,territory | islands,0.19504,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652265,sorted thyroid epithelium,healthy,sequencing,territory | domains,0.81225,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652266,sorted thyroid epithelium,healthy,sequencing,territory | islands,0.18363,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652266,sorted thyroid epithelium,healthy,sequencing,territory | domains,0.80291,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652267,sorted fallopien tubes epithelium,healthy,sequencing,territory | islands,0.16784,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652267,sorted fallopien tubes epithelium,healthy,sequencing,territory | domains,0.8926,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652268,sorted fallopien tubes epithelium,healthy,sequencing,territory | islands,0.16212,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652268,sorted fallopien tubes epithelium,healthy,sequencing,territory | domains,0.88639,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652269,sorted fallopien tubes epithelium,healthy,sequencing,territory | islands,0.22512,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652269,sorted fallopien tubes epithelium,healthy,sequencing,territory | domains,0.8921,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652271,sorted endometrium epithelium,healthy,sequencing,territory | islands,0.16428,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652271,sorted endometrium epithelium,healthy,sequencing,territory | domains,0.9245,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652272,sorted endometrium epithelium,healthy,sequencing,territory | islands,0.14095,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652272,sorted endometrium epithelium,healthy,sequencing,territory | domains,1.00296,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652273,sorted endometrium epithelium,healthy,sequencing,territory | islands,0.18363,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652273,sorted endometrium epithelium,healthy,sequencing,territory | domains,0.93616,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652274,sorted erythrocyte progenitors,healthy,sequencing,territory | islands,0.18571,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652274,sorted erythrocyte progenitors,healthy,sequencing,territory | domains,1.9037,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652275,sorted erythrocyte progenitors,healthy,sequencing,territory | islands,0.17212,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652275,sorted erythrocyte progenitors,healthy,sequencing,territory | domains,1.97505,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652276,sorted erythrocyte progenitors,healthy,sequencing,territory | islands,0.14382,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652276,sorted erythrocyte progenitors,healthy,sequencing,territory | domains,1.80923,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652279,sorted cd4 t cells,healthy,sequencing,territory | islands,0.27287,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652279,sorted cd4 t cells,healthy,sequencing,territory | domains,0.80542,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652280,sorted cd4 t cells,healthy,sequencing,territory | islands,0.25439,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652280,sorted cd4 t cells,healthy,sequencing,territory | domains,0.85363,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652281,sorted cd4 t cells,healthy,sequencing,territory | islands,0.21054,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652281,sorted cd4 t cells,healthy,sequencing,territory | domains,0.80275,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652282,sorted cd8 t cells,healthy,sequencing,territory | islands,0.32296,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652282,sorted cd8 t cells,healthy,sequencing,territory | domains,1.02167,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652283,sorted cd8 t cells,healthy,sequencing,territory | islands,0.26323,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652283,sorted cd8 t cells,healthy,sequencing,territory | domains,1.07483,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652284,sorted cd8 t cells,healthy,sequencing,territory | islands,0.27609,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652284,sorted cd8 t cells,healthy,sequencing,territory | domains,0.89134,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652285,sorted t central memory cd4,healthy,sequencing,territory | islands,0.20255,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652285,sorted t central memory cd4,healthy,sequencing,territory | domains,0.9679,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652286,sorted t central memory cd4,healthy,sequencing,territory | islands,0.19411,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652286,sorted t central memory cd4,healthy,sequencing,territory | domains,0.96642,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652287,sorted t central memory cd4,healthy,sequencing,territory | islands,0.1912,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652287,sorted t central memory cd4,healthy,sequencing,territory | domains,0.99643,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652288,sorted t effector cell cd8,healthy,sequencing,territory | islands,0.25678,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652288,sorted t effector cell cd8,healthy,sequencing,territory | domains,0.95474,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652289,sorted t effector cell cd8,healthy,sequencing,territory | islands,0.25658,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652289,sorted t effector cell cd8,healthy,sequencing,territory | domains,1.02053,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652290,sorted t effector cell cd8,healthy,sequencing,territory | islands,0.2378,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652290,sorted t effector cell cd8,healthy,sequencing,territory | domains,1.08687,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652291,sorted t effector memory cd4,healthy,sequencing,territory | islands,0.20377,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652291,sorted t effector memory cd4,healthy,sequencing,territory | domains,1.08678,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652292,sorted t effector memory cd4,healthy,sequencing,territory | islands,0.20742,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652292,sorted t effector memory cd4,healthy,sequencing,territory | domains,1.1681,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652293,sorted t effector memory cd4,healthy,sequencing,territory | islands,0.21713,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652293,sorted t effector memory cd4,healthy,sequencing,territory | domains,1.16781,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652295,sorted effector memory cd8 t cells,healthy,sequencing,territory | islands,0.24442,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652295,sorted effector memory cd8 t cells,healthy,sequencing,territory | domains,1.14614,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652296,sorted naive cd4 t cells,healthy,sequencing,territory | islands,0.1819,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652296,sorted naive cd4 t cells,healthy,sequencing,territory | domains,0.57884,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652298,sorted naive cd8 t cells,healthy,sequencing,territory | islands,0.1894,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652298,sorted naive cd8 t cells,healthy,sequencing,territory | domains,0.52697,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652299,sorted nk cells,healthy,sequencing,territory | islands,0.25157,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652299,sorted nk cells,healthy,sequencing,territory | domains,0.79512,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652300,sorted nk cells,healthy,sequencing,territory | islands,0.24276,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652300,sorted nk cells,healthy,sequencing,territory | domains,1.02141,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652301,sorted nk cells,healthy,sequencing,territory | islands,0.22279,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652301,sorted nk cells,healthy,sequencing,territory | domains,0.72906,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652302,sorted monocytes,healthy,sequencing,territory | islands,0.14691,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652302,sorted monocytes,healthy,sequencing,territory | domains,0.77738,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652303,sorted monocytes,healthy,sequencing,territory | islands,0.15765,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652303,sorted monocytes,healthy,sequencing,territory | domains,0.74626,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652304,sorted monocytes,healthy,sequencing,territory | islands,0.21065,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652304,sorted monocytes,healthy,sequencing,territory | domains,0.76359,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652305,sorted colon macrophages,healthy,sequencing,territory | islands,0.22208,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652305,sorted colon macrophages,healthy,sequencing,territory | domains,1.08875,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652306,sorted colon macrophages,healthy,sequencing,territory | islands,0.1915,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652306,sorted colon macrophages,healthy,sequencing,territory | domains,0.90782,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652308,sorted lung alveolar macrophages,healthy,sequencing,territory | islands,0.16637,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652308,sorted lung alveolar macrophages,healthy,sequencing,territory | domains,0.74272,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652309,sorted lung alveolar macrophages,healthy,sequencing,territory | islands,0.18115,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652309,sorted lung alveolar macrophages,healthy,sequencing,territory | domains,0.81642,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652310,sorted lung interstitial macrophages,healthy,sequencing,territory | islands,0.19032,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652310,sorted lung interstitial macrophages,healthy,sequencing,territory | domains,0.84574,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652311,sorted lung interstitial macrophages,healthy,sequencing,territory | islands,0.19274,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652311,sorted lung interstitial macrophages,healthy,sequencing,territory | domains,0.77831,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652312,sorted lung interstitial macrophages,healthy,sequencing,territory | islands,0.16713,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652312,sorted lung interstitial macrophages,healthy,sequencing,territory | domains,0.72811,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652316,sorted b cells,healthy,sequencing,territory | islands,0.2077,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652316,sorted b cells,healthy,sequencing,territory | domains,0.93954,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652317,sorted b cells,healthy,sequencing,territory | islands,0.26325,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652317,sorted b cells,healthy,sequencing,territory | domains,0.80812,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652318,sorted b cells,healthy,sequencing,territory | islands,0.27731,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652318,sorted b cells,healthy,sequencing,territory | domains,0.76523,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652319,sorted memory b cells,healthy,sequencing,territory | islands,0.20001,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652319,sorted memory b cells,healthy,sequencing,territory | domains,1.02179,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652320,sorted memory b cells,healthy,sequencing,territory | islands,0.19697,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652320,sorted memory b cells,healthy,sequencing,territory | domains,1.07695,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652322,sorted tonsil palatine epithelium,healthy,sequencing,territory | islands,0.16902,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652322,sorted tonsil palatine epithelium,healthy,sequencing,territory | domains,1.23932,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652323,sorted tonsil palatine epithelium,healthy,sequencing,territory | islands,0.17092,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652323,sorted tonsil palatine epithelium,healthy,sequencing,territory | domains,1.20866,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652324,sorted tonsil palatine epithelium,healthy,sequencing,territory | islands,0.17315,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652324,sorted tonsil palatine epithelium,healthy,sequencing,territory | domains,1.15442,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652325,sorted tonsil pharyngeal epithelium,healthy,sequencing,territory | islands,0.16617,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652325,sorted tonsil pharyngeal epithelium,healthy,sequencing,territory | domains,1.25887,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652326,sorted tonsil pharyngeal epithelium,healthy,sequencing,territory | islands,0.16216,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652326,sorted tonsil pharyngeal epithelium,healthy,sequencing,territory | domains,1.1052,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652327,sorted tongue epithelium,healthy,sequencing,territory | islands,0.17247,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652327,sorted tongue epithelium,healthy,sequencing,territory | domains,1.01785,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652328,sorted tongue epithelium,healthy,sequencing,territory | islands,0.16991,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652328,sorted tongue epithelium,healthy,sequencing,territory | domains,1.05723,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652329,sorted tongue epithelium,healthy,sequencing,territory | islands,0.18135,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652329,sorted tongue epithelium,healthy,sequencing,territory | domains,1.03142,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652335,sorted lung bronchus epithelium,healthy,sequencing,territory | islands,0.16717,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652335,sorted lung bronchus epithelium,healthy,sequencing,territory | domains,1.02359,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652336,sorted lung bronchus epithelium,healthy,sequencing,territory | islands,0.17011,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652336,sorted lung bronchus epithelium,healthy,sequencing,territory | domains,1.10487,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652337,sorted lung bronchus epithelium,healthy,sequencing,territory | islands,0.18145,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652337,sorted lung bronchus epithelium,healthy,sequencing,territory | domains,1.03534,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652338,sorted prostate epithelium,healthy,sequencing,territory | islands,0.1775,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652338,sorted prostate epithelium,healthy,sequencing,territory | domains,0.96564,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652339,sorted prostate epithelium,healthy,sequencing,territory | islands,0.15787,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652339,sorted prostate epithelium,healthy,sequencing,territory | domains,1.0243,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652340,sorted prostate epithelium,healthy,sequencing,territory | islands,0.19309,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652340,sorted prostate epithelium,healthy,sequencing,territory | domains,0.95261,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652342,sorted bladder epithelium,healthy,sequencing,territory | islands,0.15793,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652342,sorted bladder epithelium,healthy,sequencing,territory | domains,1.02841,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652343,sorted bladder epithelium,healthy,sequencing,territory | islands,0.15492,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652343,sorted bladder epithelium,healthy,sequencing,territory | domains,1.00641,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652344,sorted bladder epithelium,healthy,sequencing,territory | islands,0.13905,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652344,sorted bladder epithelium,healthy,sequencing,territory | domains,0.99574,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652347,sorted breast luminal epithelium,healthy,sequencing,territory | islands,0.18481,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652347,sorted breast luminal epithelium,healthy,sequencing,territory | domains,0.84143,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652348,sorted breast luminal epithelium,healthy,sequencing,territory | islands,0.21556,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652348,sorted breast luminal epithelium,healthy,sequencing,territory | domains,0.89265,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652349,sorted breast luminal epithelium,healthy,sequencing,territory | islands,0.25921,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652349,sorted breast luminal epithelium,healthy,sequencing,territory | domains,0.89675,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652350,sorted breast basal epithelium,healthy,sequencing,territory | islands,0.2248,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652350,sorted breast basal epithelium,healthy,sequencing,territory | domains,0.7935,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652351,sorted breast basal epithelium,healthy,sequencing,territory | islands,0.22147,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652351,sorted breast basal epithelium,healthy,sequencing,territory | domains,0.85666,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652352,sorted breast basal epithelium,healthy,sequencing,territory | islands,0.21558,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652352,sorted breast basal epithelium,healthy,sequencing,territory | domains,0.83822,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652354,sorted lung alveolar epithelium,healthy,sequencing,territory | islands,0.24782,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652354,sorted lung alveolar epithelium,healthy,sequencing,territory | domains,1.03413,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652355,sorted lung alveolar epithelium,healthy,sequencing,territory | islands,0.23835,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652355,sorted lung alveolar epithelium,healthy,sequencing,territory | domains,1.00726,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652356,sorted lung alveolar epithelium,healthy,sequencing,territory | islands,0.25799,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652356,sorted lung alveolar epithelium,healthy,sequencing,territory | domains,1.01238,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652359,sorted gastric fundus epithelium,healthy,sequencing,territory | islands,0.16237,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652359,sorted gastric fundus epithelium,healthy,sequencing,territory | domains,1.1099,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652360,sorted gastric fundus epithelium,healthy,sequencing,territory | islands,0.16204,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652360,sorted gastric fundus epithelium,healthy,sequencing,territory | domains,1.15373,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652361,sorted gastric fundus epithelium,healthy,sequencing,territory | islands,0.17647,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652361,sorted gastric fundus epithelium,healthy,sequencing,territory | domains,1.01294,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652362,sorted gastric body epithelium,healthy,sequencing,territory | islands,0.16547,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652362,sorted gastric body epithelium,healthy,sequencing,territory | domains,1.09248,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652363,sorted gastric body epithelium,healthy,sequencing,territory | islands,0.14646,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652363,sorted gastric body epithelium,healthy,sequencing,territory | domains,1.09171,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652364,sorted gastric body epithelium,healthy,sequencing,territory | islands,0.17572,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652364,sorted gastric body epithelium,healthy,sequencing,territory | domains,0.99486,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652365,sorted gastric antrum epithelium,healthy,sequencing,territory | islands,0.16453,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652365,sorted gastric antrum epithelium,healthy,sequencing,territory | domains,1.10101,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652366,sorted gastric antrum epithelium,healthy,sequencing,territory | islands,0.15356,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652366,sorted gastric antrum epithelium,healthy,sequencing,territory | domains,1.0441,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652367,sorted gastric antrum epithelium,healthy,sequencing,territory | islands,0.16935,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652367,sorted gastric antrum epithelium,healthy,sequencing,territory | domains,0.99933,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652370,sorted colon epithelium,healthy,sequencing,territory | islands,0.16096,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652370,sorted colon epithelium,healthy,sequencing,territory | domains,0.91317,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652371,sorted colon epithelium,healthy,sequencing,territory | islands,0.24231,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652371,sorted colon epithelium,healthy,sequencing,territory | domains,0.98201,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652372,sorted colon enteroendocrine,healthy,sequencing,territory | islands,0.18853,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652372,sorted colon enteroendocrine,healthy,sequencing,territory | domains,0.92006,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652373,sorted colon epithelium,healthy,sequencing,territory | islands,0.23826,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652373,sorted colon epithelium,healthy,sequencing,territory | domains,0.83276,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652375,sorted colon enteroendocrine,healthy,sequencing,territory | islands,0.17487,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652375,sorted colon enteroendocrine,healthy,sequencing,territory | domains,0.89032,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652379,sorted small intestine epithelium,healthy,sequencing,territory | islands,0.18212,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652379,sorted small intestine epithelium,healthy,sequencing,territory | domains,0.93665,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652380,sorted small intestine epithelium,healthy,sequencing,territory | islands,0.22721,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652380,sorted small intestine epithelium,healthy,sequencing,territory | domains,0.92928,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652381,sorted small intestine epithelium,healthy,sequencing,territory | islands,0.23404,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,ATLAS-SEQ-HEALTHY,GSM5652381,sorted small intestine epithelium,healthy,sequencing,territory | domains,0.96311,development,Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md,,,,,1dcb6df
+Territories,BT-SEQ,GSM3963003,sorted b cells,healthy,sequencing,territory | islands,3.31521,development,Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,,,,,0a01f6d
+Territories,BT-SEQ,GSM3963003,sorted b cells,healthy,sequencing,territory | domains,0.86409,development,Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,,,,,0a01f6d
+Territories,BT-SEQ,GSM3963005,sorted memory b cells,healthy,sequencing,territory | islands,1.08282,development,Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,,,,,0a01f6d
+Territories,BT-SEQ,GSM3963005,sorted memory b cells,healthy,sequencing,territory | domains,0.81892,development,Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,,,,,0a01f6d
+Territories,BT-SEQ,GSM3963006,sorted memory b cells,healthy,sequencing,territory | islands,1.07978,development,Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,,,,,0a01f6d
+Territories,BT-SEQ,GSM3963006,sorted memory b cells,healthy,sequencing,territory | domains,0.76823,development,Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,,,,,0a01f6d
