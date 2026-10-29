@@ -2395,24 +2395,6 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 170,
-"pattern": "reference line",
-"use": "the baseline (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- **40.11** [open] Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads. Synth"
-},
-{
-"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 170,
-"pattern": "self-reference line",
-"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- **40.11** [open] Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads. Synth"
-},
-{
-"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
 "line": 172,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
@@ -2671,24 +2653,6 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "- **41.1** (step 48, 2026-10-23) [open] IAM-A's C-Score, version 2: the held error of each 1,000-CpG region predicted from that region's OWN loose share by the "
-},
-{
-"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 300,
-"pattern": "reference line",
-"use": "the baseline (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- **40.11** (step 46, 2026-10-22) [open] Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivi"
-},
-{
-"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 300,
-"pattern": "self-reference line",
-"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
-"severity": "warn",
-"status": "LIVE",
-"text": "- **40.11** (step 46, 2026-10-22) [open] Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivi"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",

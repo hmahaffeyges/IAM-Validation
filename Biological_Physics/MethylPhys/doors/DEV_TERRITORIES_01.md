@@ -75,3 +75,10 @@ shares; the atlas is on the array scale, whose unmarked sites sit near 0.055 whe
 sample's islands far below 1 (DEV-METAA-ATLAS-CURVE-01, the shift's cause). On sequencing the mixed expectation is now put in sequencing
 units by the atlas's own measured conversion (`stage_metaa_atlas.seq_units`), as Met-A's is; arrays are unchanged. Healthy sorted B and T
 cells from two new laboratories are read and reported on it in the sequencing commissioning test (not scored there).
+
+**The territories' healthy band on sequencing (written and committed before any reading on the amended chain).** **The instrument's job:**
+a healthy cell reads near 1 on each territory. **Data:** IAM-Atlas v2.1's 153 healthy sequencing inputs (spent, atlas inputs;
+`DEV_ALL_INFO_01/coupling_02/healthy_seq.csv`), each read again by the one command (`geo_pat.yml`, its sorted cell as the specimen) on the
+chain that reads the territories in sequencing units. **Built** by `seq_band_01/terr_seq_band.py`: for the islands and the domains, the 2.5th
+to 97.5th percentile of the healthy readings and the median; **bar:** the median healthy reading within 0.05 of 1 on each. **Then:** the
+healthy B and T cells of the sequencing commissioning test (DEV-METAA-ATLAS-CURVE-01) read against these bands.
