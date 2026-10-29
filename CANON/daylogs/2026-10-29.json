@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-29",
+ "title": "The leukemia study's depth settled",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "The leukemia study first, then the firm rate, then Met-A with the atlas as the ruler, then megakaryocytes and plasma, then replays if machines are free (author's order).",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The leukemia study re-read as sorted B cells",
+     "status": "development",
+     "what": "All 36 samples read again from their saved pieces as sorted B cells, the column the atlas, IAM-A and the coupling all hold.",
+     "outcome": "Re-sent after the first re-reads used a name IAM-A holds no reference for; the first re-sent samples read on every instrument.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    }
+   ]
+  }
+ ],
+ "open_at_turnover": "Running on GitHub's machines: the firm-rate recount's last sample.",
+ "closing": "",
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ }
+}
