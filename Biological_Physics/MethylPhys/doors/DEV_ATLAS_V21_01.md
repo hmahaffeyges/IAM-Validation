@@ -485,7 +485,7 @@ in half A, donor 2 in half B), stored beside the 56 cells. **Its test on donor 3
 
 **The GRCh38 round trip, read: met** (`seq_atlas/seq_lift_synthetic.txt`; one Google spot machine, the hg19 dictionary taken from the
 committed index release with its stream checksum verified, 28,217,448 CpGs). Of the known answer's 27,446,949 CpGs with reads (93,566 did
-not move to GRCh38 once and were left out of the construction), 99.59 % came back (bar at least 95 %), 99.957 % of those with exactly the
-original counts (bar at least 99 %), and 0.024 % of the CpGs with reads afterwards had none before (bar at most 0.1 %), with 30 % of sites
+not move to GRCh38 once and were left out of the construction), a share of 0.9959 came back (bar at least 0.95), 0.99957 of those with exactly the
+original counts (bar at least 0.99), and 0.00024 of the CpGs with reads afterwards had none before (bar at most 0.001), with 30 % of sites
 written on the reverse strand. **Donor 1 converted** (`seq_atlas/mk_donor1_lift.json`): 33 megakaryocytes, 23,871,358 GRCh38 positions,
 23,484,305 moved to hg19, 23,453,776 landed on an hg19 CpG, 23,428,509 hg19 CpGs with reads.
