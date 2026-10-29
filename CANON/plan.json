@@ -185,9 +185,9 @@
     {
      "id": "49.5",
      "date": "2026-10-24",
-     "status": "open",
+     "status": "running",
      "what": "What we learned from the study, each added only after its own synthetic test through the one command, with a Decoder entry: nearest-neighbor coupling (whether held errors cluster along a molecule); a physics-derived sensitivity (how fast a site's disorder moves when its mark is held slightly less well, analytic, nothing fitted) as a globe layer and a sphere layer; the ceiling turnover read on real molecules (the knockout's heterochromatic domains)",
-     "next": "gauge built (stage_coupling, synthetic met); the healthy reference from the atlas's 153 sequencing inputs is running (coupling_02); when it lands it goes into Runtime Matrices/Coupling and every report draws coupling-A; then a second laboratory and a sealed test"
+     "next": "coupling-A on the gauge (stage_coupling, synthetic met); healthy reference built from the atlas's 153 sequencing inputs, Normal 0.935 to 1.062, in the chain and every sequencing report; commissioning: healthy B and T cells from two new laboratories (bar 2 of the sequencing commissioning test, queued)"
     },
     {
      "id": "49.6",
@@ -766,9 +766,9 @@
     {
      "id": "14.15",
      "date": "2026-10-25",
-     "status": "open",
+     "status": "running",
      "what": "Commission Met-A with the atlas as the ruler on B cells first (the leukemia study's cells), then CD4 and CD8 T cells, on sequencing and on arrays, for the Johns Hopkins package (author: 'the opera singers of IAM'); each test written before any data is read, on data the atlas does not hold",
-     "next": "the sequencing-array shift at the B and T identity sites: the atlas's 17 sequencing inputs read by the one command (geo_pat.yml) against their own columns, beside the arrays; written before reading; then the B-cell confirmation"
+     "next": "on sequencing: commissioning test written before reading, 4 healthy B cells (GSE134664) and 8 healthy CD8 T cells (GSE98837), Met-A, coupling-A and IAM-A each at least 9 of 12 Normal, queued B cells first; on arrays: the confirmation arrays stay unread until the array side is written"
     },
     {
      "id": "14.16",
@@ -791,7 +791,7 @@
      "status": "open",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
      "what": "IAM-A at the line's naive end: healthy naive cells (low loose share) hold less error than the self-reference line predicts, so they read near the Normal band's lower edge (cord-blood B cells 0.769 to 0.794; healthy naive CD4 in the line's own build about the same). Read healthy naive B, CD4 and CD8 from the atlas's sequencing sources against the line, synthetic first; the leukemia study's 36 re-read from saved molecules with the cell type given.",
-     "next": "synthetic first through the one command; then the spent healthy naive cells of GSE186458"
+     "next": "read in the sequencing commissioning test (bar 3, IAM-A on healthy naive B and CD8 cells); IAM-A per cell type: one cell type spans about 0.04, cell types 0.74 to 1.06, so a per-cell band is the next version, with its own sealed test"
     }
    ]
   },
@@ -1721,9 +1721,9 @@
     {
      "id": "40.11",
      "date": "2026-10-22",
-     "status": "open",
+     "status": "running",
      "what": "Met-A on sequencing: the chemistry offset (0.757 at full depth against the array-built atlas) and the loss of sensitivity at few reads. Synthetic test cfDNA 1: mixing doubles the tile loose share with the held error unchanged; short molecules lower the held error through the qualifying rule; both pull IAM-A down; neither involves the atlas. Synthetic test cfDNA 2: the molecule-level shares stay flat under mixing (within 3 %) while the tile share rises by a third",
-     "next": "a self-reference line on the molecule-level share, built on the purified healthy cells counted again with the new fields; then the 30 plasmas against it; the length correction separately",
+     "next": "cause found: the atlas's array scale holds unmarked sites near 0.055 where sequencing reads 0; every atlas comparison on sequencing now in sequencing units by the atlas's own measured conversion (seq_units; synthetic met, run 3); Met-A's sequencing band from the atlas's 153 sequencing inputs is being read; then the B and T commissioning test",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/seq_plant_06.py"
     },
     {
