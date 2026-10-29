@@ -269,4 +269,4 @@ spending unseen data). From here every replay runs `run_sample.py --full-chain` 
 to the input runs beside the commissioned ones, each flagged, and the bundle records under `full_chain` which ran and, for any that cannot
 run, why. On one spent EPIC blood (GSE235717 GSM7508429) it ran direction, trace, foreign, brightness, the ruler, the territories and the
 information sphere, with Met-A unchanged (0.9845); NILC, atlas-e, per-cell B and the sky reading were recorded as not run (they need IAM-Atlas
-v2's parquet, not in the repository; to be moved onto v2.1, plan 35.30.9). R1 to R9 are read again with it.
+v2's parquet, not in the repository; to be moved onto v2.1, the full-chain plan branch). R1 to R9 are read again with it.
