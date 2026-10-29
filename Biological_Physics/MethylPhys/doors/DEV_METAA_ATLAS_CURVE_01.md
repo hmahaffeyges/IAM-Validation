@@ -263,6 +263,15 @@ its identity sites, extracted by the one command (`--build seq-metaa-ref`) from 
 to 60 reads): 1. median Met-A within 0.05 of 1; 2. |Spearman rho| with depth at most 0.2.
 
 **Then the healthy test** (spent data, the atlas's own 153 inputs): each read by the one command against the *other* sealed donor half of
-its own cell, so no sample is read against its own reads (cells with one donor are not read and are listed). The same bars the v2.1 versions
+its own cell, so no sample is read against its own reads: 137 samples of 48 cells (`seq_atlas_01/metaa_seqatlas_healthy.csv`, each with its
+flags in the list; read by geo_pat.yml through the pipeline's per-sample flags column). Not read, one sealed half only: adipocytes, colon
+macrophages, effector memory CD8 T cells, hepatocyte, kidney glomerular epithelium, naive CD4 T cells, naive CD8 T cells, pancreatic duct. The same bars the v2.1 versions
 missed: 1. the median healthy Met-A within 0.05 of 1; 2. |Spearman rho| between Met-A and the sample's depth at most 0.2. **Then** healthy
 sequenced B and T cells the atlas does not hold (the B and T commissioning samples), read against the whole column.
+
+**Met-A against the IAM Sequencing Atlas, synthetic: met** (`seq_atlas_01/metaa_seqatlas_synthetic.txt`): 21 of 21 constructed healthy samples
+read, median Met-A 1.0012, Spearman rho with depth -0.098; flat from 5 reads (0.9996) to 60 (1.0010). **The reference, built** by the one
+command on one spot machine (`chain/Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, report `metaa_seq_reference_v1.json`): 56 cells,
+320,633 identity-site rows, every identity site of every cell present (3,679 to 6,000 per cell, as Met-A's site rule gives), no blank level;
+the provisional megakaryocyte column has no Met-A sites (not a cell of IAM-Atlas v2.1) and is skipped. The unmarked identity sites' median
+healthy level on sequencing is 0.0: where an array reads its floor, sequencing reads none.

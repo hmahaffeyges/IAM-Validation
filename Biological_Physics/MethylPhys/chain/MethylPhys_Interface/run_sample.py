@@ -500,7 +500,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "

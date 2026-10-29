@@ -9,3 +9,5 @@ bt_seq_01/bt_seq_samples.csv
 bt_seq_samples.csv
 thin_summary.txt
 thin_readings.csv
+metaa_seqatlas_healthy.csv
+metaa_seq_reference_v1.json

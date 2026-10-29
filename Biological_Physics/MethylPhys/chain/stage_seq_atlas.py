@@ -125,9 +125,12 @@ def metaa_reference(piece_dirs, out):
     K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe")["loyfer_cpg_index"]
     F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
     cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")})
-    want = {}
+    want = {}; skipped = []
     for c in cells:
-        S = [s for s in SA.identity_sites(c) if s in K.index]; want[c] = pd.Series(K.reindex(S).to_numpy(np.int64), index=S)
+        try: S = [s for s in SA.identity_sites(c) if s in K.index]
+        except KeyError: skipped.append(c); continue   # not a cell of IAM-Atlas v2.1 (the provisional megakaryocyte column): no Met-A sites
+        want[c] = pd.Series(K.reindex(S).to_numpy(np.int64), index=S)
+    cells = [c for c in cells if c in want]
     allc = np.unique(np.concatenate([v.to_numpy() for v in want.values()])); parts = []
     for f in F:
         sch = pq.read_schema(f).names; here = [c for c in cells if f"{c}|level" in sch]
@@ -140,7 +143,7 @@ def metaa_reference(piece_dirs, out):
             X = T.loc[w.to_numpy(), [f"{c}|{x}" for x in METAA_COLS if f"{c}|{x}" in T.columns]]; X.columns = [x.rsplit("|", 1)[1] for x in X.columns]
             X.insert(0, "probe", w.index.to_numpy()); X.insert(0, "cell", c); parts.append(X.reset_index())
     R = pd.concat(parts, ignore_index=True).sort_values(["cell", "probe"]); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); R.to_parquet(out, index=False)
-    return dict(cells=len(cells), rows=int(len(R)), per_cell=R.groupby("cell").size().astype(int).to_dict(), output=os.path.basename(out))
+    return dict(cells=len(cells), rows=int(len(R)), per_cell=R.groupby("cell").size().astype(int).to_dict(), skipped_not_in_v21=skipped, output=os.path.basename(out))
 
 def metaa_reference_of(cell, path=METAA_REF):
     """One cell's rows of the Met-A sequencing reference, indexed by probe, levels as 0 to 1 (NaN where blank); None when the file or cell is absent."""
