@@ -263,3 +263,10 @@ Nothing is scored against a bar; reported as read. EPIC v1 whole blood is the co
 40721125871). Across ages 18 to 62, Met-A for the whole sample (rho +0.179, p 0.26), for each of the five blood cells (p 0.42 to 0.84), the
 two territories (p 0.33, 0.34) and the cell shares (p 0.13, 0.67) do not move with age in these 42 people. The one reading that does is the
 single site cg05575921 (rho -0.443, p 0.0033). Reported as read; nothing is scored against a bar.
+
+**The full chain on every replay** (author: the replays show the entire chain at work, commissioned or not, and test every link without
+spending unseen data). From here every replay runs `run_sample.py --full-chain` (series.yml's default): every development reading that applies
+to the input runs beside the commissioned ones, each flagged, and the bundle records under `full_chain` which ran and, for any that cannot
+run, why. On one spent EPIC blood (GSE235717 GSM7508429) it ran direction, trace, foreign, brightness, the ruler, the territories and the
+information sphere, with Met-A unchanged (0.9845); NILC, atlas-e, per-cell B and the sky reading were recorded as not run (they need IAM-Atlas
+v2's parquet, not in the repository; to be moved onto v2.1, plan 35.30.9). R1 to R9 are read again with it.

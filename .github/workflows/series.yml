@@ -12,7 +12,7 @@ on:
       plant:    {description: "metaa_atlas or none", required: true, default: "none"}
       scorer:   {description: "optional script run on rows.csv (repo path), or none", required: true, default: "none"}
       nshards:  {description: "machines per pass (10 or 20)", required: true, default: "10"}
-      rsflags:  {description: "extra run_sample.py flags for every reading (e.g. --cell-panel atlas), or none", required: true, default: "none"}
+      rsflags:  {description: "extra run_sample.py flags for every reading (default --full-chain: every development reading, flagged; 2026-10-29)", required: true, default: "--full-chain"}
       pass1from: {description: "none (both passes here), only (pass 1 only), or comma-separated run ids whose pass-1 bundles pass 2 reads", required: true, default: "none"}
 permissions: {contents: read, issues: write, actions: read}
 env:

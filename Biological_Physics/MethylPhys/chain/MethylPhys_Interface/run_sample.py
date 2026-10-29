@@ -515,9 +515,26 @@ def main():
                          "written under bundle['development']['metaa_atlas'], not part of the reading")
     ap.add_argument("--metaa-atlas-ref-A", default=None, help="with --dev-metaa-atlas: comma-separated development.metaa_atlas.A of >= 3 healthy samples of the same "
                     "cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare)")
+    ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
+                    "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
+    a._full_chain = None
+    if a.full_chain:   # 2026-10-29 (author): every development reading that applies to the input is run beside the commissioned ones, each flagged;
+        # a reading that cannot run here is recorded with its reason (bundle["full_chain"]), never left out silently
+        on, skip = [], {}
+        for f in ("direction", "trace", "foreign", "brightness"): setattr(a, "dev_" + f, True); on.append(f)
+        for f in ("nilc", "atlas_e", "percell_b", "sky"):
+            if a.atlas_v2: setattr(a, "dev_" + f, True); on.append(f)
+            else: skip[f] = "needs IAM-Atlas v2's parquet (--atlas-v2), which is not in the repository; v2 is superseded by v2.1 (to be moved onto it)"
+        a.dev_ruler = True; on.append("ruler")
+        a.dev_territories = a.dev_info_sphere = True; on += ["territories", "info_sphere"]
+        if not a.dev_provisional: a.dev_provisional = "megakaryocytes"
+        on.append("provisional megakaryocytes" + ("" if (a.cell_panel or "blood") != "blood" else " (runs with --cell-panel atlas; not with the six-cell blood panel)"))
+        if a.pat: a.dev_genome_globe = True; on.append("genome_globe")
+        if not a.sesame_rscript: skip["epic_v2"] = "EPIC v2 arrays only; needs --sesame-rscript"
+        a._full_chain = dict(on=on, not_run=skip)
     if a.dev_tiles != "table":   # 2026-10-25 (plan 14.9, development)
         import stage_q2_selfref as _Q2tile; _Q2tile.TILE_SOURCE = a.dev_tiles
     if a.geo_pat or a.prior_geo_pat:   # 2026-10-22 (lesson C34): the chain fetches sequencing files from GEO itself, always on the build it reads
@@ -1141,6 +1158,7 @@ def main():
     m = o.get("met_a") or {}; t = o.get("tare") or {}; q_ = o.get("iam_a") or {}
     print(f"\n{sid}: Met-A (neutrophils) {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
           f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
+    if a._full_chain: o["full_chain"] = a._full_chain
     if not a.no_bundle:
         bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
         _json.dump(o, open(bundle_path, "w"), default=str)

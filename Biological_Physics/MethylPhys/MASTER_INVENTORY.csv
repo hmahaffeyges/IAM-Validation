@@ -240,7 +240,7 @@ GSE230850,,,,,spent,,,,not usable (not purified (PBMC)),,yes,IDAT listed for 189
 GSE231417,,,,,spent,,,,not usable (same group as the atlas (Salas/Koestler/Christensen/Kelsey/Wiencke); gMDSC),,no,IDAT listed for 14/14 samples,A core of differentially methylated CpG loci in gMDSCs isolated from neonatal and adult sources,gold-mine map
 GSE234520,,,,,,,,DEV_IAMA_NEURON_01,atlas build,cortical neurons | oligodendrocytes | microglia,yes,IDAT listed for 112/112 samples,Quantifying the neuronal and glial composition of the brain using DNA methylation profiles,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE235414,,,,,,,,DEV_FINGERPRINT_03,,,,,Genome-wide DNA methylation analysis of driver gene-negative and EGFR-mutation lung adenocarcinoma and ajacent normal tissue,candidates DEV_FINGERPRINT_03
-GSE235717,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_CSCORE_LIMIT_01; DEV_EACH_CELL_01; DEV_GROUPA_COMMISSION_01; DEV_METAA_HEALTHY_01; DEV_TERRITORIES_01; PROC_STAGE0_04_PREREG,,,,,,
+GSE235717,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_CSCORE_LIMIT_01; DEV_EACH_CELL_01; DEV_GROUPA_COMMISSION_01; DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; DEV_TERRITORIES_01; PROC_STA,,,,,,
 GSE236026,,,,,,,,DEV_ERASE_01; DEV_HORIZON_01,,,,,,
 GSE236026 HCT116 UHRF1-AID and DNMT1-AID degron WGBS (replicate 1 days 0 2 4),,,,,spent (development),,,,,,,,,
 GSE237299,downloads/A_blood_immune/GSE237299/,39.61,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register

@@ -1465,6 +1465,13 @@
       "blood drawn before diagnosis against people who stayed healthy (stored-blood cohorts; mostly controlled access, part of the Johns Hopkins outreach)"
      ],
      "next": "the sequencing atlas's tissue references first (liver, pancreas, colon, lung, vessel lining, blood cells)"
+    },
+    {
+     "id": "35.30.9",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "what": "The full chain on every replay (author): run_sample.py --full-chain runs every development reading that applies, beside the commissioned ones, each flagged, and records any reading that cannot run with its reason; series.yml uses it by default. The four readings built on IAM-Atlas v2 (NILC, atlas-e, per-cell B, the sky reading) need v2's parquet, which is not in the repository; they are to be moved onto v2.1 so they run everywhere. Replays R1 to R9 are read again with the full chain."
     }
    ]
   },
