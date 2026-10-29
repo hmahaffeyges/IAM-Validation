@@ -7,12 +7,12 @@ BT,GSE98837,GSM2616072,healthy,hg19,647759_HuTN,SRR5532836,140000000,naive cd8 t
 BT,GSE98837,GSM2616073,healthy,hg19,647760_HuTEM,SRR5532837,140000000,effector memory cd8 t cells,sorted effector memory cd8 t cells,356651425
 BT,GSE98837,GSM2616074,healthy,hg19,647761_HuTCM,SRR5532838,140000000,cd8 t cells,sorted cd8 t cells,312285257
 BT,GSE98837,GSM2616075,healthy,hg19,647762_HuTSCM,SRR5532839,140000000,cd8 t cells,sorted cd8 t cells,457052777
-BT,GSE134664,GSM3963003,healthy,hg19,Control_NBC_1,SRR9730300,47700227,naive b cells,sorted naive b cells,177671316
-BT,GSE134664,GSM3963003,healthy,hg19,Control_NBC_1,SRR9730301,47699310,naive b cells,sorted naive b cells,177671316
-BT,GSE134664,GSM3963003,healthy,hg19,Control_NBC_1,SRR9730302,44600463,naive b cells,sorted naive b cells,177671316
-BT,GSE134664,GSM3963004,healthy,hg19,Control_NBC_2,SRR9730304,48284924,naive b cells,sorted naive b cells,191122887
-BT,GSE134664,GSM3963004,healthy,hg19,Control_NBC_2,SRR9730305,59345643,naive b cells,sorted naive b cells,191122887
-BT,GSE134664,GSM3963004,healthy,hg19,Control_NBC_2,SRR9730306,32369433,naive b cells,sorted naive b cells,191122887
+BT,GSE134664,GSM3963003,healthy,hg19,Control_NBC_1,SRR9730300,47700227,b cells,sorted b cells,177671316
+BT,GSE134664,GSM3963003,healthy,hg19,Control_NBC_1,SRR9730301,47699310,b cells,sorted b cells,177671316
+BT,GSE134664,GSM3963003,healthy,hg19,Control_NBC_1,SRR9730302,44600463,b cells,sorted b cells,177671316
+BT,GSE134664,GSM3963004,healthy,hg19,Control_NBC_2,SRR9730304,48284924,b cells,sorted b cells,191122887
+BT,GSE134664,GSM3963004,healthy,hg19,Control_NBC_2,SRR9730305,59345643,b cells,sorted b cells,191122887
+BT,GSE134664,GSM3963004,healthy,hg19,Control_NBC_2,SRR9730306,32369433,b cells,sorted b cells,191122887
 BT,GSE134664,GSM3963005,healthy,hg19,Control_ncsMBC_1,SRR9730308,41732874,memory b cells,sorted memory b cells,184938039
 BT,GSE134664,GSM3963005,healthy,hg19,Control_ncsMBC_1,SRR9730309,50819659,memory b cells,sorted memory b cells,184938039
 BT,GSE134664,GSM3963005,healthy,hg19,Control_ncsMBC_1,SRR9730310,42482362,memory b cells,sorted memory b cells,184938039

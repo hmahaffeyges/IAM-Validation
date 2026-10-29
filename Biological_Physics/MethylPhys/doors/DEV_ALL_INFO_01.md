@@ -221,3 +221,8 @@ comparable. The chain now reads a sequenced sample against the atlas in sequenci
 Every reading is flagged in development: none of these instruments is yet commissioned on sequenced B cells (that test is queued). The
 table (`full_depth/hopkins_reread_table.py`) copies each value from its bundle, beside the earlier reading's held-error chances: the same
 molecules must give the same count, which checks that the merge took the same pieces.
+
+**Re-read reference amended (after the first of 36 re-reads, before the rest started; disclosed).** The first re-read (GSM4914781) was
+refused by IAM-A at intake: IAM-A and the coupling take their healthy references from the published sequencing atlas, whose blood B cells
+are one type, "b cells" (mostly naive), with no naive B-cell type. IAM-Atlas v2.1 also holds "b cells". The re-reads now use the specimen
+"sorted b cells", one column that every instrument holds; GSM4914781 is read again on it. Nothing else changes.

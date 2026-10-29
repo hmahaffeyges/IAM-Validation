@@ -180,3 +180,7 @@ the atlas's 153 healthy sequencing inputs before these are read); 2, coupling-A,
 band v1 (GSE98837's laboratory is IAM-A's CD8 test laboratory, so its CD8 cells are not new to IAM-A; the B cells are). Read and reported,
 not scored: the territories, the Deconvolver's largest share, the C-Score and depth. Each instrument that meets its bar is commissioned on
 healthy sorted B and T cells on whole-genome bisulfite sequencing.
+
+**Amended before any sample was read (disclosed).** IAM-A and the coupling hold no healthy reference for naive B cells (their references
+come from the published sequencing atlas, whose blood B cells are one type, "b cells"), so the two healthy naive B cells of GSE134664 are
+read as "sorted b cells", a column IAM-Atlas v2.1, IAM-A and the coupling all hold. Bars unchanged.
