@@ -1,9 +1,9 @@
 {
  "date": "2026-10-29",
- "title": "The leukemia study's depth settled",
+ "title": "B and T cells on sequencing",
  "_convention": "see 2026-10-13.json",
  "check_completeness": false,
- "set_out": "The leukemia study first, then the firm rate, then Met-A with the atlas as the ruler, then megakaryocytes and plasma, then replays if machines are free (author's order).",
+ "set_out": "Commission Met-A, the coupling and IAM-A on sequenced B and T cells against IAM-Atlas v2.1; build the territories' and Met-A's healthy bands on sequencing; re-read the leukemia study as sorted B cells.",
  "sections": [
   {
    "kind": "ran",
@@ -22,7 +22,7 @@
    ]
   }
  ],
- "open_at_turnover": "Running on GitHub's machines: the firm-rate recount's last sample.",
+ "open_at_turnover": "Running on GitHub's machines: the B and T commissioning samples and the study's re-reads.",
  "closing": "",
  "off_page_rows": [],
  "compute": {
