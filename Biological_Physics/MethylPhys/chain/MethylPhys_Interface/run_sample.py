@@ -910,6 +910,9 @@ def main():
                                                       {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}, counts=getattr(a, "_seqc", None))
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
+                import stage_0_intake as _S0i   # 2026-10-28 (DEV-TERRITORIES-01): a declared sorted cell is read against its own atlas column, not the panel's nearest
+                _sc = _S0i.atlas_cell_of(str(a.specimen)) if str(a.specimen).split(" ")[0].lower() in ("sorted", "isolated", "purified") else None
+                if _sc: _shr = {_sc: 1.0}; o["whole_sample_reference"] = f"the declared sorted cell's own atlas column ({_sc})"
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
                 try: o["cscore_each_cell"] = SA.cscore_limits(SA.cscore_in_mix(_vals, _shr, a._cell_dep), o.get("array_type"))   # 2026-10-23 (41.2, 41.3); 2026-10-27: each reading's healthy limit
                 except Exception as e: o["cscore_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}

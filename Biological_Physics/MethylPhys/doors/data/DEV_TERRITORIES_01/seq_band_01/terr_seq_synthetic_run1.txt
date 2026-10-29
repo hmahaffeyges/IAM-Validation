@@ -1,0 +1,3 @@
+naive b cells: healthy islands 3.00199, domains 0.89911 | island gain on 20084 sites: islands 37.50752
+cd8 t cells: healthy islands 0.99328, domains 1.00009 | island gain on 20084 sites: islands 31.1945
+synthetic (both bars, two cells): not met [False, True, True, True]

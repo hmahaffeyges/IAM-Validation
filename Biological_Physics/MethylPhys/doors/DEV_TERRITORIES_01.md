@@ -79,6 +79,13 @@ cells from two new laboratories are read and reported on it in the sequencing co
 **The territories' healthy band on sequencing (written and committed before any reading on the amended chain).** **The instrument's job:**
 a healthy cell reads near 1 on each territory. **Data:** IAM-Atlas v2.1's 153 healthy sequencing inputs (spent, atlas inputs;
 `DEV_ALL_INFO_01/coupling_02/healthy_seq.csv`), each read again by the one command (`geo_pat.yml`, its sorted cell as the specimen) on the
-chain that reads the territories in sequencing units. **Built** by `seq_band_01/terr_seq_band.py`: for the islands and the domains, the 2.5th
+chain that reads the territories in sequencing units. **Prior reading:** the 153 atlas sequencing inputs were read earlier the same day on the previous rule (the coupling reference, Met-A's sequencing band); their territory readings on the previous rule are not used here.
+**Synthetic test:** DEV_TERRITORIES_01/seq_band_01/terr_seq_synthetic.py, DEV_TERRITORIES_01/seq_band_01/terr_seq_synthetic.txt
+**Run 1 not met as written** (`seq_band_01/terr_seq_synthetic_run1.txt`): the healthy naive B cell plant read islands 3.00 (CD8 T cells 0.99).
+The cause was in the one command, not the territories: for a sorted cell the whole-sample readings (Met-A whole sample, the territories,
+the C-Score) were mixed from the six-cell blood panel's shares, so a naive B cell was compared with the panel's B-cell column, whose island
+levels differ. A declared sorted cell (specimen "sorted ...") is now read against its own atlas column (`run_sample.py`, the bundle says so
+in `whole_sample_reference`); mixed specimens are unchanged. **Run 2** (no bar changed): met, healthy plants 0.99 to 1.01 on both territories.
+**Built** by `seq_band_01/terr_seq_band.py`: for the islands and the domains, the 2.5th
 to 97.5th percentile of the healthy readings and the median; **bar:** the median healthy reading within 0.05 of 1 on each. **Then:** the
 healthy B and T cells of the sequencing commissioning test (DEV-METAA-ATLAS-CURVE-01) read against these bands.
