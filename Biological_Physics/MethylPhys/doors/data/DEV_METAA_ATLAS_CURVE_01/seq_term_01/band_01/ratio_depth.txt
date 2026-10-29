@@ -1,0 +1,4 @@
+read 150 of 153 (a cell needs another healthy sample)
+ratio: median 0.9988, 2.5th to 97.5th percentile 0.8920 to 1.1286
+ratio against depth: Spearman rho -0.564 (p 5.4e-14); raw A against depth on the same samples: rho -0.503
+decision (|rho| at most 0.2 -> one reference per cell): the reference must be matched to depth

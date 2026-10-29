@@ -206,3 +206,9 @@ sequencing inputs of its own cell, its own reading left out when it is one of th
 healthy readings already made (`seq_term_01/band_01/ratio_depth.py`): |Spearman rho| of the ratio against depth at most 0.2 means one reference
 per cell serves every depth; above 0.2, the reference is matched to depth. Then a synthetic through the one command, the band from the 153,
 and confirmation on healthy B and T cells the atlas does not hold (GSE134664, GSE98837).
+
+**The depth check, read** (`seq_term_01/band_01/ratio_depth.txt`, `ratio_depth_readings.csv`): 150 of the 153 read (three cells have one
+healthy sample). The ratio centers on 1 (median 0.9988, 2.5th to 97.5th percentile 0.8920 to 1.1286), but falls with depth (Spearman rho
+-0.564, p 5.4e-14; the raw readings -0.503). By the rule stated before, the reference must be matched to depth. **Next, written before it
+runs:** read every sample at one fixed number of reads per identity site, so depth leaves the reading itself; the number is set from the
+healthy samples' coverage before any test sample is read.
