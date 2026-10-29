@@ -17,7 +17,7 @@ def md():
         T = [t for t in J["tools"] if t["status"] == st]
         L += [f"### The tools, {LABEL[st]}", "", "| tool | in cosmology | in IAM-Atlas v2.1 | IAM-Atlas's unique capability |", "|---|---|---|---|"]
         L += [f"| **{t['name']}** | {t['sky']} | {t['cell']} | {t['them']} |" for t in T] + [""]
-    L += [f"**What is commissioned.** {J['commissioned']}", "", f"*{J['closing']}*", E_]
+    L += [f"**What is commissioned.** {J['commissioned']}", ""] + ([f"**The IAM Sequencing Atlas (in development).** {J['sequencing_atlas']}", ""] if J.get("sequencing_atlas") else []) + [f"*{J['closing']}*", E_]
     return "\n".join(L)
 def tx(t):
     t = t.replace("\\", "\\textbackslash{}")
@@ -32,7 +32,7 @@ def tex():
         for t in [t for t in J["tools"] if t["status"] == st]:
             L += ["\\item[" + tx(t["name"]) + ".] \\emph{In cosmology:} " + tx(t["sky"]) + " \\emph{In the atlas:} " + tx(t["cell"]) + " \\emph{IAM-Atlas's unique capability:} " + tx(t["them"])]
         L += ["\\end{description}", ""]
-    L += ["\\paragraph{What is commissioned.} " + tx(J["commissioned"]), "", "\\emph{" + tx(J["closing"]) + "}", ""]
+    L += ["\\paragraph{What is commissioned.} " + tx(J["commissioned"]), ""] + (["\\paragraph{The IAM Sequencing Atlas (in development).} " + tx(J["sequencing_atlas"]), ""] if J.get("sequencing_atlas") else []) + ["\\emph{" + tx(J["closing"]) + "}", ""]
     return "\n".join(L)
 def readme_new():
     s = open(RD, encoding="utf-8").read()
