@@ -2004,7 +2004,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 446,
+   "lines": 447,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2295,12 +2295,12 @@
      "function": "_figs",
      "name": "_figs",
      "line": 189,
-     "end": 209,
+     "end": 210,
      "args": [
       "o",
       "base"
      ],
-     "lines": 21,
+     "lines": 22,
      "doc": "The gauge pictures for this sample (PNG beside the report); a withheld or unread instrument gets none.",
      "constants": [],
      "data_files": [],
@@ -2313,8 +2313,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 215,
-     "end": 220,
+     "line": 216,
+     "end": 221,
      "args": [
       "o"
      ],
@@ -2334,8 +2334,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 222,
-     "end": 253,
+     "line": 223,
+     "end": 254,
      "args": [
       "o"
      ],
@@ -2354,8 +2354,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 259,
-     "end": 266,
+     "line": 260,
+     "end": 267,
      "args": [
       "o"
      ],
@@ -2373,8 +2373,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 268,
-     "end": 286,
+     "line": 269,
+     "end": 287,
      "args": [
       "o",
       "F"
@@ -2394,8 +2394,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_fam_of",
      "name": "_fam_of",
-     "line": 293,
-     "end": 297,
+     "line": 294,
+     "end": 298,
      "args": [],
      "lines": 5,
      "doc": "",
@@ -2407,8 +2407,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_f",
      "name": "_f",
-     "line": 298,
-     "end": 298,
+     "line": 299,
+     "end": 299,
      "args": [
       "v",
       "d"
@@ -2423,8 +2423,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables",
      "name": "detail_tables",
-     "line": 301,
-     "end": 384,
+     "line": 302,
+     "end": 385,
      "args": [
       "o"
      ],
@@ -2441,8 +2441,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables._cl",
      "name": "_cl",
-     "line": 341,
-     "end": 342,
+     "line": 342,
+     "end": 343,
      "args": [
       "name",
       "A",
@@ -2458,8 +2458,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "report_text",
      "name": "report_text",
-     "line": 390,
-     "end": 393,
+     "line": 391,
+     "end": 394,
      "args": [],
      "lines": 4,
      "doc": "The report's explanations, generated from CANON/catalogue.json by CANON/report_text.py (one source; never written in this file).",
@@ -2476,8 +2476,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "explain",
      "name": "explain",
-     "line": 394,
-     "end": 397,
+     "line": 395,
+     "end": 398,
      "args": [
       "sec"
      ],
@@ -2493,8 +2493,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_explain_html",
      "name": "_explain_html",
-     "line": 398,
-     "end": 400,
+     "line": 399,
+     "end": 401,
      "args": [
       "sec"
      ],
@@ -2510,8 +2510,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_intro_html",
      "name": "_intro_html",
-     "line": 401,
-     "end": 403,
+     "line": 402,
+     "end": 404,
      "args": [],
      "lines": 3,
      "doc": "",
@@ -2525,8 +2525,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_sections_v5",
      "name": "_sections_v5",
-     "line": 405,
-     "end": 412,
+     "line": 406,
+     "end": 413,
      "args": [
       "o"
      ],
@@ -2542,8 +2542,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 414,
-     "end": 445,
+     "line": 415,
+     "end": 446,
      "args": [
       "o",
       "out",
@@ -2832,7 +2832,8 @@
       "band",
       "subject",
       "state",
-      "unit"
+      "unit",
+      "ends"
      ],
      "lines": 20,
      "doc": "A floor-to-ceiling gauge for Met-A or IAM-A; A None draws no needle (a withheld state draws no gauge at all in the HTML).",

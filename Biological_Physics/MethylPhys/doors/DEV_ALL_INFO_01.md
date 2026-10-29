@@ -200,3 +200,14 @@ the sample's own most-clustered arrangement (every molecule's errors in one run,
 not fitted. The one command records it on every sequencing count and the report draws it, flagged in development; until the reference lands
 it reports the coupling with the reason it has no gauge position. **Synthetic test:** DEV_ALL_INFO_01/coupling_02/gauge_synthetic.py, DEV_ALL_INFO_01/coupling_02/gauge_synthetic.txt
 (independent errors read 0.98, errors in runs 6.0, at their ceiling; a sample equal to its healthy cell reads 1, Normal: met).
+
+**The coupling's healthy reference, built** (`coupling_02/coupling_reference_v1.json`, `coupling_reference_summary.txt`,
+`healthy_readings.csv`; series run 40744402655; all 153 read, coupling recorded on all 153). Healthy coupling differs by cell type
+(1.299 to 2.176 across 56 types: errors cluster along molecules in every healthy
+cell, more in some). Read against its own cell type, a healthy sample sits close to 1: the Normal band of coupling-A is 0.9353 to
+1.0619 (median 0.9992, n 150, leave-one-out), about a tenth as wide as IAM-A's pooled band. The reference is now the
+chain's (`chain/Runtime Matrices/Coupling/coupling_reference_v1.json`, as built) and every sequencing report draws coupling-A, flagged in
+development. **Depth, recorded as written:** Met-A against the atlas falls with depth across all 153 (rho -0.414, p 1.1e-07), as the 17
+B and T readings showed; the coupling much less (rho -0.210, p 0.0092). **The band rests on one laboratory** (about 3 donors per cell
+type); before commissioning, a second laboratory's healthy sequencing must read inside it, then a sealed test on a laboratory neither has
+seen.

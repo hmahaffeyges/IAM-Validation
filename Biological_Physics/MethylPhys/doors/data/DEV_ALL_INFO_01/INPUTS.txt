@@ -2,3 +2,4 @@ all_samples.csv
 quarter_01/q4_runs.json
 q4_runs.json
 coupling_02/healthy_seq.csv
+coupling_02/coupling_reference_v1.json

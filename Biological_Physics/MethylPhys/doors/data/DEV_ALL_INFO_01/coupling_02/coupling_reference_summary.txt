@@ -1,0 +1,61 @@
+read 153 of 153; coupling recorded on 153
+coupling-A band (leave-one-out): {'lo': 0.9353191094330514, 'hi': 1.0618894646567048, 'median': 0.9992428498651679, 'n': 150}
+cell | samples | healthy coupling | median Met-A against the atlas | median IAM-A
+adipocytes | 3 | 1.3400 | 0.84396 | 1.0094
+aorta endothelium | 2 | 1.4509 | 1.00978 | 0.9585
+b cells | 3 | 1.4872 | 0.66888 | 0.9052
+bladder epithelium | 3 | 1.4480 | 0.76341 | 0.9913
+breast basal epithelium | 3 | 1.3965 | 0.79568 | 0.899
+breast luminal epithelium | 3 | 1.4776 | 0.76674 | 0.915
+cardiomyocyte | 3 | 1.3293 | 0.74678 | 0.9498
+cd4 t cells | 3 | 1.4692 | 0.6925 | 0.9282
+cd8 t cells | 3 | 1.5895 | 0.75742 | 0.9518
+colon enteroendocrine | 2 | 1.5437 | 0.857355 | 0.9142
+colon epithelium | 3 | 1.6010 | 0.77386 | 0.8883
+colon fibroblasts | 2 | 1.4454 | 0.92575 | 0.9905999999999999
+colon macrophages | 2 | 1.5263 | 0.8717900000000001 | 0.8907499999999999
+cortical neurons | 3 | 1.3285 | 0.86063 | 0.7885
+effector memory cd8 t cells | 1 | 1.5821 | 0.73758 | 0.9094
+endometrium epithelium | 3 | 1.4528 | 0.72973 | 0.9201
+erythrocyte progenitors | 3 | 2.1761 | 0.74692 | 0.7374
+fallopien tubes epithelium | 3 | 1.4691 | 0.7179 | 0.9378
+gastric antrum epithelium | 3 | 1.5115 | 0.69206 | 0.9684
+gastric body epithelium | 3 | 1.5198 | 0.71009 | 0.9479
+gastric fundus epithelium | 3 | 1.5578 | 0.70167 | 0.9544
+heart fibroblasts | 3 | 1.5515 | 0.75967 | 0.8859
+hepatocyte | 3 | 1.4984 | 0.80683 | 0.8843
+kidney glomerular endothelium | 3 | 1.3304 | 0.75493 | 1.0349
+kidney glomerular epithelium | 2 | 1.3553 | 0.945805 | 0.992
+kidney tubular endothelium | 3 | 1.3353 | 0.77506 | 1.0255
+kidney tubular epithelium | 3 | 1.3549 | 0.73804 | 0.9737
+lung alveolar endothelium | 3 | 1.3889 | 0.7626 | 0.9922
+lung alveolar epithelium | 3 | 1.4599 | 0.82321 | 0.9565
+lung alveolar macrophages | 2 | 1.4647 | 0.892395 | 0.8507
+lung bronchus epithelium | 3 | 1.3455 | 0.68651 | 1.0042
+lung interstitial macrophages | 3 | 1.4677 | 0.70454 | 0.847
+memory b cells | 2 | 1.5268 | 0.740985 | 0.9824499999999999
+monocytes | 3 | 1.5073 | 0.7519 | 0.8997
+naive cd4 t cells | 1 | 1.3259 | 0.67147 | 0.8329
+naive cd8 t cells | 1 | 1.3007 | 0.63896 | 0.8031
+nk cells | 3 | 1.5045 | 0.70767 | 0.9105
+oligodendrocytes | 3 | 1.3147 | 0.755 | 0.9154
+pancreas endothelium | 3 | 1.3342 | 0.84448 | 1.0506
+pancreatic acinar | 3 | 1.4341 | 0.84536 | 0.8983
+pancreatic alpha | 3 | 1.4667 | 0.74826 | 1.0253
+pancreatic beta | 3 | 1.4123 | 0.84695 | 1.0103
+pancreatic delta | 3 | 1.4236 | 0.79697 | 1.0545
+pancreatic duct | 3 | 1.3340 | 0.81583 | 0.9588
+prostate epithelium | 3 | 1.3936 | 0.7715 | 0.9435
+small intestine epithelium | 3 | 1.5555 | 0.73445 | 0.9421
+smooth muscle | 3 | 1.6346 | 0.86884 | 0.874
+striated muscle | 2 | 1.3519 | 0.912795 | 1.0544
+t central memory cd4 | 3 | 1.4437 | 0.78507 | 1.0593
+t effector cell cd8 | 3 | 1.5354 | 0.82295 | 1.0169
+t effector memory cd4 | 3 | 1.5530 | 0.77313 | 0.9412
+thyroid epithelium | 3 | 1.2992 | 0.73552 | 0.9983
+tongue epithelium | 3 | 1.4504 | 0.70774 | 1.0094
+tonsil palatine epithelium | 3 | 1.4631 | 0.73051 | 1.0066
+tonsil pharyngeal epithelium | 2 | 1.4385 | 0.93591 | 0.98485
+vascular saphenous endothelium | 3 | 1.3669 | 0.7461 | 1.0054
+Met-A against the atlas vs depth (held-error opportunities): rho -0.414, p 1.1e-07, n 153
+coupling vs depth: rho -0.210, p 0.0092

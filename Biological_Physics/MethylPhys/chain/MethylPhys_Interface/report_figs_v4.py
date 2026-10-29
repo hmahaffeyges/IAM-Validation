@@ -26,14 +26,14 @@ def _bar(ax, lo_v, hi_v, band, A, fl, cl, y0=0.0, h=1.0, grad=True, ticks=None, 
         if lo_v <= v <= hi_v: ax.plot([x(v)] * 2, [y0 - 0.1 * h, y0], color=SUB, lw=0.7); ax.text(x(v), y0 - 0.16 * h, lab, ha="center", va="top", fontsize=6.8, color=SUB)
     return x
 
-def gauge_png(out, name, A, floor, ceiling, band, subject, state="", unit="A"):
+def gauge_png(out, name, A, floor, ceiling, band, subject, state="", unit="A", ends=None):   # ends: (floor text, ceiling text); default Met-A/IAM-A
     """A floor-to-ceiling gauge for Met-A or IAM-A; A None draws no needle (a withheld state draws no gauge at all in the HTML)."""
     zoom = (band[1] - floor) / (ceiling - floor) < 0.25
     fig = plt.figure(figsize=(7.2, 2.25 if zoom else 1.55), facecolor="white")
     ax = fig.add_axes([0.04, 0.50 if zoom else 0.30, 0.92, 0.22 if zoom else 0.32]); ax.set_xlim(-0.01, 1.01); ax.set_ylim(-0.6, 1.9); ax.axis("off")
     _bar(ax, floor, ceiling, band, A, floor, ceiling)
-    ax.text(0, -0.45, "0  floor\nbelow it a cell can no longer hold its identity", ha="left", va="top", fontsize=6.8, color=SUB)   # author 2026-10-18: 0, not 1e-7
-    ax.text(1, -0.45, f"{ceiling:.2f}  saturation\nthe most this scale can register", ha="right", va="top", fontsize=6.8, color=SUB)
+    ax.text(0, -0.45, (ends or ("0  floor\nbelow it a cell can no longer hold its identity", ""))[0], ha="left", va="top", fontsize=6.8, color=SUB)   # author 2026-10-18: 0, not 1e-7
+    ax.text(1, -0.45, (ends[1].format(ceiling=ceiling) if ends else f"{ceiling:.2f}  saturation\nthe most this scale can register"), ha="right", va="top", fontsize=6.8, color=SUB)
     if (1 - floor) / (ceiling - floor) > 0.22:   # near the floor (IAM-A) the label goes on the magnified strip instead, so the two never collide
         ax.text((1 - floor) / (ceiling - floor), -0.45, "1  healthy reference", ha="center", va="top", fontsize=6.8, color="#1f6b43")
     if A is not None: ax.text(min(max((A - floor) / (ceiling - floor), 0.06), 0.94), 1.3, f"{name} {A:.3f}", ha="center", va="bottom", fontsize=9.5, fontweight="bold", color=INK)

@@ -205,7 +205,8 @@ def _figs(o, base):
     k = o.get("coupling_a") or {}
     if k.get("A") is not None and k.get("ceiling") and (k.get("band") or {}).get("lo") is not None:
         F["coupling"] = RF.gauge_png(base + "_gauge_coupling.png", "coupling-A", float(k["A"]), 0.0, float(k["ceiling"]), (k["band"]["lo"], k["band"]["hi"]),
-                                     f"{cellname(k.get('cell', ''))}, against healthy coupling", str(k.get("state", "")))
+                                     f"{cellname(k.get('cell', ''))}, against healthy coupling", str(k.get("state", "")),
+                                     ends=("0  floor\nno two errors are ever neighbors", "{ceiling:.2f}  every molecule's errors in one run\nthis sample's most clustered arrangement"))
     return F
 
 PHYS_INTRO = ("One law runs under every reading here: a mark held against thermal noise costs energy, and the loss of that hold shows as entropy, "
