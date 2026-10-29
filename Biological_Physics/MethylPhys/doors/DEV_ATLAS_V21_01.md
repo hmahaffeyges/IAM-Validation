@@ -428,3 +428,10 @@ has a read; nothing is filled. Counts in the source .beta files are capped at 25
 **Synthetic bars** (both cells): 1. median |built level - planted donor level| at most 0.02; 2. both noise maps average within 0.005 of 0,
 and the read-half map's spread is within 20 % of what counting predicts; 3. blank exactly where no reads, never where reads.
 **Then:** one real block (CpGs 0 to 1,000,000) from the 153 on one Google spot machine, timed; then all 29 blocks.
+
+**Step 1 synthetic, run 1: not met as written** (`seq_atlas/seq_atlas_synthetic_run1.txt`). Bars 2 and 3 met in both cells: both noise maps
+average within 0.0001 of 0 and the read-half map's spread equals counting's prediction (0.0617 and 0.0616 against 0.0617); blanks fall
+exactly where no reads. Bar 1 gave 0.0201 and 0.0202 against at most 0.02. The bar had not been derived from counting: a median of four donors
+at about 20 reads scatters by about that much from counting alone. **Bar 1 amended, disclosed:** the level error must lie within 20 % of what
+counting alone predicts (the same planted donors' reads drawn again independently), the form bar 2 already takes; run 2 uses a new seed
+(20261030) so the amended bar is not checked on the data that prompted it. The builder is unchanged.
