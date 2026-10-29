@@ -8360,8 +8360,156 @@
     }
    ],
    "first_entered": null
+  },
+  {
+   "file": "stage_seq_atlas.py",
+   "lines": 120,
+   "functions": [
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "read_block",
+     "name": "read_block",
+     "line": 24,
+     "end": 43,
+     "args": [
+      "src",
+      "start",
+      "end"
+     ],
+     "lines": 20,
+     "doc": "Methylated and total reads over CpGs [start, end) (0-based) of one .beta file: a local path, or an https URL read by byte range.",
+     "constants": [
+      "HG19_CPGS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "hg19_dictionary",
+     "name": "hg19_dictionary",
+     "line": 45,
+     "end": 49,
+     "args": [
+      "cpg_bed"
+     ],
+     "lines": 5,
+     "doc": "wgbstools' hg19 CpG dictionary (CpG.bed.gz from init_genome: chrom, 1-based position, index), as {chrom: (positions, indices)}.",
+     "constants": [
+      "HG19_CPGS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "lift_to_hg19",
+     "name": "lift_to_hg19",
+     "line": 51,
+     "end": 79,
+     "args": [
+      "files",
+      "out",
+      "cpg_bed",
+      "chain"
+     ],
+     "lines": 29,
+     "doc": "Per-CpG read tables on GRCh38 (tab-separated chrom, 0-based position, methylated reads, all reads; one file per cell, pooled here) moved to the hg19 CpG numbering and written as one .lbeta (uint16 methylated and all reads at every hg19 CpG). Positions are pooled on GRCh38 first, each distinct position is moved once (UCSC chain hg38ToHg19, pyliftover; a position that does not map, or maps to severa",
+     "constants": [
+      "HG19_CPGS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "_u16",
+     "name": "_u16",
+     "line": 81,
+     "end": 82,
+     "args": [
+      "x",
+      "scale"
+     ],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "BLANK"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "_H",
+     "name": "_H",
+     "line": 84,
+     "end": 87,
+     "args": [
+      "p"
+     ],
+     "lines": 4,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "build_block",
+     "name": "build_block",
+     "line": 89,
+     "end": 115,
+     "args": [
+      "samples",
+      "start",
+      "end",
+      "source"
+     ],
+     "lines": 27,
+     "doc": "samples: DataFrame with gsm, cell, half (A or B) and file (local path or URL). Returns (table, summary dict).",
+     "constants": [
+      "BLANK",
+      "SEED"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "build_block.pooled",
+     "name": "pooled",
+     "line": 103,
+     "end": 105,
+     "args": [
+      "sel"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "geo_url",
+     "name": "geo_url",
+     "line": 117,
+     "end": 119,
+     "args": [
+      "gsm",
+      "title"
+     ],
+     "lines": 3,
+     "doc": "The hg19 .beta file of one published sequencing sample on GEO.",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
   }
  ],
- "n_files": 35,
- "n_functions": 428
+ "n_files": 36,
+ "n_functions": 436
 }

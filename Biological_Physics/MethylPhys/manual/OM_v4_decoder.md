@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **35 Python files** holding **428 functions** (nested ones included); 428 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **36 Python files** holding **436 functions** (nested ones included); 435 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -41,6 +41,7 @@ Read from the code at build time: the one command can load **35 Python files** h
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 167 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
+| `stage_seq_atlas.py` | 120 | 8 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -3628,3 +3629,49 @@ v2.1, each with its GEO .beta file, cell and sealed donor half. Each block is a 
 levels), `spread` (the donors' standard deviation), `disorder` (each donor's binary entropy, averaged), `halfA`, `halfB` (the pooled level in
 each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
 seed 20261029; their difference is noise map 2, defined for a cell with one donor).
+
+### `stage_seq_atlas.py::read_block`
+
+One input's methylated and all reads over a block of CpGs: a .beta file (uint8 pairs) read locally or straight from GEO by byte range, with
+retries, or an .lbeta (uint16 pairs, this stage's converted files). A file that is not the full hg19 length is refused.
+
+*Code:* `stage_seq_atlas.py` line 24 (20 lines) · arguments: src, start, end · calls: not called on the traced runs · constants read: `HG19_CPGS`
+
+### `stage_seq_atlas.py::build_block`
+
+The atlas over one block: for each cell, every column above, from its donors' counts. Returns the table and a summary (each cell's donors,
+halves, CpGs with reads and median reads; sites at the source files' 255-read cap).
+
+*Code:* `stage_seq_atlas.py` line 89 (27 lines) · arguments: samples, start, end, source · calls: not called on the traced runs · constants read: `BLANK`, `SEED`
+
+### `stage_seq_atlas.py::hg19_dictionary`
+
+The pipeline's hg19 CpG dictionary (wgbstools init_genome's CpG.bed.gz: chromosome, 1-based position, index), checked for 28,217,448 CpGs.
+
+*Code:* `stage_seq_atlas.py` line 45 (5 lines) · arguments: cpg_bed · calls: not called on the traced runs · constants read: `HG19_CPGS`
+
+### `stage_seq_atlas.py::lift_to_hg19`
+
+One donor's GRCh38 per-CpG read tables, pooled on GRCh38 and moved to the hg19 numbering (UCSC hg38ToHg19, pyliftover; a position that does
+not move to one place is dropped and counted), each landing on the hg19 CpG whose C or G it is, so both strands add to one CpG. Written as an
+.lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
+
+*Code:* `stage_seq_atlas.py` line 51 (29 lines) · arguments: files, out, cpg_bed, chain · calls: not called on the traced runs · constants read: `HG19_CPGS`
+
+### `stage_seq_atlas.py::geo_url`
+
+The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).
+
+*Code:* `stage_seq_atlas.py` line 117 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
+
+### `stage_seq_atlas.py::_u16`
+
+Values to the stored uint16 form (times 10,000, clipped; blank 65535).
+
+*Code:* `stage_seq_atlas.py` line 81 (2 lines) · arguments: x, scale · calls: not called on the traced runs · constants read: `BLANK`
+
+### `stage_seq_atlas.py::_H`
+
+Binary entropy in bits, 0 at a level of 0 or 1.
+
+*Code:* `stage_seq_atlas.py` line 84 (4 lines) · arguments: p · calls: not called on the traced runs
