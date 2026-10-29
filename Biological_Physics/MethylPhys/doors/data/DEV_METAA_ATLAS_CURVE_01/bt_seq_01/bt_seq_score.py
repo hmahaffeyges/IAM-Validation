@@ -11,7 +11,10 @@ Usage: python3 bt_seq_score.py BUNDLE_DIR OUT.txt"""
 import sys, os, json, glob, csv
 H = os.path.dirname(os.path.abspath(__file__)); CH = os.path.join(H, *[".."] * 4, "chain", "Runtime Matrices")
 S = {r["gsm"]: r for r in csv.DictReader(open(os.path.join(H, "bt_seq_samples.csv")))}
-MB = json.load(open(os.path.join(CH, "Atlas_V21", "metaa_seq_band_v1.json")))
+_bp = os.path.join(CH, "Atlas_V21", "metaa_seq_band_v1.json")
+if not os.path.exists(_bp):   # the band is built from the atlas's sequencing inputs before this test is scored; until then nothing is scored
+    open(sys.argv[2], "w").write("Met-A's sequencing band is not built yet; the test is scored once it is\n"); print("band not built yet"); raise SystemExit(0)
+MB = json.load(open(_bp))
 L = [f"Met-A sequencing band {MB['lo']:.4f} to {MB['hi']:.4f} (n {MB['n']})", "gsm | cell | Met-A | coupling-A | IAM-A | islands, domains | top share | held-error chances"]
 n1 = n2 = n3 = read = 0
 for g, r in S.items():

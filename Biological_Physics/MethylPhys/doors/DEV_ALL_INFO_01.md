@@ -222,7 +222,8 @@ Every reading is flagged in development: none of these instruments is yet commis
 table (`full_depth/hopkins_reread_table.py`) copies each value from its bundle, beside the earlier reading's held-error chances: the same
 molecules must give the same count, which checks that the merge took the same pieces.
 
-**Re-read reference amended (after the first of 36 re-reads, before the rest started; disclosed).** The first re-read (GSM4914781) was
+**Re-read reference amended (after the first re-read landed; disclosed).** The first re-read (GSM4914781) was
 refused by IAM-A at intake: IAM-A and the coupling take their healthy references from the published sequencing atlas, whose blood B cells
 are one type, "b cells" (mostly naive), with no naive B-cell type. IAM-Atlas v2.1 also holds "b cells". The re-reads now use the specimen
-"sorted b cells", one column that every instrument holds; GSM4914781 is read again on it. Nothing else changes.
+"sorted b cells", one column that every instrument holds. A GitHub run reads the sample list as it stood when the run was sent, so all 36
+first re-reads used the old name; all 36 are read again on "sorted b cells". The first re-reads are kept, not used. Nothing else changes.
