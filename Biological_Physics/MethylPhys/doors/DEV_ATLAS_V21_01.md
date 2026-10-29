@@ -392,3 +392,13 @@ blind sites within the test's tolerance of the v2.1 anchor. Result: `data/DEV_AT
 Panel cells with no held-out set (fibroblasts, macrophages, smooth muscle, endothelium, adipocytes) are listed in the result file. The liver
 blind sites (tolerance 0.03) do not hold for blood cells on outside arrays: reported here because the liver test's normals and tumors carry
 blood, though its verdict is NOT ASSESSED without held-out hepatocytes.
+
+## The IAM Sequencing Atlas, separate from v2.1 (plan 35.30)
+
+**The author's decision:** the whole-genome atlas is built for sequenced samples only and kept apart from IAM-Atlas v2.1, which stays as
+commissioned for arrays; an atlas that tries to do everything carries unforeseen consequences. **Its job:** a healthy sequenced sample reads
+Normal on every instrument, against healthy cells of its own type measured from sequencing. **Its rule:** measure, not fit: every value is
+counted from healthy donors' reads, and nothing is filled. Everything it carries is listed in `seq_atlas/SEQ_ATLAS_CHECKLIST.md`: each donor's
+raw counts and measured disorder at every CpG, a healthy reference for every sequencing instrument, both spheres with their noise maps, the
+CMB tools carried over (two noise splits, masks, spectra, cosmic variance, covariance, transfer function, nulls, cross-calibration, sealed
+held-out sets) and, from healthy plasma only, fragment features.
