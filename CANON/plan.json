@@ -1452,6 +1452,19 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "Sensitivity at every CpG (author: the sequencing atlas exists so the sequencing instruments, the C-Score first, find clusters and abnormalities outside the array's sites). Written before it runs: a healthy sequenced sample the atlas does not hold, with small planted clusters outside the array sites over a range of sizes and strengths, read by the chain on array sites only and on every site. Bars: the healthy sample reads Normal both ways; the every-site reading finds planted clusters the array-site reading misses; the smallest cluster each finds is recorded.",
      "next": "after the core atlas is built from the 153"
+    },
+    {
+     "id": "35.30.8",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+     "what": "Early detection from a blood draw (author: score ALL the DNA in the plasma, not only tumor DNA; elevated A and C scores in a tissue long before a cancer is established). The Deconvolver separates the draw by tissue; each tissue's DNA is read by IAM-A, Met-A and the C-Score against healthy DNA of the same tissue (the sequencing atlas at every CpG); and the person is read against their own earlier draws. Prediction from the law, not yet tested: scores rise in the affected tissue before diagnosis.",
+     "steps": [
+      "synthetic first: a small planted rise in one tissue's disorder at that tissue's real share of plasma, found by the chain at realistic depth",
+      "healthy plasma reads Normal on every tissue's gauge (healthy sequenced plasma not yet read)",
+      "blood drawn before diagnosis against people who stayed healthy (stored-blood cohorts; mostly controlled access, part of the Johns Hopkins outreach)"
+     ],
+     "next": "the sequencing atlas's tissue references first (liver, pancreas, colon, lung, vessel lining, blood cells)"
     }
    ]
   },
