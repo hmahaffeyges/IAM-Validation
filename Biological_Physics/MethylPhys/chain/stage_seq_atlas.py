@@ -130,6 +130,7 @@ def compare(lbeta, piece_dirs, min_reads=5):
             for c in want[1:]:
                 if c not in full: full[c] = np.full(HG19_CPGS, BLANK, np.uint16)
                 full[c][ix] = T[c].to_numpy()
+    if not full: raise ValueError(f"no atlas pieces found in {piece_dirs}: nothing to compare with")   # 2026-10-29: an empty folder is refused, not read as no cells
     lv = sorted(full); ok = a[:, 1] >= min_reads
     for c in lv: ok &= full[c] != BLANK
     x = a[ok, 0] / a[ok, 1]; out = dict(sites=int(ok.sum()), min_reads=min_reads, cells={})

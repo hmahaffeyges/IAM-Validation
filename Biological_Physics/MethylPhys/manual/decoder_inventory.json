@@ -8363,7 +8363,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 153,
+   "lines": 154,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8495,13 +8495,13 @@
      "function": "compare",
      "name": "compare",
      "line": 117,
-     "end": 148,
+     "end": 149,
      "args": [
       "lbeta",
       "piece_dirs",
       "min_reads"
      ],
-     "lines": 32,
+     "lines": 33,
      "doc": "How far one sample (an .lbeta or .beta on the hg19 numbering) sits from every cell of the atlas: at the CpGs where the sample has at least min_reads reads and every cell has a level, the mean |sample level - cell level|, per cell, and for each two-donor-half cell the mean |half A - half B| at the same CpGs (how far one half of the cell's own donors sits from the other). piece_dirs: folders of buil",
      "constants": [
       "BLANK",
@@ -8516,8 +8516,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 150,
-     "end": 152,
+     "line": 151,
+     "end": 153,
      "args": [
       "gsm",
       "title"
