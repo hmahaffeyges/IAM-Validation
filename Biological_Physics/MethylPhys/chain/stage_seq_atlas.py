@@ -114,6 +114,32 @@ def build_block(samples, start, end, source):
     T = pd.DataFrame(cols); T.insert(0, "cpg", np.arange(start + 1, end + 1, dtype=np.int32))   # 1-based hg19 CpG index, as the .pat and .beta numbering
     return T, summ
 
+def held_reference(samples, out):
+    """2026-10-29 (author; plan 35.30): each healthy cell's held error region by region, beside the atlas. samples: gsm, cell, half (the sealed
+    donor half, A or B) and file, each file one sample's held-error counts by tile (run_sample.py --dev-count-only --dev-count-tiles: chrom,
+    tile, iso_a, opp_a, iso_b, opp_b; a tile is 2,000 consecutive CpG indices; a and b are even and odd lines of the .pat, no shared molecule).
+    Stored as counts, never ratios, per cell and tile: donors (with any held chance there), iso and opp (lone errors and their chances, all
+    donors), iso_dA/opp_dA and iso_dB/opp_dB (the sealed donor halves), iso_rA/opp_rA and iso_rB/opp_rB (the two halves of every donor's
+    molecules). The held error of a tile is iso/opp. Writes a parquet indexed by chrom and tile; returns a summary."""
+    import pandas as pd
+    S = samples if hasattr(samples, "iterrows") else pd.read_csv(samples, dtype=str); cols = {}; summ = dict(cells={})
+    for cell, g in S.groupby("cell", sort=True):
+        acc = None; nd = None
+        for _, r in g.iterrows():
+            T = pd.read_csv(r["file"], dtype={"chrom": str}).set_index(["chrom", "tile"])[["iso_a", "opp_a", "iso_b", "opp_b"]].astype(np.int64)
+            dA = str(r.get("half", "A")).strip().upper() == "A"
+            X = pd.DataFrame({"iso": T.iso_a + T.iso_b, "opp": T.opp_a + T.opp_b, "iso_dA": (T.iso_a + T.iso_b) * dA, "opp_dA": (T.opp_a + T.opp_b) * dA,
+                              "iso_dB": (T.iso_a + T.iso_b) * (not dA), "opp_dB": (T.opp_a + T.opp_b) * (not dA),
+                              "iso_rA": T.iso_a, "opp_rA": T.opp_a, "iso_rB": T.iso_b, "opp_rB": T.opp_b, "donors": ((T.opp_a + T.opp_b) > 0).astype(np.int64)})
+            acc = X if acc is None else acc.add(X, fill_value=0)
+        acc = acc.astype(np.int64)
+        for c in acc.columns: cols[f"{cell}|{c}"] = acc[c]
+        h = (acc.iso / acc.opp.where(acc.opp > 0)).dropna()
+        summ["cells"][cell] = dict(donors=int(len(g)), half_A=int((g.half.str.upper() == "A").sum()), tiles=int((acc.opp > 0).sum()),
+                                   held_error=round(float(acc.iso.sum() / max(acc.opp.sum(), 1)), 5), tile_median=round(float(h.median()), 5) if len(h) else None)
+    R = pd.DataFrame(cols).fillna(0).astype(np.int64).sort_index(); R.reset_index().to_parquet(out, index=False)
+    summ.update(tiles=int(len(R)), output=os.path.basename(out)); return summ
+
 def compare(lbeta, piece_dirs, min_reads=5):
     """How far one sample (an .lbeta or .beta on the hg19 numbering) sits from every cell of the atlas: at the CpGs where the sample has at least
     min_reads reads and every cell has a level, the mean |sample level - cell level|, per cell, and for each two-donor-half cell the mean

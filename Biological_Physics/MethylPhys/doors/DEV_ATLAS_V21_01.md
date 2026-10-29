@@ -515,3 +515,21 @@ at 0.0780, 0.0780 and 0.0781 against 0.2070 or more for the others, and the comp
 withdrawn before any donor-3 file is read (disclosed):** the synthetic shows a sparser sample sits farther from its own cell than that cell's
 two halves sit from each other from counting alone (0.0780 against 0.04987), so a bar on that ratio was not derived from counting and would
 judge read depth, not the cell. Both distances are still reported. The test is bar 1: megakaryocytes is donor 3's nearest cell of the 57.
+
+
+## The IAM Sequencing Atlas: each cell's held error, region by region (written and committed before it runs)
+
+**Why (author):** IAM-A on plasma, after the Deconvolver has named what is in it. Each plasma fragment comes from one cell, so a plasma's
+healthy held error is each cell's healthy held error weighted by its share; read per region, a tissue whose shed DNA holds its marks worse
+can be seen on its own. **The instrument's job:** each healthy cell's held error is recovered region by region, as counting predicts.
+
+**Build:** each of the 153 healthy sequencing inputs' molecule files (.pat, on GEO) counted by the one command (`run_sample.py --dev-count-only
+--dev-count-tiles`, Stage Q2's own rules), then pooled by cell (`--build seq-held`), stored as counts with both noise splits (sealed donor
+halves; halves of every donor's molecules), beside the atlas. Megakaryocytes have no molecule files (single-cell per-site tables only) and get
+no column here; their share is still named by the Deconvolver.
+
+**Synthetic test:** DEV_ATLAS_V21_01/seq_atlas/seq_held_synthetic.py, DEV_ATLAS_V21_01/seq_atlas/seq_held_synthetic.txt
+
+**Synthetic bars** (two constructed cells, four donors each, planted held error per tile; counting's prediction by exact sum over every
+molecule pattern under Stage Q2's rules): 1. median relative difference over a cell's tiles within 2 %; 2. at least 90 % of tiles within
+2 counting standard deviations; 3. the halves add up exactly.\n

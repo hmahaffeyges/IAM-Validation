@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1184,
+   "lines": 1190,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 241,
-     "end": 329,
+     "end": 335,
      "args": [
       "a"
      ],
-     "lines": 89,
+     "lines": 95,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -245,8 +245,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 302,
-     "end": 302,
+     "line": 308,
+     "end": 308,
      "args": [
       "m"
      ],
@@ -260,8 +260,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 332,
-     "end": 352,
+     "line": 338,
+     "end": 358,
      "args": [
       "a",
       "cnt",
@@ -277,8 +277,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 355,
-     "end": 395,
+     "line": 361,
+     "end": 401,
      "args": [
       "a",
       "o",
@@ -298,8 +298,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 398,
-     "end": 1181,
+     "line": 404,
+     "end": 1187,
      "args": [],
      "lines": 784,
      "doc": "",
@@ -331,8 +331,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 628,
-     "end": 632,
+     "line": 634,
+     "end": 638,
      "args": [
       "r"
      ],
@@ -348,8 +348,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 863,
-     "end": 870,
+     "line": 869,
+     "end": 876,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -361,8 +361,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1116,
-     "end": 1117,
+     "line": 1122,
+     "end": 1123,
      "args": [
       "b",
       "it",
@@ -8363,7 +8363,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 154,
+   "lines": 180,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8492,10 +8492,26 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "held_reference",
+     "name": "held_reference",
+     "line": 117,
+     "end": 141,
+     "args": [
+      "samples",
+      "out"
+     ],
+     "lines": 25,
+     "doc": "2026-10-29 (author; plan 35.30): each healthy cell's held error region by region, beside the atlas. samples: gsm, cell, half (the sealed donor half, A or B) and file, each file one sample's held-error counts by tile (run_sample.py --dev-count-only --dev-count-tiles: chrom, tile, iso_a, opp_a, iso_b, opp_b; a tile is 2,000 consecutive CpG indices; a and b are even and odd lines of the .pat, no shar",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 117,
-     "end": 149,
+     "line": 143,
+     "end": 175,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8516,8 +8532,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 151,
-     "end": 153,
+     "line": 177,
+     "end": 179,
      "args": [
       "gsm",
       "title"
@@ -8533,5 +8549,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 437
+ "n_functions": 438
 }

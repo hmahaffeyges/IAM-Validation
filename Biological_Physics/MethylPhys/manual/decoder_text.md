@@ -2333,6 +2333,12 @@ One donor's GRCh38 per-CpG read tables, pooled on GRCh38 and moved to the hg19 n
 not move to one place is dropped and counted), each landing on the hg19 CpG whose C or G it is, so both strands add to one CpG. Written as an
 .lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
 
+### stage_seq_atlas.py::held_reference
+Each healthy cell's held error region by region, stored beside the sequencing atlas (`run_sample.py --build seq-held`): from each healthy
+sample's held-error counts by tile (`--dev-count-only --dev-count-tiles`; a tile is 2,000 consecutive CpGs), summed by cell, as counts, never
+ratios: donors, lone errors and their chances in all, in each sealed donor half, and in each half of every donor's molecules. A tile's held
+error is its lone errors over its chances. It is the healthy held error a plasma's own mix is built from: each cell's, weighted by its share.
+
 ### stage_seq_atlas.py::compare
 How far one sample sits from every cell of the atlas (`run_sample.py --build seq-compare`): at the CpGs where the sample has at least 5 reads
 and every cell has a level, the mean distance between the sample's level and each cell's, cells ranked nearest first; and for each cell, the
