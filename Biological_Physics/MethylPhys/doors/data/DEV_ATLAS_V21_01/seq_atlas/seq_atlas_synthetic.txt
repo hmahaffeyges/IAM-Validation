@@ -1,9 +1,9 @@
 IAM Sequencing Atlas step 1 synthetic (plan 35.30), built by run_sample.py --build seq-atlas
-block 0-200,000, 2 cells x 4 donors, seed 20261029
-b cells: bar 1 median |level - planted| 0.0201 (not met)
-b cells: bar 2 halfA-halfB mean -0.00003, readA-readB mean +0.00005, spread 0.0617 vs counting 0.0617 (met)
+block 0-200,000, 2 cells x 4 donors, seed 20261030 (run 2; bar 1 amended after run 1, disclosed)
+b cells: bar 1 median |level - planted| 0.0201 vs counting alone 0.0201 (met)
+b cells: bar 2 halfA-halfB mean +0.00019, readA-readB mean -0.00003, spread 0.0617 vs counting 0.0617 (met)
 b cells: bar 3 blanks where no reads, none where reads (met)
-cd8 t cells: bar 1 median |level - planted| 0.0202 (not met)
-cd8 t cells: bar 2 halfA-halfB mean +0.00008, readA-readB mean +0.00006, spread 0.0616 vs counting 0.0617 (met)
+cd8 t cells: bar 1 median |level - planted| 0.0201 vs counting alone 0.0202 (met)
+cd8 t cells: bar 2 halfA-halfB mean +0.00003, readA-readB mean -0.00007, spread 0.0614 vs counting 0.0616 (met)
 cd8 t cells: bar 3 blanks where no reads, none where reads (met)
-synthetic (all bars, both cells): not met
+synthetic (all bars, both cells): met

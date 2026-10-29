@@ -435,3 +435,8 @@ exactly where no reads. Bar 1 gave 0.0201 and 0.0202 against at most 0.02. The b
 at about 20 reads scatters by about that much from counting alone. **Bar 1 amended, disclosed:** the level error must lie within 20 % of what
 counting alone predicts (the same planted donors' reads drawn again independently), the form bar 2 already takes; run 2 uses a new seed
 (20261030) so the amended bar is not checked on the data that prompted it. The builder is unchanged.
+
+**Step 1 synthetic, run 2: met** (`seq_atlas/seq_atlas_synthetic.txt`, seed 20261030). Both cells: the level error equals counting's prediction
+(0.0201 against 0.0201 and 0.0202); both noise maps average within 0.0002 of 0, and the read-half map's spread matches counting (0.0617
+against 0.0617; 0.0614 against 0.0616); blanks fall exactly where no reads. **The real build's inputs:** `seq_atlas/seq_atlas_inputs.csv`,
+the 153 healthy sequencing inputs with each one's GEO .beta file, cell and sealed half (IAM-Atlas v2.1 decision 17).

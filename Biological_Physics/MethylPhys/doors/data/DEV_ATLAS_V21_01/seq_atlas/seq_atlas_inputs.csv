@@ -1,0 +1,154 @@
+gsm,title,cell,half,file
+GSM5652176,Adipocytes-Z000000T7,adipocytes,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652176/suppl/GSM5652176_Adipocytes-Z000000T7.beta
+GSM5652177,Adipocytes-Z000000T9,adipocytes,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652177/suppl/GSM5652177_Adipocytes-Z000000T9.beta
+GSM5652178,Adipocytes-Z000000T5,adipocytes,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652178/suppl/GSM5652178_Adipocytes-Z000000T5.beta
+GSM5652179,Aorta-Endothelium-Z00000422,aorta endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652179/suppl/GSM5652179_Aorta-Endothel-Z00000422.beta
+GSM5652180,Aorta-Endothelium-Z0000043G,aorta endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652180/suppl/GSM5652180_Aorta-Endothel-Z0000043G.beta
+GSM5652181,Saphenous-Vein-Endothelium-Z000000RM,vascular saphenous endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652181/suppl/GSM5652181_Saphenous-Vein-Endothel-Z000000RM.beta
+GSM5652182,Saphenous-Vein-Endothelium-Z000000S7,vascular saphenous endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652182/suppl/GSM5652182_Saphenous-Vein-Endothel-Z000000S7.beta
+GSM5652183,Saphenous-Vein-Endothelium-Z000000SB,vascular saphenous endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652183/suppl/GSM5652183_Saphenous-Vein-Endothel-Z000000SB.beta
+GSM5652184,Kidney-Glomerular-Endothelium-Z000000Q5,kidney glomerular endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652184/suppl/GSM5652184_Kidney-Glomerular-Endothel-Z000000Q5.beta
+GSM5652185,Kidney-Glomerular-Endothelium-Z00000443,kidney glomerular endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652185/suppl/GSM5652185_Kidney-Glomerular-Endothel-Z00000443.beta
+GSM5652186,Kidney-Glomerular-Endothelium-Z0000045J,kidney glomerular endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652186/suppl/GSM5652186_Kidney-Glomerular-Endothel-Z0000045J.beta
+GSM5652187,Kidney-Tubular-Endothelium-Z000000PX,kidney tubular endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652187/suppl/GSM5652187_Kidney-Tubular-Endothel-Z000000PX.beta
+GSM5652188,Kidney-Tubular-Endothelium-Z000000Q3,kidney tubular endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652188/suppl/GSM5652188_Kidney-Tubular-Endothel-Z000000Q3.beta
+GSM5652189,Kidney-Tubular-Endothelium-Z0000042R,kidney tubular endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652189/suppl/GSM5652189_Kidney-Tubular-Endothel-Z0000042R.beta
+GSM5652191,Lung-Alveolar-Endothelium-Z000000Q1,lung alveolar endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652191/suppl/GSM5652191_Lung-Alveolar-Endothel-Z000000Q1.beta
+GSM5652192,Lung-Alveolar-Endothelium-Z000000QK,lung alveolar endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652192/suppl/GSM5652192_Lung-Alveolar-Endothel-Z000000QK.beta
+GSM5652193,Lung-Alveolar-Endothelium-Z0000045H,lung alveolar endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652193/suppl/GSM5652193_Lung-Alveolar-Endothel-Z0000045H.beta
+GSM5652194,Pancreas-Endothelium-Z0000042D,pancreas endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652194/suppl/GSM5652194_Pancreas-Endothel-Z0000042D.beta
+GSM5652195,Pancreas-Endothelium-Z0000042X,pancreas endothelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652195/suppl/GSM5652195_Pancreas-Endothel-Z0000042X.beta
+GSM5652196,Pancreas-Endothelium-Z00000430,pancreas endothelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652196/suppl/GSM5652196_Pancreas-Endothel-Z00000430.beta
+GSM5652198,Colon-Fibroblasts-Z0000042A,colon fibroblasts,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652198/suppl/GSM5652198_Colon-Fibroblasts-Z0000042A.beta
+GSM5652199,Colon-Fibroblasts-Z0000042C,colon fibroblasts,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652199/suppl/GSM5652199_Colon-Fibroblasts-Z0000042C.beta
+GSM5652201,Heart-Fibroblasts-Z0000041V,heart fibroblasts,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652201/suppl/GSM5652201_Heart-Fibroblasts-Z0000041V.beta
+GSM5652202,Heart-Fibroblasts-Z0000041W,heart fibroblasts,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652202/suppl/GSM5652202_Heart-Fibroblasts-Z0000041W.beta
+GSM5652203,Heart-Fibroblasts-Z0000041X,heart fibroblasts,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652203/suppl/GSM5652203_Heart-Fibroblasts-Z0000041X.beta
+GSM5652205,Skeletal-Muscle-Z00000427,striated muscle,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652205/suppl/GSM5652205_Skeletal-Muscle-Z00000427.beta
+GSM5652206,Skeletal-Muscle-Z00000429,striated muscle,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652206/suppl/GSM5652206_Skeletal-Muscle-Z00000429.beta
+GSM5652207,Aorta-Smooth-Muscle-Z0000041U,smooth muscle,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652207/suppl/GSM5652207_Aorta-Smooth-Muscle-Z0000041U.beta
+GSM5652208,Coronary-Artery-Smooth-Muscle-Z00000420,smooth muscle,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652208/suppl/GSM5652208_Coronary-Artery-Smooth-Muscle-Z00000420.beta
+GSM5652209,Bladder-Smooth-Muscle-Z0000041Z,smooth muscle,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652209/suppl/GSM5652209_Bladder-Smooth-Muscle-Z0000041Z.beta
+GSM5652212,Heart-Cardiomyocyte-Z0000044G,cardiomyocyte,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652212/suppl/GSM5652212_Heart-Cardiomyocyte-Z0000044G.beta
+GSM5652213,Heart-Cardiomyocyte-Z0000044K,cardiomyocyte,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652213/suppl/GSM5652213_Heart-Cardiomyocyte-Z0000044K.beta
+GSM5652216,Heart-Cardiomyocyte-Z0000044Q,cardiomyocyte,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652216/suppl/GSM5652216_Heart-Cardiomyocyte-Z0000044Q.beta
+GSM5652219,Oligodendrocytes-Z000000TK,oligodendrocytes,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652219/suppl/GSM5652219_Oligodendrocytes-Z000000TK.beta
+GSM5652220,Oligodendrocytes-Z0000042E,oligodendrocytes,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652220/suppl/GSM5652220_Oligodendrocytes-Z0000042E.beta
+GSM5652221,Oligodendrocytes-Z0000042L,oligodendrocytes,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652221/suppl/GSM5652221_Oligodendrocytes-Z0000042L.beta
+GSM5652223,Cortex-Neuron-Z000000TF,cortical neurons,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652223/suppl/GSM5652223_Cortex-Neuron-Z000000TF.beta
+GSM5652224,Neuron-Z000000TH,cortical neurons,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652224/suppl/GSM5652224_Neuron-Z000000TH.beta
+GSM5652225,Cortex-Neuron-Z0000042F,cortical neurons,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652225/suppl/GSM5652225_Cortex-Neuron-Z0000042F.beta
+GSM5652233,Liver-Hepatocytes-Z000000R3,hepatocyte,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652233/suppl/GSM5652233_Liver-Hepatocytes-Z000000R3.beta
+GSM5652234,Liver-Hepatocytes-Z000000T3,hepatocyte,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652234/suppl/GSM5652234_Liver-Hepatocytes-Z000000T3.beta
+GSM5652235,Liver-Hepatocytes-Z0000043Q,hepatocyte,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652235/suppl/GSM5652235_Liver-Hepatocytes-Z0000043Q.beta
+GSM5652239,Pancreas-Duct-Z0000043T,pancreatic duct,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652239/suppl/GSM5652239_Pancreas-Duct-Z0000043T.beta
+GSM5652240,Pancreas-Duct-Z0000043U,pancreatic duct,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652240/suppl/GSM5652240_Pancreas-Duct-Z0000043U.beta
+GSM5652241,Pancreas-Duct-Z0000043V,pancreatic duct,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652241/suppl/GSM5652241_Pancreas-Duct-Z0000043V.beta
+GSM5652243,Pancreas-Acinar-Z000000QX,pancreatic acinar,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652243/suppl/GSM5652243_Pancreas-Acinar-Z000000QX.beta
+GSM5652244,Pancreas-Acinar-Z0000043W,pancreatic acinar,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652244/suppl/GSM5652244_Pancreas-Acinar-Z0000043W.beta
+GSM5652245,Pancreas-Acinar-Z0000043X,pancreatic acinar,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652245/suppl/GSM5652245_Pancreas-Acinar-Z0000043X.beta
+GSM5652247,Pancreas-Delta-Z00000451,pancreatic delta,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652247/suppl/GSM5652247_Pancreas-Delta-Z00000451.beta
+GSM5652248,Pancreas-Delta-Z00000454,pancreatic delta,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652248/suppl/GSM5652248_Pancreas-Delta-Z00000454.beta
+GSM5652249,Pancreas-Delta-Z00000457,pancreatic delta,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652249/suppl/GSM5652249_Pancreas-Delta-Z00000457.beta
+GSM5652250,Pancreas-Beta-Z00000452,pancreatic beta,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652250/suppl/GSM5652250_Pancreas-Beta-Z00000452.beta
+GSM5652251,Pancreas-Beta-Z00000455,pancreatic beta,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652251/suppl/GSM5652251_Pancreas-Beta-Z00000455.beta
+GSM5652252,Pancreas-Beta-Z00000458,pancreatic beta,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652252/suppl/GSM5652252_Pancreas-Beta-Z00000458.beta
+GSM5652253,Pancreas-Alpha-Z00000453,pancreatic alpha,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652253/suppl/GSM5652253_Pancreas-Alpha-Z00000453.beta
+GSM5652254,Pancreas-Alpha-Z00000456,pancreatic alpha,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652254/suppl/GSM5652254_Pancreas-Alpha-Z00000456.beta
+GSM5652255,Pancreas-Alpha-Z00000459,pancreatic alpha,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652255/suppl/GSM5652255_Pancreas-Alpha-Z00000459.beta
+GSM5652256,Kidney-Glomerular-Epithelium-Z0000045K,kidney glomerular epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652256/suppl/GSM5652256_Kidney-Glomerular-Epithelial-Z0000045K.beta
+GSM5652257,Kidney-Glomerular-Epithelium-Z0000045L,kidney glomerular epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652257/suppl/GSM5652257_Kidney-Glomerular-Epithelial-Z0000045L.beta
+GSM5652258,Kidney-Tubular-Epithelium-Z000000QH,kidney tubular epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652258/suppl/GSM5652258_Kidney-Tubular-Epithelial-Z000000QH.beta
+GSM5652259,Kidney-Tubular-Epithelium-Z0000043Z,kidney tubular epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652259/suppl/GSM5652259_Kidney-Tubular-Epithelial-Z0000043Z.beta
+GSM5652260,Kidney-Tubular-Epithelium-Z00000440,kidney tubular epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652260/suppl/GSM5652260_Kidney-Tubular-Epithelial-Z00000440.beta
+GSM5652264,Thyroid-Epithelium-Z0000042S,thyroid epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652264/suppl/GSM5652264_Thyroid-Epithelial-Z0000042S.beta
+GSM5652265,Thyroid-Epithelium-Z0000042T,thyroid epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652265/suppl/GSM5652265_Thyroid-Epithelial-Z0000042T.beta
+GSM5652266,Thyroid-Epithelium-Z0000042U,thyroid epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652266/suppl/GSM5652266_Thyroid-Epithelial-Z0000042U.beta
+GSM5652267,Fallopian-Epithelium-Z000000Q7,fallopien tubes epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652267/suppl/GSM5652267_Fallopian-Epithelial-Z000000Q7.beta
+GSM5652268,Fallopian-Epithelium-Z000000S9,fallopien tubes epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652268/suppl/GSM5652268_Fallopian-Epithelial-Z000000S9.beta
+GSM5652269,Fallopian-Epithelium-Z000000UV,fallopien tubes epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652269/suppl/GSM5652269_Fallopian-Epithelial-Z000000UV.beta
+GSM5652271,Endometrium-Epithelium-Z00000434,endometrium epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652271/suppl/GSM5652271_Endometrium-Epithelial-Z00000434.beta
+GSM5652272,Endometrium-Epithelium-Z00000435,endometrium epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652272/suppl/GSM5652272_Endometrium-Epithelial-Z00000435.beta
+GSM5652273,Endometrium-Epithelium-Z0000043S,endometrium epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652273/suppl/GSM5652273_Endometrium-Epithelial-Z0000043S.beta
+GSM5652274,Bone_marrow-Erythrocyte_progenitors-Z000000RF,erythrocyte progenitors,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652274/suppl/GSM5652274_Bone_marrow-Erythrocyte_progenitors-Z000000RF.beta
+GSM5652275,Bone_marrow-Erythrocyte_progenitors-Z000000RH,erythrocyte progenitors,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652275/suppl/GSM5652275_Bone_marrow-Erythrocyte_progenitors-Z000000RH.beta
+GSM5652276,Bone_marrow-Erythrocyte_progenitors-Z000000RK,erythrocyte progenitors,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652276/suppl/GSM5652276_Bone_marrow-Erythrocyte_progenitors-Z000000RK.beta
+GSM5652279,Blood-T-CD4-Z000000TT,cd4 t cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652279/suppl/GSM5652279_Blood-T-CD4-Z000000TT.beta
+GSM5652280,Blood-T-CD4-Z000000U7,cd4 t cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652280/suppl/GSM5652280_Blood-T-CD4-Z000000U7.beta
+GSM5652281,Blood-T-CD4-Z000000UM,cd4 t cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652281/suppl/GSM5652281_Blood-T-CD4-Z000000UM.beta
+GSM5652282,Blood-T-CD8-Z000000TR,cd8 t cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652282/suppl/GSM5652282_Blood-T-CD8-Z000000TR.beta
+GSM5652283,Blood-T-CD8-Z000000U5,cd8 t cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652283/suppl/GSM5652283_Blood-T-CD8-Z000000U5.beta
+GSM5652284,Blood-T-CD8-Z000000UK,cd8 t cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652284/suppl/GSM5652284_Blood-T-CD8-Z000000UK.beta
+GSM5652285,Blood-T-CenMem-CD4-Z00000417,t central memory cd4,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652285/suppl/GSM5652285_Blood-T-CenMem-CD4-Z00000417.beta
+GSM5652286,Blood-T-CenMem-CD4-Z0000041D,t central memory cd4,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652286/suppl/GSM5652286_Blood-T-CenMem-CD4-Z0000041D.beta
+GSM5652287,Blood-T-CenMem-CD4-Z0000041N,t central memory cd4,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652287/suppl/GSM5652287_Blood-T-CenMem-CD4-Z0000041N.beta
+GSM5652288,Blood-T-Eff-CD8-Z00000419,t effector cell cd8,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652288/suppl/GSM5652288_Blood-T-Eff-CD8-Z00000419.beta
+GSM5652289,Blood-T-Eff-CD8-Z0000041F,t effector cell cd8,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652289/suppl/GSM5652289_Blood-T-Eff-CD8-Z0000041F.beta
+GSM5652290,Blood-T-Eff-CD8-Z0000041Q,t effector cell cd8,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652290/suppl/GSM5652290_Blood-T-Eff-CD8-Z0000041Q.beta
+GSM5652291,Blood-T-EffMem-CD4-Z00000416,t effector memory cd4,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652291/suppl/GSM5652291_Blood-T-EffMem-CD4-Z00000416.beta
+GSM5652292,Blood-T-EffMem-CD4-Z0000041C,t effector memory cd4,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652292/suppl/GSM5652292_Blood-T-EffMem-CD4-Z0000041C.beta
+GSM5652293,Blood-T-EffMem-CD4-Z0000041M,t effector memory cd4,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652293/suppl/GSM5652293_Blood-T-EffMem-CD4-Z0000041M.beta
+GSM5652295,Blood-T-EffMem-CD8-Z0000041G,effector memory cd8 t cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652295/suppl/GSM5652295_Blood-T-EffMem-CD8-Z0000041G.beta
+GSM5652296,Blood-T-Naive-CD4-Z0000041E,naive cd4 t cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652296/suppl/GSM5652296_Blood-T-Naive-CD4-Z0000041E.beta
+GSM5652298,Blood-T-Naive-CD8-Z0000041H,naive cd8 t cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652298/suppl/GSM5652298_Blood-T-Naive-CD8-Z0000041H.beta
+GSM5652299,Blood-NK-Z000000TM,nk cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652299/suppl/GSM5652299_Blood-NK-Z000000TM.beta
+GSM5652300,Blood-NK-Z000000U1,nk cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652300/suppl/GSM5652300_Blood-NK-Z000000U1.beta
+GSM5652301,Blood-NK-Z000000UF,nk cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652301/suppl/GSM5652301_Blood-NK-Z000000UF.beta
+GSM5652302,Blood-Monocytes-Z000000TP,monocytes,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652302/suppl/GSM5652302_Blood-Monocytes-Z000000TP.beta
+GSM5652303,Blood-Monocytes-Z000000U3,monocytes,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652303/suppl/GSM5652303_Blood-Monocytes-Z000000U3.beta
+GSM5652304,Blood-Monocytes-Z000000UH,monocytes,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652304/suppl/GSM5652304_Blood-Monocytes-Z000000UH.beta
+GSM5652305,Colon-Macrophages-Z00000444,colon macrophages,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652305/suppl/GSM5652305_Colon-Macrophages-Z00000444.beta
+GSM5652306,Colon-Macrophages-Z00000446,colon macrophages,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652306/suppl/GSM5652306_Colon-Macrophages-Z00000446.beta
+GSM5652308,Lung-Alveolar-Macrophages-Z00000448,lung alveolar macrophages,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652308/suppl/GSM5652308_Lung-Alveolar-Macrophages-Z00000448.beta
+GSM5652309,Lung-Alveolar-Macrophages-Z0000044C,lung alveolar macrophages,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652309/suppl/GSM5652309_Lung-Alveolar-Macrophages-Z0000044C.beta
+GSM5652310,Lung-Interstitial-Macrophages-Z00000447,lung interstitial macrophages,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652310/suppl/GSM5652310_Lung-Interstitial-Macrophages-Z00000447.beta
+GSM5652311,Lung-Interstitial-Macrophages-Z0000044D,lung interstitial macrophages,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652311/suppl/GSM5652311_Lung-Interstitial-Macrophages-Z0000044D.beta
+GSM5652312,Lung-Interstitial-Macrophages-Z0000044E,lung interstitial macrophages,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652312/suppl/GSM5652312_Lung-Interstitial-Macrophages-Z0000044E.beta
+GSM5652316,Blood-B-Z000000TX,b cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652316/suppl/GSM5652316_Blood-B-Z000000TX.beta
+GSM5652317,Blood-B-Z000000UB,b cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652317/suppl/GSM5652317_Blood-B-Z000000UB.beta
+GSM5652318,Blood-B-Z000000UR,b cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652318/suppl/GSM5652318_Blood-B-Z000000UR.beta
+GSM5652319,Blood-B-Mem-Z0000041J,memory b cells,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652319/suppl/GSM5652319_Blood-B-Mem-Z0000041J.beta
+GSM5652320,Blood-B-Mem-Z0000041K,memory b cells,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652320/suppl/GSM5652320_Blood-B-Mem-Z0000041K.beta
+GSM5652322,Tonsil-Palatine-Epithelium-Z000000QF,tonsil palatine epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652322/suppl/GSM5652322_Tonsil-Palatine-Epithelial-Z000000QF.beta
+GSM5652323,Tonsil-Palatine-Epithelium-Z000000RP,tonsil palatine epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652323/suppl/GSM5652323_Tonsil-Palatine-Epithelial-Z000000RP.beta
+GSM5652324,Tonsil-Palatine-Epithelium-Z000000RR,tonsil palatine epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652324/suppl/GSM5652324_Tonsil-Palatine-Epithelial-Z000000RR.beta
+GSM5652325,Tonsil-Pharyngeal-Epithelium-Z000000Q9,tonsil pharyngeal epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652325/suppl/GSM5652325_Tonsil-Pharyngeal-Epithelial-Z000000Q9.beta
+GSM5652326,Tonsil-Pharyngeal-Epithelium-Z000000S1,tonsil pharyngeal epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652326/suppl/GSM5652326_Tonsil-Pharyngeal-Epithelial-Z000000S1.beta
+GSM5652327,Tongue-Epithelium-Z000000QV,tongue epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652327/suppl/GSM5652327_Tongue-Epithelial-Z000000QV.beta
+GSM5652328,Tongue-Epithelium-Z00000449,tongue epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652328/suppl/GSM5652328_Tongue-Epithelial-Z00000449.beta
+GSM5652329,Tongue-Epithelium-Z0000044F,tongue epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652329/suppl/GSM5652329_Tongue-Epithelial-Z0000044F.beta
+GSM5652335,Lung-Bronchus-Epithelium-Z000000QD,lung bronchus epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652335/suppl/GSM5652335_Lung-Bronchus-Epithelial-Z000000QD.beta
+GSM5652336,Lung-Bronchus-Epithelium-Z000000RZ,lung bronchus epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652336/suppl/GSM5652336_Lung-Bronchus-Epithelial-Z000000RZ.beta
+GSM5652337,Lung-Bronchus-Epithelium-Z000000S5,lung bronchus epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652337/suppl/GSM5652337_Lung-Bronchus-Epithelial-Z000000S5.beta
+GSM5652338,Prostate-Epithelium-Z000000RV,prostate epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652338/suppl/GSM5652338_Prostate-Epithelial-Z000000RV.beta
+GSM5652339,Prostate-Epithelium-Z000000S3,prostate epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652339/suppl/GSM5652339_Prostate-Epithelial-Z000000S3.beta
+GSM5652340,Prostate-Epithelium-Z0000045F,prostate epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652340/suppl/GSM5652340_Prostate-Epithelial-Z0000045F.beta
+GSM5652342,Bladder-Epithelium-Z000000QM,bladder epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652342/suppl/GSM5652342_Bladder-Epithelial-Z000000QM.beta
+GSM5652343,Bladder-Epithelium-Z000000QP,bladder epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652343/suppl/GSM5652343_Bladder-Epithelial-Z000000QP.beta
+GSM5652344,Bladder-Epithelium-Z0000043F,bladder epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652344/suppl/GSM5652344_Bladder-Epithelial-Z0000043F.beta
+GSM5652347,Breast-Luminal-Epithelium-Z000000V2,breast luminal epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652347/suppl/GSM5652347_Breast-Luminal-Epithelial-Z000000V2.beta
+GSM5652348,Breast-Luminal-Epithelium-Z000000VJ,breast luminal epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652348/suppl/GSM5652348_Breast-Luminal-Epithelial-Z000000VJ.beta
+GSM5652349,Breast-Luminal-Epithelium-Z000000VN,breast luminal epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652349/suppl/GSM5652349_Breast-Luminal-Epithelial-Z000000VN.beta
+GSM5652350,Breast-Basal-Epithelium-Z000000V6,breast basal epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652350/suppl/GSM5652350_Breast-Basal-Epithelial-Z000000V6.beta
+GSM5652351,Breast-Basal-Epithelium-Z000000VG,breast basal epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652351/suppl/GSM5652351_Breast-Basal-Epithelial-Z000000VG.beta
+GSM5652352,Breast-Basal-Epithelium-Z000000VL,breast basal epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652352/suppl/GSM5652352_Breast-Basal-Epithelial-Z000000VL.beta
+GSM5652354,Lung-Alveolar-Epithelium-Z000000T1,lung alveolar epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652354/suppl/GSM5652354_Lung-Alveolar-Epithelial-Z000000T1.beta
+GSM5652355,Lung-Alveolar-Epithelium-Z000000VC,lung alveolar epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652355/suppl/GSM5652355_Lung-Alveolar-Epithelial-Z000000VC.beta
+GSM5652356,Lung-Alveolar-Epithelium-Z000000VE,lung alveolar epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652356/suppl/GSM5652356_Lung-Alveolar-Epithelial-Z000000VE.beta
+GSM5652359,Gastric-fundus-Epithelium-Z000000RX,gastric fundus epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652359/suppl/GSM5652359_Gastric-fundus-Epithelial-Z000000RX.beta
+GSM5652360,Gastric-fundus-Epithelium-Z000000SK,gastric fundus epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652360/suppl/GSM5652360_Gastric-fundus-Epithelial-Z000000SK.beta
+GSM5652361,Gastric-fundus-Epithelium-Z000000SV,gastric fundus epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652361/suppl/GSM5652361_Gastric-fundus-Epithelial-Z000000SV.beta
+GSM5652362,Gastric-body-Epithelium-Z000000SD,gastric body epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652362/suppl/GSM5652362_Gastric-body-Epithelial-Z000000SD.beta
+GSM5652363,Gastric-body-Epithelium-Z000000SM,gastric body epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652363/suppl/GSM5652363_Gastric-body-Epithelial-Z000000SM.beta
+GSM5652364,Gastric-body-Epithelium-Z000000ST,gastric body epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652364/suppl/GSM5652364_Gastric-body-Epithelial-Z000000ST.beta
+GSM5652365,Gastric-antrum-Epithelium-Z000000SF,gastric antrum epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652365/suppl/GSM5652365_Gastric-antrum-Epithelial-Z000000SF.beta
+GSM5652366,Gastric-antrum-Epithelium-Z000000SP,gastric antrum epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652366/suppl/GSM5652366_Gastric-antrum-Epithelial-Z000000SP.beta
+GSM5652367,Gastric-antrum-Epithelium-Z000000SR,gastric antrum epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652367/suppl/GSM5652367_Gastric-antrum-Epithelial-Z000000SR.beta
+GSM5652370,Colon-Right-Epithelium-Z000000V0,colon epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652370/suppl/GSM5652370_Colon-Right-Epithelial-Z000000V0.beta
+GSM5652371,Colon-Right-Epithelium-Z000000V8,colon epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652371/suppl/GSM5652371_Colon-Right-Epithelial-Z000000V8.beta
+GSM5652372,Colon-Right-Endocrine-Z0000044S,colon enteroendocrine,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652372/suppl/GSM5652372_Colon-Right-Endocrine-Z0000044S.beta
+GSM5652373,Colon-Left-Epithelium-Z000000VA,colon epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652373/suppl/GSM5652373_Colon-Left-Epithelial-Z000000VA.beta
+GSM5652375,Colon-Left-Endocrine-Z0000044T,colon enteroendocrine,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652375/suppl/GSM5652375_Colon-Left-Endocrine-Z0000044T.beta
+GSM5652379,Small-int-Epithelium-Z000000RT,small intestine epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652379/suppl/GSM5652379_Small-int-Epithelial-Z000000RT.beta
+GSM5652380,Small-int-Epithelium-Z000000UW,small intestine epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652380/suppl/GSM5652380_Small-int-Epithelial-Z000000UW.beta
+GSM5652381,Small-int-Epithelium-Z000000UY,small intestine epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652381/suppl/GSM5652381_Small-int-Epithelial-Z000000UY.beta
