@@ -2322,6 +2322,9 @@ retries, or an .lbeta (uint16 pairs, this stage's converted files). A file that 
 The atlas over one block: for each cell, every column above, from its donors' counts. Returns the table and a summary (each cell's donors,
 halves, CpGs with reads and median reads; sites at the source files' 255-read cap).
 
+### stage_seq_atlas.py::build_block.pooled
+The pooled level of a cell's donors in one sealed half (all their methylated reads over all their reads), for the donor-half noise map.
+
 ### stage_seq_atlas.py::hg19_dictionary
 The pipeline's hg19 CpG dictionary (wgbstools init_genome's CpG.bed.gz: chromosome, 1-based position, index), checked for 28,217,448 CpGs.
 

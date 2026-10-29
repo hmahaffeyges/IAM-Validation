@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **36 Python files** holding **436 functions** (nested ones included); 435 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **36 Python files** holding **436 functions** (nested ones included); 436 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -3643,6 +3643,12 @@ The atlas over one block: for each cell, every column above, from its donors' co
 halves, CpGs with reads and median reads; sites at the source files' 255-read cap).
 
 *Code:* `stage_seq_atlas.py` line 89 (27 lines) · arguments: samples, start, end, source · calls: not called on the traced runs · constants read: `BLANK`, `SEED`
+
+### `stage_seq_atlas.py::build_block.pooled`
+
+The pooled level of a cell's donors in one sealed half (all their methylated reads over all their reads), for the donor-half noise map.
+
+*Code:* `stage_seq_atlas.py` line 103 (3 lines) · arguments: sel · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::hg19_dictionary`
 
