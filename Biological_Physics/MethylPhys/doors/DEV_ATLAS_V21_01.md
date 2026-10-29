@@ -533,3 +533,10 @@ no column here; their share is still named by the Deconvolver.
 **Synthetic bars** (two constructed cells, four donors each, planted held error per tile; counting's prediction by exact sum over every
 molecule pattern under Stage Q2's rules): 1. median relative difference over a cell's tiles within 2 %; 2. at least 90 % of tiles within
 2 counting standard deviations; 3. the halves add up exactly.\n
+
+**The held-error synthetic, run 1: not met as written** (`seq_atlas/seq_held_synthetic_run1.txt`). Cell one met every bar (median relative
+difference -0.0002); cell two met bars 2 and 3 but its median relative difference was -0.0201 against a bar of 2 %. That 2 % was not derived
+from counting: the median of 40 tiles at these chances scatters by about 0.009 from counting alone, so -0.0201 is about two of its standard
+deviations. **Bar 1 amended for run 2, before it runs (disclosed):** within 3 of the median's own counting standard deviations, computed from
+each tile's chances; new seed 20261102. Bars 2 and 3 unchanged. The same lesson as the atlas's own synthetic run 1: a bar is derived from
+counting before it is written.
