@@ -12,7 +12,9 @@ for g, r in S.items():
     f = sorted(glob.glob(os.path.join(sys.argv[1], f"hr_{g}", "**", g + "_bundle.json"), recursive=True))
     if not f: continue
     B = json.load(open(f[-1])); q = B.get("iam_a") or {}; k = B.get("coupling_a") or {}; t = (B.get("territories") or {}).get("sets") or {}
-    c = (q.get("count") or {}).get("held_opp"); b = (E.get(g) or {}).get("held_opp") or (E.get(g) or {}).get("held_chances")
+    c = (q.get("count") or {}).get("held_opp")
+    old = sorted(x for x in glob.glob(os.path.join(sys.argv[1], "split_*", "**", g + "_bundle.json"), recursive=True) if "/pass1" not in x)
+    b = (((json.load(open(old[-1])).get("iam_a") or {}).get("count") or {}).get("held_opp")) if old else None   # the earlier full-depth reading
     rows.append(dict(gsm=g, title=r["title"], group=r["genotype"], iam_a=q.get("A"), iam_a_state=q.get("state"),
                      met_a_sorted=((B.get("development") or {}).get("metaa_atlas") or {}).get("A"), coupling_a=k.get("A"), coupling_state=k.get("state"),
                      islands_A=(t.get("islands") or {}).get("A"), domains_A=(t.get("domains") or {}).get("A"), met_a_whole=(B.get("met_a_whole") or {}).get("A"),
