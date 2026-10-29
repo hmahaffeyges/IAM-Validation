@@ -1,0 +1,50 @@
+diff --git a/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py b/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+index 37c4c7e3..53f2c053 100644
+--- a/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
++++ b/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+@@ -214,6 +214,11 @@ def _metaa_atlas(a, b):
+     if getattr(a, "_seqv", None):   # 2026-10-22 (step 40): sequencing values; the self-tare maps the two array designs, so it does not apply
+         r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen, counts=getattr(a, "_seqc", None))
+         rec = {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "values": "sequencing values (stage_seq_values); no self-tare (arrays only)"}
++        if getattr(a, "_seqc", None) is not None:   # 2026-10-29 (DEV-METAA-ATLAS-CURVE-01): the identity sites' read counts and Met-A at fixed depths, recorded
++            try:
++                rec["identity_coverage"] = SA.identity_coverage(a.dev_metaa_atlas, a._seqc)
++                rec["fixed_depth"] = {str(k): SA.read_fixed_depth(b, a.dev_metaa_atlas, a._seqc, k) for k in SA.FIXED_K}
++            except Exception as e: rec["fixed_depth_error"] = f"{type(e).__name__}: {e}"
+         if a.metaa_atlas_ref_A: rec["tare"] = SA.tare(r.get("A"), [float(x) for x in a.metaa_atlas_ref_A.split(",") if x.strip()])
+         return rec
+     if getattr(a, "dev_metaa_curve", False):   # 2026-10-25 (plan 14.14): the atlas as the ruler, on Stage 1's values and the array's own curve
+diff --git a/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py b/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py
+index 26405ab1..b929a879 100644
+--- a/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py
++++ b/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py
+@@ -122,6 +122,29 @@ def read(beta, cell, specimen="isolated", counts=None):
+                                      atlas_median_unmethylated=round(float(mu[ok][_lo].median()), 5) if _lo.any() else None)
+     return rec
+ 
++FIXED_K = (2, 4, 6, 8, 10, 15, 20)   # 2026-10-29 (DEV-METAA-ATLAS-CURVE-01): the fixed depths read, stated before any reading
++
++def identity_coverage(cell, counts):
++    """2026-10-29: how many reads a sequenced sample has at the cell's identity sites: the share of identity sites with at least k reads, for
++    each k of FIXED_K, and the median reads per identity site. Recorded only."""
++    S = identity_sites(cell); n = pd.Series(counts).reindex(S).fillna(0)
++    return dict(median_reads=float(n.median()), share_with_at_least={int(k): round(float((n >= k).mean()), 4) for k in FIXED_K})
++
++def read_fixed_depth(beta, cell, counts, k, seed=20261029):
++    """2026-10-29 (DEV-METAA-ATLAS-CURVE-01, development): Met-A against the atlas cell read at one fixed number of reads per identity site, so
++    the sample's depth leaves the reading. At each identity site with at least k reads, k of its reads are kept without replacement
++    (hypergeometric on the site's marked and unmarked reads, seeded); the site's value is marked kept over k; the healthy expectation is the
++    exact one at k reads (expected_H_counts with n = k), the atlas column in sequencing units (seq_units). Sites with fewer than k reads are
++    not read; Met-A's coverage rule applies. Nothing is fitted."""
++    S = identity_sites(cell); x = pd.Series(beta, dtype="float64").reindex(S); n = pd.Series(counts).reindex(S).fillna(0).astype("int64")
++    mu = seq_units(_col("mu", cell).reindex(S)); ok = x.notna() & mu.notna() & (n >= k)
++    rec = dict(k=int(k), A=None, n_sites=int(ok.sum()))
++    if ok.sum() < RULE["coverage_min"] * len(S): rec["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites have {k} reads"; return rec
++    N = n[ok].to_numpy(); M = np.rint(x[ok].to_numpy() * N).astype("int64"); rng = np.random.default_rng(seed)
++    m = rng.hypergeometric(M, N - M, k); v = pd.Series(m / k, index=x[ok].index)
++    href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), np.full(int(ok.sum()), k)))); rec.update(A=round(float(_H(v).mean() / href), 5), H_ref=round(href, 5))
++    return rec
++
+ CURVE_EDGES = [0, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 0.97, 0.98, 0.99, 1.0]   # step 3 v7's, stated
+ 
+ def read_on_curve(beta, cell):

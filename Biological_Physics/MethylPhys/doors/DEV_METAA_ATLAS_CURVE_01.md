@@ -212,3 +212,12 @@ healthy sample). The ratio centers on 1 (median 0.9988, 2.5th to 97.5th percenti
 -0.564, p 5.4e-14; the raw readings -0.503). By the rule stated before, the reference must be matched to depth. **Next, written before it
 runs:** read every sample at one fixed number of reads per identity site, so depth leaves the reading itself; the number is set from the
 healthy samples' coverage before any test sample is read.
+
+**Fixed depth, synthetic: not met** (`seq_term_01/fixed_01/fixed_synthetic.py`, `fixed_synthetic.txt`; the chain change kept as
+`fixed_depth_chain.patch.txt`, not applied). One planted healthy b-cell donor read by the one command at 12, 20 and 40 reads a site: without a
+fixed depth it reads 1.29528, 1.29204 and 1.31514, so the exact expectation at each site's own depth already holds depth in planted data; at
+6 reads a site it reads 1.2625, 1.33941 and 1.30161 (subsampling scatter; bars 1 and 2 not met), and a 5 % loss reads clearly higher (bar 3
+met). Two findings: the real samples' fall with depth is not a counting effect, so a fixed depth does not remove it; and a donor term of only
+0.02 about the column raises the reading to about 1.3, because disorder rises steeply near 0 and 1. A healthy sample therefore cannot be read
+against the bare column; it must be read against measured healthy Met-A of its cell (the third approach). **Next:** where the real samples'
+depth trend comes from, read on the 153 already made (within cells, against the cell's healthy median), before any rule is set.

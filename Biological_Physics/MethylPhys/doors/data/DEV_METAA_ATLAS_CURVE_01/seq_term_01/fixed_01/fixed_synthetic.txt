@@ -1,0 +1,6 @@
+reading | without a fixed depth | k 2 | k 4 | k 6 | k 8 | k 10 | k 15 | k 20
+depth 12 | 1.29528 | 1.3327 | 1.32285 | 1.2625 | 1.28762 | None | None | None
+depth 20 | 1.29204 | 1.28817 | 1.22849 | 1.33941 | 1.28153 | 1.29635 | None | None
+depth 40 | 1.31514 | 1.33642 | 1.25152 | 1.30161 | 1.27194 | 1.32533 | 1.29806 | 1.3012
+5 % loss, depth 20 | 2.17616 | 2.22333 | 2.16975 | 2.20465 | 2.16884 | 2.16916 | 2.20826 | None
+bars at k 6: depths within 0.02 False | healthy within 0.05 of 1 False | loss above healthy True -> not met
