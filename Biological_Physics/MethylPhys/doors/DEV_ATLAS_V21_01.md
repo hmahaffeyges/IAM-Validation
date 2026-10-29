@@ -565,3 +565,9 @@ distance.
 
 **Synthetic bars** (three deep cells and one shallow cell pooled from sparse reads, as the megakaryocyte column is): 1. by the depth-weighted
 score each new donor's nearest cell is its own, the shallow cell's included; 2. the comparison counts exactly the CpGs it should.
+
+**The comparison's synthetic 2, read: met** (`seq_atlas/seq_compare_synthetic2.txt`): by the depth-weighted score every new donor read nearest
+its own cell, the shallow cell's included (own 0.945 to 0.949 for the deep cells, 4.465 for the shallow one, 27.255 or more for every other
+cell). **What it does not show:** here the plain distance also put the shallow cell's donor nearest its own column (0.1314 against 0.2074),
+so the synthetic does not reproduce donor 3's result, and a column's depth may not be the whole reason donor 3 read nearest monocytes.
+**Next (development, donor 3 is spent):** donor 3 compared again with the depth-weighted score, reported, not scored.
