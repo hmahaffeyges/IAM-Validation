@@ -167,6 +167,9 @@ by a laboratory the atlas has never seen, read against that band, with the test 
 ## Commissioning on sequencing: healthy B and T cells from two new laboratories (written and committed before any of them is read)
 
 **The instruments' job:** a healthy sorted cell, sequenced by a laboratory the atlas has never held, reads Normal on each gauge.
+**Sources:** GSE134664 (public on GEO and SRA: whole-genome bisulfite reads of sorted naive and memory B cells from healthy donors and
+hyper-IgM syndrome type 2 patients) and GSE98837 (public on GEO and SRA: whole-genome bisulfite reads of sorted human CD8 T cell subsets
+from two healthy people); IAM-Atlas v2.1 (this repository) for the columns and the sequencing source term.
 **Data (unread; spent for this test):** GSE134664, the healthy controls only (2 naive and 2 non-class-switched memory B cells from blood; the
 4 patient samples are not read), and GSE98837 (8 CD8 T cells from 2 people: naive, effector memory, central memory, stem-cell memory).
 GSE113336's non-malignant samples are not in the public archive. Each sample is read by the one command (split_align.yml, 20 machines,
