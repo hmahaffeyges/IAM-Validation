@@ -1473,6 +1473,46 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
      "what": "The full chain on every replay (author): run_sample.py --full-chain runs every development reading that applies, beside the commissioned ones, each flagged, and records any reading that cannot run with its reason; series.yml uses it by default. The four readings built on IAM-Atlas v2 (NILC, atlas-e, per-cell B, the sky reading) need v2's parquet, which is not in the repository; they are to be moved onto v2.1 so they run everywhere. Replays R1 to R9 are read again with the full chain.",
      "next": "Read R1 to R9 again with the full chain on GitHub's machines; then move NILC, atlas-e, per-cell B and the sky reading onto IAM-Atlas v2.1, synthetic first."
+    },
+    {
+     "id": "35.30.10",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "Per-cell reference packages (author): the chain first finds which cells a sample holds (the Deconvolver, at its marker sites), then each instrument scores against only those cells' references: the IAM-Atlas v2.1 column (arrays) or the sequencing atlas column (sequencing), the held error by region, the healthy coupling and each instrument's Normal band. The sequencing atlas is re-sorted from genome blocks into one package per cell, so a 16 GB machine loads only what it needs; a mixture loads every present cell's package, weighted by its share.",
+     "next": "Write the re-sort and its synthetic (every value identical after the re-sort) before it runs, then run it on one spot machine."
+    },
+    {
+     "id": "35.30.11",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "IAM-A on plasma (author): after the Deconvolver names what is in a plasma, its expected healthy held error is each cell's held error by region (35.30 held-error reference) weighted by its share, so a healthy plasma reads 1; then per tissue, each fragment assigned to the cell it most likely came from, so a tissue shedding DNA that holds its marks worse is seen on its own gauge. Megakaryocytes have no molecule files and no held-error column; their share is still named.",
+     "next": "Synthetic first: constructed plasma of known mix and planted held error in one tissue."
+    },
+    {
+     "id": "35.30.12",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "The information sphere's gauge and its sequencing layout: the sphere's distance (each sample's Fisher-Rao distance from its own healthy expectation) read over the healthy distance of its cell, as coupling-A is, so a healthy sample reads 1, flagged; a sphere layout built from the sequencing atlas at the CpGs that vary between cells; for plasma, which of the sphere's regions a tissue's shed DNA lights up.",
+     "next": "Build the sphere distance's healthy reference from the 153 healthy inputs, synthetic first."
+    },
+    {
+     "id": "35.30.13",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "The globe on the per-cell packages: the report's globe and the whole-genome globe read against the same expected healthy self the instruments score, at every CpG for sequenced samples, the sequencing atlas's two noise maps as the healthy background the slider fades.",
+     "next": "After 35.30.10."
+    },
+    {
+     "id": "35.30.14",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "Group-A on every replay (most VAL replays compare a group of cases with controls) through the full chain, and later on sequencing readings (it averages each person's own reading against healthy references run the same way).",
+     "next": "Group-A reported for each replay as it is read again with --full-chain."
     }
    ]
   },
