@@ -2333,6 +2333,15 @@ One donor's GRCh38 per-CpG read tables, pooled on GRCh38 and moved to the hg19 n
 not move to one place is dropped and counted), each landing on the hg19 CpG whose C or G it is, so both strands add to one CpG. Written as an
 .lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
 
+### stage_seq_atlas.py::metaa_reference
+Each cell's IAM Sequencing Atlas values at its Met-A identity sites (`run_sample.py --build seq-metaa-ref`): the same sites Met-A reads on
+arrays, chosen by its site rule on IAM-Atlas v2.1, so Met-A stays one instrument, with every stored column from the built pieces, as one
+long table (cell, probe, cpg, columns). Small enough to sit in the chain (`Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`).
+
+### stage_seq_atlas.py::metaa_reference_of
+One cell's rows of that reference, indexed by probe, levels 0 to 1 (blank as missing); nothing when the file or the cell is absent, and the
+reading then says it was read against IAM-Atlas v2.1.
+
 ### stage_seq_atlas.py::held_reference
 Each healthy cell's held error region by region, stored beside the sequencing atlas (`run_sample.py --build seq-held`): from each healthy
 sample's held-error counts by tile (`--dev-count-only --dev-count-tiles`; a tile is 2,000 consecutive CpGs), summed by cell, as counts, never

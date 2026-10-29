@@ -244,3 +244,25 @@ reading: what follows a sample's original depth is carried by the sample (its la
 levels), not by how many of its reads are counted. **Next:** Met-A on sequencing read against the IAM Sequencing Atlas, whose columns hold
 each donor's own disorder and the halves of every donor's reads, so the effect of depth and of the source can be measured inside the
 reference itself, synthetic first.
+
+## Met-A against the IAM Sequencing Atlas (written and committed before anything runs; plan 35.30)
+
+**Why:** read against IAM-Atlas v2.1, Met-A on sequencing followed each sample's source, at its own depth (the conversion's band) and at one
+common depth (rho -0.533). An array never quite reads 0 or 1 and sequencing does, so a sequenced sample reads against a ruler counted from
+sequencing. **The instrument's job:** a healthy sequenced cell reads Met-A 1 against its own cell's sequencing reference, at any depth.
+
+**What changes:** only the ruler. The identity sites are Met-A's own (its site rule on IAM-Atlas v2.1), so Met-A stays one instrument; at
+each, the healthy level is the IAM Sequencing Atlas's, counted from healthy donors' reads, and the expected disorder is taken at the sample's
+own read count, as before. The reference (`chain/Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`) is each cell's atlas values at
+its identity sites, extracted by the one command (`--build seq-metaa-ref`) from the built pieces; a sample reads against it with
+`--dev-seq-ref` (and `--dev-seq-ref-half A|B` for one sealed donor half).
+
+**Synthetic test:** DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/metaa_seqatlas_synthetic.py, DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/metaa_seqatlas_synthetic.txt
+
+**Synthetic bars** (a planted sequencing-scale truth at naive CD4 T cells' identity sites; constructed healthy samples at 7 depths from 5
+to 60 reads): 1. median Met-A within 0.05 of 1; 2. |Spearman rho| with depth at most 0.2.
+
+**Then the healthy test** (spent data, the atlas's own 153 inputs): each read by the one command against the *other* sealed donor half of
+its own cell, so no sample is read against its own reads (cells with one donor are not read and are listed). The same bars the v2.1 versions
+missed: 1. the median healthy Met-A within 0.05 of 1; 2. |Spearman rho| between Met-A and the sample's depth at most 0.2. **Then** healthy
+sequenced B and T cells the atlas does not hold (the B and T commissioning samples), read against the whole column.

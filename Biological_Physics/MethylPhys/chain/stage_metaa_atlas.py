@@ -95,21 +95,33 @@ def expected_H_counts(p, n):
         out[i] = binom.pmf(k[None, :], m, p[i][:, None]) @ hk
     return out
 
-def read(beta, cell, specimen="isolated", counts=None):
-    """Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1."""
+def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
+    """Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1. 2026-10-29: with sequencing counts and seqref (the cell's
+    rows of the IAM Sequencing Atlas's Met-A reference, stage_seq_atlas.metaa_reference_of), the healthy level at each identity site is the
+    sequencing atlas's, counted from sequencing reads (half 'A' or 'B': that sealed donor half only, for a sample of the other half), not the
+    array atlas's; the sites are the same."""
     S = identity_sites(cell); rec = dict(stage="M-atlas", reading="Met-A against IAM-Atlas v2.1", cell=cell, specimen=specimen, flag=FLAG,
                                          rule=RULE, n_identity_sites=len(S), A=None)
     if not S: rec["reason"] = f"no site of '{cell}' meets Met-A's site rule in the atlas"; return rec
-    x = beta.reindex(S); mu = _col("mu", cell).reindex(S); ok = x.notna() & mu.notna()
+    use_seq = counts is not None and seqref is not None
+    if use_seq:
+        col = {"A": "halfA", "B": "halfB"}.get(str(half or "").upper(), "level")
+        mu = seqref[col].reindex(S).astype("float64")
+        rec.update(reading="Met-A against the IAM Sequencing Atlas (sequencing)", reference=f"IAM Sequencing Atlas, {col} at the identity sites (metaa_seq_reference_v1)",
+                   flag="read against the IAM Sequencing Atlas; not commissioned by our standards (plan 35.30)")
+    else: mu = _col("mu", cell).reindex(S)
+    x = beta.reindex(S); ok = x.notna() & mu.notna()
     if ok.sum() < RULE["coverage_min"] * len(S):
         rec["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {RULE['coverage_min']:.0%} needed)"; return rec
     href = float(_H(mu[ok]).mean())
     if counts is not None:   # sequencing: the healthy expectation at each site's own read count (40.3)
         # 2026-10-28 (DEV-METAA-ATLAS-CURVE-01, the shift's cause): the atlas is on the array scale, whose unmarked sites sit near 0.055 where
         # sequencing reads 0; the column is put in sequencing units by the atlas's own measured source term (Loyfer2023), clipped to [0, 1]
-        mu = mu.copy(); mu[ok] = seq_units(mu[ok])
+        mu = mu.copy()
+        if not use_seq: mu[ok] = seq_units(mu[ok])
         _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
-        rec["expectation"] = "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)"
+        rec["expectation"] = ("k of n reads at each site's own depth (expected_H_counts), the IAM Sequencing Atlas's level" if use_seq else
+                              "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)")
     A = float(_H(x[ok]).mean() / href)
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),

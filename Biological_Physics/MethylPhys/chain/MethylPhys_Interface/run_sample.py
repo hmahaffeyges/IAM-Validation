@@ -212,7 +212,11 @@ def _metaa_atlas(a, b):
     commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched."""
     import dev_stages as DV, stage_metaa_atlas as SA
     if getattr(a, "_seqv", None):   # 2026-10-22 (step 40): sequencing values; the self-tare maps the two array designs, so it does not apply
-        r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen, counts=getattr(a, "_seqc", None))
+        _sr = None
+        if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
+            import stage_seq_atlas as _SQr; _sr = _SQr.metaa_reference_of(a.dev_metaa_atlas, _SQr.METAA_REF if a.dev_seq_ref == "auto" else a.dev_seq_ref)
+        r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen, counts=getattr(a, "_seqc", None), seqref=_sr, half=getattr(a, "dev_seq_ref_half", None))
+        if getattr(a, "dev_seq_ref", None) and _sr is None: r["seq_reference"] = "not found for this cell; read against IAM-Atlas v2.1"
         rec = {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "values": "sequencing values (stage_seq_values); no self-tare (arrays only)"}
         if a.metaa_atlas_ref_A: rec["tare"] = SA.tare(r.get("A"), [float(x) for x in a.metaa_atlas_ref_A.split(",") if x.strip()])
         return rec
@@ -254,6 +258,12 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "seq-metaa-ref":   # 2026-10-29 (plan 35.30, development): each cell's sequencing atlas values at its Met-A identity sites
+        if not (a.build_samples and a.build_out): print("--build seq-metaa-ref needs --build-samples PIECE_DIR[,PIECE_DIR] and --build-out PARQUET"); return 2
+        import stage_seq_atlas as _SQ; rep = _SQ.metaa_reference(a.build_samples.split(","), a.build_out)
+        rep.update(command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps(dict(cells=rep["cells"], rows=rep["rows"]))); return 0
     if a.build == "seq-held":   # 2026-10-29 (plan 35.30, development): each healthy cell's held error region by region, beside the sequencing atlas
         if not (a.build_samples and a.build_out): print("--build seq-held needs --build-samples CSV (gsm, cell, half, file of tile counts) and --build-out PARQUET"); return 2
         import stage_seq_atlas as _SQ; rep = _SQ.held_reference(a.build_samples, a.build_out)
@@ -521,6 +531,9 @@ def main():
                          "written under bundle['development']['metaa_atlas'], not part of the reading")
     ap.add_argument("--metaa-atlas-ref-A", default=None, help="with --dev-metaa-atlas: comma-separated development.metaa_atlas.A of >= 3 healthy samples of the same "
                     "cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare)")
+    ap.add_argument("--dev-seq-ref", default=None, metavar="auto|FILE", help="DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels "
+                    "from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1")
+    ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")

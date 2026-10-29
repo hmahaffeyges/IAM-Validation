@@ -114,6 +114,45 @@ def build_block(samples, start, end, source):
     T = pd.DataFrame(cols); T.insert(0, "cpg", np.arange(start + 1, end + 1, dtype=np.int32))   # 1-based hg19 CpG index, as the .pat and .beta numbering
     return T, summ
 
+METAA_REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_seq_reference_v1.parquet")
+METAA_COLS = ("donors", "reads", "meth", "level", "spread", "disorder", "halfA", "halfB", "readA", "readB")
+
+def metaa_reference(piece_dirs, out):
+    """2026-10-29 (plan 35.30; author: the right ruler for each kind of instrument): each cell's IAM Sequencing Atlas values at its Met-A identity
+    sites (the same sites, chosen by Met-A's rule on IAM-Atlas v2.1, so Met-A stays one instrument), as a long table: cell, probe, cpg and every
+    stored column (uint16 as built; levels x 10,000, 65535 blank). Small enough to sit in the chain (Runtime Matrices/Seq_Atlas)."""
+    import glob, pyarrow.parquet as pq, pandas as pd, stage_metaa_atlas as SA
+    K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe")["loyfer_cpg_index"]
+    F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
+    cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")})
+    want = {}
+    for c in cells:
+        S = [s for s in SA.identity_sites(c) if s in K.index]; want[c] = pd.Series(K.reindex(S).to_numpy(np.int64), index=S)
+    allc = np.unique(np.concatenate([v.to_numpy() for v in want.values()])); parts = []
+    for f in F:
+        sch = pq.read_schema(f).names; here = [c for c in cells if f"{c}|level" in sch]
+        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in here for x in METAA_COLS if f"{c}|{x}" in sch]).to_pandas()
+        T = T[T.cpg.isin(allc)].set_index("cpg")
+        if T.empty: continue
+        for c in here:
+            w = want[c]; w = w[w.isin(T.index)]
+            if w.empty: continue
+            X = T.loc[w.to_numpy(), [f"{c}|{x}" for x in METAA_COLS if f"{c}|{x}" in T.columns]]; X.columns = [x.rsplit("|", 1)[1] for x in X.columns]
+            X.insert(0, "probe", w.index.to_numpy()); X.insert(0, "cell", c); parts.append(X.reset_index())
+    R = pd.concat(parts, ignore_index=True).sort_values(["cell", "probe"]); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); R.to_parquet(out, index=False)
+    return dict(cells=len(cells), rows=int(len(R)), per_cell=R.groupby("cell").size().astype(int).to_dict(), output=os.path.basename(out))
+
+def metaa_reference_of(cell, path=METAA_REF):
+    """One cell's rows of the Met-A sequencing reference, indexed by probe, levels as 0 to 1 (NaN where blank); None when the file or cell is absent."""
+    import pandas as pd
+    if not os.path.exists(path): return None
+    R = pd.read_parquet(path, filters=[("cell", "==", cell)])
+    if R.empty: return None
+    R = R.set_index("probe")
+    for c in ("level", "spread", "disorder", "halfA", "halfB", "readA", "readB"):
+        if c in R: R[c] = np.where(R[c] == BLANK, np.nan, R[c] / 1e4)
+    return R
+
 def held_reference(samples, out):
     """2026-10-29 (author; plan 35.30): each healthy cell's held error region by region, beside the atlas. samples: gsm, cell, half (the sealed
     donor half, A or B) and file, each file one sample's held-error counts by tile (run_sample.py --dev-count-only --dev-count-tiles: chrom,
