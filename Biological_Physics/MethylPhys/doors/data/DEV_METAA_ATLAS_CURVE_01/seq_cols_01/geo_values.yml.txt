@@ -1,0 +1,38 @@
+name: geo_values
+# 2026-10-29: published sequencing samples whose molecule files (.pat.gz, hg19) are on GEO: the one command makes each sample's value and
+# calls at every IAM-Atlas v2.1 site and writes them (run_sample.py --dev-seq-values 1 --dev-write-values --dev-values-only); one machine each.
+on:
+  workflow_dispatch:
+    inputs:
+      samples: {description: "CSV in this repository with a gsm column", required: true}
+      tag:     {description: "name for the results", required: true}
+permissions: {contents: read, actions: read}
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    outputs: {gsms: "${{ steps.l.outputs.gsms }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - id: l
+        run: echo "gsms=$(python3 -c "import csv,json; print(json.dumps([r['gsm'] for r in csv.DictReader(open('${{ inputs.samples }}'))]))")" >> $GITHUB_OUTPUT
+  values:
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy: {fail-fast: false, max-parallel: 20, matrix: {gsm: "${{ fromJSON(needs.list.outputs.gsms) }}"}}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Molecules from GEO; values at the atlas's sites by the one command
+        run: |
+          pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1
+          G=${{ matrix.gsm }}; U="https://ftp.ncbi.nlm.nih.gov/geo/samples/${G:0:7}nnn/$G/suppl/"; mkdir -p eout
+          F=$(curl -sfL --retry 5 "$U" | grep -o 'href="[^"]*\.pat\.gz"' | sed 's/href="//; s/"$//' | grep -v '\.hg38\.' | head -1)
+          [ -n "$F" ] || { echo "no hg19 .pat.gz for $G on GEO"; echo 21 > rc.txt; exit 0; }
+          curl -sfL --retry 5 -o $PWD/$G.pat.gz "$U$F"
+          ( cd Biological_Physics/MethylPhys/chain/MethylPhys_Interface && python3 run_sample.py --pat $GITHUB_WORKSPACE/$G.pat.gz --specimen "sorted cells" --id $G \
+              --dev-seq-values 1 --dev-write-values $GITHUB_WORKSPACE/eout/${G}_values.parquet --dev-values-only ) > run.log 2>&1; echo $? > rc.txt; tail -5 run.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: "${{ inputs.tag }}-${{ matrix.gsm }}", path: "eout/*.parquet\nrun.log\nrc.txt", if-no-files-found: ignore}

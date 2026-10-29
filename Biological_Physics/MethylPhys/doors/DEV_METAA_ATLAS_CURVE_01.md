@@ -198,7 +198,7 @@ run:** the converted column against the healthy readings site by site, by level,
 atlas's own healthy sequencing inputs (the mean of their values at each site, a sample's own contribution left out), with Met-A's identity
 sites always chosen on the atlas itself. Synthetic (two cells, three planted donors at 20 reads a site as the column): an input donor read
 1.018 and 1.049 (met), a 5 % loss read clearly higher (met), but a donor not among the inputs read 1.075 and 1.052 against a bar of within 0.05
-of 1 (not met): a column from three donors still carries their counting scatter. Bars not changed; the change stays out of the chain.
+of 1 (not met): a column from three donors still carries their counting scatter. Bars not changed; the change stays out of the chain. Kept for the record in `seq_cols_01/`: the builder, the synthetic and its output (`seq_cols_synthetic.txt`), the chain change as a patch (`seq_columns_chain.patch.txt`, not applied) and its GitHub workflow (`geo_values.yml.txt`, not active).
 
 **Third approach, written before it runs: Met-A over healthy Met-A of its own cell** (the coupling gauge's rule, which met on its first
 build). The instrument's job: a healthy sequenced sample reads 1. A sample's Met-A is divided by the median Met-A of the atlas's healthy

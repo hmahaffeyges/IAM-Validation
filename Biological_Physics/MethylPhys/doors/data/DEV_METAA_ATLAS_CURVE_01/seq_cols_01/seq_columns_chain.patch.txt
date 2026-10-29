@@ -1,0 +1,138 @@
+diff --git a/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py b/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+index 37c4c7e3..9067184b 100644
+--- a/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
++++ b/Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py
+@@ -376,6 +376,9 @@ def main():
+     ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
+     ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72")
+     ap.add_argument("--specimen", default="whole blood")
++    ap.add_argument("--dev-write-values", default=None, metavar="PARQUET",
++                    help="DEVELOPMENT (2026-10-29): with --dev-seq-values, write the sample's value and calls at every IAM-Atlas v2.1 site (for the atlas's sequencing columns)")
++    ap.add_argument("--dev-values-only", action="store_true", help="DEVELOPMENT (2026-10-29): with --dev-write-values, stop after writing the values")
+     ap.add_argument("--dev-seq-values", default=None, type=int, metavar="MIN_CALLS",
+                     help="DEVELOPMENT (to-do step 40): with --pat, also make a value at each IAM-Atlas v2.1 site from the molecules (methylated calls over "
+                          "calls, sites with at least MIN_CALLS calls; chain/stage_seq_values.py), so the IAM-Deconvolver, Met-A for each cell, Met-A against "
+@@ -521,6 +524,7 @@ def main():
+         else:
+             _vb, _vc, a._seqv = _SV.values_from_beta(a.dev_seq_beta, a.dev_seq_values or 1)
+         a._seqc = _vc
++        import stage_metaa_atlas as _SAs; _SAs.set_sequencing(a.id, _vb)   # 2026-10-29: compared with the atlas's own sequencing inputs
+         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
+         print(f"Sequencing values from {os.path.basename(a.dev_seq_beta)}: {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites; median {a._seqv['calls_per_site_median']:.0f} calls", flush=True)
+     elif a.dev_seq_values is not None:   # 2026-10-22 (step 40): the same molecules give a value at each atlas site
+@@ -529,6 +533,11 @@ def main():
+         import stage_seq_values as _SV, tempfile as _tf
+         print(f"Sequencing values: counting {os.path.basename(a.pat)} at IAM-Atlas v2.1's sites (at least {a.dev_seq_values} calls)", flush=True)
+         _vb, _vc, a._seqv = _SV.values_from_pat(a.pat, a.dev_seq_values); a._seqc = _vc   # read counts per site, for Met-A's k-of-n expectation (40.3)
++        import stage_metaa_atlas as _SAs; _SAs.set_sequencing(a.id, _vb)   # 2026-10-29: compared with the atlas's own sequencing inputs
++        if a.dev_write_values:   # 2026-10-29 (DEV-METAA-ATLAS-CURVE-01): the sample's value and calls at every atlas site, for the atlas's sequencing columns
++            import pandas as _pdw; _pdw.DataFrame({"beta": _vb.astype("float32"), "calls": _vc.reindex(_vb.index).astype("int32")}).to_parquet(a.dev_write_values)
++            print(f"  values written: {a.dev_write_values}", flush=True)
++            if a.dev_values_only: sys.exit(0)
+         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
+         print(f"  {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites with a value; median {a._seqv['calls_per_site_median']:.0f} calls per site", flush=True)
+     if a.build: sys.exit(_build(a))
+diff --git a/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py b/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py
+index 26405ab1..4dbc875e 100644
+--- a/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py
++++ b/Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py
+@@ -32,10 +32,49 @@ _cache = {}
+ def _H(b):
+     b = np.clip(np.asarray(b, dtype="float64"), 1e-6, 1 - 1e-6); return -(b * np.log2(b) + (1 - b) * np.log2(1 - b))
+ 
++SEQ = None   # 2026-10-29: set by run_sample.py for a sequenced sample (set_sequencing); None for arrays
++SEQCOLS = os.environ.get("IAM_SEQ_COLUMNS") or os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "seq_columns_v1")   # the override is for synthetic tests only
++
++def set_sequencing(sample_id=None, values=None):
++    """2026-10-29 (DEV-METAA-ATLAS-CURVE-01): a sequenced sample is compared with the atlas's own sequencing inputs. From here on _col("mu", cell)
++    gives the cell's sequencing column (seq_columns_v1: the mean value of the atlas's sequencing inputs of that cell at each site), left without
++    this sample's own contribution when the sample is one of those inputs (sample_id, values); a cell with no sequencing input gets its array
++    column in sequencing units (seq_units). Arrays never call this."""
++    global SEQ; SEQ = dict(id=None if sample_id is None else str(sample_id), values=values)
++    for k in [k for k in _cache if isinstance(k, tuple) and k[0] == "mu"]: del _cache[k]
++
++def _seq_col(cell):
++    """The cell's sequencing column (see set_sequencing), or None when the atlas holds no sequencing input of the cell."""
++    import pyarrow.parquet as pq
++    ip = os.path.join(SEQCOLS, "inputs.json")
++    if not os.path.exists(ip): return None
++    inputs = json.load(open(ip)).get(cell)
++    if not inputs: return None
++    if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
++    for part in range(1, 9):
++        q = os.path.join(SEQCOLS, f"seq_mu_part{part}.parquet")
++        if not os.path.exists(q): break
++        if cell in pq.read_schema(q).names:
++            u = pq.read_table(q, columns=[cell]).column(0).to_numpy(); v = u.astype("float64") / 1e4; v[u == NA] = np.nan
++            n = pq.read_table(os.path.join(SEQCOLS, f"seq_n_part{part}.parquet"), columns=[cell]).column(0).to_numpy().astype("float64")
++            mu = pd.Series(v, index=_cache["ids"]); nn = pd.Series(n, index=_cache["ids"])
++            if SEQ and SEQ.get("id") in inputs and SEQ.get("values") is not None:   # leave the sample's own contribution out
++                x = pd.Series(SEQ["values"], dtype="float64").reindex(mu.index); has = x.notna() & mu.notna()
++                loo = (mu * nn - x.fillna(0)) / (nn - 1); mu = mu.where(~has, loo.where(nn > 1))
++            return mu
++    return None
++
+ def _col(stem, cell):
+-    """One cell's atlas column (best value mu, mu_lo, mu_hi or donor_sd), as a Series over the atlas's sites; NaN where the atlas has none."""
++    """One cell's atlas column (best value mu, mu_lo, mu_hi or donor_sd), as a Series over the atlas's sites; NaN where the atlas has none.
++    For a sequenced sample (set_sequencing), "mu" is the cell's sequencing column (2026-10-29)."""
+     import pyarrow.parquet as pq
+-    k = (stem, cell)
++    if stem == "mu" and SEQ is not None:
++        k = ("mu", cell)
++        if k in _cache: return _cache[k]
++        sc = _seq_col(cell)
++        _cache[k] = sc if sc is not None else seq_units(_col("mu_array", cell)); return _cache[k]
++    if stem == "mu_array": stem = "mu"
++    k = (stem, cell) if (stem != "mu" or SEQ is None) else ("mu_array", cell)
+     if k in _cache: return _cache[k]
+     if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
+     for part in (1, 2, 3):
+@@ -54,7 +93,7 @@ def identity_sites(cell):
+     """Met-A's site rule on the atlas (see the module text). Returns the site names, high side then low side."""
+     k = ("sites", cell)
+     if k in _cache: return _cache[k]
+-    mu, w = _col("mu", cell), width(cell); ok = mu.notna() & w.notna() & (w <= RULE["spread_max"])
++    mu, w = _col("mu_array", cell), width(cell); ok = mu.notna() & w.notna() & (w <= RULE["spread_max"])   # 2026-10-29: the site rule always reads the atlas itself, never a sequencing column
+     out = []
+     for lo, hi in (RULE["high"], RULE["low"]):
+         s = w[ok & (mu >= lo) & (mu <= hi)].sort_values(kind="mergesort")
+@@ -68,9 +107,9 @@ def specific_sites(cell, others, delta):
+     sample's panel. With related cells in the panel, few sites survive a large delta; the count is recorded, never padded."""
+     k = ("specific", cell, tuple(sorted(others)), float(delta))
+     if k in _cache: return _cache[k]
+-    mu, w = _col("mu", cell), width(cell); ok = mu.notna() & w.notna() & (w <= RULE["spread_max"])
++    mu, w = _col("mu_array", cell), width(cell); ok = mu.notna() & w.notna() & (w <= RULE["spread_max"])   # 2026-10-29: the atlas itself, as identity_sites
+     for o in others:
+-        mo = _col("mu", o).reindex(mu.index); ok &= mo.isna() | ((mu - mo).abs() >= delta)
++        mo = _col("mu_array", o).reindex(mu.index); ok &= mo.isna() | ((mu - mo).abs() >= delta)
+     out = []
+     for lo, hi in (RULE["high"], RULE["low"]):
+         out += list(w[ok & (mu >= lo) & (mu <= hi)].sort_values(kind="mergesort").index[:RULE["per_side"]])
+@@ -107,7 +146,7 @@ def read(beta, cell, specimen="isolated", counts=None):
+     if counts is not None:   # sequencing: the healthy expectation at each site's own read count (40.3)
+         # 2026-10-28 (DEV-METAA-ATLAS-CURVE-01, the shift's cause): the atlas is on the array scale, whose unmarked sites sit near 0.055 where
+         # sequencing reads 0; the column is put in sequencing units by the atlas's own measured source term (Loyfer2023), clipped to [0, 1]
+-        mu = mu.copy(); mu[ok] = seq_units(mu[ok])
++        pass   # 2026-10-29: on sequencing _col already gives the cell's sequencing column (set_sequencing)
+         _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
+         rec["expectation"] = "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)"
+     A = float(_H(x[ok]).mean() / href)
+@@ -223,7 +262,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
+         MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
+         have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+         e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
+-        if counts is not None: e = seq_units(e).where(e.notna())   # 2026-10-28: the mixed expectation in sequencing units on sequencing
++        pass   # 2026-10-29: on sequencing the columns are already the atlas's sequencing columns (set_sequencing)
+         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
+         _rmin = READ_COVER_MIN_SEQ if counts is not None else READ_COVER_MIN
+         if ok.sum() < _rmin * len(S):   # 2026-10-23 (author: read and flag): withheld only below half (a tenth on sequencing); above that and below RULE's 90 %, read and flagged
+@@ -397,7 +436,7 @@ def territory_reading(beta, shares, counts=None):
+         idx = pd.Index(S).intersection(x.dropna().index)
+         MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
+         cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+-        if counts is not None: e = seq_units(e).where(e.notna())   # 2026-10-28: the expectation in sequencing units on sequencing
++        pass   # 2026-10-29: on sequencing the columns are already the atlas's sequencing columns (set_sequencing)
+         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
+         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
+         hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts); A = float(hx.mean() / he.mean())

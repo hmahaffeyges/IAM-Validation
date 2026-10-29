@@ -1,0 +1,3 @@
+b cells: donor 4 (not an input) 1.07497 | donor 1 (an input, own contribution left out) 1.01794 | donor 4 with a 5 % loss 1.73066
+cd8 t cells: donor 4 (not an input) 1.05199 | donor 1 (an input, own contribution left out) 1.04862 | donor 4 with a 5 % loss 1.67222
+synthetic (all bars, two cells): not met [False, True, True, False, True, True]
