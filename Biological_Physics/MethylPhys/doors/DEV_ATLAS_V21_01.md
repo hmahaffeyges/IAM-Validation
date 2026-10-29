@@ -459,3 +459,26 @@ donor-sites sit at the source files' 255-read cap and are counted. Three cells r
 9 on two, 44 on three); for those three the donor-half noise map is blank and the
 read-half map stands in. Stored in the Google bucket (northamerica-northeast2), seq_atlas/pieces/. **Next:** the healthy references for the
 sequencing instruments, the spheres, spectra and masks, each with its synthetic first.
+
+## The IAM Sequencing Atlas: a megakaryocyte column (written and committed before any of it runs; plan 35.30, plan 40.18)
+
+**Why:** the 153 inputs hold no megakaryocytes, a large source of plasma DNA. The only open healthy megakaryocyte sequencing is GSE87197,
+whose parent series GSE87196 (blood progenitors) holds the same three donors: 33, 19 and 19 single megakaryocytes. Donors 1 and 2 are spent
+(the absorption test and the provisional column's test); donor 3 is unread and stays reserved. **Rule set here:** no donor-3 sample of any
+progenitor type in GSE87196 goes into the atlas, so donor 3 is unseen when it is tested.
+
+**The conversion (new in the chain):** these files are GRCh38 per-CpG read tables. `stage_seq_atlas.lift_to_hg19`, run by the one command
+(`run_sample.py --build seq-lift`), pools one donor's cells on GRCh38, moves each distinct position to hg19 (UCSC hg38ToHg19 chain,
+pyliftover; a position that does not map once is dropped and counted), and adds it to the hg19 CpG whose C or G it is (both strands to one
+CpG), against the pipeline's own hg19 CpG dictionary (wgbstools init_genome, from the committed index release, 28,217,448 checked). It writes
+an .lbeta (uint16 counts, no 255 cap), which the atlas build now reads beside .beta files.
+
+**Synthetic test:** DEV_ATLAS_V21_01/seq_atlas/seq_lift_synthetic.py, DEV_ATLAS_V21_01/seq_atlas/seq_lift_synthetic.txt
+
+**Synthetic bars** (known answer: the spent atlas input GSM5652316, moved to GRCh38 as test construction with 30 % of sites on the reverse
+strand, then moved back by the one command): 1. at least 95 % of its CpGs with reads come back; 2. of those, at least 99 % with exactly the
+original counts; 3. at most 0.1 % of the CpGs with reads afterwards had none before.
+
+**Then, if met:** donors 1 and 2 converted, one .lbeta each (`seq_atlas/mk_build_files.csv`: 33 and 19 cells; each conversion's report
+records how many positions moved and landed on hg19 CpGs), and the megakaryocyte column built by `--build seq-atlas` from the two (donor 1
+in half A, donor 2 in half B), stored beside the 56 cells. **Its test on donor 3 is written and committed before donor 3 is read.**

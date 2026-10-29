@@ -34,10 +34,49 @@ def read_block(src, start, end):
             import time; time.sleep(15 * (t + 1))
         else: raise IOError(f"{src}: byte range {2 * start}-{2 * end - 1} not returned")
         a = np.frombuffer(r.content, np.uint8)
+    elif str(src).endswith(".lbeta"):   # 2026-10-29: uint16 counts (this stage's own converted files, no 255 cap), same layout
+        if os.path.getsize(src) != 4 * HG19_CPGS: raise ValueError(f"{src}: not the hg19 numbering ({os.path.getsize(src) // 4:,} CpGs)")
+        a = np.fromfile(src, np.uint16, count=2 * n, offset=4 * start)
     else:
         if os.path.getsize(src) != 2 * HG19_CPGS: raise ValueError(f"{src}: not the hg19 numbering ({os.path.getsize(src) // 2:,} CpGs)")
         a = np.fromfile(src, np.uint8, count=2 * n, offset=2 * start)
     a = a.reshape(n, 2); return a[:, 0].astype(np.int32), a[:, 1].astype(np.int32)
+
+def hg19_dictionary(cpg_bed):
+    """wgbstools' hg19 CpG dictionary (CpG.bed.gz from init_genome: chrom, 1-based position, index), as {chrom: (positions, indices)}."""
+    D = pd.read_csv(cpg_bed, sep="\t", header=None, names=["chr", "pos", "idx"], dtype={"chr": str, "pos": np.int64, "idx": np.int64})
+    if len(D) != HG19_CPGS: raise ValueError(f"{cpg_bed}: {len(D):,} CpGs, not {HG19_CPGS:,}")
+    return {c: (g.pos.to_numpy(), g.idx.to_numpy()) for c, g in D.groupby("chr", sort=False)}
+
+def lift_to_hg19(files, out, cpg_bed, chain="hg38"):
+    """Per-CpG read tables on GRCh38 (tab-separated chrom, 0-based position, methylated reads, all reads; one file per cell, pooled here) moved to
+    the hg19 CpG numbering and written as one .lbeta (uint16 methylated and all reads at every hg19 CpG). Positions are pooled on GRCh38 first,
+    each distinct position is moved once (UCSC chain hg38ToHg19, pyliftover; a position that does not map, or maps to several places, is dropped),
+    and a moved position lands on an hg19 CpG if it is the C of the CpG or the G of it (the reverse strand), so both strands add to one CpG.
+    Returns a report: positions read, moved, landed on a CpG, CpGs with reads."""
+    from pyliftover import LiftOver
+    P = None
+    for f in files:
+        M = pd.read_csv(f, sep="\t", header=None, usecols=[0, 1, 2, 3], names=["chr", "pos", "m", "n"], dtype={"chr": str})
+        M = M.groupby(["chr", "pos"], sort=False)[["m", "n"]].sum()
+        P = M if P is None else P.add(M, fill_value=0)
+    P = P.reset_index(); lo = LiftOver(chain, "hg19"); D = hg19_dictionary(cpg_bed); a = np.zeros((HG19_CPGS, 2), np.int64); moved = landed = 0
+    for c38, g in P.groupby("chr", sort=False):   # one GRCh38 chromosome at a time, to keep memory small
+        q = [lo.convert_coordinate(c38, int(x)) for x in g.pos.to_numpy()]
+        ok = np.array([len(x) == 1 for x in q], bool); moved += int(ok.sum())
+        if not ok.any(): continue
+        c19 = np.array([x[0][0] for x, o in zip(q, ok) if o]); p19 = np.array([x[0][1] for x, o in zip(q, ok) if o], np.int64) + 1   # 1-based
+        m, n = g.m.to_numpy()[ok].astype(np.int64), g.n.to_numpy()[ok].astype(np.int64)
+        for c in np.unique(c19):
+            if c not in D: continue
+            pos, ix = D[c]; s_ = c19 == c; pp = p19[s_]; hit = np.full(len(pp), -1, np.int64)
+            for cand in (pp, pp - 1):   # the C itself, or the G of a CpG whose C is one base before (reverse strand)
+                k = np.minimum(np.searchsorted(pos, cand), len(pos) - 1); h = (pos[k] == cand) & (hit < 0); hit[h] = ix[k[h]]
+            L = hit >= 0; landed += int(L.sum())
+            np.add.at(a[:, 0], hit[L] - 1, m[s_][L]); np.add.at(a[:, 1], hit[L] - 1, n[s_][L])
+    np.minimum(a, 65535).astype(np.uint16).tofile(out)
+    return dict(files=len(files), positions=int(len(P)), moved=moved, landed=landed, cpgs_with_reads=int((a[:, 1] > 0).sum()),
+                capped=int((a >= 65535).any(1).sum()), chain="UCSC hg38ToHg19 (pyliftover)", output=os.path.basename(out))
 
 def _u16(x, scale=1e4):
     out = np.full(x.shape, BLANK, np.uint16); ok = np.isfinite(x); out[ok] = np.clip(np.round(x[ok] * scale), 0, BLANK - 1); return out

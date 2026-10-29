@@ -425,8 +425,8 @@ GSE86732,,,,,,,,,not usable (ENCODE (atlas source)),breast luminal epithelium,no
 GSE86833,,,,,,scored,DEV_FINGERPRINT_01,DEV_FINGERPRINT_01; DEV_FINGERPRINT_01_OUTCOME; DEV_SYNTH_LEVERS_01,,,,,,
 "GSE86833 / PRJNA342657 (LNCaP, PrEC WGBS) - derived reads",,,,,spent,,,,,,,,,
 GSE87095,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,b cells,yes,IDAT listed for 122/122 samples,DNA methylation analysis of B cells in Rheumatoid Arthritis,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE87196,,,,,,,,,not usable (controlled access: raw reads at EGA under data-access agreement (GEO design); per-sample processed calls public on GEO),erythrocyte progenitors | b cells | cd4 t cells | cd8 t cells | nk cells | monocytes | neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE87196_RAW.tar),DNA methylation profiles of human hematopoietic progenitors [BLUEPRINT hematopoietic progenitors],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE87197,,,,,partly spent,,,DEV_ONE_DRAW_01,,,,,,
+GSE87196,,,,,,,,DEV_ATLAS_V21_01,not usable (controlled access: raw reads at EGA under data-access agreement (GEO design); per-sample processed calls public on GEO),erythrocyte progenitors | b cells | cd4 t cells | cd8 t cells | nk cells | monocytes | neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE87196_RAW.tar),DNA methylation profiles of human hematopoietic progenitors [BLUEPRINT hematopoietic progenitors],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE87197,,,,,partly spent,,,DEV_ATLAS_V21_01; DEV_ONE_DRAW_01,,,,,,
 GSE87197 megakaryocytes donor 2 (19 single cells),,,,,spent (development; provisional reference test 1),,,,,,,,,
 GSE87297,,,,,,,,,not usable (cell-line mixtures (MCF7) and no SRA reads listed),,yes,no per-sample IDAT or SRA link (series files: GSE87297_RAW.tar),Epigenomic deconvolution of breast tumors reveals metabolic coupling between constituent cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE87571,,,,,spent,,,DEV_CSCORE_LIMIT_01; DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_FOREIGNSCOR,,,,,,

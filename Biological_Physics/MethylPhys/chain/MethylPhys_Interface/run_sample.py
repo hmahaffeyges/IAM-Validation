@@ -254,6 +254,14 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "seq-lift":   # 2026-10-29 (plan 35.30, development): GRCh38 per-CpG read tables of one donor, pooled and moved to the hg19 numbering
+        if not (a.build_samples and a.build_out and a.build_input): print("--build seq-lift needs --build-samples CSV (file), --build-input hg19 CpG.bed.gz and --build-out X.lbeta"); return 2
+        import stage_seq_atlas as _SQ; S = _pd.read_csv(a.build_samples, dtype=str)
+        print(f"Build: {len(S)} GRCh38 read tables moved to the hg19 numbering", flush=True)
+        rep = _SQ.lift_to_hg19(list(S.file), a.build_out, a.build_input); rep.update(samples_file=os.path.basename(a.build_samples), command=[os.path.basename(sys.argv[0])] + sys.argv[1:],
+                                                                                  label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps({k: v for k, v in rep.items() if k != "command"}, default=str)); return 0
     if a.build == "seq-atlas":   # 2026-10-29 (plan 35.30, development): one block of the IAM Sequencing Atlas, counted from healthy donors' reads
         if not (a.build_samples and a.build_out and a.build_block): print("--build seq-atlas needs --build-samples CSV (gsm, cell, half, file), --build-block START:END and --build-out"); return 2
         import stage_seq_atlas as _SQ, warnings as _w; _w.filterwarnings("ignore", category=RuntimeWarning)
@@ -471,7 +479,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
