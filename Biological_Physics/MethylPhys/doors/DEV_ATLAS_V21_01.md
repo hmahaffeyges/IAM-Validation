@@ -571,3 +571,11 @@ its own cell, the shallow cell's included (own 0.945 to 0.949 for the deep cells
 cell). **What it does not show:** here the plain distance also put the shallow cell's donor nearest its own column (0.1314 against 0.2074),
 so the synthetic does not reproduce donor 3's result, and a column's depth may not be the whole reason donor 3 read nearest monocytes.
 **Next (development, donor 3 is spent):** donor 3 compared again with the depth-weighted score, reported, not scored.
+
+**Donor 3 read again with the depth-weighted score (development, spent; reported, not scored)** (`seq_atlas/mk_donor3_compare_weighted.json`).
+Megakaryocytes ranked 24 of 57 (3.8328); nearest were colon fibroblasts (2.002) and erythrocyte progenitors (2.0626). No cell reads near 1,
+the value a healthy cell of that column gives, so donor 3 does not fit any column as counting predicts, megakaryocytes included. Neither the
+plain distance nor the weighted score names donor 3's cell, so depth is not the explanation. The single-cell megakaryocyte libraries may carry
+a protocol offset against the bulk sequencing behind the other columns, or the column may hold too few reads at the CpGs compared. **Next
+(development, spent data):** whether the three megakaryocyte donors read nearer each other than any bulk column (donor 1 against donor 2 and
+donor 3, each converted file compared directly), which separates a protocol offset from a weak column.
