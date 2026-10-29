@@ -375,6 +375,62 @@
    "platform": "sequencing",
    "status": "development (band not met)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+  },
+  {
+   "id": "REPLAY-R5-IBD-SORTED",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r5_ibd_sorted_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "REPLAY-R5-LIVER",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r5_liver_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "REPLAY-R6-AGING",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r6_aging_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "REPLAY-R6-STROKE",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r6_stroke_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "REPLAY-R7-PROSTATE",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r7_prostate_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "REPLAY-R8-TISSUES",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r8_tissues_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "REPLAY-R9-ENDOTHELIAL",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r9_endothelial_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "REPLAY-R9-GLIOMA-BLOOD",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r9_glioma_blood_rows.csv",
+   "status": "reference only (replay)",
+   "rows_table": true,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
   }
  ],
  "lines": {

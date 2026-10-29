@@ -1,0 +1,13 @@
+{
+ "rule": "healthy = healthy controls (HC), study controls (control), the aging cohort's normal people; normal tissue beside a tumor keeps its own label",
+ "replays": {
+  "r5_ibd_sorted": "group",
+  "r5_liver": "status",
+  "r6_aging": "status",
+  "r6_stroke": "group",
+  "r7_prostate": "group",
+  "r8_tissues": "group",
+  "r9_endothelial": "group",
+  "r9_glioma_blood": "group"
+ }
+}
