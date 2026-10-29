@@ -79,7 +79,8 @@ cells from two new laboratories are read and reported on it in the sequencing co
 **The territories' healthy band on sequencing (written and committed before any reading on the amended chain).** **The instrument's job:**
 a healthy cell reads near 1 on each territory. **Data:** IAM-Atlas v2.1's 153 healthy sequencing inputs (spent, atlas inputs;
 `DEV_ALL_INFO_01/coupling_02/healthy_seq.csv`), each read again by the one command (`geo_pat.yml`, its sorted cell as the specimen) on the
-chain that reads the territories in sequencing units. **Prior reading:** the 153 atlas sequencing inputs were read earlier the same day on the previous rule (the coupling reference, Met-A's sequencing band); their territory readings on the previous rule are not used here.
+chain that reads the territories in sequencing units.
+**Prior reading:** GSE235717 GSM7508429 (spent) is the healthy blood of the first synthetic above; the 153 atlas sequencing inputs were read earlier the same day on the previous rule (the coupling reference, Met-A's sequencing band), and their territory readings on that rule are not used here.
 **Synthetic test:** DEV_TERRITORIES_01/seq_band_01/terr_seq_synthetic.py, DEV_TERRITORIES_01/seq_band_01/terr_seq_synthetic.txt
 **Run 1 not met as written** (`seq_band_01/terr_seq_synthetic_run1.txt`): the healthy naive B cell plant read islands 3.00 (CD8 T cells 0.99).
 The cause was in the one command, not the territories: for a sorted cell the whole-sample readings (Met-A whole sample, the territories,
