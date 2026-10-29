@@ -305,7 +305,11 @@
   },
   "Nearest-neighbor coupling": {
    "status": "current",
-   "definition": "In development (plan 49.5): on held molecules, the pairs of neighboring CpGs that lost their mark together, over what each molecule's own length and error count give at random; 1 is independent. Recorded by chain Stage Q2 (stage_q2_selfref._coupling) on every sequencing count, beside IAM-A's held error. Not commissioned until it has a healthy reference and a sealed test."
+   "definition": "In development (plan 49.5): on held molecules, the pairs of neighboring CpGs that lost their mark together, over what each molecule's own length and error count give at random; 1 is independent. Recorded by chain Stage Q2 (stage_q2_selfref._coupling) on every sequencing count, beside IAM-A's held error. Not commissioned until it has a healthy reference and a sealed test. Drawn on the A-score gauge as coupling-A: the sample's coupling over the healthy coupling of its own cell type (healthy 1), from 0 (errors never neighbors) to the sample's own most clustered arrangement."
+  },
+  "Met-A on sequencing": {
+   "status": "current",
+   "definition": "In development (DEV-METAA-ATLAS-CURVE-01): Met-A against IAM-Atlas v2.1 for a whole-genome bisulfite sample, with each atlas column put in sequencing units by the conversion the atlas's own build measured for the published sequencing atlas, because the atlas's array scale holds unmarked sites near 0.055 where sequencing reads 0."
   }
  },
  "retired": {

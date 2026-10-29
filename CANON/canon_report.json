@@ -1467,6 +1467,15 @@
 "text": "Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands, si"
 },
 {
+"file": "docs/book/part6/p6_06b_toolbox.tex",
+"line": 69,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Whether a molecule's held errors fall one at a time or together, read on the A-score gauge as coupling-A: the sample's coupling (neighboring CpGs that lost thei"
+},
+{
 "file": "docs/book/part6/p6_09_cscore.tex",
 "line": 30,
 "pattern": "\\bA[- ]score",
@@ -1935,6 +1944,15 @@
 "text": "Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands, si"
 },
 {
+"file": "Biological_Physics/MethylPhys/INSTRUMENTS.md",
+"line": 213,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Whether a molecule's held errors fall one at a time or together, read on the A-score gauge as coupling-A: the sample's coupling (neighboring CpGs that lost thei"
+},
+{
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md",
 "line": 12,
 "pattern": "reference line",
@@ -2014,6 +2032,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "every healthy cell type keeps unmarked, and the domains, marked sites some cell types hold loosely, each on the same A-score gauge against"
+},
+{
+"file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+"line": 157,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "flagged as in development ([the instruments](INSTRUMENTS.md)). It is drawn on the A-score gauge as coupling-A, the sample's coupling over the healthy coupling o"
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
