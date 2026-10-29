@@ -1,0 +1,3 @@
+read 148 of 153; thinned and with another sample of their cell 142
+ratio at the common depth: median 0.9979, 2.5th to 97.5th percentile 0.8826 to 1.1244
+ratio against original depth: rho -0.533 (p 8.7e-12); bar (|rho| at most 0.2): not met

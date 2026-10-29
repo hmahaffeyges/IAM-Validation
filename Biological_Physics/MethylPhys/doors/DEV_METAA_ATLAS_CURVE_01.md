@@ -235,3 +235,12 @@ read by the one command thinned to about 30,000,000 held-error chances (about th
 ratio no longer follows the original depth. Bar: |Spearman rho| at most 0.2 (`thin_score.py`). If met, Met-A on sequencing is read at the
 common depth; if not, depth acts some other way and is studied before any rule. **Synthetic test:** the thinning is the chain's own, tested in
 step 40 (DEV_ALL_INFO_01 quarter-depth synthetic); this test reads only healthy samples already spent.
+
+**The healthy ratio at one common depth, read: not met** (`seq_term_01/thin_01/thin_summary.txt`, `thin_readings.csv`). 148 of 153 healthy
+inputs read thinned (two stopped on GitHub, three without another sample of their cell); 142 with another sample of their cell. At the
+common depth the ratio centers (median 0.9979, 2.5th to 97.5th percentile 0.8826 to 1.1244) but still follows the original depth: rho -0.533
+(p 8.7e-12) against a bar of |rho| at most 0.2. As the test stated before reading, depth acts some other way than read count at the time of
+reading: what follows a sample's original depth is carried by the sample (its laboratory and library, which set both its depth and its
+levels), not by how many of its reads are counted. **Next:** Met-A on sequencing read against the IAM Sequencing Atlas, whose columns hold
+each donor's own disorder and the halves of every donor's reads, so the effect of depth and of the source can be measured inside the
+reference itself, synthetic first.
