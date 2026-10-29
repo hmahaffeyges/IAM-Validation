@@ -138,18 +138,53 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | t effector memory cd4 | plasma | cord-blood B cells | 2 | 0.96895 | 0.93885 to 0.99905 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | naive cd8 t cells | not stated | leukemia | 1 | 1.005 | 1.005 to 1.005 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | kidney tubular endothelium | not stated | leukemia | 1 | 1.0302 | 1.0302 to 1.0302 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted b cells | leukemia | 13 | 0.79849 | 0.73379 to 0.90462 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | leukemia | 13 | 0.72463 | 0.66439 to 0.8066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted b cells | leukemia | 13 | 0.45802 | 0.28467 to 0.53007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted b cells | leukemia | 13 | 0.86641 | 0.77743 to 1.0568 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted b cells | leukemia | 13 | 0.8142 | 0.74186 to 0.9192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted b cells | leukemia | 13 | 5.5245 | 4.5633 to 7.8091 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted b cells | leukemia | 13 | 0.64439 | 0.51326 to 0.86324 | no line set for this reading | [Territories.csv](Territories.csv) |
-| IAM-A | IAM-A | b cells | sorted b cells | leukemia | 11 | 0.9035 | 0.82735 to 0.93225 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Coupling-A | coupling-A | b cells | sorted b cells | leukemia | 13 | 1.0917 | 1.0325 to 1.1138 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | leukemia | 13 | 1.5055 | 1.3983 to 1.7442 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted b cells | leukemia | 13 | 0.9955 | 0.99236 to 1.0055 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | b cells | sorted b cells | leukemia | 13 | 0.9665 | 0.89758 to 1.0479 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | leukemia | 31 | 0.82538 | 0.71898 to 0.97118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | leukemia | 31 | 0.70408 | 0.64976 to 0.82883 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | leukemia | 31 | 0.35823 | 0.24277 to 0.53181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | leukemia | 31 | 0.94706 | 0.77399 to 1.1446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | leukemia | 31 | 0.83417 | 0.72599 to 0.98251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | leukemia | 31 | 5.4656 | 4.0647 to 8.6953 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | leukemia | 31 | 0.7086 | 0.53181 to 0.89181 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | leukemia | 25 | 0.9043 | 0.82598 to 0.96944 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | leukemia | 31 | 1.0891 | 1.0254 to 1.1302 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | leukemia | 31 | 1.5418 | 1.391 to 1.8761 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | leukemia | 31 | 0.9974 | 0.99235 to 1.0053 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | leukemia | 31 | 0.9851 | 0.9007 to 1.0525 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | control line | 1 | 0.66435 | 0.66435 to 0.66435 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | control line | 1 | 0.72748 | 0.72748 to 0.72748 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | control line | 1 | 0.63482 | 0.63482 to 0.63482 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | control line | 1 | 0.66671 | 0.66671 to 0.66671 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | control line | 1 | 0.66509 | 0.66509 to 0.66509 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | control line | 1 | 11.241 | 11.241 to 11.241 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | control line | 1 | 0.55829 | 0.55829 to 0.55829 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | control line | 1 | 0.7654 | 0.7654 to 0.7654 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | control line | 1 | 1.0404 | 1.0404 to 1.0404 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | control line | 1 | 1.6122 | 1.6122 to 1.6122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | control line | 1 | 0.9999 | 0.9999 to 0.9999 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | control line | 1 | 0.9549 | 0.9549 to 0.9549 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | knockout | 1 | 1.3266 | 1.3266 to 1.3266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | knockout | 1 | 1.4929 | 1.4929 to 1.4929 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | knockout | 1 | 0.58976 | 0.58976 to 0.58976 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | knockout | 1 | 1.5831 | 1.5831 to 1.5831 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | knockout | 1 | 1.3328 | 1.3328 to 1.3328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | knockout | 1 | 10.5 | 10.5 to 10.5 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | knockout | 1 | 1.2891 | 1.2891 to 1.2891 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | knockout | 1 | 1.0259 | 1.0259 to 1.0259 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | knockout | 1 | 3.3205 | 3.3205 to 3.3205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | knockout | 1 | 1.0006 | 1.0006 to 1.0006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | knockout | 1 | 0.9305 | 0.9305 to 0.9305 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cord-blood B cells | 3 | 0.70259 | 0.67982 to 0.73957 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cord-blood B cells | 3 | 0.59296 | 0.56799 to 0.61059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cord-blood B cells | 3 | 0.21677 | 0.19309 to 0.3673 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cord-blood B cells | 3 | 0.7953 | 0.72517 to 0.84664 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cord-blood B cells | 3 | 0.72333 | 0.69197 to 0.75951 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cord-blood B cells | 3 | 3.9224 | 3.5052 to 5.7344 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cord-blood B cells | 3 | 0.66743 | 0.60538 to 0.69195 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | cord-blood B cells | 3 | 0.7906 | 0.77116 to 0.79411 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cord-blood B cells | 3 | 1.0116 | 0.99999 to 1.0456 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cord-blood B cells | 3 | 1.2817 | 1.2682 to 1.3914 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cord-blood B cells | 3 | 0.9963 | 0.99405 to 1.0056 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cord-blood B cells | 3 | 0.9691 | 0.94462 to 1.0253 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted adipocytes | healthy | 3 | 1.1307 | 1.1256 to 1.1386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted adipocytes | healthy | 3 | 1.1004 | 1.1003 to 1.1054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | islands | sorted adipocytes | healthy | 3 | 0.21125 | 0.19427 to 0.25929 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -4169,7 +4204,7 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | lung interstitial macrophages | whole blood | 3 rec lgg, still lgg | 1 | 1.1153 | 1.1153 to 1.1153 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | whole blood | 1 new gbm | 2 | 0.9033 | 0.9033 to 0.9033 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 
-150771 readings from 34 sources. Status and record for every row are in the tables.
+151042 readings from 34 sources. Status and record for every row are in the tables.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).

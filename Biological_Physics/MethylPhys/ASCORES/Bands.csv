@@ -57,7 +57,7 @@ C-Score,C-Score each cell,b cells,HM450K,c8ff5cc,,,24,0.9025,1.0059,1.1771,166,r
 C-Score,C-Score each cell,b cells,HM450K,ca58285,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,b cells,HM450K,e98b90f,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,b cells,sequencing,0801c4b,,1.0902,0,,,,1,development
-C-Score,C-Score each cell,b cells,sequencing,0a01f6d,,1.0903,1,,0.9797,,14,development
+C-Score,C-Score each cell,b cells,sequencing,0a01f6d,,1.0902,1,,0.9797,,37,development
 C-Score,C-Score each cell,b cells,sequencing,155b14e,,,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,1dcb6df,,1.09,127,0.8974,0.9756,1.0513,127,development
 C-Score,C-Score each cell,b cells,sequencing,22ff8df,,,0,,,,2,development
@@ -642,7 +642,7 @@ C-Score,C-Score whole genome,whole genome,HM450K,c8ff5cc,,,66,0.9951,1.0095,1.02
 C-Score,C-Score whole genome,whole genome,HM450K,ca58285,,,0,,,,131,reference only (replay)
 C-Score,C-Score whole genome,whole genome,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 C-Score,C-Score whole genome,whole genome,sequencing,0801c4b,,1.0077,0,,,,1,development
-C-Score,C-Score whole genome,whole genome,sequencing,0a01f6d,,1.0078,3,0.9976,0.9977,0.9979,16,development
+C-Score,C-Score whole genome,whole genome,sequencing,0a01f6d,,1.0077,3,0.9976,0.9977,0.9979,39,development
 C-Score,C-Score whole genome,whole genome,sequencing,155b14e,,,0,,,,1,development
 C-Score,C-Score whole genome,whole genome,sequencing,1dcb6df,,1.0077,153,0.9917,0.9994,1.0087,153,development
 C-Score,C-Score whole genome,whole genome,sequencing,22ff8df,,,0,,,,2,development
@@ -661,7 +661,7 @@ C-Score,C-Score whole genome,whole genome,sequencing,b00c2ab,,,0,,,,1,developmen
 C-Score,C-Score whole genome,whole genome,sequencing,c464b26,,,0,,,,5,development
 C-Score,C-Score whole genome,whole genome,sequencing,c543f9e,,,0,,,,1,development
 C-Score,C-Score whole genome,whole genome,sequencing,e87632c,,,0,,,,2,development
-C-Score,"C_rel, chain tare",whole blood,EPIC v1,,,,231,0.8871,0.9967,1.13,231,commissioned
+C-Score,"C_rel, chain tare",whole blood,EPIC v1,,,1.152,231,0.8871,0.9967,1.13,231,commissioned
 C-Score,"C_rel, tared to the series",granulocytes,EPIC v1,,,,26,0.6989,1.0312,1.2949,64,development
 C-Score,"C_rel, tared to the series",neutrophils,EPIC v1,,,,62,0.8393,1.0032,1.2611,62,commissioned
 C-Score,"C_rel, tared to the series",whole blood,EPIC v1,,,,553,0.7342,1.0003,1.408,553,commissioned
@@ -674,7 +674,7 @@ Ceiling,"A at the ceiling, domains territory, arrays",whole blood,EPIC_v1,,,,40,
 Ceiling,"A at the ceiling, domains territory, arrays",whole blood,HM450K,,,,60,2.0673,2.207,2.282,60,development (spent)
 Ceiling,"A at the ceiling, islands territory, arrays",whole blood,EPIC_v1,,,,40,3.4658,3.5738,3.6523,40,development (spent)
 Ceiling,"A at the ceiling, islands territory, arrays",whole blood,HM450K,,,,60,3.6744,3.7794,3.9584,60,development (spent)
-Coupling-A,coupling-A,b cells,sequencing,0a01f6d,0.9353,1.0619,1,,1.1266,,14,development (flagged in the bundle)
+Coupling-A,coupling-A,b cells,sequencing,0a01f6d,0.9353,1.0619,1,,1.1266,,37,development (flagged in the bundle)
 Coupling-A,coupling-A,memory b cells,sequencing,0a01f6d,0.9353,1.0619,2,,1.0234,,2,development (flagged in the bundle)
 Coupling-A,"coupling-A, own sample left out of the reference",adipocytes,sequencing,,,,3,0.9707,0.9995,1.0304,3,development
 Coupling-A,"coupling-A, own sample left out of the reference",aorta endothelium,sequencing,,,,2,,1.0028,,2,development
@@ -731,7 +731,7 @@ Coupling-A,"coupling-A, own sample left out of the reference",tonsil pharyngeal 
 Coupling-A,"coupling-A, own sample left out of the reference",vascular saphenous endothelium,sequencing,,,,3,0.9923,1.0028,1.0053,3,development
 IAM-A,IAM-A,adipocytes,sequencing,1dcb6df,0.7787,1.0551,3,1.0065,1.0094,1.0234,3,development
 IAM-A,IAM-A,aorta endothelium,sequencing,1dcb6df,0.7787,1.0551,2,,0.9585,,2,development
-IAM-A,IAM-A,b cells,sequencing,0a01f6d,0.7787,1.0551,1,,0.8055,,12,development
+IAM-A,IAM-A,b cells,sequencing,0a01f6d,0.7787,1.0551,1,,0.8055,,30,development
 IAM-A,IAM-A,b cells,sequencing,1dcb6df,0.7787,1.0551,3,0.8572,0.9052,0.9613,3,development
 IAM-A,IAM-A,bladder epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.9854,0.9913,1.0157,3,development
 IAM-A,IAM-A,breast basal epithelium,sequencing,1dcb6df,0.7787,1.0551,3,0.8932,0.899,0.9016,3,development
@@ -812,11 +812,11 @@ IAM-A,"held error eps, per interior opportunity (commissioned counter)",cell typ
 IAM-A,island gain error (PROC-CHANNEL-01 rule),colon tissue,WGBS,,,,0,,,,12,development
 Met-A,"A, tared to the same laboratory",granulocytes,EPIC v1,,,,26,0.9742,1.001,1.0303,64,development
 Met-A,"A, tared to the same laboratory",neutrophils,EPIC v1,,,,13,0.9161,1.0027,1.0636,29,commissioned
-Met-A,"A, untared",neutrophils,EPIC v1,,,,6,0.9942,1.0008,1.006,6,commissioned (reference arrays)
-Met-A,Met-A,neutrophils,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
-Met-A,Met-A,neutrophils,EPIC_v1,3463259,,,0,,,,99,reference only (replay)
-Met-A,Met-A,neutrophils,EPIC_v1,505bea0,,,42,0.952,0.9966,1.0612,42,reference only (replay)
-Met-A,Met-A,neutrophils,EPIC_v1,801e08b,,,260,0.9557,0.9975,1.0509,481,reference only (replay)
+Met-A,"A, untared",neutrophils,EPIC v1,,0.95,1.05,6,0.9942,1.0008,1.006,6,commissioned (reference arrays)
+Met-A,Met-A,neutrophils,EPIC_v1,07638a9,0.95,1.05,0,,,,15,reference only (replay)
+Met-A,Met-A,neutrophils,EPIC_v1,3463259,0.95,1.05,0,,,,99,reference only (replay)
+Met-A,Met-A,neutrophils,EPIC_v1,505bea0,0.95,1.05,42,0.952,0.9966,1.0612,42,reference only (replay)
+Met-A,Met-A,neutrophils,EPIC_v1,801e08b,0.95,1.05,260,0.9557,0.9975,1.0509,481,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,3463259,,,0,,,,265,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,505bea0,,,42,0.9542,0.9811,1.0047,42,reference only (replay)
@@ -1543,7 +1543,7 @@ Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,ca58285,,,0,,,,124,r
 Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 Met-A,Met-A sorted cell (atlas),adipocytes,sequencing,1dcb6df,,,3,0.8326,0.844,0.8696,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),aorta endothelium,sequencing,1dcb6df,,,2,,1.0098,,2,development (flagged in the bundle)
-Met-A,Met-A sorted cell (atlas),b cells,sequencing,0a01f6d,,,1,,2.0768,,14,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),b cells,sequencing,0a01f6d,,,1,,2.0768,,37,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),b cells,sequencing,1dcb6df,,,3,0.6181,0.6689,0.7072,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),bladder epithelium,sequencing,1dcb6df,,,3,0.7576,0.7634,0.8356,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),breast basal epithelium,sequencing,1dcb6df,,,3,0.7796,0.7957,0.8077,3,development (flagged in the bundle)
@@ -1666,7 +1666,7 @@ Met-A,Met-A whole sample,whole sample,HM450K,c8ff5cc,,,66,0.9515,0.9797,1.0271,3
 Met-A,Met-A whole sample,whole sample,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A whole sample,whole sample,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A whole sample,whole sample,sequencing,0801c4b,,,0,,,,1,development
-Met-A,Met-A whole sample,whole sample,sequencing,0a01f6d,,,3,0.9598,0.9995,1.0353,16,development
+Met-A,Met-A whole sample,whole sample,sequencing,0a01f6d,,,3,0.9598,0.9995,1.0353,39,development
 Met-A,Met-A whole sample,whole sample,sequencing,155b14e,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,1dcb6df,,,153,0.7524,0.9336,1.2956,153,development
 Met-A,Met-A whole sample,whole sample,sequencing,22ff8df,,,0,,,,2,development
@@ -1696,7 +1696,7 @@ Met-A,"Met-A whole sample, by place",domains,HM450K,c8ff5cc,,,66,0.9552,1.0077,1
 Met-A,"Met-A whole sample, by place",domains,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,"Met-A whole sample, by place",domains,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",domains,sequencing,0801c4b,,,0,,,,1,development
-Met-A,"Met-A whole sample, by place",domains,sequencing,0a01f6d,,,3,1.1342,1.2102,1.2567,16,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,0a01f6d,,,3,1.1342,1.2102,1.2567,39,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,155b14e,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,1dcb6df,,,153,0.8245,1.1259,1.8074,153,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,22ff8df,,,0,,,,2,development
@@ -1726,7 +1726,7 @@ Met-A,"Met-A whole sample, by place",identity sites of the cells found,HM450K,c8
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,0801c4b,,,0,,,,1,development
-Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,0a01f6d,,,3,0.9061,0.9232,0.9234,16,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,0a01f6d,,,3,0.9061,0.9232,0.9234,39,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,155b14e,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,1dcb6df,,,153,0.6456,0.8903,1.3279,153,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,22ff8df,,,0,,,,2,development
@@ -1756,7 +1756,7 @@ Met-A,"Met-A whole sample, by place",islands,HM450K,c8ff5cc,,,66,0.8609,0.9183,0
 Met-A,"Met-A whole sample, by place",islands,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,"Met-A whole sample, by place",islands,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",islands,sequencing,0801c4b,,,0,,,,1,development
-Met-A,"Met-A whole sample, by place",islands,sequencing,0a01f6d,,,3,0.2124,0.2179,0.2315,16,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,0a01f6d,,,3,0.2124,0.2179,0.2315,39,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,155b14e,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,1dcb6df,,,153,0.1718,0.2086,0.3115,153,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,22ff8df,,,0,,,,2,development
@@ -1786,7 +1786,7 @@ Met-A,"Met-A whole sample, by place",the rest,HM450K,c8ff5cc,,,66,0.9599,0.9829,
 Met-A,"Met-A whole sample, by place",the rest,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,"Met-A whole sample, by place",the rest,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",the rest,sequencing,0801c4b,,,0,,,,1,development
-Met-A,"Met-A whole sample, by place",the rest,sequencing,0a01f6d,,,3,0.9835,1.0181,1.0526,16,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,0a01f6d,,,3,0.9835,1.0181,1.0526,39,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,155b14e,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,1dcb6df,,,153,0.7779,0.9513,1.287,153,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,22ff8df,,,0,,,,2,development
@@ -1819,7 +1819,7 @@ Territories,territory,domains,HM450K,c8ff5cc,,,66,0.9543,1.0024,1.0562,326,refer
 Territories,territory,domains,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Territories,territory,domains,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Territories,territory,domains,sequencing,0801c4b,,,0,,,,1,development
-Territories,territory,domains,sequencing,0a01f6d,,,3,0.7708,0.8189,0.8618,16,development
+Territories,territory,domains,sequencing,0a01f6d,,,3,0.7708,0.8189,0.8618,39,development
 Territories,territory,domains,sequencing,155b14e,,,0,,,,1,development
 Territories,territory,domains,sequencing,1dcb6df,,,153,0.74,0.993,1.5715,153,development
 Territories,territory,domains,sequencing,22ff8df,,,0,,,,2,development
@@ -1849,7 +1849,7 @@ Territories,territory,islands,HM450K,c8ff5cc,,,66,0.8575,0.9136,0.9797,326,refer
 Territories,territory,islands,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Territories,territory,islands,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Territories,territory,islands,sequencing,0801c4b,,,0,,,,1,development
-Territories,territory,islands,sequencing,0a01f6d,,,3,1.0799,1.0828,3.2036,16,development
+Territories,territory,islands,sequencing,0a01f6d,,,3,1.0799,1.0828,3.2036,39,development
 Territories,territory,islands,sequencing,155b14e,,,0,,,,1,development
 Territories,territory,islands,sequencing,1dcb6df,,,153,0.1468,0.1833,0.2652,153,development
 Territories,territory,islands,sequencing,22ff8df,,,0,,,,2,development

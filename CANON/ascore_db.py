@@ -20,6 +20,7 @@ def load(s):
         "platform": col(s.get("platform"), s.get("platform_col"), None).values, "reading": s["kind"],
         "value": pd.to_numeric(d[s["value"]]).round(6).values, "status": s["status"], "record": s["record"],
         "line": json.load(open(f, encoding="utf-8"))[s["line"]["from_file"]] if s.get("line") else None})
+LINES = {}
 INSTR = {"IAM-A": "IAM-A", "coupling-A": "Coupling-A", "Met-A": "Met-A", "Met-A sorted cell (atlas)": "Met-A", "Met-A whole sample": "Met-A",
          "Met-A whole sample, by place": "Met-A", "Met-A each cell": "Met-A", "territory": "Territories", "C-Score whole genome": "C-Score",
          "C-Score each cell": "C-Score"}
@@ -46,12 +47,15 @@ def bands(T):
     for (ins, rd, cl, pl, cc), g in T.groupby(["instrument", "reading", "cell", "platform", "chain_commit"], sort=True):
         h = g[g.condition.astype(str).str.lower() == "healthy"].value   # healthy-labeled samples only (a control line or cord blood is not the healthy reference)
         lo = g.band_lo.dropna() if "band_lo" in g else pd.Series(dtype=float); hi = g.band_hi.dropna() if "band_hi" in g else pd.Series(dtype=float)
+        ln = (LINES or {}).get(rd) or {}   # a commissioned line for this reading (ascore_sources.json "lines")
+        if not len(lo) and "lo" in ln: lo = pd.Series([ln["lo"]])
+        if not len(hi) and "hi" in ln: hi = pd.Series([ln["hi"]])
         R.append(dict(instrument=ins, reading=rd, cell=cl, platform=pl, chain_commit=cc, gauge_band_lo=round(lo.median(), 4) if len(lo) else None, gauge_band_hi=round(hi.median(), 4) if len(hi) else None,
                       healthy_samples=int(len(h)), healthy_lo=round(h.quantile(.025), 4) if len(h) >= 3 else None, healthy_median=round(h.median(), 4) if len(h) else None,
                       healthy_hi=round(h.quantile(.975), 4) if len(h) >= 3 else None, all_samples=int(len(g)), status="; ".join(sorted(set(g.status.astype(str))))[:120]))
     return pd.DataFrame(R)
 def build():
-    S = json.load(open(os.path.join(ROOT, "CANON", "ascore_sources.json"), encoding="utf-8"))
+    S = json.load(open(os.path.join(ROOT, "CANON", "ascore_sources.json"), encoding="utf-8")); global LINES; LINES = S.get("lines", {})
     T = pd.concat([x.astype({'line': float}) for x in ((load_rows(s) if s.get("rows_table") else load(s)) for s in S["sources"])], ignore_index=True); files = {}
     b = io.StringIO(); bands(T).to_csv(b, index=False, lineterminator="\n"); files["Bands.csv"] = b.getvalue()
     for ins, g in T.groupby("instrument", sort=False):

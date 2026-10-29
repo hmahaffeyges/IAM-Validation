@@ -65,7 +65,7 @@ GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97397,2.1178,1.02329,-0.02329,0.00377,,,,,3463259
 GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.93658,3.6812,1.02365,-0.02365,0.0,,,,,3463259
 GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.99256,2.2343,1.00603,-0.00603,0.00361,,,,,3463259
-GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9989,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9989,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9973,,,,,,,above its limit,,3463259
 GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0101,,,,,,,above its limit,,3463259
 GSM5467949,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd4 t cells,,1.0784,,,,,,,above its limit,,3463259
@@ -166,7 +166,7 @@ GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96621,2.0512,1.03214,-0.03214,0.0073,,,,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.91958,3.5991,1.03094,-0.03094,1e-05,,,,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.95517,2.2184,1.0368,-0.0368,0.00253,,,,,3463259
-GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9588,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9588,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0021,,,,,,,above its limit,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.987,,,,,,,above its limit,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,b cells,,1.0053,,,,,,,above its limit,,3463259
@@ -269,7 +269,7 @@ GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97025,1.9958,1.02987,-0.02987,0.00855,,,,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.93373,3.5594,1.02589,-0.02589,0.0,,,,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.97353,2.1378,1.02326,-0.02326,0.00234,,,,,3463259
-GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9687,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9687,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0031,,,,,,,above its limit,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9889,,,,,,,above its limit,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9369,,,,,,,above its limit,,3463259
@@ -372,7 +372,7 @@ GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98972,1.9882,1.01041,-0.01041,0.00479,,,,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95451,3.5719,1.01769,-0.01769,1e-05,,,,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00067,2.1095,0.9994,0.0006,0.00286,,,,,3463259
-GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0063,,,,,,,above its limit,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0153,,,,,,,above its limit,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9839,,,,,,,above its limit,,3463259
@@ -475,7 +475,7 @@ GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99024,2.1935,1.00818,-0.00818,0.00512,,,,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.96996,3.6766,1.01122,-0.01122,1e-05,,,,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.00562,2.2867,0.99563,0.00437,0.00433,,,,,3463259
-GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0038,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0038,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0057,,,,,,,above its limit,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0606,,,,,,,above its limit,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0209,,,,,,,above its limit,,3463259
@@ -552,7 +552,7 @@ GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.01069,2.0676,0.98998,0.01002,0.00573,,,,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,1.00392,3.5904,0.99849,0.00151,1e-05,,,,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.00666,2.1871,0.99439,0.00561,0.00444,,,,,3463259
-GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9845,,,,,,,withheld: noise index 0.15749 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9845,,,,,0.95,1.05,withheld: noise index 0.15749 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0126,,,,,,,above its limit,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9168,,,,,,,above its limit,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,1.0802,,,,,,,above its limit,,3463259
@@ -635,7 +635,7 @@ GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98888,2.1,1.0101,-0.0101,0.00598,,,,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.96705,3.6044,1.01265,-0.01265,0.0,,,,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.0098,2.2405,0.9921,0.0079,0.00391,,,,,3463259
-GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9716,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9716,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0043,,,,,,,above its limit,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0818,,,,,,,above its limit,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0253,,,,,,,above its limit,,3463259
@@ -712,7 +712,7 @@ GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.02006,2.1907,0.98315,0.01685,0.00352,,,,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.04258,3.6718,0.98406,0.01594,0.0,,,,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.03169,2.2763,0.97517,0.02483,0.00513,,,,,3463259
-GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0355,,,,,,,withheld: noise index 0.15446 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0355,,,,,0.95,1.05,withheld: noise index 0.15446 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0054,,,,,,,above its limit,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,CMP (bone marrow),,1.0155,,,,,,,above its limit,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,L-MPP (bone marrow),,1.0103,,,,,,,above its limit,,3463259
@@ -812,7 +812,7 @@ GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00025,2.1694,0.99979,0.00021,0.00626,,,,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96101,3.6631,1.01464,-0.01464,0.0,,,,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99702,2.259,1.00237,-0.00237,0.00404,,,,,3463259
-GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0106,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0106,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0032,,,,,,,above its limit,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9606,,,,,,,above its limit,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0102,,,,,,,above its limit,,3463259
@@ -917,7 +917,7 @@ GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.02901,2.1528,0.97484,0.02516,0.00496,,,,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00087,3.6518,0.99967,0.00033,1e-05,,,,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.04787,2.2389,0.96136,0.03864,0.00457,,,,,3463259
-GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0316,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0316,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9967,,,,,,,above its limit,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0652,,,,,,,above its limit,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9803,,,,,,,above its limit,,3463259
@@ -1000,7 +1000,7 @@ GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99889,2.1591,1.00096,-0.00096,0.00504,,,,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00746,3.6636,0.9972,0.0028,0.0,,,,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00664,2.2611,0.99474,0.00526,0.00488,,,,,3463259
-GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9964,,,,,,,withheld: noise index 0.15242 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9964,,,,,0.95,1.05,withheld: noise index 0.15242 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0118,,,,,,,above its limit,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0529,,,,,,,above its limit,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9759,,,,,,,above its limit,,3463259
@@ -1103,7 +1103,7 @@ GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98201,2.1105,1.0162,-0.0162,0.00575,,,,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.95307,3.6405,1.01777,-0.01777,1e-05,,,,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.981,2.2249,1.01552,-0.01552,0.00347,,,,,3463259
-GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9859,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9859,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9867,,,,,,,above its limit,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0731,,,,,,,above its limit,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd8 temra t cells,,1.0492,,,,,,,above its limit,,3463259
@@ -1206,7 +1206,7 @@ GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99253,2.0582,1.00706,-0.00706,0.00692,,,,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96035,3.612,1.01518,-0.01518,0.0,,,,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00398,2.1706,0.9966,0.0034,0.00323,,,,,3463259
-GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9968,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9968,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0106,,,,,,,above its limit,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0842,,,,,,,above its limit,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0404,,,,,,,above its limit,,3463259
@@ -1290,7 +1290,7 @@ GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.95922,2.1432,1.03567,-0.03567,0.00689,,,,,3463259
 GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.91043,3.6718,1.03352,-0.03352,4e-05,,,,,3463259
 GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.96496,2.256,1.0279,-0.0279,0.00427,,,,,3463259
-GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9714,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9714,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.009,,,,,,,above its limit,,3463259
 GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9566,,,,,,,above its limit,,3463259
 GSM5467950,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0025,,,,,,,above its limit,,3463259
@@ -1367,7 +1367,7 @@ GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98,2.1397,1.01755,-0.01755,0.00571,,,,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.93637,3.6601,1.02392,-0.02392,1e-05,,,,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.98291,2.2344,1.01384,-0.01384,0.00371,,,,,3463259
-GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9972,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9972,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0124,,,,,,,above its limit,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.015,,,,,,,above its limit,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0906,,,,,,,above its limit,,3463259
@@ -1470,7 +1470,7 @@ GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97099,2.1175,1.02596,-0.02596,0.00677,,,,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.87787,3.6436,1.0462,-0.0462,3e-05,,,,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.98505,2.2231,1.01223,-0.01223,0.0034,,,,,3463259
-GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0227,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0227,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0072,,,,,,,above its limit,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,b cells,,0.9856,,,,,,,above its limit,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.945,,,,,,,above its limit,,3463259
@@ -1574,7 +1574,7 @@ GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00347,2.1729,0.99704,0.00296,0.00514,,,,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.96539,3.6669,1.01298,-0.01298,3e-05,,,,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.00664,2.2588,0.99472,0.00528,0.00354,,,,,3463259
-GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0015,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0015,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9977,,,,,,,above its limit,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9246,,,,,,,above its limit,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9297,,,,,,,above its limit,,3463259
@@ -1675,7 +1675,7 @@ GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98104,2.0259,1.01848,-0.01848,0.00725,,,,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.93467,3.5579,1.02554,-0.02554,1e-05,,,,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.00186,2.18,0.99843,0.00157,0.00356,,,,,3463259
-GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9715,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9715,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9973,,,,,,,above its limit,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9683,,,,,,,above its limit,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9705,,,,,,,above its limit,,3463259
@@ -1779,7 +1779,7 @@ GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.007,2.1379,0.99385,0.00615,0.00472,,,,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.99557,3.6236,1.00169,-0.00169,1e-05,,,,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.02514,2.264,0.98011,0.01989,0.00477,,,,,3463259
-GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9864,,,,,,,withheld: noise index 0.15209 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9864,,,,,0.95,1.05,withheld: noise index 0.15209 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0055,,,,,,,above its limit,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,1.1354,,,,,,,above its limit,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0511,,,,,,,above its limit,,3463259
@@ -1881,7 +1881,7 @@ GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99971,1.9097,1.00032,-0.00032,0.00815,,,,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95,3.5371,1.01971,-0.01971,3e-05,,,,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.01424,2.0504,0.98645,0.01355,0.00313,,,,,3463259
-GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0285,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0285,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0026,,,,,,,above its limit,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9995,,,,,,,above its limit,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd8 temra t cells,,1.0722,,,,,,,above its limit,,3463259
@@ -1984,7 +1984,7 @@ GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99205,2.1212,1.00709,-0.00709,0.00628,,,,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.98179,3.6104,1.00698,-0.00698,3e-05,,,,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.99805,2.2538,1.00156,-0.00156,0.00434,,,,,3463259
-GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9826,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9826,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0088,,,,,,,above its limit,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0333,,,,,,,above its limit,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9614,,,,,,,above its limit,,3463259
@@ -2088,7 +2088,7 @@ GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99656,2.2055,1.00285,-0.00285,0.00672,,,,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.94993,3.6599,1.01882,-0.01882,4e-05,,,,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00086,2.2814,0.99933,0.00067,0.00471,,,,,3463259
-GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9975,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9975,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0012,,,,,,,above its limit,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.953,,,,,,,above its limit,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.007,,,,,,,above its limit,,3463259
@@ -2188,7 +2188,7 @@ GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00279,2.141,0.99755,0.00245,0.00549,,,,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.97706,3.6264,1.00873,-0.00873,0.0,,,,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,1.00729,2.2483,0.99416,0.00584,0.00425,,,,,3463259
-GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9843,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9843,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0013,,,,,,,above its limit,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9777,,,,,,,above its limit,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9976,,,,,,,above its limit,,3463259
@@ -2271,7 +2271,7 @@ GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00353,2.1807,0.99701,0.00299,0.00567,,,,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00445,3.6661,0.99833,0.00167,4e-05,,,,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.03483,2.2753,0.97269,0.02731,0.00499,,,,,3463259
-GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0074,,,,,,,withheld: noise index 0.14997 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0074,,,,,0.95,1.05,withheld: noise index 0.14997 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0089,,,,,,,above its limit,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0582,,,,,,,above its limit,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9499,,,,,,,above its limit,,3463259
@@ -2373,7 +2373,7 @@ GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.9977,2.1209,1.00206,-0.00206,0.00652,,,,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.9785,3.6412,1.00814,-0.00814,6e-05,,,,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.0158,2.2401,0.98726,0.01274,0.004,,,,,3463259
-GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.986,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.986,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0039,,,,,,,above its limit,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.151,,,,,,,above its limit,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9791,,,,,,,above its limit,,3463259
@@ -2477,7 +2477,7 @@ GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98794,2.1673,1.01033,-0.01033,0.00524,,,,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95112,3.6488,1.01845,-0.01845,1e-05,,,,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99226,2.2773,1.00606,-0.00606,0.0038,,,,,3463259
-GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9926,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9926,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0125,,,,,,,above its limit,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9677,,,,,,,above its limit,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0006,,,,,,,above its limit,,3463259
@@ -2578,7 +2578,7 @@ GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97842,2.1072,1.01949,-0.01949,0.00538,,,,,3463259
 GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.93361,3.6477,1.02507,-0.02507,0.0,,,,,3463259
 GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.97628,2.2415,1.01911,-0.01911,0.00302,,,,,3463259
-GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9757,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9757,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0017,,,,,,,above its limit,,3463259
 GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9625,,,,,,,above its limit,,3463259
 GSM5467951,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd4 t cells,,1.0383,,,,,,,above its limit,,3463259
@@ -2660,7 +2660,7 @@ GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.95971,2.095,1.0368,-0.0368,0.00595,,,,,3463259
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.91713,3.627,1.03155,-0.03155,3e-05,,,,,3463259
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.94512,2.2216,1.04492,-0.04492,0.00305,,,,,3463259
-GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9806,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9806,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0051,,,,,,,above its limit,,3463259
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0369,,,,,,,above its limit,,3463259
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,b cells,,0.9693,,,,,,,above its limit,,3463259
@@ -2766,7 +2766,7 @@ GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98875,2.2086,1.00931,-0.00931,0.0054,,,,,3463259
 GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.94748,3.6819,1.01958,-0.01958,1e-05,,,,,3463259
 GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99353,2.3018,1.00497,-0.00497,0.00393,,,,,3463259
-GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9971,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9971,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0069,,,,,,,above its limit,,3463259
 GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.989,,,,,,,above its limit,,3463259
 GSM5467963,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9746,,,,,,,above its limit,,3463259
@@ -2846,7 +2846,7 @@ GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98605,2.1034,1.01265,-0.01265,0.00691,,,,,3463259
 GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.93532,3.6301,1.02459,-0.02459,0.0,,,,,3463259
 GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.98037,2.2165,1.01614,-0.01614,0.00348,,,,,3463259
-GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0053,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0053,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0107,,,,,,,above its limit,,3463259
 GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9551,,,,,,,above its limit,,3463259
 GSM5467969,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9606,,,,,,,above its limit,,3463259
@@ -2948,7 +2948,7 @@ GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98845,2.0064,1.01148,-0.01148,0.00663,,,,,3463259
 GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.93749,3.6163,1.02389,-0.02389,1e-05,,,,,3463259
 GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99933,2.1235,1.00059,-0.00059,0.00369,,,,,3463259
-GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0023,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0023,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0,,,,,,,above its limit,,3463259
 GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9512,,,,,,,above its limit,,3463259
 GSM5467975,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.999,,,,,,,above its limit,,3463259
@@ -3050,7 +3050,7 @@ GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99306,2.0991,1.00631,-0.00631,0.00621,,,,,3463259
 GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.97187,3.5856,1.01088,-0.01088,0.0,,,,,3463259
 GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,1.00514,2.2413,0.99586,0.00414,0.00387,,,,,3463259
-GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9687,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9687,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9968,,,,,,,above its limit,,3463259
 GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9567,,,,,,,above its limit,,3463259
 GSM5467981,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9485,,,,,,,above its limit,,3463259
@@ -3131,7 +3131,7 @@ GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98016,2.0501,1.01889,-0.01889,0.00473,,,,,3463259
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.93989,3.5776,1.02332,-0.02332,0.0,,,,,3463259
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.99067,2.1815,1.0079,-0.0079,0.00325,,,,,3463259
-GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9837,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9837,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9996,,,,,,,above its limit,,3463259
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.145,,,,,,,above its limit,,3463259
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,1.0415,,,,,,,above its limit,,3463259
@@ -3236,7 +3236,7 @@ GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00252,2.2441,0.99797,0.00203,0.00656,,,,,3463259
 GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.9973,3.6929,1.001,-0.001,0.0,,,,,3463259
 GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.01706,2.2988,0.98686,0.01314,0.00512,,,,,3463259
-GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0319,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0319,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0028,,,,,,,above its limit,,3463259
 GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9596,,,,,,,above its limit,,3463259
 GSM5467993,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0362,,,,,,,above its limit,,3463259
@@ -3336,7 +3336,7 @@ GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96922,1.9776,1.03149,-0.03149,0.00925,,,,,3463259
 GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.90276,3.5311,1.03842,-0.03842,7e-05,,,,,3463259
 GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.9578,2.1308,1.03732,-0.03732,0.00292,,,,,3463259
-GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0001,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0001,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9947,,,,,,,above its limit,,3463259
 GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,b cells,,1.0845,,,,,,,above its limit,,3463259
 GSM5467999,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,1.0349,,,,,,,above its limit,,3463259
@@ -3439,7 +3439,7 @@ GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99016,2.1568,1.0085,-0.0085,0.00593,,,,,3463259
 GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95539,3.6348,1.01693,-0.01693,0.0,,,,,3463259
 GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99164,2.2628,1.00662,-0.00662,0.00355,,,,,3463259
-GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.998,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.998,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0075,,,,,,,above its limit,,3463259
 GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9709,,,,,,,above its limit,,3463259
 GSM5468005,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,breast basal epithelium,,0.9305,,,,,,,above its limit,,3463259
@@ -3541,7 +3541,7 @@ GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.01191,1.9859,0.98792,0.01208,0.00817,,,,,3463259
 GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00189,3.6476,0.99929,0.00071,1e-05,,,,,3463259
 GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.0078,2.1062,0.99295,0.00705,0.00341,,,,,3463259
-GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9972,,,,,,,withheld: noise index 0.15118 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9972,,,,,0.95,1.05,withheld: noise index 0.15118 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0014,,,,,,,above its limit,,3463259
 GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0466,,,,,,,above its limit,,3463259
 GSM5468011,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.8916,,,,,,,above its limit,,3463259
@@ -3646,7 +3646,7 @@ GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99318,2.0768,1.00633,-0.00633,0.00821,,,,,3463259
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.96903,3.6276,1.01179,-0.01179,3e-05,,,,,3463259
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.98465,2.2314,1.01247,-0.01247,0.0033,,,,,3463259
-GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9623,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9623,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0031,,,,,,,above its limit,,3463259
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9207,,,,,,,above its limit,,3463259
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0068,,,,,,,above its limit,,3463259
@@ -3729,7 +3729,7 @@ GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97206,2.109,1.0252,-0.0252,0.00723,,,,,3463259
 GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.93502,3.6336,1.02467,-0.02467,0.0,,,,,3463259
 GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.98229,2.2405,1.01428,-0.01428,0.00325,,,,,3463259
-GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9702,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9702,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0179,,,,,,,above its limit,,3463259
 GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0692,,,,,,,above its limit,,3463259
 GSM5468023,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0036,,,,,,,above its limit,,3463259
@@ -3834,7 +3834,7 @@ GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97596,2.1139,1.02158,-0.02158,0.00556,,,,,3463259
 GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.91653,3.6621,1.03135,-0.03135,1e-05,,,,,3463259
 GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.9773,2.2246,1.01854,-0.01854,0.00278,,,,,3463259
-GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9922,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9922,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9997,,,,,,,above its limit,,3463259
 GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,0.931,,,,,,,above its limit,,3463259
 GSM5467952,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9852,,,,,,,above its limit,,3463259
@@ -3916,7 +3916,7 @@ GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96545,2.1847,1.02917,-0.02917,0.00502,,,,,3463259
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.93222,3.7078,1.02503,-0.02503,0.0,,,,,3463259
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.96783,2.2791,1.02515,-0.02515,0.0032,,,,,3463259
-GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9701,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9701,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.01,,,,,,,above its limit,,3463259
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.1187,,,,,,,above its limit,,3463259
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9709,,,,,,,above its limit,,3463259
@@ -3998,7 +3998,7 @@ GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96343,2.0866,1.03366,-0.03366,0.00471,,,,,3463259
 GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.92541,3.6404,1.02825,-0.02825,0.0,,,,,3463259
 GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.9444,2.231,1.04517,-0.04517,0.00268,,,,,3463259
-GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.956,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.956,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0152,,,,,,,above its limit,,3463259
 GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.1112,,,,,,,above its limit,,3463259
 GSM5467964,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,b cells,,0.9514,,,,,,,above its limit,,3463259
@@ -4101,7 +4101,7 @@ GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97691,2.1436,1.02019,-0.02019,0.00558,,,,,3463259
 GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.93575,3.6571,1.02418,-0.02418,0.0,,,,,3463259
 GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.97621,2.2531,1.01899,-0.01899,0.00351,,,,,3463259
-GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9889,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9889,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9985,,,,,,,above its limit,,3463259
 GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9138,,,,,,,above its limit,,3463259
 GSM5467970,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0087,,,,,,,above its limit,,3463259
@@ -4202,7 +4202,7 @@ GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.9825,2.1523,1.01519,-0.01519,0.00716,,,,,3463259
 GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.92628,3.6127,1.02822,-0.02822,0.0,,,,,3463259
 GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.9946,2.2612,1.00428,-0.00428,0.00368,,,,,3463259
-GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0082,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0082,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0077,,,,,,,above its limit,,3463259
 GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.1045,,,,,,,above its limit,,3463259
 GSM5467976,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,1.0186,,,,,,,above its limit,,3463259
@@ -4283,7 +4283,7 @@ GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98054,2.1095,1.01754,-0.01754,0.00598,,,,,3463259
 GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.95994,3.631,1.01522,-0.01522,1e-05,,,,,3463259
 GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.98422,2.2179,1.01296,-0.01296,0.0042,,,,,3463259
-GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9946,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9946,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9966,,,,,,,above its limit,,3463259
 GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9995,,,,,,,above its limit,,3463259
 GSM5467982,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0551,,,,,,,above its limit,,3463259
@@ -4386,7 +4386,7 @@ GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99338,2.1821,1.0056,-0.0056,0.00455,,,,,3463259
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.95689,3.665,1.01617,-0.01617,0.0,,,,,3463259
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.00621,2.276,0.99513,0.00487,0.00415,,,,,3463259
-GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0154,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0154,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.004,,,,,,,above its limit,,3463259
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0451,,,,,,,above its limit,,3463259
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cortical neurons,,0.8544,,,,,,,above its limit,,3463259
@@ -4486,7 +4486,7 @@ GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99104,2.1548,1.00776,-0.00776,0.00547,,,,,3463259
 GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95658,3.6361,1.01647,-0.01647,4e-05,,,,,3463259
 GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99199,2.2631,1.00634,-0.00634,0.00432,,,,,3463259
-GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0091,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0091,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0062,,,,,,,above its limit,,3463259
 GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.943,,,,,,,above its limit,,3463259
 GSM5467994,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0039,,,,,,,above its limit,,3463259
@@ -4570,7 +4570,7 @@ GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97444,2.1954,1.02138,-0.02138,0.00344,,,,,3463259
 GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.94546,3.6692,1.02043,-0.02043,3e-05,,,,,3463259
 GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.98613,2.2947,1.01072,-0.01072,0.00327,,,,,3463259
-GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0115,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0115,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0055,,,,,,,above its limit,,3463259
 GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0279,,,,,,,above its limit,,3463259
 GSM5468000,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0877,,,,,,,above its limit,,3463259
@@ -4671,7 +4671,7 @@ GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98425,2.0811,1.01457,-0.01457,0.00592,,,,,3463259
 GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.94717,3.623,1.02014,-0.02014,0.0,,,,,3463259
 GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.98824,2.2029,1.00978,-0.00978,0.00439,,,,,3463259
-GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0037,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0037,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9962,,,,,,,above its limit,,3463259
 GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9711,,,,,,,above its limit,,3463259
 GSM5468006,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd8 temra t cells,,1.0686,,,,,,,above its limit,,3463259
@@ -4772,7 +4772,7 @@ GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.01415,2.2468,0.98865,0.01135,0.00549,,,,,3463259
 GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00788,3.7042,0.99709,0.00291,0.0,,,,,3463259
 GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.03442,2.2954,0.97343,0.02657,0.00517,,,,,3463259
-GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0247,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0247,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9901,,,,,,,above its limit,,3463259
 GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9662,,,,,,,above its limit,,3463259
 GSM5468012,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd8 temra t cells,,0.9516,,,,,,,above its limit,,3463259
@@ -4870,7 +4870,7 @@ GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.03456,2.2053,0.97133,0.02867,0.00483,,,,,3463259
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.04168,3.6902,0.98451,0.01549,0.0,,,,,3463259
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.04718,2.2739,0.96297,0.03703,0.00529,,,,,3463259
-GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0225,,,,,,,withheld: noise index 0.14981 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0225,,,,,0.95,1.05,withheld: noise index 0.14981 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9975,,,,,,,above its limit,,3463259
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9759,,,,,,,above its limit,,3463259
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9798,,,,,,,above its limit,,3463259
@@ -4972,7 +4972,7 @@ GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.9756,2.2487,1.01954,-0.01954,0.00571,,,,,3463259
 GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.92387,3.7172,1.02802,-0.02802,0.0,,,,,3463259
 GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99507,2.3116,1.00376,-0.00376,0.00305,,,,,3463259
-GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0222,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0222,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0035,,,,,,,above its limit,,3463259
 GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0165,,,,,,,above its limit,,3463259
 GSM5467953,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,breast basal epithelium,,1.0506,,,,,,,above its limit,,3463259
@@ -5053,7 +5053,7 @@ GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97148,2.1021,1.02588,-0.02588,0.00565,,,,,3463259
 GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.9466,3.6222,1.02037,-0.02037,3e-05,,,,,3463259
 GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.98532,2.2192,1.01204,-0.01204,0.0039,,,,,3463259
-GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9751,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9751,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0105,,,,,,,above its limit,,3463259
 GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.1076,,,,,,,above its limit,,3463259
 GSM5467959,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9005,,,,,,,above its limit,,3463259
@@ -5158,7 +5158,7 @@ GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99006,2.0985,1.00905,-0.00905,0.00657,,,,,3463259
 GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96122,3.6329,1.01473,-0.01473,3e-05,,,,,3463259
 GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99995,2.2028,1.00004,-4e-05,0.0038,,,,,3463259
-GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0022,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0022,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0062,,,,,,,above its limit,,3463259
 GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9131,,,,,,,above its limit,,3463259
 GSM5467965,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0577,,,,,,,above its limit,,3463259
@@ -5261,7 +5261,7 @@ GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.95685,2.1047,1.03906,-0.03906,0.00926,,,,,3463259
 GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.89788,3.6259,1.03889,-0.03889,0.0,,,,,3463259
 GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.94137,2.2439,1.04713,-0.04713,0.00349,,,,,3463259
-GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9785,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9785,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0071,,,,,,,above its limit,,3463259
 GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,b cells,,1.0094,,,,,,,above its limit,,3463259
 GSM5467971,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9659,,,,,,,above its limit,,3463259
@@ -5364,7 +5364,7 @@ GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96943,2.0861,1.02815,-0.02815,0.00523,,,,,3463259
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.9189,3.6738,1.03033,-0.03033,3e-05,,,,,3463259
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.99593,2.189,1.00342,-0.00342,0.00406,,,,,3463259
-GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0057,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0057,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0021,,,,,,,above its limit,,3463259
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,b cells,,0.9865,,,,,,,above its limit,,3463259
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9143,,,,,,,above its limit,,3463259
@@ -5467,7 +5467,7 @@ GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.9942,2.2122,1.00479,-0.00479,0.00506,,,,,3463259
 GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96038,3.6729,1.01482,-0.01482,3e-05,,,,,3463259
 GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00211,2.2907,0.99836,0.00164,0.00433,,,,,3463259
-GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0276,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0276,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9983,,,,,,,above its limit,,3463259
 GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0357,,,,,,,above its limit,,3463259
 GSM5467983,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0438,,,,,,,above its limit,,3463259
@@ -5567,7 +5567,7 @@ GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98871,2.1343,1.00995,-0.00995,0.00541,,,,,3463259
 GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.97501,3.6417,1.00946,-0.00946,4e-05,,,,,3463259
 GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00455,2.2422,0.99633,0.00367,0.00451,,,,,3463259
-GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9836,,,,,,,withheld: noise index 0.14973 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9836,,,,,0.95,1.05,withheld: noise index 0.14973 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0065,,,,,,,above its limit,,3463259
 GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9064,,,,,,,above its limit,,3463259
 GSM5467989,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0305,,,,,,,above its limit,,3463259
@@ -5668,7 +5668,7 @@ GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96404,2.0016,1.0359,-0.0359,0.00952,,,,,3463259
 GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.91317,3.5446,1.03412,-0.03412,6e-05,,,,,3463259
 GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.95394,2.1493,1.04008,-0.04008,0.00337,,,,,3463259
-GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9947,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9947,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9972,,,,,,,above its limit,,3463259
 GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9871,,,,,,,above its limit,,3463259
 GSM5467995,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,b cells,,1.05,,,,,,,above its limit,,3463259
@@ -5771,7 +5771,7 @@ GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96614,2.1679,1.02899,-0.02899,0.00589,,,,,3463259
 GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.90454,3.744,1.03479,-0.03479,4e-05,,,,,3463259
 GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.99545,2.2328,1.00369,-0.00369,0.0039,,,,,3463259
-GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0096,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0096,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0028,,,,,,,above its limit,,3463259
 GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,adipocytes,,0.8714,,,,,,,above its limit,,3463259
 GSM5468001,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,1.0136,,,,,,,above its limit,,3463259
@@ -5853,7 +5853,7 @@ GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97309,2.0735,1.02507,-0.02507,0.00659,,,,,3463259
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.94067,3.6109,1.02272,-0.02272,4e-05,,,,,3463259
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.97352,2.1943,1.02217,-0.02217,0.00318,,,,,3463259
-GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9791,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9791,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0059,,,,,,,above its limit,,3463259
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0777,,,,,,,above its limit,,3463259
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9478,,,,,,,above its limit,,3463259
@@ -5957,7 +5957,7 @@ GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99741,1.9839,1.00263,-0.00263,0.00709,,,,,3463259
 GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96916,3.5643,1.01203,-0.01203,0.0,,,,,3463259
 GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.01393,2.1062,0.98741,0.01259,0.00399,,,,,3463259
-GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0063,,,,,,,above its limit,,3463259
 GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9696,,,,,,,above its limit,,3463259
 GSM5468013,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9428,,,,,,,above its limit,,3463259
@@ -6061,7 +6061,7 @@ GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.01956,2.2027,0.98374,0.01626,0.00453,,,,,3463259
 GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.98896,3.6858,1.00411,-0.00411,0.0,,,,,3463259
 GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.03988,2.2764,0.96876,0.03124,0.0039,,,,,3463259
-GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.028,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.028,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9973,,,,,,,above its limit,,3463259
 GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.072,,,,,,,above its limit,,3463259
 GSM5468019,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9819,,,,,,,above its limit,,3463259
@@ -6142,7 +6142,7 @@ GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.9816,2.1108,1.01656,-0.01656,0.00564,,,,,3463259
 GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.9245,3.6289,1.02872,-0.02872,1e-05,,,,,3463259
 GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00038,2.2274,0.99969,0.00031,0.00358,,,,,3463259
-GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0014,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0014,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9978,,,,,,,above its limit,,3463259
 GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0809,,,,,,,above its limit,,3463259
 GSM5467954,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0117,,,,,,,above its limit,,3463259
@@ -6244,7 +6244,7 @@ GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00319,2.1853,0.99731,0.00269,0.00419,,,,,3463259
 GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.98266,3.6719,1.00649,-0.00649,3e-05,,,,,3463259
 GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.01251,2.2699,0.99015,0.00985,0.00444,,,,,3463259
-GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0167,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0167,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0026,,,,,,,above its limit,,3463259
 GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9445,,,,,,,above its limit,,3463259
 GSM5467960,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.1135,,,,,,,above its limit,,3463259
@@ -6346,7 +6346,7 @@ GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.01847,2.2303,0.98498,0.01502,0.00543,,,,,3463259
 GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00427,3.6736,0.9984,0.0016,1e-05,,,,,3463259
 GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.0331,2.3071,0.97468,0.02532,0.00452,,,,,3463259
-GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0216,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0216,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0104,,,,,,,above its limit,,3463259
 GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0014,,,,,,,above its limit,,3463259
 GSM5467966,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0643,,,,,,,above its limit,,3463259
@@ -6425,7 +6425,7 @@ GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97149,2.0949,1.02604,-0.02604,0.00502,,,,,3463259
 GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.92406,3.6369,1.0288,-0.0288,0.0,,,,,3463259
 GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.95352,2.2127,1.03833,-0.03833,0.00286,,,,,3463259
-GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9759,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9759,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0139,,,,,,,above its limit,,3463259
 GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0527,,,,,,,above its limit,,3463259
 GSM5467972,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,b cells,,1.0502,,,,,,,above its limit,,3463259
@@ -6504,7 +6504,7 @@ GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00812,2.0708,0.99242,0.00758,0.00446,,,,,3463259
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,1.03027,3.5935,0.98833,0.01167,0.0,,,,,3463259
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,1.01728,2.2031,0.98564,0.01436,0.00492,,,,,3463259
-GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9842,,,,,,,withheld: noise index 0.16454 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9842,,,,,0.95,1.05,withheld: noise index 0.16454 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0038,,,,,,,above its limit,,3463259
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9817,,,,,,,above its limit,,3463259
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,1.1023,,,,,,,above its limit,,3463259
@@ -6587,7 +6587,7 @@ GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99066,2.0358,1.00902,-0.00902,0.00473,,,,,3463259
 GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.95808,3.5691,1.01632,-0.01632,0.0,,,,,3463259
 GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.99942,2.1992,1.00049,-0.00049,0.00328,,,,,3463259
-GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9695,,,,,,,withheld: noise index 0.14985 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9695,,,,,0.95,1.05,withheld: noise index 0.14985 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.003,,,,,,,above its limit,,3463259
 GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0323,,,,,,,above its limit,,3463259
 GSM5467984,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0346,,,,,,,above its limit,,3463259
@@ -6690,7 +6690,7 @@ GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98685,2.0571,1.01244,-0.01244,0.00864,,,,,3463259
 GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.95433,3.585,1.01767,-0.01767,4e-05,,,,,3463259
 GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.9957,2.199,1.00359,-0.00359,0.00382,,,,,3463259
-GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9727,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9727,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0094,,,,,,,above its limit,,3463259
 GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0827,,,,,,,above its limit,,3463259
 GSM5467990,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9495,,,,,,,above its limit,,3463259
@@ -6775,7 +6775,7 @@ GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99284,2.0968,1.00653,-0.00653,0.00348,,,,,3463259
 GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.97087,3.622,1.01111,-0.01111,1e-05,,,,,3463259
 GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99429,2.2188,1.00469,-0.00469,0.00314,,,,,3463259
-GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9839,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9839,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0054,,,,,,,above its limit,,3463259
 GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9607,,,,,,,above its limit,,3463259
 GSM5467996,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0034,,,,,,,above its limit,,3463259
@@ -6878,7 +6878,7 @@ GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.01423,1.9793,0.98547,0.01453,0.00748,,,,,3463259
 GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.9828,3.5046,1.00687,-0.00687,1e-05,,,,,3463259
 GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.02711,2.1427,0.97627,0.02373,0.00383,,,,,3463259
-GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0077,,,,,,,withheld: noise index 0.1537 > 0.149 and no same-run tare; A printed as a number,,3463259
+GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0077,,,,,0.95,1.05,withheld: noise index 0.1537 > 0.149 and no same-run tare; A printed as a number,,3463259
 GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0037,,,,,,,above its limit,,3463259
 GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0523,,,,,,,above its limit,,3463259
 GSM5468002,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0792,,,,,,,above its limit,,3463259
@@ -6981,7 +6981,7 @@ GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99226,1.9718,1.00797,-0.00797,0.00725,,,,,3463259
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95819,3.5738,1.01624,-0.01624,0.0,,,,,3463259
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00754,2.1013,0.99315,0.00685,0.00339,,,,,3463259
-GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0073,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0073,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0018,,,,,,,above its limit,,3463259
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9895,,,,,,,above its limit,,3463259
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd4 t cells,,0.9033,,,,,,,above its limit,,3463259
@@ -7086,7 +7086,7 @@ GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.9768,2.0068,1.02304,-0.02304,0.00855,,,,,3463259
 GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.94691,3.5606,1.02073,-0.02073,0.0,,,,,3463259
 GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.96587,2.1704,1.02916,-0.02916,0.00275,,,,,3463259
-GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9751,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9751,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0063,,,,,,,above its limit,,3463259
 GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,b cells,,1.0217,,,,,,,above its limit,,3463259
 GSM5468014,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9939,,,,,,,above its limit,,3463259
@@ -7171,7 +7171,7 @@ GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98421,2.1022,1.01432,-0.01432,0.00472,,,,,3463259
 GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.96622,3.608,1.01295,-0.01295,1e-05,,,,,3463259
 GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.9951,2.266,1.00387,-0.00387,0.00318,,,,,3463259
-GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9511,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9511,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0014,,,,,,,above its limit,,3463259
 GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9475,,,,,,,above its limit,,3463259
 GSM5468020,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,0.915,,,,,,,above its limit,,3463259
@@ -7273,7 +7273,7 @@ GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96621,2.0512,1.03214,-0.03214,0.0073,,,,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.91958,3.5991,1.03094,-0.03094,1e-05,,,,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.95517,2.2184,1.0368,-0.0368,0.00253,,,,,3463259
-GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9588,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9588,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0021,,,,,,,above its limit,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.987,,,,,,,above its limit,,3463259
 GSM5467955,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,b cells,,1.0053,,,,,,,above its limit,,3463259
@@ -7376,7 +7376,7 @@ GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97025,1.9958,1.02987,-0.02987,0.00855,,,,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.93373,3.5594,1.02589,-0.02589,0.0,,,,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.97353,2.1378,1.02326,-0.02326,0.00234,,,,,3463259
-GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9687,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9687,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0031,,,,,,,above its limit,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9889,,,,,,,above its limit,,3463259
 GSM5467961,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9369,,,,,,,above its limit,,3463259
@@ -7479,7 +7479,7 @@ GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98972,1.9882,1.01041,-0.01041,0.00479,,,,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95451,3.5719,1.01769,-0.01769,1e-05,,,,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00067,2.1095,0.9994,0.0006,0.00286,,,,,3463259
-GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0063,,,,,,,above its limit,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0153,,,,,,,above its limit,,3463259
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9839,,,,,,,above its limit,,3463259
@@ -7582,7 +7582,7 @@ GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99024,2.1935,1.00818,-0.00818,0.00512,,,,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.96996,3.6766,1.01122,-0.01122,1e-05,,,,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.00562,2.2867,0.99563,0.00437,0.00433,,,,,3463259
-GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0038,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0038,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0057,,,,,,,above its limit,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0606,,,,,,,above its limit,,3463259
 GSM5467973,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0209,,,,,,,above its limit,,3463259
@@ -7659,7 +7659,7 @@ GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.01069,2.0676,0.98998,0.01002,0.00573,,,,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,1.00392,3.5904,0.99849,0.00151,1e-05,,,,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.00666,2.1871,0.99439,0.00561,0.00444,,,,,3463259
-GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9845,,,,,,,withheld: noise index 0.15749 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9845,,,,,0.95,1.05,withheld: noise index 0.15749 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0126,,,,,,,above its limit,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9168,,,,,,,above its limit,,3463259
 GSM5467979,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,1.0802,,,,,,,above its limit,,3463259
@@ -7742,7 +7742,7 @@ GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98888,2.1,1.0101,-0.0101,0.00598,,,,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.96705,3.6044,1.01265,-0.01265,0.0,,,,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.0098,2.2405,0.9921,0.0079,0.00391,,,,,3463259
-GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9716,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9716,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0043,,,,,,,above its limit,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0818,,,,,,,above its limit,,3463259
 GSM5467985,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0253,,,,,,,above its limit,,3463259
@@ -7819,7 +7819,7 @@ GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.02006,2.1907,0.98315,0.01685,0.00352,,,,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.04258,3.6718,0.98406,0.01594,0.0,,,,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.03169,2.2763,0.97517,0.02483,0.00513,,,,,3463259
-GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0355,,,,,,,withheld: noise index 0.15446 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0355,,,,,0.95,1.05,withheld: noise index 0.15446 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0054,,,,,,,above its limit,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,CMP (bone marrow),,1.0155,,,,,,,above its limit,,3463259
 GSM5467991,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,L-MPP (bone marrow),,1.0103,,,,,,,above its limit,,3463259
@@ -7919,7 +7919,7 @@ GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00025,2.1694,0.99979,0.00021,0.00626,,,,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96101,3.6631,1.01464,-0.01464,0.0,,,,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99702,2.259,1.00237,-0.00237,0.00404,,,,,3463259
-GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0106,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0106,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0032,,,,,,,above its limit,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9606,,,,,,,above its limit,,3463259
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0102,,,,,,,above its limit,,3463259
@@ -8024,7 +8024,7 @@ GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.02901,2.1528,0.97484,0.02516,0.00496,,,,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00087,3.6518,0.99967,0.00033,1e-05,,,,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.04787,2.2389,0.96136,0.03864,0.00457,,,,,3463259
-GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0316,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0316,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9967,,,,,,,above its limit,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0652,,,,,,,above its limit,,3463259
 GSM5468003,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9803,,,,,,,above its limit,,3463259
@@ -8107,7 +8107,7 @@ GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99889,2.1591,1.00096,-0.00096,0.00504,,,,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00746,3.6636,0.9972,0.0028,0.0,,,,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00664,2.2611,0.99474,0.00526,0.00488,,,,,3463259
-GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9964,,,,,,,withheld: noise index 0.15242 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9964,,,,,0.95,1.05,withheld: noise index 0.15242 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0118,,,,,,,above its limit,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0529,,,,,,,above its limit,,3463259
 GSM5468009,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9759,,,,,,,above its limit,,3463259
@@ -8210,7 +8210,7 @@ GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98201,2.1105,1.0162,-0.0162,0.00575,,,,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.95307,3.6405,1.01777,-0.01777,1e-05,,,,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.981,2.2249,1.01552,-0.01552,0.00347,,,,,3463259
-GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9859,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9859,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9867,,,,,,,above its limit,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0731,,,,,,,above its limit,,3463259
 GSM5468015,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd8 temra t cells,,1.0492,,,,,,,above its limit,,3463259
@@ -8313,7 +8313,7 @@ GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99253,2.0582,1.00706,-0.00706,0.00692,,,,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96035,3.612,1.01518,-0.01518,0.0,,,,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00398,2.1706,0.9966,0.0034,0.00323,,,,,3463259
-GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9968,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9968,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0106,,,,,,,above its limit,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0842,,,,,,,above its limit,,3463259
 GSM5468021,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0404,,,,,,,above its limit,,3463259
@@ -8393,7 +8393,7 @@ GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98,2.1397,1.01755,-0.01755,0.00571,,,,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.93637,3.6601,1.02392,-0.02392,1e-05,,,,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.98291,2.2344,1.01384,-0.01384,0.00371,,,,,3463259
-GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9972,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9972,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0124,,,,,,,above its limit,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.015,,,,,,,above its limit,,3463259
 GSM5467956,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0906,,,,,,,above its limit,,3463259
@@ -8496,7 +8496,7 @@ GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97099,2.1175,1.02596,-0.02596,0.00677,,,,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.87787,3.6436,1.0462,-0.0462,3e-05,,,,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.98505,2.2231,1.01223,-0.01223,0.0034,,,,,3463259
-GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0227,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0227,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0072,,,,,,,above its limit,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,b cells,,0.9856,,,,,,,above its limit,,3463259
 GSM5467962,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.945,,,,,,,above its limit,,3463259
@@ -8600,7 +8600,7 @@ GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00347,2.1729,0.99704,0.00296,0.00514,,,,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.96539,3.6669,1.01298,-0.01298,3e-05,,,,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.00664,2.2588,0.99472,0.00528,0.00354,,,,,3463259
-GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0015,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0015,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9977,,,,,,,above its limit,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9246,,,,,,,above its limit,,3463259
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9297,,,,,,,above its limit,,3463259
@@ -8701,7 +8701,7 @@ GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98104,2.0259,1.01848,-0.01848,0.00725,,,,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.93467,3.5579,1.02554,-0.02554,1e-05,,,,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.00186,2.18,0.99843,0.00157,0.00356,,,,,3463259
-GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9715,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9715,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9973,,,,,,,above its limit,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9683,,,,,,,above its limit,,3463259
 GSM5467974,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9705,,,,,,,above its limit,,3463259
@@ -8805,7 +8805,7 @@ GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.007,2.1379,0.99385,0.00615,0.00472,,,,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.99557,3.6236,1.00169,-0.00169,1e-05,,,,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.02514,2.264,0.98011,0.01989,0.00477,,,,,3463259
-GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9864,,,,,,,withheld: noise index 0.15209 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9864,,,,,0.95,1.05,withheld: noise index 0.15209 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0055,,,,,,,above its limit,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,1.1354,,,,,,,above its limit,,3463259
 GSM5467980,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0511,,,,,,,above its limit,,3463259
@@ -8907,7 +8907,7 @@ GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99971,1.9097,1.00032,-0.00032,0.00815,,,,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95,3.5371,1.01971,-0.01971,3e-05,,,,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.01424,2.0504,0.98645,0.01355,0.00313,,,,,3463259
-GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0285,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0285,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0026,,,,,,,above its limit,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9995,,,,,,,above its limit,,3463259
 GSM5467986,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd8 temra t cells,,1.0722,,,,,,,above its limit,,3463259
@@ -9010,7 +9010,7 @@ GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99205,2.1212,1.00709,-0.00709,0.00628,,,,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.98179,3.6104,1.00698,-0.00698,3e-05,,,,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.99805,2.2538,1.00156,-0.00156,0.00434,,,,,3463259
-GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9826,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9826,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0088,,,,,,,above its limit,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0333,,,,,,,above its limit,,3463259
 GSM5467992,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9614,,,,,,,above its limit,,3463259
@@ -9114,7 +9114,7 @@ GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99656,2.2055,1.00285,-0.00285,0.00672,,,,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.94993,3.6599,1.01882,-0.01882,4e-05,,,,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00086,2.2814,0.99933,0.00067,0.00471,,,,,3463259
-GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9975,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9975,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0012,,,,,,,above its limit,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.953,,,,,,,above its limit,,3463259
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.007,,,,,,,above its limit,,3463259
@@ -9214,7 +9214,7 @@ GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00279,2.141,0.99755,0.00245,0.00549,,,,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.97706,3.6264,1.00873,-0.00873,0.0,,,,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,1.00729,2.2483,0.99416,0.00584,0.00425,,,,,3463259
-GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9843,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9843,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0013,,,,,,,above its limit,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9777,,,,,,,above its limit,,3463259
 GSM5468004,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9976,,,,,,,above its limit,,3463259
@@ -9297,7 +9297,7 @@ GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00353,2.1807,0.99701,0.00299,0.00567,,,,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.00445,3.6661,0.99833,0.00167,4e-05,,,,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.03483,2.2753,0.97269,0.02731,0.00499,,,,,3463259
-GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0074,,,,,,,withheld: noise index 0.14997 > 0.149 and no same-run tare; A printed as a numbe,,3463259
+GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0074,,,,,0.95,1.05,withheld: noise index 0.14997 > 0.149 and no same-run tare; A printed as a numbe,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0089,,,,,,,above its limit,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0582,,,,,,,above its limit,,3463259
 GSM5468010,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9499,,,,,,,above its limit,,3463259
@@ -9399,7 +9399,7 @@ GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.9977,2.1209,1.00206,-0.00206,0.00652,,,,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.9785,3.6412,1.00814,-0.00814,6e-05,,,,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.0158,2.2401,0.98726,0.01274,0.004,,,,,3463259
-GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.986,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.986,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0039,,,,,,,above its limit,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.151,,,,,,,above its limit,,3463259
 GSM5468016,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9791,,,,,,,above its limit,,3463259
@@ -9503,7 +9503,7 @@ GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98794,2.1673,1.01033,-0.01033,0.00524,,,,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95112,3.6488,1.01845,-0.01845,1e-05,,,,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99226,2.2773,1.00606,-0.00606,0.0038,,,,,3463259
-GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9926,,,,,,,untared: read A_rel (Stage T),,3463259
+GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9926,,,,,0.95,1.05,untared: read A_rel (Stage T),,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0125,,,,,,,above its limit,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9677,,,,,,,above its limit,,3463259
 GSM5468022,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0006,,,,,,,above its limit,,3463259
@@ -9604,7 +9604,7 @@ GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97343,2.058,1.02511,-0.02511,0.00575,,,,,07638a9
 GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.89247,3.6588,1.04044,-0.04044,1e-05,,,,,07638a9
 GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99109,2.1747,1.00759,-0.00759,0.00373,,,,,07638a9
-GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0235,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0235,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9995,,,,,,,above its limit,,07638a9
 GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,b cells,,0.9226,,,,,,,above its limit,,07638a9
 GSM5467948,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9625,,,,,,,above its limit,,07638a9
@@ -9704,7 +9704,7 @@ GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96943,2.0861,1.02815,-0.02815,0.00523,,,,,07638a9
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.9189,3.6738,1.03033,-0.03033,3e-05,,,,,07638a9
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.99593,2.189,1.00342,-0.00342,0.00406,,,,,07638a9
-GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0057,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,1.0057,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0021,,,,,,,above its limit,,07638a9
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,b cells,,0.9865,,,,,,,above its limit,,07638a9
 GSM5467977,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9143,,,,,,,above its limit,,07638a9
@@ -9787,7 +9787,7 @@ GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.96545,2.1847,1.02917,-0.02917,0.00502,,,,,07638a9
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.93222,3.7078,1.02503,-0.02503,0.0,,,,,07638a9
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.96783,2.2791,1.02515,-0.02515,0.0032,,,,,07638a9
-GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9701,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9701,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.01,,,,,,,above its limit,,07638a9
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.1187,,,,,,,above its limit,,07638a9
 GSM5467958,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9709,,,,,,,above its limit,,07638a9
@@ -9869,7 +9869,7 @@ GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98016,2.0501,1.01889,-0.01889,0.00473,,,,,07638a9
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,0.93989,3.5776,1.02332,-0.02332,0.0,,,,,07638a9
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,0.99067,2.1815,1.0079,-0.0079,0.00325,,,,,07638a9
-GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9837,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9837,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9996,,,,,,,above its limit,,07638a9
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.145,,,,,,,above its limit,,07638a9
 GSM5467987,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,1.0415,,,,,,,above its limit,,07638a9
@@ -9974,7 +9974,7 @@ GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00347,2.1729,0.99704,0.00296,0.00514,,,,,07638a9
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.96539,3.6669,1.01298,-0.01298,3e-05,,,,,07638a9
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,1.00664,2.2588,0.99472,0.00528,0.00354,,,,,07638a9
-GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0015,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,1.0015,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9977,,,,,,,above its limit,,07638a9
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,basophils,,0.9246,,,,,,,above its limit,,07638a9
 GSM5467968,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9297,,,,,,,above its limit,,07638a9
@@ -10075,7 +10075,7 @@ GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00025,2.1694,0.99979,0.00021,0.00626,,,,,07638a9
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.96101,3.6631,1.01464,-0.01464,0.0,,,,,07638a9
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.99702,2.259,1.00237,-0.00237,0.00404,,,,,07638a9
-GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0106,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0106,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0032,,,,,,,above its limit,,07638a9
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9606,,,,,,,above its limit,,07638a9
 GSM5467997,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0102,,,,,,,above its limit,,07638a9
@@ -10155,7 +10155,7 @@ GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.00812,2.0708,0.99242,0.00758,0.00446,,,,,07638a9
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,islands,,1.03027,3.5935,0.98833,0.01167,0.0,,,,,07638a9
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,territory,domains,,1.01728,2.2031,0.98564,0.01436,0.00492,,,,,07638a9
-GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9842,,,,,,,withheld: noise index 0.16454 > 0.149 and no same-run tare; A printed as a numbe,,07638a9
+GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,Met-A,neutrophils,,0.9842,,,,,0.95,1.05,withheld: noise index 0.16454 > 0.149 and no same-run tare; A printed as a numbe,,07638a9
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0038,,,,,,,above its limit,,07638a9
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9817,,,,,,,above its limit,,07638a9
 GSM5467978,GSE180683,"3 rec lgg, still lgg",whole blood,EPIC_v1,C-Score each cell,basophils,,1.1023,,,,,,,above its limit,,07638a9
@@ -10238,7 +10238,7 @@ GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular endo
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.97309,2.0735,1.02507,-0.02507,0.00659,,,,,07638a9
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.94067,3.6109,1.02272,-0.02272,4e-05,,,,,07638a9
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,0.97352,2.1943,1.02217,-0.02217,0.00318,,,,,07638a9
-GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9791,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9791,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0059,,,,,,,above its limit,,07638a9
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0777,,,,,,,above its limit,,07638a9
 GSM5468007,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9478,,,,,,,above its limit,,07638a9
@@ -10342,7 +10342,7 @@ GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99338,2.1821,1.0056,-0.0056,0.00455,,,,,07638a9
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.95689,3.665,1.01617,-0.01617,0.0,,,,,07638a9
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,1.00621,2.276,0.99513,0.00487,0.00415,,,,,07638a9
-GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0154,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,1.0154,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.004,,,,,,,above its limit,,07638a9
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0451,,,,,,,above its limit,,07638a9
 GSM5467988,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cortical neurons,,0.8544,,,,,,,above its limit,,07638a9
@@ -10442,7 +10442,7 @@ GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99318,2.0768,1.00633,-0.00633,0.00821,,,,,07638a9
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,islands,,0.96903,3.6276,1.01179,-0.01179,3e-05,,,,,07638a9
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,territory,domains,,0.98465,2.2314,1.01247,-0.01247,0.0033,,,,,07638a9
-GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9623,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,Met-A,neutrophils,,0.9623,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0031,,,,,,,above its limit,,07638a9
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9207,,,,,,,above its limit,,07638a9
 GSM5468017,GSE180683,2 new lgg,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.0068,,,,,,,above its limit,,07638a9
@@ -10545,7 +10545,7 @@ GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99656,2.2055,1.00285,-0.00285,0.00672,,,,,07638a9
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.94993,3.6599,1.01882,-0.01882,4e-05,,,,,07638a9
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00086,2.2814,0.99933,0.00067,0.00471,,,,,07638a9
-GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9975,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,0.9975,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0012,,,,,,,above its limit,,07638a9
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.953,,,,,,,above its limit,,07638a9
 GSM5467998,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,1.007,,,,,,,above its limit,,07638a9
@@ -10645,7 +10645,7 @@ GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.99226,1.9718,1.00797,-0.00797,0.00725,,,,,07638a9
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95819,3.5738,1.01624,-0.01624,0.0,,,,,07638a9
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00754,2.1013,0.99315,0.00685,0.00339,,,,,07638a9
-GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0073,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0073,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0018,,,,,,,above its limit,,07638a9
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,0.9895,,,,,,,above its limit,,07638a9
 GSM5468008,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd4 t cells,,0.9033,,,,,,,above its limit,,07638a9
@@ -10750,7 +10750,7 @@ GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,1.03456,2.2053,0.97133,0.02867,0.00483,,,,,07638a9
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,1.04168,3.6902,0.98451,0.01549,0.0,,,,,07638a9
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.04718,2.2739,0.96297,0.03703,0.00529,,,,,07638a9
-GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0225,,,,,,,withheld: noise index 0.14981 > 0.149 and no same-run tare; A printed as a numbe,,07638a9
+GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.0225,,,,,0.95,1.05,withheld: noise index 0.14981 > 0.149 and no same-run tare; A printed as a numbe,,07638a9
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,0.9975,,,,,,,above its limit,,07638a9
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,0.9759,,,,,,,above its limit,,07638a9
 GSM5468018,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9798,,,,,,,above its limit,,07638a9
@@ -10833,7 +10833,7 @@ GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,va
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.95971,2.095,1.0368,-0.0368,0.00595,,,,,07638a9
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,islands,,0.91713,3.627,1.03155,-0.03155,3e-05,,,,,07638a9
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,territory,domains,,0.94512,2.2216,1.04492,-0.04492,0.00305,,,,,07638a9
-GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9806,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,Met-A,neutrophils,,0.9806,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0051,,,,,,,above its limit,,07638a9
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,HSC (bone marrow),,1.0369,,,,,,,above its limit,,07638a9
 GSM5467957,GSE180683,"4 rec lgg, now gbm",whole blood,EPIC_v1,C-Score each cell,b cells,,0.9693,,,,,,,above its limit,,07638a9
@@ -10939,7 +10939,7 @@ GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular lept
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A each cell,vascular saphenous endothelium,0.0,0.98972,1.9882,1.01041,-0.01041,0.00479,,,,,07638a9
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,islands,,0.95451,3.5719,1.01769,-0.01769,1e-05,,,,,07638a9
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,territory,domains,,1.00067,2.1095,0.9994,0.0006,0.00286,,,,,07638a9
-GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,,,untared: read A_rel (Stage T),,07638a9
+GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,Met-A,neutrophils,,1.005,,,,,0.95,1.05,untared: read A_rel (Stage T),,07638a9
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score whole genome,whole genome,,1.0063,,,,,,,above its limit,,07638a9
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,basophils,,1.0153,,,,,,,above its limit,,07638a9
 GSM5467967,GSE180683,1 new gbm,whole blood,EPIC_v1,C-Score each cell,cd56bright nk cells,,0.9839,,,,,,,above its limit,,07638a9

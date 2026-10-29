@@ -28,6 +28,9 @@ for f in sorted(glob.glob(os.path.join(D, "**", "*.json"), recursive=True)):
     # each with the band its gauge used and its state, copied from the bundle
     def band(v):
         b = v.get("band") if isinstance(v, dict) else None
+        if isinstance(b, str):   # the commissioned Met-A writes its band as text, e.g. "Normal 0.95-1.05 (after tare)"
+            import re as _re; m = _re.search(r"(\d*\.\d+)\s*(?:-|to)\s*(\d*\.\d+)", b)
+            return (float(m.group(1)), float(m.group(2))) if m else (None, None)
         return (b.get("lo"), b.get("hi")) if isinstance(b, dict) else (None, None)
     def add2(reading, place, v, lo=None, hi=None, share=None):
         if not isinstance(v, dict) or v.get("A") is None: return
