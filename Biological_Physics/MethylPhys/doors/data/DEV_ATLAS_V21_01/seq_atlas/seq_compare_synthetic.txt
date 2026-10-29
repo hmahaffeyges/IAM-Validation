@@ -1,0 +1,6 @@
+IAM Sequencing Atlas: identity comparison synthetic, built and read by run_sample.py --build seq-atlas and --build seq-compare
+seed 20261031, 400,000 CpGs, 3 cells x 4 donors
+cell one: nearest cell one (met) | distances cell one 0.0780, cell three 0.2075, cell two 0.2077 | halves apart 0.04987 | sites 359,976 vs 359,976 (met)
+cell two: nearest cell two (met) | distances cell two 0.0780, cell three 0.2070, cell one 0.2078 | halves apart 0.04995 | sites 359,965 vs 359,965 (met)
+cell three: nearest cell three (met) | distances cell three 0.0781, cell two 0.2074, cell one 0.2078 | halves apart 0.04998 | sites 360,059 vs 360,059 (met)
+synthetic (both bars, three cells): met

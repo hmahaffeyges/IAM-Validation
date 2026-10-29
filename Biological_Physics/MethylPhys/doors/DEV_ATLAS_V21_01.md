@@ -509,3 +509,9 @@ the same CpGs).
 **Bars on donor 3:** 1. megakaryocytes is donor 3's nearest cell of the 57; 2. donor 3 sits from the megakaryocyte column at most 1.5 times as
 far as the column's own two donors sit from each other at the same CpGs. **Then:** the column in plasma (planted megakaryocyte DNA picked up,
 and the four cells that absorbed it stop rising) once the Deconvolver reads against the sequencing atlas.
+
+**The identity comparison's synthetic, read: met** (`seq_atlas/seq_compare_synthetic.txt`): each new sparse donor's nearest cell was its own,
+at 0.0780, 0.0780 and 0.0781 against 0.2070 or more for the others, and the comparison counted exactly the CpGs it should. **Donor 3's bar 2
+withdrawn before any donor-3 file is read (disclosed):** the synthetic shows a sparser sample sits farther from its own cell than that cell's
+two halves sit from each other from counting alone (0.0780 against 0.04987), so a bar on that ratio was not derived from counting and would
+judge read depth, not the cell. Both distances are still reported. The test is bar 1: megakaryocytes is donor 3's nearest cell of the 57.
