@@ -1365,7 +1365,7 @@
      "status": "open",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "The IAM Sequencing Atlas, separate from IAM-Atlas v2.1 (author): every CpG, from healthy sequenced cells only, measured not fitted; v2.1 stays as commissioned for arrays. Everything baked in: Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/SEQ_ATLAS_CHECKLIST.md",
-     "next": "count every usable healthy sorted-cell sequencing source (held-out sets kept unread); time one healthy input through the chain on one Google spot machine (C3D, us-south1) against GitHub",
+     "next": "the open-source count (metadata only): GEO, ENCODE and Roadmap healthy sorted-cell WGBS and EM-seq, with donors, laboratory, depth, molecule files, overlap with the atlas's sources and the reserved test sets; then build the core from the 153",
      "build_plan": {
       "purpose": "every CpG, not only the array sites, so a shallow plasma draw is read with every read it has (author: plasma first)",
       "carried_from_v2.1": [
@@ -1392,7 +1392,9 @@
        "the author decides where it runs and the spend"
       ]
      },
-     "gcp_test": "Google Cloud spot launcher written (Biological_Physics/MethylPhys/boxruns/gcp_spot/gcp_chunks.py; nothing run): one spot VM per alignment chunk, each saving its molecules, log and exit code to a Cloud Storage bucket and deleting itself; a reclaimed chunk is the only loss and is sent again. The author's test: one sample's 20 chunks, the reclaim rate and the measured cost per chunk-hour, before deciding on the whole-genome atlas."
+     "gcp_test": "Google Cloud spot launcher written (Biological_Physics/MethylPhys/boxruns/gcp_spot/gcp_chunks.py; nothing run): one spot VM per alignment chunk, each saving its molecules, log and exit code to a Cloud Storage bucket and deleting itself; a reclaimed chunk is the only loss and is sent again. The author's test: one sample's 20 chunks, the reclaim rate and the measured cost per chunk-hour, before deciding on the whole-genome atlas.",
+     "scope": "Build now (author): the 153 healthy sequencing inputs already read, plus only cheap open sources (molecule files on GEO, or modest depth) that add a new donor, laboratory or cell type; every checklist item built. The bigger atlas comes through the Johns Hopkins outreach: their healthy sequenced data, help with controlled-access sets, and their computers.",
+     "cost_measured": "Google spot n2-standard-4 (Toronto): one healthy input read by the chain in 16.5 minutes, about 1 cent, readings identical to GitHub; full-depth alignment from raw reads about 0.16 machine-hours per million read pairs (the Johns Hopkins study's runs)"
     },
     {
      "id": "35.30.1",
@@ -1433,6 +1435,14 @@
      "what": "Sequencing atlas, part F: fragment features (nucleosome occupancy, fuzziness, WPS, DELFI) from healthy plasma only",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "next": "a healthy plasma sequencing source"
+    },
+    {
+     "id": "35.30.6",
+     "date": "2026-10-29",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "Outreach: the bigger sequencing atlas built with the Johns Hopkins group (their healthy sequenced cells and controls, help with controlled-access data, their computing cluster)",
+     "next": "after the package gate: the instruments that read their work commissioned first"
     }
    ]
   },

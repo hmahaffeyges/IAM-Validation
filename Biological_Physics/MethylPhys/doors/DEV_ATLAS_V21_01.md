@@ -402,3 +402,9 @@ counted from healthy donors' reads, and nothing is filled. Everything it carries
 raw counts and measured disorder at every CpG, a healthy reference for every sequencing instrument, both spheres with their noise maps, the
 CMB tools carried over (two noise splits, masks, spectra, cosmic variance, covariance, transfer function, nulls, cross-calibration, sealed
 held-out sets) and, from healthy plasma only, fragment features.
+
+**Scope (author):** build now from what is cheap: the 153 healthy sequencing inputs already read, plus open sources that add a new donor,
+laboratory or cell type at little cost; every item of the checklist is built. The bigger atlas, with more donors and laboratories per cell,
+comes through working with the Johns Hopkins group: their healthy sequenced data, help with controlled-access sets, and their computers.
+**Cost, measured:** on a Google spot machine (n2-standard-4) one healthy input was read by the chain in 16.5 minutes for about one cent,
+with readings identical to GitHub's; full-depth alignment from raw reads takes about 0.16 machine-hours per million read pairs.
