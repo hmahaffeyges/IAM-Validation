@@ -211,3 +211,13 @@ development. **Depth, recorded as written:** Met-A against the atlas falls with 
 B and T readings showed; the coupling much less (rho -0.210, p 0.0092). **The band rests on one laboratory** (about 3 donors per cell
 type); before commissioning, a second laboratory's healthy sequencing must read inside it, then a sealed test on a laboratory neither has
 seen.
+
+**Re-read with the cell type given (no new alignment; written before any re-read).** The study's samples went in as "not stated" (the
+leukemias), "cell line" (the two Reh samples) and "sorted b cells" (the cord-blood controls), so each was compared with the blood panel's mix
+or the adult B-cell column. Each is now read again by the one command from its saved alignment pieces (split_align.yml, merge only; all 36
+keep their 20 pieces on GitHub), with the specimen "sorted naive b cells" for all 36 (`full_depth/hopkins_reread_samples.csv`): IAM-Atlas
+v2.1 holds no B-cell precursor column, newborn cord-blood B cells are mostly naive, and one ruler for leukemias and controls keeps them
+comparable. The chain now reads a sequenced sample against the atlas in sequencing units and a declared sorted cell against its own column.
+Every reading is flagged in development: none of these instruments is yet commissioned on sequenced B cells (that test is queued). The
+table (`full_depth/hopkins_reread_table.py`) copies each value from its bundle, beside the earlier reading's held-error chances: the same
+molecules must give the same count, which checks that the merge took the same pieces.
