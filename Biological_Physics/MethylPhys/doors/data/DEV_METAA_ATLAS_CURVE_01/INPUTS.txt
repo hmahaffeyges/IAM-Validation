@@ -17,3 +17,5 @@ metaa_seqatlas_by_depth.txt
 floor_sites_v1.json
 floor_summary.txt
 floor_readings.csv
+metaa_seqatlas_by_half.txt
+metaa_seqatlas_by_half.csv

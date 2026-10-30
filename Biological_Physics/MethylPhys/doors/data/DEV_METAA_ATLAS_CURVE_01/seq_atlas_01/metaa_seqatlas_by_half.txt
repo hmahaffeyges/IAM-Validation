@@ -1,0 +1,7 @@
+Met-A against the sequencing atlas by the reference half's donors: 137 readings
+reference half of 1 donor(s): 96 readings, median Met-A 1.0757, median depth 47,388,546
+reference half of 2 donor(s): 41 readings, median Met-A 1.0551, median depth 50,827,968
+one donor against more: median 1.0757 against 1.0551, Mann-Whitney p 0.34
+Met-A against depth, one-donor halves only: rho -0.626 over 96
+Met-A against depth, halves of two or more: rho -0.588 over 41
+reference donors against depth: rho +0.075

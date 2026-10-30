@@ -322,3 +322,9 @@ low and narrow (median 0.00625, 2.5th to 97.5th percentile 0.00518 to 0.00925); 
 it (rho +0.063). **What it rules out:** the shallower libraries' higher Met-A is not unconverted DNA or sequencing error. Met-A against the
 sequencing atlas stays development; no correction for the floor is made. **Next:** find where the extra disorder sits, site by site (the
 identity sites' unmarked and marked sides, and by how many reads each site has), on the same spent readings, before any new test is written.
+
+**A one-donor reference half, checked** (`seq_atlas_01/metaa_seqatlas_by_half.py`, `metaa_seqatlas_by_half.txt`; added after the test was
+scored, disclosed; nothing scored): 96 of the 137 were read against a reference half of one donor, 41 against two. Medians 1.0757 and 1.0551
+(p 0.34), and Met-A follows depth the same way in both (rho -0.626 and -0.588). A single-donor half is not why shallower libraries read
+higher. **Next:** the same spent readings site by site (each identity site's unmarked and marked side, and its read count), through the one
+command on spot machines, written before it runs.
