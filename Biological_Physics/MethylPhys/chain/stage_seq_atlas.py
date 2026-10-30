@@ -147,6 +147,38 @@ def deconv_reference(piece_dirs, out, per_cell=None):
     return dict(cells=len(cells), sites_with_all_cells=int(MU.notna().all(1).sum()), markers=len(M), per_cell=per_cell or D21.PER_CELL,
                 sd_floor=DECONV_SD_FLOOR, left_out=["megakaryocytes (provisional, version 1)"], output=os.path.basename(out))
 
+ARRAY_COLS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "array_sites")
+
+def array_columns(piece_dirs, outdir):
+    """2026-10-30 (author: Met-A and every instrument built on it working on sequencing, the IAM Sequencing Atlas as the ruler): each cell's
+    counted level (mu) and donor spread (donor_sd) at every site of IAM-Atlas v2.1, in v2.1's own site order and layout (three parts per
+    stem, uint16, levels x 10,000, 65535 blank), so stage_metaa_atlas._col serves a sequenced sample's in-mix readings (Met-A for each cell
+    and the whole sample, the territories, the C-Score) from sequencing levels. The provisional megakaryocyte column is left out (version 1)."""
+    import glob, pyarrow as pa, pyarrow.parquet as pq, pandas as pd, stage_metaa_atlas as SA
+    ids = pq.read_table(os.path.join(SA.ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe")["loyfer_cpg_index"]
+    cpg = pd.Series(ids).map(K).to_numpy(); have = ~pd.isna(cpg); row = pd.Series(np.flatnonzero(have), index=cpg[have].astype(np.int64))
+    row = row[~row.index.duplicated()]   # one CpG may serve two probes: each probe gets it (filled below by position)
+    pos = {}   # cpg -> every row it fills
+    for i, c in zip(np.flatnonzero(have), cpg[have].astype(np.int64)): pos.setdefault(int(c), []).append(int(i))
+    F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
+    cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")} - {"megakaryocytes"})
+    MU = np.full((len(ids), len(cells)), BLANK, np.uint16); SD = MU.copy(); ci = {c: j for j, c in enumerate(cells)}
+    for f in F:
+        sch = pq.read_schema(f).names; here = [c for c in cells if f"{c}|level" in sch]
+        if not here: continue
+        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in here for x in ("level", "spread")]).to_pandas(); T = T[T.cpg.isin(pos.keys())]
+        if T.empty: continue
+        rr = [r for c in T.cpg.to_numpy() for r in pos[int(c)]]; rep = [len(pos[int(c)]) for c in T.cpg.to_numpy()]
+        for c in here:
+            MU[rr, ci[c]] = np.repeat(T[f"{c}|level"].to_numpy(np.uint16), rep); SD[rr, ci[c]] = np.repeat(T[f"{c}|spread"].to_numpy(np.uint16), rep)
+    os.makedirs(outdir, exist_ok=True); thirds = np.array_split(np.arange(len(cells)), 3)
+    for stem, A in (("mu", MU), ("donor_sd", SD)):
+        for k, js in enumerate(thirds, 1):
+            pq.write_table(pa.table({cells[j]: A[:, j] for j in js}), os.path.join(outdir, f"{stem}_part{k}.parquet"), compression="zstd")
+    return dict(cells=len(cells), sites=len(ids), sites_with_a_cpg=int(have.sum()), sites_with_every_cell=int((MU != BLANK).all(1).sum()),
+                layout="IAM-Atlas v2.1's sites.parquet order; mu and donor_sd, three parts each", left_out=["megakaryocytes (provisional, version 1)"])
+
 def deconv_reference_of(path=DECONV_REF):
     """The Deconvolver's sequencing reference as stage_v4.stage_d21 takes it: (R, markers), R = dict(mu, sd, cells, spread='full'); None when
     the file is absent (the reading then says it was read against IAM-Atlas v2.1)."""

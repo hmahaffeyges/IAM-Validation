@@ -2333,6 +2333,10 @@ One donor's GRCh38 per-CpG read tables, pooled on GRCh38 and moved to the hg19 n
 not move to one place is dropped and counted), each landing on the hg19 CpG whose C or G it is, so both strands add to one CpG. Written as an
 .lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
 
+### stage_seq_atlas.py::array_columns
+The IAM Sequencing Atlas at every site of IAM-Atlas v2.1, in v2.1's layout (`run_sample.py --build seq-array-cols`): each cell's counted
+level and donor spread, so a sequenced sample's in-mix readings mix sequencing levels; the sites themselves are still chosen on v2.1.
+
 ### stage_seq_atlas.py::deconv_reference
 The IAM-Deconvolver's reference for sequenced samples (`run_sample.py --build seq-deconv-ref`): each sequencing atlas cell's counted level
 and donor spread at the array sites, marker sites chosen on the sequencing atlas by the Deconvolver's own rule; only the markers stored.

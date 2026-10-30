@@ -27,6 +27,7 @@ ATLAS = os.path.join(HERE, "..", "atlas", "v2.1"); NA = 65535
 SEQ_TERM = json.load(open(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "sequencing_term_v1.json")))   # the atlas's measured sequencing source term
 FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-01)"
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
+SEQ_ATLAS = None   # 2026-10-30: a folder of the IAM Sequencing Atlas at v2.1's sites (stage_seq_atlas.ARRAY_COLS); set for a sequenced sample, _col serves it
 SITE_OUT = None   # 2026-10-30: a path; when set, read() writes the per-site table of a sequencing reading there (run_sample.py --dev-metaa-sites)
 _cache = {}
 
@@ -36,9 +37,17 @@ def _H(b):
 def _col(stem, cell):
     """One cell's atlas column (best value mu, mu_lo, mu_hi or donor_sd), as a Series over the atlas's sites; NaN where the atlas has none."""
     import pyarrow.parquet as pq
-    k = (stem, cell)
+    k = (stem, cell, SEQ_ATLAS)
     if k in _cache: return _cache[k]
     if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    if SEQ_ATLAS:   # 2026-10-30 (plan 35.30): a sequenced sample's in-mix readings from the IAM Sequencing Atlas's counted levels, same sites
+        s = "donor_sd" if stem == "donor_sd" else "mu"   # the sequencing atlas counts one level per site; mu_lo and mu_hi read it too
+        for part in (1, 2, 3):
+            p = os.path.join(SEQ_ATLAS, f"{s}_part{part}.parquet")
+            if cell in pq.read_schema(p).names:
+                u = pq.read_table(p, columns=[cell]).column(0).to_numpy(); v = u.astype("float64") / 1e4; v[u == NA] = np.nan
+                _cache[k] = pd.Series(v, index=_cache["ids"]); return _cache[k]
+        _cache[k] = pd.Series(np.nan, index=_cache["ids"]); return _cache[k]   # not a cell of the sequencing atlas: no level, never an array level
     for part in (1, 2, 3):
         p = os.path.join(ATLAS, f"{stem}_part{part}.parquet")
         if cell in pq.read_schema(p).names:
@@ -55,7 +64,11 @@ def identity_sites(cell):
     """Met-A's site rule on the atlas (see the module text). Returns the site names, high side then low side."""
     k = ("sites", cell)
     if k in _cache: return _cache[k]
-    mu, w = _col("mu", cell), width(cell); ok = mu.notna() & w.notna() & (w <= RULE["spread_max"])
+    global SEQ_ATLAS
+    _keep, SEQ_ATLAS = SEQ_ATLAS, None   # 2026-10-30: the sites are always chosen on IAM-Atlas v2.1, so Met-A is one instrument with one set of sites
+    try: mu, w = _col("mu", cell), width(cell)
+    finally: SEQ_ATLAS = _keep
+    ok = mu.notna() & w.notna() & (w <= RULE["spread_max"])
     out = []
     for lo, hi in (RULE["high"], RULE["low"]):
         s = w[ok & (mu >= lo) & (mu <= hi)].sort_values(kind="mergesort")
@@ -241,7 +254,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
         have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
         e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
-        if counts is not None: e = seq_units(e).where(e.notna())   # 2026-10-28: the mixed expectation in sequencing units on sequencing
+        if counts is not None and not SEQ_ATLAS: e = seq_units(e).where(e.notna())   # 2026-10-28: the mixed expectation in sequencing units on sequencing
         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
         _rmin = READ_COVER_MIN_SEQ if counts is not None else READ_COVER_MIN
         if ok.sum() < _rmin * len(S):   # 2026-10-23 (author: read and flag): withheld only below half (a tenth on sequencing); above that and below RULE's 90 %, read and flagged
@@ -415,7 +428,7 @@ def territory_reading(beta, shares, counts=None):
         idx = pd.Index(S).intersection(x.dropna().index)
         MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
         cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
-        if counts is not None: e = seq_units(e).where(e.notna())   # 2026-10-28: the expectation in sequencing units on sequencing
+        if counts is not None and not SEQ_ATLAS: e = seq_units(e).where(e.notna())   # 2026-10-28: the expectation in sequencing units on sequencing
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
         hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts); A = float(hx.mean() / he.mean())

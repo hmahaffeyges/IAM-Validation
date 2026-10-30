@@ -636,3 +636,16 @@ read as impurity on its own. **Next:** the same planted mixes at several depths,
 not scored): a pure planted cell gives other cells, from counting alone, a median of 0.0152 at 5 reads per marker site, 0.0228 at 10, 0.0113
 at 20 and 0.0112 at 40 (largest 0.0458). The floor hardly moves with depth; a healthy sorted sample whose share outside its own cell is well
 above about 0.05 holds other cells, not counting scatter.
+
+## The in-mix readings on the IAM Sequencing Atlas (written and committed before the synthetic runs; development)
+
+**Why:** the healthy full-chain pass found Met-A for the whole sample (0.9210) and the territories (islands 14.5255, domains 1.1383) not
+reading Normal on healthy sequencing; both still mixed IAM-Atlas v2.1's array levels, put in sequencing units. **The change**
+(`stage_seq_atlas.array_columns`, `run_sample.py --build seq-array-cols`): each sequencing atlas cell's counted level and donor spread at
+every site of IAM-Atlas v2.1, in v2.1's own layout (`Runtime Matrices/Seq_Atlas/array_sites/`, built on one Google spot machine from the 113
+atlas pieces). For a sequenced sample read with `--dev-seq-ref`, the chain now splits it on the sequencing atlas and mixes the sequencing
+atlas's levels for every in-mix reading (Met-A for each cell and the whole sample, the territories, the C-Score); the bundle says which
+atlas each part used (`sequencing_ruler`). Met-A's identity sites and the territory sets are still chosen on IAM-Atlas v2.1, so each
+instrument keeps one set of sites. **Synthetic** (`seq_atlas/inmix_seq_synthetic.py`): 6 constructed healthy samples (pure, two-cell and
+three-cell mixes; 20 and 8 reads per site), through the one command with the full chain; bars Met-A for the whole sample, islands and
+domains each within 0.05 of 1 in every sample. **Then:** the healthy full-chain pass read again with these readings.

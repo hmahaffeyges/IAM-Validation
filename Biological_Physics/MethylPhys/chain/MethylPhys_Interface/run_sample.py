@@ -261,6 +261,13 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "seq-array-cols":   # 2026-10-30 (plan 35.30, development): the sequencing atlas at IAM-Atlas v2.1's sites, in v2.1's layout
+        if not (a.build_samples and a.build_out): print("--build seq-array-cols needs --build-samples PIECE_DIR[,PIECE_DIR] and --build-out FOLDER"); return 2
+        import stage_seq_atlas as _SQ
+        rep = dict(_SQ.array_columns([d for d in a.build_samples.split(",") if d], a.build_out), command=["run_sample.py"] + sys.argv[1:],
+                   label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps({k: rep[k] for k in ("cells", "sites", "sites_with_every_cell")})); return 0
     if a.build == "seq-deconv-ref":   # 2026-10-30 (plan 35.30, development): the Deconvolver's reference for sequenced samples, from the sequencing atlas
         if not (a.build_samples and a.build_out): print("--build seq-deconv-ref needs --build-samples PIECE_DIR[,PIECE_DIR] and --build-out PARQUET"); return 2
         import stage_seq_atlas as _SQ
@@ -521,7 +528,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -979,7 +986,10 @@ def main():
         import stage_v4 as V4
         _dsr = None
         if a._seqv and getattr(a, "dev_seq_ref", None):   # 2026-10-30 (plan 35.30): a sequenced sample split on the IAM Sequencing Atlas, flagged
-            import stage_seq_atlas as _SQd; _dsr = _SQd.deconv_reference_of()
+            import stage_seq_atlas as _SQd, stage_metaa_atlas as _SAd; _dsr = _SQd.deconv_reference_of()
+            if os.path.isdir(_SQd.ARRAY_COLS): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
+            o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
+                                         metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
         if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
