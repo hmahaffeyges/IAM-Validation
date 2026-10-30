@@ -1,0 +1,411 @@
+{
+ "cells": {
+  "adipocytes": {
+   "donors": 3,
+   "half_A": 0,
+   "tiles": 14127,
+   "held_error": 0.04712,
+   "tile_median": 0.04519
+  },
+  "aorta endothelium": {
+   "donors": 2,
+   "half_A": 1,
+   "tiles": 14118,
+   "held_error": 0.04646,
+   "tile_median": 0.04645
+  },
+  "b cells": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.038,
+   "tile_median": 0.03725
+  },
+  "bladder epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.04689,
+   "tile_median": 0.0459
+  },
+  "breast basal epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14118,
+   "held_error": 0.03908,
+   "tile_median": 0.03667
+  },
+  "breast luminal epithelium": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14120,
+   "held_error": 0.04013,
+   "tile_median": 0.03829
+  },
+  "cardiomyocyte": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.04247,
+   "tile_median": 0.0402
+  },
+  "cd4 t cells": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.03905,
+   "tile_median": 0.03866
+  },
+  "cd8 t cells": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14133,
+   "held_error": 0.04476,
+   "tile_median": 0.04592
+  },
+  "colon enteroendocrine": {
+   "donors": 2,
+   "half_A": 1,
+   "tiles": 14119,
+   "held_error": 0.04094,
+   "tile_median": 0.04011
+  },
+  "colon epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.04185,
+   "tile_median": 0.04101
+  },
+  "colon fibroblasts": {
+   "donors": 2,
+   "half_A": 1,
+   "tiles": 14132,
+   "held_error": 0.04715,
+   "tile_median": 0.0454
+  },
+  "colon macrophages": {
+   "donors": 2,
+   "half_A": 0,
+   "tiles": 14119,
+   "held_error": 0.03841,
+   "tile_median": 0.03708
+  },
+  "cortical neurons": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14131,
+   "held_error": 0.03391,
+   "tile_median": 0.0318
+  },
+  "effector memory cd8 t cells": {
+   "donors": 1,
+   "half_A": 0,
+   "tiles": 14106,
+   "held_error": 0.05094,
+   "tile_median": 0.05337
+  },
+  "endometrium epithelium": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14120,
+   "held_error": 0.04229,
+   "tile_median": 0.04118
+  },
+  "erythrocyte progenitors": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14131,
+   "held_error": 0.05302,
+   "tile_median": 0.0531
+  },
+  "fallopien tubes epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14117,
+   "held_error": 0.04151,
+   "tile_median": 0.0398
+  },
+  "gastric antrum epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14125,
+   "held_error": 0.04518,
+   "tile_median": 0.04411
+  },
+  "gastric body epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14125,
+   "held_error": 0.04582,
+   "tile_median": 0.04497
+  },
+  "gastric fundus epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14118,
+   "held_error": 0.04643,
+   "tile_median": 0.04585
+  },
+  "heart fibroblasts": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14131,
+   "held_error": 0.05352,
+   "tile_median": 0.05517
+  },
+  "hepatocyte": {
+   "donors": 3,
+   "half_A": 0,
+   "tiles": 14132,
+   "held_error": 0.0429,
+   "tile_median": 0.04302
+  },
+  "kidney glomerular endothelium": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14131,
+   "held_error": 0.04512,
+   "tile_median": 0.04324
+  },
+  "kidney glomerular epithelium": {
+   "donors": 2,
+   "half_A": 0,
+   "tiles": 14130,
+   "held_error": 0.04305,
+   "tile_median": 0.04103
+  },
+  "kidney tubular endothelium": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14132,
+   "held_error": 0.04464,
+   "tile_median": 0.04348
+  },
+  "kidney tubular epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.04174,
+   "tile_median": 0.03976
+  },
+  "lung alveolar endothelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14123,
+   "held_error": 0.04556,
+   "tile_median": 0.04512
+  },
+  "lung alveolar epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14131,
+   "held_error": 0.04323,
+   "tile_median": 0.04033
+  },
+  "lung alveolar macrophages": {
+   "donors": 2,
+   "half_A": 1,
+   "tiles": 14132,
+   "held_error": 0.03587,
+   "tile_median": 0.03417
+  },
+  "lung bronchus epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14133,
+   "held_error": 0.04685,
+   "tile_median": 0.04398
+  },
+  "lung interstitial macrophages": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14131,
+   "held_error": 0.03579,
+   "tile_median": 0.03432
+  },
+  "memory b cells": {
+   "donors": 2,
+   "half_A": 1,
+   "tiles": 14111,
+   "held_error": 0.04813,
+   "tile_median": 0.04967
+  },
+  "monocytes": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.03741,
+   "tile_median": 0.03567
+  },
+  "naive cd4 t cells": {
+   "donors": 1,
+   "half_A": 0,
+   "tiles": 14115,
+   "held_error": 0.03442,
+   "tile_median": 0.03263
+  },
+  "naive cd8 t cells": {
+   "donors": 1,
+   "half_A": 0,
+   "tiles": 14103,
+   "held_error": 0.03327,
+   "tile_median": 0.03117
+  },
+  "nk cells": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.03925,
+   "tile_median": 0.03804
+  },
+  "oligodendrocytes": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14131,
+   "held_error": 0.03996,
+   "tile_median": 0.03737
+  },
+  "pancreas endothelium": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14120,
+   "held_error": 0.04619,
+   "tile_median": 0.04486
+  },
+  "pancreatic acinar": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14131,
+   "held_error": 0.05197,
+   "tile_median": 0.05382
+  },
+  "pancreatic alpha": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14122,
+   "held_error": 0.04506,
+   "tile_median": 0.04422
+  },
+  "pancreatic beta": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14123,
+   "held_error": 0.04413,
+   "tile_median": 0.04251
+  },
+  "pancreatic delta": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14116,
+   "held_error": 0.0459,
+   "tile_median": 0.04441
+  },
+  "pancreatic duct": {
+   "donors": 3,
+   "half_A": 3,
+   "tiles": 14132,
+   "held_error": 0.04189,
+   "tile_median": 0.03978
+  },
+  "prostate epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.04244,
+   "tile_median": 0.04027
+  },
+  "small intestine epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.04343,
+   "tile_median": 0.04266
+  },
+  "smooth muscle": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14130,
+   "held_error": 0.05487,
+   "tile_median": 0.05702
+  },
+  "striated muscle": {
+   "donors": 2,
+   "half_A": 1,
+   "tiles": 14132,
+   "held_error": 0.04707,
+   "tile_median": 0.04595
+  },
+  "t central memory cd4": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14132,
+   "held_error": 0.04585,
+   "tile_median": 0.04687
+  },
+  "t effector cell cd8": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14132,
+   "held_error": 0.04781,
+   "tile_median": 0.04978
+  },
+  "t effector memory cd4": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14130,
+   "held_error": 0.05017,
+   "tile_median": 0.05285
+  },
+  "thyroid epithelium": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14118,
+   "held_error": 0.04283,
+   "tile_median": 0.04091
+  },
+  "tongue epithelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.0468,
+   "tile_median": 0.04494
+  },
+  "tonsil palatine epithelium": {
+   "donors": 3,
+   "half_A": 1,
+   "tiles": 14132,
+   "held_error": 0.05069,
+   "tile_median": 0.04968
+  },
+  "tonsil pharyngeal epithelium": {
+   "donors": 2,
+   "half_A": 1,
+   "tiles": 14118,
+   "held_error": 0.05097,
+   "tile_median": 0.05037
+  },
+  "vascular saphenous endothelium": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.04525,
+   "tile_median": 0.04385
+  }
+ },
+ "tiles": 14133,
+ "output": "held_reference_v1.parquet",
+ "samples_file": "held_samples.csv",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-held",
+  "--build-samples",
+  "/root/w/held_samples.csv",
+  "--build-out",
+  "/root/w/held_reference_v1.parquet",
+  "--bundle",
+  "/root/w/held_reference_v1.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
+}

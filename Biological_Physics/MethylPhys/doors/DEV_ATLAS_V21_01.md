@@ -607,3 +607,9 @@ dividing. Synthetic 2 met again (`seq_atlas/seq_compare_synthetic2.txt`; the fir
 plain distance, on a donor unread when it was written) stays **not met**; this reading is development on a spent donor and cannot replace it.
 **What it shows:** the column holds donor 3's cell once counting scatter is weighed correctly; plain distance is dominated by that scatter in
 single-cell pools. **A fresh test** needs megakaryocyte sequencing the column has never seen, written before it is read.
+
+**The held-error reference by region, built** (`seq_atlas/held_reference_v1.json`; the one command's `--build seq-held` on a Google spot
+machine; in the chain as `chain/Runtime Matrices/Seq_Atlas/held_reference_v1.parquet`): all 153 healthy inputs counted, 14,133 regions of
+2,000 CpGs, 56 cells, stored as counts with both noise splits (sealed donor halves and molecule halves). Each cell's whole-genome held error
+ranges from 0.03327 (naive CD8 T cells) to 0.05487 (smooth muscle). **Next:** IAM-A on plasma, the plasma's expected held error built from
+these columns and the Deconvolver's shares, synthetic first.

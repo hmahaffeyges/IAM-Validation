@@ -4,7 +4,7 @@
  "_convention": "see 2026-10-13.json",
  "check_completeness": false,
  "set_out": "Read the library floor on the 137 healthy sequenced samples; build the held-error reference from the 153 healthy inputs; find why the megakaryocyte column does not name donor 3; keep the B and T commissioning samples aligning.",
- "open_at_turnover": "Running on GitHub's machines: the library floor on the 137 healthy sequenced samples and the B and T commissioning samples. On Google's machines: the last held-error count; the held-error reference is built when all 153 are in.",
+ "open_at_turnover": "Running on GitHub's machines: the library floor on the 137 healthy sequenced samples and the B and T commissioning samples. The held-error reference is built and in the chain.",
  "closing": "",
  "off_page_rows": [],
  "compute": {
@@ -21,6 +21,16 @@
      "status": "development",
      "what": "The three megakaryocyte donors compared pairwise, and each with a monocyte and a lung macrophage input, by a new pair comparison tested on a known answer first.",
      "outcome": "The donors agree with each other more than with the cells donor 3 was named as. The comparison's depth-weighted score had a fault (it averaged a ratio at each site) and was corrected; read again with it, donor 3 reads nearest megakaryocytes (development, on a spent donor; the committed test stays not met).",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Each healthy cell's held error, region by region",
+     "status": "development",
+     "what": "The 153 healthy sequenced inputs' molecules counted on Google spot machines, pooled by cell into 14,133 regions beside the sequencing atlas.",
+     "outcome": "Built and in the chain: 56 cells. It is the reference IAM-A needs to read plasma once the Deconvolver has found what is in it.",
      "rows": [
       "COM-METAA-033"
      ],
