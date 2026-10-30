@@ -1,0 +1,25 @@
+DEV-REPLICATE-01 r5: 481 of 481 arrays read (pass 1, untared)
+-- metabolic HCC case (221) against control (260), all (in each line below, 'current' is the first group and 'never' the second; the words are R2's)
+site cg05575921                            case 0.8610 control 0.8675 | d -0.17 | p 0.21
+site cg03636183                            case 0.6790 control 0.6810 | d -0.10 | p 0.22
+site cg16867657                            case 0.7160 control 0.7125 | d +0.03 | p 0.62
+share neutrophils                          case 0.5623 control 0.5042 | d +0.30 | p 0.00044
+share cd4 t cells                          case 0.1487 control 0.1918 | d -0.49 | p 8.2e-08
+share cd8 t cells                          case 0.0667 control 0.0717 | d -0.12 | p 0.29
+share b cells                              case 0.0412 control 0.0417 | d +0.09 | p 0.81
+share nk cells                             case 0.0600 control 0.0717 | d -0.28 | p 0.00012
+share monocytes                            case 0.0907 control 0.0835 | d +0.20 | p 0.0087
+Met-A whole                                case 0.9460 control 0.9453 | d -0.06 | p 0.77
+ceiling distance                           case 1.0387 control 1.0397 | d +0.05 | p 0.84
+Met-A whole, identity sites of the cells found case 0.8861 control 0.8884 | d -0.06 | p 0.46
+Met-A whole, islands                       case 0.8745 control 0.8759 | d -0.06 | p 0.36
+Met-A whole, domains                       case 0.9419 control 0.9419 | d -0.06 | p 0.74
+Met-A whole, the rest                      case 0.9530 control 0.9518 | d -0.06 | p 0.78
+Met-A neutrophils                          case 1.0200 control 1.0223 | d -0.04 | p 0.44
+Met-A monocytes                            case 1.0576 control 1.0577 | d -0.05 | p 0.61
+Met-A b cells                              case 1.0923 control 1.0941 | d -0.11 | p 0.28
+Met-A cd4 t cells                          case 1.0719 control 1.0716 | d -0.10 | p 0.27
+Met-A cd8 t cells                          case 1.0892 control 1.0916 | d -0.11 | p 0.22
+Met-A nk cells                             case 1.0798 control 1.0811 | d -0.10 | p 0.28
+territory islands                          case 0.8762 control 0.8772 | d -0.06 | p 0.41
+territory domains                          case 0.9532 control 0.9539 | d -0.07 | p 0.68

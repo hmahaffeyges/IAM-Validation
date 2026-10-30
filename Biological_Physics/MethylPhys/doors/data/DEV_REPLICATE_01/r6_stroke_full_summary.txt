@@ -1,0 +1,17 @@
+DEV-REPLICATE-01 r6_stroke: 184 of 185 arrays read (pass 1, untared)
+== GSE69138: atherotrombotic 18, cardioembolic 109, small-vessel disease 57
+   atherotrombotic: largest shares 
+   cardioembolic: largest shares 
+   small-vessel disease: largest shares 
+-- atherotrombotic (18) against cardioembolic (109)
+   site cg05575921                            0.8090 against 0.8680 | d -0.55 | p 0.058
+   site cg03636183                            0.6750 against 0.7110 | d -0.55 | p 0.041
+   site cg16867657                            0.7915 against 0.8040 | d -0.01 | p 0.67
+-- atherotrombotic (18) against small-vessel disease (57)
+   site cg05575921                            0.8090 against 0.8350 | d -0.29 | p 0.55
+   site cg03636183                            0.6750 against 0.6830 | d -0.20 | p 0.56
+   site cg16867657                            0.7915 against 0.7510 | d +0.46 | p 0.06
+-- cardioembolic (109) against small-vessel disease (57)
+   site cg05575921                            0.8680 against 0.8350 | d +0.25 | p 0.06
+   site cg03636183                            0.7110 against 0.6830 | d +0.37 | p 0.016
+   site cg16867657                            0.8040 against 0.7510 | d +0.46 | p 0.0031

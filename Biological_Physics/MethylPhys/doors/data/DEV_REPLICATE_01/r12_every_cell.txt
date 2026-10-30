@@ -1,0 +1,14 @@
+R12, every cell: 59 cells read on 321 arrays; later breast cancer vs no cancer | within slides | among the cancers, against years to diagnosis
+breast cells:
+breast luminal epithelium | 0.9964 vs 0.9883 (p 2.6e-06) | within slides +0.0064 (p 0.0029) | with years to diagnosis rho -0.165 (p 0.22)
+strongest ten by group p:
+central memory th1 cells | 1.0179 vs 0.9961 (p 1.2e-13) | within slides +0.0093 (p 0.0001) | with years to diagnosis rho +0.206 (p 0.013)
+t effector cell cd8 | 1.012 vs 0.9924 (p 1.4e-13) | within slides +0.0095 (p 4.5e-05) | with years to diagnosis rho +0.203 (p 0.014)
+embryonic stem cells | 1.0389 vs 1.0182 (p 1.6e-13) | within slides +0.0073 (p 0.00043) | with years to diagnosis rho +0.187 (p 0.025)
+small intestine epithelium | 1.0144 vs 0.9927 (p 2.8e-13) | within slides +0.0074 (p 0.00019) | with years to diagnosis rho +0.219 (p 0.0083)
+cytotoxic cd4 t cells (cd28-) | 1.0233 vs 1.0004 (p 3.9e-13) | within slides +0.0098 (p 0.00029) | with years to diagnosis rho +0.213 (p 0.01)
+naive cd8 t cells | 1.0295 vs 1.0068 (p 5.6e-13) | within slides +0.0104 (p 0.00056) | with years to diagnosis rho +0.169 (p 0.043)
+lung bronchus epithelium | 1.0193 vs 1.0015 (p 1.1e-12) | within slides +0.0066 (p 0.0013) | with years to diagnosis rho +0.159 (p 0.056)
+nk cells | 0.982 vs 0.9639 (p 1.2e-12) | within slides +0.0074 (p 8.8e-05) | with years to diagnosis rho +0.153 (p 0.066)
+naive cd4 t cells | 1.0411 vs 1.0171 (p 1.8e-12) | within slides +0.0110 (p 0.00043) | with years to diagnosis rho +0.214 (p 0.0098)
+colon epithelium | 1.0164 vs 0.9956 (p 2.8e-12) | within slides +0.0072 (p 0.00025) | with years to diagnosis rho +0.221 (p 0.0077)

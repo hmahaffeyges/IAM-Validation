@@ -329,3 +329,11 @@ higher (neutrophils 1.0283 against 1.0057, p 1.3e-11; CD4 T cells 1.0071 against
 each slide's difference is smaller (median +0.0069 for neutrophils, +0.0094 for CD4 T cells, -0.0053 for the islands) and holds across the
 slides (Wilcoxon p 0.0031, 0.00012 and 0.00025). Not scored. Before any of it is read as a finding: the cell shares by group, the slides'
 scan dates and the timing result need their own test, written first.
+
+**Every cell, in every replay** (correction, disclosed). The replay scorers (`r23_score.py`, `replay_score.py`) compared Met-A for five
+fixed blood cells, a list kept from R2 and R3 (read on the six-cell blood panel), even where the chain had read all 79 cells of IAM-Atlas
+v2.1. Both now compare every cell the chain read and every share, and every full-chain replay is compared again (`*_full_summary.txt`,
+`r10`, `r11`, `r12` summaries); earlier summaries stand as they were. Four whole-blood replays were read by the chain on the six-cell
+blood panel only (R5 liver, R6 aging, R9 glioma blood; 450K stroke on none, its shares withheld). Each is read once more by the one command
+with `--full-chain --cell-panel atlas` (all 79 cells, flagged in development), written before that read; the six-cell readings stay as the
+commissioned ones. Under the full chain a whole blood is to read both panels in one call (plan: the full chain on every cell).

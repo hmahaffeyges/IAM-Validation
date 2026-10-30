@@ -28,7 +28,8 @@ for f in sorted(glob.glob(os.path.join(src, "**", "GSM*.json"), recursive=True))
     w = B.get("met_a_whole") or {}; r["Met-A whole"] = w.get("A"); r["ceiling distance"] = (w.get("ceiling") or {}).get("distance_to_ceiling")
     for k, v in (w.get("by_place") or {}).items(): r["Met-A whole, " + k] = (v or {}).get("A")
     ec = {x["cell"]: x.get("A") for x in (B.get("met_a_each_cell") or {}).get("cells", [])}
-    for c in EC: r["Met-A " + c] = ec.get(c)
+    for c in ec: r["Met-A " + c] = ec.get(c)   # 2026-10-30 (author): every cell the chain read, not a fixed list of five (EC kept for R2/R3's record only)
+    for c in sh: r["share " + c] = sh.get(c)
     for k, v in ((B.get("territories") or {}).get("sets") or {}).items(): r["territory " + k] = v.get("A")
     rows.append(r)
 X = pd.DataFrame(rows).set_index("gsm").join(L); feats = [c for c in X.columns if c not in L.columns]

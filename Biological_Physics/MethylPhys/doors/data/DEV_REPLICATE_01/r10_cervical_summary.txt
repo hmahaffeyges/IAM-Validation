@@ -15,11 +15,138 @@ Met-A whole, identity sites of the cells found current 0.8841 never 0.8823 | d -
 Met-A whole, islands                       current 0.9117 never 0.9110 | d -0.32 | p 0.44
 Met-A whole, domains                       current 0.9540 never 0.9477 | d -0.10 | p 1
 Met-A whole, the rest                      current 0.9252 never 0.9280 | d -0.45 | p 0.44
-Met-A neutrophils                          current 0.9572 never 0.9440 | d +0.53 | p 0.057
-Met-A cd4 t cells                          current 0.9967 never 0.9792 | d +0.40 | p 0.15
-Met-A cd8 t cells                          current 1.0015 never 0.9866 | d +0.26 | p 0.33
+Met-A CMP (bone marrow)                    current 0.9293 never 0.9267 | d -0.18 | p 0.98
+Met-A GMP (bone marrow)                    current 0.9553 never 0.9482 | d -0.16 | p 0.95
+Met-A HSC (bone marrow)                    current 0.9945 never 0.9867 | d +0.08 | p 0.76
+Met-A L-MPP (bone marrow)                  current 0.9263 never 0.9248 | d -0.14 | p 0.88
+Met-A MEP (bone marrow)                    current 0.9336 never 0.9311 | d -0.02 | p 0.89
+Met-A MPP (bone marrow)                    current 0.9261 never 0.9255 | d -0.02 | p 0.77
+Met-A adipocytes                           current 0.9342 never 0.9292 | d +0.12 | p 0.52
 Met-A b cells                              current 0.9826 never 0.9693 | d +0.20 | p 0.43
+Met-A basophils                            current 0.9502 never 0.9562 | d +0.01 | p 1
+Met-A breast luminal epithelium            current 0.9567 never 0.9542 | d +0.02 | p 0.8
+Met-A cd4 t cells                          current 0.9967 never 0.9792 | d +0.40 | p 0.15
+Met-A cd56bright nk cells                  current 0.9883 never 0.9883 | d +0.38 | p 0.23
+Met-A cd8 central memory t cells           current 0.9843 never 0.9799 | d +0.23 | p 0.42
+Met-A cd8 t cells                          current 1.0015 never 0.9866 | d +0.26 | p 0.33
+Met-A cd8 temra t cells                    current 0.9740 never 0.9722 | d +0.13 | p 0.64
+Met-A central memory th1 cells             current 0.9674 never 0.9591 | d +0.28 | p 0.34
+Met-A colon epithelium                     current 0.9908 never 0.9725 | d +0.43 | p 0.15
+Met-A colon fibroblasts                    current 1.0304 never 1.0271 | d +0.21 | p 0.43
+Met-A colon macrophages                    current 0.9873 never 0.9695 | d +0.23 | p 0.46
+Met-A cortical neurons                     current 0.9482 never 0.9383 | d +0.41 | p 0.14
+Met-A cytotoxic cd4 t cells (cd28-)        current 0.9843 never 0.9716 | d +0.36 | p 0.21
+Met-A effector memory cd8 t cells          current 0.9818 never 0.9773 | d +0.27 | p 0.28
+Met-A embryonic stem cells                 current 1.0037 never 0.9861 | d +0.49 | p 0.1
+Met-A endometrium epithelium               current 0.9443 never 0.9327 | d +0.84 | p 0.35
+Met-A eosinophils                          current 0.9256 never 0.9267 | d -0.04 | p 0.95
+Met-A erythrocyte progenitors              current 0.9669 never 0.9629 | d +0.00 | p 0.79
+Met-A heart fibroblasts                    current 0.9515 never 0.9308 | d +1.00 | p 0.059
+Met-A hepatocyte                           current 0.9108 never 0.9199 | d -0.19 | p 0.42
+Met-A kidney glomerular endothelium        current 0.9513 never 0.9500 | d +0.07 | p 0.77
+Met-A kidney tubular endothelium           current 0.9516 never 0.9503 | d +0.09 | p 0.83
+Met-A kidney tubular epithelium            current 0.9503 never 0.9474 | d +0.09 | p 0.63
+Met-A lung alveolar endothelium            current 0.9608 never 0.9619 | d +0.12 | p 0.7
+Met-A lung alveolar epithelium             current 0.9511 never 0.9524 | d +0.07 | p 0.8
+Met-A lung bronchus epithelium             current 1.0138 never 0.9897 | d +0.47 | p 0.12
+Met-A lung interstitial macrophages        current 0.9299 never 0.9330 | d +0.11 | p 1
+Met-A memory b cells                       current 0.9799 never 0.9769 | d +0.18 | p 0.6
+Met-A memory cd4 t cells                   current 0.9262 never 0.9316 | d -0.11 | p 0.89
+Met-A microglia                            current 0.9802 never 0.9714 | d +0.25 | p 0.4
 Met-A monocytes                            current 0.9330 never 0.9312 | d +0.27 | p 0.43
+Met-A naive b cells                        current 0.9723 never 0.9644 | d +0.20 | p 0.48
+Met-A naive cd4 t cells                    current 0.9686 never 0.9543 | d +0.53 | p 0.071
+Met-A naive cd8 t cells                    current 0.9819 never 0.9668 | d +0.55 | p 0.059
+Met-A neutrophils                          current 0.9572 never 0.9440 | d +0.53 | p 0.057
+Met-A nk cells                             current 0.9883 never 0.9731 | d +0.30 | p 0.28
+Met-A oligodendrocytes                     current 0.9594 never 0.9538 | d +0.23 | p 0.47
+Met-A pancreatic acinar                    current 0.9565 never 0.9596 | d -0.20 | p 0.63
+Met-A pancreatic alpha                     current 0.9477 never 0.9336 | d +0.90 | p 0.15
+Met-A pancreatic beta                      current 0.9484 never 0.9377 | d +0.29 | p 0.32
+Met-A pancreatic delta                     current 0.9517 never 0.9467 | d +0.15 | p 0.59
+Met-A pancreatic duct                      current 0.9311 never 0.9358 | d -0.14 | p 0.68
+Met-A regulatory t cells                   current 0.9148 never 0.9216 | d -0.33 | p 0.36
+Met-A small intestine epithelium           current 1.0109 never 0.9939 | d +0.45 | p 0.15
+Met-A t central memory cd4                 current 0.9740 never 0.9685 | d +0.34 | p 0.33
+Met-A t effector cell cd8                  current 0.9492 never 0.9514 | d +0.23 | p 0.49
+Met-A t effector memory cd4                current 0.9471 never 0.9422 | d +0.33 | p 0.64
+Met-A thyroid epithelium                   current 0.9500 never 0.9431 | d +0.15 | p 0.42
+Met-A tonsil palatine epithelium           current 0.9355 never 0.9411 | d -0.25 | p 0.49
+Met-A vascular endothelium                 current 0.8823 never 0.8937 | d -0.03 | p 0.77
+Met-A vascular saphenous endothelium       current 0.9592 never 0.9527 | d +0.09 | p 0.64
+share CMP (bone marrow)                    current 0.0000 never 0.0000 | d +0.14 | p 0.86
+share GMP (bone marrow)                    current 0.0000 never 0.0000 | d +0.42 | p 0.091
+share HSC (bone marrow)                    current 0.0000 never 0.0000 | d -0.18 | p 0.9
+share L-MPP (bone marrow)                  current 0.0000 never 0.0000 | d +0.22 | p 0.4
+share MEP (bone marrow)                    current 0.0007 never 0.0135 | d -0.27 | p 0.23
+share MPP (bone marrow)                    current 0.0000 never 0.0000 | d +nan | p 1
+share adipocytes                           current 0.0009 never 0.0000 | d +0.42 | p 0.093
+share aorta endothelium                    current 0.0000 never 0.0000 | d +nan | p 1
+share astrocytes                           current 0.0000 never 0.0000 | d +nan | p 1
+share basophils                            current 0.0000 never 0.0000 | d +nan | p 1
+share bladder epithelium                   current 0.0311 never 0.0297 | d +0.36 | p 0.18
+share breast basal epithelium              current 0.0000 never 0.0000 | d +nan | p 1
+share breast luminal epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share cardiomyocyte                        current 0.0000 never 0.0000 | d +nan | p 1
+share cd56bright nk cells                  current 0.0000 never 0.0000 | d +nan | p 1
+share cd8 central memory t cells           current 0.0000 never 0.0000 | d +nan | p 1
+share cd8 temra t cells                    current 0.0000 never 0.0000 | d +nan | p 1
+share central memory th1 cells             current 0.0000 never 0.0000 | d +nan | p 1
+share colon enteroendocrine                current 0.0000 never 0.0000 | d +nan | p 1
+share colon epithelium                     current 0.0000 never 0.0001 | d +0.18 | p 0.81
+share colon fibroblasts                    current 0.0000 never 0.0000 | d +nan | p 1
+share colon macrophages                    current 0.0000 never 0.0000 | d +nan | p 1
+share cortical neurons                     current 0.0000 never 0.0000 | d -0.33 | p 0.13
+share cytotoxic cd4 t cells (cd28-)        current 0.0000 never 0.0000 | d +nan | p 1
+share effector memory cd8 t cells          current 0.0000 never 0.0000 | d +nan | p 1
+share embryonic stem cells                 current 0.0000 never 0.0000 | d +0.23 | p 0.88
+share endometrium epithelium               current 0.0000 never 0.0000 | d +nan | p 1
+share eosinophils                          current 0.0020 never 0.0013 | d +0.25 | p 0.6
+share erythrocyte progenitors              current 0.0000 never 0.0000 | d +nan | p 1
+share fallopien tubes epithelium           current 0.0000 never 0.0000 | d -0.29 | p 0.27
+share gastric antrum epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share gastric body epithelium              current 0.0000 never 0.0000 | d +nan | p 1
+share gastric fundus epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share heart fibroblasts                    current 0.0000 never 0.0000 | d +nan | p 1
+share hepatocyte                           current 0.0000 never 0.0000 | d +nan | p 1
+share kidney glomerular endothelium        current 0.0000 never 0.0000 | d +nan | p 1
+share kidney glomerular epithelium         current 0.0000 never 0.0000 | d +nan | p 1
+share kidney tubular endothelium           current 0.0000 never 0.0000 | d +nan | p 1
+share kidney tubular epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share lung alveolar endothelium            current 0.0000 never 0.0000 | d +nan | p 1
+share lung alveolar epithelium             current 0.0000 never 0.0000 | d +0.19 | p 0.29
+share lung alveolar macrophages            current 0.0000 never 0.0000 | d +nan | p 1
+share lung bronchus epithelium             current 0.0870 never 0.0340 | d +0.22 | p 0.22
+share lung interstitial macrophages        current 0.0000 never 0.0000 | d +nan | p 1
+share memory b cells                       current 0.0000 never 0.0000 | d +nan | p 1
+share memory cd4 t cells                   current 0.0000 never 0.0000 | d +nan | p 1
+share microglia                            current 0.0000 never 0.0000 | d +0.33 | p 0.42
+share naive b cells                        current 0.0000 never 0.0000 | d +nan | p 1
+share naive cd4 t cells                    current 0.0000 never 0.0000 | d +nan | p 1
+share naive cd8 t cells                    current 0.0000 never 0.0000 | d +nan | p 1
+share oligodendrocyte precursors           current 0.0000 never 0.0000 | d +nan | p 1
+share oligodendrocytes                     current 0.0000 never 0.0000 | d +nan | p 1
+share pancreas endothelium                 current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic acinar                    current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic alpha                     current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic beta                      current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic delta                     current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic duct                      current 0.0000 never 0.0000 | d +nan | p 1
+share prostate epithelium                  current 0.1433 never 0.0995 | d +0.37 | p 0.097
+share regulatory t cells                   current 0.0000 never 0.0000 | d +nan | p 1
+share small intestine epithelium           current 0.0370 never 0.0297 | d +0.42 | p 0.15
+share smooth muscle                        current 0.0000 never 0.0000 | d +nan | p 1
+share striated muscle                      current 0.0000 never 0.0000 | d +nan | p 1
+share t central memory cd4                 current 0.0000 never 0.0000 | d +nan | p 1
+share t effector cell cd8                  current 0.0000 never 0.0000 | d +nan | p 1
+share t effector memory cd4                current 0.0000 never 0.0000 | d +nan | p 1
+share thyroid epithelium                   current 0.0000 never 0.0000 | d +nan | p 1
+share tongue epithelium                    current 0.1273 never 0.1078 | d +0.24 | p 0.21
+share tonsil palatine epithelium           current 0.0000 never 0.0000 | d +0.12 | p 0.45
+share tonsil pharyngeal epithelium         current 0.0000 never 0.0000 | d +nan | p 1
+share vascular endothelium                 current 0.0292 never 0.0268 | d +0.09 | p 0.74
+share vascular leptomeningeal cells        current 0.0000 never 0.0000 | d +nan | p 1
+share vascular saphenous endothelium       current 0.0000 never 0.0000 | d +nan | p 1
 territory islands                          current 0.9128 never 0.9123 | d -0.32 | p 0.43
 territory domains                          current 0.9580 never 0.9531 | d -0.14 | p 0.9
 -- CIN3 or cancer (40) against normal (28), all (in each line below, 'current' is the first group and 'never' the second; the words are R2's)
@@ -38,10 +165,137 @@ Met-A whole, identity sites of the cells found current 0.8841 never 0.8823 | d -
 Met-A whole, islands                       current 0.9117 never 0.9110 | d -0.32 | p 0.41
 Met-A whole, domains                       current 0.9495 never 0.9477 | d -0.13 | p 0.88
 Met-A whole, the rest                      current 0.9286 never 0.9280 | d -0.32 | p 0.7
-Met-A neutrophils                          current 0.9528 never 0.9440 | d +0.45 | p 0.12
-Met-A cd4 t cells                          current 0.9902 never 0.9792 | d +0.31 | p 0.28
-Met-A cd8 t cells                          current 0.9969 never 0.9866 | d +0.16 | p 0.57
+Met-A CMP (bone marrow)                    current 0.9293 never 0.9267 | d -0.09 | p 0.88
+Met-A GMP (bone marrow)                    current 0.9538 never 0.9482 | d -0.15 | p 0.94
+Met-A HSC (bone marrow)                    current 0.9939 never 0.9867 | d +0.01 | p 0.97
+Met-A L-MPP (bone marrow)                  current 0.9263 never 0.9248 | d -0.06 | p 0.68
+Met-A MEP (bone marrow)                    current 0.9336 never 0.9311 | d -0.00 | p 0.85
+Met-A MPP (bone marrow)                    current 0.9273 never 0.9255 | d +0.08 | p 0.52
+Met-A adipocytes                           current 0.9378 never 0.9292 | d +0.21 | p 0.31
 Met-A b cells                              current 0.9757 never 0.9693 | d +0.11 | p 0.65
+Met-A basophils                            current 0.9525 never 0.9562 | d +0.01 | p 0.95
+Met-A breast luminal epithelium            current 0.9592 never 0.9542 | d +0.07 | p 0.68
+Met-A cd4 t cells                          current 0.9902 never 0.9792 | d +0.31 | p 0.28
+Met-A cd56bright nk cells                  current 0.9882 never 0.9883 | d +0.32 | p 0.31
+Met-A cd8 central memory t cells           current 0.9803 never 0.9799 | d +0.14 | p 0.63
+Met-A cd8 t cells                          current 0.9969 never 0.9866 | d +0.16 | p 0.57
+Met-A cd8 temra t cells                    current 0.9693 never 0.9722 | d +0.02 | p 0.97
+Met-A central memory th1 cells             current 0.9579 never 0.9591 | d +0.18 | p 0.62
+Met-A colon epithelium                     current 0.9858 never 0.9725 | d +0.33 | p 0.31
+Met-A colon fibroblasts                    current 1.0200 never 1.0271 | d +0.12 | p 0.59
+Met-A colon macrophages                    current 0.9867 never 0.9695 | d +0.11 | p 0.54
+Met-A cortical neurons                     current 0.9482 never 0.9383 | d +0.42 | p 0.12
+Met-A cytotoxic cd4 t cells (cd28-)        current 0.9805 never 0.9716 | d +0.22 | p 0.47
+Met-A effector memory cd8 t cells          current 0.9794 never 0.9773 | d +0.18 | p 0.48
+Met-A embryonic stem cells                 current 0.9998 never 0.9861 | d +0.39 | p 0.2
+Met-A endometrium epithelium               current 0.9443 never 0.9327 | d +0.84 | p 0.35
+Met-A eosinophils                          current 0.9256 never 0.9267 | d +0.03 | p 0.85
+Met-A erythrocyte progenitors              current 0.9680 never 0.9629 | d +0.11 | p 0.54
+Met-A heart fibroblasts                    current 0.9515 never 0.9308 | d +1.15 | p 0.036
+Met-A hepatocyte                           current 0.9123 never 0.9199 | d -0.04 | p 0.71
+Met-A kidney glomerular endothelium        current 0.9545 never 0.9500 | d +0.21 | p 0.42
+Met-A kidney tubular endothelium           current 0.9528 never 0.9503 | d +0.21 | p 0.51
+Met-A kidney tubular epithelium            current 0.9506 never 0.9474 | d +0.22 | p 0.35
+Met-A lung alveolar endothelium            current 0.9657 never 0.9619 | d +0.21 | p 0.43
+Met-A lung alveolar epithelium             current 0.9520 never 0.9524 | d +0.12 | p 0.61
+Met-A lung bronchus epithelium             current 1.0069 never 0.9897 | d +0.38 | p 0.2
+Met-A lung interstitial macrophages        current 0.9311 never 0.9330 | d +0.24 | p 0.62
+Met-A memory b cells                       current 0.9797 never 0.9769 | d +0.06 | p 0.85
+Met-A memory cd4 t cells                   current 0.9262 never 0.9316 | d -0.13 | p 0.75
+Met-A microglia                            current 0.9802 never 0.9714 | d +0.20 | p 0.49
 Met-A monocytes                            current 0.9330 never 0.9312 | d +0.26 | p 0.44
+Met-A naive b cells                        current 0.9711 never 0.9644 | d +0.15 | p 0.61
+Met-A naive cd4 t cells                    current 0.9640 never 0.9543 | d +0.45 | p 0.14
+Met-A naive cd8 t cells                    current 0.9775 never 0.9668 | d +0.46 | p 0.13
+Met-A neutrophils                          current 0.9528 never 0.9440 | d +0.45 | p 0.12
+Met-A nk cells                             current 0.9799 never 0.9731 | d +0.21 | p 0.45
+Met-A oligodendrocytes                     current 0.9614 never 0.9538 | d +0.25 | p 0.45
+Met-A pancreatic acinar                    current 0.9565 never 0.9596 | d -0.16 | p 0.71
+Met-A pancreatic alpha                     current 0.9477 never 0.9336 | d +0.90 | p 0.15
+Met-A pancreatic beta                      current 0.9492 never 0.9377 | d +0.32 | p 0.22
+Met-A pancreatic delta                     current 0.9564 never 0.9467 | d +0.31 | p 0.29
+Met-A pancreatic duct                      current 0.9311 never 0.9358 | d -0.12 | p 0.71
+Met-A regulatory t cells                   current 0.9177 never 0.9216 | d -0.11 | p 0.75
+Met-A small intestine epithelium           current 1.0075 never 0.9939 | d +0.36 | p 0.27
+Met-A t central memory cd4                 current 0.9667 never 0.9685 | d +0.28 | p 0.46
+Met-A t effector cell cd8                  current 0.9447 never 0.9514 | d +0.14 | p 0.84
+Met-A t effector memory cd4                current 0.9518 never 0.9422 | d +0.40 | p 0.57
+Met-A thyroid epithelium                   current 0.9542 never 0.9431 | d +0.30 | p 0.23
+Met-A tonsil palatine epithelium           current 0.9373 never 0.9411 | d -0.20 | p 0.53
+Met-A vascular endothelium                 current 0.8871 never 0.8937 | d +0.15 | p 0.83
+Met-A vascular saphenous endothelium       current 0.9599 never 0.9527 | d +0.21 | p 0.36
+share CMP (bone marrow)                    current 0.0000 never 0.0000 | d +0.11 | p 0.77
+share GMP (bone marrow)                    current 0.0000 never 0.0000 | d +0.36 | p 0.16
+share HSC (bone marrow)                    current 0.0000 never 0.0000 | d -0.16 | p 0.71
+share L-MPP (bone marrow)                  current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share MEP (bone marrow)                    current 0.0000 never 0.0135 | d -0.35 | p 0.11
+share MPP (bone marrow)                    current 0.0000 never 0.0000 | d +nan | p 1
+share adipocytes                           current 0.0009 never 0.0000 | d +0.41 | p 0.09
+share aorta endothelium                    current 0.0000 never 0.0000 | d +nan | p 1
+share astrocytes                           current 0.0000 never 0.0000 | d +nan | p 1
+share basophils                            current 0.0000 never 0.0000 | d +nan | p 1
+share bladder epithelium                   current 0.0301 never 0.0297 | d +0.21 | p 0.38
+share breast basal epithelium              current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share breast luminal epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share cardiomyocyte                        current 0.0000 never 0.0000 | d +nan | p 1
+share cd56bright nk cells                  current 0.0000 never 0.0000 | d +nan | p 1
+share cd8 central memory t cells           current 0.0000 never 0.0000 | d +nan | p 1
+share cd8 temra t cells                    current 0.0000 never 0.0000 | d +0.28 | p 0.24
+share central memory th1 cells             current 0.0000 never 0.0000 | d +nan | p 1
+share colon enteroendocrine                current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share colon epithelium                     current 0.0000 never 0.0001 | d +0.27 | p 0.98
+share colon fibroblasts                    current 0.0000 never 0.0000 | d +nan | p 1
+share colon macrophages                    current 0.0000 never 0.0000 | d +nan | p 1
+share cortical neurons                     current 0.0000 never 0.0000 | d +0.05 | p 0.2
+share cytotoxic cd4 t cells (cd28-)        current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share effector memory cd8 t cells          current 0.0000 never 0.0000 | d +nan | p 1
+share embryonic stem cells                 current 0.0000 never 0.0000 | d +0.27 | p 0.68
+share endometrium epithelium               current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share eosinophils                          current 0.0008 never 0.0013 | d +0.22 | p 0.75
+share erythrocyte progenitors              current 0.0000 never 0.0000 | d +nan | p 1
+share fallopien tubes epithelium           current 0.0000 never 0.0000 | d -0.30 | p 0.24
+share gastric antrum epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share gastric body epithelium              current 0.0000 never 0.0000 | d +nan | p 1
+share gastric fundus epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share heart fibroblasts                    current 0.0000 never 0.0000 | d +nan | p 1
+share hepatocyte                           current 0.0000 never 0.0000 | d +nan | p 1
+share kidney glomerular endothelium        current 0.0000 never 0.0000 | d +nan | p 1
+share kidney glomerular epithelium         current 0.0000 never 0.0000 | d +nan | p 1
+share kidney tubular endothelium           current 0.0000 never 0.0000 | d +nan | p 1
+share kidney tubular epithelium            current 0.0000 never 0.0000 | d +nan | p 1
+share lung alveolar endothelium            current 0.0000 never 0.0000 | d +nan | p 1
+share lung alveolar epithelium             current 0.0000 never 0.0000 | d +0.17 | p 0.34
+share lung alveolar macrophages            current 0.0000 never 0.0000 | d +nan | p 1
+share lung bronchus epithelium             current 0.0648 never 0.0340 | d +0.17 | p 0.29
+share lung interstitial macrophages        current 0.0000 never 0.0000 | d +nan | p 1
+share memory b cells                       current 0.0000 never 0.0000 | d +0.30 | p 0.15
+share memory cd4 t cells                   current 0.0000 never 0.0000 | d +nan | p 1
+share microglia                            current 0.0000 never 0.0000 | d +0.31 | p 0.31
+share naive b cells                        current 0.0000 never 0.0000 | d +nan | p 1
+share naive cd4 t cells                    current 0.0000 never 0.0000 | d +nan | p 1
+share naive cd8 t cells                    current 0.0000 never 0.0000 | d +nan | p 1
+share oligodendrocyte precursors           current 0.0000 never 0.0000 | d +nan | p 1
+share oligodendrocytes                     current 0.0000 never 0.0000 | d +nan | p 1
+share pancreas endothelium                 current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic acinar                    current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic alpha                     current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic beta                      current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic delta                     current 0.0000 never 0.0000 | d +nan | p 1
+share pancreatic duct                      current 0.0000 never 0.0000 | d +nan | p 1
+share prostate epithelium                  current 0.1416 never 0.0995 | d +0.35 | p 0.11
+share regulatory t cells                   current 0.0000 never 0.0000 | d +nan | p 1
+share small intestine epithelium           current 0.0318 never 0.0297 | d +0.28 | p 0.36
+share smooth muscle                        current 0.0000 never 0.0000 | d +nan | p 1
+share striated muscle                      current 0.0000 never 0.0000 | d +nan | p 1
+share t central memory cd4                 current 0.0000 never 0.0000 | d +nan | p 1
+share t effector cell cd8                  current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share t effector memory cd4                current 0.0000 never 0.0000 | d +nan | p 1
+share thyroid epithelium                   current 0.0000 never 0.0000 | d +nan | p 1
+share tongue epithelium                    current 0.1245 never 0.1078 | d +0.14 | p 0.4
+share tonsil palatine epithelium           current 0.0000 never 0.0000 | d +0.24 | p 0.18
+share tonsil pharyngeal epithelium         current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share vascular endothelium                 current 0.0295 never 0.0268 | d +0.09 | p 0.71
+share vascular leptomeningeal cells        current 0.0000 never 0.0000 | d +nan | p 1
+share vascular saphenous endothelium       current 0.0000 never 0.0000 | d +nan | p 1
 territory islands                          current 0.9128 never 0.9123 | d -0.32 | p 0.41
 territory domains                          current 0.9552 never 0.9531 | d -0.17 | p 0.76
