@@ -35,7 +35,7 @@ if which in ("r2", "r4", "r5", "r10"):
     pairs = ((("all", X), "current", "never", "smoking_status"), (("controls only", X[X.disease_state.str.lower() == "normal"] if which == "r2" else X), "current", "never", "smoking_status")) if which == "r2" else \
             (((("Alzheimer's", X), "Alzheimer's disease", "healthy control", "status"), (("mild cognitive impairment", X), "Mild Cognitive Impairment", "healthy control", "status")) if which == "r4" else
              ((("all", X), "metabolic HCC case", "control", "status"),) if which == "r5" else
-             ((("all", X), "CIN3", "normal", "status"), (("all", X), "CIN3 or cancer", "normal", "lesion"))))
+             ((("all", X), "CIN3", "normal", "status"), (("all", X), "CIN3 or cancer", "normal", "lesion")))
     for (name, M), ga, gb, col in pairs:
         a, b = M[M[col] == ga], M[M[col] == gb]; T.append(f"-- {ga} ({len(a)}) against {gb} ({len(b)}), {name}")
         for c in feats:
