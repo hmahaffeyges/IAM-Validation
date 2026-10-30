@@ -328,3 +328,15 @@ scored, disclosed; nothing scored): 96 of the 137 were read against a reference 
 (p 0.34), and Met-A follows depth the same way in both (rho -0.626 and -0.588). A single-donor half is not why shallower libraries read
 higher. **Next:** the same spent readings site by site (each identity site's unmarked and marked side, and its read count), through the one
 command on spot machines, written before it runs.
+
+## The healthy full-chain pass on sequencing (written and committed before any of it is read; development, all spent)
+
+**Why:** the author's order: every instrument working on sequencing, with the IAM Sequencing Atlas as the ruler, before any study is read
+again. **The instrument's job, for every reading:** a healthy sample reads Normal. **What runs:** the 137 healthy sequenced inputs of the
+Met-A test, each read against the other sealed donor half, through the one command with the full chain
+(`seq_atlas_01/healthy_fullchain_samples.csv`); the chain decides what it can and cannot read, and the Deconvolver now splits each sample on
+the IAM Sequencing Atlas. **Reported by** `seq_atlas_01/healthy_fullchain_score.py`, per reading: how many were read, the median, the share
+inside the band the chain drew, and every reading not run with its reason; this is the list of what is still broken on sequencing. **The
+purity check, in the same pass:** each sample's own-cell share against its depth, and Met-A against the share outside its own cell, read
+against the Deconvolver's share floor by depth (`DEV_ATLAS_V21_01/seq_atlas/deconv_seq_floor.py`, measured on pure planted cells at 5, 10, 20
+and 40 reads per site, also written before it runs). Nothing here is scored against a single bar; each broken reading gets its own fix and test.

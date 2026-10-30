@@ -3250,7 +3250,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_v4.py",
-"line": 97,
+"line": 100,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3259,7 +3259,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_v4.py",
-"line": 97,
+"line": 100,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3394,7 +3394,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 362,
+"line": 369,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3403,7 +3403,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 362,
+"line": 369,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3412,7 +3412,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1093,
+"line": 1103,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3421,7 +3421,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1093,
+"line": 1103,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3430,7 +3430,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1095,
+"line": 1105,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3439,7 +3439,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1095,
+"line": 1105,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
