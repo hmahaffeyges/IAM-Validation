@@ -1,0 +1,9 @@
+R12 within each slide: 321 arrays, later breast cancer against no cancer, reading | slides | median slide difference | Wilcoxon p
+Met-A each cell | neutrophils | 25 | +0.0069 | 0.0031
+Met-A each cell | cd4 t cells | 25 | +0.0094 | 0.00012
+Met-A each cell | cd8 t cells | 25 | +0.0079 | 0.00029
+Met-A each cell | b cells | 25 | +0.0103 | 0.00028
+Met-A each cell | monocytes | 25 | +0.0078 | 0.0046
+Met-A whole sample | whole sample | 25 | -0.0008 | 0.26
+Met-A whole sample, by place | islands | 25 | -0.0053 | 0.00025
+Met-A whole sample, by place | domains | 25 | +0.0024 | 0.2

@@ -319,3 +319,13 @@ against 0.1582, p 0.00054). Cancer against normal: the monocyte share lower (0.0
 **R12's second send:** one of its 20 machines stopped when an array file was not found on download; 310 of 329 arrays were read. The 19
 it held (`data/DEV_REPLICATE_01/r12_italy_unrun_samples.csv`) are sent again the same way before anything is compared; the comparison is
 made once, on all that are read.
+
+**R12, read** (`data/DEV_REPLICATE_01/r12_italy_summary.txt`; reference only): 327 of 329 arrays read with the full chain (two arrays the
+chain could not read). Blood drawn years before a breast cancer diagnosis against blood from women not diagnosed: every cell's Met-A reads
+higher (neutrophils 1.0283 against 1.0057, p 1.3e-11; CD4 T cells 1.0071 against 0.9902, p 2.7e-11) and the islands lower (0.8157 against
+0.8252, p 1.2e-09). Among the later breast cancers, blood drawn farther from diagnosis reads higher than blood drawn nearer to it
+(neutrophils 1.0432 against 1.0204, p 0.00034), the opposite of a change that grows toward diagnosis. **Within each slide**
+(`data/DEV_REPLICATE_01/r12_within_slide.py`, `r12_within_slide.txt`; added after the comparison, disclosed): 25 slides hold both groups;
+each slide's difference is smaller (median +0.0069 for neutrophils, +0.0094 for CD4 T cells, -0.0053 for the islands) and holds across the
+slides (Wilcoxon p 0.0031, 0.00012 and 0.00025). Not scored. Before any of it is read as a finding: the cell shares by group, the slides'
+scan dates and the timing result need their own test, written first.

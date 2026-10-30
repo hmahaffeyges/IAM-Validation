@@ -65,6 +65,16 @@
       "OTH-082"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "Blood drawn before a cancer diagnosis (reference only)",
+     "status": "development",
+     "what": "The Italian prospective cohort's 329 bloods, drawn years before 146 breast cancer diagnoses, read with the full chain.",
+     "outcome": "Every cell's Met-A reads higher in the later cancers, and holds within slides; reference only, and blood drawn farther from diagnosis reads higher than nearer, so it needs its own test before it means anything.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   }

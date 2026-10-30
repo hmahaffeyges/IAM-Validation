@@ -19,3 +19,5 @@ r12_italy_labels.csv
 r12_italy_samples.csv
 r11_plasma_summary.txt
 r12_italy_unrun_samples.csv
+r12_italy_summary.txt
+r12_within_slide.txt
