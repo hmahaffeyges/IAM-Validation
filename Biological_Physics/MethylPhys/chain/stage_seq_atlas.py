@@ -284,11 +284,13 @@ def compare(lbeta, piece_dirs, min_reads=5):
             pos = np.cumsum(ok)[idx[k]] - 1; xs = x[pos]; nn = ns[pos]
             for c in cells:
                 rc = T[c + "|reads"].to_numpy()[k].astype(np.float64); mc = T[c + "|meth"].to_numpy()[k].astype(np.float64); sp = T[c + "|spread"].to_numpy()[k]
-                g = (rc > 0) & (rc != BLANK) & (mc != BLANK); pc = np.clip(np.where(g, mc / np.where(g, rc, 1), 0.5), 0.01, 0.99)
+                g = (rc > 0) & (rc != BLANK) & (mc != BLANK); pc = np.where(g, mc / np.where(g, rc, 1), 0.5)
                 s2 = np.where(sp != BLANK, (sp / 1e4) ** 2, 0.0); v = pc * (1 - pc) / nn + pc * (1 - pc) / np.where(g, rc, 1) + s2
-                sm, n = W2.get(c, (0.0, 0)); W2[c] = (sm + float((((xs - pc) ** 2) / v)[g].sum()), n + int(g.sum()))
-    for c, (sm, n) in W2.items():
-        if n and c in out["cells"]: out["cells"][c]["weighted"] = round(sm / n, 4)
+                # 2026-10-30: summed squared differences over summed expected (a mean of per-site ratios reads near 0 where both agree completely;
+                # the pair comparison's synthetic found it, disclosed)
+                sm, se = W2.get(c, (0.0, 0.0)); W2[c] = (sm + float(((xs - pc) ** 2)[g].sum()), se + float(v[g].sum()))
+    for c, (sm, se) in W2.items():
+        if se and c in out["cells"]: out["cells"][c]["weighted"] = round(sm / se, 4)
     out["weighted_ranked"] = sorted([c for c in out["cells"] if "weighted" in out["cells"][c]], key=lambda k: out["cells"][k]["weighted"])
     out["ranked"] = sorted(out["cells"], key=lambda k: out["cells"][k]["distance"]); return out
 

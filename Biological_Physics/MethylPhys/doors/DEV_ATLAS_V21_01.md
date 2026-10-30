@@ -591,3 +591,13 @@ of sums before any real sample was compared (disclosed). **Then:** donors 1, 2 a
 cells nearest donor 3 (monocytes and the next). Reported, not scored: if the donors read near each other (near 1 or below the bulk pairs),
 the single-cell pools agree with each other and the offset is the protocol's, so the column needs a bulk megakaryocyte source; if not, the
 pools themselves are too noisy at this depth.
+
+**The pair comparison's synthetic: met** (`seq_atlas/seq_pair_synthetic.txt`). **The megakaryocyte donor-pair check, read (reported, not
+scored)** (`seq_atlas/mk_pairs.csv`): the three donors against each other score 1.2826, 1.3001 and 1.3401; each donor against a monocyte
+input 1.8726 to 2.0205 and against a lung interstitial macrophage input 1.9636 to 2.1122; two healthy monocyte donors against each other
+1.9625 (over far more sites, where real differences between people show). By plain distance every pair reads alike (0.11 to 0.12), because
+at a few reads a site counting scatter is most of the distance. **What it shows:** the three megakaryocyte donors agree with each other more
+than with the cells donor 3 was named as, so the single-cell pools carry a shared megakaryocyte signal. **And a fault found:** the
+comparison's depth-weighted score averaged a ratio at each site, the flaw the pair synthetic first exposed; it now sums both sides before
+dividing. Synthetic 2 met again (`seq_atlas/seq_compare_synthetic2.txt`; the first run kept as `seq_compare_synthetic2_run1.txt`). Donor 3 is
+read again with the corrected score (development, spent).

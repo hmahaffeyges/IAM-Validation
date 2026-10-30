@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 167 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
-| `stage_seq_atlas.py` | 298 | 15 | 0 | 0 |
+| `stage_seq_atlas.py` | 300 | 15 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -3719,13 +3719,13 @@ CpGs) so a 16 GB machine holds it. Also a depth-weighted score per cell: each Cp
 (the sample's and the column's binomial scatter and the column's donors' spread squared), averaged, about 1 for a healthy cell of that column;
 ranked as `weighted_ranked`, so a column pooled from sparse reads is not pushed away by its own counting scatter.
 
-*Code:* `stage_seq_atlas.py` line 243 (51 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
+*Code:* `stage_seq_atlas.py` line 243 (53 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
 
 ### `stage_seq_atlas.py::geo_url`
 
 The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).
 
-*Code:* `stage_seq_atlas.py` line 295 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 297 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::_u16`
 
