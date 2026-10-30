@@ -309,3 +309,9 @@ against a bar.
 **R12's first send read nothing** (disclosed): it was sent before this record reached GitHub (a refused push), on a commit without the sample
 list, so every machine stopped at "No such file" and it was canceled; no array was read and no result was saved. Sent again after the
 record was committed.
+
+**R11, read** (`data/DEV_REPLICATE_01/r11_plasma_summary.txt`; reference only): 59 of 59 plasma arrays read with the full chain. Sepsis
+against normal: the lymphocytes' Met-A reads higher (B cells 1.1922 against 1.0610, p 2.1e-06; CD8 T cells 1.2176 against 1.0723, p 5e-06)
+and the monocyte share lower (0.0675 against 0.1703, p 7.8e-05). Islet transplant against normal: the neutrophil share higher (0.5192
+against 0.1582, p 0.00054). Cancer against normal: the monocyte share lower (0.0421 against 0.1703, p 4.2e-05) and the domains higher
+(0.8812 against 0.8374, p 0.0012). Plasma on arrays is not a commissioned specimen; every reading is flagged and none is scored.
