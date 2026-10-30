@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1214,
+   "lines": 1219,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,16 +225,17 @@
      "function": "_build",
      "name": "_build",
      "line": 245,
-     "end": 351,
+     "end": 356,
      "args": [
       "a"
      ],
-     "lines": 107,
+     "lines": 112,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
      ],
      "data_files": [
+      "--build-samples B and --bundle OUT.json",
       "import pyarrow.parquet",
       "sites.parquet",
       "truth.json"
@@ -245,8 +246,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 324,
-     "end": 324,
+     "line": 329,
+     "end": 329,
      "args": [
       "m"
      ],
@@ -260,8 +261,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 354,
-     "end": 374,
+     "line": 359,
+     "end": 379,
      "args": [
       "a",
       "cnt",
@@ -277,8 +278,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 377,
-     "end": 417,
+     "line": 382,
+     "end": 422,
      "args": [
       "a",
       "o",
@@ -298,8 +299,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 420,
-     "end": 1211,
+     "line": 425,
+     "end": 1216,
      "args": [],
      "lines": 792,
      "doc": "",
@@ -332,8 +333,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 653,
-     "end": 657,
+     "line": 658,
+     "end": 662,
      "args": [
       "r"
      ],
@@ -349,8 +350,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 888,
-     "end": 895,
+     "line": 893,
+     "end": 900,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -362,8 +363,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1141,
-     "end": 1142,
+     "line": 1146,
+     "end": 1147,
      "args": [
       "b",
       "it",
@@ -8366,7 +8367,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 281,
+   "lines": 298,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8593,10 +8594,29 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "compare_pair",
+     "name": "compare_pair",
+     "line": 226,
+     "end": 241,
+     "args": [
+      "a_path",
+      "b_path",
+      "min_reads"
+     ],
+     "lines": 16,
+     "doc": "2026-10-29 (plan 35.30): how far two samples (each an .lbeta or .beta on the hg19 numbering) sit from each other, at the CpGs where both have at least min_reads reads: the mean |level difference| and the depth-weighted score, the summed squared differences over the summed squared difference counting predicts (p(1 - p) N/(N - 1) (1/n_a + 1/n_b), p the pooled level, N the pooled reads): about 1 when",
+     "constants": [
+      "HG19_CPGS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 226,
-     "end": 276,
+     "line": 243,
+     "end": 293,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8617,8 +8637,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 278,
-     "end": 280,
+     "line": 295,
+     "end": 297,
      "args": [
       "gsm",
       "title"
@@ -8634,5 +8654,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 442
+ "n_functions": 443
 }

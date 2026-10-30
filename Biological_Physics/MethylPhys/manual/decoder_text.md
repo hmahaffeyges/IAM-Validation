@@ -2357,6 +2357,10 @@ sample's held-error counts by tile (`--dev-count-only --dev-count-tiles`; a tile
 ratios: donors, lone errors and their chances in all, in each sealed donor half, and in each half of every donor's molecules. A tile's held
 error is its lone errors over its chances. It is the healthy held error a plasma's own mix is built from: each cell's, weighted by its share.
 
+### stage_seq_atlas.py::compare_pair
+How far two samples sit from each other (`run_sample.py --build seq-pair`): at the CpGs where both have at least 5 reads, the mean level
+difference, and the summed squared differences over the squared difference counting predicts (about 1 for the same cell read twice).
+
 ### stage_seq_atlas.py::compare
 How far one sample sits from every cell of the atlas (`run_sample.py --build seq-compare`): at the CpGs where the sample has at least 5 reads
 and every cell has a level, the mean distance between the sample's level and each cell's, cells ranked nearest first; and for each cell, the

@@ -579,3 +579,15 @@ plain distance nor the weighted score names donor 3's cell, so depth is not the 
 a protocol offset against the bulk sequencing behind the other columns, or the column may hold too few reads at the CpGs compared. **Next
 (development, spent data):** whether the three megakaryocyte donors read nearer each other than any bulk column (donor 1 against donor 2 and
 donor 3, each converted file compared directly), which separates a protocol offset from a weak column.
+
+**The megakaryocyte donor-pair check** (written and committed before it runs; development, all three donors spent). **The question:** do the
+three megakaryocyte donors read nearer each other than any bulk column, or do the single-cell pools carry a protocol offset of their own?
+**The instrument** (`stage_seq_atlas.compare_pair`, the one command's `--build seq-pair`): two samples' summed squared level differences over
+the squared difference counting predicts, at the CpGs where both have at least 5 reads; about 1 for the same cell read twice.
+**Synthetic test:** DEV_ATLAS_V21_01/seq_atlas/seq_pair_synthetic.py, DEV_ATLAS_V21_01/seq_atlas/seq_pair_synthetic.txt
+**Synthetic bars:** same cell read twice within 0.9 to 1.1; two cells differing at a tenth of sites at least 1.5. A first version averaged a
+ratio at each site, which reads near 0 wherever both agree completely, as sparse reads near 0 or 1 nearly always do; it was changed to a ratio
+of sums before any real sample was compared (disclosed). **Then:** donors 1, 2 and 3 compared pairwise; each donor compared with the two bulk
+cells nearest donor 3 (monocytes and the next). Reported, not scored: if the donors read near each other (near 1 or below the bulk pairs),
+the single-cell pools agree with each other and the offset is the protocol's, so the column needs a bulk megakaryocyte source; if not, the
+pools themselves are too noisy at this depth.

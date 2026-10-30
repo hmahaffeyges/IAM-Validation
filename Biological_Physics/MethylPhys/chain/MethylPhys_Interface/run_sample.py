@@ -258,6 +258,11 @@ def _build(a):
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1500]); return 0
+    if a.build == "seq-pair":   # 2026-10-29 (plan 35.30, development): how far two samples sit from each other (depth-weighted)
+        if not (a.build_input and a.build_samples and a.bundle): print("--build seq-pair needs --build-input A, --build-samples B and --bundle OUT.json"); return 2
+        import stage_seq_atlas as _SQ; rep = _SQ.compare_pair(a.build_input, a.build_samples)
+        rep.update(command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        json.dump(rep, open(a.bundle, "w"), indent=1, default=str); print(json.dumps({k: rep[k] for k in ("sites", "distance", "weighted")})); return 0
     if a.build == "seq-floor":   # 2026-10-29 (plan 35.30, development): the library floor's sites, where every healthy cell agrees completely
         if not (a.build_samples and a.build_out): print("--build seq-floor needs --build-samples PIECE_DIR[,PIECE_DIR] and --build-out PARQUET"); return 2
         import stage_seq_atlas as _SQ; rep = _SQ.floor_sites(a.build_samples.split(","), a.build_out)
@@ -506,7 +511,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "

@@ -223,6 +223,23 @@ def held_reference(samples, out):
     R = pd.DataFrame(cols).fillna(0).astype(np.int64).sort_index(); R.reset_index().to_parquet(out, index=False)
     summ.update(tiles=int(len(R)), output=os.path.basename(out)); return summ
 
+def compare_pair(a_path, b_path, min_reads=5):
+    """2026-10-29 (plan 35.30): how far two samples (each an .lbeta or .beta on the hg19 numbering) sit from each other, at the CpGs where both
+    have at least min_reads reads: the mean |level difference| and the depth-weighted score, the summed squared differences over the summed
+    squared difference counting predicts (p(1 - p) N/(N - 1) (1/n_a + 1/n_b), p the pooled level, N the pooled reads): about 1 when both are
+    the same cell read twice. Read block by block so a 16 GB machine holds two whole-genome files."""
+    out = dict(sites=0); s_abs = s_w = s_e = 0.0; n = 0; B = 2_000_000
+    for s0 in range(0, HG19_CPGS, B):
+        e = min(s0 + B, HG19_CPGS); xa, na = read_block(a_path, s0, e); xb, nb = read_block(b_path, s0, e)
+        k = (na >= min_reads) & (nb >= min_reads)
+        if not k.any(): continue
+        pa, pb = xa[k] / na[k], xb[k] / nb[k]; N = (na[k] + nb[k]).astype(np.float64); p = (xa[k] + xb[k]) / N
+        # 2026-10-29: the squared differences and counting's expected squared difference are summed separately and divided (a per-site ratio is
+        # 0 wherever both agree completely, which sparse reads near 0 or 1 nearly always do); p(1 - p) N / (N - 1) is counting's unbiased estimate
+        s_abs += float(np.abs(pa - pb).sum()); s_w += float(((pa - pb) ** 2).sum()); s_e += float((p * (1 - p) * N / (N - 1) * (1 / na[k] + 1 / nb[k])).sum()); n += int(k.sum())
+    out.update(sites=n, distance=round(s_abs / n, 5) if n else None, weighted=round(s_w / s_e, 4) if n and s_e else None, a=os.path.basename(a_path), b=os.path.basename(b_path))
+    return out
+
 def compare(lbeta, piece_dirs, min_reads=5):
     """How far one sample (an .lbeta or .beta on the hg19 numbering) sits from every cell of the atlas: at the CpGs where the sample has at least
     min_reads reads and every cell has a level, the mean |sample level - cell level|, per cell, and for each two-donor-half cell the mean

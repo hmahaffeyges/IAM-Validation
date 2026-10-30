@@ -1,0 +1,5 @@
+IAM Sequencing Atlas: pair comparison synthetic, read by run_sample.py --build seq-pair
+seed 20261106, 400,000 CpGs, reads Poisson(3)
+same cell: weighted 1.0017 (0.9 to 1.1: met), distance 0.10867, sites 13,708
+different cells: weighted 2.6119 (at least 1.5: met), distance 0.17394, sites 13,751
+synthetic: met
