@@ -279,3 +279,13 @@ reading:** partly spent (an earlier engine's test, VAL-073); its earlier result 
 command with the full chain (`--full-chain`), pass 1, specimen not stated (no reference is claimed for this specimen; every reading is
 flagged). **Compared** by `r23_score.py r10`: CIN3 against normal, and CIN3 or cancer against normal, each reading (effect size, p).
 Reference only: nothing is scored against a bar.
+
+## R11, plasma cfDNA on arrays: GSE122126 (written and committed before any of these arrays is read by this replay)
+
+**Data.** GSE122126 (EPIC v1 and one 450K, raw IDATs per sample on GEO): its 59 plasma cfDNA samples only, 12 normal,
+22 sepsis, 10 pancreatic islet transplant recipients and 15 cancers (colon, lung, breast, unknown
+primary) (`data/DEV_REPLICATE_01/r11_plasma_labels.csv`). The series' isolated cells and in vitro mixes are not read. **Prior reading:** spent
+(the C-Score's mix test read its mixes; an earlier engine's tests VAL-007, VAL-008, VAL-037, VAL-041); earlier results not opened here.
+**The reading:** every array by the one command with the full chain (`--full-chain`), specimen plasma, pass 1. **Compared** by
+`r23_score.py r11`: sepsis, islet transplant and cancer each against normal, each reading (effect size, p). Reference only: nothing is scored
+against a bar.
