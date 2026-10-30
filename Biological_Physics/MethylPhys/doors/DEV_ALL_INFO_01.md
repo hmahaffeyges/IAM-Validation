@@ -227,3 +227,11 @@ refused by IAM-A at intake: IAM-A and the coupling take their healthy references
 are one type, "b cells" (mostly naive), with no naive B-cell type. IAM-Atlas v2.1 also holds "b cells". The re-reads now use the specimen
 "sorted b cells", one column that every instrument holds. A GitHub run reads the sample list as it stood when the run was sent, so all 36
 first re-reads used the old name; all 36 are read again on "sorted b cells". The first re-reads are kept, not used. Nothing else changes.
+
+## The study read with the full chain (written and committed before any of it is read; development, all 36 spent)
+
+**The instrument's job:** every reading the chain holds runs on the study's 36 samples, commissioned and in development, each flagged, so a
+researcher sees the whole chain on their own data. **How:** the same saved alignment pieces as the re-read with the cell type given (no new
+alignment), merged by split_align and read by the one command with `--full-chain` (`full_depth/hopkins_fullchain_samples.csv`: the re-read's
+list with that flag per sample). Reported, not scored: each sample's readings beside the re-read's (`full_depth/hopkins_reread_table.py`),
+and which development readings ran or could not, with the reason the chain records.
