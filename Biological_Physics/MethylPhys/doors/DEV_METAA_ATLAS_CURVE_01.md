@@ -282,8 +282,8 @@ The list is rewritten in the healthy list's layout with the same 137 samples, ha
 
 **Met-A against the IAM Sequencing Atlas, healthy test, read: not met** (`seq_atlas_01/metaa_seqatlas_summary.txt`,
 `metaa_seqatlas_readings.csv`). All 137 read against the other sealed donor half of their own cell. Median Met-A 1.0704 (2.5th to 97.5th
-percentile 0.9368 to 1.2265): bar 1 not met. Met-A against depth: rho -0.620 (p 6.9e-16): bar 2 not met. **Reported, not scored** (from the
-committed readings): by fifths of depth the median reads 1.145, 1.077, 1.075, 1.044 and 1.027 from shallowest to deepest; within a cell, a
+percentile 0.9368 to 1.2265): bar 1 not met. Met-A against depth: rho -0.620 (p 6.9e-16): bar 2 not met. **Reported, not scored** (`seq_atlas_01/metaa_seqatlas_by_depth.txt`,
+added after scoring): by fifths of depth the median reads 1.145, 1.077, 1.075, 1.044 and 1.027 from shallowest to deepest; within a cell, a
 shallower sample reads higher (rho -0.773 over 137); every sample comes from one laboratory's series, so this is not a laboratory term.
 **What it shows:** a site's level and its read count come from the same calls, and the synthetic (binomial counts) was flat with depth, so
 the expectation counts correctly; the common-depth test thinned every sample to one read count and Met-A still followed each sample's

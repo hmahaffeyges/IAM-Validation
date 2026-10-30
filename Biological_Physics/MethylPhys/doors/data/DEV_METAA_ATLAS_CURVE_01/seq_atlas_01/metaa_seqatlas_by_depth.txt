@@ -1,0 +1,8 @@
+by fifths of depth (shallowest first): fifth | depth range | samples | median Met-A
+1 | 19,384,477 to 38,353,142 | 28 | 1.145
+2 | 38,977,722 to 45,179,019 | 27 | 1.077
+3 | 45,208,854 to 50,696,290 | 27 | 1.075
+4 | 50,797,028 to 54,699,946 | 27 | 1.044
+5 | 55,150,770 to 78,509,222 | 28 | 1.027
+within a cell, Met-A minus the cell's median against depth over the cell's median depth: rho -0.773 over 137
+between cells, each cell's median Met-A against its median depth: rho -0.419 over 48 cells
