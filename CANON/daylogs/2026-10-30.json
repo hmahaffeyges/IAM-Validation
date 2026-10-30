@@ -1,0 +1,32 @@
+{
+ "date": "2026-10-30",
+ "title": "The sequencing atlas's references",
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "set_out": "Read the library floor on the 137 healthy sequenced samples; build the held-error reference from the 153 healthy inputs; find why the megakaryocyte column does not name donor 3; keep the B and T commissioning samples aligning.",
+ "open_at_turnover": "",
+ "closing": "",
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ },
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The megakaryocyte donors read against each other",
+     "status": "development",
+     "what": "The three megakaryocyte donors compared pairwise, and each with a monocyte and a lung macrophage input, by a new pair comparison tested on a known answer first.",
+     "outcome": "The donors agree with each other more than with the cells donor 3 was named as. The comparison's depth-weighted score had a fault (it averaged a ratio at each site) and was corrected; its synthetic met again.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  }
+ ]
+}

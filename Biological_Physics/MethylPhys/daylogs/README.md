@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-10-30](2026-10-30.md) | The sequencing atlas's references |
 | [2026-10-29](2026-10-29.md) | B and T cells on sequencing |
 | [2026-10-28](2026-10-28.md) | The leukemia study's depth settled |
 | [2026-10-27](2026-10-27.md) | The leukemia study's depth settled |
