@@ -1,0 +1,47 @@
+DEV-REPLICATE-01 r10: 68 of 68 arrays read (pass 1, untared)
+-- CIN3 (36) against normal (28), all (in each line below, 'current' is the first group and 'never' the second; the words are R2's)
+site cg05575921                            current 0.5770 never 0.5905 | d -0.33 | p 0.2
+site cg03636183                            current 0.4610 never 0.4925 | d -0.47 | p 0.083
+site cg16867657                            current 0.5515 never 0.5450 | d +0.31 | p 0.36
+share neutrophils                          current 0.4289 never 0.6141 | d -0.40 | p 0.11
+share cd4 t cells                          current 0.0000 never 0.0000 | d +nan | p 1
+share cd8 t cells                          current 0.0000 never 0.0000 | d +nan | p 1
+share b cells                              current 0.0000 never 0.0000 | d +nan | p 1
+share nk cells                             current 0.0000 never 0.0000 | d +nan | p 1
+share monocytes                            current 0.0190 never 0.0105 | d +0.18 | p 0.38
+Met-A whole                                current 0.9279 never 0.9273 | d -0.35 | p 0.62
+ceiling distance                           current 1.0506 never 1.0514 | d +0.33 | p 0.57
+Met-A whole, identity sites of the cells found current 0.8841 never 0.8823 | d -0.19 | p 0.84
+Met-A whole, islands                       current 0.9117 never 0.9110 | d -0.32 | p 0.44
+Met-A whole, domains                       current 0.9540 never 0.9477 | d -0.10 | p 1
+Met-A whole, the rest                      current 0.9252 never 0.9280 | d -0.45 | p 0.44
+Met-A neutrophils                          current 0.9572 never 0.9440 | d +0.53 | p 0.057
+Met-A cd4 t cells                          current 0.9967 never 0.9792 | d +0.40 | p 0.15
+Met-A cd8 t cells                          current 1.0015 never 0.9866 | d +0.26 | p 0.33
+Met-A b cells                              current 0.9826 never 0.9693 | d +0.20 | p 0.43
+Met-A monocytes                            current 0.9330 never 0.9312 | d +0.27 | p 0.43
+territory islands                          current 0.9128 never 0.9123 | d -0.32 | p 0.43
+territory domains                          current 0.9580 never 0.9531 | d -0.14 | p 0.9
+-- CIN3 or cancer (40) against normal (28), all (in each line below, 'current' is the first group and 'never' the second; the words are R2's)
+site cg05575921                            current 0.5650 never 0.5905 | d -0.41 | p 0.11
+site cg03636183                            current 0.4610 never 0.4925 | d -0.48 | p 0.073
+site cg16867657                            current 0.5675 never 0.5450 | d +0.43 | p 0.14
+share neutrophils                          current 0.4540 never 0.6141 | d -0.36 | p 0.15
+share cd4 t cells                          current 0.0000 never 0.0000 | d +nan | p 1
+share cd8 t cells                          current 0.0000 never 0.0000 | d +nan | p 1
+share b cells                              current 0.0000 never 0.0000 | d +0.21 | p 0.42
+share nk cells                             current 0.0000 never 0.0000 | d +nan | p 1
+share monocytes                            current 0.0190 never 0.0105 | d +0.18 | p 0.38
+Met-A whole                                current 0.9279 never 0.9273 | d -0.30 | p 0.7
+ceiling distance                           current 1.0506 never 1.0514 | d +0.30 | p 0.59
+Met-A whole, identity sites of the cells found current 0.8841 never 0.8823 | d -0.17 | p 0.95
+Met-A whole, islands                       current 0.9117 never 0.9110 | d -0.32 | p 0.41
+Met-A whole, domains                       current 0.9495 never 0.9477 | d -0.13 | p 0.88
+Met-A whole, the rest                      current 0.9286 never 0.9280 | d -0.32 | p 0.7
+Met-A neutrophils                          current 0.9528 never 0.9440 | d +0.45 | p 0.12
+Met-A cd4 t cells                          current 0.9902 never 0.9792 | d +0.31 | p 0.28
+Met-A cd8 t cells                          current 0.9969 never 0.9866 | d +0.16 | p 0.57
+Met-A b cells                              current 0.9757 never 0.9693 | d +0.11 | p 0.65
+Met-A monocytes                            current 0.9330 never 0.9312 | d +0.26 | p 0.44
+territory islands                          current 0.9128 never 0.9123 | d -0.32 | p 0.41
+territory domains                          current 0.9552 never 0.9531 | d -0.17 | p 0.76

@@ -6,3 +6,5 @@ coupling_02/coupling_reference_v1.json
 full_depth/hopkins_reread_samples.csv
 hopkins_reread_samples.csv
 hopkins_fullchain_samples.csv
+hopkins_fullchain_summary.txt
+hopkins_fullchain.csv

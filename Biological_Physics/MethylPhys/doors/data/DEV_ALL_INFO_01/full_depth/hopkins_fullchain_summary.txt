@@ -1,0 +1,8 @@
+The study read with the full chain: 36 of 36 read
+median by genotype:
+control line (1): iam_a 0.7654, coupling_a 1.0404, metaa_sorted 1.6122, library_floor 0.0398, islands 17.2562
+cord-blood B cells (3): iam_a 0.7906, coupling_a 1.0116, metaa_sorted 1.2817, library_floor 0.0076, islands 5.7362
+knockout (1): iam_a nan, coupling_a 1.0259, metaa_sorted 3.3205, library_floor 0.0221, islands 15.6012
+leukemia (31): iam_a 0.9043, coupling_a 1.0891, metaa_sorted 1.5418, library_floor 0.0101, islands 9.8906
+development readings run (samples): brightness 36, direction 36, foreign 36, genome_globe 36, info_sphere 36, provisional megakaryocytes 36, ruler 36, territories 36, trace 36
+not run (samples): atlas_e 36, epic_v2 36, nilc 36, percell_b 36, sky 36

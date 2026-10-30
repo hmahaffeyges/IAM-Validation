@@ -45,6 +45,26 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The study read with the full chain",
+     "status": "development",
+     "what": "All 36 samples read again from their saved alignment pieces with every reading the chain holds, each flagged.",
+     "outcome": "All 36 read; nine development readings ran on each, five were recorded as not run with the chain's reason.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "iamrepo/Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "Replays with the full chain",
+     "status": "development",
+     "what": "Seven earlier replays and two new ones (cervical self-samples, plasma cfDNA on arrays) sent with the full chain.",
+     "outcome": "Landed so far: aging, glioma blood, endothelial, stroke, Crohn's and colitis sorted cells, prostate, cervical; reference only.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "iamrepo/Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   }

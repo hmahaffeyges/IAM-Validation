@@ -289,3 +289,8 @@ primary) (`data/DEV_REPLICATE_01/r11_plasma_labels.csv`). The series' isolated c
 **The reading:** every array by the one command with the full chain (`--full-chain`), specimen plasma, pass 1. **Compared** by
 `r23_score.py r11`: sepsis, islet transplant and cancer each against normal, each reading (effect size, p). Reference only: nothing is scored
 against a bar.
+
+**R10, read** (`data/DEV_REPLICATE_01/r10_cervical_summary.txt`; reference only): 68 of 68 arrays read with the full chain. No reading
+separates CIN3 from normal or CIN3 or cancer from normal (every p above 0.05). The readings are blood readings (the six-cell blood panel)
+on cervico-vaginal material, a specimen the chain holds no reference for, so this is the expected result. The scorer's comparison lines
+name the two groups with R2's words ("current", "never"); the heading of each block now says which is which.

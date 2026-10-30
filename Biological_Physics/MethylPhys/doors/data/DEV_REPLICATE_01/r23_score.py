@@ -39,7 +39,7 @@ if which in ("r2", "r4", "r5", "r10", "r11"):
              ((("all", X), "CIN3", "normal", "status"), (("all", X), "CIN3 or cancer", "normal", "lesion")) if which == "r10" else
              ((("all", X), "sepsis", "normal", "status"), (("all", X), "islet transplant", "normal", "status"), (("all", X), "cancer", "normal", "status")))
     for (name, M), ga, gb, col in pairs:
-        a, b = M[M[col] == ga], M[M[col] == gb]; T.append(f"-- {ga} ({len(a)}) against {gb} ({len(b)}), {name}")
+        a, b = M[M[col] == ga], M[M[col] == gb]; T.append(f"-- {ga} ({len(a)}) against {gb} ({len(b)}), {name} (in each line below, 'current' is the first group and 'never' the second; the words are R2's)")
         for c in feats:
             x, y = pd.to_numeric(a[c], errors="coerce").dropna(), pd.to_numeric(b[c], errors="coerce").dropna()
             if len(x) < 5 or len(y) < 5: continue

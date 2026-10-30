@@ -235,3 +235,10 @@ researcher sees the whole chain on their own data. **How:** the same saved align
 alignment), merged by split_align and read by the one command with `--full-chain` (`full_depth/hopkins_fullchain_samples.csv`: the re-read's
 list with that flag per sample). Reported, not scored: each sample's readings beside the re-read's (`full_depth/hopkins_reread_table.py`),
 and which development readings ran or could not, with the reason the chain records.
+
+**The study read with the full chain, read** (`full_depth/hopkins_fullchain_summary.txt`, `full_depth/hopkins_fullchain.csv`; development,
+reported, not scored): all 36 read. Every sample ran the nine development readings that apply to sequencing (direction, trace, foreign,
+brightness, ruler, territories, information sphere, provisional megakaryocytes, whole-genome globe); five were recorded as not run, each with
+the chain's reason (four need IAM-Atlas v2's matrices, not in the repository; one is for EPIC v2 arrays). The territories here read
+against IAM-Atlas v2.1, which does not carry over to sequencing (DEV_TERRITORIES_01), so their values are not read as a result. One
+sample's results were first downloaded empty and were downloaded again.
