@@ -305,3 +305,7 @@ opened here. **The reading:** every array by the one command with the full chain
 the 79-cell panel, as the plan sets for 450K bloods), specimen whole blood, pass 1. **Compared** by `r23_score.py r12`: later breast cancer against no cancer, and,
 among the later breast cancers, nearer against farther from diagnosis (split at the median, 3.04 years). Reference only: nothing is scored
 against a bar.
+
+**R12's first send read nothing** (disclosed): it was sent before this record reached GitHub (a refused push), on a commit without the sample
+list, so every machine stopped at "No such file" and it was cancelled; no array was read and no result was saved. Sent again after the
+record was committed.
