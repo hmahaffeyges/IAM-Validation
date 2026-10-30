@@ -117,6 +117,45 @@ def build_block(samples, start, end, source):
 METAA_REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_seq_reference_v1.parquet")
 METAA_COLS = ("donors", "reads", "meth", "level", "spread", "disorder", "halfA", "halfB", "readA", "readB")
 
+DECONV_REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "deconv_reference_v1.parquet")
+DECONV_SD_FLOOR = 0.01   # operational: the least spread a cell's level is given, so a cell counted from one donor is not treated as exact
+
+def deconv_reference(piece_dirs, out, per_cell=None):
+    """2026-10-30 (author: everything broken for sequencing fixed first): the IAM-Deconvolver's reference for sequenced samples, from the IAM
+    Sequencing Atlas. Each cell's counted level and donor spread at every array site the sequencing key holds (so a sequenced sample, read onto
+    those sites by stage_seq_values, meets it site for site); marker sites chosen on the sequencing atlas itself by the Deconvolver's own rule
+    (stage_deconv_v21.markers, its PER_CELL); only the marker rows stored. The provisional megakaryocyte column is left out (version 1)."""
+    import glob, pyarrow.parquet as pq, pandas as pd, stage_metaa_atlas as SA, stage_deconv_v21 as D21
+    K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").drop_duplicates("loyfer_cpg_index")
+    P = pd.Series(K.probe.to_numpy(), index=K.loyfer_cpg_index.to_numpy(np.int64))
+    F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
+    cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")} - {"megakaryocytes"}); mu, sd = [], []
+    for f in F:
+        sch = pq.read_schema(f).names; here = [c for c in cells if f"{c}|level" in sch]
+        if not here: continue
+        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in here for x in ("level", "spread")]).to_pandas(); T = T[T.cpg.isin(P.index)]
+        if T.empty: continue
+        idx = P.reindex(T.cpg.to_numpy()).to_numpy()
+        for x, acc in (("level", mu), ("spread", sd)):
+            X = T[[f"{c}|{x}" for c in here]].to_numpy(np.float32); X = np.where(X == BLANK, np.nan, X / 1e4)
+            acc.append(pd.DataFrame(X, index=idx, columns=here))
+    MU = pd.concat(mu).groupby(level=0).first().reindex(columns=cells); SD = pd.concat(sd).groupby(level=0).first().reindex(columns=cells)
+    SD = np.sqrt(SD.fillna(0) ** 2 + DECONV_SD_FLOOR ** 2).where(MU.notna())
+    R = dict(mu=MU, sd=SD, cells=cells); M = D21.markers(R, per_cell or D21.PER_CELL)
+    T = pd.concat([MU.loc[M].add_suffix("|mu"), SD.loc[M].add_suffix("|sd")], axis=1); T.index.name = "probe"
+    T.reset_index().to_parquet(out, index=False)
+    return dict(cells=len(cells), sites_with_all_cells=int(MU.notna().all(1).sum()), markers=len(M), per_cell=per_cell or D21.PER_CELL,
+                sd_floor=DECONV_SD_FLOOR, left_out=["megakaryocytes (provisional, version 1)"], output=os.path.basename(out))
+
+def deconv_reference_of(path=DECONV_REF):
+    """The Deconvolver's sequencing reference as stage_v4.stage_d21 takes it: (R, markers), R = dict(mu, sd, cells, spread='full'); None when
+    the file is absent (the reading then says it was read against IAM-Atlas v2.1)."""
+    import pandas as pd
+    if not os.path.exists(path): return None
+    T = pd.read_parquet(path).set_index("probe"); cells = [c[:-3] for c in T.columns if c.endswith("|mu")]
+    mu = T[[c + "|mu" for c in cells]]; mu.columns = cells; sd = T[[c + "|sd" for c in cells]]; sd.columns = cells
+    return dict(mu=mu, sd=sd, cells=cells, spread="full"), list(T.index)
+
 def metaa_reference(piece_dirs, out):
     """2026-10-29 (plan 35.30; author: the right ruler for each kind of instrument): each cell's IAM Sequencing Atlas values at its Met-A identity
     sites (the same sites, chosen by Met-A's rule on IAM-Atlas v2.1, so Met-A stays one instrument), as a long table: cell, probe, cpg and every

@@ -30,14 +30,17 @@ def atlas_panel():
     import pyarrow.parquet as pq
     return [n for k in (1, 2, 3) for n in pq.ParquetFile(os.path.join(D21.ATLAS, f"mu_part{k}.parquet")).schema_arrow.names if n not in ("cpg", "__index_level_0__")]
 
-def stage_d21(beta, panel=None, sequencing=False):
-    panel = list(panel or D21.BLOOD6)
-    if tuple(panel) not in _REF:
-        R = D21.reference(panel); _REF[tuple(panel)] = (R, D21.markers(R))
-    R, M = _REF[tuple(panel)]
+def stage_d21(beta, panel=None, sequencing=False, seqref=None):
+    if seqref is not None:   # 2026-10-30 (plan 35.30, development): a sequenced sample split on the IAM Sequencing Atlas (stage_seq_atlas.deconv_reference_of)
+        R, M = seqref; panel = list(R["cells"]); ref = "IAM Sequencing Atlas (development)"
+    else:
+        panel = list(panel or D21.BLOOD6); ref = "IAM-Atlas v2.1"
+        if tuple(panel) not in _REF:
+            R = D21.reference(panel); _REF[tuple(panel)] = (R, D21.markers(R))
+        R, M = _REF[tuple(panel)]
     b = pd.Series(beta, dtype="float64"); b.index = b.index.astype(str)
     have = int(b.reindex(M).notna().sum()); rec = {"stage": "D21", "reading": "cell shares", "tool": "IAM-Deconvolver (version 2)",
-        "reference": "IAM-Atlas v2.1", "panel": panel, "markers": len(M), "markers_measured": have,
+        "reference": ref, "panel": panel, "markers": len(M), "markers_measured": have,
         "commissioning": D21.DECONV_V21_COMMISSIONING, "error_bars": "information, not calibrated"}
     if sequencing and SEQ_READ_MARKERS <= have < MIN_MARKER_SHARE * len(M):   # 2026-10-23: shallow sequencing (plasma), read and flagged
         rec["coverage_flag"] = (f"read on {have} of {len(M)} marker sites ({have / len(M):.0%}; below the half an array needs): shallow sequencing, "

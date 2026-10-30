@@ -20,3 +20,5 @@ mk_donor3_compare_weighted.json
 mk_pairs.csv
 mk_donor3_compare_weighted2.json
 held_reference_v1.json
+deconv_reference_v1.json
+deconv_seq_synthetic_run1.txt

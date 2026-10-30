@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1219,
+   "lines": 1229,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 245,
-     "end": 356,
+     "end": 363,
      "args": [
       "a"
      ],
-     "lines": 112,
+     "lines": 119,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -246,8 +246,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 329,
-     "end": 329,
+     "line": 336,
+     "end": 336,
      "args": [
       "m"
      ],
@@ -261,8 +261,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 359,
-     "end": 379,
+     "line": 366,
+     "end": 386,
      "args": [
       "a",
       "cnt",
@@ -278,8 +278,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 382,
-     "end": 422,
+     "line": 389,
+     "end": 429,
      "args": [
       "a",
       "o",
@@ -299,10 +299,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 425,
-     "end": 1216,
+     "line": 432,
+     "end": 1226,
      "args": [],
-     "lines": 792,
+     "lines": 795,
      "doc": "",
      "constants": [
       "BIO",
@@ -333,8 +333,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 658,
-     "end": 662,
+     "line": 665,
+     "end": 669,
      "args": [
       "r"
      ],
@@ -350,8 +350,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 893,
-     "end": 900,
+     "line": 900,
+     "end": 907,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -363,8 +363,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1146,
-     "end": 1147,
+     "line": 1156,
+     "end": 1157,
      "args": [
       "b",
       "it",
@@ -3474,7 +3474,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 184,
+   "lines": 187,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3518,13 +3518,14 @@
      "function": "stage_d21",
      "name": "stage_d21",
      "line": 33,
-     "end": 59,
+     "end": 62,
      "args": [
       "beta",
       "panel",
-      "sequencing"
+      "sequencing",
+      "seqref"
      ],
-     "lines": 27,
+     "lines": 30,
      "doc": "",
      "constants": [
       "MIN_MARKER_SHARE",
@@ -3540,8 +3541,8 @@
      "file": "stage_v4.py",
      "function": "stage_d21_provisional",
      "name": "stage_d21_provisional",
-     "line": 61,
-     "end": 73,
+     "line": 64,
+     "end": 76,
      "args": [
       "beta",
       "panel",
@@ -3560,8 +3561,8 @@
      "file": "stage_v4.py",
      "function": "count_sequencing",
      "name": "count_sequencing",
-     "line": 76,
-     "end": 80,
+     "line": 79,
+     "end": 83,
      "args": [
       "pat",
       "bam",
@@ -3581,8 +3582,8 @@
      "file": "stage_v4.py",
      "function": "counting_error",
      "name": "counting_error",
-     "line": 82,
-     "end": 93,
+     "line": 85,
+     "end": 96,
      "args": [
       "rec",
       "A",
@@ -3598,8 +3599,8 @@
      "file": "stage_v4.py",
      "function": "stage_q2",
      "name": "stage_q2",
-     "line": 95,
-     "end": 121,
+     "line": 98,
+     "end": 124,
      "args": [
       "rec",
       "cell",
@@ -3622,8 +3623,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 129,
-     "end": 131,
+     "line": 132,
+     "end": 134,
      "args": [
       "v"
      ],
@@ -3639,8 +3640,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 132,
-     "end": 141,
+     "line": 135,
+     "end": 144,
      "args": [
       "nside",
       "ipix"
@@ -3660,8 +3661,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 143,
-     "end": 180,
+     "line": 146,
+     "end": 183,
      "args": [
       "z",
       "out_png",
@@ -3681,8 +3682,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 182,
-     "end": 183,
+     "line": 185,
+     "end": 186,
      "args": [
       "path"
      ],
@@ -8367,7 +8368,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 300,
+   "lines": 339,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8496,10 +8497,50 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "deconv_reference",
+     "name": "deconv_reference",
+     "line": 123,
+     "end": 148,
+     "args": [
+      "piece_dirs",
+      "out",
+      "per_cell"
+     ],
+     "lines": 26,
+     "doc": "2026-10-30 (author: everything broken for sequencing fixed first): the IAM-Deconvolver's reference for sequenced samples, from the IAM Sequencing Atlas. Each cell's counted level and donor spread at every array site the sequencing key holds (so a sequenced sample, read onto those sites by stage_seq_values, meets it site for site); marker sites chosen on the sequencing atlas itself by the Deconvolv",
+     "constants": [
+      "BLANK",
+      "DECONV_SD_FLOOR"
+     ],
+     "data_files": [
+      "pyarrow.parquet",
+      "sites_sequencing_key.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "deconv_reference_of",
+     "name": "deconv_reference_of",
+     "line": 150,
+     "end": 157,
+     "args": [
+      "path"
+     ],
+     "lines": 8,
+     "doc": "The Deconvolver's sequencing reference as stage_v4.stage_d21 takes it: (R, markers), R = dict(mu, sd, cells, spread='full'); None when the file is absent (the reading then says it was read against IAM-Atlas v2.1).",
+     "constants": [
+      "DECONV_REF"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "metaa_reference",
      "name": "metaa_reference",
-     "line": 120,
-     "end": 146,
+     "line": 159,
+     "end": 185,
      "args": [
       "piece_dirs",
       "out"
@@ -8519,8 +8560,8 @@
      "file": "stage_seq_atlas.py",
      "function": "floor_sites",
      "name": "floor_sites",
-     "line": 151,
-     "end": 174,
+     "line": 190,
+     "end": 213,
      "args": [
       "piece_dirs",
       "out",
@@ -8542,8 +8583,8 @@
      "file": "stage_seq_atlas.py",
      "function": "library_floor",
      "name": "library_floor",
-     "line": 176,
-     "end": 187,
+     "line": 215,
+     "end": 226,
      "args": [
       "beta",
       "calls",
@@ -8561,8 +8602,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 189,
-     "end": 198,
+     "line": 228,
+     "end": 237,
      "args": [
       "cell",
       "path"
@@ -8580,8 +8621,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 200,
-     "end": 224,
+     "line": 239,
+     "end": 263,
      "args": [
       "samples",
       "out"
@@ -8596,8 +8637,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 226,
-     "end": 241,
+     "line": 265,
+     "end": 280,
      "args": [
       "a_path",
       "b_path",
@@ -8615,8 +8656,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 243,
-     "end": 295,
+     "line": 282,
+     "end": 334,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8637,8 +8678,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 297,
-     "end": 299,
+     "line": 336,
+     "end": 338,
      "args": [
       "gsm",
       "title"
@@ -8654,5 +8695,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 443
+ "n_functions": 445
 }

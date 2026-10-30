@@ -1,0 +1,12 @@
+Deconvolver on sequencing, synthetic: 9 mixes, 5599 marker sites, 20 reads per site, 56 cells
+mix | planted | read | largest error | not planted | bars
+0 | colon macrophages 1.00 | colon macrophages 0.992 | 0.0083 | 0.0084 | met (IAM Sequencing Atlas (development))
+1 | cd8 t cells 1.00 | cd8 t cells 0.955 | 0.0447 | 0.0447 | met (IAM Sequencing Atlas (development))
+2 | striated muscle 1.00 | striated muscle 0.994 | 0.0059 | 0.0059 | met (IAM Sequencing Atlas (development))
+3 | breast basal epithelium 0.90, heart fibroblasts 0.10 | breast basal epithelium 0.901, heart fibroblasts 0.088 | 0.0119 | 0.0112 | met (IAM Sequencing Atlas (development))
+4 | colon enteroendocrine 0.90, thyroid epithelium 0.10 | colon enteroendocrine 0.879, thyroid epithelium 0.106 | 0.0213 | 0.0157 | met (IAM Sequencing Atlas (development))
+5 | tonsil pharyngeal epithelium 0.90, colon fibroblasts 0.10 | tonsil pharyngeal epithelium 0.877, colon fibroblasts 0.088 | 0.023 | 0.0347 | met (IAM Sequencing Atlas (development))
+6 | b cells 0.60, lung alveolar macrophages 0.30, kidney tubular endothelium 0.10 | b cells 0.576, lung alveolar macrophages 0.306, kidney tubular endothelium 0.077 | 0.0242 | 0.0415 | met (IAM Sequencing Atlas (development))
+7 | tongue epithelium 0.60, t effector memory cd4 0.30, gastric antrum epithelium 0.10 | tongue epithelium 0.567, t effector memory cd4 0.264, gastric antrum epithelium 0.088 | 0.0365 | 0.0819 | not met (IAM Sequencing Atlas (development))
+8 | naive cd8 t cells 0.60, pancreatic duct 0.30, lung bronchus epithelium 0.10 | naive cd8 t cells 0.594, pancreatic duct 0.307, lung bronchus epithelium 0.075 | 0.0246 | 0.0232 | met (IAM Sequencing Atlas (development))
+synthetic: not met

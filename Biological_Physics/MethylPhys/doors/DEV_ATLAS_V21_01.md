@@ -613,3 +613,21 @@ machine; in the chain as `chain/Runtime Matrices/Seq_Atlas/held_reference_v1.par
 2,000 CpGs, 56 cells, stored as counts with both noise splits (sealed donor halves and molecule halves). Each cell's whole-genome held error
 ranges from 0.03327 (naive CD8 T cells) to 0.05487 (smooth muscle). **Next:** IAM-A on plasma, the plasma's expected held error built from
 these columns and the Deconvolver's shares, synthetic first.
+
+## The IAM-Deconvolver on sequencing, against the IAM Sequencing Atlas (development)
+
+**Why:** on sequencing the Deconvolver read every sorted sample on the six-cell blood panel (a sorted pancreatic delta sample read 52 % CD4 T
+cells), so every reading that uses the shares (Met-A for each cell and the whole sample, the C-Score for each cell) was wrong on sequencing.
+**The instrument's job:** a mix of the atlas's own cells reads its planted shares. **The reference** (`stage_seq_atlas.deconv_reference`,
+`run_sample.py --build seq-deconv-ref`; `seq_atlas/deconv_reference_v1.json`): each of the 56 cells' counted level and donor spread (at least
+0.01) at the 813,866 array sites where every cell has a level; marker sites chosen on the sequencing atlas by the Deconvolver's own rule,
+5,599 kept; in the chain (`Runtime Matrices/Seq_Atlas/deconv_reference_v1.parquet`). A sequenced sample read with `--dev-seq-ref` is split on
+it, flagged. **Synthetic** (`seq_atlas/deconv_seq_synthetic.py`): 9 planted mixes at 20 reads per marker site, through the one command; bars
+every planted share within 0.05, cells not planted at most 0.05.
+
+**Run 1: not met** (`seq_atlas/deconv_seq_synthetic_run1.txt`; disclosed: run as a check of the script before this record was committed).
+8 of 9 mixes met; the largest planted-share error was 0.0447. Mix 7 (tongue epithelium 0.60, effector memory CD4 T cells 0.30, gastric antrum
+0.10) gave 0.0819 to cells not planted, spread over the planted cells' closest relatives (gastric fundus, tonsil, effector CD8 T cells), two
+of them flagged by the chain as not resolved from their relatives. Even pure cells gave 0.006 to 0.045 to other cells at 20 reads per site.
+**What it means for the purity check:** a sorted sample's share outside its own cell is read against this floor at its own depth, never
+read as impurity on its own. **Next:** the same planted mixes at several depths, to measure that floor by depth, written before it runs.

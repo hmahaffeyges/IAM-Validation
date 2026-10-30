@@ -2333,6 +2333,14 @@ One donor's GRCh38 per-CpG read tables, pooled on GRCh38 and moved to the hg19 n
 not move to one place is dropped and counted), each landing on the hg19 CpG whose C or G it is, so both strands add to one CpG. Written as an
 .lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
 
+### stage_seq_atlas.py::deconv_reference
+The IAM-Deconvolver's reference for sequenced samples (`run_sample.py --build seq-deconv-ref`): each sequencing atlas cell's counted level
+and donor spread at the array sites, marker sites chosen on the sequencing atlas by the Deconvolver's own rule; only the markers stored.
+
+### stage_seq_atlas.py::deconv_reference_of
+That reference as Stage D21 takes it (levels, spreads, cells, markers); nothing when the file is absent, and the shares then say they were
+read against IAM-Atlas v2.1.
+
 ### stage_seq_atlas.py::metaa_reference
 Each cell's IAM Sequencing Atlas values at its Met-A identity sites (`run_sample.py --build seq-metaa-ref`): the same sites Met-A reads on
 arrays, chosen by its site rule on IAM-Atlas v2.1, so Met-A stays one instrument, with every stored column from the built pieces, as one
