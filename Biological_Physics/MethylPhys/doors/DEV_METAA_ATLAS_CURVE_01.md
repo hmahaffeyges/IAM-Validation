@@ -316,3 +316,9 @@ over each sample's own floor written, with its own synthetic, and tested on heal
 **The library floor's synthetic: met** (`seq_atlas_01/floor_synthetic.txt`): planted rates 0.002 to 0.02 each recovered within 3 counting
 standard deviations at 5 and 20 reads (0.002018 for 0.002 at depth 5; 0.019906 for 0.02 at depth 20). **The test** reads the same 137
 healthy inputs again (`seq_atlas_01/floor_score.py`, bar as above).
+
+**The library floor's test, read: not met** (`seq_atlas_01/floor_summary.txt`, `seq_atlas_01/floor_readings.csv`): all 137 read. The floor is
+low and narrow (median 0.00625, 2.5th to 97.5th percentile 0.00518 to 0.00925); it does not follow depth (rho -0.012) and Met-A does not follow
+it (rho +0.063). **What it rules out:** the shallower libraries' higher Met-A is not unconverted DNA or sequencing error. Met-A against the
+sequencing atlas stays development; no correction for the floor is made. **Next:** find where the extra disorder sits, site by site (the
+identity sites' unmarked and marked sides, and by how many reads each site has), on the same spent readings, before any new test is written.

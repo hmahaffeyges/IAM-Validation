@@ -1,0 +1,6 @@
+The library floor's test: the 137 healthy inputs read again by the one command, floor and Met-A (against the other donor half) on each
+read 137 of 137; with floor and Met-A 137
+floor: median 0.00625, 2.5th to 97.5th percentile 0.00518 to 0.00925
+floor against depth: rho -0.012 (at most -0.3 needed)
+Met-A against the floor: rho +0.063 (at least 0.3 needed)
+bar: not met

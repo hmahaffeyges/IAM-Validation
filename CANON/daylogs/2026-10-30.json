@@ -35,6 +35,16 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Each library's own floor",
+     "status": "development",
+     "what": "Each of the 137 healthy sequenced samples' error rate at 46,989 sites where every healthy cell agrees completely, read by the one command.",
+     "outcome": "Not met: the floor is low (median 0.00625) and does not follow depth, and Met-A does not follow it. Library noise is not why shallower libraries read higher.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   }
