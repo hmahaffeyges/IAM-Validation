@@ -631,3 +631,8 @@ every planted share within 0.05, cells not planted at most 0.05.
 of them flagged by the chain as not resolved from their relatives. Even pure cells gave 0.006 to 0.045 to other cells at 20 reads per site.
 **What it means for the purity check:** a sorted sample's share outside its own cell is read against this floor at its own depth, never
 read as impurity on its own. **Next:** the same planted mixes at several depths, to measure that floor by depth, written before it runs.
+
+**The share floor by depth, measured** (`seq_atlas/deconv_seq_floor.py`, `seq_atlas/deconv_seq_floor.txt`; written before it ran, measured,
+not scored): a pure planted cell gives other cells, from counting alone, a median of 0.0152 at 5 reads per marker site, 0.0228 at 10, 0.0113
+at 20 and 0.0112 at 40 (largest 0.0458). The floor hardly moves with depth; a healthy sorted sample whose share outside its own cell is well
+above about 0.05 holds other cells, not counting scatter.
