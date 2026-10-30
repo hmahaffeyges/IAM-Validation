@@ -307,5 +307,5 @@ among the later breast cancers, nearer against farther from diagnosis (split at 
 against a bar.
 
 **R12's first send read nothing** (disclosed): it was sent before this record reached GitHub (a refused push), on a commit without the sample
-list, so every machine stopped at "No such file" and it was cancelled; no array was read and no result was saved. Sent again after the
+list, so every machine stopped at "No such file" and it was canceled; no array was read and no result was saved. Sent again after the
 record was committed.
