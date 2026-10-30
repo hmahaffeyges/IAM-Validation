@@ -639,7 +639,7 @@ above about 0.05 holds other cells, not counting scatter.
 
 ## The in-mix readings on the IAM Sequencing Atlas (written and committed before the synthetic runs; development)
 
-**Why:** the healthy full-chain pass found Met-A for the whole sample (0.9210) and the territories (islands 14.5255, domains 1.1383) not
+**Why:** the healthy full-chain pass (DEV_METAA_ATLAS_CURVE_01, seq_atlas_01/healthy_fullchain_summary.txt) found Met-A for the whole sample and the territories not
 reading Normal on healthy sequencing; both still mixed IAM-Atlas v2.1's array levels, put in sequencing units. **The change**
 (`stage_seq_atlas.array_columns`, `run_sample.py --build seq-array-cols`): each sequencing atlas cell's counted level and donor spread at
 every site of IAM-Atlas v2.1, in v2.1's own layout (`Runtime Matrices/Seq_Atlas/array_sites/`, built on one Google spot machine from the 113
