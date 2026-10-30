@@ -324,11 +324,14 @@ made once, on all that are read.
 chain could not read). Blood drawn years before a breast cancer diagnosis against blood from women not diagnosed: every cell's Met-A reads
 higher (neutrophils 1.0283 against 1.0057, p 1.3e-11; CD4 T cells 1.0071 against 0.9902, p 2.7e-11) and the islands lower (0.8157 against
 0.8252, p 1.2e-09). Among the later breast cancers, blood drawn farther from diagnosis reads higher than blood drawn nearer to it
-(neutrophils 1.0432 against 1.0204, p 0.00034), the opposite of a change that grows toward diagnosis. **Within each slide**
+(neutrophils 1.0432 against 1.0204, p 0.00034). This fits the sequence the earlier pre-diagnostic work described (the immune cells move first and settle back toward diagnosis while secretory cells rise), and is not read here as for or against it. **Within each slide**
 (`data/DEV_REPLICATE_01/r12_within_slide.py`, `r12_within_slide.txt`; added after the comparison, disclosed): 25 slides hold both groups;
 each slide's difference is smaller (median +0.0069 for neutrophils, +0.0094 for CD4 T cells, -0.0053 for the islands) and holds across the
-slides (Wilcoxon p 0.0031, 0.00012 and 0.00025). Not scored. Before any of it is read as a finding: the cell shares by group, the slides'
-scan dates and the timing result need their own test, written first.
+slides (Wilcoxon p 0.0031, 0.00012 and 0.00025). Not scored. **Every cell** (`data/DEV_REPLICATE_01/r12_every_cell.py`, `r12_every_cell.csv`,
+`r12_every_cell.txt`; added after the comparison, disclosed): breast luminal epithelium's Met-A reads higher in the later cancers (0.9964
+against 0.9883, p 2.6e-06; within slides +0.0064, p 0.0029) and does not fall with time to diagnosis (rho -0.165, p 0.22), while the immune
+cells read higher farther from diagnosis (rho about +0.2). Its share in these bloods is 0, so it is read at the breast column's identity sites
+in blood DNA. Its own test is written next, on every cell, with the sequence above as its prediction.
 
 **Every cell, in every replay** (correction, disclosed). The replay scorers (`r23_score.py`, `replay_score.py`) compared Met-A for five
 fixed blood cells, a list kept from R2 and R3 (read on the six-cell blood panel), even where the chain had read all 79 cells of IAM-Atlas
