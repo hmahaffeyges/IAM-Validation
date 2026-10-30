@@ -649,3 +649,9 @@ atlas each part used (`sequencing_ruler`). Met-A's identity sites and the territ
 instrument keeps one set of sites. **Synthetic** (`seq_atlas/inmix_seq_synthetic.py`): 6 constructed healthy samples (pure, two-cell and
 three-cell mixes; 20 and 8 reads per site), through the one command with the full chain; bars Met-A for the whole sample, islands and
 domains each within 0.05 of 1 in every sample. **Then:** the healthy full-chain pass read again with these readings.
+
+**The in-mix synthetic, read: met** (`seq_atlas/inmix_seq_synthetic.txt`): all 6 constructed healthy samples read Met-A for the whole
+sample, islands and domains between 0.970 and 1.023, at 20 and at 8 reads per site, with the shares read within 0.03 of planted and the
+bundle naming the IAM Sequencing Atlas for the in-mix levels. **Next:** the healthy full-chain pass read again (`metaa_hfc2`, same 137, same
+scorer). Those samples are the sequencing atlas's own inputs, and the array-site columns hold both donor halves, so for the in-mix readings
+this is a consistency check; the proof is healthy sequenced samples the atlas never held.

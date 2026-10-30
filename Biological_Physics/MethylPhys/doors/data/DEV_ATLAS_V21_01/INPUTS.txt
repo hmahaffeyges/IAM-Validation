@@ -23,3 +23,5 @@ held_reference_v1.json
 deconv_reference_v1.json
 deconv_seq_synthetic_run1.txt
 deconv_seq_floor.txt
+inmix_seq_synthetic.txt
+array_sites.json

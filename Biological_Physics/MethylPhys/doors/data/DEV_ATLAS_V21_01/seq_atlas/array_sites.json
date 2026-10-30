@@ -1,0 +1,22 @@
+{
+ "cells": 56,
+ "sites": 813951,
+ "sites_with_a_cpg": 813951,
+ "sites_with_every_cell": 813866,
+ "layout": "IAM-Atlas v2.1's sites.parquet order; mu and donor_sd, three parts each",
+ "left_out": [
+  "megakaryocytes (provisional, version 1)"
+ ],
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-array-cols",
+  "--build-samples",
+  "/root/w/p56,/root/w/pmk",
+  "--build-out",
+  "/root/w/array_sites",
+  "--bundle",
+  "/root/w/array_sites.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
+}

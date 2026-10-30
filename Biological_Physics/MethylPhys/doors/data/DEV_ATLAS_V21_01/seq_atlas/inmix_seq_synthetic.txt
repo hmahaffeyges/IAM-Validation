@@ -1,0 +1,9 @@
+In-mix readings on sequencing against the IAM Sequencing Atlas, synthetic: 6 constructed healthy samples
+sample | reads per site | planted | Met-A whole | islands | domains | shares read | in-mix levels | bars
+0 | 20 | breast luminal epithelium 1.0 | 0.98672 | 0.97165 | 0.99536 | breast luminal epithelium 0.99 | IAM Sequencing Atlas | met
+1 | 8 | hepatocyte 1.0 | 0.98836 | 1.01487 | 0.99598 | hepatocyte 0.99 | IAM Sequencing Atlas | met
+2 | 20 | kidney glomerular epithelium 0.7, tonsil pharyngeal epithelium 0.3 | 0.99061 | 0.99808 | 0.9915 | kidney glomerular epithelium 0.68, tonsil pharyngeal epithelium 0.31 | IAM Sequencing Atlas | met
+3 | 8 | cd8 t cells 0.7, cd4 t cells 0.3 | 0.97047 | 1.00294 | 0.98597 | cd4 t cells 0.29, cd8 t cells 0.67 | IAM Sequencing Atlas | met
+4 | 20 | thyroid epithelium 0.5, fallopien tubes epithelium 0.3, nk cells 0.2 | 1.00224 | 0.9904 | 0.99941 | fallopien tubes epithelium 0.29, nk cells 0.19, thyroid epithelium 0.51 | IAM Sequencing Atlas | met
+5 | 8 | lung alveolar endothelium 0.5, adipocytes 0.3, t effector cell cd8 0.2 | 0.99179 | 1.02339 | 0.99811 | adipocytes 0.29, lung alveolar endothelium 0.48, t effector cell cd8 0.17 | IAM Sequencing Atlas | met
+synthetic: met
