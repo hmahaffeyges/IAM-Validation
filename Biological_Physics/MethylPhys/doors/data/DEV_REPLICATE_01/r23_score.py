@@ -9,11 +9,12 @@ the same statistics as R2. R5 (added before any R5 reading exists): GSE281691, m
 statistics as R2. R6 (added before any R6 reading exists): GSE141682, healthy whole bloods, each reading against age, by the same statistics as R3.
 R10 (added before any R10 reading exists): GSE99511, cervico-vaginal self-samples, CIN3 against normal and CIN3 or cancer against normal.
 R11 (added before any R11 reading exists): GSE122126 plasma cfDNA, sepsis, islet transplant and cancer each against normal.
-Usage: python3 r23_score.py r2|r3|r4|r5|r6|r10|r11 FOLDER_OF_BUNDLES [OUT.txt]"""
+R12 (added before any R12 reading exists): GSE51057 pre-diagnostic bloods, later breast cancer against no cancer, and nearer against farther from diagnosis.
+Usage: python3 r23_score.py r2|r3|r4|r5|r6|r10|r11|r12 FOLDER_OF_BUNDLES [OUT.txt]"""
 import sys, os, glob, json, numpy as np, pandas as pd
 from scipy import stats
 H = os.path.dirname(os.path.abspath(__file__)); which, src = sys.argv[1], sys.argv[2]; out = sys.argv[3] if len(sys.argv) > 3 else os.path.join(src, f"{which}_summary.txt")
-L = pd.read_csv(os.path.join(H, {"r2": "r2_smoking_labels.csv", "r3": "r3_aging_labels.csv", "r4": "r4_aibl_labels.csv", "r5": "r5_liver_labels.csv", "r6": "r6_aging_labels.csv", "r10": "r10_cervical_labels.csv", "r11": "r11_plasma_labels.csv"}[which]), dtype=str).set_index("gsm")
+L = pd.read_csv(os.path.join(H, {"r2": "r2_smoking_labels.csv", "r3": "r3_aging_labels.csv", "r4": "r4_aibl_labels.csv", "r5": "r5_liver_labels.csv", "r6": "r6_aging_labels.csv", "r10": "r10_cervical_labels.csv", "r11": "r11_plasma_labels.csv", "r12": "r12_italy_labels.csv"}[which]), dtype=str).set_index("gsm")
 SH = ("neutrophils", "cd4 t cells", "cd8 t cells", "b cells", "nk cells", "monocytes"); EC = ("neutrophils", "cd4 t cells", "cd8 t cells", "b cells", "monocytes")
 rows, seen = [], set()
 for f in sorted(glob.glob(os.path.join(src, "**", "GSM*.json"), recursive=True)):
@@ -32,12 +33,13 @@ for f in sorted(glob.glob(os.path.join(src, "**", "GSM*.json"), recursive=True))
     rows.append(r)
 X = pd.DataFrame(rows).set_index("gsm").join(L); feats = [c for c in X.columns if c not in L.columns]
 T = [f"DEV-REPLICATE-01 {which}: {len(X)} of {len(L)} arrays read (pass 1, untared)"]
-if which in ("r2", "r4", "r5", "r10", "r11"):
+if which in ("r2", "r4", "r5", "r10", "r11", "r12"):
     pairs = ((("all", X), "current", "never", "smoking_status"), (("controls only", X[X.disease_state.str.lower() == "normal"] if which == "r2" else X), "current", "never", "smoking_status")) if which == "r2" else \
             (((("Alzheimer's", X), "Alzheimer's disease", "healthy control", "status"), (("mild cognitive impairment", X), "Mild Cognitive Impairment", "healthy control", "status")) if which == "r4" else
              ((("all", X), "metabolic HCC case", "control", "status"),) if which == "r5" else
              ((("all", X), "CIN3", "normal", "status"), (("all", X), "CIN3 or cancer", "normal", "lesion")) if which == "r10" else
-             ((("all", X), "sepsis", "normal", "status"), (("all", X), "islet transplant", "normal", "status"), (("all", X), "cancer", "normal", "status")))
+             ((("all", X), "sepsis", "normal", "status"), (("all", X), "islet transplant", "normal", "status"), (("all", X), "cancer", "normal", "status")) if which == "r11" else
+             ((("all", X), "later breast cancer", "no cancer", "status"), (("later breast cancer", X), "nearer diagnosis", "farther from diagnosis", "timing")))
     for (name, M), ga, gb, col in pairs:
         a, b = M[M[col] == ga], M[M[col] == gb]; T.append(f"-- {ga} ({len(a)}) against {gb} ({len(b)}), {name} (in each line below, 'current' is the first group and 'never' the second; the words are R2's)")
         for c in feats:

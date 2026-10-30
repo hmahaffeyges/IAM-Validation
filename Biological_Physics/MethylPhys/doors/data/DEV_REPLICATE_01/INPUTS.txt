@@ -15,3 +15,5 @@ r10_cervical_samples.csv
 r11_plasma_labels.csv
 r11_plasma_samples.csv
 r10_cervical_summary.txt
+r12_italy_labels.csv
+r12_italy_samples.csv

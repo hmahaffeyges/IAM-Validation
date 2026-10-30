@@ -1,0 +1,330 @@
+gsm,slide,status,icd10,years_to_diagnosis,age,sex,timing
+GSM1235534,6969568099,no cancer,,,54.322,F,
+GSM1235535,6969568052,no cancer,,,44.561,F,
+GSM1235536,6969568141,later breast cancer,C50,0.821,50.869,F,nearer diagnosis
+GSM1235537,6969568052,no cancer,,,46.858,F,
+GSM1235538,7766130010,later breast cancer,C50,6.198,56.192,F,farther from diagnosis
+GSM1235539,6969568141,no cancer,,,52.055,F,
+GSM1235540,7766130010,no cancer,,,56.372,F,
+GSM1235541,6969568065,no cancer,,,44.257,F,
+GSM1235542,6929697005,no cancer,,,55.737,F,
+GSM1235543,6969568141,later breast cancer,C50,3.091,51.329,F,farther from diagnosis
+GSM1235544,6969568052,later breast cancer,C50,5.396,47.283,F,farther from diagnosis
+GSM1235545,6969568156,no cancer,,,38.686,F,
+GSM1235546,7766130100,no cancer,,,59.978,F,
+GSM1235547,6969568141,no cancer,,,50.409,F,
+GSM1235548,6969568052,later breast cancer,C50,0.980,49.533,F,nearer diagnosis
+GSM1235549,6929697005,later breast cancer,C50,1.802,58.746,F,nearer diagnosis
+GSM1235550,6969568099,later breast cancer,C50,1.629,52.107,F,nearer diagnosis
+GSM1235551,6969568099,later breast cancer,C50,2.261,53.090,F,nearer diagnosis
+GSM1235552,6969568141,no cancer,,,51.444,F,
+GSM1235553,6969568052,later breast cancer,C50,3.762,44.772,F,farther from diagnosis
+GSM1235554,6969568099,no cancer,,,53.487,F,
+GSM1235555,6929697005,no cancer,,,58.576,F,
+GSM1235556,7766130100,no cancer,,,61.002,F,
+GSM1235557,6929697005,no cancer,,,58.344,F,
+GSM1235558,6969568099,no cancer,,,54.412,F,
+GSM1235559,6969568141,no cancer,,,51.633,F,
+GSM1235560,6929697005,no cancer,,,56.726,F,
+GSM1235561,6929697005,later breast cancer,C50,4.408,58.505,F,farther from diagnosis
+GSM1235562,6969568065,later breast cancer,C50,3.573,43.866,F,farther from diagnosis
+GSM1235563,6969568099,later breast cancer,C50,3.641,54.494,F,farther from diagnosis
+GSM1235564,6929697005,later breast cancer,C50,0.873,55.792,F,nearer diagnosis
+GSM1235565,6929697005,later breast cancer,C50,1.344,55.696,F,nearer diagnosis
+GSM1235566,6969568065,later breast cancer,C50,11.400,42.576,F,farther from diagnosis
+GSM1235567,7766130100,later other cancer,C73,7.723,64.178,F,
+GSM1235568,6969568099,later breast cancer,C50,2.160,53.621,F,nearer diagnosis
+GSM1235569,6969568099,later breast cancer,C50,3.261,54.401,F,farther from diagnosis
+GSM1235570,6929697005,no cancer,,,58.787,F,
+GSM1235571,6969568065,no cancer,,,42.949,F,
+GSM1235572,6969568141,later breast cancer,C50,1.018,51.866,F,nearer diagnosis
+GSM1235573,7766130010,later breast cancer,C50,5.476,41.344,F,farther from diagnosis
+GSM1235574,6929697005,later breast cancer,C50,4.145,58.453,F,farther from diagnosis
+GSM1235575,6969568065,later breast cancer,C50,3.606,43.387,F,farther from diagnosis
+GSM1235576,7766130010,no cancer,,,41.218,F,
+GSM1235577,6969568065,no cancer,,,39.439,F,
+GSM1235578,7766130100,later breast cancer,C50,0.791,61.413,F,nearer diagnosis
+GSM1235579,7766130100,later breast cancer,C50,3.307,59.912,F,farther from diagnosis
+GSM1235580,6969568099,no cancer,,,54.226,F,
+GSM1235581,6969568052,no cancer,,,50.196,F,
+GSM1235582,6969568065,later breast cancer,C50,1.829,42.658,F,nearer diagnosis
+GSM1235583,6969568141,later breast cancer,C50,2.108,50.251,F,nearer diagnosis
+GSM1235584,6969568099,later other cancer,C18,4.142,52.408,F,
+GSM1235585,6969568141,later breast cancer,C50,1.958,52.350,F,nearer diagnosis
+GSM1235586,6969568156,later breast cancer,C50,0.643,38.927,F,nearer diagnosis
+GSM1235587,6969568141,no cancer,,,50.853,F,
+GSM1235588,7766130100,later breast cancer,C50,0.767,64.394,F,nearer diagnosis
+GSM1235589,6929697005,later breast cancer,C50,1.101,56.575,F,nearer diagnosis
+GSM1235590,6929697005,no cancer,,,55.981,F,
+GSM1235591,6969568065,later breast cancer,C50,1.451,39.439,F,nearer diagnosis
+GSM1235594,7766130017,later breast cancer,C50,2.549,49.429,F,nearer diagnosis
+GSM1235596,7766130009,no cancer,,,61.177,F,
+GSM1235600,7766130071,later breast cancer,C50,1.796,56.197,F,nearer diagnosis
+GSM1235601,7766130017,later breast cancer,C50,8.975,47.680,F,farther from diagnosis
+GSM1235604,7766130009,no cancer,,,63.896,F,
+GSM1235605,7766130009,no cancer,,,63.910,F,
+GSM1235606,7766130047,later breast cancer,C50,1.352,56.843,F,nearer diagnosis
+GSM1235607,7766130009,later breast cancer,C50,0.794,63.713,F,nearer diagnosis
+GSM1235611,7766130047,later breast cancer,C50,0.824,58.502,F,nearer diagnosis
+GSM1235612,7766130047,no cancer,,,58.834,F,
+GSM1235617,7766130009,later breast cancer,C50,1.936,59.310,F,nearer diagnosis
+GSM1235619,7766130046,later breast cancer,C50,2.653,45.153,F,nearer diagnosis
+GSM1235620,7766130071,later breast cancer,C50,1.533,54.333,F,nearer diagnosis
+GSM1235621,7766130009,no cancer,,,59.201,F,
+GSM1235624,7766130047,later breast cancer,C50,1.949,57.399,F,nearer diagnosis
+GSM1235625,7766130017,no cancer,,,51.674,F,
+GSM1235628,7766130071,no cancer,,,56.131,F,
+GSM1235631,7766130047,later breast cancer,C50,6.927,56.627,F,farther from diagnosis
+GSM1235632,7766130009,no cancer,,,64.676,F,
+GSM1235637,7766130009,later breast cancer,C50,0.575,65.046,F,nearer diagnosis
+GSM1235638,7766130047,later other cancer,C19,10.144,57.169,F,
+GSM1235640,7766130017,no cancer,,,48.600,F,
+GSM1235641,7766130100,no cancer,,,38.809,F,
+GSM1235643,7766130017,no cancer,,,49.459,F,
+GSM1235644,7766130046,no cancer,,,43.365,F,
+GSM1235646,7766130017,later breast cancer,C50,6.094,51.058,F,farther from diagnosis
+GSM1235649,7766130071,no cancer,,,54.237,F,
+GSM1235654,7766130071,no cancer,,,54.122,F,
+GSM1235655,7766130047,later other cancer,C80,8.394,57.719,F,
+GSM1235657,7766130017,later breast cancer,C50,1.473,48.559,F,nearer diagnosis
+GSM1235659,7766130100,later breast cancer,C50,1.503,38.541,F,nearer diagnosis
+GSM1235660,7766130017,later breast cancer,C50,0.605,52.271,F,nearer diagnosis
+GSM1235661,7766130047,no cancer,,,57.369,F,
+GSM1235664,7766130071,no cancer,,,54.971,F,
+GSM1235667,7766130100,later breast cancer,C50,1.150,40.731,F,nearer diagnosis
+GSM1235670,7766130017,no cancer,,,48.559,F,
+GSM1235672,7766130100,no cancer,,,43.354,F,
+GSM1235677,7766130046,no cancer,,,47.899,F,
+GSM1235679,7766130071,later breast cancer,C50,1.916,54.108,F,nearer diagnosis
+GSM1235680,7766130047,later breast cancer,C50,0.991,57.544,F,nearer diagnosis
+GSM1235683,7766130017,later breast cancer,C50,1.287,48.750,F,nearer diagnosis
+GSM1235694,7766130071,no cancer,,,56.137,F,
+GSM1235703,7766130046,no cancer,,,47.105,F,
+GSM1235704,7766130009,later breast cancer,C50,3.778,63.786,F,farther from diagnosis
+GSM1235706,7766130047,later breast cancer,C50,1.309,57.394,F,nearer diagnosis
+GSM1235707,7766130046,later breast cancer,C50,1.410,43.228,F,nearer diagnosis
+GSM1235708,7766130046,later breast cancer,C50,1.355,47.639,F,nearer diagnosis
+GSM1235711,7766130047,later breast cancer,C50,1.476,58.815,F,nearer diagnosis
+GSM1235714,7766130009,later breast cancer,C50,1.254,61.298,F,nearer diagnosis
+GSM1235721,7766130071,no cancer,,,52.791,F,
+GSM1235723,7766130071,later breast cancer,C50,1.900,56.033,F,nearer diagnosis
+GSM1235727,7766130048,later breast cancer,C50,8.641,70.393,F,farther from diagnosis
+GSM1235730,7766130047,no cancer,,,58.601,F,
+GSM1235740,7766130046,no cancer,,,45.440,F,
+GSM1235742,7766130009,later breast cancer,C50,1.821,64.709,F,nearer diagnosis
+GSM1235752,7766130009,no cancer,,,65.018,F,
+GSM1235756,7766130071,later breast cancer,C50,1.402,52.882,F,nearer diagnosis
+GSM1235757,7766130046,later breast cancer,C50,1.993,47.239,F,nearer diagnosis
+GSM1235760,7766130071,later breast cancer,C50,0.999,54.815,F,nearer diagnosis
+GSM1235764,7766130048,later breast cancer,C50,0.917,70.064,F,nearer diagnosis
+GSM1235781,7766130048,later breast cancer,C50,1.900,53.183,F,nearer diagnosis
+GSM1235782,7766130048,no cancer,,,57.908,F,
+GSM1235784,7766130048,no cancer,,,53.350,F,
+GSM1235786,7766130048,no cancer,,,43.395,F,
+GSM1235787,7766130010,later breast cancer,C50,0.731,63.206,F,nearer diagnosis
+GSM1235789,7766130048,later breast cancer,C50,1.873,43.211,F,nearer diagnosis
+GSM1235790,7766130010,no cancer,,,63.176,F,
+GSM1235793,7766130048,later breast cancer,C50,1.760,43.340,F,nearer diagnosis
+GSM1235804,7766130048,no cancer,,,43.463,F,
+GSM1235806,7766130048,later breast cancer,C50,1.547,57.284,F,nearer diagnosis
+GSM1235809,7766130048,later breast cancer,C50,1.248,57.563,F,nearer diagnosis
+GSM1235811,7766130048,no cancer,,,57.279,F,
+GSM1235812,6969568156,no cancer,,,43.904,F,
+GSM1235813,6929726067,no cancer,,,47.773,F,
+GSM1235815,6929726067,no cancer,,,58.355,F,
+GSM1235816,6929726067,no cancer,,,53.013,F,
+GSM1235817,6929726068,no cancer,,,41.284,F,
+GSM1235818,6929726068,no cancer,,,42.059,F,
+GSM1235819,6929726068,no cancer,,,45.292,F,
+GSM1235821,6969568090,later breast cancer,C50,5.900,54.700,F,farther from diagnosis
+GSM1235824,6929697006,later breast cancer,C50,4.715,41.739,F,farther from diagnosis
+GSM1235826,6929697006,later breast cancer,C50,7.077,42.779,F,farther from diagnosis
+GSM1235829,6969568028,no cancer,,,57.169,F,
+GSM1235830,6929726067,no cancer,,,58.048,F,
+GSM1235831,6929726068,no cancer,,,43.211,F,
+GSM1235836,6969568090,later breast cancer,C50,8.684,57.328,F,farther from diagnosis
+GSM1235838,6969568090,later breast cancer,C50,6.708,59.253,F,farther from diagnosis
+GSM1235850,6929726068,no cancer,,,58.984,F,
+GSM1235852,6929726071,no cancer,,,61.815,F,
+GSM1235858,6969568090,later breast cancer,C50,7.239,56.422,F,farther from diagnosis
+GSM1235866,6929726068,no cancer,,,57.388,F,
+GSM1235870,6969568090,later breast cancer,C50,2.557,53.840,F,nearer diagnosis
+GSM1235871,6929726067,no cancer,,,49.336,F,
+GSM1235873,6969568090,later breast cancer,C50,5.919,56.512,F,farther from diagnosis
+GSM1235874,6969568054,no cancer,,,53.270,F,
+GSM1235875,6929726071,no cancer,,,46.100,F,
+GSM1235876,6929697015,no cancer,,,37.142,F,
+GSM1235883,6929726071,no cancer,,,62.864,F,
+GSM1235886,6969568066,no cancer,,,36.172,F,
+GSM1235887,6969568156,no cancer,,,52.914,F,
+GSM1235891,7766130010,no cancer,,,36.060,F,
+GSM1235897,6969568156,no cancer,,,46.475,F,
+GSM1235901,6969568029,no cancer,,,54.157,F,
+GSM1235904,7766130010,later breast cancer,C50,5.561,35.039,F,farther from diagnosis
+GSM1235908,6969568028,later breast cancer,C50,3.896,58.845,F,farther from diagnosis
+GSM1235911,6929726067,no cancer,,,58.513,F,
+GSM1235915,6969568156,later breast cancer,C50,10.231,43.578,F,farther from diagnosis
+GSM1235922,6969568029,no cancer,,,62.760,F,
+GSM1235925,6969568028,later breast cancer,C50,3.926,56.282,F,farther from diagnosis
+GSM1235926,6969568028,later breast cancer,C50,13.908,55.428,F,farther from diagnosis
+GSM1235929,6929697015,no cancer,,,55.379,F,
+GSM1235930,6929697006,later breast cancer,C50,6.623,47.702,F,farther from diagnosis
+GSM1235934,6969568028,later breast cancer,C50,5.555,57.572,F,farther from diagnosis
+GSM1235935,6969568028,later breast cancer,C50,4.277,59.291,F,farther from diagnosis
+GSM1235936,6969568028,later breast cancer,C50,10.502,61.281,F,farther from diagnosis
+GSM1235939,6969568107,later breast cancer,C50,10.407,58.470,F,farther from diagnosis
+GSM1235940,6929726067,no cancer,,,54.571,F,
+GSM1235941,6969568054,no cancer,,,57.752,F,
+GSM1235947,6929726067,no cancer,,,58.223,F,
+GSM1235949,6969568090,no cancer,,,54.757,F,
+GSM1235950,6929726071,no cancer,,,50.949,F,
+GSM1235953,6929726071,no cancer,,,46.480,F,
+GSM1235955,6929726094,no cancer,,,44.925,F,
+GSM1235962,6929726094,no cancer,,,52.931,F,
+GSM1235963,6929697001,no cancer,,,57.906,F,
+GSM1235966,6969568107,later breast cancer,C50,9.777,55.792,F,farther from diagnosis
+GSM1235973,6929726067,later breast cancer,C50,2.344,47.406,F,nearer diagnosis
+GSM1235978,6969568054,no cancer,,,58.346,F,
+GSM1235979,6929697006,no cancer,,,44.591,F,
+GSM1235984,6969568090,no cancer,,,58.442,F,
+GSM1235987,6969568107,later breast cancer,C50,2.166,58.543,F,nearer diagnosis
+GSM1235988,6969568029,no cancer,,,62.732,F,
+GSM1235994,6969568107,later breast cancer,C50,2.524,47.915,F,nearer diagnosis
+GSM1236001,6969568156,later breast cancer,C50,4.307,54.264,F,farther from diagnosis
+GSM1236003,6969568107,later breast cancer,C50,7.775,46.790,F,farther from diagnosis
+GSM1236004,6969568107,no cancer,,,56.225,F,
+GSM1236005,6969568107,later breast cancer,C50,8.643,45.881,F,farther from diagnosis
+GSM1236006,7766130010,later breast cancer,C50,2.992,45.755,F,nearer diagnosis
+GSM1236009,6929726067,no cancer,,,51.127,F,
+GSM1236013,6929697001,no cancer,,,53.383,F,
+GSM1236016,6969568090,no cancer,,,52.537,F,
+GSM1236018,6969568028,no cancer,,,61.812,F,
+GSM1236025,6929726067,no cancer,,,55.080,F,
+GSM1236029,6929726068,no cancer,,,48.063,F,
+GSM1236032,6929697001,no cancer,,,50.869,F,
+GSM1236039,6929697015,later breast cancer,C50,9.667,36.572,F,farther from diagnosis
+GSM1236043,7766130010,no cancer,,,46.497,F,
+GSM1236045,6929697001,later breast cancer,C50,8.720,51.250,F,farther from diagnosis
+GSM1236046,6969568054,no cancer,,,51.745,F,
+GSM1236047,6929697001,later breast cancer,C50,0.531,55.710,F,nearer diagnosis
+GSM1236048,6929726068,no cancer,,,44.999,F,
+GSM1236049,6929697015,later breast cancer,C50,4.422,56.394,F,farther from diagnosis
+GSM1236052,6929726094,no cancer,,,41.207,F,
+GSM1236053,6969568090,no cancer,,,59.691,F,
+GSM1236054,6929726068,no cancer,,,43.551,F,
+GSM1236057,6929697001,later breast cancer,C50,9.799,54.185,F,farther from diagnosis
+GSM1236062,6929697001,later breast cancer,C50,5.572,57.465,F,farther from diagnosis
+GSM1236064,6929697001,later breast cancer,C50,3.201,48.304,F,farther from diagnosis
+GSM1236065,6929697015,no cancer,,,54.078,F,
+GSM1236067,6929697015,no cancer,,,55.028,F,
+GSM1236074,6969568028,no cancer,,,56.624,F,
+GSM1236075,6969568156,later breast cancer,C50,7.975,52.997,F,farther from diagnosis
+GSM1236084,6929726068,no cancer,,,46.374,F,
+GSM1236086,6929697006,no cancer,,,44.917,F,
+GSM1236093,6929697001,later breast cancer,C50,0.476,56.717,F,nearer diagnosis
+GSM1236100,6969568029,later breast cancer,C50,11.603,61.002,F,farther from diagnosis
+GSM1236107,6929726068,no cancer,,,60.561,F,
+GSM1236109,6969568066,no cancer,,,57.238,F,
+GSM1236110,6969568054,no cancer,,,40.805,F,
+GSM1236112,6969568107,no cancer,,,47.614,F,
+GSM1236113,6929726071,no cancer,,,49.106,F,
+GSM1236115,6929726094,no cancer,,,61.081,F,
+GSM1236119,6969568029,no cancer,,,55.211,F,
+GSM1236131,6969568066,no cancer,,,61.068,F,
+GSM1236135,6929726068,no cancer,,,59.606,F,
+GSM1236136,6969568066,no cancer,,,59.102,F,
+GSM1236137,6929697006,later breast cancer,C50,7.828,55.877,F,farther from diagnosis
+GSM1236142,7766130010,no cancer,,,46.281,F,
+GSM1236147,6969568029,no cancer,,,63.348,F,
+GSM1236150,6969568029,later other cancer,C18,3.499,54.888,F,
+GSM1236151,6929697015,later breast cancer,C50,9.114,35.157,F,farther from diagnosis
+GSM1236152,6969568029,later breast cancer,C50,7.110,63.765,F,farther from diagnosis
+GSM1236160,6929726071,no cancer,,,49.276,F,
+GSM1236162,6929726071,no cancer,,,59.625,F,
+GSM1236167,6929726071,no cancer,,,52.175,F,
+GSM1236171,6969568108,no cancer,,,60.186,F,
+GSM1236173,6929697001,no cancer,,,50.125,F,
+GSM1236179,6969568029,later breast cancer,C50,6.530,54.612,F,farther from diagnosis
+GSM1236180,6929697015,no cancer,,,47.962,F,
+GSM1236186,6969568107,no cancer,,,57.481,F,
+GSM1236192,6969568108,no cancer,,,57.506,F,
+GSM1236195,6969568028,no cancer,,,58.092,F,
+GSM1236196,6929697006,no cancer,,,43.964,F,
+GSM1236199,6929697001,no cancer,,,56.079,F,
+GSM1236201,6969568029,later breast cancer,C50,2.535,58.270,F,nearer diagnosis
+GSM1236204,6969568054,later breast cancer,C50,9.922,59.680,F,farther from diagnosis
+GSM1236205,6969568090,no cancer,,,60.539,F,
+GSM1236206,6969568054,later breast cancer,C50,7.674,53.700,F,farther from diagnosis
+GSM1236208,6929697001,no cancer,,,57.673,F,
+GSM1236209,6929697015,no cancer,,,39.852,F,
+GSM1236211,6969568156,later breast cancer,C50,5.719,48.268,F,farther from diagnosis
+GSM1236212,6929726067,later breast cancer,C50,2.738,58.166,F,nearer diagnosis
+GSM1236213,6969568156,later breast cancer,C50,11.663,48.983,F,farther from diagnosis
+GSM1236214,6969568107,no cancer,,,43.740,F,
+GSM1236215,6969568054,later breast cancer,C50,7.335,54.434,F,farther from diagnosis
+GSM1236216,6969568108,no cancer,,,55.926,F,
+GSM1236218,6969568054,later breast cancer,C50,11.294,55.472,F,farther from diagnosis
+GSM1236219,6969568108,no cancer,,,65.123,F,
+GSM1236221,6929726071,no cancer,,,47.228,F,
+GSM1236224,6969568107,no cancer,,,57.391,F,
+GSM1236227,6969568066,no cancer,,,54.932,F,
+GSM1236230,6969568066,no cancer,,,55.291,F,
+GSM1236231,6969568054,later breast cancer,C50,6.858,40.011,F,farther from diagnosis
+GSM1236237,6929726071,no cancer,,,45.697,F,
+GSM1236240,6969568054,later breast cancer,C50,5.284,58.574,F,farther from diagnosis
+GSM1236243,6929697006,no cancer,,,59.236,F,
+GSM1236251,6969568108,later other cancer,C18,0.460,63.715,F,
+GSM1236252,6969568108,later breast cancer,C50,0.044,54.990,F,nearer diagnosis
+GSM1236253,6929697006,no cancer,,,55.499,F,
+GSM1236262,6969568107,no cancer,,,46.409,F,
+GSM1236265,6929726071,no cancer,,,63.392,F,
+GSM1236267,6969568054,no cancer,,,55.874,F,
+GSM1236268,6969568108,no cancer,,,60.898,F,
+GSM1236272,6969568108,later breast cancer,C50,6.919,57.708,F,farther from diagnosis
+GSM1236278,6929697006,no cancer,,,49.054,F,
+GSM1236280,6969568028,no cancer,,,58.283,F,
+GSM1236283,6969568156,no cancer,,,51.795,F,
+GSM1236285,6929697015,later breast cancer,C50,8.966,45.974,F,farther from diagnosis
+GSM1236286,6929697015,later breast cancer,C50,5.840,52.706,F,farther from diagnosis
+GSM1236287,6969568108,later breast cancer,C50,0.405,58.976,F,nearer diagnosis
+GSM1236291,6969568028,no cancer,,,63.888,F,
+GSM1236292,6929726094,no cancer,,,39.559,F,
+GSM1236294,6969568156,no cancer,,,46.976,F,
+GSM1236295,6969568108,later breast cancer,C50,10.672,58.932,F,farther from diagnosis
+GSM1236296,6969568108,no cancer,,,51.619,F,
+GSM1236310,6929697015,later breast cancer,C50,3.688,51.680,F,farther from diagnosis
+GSM1236312,6969568108,later breast cancer,C50,9.730,53.350,F,farther from diagnosis
+GSM1236317,6969568066,later breast cancer,C50,0.619,63.305,F,nearer diagnosis
+GSM1236330,6929726094,no cancer,,,64.712,F,
+GSM1236332,6969568066,later breast cancer,C50,10.637,61.016,F,farther from diagnosis
+GSM1236336,6969568090,no cancer,,,59.650,F,
+GSM1236340,6969568066,later breast cancer,C50,5.284,54.470,F,farther from diagnosis
+GSM1236343,6929726094,no cancer,,,51.444,F,
+GSM1236345,6929697006,later breast cancer,C50,10.251,61.856,F,farther from diagnosis
+GSM1236347,7766130010,later breast cancer,C50,1.840,46.390,F,nearer diagnosis
+GSM1236348,6929726094,no cancer,,,45.090,F,
+GSM1236349,6969568066,later breast cancer,C50,7.756,55.266,F,farther from diagnosis
+GSM1236352,6969568066,later breast cancer,C50,6.697,55.411,F,farther from diagnosis
+GSM1236356,6969568066,later breast cancer,C50,8.545,36.394,F,farther from diagnosis
+GSM1236357,6969568065,later breast cancer,C50,1.665,53.596,F,nearer diagnosis
+GSM1236358,6969568065,no cancer,,,48.654,F,
+GSM1236359,6969568065,later breast cancer,C50,0.356,48.841,F,nearer diagnosis
+GSM1236360,6969568052,no cancer,,,57.815,F,
+GSM1236361,6969568052,later breast cancer,C50,4.137,53.112,F,farther from diagnosis
+GSM1236362,6969568052,later breast cancer,C50,0.088,58.149,F,nearer diagnosis
+GSM1236363,6969568052,no cancer,,,52.693,F,
+GSM1236364,6969568141,later breast cancer,C50,1.979,66.319,F,nearer diagnosis
+GSM1236365,6969568052,later breast cancer,C50,0.745,47.236,F,nearer diagnosis
+GSM1236366,6969568052,no cancer,,,47.009,F,
+GSM1236367,6969568065,no cancer,,,54.382,F,
+GSM1236368,6969568141,no cancer,,,65.854,F,
+GSM1236369,6969568099,later breast cancer,C50,1.659,53.109,F,nearer diagnosis
+GSM1236370,6969568099,no cancer,,,52.966,F,
+GSM1236371,7766130100,later breast cancer,C50,6.086,35.039,F,farther from diagnosis
+GSM1236372,7766130100,no cancer,,,34.686,F,
+GSM1236373,7766130046,no cancer,,,53.854,F,
+GSM1236374,7766130046,later breast cancer,C50,2.582,54.270,F,nearer diagnosis
+GSM1236375,7766130046,no cancer,,,57.112,F,
+GSM1236376,7766130046,later breast cancer,C50,2.620,56.720,F,nearer diagnosis
+GSM1236377,7766130017,later breast cancer,C50,2.261,48.457,F,nearer diagnosis
+GSM1236378,7766130017,no cancer,,,48.780,F,

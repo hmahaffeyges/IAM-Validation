@@ -294,3 +294,14 @@ against a bar.
 separates CIN3 from normal or CIN3 or cancer from normal (every p above 0.05). The readings are blood readings (the six-cell blood panel)
 on cervico-vaginal material, a specimen the chain holds no reference for, so this is the expected result. The scorer's comparison lines
 name the two groups with R2's words ("current", "never"); the heading of each block now says which is which.
+
+## R12, blood drawn before a cancer diagnosis: GSE51057 (written and committed before any of these arrays is read by this replay)
+
+**Data.** GSE51057 (450K, raw IDATs per sample on GEO), a sub-study of the Italian arm of a European prospective cohort: 329 white
+blood cell samples drawn at enrolment, 146 from women later diagnosed with breast cancer, 6 later
+diagnosed with another cancer and 177 not diagnosed (`data/DEV_REPLICATE_01/r12_italy_labels.csv`, with each case's time to
+diagnosis). **Prior reading:** partly spent (an earlier engine's tests VAL-047 and VAL-048, and pre-chain checks); earlier results not
+opened here. **The reading:** every array by the one command with the full chain (`--full-chain --cell-panel atlas`: a 450K blood is read on
+the 79-cell panel, plan 14.17), specimen whole blood, pass 1. **Compared** by `r23_score.py r12`: later breast cancer against no cancer, and,
+among the later breast cancers, nearer against farther from diagnosis (split at the median, 3.04 years). Reference only: nothing is scored
+against a bar.
