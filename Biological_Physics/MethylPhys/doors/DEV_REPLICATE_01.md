@@ -315,3 +315,7 @@ against normal: the lymphocytes' Met-A reads higher (B cells 1.1922 against 1.06
 and the monocyte share lower (0.0675 against 0.1703, p 7.8e-05). Islet transplant against normal: the neutrophil share higher (0.5192
 against 0.1582, p 0.00054). Cancer against normal: the monocyte share lower (0.0421 against 0.1703, p 4.2e-05) and the domains higher
 (0.8812 against 0.8374, p 0.0012). Plasma on arrays is not a commissioned specimen; every reading is flagged and none is scored.
+
+**R12's second send:** one of its 20 machines stopped when an array file was not found on download; 310 of 329 arrays were read. The 19
+it held (`data/DEV_REPLICATE_01/r12_italy_unrun_samples.csv`) are sent again the same way before anything is compared; the comparison is
+made once, on all that are read.
