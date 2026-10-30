@@ -140,7 +140,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     if SITE_OUT and counts is not None:   # 2026-10-30 (development, run_sample.py --dev-metaa-sites): every identity site's reads, levels and disorder
         _n2 = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64")
         pd.DataFrame(dict(site=mu[ok].index, reads=_n2.to_numpy(), sample_level=x[ok].to_numpy(), reference_level=mu[ok].to_numpy(),
-                          H_measured=_H(x[ok]).to_numpy(), H_expected=expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()))).to_csv(SITE_OUT, index=False)
+                          H_measured=np.asarray(_H(x[ok]), dtype="float64"), H_expected=np.asarray(expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()), dtype="float64"))).to_csv(SITE_OUT, index=False)
         rec["sites_table"] = os.path.basename(SITE_OUT)
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),

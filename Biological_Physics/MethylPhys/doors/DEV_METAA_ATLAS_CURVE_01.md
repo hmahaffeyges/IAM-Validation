@@ -359,3 +359,7 @@ one-donor reference half and purity are ruled out. **What runs:** 20 of the 137 
 `--dev-metaa-sites` (new: every identity site's reads, sample level, reference level and measured and expected disorder, beside the bundle).
 **Reported by** `seq_atlas_01/metaa_sites_score.py`: the ratio of summed measured to summed expected disorder by side of the site, by the
 site's reads and by the sample's depth, so the extra disorder is placed before any fix is written.
+
+**The first send read nothing** (disclosed): the per-site table called a pandas method on a plain array, so Met-A errored on all 20 samples
+and no table was written; nothing was read. Fixed (the table checked on a constructed sample: its ratio equals the Met-A reading, 1.0006)
+and the same 20 sent again, unchanged.
