@@ -145,6 +145,47 @@ def metaa_reference(piece_dirs, out):
     R = pd.concat(parts, ignore_index=True).sort_values(["cell", "probe"]); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); R.to_parquet(out, index=False)
     return dict(cells=len(cells), rows=int(len(R)), per_cell=R.groupby("cell").size().astype(int).to_dict(), skipped_not_in_v21=skipped, output=os.path.basename(out))
 
+FLOOR_SITES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "floor_sites_v1.parquet")
+FLOOR_RULE = dict(unmarked_max=0.05, marked_min=0.95, min_reads=20)   # amended before any sample was read: 0.01 / 0.99 gave 4 sites (disclosed)
+
+def floor_sites(piece_dirs, out, rule=FLOOR_RULE):
+    """2026-10-29 (plan 35.30): the library floor's sites. Among IAM-Atlas v2.1's sites (its sequencing key), the CpGs where every cell of the
+    IAM Sequencing Atlas (the 56 cells; the provisional megakaryocyte column is not used) has at least min_reads reads and a pooled level at or
+    below unmarked_max (side 'unmarked') or at or above marked_min (side 'marked'). There a healthy cell carries no information, so an opposite
+    call in a sample is the library's own: unconverted DNA, sequencing error, damage. Writes probe, cpg, side."""
+    import glob, pyarrow.parquet as pq, pandas as pd, stage_metaa_atlas as SA
+    K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe")
+    K = K.drop_duplicates("loyfer_cpg_index").set_index("loyfer_cpg_index")["probe"]
+    F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
+    parts = []; ncell = None
+    for f in F:
+        sch = pq.read_schema(f).names; cells = sorted({c.rsplit("|", 1)[0] for c in sch if c.endswith("|level")} - {"megakaryocytes"})
+        if not cells: continue   # the provisional megakaryocyte column's own pieces hold no other cell
+        ncell = ncell or len(cells)
+        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in cells for x in ("reads", "meth")]).to_pandas(); T = T[T.cpg.isin(K.index)]
+        if T.empty: continue
+        R = np.stack([T[f"{c}|reads"].to_numpy() for c in cells], 1).astype(np.float64); M = np.stack([T[f"{c}|meth"].to_numpy() for c in cells], 1).astype(np.float64)
+        ok = (R != BLANK) & (M != BLANK) & (R >= rule["min_reads"]); lv = np.where(ok, M / np.where(ok, R, 1), np.nan); allok = ok.all(1)
+        un = allok & (np.nanmax(lv, 1) <= rule["unmarked_max"]); mk = allok & (np.nanmin(lv, 1) >= rule["marked_min"])
+        cp = T.cpg.to_numpy()
+        for side, k in (("unmarked", un), ("marked", mk)):
+            if k.any(): parts.append(pd.DataFrame(dict(probe=K.reindex(cp[k]).to_numpy(), cpg=cp[k], side=side)))
+    D = pd.concat(parts, ignore_index=True).sort_values("cpg"); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); D.to_parquet(out, index=False)
+    return dict(rule=rule, cells=ncell, sites=int(len(D)), by_side=D.side.value_counts().astype(int).to_dict(), output=os.path.basename(out))
+
+def library_floor(beta, calls, path=FLOOR_SITES):
+    """2026-10-29 (plan 35.30): a sequenced sample's library floor: at the floor sites, the share of opposite calls (methylated at unmarked sites,
+    unmethylated at marked ones), each side and both pooled, from the sample's own calls (stage_seq_values). Development, flagged."""
+    import pandas as pd
+    if not os.path.exists(path): return None
+    D = pd.read_parquet(path); out = dict(flag="DEVELOPMENT - not commissioned (library floor, plan 35.30)", sites=int(len(D)))
+    tot_o = tot_n = 0
+    for side in ("unmarked", "marked"):
+        p = D[D.side == side].probe; b = pd.Series(beta).reindex(p); n = pd.Series(calls).reindex(p); g = b.notna() & n.notna() & (n > 0)
+        k = (b[g] * n[g]).round(); opp = float(k.sum()) if side == "unmarked" else float((n[g] - k).sum()); nn = float(n[g].sum())
+        out[side] = dict(sites_read=int(g.sum()), calls=int(nn), opposite=int(opp), rate=round(opp / nn, 6) if nn else None); tot_o += opp; tot_n += nn
+    out["rate"] = round(tot_o / tot_n, 6) if tot_n else None; return out
+
 def metaa_reference_of(cell, path=METAA_REF):
     """One cell's rows of the Met-A sequencing reference, indexed by probe, levels as 0 to 1 (NaN where blank); None when the file or cell is absent."""
     import pandas as pd

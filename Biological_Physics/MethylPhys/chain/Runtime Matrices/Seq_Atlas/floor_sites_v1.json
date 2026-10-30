@@ -1,0 +1,26 @@
+{
+ "rule": {
+  "unmarked_max": 0.05,
+  "marked_min": 0.95,
+  "min_reads": 20
+ },
+ "cells": 56,
+ "sites": 46989,
+ "by_side": {
+  "unmarked": 46967,
+  "marked": 22
+ },
+ "output": "floor_sites_v1.parquet",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-floor",
+  "--build-samples",
+  "/root/w/p56,/root/w/pmk",
+  "--build-out",
+  "/root/w/floor_sites_v1.parquet",
+  "--bundle",
+  "/root/w/floor_sites_v1.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (library floor, plan 35.30)"
+}

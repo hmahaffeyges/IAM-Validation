@@ -291,3 +291,28 @@ original depth with the same sign. The extra disorder goes with the library, not
 shallower libraries carry more disorder at the identity sites than the deeper ones. **Next:** measure each library's own disorder where
 healthy cells hold no information (sites every healthy cell keeps fully marked or fully unmarked), as the sample's own floor, and test
 whether that floor follows depth the same way, before any reading uses it.
+
+## The library floor (written and committed before it is read on any real sample; plan 35.30)
+
+**Why:** Met-A against the IAM Sequencing Atlas read above 1 in the shallower libraries of one laboratory's series, and the extra disorder
+went with the library, not with how many of its reads were counted. **The instrument's job:** measure each library's own noise inside the
+sample itself, where a healthy cell carries no information. **The sites** (`stage_seq_atlas.floor_sites`, the one command's
+`--build seq-floor`; `chain/Runtime Matrices/Seq_Atlas/floor_sites_v1.parquet`): among IAM-Atlas v2.1's sites, the CpGs where every one of the
+56 cells of the IAM Sequencing Atlas has at least 20 reads and a level at or below 0.05 (unmarked) or at or above 0.95 (marked); set before
+any sample is read. First written as 0.01 and 0.99, which kept 4 sites (no site reads 0.99 in all 56 cells, and the most unmarked sites read
+above 0.01 in at least one cell: sequencing has a floor of its own, far below an array's); amended before any sample was read, disclosed. **The reading** (`stage_seq_atlas.library_floor`, on every sequenced sample, `development.library_floor`,
+flagged): the share of opposite calls there, methylated at unmarked sites and unmethylated at marked ones.
+
+**Synthetic test:** DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/floor_synthetic.py, DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/floor_synthetic.txt
+
+**Synthetic bar:** planted rates 0.002 to 0.02 at depths 5 and 20, each recovered within 3 counting standard deviations.
+
+**Then the test** (spent data: the same 137 healthy inputs, read again by the one command with the floor recorded). Reported first, no bar:
+the floor's Spearman rho with depth, and Met-A's rho with the floor. **Its bar** (the one thing it must show to be used): the floor follows
+depth (|rho| at least 0.3, the same sign as Met-A) and Met-A follows the floor (rho at least 0.3). Only if met is a Met-A version that reads
+over each sample's own floor written, with its own synthetic, and tested on healthy samples the atlas does not hold.
+
+**The library floor's sites, built** (`chain/Runtime Matrices/Seq_Atlas/floor_sites_v1.json`): 46,989 sites, 46,967 unmarked and 22 marked.
+**The library floor's synthetic: met** (`seq_atlas_01/floor_synthetic.txt`): planted rates 0.002 to 0.02 each recovered within 3 counting
+standard deviations at 5 and 20 reads (0.002018 for 0.002 at depth 5; 0.019906 for 0.02 at depth 20). **The test** reads the same 137
+healthy inputs again (`seq_atlas_01/floor_score.py`, bar as above).

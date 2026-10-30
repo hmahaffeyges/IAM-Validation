@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1203,
+   "lines": 1214,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 245,
-     "end": 345,
+     "end": 351,
      "args": [
       "a"
      ],
-     "lines": 101,
+     "lines": 107,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -245,8 +245,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 318,
-     "end": 318,
+     "line": 324,
+     "end": 324,
      "args": [
       "m"
      ],
@@ -260,8 +260,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 348,
-     "end": 368,
+     "line": 354,
+     "end": 374,
      "args": [
       "a",
       "cnt",
@@ -277,8 +277,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 371,
-     "end": 411,
+     "line": 377,
+     "end": 417,
      "args": [
       "a",
       "o",
@@ -298,10 +298,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 414,
-     "end": 1200,
+     "line": 420,
+     "end": 1211,
      "args": [],
-     "lines": 787,
+     "lines": 792,
      "doc": "",
      "constants": [
       "BIO",
@@ -332,8 +332,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 647,
-     "end": 651,
+     "line": 653,
+     "end": 657,
      "args": [
       "r"
      ],
@@ -349,8 +349,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 882,
-     "end": 889,
+     "line": 888,
+     "end": 895,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -362,8 +362,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1135,
-     "end": 1136,
+     "line": 1141,
+     "end": 1142,
      "args": [
       "b",
       "it",
@@ -8366,7 +8366,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 240,
+   "lines": 281,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8516,10 +8516,52 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "floor_sites",
+     "name": "floor_sites",
+     "line": 151,
+     "end": 174,
+     "args": [
+      "piece_dirs",
+      "out",
+      "rule"
+     ],
+     "lines": 24,
+     "doc": "2026-10-29 (plan 35.30): the library floor's sites. Among IAM-Atlas v2.1's sites (its sequencing key), the CpGs where every cell of the IAM Sequencing Atlas (the 56 cells; the provisional megakaryocyte column is not used) has at least min_reads reads and a pooled level at or below unmarked_max (side 'unmarked') or at or above marked_min (side 'marked'). There a healthy cell carries no information,",
+     "constants": [
+      "BLANK",
+      "FLOOR_RULE"
+     ],
+     "data_files": [
+      "pyarrow.parquet",
+      "sites_sequencing_key.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "library_floor",
+     "name": "library_floor",
+     "line": 176,
+     "end": 187,
+     "args": [
+      "beta",
+      "calls",
+      "path"
+     ],
+     "lines": 12,
+     "doc": "2026-10-29 (plan 35.30): a sequenced sample's library floor: at the floor sites, the share of opposite calls (methylated at unmarked sites, unmethylated at marked ones), each side and both pooled, from the sample's own calls (stage_seq_values). Development, flagged.",
+     "constants": [
+      "FLOOR_SITES"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 148,
-     "end": 157,
+     "line": 189,
+     "end": 198,
      "args": [
       "cell",
       "path"
@@ -8537,8 +8579,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 159,
-     "end": 183,
+     "line": 200,
+     "end": 224,
      "args": [
       "samples",
       "out"
@@ -8553,8 +8595,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 185,
-     "end": 235,
+     "line": 226,
+     "end": 276,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8575,8 +8617,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 237,
-     "end": 239,
+     "line": 278,
+     "end": 280,
      "args": [
       "gsm",
       "title"
@@ -8592,5 +8634,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 440
+ "n_functions": 442
 }

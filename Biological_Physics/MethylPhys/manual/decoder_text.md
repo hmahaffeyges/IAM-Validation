@@ -2338,6 +2338,15 @@ Each cell's IAM Sequencing Atlas values at its Met-A identity sites (`run_sample
 arrays, chosen by its site rule on IAM-Atlas v2.1, so Met-A stays one instrument, with every stored column from the built pieces, as one
 long table (cell, probe, cpg, columns). Small enough to sit in the chain (`Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`).
 
+### stage_seq_atlas.py::floor_sites
+The library floor's sites (`run_sample.py --build seq-floor`): among IAM-Atlas v2.1's sites, the CpGs where every cell of the IAM Sequencing
+Atlas has at least 20 reads and reads at or below 0.05 or at or above 0.95. There a healthy cell carries no information, so an opposite call
+is the library's own (unconverted DNA, sequencing error, damage).
+
+### stage_seq_atlas.py::library_floor
+A sequenced sample's library floor: at those sites, the share of opposite calls on each side and pooled, from the sample's own calls;
+recorded on every sequenced sample as `development.library_floor`, flagged.
+
 ### stage_seq_atlas.py::metaa_reference_of
 One cell's rows of that reference, indexed by probe, levels 0 to 1 (blank as missing); nothing when the file or the cell is absent, and the
 reading then says it was read against IAM-Atlas v2.1.

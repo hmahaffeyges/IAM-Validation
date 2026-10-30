@@ -14,3 +14,4 @@ metaa_seq_reference_v1.json
 metaa_seqatlas_summary.txt
 metaa_seqatlas_readings.csv
 metaa_seqatlas_by_depth.txt
+floor_sites_v1.json

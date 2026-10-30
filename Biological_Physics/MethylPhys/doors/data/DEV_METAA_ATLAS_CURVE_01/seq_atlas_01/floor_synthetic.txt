@@ -1,0 +1,12 @@
+The library floor: synthetic, read by the one command
+seed 20261105, 46,989 floor sites (46,967 unmarked, 22 marked)
+rate | depth | recovered | calls | within 3 sd
+0.002 | 5 | 0.002018 | 233,869 | met
+0.002 | 20 | 0.002019 | 939,608 | met
+0.005 | 5 | 0.005114 | 235,433 | met
+0.005 | 20 | 0.005102 | 938,715 | met
+0.01 | 5 | 0.010107 | 234,301 | met
+0.01 | 20 | 0.010052 | 938,914 | met
+0.02 | 5 | 0.019728 | 235,853 | met
+0.02 | 20 | 0.019906 | 939,966 | met
+synthetic: met
