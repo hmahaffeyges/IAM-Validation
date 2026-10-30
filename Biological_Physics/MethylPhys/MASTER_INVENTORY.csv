@@ -448,7 +448,7 @@ GSE96612,,,,,,,,DEV_IAMA_NEURON_01,atlas build,cortical neurons | oligodendrocyt
 GSE98203,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cortical neurons,yes,IDAT listed for 88/88 samples,DNA methylation profiling of human prefrontal cortex neurons in heroin users shows significant difference between genomic contexts of hyper- and hypomethylation,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE98837,,,,,,,,DEV_IAMA_GRAND_01; DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE98837 healthy CD8 T cell subsets WGBS (8),,,,,spent (sequencing commissioning test),,,,,,,,,
-GSE99511,,,,,partly spent,,,,not usable (not purified (cervico-vaginal self-samples)),,yes,IDAT listed for 68/68 samples,Identification and validation of a novel 3-gene methylation classifier for HPV-based cervical screening on self-samples,gold-mine map
+GSE99511,,,,,partly spent,,,DEV_REPLICATE_01,not usable (not purified (cervico-vaginal self-samples)),,yes,IDAT listed for 68/68 samples,Identification and validation of a novel 3-gene methylation classifier for HPV-based cervical screening on self-samples,gold-mine map
 G_chain_tests 56 series - Stage 1 betas,,,,,spent,,,,,,,,,
 PRJDB12471,,,,,,,,DEV_METHIONINE_01,,,,,,
 PRJNA1049514,,,,,,,,DEV_SPECIES_AGEING_01,,,,,,

@@ -270,3 +270,12 @@ to the input runs beside the commissioned ones, each flagged, and the bundle rec
 run, why. On one spent EPIC blood (GSE235717 GSM7508429) it ran direction, trace, foreign, brightness, the ruler, the territories and the
 information sphere, with Met-A unchanged (0.9845); NILC, atlas-e, per-cell B and the sky reading were recorded as not run (they need IAM-Atlas
 v2's parquet, not in the repository; to be moved onto v2.1, the full-chain plan branch). R1 to R9 are read again with it.
+
+## R10, cervical precancer in self-samples: GSE99511 (written and committed before any of these arrays is read by this replay)
+
+**Data.** GSE99511 (450K, raw IDATs per sample on GEO): 68 self-collected cervico-vaginal samples, 28 normal, 36 CIN3
+(precancer) and 4 squamous cell carcinoma (`data/DEV_REPLICATE_01/r10_cervical_labels.csv`, from GEO's sample records). **Prior
+reading:** partly spent (an earlier engine's test, VAL-073); its earlier result is not opened here. **The reading:** every array by the one
+command with the full chain (`--full-chain`), pass 1, specimen not stated (no reference is claimed for this specimen; every reading is
+flagged). **Compared** by `r23_score.py r10`: CIN3 against normal, and CIN3 or cancer against normal, each reading (effect size, p).
+Reference only: nothing is scored against a bar.
