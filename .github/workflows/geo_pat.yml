@@ -37,4 +37,4 @@ jobs:
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh $G > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: "${{ inputs.tag }}-${{ matrix.gsm }}", path: "eout/*.json\neout/*.log\nrun.log\nrc.txt", if-no-files-found: ignore}
+        with: {name: "${{ inputs.tag }}-${{ matrix.gsm }}", path: "eout/*.json\neout/*.log\neout/*_metaa_sites.csv.gz\nrun.log\nrc.txt", if-no-files-found: ignore}
