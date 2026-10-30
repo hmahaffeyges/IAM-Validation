@@ -599,5 +599,11 @@ input 1.8726 to 2.0205 and against a lung interstitial macrophage input 1.9636 t
 at a few reads a site counting scatter is most of the distance. **What it shows:** the three megakaryocyte donors agree with each other more
 than with the cells donor 3 was named as, so the single-cell pools carry a shared megakaryocyte signal. **And a fault found:** the
 comparison's depth-weighted score averaged a ratio at each site, the flaw the pair synthetic first exposed; it now sums both sides before
-dividing. Synthetic 2 met again (`seq_atlas/seq_compare_synthetic2.txt`; the first run kept as `seq_compare_synthetic2_run1.txt`). **Next,
-not yet run:** donor 3 read again with the corrected score (development, spent); the earlier weighted re-read used the faulty score.
+dividing. Synthetic 2 met again (`seq_atlas/seq_compare_synthetic2.txt`; the first run kept as `seq_compare_synthetic2_run1.txt`). Donor 3 was then read again with the corrected score (below); the earlier weighted re-read had used the faulty one.
+
+**Donor 3 read again with the corrected depth-weighted score (development, spent; reported, not scored)**
+(`seq_atlas/mk_donor3_compare_weighted2.json`, the one command's `--build seq-compare`, 582,215 sites): nearest megakaryocytes at 0.7069, 1st of
+57; next colon fibroblasts 1.4571 and NK cells 1.4633. By plain distance the nearest is still monocytes. The committed test (nearest cell by
+plain distance, on a donor unread when it was written) stays **not met**; this reading is development on a spent donor and cannot replace it.
+**What it shows:** the column holds donor 3's cell once counting scatter is weighed correctly; plain distance is dominated by that scatter in
+single-cell pools. **A fresh test** needs megakaryocyte sequencing the column has never seen, written before it is read.

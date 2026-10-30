@@ -20,7 +20,7 @@
      "title": "The megakaryocyte donors read against each other",
      "status": "development",
      "what": "The three megakaryocyte donors compared pairwise, and each with a monocyte and a lung macrophage input, by a new pair comparison tested on a known answer first.",
-     "outcome": "The donors agree with each other more than with the cells donor 3 was named as. The comparison's depth-weighted score had a fault (it averaged a ratio at each site) and was corrected; its synthetic met again.",
+     "outcome": "The donors agree with each other more than with the cells donor 3 was named as. The comparison's depth-weighted score had a fault (it averaged a ratio at each site) and was corrected; read again with it, donor 3 reads nearest megakaryocytes (development, on a spent donor; the committed test stays not met).",
      "rows": [
       "COM-METAA-033"
      ],
