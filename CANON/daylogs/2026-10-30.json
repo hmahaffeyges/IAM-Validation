@@ -4,7 +4,7 @@
  "_convention": "see 2026-10-13.json",
  "check_completeness": false,
  "set_out": "Read the library floor on the 137 healthy sequenced samples; build the held-error reference from the 153 healthy inputs; find why the megakaryocyte column does not name donor 3; keep the B and T commissioning samples aligning.",
- "open_at_turnover": "",
+ "open_at_turnover": "Running on GitHub's machines: the library floor on the 137 healthy sequenced samples and the B and T commissioning samples. On Google's machines: the last held-error count; the held-error reference is built when all 153 are in.",
  "closing": "",
  "off_page_rows": [],
  "compute": {
