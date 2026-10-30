@@ -302,6 +302,6 @@ blood cell samples drawn at enrolment, 146 from women later diagnosed with breas
 diagnosed with another cancer and 177 not diagnosed (`data/DEV_REPLICATE_01/r12_italy_labels.csv`, with each case's time to
 diagnosis). **Prior reading:** partly spent (an earlier engine's tests VAL-047 and VAL-048, and pre-chain checks); earlier results not
 opened here. **The reading:** every array by the one command with the full chain (`--full-chain --cell-panel atlas`: a 450K blood is read on
-the 79-cell panel, plan 14.17), specimen whole blood, pass 1. **Compared** by `r23_score.py r12`: later breast cancer against no cancer, and,
+the 79-cell panel, as the plan sets for 450K bloods), specimen whole blood, pass 1. **Compared** by `r23_score.py r12`: later breast cancer against no cancer, and,
 among the later breast cancers, nearer against farther from diagnosis (split at the median, 3.04 years). Reference only: nothing is scored
 against a bar.
