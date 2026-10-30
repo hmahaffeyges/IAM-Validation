@@ -350,3 +350,12 @@ IAM-Atlas v2.1). Four readings were not run (they need IAM-Atlas v2's matrices, 
 arrays only. **The purity check:** own-cell share against depth rho -0.195, Met-A against the share outside its own cell rho -0.029; purity
 is not why Met-A reads high. **Next:** Met-A site by site; the territories on the sequencing atlas; the four readings moved onto the atlases
 the repository holds; the pass's scorer extended to every development reading.
+
+## Met-A on sequencing, site by site (written and committed before it runs; diagnostic, nothing scored)
+
+**Why:** against the IAM Sequencing Atlas, healthy sequenced samples read Met-A 1.0704 and shallower libraries read higher; library noise, a
+one-donor reference half and purity are ruled out. **What runs:** 20 of the 137 (every 7th by depth, 19,384,477 to
+67,934,648 reads; `seq_atlas_01/metaa_sites_samples.csv`), read again by the one command with the full chain and
+`--dev-metaa-sites` (new: every identity site's reads, sample level, reference level and measured and expected disorder, beside the bundle).
+**Reported by** `seq_atlas_01/metaa_sites_score.py`: the ratio of summed measured to summed expected disorder by side of the site, by the
+site's reads and by the sample's depth, so the extra disorder is placed before any fix is written.

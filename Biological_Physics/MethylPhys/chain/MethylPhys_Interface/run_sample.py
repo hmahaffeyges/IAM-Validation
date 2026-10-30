@@ -215,7 +215,10 @@ def _metaa_atlas(a, b):
         _sr = None
         if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
             import stage_seq_atlas as _SQr; _sr = _SQr.metaa_reference_of(a.dev_metaa_atlas, _SQr.METAA_REF if a.dev_seq_ref == "auto" else a.dev_seq_ref)
+        if getattr(a, "dev_metaa_sites", None) and a.bundle:   # 2026-10-30: the per-site table beside the bundle
+            SA.SITE_OUT = a.bundle.replace("_bundle.json", "") + "_metaa_sites.csv.gz"
         r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen, counts=getattr(a, "_seqc", None), seqref=_sr, half=getattr(a, "dev_seq_ref_half", None))
+        SA.SITE_OUT = None
         if getattr(a, "dev_seq_ref", None) and _sr is None: r["seq_reference"] = "not found for this cell; read against IAM-Atlas v2.1"
         rec = {"label": DV.DEV_LABEL, "status": "OK" if r.get("A") is not None else "NOT_READ", **r, "values": "sequencing values (stage_seq_values); no self-tare (arrays only)"}
         if a.metaa_atlas_ref_A: rec["tare"] = SA.tare(r.get("A"), [float(x) for x in a.metaa_atlas_ref_A.split(",") if x.strip()])
@@ -551,6 +554,8 @@ def main():
                     "cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare)")
     ap.add_argument("--dev-seq-ref", default=None, metavar="auto|FILE", help="DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels "
                     "from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1")
+    ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "
+                    "measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis")
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")

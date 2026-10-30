@@ -27,6 +27,7 @@ ATLAS = os.path.join(HERE, "..", "atlas", "v2.1"); NA = 65535
 SEQ_TERM = json.load(open(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "sequencing_term_v1.json")))   # the atlas's measured sequencing source term
 FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-01)"
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
+SITE_OUT = None   # 2026-10-30: a path; when set, read() writes the per-site table of a sequencing reading there (run_sample.py --dev-metaa-sites)
 _cache = {}
 
 def _H(b):
@@ -123,6 +124,11 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
         rec["expectation"] = ("k of n reads at each site's own depth (expected_H_counts), the IAM Sequencing Atlas's level" if use_seq else
                               "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)")
     A = float(_H(x[ok]).mean() / href)
+    if SITE_OUT and counts is not None:   # 2026-10-30 (development, run_sample.py --dev-metaa-sites): every identity site's reads, levels and disorder
+        _n2 = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64")
+        pd.DataFrame(dict(site=mu[ok].index, reads=_n2.to_numpy(), sample_level=x[ok].to_numpy(), reference_level=mu[ok].to_numpy(),
+                          H_measured=_H(x[ok]).to_numpy(), H_expected=expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()))).to_csv(SITE_OUT, index=False)
+        rec["sites_table"] = os.path.basename(SITE_OUT)
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),
                shift_per_1pct_loss=round(float(_H(xd).mean() / _H(x[ok]).mean() * A - A), 5),
