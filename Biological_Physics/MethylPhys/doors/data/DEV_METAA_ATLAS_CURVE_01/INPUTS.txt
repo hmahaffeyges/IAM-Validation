@@ -20,3 +20,5 @@ floor_readings.csv
 metaa_seqatlas_by_half.txt
 metaa_seqatlas_by_half.csv
 healthy_fullchain_samples.csv
+healthy_fullchain_summary.txt
+healthy_fullchain_readings.csv

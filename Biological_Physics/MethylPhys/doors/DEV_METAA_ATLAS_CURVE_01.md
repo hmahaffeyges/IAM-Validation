@@ -340,3 +340,13 @@ inside the band the chain drew, and every reading not run with its reason; this 
 purity check, in the same pass:** each sample's own-cell share against its depth, and Met-A against the share outside its own cell, read
 against the Deconvolver's share floor by depth (`DEV_ATLAS_V21_01/seq_atlas/deconv_seq_floor.py`, measured on pure planted cells at 5, 10, 20
 and 40 reads per site, also written before it runs). Nothing here is scored against a single bar; each broken reading gets its own fix and test.
+
+**The healthy full-chain pass, read** (`seq_atlas_01/healthy_fullchain_summary.txt`, `healthy_fullchain_readings.csv`): all 137 read.
+Reading Normal on healthy sequencing: the whole-genome C-Score (median 1.0010, 0.956 within its limit), IAM-A (0.9518, 0.942 inside its band),
+coupling-A (1.0000, 0.993) and the Deconvolver on the sequencing atlas (own-cell share median 0.9817); these samples are the references' own
+inputs, so this shows the readings consistent, and healthy samples the references never held are the proof. Not working on sequencing: Met-A
+for the sorted cell (median 1.0704) and the whole sample (0.9210), and the territories (islands 14.5255, domains 1.1383, still against
+IAM-Atlas v2.1). Four readings were not run (they need IAM-Atlas v2's matrices, not in the repository), and the EPIC v2 reading applies to
+arrays only. **The purity check:** own-cell share against depth rho -0.195, Met-A against the share outside its own cell rho -0.029; purity
+is not why Met-A reads high. **Next:** Met-A site by site; the territories on the sequencing atlas; the four readings moved onto the atlases
+the repository holds; the pass's scorer extended to every development reading.

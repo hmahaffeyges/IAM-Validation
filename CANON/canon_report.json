@@ -2188,25 +2188,25 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 11,
+"line": 12,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "1. **Now:** Replicate the published information-theory study of pediatric leukemia through the chain, for its authors (author 2026-10-24: 'prioritize their work"
+"text": "2. Replicate the published information-theory study of pediatric leukemia through the chain, for its authors (author 2026-10-24: 'prioritize their work, replica"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 11,
+"line": 12,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "1. **Now:** Replicate the published information-theory study of pediatric leukemia through the chain, for its authors (author 2026-10-24: 'prioritize their work"
+"text": "2. Replicate the published information-theory study of pediatric leukemia through the chain, for its authors (author 2026-10-24: 'prioritize their work, replica"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 18,
+"line": 19,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2215,7 +2215,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 18,
+"line": 19,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2224,7 +2224,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 18,
+"line": 19,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2233,7 +2233,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 28,
+"line": 29,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2242,7 +2242,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 71,
+"line": 72,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2251,7 +2251,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 77,
+"line": 78,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2260,7 +2260,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 77,
+"line": 78,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2269,7 +2269,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 77,
+"line": 78,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2278,7 +2278,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 77,
+"line": 78,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2287,7 +2287,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 80,
+"line": 81,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2296,7 +2296,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 81,
+"line": 82,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2305,7 +2305,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 81,
+"line": 82,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2314,7 +2314,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 81,
+"line": 82,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2323,7 +2323,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 81,
+"line": 82,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2332,7 +2332,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 81,
+"line": 82,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2341,7 +2341,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 85,
+"line": 86,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2350,7 +2350,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 86,
+"line": 87,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2359,7 +2359,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 86,
+"line": 87,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2368,25 +2368,25 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 102,
+"line": 103,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "35. The IAM-A globe: Stage Q2's counter keeps its held-error and loose-share counts per atlas block (not only totals), tested to give the same totals to every d"
+"text": "36. The IAM-A globe: Stage Q2's counter keeps its held-error and loose-share counts per atlas block (not only totals), tested to give the same totals to every d"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 102,
+"line": 103,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "35. The IAM-A globe: Stage Q2's counter keeps its held-error and loose-share counts per atlas block (not only totals), tested to give the same totals to every d"
+"text": "36. The IAM-A globe: Stage Q2's counter keeps its held-error and loose-share counts per atlas block (not only totals), tested to give the same totals to every d"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 155,
+"line": 156,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -2395,7 +2395,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 186,
+"line": 187,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2404,7 +2404,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 186,
+"line": 187,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2413,7 +2413,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 186,
+"line": 187,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2422,7 +2422,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 195,
+"line": 196,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2431,7 +2431,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 195,
+"line": 196,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2440,223 +2440,223 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 228,
+"line": 229,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.18** (step 20, 2026-10-28) [open] IAM-A at the line's naive end: healthy naive cells (low loose share) hold less error than the self-reference line predi"
+"text": "- **14.18** (step 21, 2026-10-28) [open] IAM-A at the line's naive end: healthy naive cells (low loose share) hold less error than the self-reference line predi"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 228,
+"line": 229,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.18** (step 20, 2026-10-28) [open] IAM-A at the line's naive end: healthy naive cells (low loose share) hold less error than the self-reference line predi"
+"text": "- **14.18** (step 21, 2026-10-28) [open] IAM-A at the line's naive end: healthy naive cells (low loose share) hold less error than the self-reference line predi"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 233,
+"line": 234,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.17** (step 20, 2026-10-25) [open] A 450K whole blood read on the default six-cell blood panel measures 145 of its 600 marker sites, so the IAM-Deconvolve"
+"text": "- **14.17** (step 21, 2026-10-25) [open] A 450K whole blood read on the default six-cell blood panel measures 145 of its 600 marker sites, so the IAM-Deconvolve"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 240,
+"line": 241,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **49.7** (step 1, 2026-10-24) [open] The package for the study's authors, built inside this repository like all other work (author: 'This can all be in our cu"
+"text": "- **49.7** (step 2, 2026-10-24) [open] The package for the study's authors, built inside this repository like all other work (author: 'This can all be in our cu"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 240,
+"line": 241,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **49.7** (step 1, 2026-10-24) [open] The package for the study's authors, built inside this repository like all other work (author: 'This can all be in our cu"
+"text": "- **49.7** (step 2, 2026-10-24) [open] The package for the study's authors, built inside this repository like all other work (author: 'This can all be in our cu"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 240,
+"line": 241,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **49.7** (step 1, 2026-10-24) [open] The package for the study's authors, built inside this repository like all other work (author: 'This can all be in our cu"
+"text": "- **49.7** (step 2, 2026-10-24) [open] The package for the study's authors, built inside this repository like all other work (author: 'This can all be in our cu"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 248,
+"line": 249,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
+"text": "- **14.9** (step 21, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 248,
+"line": 249,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
+"text": "- **14.9** (step 21, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 248,
+"line": 249,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
+"text": "- **14.9** (step 21, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 248,
+"line": 249,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.9** (step 20, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
+"text": "- **14.9** (step 21, 2026-10-24) [open] Stage Q2's 2,000-CpG tiles (stage_q2_selfref.hg19_tiles, built from HG19_CPGS) do not line up with the genome dictionary"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 250,
+"line": 251,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.12** (step 20, 2026-10-24) [running] The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is meas"
+"text": "- **14.12** (step 21, 2026-10-24) [running] The C-Scores: their value for scattered departures (1) is derived by construction; their healthy upper limit is meas"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 251,
+"line": 252,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.13** (step 20, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
+"text": "- **14.13** (step 21, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 251,
+"line": 252,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.13** (step 20, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
+"text": "- **14.13** (step 21, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 251,
+"line": 252,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.13** (step 20, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
+"text": "- **14.13** (step 21, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 251,
+"line": 252,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.13** (step 20, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
+"text": "- **14.13** (step 21, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 251,
+"line": 252,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **14.13** (step 20, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
+"text": "- **14.13** (step 21, 2026-10-24) [open] Rename pass (author 2026-10-24: one name, a status label): 'self-reference line', 'reference line', 'healthy line', 'he"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 253,
+"line": 254,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **40.15** (step 46, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
+"text": "- **40.15** (step 47, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 253,
+"line": 254,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **40.15** (step 46, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
+"text": "- **40.15** (step 47, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 253,
+"line": 254,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **40.15** (step 46, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
+"text": "- **40.15** (step 47, 2026-10-24) [open] Two independent indicators in one plasma (author: 'IF we see a higher percentage of them in the plasma in conjunction w"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 261,
+"line": 262,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
-"text": "- **0.2** (step 3, 2026-10-23) [open] The atlas ruler, so healthy reads 1 on the whole-sample Met-A and the territories (healthy 1.113 untared) *Next:* the stra"
+"text": "- **0.2** (step 4, 2026-10-23) [open] The atlas ruler, so healthy reads 1 on the whole-sample Met-A and the territories (healthy 1.113 untared) *Next:* the stra"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 280,
+"line": 281,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
 "status": "RECORD",
-"text": "- **14.3** (step 20, 2026-10-23) [read] Held error and replication error are two routes with different physics (author: the held error 'requires a constant forc"
+"text": "- **14.3** (step 21, 2026-10-23) [read] Held error and replication error are two routes with different physics (author: the held error 'requires a constant forc"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 299,
+"line": 300,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
 "status": "RECORD",
-"text": "- **39.14** (step 44, 2026-10-23) [open] One source per fact (author 2026-10-23: 'we are not hand updating things like this because that is how we end up with a"
+"text": "- **39.14** (step 45, 2026-10-23) [open] One source per fact (author 2026-10-23: 'we are not hand updating things like this because that is how we end up with a"
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 302,
+"line": 303,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "RECORD",
-"text": "- **41.1** (step 48, 2026-10-23) [open] IAM-A's C-Score, version 2: the held error of each 1,000-CpG region predicted from that region's OWN loose share by the "
+"text": "- **41.1** (step 49, 2026-10-23) [open] IAM-A's C-Score, version 2: the held error of each 1,000-CpG region predicted from that region's OWN loose share by the "
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 302,
+"line": 303,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "RECORD",
-"text": "- **41.1** (step 48, 2026-10-23) [open] IAM-A's C-Score, version 2: the held error of each 1,000-CpG region predicted from that region's OWN loose share by the "
+"text": "- **41.1** (step 49, 2026-10-23) [open] IAM-A's C-Score, version 2: the held error of each 1,000-CpG region predicted from that region's OWN loose share by the "
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 355,
+"line": 356,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",

@@ -1,0 +1,12 @@
+Healthy full-chain pass on sequencing: 137 of 137 read
+reading | read | median | inside the band drawn
+C-Score whole genome | 137 | 1.0010 | 0.956 of 137
+IAM-A | 137 | 0.9518 | 0.942 of 137
+Met-A sorted cell | 137 | 1.0704 | no band drawn
+Met-A whole sample | 137 | 0.9210 | no band drawn
+coupling-A | 137 | 1.0000 | 0.993 of 137
+own-cell share | 137 | 0.9817 | no band drawn
+territory domains | 137 | 1.1383 | no band drawn
+territory islands | 137 | 14.5255 | no band drawn
+purity: own-cell share median 0.9817; own share against depth rho -0.195; Met-A against the share outside its own cell rho -0.029 over 137
+not run (samples): atlas_e 137, epic_v2 137, nilc 137, percell_b 137, sky 137
