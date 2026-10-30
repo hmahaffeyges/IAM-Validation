@@ -54,7 +54,7 @@
      "rows": [
       "GRP-020"
      ],
-     "record": "iamrepo/Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     },
     {
      "title": "Replays with the full chain",
@@ -64,7 +64,7 @@
      "rows": [
       "OTH-082"
      ],
-     "record": "iamrepo/Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   }
