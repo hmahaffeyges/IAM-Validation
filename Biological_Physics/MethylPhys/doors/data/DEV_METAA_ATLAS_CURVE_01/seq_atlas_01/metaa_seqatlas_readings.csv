@@ -1,0 +1,138 @@
+gsm,cell,half,A,reading,reason,n_sites,depth
+GSM5652179,aorta endothelium,A,1.02872,Met-A against the IAM Sequencing Atlas (sequencing),,3679,44988218
+GSM5652180,aorta endothelium,B,1.12682,Met-A against the IAM Sequencing Atlas (sequencing),,3679,42002727
+GSM5652181,vascular saphenous endothelium,B,1.12427,Met-A against the IAM Sequencing Atlas (sequencing),,6000,47454140
+GSM5652182,vascular saphenous endothelium,A,1.02123,Met-A against the IAM Sequencing Atlas (sequencing),,6000,58086067
+GSM5652183,vascular saphenous endothelium,A,1.03569,Met-A against the IAM Sequencing Atlas (sequencing),,6000,53098594
+GSM5652184,kidney glomerular endothelium,B,1.09904,Met-A against the IAM Sequencing Atlas (sequencing),,6000,64450681
+GSM5652185,kidney glomerular endothelium,A,1.03427,Met-A against the IAM Sequencing Atlas (sequencing),,6000,62972467
+GSM5652186,kidney glomerular endothelium,B,1.10674,Met-A against the IAM Sequencing Atlas (sequencing),,6000,53576824
+GSM5652187,kidney tubular endothelium,A,0.98577,Met-A against the IAM Sequencing Atlas (sequencing),,6000,67934648
+GSM5652188,kidney tubular endothelium,B,1.14492,Met-A against the IAM Sequencing Atlas (sequencing),,6000,46509698
+GSM5652189,kidney tubular endothelium,B,1.1982,Met-A against the IAM Sequencing Atlas (sequencing),,6000,36321591
+GSM5652191,lung alveolar endothelium,A,1.05471,Met-A against the IAM Sequencing Atlas (sequencing),,6000,52978188
+GSM5652192,lung alveolar endothelium,B,1.06969,Met-A against the IAM Sequencing Atlas (sequencing),,6000,64382366
+GSM5652193,lung alveolar endothelium,A,1.07258,Met-A against the IAM Sequencing Atlas (sequencing),,6000,57912785
+GSM5652194,pancreas endothelium,B,1.11696,Met-A against the IAM Sequencing Atlas (sequencing),,6000,28353254
+GSM5652195,pancreas endothelium,B,1.02818,Met-A against the IAM Sequencing Atlas (sequencing),,6000,45989020
+GSM5652196,pancreas endothelium,A,1.12682,Met-A against the IAM Sequencing Atlas (sequencing),,6000,33025445
+GSM5652198,colon fibroblasts,A,1.05853,Met-A against the IAM Sequencing Atlas (sequencing),,4257,51948166
+GSM5652199,colon fibroblasts,B,1.07148,Met-A against the IAM Sequencing Atlas (sequencing),,4257,50797028
+GSM5652201,heart fibroblasts,B,1.09905,Met-A against the IAM Sequencing Atlas (sequencing),,6000,44200224
+GSM5652202,heart fibroblasts,B,1.10764,Met-A against the IAM Sequencing Atlas (sequencing),,6000,36531168
+GSM5652203,heart fibroblasts,A,1.03826,Met-A against the IAM Sequencing Atlas (sequencing),,6000,41895135
+GSM5652205,striated muscle,B,1.08472,Met-A against the IAM Sequencing Atlas (sequencing),,4163,48575256
+GSM5652206,striated muscle,A,1.04973,Met-A against the IAM Sequencing Atlas (sequencing),,4163,49251562
+GSM5652207,smooth muscle,B,1.2441,Met-A against the IAM Sequencing Atlas (sequencing),,5999,38977722
+GSM5652208,smooth muscle,A,0.90534,Met-A against the IAM Sequencing Atlas (sequencing),,5999,47094356
+GSM5652209,smooth muscle,B,1.25984,Met-A against the IAM Sequencing Atlas (sequencing),,5999,28853676
+GSM5652212,cardiomyocyte,A,1.10262,Met-A against the IAM Sequencing Atlas (sequencing),,5999,50997676
+GSM5652213,cardiomyocyte,B,1.02935,Met-A against the IAM Sequencing Atlas (sequencing),,5999,52115287
+GSM5652216,cardiomyocyte,A,1.13673,Met-A against the IAM Sequencing Atlas (sequencing),,5999,44412806
+GSM5652219,oligodendrocytes,A,1.10926,Met-A against the IAM Sequencing Atlas (sequencing),,6000,34101337
+GSM5652220,oligodendrocytes,B,1.00679,Met-A against the IAM Sequencing Atlas (sequencing),,6000,54513137
+GSM5652221,oligodendrocytes,A,1.11286,Met-A against the IAM Sequencing Atlas (sequencing),,6000,44058061
+GSM5652223,cortical neurons,A,1.14724,Met-A against the IAM Sequencing Atlas (sequencing),,5999,34180616
+GSM5652224,cortical neurons,A,0.93785,Met-A against the IAM Sequencing Atlas (sequencing),,6000,45208854
+GSM5652225,cortical neurons,B,1.05509,Met-A against the IAM Sequencing Atlas (sequencing),,6000,52807879
+GSM5652243,pancreatic acinar,B,0.95733,Met-A against the IAM Sequencing Atlas (sequencing),,6000,65651421
+GSM5652244,pancreatic acinar,A,1.1487,Met-A against the IAM Sequencing Atlas (sequencing),,6000,37486942
+GSM5652245,pancreatic acinar,A,1.17889,Met-A against the IAM Sequencing Atlas (sequencing),,6000,31082977
+GSM5652247,pancreatic delta,B,1.14352,Met-A against the IAM Sequencing Atlas (sequencing),,6000,33843685
+GSM5652248,pancreatic delta,A,1.02622,Met-A against the IAM Sequencing Atlas (sequencing),,6000,48920152
+GSM5652249,pancreatic delta,A,1.11772,Met-A against the IAM Sequencing Atlas (sequencing),,6000,32910585
+GSM5652250,pancreatic beta,B,1.06663,Met-A against the IAM Sequencing Atlas (sequencing),,6000,42551426
+GSM5652251,pancreatic beta,A,1.09161,Met-A against the IAM Sequencing Atlas (sequencing),,6000,41557155
+GSM5652252,pancreatic beta,A,1.05515,Met-A against the IAM Sequencing Atlas (sequencing),,6000,44732434
+GSM5652253,pancreatic alpha,B,1.03871,Met-A against the IAM Sequencing Atlas (sequencing),,6000,54462455
+GSM5652254,pancreatic alpha,A,1.11604,Met-A against the IAM Sequencing Atlas (sequencing),,6000,46346526
+GSM5652255,pancreatic alpha,A,1.10904,Met-A against the IAM Sequencing Atlas (sequencing),,6000,48561723
+GSM5652258,kidney tubular epithelium,B,1.02592,Met-A against the IAM Sequencing Atlas (sequencing),,6000,64491812
+GSM5652259,kidney tubular epithelium,A,1.13629,Met-A against the IAM Sequencing Atlas (sequencing),,6000,53356391
+GSM5652260,kidney tubular epithelium,A,1.10429,Met-A against the IAM Sequencing Atlas (sequencing),,6000,61532976
+GSM5652264,thyroid epithelium,A,1.06798,Met-A against the IAM Sequencing Atlas (sequencing),,6000,52135437
+GSM5652265,thyroid epithelium,B,1.08175,Met-A against the IAM Sequencing Atlas (sequencing),,6000,50035621
+GSM5652266,thyroid epithelium,B,1.08871,Met-A against the IAM Sequencing Atlas (sequencing),,6000,50997120
+GSM5652267,fallopien tubes epithelium,B,1.01065,Met-A against the IAM Sequencing Atlas (sequencing),,6000,64815118
+GSM5652268,fallopien tubes epithelium,A,1.11405,Met-A against the IAM Sequencing Atlas (sequencing),,6000,45702218
+GSM5652269,fallopien tubes epithelium,A,1.15244,Met-A against the IAM Sequencing Atlas (sequencing),,6000,45968356
+GSM5652271,endometrium epithelium,B,0.99102,Met-A against the IAM Sequencing Atlas (sequencing),,6000,48267394
+GSM5652272,endometrium epithelium,A,1.23756,Met-A against the IAM Sequencing Atlas (sequencing),,6000,34269064
+GSM5652273,endometrium epithelium,B,0.93609,Met-A against the IAM Sequencing Atlas (sequencing),,6000,64091063
+GSM5652274,erythrocyte progenitors,A,1.02246,Met-A against the IAM Sequencing Atlas (sequencing),,6000,50410509
+GSM5652275,erythrocyte progenitors,B,1.02969,Met-A against the IAM Sequencing Atlas (sequencing),,6000,36991609
+GSM5652276,erythrocyte progenitors,A,1.20992,Met-A against the IAM Sequencing Atlas (sequencing),,6000,19384477
+GSM5652279,cd4 t cells,A,1.01424,Met-A against the IAM Sequencing Atlas (sequencing),,6000,64744603
+GSM5652280,cd4 t cells,B,1.1689,Met-A against the IAM Sequencing Atlas (sequencing),,6000,34963416
+GSM5652281,cd4 t cells,A,0.98325,Met-A against the IAM Sequencing Atlas (sequencing),,6000,54699946
+GSM5652282,cd8 t cells,A,1.07651,Met-A against the IAM Sequencing Atlas (sequencing),,6000,44624977
+GSM5652283,cd8 t cells,B,1.1318,Met-A against the IAM Sequencing Atlas (sequencing),,6000,32261810
+GSM5652284,cd8 t cells,A,0.97318,Met-A against the IAM Sequencing Atlas (sequencing),,6000,50171166
+GSM5652285,t central memory cd4,A,0.99479,Met-A against the IAM Sequencing Atlas (sequencing),,6000,53814169
+GSM5652286,t central memory cd4,B,1.114,Met-A against the IAM Sequencing Atlas (sequencing),,6000,42320404
+GSM5652287,t central memory cd4,B,1.16967,Met-A against the IAM Sequencing Atlas (sequencing),,6000,33598486
+GSM5652288,t effector cell cd8,A,1.11529,Met-A against the IAM Sequencing Atlas (sequencing),,6000,37313260
+GSM5652289,t effector cell cd8,B,1.05201,Met-A against the IAM Sequencing Atlas (sequencing),,6000,45179019
+GSM5652290,t effector cell cd8,B,1.05222,Met-A against the IAM Sequencing Atlas (sequencing),,6000,41806747
+GSM5652291,t effector memory cd4,A,1.12208,Met-A against the IAM Sequencing Atlas (sequencing),,6000,37130544
+GSM5652292,t effector memory cd4,B,1.05826,Met-A against the IAM Sequencing Atlas (sequencing),,6000,42711507
+GSM5652293,t effector memory cd4,B,1.06653,Met-A against the IAM Sequencing Atlas (sequencing),,6000,39403714
+GSM5652299,nk cells,A,0.89488,Met-A against the IAM Sequencing Atlas (sequencing),,6000,52252276
+GSM5652300,nk cells,B,1.2726,Met-A against the IAM Sequencing Atlas (sequencing),,6000,45237333
+GSM5652301,nk cells,A,0.87085,Met-A against the IAM Sequencing Atlas (sequencing),,6000,39682778
+GSM5652302,monocytes,A,1.17564,Met-A against the IAM Sequencing Atlas (sequencing),,6000,28960073
+GSM5652303,monocytes,B,1.01235,Met-A against the IAM Sequencing Atlas (sequencing),,6000,39438424
+GSM5652304,monocytes,A,1.11301,Met-A against the IAM Sequencing Atlas (sequencing),,6000,59024300
+GSM5652308,lung alveolar macrophages,A,1.17055,Met-A against the IAM Sequencing Atlas (sequencing),,4023,45528095
+GSM5652309,lung alveolar macrophages,B,0.97721,Met-A against the IAM Sequencing Atlas (sequencing),,4023,76055459
+GSM5652310,lung interstitial macrophages,A,1.17836,Met-A against the IAM Sequencing Atlas (sequencing),,6000,55150770
+GSM5652311,lung interstitial macrophages,B,0.9754,Met-A against the IAM Sequencing Atlas (sequencing),,6000,71819621
+GSM5652312,lung interstitial macrophages,B,0.97547,Met-A against the IAM Sequencing Atlas (sequencing),,6000,61322937
+GSM5652316,b cells,A,1.18102,Met-A against the IAM Sequencing Atlas (sequencing),,6000,37676565
+GSM5652317,b cells,B,1.06425,Met-A against the IAM Sequencing Atlas (sequencing),,6000,40089394
+GSM5652318,b cells,A,1.03732,Met-A against the IAM Sequencing Atlas (sequencing),,6000,62301523
+GSM5652319,memory b cells,A,1.04294,Met-A against the IAM Sequencing Atlas (sequencing),,6000,35508471
+GSM5652320,memory b cells,B,1.17155,Met-A against the IAM Sequencing Atlas (sequencing),,6000,30045349
+GSM5652322,tonsil palatine epithelium,B,1.10481,Met-A against the IAM Sequencing Atlas (sequencing),,6000,45001807
+GSM5652323,tonsil palatine epithelium,B,1.06068,Met-A against the IAM Sequencing Atlas (sequencing),,6000,50457261
+GSM5652324,tonsil palatine epithelium,A,1.05139,Met-A against the IAM Sequencing Atlas (sequencing),,6000,48972075
+GSM5652325,tonsil pharyngeal epithelium,B,1.02424,Met-A against the IAM Sequencing Atlas (sequencing),,4074,49748781
+GSM5652326,tonsil pharyngeal epithelium,A,1.13186,Met-A against the IAM Sequencing Atlas (sequencing),,4074,35916868
+GSM5652327,tongue epithelium,A,1.12315,Met-A against the IAM Sequencing Atlas (sequencing),,6000,48860061
+GSM5652328,tongue epithelium,A,1.0708,Met-A against the IAM Sequencing Atlas (sequencing),,6000,58344986
+GSM5652329,tongue epithelium,B,1.02859,Met-A against the IAM Sequencing Atlas (sequencing),,6000,62984631
+GSM5652335,lung bronchus epithelium,A,1.0168,Met-A against the IAM Sequencing Atlas (sequencing),,6000,54657804
+GSM5652336,lung bronchus epithelium,B,1.1095,Met-A against the IAM Sequencing Atlas (sequencing),,6000,50827968
+GSM5652337,lung bronchus epithelium,A,0.98876,Met-A against the IAM Sequencing Atlas (sequencing),,6000,78509222
+GSM5652338,prostate epithelium,B,1.07036,Met-A against the IAM Sequencing Atlas (sequencing),,6000,47972068
+GSM5652339,prostate epithelium,A,1.06023,Met-A against the IAM Sequencing Atlas (sequencing),,6000,46482472
+GSM5652340,prostate epithelium,A,1.078,Met-A against the IAM Sequencing Atlas (sequencing),,6000,58168555
+GSM5652342,bladder epithelium,A,1.00392,Met-A against the IAM Sequencing Atlas (sequencing),,6000,52143821
+GSM5652343,bladder epithelium,A,0.99519,Met-A against the IAM Sequencing Atlas (sequencing),,6000,55152081
+GSM5652344,bladder epithelium,B,1.17805,Met-A against the IAM Sequencing Atlas (sequencing),,6000,40229404
+GSM5652347,breast luminal epithelium,B,1.01239,Met-A against the IAM Sequencing Atlas (sequencing),,6000,52369155
+GSM5652348,breast luminal epithelium,B,1.15882,Met-A against the IAM Sequencing Atlas (sequencing),,6000,32648158
+GSM5652349,breast luminal epithelium,A,1.10013,Met-A against the IAM Sequencing Atlas (sequencing),,6000,44158713
+GSM5652350,breast basal epithelium,A,1.05652,Met-A against the IAM Sequencing Atlas (sequencing),,6000,43600838
+GSM5652351,breast basal epithelium,B,1.11138,Met-A against the IAM Sequencing Atlas (sequencing),,6000,37899990
+GSM5652352,breast basal epithelium,A,1.07938,Met-A against the IAM Sequencing Atlas (sequencing),,6000,37631758
+GSM5652354,lung alveolar epithelium,B,1.04723,Met-A against the IAM Sequencing Atlas (sequencing),,6000,65713511
+GSM5652355,lung alveolar epithelium,A,1.07486,Met-A against the IAM Sequencing Atlas (sequencing),,6000,49729849
+GSM5652356,lung alveolar epithelium,A,1.05111,Met-A against the IAM Sequencing Atlas (sequencing),,6000,61138287
+GSM5652359,gastric fundus epithelium,B,1.09052,Met-A against the IAM Sequencing Atlas (sequencing),,6000,51967239
+GSM5652360,gastric fundus epithelium,A,1.02232,Met-A against the IAM Sequencing Atlas (sequencing),,6000,54287323
+GSM5652361,gastric fundus epithelium,A,1.04244,Met-A against the IAM Sequencing Atlas (sequencing),,6000,55472057
+GSM5652362,gastric body epithelium,B,1.04254,Met-A against the IAM Sequencing Atlas (sequencing),,6000,54312843
+GSM5652363,gastric body epithelium,A,1.11362,Met-A against the IAM Sequencing Atlas (sequencing),,6000,39721613
+GSM5652364,gastric body epithelium,A,1.07464,Met-A against the IAM Sequencing Atlas (sequencing),,6000,50696290
+GSM5652365,gastric antrum epithelium,B,1.04446,Met-A against the IAM Sequencing Atlas (sequencing),,6000,51739986
+GSM5652366,gastric antrum epithelium,A,1.06571,Met-A against the IAM Sequencing Atlas (sequencing),,6000,52110466
+GSM5652367,gastric antrum epithelium,A,1.10672,Met-A against the IAM Sequencing Atlas (sequencing),,6000,48551186
+GSM5652370,colon epithelium,B,0.99091,Met-A against the IAM Sequencing Atlas (sequencing),,5999,50874445
+GSM5652371,colon epithelium,A,1.17804,Met-A against the IAM Sequencing Atlas (sequencing),,5999,44302802
+GSM5652372,colon enteroendocrine,B,1.00382,Met-A against the IAM Sequencing Atlas (sequencing),,4278,59421840
+GSM5652373,colon epithelium,A,1.04754,Met-A against the IAM Sequencing Atlas (sequencing),,5999,41702173
+GSM5652375,colon enteroendocrine,A,1.14575,Met-A against the IAM Sequencing Atlas (sequencing),,4278,45039696
+GSM5652379,small intestine epithelium,A,1.0505,Met-A against the IAM Sequencing Atlas (sequencing),,5998,54313636
+GSM5652380,small intestine epithelium,B,1.0128,Met-A against the IAM Sequencing Atlas (sequencing),,5998,57085431
+GSM5652381,small intestine epithelium,A,1.17618,Met-A against the IAM Sequencing Atlas (sequencing),,5998,38353142

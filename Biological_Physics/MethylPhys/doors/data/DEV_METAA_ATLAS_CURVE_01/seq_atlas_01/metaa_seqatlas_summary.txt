@@ -1,0 +1,5 @@
+Met-A against the IAM Sequencing Atlas, healthy test: each healthy input against the other donor half of its own cell (run_sample.py --dev-seq-ref)
+read 137 of 137; against the sequencing reference 137; not: []
+Met-A: median 1.0704, 2.5th to 97.5th percentile 0.9368 to 1.2265
+bar 1 median within 0.05 of 1: not met
+bar 2 Met-A against depth: rho -0.620 (p 6.9e-16); |rho| at most 0.2: not met
