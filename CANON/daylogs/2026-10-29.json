@@ -68,6 +68,56 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A ruler measured with each instrument's own chemistry",
+     "status": "development",
+     "what": "Why arrays read against IAM-Atlas v2.1 and sequenced samples against the IAM Sequencing Atlas, written into both atlas definitions, the book's atlas chapter, the instruments document and the Introduction.",
+     "outcome": "An array never quite reads 0 or 1; sequencing does. Read against the array atlas, healthy sequenced samples' territories read about 14 at the islands where healthy reads 1.",
+     "rows": [
+      "GRP-017"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "Met-A against the IAM Sequencing Atlas",
+     "status": "development",
+     "what": "Met-A's own identity sites, with each cell's healthy level counted from sequencing; synthetic first, then 137 healthy samples each read against the other half of its own cell's donors.",
+     "outcome": "Synthetic met. The healthy test was not met (median 1.0704; shallower libraries read higher). The extra disorder goes with the library, not with the read count, so the next step measures each library's own floor.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The library floor",
+     "status": "development",
+     "what": "Each sequenced sample's own error rate at 46,989 sites where every healthy cell agrees completely; recorded on every sequenced sample.",
+     "outcome": "Synthetic met; its test on the 137 healthy samples is running.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The megakaryocyte column's test on donor 3",
+     "status": "development",
+     "what": "Donor 3, unread until its test was written, compared with every cell of the sequencing atlas.",
+     "outcome": "Not met: it read nearest monocytes. A score weighing counting scatter did not name its cell either, so depth is not the reason; the next check compares the three donors directly.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Google machines relaunch themselves",
+     "status": "development",
+     "what": "Every Google job saves as it goes; a watcher relaunches any machine Google takes back, after the day's price check.",
+     "outcome": "The first reclaim came at 8:58 PM; the machine was relaunched and lost one sample.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }
