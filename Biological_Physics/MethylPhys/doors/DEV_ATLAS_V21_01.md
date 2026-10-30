@@ -599,5 +599,5 @@ input 1.8726 to 2.0205 and against a lung interstitial macrophage input 1.9636 t
 at a few reads a site counting scatter is most of the distance. **What it shows:** the three megakaryocyte donors agree with each other more
 than with the cells donor 3 was named as, so the single-cell pools carry a shared megakaryocyte signal. **And a fault found:** the
 comparison's depth-weighted score averaged a ratio at each site, the flaw the pair synthetic first exposed; it now sums both sides before
-dividing. Synthetic 2 met again (`seq_atlas/seq_compare_synthetic2.txt`; the first run kept as `seq_compare_synthetic2_run1.txt`). Donor 3 is
-read again with the corrected score (development, spent).
+dividing. Synthetic 2 met again (`seq_atlas/seq_compare_synthetic2.txt`; the first run kept as `seq_compare_synthetic2_run1.txt`). **Next,
+not yet run:** donor 3 read again with the corrected score (development, spent); the earlier weighted re-read used the faulty score.
