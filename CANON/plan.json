@@ -142,6 +142,13 @@
  "todo": [
   {
    "status": "open",
+   "rows": "['GRP-019', 'COM-METAA-033', 'GRP-020']",
+   "task": "The full chain working on sequencing, then the IAM Sequencing Atlas finished, then the Johns Hopkins study, then the paper (author 2026-10-30: 'EVERYTHING needs to work properly BEFORE we run their tests through and before the paper and before running the full chain on new tests')",
+   "done_when": "in this order: (1) Met-A and the instruments built on it (the Deconvolver, the C-Score, the territories, IAM-A, coupling-A) read Normal on healthy sequenced samples with the IAM Sequencing Atlas as the ruler, each after its own synthetic; (2) the atlas finished with every checklist part (per-cell reference packages, the sky and information spheres, the globes, the remaining CMB tools on both noise maps, the fragment features); (3) the Johns Hopkins study read through the full working chain; (4) the full paper; (5) carefully chosen tests showing each instrument at its best. B and T commissioning, VAL replays and new tests wait until (1) to (3) are done. Always the full chain on everything; the chain decides what it can and cannot read.",
+   "branches": []
+  },
+  {
+   "status": "open",
    "rows": [
     "GRP-020"
    ],
