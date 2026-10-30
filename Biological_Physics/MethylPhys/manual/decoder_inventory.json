@@ -320,6 +320,7 @@
       "_bundle.json",
       "a wgbstools .pat / .pat.gz",
       "metA_floors_v1_3.json",
+      "mu_part1.parquet",
       "pip install -r Biological_Physics/MethylPhys/chain/requirements.txt",
       "pyarrow.parquet",
       "sequencing_values.csv",

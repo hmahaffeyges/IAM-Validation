@@ -987,7 +987,7 @@ def main():
         _dsr = None
         if a._seqv and getattr(a, "dev_seq_ref", None):   # 2026-10-30 (plan 35.30): a sequenced sample split on the IAM Sequencing Atlas, flagged
             import stage_seq_atlas as _SQd, stage_metaa_atlas as _SAd; _dsr = _SQd.deconv_reference_of()
-            if os.path.isdir(_SQd.ARRAY_COLS): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
+            if os.path.exists(os.path.join(_SQd.ARRAY_COLS, "mu_part1.parquet")): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)

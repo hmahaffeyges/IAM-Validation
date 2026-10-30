@@ -272,7 +272,7 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 442 (800 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `sequencing_values.csv`, `sites.parquet`, `sites_sequencing_key.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 442 (800 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `sequencing_values.csv`, `sites.parquet`, `sites_sequencing_key.parquet`
 
 ### `run_sample.py::main._panel`
 

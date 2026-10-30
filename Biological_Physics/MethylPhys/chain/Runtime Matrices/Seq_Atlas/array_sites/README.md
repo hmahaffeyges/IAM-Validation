@@ -1,0 +1,1 @@
+The IAM Sequencing Atlas at IAM-Atlas v2.1's sites (stage_seq_atlas.array_columns; run_sample.py --build seq-array-cols): mu and donor_sd, three parts each, in v2.1's layout. Built on a Google spot machine; development (plan 35.30).
