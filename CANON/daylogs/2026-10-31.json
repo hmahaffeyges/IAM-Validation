@@ -10,12 +10,43 @@
  "title": "Met-A for the whole sample and the territories on sequencing",
  "closing": "",
  "set_out": "Find why Met-A for the whole sample and the territories read high on healthy sequenced samples, including those from outside the atlas, and fix it in the chain, synthetic first.",
- "open_at_turnover": "Met-A for the whole sample and the territories on sequencing: the cause being read in the chain's own code, before any fix is written.",
+ "open_at_turnover": "Healthy pass 3 (137 inputs, the pooled level, per-site tables) on GitHub; the outside healthy samples read again on Google.",
  "sections": [
   {
    "kind": "ran",
    "heading": "What ran, and how each came out",
-   "entries": []
+   "entries": [
+    {
+     "title": "The healthy level on sequencing: the median of the donors",
+     "status": "development",
+     "what": "One spent B-cell atlas input read by the one command with a new per-site table of Met-A for the whole sample.",
+     "outcome": "About a quarter of the reading's weight sat where the expected level was exactly 0 or 1. The atlas's level is the median of 1 to 3 donors, which sits at 0 or 1 wherever a donor has few reads; the pooled count, which the atlas also stores, does so far less. The expectation on sequencing is now the pooled level.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The pooled-level synthetic",
+     "status": "development",
+     "what": "Hidden truth, three donors counted from it, samples at seven depths, read both ways by the one command.",
+     "outcome": "Not met: the median reading met its bar, the trend with depth narrowly missed its bar; the median of the donors read higher on the same samples. The bar was not changed after the run.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The B-cell input with the pooled level",
+     "status": "development",
+     "what": "The same spent input read again on the fixed chain.",
+     "outcome": "The islands reading came down to below 1; the remaining excess sits at the marked sites, where this sample's level is lower than the expected one.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    }
+   ]
   },
   {
    "kind": "built",
@@ -30,6 +61,26 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Pooled counts in the sequencing atlas's columns at v2.1's sites",
+     "status": "development",
+     "what": "The array-site columns rebuilt on a Google spot machine with each cell's pooled methylated and all reads.",
+     "outcome": "Built in minutes; the median and spread columns came out byte-identical to the committed ones.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "A broken settings block, fixed (disclosed)",
+     "status": "development",
+     "what": "An insert in stage_metaa_atlas.py matched inside another setting's name, so two settings were missing on main for one commit.",
+     "outcome": "Fixed and every setting checked present; no reading was made with the broken commit.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   }
