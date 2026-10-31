@@ -697,3 +697,15 @@ it sees, measured:** 3,000 and 10,000 contiguous sites of chromosome 8 moved 0.1
 by construction: the null shuffles runs of 50 sites along each chromosome, so a moved region keeps its clustering and its band power; the
 sky reads how departures are arranged beyond blocks, not regional level shifts, which the territories and the C-Score read. NILC, the
 template split and B cells record, on sequencing, the blood cells the sequencing atlas does not hold.
+
+## IAM-A in the sample's mix (written and committed before the synthetic runs; development)
+
+**Why:** IAM-A reads a sorted cell against its own loose-share line; a mixed sample (plasma, tissue, whole blood) has no single cell, so it
+was read on the self-reference line with the shape check off. **The reading** (`stage_seq_atlas.iama_in_mix`): in each tile of 2,000 CpGs
+the healthy expectation is the sample's own held-error opportunities times its mix of the cells' healthy held-error rates, counted in the
+IAM Sequencing Atlas's held-error reference (153 healthy inputs, by tile, overall and by sealed donor half); A is the sample's held errors
+over the expected, so healthy reads 1. Tiles are read where every cell given a share has at least 50 opportunities and those cells hold at
+least 0.99 of the shares. The rates are counted and the shares are the Deconvolver's: nothing is fitted. The one command reads it for any
+molecule file read with `--dev-seq-ref` (`iam_a_mix` in the bundle), flagged. **Synthetic** (`seq_atlas/iama_mix_synthetic.py`): molecule
+files built from the reference's own rates (b cells alone; a plasma-like mix; the mix against donor half A; the mix with every rate raised
+20 %), shares declared, through the one command; bars: the first three within 0.02 of 1, the fourth within 0.03 of 1.2.

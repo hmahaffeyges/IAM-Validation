@@ -1118,6 +1118,13 @@ def main():
                 with (_gz.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: o["iam_a_count_only"]["count_site_classes"] = _Q2s.count_pat_site_classes(_fh, _grp)
                 print("Stage Q2 molecule classes at the identity sites:", o["iam_a_count_only"]["count_site_classes"], flush=True)
                 print(f"Stage Q2 at {a.dev_count_sites} identity sites: {_cs}", flush=True)
+        if a.pat and getattr(a, "dev_seq_ref", None) and (o.get("cell_shares") or {}).get("cells"):   # 2026-10-30 (plan 35.30): IAM-A in the sample's own mix
+            try:
+                import gzip as _gzm, stage_q2_selfref as _Q2m, stage_seq_atlas as _SQm
+                print("Stage Q2: IAM-A in the sample's mix, against the IAM Sequencing Atlas's held-error reference (development)", flush=True)
+                with (_gzm.open if str(a.pat).endswith(".gz") else open)(a.pat, "rt") as _fh: _Tm = _Q2m.count_pat_tile_errors(_fh)
+                o["iam_a_mix"] = _SQm.iama_in_mix(_Tm, {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}, half=getattr(a, "dev_seq_ref_half", None))
+            except Exception as e: o["iam_a_mix"] = {"reading": "IAM-A in the sample's mix", "flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
         _mixed = _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or str(a.specimen).lower() in ("whole blood", "buffy coat")
         _only_q07 = [c["step"] for c in (qi.get("checks") or []) if c.get("result") == "REFUSED"] == ["Q0.7 specimen"]
         if qi.get("refusal_code") and _mixed and _only_q07:   # 2026-10-23 (read and flag): a mixed specimen has no single cell's healthy shape, so

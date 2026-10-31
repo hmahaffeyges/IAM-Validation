@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **36 Python files** holding **448 functions** (nested ones included); 448 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **36 Python files** holding **449 functions** (nested ones included); 449 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,250 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,257 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,190 | 42 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/reference_globes.py` | 155 | 8 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 167 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
-| `stage_seq_atlas.py` | 371 | 18 | 0 | 0 |
+| `stage_seq_atlas.py` | 401 | 19 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -272,7 +272,7 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 443 (805 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `sequencing_values.csv`, `sites.parquet`, `sites_sequencing_key.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 443 (812 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `sequencing_values.csv`, `sites.parquet`, `sites_sequencing_key.parquet`
 
 ### `run_sample.py::main._panel`
 
@@ -293,7 +293,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1177 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1184 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3679,6 +3679,13 @@ within-chromosome block-shuffle null with the look-elsewhere statistic.
 
 *Code:* `dev_stages.py` line 271 (23 lines) · arguments: beta, shares, counts · calls: not called on the traced runs
 
+### `stage_seq_atlas.py::iama_in_mix`
+
+IAM-A for a mixed sample: the sample's held errors over the number its own shares predict, tile by tile, from each cell's healthy held-error
+rate in the IAM Sequencing Atlas's held-error reference and the sample's own opportunities; healthy reads 1.
+
+*Code:* `stage_seq_atlas.py` line 185 (26 lines) · arguments: tiles, shares, half, ref · calls: not called on the traced runs · constants read: `HELD_MIN_OPP`, `HELD_REF`
+
 ### `stage_seq_atlas.py::array_columns`
 
 The IAM Sequencing Atlas at every site of IAM-Atlas v2.1, in v2.1's layout (`run_sample.py --build seq-array-cols`): each cell's counted
@@ -3698,7 +3705,7 @@ and donor spread at the array sites, marker sites chosen on the sequencing atlas
 That reference as Stage D21 takes it (levels, spreads, cells, markers); nothing when the file is absent, and the shares then say they were
 read against IAM-Atlas v2.1.
 
-*Code:* `stage_seq_atlas.py` line 182 (8 lines) · arguments: path · calls: not called on the traced runs · constants read: `DECONV_REF`
+*Code:* `stage_seq_atlas.py` line 212 (8 lines) · arguments: path · calls: not called on the traced runs · constants read: `DECONV_REF`
 
 ### `stage_seq_atlas.py::metaa_reference`
 
@@ -3706,7 +3713,7 @@ Each cell's IAM Sequencing Atlas values at its Met-A identity sites (`run_sample
 arrays, chosen by its site rule on IAM-Atlas v2.1, so Met-A stays one instrument, with every stored column from the built pieces, as one
 long table (cell, probe, cpg, columns). Small enough to sit in the chain (`Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`).
 
-*Code:* `stage_seq_atlas.py` line 191 (27 lines) · arguments: piece_dirs, out · calls: not called on the traced runs · constants read: `METAA_COLS` · files named: `pyarrow.parquet`, `sites_sequencing_key.parquet`
+*Code:* `stage_seq_atlas.py` line 221 (27 lines) · arguments: piece_dirs, out · calls: not called on the traced runs · constants read: `METAA_COLS` · files named: `pyarrow.parquet`, `sites_sequencing_key.parquet`
 
 ### `stage_seq_atlas.py::floor_sites`
 
@@ -3714,21 +3721,21 @@ The library floor's sites (`run_sample.py --build seq-floor`): among IAM-Atlas v
 Atlas has at least 20 reads and reads at or below 0.05 or at or above 0.95. There a healthy cell carries no information, so an opposite call
 is the library's own (unconverted DNA, sequencing error, damage).
 
-*Code:* `stage_seq_atlas.py` line 222 (24 lines) · arguments: piece_dirs, out, rule · calls: not called on the traced runs · constants read: `BLANK`, `FLOOR_RULE` · files named: `pyarrow.parquet`, `sites_sequencing_key.parquet`
+*Code:* `stage_seq_atlas.py` line 252 (24 lines) · arguments: piece_dirs, out, rule · calls: not called on the traced runs · constants read: `BLANK`, `FLOOR_RULE` · files named: `pyarrow.parquet`, `sites_sequencing_key.parquet`
 
 ### `stage_seq_atlas.py::library_floor`
 
 A sequenced sample's library floor: at those sites, the share of opposite calls on each side and pooled, from the sample's own calls;
 recorded on every sequenced sample as `development.library_floor`, flagged.
 
-*Code:* `stage_seq_atlas.py` line 247 (12 lines) · arguments: beta, calls, path · calls: not called on the traced runs · constants read: `FLOOR_SITES`
+*Code:* `stage_seq_atlas.py` line 277 (12 lines) · arguments: beta, calls, path · calls: not called on the traced runs · constants read: `FLOOR_SITES`
 
 ### `stage_seq_atlas.py::metaa_reference_of`
 
 One cell's rows of that reference, indexed by probe, levels 0 to 1 (blank as missing); nothing when the file or the cell is absent, and the
 reading then says it was read against IAM-Atlas v2.1.
 
-*Code:* `stage_seq_atlas.py` line 260 (10 lines) · arguments: cell, path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_REF`
+*Code:* `stage_seq_atlas.py` line 290 (10 lines) · arguments: cell, path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_REF`
 
 ### `stage_seq_atlas.py::held_reference`
 
@@ -3737,14 +3744,14 @@ sample's held-error counts by tile (`--dev-count-only --dev-count-tiles`; a tile
 ratios: donors, lone errors and their chances in all, in each sealed donor half, and in each half of every donor's molecules. A tile's held
 error is its lone errors over its chances. It is the healthy held error a plasma's own mix is built from: each cell's, weighted by its share.
 
-*Code:* `stage_seq_atlas.py` line 271 (25 lines) · arguments: samples, out · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 301 (25 lines) · arguments: samples, out · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::compare_pair`
 
 How far two samples sit from each other (`run_sample.py --build seq-pair`): at the CpGs where both have at least 5 reads, the mean level
 difference, and the summed squared differences over the squared difference counting predicts (about 1 for the same cell read twice).
 
-*Code:* `stage_seq_atlas.py` line 297 (16 lines) · arguments: a_path, b_path, min_reads · calls: not called on the traced runs · constants read: `HG19_CPGS`
+*Code:* `stage_seq_atlas.py` line 327 (16 lines) · arguments: a_path, b_path, min_reads · calls: not called on the traced runs · constants read: `HG19_CPGS`
 
 ### `stage_seq_atlas.py::compare`
 
@@ -3755,13 +3762,13 @@ CpGs) so a 16 GB machine holds it. Also a depth-weighted score per cell: each Cp
 (the sample's and the column's binomial scatter and the column's donors' spread squared), averaged, about 1 for a healthy cell of that column;
 ranked as `weighted_ranked`, so a column pooled from sparse reads is not pushed away by its own counting scatter.
 
-*Code:* `stage_seq_atlas.py` line 314 (53 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
+*Code:* `stage_seq_atlas.py` line 344 (53 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
 
 ### `stage_seq_atlas.py::geo_url`
 
 The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).
 
-*Code:* `stage_seq_atlas.py` line 368 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 398 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::_u16`
 

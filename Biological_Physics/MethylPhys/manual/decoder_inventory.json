@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1250,
+   "lines": 1257,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -302,9 +302,9 @@
      "function": "main",
      "name": "main",
      "line": 443,
-     "end": 1247,
+     "end": 1254,
      "args": [],
-     "lines": 805,
+     "lines": 812,
      "doc": "",
      "constants": [
       "BIO",
@@ -366,8 +366,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1177,
-     "end": 1178,
+     "line": 1184,
+     "end": 1185,
      "args": [
       "b",
       "it",
@@ -8410,7 +8410,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 371,
+   "lines": 401,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8585,10 +8585,31 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "iama_in_mix",
+     "name": "iama_in_mix",
+     "line": 185,
+     "end": 210,
+     "args": [
+      "tiles",
+      "shares",
+      "half",
+      "ref"
+     ],
+     "lines": 26,
+     "doc": "2026-10-30 (plan 35.30, development): IAM-A for a mixed sample (plasma, tissue, whole blood) against the IAM Sequencing Atlas's held-error reference. tiles: {(chrom, tile): [iso_A, opp_A, iso_B, opp_B]} from stage_q2_selfref.count_pat_tile_errors (both halves summed). In each tile the healthy expectation is the sample's own opportunities times its mix of the cells' healthy held-error rates (share ",
+     "constants": [
+      "HELD_MIN_OPP",
+      "HELD_REF"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "deconv_reference_of",
      "name": "deconv_reference_of",
-     "line": 182,
-     "end": 189,
+     "line": 212,
+     "end": 219,
      "args": [
       "path"
      ],
@@ -8604,8 +8625,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference",
      "name": "metaa_reference",
-     "line": 191,
-     "end": 217,
+     "line": 221,
+     "end": 247,
      "args": [
       "piece_dirs",
       "out"
@@ -8625,8 +8646,8 @@
      "file": "stage_seq_atlas.py",
      "function": "floor_sites",
      "name": "floor_sites",
-     "line": 222,
-     "end": 245,
+     "line": 252,
+     "end": 275,
      "args": [
       "piece_dirs",
       "out",
@@ -8648,8 +8669,8 @@
      "file": "stage_seq_atlas.py",
      "function": "library_floor",
      "name": "library_floor",
-     "line": 247,
-     "end": 258,
+     "line": 277,
+     "end": 288,
      "args": [
       "beta",
       "calls",
@@ -8667,8 +8688,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 260,
-     "end": 269,
+     "line": 290,
+     "end": 299,
      "args": [
       "cell",
       "path"
@@ -8686,8 +8707,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 271,
-     "end": 295,
+     "line": 301,
+     "end": 325,
      "args": [
       "samples",
       "out"
@@ -8702,8 +8723,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 297,
-     "end": 312,
+     "line": 327,
+     "end": 342,
      "args": [
       "a_path",
       "b_path",
@@ -8721,8 +8742,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 314,
-     "end": 366,
+     "line": 344,
+     "end": 396,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8743,8 +8764,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 368,
-     "end": 370,
+     "line": 398,
+     "end": 400,
      "args": [
       "gsm",
       "title"
@@ -8760,5 +8781,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 448
+ "n_functions": 449
 }

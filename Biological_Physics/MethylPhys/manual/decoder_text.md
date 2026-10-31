@@ -2342,6 +2342,10 @@ The residual sky against the sample's own mix of atlas cells (the Deconvolver's 
 (the cells' spreads, plus the array's 0.02 or, on sequencing, counting at the site's reads), mapped on the sphere, read against the
 within-chromosome block-shuffle null with the look-elsewhere statistic.
 
+### stage_seq_atlas.py::iama_in_mix
+IAM-A for a mixed sample: the sample's held errors over the number its own shares predict, tile by tile, from each cell's healthy held-error
+rate in the IAM Sequencing Atlas's held-error reference and the sample's own opportunities; healthy reads 1.
+
 ### stage_seq_atlas.py::array_columns
 The IAM Sequencing Atlas at every site of IAM-Atlas v2.1, in v2.1's layout (`run_sample.py --build seq-array-cols`): each cell's counted
 level and donor spread, so a sequenced sample's in-mix readings mix sequencing levels; the sites themselves are still chosen on v2.1.

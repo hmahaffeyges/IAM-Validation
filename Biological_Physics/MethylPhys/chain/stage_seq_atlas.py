@@ -179,6 +179,36 @@ def array_columns(piece_dirs, outdir):
     return dict(cells=len(cells), sites=len(ids), sites_with_a_cpg=int(have.sum()), sites_with_every_cell=int((MU != BLANK).all(1).sum()),
                 layout="IAM-Atlas v2.1's sites.parquet order; mu and donor_sd, three parts each", left_out=["megakaryocytes (provisional, version 1)"])
 
+HELD_REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "held_reference_v1.parquet")
+HELD_MIN_OPP = 50   # operational: a tile is read where every cell given a share has at least this many held-error opportunities in the reference
+
+def iama_in_mix(tiles, shares, half=None, ref=HELD_REF):
+    """2026-10-30 (plan 35.30, development): IAM-A for a mixed sample (plasma, tissue, whole blood) against the IAM Sequencing Atlas's
+    held-error reference. tiles: {(chrom, tile): [iso_A, opp_A, iso_B, opp_B]} from stage_q2_selfref.count_pat_tile_errors (both halves
+    summed). In each tile the healthy expectation is the sample's own opportunities times its mix of the cells' healthy held-error rates
+    (share x the cell's isolated errors over its opportunities in that tile); A = the sample's held errors over the expected, summed over
+    the tiles read, so healthy reads 1. half 'A' or 'B': that sealed donor half of the reference only (for an atlas input of the other half).
+    Nothing is fitted: the rates are counted, the shares are the Deconvolver's."""
+    import pandas as pd
+    sh = {c: float(f) for c, f in (shares or {}).items() if f and f > 0}; out = dict(stage="Q2-mix", reading="IAM-A in the sample's mix",
+          reference="IAM Sequencing Atlas held-error reference (held_reference_v1)" + (f", donor half {half}" if half else ""), A=None,
+          flag="DEVELOPMENT - not commissioned (plan 35.30)", rule=f"tiles where every cell with a share has at least {HELD_MIN_OPP} opportunities, holding at least 0.99 of the shares")
+    if not sh: out["reason"] = "no cell shares"; return out
+    if not os.path.exists(ref): out["reason"] = "the held-error reference is not in the chain"; return out
+    H = pd.read_parquet(ref).set_index(["chrom", "tile"]); sfx = {"A": "_dA", "B": "_dB"}.get(str(half or "").upper(), "")
+    have = [c for c in sh if f"{c}|iso{sfx}" in H.columns]; miss = [c for c in sh if c not in have]
+    T = pd.DataFrame.from_dict({k: v for k, v in tiles.items()}, orient="index", columns=["iso_a", "opp_a", "iso_b", "opp_b"])
+    T.index = pd.MultiIndex.from_tuples(T.index, names=["chrom", "tile"]); T = T.join(H[[f"{c}|{x}{sfx}" for c in have for x in ("iso", "opp")]], how="inner")
+    F = pd.Series({c: sh[c] for c in have}); ok = pd.concat([(T[f"{c}|opp{sfx}"] >= HELD_MIN_OPP).rename(c) for c in have], axis=1)
+    w = ok.mul(F, axis=1); tot = w.sum(1); keep = (tot / sum(sh.values())) >= 0.99; T, w, tot = T[keep], w[keep], tot[keep]
+    if T.empty: out["reason"] = "no tile where the reference holds every cell given a share" + (f" (not in the reference: {', '.join(miss)})" if miss else ""); return out
+    rate = sum((w[c] / tot) * (T[f"{c}|iso{sfx}"] / T[f"{c}|opp{sfx}"]) for c in have)
+    O = float((T.iso_a + T.iso_b).sum()); n = (T.opp_a + T.opp_b).astype(float); E = float((n * rate).sum())
+    out.update(A=round(O / E, 5) if E > 0 else None, held_errors=int(O), expected=round(E, 2), opportunities=int(n.sum()), tiles_read=int(len(T)),
+               tiles_counted=len(tiles), counting_se=round(float(np.sqrt(O) / E), 5) if E > 0 else None, cells=sorted(have),
+               not_in_reference=miss or None)
+    return out
+
 def deconv_reference_of(path=DECONV_REF):
     """The Deconvolver's sequencing reference as stage_v4.stage_d21 takes it: (R, markers), R = dict(mu, sd, cells, spread='full'); None when
     the file is absent (the reading then says it was read against IAM-Atlas v2.1)."""
