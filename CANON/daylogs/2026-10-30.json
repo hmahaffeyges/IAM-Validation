@@ -4,7 +4,7 @@
  "_convention": "see 2026-10-13.json",
  "check_completeness": false,
  "set_out": "Read the library floor on the 137 healthy sequenced samples; build the held-error reference from the 153 healthy inputs; find why the megakaryocyte column does not name donor 3; keep the B and T commissioning samples aligning.",
- "open_at_turnover": "Running on GitHub's machines: the library floor on the 137 healthy sequenced samples and the B and T commissioning samples. The held-error reference is built and in the chain.",
+ "open_at_turnover": "Met-A for the sorted cell reads Normal on healthy samples from outside the atlas; Met-A for the whole sample and the territories read high on them too, and are next. GitHub's machines are free; nothing ahead of the sequencing instruments needs them.",
  "closing": "",
  "off_page_rows": [],
  "compute": {
@@ -75,6 +75,76 @@
       "OTH-082"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "The Deconvolver on the sequencing atlas",
+     "status": "synthetic only",
+     "what": "A sequenced sample split into its cells against the IAM Sequencing Atlas's own levels (56 cells, 5,599 marker sites), through the one command.",
+     "outcome": "8 of 9 planted mixes read their shares; the ninth gave 8 % to close relatives of its cells. The share a pure cell gives others from counting alone is 1 to 2 %.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The healthy full-chain pass on sequencing",
+     "status": "development",
+     "what": "The 137 healthy sequenced samples read by the one command with the full chain, twice: before and after the in-mix readings moved onto the sequencing atlas.",
+     "outcome": "The C-Score, IAM-A and coupling-A read Normal on healthy samples; Met-A for the sorted cell (1.07), for the whole sample (1.09) and the territories read high. Purity does not explain it.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The in-mix readings on the sequencing atlas",
+     "status": "synthetic only",
+     "what": "Met-A for the whole sample, the territories and the C-Score per cell mixed from the sequencing atlas's counted levels at IAM-Atlas v2.1's sites.",
+     "outcome": "6 of 6 constructed healthy samples read 0.97 to 1.02.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The sky on sequencing",
+     "status": "synthetic only",
+     "what": "The residual sky read against the sample's own mix of the sequencing atlas, after a fault that left holes in its map was fixed.",
+     "outcome": "None of 6 constructed healthy samples shows structure beyond the null; contiguous regional shifts are not what it reads, by construction.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "IAM-A in the sample's mix",
+     "status": "synthetic only",
+     "what": "IAM-A for plasma and other mixed samples: held errors over the number the sample's own shares predict, from each cell's healthy held-error rate.",
+     "outcome": "Run 2 met: healthy mixes 0.991 to 0.993, every rate raised a fifth 1.190. Run 1 asked donor half A for a cell it does not hold.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Met-A site by site",
+     "status": "diagnosis",
+     "what": "Every identity site's reads, levels and disorder for 20 healthy samples, written by the one command.",
+     "outcome": "The excess sits where the reference level is near 0. Treating the reference as counted explains about 2 % of it. The two donor halves agree far more closely than counting allows, and the published counts equal each sample's own molecules, so the sites were chosen where these donors agree.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "Met-A on samples the atlas does not hold",
+     "status": "development",
+     "what": "35 healthy sequenced samples never read before and not atlas inputs: 25 control prefrontal neurons and 10 sorted pancreas samples, through the one command.",
+     "outcome": "The 25 neurons read Met-A 1.0132: sorted-cell Met-A reads Normal outside the atlas. The pancreas libraries cover too few identity sites to read. Met-A for the whole sample and the territories read high on the neurons too.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   }

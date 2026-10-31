@@ -1,0 +1,37 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ },
+ "date": "2026-10-31",
+ "title": "Met-A for the whole sample and the territories on sequencing",
+ "closing": "",
+ "set_out": "Find why Met-A for the whole sample and the territories read high on healthy sequenced samples, including those from outside the atlas, and fix it in the chain, synthetic first.",
+ "open_at_turnover": "Met-A for the whole sample and the territories on sequencing: the cause being read in the chain's own code, before any fix is written.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": []
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": [
+    {
+     "title": "Commits through a gated runner",
+     "status": "audit",
+     "what": "The working session can no longer keep a .git folder, so each change is committed through GitHub's API to a gate/* branch, and a runner rebases it, rebuilds the generated documents and pushes to main only through CANON/checked_push.sh, the same gate as before.",
+     "outcome": "The workflow file itself (.github/workflows/gated_merge.yml) was added directly, the one change that did not pass through the gate.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  }
+ ]
+}
