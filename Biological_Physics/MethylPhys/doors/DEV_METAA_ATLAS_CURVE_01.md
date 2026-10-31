@@ -15,7 +15,7 @@ and its own spread about that curve, bin by bin. The array's healthy mark is the
 curve with its own spread; Met-A is its own mean entropy there over that mark. No cohort, no same-run references, nothing fitted.
 
 **Prior reading:** none of the arrays. GSE189426, GSE201754 and GSE196071 had only their sample labels and file lists read; none is in the
-atlas roster or the spent list. GSE110554 and GSE167998 (spent, atlas sources) are named in the B and T section only to place a laboratory; nothing of theirs is read in this record.
+atlas roster or the spent list. GSE110554 and GSE167998 (spent, atlas sources) are named in the B and T section only to place a laboratory; nothing of theirs is read in this record. GSE107729 and GSE223153 (the selection-free healthy test): only their sample labels and the first lines of one file each were read, in the search for open sources; no count.
 
 **Data:** purified monocytes from healthy donors on the EPIC chip, raw IDATs, read by the one command (`series.yml`, specimen "isolated
 monocytes"). Development: GSE189426's 15 healthy donors (`data/DEV_METAA_ATLAS_CURVE_01/mono_dev_samples.csv`). Confirmation, untouched until
