@@ -2353,6 +2353,10 @@ beta-binomial mean of the entropy, Jeffreys' half counts; a reference level of 0
 ### stage_seq_atlas.py::metaa_half_counts
 Each cell's methylated and total reads at its Met-A identity sites in each sealed donor half, summed over the healthy inputs' .beta files.
 
+### stage_seq_atlas.py::noise_at_identity
+At each cell's Met-A identity sites, by side: noise map 1 (donor halves) and noise map 2 (read halves) as mean squares, and map 1 against the
+counting its two halves' own reads predict (`run_sample.py --build seq-noise-identity`).
+
 ### stage_seq_atlas.py::array_columns
 The IAM Sequencing Atlas at every site of IAM-Atlas v2.1, in v2.1's layout (`run_sample.py --build seq-array-cols`): each cell's counted
 level and donor spread, so a sequenced sample's in-mix readings mix sequencing levels; the sites themselves are still chosen on v2.1.

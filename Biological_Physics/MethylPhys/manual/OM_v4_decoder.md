@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **36 Python files** holding **452 functions** (nested ones included); 451 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **36 Python files** holding **452 functions** (nested ones included); 452 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -3698,6 +3698,13 @@ beta-binomial mean of the entropy, Jeffreys' half counts; a reference level of 0
 Each cell's methylated and total reads at its Met-A identity sites in each sealed donor half, summed over the healthy inputs' .beta files.
 
 *Code:* `stage_seq_atlas.py` line 292 (20 lines) · arguments: samples_csv, out, ref · calls: not called on the traced runs · constants read: `HG19_CPGS`, `METAA_REF` · files named: `seq_atlas_inputs.csv`
+
+### `stage_seq_atlas.py::noise_at_identity`
+
+At each cell's Met-A identity sites, by side: noise map 1 (donor halves) and noise map 2 (read halves) as mean squares, and map 1 against the
+counting its two halves' own reads predict (`run_sample.py --build seq-noise-identity`).
+
+*Code:* `stage_seq_atlas.py` line 313 (22 lines) · arguments: path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::array_columns`
 
