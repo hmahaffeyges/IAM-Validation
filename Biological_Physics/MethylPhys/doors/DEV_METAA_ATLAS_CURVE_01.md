@@ -421,3 +421,11 @@ the same), then each sample written as .lbeta by the one command (`--build seq-t
 Sequencing Atlas. **Bars** (`seq_atlas_01/selfree_score.py`): 1. the neurons' median Met-A within 0.05 of 1; 2. the pancreas samples'
 median within 0.05 of 1. Recorded, not scored: Met-A against depth. **Prediction from the selection finding:** both read nearer 1 than the
 atlas inputs' 1.05 to 1.07; if they read like the inputs, selection is not the cause and the excess is in Met-A's expectation itself.
+
+**The healthy full-chain pass 2, read** (`seq_atlas_01/healthy_fullchain2_summary.txt`; the same 137 through the one command with the
+Deconvolver and the in-mix readings on the IAM Sequencing Atlas; sent before the sky's move, so the sky ran on the earlier chain and is
+recorded not run). Normal on healthy: the C-Score (1.0003, 0.949 inside its band), IAM-A (0.9518, 0.942), coupling-A (1.0000, 0.993); the
+Deconvolver's own-cell share 0.9817. Still not Normal: Met-A for the sorted cell 1.0704, Met-A for the whole sample 1.0889 (it read 0.9210
+on the array levels), the territories' domains 1.0498 and islands 2.0664 (14.5255 before). Islands are almost all unmarked sites, where a
+counted reference level of 0 predicts no disorder: the same low-level effect the site-by-site breakdown found for Met-A. Only 100 of the
+137 first landed (the watcher read one page of a run's artifacts; fixed) and all 137 were then landed.
