@@ -435,3 +435,13 @@ formats, the same counts). All 25 neurons were read. All 10 pancreas samples sto
 returns nothing for a contig absent from the chain, which the conversion did not allow for (fixed); they are sent again, and samples already
 read are skipped. Met-A's per-site table was written under a name the job did not upload (the bundle's own name; fixed), so this test's
 depth, recorded and not scored, is blank.
+
+**The selection-free healthy test, read: not met** (`seq_atlas_01/selfree_summary.txt`, `seq_atlas_01/selfree_readings.csv`). Bar 1 met:
+the 25 control neurons from outside the atlas read Met-A 1.0132 (median; the atlas's own cortical neuron inputs read 1.055 in the healthy
+test). Bar 2 not met: the 10 pancreas samples were not read, these libraries covering about 4,100 of the 6,000 identity sites (Met-A needs
+90 %). **What it shows:** read on a sample the atlas does not hold, sorted-cell Met-A on sequencing reads Normal; the healthy test's excess
+belongs to reading the atlas's own inputs at sites chosen with them. **Recorded, not scored** (`seq_atlas_01/selfree_recorded.txt`):
+on the same neurons the C-Score reads 0.9989, while Met-A for the whole sample (1.192) and the territories (islands 1.498, domains 1.100)
+are high: the in-mix readings have a cause of their own, not selection. The Deconvolver gives these prefrontal NeuN+ nuclei 0.84 to the
+atlas's cortical neurons. **Next:** the in-mix readings at low levels; and a selection-free test for a selected cell type whose libraries
+cover the identity sites.

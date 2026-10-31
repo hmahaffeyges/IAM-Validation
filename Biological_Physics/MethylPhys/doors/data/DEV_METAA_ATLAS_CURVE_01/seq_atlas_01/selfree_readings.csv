@@ -1,0 +1,36 @@
+gsm,cell,A,depth,reading,reason,n_sites
+GSM2877162,cortical neurons,0.9066,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877166,cortical neurons,0.92035,,Met-A against the IAM Sequencing Atlas (sequencing),,5878.0
+GSM2877167,cortical neurons,0.98094,,Met-A against the IAM Sequencing Atlas (sequencing),,5894.0
+GSM2877169,cortical neurons,0.93618,,Met-A against the IAM Sequencing Atlas (sequencing),,5901.0
+GSM2877170,cortical neurons,1.0733,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877174,cortical neurons,1.03034,,Met-A against the IAM Sequencing Atlas (sequencing),,5901.0
+GSM2877176,cortical neurons,1.63865,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877178,cortical neurons,1.17231,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877186,cortical neurons,0.91555,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877198,cortical neurons,0.9991,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877200,cortical neurons,1.01321,,Met-A against the IAM Sequencing Atlas (sequencing),,5899.0
+GSM2877201,cortical neurons,1.17626,,Met-A against the IAM Sequencing Atlas (sequencing),,5901.0
+GSM2877202,cortical neurons,0.95128,,Met-A against the IAM Sequencing Atlas (sequencing),,5897.0
+GSM2877203,cortical neurons,0.9475,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877204,cortical neurons,0.97355,,Met-A against the IAM Sequencing Atlas (sequencing),,5902.0
+GSM2877205,cortical neurons,1.20532,,Met-A against the IAM Sequencing Atlas (sequencing),,5901.0
+GSM2877206,cortical neurons,0.93746,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877207,cortical neurons,1.1525,,Met-A against the IAM Sequencing Atlas (sequencing),,5902.0
+GSM2877208,cortical neurons,1.22071,,Met-A against the IAM Sequencing Atlas (sequencing),,5902.0
+GSM2877209,cortical neurons,1.26297,,Met-A against the IAM Sequencing Atlas (sequencing),,5898.0
+GSM2877210,cortical neurons,1.76872,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM2877211,cortical neurons,1.62178,,Met-A against the IAM Sequencing Atlas (sequencing),,5901.0
+GSM2877213,cortical neurons,0.88045,,Met-A against the IAM Sequencing Atlas (sequencing),,5902.0
+GSM2877215,cortical neurons,1.0283,,Met-A against the IAM Sequencing Atlas (sequencing),,5902.0
+GSM2877228,cortical neurons,0.9557,,Met-A against the IAM Sequencing Atlas (sequencing),,5900.0
+GSM6940395,pancreatic acinar,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4061 of 6000 identity sites measured (at least 90% needed),
+GSM6940396,pancreatic acinar,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4166 of 6000 identity sites measured (at least 90% needed),
+GSM6940397,pancreatic acinar,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4007 of 6000 identity sites measured (at least 90% needed),
+GSM6940398,pancreatic acinar,,,Met-A against the IAM Sequencing Atlas (sequencing),only 3963 of 6000 identity sites measured (at least 90% needed),
+GSM6940399,pancreatic acinar,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4047 of 6000 identity sites measured (at least 90% needed),
+GSM6940400,pancreatic duct,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4211 of 6000 identity sites measured (at least 90% needed),
+GSM6940401,pancreatic duct,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4227 of 6000 identity sites measured (at least 90% needed),
+GSM6940402,pancreatic duct,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4083 of 6000 identity sites measured (at least 90% needed),
+GSM6940403,pancreatic duct,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4135 of 6000 identity sites measured (at least 90% needed),
+GSM6940404,pancreatic duct,,,Met-A against the IAM Sequencing Atlas (sequencing),only 4127 of 6000 identity sites measured (at least 90% needed),

@@ -37,3 +37,7 @@ bvp_GSM5652279.json
 selfree_samples.csv
 healthy_fullchain2_summary.txt
 healthy_fullchain2_readings.csv
+selfree_summary.txt
+selfree_readings.csv
+selfree_all_readings.csv
+selfree_recorded.txt

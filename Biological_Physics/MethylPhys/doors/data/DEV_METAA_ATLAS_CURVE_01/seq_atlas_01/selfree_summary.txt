@@ -1,0 +1,5 @@
+read 25 of 35
+bar 1 neurons: median Met-A 1.0132 over 25 (within 0.05 of 1): met
+bar 2 pancreas: median Met-A nan over 0 (within 0.05 of 1): not met
+not read: GSM6940395 (only 4061 of 6000 identity sites measured (at least 90% needed)), GSM6940396 (only 4166 of 6000 identity sites measured (at least 90% needed)), GSM6940397 (only 4007 of 6000 identity sites measured (at least 90% needed)), GSM6940398 (only 3963 of 6000 identity sites measured (at least 90% needed)), GSM6940399 (only 4047 of 6000 identity sites measured (at least 90% needed)), GSM6940400 (only 4211 of 6000 identity sites measured (at least 90% needed)), GSM6940401 (only 4227 of 6000 identity sites measured (at least 90% needed)), GSM6940402 (only 4083 of 6000 identity sites measured (at least 90% needed)), GSM6940403 (only 4135 of 6000 identity sites measured (at least 90% needed)), GSM6940404 (only 4127 of 6000 identity sites measured (at least 90% needed))
+test: not met

@@ -1,0 +1,7 @@
+recorded, not scored (the one command's bundles): medians over the 25 neurons
+metaa: 1.0132
+metaa_whole: 1.1920
+islands: 1.4982
+domains: 1.1004
+cscore: 0.9989
+own_share: 0.8406
