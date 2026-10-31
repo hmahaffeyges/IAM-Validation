@@ -48,6 +48,36 @@ def hg19_dictionary(cpg_bed):
     if len(D) != HG19_CPGS: raise ValueError(f"{cpg_bed}: {len(D):,} CpGs, not {HG19_CPGS:,}")
     return {c: (g.pos.to_numpy(), g.idx.to_numpy()) for c, g in D.groupby("chr", sort=False)}
 
+TABLE_FORMATS = ("cpg-table", "bismark-cov")
+
+def table_to_lbeta(src, out, cpg_bed, fmt, genome):
+    """2026-10-30 (the selection-free healthy test): one published per-CpG table written as .lbeta on the hg19 numbering. fmt 'cpg-table':
+    chrom, 1-based position, methylated, all reads (one header line allowed); 'bismark-cov': chrom, 1-based start, end, percent, methylated,
+    unmethylated. genome 'hg19' places positions directly (the C of a CpG or the G of the reverse strand, both strands added to one CpG);
+    'hg38' moves them first (lift_to_hg19). Counts only."""
+    import tempfile
+    if fmt not in TABLE_FORMATS: raise ValueError(f"format {fmt}: one of {TABLE_FORMATS}")
+    if fmt == "cpg-table":
+        T = pd.read_csv(src, sep=r"\s+", header=None, comment=None, names=["chr", "pos", "m", "n"], dtype={"chr": str}, low_memory=False)
+        T = T[pd.to_numeric(T.pos, errors="coerce").notna()].astype({"pos": np.int64, "m": np.int64, "n": np.int64})
+    else:
+        T = pd.read_csv(src, sep="\t", header=None, names=["chr", "pos", "end", "pct", "m", "u"], dtype={"chr": str}); T["n"] = T.m + T.u
+    T["chr"] = np.where(T.chr.str.startswith("chr"), T.chr, "chr" + T.chr); T = T[T.n > 0]
+    if genome == "hg38":
+        f = tempfile.NamedTemporaryFile(suffix=".tsv", delete=False).name
+        pd.DataFrame(dict(chr=T.chr, pos=T.pos - 1, m=T.m, n=T.n)).to_csv(f, sep="\t", header=False, index=False)
+        try: return dict(lift_to_hg19([f], out, cpg_bed), fmt=fmt, genome=genome)
+        finally: os.remove(f)
+    D = hg19_dictionary(cpg_bed); a = np.zeros((HG19_CPGS, 2), np.int64); landed = 0
+    for c, g in T.groupby("chr", sort=False):
+        if c not in D: continue
+        pos, ix = D[c]; pp = g.pos.to_numpy(np.int64); hit = np.full(len(pp), -1, np.int64)
+        for cand in (pp, pp - 1):
+            j = np.searchsorted(pos, cand); ok = (j < len(pos)) & (hit < 0); ok[ok] = pos[j[ok]] == cand[ok]; hit[ok] = ix[j[ok]]
+        k = hit >= 0; landed += int(k.sum()); np.add.at(a[:, 0], hit[k] - 1, g.m.to_numpy()[k]); np.add.at(a[:, 1], hit[k] - 1, g.n.to_numpy()[k])   # the index is 1-based
+    np.minimum(a, 65535).astype(np.uint16).tofile(out)
+    return dict(fmt=fmt, genome=genome, positions=int(len(T)), landed_on_cpg=landed, cpgs_with_reads=int((a[:, 1] > 0).sum()), output=os.path.basename(out))
+
 def lift_to_hg19(files, out, cpg_bed, chain="hg38"):
     """Per-CpG read tables on GRCh38 (tab-separated chrom, 0-based position, methylated reads, all reads; one file per cell, pooled here) moved to
     the hg19 CpG numbering and written as one .lbeta (uint16 methylated and all reads at every hg19 CpG). Positions are pooled on GRCh38 first,

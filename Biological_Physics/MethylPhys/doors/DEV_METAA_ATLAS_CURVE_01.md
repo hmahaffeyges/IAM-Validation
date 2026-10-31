@@ -409,3 +409,15 @@ Blood cells, whose v2.1 columns rest mostly on independent arrays, agree like co
 the whole** (`seq_atlas_01/metaa_by_selection.py`, `seq_atlas_01/metaa_by_selection.txt`): cells whose halves agree like counting still
 read about 1.05, the most selected cells about 1.07, and the link across cells is weak. **Next:** a healthy test free of selection:
 healthy sequenced samples that are not atlas inputs, of atlas cells, read through the one command; written before any is read.
+
+## Met-A on sequencing: the selection-free healthy test (written and committed before any of its samples is read)
+
+**The instrument's job:** a healthy sample reads Met-A Normal. **Why this test:** the healthy test read the atlas's own inputs at identity
+sites chosen with them; a sample from outside the atlas carries no such selection. **Data** (`seq_atlas_01/selfree_samples.csv`; never
+read, not atlas inputs): GSE107729, 25 prefrontal (BA46) NeuN+ neuron nuclei of control brains (hg19 per-CpG tables); GSE223153, 5 freshly
+sorted pancreatic acinar and 5 duct samples (hg38 Bismark coverage). **Method:** on Google spot machines, the table synthetic first
+(`seq_atlas/seq_table_synthetic.py`: a spent input written as both formats, half on the reverse strand, read back; at least 0.999 of CpGs
+the same), then each sample written as .lbeta by the one command (`--build seq-table`) and read by it with the full chain against the IAM
+Sequencing Atlas. **Bars** (`seq_atlas_01/selfree_score.py`): 1. the neurons' median Met-A within 0.05 of 1; 2. the pancreas samples'
+median within 0.05 of 1. Recorded, not scored: Met-A against depth. **Prediction from the selection finding:** both read nearer 1 than the
+atlas inputs' 1.05 to 1.07; if they read like the inputs, selection is not the cause and the excess is in Met-A's expectation itself.

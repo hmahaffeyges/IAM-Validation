@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1280,
+   "lines": 1286,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -227,11 +227,11 @@
      "function": "_build",
      "name": "_build",
      "line": 248,
-     "end": 396,
+     "end": 402,
      "args": [
       "a"
      ],
-     "lines": 149,
+     "lines": 155,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -250,8 +250,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 369,
-     "end": 369,
+     "line": 375,
+     "end": 375,
      "args": [
       "m"
      ],
@@ -265,8 +265,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 399,
-     "end": 419,
+     "line": 405,
+     "end": 425,
      "args": [
       "a",
       "cnt",
@@ -282,8 +282,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 422,
-     "end": 463,
+     "line": 428,
+     "end": 469,
      "args": [
       "a",
       "o",
@@ -303,8 +303,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 466,
-     "end": 1277,
+     "line": 472,
+     "end": 1283,
      "args": [],
      "lines": 812,
      "doc": "",
@@ -338,8 +338,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 701,
-     "end": 705,
+     "line": 707,
+     "end": 711,
      "args": [
       "r"
      ],
@@ -355,8 +355,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 936,
-     "end": 943,
+     "line": 942,
+     "end": 949,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -368,8 +368,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1207,
-     "end": 1208,
+     "line": 1213,
+     "end": 1214,
      "args": [
       "b",
       "it",
@@ -8431,7 +8431,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 481,
+   "lines": 511,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8471,10 +8471,32 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "table_to_lbeta",
+     "name": "table_to_lbeta",
+     "line": 53,
+     "end": 79,
+     "args": [
+      "src",
+      "out",
+      "cpg_bed",
+      "fmt",
+      "genome"
+     ],
+     "lines": 27,
+     "doc": "2026-10-30 (the selection-free healthy test): one published per-CpG table written as .lbeta on the hg19 numbering. fmt 'cpg-table': chrom, 1-based position, methylated, all reads (one header line allowed); 'bismark-cov': chrom, 1-based start, end, percent, methylated, unmethylated. genome 'hg19' places positions directly (the C of a CpG or the G of the reverse strand, both strands added to one CpG",
+     "constants": [
+      "HG19_CPGS",
+      "TABLE_FORMATS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "lift_to_hg19",
      "name": "lift_to_hg19",
-     "line": 51,
-     "end": 79,
+     "line": 81,
+     "end": 109,
      "args": [
       "files",
       "out",
@@ -8493,8 +8515,8 @@
      "file": "stage_seq_atlas.py",
      "function": "_u16",
      "name": "_u16",
-     "line": 81,
-     "end": 82,
+     "line": 111,
+     "end": 112,
      "args": [
       "x",
       "scale"
@@ -8511,8 +8533,8 @@
      "file": "stage_seq_atlas.py",
      "function": "_H",
      "name": "_H",
-     "line": 84,
-     "end": 87,
+     "line": 114,
+     "end": 117,
      "args": [
       "p"
      ],
@@ -8526,8 +8548,8 @@
      "file": "stage_seq_atlas.py",
      "function": "build_block",
      "name": "build_block",
-     "line": 89,
-     "end": 115,
+     "line": 119,
+     "end": 145,
      "args": [
       "samples",
       "start",
@@ -8547,8 +8569,8 @@
      "file": "stage_seq_atlas.py",
      "function": "build_block.pooled",
      "name": "pooled",
-     "line": 103,
-     "end": 105,
+     "line": 133,
+     "end": 135,
      "args": [
       "sel"
      ],
@@ -8562,8 +8584,8 @@
      "file": "stage_seq_atlas.py",
      "function": "deconv_reference",
      "name": "deconv_reference",
-     "line": 123,
-     "end": 148,
+     "line": 153,
+     "end": 178,
      "args": [
       "piece_dirs",
       "out",
@@ -8585,8 +8607,8 @@
      "file": "stage_seq_atlas.py",
      "function": "array_columns",
      "name": "array_columns",
-     "line": 152,
-     "end": 180,
+     "line": 182,
+     "end": 210,
      "args": [
       "piece_dirs",
       "outdir"
@@ -8608,8 +8630,8 @@
      "file": "stage_seq_atlas.py",
      "function": "iama_in_mix",
      "name": "iama_in_mix",
-     "line": 185,
-     "end": 210,
+     "line": 215,
+     "end": 240,
      "args": [
       "tiles",
       "shares",
@@ -8629,8 +8651,8 @@
      "file": "stage_seq_atlas.py",
      "function": "deconv_reference_of",
      "name": "deconv_reference_of",
-     "line": 212,
-     "end": 219,
+     "line": 242,
+     "end": 249,
      "args": [
       "path"
      ],
@@ -8646,8 +8668,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference",
      "name": "metaa_reference",
-     "line": 221,
-     "end": 247,
+     "line": 251,
+     "end": 277,
      "args": [
       "piece_dirs",
       "out"
@@ -8667,8 +8689,8 @@
      "file": "stage_seq_atlas.py",
      "function": "floor_sites",
      "name": "floor_sites",
-     "line": 252,
-     "end": 275,
+     "line": 282,
+     "end": 305,
      "args": [
       "piece_dirs",
       "out",
@@ -8690,8 +8712,8 @@
      "file": "stage_seq_atlas.py",
      "function": "library_floor",
      "name": "library_floor",
-     "line": 277,
-     "end": 288,
+     "line": 307,
+     "end": 318,
      "args": [
       "beta",
       "calls",
@@ -8709,8 +8731,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_half_counts",
      "name": "metaa_half_counts",
-     "line": 292,
-     "end": 311,
+     "line": 322,
+     "end": 341,
      "args": [
       "samples_csv",
       "out",
@@ -8731,8 +8753,8 @@
      "file": "stage_seq_atlas.py",
      "function": "beta_vs_pat",
      "name": "beta_vs_pat",
-     "line": 313,
-     "end": 341,
+     "line": 343,
+     "end": 371,
      "args": [
       "beta_src",
       "pat_path",
@@ -8752,8 +8774,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_at_identity",
      "name": "noise_at_identity",
-     "line": 343,
-     "end": 364,
+     "line": 373,
+     "end": 394,
      "args": [
       "path"
      ],
@@ -8773,8 +8795,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 366,
-     "end": 379,
+     "line": 396,
+     "end": 409,
      "args": [
       "cell",
       "path"
@@ -8795,8 +8817,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 381,
-     "end": 405,
+     "line": 411,
+     "end": 435,
      "args": [
       "samples",
       "out"
@@ -8811,8 +8833,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 407,
-     "end": 422,
+     "line": 437,
+     "end": 452,
      "args": [
       "a_path",
       "b_path",
@@ -8830,8 +8852,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 424,
-     "end": 476,
+     "line": 454,
+     "end": 506,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8852,8 +8874,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 478,
-     "end": 480,
+     "line": 508,
+     "end": 510,
      "args": [
       "gsm",
       "title"
@@ -8869,5 +8891,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 453
+ "n_functions": 454
 }

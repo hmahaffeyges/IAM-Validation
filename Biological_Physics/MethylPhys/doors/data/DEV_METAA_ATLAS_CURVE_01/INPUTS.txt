@@ -34,3 +34,4 @@ bvp_GSM5652308.json
 bvp_GSM5652309.json
 bvp_GSM5652205.json
 bvp_GSM5652279.json
+selfree_samples.csv

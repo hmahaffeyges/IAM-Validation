@@ -28,7 +28,7 @@ GSE104700,,,,,,,,,not usable (no raw reads (NIH GDS policy; per-subject CpG valu
 GSE104942,,,,,partly spent,,,,,,,,,
 GSE106099,,,,,,,,,not usable (cultured with no uncultured comparison),vascular endothelium,yes,IDAT listed for 30/30 samples,Human Feto-placental Arterial and Venous Endothelial Cells are Differentially Programmed by Gestational Diabetes Mellitus Resulting in Cell-specific Barrier Fun,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE107226,,,,,,,,DEV_ATLAS_COMMISSION_01; DEV_TISSUE_LUNG_03,not usable (cultured; few donors),lung fibroblast,yes,IDAT listed for 12/12 samples,Global DNA methylation pattern of fibroblasts in idiopathic pulmonary fibrosis: relationship to gene expression,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE107729,,,,,,,,DEV_IAMA_NEURON_01,atlas build,cortical neurons | oligodendrocytes,yes,SRA run links for 95/95 samples,Genome-wide profiling at single-nucleotide resolution of brain cell types in schizophrenia [WGBS],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE107729,,,,,spent (selection-free healthy test of Met-A on sequencing; written before reading),,,DEV_IAMA_NEURON_01; DEV_METAA_ATLAS_CURVE_01,atlas build,cortical neurons | oligodendrocytes,yes,SRA run links for 95/95 samples,Genome-wide profiling at single-nucleotide resolution of brain cell types in schizophrenia [WGBS],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE108058,,,,,,,,,research,sperm,yes,IDAT listed for 30/30 samples,Somatic cell contamination in sperm human DNA methylatoin studies,gold-mine map
 GSE108123,,,,,,,,,,,,,,candidates DEV_FINGERPRINT_03
 GSE109042,,,,,,,,,not usable (not purified (buccal swab epithelium); FASD case-control),,yes,IDAT listed for 53/53 samples,DNA methylation as a predictor of fetal alcohol spectrum disorder,gold-mine map
@@ -226,7 +226,7 @@ GSE221540,,,,,,,,,not usable (cultured with no uncultured comparison),striated m
 GSE221745,,,,,spent,,,,,,,,,
 GSE222147,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE222927,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
-GSE223153,,,,,,,,DEV_ATLAS_V21_01,atlas build,pancreatic acinar | pancreatic duct,yes,SRA run links for 19/19 samples,DNA methylation sequencing of human pancreatic acinar and ductal cells [Bisulfite-seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE223153,,,,,spent (selection-free healthy test of Met-A on sequencing; written before reading),,,DEV_ATLAS_V21_01; DEV_METAA_ATLAS_CURVE_01,atlas build,pancreatic acinar | pancreatic duct,yes,SRA run links for 19/19 samples,DNA methylation sequencing of human pancreatic acinar and ductal cells [Bisulfite-seq],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE223576,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE223748,downloads/E_dog_animal/GSE223748/,16.33,,,spent,,,DEV_SPECIES_AGEING_01,,,,,Dog and other mammal arrays,S3 register
 GSE224807,,,,,,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_COMMISSION_01; DEV_ATLAS_V21_01; DEV_COMPOSITION_TRUTH_03; DEV_METAA_450K_01; DEV_SYNTH_L,atlas build,monocytes | granulocytes | b cells | cd4 t cells | cd8 t cells | nk cells,yes,IDAT listed for 876/876 samples,Smoking effect on DNA methylation in human blood cell types,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
