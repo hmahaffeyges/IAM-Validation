@@ -489,3 +489,9 @@ counted expectation off. Each reading also writes both per-site tables (`seq_atl
 --dev-metaa-sites`), and `seq_atlas_01/pass3_sites.py` reports, for the marked and unmarked sides, the whole-sample reading's ratio and each
 sample's level offset from the expected level, against each other and against depth (measured, not scored). The instrument's job, for every
 reading: a healthy sample reads Normal. Nothing is tuned on this pass; a reading that still misses gets its own cause and test.
+
+**The outside samples read again (written before the re-read).** The 35 samples of the selection-free healthy test (spent: 25 neurons, 10
+pancreas) read again by the one command on the chain as now committed, through the same table route and full chain, with both per-site
+tables; the committed scorer (`seq_atlas_01/selfree_score.py`) scores sorted-cell Met-A as before, and `seq_atlas_01/pass3_sites.py` gives
+their site-by-site breakdown beside pass 3's. Read on Google spot machines, each machine taking the hg19 dictionary from the committed index
+release with the stream checksum checked.

@@ -3,11 +3,11 @@ per-site table of Met-A for the whole sample (NAME_whole_sites.csv.gz, written b
 marked side (expected level at least 0.5) and the unmarked side: the reading's ratio there (weighted measured over weighted expected
 disorder, as Met-A for the whole sample is formed), and the sample's level offset (its mean level minus the expected level's mean). Across
 samples: the ratio on each side against the offset and against depth (Spearman). Usage: python3 pass3_sites.py LANDED_DIR OUT.txt"""
-import sys, os, glob, pandas as pd, numpy as np
+import sys, os, re, glob, pandas as pd, numpy as np
 from scipy.stats import spearmanr
 rows = []
 for f in sorted(glob.glob(os.path.join(sys.argv[1], "**", "*_whole_sites.csv.gz"), recursive=True)):
-    g = os.path.basename(f).split("_")[0]; D = pd.read_csv(f)
+    g = re.search(r"GSM\d+", os.path.basename(f)).group(0); D = pd.read_csv(f)
     for side, s in (("marked", D.expected_level >= 0.5), ("unmarked", D.expected_level < 0.5)):
         x = D[s]; rows.append(dict(gsm=g, side=side, sites=len(x), depth=float(x.reads.median()), ratio=float((x.weight * x.H_measured).sum() / (x.weight * x.H_expected).sum()),
                                    offset=float(x.sample_level.mean() - x.expected_level.mean())))
