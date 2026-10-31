@@ -42,11 +42,11 @@ jobs:
             python3 - <<'EOF'
           import subprocess, json, base64
           g = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True, check=True).stdout.strip()
-          base = g("rev-parse", "origin/main"); out = dict(base=base, tree=g("rev-parse", "HEAD^{tree}"), files={}, deleted=[])
-          for l in g("diff", "--name-status", "--no-renames", base, "HEAD").splitlines():
-              st, p = l.split("\t", 1)
+          base = g("rev-parse", "origin/main"); out = dict(base=base, tree=g("rev-parse", "HEAD^{tree}"), files={}, modes={}, deleted=[])
+          for l in g("diff", "--raw", "--no-renames", "--no-abbrev", base, "HEAD").splitlines():
+              meta, p = l.split("\t", 1); f = meta.split(); st = f[4]
               if st == "D": out["deleted"].append(p)
-              else: out["files"][p] = base64.b64encode(open(p, "rb").read()).decode()
+              else: out["files"][p] = base64.b64encode(open(p, "rb").read()).decode(); out["modes"][p] = f[1]
           json.dump(out, open("handback.json", "w")); print("GATED MERGE: PASSED", out["tree"][:12], len(out["files"]), "files")
           EOF
             echo "GATED MERGE: PASSED" >> gate.log
