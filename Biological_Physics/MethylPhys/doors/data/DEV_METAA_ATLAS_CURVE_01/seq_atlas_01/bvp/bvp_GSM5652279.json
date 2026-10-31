@@ -1,0 +1,29 @@
+{
+ "cell": "cd4 t cells",
+ "sites": 6000,
+ "sites_both": 6000,
+ "N_beta_median": 38.0,
+ "N_pat_median": 38.0,
+ "N_equal_share": 1.0,
+ "N_ratio_median": 1.0,
+ "level_equal_share": 1.0,
+ "level_beta_mean": 0.47324,
+ "level_pat_mean": 0.47324,
+ "molecules_on_identity_sites": 219775,
+ "share_on_two_or_more": 0.0152,
+ "N_beta_at_255": 0,
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-beta-vs-pat",
+  "--build-input",
+  "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652279/suppl/GSM5652279_Blood-T-CD4-Z000000TT.beta",
+  "--pat",
+  "/root/w/GSM5652279.pat.gz",
+  "--build-cell",
+  "cd4 t cells",
+  "--bundle",
+  "/root/w/bvp_GSM5652279.json"
+ ],
+ "label": "DEVELOPMENT - a check of the atlas's inputs (plan 35.30)"
+}

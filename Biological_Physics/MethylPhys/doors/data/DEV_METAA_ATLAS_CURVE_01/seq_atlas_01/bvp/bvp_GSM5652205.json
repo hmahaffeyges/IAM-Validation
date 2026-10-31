@@ -1,0 +1,29 @@
+{
+ "cell": "striated muscle",
+ "sites": 4163,
+ "sites_both": 4163,
+ "N_beta_median": 41.0,
+ "N_pat_median": 41.0,
+ "N_equal_share": 0.9976,
+ "N_ratio_median": 1.0,
+ "level_equal_share": 0.9976,
+ "level_beta_mean": 0.68168,
+ "level_pat_mean": 0.68168,
+ "molecules_on_identity_sites": 190244,
+ "share_on_two_or_more": 0.0474,
+ "N_beta_at_255": 10,
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-beta-vs-pat",
+  "--build-input",
+  "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652205/suppl/GSM5652205_Skeletal-Muscle-Z00000427.beta",
+  "--pat",
+  "/root/w/GSM5652205.pat.gz",
+  "--build-cell",
+  "striated muscle",
+  "--bundle",
+  "/root/w/bvp_GSM5652205.json"
+ ],
+ "label": "DEVELOPMENT - a check of the atlas's inputs (plan 35.30)"
+}

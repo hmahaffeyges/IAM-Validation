@@ -396,3 +396,16 @@ cells, 0.609 to 1.162); on the marked side 0.184 (0.077 to 1.383), below half of
 cannot agree more closely than counting allows, so the read counts in these published files understate how precise their levels are.
 Met-A's expectation trusts the counts, so it predicts too little disorder, most at low depth: both symptoms of the healthy test. **Next:**
 for the same healthy inputs, the published .beta counts against counts taken from their own molecule files (.pat) at the identity sites.
+
+**The published counts checked against the molecule files** (`seq_atlas_01/bvp/`, `run_sample.py --build seq-beta-vs-pat`, one Google spot
+machine each): for both lung alveolar macrophage donors, one striated muscle donor and one CD4 T-cell donor, the .beta counts equal the
+counts taken from each input's own .pat at 99.6 to 100 % of identity sites, and fewer than 5 % of molecules cover two identity sites. The
+counts are the reads; the files are not the cause. **What the sites show:** at lung alveolar macrophages' marked identity sites every
+pooled level lies between 0.935 and 0.951 and no site is fully methylated in both halves, where independent reads at about 37 per site
+would leave about a tenth so; the donors agree far beyond counting. **Most likely cause, a selection effect:** Met-A's sites are chosen on
+IAM-Atlas v2.1 (a level band and a donor spread of at most 0.05), and for most non-blood cells v2.1's column comes from these same
+sequenced donors, so the rule picks sites where these donors happened to agree; the healthy test then read those donors at those sites.
+Blood cells, whose v2.1 columns rest mostly on independent arrays, agree like counting (`noise_at_identity.csv`). **It is one part, not
+the whole** (`seq_atlas_01/metaa_by_selection.py`, `seq_atlas_01/metaa_by_selection.txt`): cells whose halves agree like counting still
+read about 1.05, the most selected cells about 1.07, and the link across cells is weak. **Next:** a healthy test free of selection:
+healthy sequenced samples that are not atlas inputs, of atlas cells, read through the one command; written before any is read.

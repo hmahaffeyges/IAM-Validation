@@ -28,3 +28,9 @@ metaa_counted_synthetic_run1.txt
 noise_at_identity.csv
 noise_at_identity.json
 noise_at_identity_summary.txt
+metaa_by_selection.txt
+metaa_by_selection.csv
+bvp_GSM5652308.json
+bvp_GSM5652309.json
+bvp_GSM5652205.json
+bvp_GSM5652279.json

@@ -1,0 +1,49 @@
+,metaa,agree
+aorta endothelium,1.0777700000000001,0.1194
+b cells,1.06425,0.8681
+bladder epithelium,1.00392,0.2317
+breast basal epithelium,1.07938,0.2089
+breast luminal epithelium,1.10013,0.1586
+cardiomyocyte,1.10262,0.1907
+cd4 t cells,1.01424,0.8515
+cd8 t cells,1.07651,1.0602
+colon enteroendocrine,1.0747849999999999,0.0859
+colon epithelium,1.04754,0.8764
+colon fibroblasts,1.065005,0.1418
+cortical neurons,1.05509,1.2015
+endometrium epithelium,0.99102,0.1719
+erythrocyte progenitors,1.02969,0.255
+fallopien tubes epithelium,1.11405,0.1468
+gastric antrum epithelium,1.06571,0.1571
+gastric body epithelium,1.07464,0.1629
+gastric fundus epithelium,1.04244,0.1618
+heart fibroblasts,1.09905,0.1779
+kidney glomerular endothelium,1.09904,0.1476
+kidney tubular endothelium,1.14492,0.1504
+kidney tubular epithelium,1.10429,0.1392
+lung alveolar endothelium,1.06969,0.1675
+lung alveolar epithelium,1.05111,0.2854
+lung alveolar macrophages,1.07388,0.0766
+lung bronchus epithelium,1.0168,0.9829
+lung interstitial macrophages,0.97547,0.1463
+memory b cells,1.107245,0.4778
+monocytes,1.11301,0.8163
+nk cells,0.89488,1.3834
+oligodendrocytes,1.10926,0.7121
+pancreas endothelium,1.11696,0.1996
+pancreatic acinar,1.1487,0.4589
+pancreatic alpha,1.10904,0.1489
+pancreatic beta,1.06663,0.5447
+pancreatic delta,1.11772,0.1609
+prostate epithelium,1.07036,0.2166
+small intestine epithelium,1.0505,0.6079
+smooth muscle,1.2441,0.4874
+striated muscle,1.067225,0.1125
+t central memory cd4,1.114,0.5518
+t effector cell cd8,1.05222,0.4045
+t effector memory cd4,1.06653,0.1571
+thyroid epithelium,1.08175,0.1394
+tongue epithelium,1.0708,0.2024
+tonsil palatine epithelium,1.06068,0.1557
+tonsil pharyngeal epithelium,1.0780500000000002,0.1194
+vascular saphenous endothelium,1.03569,0.1607

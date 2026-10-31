@@ -1,0 +1,4 @@
+48 cells with both readings | Spearman(cell's median Met-A, marked halves over counting) -0.195
+cells whose halves agree like counting (0.8 or more): b cells 1.0642, cd4 t cells 1.0142, cd8 t cells 1.0765, colon epithelium 1.0475, cortical neurons 1.0551, lung bronchus epithelium 1.0168, monocytes 1.1130, nk cells 0.8949
+median Met-A, halves at 0.8 or more of counting: 1.0513 over 8 cells
+median Met-A, halves below 0.3 of counting: 1.0743 over 32 cells

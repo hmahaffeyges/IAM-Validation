@@ -1,0 +1,29 @@
+{
+ "cell": "lung alveolar macrophages",
+ "sites": 4023,
+ "sites_both": 4023,
+ "N_beta_median": 55.0,
+ "N_pat_median": 55.0,
+ "N_equal_share": 0.996,
+ "N_ratio_median": 1.0,
+ "level_equal_share": 0.996,
+ "level_beta_mean": 0.70627,
+ "level_pat_mean": 0.70628,
+ "molecules_on_identity_sites": 245103,
+ "share_on_two_or_more": 0.0034,
+ "N_beta_at_255": 16,
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-beta-vs-pat",
+  "--build-input",
+  "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652309/suppl/GSM5652309_Lung-Alveolar-Macrophages-Z0000044C.beta",
+  "--pat",
+  "/root/w/GSM5652309.pat.gz",
+  "--build-cell",
+  "lung alveolar macrophages",
+  "--bundle",
+  "/root/w/bvp_GSM5652309.json"
+ ],
+ "label": "DEVELOPMENT - a check of the atlas's inputs (plan 35.30)"
+}
