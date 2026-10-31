@@ -28,10 +28,10 @@ jobs:
         run: |
           pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py || exit 1
           G=${{ matrix.gsm }}; U="https://ftp.ncbi.nlm.nih.gov/geo/samples/${G:0:7}nnn/$G/suppl/"
-          F=$(curl -sfL --retry 5 "$U" | grep -o 'href="[^"]*\.pat\.gz"' | sed 's/href="//; s/"$//' | grep -v '\.hg38\.' | head -1)
+          for t in 1 2 3 4 5 6; do F=$(curl -sfL --retry 5 "$U" | grep -o 'href="[^"]*\.pat\.gz"' | sed 's/href="//; s/"$//' | grep -v '\.hg38\.' | head -1); [ -n "$F" ] && break; echo "GEO listing try $t empty"; sleep $((60 * t)); done   # 2026-10-31: GEO dropped listings
           [ -n "$F" ] || { echo "no hg19 .pat.gz for $G on GEO"; exit 21; }
-          curl -sfL --retry 5 -o $PWD/$G.pat.gz "$U$F"; ls -la $G.pat.gz
-          export SPECIMEN="$(python3 -c "import csv,sys; print([r.get("specimen") or r["cell"] for r in csv.DictReader(open('${{ inputs.samples }}')) if r['gsm']==sys.argv[1]][0])" $G)"
+          for t in 1 2 3 4 5 6; do curl -sSL --retry 3 -C - -o $PWD/$G.pat.gz "$U$F" && gzip -t $PWD/$G.pat.gz && break; echo "GEO download try $t incomplete"; sleep $((60 * t)); done; ls -la $G.pat.gz   # 2026-10-31: resumed, checked
+          export SPECIMEN="$(python3 -c "import csv,sys; print([r.get('specimen') or r['cell'] for r in csv.DictReader(open(sys.argv[2])) if r['gsm']==sys.argv[1]][0])" $G ${{ inputs.samples }})"   # 2026-10-31: quoting fixed
           export THIN="$(python3 -c "import csv,sys; r=[r for r in csv.DictReader(open('${{ inputs.samples }}')) if r['gsm']==sys.argv[1]][0]; t=r.get('thin') or ''; print('' if t in ('', '1', '1.0') else t)" $G)"   # 2026-10-29: a thinning given in the sample list
           set +e; export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=$GITHUB_REPOSITORY MP=$PWD/Biological_Physics/MethylPhys WORK=$HOME/ew OUT=$PWD/eout NW=4 FULL=1 PATFILE=$PWD/$G.pat.gz SAMPLES=${{ inputs.samples }}
           bash $MP/doors/data/DEV_ERASE_01/erase_gh.sh $G > run.log 2>&1; echo $? > rc.txt; tail -30 run.log; true
