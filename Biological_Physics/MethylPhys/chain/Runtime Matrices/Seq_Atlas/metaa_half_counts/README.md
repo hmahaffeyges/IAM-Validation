@@ -1,0 +1,1 @@
+Each cell's methylated and total reads at its Met-A identity sites in each sealed donor half (stage_seq_atlas.metaa_half_counts; run_sample.py --build seq-metaa-counts), built from the IAM Sequencing Atlas's healthy inputs. Development (plan 35.30).

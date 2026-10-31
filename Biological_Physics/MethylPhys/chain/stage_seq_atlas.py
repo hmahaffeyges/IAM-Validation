@@ -287,7 +287,7 @@ def library_floor(beta, calls, path=FLOOR_SITES):
         out[side] = dict(sites_read=int(g.sum()), calls=int(nn), opposite=int(opp), rate=round(opp / nn, 6) if nn else None); tot_o += opp; tot_n += nn
     out["rate"] = round(tot_o / tot_n, 6) if tot_n else None; return out
 
-METAA_COUNTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_half_counts_v1.parquet")
+METAA_COUNTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_half_counts", "metaa_half_counts_v1.parquet")   # built by --build seq-metaa-counts
 
 def metaa_half_counts(samples_csv, out, ref=None):
     """2026-10-30 (Met-A site by site: 42 % of the unmarked identity sites had a reference level of exactly 0, read as exact): each cell's
