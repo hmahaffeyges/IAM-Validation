@@ -249,7 +249,48 @@ def _has_cols(path, cols):
     except Exception: return False
 
 
+def atlas_frame(cells):
+    """2026-10-30 (the four round-1 tools moved off IAM-Atlas v2, which the repository does not hold): the v2-shaped table these tools read
+    ({cell}_mean, {cell}_sd, {cell}_donor_sd by site), served from the atlas the chain is using: IAM-Atlas v2.1 (sd from its interval,
+    (mu_hi - mu_lo) / 3.92), or, for a sequenced sample, the IAM Sequencing Atlas at v2.1's sites (counted levels: sd 0, donor spread kept).
+    Raises KeyError naming any cell the active atlas does not hold, so the reading says why it did not run."""
+    import stage_metaa_atlas as SA
+    key = ("frame", tuple(cells), SA.SEQ_ATLAS)
+    if key in _C: return _C[key]
+    out = {}; miss = []
+    for c in cells:
+        try: mu = SA._col("mu", c)
+        except KeyError: miss.append(c); continue
+        if mu.notna().sum() == 0: miss.append(c); continue
+        out[f"{c}_mean"] = mu.astype("float32"); out[f"{c}_sd"] = ((SA._col("mu_hi", c) - SA._col("mu_lo", c)) / 3.92).astype("float32")
+        out[f"{c}_donor_sd"] = SA._col("donor_sd", c).astype("float32")
+    if miss: raise KeyError(f"not in {'the IAM Sequencing Atlas' if SA.SEQ_ATLAS else 'IAM-Atlas v2.1'}: {', '.join(miss)}")
+    A = pd.DataFrame(out); A.index = A.index.astype(str); _C[key] = A; return A
+
+
+def sky_in_mix(beta, shares, counts=None):
+    """2026-10-30 (plan 35.30, development): the residual sky (DEV-SKY-02's block-shuffle null and look-elsewhere statistic, sky_from_z,
+    unchanged) against the sample's own composition: the Deconvolver's shares over the atlas the chain is using. z at each site =
+    (beta - sum f mu) / sqrt(sum f^2 (sd^2 + donor_sd^2) + noise), noise the array's 0.02^2 (DEV-SKY-01) or, on sequencing, the counting
+    variance e(1 - e)/n at the site's own reads (no array term)."""
+    try: import healpy  # noqa: F401
+    except ImportError: return _rec("sky", status="NOT_RUN", reason="healpy is not installed in this environment")
+    import stage_metaa_atlas as SA
+    sh = {c: float(f) for c, f in (shares or {}).items() if f and f > 0}
+    if not sh: return _rec("sky", status="NOT_RUN", reason="no cell shares")
+    A = atlas_frame(list(sh)); idx = beta.dropna().index.intersection(A.index)
+    E = sum(f * A[f"{c}_mean"].reindex(idx) for c, f in sh.items()) / sum(sh.values())
+    V = sum((f / sum(sh.values())) ** 2 * (A[f"{c}_sd"].reindex(idx).fillna(0) ** 2 + A[f"{c}_donor_sd"].reindex(idx) ** 2) for c, f in sh.items())
+    if counts is not None:
+        n = pd.Series(counts).reindex(idx).astype("float64"); V = V + (E * (1 - E) / n.where(n > 0)).clip(lower=1e-6)
+    else: V = V + 0.02 ** 2
+    z = ((beta.reindex(idx) - E) / np.sqrt(V)).replace([np.inf, -np.inf], np.nan).dropna()
+    return _rec("sky", status="OK", reference=("IAM Sequencing Atlas" if SA.SEQ_ATLAS else "IAM-Atlas v2.1") + ", the sample's own shares",
+                noise="counting at each site's reads" if counts is not None else "array 0.02 (DEV-SKY-01)", **sky_from_z(z))
+
+
 def load_atlas_parents(atlas_parquet):
+    if not atlas_parquet or not os.path.exists(atlas_parquet): return atlas_frame(list(PARENTS.values()))   # 2026-10-30: the active atlas
     if "AP" not in _C:
         cols = [f"{c}_{s}" for c in PARENTS.values() for s in ("mean", "sd", "donor_sd")]
         try: A = pd.read_parquet(atlas_parquet, columns=cols + ["cpg_id"])
@@ -274,26 +315,32 @@ ATLAS_E_CELLS = ["basophils", "effector memory cd8 t cells", "eosinophils", "mem
 
 
 def _atlas_e(atlas_parquet):
-    if "AE" not in _C:
+    import stage_metaa_atlas as _SAk
+    if ("AE", atlas_parquet, _SAk.SEQ_ATLAS) in _C: return _C[("AE", atlas_parquet, _SAk.SEQ_ATLAS)]
+    if True:
         import dev_comp_methods as CM
-        A = CM.load_atlas(atlas_parquet); NS = pd.Index(_bc()["neutrophil_sites"])
+        A = CM.load_atlas(atlas_parquet) if atlas_parquet else atlas_frame(ATLAS_E_CELLS); NS = pd.Index(_bc()["neutrophil_sites"])
         D = CM.build_deconv(A, ATLAS_E_CELLS, NS); Ab = CM.subset_atlas(A, ATLAS_E_CELLS); Ab = Ab.loc[Ab.index.difference(NS)]
         mu = Ab[[f"{c}_mean" for c in ATLAS_E_CELLS]]; v = Ab[[f"{c}_sd" for c in ATLAS_E_CELLS]].values ** 2 + Ab[[f"{c}_donor_sd" for c in ATLAS_E_CELLS]].values ** 2
         ok = mu.notna().all(1).values & np.isfinite(v).all(1); rg = (mu.max(1) - mu.min(1)).values; sel = ok & (rg >= 0.2)
-        _C["AE"] = (D, CM.NILC(mu.index[sel], ATLAS_E_CELLS, mu.values[sel], v[sel], cov="atlas"), CM)
-    return _C["AE"]
+        _C[("AE", atlas_parquet, _SAk.SEQ_ATLAS)] = (D, CM.NILC(mu.index[sel], ATLAS_E_CELLS, mu.values[sel], v[sel], cov="atlas"), CM)
+    return _C[("AE", atlas_parquet, _SAk.SEQ_ATLAS)]
 
 
 def atlas_e(beta, atlas_parquet):
     """Stage 3 atlas_e composition (12 array-measured circulating atlas v2 cells, DEV-ATLAS-EPIC-02 method), 8-group sums."""
-    if not atlas_parquet or not os.path.exists(atlas_parquet): return _rec("atlas_e", status="NOT_RUN", reason="--atlas-v2 parquet not given or not found")
+    if not atlas_parquet or not os.path.exists(atlas_parquet): atlas_parquet = None   # 2026-10-30: the active atlas (atlas_frame)
+    try: _atlas_e(atlas_parquet)
+    except KeyError as e: return _rec("atlas_e", status="NOT_RUN", reason=str(e).strip("\"'"))
     D, _, CM = _atlas_e(atlas_parquet); a = D.deconvolve(beta, n_boot=0); g = CM.to_groups(a["fractions"])
     return _rec("atlas_e", status="OK", fractions={k: round(float(g.get(k, 0.0)), 5) for k in BLOOD8}, cell_fractions={k: round(float(v), 5) for k, v in a["fractions"].items()})
 
 
 def nilc_e(beta, atlas_parquet):
     """Stage 4 NILC-e composition on the atlas_e templates (DEV-NILC-01 method), 8-group sums and the noise per fraction."""
-    if not atlas_parquet or not os.path.exists(atlas_parquet): return _rec("nilc_e", status="NOT_RUN", reason="--atlas-v2 parquet not given or not found")
+    if not atlas_parquet or not os.path.exists(atlas_parquet): atlas_parquet = None   # 2026-10-30: the active atlas (atlas_frame)
+    try: _atlas_e(atlas_parquet)
+    except KeyError as e: return _rec("nilc_e", status="NOT_RUN", reason=str(e).strip("\"'"))
     _, N, CM = _atlas_e(atlas_parquet); n = N.deconvolve(beta); g = CM.to_groups(n["fractions"])
     return _rec("nilc_e", status="OK", fractions={k: round(float(g.get(k, 0.0)), 5) for k in BLOOD8}, sum=round(n["sum"], 4), noise_sd={k: round(v, 5) for k, v in n["noise_sd"].items()})
 
@@ -303,7 +350,8 @@ def percell_b(beta, fractions, atlas_parquet):
     FD = json.load(open(os.path.join(RM, "Met_A_Floors", "metA_floors_v1_2_ALLCELLS_development.json")))["platforms"]["EPIC"]["b cells"]
     sites = pd.Index(FD["sites"])
     if not fractions: return _rec("percell_b", status="NOT_RUN", reason="no composition (isolated specimen)")
-    if not atlas_parquet or not os.path.exists(atlas_parquet): return _rec("percell_b", status="NOT_RUN", reason="--atlas-v2 parquet not given or not found")
+    try: load_atlas_parents(atlas_parquet)   # 2026-10-30: the active atlas when no v2 parquet
+    except KeyError as e: return _rec("percell_b", status="NOT_RUN", reason=str(e).strip("\"'"))
     AP = load_atlas_parents(atlas_parquet); e = sum(fractions[g] * AP[f"{c}_mean"].reindex(sites) for g, c in PARENTS.items())
     x = beta.reindex(sites); ok = x.notna() & e.notna()
     if x.notna().sum() < 0.9 * len(sites): return _rec("percell_b", status="NOT_RUN", reason=f"only {int(x.notna().sum())} of {len(sites)} B-cell sites measured on the array")

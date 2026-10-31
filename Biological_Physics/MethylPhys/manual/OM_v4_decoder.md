@@ -2,11 +2,11 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **36 Python files** holding **446 functions** (nested ones included); 446 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **36 Python files** holding **448 functions** (nested ones included); 448 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,244 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,243 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,190 | 42 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -15,7 +15,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/report_v4.py` | 447 | 30 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
-| `dev_stages.py` | 339 | 27 | 1 | 0 |
+| `dev_stages.py` | 387 | 29 | 1 | 0 |
 | `stage_v4.py` | 187 | 11 | 4 | 2 |
 | `stage_deconv_v21.py` | 200 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 372 | 34 | 0 | 11 |
@@ -262,7 +262,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 399 (41 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 399 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -272,14 +272,14 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 442 (800 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `sequencing_values.csv`, `sites.parquet`, `sites_sequencing_key.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 443 (798 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `sequencing_values.csv`, `sites.parquet`, `sites_sequencing_key.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 912 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 911 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -287,13 +287,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 677 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 676 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1171 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1170 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -2644,44 +2644,44 @@ Whether a parquet file holds the named columns.
 
 Loads the atlas v2 parent blood cells' means, SDs and between-person SDs.
 
-*Code:* `dev_stages.py` line 252 (8 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `_C`
+*Code:* `dev_stages.py` line 292 (9 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `_C`
 
 ### `dev_stages.py::sky`
 
 The development residual sky of one whole blood, with its null.
 
-*Code:* `dev_stages.py` line 262 (7 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 303 (7 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs
 
 ### `dev_stages.py::_atlas_e`
 
 Builds the atlas_e solver once on the 12 array-measured circulating cells of atlas v2, with the neutrophil identity sites removed.
 
-*Code:* `dev_stages.py` line 276 (9 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `ATLAS_E_CELLS`, `_C`
+*Code:* `dev_stages.py` line 317 (11 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `ATLAS_E_CELLS`, `_C`
 
 ### `dev_stages.py::atlas_e`
 
 The atlas_e composition, summed into the 8 blood groups.
 
-*Code:* `dev_stages.py` line 287 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+*Code:* `dev_stages.py` line 330 (7 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
 
 ### `dev_stages.py::nilc_e`
 
 The NILC-e composition on the atlas_e templates, with each share's noise.
 
-*Code:* `dev_stages.py` line 294 (5 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+*Code:* `dev_stages.py` line 339 (7 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
 
 ### `dev_stages.py::percell_b`
 
 A B-cell Met-A against the expectation for this blood's mix, on the development B-cell reference.
 
-*Code:* `dev_stages.py` line 301 (13 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `RM` · files named: `metA_floors_v1_2_ALLCELLS_development.json`
+*Code:* `dev_stages.py` line 348 (14 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `RM` · files named: `metA_floors_v1_2_ALLCELLS_development.json`
 
 ### `dev_stages.py::epicv2_calibrate`
 
 An EPIC v2 IDAT pair through SeSAMe (an R package, run in its own environment) to β values on EPIC v1 probe names, replicate probes of one
 CpG averaged and background-masked probes dropped. Development only: the chain's references are EPIC v1.
 
-*Code:* `dev_stages.py` line 320 (19 lines) · arguments: grn, red, rscript, prep · calls: not called on the traced runs · constants read: `SESAME_R` · files named: `betas.csv`
+*Code:* `dev_stages.py` line 368 (19 lines) · arguments: grn, red, rscript, prep · calls: not called on the traced runs · constants read: `SESAME_R` · files named: `betas.csv`
 
 ### `dev_comp_methods.py::load_atlas`
 
@@ -3663,6 +3663,21 @@ not move to one place is dropped and counted), each landing on the hg19 CpG whos
 .lbeta; the report counts positions read, moved and landed. Run by `run_sample.py --build seq-lift`.
 
 *Code:* `stage_seq_atlas.py` line 51 (29 lines) · arguments: files, out, cpg_bed, chain · calls: not called on the traced runs · constants read: `HG19_CPGS`
+
+### `dev_stages.py::atlas_frame`
+
+The table the round-1 tools read (each cell's level, uncertainty and donor spread by site), served from the atlas the chain is using
+(IAM-Atlas v2.1, or the IAM Sequencing Atlas for a sequenced sample); a cell the active atlas lacks stops the reading with its name.
+
+*Code:* `dev_stages.py` line 252 (17 lines) · arguments: cells · calls: not called on the traced runs · constants read: `_C`
+
+### `dev_stages.py::sky_in_mix`
+
+The residual sky against the sample's own mix of atlas cells (the Deconvolver's shares): each site's departure over its expected scatter
+(the cells' spreads, plus the array's 0.02 or, on sequencing, counting at the site's reads), mapped on the sphere, read against the
+within-chromosome block-shuffle null with the look-elsewhere statistic.
+
+*Code:* `dev_stages.py` line 271 (19 lines) · arguments: beta, shares, counts · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::array_columns`
 

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1244,
+   "lines": 1243,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -281,14 +281,14 @@
      "function": "_dev_run",
      "name": "_dev_run",
      "line": 399,
-     "end": 439,
+     "end": 440,
      "args": [
       "a",
       "o",
       "beta",
       "intake"
      ],
-     "lines": 41,
+     "lines": 42,
      "doc": "Development flags (doors/DEV_FLAGS_01.md): each writes bundle['development'][stage], labelled DEVELOPMENT - not commissioned. None of them changes the reading, the gauge or the tare.",
      "constants": [],
      "data_files": [],
@@ -301,10 +301,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 442,
-     "end": 1241,
+     "line": 443,
+     "end": 1240,
      "args": [],
-     "lines": 800,
+     "lines": 798,
      "doc": "",
      "constants": [
       "BIO",
@@ -336,8 +336,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 677,
-     "end": 681,
+     "line": 676,
+     "end": 680,
      "args": [
       "r"
      ],
@@ -353,8 +353,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 912,
-     "end": 919,
+     "line": 911,
+     "end": 918,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -366,8 +366,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1171,
-     "end": 1172,
+     "line": 1170,
+     "end": 1171,
      "args": [
       "b",
       "it",
@@ -2964,7 +2964,7 @@
   },
   {
    "file": "dev_stages.py",
-   "lines": 339,
+   "lines": 387,
    "functions": [
     {
      "file": "dev_stages.py",
@@ -3338,14 +3338,48 @@
     },
     {
      "file": "dev_stages.py",
+     "function": "atlas_frame",
+     "name": "atlas_frame",
+     "line": 252,
+     "end": 268,
+     "args": [
+      "cells"
+     ],
+     "lines": 17,
+     "doc": "2026-10-30 (the four round-1 tools moved off IAM-Atlas v2, which the repository does not hold): the v2-shaped table these tools read ({cell}_mean, {cell}_sd, {cell}_donor_sd by site), served from the atlas the chain is using: IAM-Atlas v2.1 (sd from its interval, (mu_hi - mu_lo) / 3.92), or, for a sequenced sample, the IAM Sequencing Atlas at v2.1's sites (counted levels: sd 0, donor spread kept).",
+     "constants": [
+      "_C"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
+     "function": "sky_in_mix",
+     "name": "sky_in_mix",
+     "line": 271,
+     "end": 289,
+     "args": [
+      "beta",
+      "shares",
+      "counts"
+     ],
+     "lines": 19,
+     "doc": "2026-10-30 (plan 35.30, development): the residual sky (DEV-SKY-02's block-shuffle null and look-elsewhere statistic, sky_from_z, unchanged) against the sample's own composition: the Deconvolver's shares over the atlas the chain is using. z at each site = (beta - sum f mu) / sqrt(sum f^2 (sd^2 + donor_sd^2) + noise), noise the array's 0.02^2 (DEV-SKY-01) or, on sequencing, the counting variance e(",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "dev_stages.py",
      "function": "load_atlas_parents",
      "name": "load_atlas_parents",
-     "line": 252,
-     "end": 259,
+     "line": 292,
+     "end": 300,
      "args": [
       "atlas_parquet"
      ],
-     "lines": 8,
+     "lines": 9,
      "doc": "",
      "constants": [
       "PARENTS",
@@ -3358,8 +3392,8 @@
      "file": "dev_stages.py",
      "function": "sky",
      "name": "sky",
-     "line": 262,
-     "end": 268,
+     "line": 303,
+     "end": 309,
      "args": [
       "beta",
       "fractions",
@@ -3375,12 +3409,12 @@
      "file": "dev_stages.py",
      "function": "_atlas_e",
      "name": "_atlas_e",
-     "line": 276,
-     "end": 284,
+     "line": 317,
+     "end": 327,
      "args": [
       "atlas_parquet"
      ],
-     "lines": 9,
+     "lines": 11,
      "doc": "",
      "constants": [
       "ATLAS_E_CELLS",
@@ -3393,13 +3427,13 @@
      "file": "dev_stages.py",
      "function": "atlas_e",
      "name": "atlas_e",
-     "line": 287,
-     "end": 291,
+     "line": 330,
+     "end": 336,
      "args": [
       "beta",
       "atlas_parquet"
      ],
-     "lines": 5,
+     "lines": 7,
      "doc": "Stage 3 atlas_e composition (12 array-measured circulating atlas v2 cells, DEV-ATLAS-EPIC-02 method), 8-group sums.",
      "constants": [
       "BLOOD8"
@@ -3411,13 +3445,13 @@
      "file": "dev_stages.py",
      "function": "nilc_e",
      "name": "nilc_e",
-     "line": 294,
-     "end": 298,
+     "line": 339,
+     "end": 345,
      "args": [
       "beta",
       "atlas_parquet"
      ],
-     "lines": 5,
+     "lines": 7,
      "doc": "Stage 4 NILC-e composition on the atlas_e templates (DEV-NILC-01 method), 8-group sums and the noise per fraction.",
      "constants": [
       "BLOOD8"
@@ -3429,14 +3463,14 @@
      "file": "dev_stages.py",
      "function": "percell_b",
      "name": "percell_b",
-     "line": 301,
-     "end": 313,
+     "line": 348,
+     "end": 361,
      "args": [
       "beta",
       "fractions",
       "atlas_parquet"
      ],
-     "lines": 13,
+     "lines": 14,
      "doc": "Stage 5 B-cell Met-A against the composition-matched expectation on the development B-cell floor (DEV-PERCELL-01 method).",
      "constants": [
       "PARENTS",
@@ -3451,8 +3485,8 @@
      "file": "dev_stages.py",
      "function": "epicv2_calibrate",
      "name": "epicv2_calibrate",
-     "line": 320,
-     "end": 338,
+     "line": 368,
+     "end": 386,
      "args": [
       "grn",
       "red",
@@ -8726,5 +8760,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 446
+ "n_functions": 448
 }

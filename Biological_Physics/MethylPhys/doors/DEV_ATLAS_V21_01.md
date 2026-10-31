@@ -655,3 +655,16 @@ sample, islands and domains between 0.970 and 1.023, at 20 and at 8 reads per si
 bundle naming the IAM Sequencing Atlas for the in-mix levels. **Next:** the healthy full-chain pass read again (`metaa_hfc2`, same 137, same
 scorer). Those samples are the sequencing atlas's own inputs, and the array-site columns hold both donor halves, so for the in-mix readings
 this is a consistency check; the proof is healthy sequenced samples the atlas never held.
+
+## The sky, NILC, the template split and B cells moved onto the atlases the repository holds (written before the synthetic runs; development)
+
+**Why:** the healthy full-chain pass found these four never run: they read IAM-Atlas v2's single file, which the repository does not hold.
+**The change** (`dev_stages.atlas_frame`, `dev_stages.sky_in_mix`): they now read the atlas the chain is using: IAM-Atlas v2.1 for an array
+(its level, its interval as the uncertainty, its donor spread), or the IAM Sequencing Atlas at v2.1's sites for a sequenced sample (counted
+levels, donor spread). The sky, when no v2 file is given, reads each site's departure from the sample's own mix of atlas cells (the
+Deconvolver's shares), with the array's 0.02 noise term on arrays and the counting variance at each site's own reads on sequencing; its
+block-shuffle null and look-elsewhere statistic are unchanged. NILC, the template split and B cells need named blood cells (neutrophils,
+eosinophils, basophils, naive B cells, regulatory and memory CD4 T cells) that the sequencing atlas does not hold, so on a sequenced sample
+the chain records that reason; on arrays they run on v2.1. The full chain turns all four on. **Synthetic** (`seq_atlas/sky_seq_synthetic.py`):
+the 6 constructed healthy samples of the in-mix synthetic and one with chromosome 8 moved 0.15 toward full methylation, through the one
+command with the full chain; bars: at most 1 of the 6 healthy shows structure beyond the null, and the planted sample does.

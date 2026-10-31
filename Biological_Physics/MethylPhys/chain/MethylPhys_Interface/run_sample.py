@@ -432,7 +432,8 @@ def _dev_run(a, o, beta, intake):
              "direction": lambda: DV.direction_record(b, sp, comp),
              "trace": lambda: DV.trace_cell(b), "foreign": lambda: DV.foreign_cell(b), "brightness": lambda: DV.brightness(b, sp, comp),
              "nilc": lambda: DV.nilc_e(b, a.atlas_v2), "atlas_e": lambda: DV.atlas_e(b, a.atlas_v2), "percell_b": lambda: DV.percell_b(b, fr, a.atlas_v2),
-             "sky": lambda: DV.sky(b, fr, a.atlas_v2), "metaa_atlas": lambda: _metaa_atlas(a, b)}
+             "sky": lambda: DV.sky(b, fr, a.atlas_v2) if a.atlas_v2 else DV.sky_in_mix(b, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, counts=getattr(a, "_seqc", None)),
+             "metaa_atlas": lambda: _metaa_atlas(a, b)}
     for k in flags:
         if k == "epic_v2": continue
         try: dev[k] = calls[k]()
@@ -574,9 +575,7 @@ def main():
         # a reading that cannot run here is recorded with its reason (bundle["full_chain"]), never left out silently
         on, skip = [], {}
         for f in ("direction", "trace", "foreign", "brightness"): setattr(a, "dev_" + f, True); on.append(f)
-        for f in ("nilc", "atlas_e", "percell_b", "sky"):
-            if a.atlas_v2: setattr(a, "dev_" + f, True); on.append(f)
-            else: skip[f] = "needs IAM-Atlas v2's parquet (--atlas-v2), which is not in the repository; v2 is superseded by v2.1 (to be moved onto it)"
+        for f in ("nilc", "atlas_e", "percell_b", "sky"): setattr(a, "dev_" + f, True); on.append(f)   # 2026-10-30: on the active atlas (v2.1, or the sequencing atlas)
         a.dev_ruler = True; on.append("ruler")
         a.dev_territories = a.dev_info_sphere = True; on += ["territories", "info_sphere"]
         if not a.dev_provisional: a.dev_provisional = "megakaryocytes"
