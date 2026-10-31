@@ -310,6 +310,36 @@ def metaa_half_counts(samples_csv, out, ref=None):
     T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
     return dict(inputs=len(used), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
 
+def beta_vs_pat(beta_src, pat_path, cell, ref=None):
+    """2026-10-30 (the donor halves agree more closely than their stated reads allow): for one healthy input, its published .beta counts (M, N)
+    against counts taken from its own molecule file (.pat: chrom, first CpG index, pattern of C/T/., count) at its cell's Met-A identity
+    sites. Reports how often and by how much they differ, the mean level from each, and how many molecules cover two or more identity sites
+    (reads sharing a molecule are not independent). Counts only; nothing fitted."""
+    import gzip, pandas as pd
+    R = pd.read_parquet(ref or METAA_REF, columns=["cell", "probe", "cpg"]); R = R[R.cell == cell]; cp = np.sort(R.cpg.to_numpy(np.int64)); want = set(cp.tolist())
+    M, N = read_block(beta_src, 0, HG19_CPGS); Mb, Nb = M[cp - 1].astype(np.int64), N[cp - 1].astype(np.int64); del M, N
+    pos = {c: i for i, c in enumerate(cp)}; Mp = np.zeros(len(cp), np.int64); Np = np.zeros(len(cp), np.int64); multi = mols = 0
+    lo, hi = int(cp[0]), int(cp[-1])
+    with (gzip.open if str(pat_path).endswith(".gz") else open)(pat_path, "rt") as fh:
+        for line in fh:
+            q = line.rstrip("\n").split("\t")
+            if len(q) < 4: continue
+            i0 = int(q[1]); pat = q[2]
+            if i0 > hi or i0 + len(pat) - 1 < lo: continue
+            n = int(q[3]); hits = 0
+            for k, ch in enumerate(pat):
+                j = i0 + k
+                if ch != "." and j in want:
+                    t = pos[j]; Np[t] += n; hits += 1
+                    if ch == "C": Mp[t] += n
+            if hits: mols += n; multi += n * (hits >= 2)
+    b = (Nb > 0) & (Np > 0); lb = Mb[b] / Nb[b]; lp = Mp[b] / Np[b]
+    return dict(cell=cell, sites=len(cp), sites_both=int(b.sum()), N_beta_median=float(np.median(Nb[b])) if b.any() else None,
+                N_pat_median=float(np.median(Np[b])) if b.any() else None, N_equal_share=round(float((Nb[b] == Np[b]).mean()), 4) if b.any() else None,
+                N_ratio_median=round(float(np.median(Np[b] / Nb[b])), 4) if b.any() else None, level_equal_share=round(float((np.abs(lb - lp) < 1e-9).mean()), 4) if b.any() else None,
+                level_beta_mean=round(float(lb.mean()), 5) if b.any() else None, level_pat_mean=round(float(lp.mean()), 5) if b.any() else None,
+                molecules_on_identity_sites=int(mols), share_on_two_or_more=round(multi / mols, 4) if mols else None, N_beta_at_255=int((Nb >= 255).sum()))
+
 def noise_at_identity(path=METAA_REF):
     """2026-10-30 (Met-A on sequencing: counting explains a small part of healthy samples' excess): at each cell's Met-A identity sites, by side,
     the mean square of noise map 1 (donor half A minus donor half B: donor-to-donor difference plus counting) and of noise map 2 (random read

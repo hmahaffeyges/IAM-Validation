@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1274,
+   "lines": 1280,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -227,11 +227,11 @@
      "function": "_build",
      "name": "_build",
      "line": 248,
-     "end": 390,
+     "end": 396,
      "args": [
       "a"
      ],
-     "lines": 143,
+     "lines": 149,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -250,8 +250,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 363,
-     "end": 363,
+     "line": 369,
+     "end": 369,
      "args": [
       "m"
      ],
@@ -265,8 +265,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 393,
-     "end": 413,
+     "line": 399,
+     "end": 419,
      "args": [
       "a",
       "cnt",
@@ -282,8 +282,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 416,
-     "end": 457,
+     "line": 422,
+     "end": 463,
      "args": [
       "a",
       "o",
@@ -303,8 +303,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 460,
-     "end": 1271,
+     "line": 466,
+     "end": 1277,
      "args": [],
      "lines": 812,
      "doc": "",
@@ -338,8 +338,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 695,
-     "end": 699,
+     "line": 701,
+     "end": 705,
      "args": [
       "r"
      ],
@@ -355,8 +355,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 930,
-     "end": 937,
+     "line": 936,
+     "end": 943,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -368,8 +368,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1201,
-     "end": 1202,
+     "line": 1207,
+     "end": 1208,
      "args": [
       "b",
       "it",
@@ -8431,7 +8431,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 451,
+   "lines": 481,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8729,10 +8729,31 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "beta_vs_pat",
+     "name": "beta_vs_pat",
+     "line": 313,
+     "end": 341,
+     "args": [
+      "beta_src",
+      "pat_path",
+      "cell",
+      "ref"
+     ],
+     "lines": 29,
+     "doc": "2026-10-30 (the donor halves agree more closely than their stated reads allow): for one healthy input, its published .beta counts (M, N) against counts taken from its own molecule file (.pat: chrom, first CpG index, pattern of C/T/., count) at its cell's Met-A identity sites. Reports how often and by how much they differ, the mean level from each, and how many molecules cover two or more identity ",
+     "constants": [
+      "HG19_CPGS",
+      "METAA_REF"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "noise_at_identity",
      "name": "noise_at_identity",
-     "line": 313,
-     "end": 334,
+     "line": 343,
+     "end": 364,
      "args": [
       "path"
      ],
@@ -8752,8 +8773,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 336,
-     "end": 349,
+     "line": 366,
+     "end": 379,
      "args": [
       "cell",
       "path"
@@ -8774,8 +8795,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 351,
-     "end": 375,
+     "line": 381,
+     "end": 405,
      "args": [
       "samples",
       "out"
@@ -8790,8 +8811,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 377,
-     "end": 392,
+     "line": 407,
+     "end": 422,
      "args": [
       "a_path",
       "b_path",
@@ -8809,8 +8830,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 394,
-     "end": 446,
+     "line": 424,
+     "end": 476,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8831,8 +8852,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 448,
-     "end": 450,
+     "line": 478,
+     "end": 480,
      "args": [
       "gsm",
       "title"
@@ -8848,5 +8869,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 452
+ "n_functions": 453
 }

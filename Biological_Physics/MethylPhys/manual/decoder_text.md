@@ -2357,6 +2357,10 @@ Each cell's methylated and total reads at its Met-A identity sites in each seale
 At each cell's Met-A identity sites, by side: noise map 1 (donor halves) and noise map 2 (read halves) as mean squares, and map 1 against the
 counting its two halves' own reads predict (`run_sample.py --build seq-noise-identity`).
 
+### stage_seq_atlas.py::beta_vs_pat
+One healthy input's published .beta counts against counts taken from its own molecule file at its cell's Met-A identity sites, and the
+share of molecules covering two or more of those sites (`run_sample.py --build seq-beta-vs-pat`).
+
 ### stage_seq_atlas.py::array_columns
 The IAM Sequencing Atlas at every site of IAM-Atlas v2.1, in v2.1's layout (`run_sample.py --build seq-array-cols`): each cell's counted
 level and donor spread, so a sequenced sample's in-mix readings mix sequencing levels; the sites themselves are still chosen on v2.1.
