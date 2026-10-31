@@ -93,7 +93,7 @@ def lift_to_hg19(files, out, cpg_bed, chain="hg38"):
     P = P.reset_index(); lo = LiftOver(chain, "hg19"); D = hg19_dictionary(cpg_bed); a = np.zeros((HG19_CPGS, 2), np.int64); moved = landed = 0
     for c38, g in P.groupby("chr", sort=False):   # one GRCh38 chromosome at a time, to keep memory small
         q = [lo.convert_coordinate(c38, int(x)) for x in g.pos.to_numpy()]
-        ok = np.array([len(x) == 1 for x in q], bool); moved += int(ok.sum())
+        ok = np.array([bool(x) and len(x) == 1 for x in q], bool); moved += int(ok.sum())   # 2026-10-30: a contig absent from the chain returns None
         if not ok.any(): continue
         c19 = np.array([x[0][0] for x, o in zip(q, ok) if o]); p19 = np.array([x[0][1] for x, o in zip(q, ok) if o], np.int64) + 1   # 1-based
         m, n = g.m.to_numpy()[ok].astype(np.int64), g.n.to_numpy()[ok].astype(np.int64)

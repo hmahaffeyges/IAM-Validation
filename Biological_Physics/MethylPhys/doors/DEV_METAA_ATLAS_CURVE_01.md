@@ -429,3 +429,9 @@ Deconvolver's own-cell share 0.9817. Still not Normal: Met-A for the sorted cell
 on the array levels), the territories' domains 1.0498 and islands 2.0664 (14.5255 before). Islands are almost all unmarked sites, where a
 counted reference level of 0 predicts no disorder: the same low-level effect the site-by-site breakdown found for Met-A. Only 100 of the
 137 first landed (the watcher read one page of a run's artifacts; fixed) and all 137 were then landed.
+
+**The selection-free test, first pass** (disclosed): the table synthetic met (`seq_atlas/seq_table_synthetic.txt`: 27,446,949 CpGs, both
+formats, the same counts). All 25 neurons were read. All 10 pancreas samples stopped in the hg38 conversion before any reading: the liftover
+returns nothing for a contig absent from the chain, which the conversion did not allow for (fixed); they are sent again, and samples already
+read are skipped. Met-A's per-site table was written under a name the job did not upload (the bundle's own name; fixed), so this test's
+depth, recorded and not scored, is blank.
