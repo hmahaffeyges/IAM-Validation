@@ -20,7 +20,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - name: dependencies (the chain's own requirements)
-        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt sympy beautifulsoup4 pillow
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt sympy beautifulsoup4 pillow pypdfium2
+      - name: preflight (every package the chain needs is present)
+        run: python3 Biological_Physics/MethylPhys/chain/preflight.py
       - name: rebase, build, register, gate, push
         env:
           BR: ${{ github.ref_name }}
