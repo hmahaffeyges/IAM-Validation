@@ -1,0 +1,4 @@
+seq-table synthetic: 27,446,949 CpGs with reads from GSM5652316, half on the reverse strand
+cpg-table: same counts 1.00000, reads where the source had none 0 (met)
+bismark-cov: same counts 1.00000, reads where the source had none 0 (met)
+synthetic: met
