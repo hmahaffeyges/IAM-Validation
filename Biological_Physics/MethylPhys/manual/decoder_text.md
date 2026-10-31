@@ -2365,6 +2365,16 @@ share of molecules covering two or more of those sites (`run_sample.py --build s
 A published per-CpG table (hg19 or hg38; plain counts or Bismark coverage) written as .lbeta on the hg19 numbering, both strands added to one
 CpG (`run_sample.py --build seq-table`).
 
+### stage_metaa_atlas.py::expected_H_donors
+One healthy person's expected disorder at k of n reads, from healthy donors' own counts: n of each donor's reads drawn without replacement
+(exactly unbiased where the donor has at least n reads), averaged over donors; differences between healthy people enter as they are.
+
+### stage_seq_atlas.py::metaa_donor_counts
+Each healthy input's own methylated and total reads at its cell's Met-A identity sites, one row per input and site (`--build seq-metaa-donors`).
+
+### stage_seq_atlas.py::metaa_donors_of
+One cell's per-donor counts at its identity sites (sites by donors), the donor half's donors only when a half is given.
+
 ### stage_seq_atlas.py::array_columns
 The IAM Sequencing Atlas at every site of IAM-Atlas v2.1, in v2.1's layout (`run_sample.py --build seq-array-cols`): each cell's counted
 level and donor spread, so a sequenced sample's in-mix readings mix sequencing levels; the sites themselves are still chosen on v2.1.

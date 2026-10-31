@@ -512,3 +512,16 @@ understates it. Pooling donors whose levels differ at a site gives a level betwe
 (the entropy of an average exceeds the average of entropies); the median of a few sparse donors sits at 0 or 1. Neither is one person's
 expectation. **Next:** the atlas's own per-donor disorder column read as that expectation, derived and written as a test before anything is
 read; the pooled level stays the default only until then, and nothing is presented from it.
+
+## The expectation donor by donor (written and committed before its synthetic runs)
+
+**Derived, nothing fitted** (`stage_metaa_atlas.expected_H_donors`): one healthy person's expected disorder at a site read with n reads is
+E[H(k/n)] at that person's own level, averaged over healthy people. For a donor with at least n reads, the entropy of n of that donor's own
+reads drawn without replacement (the hypergeometric) is an exactly unbiased estimate of it; the mean over such donors carries the real
+differences between people as they are. Only where no donor has n reads is each donor's binomial at its own level used (stated: the one
+part not exact). A sample read against a donor half uses that half's donors only. **Inputs:** each healthy input's own reads at its cell's
+identity sites (`stage_seq_atlas.metaa_donor_counts`, `run_sample.py --build seq-metaa-donors`), built from the 153 inputs on Google spot
+machines. **Synthetic:** `seq_atlas_01/metaa_donors_synthetic.py`: people whose levels really differ (logit-normal spread around a site's
+population level), three donors counted near 40 reads, new people read at 7 depths donor by donor (scored), with the pooled level and
+with the median (recorded). Bars: median Met-A within 0.05 of 1; |rho| with depth at most 0.2. Sorted-cell Met-A first; the in-mix readings
+follow only if this meets.

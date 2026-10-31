@@ -213,6 +213,7 @@ def _metaa_atlas(a, b):
     import dev_stages as DV, stage_metaa_atlas as SA
     if getattr(a, "_seqv", None):   # 2026-10-22 (step 40): sequencing values; the self-tare maps the two array designs, so it does not apply
         SA.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or SA.SEQ_LEVEL   # 2026-10-31: pooled (default) or median, the healthy level on sequencing
+        if getattr(a, "dev_seq_donors", None): import stage_seq_atlas as _SQdf; _SQdf.DONORS_FILE = a.dev_seq_donors   # 2026-10-31: a constructed donor file
         _sr = None
         if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
             import stage_seq_atlas as _SQr; _sr = _SQr.metaa_reference_of(a.dev_metaa_atlas, _SQr.METAA_REF if a.dev_seq_ref == "auto" else a.dev_seq_ref)
@@ -285,6 +286,12 @@ def _build(a):
                 if len(_x): _L.append(f"{_sd}: map 1 over counting, median {_x.median():.3f} of {len(_x)} cells, {_x.min():.3f} to {_x.max():.3f}; below 0.5 in {int((_x < 0.5).sum())}")
             open(a.build_out.rsplit(".", 1)[0] + "_summary.txt", "w").write("\n".join(_L) + "\n")
         print(len(rows), "cell-side rows"); return 0
+    if a.build == "seq-metaa-donors":   # 2026-10-31 (plan 35.30, development): each healthy input's own reads at its cell's Met-A identity sites
+        if not (a.build_samples and a.build_out): print("--build seq-metaa-donors needs --build-samples INPUTS.csv and --build-out PARQUET"); return 2
+        import stage_seq_atlas as _SQdc
+        rep = dict(_SQdc.metaa_donor_counts(a.build_samples, a.build_out), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps(rep, default=str)); return 0
     if a.build == "seq-metaa-counts":   # 2026-10-30 (plan 35.30, development): each donor half's reads at the Met-A identity sites
         if not (a.build_samples and a.build_out): print("--build seq-metaa-counts needs --build-samples INPUTS.csv and --build-out PARQUET"); return 2
         import stage_seq_atlas as _SQc
@@ -559,7 +566,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -594,8 +601,9 @@ def main():
                     "from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1")
     ap.add_argument("--dev-shares", default=None, metavar="CELL:SHARE,...", help="DEVELOPMENT, diagnosis only: read every share-based reading against these "
                     "declared shares instead of the Deconvolver's (which are kept under cell_shares_read)")
-    ap.add_argument("--dev-seq-level", default=None, choices=("pooled", "median"), help="DEVELOPMENT: on sequencing, the healthy level the "
+    ap.add_argument("--dev-seq-level", default=None, choices=("pooled", "median", "donors"), help="DEVELOPMENT: on sequencing, the healthy level the "
                     "expectation uses: pooled (methylated over all reads of the cell's donors; the default) or median (of the donors' own levels; the earlier rule)")
+    ap.add_argument("--dev-seq-donors", default=None, help="DEVELOPMENT: a per-donor counts file in the committed format (cell, probe, cpg, gsm, half, m, n), for synthetics")
     ap.add_argument("--dev-whole-sites", action="store_true", help="DEVELOPMENT: write Met-A for the whole sample's per-site table (level, "
                     "expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz)")
     ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "

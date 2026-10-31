@@ -341,6 +341,36 @@ def metaa_half_counts(samples_csv, out, ref=None):
     T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
     return dict(inputs=len(used), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
 
+DONORS_FILE = None   # 2026-10-31: a constructed per-donor counts file (run_sample.py --dev-seq-donors), for synthetics
+METAA_DONORS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_donor_counts")   # metaa_donor_counts_v1.parquet
+
+def metaa_donor_counts(samples_csv, out, ref=None):
+    """2026-10-31 (Met-A on sequencing: the pooled level overstates one person's disorder, the median of a few donors understates it): each
+    healthy input's own methylated and total reads (m, n) at its cell's Met-A identity sites, one row per input and site (cell, probe, cpg,
+    gsm, half, m, n), so the expectation can be taken donor by donor. Counts, never ratios; nothing fitted."""
+    import pandas as pd
+    R = pd.read_parquet(ref or METAA_REF, columns=["cell", "probe", "cpg"]); S = pd.read_csv(samples_csv); G = {c: g for c, g in R.groupby("cell")}; parts = []
+    for r in S.itertuples():
+        c = str(r.cell).strip()
+        if c not in G: continue
+        g = G[c]; M, N = read_block(r.file, 0, HG19_CPGS); i = g.cpg.to_numpy(np.int64) - 1
+        parts.append(pd.DataFrame(dict(cell=c, probe=g.probe.to_numpy(), cpg=g.cpg.to_numpy(np.int64), gsm=str(r.gsm).strip(), half=str(r.half).strip().upper(),
+                                       m=M[i].astype(np.uint16), n=N[i].astype(np.uint16)))); del M, N
+    T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
+    return dict(inputs=int(T.gsm.nunique()), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
+
+def metaa_donors_of(cell, half=None, exclude=None):
+    """One cell's per-donor counts at its identity sites as two arrays (sites x donors, NaN where a donor has no row), indexed by probe;
+    only the given donor half when half is A or B; the sample itself left out when exclude names it. None when the file is absent."""
+    import pandas as pd
+    p = DONORS_FILE or os.path.join(METAA_DONORS_DIR, "metaa_donor_counts_v1.parquet")
+    if not os.path.exists(p): return None
+    T = pd.read_parquet(p, filters=[("cell", "==", cell)])
+    if str(half or "").upper() in ("A", "B"): T = T[T.half == str(half).upper()]
+    if exclude: T = T[T.gsm != exclude]
+    if T.empty: return None
+    return T.pivot(index="probe", columns="gsm", values="m").astype("float64"), T.pivot(index="probe", columns="gsm", values="n").astype("float64")
+
 def beta_vs_pat(beta_src, pat_path, cell, ref=None):
     """2026-10-30 (the donor halves agree more closely than their stated reads allow): for one healthy input, its published .beta counts (M, N)
     against counts taken from its own molecule file (.pat: chrom, first CpG index, pattern of C/T/., count) at its cell's Met-A identity

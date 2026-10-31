@@ -137,6 +137,31 @@ def expected_H_counted(mref, nref, n):
         out[i] = betabinom.pmf(k[None, :], m, a[i][:, None], b[i][:, None]) @ hk
     return out
 
+def expected_H_donors(Md, Nd, n):
+    """2026-10-31 (derived, nothing fitted): the expected entropy of one healthy person's level, k of n reads, from healthy donors' own
+    counts (Md, Nd: sites x donors). For a donor with Nd >= n reads, the entropy of n of its reads drawn without replacement (the
+    hypergeometric) is an exactly unbiased estimate of E[H(k/n)] at that donor's own level; only donors with at least n reads are used where
+    any has them, and otherwise the binomial at each donor's own level m/N (stated: the only part not exact). The expectation is the mean over donors with reads, so differences between
+    healthy people enter as they are, not through a pooled level (whose entropy is higher than any one donor's) or a median (which sits at
+    0 or 1 where a donor has few reads)."""
+    from scipy.stats import hypergeom, binom
+    Md = np.asarray(Md, "float64"); Nd = np.asarray(Nd, "float64"); n = np.minimum(np.asarray(n, "int64"), N_EXACT)
+    out = np.full(len(n), np.nan); memo = {}
+    for i in range(len(n)):
+        if n[i] < 1: continue
+        k = np.arange(n[i] + 1); hk = None; vals = []
+        deep = np.isfinite(Nd[i]) & (Nd[i] >= n[i])   # donors with at least n reads give the exact estimate; the shallower ones only when none do
+        for M, N in zip(Md[i][deep] if deep.any() else Md[i], Nd[i][deep] if deep.any() else Nd[i]):
+            if not np.isfinite(N) or N < 1: continue
+            key = (int(M), int(N), int(n[i]))
+            if key not in memo:
+                if hk is None: hk = np.asarray(_H(pd.Series(k / n[i])), "float64")
+                pk = hypergeom.pmf(k, int(N), int(M), int(n[i])) if N >= n[i] else binom.pmf(k, int(n[i]), M / N)
+                memo[key] = float(pk @ hk)
+            vals.append(memo[key])
+        if vals: out[i] = float(np.mean(vals))
+    return out
+
 def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     """Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1. 2026-10-29: with sequencing counts and seqref (the cell's
     rows of the IAM Sequencing Atlas's Met-A reference, stage_seq_atlas.metaa_reference_of), the healthy level at each identity site is the
@@ -172,6 +197,14 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
                                   "'s own reads (expected_H_counted: beta-binomial, Jeffreys half counts)")
         rec["expectation"] = ("k of n reads at each site's own depth (expected_H_counts), the IAM Sequencing Atlas's level" if use_seq else
                               "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)")
+        if use_seq and SEQ_LEVEL == "donors":   # 2026-10-31: the expectation donor by donor (expected_H_donors), the donor half when given
+            import stage_seq_atlas as _SQd2
+            _dc = _SQd2.metaa_donors_of(cell, half=half)
+            if _dc is not None:
+                _Md, _Nd = (z.reindex(mu[ok].index).to_numpy() for z in _dc); _e = expected_H_donors(_Md, _Nd, _n); href = float(np.nanmean(_e)); rec["expectation_counted"] = True
+                rec["expectation"] = ("k of n reads at each site's own depth, donor by donor: n of each healthy donor's own reads drawn without replacement "
+                                      f"(expected_H_donors), {_Md.shape[1]} donors" + (f" of half {str(half).upper()}" if str(half or '').upper() in ('A', 'B') else ""))
+            else: rec["expectation_note"] = "no per-donor counts for this cell: the pooled level"
     A = float(_H(x[ok]).mean() / href)
     if SITE_OUT and counts is not None:   # 2026-10-30 (development, run_sample.py --dev-metaa-sites): every identity site's reads, levels and disorder
         _n2 = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64")
