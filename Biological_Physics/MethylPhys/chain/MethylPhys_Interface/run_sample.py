@@ -996,7 +996,7 @@ def main():
         if getattr(a, "dev_shares", None):   # 2026-10-30 (development, diagnosis only): every reading that uses the shares reads these declared shares instead
             _dec = {x.split(":")[0].strip(): float(x.split(":")[1]) for x in a.dev_shares.split(",") if ":" in x}
             o["cell_shares_read"] = o["cell_shares"].get("cells")
-            o["cell_shares"]["cells"] = [{"cell": c, "share": round(f, 4), "status": "declared (development, --dev-shares)"} for c, f in _dec.items()]
+            o["cell_shares"]["cells"] = [{"cell": c, "share": round(f, 4), "interval_95": [round(f, 4), round(f, 4)], "status": "development", "declared": True} for c, f in _dec.items()]
             o["cell_shares"]["declared"] = "the shares were declared with --dev-shares for diagnosis; the Deconvolver's own shares are under cell_shares_read"
         if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
             print("Stage D21: a second deconvolution with provisional columns (" + a.dev_provisional + "), flagged", flush=True)
