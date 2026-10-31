@@ -2365,6 +2365,13 @@ share of molecules covering two or more of those sites (`run_sample.py --build s
 A published per-CpG table (hg19 or hg38; plain counts or Bismark coverage) written as .lbeta on the hg19 numbering, both strands added to one
 CpG (`run_sample.py --build seq-table`).
 
+### stage_metaa_atlas.py::donor_pair
+The sample's disorder and one healthy person's expected disorder at a common depth (the smaller of the sample's reads and the deepest
+donor's): both sides' reads thinned without replacement to that depth, so both are exact.
+
+### stage_metaa_atlas.py::donor_pair.thin
+The exact expected entropy of K methylated of N reads thinned without replacement to m reads (the hypergeometric), remembered per (K, N, m).
+
 ### stage_metaa_atlas.py::expected_H_donors
 One healthy person's expected disorder at k of n reads, from healthy donors' own counts: n of each donor's reads drawn without replacement
 (exactly unbiased where the donor has at least n reads), averaged over donors; differences between healthy people enter as they are.

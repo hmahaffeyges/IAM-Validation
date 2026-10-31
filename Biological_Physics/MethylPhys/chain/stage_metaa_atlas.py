@@ -162,6 +162,27 @@ def expected_H_donors(Md, Nd, n):
         if vals: out[i] = float(np.mean(vals))
     return out
 
+def donor_pair(k, n, Md, Nd):
+    """2026-10-31 (derived, nothing fitted; after the donor-by-donor synthetic's run 1): the sample's measured disorder and one healthy
+    person's expected disorder at each site, both at a common depth m = the smaller of the sample's reads n and the deepest donor's. The
+    sample side: the exact expectation of H when its n reads (k methylated) are thinned to m without replacement (its own H(k/n) when n <= m).
+    The healthy side: the mean over donors with at least m reads of the same thinning of each donor's own reads. Both exact. Returns
+    (measured, expected); NaN where no donor has a read."""
+    from scipy.stats import hypergeom
+    k = np.asarray(k, "int64"); n = np.asarray(n, "int64"); Md = np.asarray(Md, "float64"); Nd = np.asarray(Nd, "float64")
+    meas = np.full(len(n), np.nan); exp = np.full(len(n), np.nan); memo = {}
+    def thin(K, N, m):
+        key = (int(K), int(N), int(m))
+        if key not in memo:
+            j = np.arange(m + 1); memo[key] = float(hypergeom.pmf(j, int(N), int(K), int(m)) @ np.asarray(_H(pd.Series(j / m)), "float64"))
+        return memo[key]
+    for i in range(len(n)):
+        ok = np.isfinite(Nd[i]) & (Nd[i] >= 1)
+        if n[i] < 1 or not ok.any(): continue
+        m = int(min(n[i], N_EXACT, Nd[i][ok].max())); deep = ok & (Nd[i] >= m)
+        meas[i] = thin(k[i], n[i], m); exp[i] = float(np.mean([thin(M, N, m) for M, N in zip(Md[i][deep], Nd[i][deep])]))
+    return meas, exp
+
 def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     """Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1. 2026-10-29: with sequencing counts and seqref (the cell's
     rows of the IAM Sequencing Atlas's Met-A reference, stage_seq_atlas.metaa_reference_of), the healthy level at each identity site is the
@@ -201,15 +222,17 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
             import stage_seq_atlas as _SQd2
             _dc = _SQd2.metaa_donors_of(cell, half=half)
             if _dc is not None:
-                _Md, _Nd = (z.reindex(mu[ok].index).to_numpy() for z in _dc); _e = expected_H_donors(_Md, _Nd, _n); href = float(np.nanmean(_e)); rec["expectation_counted"] = True
-                rec["expectation"] = ("k of n reads at each site's own depth, donor by donor: n of each healthy donor's own reads drawn without replacement "
-                                      f"(expected_H_donors), {_Md.shape[1]} donors" + (f" of half {str(half).upper()}" if str(half or '').upper() in ('A', 'B') else ""))
+                _Md, _Nd = (z.reindex(mu[ok].index).to_numpy() for z in _dc); _k = np.rint(x[ok].to_numpy() * _n).astype("int64")
+                _hm, _e = donor_pair(_k, _n, _Md, _Nd); _g = np.isfinite(_hm) & np.isfinite(_e); href = float(_e[_g].mean()); rec["expectation_counted"] = True
+                _hmean = float(_hm[_g].mean())   # the sample's disorder at the same common depth (donor_pair)
+                rec["expectation"] = ("donor by donor at a common depth (donor_pair): the sample's reads and each healthy donor's thinned without replacement "
+                                      f"to the smaller of the two depths, {_Md.shape[1]} donors" + (f" of half {str(half).upper()}" if str(half or '').upper() in ('A', 'B') else ""))
             else: rec["expectation_note"] = "no per-donor counts for this cell: the pooled level"
-    A = float(_H(x[ok]).mean() / href)
+    A = float((_hmean if "_hmean" in locals() else _H(x[ok]).mean()) / href)
     if SITE_OUT and counts is not None:   # 2026-10-30 (development, run_sample.py --dev-metaa-sites): every identity site's reads, levels and disorder
         _n2 = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64")
         pd.DataFrame(dict(site=mu[ok].index, reads=_n2.to_numpy(), sample_level=x[ok].to_numpy(), reference_level=mu[ok].to_numpy(),
-                          H_measured=np.asarray(_H(x[ok]), dtype="float64"), H_expected=np.asarray(_e if rec.get("expectation_counted") else expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()), dtype="float64"))).to_csv(SITE_OUT, index=False)
+                          H_measured=np.asarray(_hm if "_hm" in locals() else _H(x[ok]), dtype="float64"), H_expected=np.asarray(_e if rec.get("expectation_counted") else expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()), dtype="float64"))).to_csv(SITE_OUT, index=False)
         rec["sites_table"] = os.path.basename(SITE_OUT)
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),
