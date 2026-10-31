@@ -45,3 +45,7 @@ metaa_pooled_synthetic.txt
 pooled_bcell_check.txt
 healthy_fullchain3_samples.csv
 healthy_fullchain3b_samples.csv
+selfree3_summary.txt
+selfree3_readings.csv
+selfree3_sites.txt
+selfree3_sites.csv

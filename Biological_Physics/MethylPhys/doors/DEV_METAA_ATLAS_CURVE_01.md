@@ -502,3 +502,13 @@ pauses, resumes partial transfers and checks each file (`.github/workflows/geo_p
 through the gated runner; disclosed), and its specimen look-up's quoting is fixed (the specimen still reached the chain from the sample
 list). The 93 are read again with the same flags (`seq_atlas_01/healthy_fullchain3b_samples.csv`), and both runs are scored together by the
 committed scorers on a GitHub machine (`.github/workflows/score_run.yml`), because the per-site tables are too large for the laptop.
+
+**The outside samples with the pooled level, read: not met** (`seq_atlas_01/selfree3_summary.txt`, `seq_atlas_01/selfree3_sites.txt`; the
+committed scorers on a Google machine; the re-read files were named sf3_ and renamed there to the scorer's selfree_ names, my naming error).
+The 25 outside neurons now read sorted-cell Met-A 0.9191 (they read 1.0132 against the median of the donors), with Spearman rho +0.486
+against depth; the 10 pancreas samples are again not read (too few identity sites). The whole-sample reading's marked and unmarked sides
+read 0.9886 and 0.9343. **What it shows:** for a sample outside the atlas the pooled level overstates healthy disorder and the median
+understates it. Pooling donors whose levels differ at a site gives a level between them whose entropy is higher than any one donor's
+(the entropy of an average exceeds the average of entropies); the median of a few sparse donors sits at 0 or 1. Neither is one person's
+expectation. **Next:** the atlas's own per-donor disorder column read as that expectation, derived and written as a test before anything is
+read; the pooled level stays the default only until then, and nothing is presented from it.
