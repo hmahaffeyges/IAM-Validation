@@ -525,3 +525,11 @@ machines. **Synthetic:** `seq_atlas_01/metaa_donors_synthetic.py`: people whose 
 population level), three donors counted near 40 reads, new people read at 7 depths donor by donor (scored), with the pooled level and
 with the median (recorded). Bars: median Met-A within 0.05 of 1; |rho| with depth at most 0.2. Sorted-cell Met-A first; the in-mix readings
 follow only if this meets.
+
+**The donor-by-donor synthetic, run 1: not met** (`seq_atlas_01/metaa_donors_synthetic_run1.txt`). Bar 1 met (median 1.0141); bar 2 not met
+(rho +0.523): the reading is near 1 from 5 to 45 reads and 1.0628 at 60, where the sample is deeper than the donors (about 40 reads) and the
+expectation falls to each donor's binomial at its own level, the one part stated as not exact. On the same samples the pooled level read
+0.9690 to 0.9993 and the median 1.0588 to 1.0936 (recorded). **Amended before run 2 (method, not bar):** both sides read at a common depth.
+At each site m is the smaller of the sample's reads and the deepest donor's; the sample's disorder is its exact expectation when n of its reads
+are thinned to m without replacement (its own value whenever n is at most m), and each donor with at least m reads is thinned to m the same
+way (`stage_metaa_atlas.donor_pair`). Both sides are then exact; nothing fitted. Run 2 on a new seed, same bars.

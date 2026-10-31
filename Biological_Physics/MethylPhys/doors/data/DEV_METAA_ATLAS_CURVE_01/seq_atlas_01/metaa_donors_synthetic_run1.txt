@@ -1,0 +1,8 @@
+Met-A against the IAM Sequencing Atlas, the expectation donor by donor: synthetic, read by run_sample.py --dev-seq-ref FILE --dev-seq-donors FILE (--dev-seq-level)
+seed 20261108, naive cd4 t cells, 6000 identity sites, three donors near 40 reads each, person-to-person spread sd 0.6 (logit); read donor by donor 21 of 21
+Met-A by depth, donor by donor: 5 1.0150, 8 1.0079, 12 0.9902, 20 1.0146, 30 1.0107, 45 1.0219, 60 1.0628
+Met-A by depth, the pooled level (recorded, not scored): 5 0.9939, 8 0.9866, 12 0.9690, 20 0.9929, 30 0.9889, 45 0.9811, 60 0.9993
+Met-A by depth, the median of the donors (recorded, not scored): 5 1.0865, 8 1.0777, 12 1.0588, 20 1.0852, 30 1.0810, 45 1.0730, 60 1.0936
+bar 1 median Met-A 1.0141 (within 0.05 of 1): met
+bar 2 Spearman rho with depth +0.523 (|rho| at most 0.2): not met
+synthetic: not met
