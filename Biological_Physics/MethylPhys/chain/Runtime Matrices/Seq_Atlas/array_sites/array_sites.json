@@ -12,9 +12,9 @@
   "--build",
   "seq-array-cols",
   "--build-samples",
-  "/root/w/p56,/root/w/pmk",
+  "/root/w/p56",
   "--build-out",
-  "/root/w/array_sites",
+  "/root/w/out",
   "--bundle",
   "/root/w/array_sites.json"
  ],

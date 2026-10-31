@@ -470,3 +470,13 @@ tables, not on one.
 depth +0.224 (limit 0.2), the reading near 1.02 at 5 reads and 1.03 at 60. The remaining 0.03 is counting in a reference of about 90 pooled
 reads: 41 % of its sites are still exactly 0 or 1 (52 % for the median). The bar is not changed after the run. **Next:** the 137 healthy
 inputs and the 25 outside neurons read again with the pooled level and both per-site tables, so the remainder is read on real samples.
+
+**A broken settings block, fixed (disclosed).** The commit that brought in the pooled level also broke `stage_metaa_atlas.py`'s settings:
+inserting two new settings in front of `SITE_OUT` also matched inside `WHOLE_SITE_OUT`, so neither `SEQ_LEVEL` nor `WHOLE_SITE_OUT`
+existed. The pooled-level synthetic was unaffected (it always passed `--dev-seq-level`), but on main, from that commit to this one, a
+sequenced reading without that flag would have stopped and Met-A for the whole sample would have failed; no reading was made with it. Fixed,
+and every setting checked present. **The columns rebuilt** (`run_sample.py --build seq-array-cols` on a Google spot machine): IAM-Atlas v2.1's
+sites now carry each cell's pooled counts (`meth`, `reads`); the median and spread columns came out byte-identical to the committed ones.
+**One spent B-cell input read with the pooled level** (`seq_atlas_01/pooled_bcell_check.txt`): islands 0.88402
+(1.692 with the median, an earlier read of the same input without a donor half), domains 1.15399, Met-A for the whole sample 1.12212,
+C-Score 0.9964. The islands' excess was the median level; the rest sits at the marked sites. **Next:** the 137 healthy inputs read again (healthy pass 3), with both per-site tables.

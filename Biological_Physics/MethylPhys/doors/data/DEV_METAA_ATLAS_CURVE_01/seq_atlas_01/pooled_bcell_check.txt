@@ -1,0 +1,6 @@
+one command, run_sample.py --dev-seq-beta GSM5652316.beta (GSE186458, B cells, spent atlas input) --dev-seq-values 1 --specimen 'sorted b cells' --full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+the healthy level on sequencing: the pooled level (SEQ_LEVEL default), array-site columns rebuilt with pooled counts
+sorted-cell Met-A (against donor half B) 1.18102
+Met-A for the whole sample 1.12212
+territories: islands 0.88402, domains 1.15399
+C-Score whole genome 0.9964

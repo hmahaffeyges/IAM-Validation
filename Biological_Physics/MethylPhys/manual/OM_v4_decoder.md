@@ -2975,7 +2975,7 @@ Met-A's healthy middle line predicted from the array itself: at each site, the d
 
 Met-A for the whole sample over every atlas site: the atlas mixed in the sample's own shares is the expectation, each site counts by how firmly that mix holds it (|0.5 - e|), and the reading is weighted disorder over weighted expected disorder. Reported overall and split by place (identity sites of the cells found, islands, domains, the rest), with the shift a 1 % loss would make. The per-cell readings say which cell; this one says whether the sample has departed. Development, flagged, on by default.
 
-*Code:* `stage_metaa_atlas.py` line 532 (43 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 532 (43 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `FLAG`, `MIX_COVER`, `WHOLE_SITE_OUT`
 
 ### `stage_metaa_atlas.py::read_whole.one`
 
@@ -3033,7 +3033,7 @@ The entropy of a beta value in bits, clipped to [10⁻⁶, 1 − 10⁻⁶].
 
 One cell's atlas column (best value, the ends of its 95 % range, or the person-to-person spread) over the atlas's sites, read once.
 
-*Code:* `stage_metaa_atlas.py` line 40 (31 lines) · arguments: stem, cell · calls: not called on the traced runs · constants read: `ATLAS`, `NA`, `SEQ_ATLAS` · files named: `import pyarrow.parquet`, `meth_part1.parquet`, `sites.parquet`
+*Code:* `stage_metaa_atlas.py` line 40 (31 lines) · arguments: stem, cell · calls: not called on the traced runs · constants read: `ATLAS`, `NA`, `SEQ_ATLAS`, `SEQ_LEVEL` · files named: `import pyarrow.parquet`, `meth_part1.parquet`, `sites.parquet`
 
 ### `stage_metaa_atlas.py::width`
 
@@ -3069,7 +3069,7 @@ On sequencing (read counts given), the atlas column is first put in sequencing u
 published sequencing atlas (`Runtime Matrices/Atlas_V21/sequencing_term_v1.json`: sequencing = -0.0902 + 1.1026 x atlas level, clipped to
 0 to 1): the atlas is on the array scale, whose unmarked sites sit near 0.055 where sequencing reads 0. Arrays are read unchanged.
 
-*Code:* `stage_metaa_atlas.py` line 140 (51 lines) · arguments: beta, cell, specimen, counts, seqref, half · calls: not called on the traced runs · constants read: `FLAG`, `RULE`, `SEQ_COUNTED`, `SITE_OUT`
+*Code:* `stage_metaa_atlas.py` line 140 (51 lines) · arguments: beta, cell, specimen, counts, seqref, half · calls: not called on the traced runs · constants read: `FLAG`, `RULE`, `SEQ_COUNTED`, `SEQ_LEVEL`, `SITE_OUT`
 
 ### `stage_metaa_atlas.py::tare`
 

@@ -6911,7 +6911,8 @@
      "constants": [
       "ATLAS",
       "NA",
-      "SEQ_ATLAS"
+      "SEQ_ATLAS",
+      "SEQ_LEVEL"
      ],
      "data_files": [
       "import pyarrow.parquet",
@@ -7046,6 +7047,7 @@
       "FLAG",
       "RULE",
       "SEQ_COUNTED",
+      "SEQ_LEVEL",
       "SITE_OUT"
      ],
      "data_files": [],
@@ -7436,7 +7438,8 @@
      "doc": "Met-A for the whole sample over EVERY IAM-Atlas v2.1 site (development, 2026-10-23; author: 'adjust Met-A to read from the entire IAM-Atlas'). One reading per sample: e = the atlas mixed in the sample's own shares (read_in_mix's rule, MIX_COVER); each site counts by how firmly a healthy sample of this mix holds it, w = |0.5 - e| (a site held near 0 or 1 counts most, a half-held one least; nothing ",
      "constants": [
       "FLAG",
-      "MIX_COVER"
+      "MIX_COVER",
+      "WHOLE_SITE_OUT"
      ],
      "data_files": [],
      "traced_calls": {}

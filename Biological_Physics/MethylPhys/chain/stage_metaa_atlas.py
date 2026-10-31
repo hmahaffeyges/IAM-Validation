@@ -28,9 +28,9 @@ SEQ_TERM = json.load(open(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "s
 FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-01)"
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
 SEQ_ATLAS = None   # 2026-10-30: a folder of the IAM Sequencing Atlas at v2.1's sites (stage_seq_atlas.ARRAY_COLS); set for a sequenced sample, _col serves it
-WHOLE_SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule)
+SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule)
 SEQ_COUNTED = False   # 2026-10-31: the counted-reference expectation (expected_H_counted) is off: its synthetic was not met (DEV_METAA_ATLAS_CURVE_01)
-SITE_OUT = None   # 2026-10-31: a path; when set, read_whole() writes its per-site table there (run_sample.py --dev-whole-sites)
+WHOLE_SITE_OUT = None   # 2026-10-31: a path; when set, read_whole() writes its per-site table there (run_sample.py --dev-whole-sites)
 SITE_OUT = None   # 2026-10-30: a path; when set, read() writes the per-site table of a sequencing reading there (run_sample.py --dev-metaa-sites)
 _cache = {}
 
