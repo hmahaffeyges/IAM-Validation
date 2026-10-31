@@ -265,7 +265,12 @@ def _build(a):
         import stage_seq_atlas as _SQn
         rows = _SQn.noise_at_identity(); rep = dict(rows=rows, command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - a measurement of the IAM Sequencing Atlas (plan 35.30)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
-        if a.build_out: import pandas as _pdn; _pdn.DataFrame(rows).to_csv(a.build_out, index=False)
+        if a.build_out:
+            import pandas as _pdn; _dn = _pdn.DataFrame(rows); _dn.to_csv(a.build_out, index=False); _L = []
+            for _sd, _g in _dn.groupby("side"):
+                _x = _g.map1_over_counting.dropna() if "map1_over_counting" in _g else _pdn.Series(dtype=float)
+                if len(_x): _L.append(f"{_sd}: map 1 over counting, median {_x.median():.3f} of {len(_x)} cells, {_x.min():.3f} to {_x.max():.3f}; below 0.5 in {int((_x < 0.5).sum())}")
+            open(a.build_out.rsplit(".", 1)[0] + "_summary.txt", "w").write("\n".join(_L) + "\n")
         print(len(rows), "cell-side rows"); return 0
     if a.build == "seq-metaa-counts":   # 2026-10-30 (plan 35.30, development): each donor half's reads at the Met-A identity sites
         if not (a.build_samples and a.build_out): print("--build seq-metaa-counts needs --build-samples INPUTS.csv and --build-out PARQUET"); return 2

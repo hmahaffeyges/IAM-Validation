@@ -388,7 +388,7 @@ healthy samples read 1.07 to 1.10, so counting is a small part of the excess. **
 (donor half A minus half B) carries donor differences and counting, noise map 2 (random read halves) counting only; their difference is the
 healthy donor spread, measured. Nothing in Met-A changes until that is measured.
 
-**The donor halves against counting, measured** (`seq_atlas_01/noise_at_identity.csv`, `run_sample.py --build seq-noise-identity`;
+**The donor halves against counting, measured** (`seq_atlas_01/noise_at_identity.csv`, `seq_atlas_01/noise_at_identity_summary.txt`, `run_sample.py --build seq-noise-identity`;
 each half's raw reads at the identity sites built from the 153 healthy inputs, `--build seq-metaa-counts`, 7 Google spot machines). The
 stored half levels equal the raw counts (largest difference 0.00005): the atlas is built correctly. Noise map 2 (read halves) equals its
 counting prediction. Noise map 1 (donor halves) should be at least counting: on the unmarked side it is 0.806 of counting (median of 48
