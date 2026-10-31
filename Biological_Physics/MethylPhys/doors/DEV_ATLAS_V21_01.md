@@ -684,3 +684,9 @@ showed structure (p 0.0099, one band unreadable); with the planted shares declar
 at 0.5 to 1.4 %), leaving holes in the map. **Fixed:** each site now mixes the cells with a level there and is kept where they hold at least
 0.99 of the shares (the territories' rule, MIX_COVER). A 300-site change is below what the sky sees at 8 reads; the plant is now 3,000 sites.
 **Run 2** reads the same three ways.
+
+**The sky diagnostic, run 2** (`seq_atlas/sky_seq_diag_run2.txt`, through the one command, the hole fix in): with the Deconvolver's own
+shares no structure (p 1.0, every band read); planted shares declared, none (p 0.5644); 3,000 sites of chromosome 8 moved 0.15 at 8 reads
+raised one band to 1.3674 times its null, not significant (p 0.1089): a measured limit of what the sky sees at that depth.
+**Synthetic run 3** (amended before it ran, disclosed; `seq_atlas/sky_seq_synthetic.py`): the bar is the instrument's job only, at most 1 of
+the 6 healthy samples showing structure; what the sky can see is measured, not scored, at 20 reads with 3,000 and 10,000 changed sites.

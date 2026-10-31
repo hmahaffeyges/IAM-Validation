@@ -1,0 +1,6 @@
+The sky on sequencing, diagnostic (cd8 0.7, cd4 0.3, 8 reads)
+read | lee p | structure | largest band ratio
+the Deconvolver's own shares | 1.0 | False | 0.9848
+  the Deconvolver read: cd8 t cells 0.724, cd4 t cells 0.218, t central memory cd4 0.025, monocytes 0.014, bladder epithelium 0.009, breast luminal epithelium 0.005
+planted shares declared | 0.5644 | False | 1.0420
+planted shares declared, 3000 chr8 sites +0.15 | 0.1089 | False | 1.3674
