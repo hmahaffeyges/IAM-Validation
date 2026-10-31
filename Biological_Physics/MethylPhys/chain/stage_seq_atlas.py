@@ -181,7 +181,7 @@ ARRAY_COLS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime M
 
 def array_columns(piece_dirs, outdir):
     """2026-10-30 (author: Met-A and every instrument built on it working on sequencing, the IAM Sequencing Atlas as the ruler): each cell's
-    counted level (mu) and donor spread (donor_sd) at every site of IAM-Atlas v2.1, in v2.1's own site order and layout (three parts per
+    counted level (mu, the median of the donors), donor spread (donor_sd) and pooled methylated and all reads (meth, reads) at every site of IAM-Atlas v2.1, in v2.1's own site order and layout (three parts per
     stem, uint16, levels x 10,000, 65535 blank), so stage_metaa_atlas._col serves a sequenced sample's in-mix readings (Met-A for each cell
     and the whole sample, the territories, the C-Score) from sequencing levels. The provisional megakaryocyte column is left out (version 1)."""
     import glob, pyarrow as pa, pyarrow.parquet as pq, pandas as pd, stage_metaa_atlas as SA
@@ -193,17 +193,18 @@ def array_columns(piece_dirs, outdir):
     for i, c in zip(np.flatnonzero(have), cpg[have].astype(np.int64)): pos.setdefault(int(c), []).append(int(i))
     F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
     cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")} - {"megakaryocytes"})
-    MU = np.full((len(ids), len(cells)), BLANK, np.uint16); SD = MU.copy(); ci = {c: j for j, c in enumerate(cells)}
+    MU = np.full((len(ids), len(cells)), BLANK, np.uint16); SD = MU.copy(); ME = MU.copy(); RD = MU.copy(); ci = {c: j for j, c in enumerate(cells)}   # 2026-10-31: pooled counts too
     for f in F:
         sch = pq.read_schema(f).names; here = [c for c in cells if f"{c}|level" in sch]
         if not here: continue
-        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in here for x in ("level", "spread")]).to_pandas(); T = T[T.cpg.isin(pos.keys())]
+        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in here for x in ("level", "spread", "meth", "reads")]).to_pandas(); T = T[T.cpg.isin(pos.keys())]
         if T.empty: continue
         rr = [r for c in T.cpg.to_numpy() for r in pos[int(c)]]; rep = [len(pos[int(c)]) for c in T.cpg.to_numpy()]
         for c in here:
             MU[rr, ci[c]] = np.repeat(T[f"{c}|level"].to_numpy(np.uint16), rep); SD[rr, ci[c]] = np.repeat(T[f"{c}|spread"].to_numpy(np.uint16), rep)
+            ME[rr, ci[c]] = np.repeat(T[f"{c}|meth"].to_numpy(np.uint16), rep); RD[rr, ci[c]] = np.repeat(T[f"{c}|reads"].to_numpy(np.uint16), rep)
     os.makedirs(outdir, exist_ok=True); thirds = np.array_split(np.arange(len(cells)), 3)
-    for stem, A in (("mu", MU), ("donor_sd", SD)):
+    for stem, A in (("mu", MU), ("donor_sd", SD), ("meth", ME), ("reads", RD)):   # meth and reads: pooled counts (the pooled level, 2026-10-31)
         for k, js in enumerate(thirds, 1):
             pq.write_table(pa.table({cells[j]: A[:, j] for j in js}), os.path.join(outdir, f"{stem}_part{k}.parquet"), compression="zstd")
     return dict(cells=len(cells), sites=len(ids), sites_with_a_cpg=int(have.sum()), sites_with_every_cell=int((MU != BLANK).all(1).sum()),
@@ -402,6 +403,8 @@ def metaa_reference_of(cell, path=METAA_REF):
     R = R.set_index("probe")
     for c in ("level", "spread", "disorder", "halfA", "halfB", "readA", "readB"):
         if c in R: R[c] = np.where(R[c] == BLANK, np.nan, R[c] / 1e4)
+    for c in ("meth", "reads"):   # 2026-10-31: pooled counts as numbers, blank where no donor has a read (the pooled level is meth / reads)
+        if c in R: R[c] = np.where(R[c] == BLANK, np.nan, R[c].astype("float64"))
     _mc = os.path.join(METAA_COUNTS_DIR, "metaa_half_counts_v1.parquet")
     if os.path.exists(_mc) and "nA" not in R.columns:   # 2026-10-30: each donor half's own reads at the identity sites (metaa_half_counts)
         C = pd.read_parquet(_mc, filters=[("cell", "==", cell)]).set_index("probe")[["mA", "nA", "mB", "nB"]]

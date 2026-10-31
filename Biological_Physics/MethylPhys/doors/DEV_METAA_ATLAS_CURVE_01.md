@@ -445,3 +445,22 @@ on the same neurons the C-Score reads 0.9989, while Met-A for the whole sample (
 are high: the in-mix readings have a cause of their own, not selection. The Deconvolver gives these prefrontal NeuN+ nuclei 0.84 to the
 atlas's cortical neurons. **Next:** the in-mix readings at low levels; and a selection-free test for a selected cell type whose libraries
 cover the identity sites.
+
+## The healthy level on sequencing: the median of the donors (found; the pooled level written before its synthetic runs)
+
+**Found** (one spent atlas input, GSE186458 GSM5652316, B cells, read by the one command with the new per-site table of Met-A for the whole
+sample, `run_sample.py --dev-whole-sites`; diagnosis, nothing scored): about a quarter of the whole-sample reading's weight sits at sites
+whose expected level is exactly 0 or exactly 1, where the expected disorder is 0; there the sample reads 0.007 and 0.981. At sites where the
+B-cell column stores exactly 0, this sample, one of that column's own donors, has a methylated read at a tenth of them. The atlas's stored
+level is the median of the donors' own levels (`stage_seq_atlas.py`, STATS: level), and with 1 to 3 donors of a few dozen reads a median
+sits at 0 or 1 wherever a donor has no read the other way: 86 % of the B cells' unmarked identity sites, against 49 % for the pooled count
+(methylated over all reads), which the atlas also stores. Every reading on sequencing used that median as its healthy expectation.
+**The change:** the expectation on sequencing is the pooled level (`stage_metaa_atlas.SEQ_LEVEL = "pooled"`): sorted-cell Met-A takes the
+reference's pooled counts, and the atlas's columns at v2.1's sites gain pooled counts (`meth`, `reads`; `stage_seq_atlas.array_columns`,
+rebuilt from the atlas pieces) for Met-A for the whole sample, the territories and the C-Score. `--dev-seq-level median` reads the earlier
+rule. **Also:** the counted-reference expectation, whose synthetic was not met, had become active once the per-half counts were committed;
+it is now off unless switched on (`SEQ_COUNTED`). **Synthetic:** `seq_atlas_01/metaa_pooled_synthetic.py` (hidden truth, three donors
+counted from it near 30 reads each, the reference holding both their median and their pooled counts; samples at 7 depths read both ways;
+bars: the pooled reading's median within 0.05 of 1, |rho| with depth at most 0.2). **What it cannot settle:** this sample also reads below
+its own donor half at the marked identity sites (a donor or library difference); that is read next across many samples, with the per-site
+tables, not on one.

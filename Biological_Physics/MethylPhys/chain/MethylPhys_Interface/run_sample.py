@@ -212,6 +212,7 @@ def _metaa_atlas(a, b):
     commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched."""
     import dev_stages as DV, stage_metaa_atlas as SA
     if getattr(a, "_seqv", None):   # 2026-10-22 (step 40): sequencing values; the self-tare maps the two array designs, so it does not apply
+        SA.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or SA.SEQ_LEVEL   # 2026-10-31: pooled (default) or median, the healthy level on sequencing
         _sr = None
         if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
             import stage_seq_atlas as _SQr; _sr = _SQr.metaa_reference_of(a.dev_metaa_atlas, _SQr.METAA_REF if a.dev_seq_ref == "auto" else a.dev_seq_ref)
@@ -593,6 +594,10 @@ def main():
                     "from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1")
     ap.add_argument("--dev-shares", default=None, metavar="CELL:SHARE,...", help="DEVELOPMENT, diagnosis only: read every share-based reading against these "
                     "declared shares instead of the Deconvolver's (which are kept under cell_shares_read)")
+    ap.add_argument("--dev-seq-level", default=None, choices=("pooled", "median"), help="DEVELOPMENT: on sequencing, the healthy level the "
+                    "expectation uses: pooled (methylated over all reads of the cell's donors; the default) or median (of the donors' own levels; the earlier rule)")
+    ap.add_argument("--dev-whole-sites", action="store_true", help="DEVELOPMENT: write Met-A for the whole sample's per-site table (level, "
+                    "expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz)")
     ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "
                     "measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis")
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
@@ -1018,6 +1023,7 @@ def main():
         if a._seqv and getattr(a, "dev_seq_ref", None):   # 2026-10-30 (plan 35.30): a sequenced sample split on the IAM Sequencing Atlas, flagged
             import stage_seq_atlas as _SQd, stage_metaa_atlas as _SAd; _dsr = _SQd.deconv_reference_of()
             if os.path.exists(os.path.join(_SQd.ARRAY_COLS, "mu_part1.parquet")): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
+            _SAd.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or _SAd.SEQ_LEVEL   # 2026-10-31: the expectation's level (pooled by default)
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
@@ -1051,6 +1057,7 @@ def main():
                 if a.dev_metaa_allsites: o["met_a_each_cell_allsites"] = SA.read_in_mix_allsites(_vals, _shr)
                 _rv, o["atlas_ruler"] = (None, {"reason": "sequencing values are not mapped" if a._seqv else "the atlas ruler is off (--dev-ruler turns it on; development)"}) if (a._seqv or not a.dev_ruler) else _ST.ruler_map(_pd.Series(beta, dtype="float64"))   # 2026-10-23: the atlas ruler
                 _vr = _rv if _rv is not None else _vals
+                SA.WHOLE_SITE_OUT = (re.sub(r"(_bundle)?\.json$", "", a.bundle) + "_whole_sites.csv.gz") if getattr(a, "dev_whole_sites", False) and a.bundle else None   # 2026-10-31
                 try: o["met_a_whole"] = SA.read_whole(_vr, _shr, counts=getattr(a, "_seqc", None)); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
                 except Exception as e: o["met_a_whole"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix

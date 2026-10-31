@@ -28,6 +28,9 @@ SEQ_TERM = json.load(open(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "s
 FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-01)"
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
 SEQ_ATLAS = None   # 2026-10-30: a folder of the IAM Sequencing Atlas at v2.1's sites (stage_seq_atlas.ARRAY_COLS); set for a sequenced sample, _col serves it
+WHOLE_SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule)
+SEQ_COUNTED = False   # 2026-10-31: the counted-reference expectation (expected_H_counted) is off: its synthetic was not met (DEV_METAA_ATLAS_CURVE_01)
+SITE_OUT = None   # 2026-10-31: a path; when set, read_whole() writes its per-site table there (run_sample.py --dev-whole-sites)
 SITE_OUT = None   # 2026-10-30: a path; when set, read() writes the per-site table of a sequencing reading there (run_sample.py --dev-metaa-sites)
 _cache = {}
 
@@ -42,6 +45,17 @@ def _col(stem, cell):
     if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
     if SEQ_ATLAS:   # 2026-10-30 (plan 35.30): a sequenced sample's in-mix readings from the IAM Sequencing Atlas's counted levels, same sites
         s = "donor_sd" if stem == "donor_sd" else "mu"   # the sequencing atlas counts one level per site; mu_lo and mu_hi read it too
+        if s == "mu" and SEQ_LEVEL == "pooled" and os.path.exists(os.path.join(SEQ_ATLAS, "meth_part1.parquet")):
+            # 2026-10-31: the expectation is the pooled level (methylated over all reads of the cell's healthy donors). A healthy sample's reads are
+            # draws of the cell's methylation probability, which the pooled count measures; the median of 1 to 3 donors' levels sits at exactly
+            # 0 or 1 where a donor has few reads (86 % of the B cells' unmarked identity sites against 49 % pooled; DEV_METAA_ATLAS_CURVE_01)
+            for part in (1, 2, 3):
+                pm, pr = (os.path.join(SEQ_ATLAS, f"{t}_part{part}.parquet") for t in ("meth", "reads"))
+                if cell in pq.read_schema(pm).names:
+                    m = pq.read_table(pm, columns=[cell]).column(0).to_numpy().astype("float64"); n = pq.read_table(pr, columns=[cell]).column(0).to_numpy().astype("float64")
+                    v = np.where((n > 0) & (n != NA) & (m != NA), m / np.where(n > 0, n, 1), np.nan)
+                    _cache[k] = pd.Series(v, index=_cache["ids"]); return _cache[k]
+            _cache[k] = pd.Series(np.nan, index=_cache["ids"]); return _cache[k]
         for part in (1, 2, 3):
             p = os.path.join(SEQ_ATLAS, f"{s}_part{part}.parquet")
             if cell in pq.read_schema(p).names:
@@ -134,6 +148,8 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     use_seq = counts is not None and seqref is not None
     if use_seq:
         col = {"A": "halfA", "B": "halfB"}.get(str(half or "").upper(), "level")
+        if col == "level" and SEQ_LEVEL == "pooled" and {"meth", "reads"} <= set(seqref.columns):   # 2026-10-31: the pooled level, not the donors' median
+            col = "pooled"; seqref = seqref.copy(); seqref["pooled"] = seqref["meth"] / seqref["reads"].where(seqref["reads"] > 0)
         mu = seqref[col].reindex(S).astype("float64")
         rec.update(reading="Met-A against the IAM Sequencing Atlas (sequencing)", reference=f"IAM Sequencing Atlas, {col} at the identity sites (metaa_seq_reference_v1)",
                    flag="read against the IAM Sequencing Atlas; not commissioned by our standards (plan 35.30)")
@@ -149,7 +165,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
         if not use_seq: mu[ok] = seq_units(mu[ok])
         _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
         _h = str(half or "").upper()
-        if use_seq and _h in ("A", "B") and f"n{_h}" in seqref.columns and seqref[f"n{_h}"].reindex(mu[ok].index).notna().all():   # 2026-10-30: the counted reference
+        if SEQ_COUNTED and use_seq and _h in ("A", "B") and f"n{_h}" in seqref.columns and seqref[f"n{_h}"].reindex(mu[ok].index).notna().all():   # 2026-10-30: the counted reference
             _mr = seqref[f"m{_h}"].reindex(mu[ok].index).to_numpy(); _nr = seqref[f"n{_h}"].reindex(mu[ok].index).to_numpy()
             _e = expected_H_counted(_mr, _nr, _n); href = float(np.nanmean(_e)); rec["expectation_counted"] = True
             rec["expectation"] = ("k of n reads at each site's own depth, the healthy level counted from donor half " + _h +
@@ -531,6 +547,11 @@ def read_whole(beta, shares, counts=None):
     ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
     if ok.sum() < 10000: out["reason"] = f"only {int(ok.sum())} sites with an expectation"; return out
     w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts)
+    if WHOLE_SITE_OUT:   # 2026-10-31 (development, run_sample.py --dev-whole-sites): every site's level, expectation, reads, weight and disorder
+        _T = territory_sets(); _n = pd.Series(counts).reindex(xs.index).fillna(0).astype("int64").to_numpy() if counts is not None else np.zeros(len(xs), np.int64)
+        pd.DataFrame(dict(site=xs.index, reads=_n, sample_level=xs.to_numpy(), expected_level=es.to_numpy(), weight=w, H_measured=hx, H_expected=he,
+                          island=xs.index.isin(_T["islands"]), domain=xs.index.isin(_T["domains"]))).to_csv(WHOLE_SITE_OUT, index=False)
+        out["sites_table"] = os.path.basename(WHOLE_SITE_OUT)
     def one(m):
         if m.sum() < 500: return None
         _c = ceiling_reading(xs.to_numpy()[m], es.to_numpy()[m], w[m])   # 2026-10-23: distance to the entropy ceiling, for this group of sites

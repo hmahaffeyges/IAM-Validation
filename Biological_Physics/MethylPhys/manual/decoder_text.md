@@ -1973,7 +1973,7 @@ negligible). It was added after the depth test (DEV-ONE-DRAW-01 exploration 1) f
 
 ### stage_metaa_atlas.py::read
 Met-A against the atlas cell, untared, on the values given (the one command passes the self-tared values), with the shift a 1 % loss would
-make; refuses, with the reason, a cell with no qualifying site or a sample measuring under 90 % of them.
+make; refuses, with the reason, a cell with no qualifying site or a sample measuring under 90 % of them. On sequencing the healthy level is the pooled one (SEQ_LEVEL: methylated over all reads of the cell's donors), not the median of the donors' own levels, which sits at exactly 0 or 1 where a donor has few reads.
 
 Each reading also records `levels_at_identity`: the sample's and the atlas column's median level at the column's methylated and
 unmethylated identity sites (recorded only, never used in A), to measure whether the atlas's levels sit nearer the middle than sequencing.
