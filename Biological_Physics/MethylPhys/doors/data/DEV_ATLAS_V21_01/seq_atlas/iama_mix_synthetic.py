@@ -6,14 +6,14 @@ opportunities, 40 molecules of 10 CpGs, each from a planted cell drawn by its sh
 so that a lone error (unmethylated between two methylated) occurs at the cell's counted rate in that tile (p (1 - p)^2 = rate). Read by the
 one command with the full chain and the planted shares declared (run_sample.py --pat FILE --dev-seq-values 1 --dev-seq-ref auto
 --full-chain --specimen unknown --dev-shares ...). Samples: (1) b cells alone; (2) a plasma-like mix (monocytes 0.4, cd4 t cells 0.2,
-nk cells 0.1, hepatocyte 0.1, lung alveolar endothelium 0.2); (3) the same mix read against donor half A only; (4) the mix with every rate
+nk cells 0.1, hepatocyte 0.1, lung alveolar endothelium 0.2); (3) the same mix read against donor half B only (run 2, amended before it ran: run 1 used half A, which holds no hepatocyte donor, disclosed); (4) the mix with every rate
 raised 20 %. Seed 20261103. Bars (operational, set before the run): samples 1 to 3 within 0.02 of 1; sample 4 within 0.03 of 1.2.
 Usage: python3 iama_mix_synthetic.py WORKDIR OUT.txt"""
 import sys, os, gzip, json, subprocess, numpy as np, pandas as pd
 W, OUT = sys.argv[1:3]; os.makedirs(W, exist_ok=True)
 C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "chain"); sys.path.insert(0, C)
 import stage_seq_atlas as Q
-H = pd.read_parquet(Q.HELD_REF); rng = np.random.default_rng(20261103); L0, M = 10, 40
+H = pd.read_parquet(Q.HELD_REF); rng = np.random.default_rng(20261104)   # run 2 (run 1 seed 20261103); L0, M = 10, 40
 def solve(r):
     p = r.copy()
     for _ in range(30): p = r / (1 - p) ** 2
@@ -30,7 +30,7 @@ def build(mx, path, sfx="", scale=1.0):
     return int(ok.sum())
 MIX = {"monocytes": 0.4, "cd4 t cells": 0.2, "nk cells": 0.1, "hepatocyte": 0.1, "lung alveolar endothelium": 0.2}
 runs = [("b cells alone", {"b cells": 1.0}, "", 1.0, None, 1.0), ("plasma-like mix", MIX, "", 1.0, None, 1.0),
-        ("plasma-like mix, donor half A", MIX, "_dA", 1.0, "A", 1.0), ("plasma-like mix, every rate x1.2", MIX, "", 1.2, None, 1.2)]
+        ("plasma-like mix, donor half B", MIX, "_dB", 1.0, "B", 1.0), ("plasma-like mix, every rate x1.2", MIX, "", 1.2, None, 1.2)]
 L = ["IAM-A in the sample's mix, synthetic: 4 constructed molecule files through the one command", "sample | tiles built | A | expected | tiles read | bar"]; ok = []
 for j, (name, mx, sfx, sc, half, want) in enumerate(runs):
     f = os.path.join(W, f"m{j}.pat.gz"); nt = build(mx, f, sfx, sc); b = os.path.join(W, f"m{j}_bundle.json")

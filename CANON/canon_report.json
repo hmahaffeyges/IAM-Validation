@@ -3412,7 +3412,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1124,
+"line": 1131,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3421,7 +3421,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1124,
+"line": 1131,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3430,7 +3430,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1126,
+"line": 1133,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3439,7 +3439,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1126,
+"line": 1133,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3805,6 +3805,24 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "to 97.5th percentile of the healthy readings and the median; **bar:** the median healthy reading within 0.05 of 1 on each. The same pass records the C-Score's h"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+"line": 704,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "was read on the self-reference line with the shape check off. **The reading** (`stage_seq_atlas.iama_in_mix`): in each tile of 2,000 CpGs"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+"line": 704,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "was read on the self-reference line with the shape check off. **The reading** (`stage_seq_atlas.iama_in_mix`): in each tile of 2,000 CpGs"
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/PROC_E2E_01_OUTCOME.md",

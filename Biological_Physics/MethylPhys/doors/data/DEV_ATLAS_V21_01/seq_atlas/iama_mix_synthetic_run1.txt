@@ -1,0 +1,7 @@
+IAM-A in the sample's mix, synthetic: 4 constructed molecule files through the one command
+sample | tiles built | A | expected | tiles read | bar
+b cells alone | 14122 | 0.99796 | 1.0 | 14122 | met
+plasma-like mix | 14079 | 0.99868 | 1.0 | 14079 | met
+plasma-like mix, donor half A | 0 | None | 1.0 | None | not met (no tile where the reference holds every cell given a share)
+plasma-like mix, every rate x1.2 | 14079 | 1.18894 | 1.2 | 14079 | met
+synthetic: not met

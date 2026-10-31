@@ -709,3 +709,8 @@ least 0.99 of the shares. The rates are counted and the shares are the Deconvolv
 molecule file read with `--dev-seq-ref` (`iam_a_mix` in the bundle), flagged. **Synthetic** (`seq_atlas/iama_mix_synthetic.py`): molecule
 files built from the reference's own rates (b cells alone; a plasma-like mix; the mix against donor half A; the mix with every rate raised
 20 %), shares declared, through the one command; bars: the first three within 0.02 of 1, the fourth within 0.03 of 1.2.
+
+**IAM-A in the mix, synthetic run 1: not met** (`seq_atlas/iama_mix_synthetic_run1.txt`): b cells alone 0.99796, the plasma-like mix
+0.99868, the mix with every rate raised 20 % 1.18894 (all met); the mix against donor half A was not read: half A holds no hepatocyte
+donor, so no tile held every planted cell, and the reading said so. That was my test's error (the reference shows it). **Run 2** (amended
+before it ran, new seed): the same four with the third against donor half B, which holds all five cells.
