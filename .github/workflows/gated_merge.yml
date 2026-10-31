@@ -32,27 +32,27 @@ jobs:
           git config user.name "Heath W. Mahaffey"; git config user.email "hmahaffeyges@users.noreply.github.com"
           MSG="$(git log -1 --format=%B)"
           git fetch -q origin main
-          git rebase -q origin/main > gate.log 2>&1 || { echo "GATED MERGE: REBASE CONFLICT" | tee -a gate.log; exit 1; }
-          python3 CANON/build_all.py 2>&1 | tail -3 | tee -a gate.log
-          if printf '%s' "$MSG" | grep -q '\[register\]'; then python3 CANON/chain_gate.py register 2>&1 | tail -1 | tee -a gate.log; fi
+          git rebase -q origin/main > $RUNNER_TEMP/gate.log 2>&1 || { echo "GATED MERGE: REBASE CONFLICT" | tee -a $RUNNER_TEMP/gate.log; exit 1; }
+          python3 CANON/build_all.py 2>&1 | tail -3 | tee -a $RUNNER_TEMP/gate.log
+          if printf '%s' "$MSG" | grep -q '\[register\]'; then python3 CANON/chain_gate.py register 2>&1 | tail -1 | tee -a $RUNNER_TEMP/gate.log; fi
           git checkout -q -- CANON/canon_report.json 2>/dev/null || true
           git add -A; git checkout -q -- CANON/canon_report.json 2>/dev/null || true
           git diff --cached --quiet || git commit -q --amend --no-edit
-          if bash CANON/checked_push.sh -q --dry-run origin HEAD:main >> gate.log 2>&1; then
+          if bash CANON/checked_push.sh -q --dry-run origin HEAD:main >> $RUNNER_TEMP/gate.log 2>&1; then
             python3 - <<'EOF'
-          import subprocess, json, base64
+          import subprocess, json, base64, os
           g = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True, check=True).stdout.strip()
           base = g("rev-parse", "origin/main"); out = dict(base=base, tree=g("rev-parse", "HEAD^{tree}"), files={}, modes={}, deleted=[])
           for l in g("diff", "--raw", "--no-renames", "--no-abbrev", base, "HEAD").splitlines():
               meta, p = l.split("\t", 1); f = meta.split(); st = f[4]
               if st == "D": out["deleted"].append(p)
               else: out["files"][p] = base64.b64encode(open(p, "rb").read()).decode(); out["modes"][p] = f[1]
-          json.dump(out, open("handback.json", "w")); print("GATED MERGE: PASSED", out["tree"][:12], len(out["files"]), "files")
+          json.dump(out, open(os.environ["RUNNER_TEMP"] + "/handback.json", "w")); print("GATED MERGE: PASSED", out["tree"][:12], len(out["files"]), "files")
           EOF
-            echo "GATED MERGE: PASSED" >> gate.log
-          else echo "GATED MERGE: REFUSED" | tee -a gate.log; fi
-          grep -v '^  ok' gate.log | tail -40
-          grep -q "GATED MERGE: PASSED" gate.log
+            echo "GATED MERGE: PASSED" >> $RUNNER_TEMP/gate.log
+          else echo "GATED MERGE: REFUSED" | tee -a $RUNNER_TEMP/gate.log; fi
+          grep -v '^  ok' $RUNNER_TEMP/gate.log | tail -40
+          grep -q "GATED MERGE: PASSED" $RUNNER_TEMP/gate.log
       - if: always()
         uses: actions/upload-artifact@v4
-        with: {name: gate-log, path: "gate.log\nhandback.json", retention-days: 14, if-no-files-found: ignore}
+        with: {name: gate-log, path: "${{ runner.temp }}/gate.log\n${{ runner.temp }}/handback.json", retention-days: 14, if-no-files-found: ignore}
