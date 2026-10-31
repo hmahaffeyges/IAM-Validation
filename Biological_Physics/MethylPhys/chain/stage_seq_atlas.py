@@ -310,6 +310,29 @@ def metaa_half_counts(samples_csv, out, ref=None):
     T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
     return dict(inputs=len(used), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
 
+def noise_at_identity(path=METAA_REF):
+    """2026-10-30 (Met-A on sequencing: counting explains a small part of healthy samples' excess): at each cell's Met-A identity sites, by side,
+    the mean square of noise map 1 (donor half A minus donor half B: donor-to-donor difference plus counting) and of noise map 2 (random read
+    halves over every donor: counting only), both stored in the atlas; their difference is the healthy donor-to-donor part, measured. Cells
+    with one donor half blank are listed without map 1. Nothing fitted."""
+    import pandas as pd
+    R = pd.read_parquet(path); out = []
+    for c in ("halfA", "halfB", "readA", "readB", "level"): R[c] = np.where(R[c] == BLANK, np.nan, R[c] / 1e4)
+    R["side"] = np.where(R.level > 0.5, "marked", "unmarked")
+    _mc = os.path.join(METAA_COUNTS_DIR, "metaa_half_counts_v1.parquet")   # 2026-10-30: each half's raw reads, for map 1's counting prediction
+    if os.path.exists(_mc): R = R.merge(pd.read_parquet(_mc), on=["cell", "probe", "cpg"], how="left")
+    for (c, sd), g in R.groupby(["cell", "side"]):
+        m1 = (g.halfA - g.halfB) ** 2; m2 = (g.readA - g.readB) ** 2
+        if "nA" in g:
+            b = (g.nA > 0) & (g.nB > 0); pp = (g.mA + g.mB) / (g.nA + g.nB); e1 = (pp * (1 - pp) * (1 / g.nA + 1 / g.nB))[b]
+            out_c = dict(map1_counting=round(float(e1.mean()), 6) if b.any() else None, map1_over_counting=round(float(m1[b].mean() / e1.mean()), 4) if b.any() else None,
+                         nA_median=int(g.nA[b].median()) if b.any() else None, nB_median=int(g.nB[b].median()) if b.any() else None)
+        else: out_c = {}
+        out.append(dict(cell=c, side=sd, sites=len(g), donors_median=float(np.nanmedian(np.where(g.donors == BLANK, np.nan, g.donors))),
+                        map1_ms=round(float(m1.mean()), 6) if m1.notna().any() else None, map2_ms=round(float(m2.mean()), 6) if m2.notna().any() else None,
+                        donor_part=round(float(m1.mean() - m2.mean()), 6) if m1.notna().any() and m2.notna().any() else None, **out_c))
+    return out
+
 def metaa_reference_of(cell, path=METAA_REF):
     """One cell's rows of the Met-A sequencing reference, indexed by probe, levels as 0 to 1 (NaN where blank); None when the file or cell is absent."""
     import pandas as pd

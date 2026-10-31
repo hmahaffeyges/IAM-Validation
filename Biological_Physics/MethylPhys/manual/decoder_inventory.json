@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1263,
+   "lines": 1269,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -227,11 +227,11 @@
      "function": "_build",
      "name": "_build",
      "line": 248,
-     "end": 379,
+     "end": 385,
      "args": [
       "a"
      ],
-     "lines": 132,
+     "lines": 138,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -249,8 +249,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 352,
-     "end": 352,
+     "line": 358,
+     "end": 358,
      "args": [
       "m"
      ],
@@ -264,8 +264,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 382,
-     "end": 402,
+     "line": 388,
+     "end": 408,
      "args": [
       "a",
       "cnt",
@@ -281,8 +281,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 405,
-     "end": 446,
+     "line": 411,
+     "end": 452,
      "args": [
       "a",
       "o",
@@ -302,8 +302,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 449,
-     "end": 1260,
+     "line": 455,
+     "end": 1266,
      "args": [],
      "lines": 812,
      "doc": "",
@@ -337,8 +337,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 684,
-     "end": 688,
+     "line": 690,
+     "end": 694,
      "args": [
       "r"
      ],
@@ -354,8 +354,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 919,
-     "end": 926,
+     "line": 925,
+     "end": 932,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -367,8 +367,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1190,
-     "end": 1191,
+     "line": 1196,
+     "end": 1197,
      "args": [
       "b",
       "it",
@@ -8430,7 +8430,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 428,
+   "lines": 451,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8728,10 +8728,31 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "noise_at_identity",
+     "name": "noise_at_identity",
+     "line": 313,
+     "end": 334,
+     "args": [
+      "path"
+     ],
+     "lines": 22,
+     "doc": "2026-10-30 (Met-A on sequencing: counting explains a small part of healthy samples' excess): at each cell's Met-A identity sites, by side, the mean square of noise map 1 (donor half A minus donor half B: donor-to-donor difference plus counting) and of noise map 2 (random read halves over every donor: counting only), both stored in the atlas; their difference is the healthy donor-to-donor part, mea",
+     "constants": [
+      "BLANK",
+      "METAA_COUNTS_DIR",
+      "METAA_REF"
+     ],
+     "data_files": [
+      "metaa_half_counts_v1.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 313,
-     "end": 326,
+     "line": 336,
+     "end": 349,
      "args": [
       "cell",
       "path"
@@ -8752,8 +8773,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 328,
-     "end": 352,
+     "line": 351,
+     "end": 375,
      "args": [
       "samples",
       "out"
@@ -8768,8 +8789,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 354,
-     "end": 369,
+     "line": 377,
+     "end": 392,
      "args": [
       "a_path",
       "b_path",
@@ -8787,8 +8808,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 371,
-     "end": 423,
+     "line": 394,
+     "end": 446,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8809,8 +8830,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 425,
-     "end": 427,
+     "line": 448,
+     "end": 450,
      "args": [
       "gsm",
       "title"
@@ -8826,5 +8847,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 451
+ "n_functions": 452
 }
