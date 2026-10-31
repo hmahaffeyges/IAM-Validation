@@ -464,3 +464,9 @@ counted from it near 30 reads each, the reference holding both their median and 
 bars: the pooled reading's median within 0.05 of 1, |rho| with depth at most 0.2). **What it cannot settle:** this sample also reads below
 its own donor half at the marked identity sites (a donor or library difference); that is read next across many samples, with the per-site
 tables, not on one.
+
+**The pooled-level synthetic, read: not met** (`seq_atlas_01/metaa_pooled_synthetic.txt`). Bar 1 met: the pooled level reads median Met-A
+1.0271 (1.0120 to 1.0359 by depth); the median of the donors reads 1.0656 to 1.0961 by depth on the same samples (recorded). Bar 2 not met: Spearman rho with
+depth +0.224 (limit 0.2), the reading near 1.02 at 5 reads and 1.03 at 60. The remaining 0.03 is counting in a reference of about 90 pooled
+reads: 41 % of its sites are still exactly 0 or 1 (52 % for the median). The bar is not changed after the run. **Next:** the 137 healthy
+inputs and the 25 outside neurons read again with the pooled level and both per-site tables, so the remainder is read on real samples.

@@ -1,0 +1,8 @@
+Met-A against the IAM Sequencing Atlas with the pooled level: synthetic, read by run_sample.py --dev-seq-ref FILE (--dev-seq-level)
+seed 20261107, naive cd4 t cells, 6000 identity sites, three donors near 30 reads each; read with the pooled level 21 of 21
+the reference: level at exactly 0 or 1 on 0.515 of sites (median of donors), pooled at exactly 0 or 1 on 0.406
+Met-A by depth, the pooled level: 5 1.0212, 8 1.0263, 12 1.0120, 20 1.0359, 30 1.0257, 45 1.0266, 60 1.0345
+Met-A by depth, the median of the donors (recorded, not scored): 5 1.0728, 8 1.0797, 12 1.0656, 20 1.0931, 30 1.0840, 45 1.0867, 60 1.0961
+bar 1 median Met-A 1.0271 (within 0.05 of 1): met
+bar 2 Spearman rho with depth +0.224 (|rho| at most 0.2): not met
+synthetic: not met
