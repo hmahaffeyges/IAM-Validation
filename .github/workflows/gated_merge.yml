@@ -1,0 +1,54 @@
+name: gated-merge
+# A commit pushed to a gate/* branch is rebased onto main, its generated documents rebuilt (CANON/build_all.py), the chain version registered
+# when the commit message carries [register], and pushed to main ONLY through CANON/checked_push.sh, the same gate every push uses.
+# Added 2026-10-31: the session sandbox no longer allows a .git folder, so commits are made through GitHub's API onto a gate/* branch and
+# this runner (which has git) does the gate and the push. The branch is deleted afterwards; the gate's output is kept as an artifact.
+on:
+  push:
+    branches: ["gate/**"]
+permissions:
+  contents: write
+  actions: write
+concurrency: {group: gated-merge, cancel-in-progress: false}
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: dependencies (the chain's own requirements)
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt sympy beautifulsoup4 pillow
+      - name: rebase, build, register, gate, push
+        env:
+          BR: ${{ github.ref_name }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -o pipefail
+          git config user.name "Heath W. Mahaffey"; git config user.email "hmahaffeyges@users.noreply.github.com"
+          MSG="$(git log -1 --format=%B)"
+          git fetch -q origin main
+          git rebase -q origin/main > gate.log 2>&1 || { echo "GATED MERGE: REBASE CONFLICT" | tee -a gate.log; git push -q origin --delete "$BR"; exit 1; }
+          python3 CANON/build_all.py 2>&1 | tail -3 | tee -a gate.log
+          if printf '%s' "$MSG" | grep -q '\[register\]'; then python3 CANON/chain_gate.py register 2>&1 | tail -1 | tee -a gate.log; fi
+          git checkout -q -- CANON/canon_report.json 2>/dev/null || true
+          git add -A; git checkout -q -- CANON/canon_report.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -q --amend --no-edit
+          ok=0
+          for t in 1 2 3; do
+            git checkout -q -- CANON/canon_report.json 2>/dev/null || true
+            if bash CANON/checked_push.sh -q origin HEAD:main >> gate.log 2>&1; then ok=1; echo "GATED MERGE: PUSHED $(git rev-parse --short=8 HEAD)" | tee -a gate.log; break; fi
+            grep -q -E "rejected|non-fast-forward|fetch first" gate.log || break
+            git fetch -q origin main && git rebase -q origin/main || break
+          done
+          grep -v '^  ok' gate.log | tail -40
+          git push -q origin --delete "$BR" || true
+          if [ "$ok" = 1 ]; then
+            for w in website.yml canon.yml; do curl -s -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$w/dispatches" -d '{"ref":"main"}' > /dev/null || true; done
+          else echo "GATED MERGE: REFUSED"; exit 1; fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: gate-log, path: gate.log, retention-days: 14}
