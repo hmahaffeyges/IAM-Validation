@@ -378,3 +378,12 @@ Nothing fitted. The atlas stores reads only pooled over donors, so each half's c
 inputs (`stage_seq_atlas.metaa_half_counts`, `run_sample.py --build seq-metaa-counts`). **Synthetic** (`seq_atlas_01/metaa_counted_synthetic.py`):
 a hidden truth, a reference half counted from it at about 150 reads, samples at 5 to 60 reads, through the one command; bars: median Met-A
 within 0.02 of 1, |rho| with depth at most 0.2; the same samples with the reference taken as exact are recorded beside it.
+
+**The counted-reference synthetic, run 1: not met** (`seq_atlas_01/metaa_counted_synthetic_run1.txt`): with the counts, median Met-A
+0.9667 (bar: within 0.02 of 1), flat with depth (rho -0.157, met); the same samples with the reference taken as exact read 1.0084 to
+1.0259. **What it shows:** counting in a reference half of about 150 reads raises Met-A by about 2 % when ignored, and Jeffreys' half counts
+over-correct it on this truth (the beta-binomial is exact only when its starting counts match how healthy levels are really spread). Real
+healthy samples read 1.07 to 1.10, so counting is a small part of the excess. **Next:** the rest is most likely donor-to-donor difference
+(the sample is a different donor from the half it is read against). The atlas measures it directly at the identity sites: noise map 1
+(donor half A minus half B) carries donor differences and counting, noise map 2 (random read halves) counting only; their difference is the
+healthy donor spread, measured. Nothing in Met-A changes until that is measured.
