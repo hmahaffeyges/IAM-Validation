@@ -34,7 +34,7 @@ input is given. Every stage, gate and function is explained in the Chain Decoder
 
 The class-floor engine (v2) was retired on 2026-10-03 and is archived privately; chain v3 is the only engine.
 """
-import os, sys, argparse, pickle, json
+import re, os, sys, argparse, pickle, json
 
 def _bio_root(start=None):
     """The directory that CONTAINS MethylPhys/ - i.e. Biological_Physics.
@@ -216,7 +216,7 @@ def _metaa_atlas(a, b):
         if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
             import stage_seq_atlas as _SQr; _sr = _SQr.metaa_reference_of(a.dev_metaa_atlas, _SQr.METAA_REF if a.dev_seq_ref == "auto" else a.dev_seq_ref)
         if getattr(a, "dev_metaa_sites", None) and a.bundle:   # 2026-10-30: the per-site table beside the bundle
-            SA.SITE_OUT = a.bundle.replace("_bundle.json", "") + "_metaa_sites.csv.gz"
+            SA.SITE_OUT = re.sub(r"(_bundle)?\.json$", "", a.bundle) + "_metaa_sites.csv.gz"   # 2026-10-30: any bundle name (NAME.json or NAME_bundle.json)
         r = SA.read(b, a.dev_metaa_atlas, specimen=a.specimen, counts=getattr(a, "_seqc", None), seqref=_sr, half=getattr(a, "dev_seq_ref_half", None))
         SA.SITE_OUT = None
         if getattr(a, "dev_seq_ref", None) and _sr is None: r["seq_reference"] = "not found for this cell; read against IAM-Atlas v2.1"

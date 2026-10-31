@@ -237,7 +237,7 @@ unless both designs were mapped, reads Met-A against CELL in IAM-Atlas v2.1 (`st
 3 healthy samples of the same cell run the same way, never this one), tares it (`stage_metaa_atlas.tare`). Written under bundle
 `development.metaa_atlas`; the reading, gauge and tare are untouched.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 210 (30 lines) · arguments: a, b · calls: not called on the traced runs · files named: `_bundle.json`
+*Code:* `MethylPhys_Interface/run_sample.py` line 210 (30 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `run_sample.py::_genome_globe`
 

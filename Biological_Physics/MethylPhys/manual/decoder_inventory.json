@@ -217,9 +217,7 @@
      "lines": 30,
      "doc": "--dev-metaa-atlas (DEV-METAA-ATLAS-01): Met-A against IAM-Atlas v2.1 on the values Stage T step 1 maps (stage_t_selftare.selftare_map, the map the commissioned Met-A reads), then the same-run tare when >= 3 references are given. Development; the reading, gauge and tare are untouched.",
      "constants": [],
-     "data_files": [
-      "_bundle.json"
-     ],
+     "data_files": [],
      "traced_calls": {}
     },
     {
