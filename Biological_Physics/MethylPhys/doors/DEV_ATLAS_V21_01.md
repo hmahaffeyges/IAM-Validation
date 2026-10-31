@@ -674,5 +674,6 @@ on the laptop the sphere library could not write its settings file in the home f
 NILC and the template split recorded, as intended, the blood cells the sequencing atlas does not hold; B cells recorded no stage 2
 composition. Run 2: (1) 3 of the 6 healthy samples showed structure beyond the null (p 0.0099), all three of them mixes, neither pure cell;
 (2) the planted sample did not (p 0.8218). Bar 2 was badly designed: the null shuffles blocks within each chromosome, so a change spread
-over a whole chromosome is inside the null by construction. **Next:** a diagnostic on sample 3 (`seq_atlas/sky_seq_diag.py`): the sky
-against the planted shares and against the shares the chain read, and a regional plant (300 sites of chromosome 8).
+over a whole chromosome is inside the null by construction. **Next:** a diagnostic through the one command (`seq_atlas/sky_seq_diag.py`; sample 3's mix, 8 reads): the sky with
+the Deconvolver's own shares, with the planted shares declared (`--dev-shares`, a new development option for diagnosis: every share-based
+reading uses the declared shares, the Deconvolver's own kept beside them), and with a regional plant (300 sites of chromosome 8).

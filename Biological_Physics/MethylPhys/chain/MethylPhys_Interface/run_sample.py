@@ -562,6 +562,8 @@ def main():
                     "cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare)")
     ap.add_argument("--dev-seq-ref", default=None, metavar="auto|FILE", help="DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels "
                     "from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1")
+    ap.add_argument("--dev-shares", default=None, metavar="CELL:SHARE,...", help="DEVELOPMENT, diagnosis only: read every share-based reading against these "
+                    "declared shares instead of the Deconvolver's (which are kept under cell_shares_read)")
     ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "
                     "measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis")
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
@@ -991,6 +993,11 @@ def main():
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
+        if getattr(a, "dev_shares", None):   # 2026-10-30 (development, diagnosis only): every reading that uses the shares reads these declared shares instead
+            _dec = {x.split(":")[0].strip(): float(x.split(":")[1]) for x in a.dev_shares.split(",") if ":" in x}
+            o["cell_shares_read"] = o["cell_shares"].get("cells")
+            o["cell_shares"]["cells"] = [{"cell": c, "share": round(f, 4), "status": "declared (development, --dev-shares)"} for c, f in _dec.items()]
+            o["cell_shares"]["declared"] = "the shares were declared with --dev-shares for diagnosis; the Deconvolver's own shares are under cell_shares_read"
         if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
             print("Stage D21: a second deconvolution with provisional columns (" + a.dev_provisional + "), flagged", flush=True)
             o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))

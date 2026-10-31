@@ -1,6 +1,0 @@
-The sky on sequencing, diagnostic (sample 3 of the synthetic rebuilt; cd8 0.7, cd4 0.3, 8 reads)
-read | lee p | structure | largest band ratio
-planted shares | 0.3168 | False | 1.0778
-shares the chain read | 0.0099 | True | nan
-planted shares, 300 chr8 sites +0.15 | 0.9802 | False | 0.9388
-shares the chain read: cd8 t cells 0.668, cd4 t cells 0.286, effector memory cd8 t cells 0.015, memory b cells 0.011, fallopien tubes epithelium 0.007, pancreatic beta 0.006
