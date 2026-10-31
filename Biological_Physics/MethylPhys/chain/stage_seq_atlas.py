@@ -25,15 +25,18 @@ def read_block(src, start, end):
     """Methylated and total reads over CpGs [start, end) (0-based) of one .beta file: a local path, or an https URL read by byte range."""
     n = end - start
     if str(src).startswith("http"):
-        import requests
-        for t in range(5):
-            try:
-                r = requests.get(src, headers={"Range": f"bytes={2 * start}-{2 * end - 1}"}, timeout=300)
-                if r.status_code == 206 and len(r.content) == 2 * n: break
-            except Exception: pass
-            import time; time.sleep(15 * (t + 1))
-        else: raise IOError(f"{src}: byte range {2 * start}-{2 * end - 1} not returned")
-        a = np.frombuffer(r.content, np.uint8)
+        import requests, time
+        buf = bytearray(); STEP = 4_000_000   # 2026-10-31: in pieces of 4 million CpGs (8 MB), each retried, because GEO was dropping long transfers
+        for s0 in range(start, end, STEP):
+            s1 = min(end, s0 + STEP)
+            for t in range(8):
+                try:
+                    r = requests.get(src, headers={"Range": f"bytes={2 * s0}-{2 * s1 - 1}"}, timeout=300)
+                    if r.status_code == 206 and len(r.content) == 2 * (s1 - s0): buf += r.content; break
+                except Exception: pass
+                time.sleep(20 * (t + 1))
+            else: raise IOError(f"{src}: byte range {2 * s0}-{2 * s1 - 1} not returned")
+        a = np.frombuffer(bytes(buf), np.uint8)
     elif str(src).endswith(".lbeta"):   # 2026-10-29: uint16 counts (this stage's own converted files, no 255 cap), same layout
         if os.path.getsize(src) != 4 * HG19_CPGS: raise ValueError(f"{src}: not the hg19 numbering ({os.path.getsize(src) // 4:,} CpGs)")
         a = np.fromfile(src, np.uint16, count=2 * n, offset=4 * start)

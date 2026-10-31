@@ -8491,20 +8491,20 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 544,
+   "lines": 547,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
      "function": "read_block",
      "name": "read_block",
      "line": 24,
-     "end": 43,
+     "end": 46,
      "args": [
       "src",
       "start",
       "end"
      ],
-     "lines": 20,
+     "lines": 23,
      "doc": "Methylated and total reads over CpGs [start, end) (0-based) of one .beta file: a local path, or an https URL read by byte range.",
      "constants": [
       "HG19_CPGS"
@@ -8516,8 +8516,8 @@
      "file": "stage_seq_atlas.py",
      "function": "hg19_dictionary",
      "name": "hg19_dictionary",
-     "line": 45,
-     "end": 49,
+     "line": 48,
+     "end": 52,
      "args": [
       "cpg_bed"
      ],
@@ -8533,8 +8533,8 @@
      "file": "stage_seq_atlas.py",
      "function": "table_to_lbeta",
      "name": "table_to_lbeta",
-     "line": 53,
-     "end": 79,
+     "line": 56,
+     "end": 82,
      "args": [
       "src",
       "out",
@@ -8555,8 +8555,8 @@
      "file": "stage_seq_atlas.py",
      "function": "lift_to_hg19",
      "name": "lift_to_hg19",
-     "line": 81,
-     "end": 109,
+     "line": 84,
+     "end": 112,
      "args": [
       "files",
       "out",
@@ -8575,8 +8575,8 @@
      "file": "stage_seq_atlas.py",
      "function": "_u16",
      "name": "_u16",
-     "line": 111,
-     "end": 112,
+     "line": 114,
+     "end": 115,
      "args": [
       "x",
       "scale"
@@ -8593,8 +8593,8 @@
      "file": "stage_seq_atlas.py",
      "function": "_H",
      "name": "_H",
-     "line": 114,
-     "end": 117,
+     "line": 117,
+     "end": 120,
      "args": [
       "p"
      ],
@@ -8608,8 +8608,8 @@
      "file": "stage_seq_atlas.py",
      "function": "build_block",
      "name": "build_block",
-     "line": 119,
-     "end": 145,
+     "line": 122,
+     "end": 148,
      "args": [
       "samples",
       "start",
@@ -8629,8 +8629,8 @@
      "file": "stage_seq_atlas.py",
      "function": "build_block.pooled",
      "name": "pooled",
-     "line": 133,
-     "end": 135,
+     "line": 136,
+     "end": 138,
      "args": [
       "sel"
      ],
@@ -8644,8 +8644,8 @@
      "file": "stage_seq_atlas.py",
      "function": "deconv_reference",
      "name": "deconv_reference",
-     "line": 153,
-     "end": 178,
+     "line": 156,
+     "end": 181,
      "args": [
       "piece_dirs",
       "out",
@@ -8667,8 +8667,8 @@
      "file": "stage_seq_atlas.py",
      "function": "array_columns",
      "name": "array_columns",
-     "line": 182,
-     "end": 211,
+     "line": 185,
+     "end": 214,
      "args": [
       "piece_dirs",
       "outdir"
@@ -8690,8 +8690,8 @@
      "file": "stage_seq_atlas.py",
      "function": "iama_in_mix",
      "name": "iama_in_mix",
-     "line": 216,
-     "end": 241,
+     "line": 219,
+     "end": 244,
      "args": [
       "tiles",
       "shares",
@@ -8711,8 +8711,8 @@
      "file": "stage_seq_atlas.py",
      "function": "deconv_reference_of",
      "name": "deconv_reference_of",
-     "line": 243,
-     "end": 250,
+     "line": 246,
+     "end": 253,
      "args": [
       "path"
      ],
@@ -8728,8 +8728,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference",
      "name": "metaa_reference",
-     "line": 252,
-     "end": 278,
+     "line": 255,
+     "end": 281,
      "args": [
       "piece_dirs",
       "out"
@@ -8749,8 +8749,8 @@
      "file": "stage_seq_atlas.py",
      "function": "floor_sites",
      "name": "floor_sites",
-     "line": 283,
-     "end": 306,
+     "line": 286,
+     "end": 309,
      "args": [
       "piece_dirs",
       "out",
@@ -8772,8 +8772,8 @@
      "file": "stage_seq_atlas.py",
      "function": "library_floor",
      "name": "library_floor",
-     "line": 308,
-     "end": 319,
+     "line": 311,
+     "end": 322,
      "args": [
       "beta",
       "calls",
@@ -8791,8 +8791,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_half_counts",
      "name": "metaa_half_counts",
-     "line": 323,
-     "end": 342,
+     "line": 326,
+     "end": 345,
      "args": [
       "samples_csv",
       "out",
@@ -8813,8 +8813,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donor_counts",
      "name": "metaa_donor_counts",
-     "line": 347,
-     "end": 360,
+     "line": 350,
+     "end": 363,
      "args": [
       "samples_csv",
       "out",
@@ -8833,8 +8833,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donors_of",
      "name": "metaa_donors_of",
-     "line": 362,
-     "end": 372,
+     "line": 365,
+     "end": 375,
      "args": [
       "cell",
       "half",
@@ -8855,8 +8855,8 @@
      "file": "stage_seq_atlas.py",
      "function": "beta_vs_pat",
      "name": "beta_vs_pat",
-     "line": 374,
-     "end": 402,
+     "line": 377,
+     "end": 405,
      "args": [
       "beta_src",
       "pat_path",
@@ -8876,8 +8876,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_at_identity",
      "name": "noise_at_identity",
-     "line": 404,
-     "end": 425,
+     "line": 407,
+     "end": 428,
      "args": [
       "path"
      ],
@@ -8897,8 +8897,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 427,
-     "end": 442,
+     "line": 430,
+     "end": 445,
      "args": [
       "cell",
       "path"
@@ -8919,8 +8919,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 444,
-     "end": 468,
+     "line": 447,
+     "end": 471,
      "args": [
       "samples",
       "out"
@@ -8935,8 +8935,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 470,
-     "end": 485,
+     "line": 473,
+     "end": 488,
      "args": [
       "a_path",
       "b_path",
@@ -8954,8 +8954,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 487,
-     "end": 539,
+     "line": 490,
+     "end": 542,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8976,8 +8976,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 541,
-     "end": 543,
+     "line": 544,
+     "end": 546,
      "args": [
       "gsm",
       "title"
