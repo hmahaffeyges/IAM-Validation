@@ -9,7 +9,7 @@ on:
   push:
     branches: ["gate/**"]
 permissions:
-  contents: read
+  contents: write   # git push --dry-run must authenticate; main's ruleset still refuses any real push from this runner
 concurrency: {group: gated-merge, cancel-in-progress: false}
 jobs:
   merge:
