@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       run_id:   {description: "the finished run whose artifacts are scored", required: true}
+      run_id2:  {description: "optional second run (a re-send), scored together with the first", required: false, default: ""}
       commands: {description: "committed scorer commands, ';;' between them; LAND and OUT stand for the folders", required: true}
       tag:      {description: "name for the results", required: true}
 permissions: {contents: read, actions: read}
@@ -21,6 +22,9 @@ jobs:
         run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
       - uses: actions/download-artifact@v4
         with: {run-id: "${{ inputs.run_id }}", github-token: "${{ github.token }}", path: land}
+      - uses: actions/download-artifact@v4
+        if: inputs.run_id2 != ''
+        with: {run-id: "${{ inputs.run_id2 }}", github-token: "${{ github.token }}", path: land}
       - name: score
         env: {CMDS: "${{ inputs.commands }}"}
         run: |
