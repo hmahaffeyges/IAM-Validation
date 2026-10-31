@@ -714,3 +714,7 @@ files built from the reference's own rates (b cells alone; a plasma-like mix; th
 0.99868, the mix with every rate raised 20 % 1.18894 (all met); the mix against donor half A was not read: half A holds no hepatocyte
 donor, so no tile held every planted cell, and the reading said so. That was my test's error (the reference shows it). **Run 2** (amended
 before it ran, new seed): the same four with the third against donor half B, which holds all five cells.
+
+**IAM-A in the mix, synthetic run 2: met** (`seq_atlas/iama_mix_synthetic.txt`): b cells alone 0.9927, the plasma-like mix 0.99126, the
+mix against donor half B 0.99343 (all within 0.02 of 1), every rate raised 20 % 1.1898 (within 0.03 of 1.2), about 14,000 tiles each.
+**Next:** healthy sequenced inputs read against the other donor half, through the one command.
