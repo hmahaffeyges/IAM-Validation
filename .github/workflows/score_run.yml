@@ -1,0 +1,33 @@
+name: score_run
+# 2026-10-31: score a finished run on a GitHub machine (its artifacts can be several GB, too much for the laptop). Every artifact of RUN_ID is
+# downloaded into land/, then each committed scorer in COMMANDS (separated by ';;', each given land/ as its input folder and writing into
+# out/) runs; out/ is uploaded. The scorers are the committed ones; nothing here changes how a sample is read.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:   {description: "the finished run whose artifacts are scored", required: true}
+      commands: {description: "committed scorer commands, ';;' between them; LAND and OUT stand for the folders", required: true}
+      tag:      {description: "name for the results", required: true}
+permissions: {contents: read, actions: read}
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: install (the chain's own requirements) and preflight
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
+      - uses: actions/download-artifact@v4
+        with: {run-id: "${{ inputs.run_id }}", github-token: "${{ github.token }}", path: land}
+      - name: score
+        env: {CMDS: "${{ inputs.commands }}"}
+        run: |
+          mkdir -p out; du -sh land; ls land | wc -l
+          printf '%s' "$CMDS" | awk 'BEGIN{RS=";;"} NF{print}' | while IFS= read -r c; do
+            c="${c//LAND/$PWD/land}"; c="${c//OUT/$PWD/out}"; echo "== $c"; bash -c "$c" 2>&1 | tail -40
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: "${{ inputs.tag }}", path: out, retention-days: 30}
