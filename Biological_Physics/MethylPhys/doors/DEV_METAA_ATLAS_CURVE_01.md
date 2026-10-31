@@ -480,3 +480,12 @@ sites now carry each cell's pooled counts (`meth`, `reads`); the median and spre
 **One spent B-cell input read with the pooled level** (`seq_atlas_01/pooled_bcell_check.txt`): islands 0.88402
 (1.692 with the median, an earlier read of the same input without a donor half), domains 1.15399, Met-A for the whole sample 1.12212,
 C-Score 0.9964. The islands' excess was the median level; the rest sits at the marked sites. **Next:** the 137 healthy inputs read again (healthy pass 3), with both per-site tables.
+
+## Healthy pass 3 (written and committed before any of it is read)
+
+The same 137 healthy inputs and the same committed scorer (`seq_atlas_01/healthy_fullchain_score.py`), read by the one command with the
+full chain on the chain as now committed: the pooled level as the healthy expectation, the array-site columns with pooled counts, the
+counted expectation off. Each reading also writes both per-site tables (`seq_atlas_01/healthy_fullchain3_samples.csv`: `--dev-whole-sites
+--dev-metaa-sites`), and `seq_atlas_01/pass3_sites.py` reports, for the marked and unmarked sides, the whole-sample reading's ratio and each
+sample's level offset from the expected level, against each other and against depth (measured, not scored). The instrument's job, for every
+reading: a healthy sample reads Normal. Nothing is tuned on this pass; a reading that still misses gets its own cause and test.
