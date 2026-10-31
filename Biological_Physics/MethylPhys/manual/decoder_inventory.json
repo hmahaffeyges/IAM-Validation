@@ -8430,7 +8430,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 427,
+   "lines": 428,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8731,27 +8731,29 @@
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
      "line": 313,
-     "end": 325,
+     "end": 326,
      "args": [
       "cell",
       "path"
      ],
-     "lines": 13,
+     "lines": 14,
      "doc": "One cell's rows of the Met-A sequencing reference, indexed by probe, levels as 0 to 1 (NaN where blank); None when the file or cell is absent.",
      "constants": [
       "BLANK",
-      "METAA_COUNTS",
+      "METAA_COUNTS_DIR",
       "METAA_REF"
      ],
-     "data_files": [],
+     "data_files": [
+      "metaa_half_counts_v1.parquet"
+     ],
      "traced_calls": {}
     },
     {
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 327,
-     "end": 351,
+     "line": 328,
+     "end": 352,
      "args": [
       "samples",
       "out"
@@ -8766,8 +8768,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 353,
-     "end": 368,
+     "line": 354,
+     "end": 369,
      "args": [
       "a_path",
       "b_path",
@@ -8785,8 +8787,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 370,
-     "end": 422,
+     "line": 371,
+     "end": 423,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8807,8 +8809,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 424,
-     "end": 426,
+     "line": 425,
+     "end": 427,
      "args": [
       "gsm",
       "title"
