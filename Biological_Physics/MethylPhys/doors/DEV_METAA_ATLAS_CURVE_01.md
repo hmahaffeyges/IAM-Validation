@@ -495,3 +495,10 @@ pancreas) read again by the one command on the chain as now committed, through t
 tables; the committed scorer (`seq_atlas_01/selfree_score.py`) scores sorted-cell Met-A as before, and `seq_atlas_01/pass3_sites.py` gives
 their site-by-site breakdown beside pass 3's. Read on Google spot machines, each machine taking the hg19 dictionary from the committed index
 release with the stream checksum checked.
+
+**Healthy pass 3: 93 re-sent (GEO).** 93 of the 137 jobs stopped before reading: GEO's sample folder listing came back empty (the same
+server fault that cut the outside samples' downloads). Nothing of theirs was read. The workflow now retries the listing and the download with
+pauses, resumes partial transfers and checks each file (`.github/workflows/geo_pat.yml`, put on main directly: a workflow file cannot pass
+through the gated runner; disclosed), and its specimen look-up's quoting is fixed (the specimen still reached the chain from the sample
+list). The 93 are read again with the same flags (`seq_atlas_01/healthy_fullchain3b_samples.csv`), and both runs are scored together by the
+committed scorers on a GitHub machine (`.github/workflows/score_run.yml`), because the per-site tables are too large for the laptop.

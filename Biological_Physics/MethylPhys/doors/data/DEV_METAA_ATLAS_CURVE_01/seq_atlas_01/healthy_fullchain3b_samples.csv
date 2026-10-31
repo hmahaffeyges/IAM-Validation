@@ -1,0 +1,94 @@
+unit,gse,gsm,genotype,genome,title,srr,spots,cell,specimen,half,rsflags
+H5,GSE186458,GSM5652180,healthy,hg19,aorta endothelium,,,aorta endothelium,sorted aorta endothelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H6,GSE186458,GSM5652181,healthy,hg19,vascular saphenous endothelium,,,vascular saphenous endothelium,sorted vascular saphenous endothelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H10,GSE186458,GSM5652185,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H11,GSE186458,GSM5652186,healthy,hg19,kidney glomerular endothelium,,,kidney glomerular endothelium,sorted kidney glomerular endothelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H13,GSE186458,GSM5652188,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H14,GSE186458,GSM5652189,healthy,hg19,kidney tubular endothelium,,,kidney tubular endothelium,sorted kidney tubular endothelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H15,GSE186458,GSM5652191,healthy,hg19,lung alveolar endothelium,,,lung alveolar endothelium,sorted lung alveolar endothelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H18,GSE186458,GSM5652194,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H19,GSE186458,GSM5652195,healthy,hg19,pancreas endothelium,,,pancreas endothelium,sorted pancreas endothelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H21,GSE186458,GSM5652198,healthy,hg19,colon fibroblasts,,,colon fibroblasts,sorted colon fibroblasts,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H22,GSE186458,GSM5652199,healthy,hg19,colon fibroblasts,,,colon fibroblasts,sorted colon fibroblasts,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H23,GSE186458,GSM5652201,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H24,GSE186458,GSM5652202,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H25,GSE186458,GSM5652203,healthy,hg19,heart fibroblasts,,,heart fibroblasts,sorted heart fibroblasts,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H26,GSE186458,GSM5652205,healthy,hg19,striated muscle,,,striated muscle,sorted striated muscle,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H27,GSE186458,GSM5652206,healthy,hg19,striated muscle,,,striated muscle,sorted striated muscle,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H28,GSE186458,GSM5652207,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H29,GSE186458,GSM5652208,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H30,GSE186458,GSM5652209,healthy,hg19,smooth muscle,,,smooth muscle,sorted smooth muscle,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H31,GSE186458,GSM5652212,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H32,GSE186458,GSM5652213,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H33,GSE186458,GSM5652216,healthy,hg19,cardiomyocyte,,,cardiomyocyte,sorted cardiomyocyte,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H34,GSE186458,GSM5652219,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H35,GSE186458,GSM5652220,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H36,GSE186458,GSM5652221,healthy,hg19,oligodendrocytes,,,oligodendrocytes,sorted oligodendrocytes,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H37,GSE186458,GSM5652223,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H38,GSE186458,GSM5652224,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H39,GSE186458,GSM5652225,healthy,hg19,cortical neurons,,,cortical neurons,sorted cortical neurons,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H46,GSE186458,GSM5652243,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H48,GSE186458,GSM5652245,healthy,hg19,pancreatic acinar,,,pancreatic acinar,sorted pancreatic acinar,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H50,GSE186458,GSM5652248,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H51,GSE186458,GSM5652249,healthy,hg19,pancreatic delta,,,pancreatic delta,sorted pancreatic delta,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H52,GSE186458,GSM5652250,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H54,GSE186458,GSM5652252,healthy,hg19,pancreatic beta,,,pancreatic beta,sorted pancreatic beta,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H55,GSE186458,GSM5652253,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H56,GSE186458,GSM5652254,healthy,hg19,pancreatic alpha,,,pancreatic alpha,sorted pancreatic alpha,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H60,GSE186458,GSM5652258,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H61,GSE186458,GSM5652259,healthy,hg19,kidney tubular epithelium,,,kidney tubular epithelium,sorted kidney tubular epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H63,GSE186458,GSM5652264,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H64,GSE186458,GSM5652265,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H65,GSE186458,GSM5652266,healthy,hg19,thyroid epithelium,,,thyroid epithelium,sorted thyroid epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H67,GSE186458,GSM5652268,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H68,GSE186458,GSM5652269,healthy,hg19,fallopien tubes epithelium,,,fallopien tubes epithelium,sorted fallopien tubes epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H69,GSE186458,GSM5652271,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H70,GSE186458,GSM5652272,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H71,GSE186458,GSM5652273,healthy,hg19,endometrium epithelium,,,endometrium epithelium,sorted endometrium epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H73,GSE186458,GSM5652275,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H74,GSE186458,GSM5652276,healthy,hg19,erythrocyte progenitors,,,erythrocyte progenitors,sorted erythrocyte progenitors,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H75,GSE186458,GSM5652279,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H76,GSE186458,GSM5652280,healthy,hg19,cd4 t cells,,,cd4 t cells,sorted cd4 t cells,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H80,GSE186458,GSM5652284,healthy,hg19,cd8 t cells,,,cd8 t cells,sorted cd8 t cells,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H83,GSE186458,GSM5652287,healthy,hg19,t central memory cd4,,,t central memory cd4,sorted t central memory cd4,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H84,GSE186458,GSM5652288,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H85,GSE186458,GSM5652289,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H86,GSE186458,GSM5652290,healthy,hg19,t effector cell cd8,,,t effector cell cd8,sorted t effector cell cd8,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H89,GSE186458,GSM5652293,healthy,hg19,t effector memory cd4,,,t effector memory cd4,sorted t effector memory cd4,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H93,GSE186458,GSM5652299,healthy,hg19,nk cells,,,nk cells,sorted nk cells,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H96,GSE186458,GSM5652302,healthy,hg19,monocytes,,,monocytes,sorted monocytes,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H97,GSE186458,GSM5652303,healthy,hg19,monocytes,,,monocytes,sorted monocytes,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H98,GSE186458,GSM5652304,healthy,hg19,monocytes,,,monocytes,sorted monocytes,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H103,GSE186458,GSM5652310,healthy,hg19,lung interstitial macrophages,,,lung interstitial macrophages,sorted lung interstitial macrophages,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H106,GSE186458,GSM5652316,healthy,hg19,b cells,,,b cells,sorted b cells,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H107,GSE186458,GSM5652317,healthy,hg19,b cells,,,b cells,sorted b cells,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H108,GSE186458,GSM5652318,healthy,hg19,b cells,,,b cells,sorted b cells,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H109,GSE186458,GSM5652319,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H110,GSE186458,GSM5652320,healthy,hg19,memory b cells,,,memory b cells,sorted memory b cells,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H111,GSE186458,GSM5652322,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H112,GSE186458,GSM5652323,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H113,GSE186458,GSM5652324,healthy,hg19,tonsil palatine epithelium,,,tonsil palatine epithelium,sorted tonsil palatine epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H115,GSE186458,GSM5652326,healthy,hg19,tonsil pharyngeal epithelium,,,tonsil pharyngeal epithelium,sorted tonsil pharyngeal epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H116,GSE186458,GSM5652327,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H117,GSE186458,GSM5652328,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H118,GSE186458,GSM5652329,healthy,hg19,tongue epithelium,,,tongue epithelium,sorted tongue epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H119,GSE186458,GSM5652335,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H120,GSE186458,GSM5652336,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H121,GSE186458,GSM5652337,healthy,hg19,lung bronchus epithelium,,,lung bronchus epithelium,sorted lung bronchus epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H122,GSE186458,GSM5652338,healthy,hg19,prostate epithelium,,,prostate epithelium,sorted prostate epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H130,GSE186458,GSM5652349,healthy,hg19,breast luminal epithelium,,,breast luminal epithelium,sorted breast luminal epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H131,GSE186458,GSM5652350,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H132,GSE186458,GSM5652351,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H133,GSE186458,GSM5652352,healthy,hg19,breast basal epithelium,,,breast basal epithelium,sorted breast basal epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H134,GSE186458,GSM5652354,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H136,GSE186458,GSM5652356,healthy,hg19,lung alveolar epithelium,,,lung alveolar epithelium,sorted lung alveolar epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H138,GSE186458,GSM5652360,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H139,GSE186458,GSM5652361,healthy,hg19,gastric fundus epithelium,,,gastric fundus epithelium,sorted gastric fundus epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H141,GSE186458,GSM5652363,healthy,hg19,gastric body epithelium,,,gastric body epithelium,sorted gastric body epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H143,GSE186458,GSM5652365,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H144,GSE186458,GSM5652366,healthy,hg19,gastric antrum epithelium,,,gastric antrum epithelium,sorted gastric antrum epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H146,GSE186458,GSM5652370,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H147,GSE186458,GSM5652371,healthy,hg19,colon epithelium,,,colon epithelium,sorted colon epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H148,GSE186458,GSM5652372,healthy,hg19,colon enteroendocrine,,,colon enteroendocrine,sorted colon enteroendocrine,B,--full-chain --dev-seq-ref auto --dev-seq-ref-half A --dev-whole-sites --dev-metaa-sites
+H150,GSE186458,GSM5652375,healthy,hg19,colon enteroendocrine,,,colon enteroendocrine,sorted colon enteroendocrine,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
+H151,GSE186458,GSM5652379,healthy,hg19,small intestine epithelium,,,small intestine epithelium,sorted small intestine epithelium,A,--full-chain --dev-seq-ref auto --dev-seq-ref-half B --dev-whole-sites --dev-metaa-sites
