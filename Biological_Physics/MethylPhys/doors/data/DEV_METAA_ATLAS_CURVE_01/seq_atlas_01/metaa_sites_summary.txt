@@ -1,0 +1,24 @@
+Met-A site by site: 20 of 20 samples, 118,158 site readings; overall ratio 1.0959
+by side:
+  marked: 59,995 sites, ratio 1.0839, median reads 38, median sample level 0.9348, median reference 0.9344
+  unmarked: 58,163 sites, ratio 1.1447, median reads 34, median sample level 0.0000, median reference 0.0139
+by side and the sample's depth (third 0 shallowest):
+  marked, depth third 0: ratio 1.1381 over 7 samples
+  marked, depth third 1: ratio 1.0796 over 7 samples
+  marked, depth third 2: ratio 1.0261 over 6 samples
+  unmarked, depth third 0: ratio 1.2245 over 7 samples
+  unmarked, depth third 1: ratio 1.1583 over 7 samples
+  unmarked, depth third 2: ratio 1.0541 over 6 samples
+by the site's reads (fifths, 0 fewest):
+  fifth 0 (2 to 26 reads): ratio 1.2020
+  fifth 1 (26 to 33 reads): ratio 1.1574
+  fifth 2 (33 to 39 reads): ratio 1.1079
+  fifth 3 (39 to 46 reads): ratio 1.0122
+  fifth 4 (46 to 13670 reads): ratio 1.0408
+by reference level (unmarked side):
+  (-0.001, 0.0]: 24,228 sites, ratio 3906.1296
+  (0.0, 0.02]: 12,383 sites, ratio 1.1104
+  (0.02, 0.05]: 19,660 sites, ratio 0.4682
+  (0.05, 0.1]: 1,677 sites, ratio 0.5463
+  (0.1, 0.25]: 214 sites, ratio 0.6632
+  (0.25, 0.5]: 1 sites, ratio 1.0385

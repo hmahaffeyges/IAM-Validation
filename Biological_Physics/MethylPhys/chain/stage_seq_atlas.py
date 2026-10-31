@@ -287,6 +287,29 @@ def library_floor(beta, calls, path=FLOOR_SITES):
         out[side] = dict(sites_read=int(g.sum()), calls=int(nn), opposite=int(opp), rate=round(opp / nn, 6) if nn else None); tot_o += opp; tot_n += nn
     out["rate"] = round(tot_o / tot_n, 6) if tot_n else None; return out
 
+METAA_COUNTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_half_counts_v1.parquet")
+
+def metaa_half_counts(samples_csv, out, ref=None):
+    """2026-10-30 (Met-A site by site: 42 % of the unmarked identity sites had a reference level of exactly 0, read as exact): each cell's
+    methylated and total reads at its Met-A identity sites in each sealed donor half (mA, nA, mB, nB), summed over that half's healthy inputs,
+    so Met-A's expectation can carry the reference's own counting. samples_csv: gsm, title, cell, half, file (seq_atlas_inputs.csv, or a
+    share of it); each .beta file is read whole once and only its own cell's identity sites are kept. Counts, never ratios; nothing fitted."""
+    import pandas as pd
+    R = pd.read_parquet(ref or METAA_REF, columns=["cell", "probe", "cpg"]); S = pd.read_csv(samples_csv)
+    acc = {c: dict(cpg=g.cpg.to_numpy(np.int64), probe=g.probe.to_numpy(), m={"A": 0, "B": 0}, n={"A": 0, "B": 0}) for c, g in R.groupby("cell")}
+    used = []
+    for r in S.itertuples():
+        c = str(r.cell).strip()
+        if c not in acc: continue
+        M, N = read_block(r.file, 0, HG19_CPGS); x = acc[c]; i = x["cpg"] - 1; h = str(r.half).strip().upper()
+        x["m"][h] = x["m"][h] + M[i].astype(np.int64); x["n"][h] = x["n"][h] + N[i].astype(np.int64); used.append(r.gsm); del M, N
+    parts = []
+    for c, x in acc.items():
+        z = np.zeros(len(x["cpg"]), np.int64); f = lambda v: v if isinstance(v, np.ndarray) else z
+        parts.append(pd.DataFrame(dict(cell=c, probe=x["probe"], cpg=x["cpg"], mA=f(x["m"]["A"]), nA=f(x["n"]["A"]), mB=f(x["m"]["B"]), nB=f(x["n"]["B"]))))
+    T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
+    return dict(inputs=len(used), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
+
 def metaa_reference_of(cell, path=METAA_REF):
     """One cell's rows of the Met-A sequencing reference, indexed by probe, levels as 0 to 1 (NaN where blank); None when the file or cell is absent."""
     import pandas as pd
@@ -296,6 +319,9 @@ def metaa_reference_of(cell, path=METAA_REF):
     R = R.set_index("probe")
     for c in ("level", "spread", "disorder", "halfA", "halfB", "readA", "readB"):
         if c in R: R[c] = np.where(R[c] == BLANK, np.nan, R[c] / 1e4)
+    if os.path.exists(METAA_COUNTS) and "nA" not in R.columns:   # 2026-10-30: each donor half's own reads at the identity sites (metaa_half_counts)
+        C = pd.read_parquet(METAA_COUNTS, filters=[("cell", "==", cell)]).set_index("probe")[["mA", "nA", "mB", "nB"]]
+        R = R.join(C, how="left")
     return R
 
 def held_reference(samples, out):

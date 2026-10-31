@@ -363,3 +363,18 @@ site's reads and by the sample's depth, so the extra disorder is placed before a
 **The first send read nothing** (disclosed): the per-site table called a pandas method on a plain array, so Met-A errored on all 20 samples
 and no table was written; nothing was read. Fixed (the table checked on a constructed sample: its ratio equals the Met-A reading, 1.0006)
 and the same 20 sent again, unchanged.
+
+**Met-A site by site, read: the cause found** (`seq_atlas_01/metaa_sites_summary.txt`; 20 of the 137 by depth, 118,158 site readings,
+through the one command). Two sends read nothing and are disclosed: the per-site table first errored, then was written but not kept on
+landing (the lander kept only some file types; fixed). Overall ratio of measured to expected disorder 1.0959, unmarked side 1.1447, marked
+1.0839, higher at sites with fewer reads. By the reference level on the unmarked side: 24,228 of 58,163 sites (42 %) have a reference level
+of exactly 0 and a ratio of 3,906; sites at 0.02 to 0.05 read 0.47. **Cause:** the reference level, counted from a few hundred reads in
+the other donor half, is used as exact. Where that half saw no methylated read, counting predicts no disorder at all, and every methylated
+read the sample has there is counted as excess; at low reference levels counted a little high, the expectation is too large. The first
+synthetic could not see this: it drew its samples from the reference's own levels. **Fix** (`stage_metaa_atlas.expected_H_counted`): the
+healthy level is taken as counted, mB of nB reads in the donor half read against; given those counts the sample's k of n follows the
+beta-binomial with Jeffreys' half counts (the same convention as the atlas's stored range), and the expected disorder is its exact mean.
+Nothing fitted. The atlas stores reads only pooled over donors, so each half's counts at the identity sites are built from the healthy
+inputs (`stage_seq_atlas.metaa_half_counts`, `run_sample.py --build seq-metaa-counts`). **Synthetic** (`seq_atlas_01/metaa_counted_synthetic.py`):
+a hidden truth, a reference half counted from it at about 150 reads, samples at 5 to 60 reads, through the one command; bars: median Met-A
+within 0.02 of 1, |rho| with depth at most 0.2; the same samples with the reference taken as exact are recorded beside it.

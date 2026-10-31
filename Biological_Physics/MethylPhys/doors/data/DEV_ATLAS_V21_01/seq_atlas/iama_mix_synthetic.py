@@ -13,7 +13,7 @@ import sys, os, gzip, json, subprocess, numpy as np, pandas as pd
 W, OUT = sys.argv[1:3]; os.makedirs(W, exist_ok=True)
 C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "chain"); sys.path.insert(0, C)
 import stage_seq_atlas as Q
-H = pd.read_parquet(Q.HELD_REF); rng = np.random.default_rng(20261104)   # run 2 (run 1 seed 20261103); L0, M = 10, 40
+H = pd.read_parquet(Q.HELD_REF); rng = np.random.default_rng(20261104); L0, M = 10, 40   # run 2 (run 1 seed 20261103)
 def solve(r):
     p = r.copy()
     for _ in range(30): p = r / (1 - p) ** 2

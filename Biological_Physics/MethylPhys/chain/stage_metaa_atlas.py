@@ -109,6 +109,20 @@ def expected_H_counts(p, n):
         out[i] = binom.pmf(k[None, :], m, p[i][:, None]) @ hk
     return out
 
+def expected_H_counted(mref, nref, n):
+    """2026-10-30 (Met-A site by site; derived, nothing fitted): the expected entropy of a healthy sample's level, k of n reads, when the healthy
+    level is itself counted, mref methylated of nref reads in the reference. Both are reads of the same healthy level, so given the reference
+    counts the sample's k follows the beta-binomial with mref + 1/2 and nref - mref + 1/2 (Jeffreys' half counts, stated, the same as the
+    atlas's stored range): E[H(k/n)] = sum_k BetaBinom(k; n, a, b) H(k/n). A reference level of 0 of 200 reads then predicts the disorder a
+    healthy level that small actually gives, not zero. Above N_EXACT sample reads, N_EXACT is used (the k-of-n bias there is below 0.2 % of H)."""
+    from scipy.stats import betabinom
+    a = np.asarray(mref, dtype="float64") + 0.5; b = np.asarray(nref, dtype="float64") - np.asarray(mref, dtype="float64") + 0.5
+    n = np.minimum(np.asarray(n, dtype="int64"), N_EXACT); out = np.full(a.shape, np.nan)
+    for m in np.unique(n[n >= 1]):
+        i = n == m; k = np.arange(m + 1); hk = np.asarray(_H(pd.Series(k / m)), dtype="float64")
+        out[i] = betabinom.pmf(k[None, :], m, a[i][:, None], b[i][:, None]) @ hk
+    return out
+
 def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     """Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1. 2026-10-29: with sequencing counts and seqref (the cell's
     rows of the IAM Sequencing Atlas's Met-A reference, stage_seq_atlas.metaa_reference_of), the healthy level at each identity site is the
@@ -134,13 +148,19 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
         mu = mu.copy()
         if not use_seq: mu[ok] = seq_units(mu[ok])
         _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
+        _h = str(half or "").upper()
+        if use_seq and _h in ("A", "B") and f"n{_h}" in seqref.columns and seqref[f"n{_h}"].reindex(mu[ok].index).notna().all():   # 2026-10-30: the counted reference
+            _mr = seqref[f"m{_h}"].reindex(mu[ok].index).to_numpy(); _nr = seqref[f"n{_h}"].reindex(mu[ok].index).to_numpy()
+            _e = expected_H_counted(_mr, _nr, _n); href = float(np.nanmean(_e)); rec["expectation_counted"] = True
+            rec["expectation"] = ("k of n reads at each site's own depth, the healthy level counted from donor half " + _h +
+                                  "'s own reads (expected_H_counted: beta-binomial, Jeffreys half counts)")
         rec["expectation"] = ("k of n reads at each site's own depth (expected_H_counts), the IAM Sequencing Atlas's level" if use_seq else
                               "k of n reads at each site's own depth (expected_H_counts), the atlas column in sequencing units (sequencing_term_v1)")
     A = float(_H(x[ok]).mean() / href)
     if SITE_OUT and counts is not None:   # 2026-10-30 (development, run_sample.py --dev-metaa-sites): every identity site's reads, levels and disorder
         _n2 = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64")
         pd.DataFrame(dict(site=mu[ok].index, reads=_n2.to_numpy(), sample_level=x[ok].to_numpy(), reference_level=mu[ok].to_numpy(),
-                          H_measured=np.asarray(_H(x[ok]), dtype="float64"), H_expected=np.asarray(expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()), dtype="float64"))).to_csv(SITE_OUT, index=False)
+                          H_measured=np.asarray(_H(x[ok]), dtype="float64"), H_expected=np.asarray(_e if rec.get("expectation_counted") else expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()), dtype="float64"))).to_csv(SITE_OUT, index=False)
         rec["sites_table"] = os.path.basename(SITE_OUT)
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),

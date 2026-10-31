@@ -2346,6 +2346,13 @@ within-chromosome block-shuffle null with the look-elsewhere statistic.
 IAM-A for a mixed sample: the sample's held errors over the number its own shares predict, tile by tile, from each cell's healthy held-error
 rate in the IAM Sequencing Atlas's held-error reference and the sample's own opportunities; healthy reads 1.
 
+### stage_metaa_atlas.py::expected_H_counted
+The expected disorder of a healthy sample's k of n reads when the healthy level is itself counted (m of N reads in the reference): the
+beta-binomial mean of the entropy, Jeffreys' half counts; a reference level of 0 then predicts the small disorder such a level really gives.
+
+### stage_seq_atlas.py::metaa_half_counts
+Each cell's methylated and total reads at its Met-A identity sites in each sealed donor half, summed over the healthy inputs' .beta files.
+
 ### stage_seq_atlas.py::array_columns
 The IAM Sequencing Atlas at every site of IAM-Atlas v2.1, in v2.1's layout (`run_sample.py --build seq-array-cols`): each cell's counted
 level and donor spread, so a sequenced sample's in-mix readings mix sequencing levels; the sites themselves are still chosen on v2.1.
