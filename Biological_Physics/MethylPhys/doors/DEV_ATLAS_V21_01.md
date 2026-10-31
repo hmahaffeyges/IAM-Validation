@@ -690,3 +690,10 @@ shares no structure (p 1.0, every band read); planted shares declared, none (p 0
 raised one band to 1.3674 times its null, not significant (p 0.1089): a measured limit of what the sky sees at that depth.
 **Synthetic run 3** (amended before it ran, disclosed; `seq_atlas/sky_seq_synthetic.py`): the bar is the instrument's job only, at most 1 of
 the 6 healthy samples showing structure; what the sky can see is measured, not scored, at 20 reads with 3,000 and 10,000 changed sites.
+
+**The sky synthetic, run 3: met** (`seq_atlas/sky_seq_synthetic.txt`): none of the 6 constructed healthy samples showed structure beyond
+the null (p 0.1386 to 0.9307), pure cells and mixes, at 20 and 8 reads, against the sample's own mix of the IAM Sequencing Atlas. **What
+it sees, measured:** 3,000 and 10,000 contiguous sites of chromosome 8 moved 0.15 at 20 reads were not seen (p 0.9901 and 0.5743). This is
+by construction: the null shuffles runs of 50 sites along each chromosome, so a moved region keeps its clustering and its band power; the
+sky reads how departures are arranged beyond blocks, not regional level shifts, which the territories and the C-Score read. NILC, the
+template split and B cells record, on sequencing, the blood cells the sequencing atlas does not hold.
