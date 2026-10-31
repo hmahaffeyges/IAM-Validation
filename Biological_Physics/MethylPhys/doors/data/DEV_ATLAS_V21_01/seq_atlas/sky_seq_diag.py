@@ -18,11 +18,11 @@ def col(c):
             u = pq.read_table(p, columns=[c]).column(0).to_numpy(); v = u / 1e4; v[u == 65535] = np.nan; return pd.Series(v, index=ids)
 mx = {"cd8 t cells": 0.7, "cd4 t cells": 0.3}; N = 8
 p = sum(f * col(c) for c, f in mx.items()).reindex(cpg.index).dropna().clip(0, 1)
-m = DV._mapping(); c8 = cpg.reindex(m[m.chr.astype(str) == "8"].index.intersection(p.index)).sort_values().index[:300]
+m = DV._mapping(); c8 = cpg.reindex(m[m.chr.astype(str) == "8"].index.intersection(p.index)).sort_values().index[:3000]
 pr = p.copy(); pr[c8] = pr[c8] + 0.15 * (1 - pr[c8]); rng = np.random.default_rng(20261102)
 dec = ",".join(f"{c}:{f}" for c, f in mx.items()); L = ["The sky on sequencing, diagnostic (cd8 0.7, cd4 0.3, 8 reads)", "read | lee p | structure | largest band ratio"]
 for j, (name, q, flags) in enumerate((("the Deconvolver's own shares", p, []), ("planted shares declared", p, ["--dev-shares", dec]),
-                                      ("planted shares declared, 300 chr8 sites +0.15", pr, ["--dev-shares", dec]))):
+                                      ("planted shares declared, 3000 chr8 sites +0.15", pr, ["--dev-shares", dec]))):
     a = np.zeros((SV.HG19_CPGS, 2), np.uint16); ii = cpg[q.index].to_numpy(); a[ii - 1, 0] = rng.binomial(N, q.to_numpy()); a[ii - 1, 1] = N
     f = os.path.join(W, f"d{j}.lbeta"); a.tofile(f); b = os.path.join(W, f"d{j}_bundle.json")
     subprocess.run([sys.executable, "run_sample.py", "--dev-seq-beta", f, "--dev-seq-values", "1", "--dev-seq-ref", "auto", "--full-chain", "--specimen", "unknown",

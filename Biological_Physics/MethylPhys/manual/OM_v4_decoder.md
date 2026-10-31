@@ -15,7 +15,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/report_v4.py` | 447 | 30 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
-| `dev_stages.py` | 387 | 29 | 1 | 0 |
+| `dev_stages.py` | 391 | 29 | 1 | 0 |
 | `stage_v4.py` | 187 | 11 | 4 | 2 |
 | `stage_deconv_v21.py` | 200 | 6 | 4 | 0 |
 | `stage_q2_selfref.py` | 372 | 34 | 0 | 11 |
@@ -2644,44 +2644,44 @@ Whether a parquet file holds the named columns.
 
 Loads the atlas v2 parent blood cells' means, SDs and between-person SDs.
 
-*Code:* `dev_stages.py` line 292 (9 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `_C`
+*Code:* `dev_stages.py` line 296 (9 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `_C`
 
 ### `dev_stages.py::sky`
 
 The development residual sky of one whole blood, with its null.
 
-*Code:* `dev_stages.py` line 303 (7 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 307 (7 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs
 
 ### `dev_stages.py::_atlas_e`
 
 Builds the atlas_e solver once on the 12 array-measured circulating cells of atlas v2, with the neutrophil identity sites removed.
 
-*Code:* `dev_stages.py` line 317 (11 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `ATLAS_E_CELLS`, `_C`
+*Code:* `dev_stages.py` line 321 (11 lines) · arguments: atlas_parquet · calls: not called on the traced runs · constants read: `ATLAS_E_CELLS`, `_C`
 
 ### `dev_stages.py::atlas_e`
 
 The atlas_e composition, summed into the 8 blood groups.
 
-*Code:* `dev_stages.py` line 330 (7 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+*Code:* `dev_stages.py` line 334 (7 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
 
 ### `dev_stages.py::nilc_e`
 
 The NILC-e composition on the atlas_e templates, with each share's noise.
 
-*Code:* `dev_stages.py` line 339 (7 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
+*Code:* `dev_stages.py` line 343 (7 lines) · arguments: beta, atlas_parquet · calls: not called on the traced runs · constants read: `BLOOD8`
 
 ### `dev_stages.py::percell_b`
 
 A B-cell Met-A against the expectation for this blood's mix, on the development B-cell reference.
 
-*Code:* `dev_stages.py` line 348 (14 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `RM` · files named: `metA_floors_v1_2_ALLCELLS_development.json`
+*Code:* `dev_stages.py` line 352 (14 lines) · arguments: beta, fractions, atlas_parquet · calls: not called on the traced runs · constants read: `PARENTS`, `RM` · files named: `metA_floors_v1_2_ALLCELLS_development.json`
 
 ### `dev_stages.py::epicv2_calibrate`
 
 An EPIC v2 IDAT pair through SeSAMe (an R package, run in its own environment) to β values on EPIC v1 probe names, replicate probes of one
 CpG averaged and background-masked probes dropped. Development only: the chain's references are EPIC v1.
 
-*Code:* `dev_stages.py` line 368 (19 lines) · arguments: grn, red, rscript, prep · calls: not called on the traced runs · constants read: `SESAME_R` · files named: `betas.csv`
+*Code:* `dev_stages.py` line 372 (19 lines) · arguments: grn, red, rscript, prep · calls: not called on the traced runs · constants read: `SESAME_R` · files named: `betas.csv`
 
 ### `dev_comp_methods.py::load_atlas`
 
@@ -3677,7 +3677,7 @@ The residual sky against the sample's own mix of atlas cells (the Deconvolver's 
 (the cells' spreads, plus the array's 0.02 or, on sequencing, counting at the site's reads), mapped on the sphere, read against the
 within-chromosome block-shuffle null with the look-elsewhere statistic.
 
-*Code:* `dev_stages.py` line 271 (19 lines) · arguments: beta, shares, counts · calls: not called on the traced runs
+*Code:* `dev_stages.py` line 271 (23 lines) · arguments: beta, shares, counts · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::array_columns`
 

@@ -677,3 +677,10 @@ composition. Run 2: (1) 3 of the 6 healthy samples showed structure beyond the n
 over a whole chromosome is inside the null by construction. **Next:** a diagnostic through the one command (`seq_atlas/sky_seq_diag.py`; sample 3's mix, 8 reads): the sky with
 the Deconvolver's own shares, with the planted shares declared (`--dev-shares`, a new development option for diagnosis: every share-based
 reading uses the declared shares, the Deconvolver's own kept beside them), and with a regional plant (300 sites of chromosome 8).
+
+**The sky diagnostic, run 1** (`seq_atlas/sky_seq_diag_run1.txt`, through the one command): with the Deconvolver's own shares the sample
+showed structure (p 0.0099, one band unreadable); with the planted shares declared it did not (p 0.5644); the 300-site plant was not seen
+(p 1.0). **Found:** the sky dropped every site where any cell given a share, however small, has no level (here monocytes, bladder and breast
+at 0.5 to 1.4 %), leaving holes in the map. **Fixed:** each site now mixes the cells with a level there and is kept where they hold at least
+0.99 of the shares (the territories' rule, MIX_COVER). A 300-site change is below what the sky sees at 8 reads; the plant is now 3,000 sites.
+**Run 2** reads the same three ways.

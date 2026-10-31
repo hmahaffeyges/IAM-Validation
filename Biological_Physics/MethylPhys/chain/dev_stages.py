@@ -278,14 +278,18 @@ def sky_in_mix(beta, shares, counts=None):
     import stage_metaa_atlas as SA
     sh = {c: float(f) for c, f in (shares or {}).items() if f and f > 0}
     if not sh: return _rec("sky", status="NOT_RUN", reason="no cell shares")
-    A = atlas_frame(list(sh)); idx = beta.dropna().index.intersection(A.index)
-    E = sum(f * A[f"{c}_mean"].reindex(idx) for c, f in sh.items()) / sum(sh.values())
-    V = sum((f / sum(sh.values())) ** 2 * (A[f"{c}_sd"].reindex(idx).fillna(0) ** 2 + A[f"{c}_donor_sd"].reindex(idx) ** 2) for c, f in sh.items())
+    A = atlas_frame(list(sh)); idx = beta.dropna().index.intersection(A.index); F = pd.Series(sh)
+    MU = pd.concat([A[f"{c}_mean"].reindex(idx).rename(c) for c in sh], axis=1); have = MU.notna()   # 2026-10-30: mix over the cells with a level at the site
+    w = have.mul(F, axis=1); tot = w.sum(1); cover = tot / F.sum(); keep = cover >= SA.MIX_COVER; idx = idx[keep.to_numpy()]
+    wn = w[keep].div(tot[keep], axis=0); E = (MU[keep].fillna(0) * wn).sum(1)
+    SD2 = pd.concat([(A[f"{c}_sd"].reindex(idx).fillna(0) ** 2 + A[f"{c}_donor_sd"].reindex(idx).fillna(0) ** 2).rename(c) for c in sh], axis=1)
+    V = (wn ** 2 * SD2).sum(1)
     if counts is not None:
         n = pd.Series(counts).reindex(idx).astype("float64"); V = V + (E * (1 - E) / n.where(n > 0)).clip(lower=1e-6)
     else: V = V + 0.02 ** 2
     z = ((beta.reindex(idx) - E) / np.sqrt(V)).replace([np.inf, -np.inf], np.nan).dropna()
     return _rec("sky", status="OK", reference=("IAM Sequencing Atlas" if SA.SEQ_ATLAS else "IAM-Atlas v2.1") + ", the sample's own shares",
+                mix_rule=f"each site mixes the cells with a level there, kept where they hold at least {SA.MIX_COVER} of the shares", sites_kept=int(len(idx)),
                 noise="counting at each site's reads" if counts is not None else "array 0.02 (DEV-SKY-01)", **sky_from_z(z))
 
 

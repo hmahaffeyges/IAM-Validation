@@ -2964,7 +2964,7 @@
   },
   {
    "file": "dev_stages.py",
-   "lines": 387,
+   "lines": 391,
    "functions": [
     {
      "file": "dev_stages.py",
@@ -3358,13 +3358,13 @@
      "function": "sky_in_mix",
      "name": "sky_in_mix",
      "line": 271,
-     "end": 289,
+     "end": 293,
      "args": [
       "beta",
       "shares",
       "counts"
      ],
-     "lines": 19,
+     "lines": 23,
      "doc": "2026-10-30 (plan 35.30, development): the residual sky (DEV-SKY-02's block-shuffle null and look-elsewhere statistic, sky_from_z, unchanged) against the sample's own composition: the Deconvolver's shares over the atlas the chain is using. z at each site = (beta - sum f mu) / sqrt(sum f^2 (sd^2 + donor_sd^2) + noise), noise the array's 0.02^2 (DEV-SKY-01) or, on sequencing, the counting variance e(",
      "constants": [],
      "data_files": [],
@@ -3374,8 +3374,8 @@
      "file": "dev_stages.py",
      "function": "load_atlas_parents",
      "name": "load_atlas_parents",
-     "line": 292,
-     "end": 300,
+     "line": 296,
+     "end": 304,
      "args": [
       "atlas_parquet"
      ],
@@ -3392,8 +3392,8 @@
      "file": "dev_stages.py",
      "function": "sky",
      "name": "sky",
-     "line": 303,
-     "end": 309,
+     "line": 307,
+     "end": 313,
      "args": [
       "beta",
       "fractions",
@@ -3409,8 +3409,8 @@
      "file": "dev_stages.py",
      "function": "_atlas_e",
      "name": "_atlas_e",
-     "line": 317,
-     "end": 327,
+     "line": 321,
+     "end": 331,
      "args": [
       "atlas_parquet"
      ],
@@ -3427,8 +3427,8 @@
      "file": "dev_stages.py",
      "function": "atlas_e",
      "name": "atlas_e",
-     "line": 330,
-     "end": 336,
+     "line": 334,
+     "end": 340,
      "args": [
       "beta",
       "atlas_parquet"
@@ -3445,8 +3445,8 @@
      "file": "dev_stages.py",
      "function": "nilc_e",
      "name": "nilc_e",
-     "line": 339,
-     "end": 345,
+     "line": 343,
+     "end": 349,
      "args": [
       "beta",
       "atlas_parquet"
@@ -3463,8 +3463,8 @@
      "file": "dev_stages.py",
      "function": "percell_b",
      "name": "percell_b",
-     "line": 348,
-     "end": 361,
+     "line": 352,
+     "end": 365,
      "args": [
       "beta",
       "fractions",
@@ -3485,8 +3485,8 @@
      "file": "dev_stages.py",
      "function": "epicv2_calibrate",
      "name": "epicv2_calibrate",
-     "line": 368,
-     "end": 386,
+     "line": 372,
+     "end": 390,
      "args": [
       "grn",
       "red",
