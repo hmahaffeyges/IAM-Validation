@@ -25,3 +25,5 @@ deconv_seq_synthetic_run1.txt
 deconv_seq_floor.txt
 inmix_seq_synthetic.txt
 array_sites.json
+sky_seq_synthetic_run1.txt
+sky_seq_synthetic.txt

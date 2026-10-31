@@ -668,3 +668,11 @@ eosinophils, basophils, naive B cells, regulatory and memory CD4 T cells) that t
 the chain records that reason; on arrays they run on v2.1. The full chain turns all four on. **Synthetic** (`seq_atlas/sky_seq_synthetic.py`):
 the 6 constructed healthy samples of the in-mix synthetic and one with chromosome 8 moved 0.15 toward full methylation, through the one
 command with the full chain; bars: at most 1 of the 6 healthy shows structure beyond the null, and the planted sample does.
+
+**The sky synthetic, runs 1 and 2: not met** (`seq_atlas/sky_seq_synthetic_run1.txt`, `seq_atlas/sky_seq_synthetic.txt`). Run 1 read no sky:
+on the laptop the sphere library could not write its settings file in the home folder (sandbox); run 2 pointed it at a temporary folder.
+NILC and the template split recorded, as intended, the blood cells the sequencing atlas does not hold; B cells recorded no stage 2
+composition. Run 2: (1) 3 of the 6 healthy samples showed structure beyond the null (p 0.0099), all three of them mixes, neither pure cell;
+(2) the planted sample did not (p 0.8218). Bar 2 was badly designed: the null shuffles blocks within each chromosome, so a change spread
+over a whole chromosome is inside the null by construction. **Next:** a diagnostic on sample 3 (`seq_atlas/sky_seq_diag.py`): the sky
+against the planted shares and against the shares the chain read, and a regional plant (300 sites of chromosome 8).
