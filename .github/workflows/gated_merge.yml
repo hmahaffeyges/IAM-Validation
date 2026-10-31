@@ -1,14 +1,15 @@
 name: gated-merge
 # A commit pushed to a gate/* branch is rebased onto main, its generated documents rebuilt (CANON/build_all.py), the chain version registered
-# when the commit message carries [register], and pushed to main ONLY through CANON/checked_push.sh, the same gate every push uses.
+# when the commit message carries [register], and checked by CANON/checked_push.sh (every check; git push --dry-run). The main branch's
+# ruleset lets only the owner push, so the exact files the gate checked are handed back (handback.json) and the session commits that same
+# tree with the owner's token, refusing if its tree differs from the gated one.
 # Added 2026-10-31: the session sandbox no longer allows a .git folder, so commits are made through GitHub's API onto a gate/* branch and
 # this runner (which has git) does the gate and the push. The branch is deleted afterwards; the gate's output is kept as an artifact.
 on:
   push:
     branches: ["gate/**"]
 permissions:
-  contents: write
-  actions: write
+  contents: read
 concurrency: {group: gated-merge, cancel-in-progress: false}
 jobs:
   merge:
@@ -23,34 +24,35 @@ jobs:
         run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt sympy beautifulsoup4 pillow pypdfium2
       - name: preflight (every package the chain needs is present)
         run: python3 Biological_Physics/MethylPhys/chain/preflight.py
-      - name: rebase, build, register, gate, push
+      - name: rebase, build, register, gate (dry run), hand back
         env:
           BR: ${{ github.ref_name }}
-          GH_TOKEN: ${{ github.token }}
         run: |
           set -o pipefail
           git config user.name "Heath W. Mahaffey"; git config user.email "hmahaffeyges@users.noreply.github.com"
           MSG="$(git log -1 --format=%B)"
           git fetch -q origin main
-          git rebase -q origin/main > gate.log 2>&1 || { echo "GATED MERGE: REBASE CONFLICT" | tee -a gate.log; git push -q origin --delete "$BR"; exit 1; }
+          git rebase -q origin/main > gate.log 2>&1 || { echo "GATED MERGE: REBASE CONFLICT" | tee -a gate.log; exit 1; }
           python3 CANON/build_all.py 2>&1 | tail -3 | tee -a gate.log
           if printf '%s' "$MSG" | grep -q '\[register\]'; then python3 CANON/chain_gate.py register 2>&1 | tail -1 | tee -a gate.log; fi
           git checkout -q -- CANON/canon_report.json 2>/dev/null || true
           git add -A; git checkout -q -- CANON/canon_report.json 2>/dev/null || true
           git diff --cached --quiet || git commit -q --amend --no-edit
-          ok=0
-          for t in 1 2 3; do
-            git checkout -q -- CANON/canon_report.json 2>/dev/null || true
-            if bash CANON/checked_push.sh -q origin HEAD:main >> gate.log 2>&1; then ok=1; echo "GATED MERGE: PUSHED $(git rev-parse --short=8 HEAD)" | tee -a gate.log; break; fi
-            grep -q -E "rejected|non-fast-forward|fetch first" gate.log || break
-            git fetch -q origin main && git rebase -q origin/main || break
-          done
+          if bash CANON/checked_push.sh -q --dry-run origin HEAD:main >> gate.log 2>&1; then
+            python3 - <<'EOF'
+          import subprocess, json, base64
+          g = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True, check=True).stdout.strip()
+          base = g("rev-parse", "origin/main"); out = dict(base=base, tree=g("rev-parse", "HEAD^{tree}"), files={}, deleted=[])
+          for l in g("diff", "--name-status", "--no-renames", base, "HEAD").splitlines():
+              st, p = l.split("\t", 1)
+              if st == "D": out["deleted"].append(p)
+              else: out["files"][p] = base64.b64encode(open(p, "rb").read()).decode()
+          json.dump(out, open("handback.json", "w")); print("GATED MERGE: PASSED", out["tree"][:12], len(out["files"]), "files")
+          EOF
+            echo "GATED MERGE: PASSED" >> gate.log
+          else echo "GATED MERGE: REFUSED" | tee -a gate.log; fi
           grep -v '^  ok' gate.log | tail -40
-          git push -q origin --delete "$BR" || true
-          if [ "$ok" = 1 ]; then
-            for w in website.yml canon.yml; do curl -s -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$w/dispatches" -d '{"ref":"main"}' > /dev/null || true; done
-          else echo "GATED MERGE: REFUSED"; exit 1; fi
+          grep -q "GATED MERGE: PASSED" gate.log
       - if: always()
         uses: actions/upload-artifact@v4
-        with: {name: gate-log, path: gate.log, retention-days: 14}
+        with: {name: gate-log, path: "gate.log\nhandback.json", retention-days: 14, if-no-files-found: ignore}
