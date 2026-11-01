@@ -20,11 +20,25 @@ jobs:
         with: {python-version: "3.11"}
       - name: install (the chain's own requirements) and preflight
         run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
-      - uses: actions/download-artifact@v4
-        with: {run-id: "${{ inputs.run_id }}", github-token: "${{ github.token }}", path: land}
-      - uses: actions/download-artifact@v4
-        if: inputs.run_id2 != ''
-        with: {run-id: "${{ inputs.run_id2 }}", github-token: "${{ github.token }}", path: land}
+      - name: download every artifact of the run(s), paged (actions/download-artifact stops at 100 per run)
+        env: {GH_TOKEN: "${{ github.token }}", RUNS: "${{ inputs.run_id }} ${{ inputs.run_id2 }}", REPO: "${{ github.repository }}"}
+        run: |
+          python3 - <<'EOF'
+          import os, io, zipfile, requests
+          H = {"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}; R = "https://api.github.com/repos/" + os.environ["REPO"]; n = 0
+          for run in os.environ["RUNS"].split():
+              p = 1
+              while True:
+                  A = requests.get(f"{R}/actions/runs/{run}/artifacts", headers=H, params={"per_page": 100, "page": p}, timeout=60).json().get("artifacts", [])
+                  if not A: break
+                  for a in A:
+                      if a["expired"]: continue
+                      for t in range(5):
+                          try: zipfile.ZipFile(io.BytesIO(requests.get(a["archive_download_url"], headers=H, timeout=600).content)).extractall(os.path.join("land", a["name"])); n += 1; break
+                          except Exception as e: print("retry", a["name"], e)
+                  p += 1
+          print("artifacts downloaded", n)
+          EOF
       - name: score
         env: {CMDS: "${{ inputs.commands }}"}
         run: |
