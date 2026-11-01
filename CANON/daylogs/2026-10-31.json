@@ -10,7 +10,7 @@
  "title": "Met-A for the whole sample and the territories on sequencing",
  "closing": "",
  "set_out": "Find why Met-A for the whole sample and the territories read high on healthy sequenced samples, including those from outside the atlas, and fix it in the chain, synthetic first.",
- "open_at_turnover": "Healthy pass 3 (137 inputs, the pooled level, per-site tables) on GitHub; the outside healthy samples read again on Google.",
+ "open_at_turnover": "Pass 4 (sorted-cell Met-A donor by donor) on the 137 inputs (GitHub) and the 35 outside samples (Google); pass 3's combined scoring queued.",
  "sections": [
   {
    "kind": "ran",
@@ -41,6 +41,36 @@
      "status": "development",
      "what": "The same spent input read again on the fixed chain.",
      "outcome": "The islands reading came down to below 1; the remaining excess sits at the marked sites, where this sample's level is lower than the expected one.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "Healthy pass 3, first 44 of 137",
+     "status": "development",
+     "what": "The 137 healthy inputs read on the fixed chain with per-site tables; 93 blocked by GEO and re-sent.",
+     "outcome": "Met-A for the whole sample and the domains read Normal on the 44; the islands near 1.05; sorted-cell Met-A still near 1.07.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The outside samples with the pooled level",
+     "status": "development",
+     "what": "The 25 outside neurons and 10 pancreas samples read again on the fixed chain.",
+     "outcome": "Not met: the neurons fell below Normal. Pooling donors whose levels differ overstates one person's disorder; the median of a few sparse donors understates it.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "Met-A donor by donor, synthetic runs 1 and 2",
+     "status": "development",
+     "what": "The expectation taken donor by donor, then both sides thinned to a common depth.",
+     "outcome": "Not met: the median met both times; a small rise with depth was caught by the rank bar. Nearest to Normal of the three expectations at every depth.",
      "rows": [
       "GRP-019"
      ],
@@ -77,6 +107,26 @@
      "status": "development",
      "what": "An insert in stage_metaa_atlas.py matched inside another setting's name, so two settings were missing on main for one commit.",
      "outcome": "Fixed and every setting checked present; no reading was made with the broken commit.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "Per-donor counts at the Met-A identity sites",
+     "status": "development",
+     "what": "Each of the 153 healthy inputs' own reads at its cell's identity sites, built on Google spot machines.",
+     "outcome": "Built and committed; pass 4 reads with them.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "Scoring on remote machines",
+     "status": "development",
+     "what": "A workflow that scores a finished run with the committed scorers on a GitHub machine.",
+     "outcome": "The per-site tables are too large for the laptop; scoring now runs where the files are.",
      "rows": [
       "GRP-019"
      ],
