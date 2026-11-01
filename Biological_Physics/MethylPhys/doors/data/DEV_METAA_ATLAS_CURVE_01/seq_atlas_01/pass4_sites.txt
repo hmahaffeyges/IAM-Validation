@@ -1,0 +1,4 @@
+Healthy pass 3 site by site: 125 samples with a per-site table
+side | samples | median ratio | median offset | ratio vs offset rho | ratio vs depth rho
+marked | 125 | 1.0788 | -0.00519 | -0.886 | -0.370
+unmarked | 125 | 1.1364 | +0.00498 | +0.799 | -0.273

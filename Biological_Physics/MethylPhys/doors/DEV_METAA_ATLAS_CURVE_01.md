@@ -579,3 +579,10 @@ name "pooled", so "donors" fell through to the median of the donors. Sorted-cell
 Fixed: both checks take "donors" as the pooled level. 2. The first scoring of pass 4 counted 94 of the 131 samples with readings, because
 GitHub's artifact download step stops at 100 artifacts per run. `score_run.yml` now downloads every artifact page by page, and pass 4 is
 scored again. Six jobs did not read: four had no GEO listing after six tries, and two stopped at intake.
+
+**Pass 4, read: bar 1 met, bar 2 not met** (`seq_atlas_01/healthy_fullchain4_summary.txt`, all 131 artifacts; `seq_atlas_01/pass4_sorted_by_depth.csv` and
+`seq_atlas_01/pass4_sorted_compare.txt`, added after scoring). 125 of the 137 inputs read. Sorted-cell Met-A donor by donor, each against the other donor half: median 1.0073
+(pass 3, the same samples: 1.0688), so **bar 1 is met**. Interquartile range 0.9614 to 1.0568; 52.8 % of samples inside 0.95 to 1.05; 35 of
+48 cells have a median inside it. **Bar 2 (the 25 outside neurons, 0.9108) is not met, so pass 4 is not met.** Recorded, not scored: Spearman
+rho with depth is -0.550 (pass 3: -0.622). The synthetic showed no such fall, so the shallower real inputs still read higher than the method
+predicts. That is open. Pass 4's other readings were read on the median by my error (above) and are not used.

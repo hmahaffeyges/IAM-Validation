@@ -1,0 +1,4 @@
+Pass 4 sorted-cell Met-A donor by donor, the inputs (from healthy_fullchain4_readings.csv): 125 read, median 1.0073
+interquartile range 0.9614 to 1.0568; inside 0.95 to 1.05: 52.8 %; cells with their median inside: 35 of 48
+Spearman rho with depth -0.550
+pass 3 on the same samples: median 1.0688, rho with depth -0.622

@@ -1,0 +1,126 @@
+gsm,cell,reading,A,lo,hi,reference,depth,A3
+GSM5652179,aorta endothelium,Met-A sorted cell,0.95069,,,,44988218,1.02872
+GSM5652180,aorta endothelium,Met-A sorted cell,1.05182,,,,42002727,1.12682
+GSM5652181,vascular saphenous endothelium,Met-A sorted cell,1.06777,,,,47454140,1.12427
+GSM5652182,vascular saphenous endothelium,Met-A sorted cell,0.93807,,,,58086067,1.02123
+GSM5652183,vascular saphenous endothelium,Met-A sorted cell,0.95158,,,,53098594,1.03569
+GSM5652184,kidney glomerular endothelium,Met-A sorted cell,1.02564,,,,64450681,1.09904
+GSM5652185,kidney glomerular endothelium,Met-A sorted cell,0.98481,,,,62972467,1.03427
+GSM5652186,kidney glomerular endothelium,Met-A sorted cell,1.03426,,,,53576824,1.10674
+GSM5652187,kidney tubular endothelium,Met-A sorted cell,0.92913,,,,67934648,0.98577
+GSM5652188,kidney tubular endothelium,Met-A sorted cell,1.07906,,,,46509698,1.14492
+GSM5652189,kidney tubular endothelium,Met-A sorted cell,1.13199,,,,36321591,1.1982
+GSM5652191,lung alveolar endothelium,Met-A sorted cell,0.98862,,,,52978188,1.05471
+GSM5652192,lung alveolar endothelium,Met-A sorted cell,1.02099,,,,64382366,1.06969
+GSM5652193,lung alveolar endothelium,Met-A sorted cell,1.0053,,,,57912785,1.07258
+GSM5652194,pancreas endothelium,Met-A sorted cell,1.01078,,,,28353254,1.11696
+GSM5652195,pancreas endothelium,Met-A sorted cell,0.92364,,,,45989020,1.02818
+GSM5652198,colon fibroblasts,Met-A sorted cell,0.99297,,,,51948166,1.05853
+GSM5652199,colon fibroblasts,Met-A sorted cell,1.00705,,,,50797028,1.07148
+GSM5652201,heart fibroblasts,Met-A sorted cell,1.02198,,,,44200224,1.09905
+GSM5652202,heart fibroblasts,Met-A sorted cell,1.032,,,,36531168,
+GSM5652203,heart fibroblasts,Met-A sorted cell,0.99135,,,,41895135,1.03826
+GSM5652205,striated muscle,Met-A sorted cell,1.01897,,,,48575256,1.08472
+GSM5652206,striated muscle,Met-A sorted cell,0.98133,,,,49251562,1.04973
+GSM5652207,smooth muscle,Met-A sorted cell,1.16329,,,,38977722,1.2441
+GSM5652208,smooth muscle,Met-A sorted cell,0.87065,,,,47094356,0.90534
+GSM5652209,smooth muscle,Met-A sorted cell,1.18032,,,,28853676,
+GSM5652212,cardiomyocyte,Met-A sorted cell,1.02559,,,,50997676,1.10262
+GSM5652213,cardiomyocyte,Met-A sorted cell,0.97861,,,,52115287,1.02935
+GSM5652216,cardiomyocyte,Met-A sorted cell,1.05878,,,,44412806,1.13673
+GSM5652219,oligodendrocytes,Met-A sorted cell,1.0479,,,,34101337,
+GSM5652220,oligodendrocytes,Met-A sorted cell,0.96142,,,,54513137,1.00679
+GSM5652221,oligodendrocytes,Met-A sorted cell,1.0506,,,,44058061,1.11286
+GSM5652223,cortical neurons,Met-A sorted cell,1.08706,,,,34180616,1.14724
+GSM5652224,cortical neurons,Met-A sorted cell,0.88778,,,,45208854,0.93785
+GSM5652225,cortical neurons,Met-A sorted cell,1.05677,,,,52807879,1.05509
+GSM5652243,pancreatic acinar,Met-A sorted cell,0.92577,,,,65651421,0.95733
+GSM5652244,pancreatic acinar,Met-A sorted cell,1.0989,,,,37486942,1.1487
+GSM5652245,pancreatic acinar,Met-A sorted cell,1.12591,,,,31082977,1.17889
+GSM5652247,pancreatic delta,Met-A sorted cell,1.07572,,,,33843685,1.14352
+GSM5652248,pancreatic delta,Met-A sorted cell,0.90857,,,,48920152,1.02622
+GSM5652249,pancreatic delta,Met-A sorted cell,0.99862,,,,32910585,1.11772
+GSM5652250,pancreatic beta,Met-A sorted cell,1.02268,,,,42551426,1.06663
+GSM5652251,pancreatic beta,Met-A sorted cell,1.00603,,,,41557155,1.09161
+GSM5652252,pancreatic beta,Met-A sorted cell,0.97179,,,,44732434,1.05515
+GSM5652253,pancreatic alpha,Met-A sorted cell,0.98671,,,,54462455,
+GSM5652254,pancreatic alpha,Met-A sorted cell,1.03963,,,,46346526,1.11604
+GSM5652255,pancreatic alpha,Met-A sorted cell,1.03264,,,,48561723,1.10904
+GSM5652258,kidney tubular epithelium,Met-A sorted cell,0.98137,,,,64491812,1.02592
+GSM5652259,kidney tubular epithelium,Met-A sorted cell,1.05929,,,,53356391,1.13629
+GSM5652260,kidney tubular epithelium,Met-A sorted cell,1.0279,,,,61532976,1.10429
+GSM5652264,thyroid epithelium,Met-A sorted cell,1.015,,,,52135437,1.06798
+GSM5652266,thyroid epithelium,Met-A sorted cell,1.00726,,,,50997120,1.08871
+GSM5652267,fallopien tubes epithelium,Met-A sorted cell,0.96325,,,,64815118,1.01065
+GSM5652268,fallopien tubes epithelium,Met-A sorted cell,1.04527,,,,45702218,1.11405
+GSM5652269,fallopien tubes epithelium,Met-A sorted cell,1.08092,,,,45968356,1.15244
+GSM5652271,endometrium epithelium,Met-A sorted cell,0.88561,,,,48267394,
+GSM5652272,endometrium epithelium,Met-A sorted cell,1.17034,,,,34269064,1.23756
+GSM5652273,endometrium epithelium,Met-A sorted cell,0.8344,,,,64091063,0.93609
+GSM5652274,erythrocyte progenitors,Met-A sorted cell,0.97104,,,,50410509,1.02246
+GSM5652275,erythrocyte progenitors,Met-A sorted cell,1.02948,,,,36991609,1.02969
+GSM5652276,erythrocyte progenitors,Met-A sorted cell,1.15651,,,,19384477,1.20992
+GSM5652279,cd4 t cells,Met-A sorted cell,0.90625,,,,64744603,1.01424
+GSM5652280,cd4 t cells,Met-A sorted cell,1.11947,,,,34963416,1.1689
+GSM5652281,cd4 t cells,Met-A sorted cell,0.88056,,,,54699946,0.98325
+GSM5652282,cd8 t cells,Met-A sorted cell,0.97561,,,,44624977,1.07651
+GSM5652283,cd8 t cells,Met-A sorted cell,1.08834,,,,32261810,1.1318
+GSM5652284,cd8 t cells,Met-A sorted cell,0.87372,,,,50171166,0.97318
+GSM5652285,t central memory cd4,Met-A sorted cell,0.95305,,,,53814169,0.99479
+GSM5652286,t central memory cd4,Met-A sorted cell,1.04723,,,,42320404,1.114
+GSM5652287,t central memory cd4,Met-A sorted cell,1.10207,,,,33598486,1.16967
+GSM5652288,t effector cell cd8,Met-A sorted cell,1.05963,,,,37313260,1.11529
+GSM5652289,t effector cell cd8,Met-A sorted cell,0.9485,,,,45179019,1.05201
+GSM5652290,t effector cell cd8,Met-A sorted cell,0.94937,,,,41806747,1.05222
+GSM5652291,t effector memory cd4,Met-A sorted cell,1.05762,,,,37130544,1.12208
+GSM5652292,t effector memory cd4,Met-A sorted cell,0.95321,,,,42711507,1.05826
+GSM5652293,t effector memory cd4,Met-A sorted cell,0.96147,,,,39403714,1.06653
+GSM5652299,nk cells,Met-A sorted cell,0.83293,,,,52252276,0.89488
+GSM5652300,nk cells,Met-A sorted cell,1.20895,,,,45237333,1.2726
+GSM5652302,monocytes,Met-A sorted cell,1.08465,,,,28960073,1.17564
+GSM5652303,monocytes,Met-A sorted cell,0.97949,,,,39438424,1.01235
+GSM5652304,monocytes,Met-A sorted cell,1.0151,,,,59024300,1.11301
+GSM5652308,lung alveolar macrophages,Met-A sorted cell,1.11237,,,,45528095,1.17055
+GSM5652309,lung alveolar macrophages,Met-A sorted cell,0.89883,,,,76055459,0.97721
+GSM5652310,lung interstitial macrophages,Met-A sorted cell,1.12274,,,,55150770,1.17836
+GSM5652311,lung interstitial macrophages,Met-A sorted cell,0.89876,,,,71819621,0.9754
+GSM5652312,lung interstitial macrophages,Met-A sorted cell,0.90016,,,,61322937,0.97547
+GSM5652316,b cells,Met-A sorted cell,1.06673,,,,37676565,1.18102
+GSM5652317,b cells,Met-A sorted cell,1.03789,,,,40089394,
+GSM5652319,memory b cells,Met-A sorted cell,0.94039,,,,35508471,1.04294
+GSM5652320,memory b cells,Met-A sorted cell,1.06339,,,,30045349,1.17155
+GSM5652322,tonsil palatine epithelium,Met-A sorted cell,1.03136,,,,45001807,1.10481
+GSM5652323,tonsil palatine epithelium,Met-A sorted cell,0.98922,,,,50457261,1.06068
+GSM5652325,tonsil pharyngeal epithelium,Met-A sorted cell,0.94278,,,,49748781,1.02424
+GSM5652327,tongue epithelium,Met-A sorted cell,1.06123,,,,48860061,
+GSM5652328,tongue epithelium,Met-A sorted cell,1.01054,,,,58344986,1.0708
+GSM5652329,tongue epithelium,Met-A sorted cell,0.99611,,,,62984631,1.02859
+GSM5652335,lung bronchus epithelium,Met-A sorted cell,0.95224,,,,54657804,1.0168
+GSM5652338,prostate epithelium,Met-A sorted cell,1.02817,,,,47972068,1.07036
+GSM5652339,prostate epithelium,Met-A sorted cell,0.98578,,,,46482472,1.06023
+GSM5652340,prostate epithelium,Met-A sorted cell,1.00034,,,,58168555,1.078
+GSM5652342,bladder epithelium,Met-A sorted cell,0.90649,,,,52143821,1.00392
+GSM5652343,bladder epithelium,Met-A sorted cell,0.89831,,,,55152081,0.99519
+GSM5652344,bladder epithelium,Met-A sorted cell,1.11222,,,,40229404,1.17805
+GSM5652347,breast luminal epithelium,Met-A sorted cell,0.92839,,,,52369155,1.01239
+GSM5652348,breast luminal epithelium,Met-A sorted cell,1.07171,,,,32648158,1.15882
+GSM5652349,breast luminal epithelium,Met-A sorted cell,1.06991,,,,44158713,1.10013
+GSM5652350,breast basal epithelium,Met-A sorted cell,0.96234,,,,43600838,1.05652
+GSM5652351,breast basal epithelium,Met-A sorted cell,1.0449,,,,37899990,1.11138
+GSM5652352,breast basal epithelium,Met-A sorted cell,0.98407,,,,37631758,1.07938
+GSM5652354,lung alveolar epithelium,Met-A sorted cell,1.00898,,,,65713511,1.04723
+GSM5652355,lung alveolar epithelium,Met-A sorted cell,1.01775,,,,49729849,1.07486
+GSM5652356,lung alveolar epithelium,Met-A sorted cell,0.99378,,,,61138287,1.05111
+GSM5652360,gastric fundus epithelium,Met-A sorted cell,0.95805,,,,54287323,1.02232
+GSM5652361,gastric fundus epithelium,Met-A sorted cell,0.97625,,,,55472057,1.04244
+GSM5652362,gastric body epithelium,Met-A sorted cell,1.00484,,,,54312843,1.04254
+GSM5652363,gastric body epithelium,Met-A sorted cell,1.04626,,,,39721613,1.11362
+GSM5652365,gastric antrum epithelium,Met-A sorted cell,1.00922,,,,51739986,1.04446
+GSM5652366,gastric antrum epithelium,Met-A sorted cell,0.99784,,,,52110466,1.06571
+GSM5652367,gastric antrum epithelium,Met-A sorted cell,1.03694,,,,48551186,1.10672
+GSM5652370,colon epithelium,Met-A sorted cell,0.94856,,,,50874445,0.99091
+GSM5652371,colon epithelium,Met-A sorted cell,1.11078,,,,44302802,1.17804
+GSM5652372,colon enteroendocrine,Met-A sorted cell,0.92622,,,,59421840,1.00382
+GSM5652373,colon epithelium,Met-A sorted cell,0.98889,,,,41702173,1.04754
+GSM5652379,small intestine epithelium,Met-A sorted cell,0.98736,,,,54313636,1.0505
+GSM5652381,small intestine epithelium,Met-A sorted cell,1.10917,,,,38353142,1.17618
