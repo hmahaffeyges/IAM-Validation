@@ -533,3 +533,10 @@ expectation falls to each donor's binomial at its own level, the one part stated
 At each site m is the smaller of the sample's reads and the deepest donor's; the sample's disorder is its exact expectation when n of its reads
 are thinned to m without replacement (its own value whenever n is at most m), and each donor with at least m reads is thinned to m the same
 way (`stage_metaa_atlas.donor_pair`). Both sides are then exact; nothing fitted. Run 2 on a new seed, same bars.
+
+**The donor-by-donor synthetic, run 2: not met** (`seq_atlas_01/metaa_donors_synthetic.txt`, the common depth). Bar 1 met (median 0.9958);
+bar 2 not met (rho +0.649 over 21): by depth 0.9788 (5 reads), 0.9928, 0.9966, 0.9931, 0.9922, 1.0114, 1.0106 (60 reads), a spread of about
+0.03 that the rank bar catches. On the same samples the pooled level read 0.9602 to 0.9897 and the median 1.0376 to 1.0725 (recorded): the
+donor-by-donor reading is the nearest to 1 of the three at every depth. The bar is not changed after the run. **Open:** whether the small
+rise is in the method or is this synthetic's three samples per depth; the real per-donor counts (all 153 inputs) are being built, and the
+outside neurons and the inputs are read with them next, recorded before they are read.
