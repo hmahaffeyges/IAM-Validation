@@ -119,3 +119,14 @@ samples within 0.02 of 1. **Then:** the per-half island counts built from the 15
 expects its folder, and stopped before building anything or reading any sample. Corrected to the folder the one command uses
 (`stage_seq_atlas.ARRAY_COLS`). That correction commented out the seed and genome length on the same line, which stopped the second
 attempt before any read too; restored on their own line (seed 20261111 unchanged) and the script checked for undefined names. Nothing else changed.
+
+**The island synthetic: met** (`seq_band_01/islands_counted_synthetic.txt`). Six constructed healthy B-cell samples, read by the one command
+with the expectation from half B's reads: median 0.9963 (bar: within 0.02 of 1), every sample read at all 66986 island sites. The plug-in
+expectation on the same samples read 1.0358 (recorded, not scored), the same excess the healthy samples show.
+
+**Healthy pass 5: the islands from the reference's own reads (written and committed before any of it is read).** The 137 healthy inputs of
+pass 4 (`DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain5_samples.csv`), each read by the full chain with pass 4's settings plus
+`--dev-terr-counted`, the islands against the sample's other donor half (per-half island counts, `terr_half_counts_v1.parquet`). The
+instrument's job: a healthy sequenced sample reads Normal at the islands. **Bar (one):** the median islands reading within 0.05 of 1.
+Recorded beside it, not scored: every other reading of the chain on the same samples. Scored by the committed scorer
+(`healthy_fullchain_score.py`) on a GitHub machine.

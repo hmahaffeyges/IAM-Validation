@@ -1,0 +1,5 @@
+The islands on sequencing, the expectation from the reference's own reads: synthetic, read by run_sample.py --dev-terr-counted --dev-terr-counts FILE (half B)
+seed 20261111, base GSM5652316 (spent), 66986 island sites, 56 cells, two donors per half near 33 reads, person spread sd 0.3 (logit); read 6 of 6
+islands, counted: 0.9968, 0.9958, 0.9890, 0.9991, 0.9984, 0.9810
+islands, plug-in (recorded, not scored): 1.0366, 1.0358, 1.0286, 1.0393, 1.0383, 1.0203
+bar 1 median 0.9963 (within 0.02 of 1): met
