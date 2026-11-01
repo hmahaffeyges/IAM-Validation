@@ -597,3 +597,10 @@ library's general held error (IAM-A difference, +0.130; IAM-A does not follow de
 match are right; healthy libraries of one cell differ in off-pattern reads at its identity sites, and with one to three donors per half the
 reading carries that difference. Whether it is the person or the library preparation cannot be told from what is committed (the inputs'
 titles carry a sample identifier, not a person). The ruler gains donors in the sequencing atlas build (item 2).
+
+**Pass 4's outside neurons, read by the same measure** (`seq_atlas_01/selfree4_perread.py`, `seq_atlas_01/selfree4_perread.txt`; added after
+scoring, disclosed; nothing scored). Their sorted-cell Met-A follows their disorder per read at the identity sites over that of the atlas's
+three neuron donors, as on the inputs: the outside neurons sit inside the donors' own range, below its middle. The reading is right; the
+ruler's neuron column rests on three donors. Less pure samples hold more disorder per read, as a mix of cells does at one cell's identity
+sites. Pass 4's whole-sample reading of these samples was made while the "donors" setting fell through to the median level (fixed since)
+and is not used.

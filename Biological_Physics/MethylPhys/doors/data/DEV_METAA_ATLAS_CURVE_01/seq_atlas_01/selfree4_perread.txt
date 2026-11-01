@@ -1,0 +1,3 @@
+Outside neurons, disorder per read at 10 reads: 25 samples, median 0.2047; the atlas's 3 neuron donors 0.1984 to 0.2485, mean 0.2250
+Met-A against the ratio (sample over the donors' mean): rho +0.801; medians 0.9108 and 0.9098
+the ratio against the neuron share: rho -0.651; samples inside the donors' range: 13 of 25
