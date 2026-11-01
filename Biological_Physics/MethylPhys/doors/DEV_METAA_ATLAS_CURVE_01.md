@@ -559,3 +559,15 @@ already pooled; pass 4 reads it donor by donor). Site by site: the whole-sample 
 and on each side a sample's ratio follows its own level offset from the expected level (rho -0.948 marked, +0.840 unmarked), which is how a
 level offset shows in disorder. With the pooled level, the whole-sample reading, the domains, the C-Score and coupling-A read Normal on
 healthy sequenced samples; the islands sit near 1.05.
+
+**Pass 4, the outside samples: not met** (`seq_atlas_01/selfree4_summary.txt`; `seq_atlas_01/selfree4_purity.csv`, added after scoring,
+diagnostic). Donor by donor, the 25 outside neurons read sorted-cell Met-A 0.9108 (pooled level 0.9191; median of donors 1.0132), with
+Spearman rho +0.509 against depth. One pancreas sample (GSM6940396) was not read: GEO dropped all six download attempts. The other 9 have too
+few identity sites, as before. **Seen in the chain's own readings, cause not yet shown:** the readings follow each sample's own neuron share
+from the Deconvolver, not depth alone. Sorted-cell Met-A has rho -0.613 with the share. The 5 least pure
+samples (share 0.53 to 0.71, mostly oligodendrocyte) read 1.04 to 1.59; the purest read 0.79 to 0.96. Whole-sample Met-A, which reads each
+sample in its own measured mix, gives median 1.1920 (rho -0.671 with the share), and even the purest (0.90 to 0.94) read 1.10 to 1.24. Read
+by the sample's own measured mix, these neurons hold more disorder than the atlas's 3 neuron donors; read as pure, they hold less. Either
+way they differ from the 3 donors by more than impurity. Their counts show no doubling (reads even at 0.49 to 0.51 of sites). **Not yet
+separated:** a cell-type difference between these prefrontal NeuN+ nuclei and the atlas's neurons; a difference in how the published
+tables were made; the 3-donor ruler. No bar or setting is changed from this.

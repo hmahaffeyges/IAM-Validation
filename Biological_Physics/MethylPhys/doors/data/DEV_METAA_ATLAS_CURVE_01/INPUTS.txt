@@ -56,3 +56,8 @@ healthy_fullchain3_summary.txt
 healthy_fullchain3_readings.csv
 pass3_sites.txt
 pass3_sites.csv
+selfree4_summary.txt
+selfree4_readings.csv
+selfree4_sites.txt
+selfree4_sites.csv
+selfree4_purity.csv

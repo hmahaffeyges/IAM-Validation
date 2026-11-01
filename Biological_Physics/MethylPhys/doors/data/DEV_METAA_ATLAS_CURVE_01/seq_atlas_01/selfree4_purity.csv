@@ -1,0 +1,26 @@
+gsm,A,own,top,title,whole
+GSM2877213,0.79385,0.895,"[('cortical neuro', 0.9), ('naive cd8 t ce', 0.02), ('kidney glomeru', 0.02)]",AN05483_WGBS_NeuN,1.09985
+GSM2877162,0.8124,0.902,"[('cortical neuro', 0.9), ('naive cd8 t ce', 0.02), ('cardiomyocyte', 0.01)]",1535_WGBS_NeuN,1.1349
+GSM2877186,0.8267,0.848,"[('cortical neuro', 0.85), ('oligodendrocyt', 0.06), ('cardiomyocyte', 0.02)]",4615_WGBS_NeuN,1.11705
+GSM2877166,0.8272,0.836,"[('cortical neuro', 0.84), ('cardiomyocyte', 0.05), ('tongue epithel', 0.02)]",1533_WGBS_NeuN,1.12953
+GSM2877169,0.84258,0.942,"[('cortical neuro', 0.94), ('t effector cel', 0.02), ('prostate epith', 0.01)]",1531_WGBS_NeuN,1.12645
+GSM2877206,0.84368,0.886,"[('cortical neuro', 0.89), ('nk cells', 0.02), ('oligodendrocyt', 0.01)]",3602_WGBS_NeuN,1.0991
+GSM2877203,0.853,0.886,"[('cortical neuro', 0.89), ('cardiomyocyte', 0.03), ('tongue epithel', 0.02)]",1538_WGBS_NeuN,1.12554
+GSM2877202,0.85648,0.92,"[('cortical neuro', 0.92), ('oligodendrocyt', 0.02), ('naive cd8 t ce', 0.01)]",1536_WGBS_NeuN,1.1392
+GSM2877228,0.86152,0.806,"[('cortical neuro', 0.81), ('oligodendrocyt', 0.07), ('prostate epith', 0.02)]",3590_WGBS_NeuN,1.18982
+GSM2877167,0.87568,0.798,"[('cortical neuro', 0.8), ('oligodendrocyt', 0.14), ('erythrocyte pr', 0.01)]",1537_WGBS_NeuN,1.23919
+GSM2877204,0.87795,0.899,"[('cortical neuro', 0.9), ('breast basal e', 0.02), ('nk cells', 0.02)]",1539_WGBS_NeuN,1.13625
+GSM2877198,0.90156,0.834,"[('cortical neuro', 0.83), ('prostate epith', 0.03), ('oligodendrocyt', 0.02)]",1525_WGBS_NeuN,1.19199
+GSM2877200,0.91078,0.904,"[('cortical neuro', 0.9), ('oligodendrocyt', 0.02), ('cd4 t cells', 0.01)]",1527_WGBS_NeuN,1.14658
+GSM2877174,0.92281,0.888,"[('cortical neuro', 0.89), ('colon fibrobla', 0.04), ('cardiomyocyte', 0.02)]",1524_WGBS_NeuN,1.19846
+GSM2877215,0.9256,0.856,"[('cortical neuro', 0.86), ('oligodendrocyt', 0.05), ('colon fibrobla', 0.02)]",AN10090_WGBS_NeuN,1.15115
+GSM2877170,0.96243,0.926,"[('cortical neuro', 0.93), ('cardiomyocyte', 0.02), ('tongue epithel', 0.02)]",1534_WGBS_NeuN,1.23963
+GSM2877207,1.04061,0.658,"[('cortical neuro', 0.66), ('oligodendrocyt', 0.2), ('colon macropha', 0.03)]",3611_WGBS_NeuN,1.32274
+GSM2877178,1.05685,0.837,"[('cortical neuro', 0.84), ('breast basal e', 0.02), ('naive cd4 t ce', 0.02)]",3586_WGBS_NeuN,1.20292
+GSM2877201,1.06279,0.834,"[('cortical neuro', 0.83), ('t effector cel', 0.03), ('breast basal e', 0.02)]",1532_WGBS_NeuN,1.21286
+GSM2877205,1.08695,0.841,"[('cortical neuro', 0.84), ('colon macropha', 0.02), ('breast basal e', 0.02)]",1541_WGBS_NeuN,1.22724
+GSM2877208,1.09603,0.711,"[('cortical neuro', 0.71), ('oligodendrocyt', 0.07), ('colon fibrobla', 0.03)]",AN03398_WGBS_NeuN,1.34299
+GSM2877209,1.13509,0.831,"[('cortical neuro', 0.83), ('t effector cel', 0.03), ('endometrium ep', 0.03)]",AN15240_WGBS_NeuN,1.20266
+GSM2877211,1.4598,0.668,"[('cortical neuro', 0.67), ('effector memor', 0.05), ('hepatocyte', 0.03)]",Miami0001_WGBS_NeuN,1.36471
+GSM2877176,1.47507,0.648,"[('cortical neuro', 0.65), ('colon fibrobla', 0.08), ('hepatocyte', 0.04)]",3545_WGBS_NeuN,1.45703
+GSM2877210,1.59008,0.535,"[('cortical neuro', 0.53), ('pancreatic aci', 0.1), ('effector memor', 0.07)]",AN16799_WGBS_NeuN,1.4558
