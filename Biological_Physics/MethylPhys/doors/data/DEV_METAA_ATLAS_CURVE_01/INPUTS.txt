@@ -66,3 +66,6 @@ pass4_sites.txt
 pass4_sites.csv
 pass4_sorted_by_depth.csv
 pass4_sorted_compare.txt
+metaa_depth_diag.txt
+metaa_depth_diag.csv
+metaa_depth_diag_donors.csv

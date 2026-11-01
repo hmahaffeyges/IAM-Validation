@@ -1,0 +1,37 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be",
+  "since": "2026-10-20"
+ },
+ "date": "2026-11-01",
+ "title": "Met-A on sequencing: what the healthy spread is made of",
+ "closing": "",
+ "set_out": "Find why sorted-cell Met-A on sequencing still falls with depth on healthy samples, then the islands and IAM-A, so every reading of the chain reads healthy sequenced samples Normal before the sequencing atlas is finished.",
+ "open_at_turnover": "The islands (near 1.05) and IAM-A (near 0.95) on healthy sequenced samples.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Pass 4's depth trend, diagnosed",
+     "status": "development",
+     "what": "From committed chain outputs, each healthy input's disorder per read at its identity sites, against the donors it was read against.",
+     "outcome": "Met-A follows that ratio almost exactly; shallower libraries of a cell hold more off-pattern reads at its identity sites. Not purity, not general library error.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": []
+  }
+ ]
+}

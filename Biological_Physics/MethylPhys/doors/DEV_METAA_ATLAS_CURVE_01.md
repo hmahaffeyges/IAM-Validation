@@ -586,3 +586,14 @@ scored again. Six jobs did not read: four had no GEO listing after six tries, an
 48 cells have a median inside it. **Bar 2 (the 25 outside neurons, 0.9108) is not met, so pass 4 is not met.** Recorded, not scored: Spearman
 rho with depth is -0.550 (pass 3: -0.622). The synthetic showed no such fall, so the shallower real inputs still read higher than the method
 predicts. That is open. Pass 4's other readings were read on the median by my error (above) and are not used.
+
+**Pass 4's depth trend, diagnosed** (`seq_atlas_01/metaa_depth_diag.py`, `seq_atlas_01/metaa_depth_diag.txt`; added after scoring, disclosed;
+committed chain outputs only; nothing scored, no bar or setting changed). Within a cell the deeper sample reads lower in 41 of 45 cells
+(rho -0.708). **Met-A reads the library exactly:** each sample's sorted-cell Met-A follows its disorder per read at the identity sites at a
+fixed 10 reads, over that of the donors it was read against (rho +0.974; medians 1.0073 and 1.0004). The trend is relative depth (rho
+-0.798 with depth minus the reference donors' depth), and within a cell the shallower library holds more off-pattern reads where the cell's
+other donors agree (rho -0.675 unmarked side, -0.440 marked side). It is not purity (own-cell share difference, rho +0.073) and not the
+library's general held error (IAM-A difference, +0.130; IAM-A does not follow depth, -0.041). **What it means:** the counting and the depth
+match are right; healthy libraries of one cell differ in off-pattern reads at its identity sites, and with one to three donors per half the
+reading carries that difference. Whether it is the person or the library preparation cannot be told from what is committed (the inputs'
+titles carry a sample identifier, not a person). The ruler gains donors in the sequencing atlas build (item 2).

@@ -1,0 +1,7 @@
+Pass 4 depth trend, diagnostic (committed chain outputs only): 125 samples, 153 donors
+within a cell: Met-A against depth rank rho -0.708 over 122 samples; the deeper sample reads lower in 41 of 45 cells
+Met-A against the ratio of disorder per read (sample over its reference donors, 10 reads): rho +0.974; medians 1.0073 and 1.0004
+Met-A against: depth minus reference depth rho -0.798; off-pattern reads, unmarked side, difference +0.680; marked side +0.763; own-cell share difference +0.073; IAM-A difference +0.130
+depth difference against: ratio of disorder per read -0.823; off-pattern difference, unmarked -0.675, marked -0.440
+across donors: disorder per read against depth -0.281; IAM-A against disorder per read -0.018, against depth -0.041; own-cell share against depth -0.072
+donor medians: disorder per read 0.1822; off-pattern unmarked 0.0176, marked 0.0558; depth 38
