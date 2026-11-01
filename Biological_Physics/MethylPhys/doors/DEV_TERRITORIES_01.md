@@ -114,3 +114,7 @@ reads is itself independent, so the expectation is exactly unbiased. Read agains
 `stage_seq_atlas.terr_half_counts`, `run_sample.py --build seq-terr-halves`), both sides at a common depth of at most 20 reads, cells holding at
 least 1 % of the sample (stated). **Synthetic:** `seq_band_01/islands_counted_synthetic.py`; bar: the median of six constructed healthy
 samples within 0.02 of 1. **Then:** the per-half island counts built from the 153 inputs, and the 137 healthy inputs read with it.
+
+**The island synthetic: a setup error before its first read (mine).** The script set the sequencing atlas setting to a flag where the chain
+expects its folder, and stopped before building anything or reading any sample. Corrected to the folder the one command uses
+(`stage_seq_atlas.ARRAY_COLS`); nothing else changed.
