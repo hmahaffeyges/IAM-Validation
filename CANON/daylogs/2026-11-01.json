@@ -10,7 +10,7 @@
  "title": "Met-A on sequencing: what the healthy spread is made of",
  "closing": "",
  "set_out": "Find why sorted-cell Met-A on sequencing still falls with depth on healthy samples, then the islands and IAM-A, so every reading of the chain reads healthy sequenced samples Normal before the sequencing atlas is finished.",
- "open_at_turnover": "The islands (near 1.05) and IAM-A (near 0.95) on healthy sequenced samples.",
+ "open_at_turnover": "Healthy pass 5 (the islands from the reference's own reads, 137 inputs) on GitHub; IAM-A reads inside its own band on 93.8 % of healthy sequenced samples.",
  "sections": [
   {
    "kind": "ran",
@@ -25,13 +25,44 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The islands on sequencing: synthetic",
+     "status": "development",
+     "what": "Six constructed healthy B-cell samples read by the one command with the expectation from the reference's own reads.",
+     "outcome": "Met: median 0.9963 against a bar of 1 within 0.02; the plug-in expectation read 1.0358 on the same samples.",
+     "rows": [
+      "GRP-017"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
     }
    ]
   },
   {
    "kind": "built",
    "heading": "What was built",
-   "entries": []
+   "entries": [
+    {
+     "title": "The islands' expectation from the reference's own reads",
+     "status": "development",
+     "what": "Each read of a healthy sample drawn without replacement from its mix's reference reads, so no counted level is treated as exact.",
+     "outcome": "In the chain behind a development flag; per-half island counts built for 56 cells at 66986 island sites.",
+     "rows": [
+      "GRP-017"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "Per-site tables for the territories",
+     "status": "development",
+     "what": "Each island and domain site's reads, levels and disorder, written beside the bundle on request.",
+     "outcome": "Used to find the islands' cause on a spent healthy sample.",
+     "rows": [
+      "GRP-014"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    }
+   ]
   }
  ]
 }
