@@ -551,3 +551,11 @@ cell's identity sites (`chain/Runtime Matrices/Seq_Atlas/metaa_donor_counts/meta
 1. the 137 inputs' median sorted-cell Met-A within 0.05 of 1; 2. the 25 outside neurons' median within 0.05 of 1. Recorded, not scored:
 each group's Spearman rho with depth, pass 3's and the earlier outside readings beside them, and every other reading (which this pass
 does not change: they still read the pooled level). Scored by the committed scorers (`healthy_fullchain_score.py`, `selfree_score.py`).
+
+**Healthy pass 3, read** (`seq_atlas_01/healthy_fullchain3_summary.txt`, `seq_atlas_01/pass3_sites.txt`; both runs scored together by the
+committed scorers on a GitHub machine): 130 of 137 read. Medians: Met-A for the whole sample 1.0051, the domains 1.0010, the islands 1.0485,
+the C-Score 1.0004 (0.962 inside its limit), coupling-A 1.0000, IAM-A 0.9524, sorted-cell Met-A 1.0700 (unchanged: the donor halves were
+already pooled; pass 4 reads it donor by donor). Site by site: the whole-sample reading's marked and unmarked sides read 1.0072 and 1.0007,
+and on each side a sample's ratio follows its own level offset from the expected level (rho -0.948 marked, +0.840 unmarked), which is how a
+level offset shows in disorder. With the pooled level, the whole-sample reading, the domains, the C-Score and coupling-A read Normal on
+healthy sequenced samples; the islands sit near 1.05.

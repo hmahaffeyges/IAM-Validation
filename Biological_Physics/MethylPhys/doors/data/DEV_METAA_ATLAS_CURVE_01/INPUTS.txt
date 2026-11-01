@@ -52,3 +52,7 @@ selfree3_sites.csv
 metaa_donors_synthetic_run1.txt
 metaa_donors_synthetic.txt
 healthy_fullchain4_samples.csv
+healthy_fullchain3_summary.txt
+healthy_fullchain3_readings.csv
+pass3_sites.txt
+pass3_sites.csv
