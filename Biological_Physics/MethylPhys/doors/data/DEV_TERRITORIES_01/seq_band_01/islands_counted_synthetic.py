@@ -17,7 +17,8 @@ from scipy.special import expit, logit
 BASE, W, OUT = sys.argv[1:4]; os.makedirs(W, exist_ok=True)
 HERE = os.path.dirname(os.path.abspath(__file__)); CH = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", "chain")); sys.path.insert(0, CH)
 import stage_metaa_atlas as SA, stage_seq_atlas as Q, pyarrow.parquet as pq
-SA.SEQ_ATLAS = Q.ARRAY_COLS; SA.SEQ_LEVEL = "pooled"   # the sequencing atlas's pooled levels, as the one command serves them; rng = np.random.default_rng(20261111); HG19 = 28217448
+SA.SEQ_ATLAS = Q.ARRAY_COLS   # the sequencing atlas's folder, as the one command sets it
+SA.SEQ_LEVEL = "pooled"; rng = np.random.default_rng(20261111); HG19 = 28217448
 P = pd.Index(SA.territory_sets()["islands"])
 K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe")["loyfer_cpg_index"].reindex(P).dropna().astype(np.int64)
 probes = K.index; cpg = K.to_numpy()

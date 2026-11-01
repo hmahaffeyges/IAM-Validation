@@ -117,4 +117,5 @@ samples within 0.02 of 1. **Then:** the per-half island counts built from the 15
 
 **The island synthetic: a setup error before its first read (mine).** The script set the sequencing atlas setting to a flag where the chain
 expects its folder, and stopped before building anything or reading any sample. Corrected to the folder the one command uses
-(`stage_seq_atlas.ARRAY_COLS`); nothing else changed.
+(`stage_seq_atlas.ARRAY_COLS`). That correction commented out the seed and genome length on the same line, which stopped the second
+attempt before any read too; restored on their own line (seed 20261111 unchanged) and the script checked for undefined names. Nothing else changed.
