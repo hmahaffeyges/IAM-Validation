@@ -100,3 +100,17 @@ healthy sequenced cell shows. The synthetic planted its truth on the same array 
 are to be read against the IAM Sequencing Atlas (each cell's own healthy disorder, counted at every CpG); their band is built
 again on it, synthetic first. **Recorded, not scored:** the C-Score on sequencing, whole genome: 145 of 152 healthy within their derived
 limit; C median 1.0010, 97.5th percentile 1.0085.
+
+## The islands on sequencing: the expectation from the reference's own reads (written and committed before it runs)
+
+**Found** (healthy pass 3, `seq_band_01/islands_pass3_summary.txt`; the per-site table of one spent input read
+by the one command with `--dev-terr-sites`): the islands read 1.0485 (median) and 1.0467 (mean) on 130 healthy sequenced samples, not
+following depth, the library's off-pattern reads, IAM-A or purity, but the cell. At the islands every cell is unmethylated, so a healthy
+sample's disorder is rare off-pattern reads, and the plug-in expectation treats each cell's pooled level (counted from about 100 reads) as
+exact; the expected disorder bends downward as the level rises, so a counted level gives too little expectation on average. The sample's own
+reads are also in its own cell's pool. **Derived, nothing fitted** (`stage_metaa_atlas.expected_H_mix_counts`, `islands_counted`): each of
+the sample's reads comes from a cell of its mix and is one of that cell's reference reads drawn without replacement; a subset of independent
+reads is itself independent, so the expectation is exactly unbiased. Read against the other donor half (per-half island counts,
+`stage_seq_atlas.terr_half_counts`, `run_sample.py --build seq-terr-halves`), both sides at a common depth of at most 20 reads, cells holding at
+least 1 % of the sample (stated). **Synthetic:** `seq_band_01/islands_counted_synthetic.py`; bar: the median of six constructed healthy
+samples within 0.02 of 1. **Then:** the per-half island counts built from the 153 inputs, and the 137 healthy inputs read with it.

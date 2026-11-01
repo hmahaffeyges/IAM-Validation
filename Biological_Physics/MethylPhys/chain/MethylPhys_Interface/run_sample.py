@@ -286,6 +286,12 @@ def _build(a):
                 if len(_x): _L.append(f"{_sd}: map 1 over counting, median {_x.median():.3f} of {len(_x)} cells, {_x.min():.3f} to {_x.max():.3f}; below 0.5 in {int((_x < 0.5).sum())}")
             open(a.build_out.rsplit(".", 1)[0] + "_summary.txt", "w").write("\n".join(_L) + "\n")
         print(len(rows), "cell-side rows"); return 0
+    if a.build == "seq-terr-halves":   # 2026-11-01 (plan 35.30, development): each cell's reads at every island site, per sealed donor half
+        if not (a.build_samples and a.build_out): print("--build seq-terr-halves needs --build-samples INPUTS.csv and --build-out PARQUET"); return 2
+        import stage_seq_atlas as _SQth
+        rep = dict(_SQth.terr_half_counts(a.build_samples, a.build_out), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps(rep, default=str)); return 0
     if a.build == "seq-metaa-donors":   # 2026-10-31 (plan 35.30, development): each healthy input's own reads at its cell's Met-A identity sites
         if not (a.build_samples and a.build_out): print("--build seq-metaa-donors needs --build-samples INPUTS.csv and --build-out PARQUET"); return 2
         import stage_seq_atlas as _SQdc
@@ -566,7 +572,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -604,11 +610,14 @@ def main():
     ap.add_argument("--dev-seq-level", default=None, choices=("pooled", "median", "donors"), help="DEVELOPMENT: on sequencing, the healthy level the "
                     "expectation uses: pooled (methylated over all reads of the cell's donors; the default) or median (of the donors' own levels; the earlier rule)")
     ap.add_argument("--dev-seq-donors", default=None, help="DEVELOPMENT: a per-donor counts file in the committed format (cell, probe, cpg, gsm, half, m, n), for synthetics")
+    ap.add_argument("--dev-terr-sites", action="store_true", help="DEVELOPMENT: write each territory set's per-site table beside the bundle (NAME_terr_sites_islands.csv.gz, NAME_terr_sites_domains.csv.gz)")
     ap.add_argument("--dev-whole-sites", action="store_true", help="DEVELOPMENT: write Met-A for the whole sample's per-site table (level, "
                     "expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz)")
     ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "
                     "measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis")
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
+    ap.add_argument("--dev-terr-counted", action="store_true", help="DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given")
+    ap.add_argument("--dev-terr-counts", default=None, help="DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
@@ -1066,6 +1075,9 @@ def main():
                 _rv, o["atlas_ruler"] = (None, {"reason": "sequencing values are not mapped" if a._seqv else "the atlas ruler is off (--dev-ruler turns it on; development)"}) if (a._seqv or not a.dev_ruler) else _ST.ruler_map(_pd.Series(beta, dtype="float64"))   # 2026-10-23: the atlas ruler
                 _vr = _rv if _rv is not None else _vals
                 SA.WHOLE_SITE_OUT = (re.sub(r"(_bundle)?\.json$", "", a.bundle) + "_whole_sites.csv.gz") if getattr(a, "dev_whole_sites", False) and a.bundle else None   # 2026-10-31
+                SA.TERR_SITE_OUT = (re.sub(r"(_bundle)?\.json$", "", a.bundle) + "_terr_sites.csv.gz") if getattr(a, "dev_terr_sites", False) and a.bundle else None   # 2026-11-01
+                SA.TERR_COUNTED = bool(getattr(a, "dev_terr_counted", False)); SA.TERR_HALF = getattr(a, "dev_seq_ref_half", None)   # 2026-11-01: the islands from the reference's own reads
+                if getattr(a, "dev_terr_counts", None): import stage_seq_atlas as _SQtf; _SQtf.TERR_FILE = a.dev_terr_counts   # 2026-11-01: a constructed island counts file
                 try: o["met_a_whole"] = SA.read_whole(_vr, _shr, counts=getattr(a, "_seqc", None)); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
                 except Exception as e: o["met_a_whole"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix

@@ -2372,6 +2372,22 @@ donor's): both sides' reads thinned without replacement to that depth, so both a
 ### stage_metaa_atlas.py::donor_pair.thin
 The exact expected entropy of K methylated of N reads thinned without replacement to m reads (the hypergeometric), remembered per (K, N, m).
 
+### stage_metaa_atlas.py::expected_H_mix_counts
+The expected disorder of a healthy sample of a mix, from each cell's reference reads: every read from a cell of the mix, drawn without
+replacement from that cell's reads, so no level is treated as exact (exactly unbiased).
+
+### stage_metaa_atlas.py::islands_counted
+The islands read with that expectation, against the donor half given, both sides at a common depth of at most 20 reads.
+
+### stage_metaa_atlas.py::thin_H
+The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
+
+### stage_seq_atlas.py::terr_half_counts
+Each cell's reads at every island site in each sealed donor half (`--build seq-terr-halves`).
+
+### stage_seq_atlas.py::terr_counts_of
+The given cells' reads at the island sites, from one donor half or both.
+
 ### stage_metaa_atlas.py::expected_H_donors
 One healthy person's expected disorder at k of n reads, from healthy donors' own counts: n of each donor's reads drawn without replacement
 (exactly unbiased where the donor has at least n reads), averaged over donors; differences between healthy people enter as they are.

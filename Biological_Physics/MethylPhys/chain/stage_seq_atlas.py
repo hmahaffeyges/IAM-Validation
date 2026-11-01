@@ -344,6 +344,38 @@ def metaa_half_counts(samples_csv, out, ref=None):
     T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
     return dict(inputs=len(used), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
 
+TERR_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "terr_half_counts")   # terr_half_counts_v1.parquet
+TERR_FILE = None   # 2026-11-01: a constructed per-half island counts file (run_sample.py --dev-terr-counts), for synthetics
+
+def terr_half_counts(samples_csv, out):
+    """2026-11-01 (the islands on sequencing: the expectation from the reference's own reads): each cell's methylated and all reads at every
+    island site (stage_metaa_atlas.territory_sets()['islands'], by its IAM-Atlas v2.1 probe) in each sealed donor half (mA, nA, mB, nB), summed
+    over that half's healthy inputs. samples_csv: gsm, title, cell, half, file (seq_atlas_inputs.csv, or a share of it). Counts only."""
+    import pandas as pd, pyarrow.parquet as pq, stage_metaa_atlas as SA
+    P = pd.Index(SA.territory_sets()["islands"])
+    K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe")["loyfer_cpg_index"]
+    K = K.reindex(P).dropna().astype(np.int64); i = K.to_numpy() - 1; S = pd.read_csv(samples_csv); acc = {}; used = []
+    for r in S.itertuples():
+        c = str(r.cell).strip(); h = str(r.half).strip().upper(); M, N = read_block(r.file, 0, HG19_CPGS)
+        x = acc.setdefault(c, {q: np.zeros(len(i), np.int64) for q in ("mA", "nA", "mB", "nB")}); x["m" + h] += M[i]; x["n" + h] += N[i]; used.append(r.gsm); del M, N
+    T = pd.concat([pd.DataFrame(dict(cell=c, probe=K.index, **{q: np.minimum(v, 65534).astype(np.uint16) for q, v in x.items()})) for c, x in acc.items()], ignore_index=True)
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
+    return dict(inputs=len(used), cells=int(T.cell.nunique()), sites=int(len(K)), rows=int(len(T)), output=os.path.basename(out))
+
+def terr_counts_of(cells, half, probes):
+    """The given cells' reads at the given island probes (sites x cells, methylated and all), from the donor half given (A or B),
+    or both halves summed when none is given. None when the file is absent or a cell is missing from it."""
+    import pandas as pd
+    p = TERR_FILE or os.path.join(TERR_DIR, "terr_half_counts_v1.parquet")
+    if not os.path.exists(p): return None
+    T = pd.read_parquet(p, filters=[("cell", "in", list(cells))])
+    if set(cells) - set(T.cell): return None
+    h = str(half or "").upper(); T["m"] = T["m" + h].astype(np.int64) if h in ("A", "B") else T.mA.astype(np.int64) + T.mB.astype(np.int64)
+    T["n"] = T["n" + h].astype(np.int64) if h in ("A", "B") else T.nA.astype(np.int64) + T.nB.astype(np.int64)
+    M = T.pivot(index="probe", columns="cell", values="m").reindex(index=probes, columns=cells).fillna(0).to_numpy()
+    N = T.pivot(index="probe", columns="cell", values="n").reindex(index=probes, columns=cells).fillna(0).to_numpy()
+    return M, N
+
 DONORS_FILE = None   # 2026-10-31: a constructed per-donor counts file (run_sample.py --dev-seq-donors), for synthetics
 METAA_DONORS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_donor_counts")   # metaa_donor_counts_v1.parquet
 

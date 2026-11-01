@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1301,
+   "lines": 1313,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 250,
-     "end": 410,
+     "end": 416,
      "args": [
       "a"
      ],
-     "lines": 161,
+     "lines": 167,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -237,6 +237,7 @@
      "data_files": [
       "--build seq-metaa-counts needs --build-samples INPUTS.csv",
       "--build seq-metaa-donors needs --build-samples INPUTS.csv",
+      "--build seq-terr-halves needs --build-samples INPUTS.csv",
       "--build-samples B and --bundle OUT.json",
       "_summary.txt",
       "import pyarrow.parquet",
@@ -249,8 +250,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 383,
-     "end": 383,
+     "line": 389,
+     "end": 389,
      "args": [
       "m"
      ],
@@ -264,8 +265,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 413,
-     "end": 433,
+     "line": 419,
+     "end": 439,
      "args": [
       "a",
       "cnt",
@@ -281,8 +282,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 436,
-     "end": 477,
+     "line": 442,
+     "end": 483,
      "args": [
       "a",
       "o",
@@ -302,10 +303,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 480,
-     "end": 1298,
+     "line": 486,
+     "end": 1310,
      "args": [],
-     "lines": 819,
+     "lines": 825,
      "doc": "",
      "constants": [
       "BIO",
@@ -337,8 +338,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 720,
-     "end": 724,
+     "line": 729,
+     "end": 733,
      "args": [
       "r"
      ],
@@ -354,8 +355,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 955,
-     "end": 962,
+     "line": 964,
+     "end": 971,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -367,8 +368,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1228,
-     "end": 1229,
+     "line": 1240,
+     "end": 1241,
      "args": [
       "b",
       "it",
@@ -6880,7 +6881,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 658,
+   "lines": 721,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7377,19 +7378,21 @@
      "function": "territory_reading",
      "name": "territory_reading",
      "line": 512,
-     "end": 532,
+     "end": 541,
      "args": [
       "beta",
       "shares",
       "counts"
      ],
-     "lines": 21,
+     "lines": 30,
      "doc": "The sample's disorder at each territory against IAM-Atlas v2.1 mixed in its own shares (read_in_mix's mix rule): A = mean H(beta) over mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of the set this array measures. Development, flagged; healthy is read first and its spread sets any line, not this function.",
      "constants": [
       "FLAG",
       "MIX_COVER",
       "SEQ_ATLAS",
-      "TERR_RULES"
+      "TERR_COUNTED",
+      "TERR_RULES",
+      "TERR_SITE_OUT"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -7398,8 +7401,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 534,
-     "end": 540,
+     "line": 543,
+     "end": 549,
      "args": [
       "beta",
       "name",
@@ -7417,8 +7420,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_he",
      "name": "_he",
-     "line": 544,
-     "end": 546,
+     "line": 553,
+     "end": 555,
      "args": [
       "es",
       "counts"
@@ -7431,10 +7434,69 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "thin_H",
+     "name": "thin_H",
+     "line": 562,
+     "end": 566,
+     "args": [
+      "k",
+      "n",
+      "m"
+     ],
+     "lines": 5,
+     "doc": "The exact expected disorder of k methylated of n reads drawn down to m reads without replacement (H(k/n) itself when m == n).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "expected_H_mix_counts",
+     "name": "expected_H_mix_counts",
+     "line": 568,
+     "end": 591,
+     "args": [
+      "Mk",
+      "Nk",
+      "F",
+      "m",
+      "block"
+     ],
+     "lines": 24,
+     "doc": "2026-11-01 (derived, nothing fitted): the expected disorder, at m reads, of a healthy sample of this mix, from each cell's reference reads (Mk methylated of Nk, sites x cells; F the cells' shares). Each of the m reads comes from cell k with probability F_k and is one of that cell's reference reads drawn without replacement; a subset of independent reads is itself independent, so this is an exactly",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "islands_counted",
+     "name": "islands_counted",
+     "line": 593,
+     "end": 608,
+     "args": [
+      "xs",
+      "counts",
+      "F"
+     ],
+     "lines": 16,
+     "doc": "The islands read with the expectation from the reference's own reads: the sample's cells holding at least TERR_SHARE_MIN (shares renormalized), each cell's reads from the donor half TERR_HALF (stage_seq_atlas.terr_counts_of; every donor when no half is given), and both sides at a common depth m = min(reads, TERR_M), the sample's own reads drawn down without replacement (thin_H). Sites where a kept",
+     "constants": [
+      "TERR_HALF",
+      "TERR_M",
+      "TERR_SHARE_MIN"
+     ],
+     "data_files": [
+      "terr_half_counts_v1.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 551,
-     "end": 554,
+     "line": 614,
+     "end": 617,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -7448,8 +7510,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 556,
-     "end": 569,
+     "line": 619,
+     "end": 632,
      "args": [
       "xs",
       "es"
@@ -7464,8 +7526,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 571,
-     "end": 586,
+     "line": 634,
+     "end": 649,
      "args": [
       "xs",
       "es",
@@ -7484,8 +7546,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 588,
-     "end": 630,
+     "line": 651,
+     "end": 693,
      "args": [
       "beta",
       "shares",
@@ -7505,8 +7567,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 611,
-     "end": 616,
+     "line": 674,
+     "end": 679,
      "args": [
       "m"
      ],
@@ -7520,8 +7582,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limit",
      "name": "cscore_limit",
-     "line": 640,
-     "end": 643,
+     "line": 703,
+     "end": 706,
      "args": [
       "n_sites",
       "q",
@@ -7539,8 +7601,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limits",
      "name": "cscore_limits",
-     "line": 645,
-     "end": 657,
+     "line": 708,
+     "end": 720,
      "args": [
       "cs",
       "array_type"
@@ -8491,7 +8553,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 547,
+   "lines": 579,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8811,10 +8873,54 @@
     },
     {
      "file": "stage_seq_atlas.py",
-     "function": "metaa_donor_counts",
-     "name": "metaa_donor_counts",
+     "function": "terr_half_counts",
+     "name": "terr_half_counts",
      "line": 350,
      "end": 363,
+     "args": [
+      "samples_csv",
+      "out"
+     ],
+     "lines": 14,
+     "doc": "2026-11-01 (the islands on sequencing: the expectation from the reference's own reads): each cell's methylated and all reads at every island site (stage_metaa_atlas.territory_sets()['islands'], by its IAM-Atlas v2.1 probe) in each sealed donor half (mA, nA, mB, nB), summed over that half's healthy inputs. samples_csv: gsm, title, cell, half, file (seq_atlas_inputs.csv, or a share of it). Counts on",
+     "constants": [
+      "HG19_CPGS"
+     ],
+     "data_files": [
+      "pyarrow.parquet",
+      "seq_atlas_inputs.csv",
+      "sites_sequencing_key.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "terr_counts_of",
+     "name": "terr_counts_of",
+     "line": 365,
+     "end": 377,
+     "args": [
+      "cells",
+      "half",
+      "probes"
+     ],
+     "lines": 13,
+     "doc": "The given cells' reads at the given island probes (sites x cells, methylated and all), from the donor half given (A or B), or both halves summed when none is given. None when the file is absent or a cell is missing from it.",
+     "constants": [
+      "TERR_DIR",
+      "TERR_FILE"
+     ],
+     "data_files": [
+      "terr_half_counts_v1.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
+     "function": "metaa_donor_counts",
+     "name": "metaa_donor_counts",
+     "line": 382,
+     "end": 395,
      "args": [
       "samples_csv",
       "out",
@@ -8833,8 +8939,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donors_of",
      "name": "metaa_donors_of",
-     "line": 365,
-     "end": 375,
+     "line": 397,
+     "end": 407,
      "args": [
       "cell",
       "half",
@@ -8855,8 +8961,8 @@
      "file": "stage_seq_atlas.py",
      "function": "beta_vs_pat",
      "name": "beta_vs_pat",
-     "line": 377,
-     "end": 405,
+     "line": 409,
+     "end": 437,
      "args": [
       "beta_src",
       "pat_path",
@@ -8876,8 +8982,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_at_identity",
      "name": "noise_at_identity",
-     "line": 407,
-     "end": 428,
+     "line": 439,
+     "end": 460,
      "args": [
       "path"
      ],
@@ -8897,8 +9003,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 430,
-     "end": 445,
+     "line": 462,
+     "end": 477,
      "args": [
       "cell",
       "path"
@@ -8919,8 +9025,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 447,
-     "end": 471,
+     "line": 479,
+     "end": 503,
      "args": [
       "samples",
       "out"
@@ -8935,8 +9041,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 473,
-     "end": 488,
+     "line": 505,
+     "end": 520,
      "args": [
       "a_path",
       "b_path",
@@ -8954,8 +9060,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 490,
-     "end": 542,
+     "line": 522,
+     "end": 574,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -8976,8 +9082,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 544,
-     "end": 546,
+     "line": 576,
+     "end": 578,
      "args": [
       "gsm",
       "title"
@@ -8993,5 +9099,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 459
+ "n_functions": 464
 }

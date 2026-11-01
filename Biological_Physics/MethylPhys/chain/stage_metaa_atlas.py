@@ -524,10 +524,19 @@ def territory_reading(beta, shares, counts=None):
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
         hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts); A = float(hx.mean() / he.mean())
+        if TERR_SITE_OUT:   # 2026-11-01 (development, run_sample.py --dev-terr-sites): each territory site's reads, levels and disorder, and the main cell's level
+            _n3 = pd.Series(counts).reindex(es.index).fillna(0).astype("int64").to_numpy() if counts is not None else np.zeros(len(es), "int64")
+            _T = pd.DataFrame(dict(site=es.index, reads=_n3, sample_level=xs.to_numpy(), expected_level=es.to_numpy(), H_measured=hx, H_expected=he))
+            _T["own_cell_level"] = MU[F.idxmax()].reindex(es.index).to_numpy(); _tp = TERR_SITE_OUT.replace(".csv.gz", f"_{name}.csv.gz")
+            _T.to_csv(_tp, index=False, compression="gzip"); r["sites_table"] = os.path.basename(_tp)
         r["ceiling"] = ceiling_reading(xs.to_numpy(), es.to_numpy())   # 2026-10-23: distance to the entropy ceiling
         se = float(np.std(hx - A * he, ddof=1) / np.sqrt(len(hx)) / he.mean()); d = (xs - es).to_numpy()
         r.update(A=round(A, 5), se_over_sites=round(se, 6), level_change=round(float(d.mean()), 5), level_change_se=round(float(d.std(ddof=1) / np.sqrt(len(d))), 6),
                  coverage=round(ok.sum() / len(S), 4), state="untared")
+        if name == "islands" and TERR_COUNTED and counts is not None and SEQ_ATLAS:   # 2026-11-01 (development): the expectation from the reference's own reads
+            c_ = islands_counted(xs, counts, {kk: float(F[kk]) for kk in cells})
+            r["counted"] = c_
+            if c_.get("A") is not None: r["A_plugin"] = r["A"]; r["A"] = c_["A"]
         out["sets"][name] = r
     return out
 
@@ -545,6 +554,60 @@ def _he(es, counts):   # 2026-10-23: the healthy expectation of H, at each site'
     if counts is None: return np.asarray(_H(es), dtype="float64")
     n = pd.Series(counts).reindex(es.index).fillna(0).astype("int64").to_numpy(); return np.asarray(expected_H_counts(es.to_numpy(), n), dtype="float64")
 
+TERR_COUNTED = False   # 2026-11-01 (development, run_sample.py --dev-terr-counted): the islands' expectation from the reference's own reads (expected_H_mix_counts)
+TERR_HALF = None       # the donor half the islands are read against (run_sample.py --dev-seq-ref-half); None: every donor
+TERR_M = 20            # stated: both sides taken to a common depth of at most 20 reads, drawn without replacement, so the exact expectation stays cheap
+TERR_SHARE_MIN = 0.01  # stated: cells holding at least 1 % of the sample, their shares renormalized
+
+def thin_H(k, n, m):
+    """The exact expected disorder of k methylated of n reads drawn down to m reads without replacement (H(k/n) itself when m == n)."""
+    from scipy.stats import hypergeom
+    k = np.asarray(k, "int64"); n = np.asarray(n, "int64"); j = np.arange(m + 1); Hj = np.asarray(_H(pd.Series(j / m)), "float64")
+    return np.nan_to_num(hypergeom.pmf(j[None, :], n[:, None], k[:, None], m)) @ Hj
+
+def expected_H_mix_counts(Mk, Nk, F, m, block=8000):
+    """2026-11-01 (derived, nothing fitted): the expected disorder, at m reads, of a healthy sample of this mix, from each cell's reference reads
+    (Mk methylated of Nk, sites x cells; F the cells' shares). Each of the m reads comes from cell k with probability F_k and is one of that
+    cell's reference reads drawn without replacement; a subset of independent reads is itself independent, so this is an exactly unbiased
+    estimate, with no level treated as exact. Where a cell has fewer than the reads drawn from it, the binomial at its own m/N (stated: the
+    only part not exact). Computed by summing over how many reads each cell gives (multinomial) and their hypergeometric counts."""
+    from scipy.stats import hypergeom, binom
+    import math
+    Mk = np.asarray(Mk, "float64"); Nk = np.asarray(Nk, "float64"); F = np.asarray(F, "float64"); S, K = Mk.shape
+    j = np.arange(m + 1); Hj = np.asarray(_H(pd.Series(j / m)), "float64"); lg = np.array([math.lgamma(a + 1) for a in range(m + 1)]); out = np.empty(S)
+    for s0 in range(0, S, block):
+        sl = slice(s0, min(S, s0 + block)); W = np.zeros((sl.stop - sl.start, m + 1, m + 1)); W[:, 0, 0] = 1.0
+        for k in range(K):
+            N = Nk[sl, k][:, None, None]; M = Mk[sl, k][:, None, None]; a = j[None, :, None]; b = j[None, None, :]
+            with np.errstate(all="ignore"):
+                P = np.where(N >= a, hypergeom.pmf(b, np.maximum(N, 1).astype("int64"), M.astype("int64"), a), binom.pmf(b, a, np.where(N > 0, M / np.maximum(N, 1), 0.0)))
+            P = np.nan_to_num(P); c = np.exp(j * math.log(F[k]) - lg) if F[k] > 0 else (j == 0).astype("float64"); Wn = np.zeros_like(W)
+            for aa in range(m + 1):
+                for bb in range(aa + 1):
+                    w = c[aa] * P[:, aa, bb]
+                    if w.any(): Wn[:, aa:, bb:] += w[:, None, None] * W[:, :m + 1 - aa, :m + 1 - bb]
+            W = Wn
+        out[sl] = math.exp(lg[m]) * (W[:, m, :] @ Hj)
+    return out
+
+def islands_counted(xs, counts, F):
+    """The islands read with the expectation from the reference's own reads: the sample's cells holding at least TERR_SHARE_MIN (shares
+    renormalized), each cell's reads from the donor half TERR_HALF (stage_seq_atlas.terr_counts_of; every donor when no half is given), and
+    both sides at a common depth m = min(reads, TERR_M), the sample's own reads drawn down without replacement (thin_H). Sites where a kept
+    cell has no reference read are left out and counted."""
+    import stage_seq_atlas as _SQt
+    Fk = pd.Series(F, dtype="float64"); Fk = Fk[Fk >= TERR_SHARE_MIN]; Fk = Fk / Fk.sum()
+    got = _SQt.terr_counts_of(list(Fk.index), TERR_HALF, list(xs.index))
+    if got is None: return dict(reason="no per-half island counts (terr_half_counts_v1.parquet)")
+    Mk, Nk = got; n = pd.Series(counts).reindex(xs.index).fillna(0).astype("int64").to_numpy(); k = np.rint(xs.to_numpy() * n).astype("int64")
+    ok = (Nk >= 1).all(1) & (n >= 1); m = np.minimum(n, TERR_M); hm = np.full(len(n), np.nan); he = np.full(len(n), np.nan)
+    for mm in np.unique(m[ok]):
+        s = ok & (m == mm); hm[s] = thin_H(k[s], n[s], int(mm)); he[s] = expected_H_mix_counts(Mk[s], Nk[s], Fk.to_numpy(), int(mm))
+    g = ok & np.isfinite(he) & (he > 0) if ok.any() else ok
+    return dict(A=round(float(hm[g].sum() / he[g].sum()), 5) if g.any() else None, sites=int(g.sum()), left_out=int((~ok).sum()), cells=[(c, round(float(f), 4)) for c, f in Fk.items()],
+                half=TERR_HALF, common_depth_max=TERR_M, expectation="each read from a cell of the mix, drawn without replacement from that cell's reference reads (expected_H_mix_counts)")
+
+TERR_SITE_OUT = None   # 2026-11-01: a path (NAME_terr_sites.csv.gz); when set, territory_reading() writes each set's per-site table (run_sample.py --dev-terr-sites)
 RULER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Stage_T", "atlas_ruler_v1.json")
 GH_NODES = 20   # Gauss-Hermite points for the expectation over the array's noise (stated; 20 is exact to well below the reading's own error)
 
