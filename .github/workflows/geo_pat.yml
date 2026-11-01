@@ -19,7 +19,7 @@ jobs:
     needs: list
     runs-on: ubuntu-latest
     timeout-minutes: 355
-    strategy: {fail-fast: false, max-parallel: 20, matrix: {gsm: "${{ fromJSON(needs.list.outputs.gsms) }}"}}
+    strategy: {fail-fast: false, max-parallel: 18, matrix: {gsm: "${{ fromJSON(needs.list.outputs.gsms) }}"}}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
