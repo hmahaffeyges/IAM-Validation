@@ -540,3 +540,14 @@ bar 2 not met (rho +0.649 over 21): by depth 0.9788 (5 reads), 0.9928, 0.9966, 0
 donor-by-donor reading is the nearest to 1 of the three at every depth. The bar is not changed after the run. **Open:** whether the small
 rise is in the method or is this synthetic's three samples per depth; the real per-donor counts (all 153 inputs) are being built, and the
 outside neurons and the inputs are read with them next, recorded before they are read.
+
+## Pass 4: sorted-cell Met-A donor by donor on real samples (written and committed before any of it is read)
+
+**The instrument's job:** a healthy sequenced sample reads sorted-cell Met-A Normal against its own cell's healthy donors. **What is read:**
+the 137 healthy atlas inputs, each against the other sealed donor half's donors (`seq_atlas_01/healthy_fullchain4_samples.csv`: pass 3's
+flags and `--dev-seq-level donors`), on GitHub; and the 35 outside healthy samples (25 neurons, 10 pancreas; spent), against all of their
+cell's donors, on Google spot machines, through the same table route. The per-donor counts: every one of the 153 inputs' own reads at its
+cell's identity sites (`chain/Runtime Matrices/Seq_Atlas/metaa_donor_counts/metaa_donor_counts_v1.parquet`). **Bars (at most 3):**
+1. the 137 inputs' median sorted-cell Met-A within 0.05 of 1; 2. the 25 outside neurons' median within 0.05 of 1. Recorded, not scored:
+each group's Spearman rho with depth, pass 3's and the earlier outside readings beside them, and every other reading (which this pass
+does not change: they still read the pooled level). Scored by the committed scorers (`healthy_fullchain_score.py`, `selfree_score.py`).
