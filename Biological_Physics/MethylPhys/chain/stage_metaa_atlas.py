@@ -28,7 +28,7 @@ SEQ_TERM = json.load(open(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "s
 FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-01)"
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
 SEQ_ATLAS = None   # 2026-10-30: a folder of the IAM Sequencing Atlas at v2.1's sites (stage_seq_atlas.ARRAY_COLS); set for a sequenced sample, _col serves it
-SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule)
+SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule); "donors" reads sorted-cell Met-A donor by donor (donor_pair) and every column reading on the pooled level
 SEQ_COUNTED = False   # 2026-10-31: the counted-reference expectation (expected_H_counted) is off: its synthetic was not met (DEV_METAA_ATLAS_CURVE_01)
 WHOLE_SITE_OUT = None   # 2026-10-31: a path; when set, read_whole() writes its per-site table there (run_sample.py --dev-whole-sites)
 SITE_OUT = None   # 2026-10-30: a path; when set, read() writes the per-site table of a sequencing reading there (run_sample.py --dev-metaa-sites)
@@ -45,7 +45,7 @@ def _col(stem, cell):
     if "ids" not in _cache: _cache["ids"] = pq.read_table(os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist()
     if SEQ_ATLAS:   # 2026-10-30 (plan 35.30): a sequenced sample's in-mix readings from the IAM Sequencing Atlas's counted levels, same sites
         s = "donor_sd" if stem == "donor_sd" else "mu"   # the sequencing atlas counts one level per site; mu_lo and mu_hi read it too
-        if s == "mu" and SEQ_LEVEL == "pooled" and os.path.exists(os.path.join(SEQ_ATLAS, "meth_part1.parquet")):
+        if s == "mu" and SEQ_LEVEL in ("pooled", "donors") and os.path.exists(os.path.join(SEQ_ATLAS, "meth_part1.parquet")):
             # 2026-10-31: the expectation is the pooled level (methylated over all reads of the cell's healthy donors). A healthy sample's reads are
             # draws of the cell's methylation probability, which the pooled count measures; the median of 1 to 3 donors' levels sits at exactly
             # 0 or 1 where a donor has few reads (86 % of the B cells' unmarked identity sites against 49 % pooled; DEV_METAA_ATLAS_CURVE_01)
@@ -194,7 +194,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     use_seq = counts is not None and seqref is not None
     if use_seq:
         col = {"A": "halfA", "B": "halfB"}.get(str(half or "").upper(), "level")
-        if col == "level" and SEQ_LEVEL == "pooled" and {"meth", "reads"} <= set(seqref.columns):   # 2026-10-31: the pooled level, not the donors' median
+        if col == "level" and SEQ_LEVEL in ("pooled", "donors") and {"meth", "reads"} <= set(seqref.columns):   # 2026-10-31: the pooled level, not the donors' median
             col = "pooled"; seqref = seqref.copy(); seqref["pooled"] = seqref["meth"] / seqref["reads"].where(seqref["reads"] > 0)
         mu = seqref[col].reindex(S).astype("float64")
         rec.update(reading="Met-A against the IAM Sequencing Atlas (sequencing)", reference=f"IAM Sequencing Atlas, {col} at the identity sites (metaa_seq_reference_v1)",

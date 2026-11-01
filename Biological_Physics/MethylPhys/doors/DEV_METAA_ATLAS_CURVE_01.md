@@ -571,3 +571,11 @@ by the sample's own measured mix, these neurons hold more disorder than the atla
 way they differ from the 3 donors by more than impurity. Their counts show no doubling (reads even at 0.49 to 0.51 of sites). **Not yet
 separated:** a cell-type difference between these prefrontal NeuN+ nuclei and the atlas's neurons; a difference in how the published
 tables were made; the 3-donor ruler. No bar or setting is changed from this.
+
+**Pass 4: two errors found in reading it (mine, disclosed).** 1. The record above said pass 4 leaves every other reading on the pooled
+level. It did not: two checks in `stage_metaa_atlas.py` (the column fetcher, and the sorted-cell reference's level) tested for the setting's
+name "pooled", so "donors" fell through to the median of the donors. Sorted-cell Met-A takes its expectation only from the per-donor counts
+(`donor_pair`), so it is unaffected. Pass 4's other readings were read on the median and are not used; pass 3 holds them on the pooled level.
+Fixed: both checks take "donors" as the pooled level. 2. The first scoring of pass 4 counted 94 of the 131 samples with readings, because
+GitHub's artifact download step stops at 100 artifacts per run. `score_run.yml` now downloads every artifact page by page, and pass 4 is
+scored again. Six jobs did not read: four had no GEO listing after six tries, and two stopped at intake.
