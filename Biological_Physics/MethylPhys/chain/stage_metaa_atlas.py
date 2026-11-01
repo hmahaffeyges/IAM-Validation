@@ -597,7 +597,7 @@ def islands_counted(xs, counts, F):
     cell has no reference read are left out and counted."""
     import stage_seq_atlas as _SQt
     Fk = pd.Series(F, dtype="float64"); Fk = Fk[Fk >= TERR_SHARE_MIN]; Fk = Fk / Fk.sum()
-    got = _SQt.terr_counts_of(list(Fk.index), TERR_HALF, list(xs.index))
+    got = _SQt.terr_counts_of(list(Fk.index), TERR_HALF, list(xs.index), own_cell=Fk.idxmax())
     if got is None: return dict(reason="no per-half island counts (terr_half_counts_v1.parquet)")
     Mk, Nk = got; n = pd.Series(counts).reindex(xs.index).fillna(0).astype("int64").to_numpy(); k = np.rint(xs.to_numpy() * n).astype("int64")
     ok = (Nk >= 1).all(1) & (n >= 1); m = np.minimum(n, TERR_M); hm = np.full(len(n), np.nan); he = np.full(len(n), np.nan)

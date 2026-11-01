@@ -130,3 +130,11 @@ pass 4 (`DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain5_samples.csv`),
 instrument's job: a healthy sequenced sample reads Normal at the islands. **Bar (one):** the median islands reading within 0.05 of 1.
 Recorded beside it, not scored: every other reading of the chain on the same samples. Scored by the committed scorer
 (`healthy_fullchain_score.py`) on a GitHub machine.
+
+**Pass 5's island counts, and one change before reading.** The per-half island counts are built (`terr_half_counts_v1.parquet`, 56 cells
+at 66986 island sites, from the 153 inputs on seven Google spot machines; one share was sent again after GEO dropped its downloads). Eight
+cells have donors in one half only (adipocytes, colon macrophages, effector memory CD8 T cells, hepatocyte, kidney glomerular epithelium,
+naive CD4 T cells, naive CD8 T cells, pancreatic duct). A sample's own reads sit only in its own cell's pool, so another cell of its mix
+with no donor in the half given now reads both halves (still exact); the sample's own cell is always read from the other half only, and
+when that half is blank the islands keep the plug-in reading, recorded as not counted. Changed before any of pass 5 is read; the bar is
+unchanged.

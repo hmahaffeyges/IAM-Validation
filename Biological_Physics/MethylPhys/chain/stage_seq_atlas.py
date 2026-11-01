@@ -362,8 +362,9 @@ def terr_half_counts(samples_csv, out):
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
     return dict(inputs=len(used), cells=int(T.cell.nunique()), sites=int(len(K)), rows=int(len(T)), output=os.path.basename(out))
 
-def terr_counts_of(cells, half, probes):
-    """The given cells' reads at the given island probes (sites x cells, methylated and all), from the donor half given (A or B),
+def terr_counts_of(cells, half, probes, own_cell=None):
+    """The given cells' reads at the given island probes (sites x cells, methylated and all), from the donor half given (A or B; another cell
+    than own_cell with no donor in that half reads both halves),
     or both halves summed when none is given. None when the file is absent or a cell is missing from it."""
     import pandas as pd
     p = TERR_FILE or os.path.join(TERR_DIR, "terr_half_counts_v1.parquet")
@@ -372,6 +373,9 @@ def terr_counts_of(cells, half, probes):
     if set(cells) - set(T.cell): return None
     h = str(half or "").upper(); T["m"] = T["m" + h].astype(np.int64) if h in ("A", "B") else T.mA.astype(np.int64) + T.mB.astype(np.int64)
     T["n"] = T["n" + h].astype(np.int64) if h in ("A", "B") else T.nA.astype(np.int64) + T.nB.astype(np.int64)
+    if h in ("A", "B"):   # 2026-11-01: a cell other than the sample's own (own_cell) with no donor in that half reads both halves; the sample's reads sit only in its own cell's pool
+        blank = T.groupby("cell").n.transform("sum") == 0; fb = blank & (T.cell != own_cell)
+        T.loc[fb, "m"] = T.mA[fb].astype(np.int64) + T.mB[fb].astype(np.int64); T.loc[fb, "n"] = T.nA[fb].astype(np.int64) + T.nB[fb].astype(np.int64)
     M = T.pivot(index="probe", columns="cell", values="m").reindex(index=probes, columns=cells).fillna(0).to_numpy()
     N = T.pivot(index="probe", columns="cell", values="n").reindex(index=probes, columns=cells).fillna(0).to_numpy()
     return M, N

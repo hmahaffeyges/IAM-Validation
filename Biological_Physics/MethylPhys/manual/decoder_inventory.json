@@ -8553,7 +8553,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 579,
+   "lines": 583,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8898,14 +8898,15 @@
      "function": "terr_counts_of",
      "name": "terr_counts_of",
      "line": 365,
-     "end": 377,
+     "end": 381,
      "args": [
       "cells",
       "half",
-      "probes"
+      "probes",
+      "own_cell"
      ],
-     "lines": 13,
-     "doc": "The given cells' reads at the given island probes (sites x cells, methylated and all), from the donor half given (A or B), or both halves summed when none is given. None when the file is absent or a cell is missing from it.",
+     "lines": 17,
+     "doc": "The given cells' reads at the given island probes (sites x cells, methylated and all), from the donor half given (A or B; another cell than own_cell with no donor in that half reads both halves), or both halves summed when none is given. None when the file is absent or a cell is missing from it.",
      "constants": [
       "TERR_DIR",
       "TERR_FILE"
@@ -8919,8 +8920,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donor_counts",
      "name": "metaa_donor_counts",
-     "line": 382,
-     "end": 395,
+     "line": 386,
+     "end": 399,
      "args": [
       "samples_csv",
       "out",
@@ -8939,8 +8940,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donors_of",
      "name": "metaa_donors_of",
-     "line": 397,
-     "end": 407,
+     "line": 401,
+     "end": 411,
      "args": [
       "cell",
       "half",
@@ -8961,8 +8962,8 @@
      "file": "stage_seq_atlas.py",
      "function": "beta_vs_pat",
      "name": "beta_vs_pat",
-     "line": 409,
-     "end": 437,
+     "line": 413,
+     "end": 441,
      "args": [
       "beta_src",
       "pat_path",
@@ -8982,8 +8983,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_at_identity",
      "name": "noise_at_identity",
-     "line": 439,
-     "end": 460,
+     "line": 443,
+     "end": 464,
      "args": [
       "path"
      ],
@@ -9003,8 +9004,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 462,
-     "end": 477,
+     "line": 466,
+     "end": 481,
      "args": [
       "cell",
       "path"
@@ -9025,8 +9026,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 479,
-     "end": 503,
+     "line": 483,
+     "end": 507,
      "args": [
       "samples",
       "out"
@@ -9041,8 +9042,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 505,
-     "end": 520,
+     "line": 509,
+     "end": 524,
      "args": [
       "a_path",
       "b_path",
@@ -9060,8 +9061,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 522,
-     "end": 574,
+     "line": 526,
+     "end": 578,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -9082,8 +9083,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 576,
-     "end": 578,
+     "line": 580,
+     "end": 582,
      "args": [
       "gsm",
       "title"
