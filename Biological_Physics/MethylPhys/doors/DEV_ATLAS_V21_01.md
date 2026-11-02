@@ -847,3 +847,12 @@ the cell's median over its autosomes. The counting-only map: no autosome more th
 1232 cell-chromosome pairs (largest 3.79), so the read split is the same everywhere in the genome. The donor-half map: 409 of 1056 pairs
 beyond 4 (largest 37.74, erythrocyte progenitors, chromosome 21). Its neighboring sites are correlated (the genome-distance spectrum), so
 these standard errors are too small and the count overstates; it is recorded, not scored, as the person-to-person part again.
+
+**The report globe and the information sphere on sequencing (written and committed before any reading).** Until now a sequenced
+sample's globe, and the information sphere's distance from its own healthy self (checklist C2), were drawn against IAM-Atlas v2.1, an
+array atlas, though the bridge measured a platform offset of 0.0316 between the two. A sequenced sample read with the sequencing
+reference (`--dev-seq-ref`) now draws both against the IAM Sequencing Atlas's sphere columns (`report_globe_v4.use_atlas`), which carry
+the same sites and now also each cell's donor spread (`donor_sd`, as stored in the array columns). The change rule, the layout and
+everything else are unchanged. **The instrument's job:** a healthy sequenced sample shows little change on its globe. **Check, then one
+bar on the next healthy pass:** the spent healthy B-cell input GSM5652316 read both ways (diagnostic); then, on the healthy inputs, the
+median share of changed sites no higher against the sequencing atlas than against v2.1 (from pass 5's bundles).

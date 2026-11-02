@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1346,
+   "lines": 1348,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -305,9 +305,9 @@
      "function": "main",
      "name": "main",
      "line": 518,
-     "end": 1343,
+     "end": 1345,
      "args": [],
-     "lines": 826,
+     "lines": 828,
      "doc": "",
      "constants": [
       "BIO",
@@ -369,8 +369,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1273,
-     "end": 1274,
+     "line": 1275,
+     "end": 1276,
      "args": [
       "b",
       "it",
@@ -6320,14 +6320,35 @@
   },
   {
    "file": "MethylPhys_Interface/report_globe_v4.py",
-   "lines": 447,
+   "lines": 453,
    "functions": [
+    {
+     "file": "MethylPhys_Interface/report_globe_v4.py",
+     "function": "use_atlas",
+     "name": "use_atlas",
+     "line": 37,
+     "end": 41,
+     "args": [
+      "path",
+      "name"
+     ],
+     "lines": 5,
+     "doc": "2026-11-01 (plan 35.30): read the healthy reference from another atlas in v2.1's layout (the same sites.parquet; mu, mu_lo, mu_hi, donor_sd in three parts), e.g. the IAM Sequencing Atlas's sphere columns for a sequenced sample. The frozen layout's site check still applies.",
+     "constants": [
+      "ATLAS",
+      "ATLAS_NAME"
+     ],
+     "data_files": [
+      "the same sites.parquet"
+     ],
+     "traced_calls": {}
+    },
     {
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "sex_sites",
      "name": "sex_sites",
-     "line": 40,
-     "end": 45,
+     "line": 46,
+     "end": 51,
      "args": [],
      "lines": 6,
      "doc": "The atlas sites on the X and Y chromosomes (frozen list). Every change count on the globe is also given for these sites alone, so a reader sees how much of a change sits where women and men differ by nature (one X held methylated in women; the Y only in men).",
@@ -6342,8 +6363,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_xy_index",
      "name": "_xy_index",
-     "line": 47,
-     "end": 50,
+     "line": 53,
+     "end": 56,
      "args": [],
      "lines": 4,
      "doc": "The X and Y site names as a pandas Index, built once (hashed lookups).",
@@ -6357,8 +6378,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_xy_blocks",
      "name": "_xy_blocks",
-     "line": 52,
-     "end": 57,
+     "line": 58,
+     "end": 63,
      "args": [
       "ids_in_order",
       "mi",
@@ -6377,8 +6398,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "key_css",
      "name": "key_css",
-     "line": 59,
-     "end": 62,
+     "line": 65,
+     "end": 68,
      "args": [],
      "lines": 4,
      "doc": "The parchment scale of every methylation map as a CSS gradient, for the color key under an image layer.",
@@ -6394,8 +6415,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "FW_LINE",
      "name": "FW_LINE",
-     "line": 68,
-     "end": 71,
+     "line": 74,
+     "end": 77,
      "args": [
       "n"
      ],
@@ -6409,8 +6430,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky",
      "name": "_to_sky",
-     "line": 75,
-     "end": 79,
+     "line": 81,
+     "end": 85,
      "args": [
       "v",
       "npix"
@@ -6425,8 +6446,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_mu",
      "name": "_mu",
-     "line": 81,
-     "end": 92,
+     "line": 87,
+     "end": 98,
      "args": [
       "cells",
       "stem"
@@ -6446,8 +6467,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_to_sky_extreme",
      "name": "_to_sky_extreme",
-     "line": 94,
-     "end": 99,
+     "line": 100,
+     "end": 105,
      "args": [
       "v",
       "npix"
@@ -6462,8 +6483,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_lookup",
      "name": "_lookup",
-     "line": 101,
-     "end": 107,
+     "line": 107,
+     "end": 113,
      "args": [
       "nside"
      ],
@@ -6479,8 +6500,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_png_b64",
      "name": "_png_b64",
-     "line": 109,
-     "end": 111,
+     "line": 115,
+     "end": 117,
      "args": [
       "arr",
       "mode"
@@ -6495,8 +6516,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_vmask",
      "name": "_vmask",
-     "line": 113,
-     "end": 118,
+     "line": 119,
+     "end": 124,
      "args": [
       "v"
      ],
@@ -6510,8 +6531,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_jpg_b64",
      "name": "_jpg_b64",
-     "line": 121,
-     "end": 123,
+     "line": 127,
+     "end": 129,
      "args": [
       "rgb"
      ],
@@ -6525,8 +6546,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "reference",
      "name": "reference",
-     "line": 125,
-     "end": 137,
+     "line": 131,
+     "end": 143,
      "args": [
       "specimen",
       "shares"
@@ -6534,6 +6555,7 @@
      "lines": 13,
      "doc": "(name, {atlas cell: weight}) of the healthy reference for this specimen, or (None, reason).",
      "constants": [
+      "ATLAS_NAME",
       "BLOOD",
       "PANEL"
      ],
@@ -6544,8 +6566,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_dots",
      "name": "_dots",
-     "line": 139,
-     "end": 145,
+     "line": 145,
+     "end": 151,
      "args": [
       "v"
      ],
@@ -6561,8 +6583,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "purified",
      "name": "purified",
-     "line": 147,
-     "end": 155,
+     "line": 153,
+     "end": 161,
      "args": [
       "fractions",
       "specimen"
@@ -6582,8 +6604,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_paint_blocks",
      "name": "_paint_blocks",
-     "line": 157,
-     "end": 170,
+     "line": 163,
+     "end": 176,
      "args": [
       "sky",
       "vals",
@@ -6601,8 +6623,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_patch",
      "name": "_patch",
-     "line": 172,
-     "end": 179,
+     "line": 178,
+     "end": 185,
      "args": [
       "v"
      ],
@@ -6618,8 +6640,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "_cell_change",
      "name": "_cell_change",
-     "line": 181,
-     "end": 199,
+     "line": 187,
+     "end": 205,
      "args": [
       "d",
       "ids_ordered",
@@ -6639,8 +6661,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build",
      "name": "build",
-     "line": 201,
-     "end": 376,
+     "line": 207,
+     "end": 382,
      "args": [
       "beta",
       "specimen",
@@ -6656,6 +6678,7 @@
      "constants": [
       "ABOUT",
       "ATLAS",
+      "ATLAS_NAME",
       "BLOCK",
       "CH",
       "HERE",
@@ -6679,8 +6702,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build.rgb",
      "name": "rgb",
-     "line": 244,
-     "end": 245,
+     "line": 250,
+     "end": 251,
      "args": [
       "m"
      ],
@@ -6694,8 +6717,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build._code",
      "name": "_code",
-     "line": 247,
-     "end": 252,
+     "line": 253,
+     "end": 258,
      "args": [
       "v",
       "full"
@@ -6710,8 +6733,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair",
      "name": "build_pair",
-     "line": 393,
-     "end": 436,
+     "line": 399,
+     "end": 442,
      "args": [
       "beta",
       "ref_beta",
@@ -6741,8 +6764,8 @@
      "file": "MethylPhys_Interface/report_globe_v4.py",
      "function": "build_pair.rgb",
      "name": "rgb",
-     "line": 415,
-     "end": 416,
+     "line": 421,
+     "end": 422,
      "args": [
       "m"
      ],
@@ -8949,7 +8972,7 @@
       "inputs"
      ],
      "lines": 20,
-     "doc": "The sky sphere's input in IAM-Atlas v2.1's layout (sites.parquet; mu, mu_lo, mu_hi and mu_se (2026-11-01: the standard error) in three parts, uint16 x 10,000, 65535 blank): mu is each cell's pooled level, mu_lo and mu_hi the 95 % range of its average (range_of_average). The donor count is the cell's number of healthy inputs (seq_atlas_inputs.csv); a site measured by fewer of them is not told apart",
+     "doc": "The sky sphere's input in IAM-Atlas v2.1's layout (sites.parquet; mu, mu_lo, mu_hi, mu_se (2026-11-01: the standard error) and donor_sd (2026-11-01: the person-to-person spread, as stored in the array columns, for the report globe) in three parts, uint16 x 10,000, 65535 blank): mu is each cell's pooled level, mu_lo and mu_hi the 95 % range of its average (range_of_average). The donor count is the ",
      "constants": [
       "ARRAY_COLS",
       "BLANK"
@@ -9355,5 +9378,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 476
+ "n_functions": 477
 }

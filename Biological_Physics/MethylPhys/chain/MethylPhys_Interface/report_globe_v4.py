@@ -33,6 +33,12 @@ from globe_viewer import dedupe, fragment, page, write_files, VIEWER_JS   # the 
 
 HERE = os.path.dirname(os.path.abspath(__file__)); CH = os.path.join(HERE, "..")
 ATLAS = os.path.join(CH, "..", "atlas", "v2.1")
+ATLAS_NAME = "IAM-Atlas v2.1"
+def use_atlas(path, name):
+    """2026-11-01 (plan 35.30): read the healthy reference from another atlas in v2.1's layout (the same sites.parquet; mu, mu_lo, mu_hi,
+    donor_sd in three parts), e.g. the IAM Sequencing Atlas's sphere columns for a sequenced sample. The frozen layout's site check still applies."""
+    global ATLAS, ATLAS_NAME
+    ATLAS, ATLAS_NAME = path, name
 ORDER = os.path.join(CH, "Runtime Matrices", "Atlas_V21", "sky_order_v21.npz")
 W, HT = 1024, 512; NA = 65535; R_DOT = 3; BLOCK = 10   # the C-Score's block (neutrophil_reference_v1_2.json clustering_block)
 SEX_SITES = os.path.join(CH, "Runtime Matrices", "Atlas_V21", "sex_chromosome_sites_v21.json")   # atlas/tools/sex_sites_v21.py, from Stage 1's pinned manifests
@@ -129,12 +135,12 @@ def reference(specimen, shares):
     if _mixed:   # the person's own mix as the IAM-Deconvolver found it, every cell (2026-10-23: the 79-cell panel's names are atlas names already)
         w = {PANEL.get(c, c): float(v) for c, v in (shares or {}).items() if v is not None and np.isfinite(v) and v > 0}
         if not w: return None, "no cell shares from Stage D21, so the healthy reference for this person's mix cannot be drawn"
-        t = sum(w.values()); return ("healthy blood" if s in BLOOD else "healthy " + s) + " for this person's own cell mix (IAM-Atlas v2.1, Stage D21 shares)", {c: v / t for c, v in w.items()}
+        t = sum(w.values()); return ("healthy blood" if s in BLOOD else "healthy " + s) + " for this person's own cell mix (" + ATLAS_NAME + ", Stage D21 shares)", {c: v / t for c, v in w.items()}
     c = s[9:] if s.startswith("isolated ") else s
     import stage_0_intake as _S0   # 2026-10-25: "sorted b cells", "purified monocytes" and the like name the atlas cell intake already maps them to
     c = _S0.atlas_cell_of(specimen) or c
     c = {"neutrophil": "neutrophils", "cd8": "cd8 t cells", "cd8 t cell": "cd8 t cells", "cd4 t cell": "cd4 t cells", "monocyte": "monocytes", "b cell": "b cells", "nk cell": "nk cells"}.get(c, c)
-    return (f"healthy {c} (IAM-Atlas v2.1)", {c: 1.0}) if c else (None, "no specimen given")
+    return (f"healthy {c} ({ATLAS_NAME})", {c: 1.0}) if c else (None, "no specimen given")
 
 def _dots(v):
     """A sparse texture (most pixels NaN) drawn as dots: every pixel within R_DOT of a site takes that site's value (nearest site)."""
@@ -210,7 +216,7 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     if hashlib.sha256(open(os.path.join(ATLAS, "sites.parquet"), "rb").read()).hexdigest() != str(Z["sites_sha256"]):
         return {"drawn": False, "reason": "the atlas site list differs from the one the frozen layout was built on"}
     mu = _mu(list(w)); missing = [c for c in w if c not in mu]
-    if missing: return {"drawn": False, "reason": f"cell(s) not in IAM-Atlas v2.1: {', '.join(missing)}"}
+    if missing: return {"drawn": False, "reason": f"cell(s) not in {ATLAS_NAME}: {', '.join(missing)}"}
     _num = sum(w[c] * np.nan_to_num(mu[c]) for c in w); _den = sum(w[c] * np.isfinite(mu[c]) for c in w)   # 2026-10-23: mixed over the cells with a value
     ref = np.where(_den >= 0.99 * sum(w.values()), _num / np.maximum(_den, 1e-12), np.nan)   # kept at >= 99 % of the shares, read_in_mix's rule (MIX_COVER)
     smp = pd.Series(beta, dtype="float64").reindex(ids).to_numpy()

@@ -1136,6 +1136,8 @@ def main():
             except Exception as e: o["changes_sky"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
         try:   # the turning globe in the HTML report (2026-10-21, step 13d): sample, its healthy reference, the difference, Met-A's departures
             import report_globe_v4 as RG
+            if getattr(a, "_seqv", False) and getattr(a, "dev_seq_ref", None):   # 2026-11-01 (plan 35.30): a sequenced sample's globe and information sphere against the IAM Sequencing Atlas
+                import stage_seq_atlas as _SQg; RG.use_atlas(_SQg.SPHERE_DIR, "IAM Sequencing Atlas (development)")
             _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
                            fractions=(o.get("composition") or {}).get("fractions"),
                            sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html",

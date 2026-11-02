@@ -2382,6 +2382,9 @@ The islands read with that expectation, against the donor half given, both sides
 ### stage_metaa_atlas.py::thin_H
 The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
 
+### report_globe_v4.py::use_atlas
+Read the globe's healthy reference from another atlas in v2.1's layout (the sequencing atlas for a sequenced sample).
+
 ### stage_seq_atlas.py::bridge
 Each cell's sequencing level against IAM-Atlas v2.1's at the sites both measure (`--build seq-bridge`).
 
