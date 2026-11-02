@@ -27,7 +27,8 @@ LISTS = [("DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv", "the IAM Sequencing
          ("DEV_ATLAS_V21_01/seq_atlas/outside_data/blueprint_healthy_test_samples.csv", "healthy samples from another laboratory", "gsm", "call_bw"),
          ("DEV_ALL_INFO_01/full_depth/hopkins_fullchain_samples.csv", "the Johns Hopkins study", "gsm", None)]
 INP = pd.read_csv(os.path.join(SEQ, "DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv")); INP["gsm"] = INP.gsm.str.strip(); URL = INP.set_index("gsm").file.to_dict()
-CACHE = set(open(sys.argv[3]).read().split()) if len(sys.argv) > 3 and os.path.exists(sys.argv[3]) else set()   # optional: bucket keys already staged
+SHA = pd.concat([pd.read_csv(p) for p in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "inputs_sha256_*.csv"))]) if glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "inputs_sha256_*.csv")) else pd.DataFrame(columns=["gsm", "sha256"])
+CACHE = {f"seq_atlas/inputs/{g}.beta": h for g, h in zip(SHA.gsm, SHA.sha256)}   # inputs staged in the bucket, with the checksum taken as they were staged
 for rel, tests, idc, urlc in LISTS:
     S = pd.read_csv(os.path.join(SEQ, rel))
     for r in S.itertuples():
@@ -36,7 +37,7 @@ for rel, tests, idc, urlc in LISTS:
         for u in urls:
             key = f"seq_atlas/inputs/{g}.beta" if (u and str(u).endswith(".beta")) else None
             if rel.startswith("DEV_ALL_INFO_01"): where, loc = "public archive (reads; aligned pieces are GitHub artifacts until they expire)", "SRA, by the sample list"
-            elif key and key in CACHE: where, loc = "Google bucket", key
+            elif key and key in CACHE: where, loc = "Google bucket", key; rows.append(dict(file=f"{g} {os.path.basename(str(u))}", kind="input", tests=tests, where=where, location=loc, size=56434896, sha256=CACHE[key])); continue
             else: where, loc = "public archive only (to stage)", str(u)
             rows.append(dict(file=f"{g} {os.path.basename(str(u)) if u else ''}".strip(), kind="input", tests=tests, where=where, location=loc, size=None, sha256=None))
 # every test's own committed files (sample lists, scripts, outputs) under the door data folders the sequencing work uses

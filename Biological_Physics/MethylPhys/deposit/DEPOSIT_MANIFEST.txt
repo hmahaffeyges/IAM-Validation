@@ -1,8 +1,8 @@
-deposit manifest: 1155 files
+deposit manifest: 1157 files
   atlas: IAM-Atlas v2.1: 25 files, 437.6 MB in hand
   atlas: runtime tables: 46 files, 55.5 MB in hand
   atlas: runtime tables (IAM Sequencing Atlas): 48 files, 622.2 MB in hand
   chain: 62 files, 1.1 MB in hand
-  input: 342 files, 0.0 MB in hand
-  test file: 632 files, 31.1 MB in hand
-  where: repository 813; public archive only (to stage) 306; public archive (reads; aligned pieces are GitHub artifacts until they expire) 36
+  input: 342 files, 7731.6 MB in hand
+  test file: 634 files, 31.1 MB in hand
+  where: repository 815; public archive only (to stage) 169; Google bucket 137; public archive (reads; aligned pieces are GitHub artifacts until they expire) 36
