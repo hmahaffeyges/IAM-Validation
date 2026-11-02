@@ -10,7 +10,7 @@
  "title": "Met-A on sequencing: what the healthy spread is made of",
  "closing": "",
  "set_out": "Find why sorted-cell Met-A on sequencing still falls with depth on healthy samples, then the islands and IAM-A, so every reading of the chain reads healthy sequenced samples Normal before the sequencing atlas is finished.",
- "open_at_turnover": "Healthy pass 5 (the islands from the reference's own reads, 137 inputs) on GitHub; IAM-A reads inside its own band on 93.8 % of healthy sequenced samples.",
+ "open_at_turnover": "The IAM Sequencing Atlas's checklist: masks, genome-distance spectra and null tests next.",
  "sections": [
   {
    "kind": "ran",
@@ -35,6 +35,27 @@
       "GRP-017"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "Healthy pass 5: every reading on sequencing",
+     "status": "development",
+     "what": "All 137 healthy sequencing inputs read by the full chain against the IAM Sequencing Atlas, the islands from the reference's own reads.",
+     "outcome": "Met: islands 1.0122 (bar within 0.05 of 1); Met-A in each cell 1.0077, whole sample 1.0055, domains 1.0011, C-Score 1.0004, coupling-A 1.0000, IAM-A 0.9518.",
+     "rows": [
+      "GRP-017",
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "The X chromosome and Met-A",
+     "status": "development",
+     "what": "Met-A with and without the X chromosome's identity sites on the 137 healthy inputs.",
+     "outcome": "No effect: 1.0077 both ways; largest change 0.0021.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   },
@@ -61,6 +82,36 @@
       "GRP-014"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "The sequencing atlas on the sky sphere",
+     "status": "development",
+     "what": "Each cell's level and the 95 % range of its average, drawn for 56 cells by v2.1's builder.",
+     "outcome": "Range synthetic met (two donors 1.005 and 0.948, three donors 1.007 and 0.948).",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The sequencing atlas's information globe",
+     "status": "development",
+     "what": "The information globe built from the sequencing atlas beside v2.1's.",
+     "outcome": "534617 sites placed; families gather about as tightly as on v2.1's (0.42 against 0.35).",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The sequencing atlas's two noise maps",
+     "status": "development",
+     "what": "Donor-half and read-half noise maps on the sky sphere for every cell.",
+     "outcome": "Check met (1238368 of 1238368); the X chromosome in 16 cells and a smooth-muscle donor offset seen and annotated.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }
