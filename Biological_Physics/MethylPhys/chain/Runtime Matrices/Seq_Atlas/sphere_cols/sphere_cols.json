@@ -1,0 +1,10 @@
+{
+ "cells": 56,
+ "one_donor_counting_only": [
+  "effector memory cd8 t cells",
+  "naive cd4 t cells",
+  "naive cd8 t cells"
+ ],
+ "level": "pooled (meth over reads)",
+ "range": "95 % of the cell's average: donor spread / sqrt(donors) times t(0.975, donors - 1), or counting only (1.96) for one donor"
+}

@@ -1,0 +1,5 @@
+The IAM Sequencing Atlas's 95 % range of a cell's average: synthetic (seed 20261112, 20,000 sites, 200 builds, Poisson(33) reads a donor, person sd 0.3 logit)
+k = 1 donors: stated over true variance 0.613; coverage of the truth 0.851
+k = 2 donors: stated over true variance 1.005; coverage of the truth 0.948
+k = 3 donors: stated over true variance 1.007; coverage of the truth 0.948
+bars (k = 2 and 3): variance ratio within 0.9 to 1.1 and coverage within 0.90 to 0.99: met

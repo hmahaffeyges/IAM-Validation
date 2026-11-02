@@ -1,0 +1,20 @@
+{
+ "cells": 56,
+ "one_donor_counting_only": [
+  "effector memory cd8 t cells",
+  "naive cd4 t cells",
+  "naive cd8 t cells"
+ ],
+ "level": "pooled (meth over reads)",
+ "range": "95 % of the cell's average: donor spread / sqrt(donors) times t(0.975, donors - 1), or counting only (1.96) for one donor",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-sphere-cols",
+  "--build-out",
+  "../Runtime Matrices/Seq_Atlas/sphere_cols",
+  "--bundle",
+  "../Runtime Matrices/Seq_Atlas/sphere_cols/sphere_cols_build.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
+}

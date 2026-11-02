@@ -731,3 +731,9 @@ where the spread is blank, gives counting only (stated: it does not hold the per
 `seq_atlas/sphere_range_synthetic.py`; bars for two and three donors: the stated variance within 0.9 to 1.1 of the true scatter, and the
 range covering the truth 90 % to 99 % of the time. **Then:** the columns built, and the sphere drawn by the same builder as IAM-Atlas v2.1's
 (`--build seq-atlas-sphere`), named as the sequencing atlas and without v2.1's cell-page check.
+
+**The range synthetic: met; the columns built** (`seq_atlas/sphere_range_synthetic.txt`). Two donors: stated variance 1.005 of the true
+scatter, coverage 0.948; three donors: 1.007 and 0.948. One donor, counting only (recorded, not scored): 0.613 and 0.851, as stated, so a
+one-donor cell's map shows less doubt than it carries. Built by the one command (`--build seq-sphere-cols`;
+`chain/Runtime Matrices/Seq_Atlas/sphere_cols/sphere_cols.json`): 56 cells, three of them one-donor (effector memory CD8 T cells, naive
+CD4 T cells, naive CD8 T cells). The sphere is drawn next on a Google spot machine with the chain's own requirements.
