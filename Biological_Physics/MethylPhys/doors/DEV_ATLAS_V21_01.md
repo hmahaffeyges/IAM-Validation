@@ -929,3 +929,10 @@ rests on three donors, and its donor-half noise map carries the strongest large-
 donors understate how far healthy neurons from another laboratory differ, and the globe shows that as change; 109 of about 81,000 blocks.
 That is a matter of more donors, not of the instrument. **Status:** the globe's change count on sequencing is read and flagged as not met
 on healthy samples outside the atlas; the territories changed and the distance from the own healthy self are read as they are.
+
+**Donor traits (A7; a table, no bar)** (`seq_atlas/donor_traits.py`, `seq_atlas/donor_traits.csv`, `seq_atlas/donor_traits.txt`). Each
+input's recorded characteristics from its GEO sample record: tissue, cell type, the source recorded as "lab", age, sex and race. 92 female,
+60 male, 1 not recorded; 23 of 56 cells have donors of both sexes, and in 29 cells the two sealed donor halves differ in sex makeup,
+which is the X-chromosome foreground the donor-half noise maps show (annotated, not subtracted). Age is recorded for 152 inputs. The
+"lab" field names six sources; six cells have donors from two of them (aorta endothelium, hepatocyte and four pancreatic cells), the only
+cells where a source offset (A5) can be measured.

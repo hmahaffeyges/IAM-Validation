@@ -9,9 +9,9 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | A2 | Built: each cell's measured disorder at every CpG | the atlas pieces (`disorder`) |
 | A3 | Built: level, spread, donors, reads per cell | the atlas pieces; `array_sites` |
 | A4 | Built: blank where unmeasured, counts beside every value | every column (65535 blank) |
-| A5 | Not built: most cells have one laboratory | |
+| A5 | Not yet: six cells have donors from two recorded sources (`donor_traits.csv`) | |
 | A6 | Built for held error: the healthy held-error reference from the molecules | `held_reference_v1` |
-| A7 | Not built as a table; sex seen in the donor-half noise map (16 of 48 cells) | `noise_by_chrom.txt` |
+| A7 | Built: sex, age, race, tissue and source per input, from GEO | `donor_traits.csv` |
 | A8 | Built: 16-bit counts | every column |
 | B1 | Built: IAM-A in the sample's mix; 0.942 of healthy inside its own band | `DEV_TERRITORIES_01.md`, pass 5 |
 | B2 | Built: coupling-A, 0.993 inside its band | pass 5 |

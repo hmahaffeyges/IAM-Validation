@@ -1,0 +1,5 @@
+153 inputs; recorded traits: tissue, cell type, lab, age, sex, race
+sex: F 92, M 60, NA 1
+cells whose donors are of both sexes: 23 of 56
+cells whose two donor halves differ in sex makeup: 29
+age: 152 recorded, median 51.5, range 3 to 83

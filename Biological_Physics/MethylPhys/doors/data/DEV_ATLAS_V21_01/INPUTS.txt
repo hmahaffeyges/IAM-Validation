@@ -74,3 +74,5 @@ globe_outside_2.csv
 globe_outside_2.txt
 globe_outside_3.csv
 globe_outside_3.txt
+donor_traits.csv
+donor_traits.txt
