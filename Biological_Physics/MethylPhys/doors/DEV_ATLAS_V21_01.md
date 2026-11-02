@@ -894,3 +894,15 @@ samples are read again against these columns once the first reading, on the old 
 against v2.1 (bar 1 not met); changed territories 1 and 1 (bar 2 met); the distance from the own healthy self lower against the
 sequencing atlas in every group (median 0.17795 against 0.19809). The cause is the zero widths recorded above; the second reading, on
 the rebuilt columns, is running.
+
+**The globe's width on sequencing: the sample's own counting (written and committed before it runs).** The second reading (rebuilt
+columns, still landing) shows more changed sites, not fewer: about 3000 in its first three neurons, because sites with no width before
+were skipped and now count. The globe's width holds the person-to-person spread and the atlas's own uncertainty, not the sample's own
+counting: on an array that noise is about the same at every site and the sample's own-spread scaling takes it out; on sequencing it
+changes from site to site with the reads (one stray read in 20 is a change of 0.05). **The fix (`report_globe_v4.build`, `counts`):** for
+a sequenced sample read against the sequencing atlas, each site's width also holds the sample's own counting at its expected level,
+e (1 - e) / n with half a read added each side, as in the atlas's range. Nothing else changes. **Synthetic first**
+(`seq_atlas/globe_seq_synthetic.py`): three healthy people drawn from the atlas's own B-cell column at a real sample's depth, and one with
+a planted rise of 0.3 on chromosome 8 (100 to 115 Mb), read by the one command; bars: the healthy median at most 50 changed sites; the
+planted one at least that median plus half its planted sites. **Then** the outside samples read a third time, and the committed bar
+(changed sites, and changed territories, no higher than against v2.1) scored again.

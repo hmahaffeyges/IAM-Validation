@@ -1142,7 +1142,7 @@ def main():
             _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
                            fractions=(o.get("composition") or {}).get("fractions"),
                            sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html",
-                           cell_departures=getattr(a, "_cell_dep", None))
+                           cell_departures=getattr(a, "_cell_dep", None), counts=getattr(a, "_seqc", None) if getattr(a, "dev_seq_ref", None) and not getattr(a, "dev_globe_v21", False) else None)
             _fr = _g.pop("fragment", ""); _spec = _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", ""); _sites = _g.pop("_sites", None)
             if getattr(a, "_seqv", False) and getattr(a, "dev_seq_ref", None):   # 2026-11-01 (plan 35.30): the sequencing atlas's sphere columns pool every input donor
                 _ins = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "seq_atlas_inputs.csv")

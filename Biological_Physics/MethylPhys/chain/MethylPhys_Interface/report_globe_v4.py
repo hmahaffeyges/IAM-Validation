@@ -204,7 +204,7 @@ def _cell_change(d, ids_ordered, npix, look):
     a = np.clip(np.abs(zv) / 10, 0, 1); c = np.where(np.isfinite(zv), np.where(zv != 0, 128 + np.sign(zv) * np.round(48 + 79 * a), 128), 0)
     return np.repeat(np.clip(c, 0, 255).astype(np.uint8)[..., None], 3, -1), int((np.abs(bz) > line).sum()), int(nb)
 
-def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=None, cell_departures=None):
+def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=None, cell_departures=None, counts=None):
     import pyarrow.parquet as pq
     from matplotlib.colors import ListedColormap
     if not os.path.exists(ORDER): return {"drawn": False, "reason": f"the frozen layout {os.path.relpath(ORDER, CH)} is missing"}
@@ -233,6 +233,9 @@ def build(beta, specimen, shares, out_html=None, z=None, fractions=None, sex=Non
     _ok = {c: np.isfinite(hi_[c]) & np.isfinite(lo_[c]) & np.isfinite(sd_[c]) for c in w}; _wd = sum(w[c] * _ok[c] for c in w)   # 2026-10-23: over the cells with values
     un = sum(w[c] * np.nan_to_num((hi_[c] - lo_[c]) / 3.92) for c in w) / np.maximum(_wd, 1e-12)
     width = np.where(_wd >= 0.99 * sum(w.values()), np.sqrt(sum(w[c] * np.nan_to_num(sd_[c]) ** 2 for c in w) / np.maximum(_wd, 1e-12) + un ** 2), np.nan)[order]
+    if counts is not None:   # 2026-11-01 (plan 35.30): a sequenced sample's own counting at each site, at its expected level (half a read added each side, as the atlas's range)
+        _n = pd.Series(counts, dtype="float64"); _n.index = _n.index.astype(str); _n = _n.reindex(ids).to_numpy()[order]; _e = ref[order]
+        _ej = (_e * _n + 0.5) / (_n + 1); width = np.sqrt(width ** 2 + np.where(_n > 0, _ej * (1 - _ej) / np.maximum(_n, 1), np.nan))
     x = np.where(both & np.isfinite(width) & (width > 0), d / np.where(width > 0, width, np.nan), np.nan); xv = x[np.isfinite(x)]
     med = float(np.median(xv)); mad = float(np.median(np.abs(xv - med))) * 1.4826 or 1.0; zg = (x - med) / mad
     # Blocks, not single sites (2026-10-21, author: "no way the entire globe is lit up"): one site beyond 3 lit 2.1 % of a healthy blood's
