@@ -975,3 +975,8 @@ sequencing):** each cell's reading records copies_per_site (share times the medi
 ceiling on the sorted-cell reading: healthy 1.01136 (bar at least 0.9), half way 0.24266, at one half everywhere 0.03915 (bar at most 0.1);
 the islands in the same order (each sample's readings in the log). Half way reads well below the middle because a site's disorder rises fastest near 0 and 1: the
 gauge is in disorder, not in level. The tumor gauge now reads on sequencing against each sample's own cell of origin.
+
+**The cell-count floor: synthetic met** (`seq_atlas/copies_seq_synthetic.txt`). Every cell's reported copies per site matched the
+Deconvolver's share times the reads (bar 1 met), and the flag fell on exactly the cells below one copy (bar 2 met). Monocytes, planted at
+0.1: 0.272 and 0.618 copies at 4 and 8 reads (flagged), 1.598 and 5.58 at 20 and 60 (not flagged); B cells 3.486 to 53.28, never flagged.
+For plasma this is the measure of which cells a library can speak for.

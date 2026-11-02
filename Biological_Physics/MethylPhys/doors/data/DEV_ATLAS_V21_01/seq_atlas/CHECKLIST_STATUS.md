@@ -32,7 +32,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | D4 | Built: 95 % range and standard error per value, with a counting floor where donors agree exactly; synthetic version 3 met | `sphere_range_synthetic_v3.txt` |
 | D5 | Built: sex chromosomes and poorly mapping probes masked, apodized edges | `stage_seq_atlas.sky_mask_sites` |
 | D6 | Built on the sphere and along the genome; synthetics met | `noise_null_summary.txt`, `noise_spectrum_summary.txt` |
-| D7 | Not yet (needed for plasma) | |
+| D7 | Built: copies of each cell per site behind each in-mix reading on sequencing, flagged below one; synthetic met | `copies_seq_synthetic.txt` |
 | D8 | Not yet as a covariance; the genome-distance spectrum gives its diagonal bands | `noise_spectrum_summary.txt` |
 | D9 | Built at the islands: slope 1.0001 | `DEV_TERRITORIES_01.md` |
 | D10 | Built: shuffled nulls on the sphere; counting map met in 56 of 56 cells | `noise_null_summary.txt` |

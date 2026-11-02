@@ -78,3 +78,4 @@ donor_traits.csv
 donor_traits.txt
 ceiling_seq_synthetic.txt
 ceiling_seq_synthetic.log
+copies_seq_synthetic.txt
