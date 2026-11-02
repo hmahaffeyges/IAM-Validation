@@ -960,3 +960,12 @@ would give if every site's true level were one half, read at the sample's own re
 Derived, nothing fitted; arrays unchanged. **Synthetic first** (`seq_atlas/ceiling_seq_synthetic.py`, through the one command): B-cell
 people drawn from the atlas at a real sample's reads, healthy, half way to one half, and at one half everywhere; bars on the sorted-cell
 distance to the ceiling: healthy at least 0.9, the ceiling sample at most 0.1, half way between.
+
+**The cell-count floor (D7; written and committed before it runs).** The cosmology map's row 3 (cosmic variance: a finite number of
+independent modes) is, in a methylation sample, the finite number of copies of each cell behind a reading: a cell at share f read at n
+reads per site has about f n copies of itself at each site, whatever the depth of the library. Plasma carries few genome copies and small
+tissue shares, so a cell's in-mix reading there can rest on less than one copy per site. **The change (`stage_metaa_atlas.read_in_mix`, on
+sequencing):** each cell's reading records copies_per_site (share times the median reads at its identity sites) and copies_behind_reading
+(share times all those reads), and is flagged below one copy per site (`COPY_FLOOR`, stated). Recorded, not a bar on any sample.
+**Synthetic first** (`seq_atlas/copies_seq_synthetic.py`, through the one command): B cells and monocytes at 0.9 and 0.1, every site at 4,
+8, 20 or 60 reads; bars: copies within 10 % of the Deconvolver's share times n, and the flag on exactly the cells below one copy.

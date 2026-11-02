@@ -325,6 +325,8 @@ READ_COVER_MIN_SEQ = 0.10   # 2026-10-23: on sequencing (read counts given), eac
 READ_COVER_MIN = 0.50   # 2026-10-23: each cell is read when at least half its identity sites are measured, flagged below RULE coverage_min (stated)
 MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
 NOT_FOUND_SHARE = 0.01   # 2026-10-24: below 1 % of the sample a cell is reported as not found; its Met-A is flagged, not withheld (stated)
+COPY_FLOOR = 1.0   # 2026-11-02 (D7, stated): below one copy of a cell per site (its share times the site's reads) a cell's reading is flagged
+
 def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
@@ -368,6 +370,10 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                  shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
         if counts is None: r["ceiling"] = {k: v for k, v in ceiling_reading(x[ok].to_numpy(), e[ok].to_numpy()).items() if k != "A"}   # 2026-10-23
         else: r["ceiling"] = ceiling_counted(A, float(np.nanmean(expected_H_counts(np.full(len(_n), 0.5), _n)) / he), x[ok].to_numpy(), e[ok].to_numpy())   # 2026-11-02 (B8)
+        if counts is not None:   # 2026-11-02 (sequencing atlas checklist D7, the cell-count floor): copies of this cell behind the reading
+            _cp = float(shares[c]) * float(np.median(_n)); r["copies_per_site"] = round(_cp, 3); r["copies_behind_reading"] = round(float(shares[c]) * float(_n.sum()), 1)
+            if _cp < COPY_FLOOR: r["below_cell_count_floor"] = (f"about {_cp:.2f} copies of this cell per site (its share {float(shares[c]):.3f} of {float(np.median(_n)):g} "
+                                                               f"reads): fewer than {COPY_FLOOR:g}, so most sites carry none of this cell's DNA")
         out["cells"].append(r)
     return out
 
