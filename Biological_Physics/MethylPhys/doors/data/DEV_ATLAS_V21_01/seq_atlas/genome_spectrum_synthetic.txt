@@ -1,0 +1,6 @@
+read by run_sample.py --build seq-noise-spectrum on constructed noise columns (seed 20261115)
+plain, map 1: [-0.0007, 0.00143, -0.00035, -0.00029, 0.00061, 0.00078]
+blocks, map 1: [0.20204, 0.20239, 0.19677, 0.12707, 0.00046, 0.00251]
+bar 1 plain, |correlation| at most 0.01 in every band: met
+bar 2 blocks, at least 0.1 under 100 kb and the 10 to 100 Mb band at most a quarter of 10 to 100 kb: met
+synthetic: met

@@ -362,7 +362,8 @@ def range_of_average(meth, reads, donor_sd, k):
     return p, np.clip(p - q * se, 0, 1), np.clip(p + q * se, 0, 1), se
 
 def sphere_columns(out, cols=None, inputs=None):
-    """The sky sphere's input in IAM-Atlas v2.1's layout (sites.parquet; mu, mu_lo, mu_hi in three parts, uint16 x 10,000, 65535 blank):
+    """The sky sphere's input in IAM-Atlas v2.1's layout (sites.parquet; mu, mu_lo, mu_hi and mu_se (2026-11-01: the standard error) in three
+    parts, uint16 x 10,000, 65535 blank):
     mu is each cell's pooled level, mu_lo and mu_hi the 95 % range of its average (range_of_average). The donor count is the cell's
     number of healthy inputs (seq_atlas_inputs.csv); a site measured by fewer of them is not told apart (stated)."""
     import pandas as pd, pyarrow as pa, pyarrow.parquet as pq, shutil, json as _j, stage_metaa_atlas as SA
@@ -371,12 +372,12 @@ def sphere_columns(out, cols=None, inputs=None):
     shutil.copy(os.path.join(SA.ATLAS, "sites.parquet"), os.path.join(out, "sites.parquet")); one = []; dec = lambda a: np.where(a == BLANK, np.nan, a.astype("float64"))
     enc = lambda x: np.where(np.isfinite(x), np.rint(np.clip(x, 0, 1) * 1e4), BLANK).astype(np.uint16)
     for part in (1, 2, 3):
-        R = {t: pq.read_table(os.path.join(cols, f"{t}_part{part}.parquet")) for t in ("meth", "reads", "donor_sd")}; M, L, Hh = {}, {}, {}
+        R = {t: pq.read_table(os.path.join(cols, f"{t}_part{part}.parquet")) for t in ("meth", "reads", "donor_sd")}; M, L, Hh, SE = {}, {}, {}, {}
         for c in R["reads"].column_names:
             k = int(K.get(c, 1)); (one.append(c) if k < 2 else None)
             sd = dec(R["donor_sd"].column(c).to_numpy()) / 1e4
-            p, lo, hi, _se = range_of_average(dec(R["meth"].column(c).to_numpy()), dec(R["reads"].column(c).to_numpy()), sd, k); M[c], L[c], Hh[c] = enc(p), enc(lo), enc(hi)
-        for t, D in (("mu", M), ("mu_lo", L), ("mu_hi", Hh)): pq.write_table(pa.table(D), os.path.join(out, f"{t}_part{part}.parquet"), compression="zstd")
+            p, lo, hi, _se = range_of_average(dec(R["meth"].column(c).to_numpy()), dec(R["reads"].column(c).to_numpy()), sd, k); M[c], L[c], Hh[c], SE[c] = enc(p), enc(lo), enc(hi), enc(_se)
+        for t, D in (("mu", M), ("mu_lo", L), ("mu_hi", Hh), ("mu_se", SE)): pq.write_table(pa.table(D), os.path.join(out, f"{t}_part{part}.parquet"), compression="zstd")
     rep = dict(cells=sum(len(pq.read_schema(os.path.join(out, f"mu_part{k}.parquet")).names) for k in (1, 2, 3)), one_donor_counting_only=sorted(one),
                level="pooled (meth over reads)", range="95 % of the cell's average: donor spread / sqrt(donors) times t(0.975, donors - 1), or counting only (1.96) for one donor")
     _j.dump(rep, open(os.path.join(out, "sphere_cols.json"), "w"), indent=1); return rep

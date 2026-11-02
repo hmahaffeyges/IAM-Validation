@@ -412,7 +412,7 @@ def _build(a):
         print(f"Build: {spec['id']} globe spec, {sum(len(g['layers']) for g in spec['groups'])} layers -> {a.build_out}"); return 0
     if a.build == "seq-sphere-cols":   # 2026-11-01 (plan 35.30, checklist D4, development): the sky sphere's input from the IAM Sequencing Atlas
         import stage_seq_atlas as _SQs
-        rep = dict(_SQs.sphere_columns(a.build_out or _SQs.SPHERE_DIR), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        rep = dict(_SQs.sphere_columns(a.build_out or _SQs.SPHERE_DIR, a.build_input, a.build_samples), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps(rep, default=str)); return 0
     if a.build == "seq-atlas-sphere":   # 2026-11-01 (plan 35.30, checklist C1, development): the IAM Sequencing Atlas on the sky sphere

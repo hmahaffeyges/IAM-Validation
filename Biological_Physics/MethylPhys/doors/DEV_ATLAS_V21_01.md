@@ -818,3 +818,17 @@ job:** values with no regional structure read no correlation; values that share 
 under 100 kb, and beyond 10 Mb at most a quarter of the 10 to 100 kb band. **Then the real maps, one bar:** the counting-only map (map 2),
 the median cell's correlation at most 0.02 in every band. Recorded, not scored: the donor-half map (map 1), the genomic size of the
 regions over which healthy people differ.
+
+**Three synthetics, read again through the one command (disclosed).** The range synthetic and the sky-null synthetic recorded above
+called chain functions directly instead of running `run_sample.py`; the push gate refused the same shortcut in the genome-distance
+synthetic. All three now build constructed inputs in the committed layout and read them with the one command (`--build seq-sphere-cols`,
+`--build seq-noise-null`, `--build seq-noise-spectrum`); the seeds, truths and bars are unchanged. The column build now also writes each
+value's standard error (`mu_se`) and takes a constructed folder and inputs list. The earlier results stand as recorded until the re-reads
+land, which are recorded below whatever they show.
+
+**A committed script was empty (mine, disclosed).** `seq_atlas/sphere_widths.py` was committed empty: a spelling fix opened the file for
+writing before reading it. Its output (`sphere_widths.txt`, `sphere_widths.csv`) was written by the full script before that; the script is
+restored and reproduces both files exactly.
+
+**The range synthetic through the one command: met** (`seq_atlas/sphere_range_synthetic.txt`): two donors 1.005 and 0.948, three donors
+1.007 and 0.948, the same as the first reading. The sphere columns are rebuilt with `mu_se`; the widths and the bridge reproduce unchanged.
