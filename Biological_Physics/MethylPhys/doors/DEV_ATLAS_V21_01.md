@@ -809,3 +809,12 @@ drew in part on the same published sequencing atlas, so close agreement is expec
 below v2.1's in all 56 cells (median -0.0316; median absolute difference 0.0267), so v2.1's value falls inside the sequencing atlas's
 95 % range at 0.8048 of sites. This is the array-to-sequencing platform difference, now measured cell by cell; the readings on
 sequencing use the sequencing atlas, so it does not enter them.
+
+**The genome-distance spectrum (written and committed before it runs; checklist D6).** The same noise maps, read along the genome
+(`stage_seq_atlas.genome_spectrum`, `noise_spectrum`; `run_sample.py --build seq-noise-spectrum`): the correlation of two sites' values
+by the distance between them, in bands from under 1 kb to 10 to 100 Mb, at the autosome sites the sky masks keep. **The instrument's
+job:** values with no regional structure read no correlation; values that share regions read one within the region that falls beyond it.
+**Synthetic first** (`seq_atlas/genome_spectrum_synthetic.py`, constructed noise columns read by the one command): plain noise at most 0.01 in every band; planted 1 Mb blocks at least 0.1
+under 100 kb, and beyond 10 Mb at most a quarter of the 10 to 100 kb band. **Then the real maps, one bar:** the counting-only map (map 2),
+the median cell's correlation at most 0.02 in every band. Recorded, not scored: the donor-half map (map 1), the genomic size of the
+regions over which healthy people differ.

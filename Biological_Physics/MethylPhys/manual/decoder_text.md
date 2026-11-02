@@ -2385,6 +2385,12 @@ The exact expected disorder of a site's reads drawn down to fewer reads without 
 ### stage_seq_atlas.py::bridge
 Each cell's sequencing level against IAM-Atlas v2.1's at the sites both measure (`--build seq-bridge`).
 
+### stage_seq_atlas.py::genome_spectrum
+The correlation of a map's values at two sites by the genome distance between them, in distance bands.
+
+### stage_seq_atlas.py::noise_spectrum
+Every cell's two noise maps read by genome_spectrum (`--build seq-noise-spectrum`).
+
 ### stage_seq_atlas.py::sky_mask_sites
 The sites the sky statistics leave out: the sex chromosomes and the probes that cannot be placed uniquely in the genome.
 

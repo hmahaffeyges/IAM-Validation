@@ -474,6 +474,35 @@ def bridge(cols=None):
                              median_abs_diff=round(float(np.median(np.abs(d))), 4), inside_range=round(float(((v[ok] >= lo[ok]) & (v[ok] <= hi[ok])).mean()), 4)))
     return rows
 
+GD_BINS = (0, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8)   # genome-distance bands (bases): under 1 kb, 1 to 10 kb, ... 10 to 100 Mb (stated)
+GD_OFFSETS = tuple(sorted({int(round(1.5 ** k)) for k in range(0, 26)}))   # pairs: each site with the sites this many places further along its chromosome
+
+def genome_spectrum(v, chrom, pos, bins=GD_BINS, offsets=GD_OFFSETS):
+    """2026-11-01 (checklist D6; derived, nothing fitted): the correlation of a map's values at two sites, by the genome distance between
+    them. Sites sorted by chromosome and position; each site paired with the sites `offsets` places further along on the same chromosome;
+    values centered on the map's mean and scaled by its spread; per distance band, the mean product of the pair (the correlation) and the
+    pairs counted. Blank values are left out."""
+    import pandas as pd
+    D = pd.DataFrame(dict(v=np.asarray(v, "float64"), c=np.asarray(chrom, dtype=object), p=np.asarray(pos, "float64"))).dropna().sort_values(["c", "p"])
+    z = ((D.v - D.v.mean()) / D.v.std()).to_numpy(); c = D.c.to_numpy(); ps = D.p.to_numpy(); nb = len(bins) - 1; S_ = np.zeros(nb); N_ = np.zeros(nb)
+    for k in offsets:
+        if k >= len(z): break
+        same = c[k:] == c[:-k]; d = (ps[k:] - ps[:-k])[same]; pr_ = (z[k:] * z[:-k])[same]; b = np.digitize(d, bins) - 1; ok = (b >= 0) & (b < nb)
+        S_ += np.bincount(b[ok], pr_[ok], nb); N_ += np.bincount(b[ok], minlength=nb)
+    return dict(bins=[(int(bins[i]), int(bins[i + 1])) for i in range(nb)], corr=[round(float(S_[i] / N_[i]), 5) if N_[i] else None for i in range(nb)], pairs=[int(x) for x in N_])
+
+def noise_spectrum(cols=None):
+    """Every cell's two noise maps read by genome_spectrum, at the autosome sites kept by sky_mask_sites; rows per cell and map."""
+    import pyarrow.parquet as pq, stage_metaa_atlas as SA
+    ids = pq.read_table(os.path.join(SA.ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe").reindex(ids)
+    keep = ~sky_mask_sites(ids) & K.chrom_hg19.notna().to_numpy(); M, _r = noise_maps(cols); rows = []
+    for c, (m1, m2) in M.items():
+        for name, v in (("map1 donor halves", m1), ("map2 read halves", m2)):
+            if np.isfinite(v[keep]).sum() < 1000: continue
+            r = genome_spectrum(v[keep], K.chrom_hg19.to_numpy()[keep], K.pos_hg19.to_numpy()[keep]); rows.append(dict(cell=c, map=name, corr=r["corr"], pairs=r["pairs"]))
+    return rows
+
 TERR_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "terr_half_counts")   # terr_half_counts_v1.parquet
 TERR_FILE = None   # 2026-11-01: a constructed per-half island counts file (run_sample.py --dev-terr-counts), for synthetics
 
