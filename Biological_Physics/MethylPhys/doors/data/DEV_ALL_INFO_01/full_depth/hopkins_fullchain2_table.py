@@ -38,11 +38,13 @@ L = [f"Johns Hopkins leukemia study, full working chain on sequencing: {d[num].n
 for k, g in d.groupby("genotype"):
     L.append(f"  {k} ({len(g)}): " + "; ".join(f"{c} {pd.to_numeric(g[c], errors='coerce').median():.4f}" for c in num if pd.to_numeric(g[c], errors="coerce").notna().any()))
 import subprocess   # version 2: Group-A, the chain's own (stage_groupa collect and compare), leukemia against cord-blood B cells
-GA = os.path.join(H, "..", "..", "..", "..", "..", "chain", "stage_groupa.py"); W2 = os.path.dirname(os.path.abspath(sys.argv[2]))
+GA = os.path.join(H, "..", "..", "..", "..", "chain", "stage_groupa.py"); assert os.path.exists(GA), GA
+# 2026-11-02: four folders up (the first version went five, so Group-A did not run)
+W2 = os.path.dirname(os.path.abspath(sys.argv[2]))
 G = S[S.genotype.isin(["leukemia", "cord-blood B cells"])].assign(id=lambda x: x.gsm, healthy_reference=lambda x: x.genotype.eq("cord-blood B cells"))
 G.to_csv(os.path.join(W2, "groupa_hopkins.csv"), index=False)
 subprocess.run([sys.executable, GA, "collect", sys.argv[1], os.path.join(W2, "groupa_hopkins.csv"), os.path.join(W2, "groupa_hopkins_rows.csv"), "sorted"], capture_output=True, text=True)
-ga = subprocess.run([sys.executable, GA, "compare", os.path.join(W2, "groupa_hopkins_rows.csv"), "genotype", "leukemia", "cord-blood B cells"], capture_output=True, text=True).stdout.strip()
+ga_ = subprocess.run([sys.executable, GA, "compare", os.path.join(W2, "groupa_hopkins_rows.csv"), "genotype", "leukemia", "cord-blood B cells"], capture_output=True, text=True); ga = (ga_.stdout.strip() or ("Group-A did not run: " + ga_.stderr.strip()[-400:]))
 L.append("Group-A, leukemia against cord-blood B cells (B-cell reading, tared on the cord blood):"); L += ["  " + x for x in ga.splitlines()]
 L.append("not run (samples): " + (", ".join(f"{k} {v}" for k, v in sorted(nr.items())) or "none"))
 open(sys.argv[3], "w").write("\n".join(L) + "\n"); print("\n".join(L))

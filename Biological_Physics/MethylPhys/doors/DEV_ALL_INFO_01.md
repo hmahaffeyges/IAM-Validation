@@ -283,3 +283,7 @@ same 36 samples, the same pieces and settings** (`full_depth/hopkins_fullchain_s
 each. **Table:** `full_depth/hopkins_fullchain2_table.py` (every reading of the first table, plus the tumor gauge on the B-cell reading and
 the islands, the B-cell copies per site, and Group-A, leukemias against the healthy cord-blood B cells). No bar; readings as the chain
 gives them.
+
+**The second reading's first scoring: Group-A did not run (mine, disclosed)** (`full_depth/hopkins_fullchain2_first_scoring.txt`). The
+table script looked for Group-A's code one folder too high, so the comparison did not run and printed nothing; every other reading is in
+the table. Fixed (the path, and the script now says why if Group-A does not run); the same bundles scored again.
