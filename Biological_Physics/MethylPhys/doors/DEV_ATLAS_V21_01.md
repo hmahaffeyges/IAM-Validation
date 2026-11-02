@@ -308,7 +308,7 @@ lists the sealed cancer tests used, and U2b: the same rule on v2.1; each panel c
 anchor at >= 0.90 of sites. U3: composition bars 1-2 unchanged. U4: development. Planted test of every scorer, run once: PASSED (a correct atlas reads
 0.9261 coverage; intervals too narrow 0.7336, a shifted laboratory 0.5730 and too wide 1.0000 all FAILED as planted; a disagreeing panel cell 0.7172 FAILED).
 **Original synthetic test (2026-10-14; superseded 2026-10-16 by the amended scorer's planted test below, kept as history):** DEV_ATLAS_V21_01/planted_commission_v21.py, DEV_ATLAS_V21_01/planted_commission_v21_summary.txt
-**Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened. GSE87197 (GSE87196's megakaryocytes) donors 1 and 2 are spent (the absorption test and the provisional column's test) and are read again to build the sequencing atlas's megakaryocyte column; donor 3 is unread.
+**Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened. GSE87197 (GSE87196's megakaryocytes) donors 1 and 2 are spent (the absorption test and the provisional column's test) and are read again to build the sequencing atlas's megakaryocyte column; donor 3 is unread. GSE223153 (outside healthy pancreas, sequencing) was read through the chain for the healthy test of Met-A on sequencing, before it is named here.
 
 ## Amendment to the commissioning bars, sealed 2026-10-16 before the atlas exists
 
@@ -718,3 +718,16 @@ before it ran, new seed): the same four with the third against donor half B, whi
 **IAM-A in the mix, synthetic run 2: met** (`seq_atlas/iama_mix_synthetic.txt`): b cells alone 0.9927, the plasma-like mix 0.99126, the
 mix against donor half B 0.99343 (all within 0.02 of 1), every rate raised 20 % 1.1898 (within 0.03 of 1.2), about 14,000 tiles each.
 **Next:** healthy sequenced inputs read against the other donor half, through the one command.
+
+## The IAM Sequencing Atlas on the sky sphere: each cell's level and its 95 % range (written and committed before it runs)
+
+**Why now:** the chain's readings on sequencing read healthy sequenced cells Normal (Met-A in each cell and the whole sample, the
+territories, the C-Score, coupling-A, IAM-A), so the atlas's own checklist comes next, the spheres first (`seq_atlas/SEQ_ATLAS_CHECKLIST.md`,
+C1 and D4). **The instrument's job:** each cell's map shows its healthy level at every site the atlas places, beside a map of how sure that
+level is. **Derived, nothing fitted** (`stage_seq_atlas.range_of_average`, `sphere_columns`; `run_sample.py --build seq-sphere-cols`): the
+level is the pooled count (methylated over all reads, as the readings use); the 95 % range of the cell's average is the donors' spread over
+the square root of their number, times the t quantile for that many donors (two donors give a wide range, honestly); one donor, or a site
+where the spread is blank, gives counting only (stated: it does not hold the person-to-person part). **Synthetic:**
+`seq_atlas/sphere_range_synthetic.py`; bars for two and three donors: the stated variance within 0.9 to 1.1 of the true scatter, and the
+range covering the truth 90 % to 99 % of the time. **Then:** the columns built, and the sphere drawn by the same builder as IAM-Atlas v2.1's
+(`--build seq-atlas-sphere`), named as the sequencing atlas and without v2.1's cell-page check.

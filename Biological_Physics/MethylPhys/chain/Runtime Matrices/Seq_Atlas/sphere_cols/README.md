@@ -1,0 +1,1 @@
+The IAM Sequencing Atlas's sky-sphere input in IAM-Atlas v2.1's layout (stage_seq_atlas.sphere_columns; run_sample.py --build seq-sphere-cols): each cell's pooled level and the 95 % range of its average. Development (plan 35.30).

@@ -344,6 +344,41 @@ def metaa_half_counts(samples_csv, out, ref=None):
     T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
     return dict(inputs=len(used), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
 
+SPHERE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "sphere_cols")   # the sky sphere's input
+
+def range_of_average(meth, reads, donor_sd, k):
+    """2026-11-01 (checklist D4, derived, nothing fitted): each cell's pooled level at a site (meth over reads) and the 95 % range of the
+    cell's average, by counting and donors. Two or more donors: standard error = donor spread (the sample standard deviation of the donors'
+    levels, which already holds each donor's counting; the build leaves it blank where fewer than two donors measured the site) over the
+    square root of the number of donors, the range level +/- t(0.975, k - 1) standard errors (the average of k donors: 12.71 for two, 4.30
+    for three). One donor, or a blank spread: counting only, sqrt(p (1 - p) / reads), +/- 1.96. Held inside 0 and 1. Returns level, lo, hi
+    and the standard error, in levels (0..1); NaN where unmeasured."""
+    from scipy.stats import t as _t
+    meth = np.asarray(meth, "float64"); reads = np.asarray(reads, "float64"); p = np.where(reads > 0, meth / np.maximum(reads, 1), np.nan)
+    sd = np.asarray(donor_sd, "float64"); cnt = np.sqrt(p * (1 - p) / np.maximum(reads, 1)); don = np.isfinite(sd) & (k >= 2)
+    se = np.where(don, sd / np.sqrt(max(k, 1)), cnt); q = np.where(don, _t.ppf(0.975, max(k - 1, 1)), 1.959964)
+    return p, np.clip(p - q * se, 0, 1), np.clip(p + q * se, 0, 1), se
+
+def sphere_columns(out, cols=None, inputs=None):
+    """The sky sphere's input in IAM-Atlas v2.1's layout (sites.parquet; mu, mu_lo, mu_hi in three parts, uint16 x 10,000, 65535 blank):
+    mu is each cell's pooled level, mu_lo and mu_hi the 95 % range of its average (range_of_average). The donor count is the cell's
+    number of healthy inputs (seq_atlas_inputs.csv); a site measured by fewer of them is not told apart (stated)."""
+    import pandas as pd, pyarrow as pa, pyarrow.parquet as pq, shutil, json as _j, stage_metaa_atlas as SA
+    cols = cols or ARRAY_COLS; inputs = inputs or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "seq_atlas_inputs.csv")
+    I = pd.read_csv(inputs); K = I.groupby(I.cell.str.strip()).size().to_dict(); os.makedirs(out, exist_ok=True)
+    shutil.copy(os.path.join(SA.ATLAS, "sites.parquet"), os.path.join(out, "sites.parquet")); one = []; dec = lambda a: np.where(a == BLANK, np.nan, a.astype("float64"))
+    enc = lambda x: np.where(np.isfinite(x), np.rint(np.clip(x, 0, 1) * 1e4), BLANK).astype(np.uint16)
+    for part in (1, 2, 3):
+        R = {t: pq.read_table(os.path.join(cols, f"{t}_part{part}.parquet")) for t in ("meth", "reads", "donor_sd")}; M, L, Hh = {}, {}, {}
+        for c in R["reads"].column_names:
+            k = int(K.get(c, 1)); (one.append(c) if k < 2 else None)
+            sd = dec(R["donor_sd"].column(c).to_numpy()) / 1e4
+            p, lo, hi, _se = range_of_average(dec(R["meth"].column(c).to_numpy()), dec(R["reads"].column(c).to_numpy()), sd, k); M[c], L[c], Hh[c] = enc(p), enc(lo), enc(hi)
+        for t, D in (("mu", M), ("mu_lo", L), ("mu_hi", Hh)): pq.write_table(pa.table(D), os.path.join(out, f"{t}_part{part}.parquet"), compression="zstd")
+    rep = dict(cells=sum(len(pq.read_schema(os.path.join(out, f"mu_part{k}.parquet")).names) for k in (1, 2, 3)), one_donor_counting_only=sorted(one),
+               level="pooled (meth over reads)", range="95 % of the cell's average: donor spread / sqrt(donors) times t(0.975, donors - 1), or counting only (1.96) for one donor")
+    _j.dump(rep, open(os.path.join(out, "sphere_cols.json"), "w"), indent=1); return rep
+
 TERR_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "terr_half_counts")   # terr_half_counts_v1.parquet
 TERR_FILE = None   # 2026-11-01: a constructed per-half island counts file (run_sample.py --dev-terr-counts), for synthetics
 

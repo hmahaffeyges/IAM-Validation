@@ -101,7 +101,7 @@ def manifests():
         print("manifest", name, "from", f[0], flush=True)
     return d
 
-def atlas_sphere(out, atlas, man, cells_index=None):
+def atlas_sphere(out, atlas, man, cells_index=None, name="IAM-Atlas v2.1", pages=True):   # 2026-11-01: name and pages (the IAM Sequencing Atlas has no cell pages)
     import pyarrow.parquet as pq, sky_maps_v21 as SM
     from stage_v4 import nest_pix2ang
     from scipy.spatial import cKDTree
@@ -125,11 +125,11 @@ def atlas_sphere(out, atlas, man, cells_index=None):
             cells.append(dict(cell=c, slug=s, pixels_measured=int(np.isfinite(mu).sum()))); print(c, flush=True)
     cells.sort(key=lambda x: x["cell"].lower())
     # the layout must be the cell pages' own: every cell's measured-pixel count equal to website/art/out/cells/index.json
-    ix = {c["slug"]: c.get("pixels_measured") for c in json.load(open(cells_index or os.path.join(REPO, "website", "art", "out", "cells", "index.json")))["cells"]}
+    ix = {c["slug"]: c.get("pixels_measured") for c in json.load(open(cells_index or os.path.join(REPO, "website", "art", "out", "cells", "index.json")))["cells"]} if pages else {}
     bad = [(c["slug"], c["pixels_measured"], ix.get(c["slug"])) for c in cells if ix.get(c["slug"]) != c["pixels_measured"]]
-    print(f"layout check against the cell pages: {len(cells) - len(bad)} of {len(cells)} cells identical" + (f"; DIFFER: {bad[:5]}" if bad else ""), flush=True)
-    if bad: sys.exit("make_sphere_3d: the layout differs from the cell pages' maps; textures not written as the record")
-    json.dump(dict(atlas="IAM-Atlas v2.1", nside=SM.NSIDE, order="NESTED", pixels=SM.NPIX, sites=len(ids), unplaced=unplaced, texture=[W, HT],
+    if pages: print(f"layout check against the cell pages: {len(cells) - len(bad)} of {len(cells)} cells identical" + (f"; DIFFER: {bad[:5]}" if bad else ""), flush=True)
+    if bad and pages: sys.exit("make_sphere_3d: the layout differs from the cell pages' maps; textures not written as the record")
+    json.dump(dict(atlas=name, nside=SM.NSIDE, order="NESTED", pixels=SM.NPIX, sites=len(ids), unplaced=unplaced, texture=[W, HT],
                    value_scale=[0, 1], uncertainty_scale=[0, HW_MAX], source="run_sample.py --build atlas-sphere (chain/MethylPhys_Interface/reference_globes.py)", cells=cells),
               open(os.path.join(out, "sphere.json"), "w"), indent=1)
     print(f"sphere: {len(cells)} cells written to {out}")

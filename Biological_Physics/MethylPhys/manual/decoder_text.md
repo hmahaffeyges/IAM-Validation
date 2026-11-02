@@ -2382,6 +2382,13 @@ The islands read with that expectation, against the donor half given, both sides
 ### stage_metaa_atlas.py::thin_H
 The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
 
+### stage_seq_atlas.py::range_of_average
+Each cell's pooled level at a site and the 95 % range of the cell's average: donor spread over the square root of the donors times the t
+quantile, or counting only for one donor.
+
+### stage_seq_atlas.py::sphere_columns
+The sky sphere's input from the IAM Sequencing Atlas, in IAM-Atlas v2.1's layout (`--build seq-sphere-cols`).
+
 ### stage_seq_atlas.py::terr_half_counts
 Each cell's reads at every island site in each sealed donor half (`--build seq-terr-halves`).
 
