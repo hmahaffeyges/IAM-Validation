@@ -1,0 +1,4 @@
+IAM Sequencing Atlas sky sphere: half-width of each cell's 95 % range (median over the cells in each group)
+1 donor(s): 3 cells, half-width 0.0524, share past the 0.15 scale 0.085
+2 donor(s): 9 cells, half-width 0.2056, share past the 0.15 scale 0.590
+3 donor(s): 44 cells, half-width 0.0783, share past the 0.15 scale 0.265

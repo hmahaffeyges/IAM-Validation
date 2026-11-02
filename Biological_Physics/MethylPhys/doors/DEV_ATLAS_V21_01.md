@@ -737,3 +737,10 @@ scatter, coverage 0.948; three donors: 1.007 and 0.948. One donor, counting only
 one-donor cell's map shows less doubt than it carries. Built by the one command (`--build seq-sphere-cols`;
 `chain/Runtime Matrices/Seq_Atlas/sphere_cols/sphere_cols.json`): 56 cells, three of them one-donor (effector memory CD8 T cells, naive
 CD4 T cells, naive CD8 T cells). The sphere is drawn next on a Google spot machine with the chain's own requirements.
+
+**The IAM Sequencing Atlas on the sky sphere: drawn** (`run_sample.py --build seq-atlas-sphere` on a Google spot machine; 56 cells, the same
+builder, layout and color scales as IAM-Atlas v2.1's sphere; 813951 sites, 1 unplaced). The level maps show the same large-scale
+structure as v2.1's. The uncertainty maps (`seq_atlas/sphere_widths.py`, `seq_atlas/sphere_widths.txt`) show the ruler's depth honestly:
+the median half-width of the 95 % range is 0.2056 for the 9 two-donor cells, past the 0.15 scale at 0.590 of their sites, and 0.0783 for
+the 44 three-donor cells (0.265 past it); the 3 one-donor cells (0.0524) carry counting only. The scale is kept at v2.1's so the two atlases
+read alike: the bright areas are where more healthy donors are needed.

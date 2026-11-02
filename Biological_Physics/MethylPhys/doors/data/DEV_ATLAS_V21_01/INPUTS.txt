@@ -33,3 +33,5 @@ sky_seq_synthetic_run2.txt
 iama_mix_synthetic_run1.txt
 seq_table_synthetic.txt
 sphere_range_synthetic.txt
+sphere_widths.csv
+sphere_widths.txt
