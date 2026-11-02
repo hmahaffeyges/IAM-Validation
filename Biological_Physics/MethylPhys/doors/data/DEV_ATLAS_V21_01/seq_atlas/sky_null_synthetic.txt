@@ -1,0 +1,14 @@
+sites 813951, placed 813950, masked 35560
+plain 1: bands above null [1], ratio [0.7614, 1.1124, 0.9687, 0.9851, 1.0031, 0.9895]
+planted 1: bands above null [0, 1, 2], ratio [594.138, 9.2361, 1.3714, 0.8699, 0.8322, 0.8158]
+plain 2: bands above null [], ratio [0.9091, 1.1011, 1.0235, 0.9804, 0.9971, 0.9787]
+planted 2: bands above null [0, 1, 2], ratio [591.929, 9.878, 1.4083, 0.8616, 0.8289, 0.8021]
+plain 3: bands above null [], ratio [1.1187, 0.9117, 1.0071, 0.9821, 1.0057, 0.9887]
+planted 3: bands above null [0, 1, 2], ratio [579.7969, 9.2765, 1.4635, 0.8743, 0.8328, 0.8132]
+plain 4: bands above null [], ratio [0.9066, 1.071, 1.0203, 0.9853, 0.9685, 1.0069]
+planted 4: bands above null [0, 1, 2], ratio [545.6738, 9.8993, 1.4351, 0.8706, 0.8032, 0.8271]
+plain 5: bands above null [], ratio [1.2017, 1.0525, 0.9546, 0.9927, 0.9896, 0.9923]
+planted 5: bands above null [0, 1, 2], ratio [535.958, 8.9104, 1.3658, 0.8789, 0.8227, 0.8172]
+bar 1 plain noise, at most one band above its null in each: [1, 0, 0, 0, 0]: met
+bar 2 planted change, lowest band above its null in all five: [True, True, True, True, True]: met
+synthetic: met

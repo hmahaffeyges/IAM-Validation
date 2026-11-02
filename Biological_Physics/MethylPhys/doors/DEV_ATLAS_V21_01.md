@@ -789,3 +789,12 @@ the donor-half map (map 1) of every cell.
 healpy 1.16.6, which imports a function scipy 1.17.1 (also pinned) no longer has, so the sky statistics could not run on a fresh install.
 The pin is moved to healpy 1.17.3, checked with the chain's numpy and scipy (white noise reads 0.996 of its variance, as expected).
 Nothing was read; the synthetic and its bars are unchanged.
+
+**The null test: synthetic met; the counting map met; healthy people differ by region** (`seq_atlas/sky_null_synthetic.txt`,
+`seq_atlas/noise_null.csv`, `seq_atlas/noise_null_summary.py`, `seq_atlas/noise_null_summary.txt`). Synthetic: plain noise had at most one
+band above its null in each of 5 maps; the planted change lifted the lowest band in all 5. Real: the counting-only map (map 2) has at most
+one band above its null in every one of the 56 cells (bar: 90 %), its power 0.982 to 0.985 of the null across the bands. The donor-half map (map 1)
+lies above its null in 4 to 6 bands in all 48 cells with both halves: median 2.574 and 2.912 times the null at the largest scales, falling
+to 0.988 at the finest. Healthy people differ from one another over large stretches of the genome, not site by site; strongest in
+breast luminal epithelium, pancreatic acinar cells and cortical neurons. This is the person-to-person part the readings already carry
+through their donor references; it is the measured case for more donors per cell.

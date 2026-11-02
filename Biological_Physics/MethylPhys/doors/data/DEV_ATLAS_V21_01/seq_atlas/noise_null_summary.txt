@@ -1,0 +1,3 @@
+map1 donor halves: 48 cells; at most one band above its null: 0.000; median power over the null by band (multipoles 2-8 ... 192-255): 2.574 2.912 1.838 1.273 1.078 0.988
+map2 read halves: 56 cells; at most one band above its null: 1.000; median power over the null by band (multipoles 2-8 ... 192-255): 0.985 0.984 0.983 0.984 0.984 0.982
+map1, largest power at multipoles 2-8: cortical neurons 7.833; pancreatic acinar 9.787; breast luminal epithelium 9.849

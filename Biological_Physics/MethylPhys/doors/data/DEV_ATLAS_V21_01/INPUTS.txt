@@ -44,3 +44,7 @@ noise_sphere.json
 noise_sphere_cells.csv
 noise_by_chrom.csv
 noise_by_chrom.txt
+sky_null_synthetic.txt
+noise_null.csv
+noise_null.json
+noise_null_summary.txt
