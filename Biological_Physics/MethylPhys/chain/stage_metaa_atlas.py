@@ -234,6 +234,12 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
         pd.DataFrame(dict(site=mu[ok].index, reads=_n2.to_numpy(), sample_level=x[ok].to_numpy(), reference_level=mu[ok].to_numpy(),
                           H_measured=np.asarray(_hm if "_hm" in locals() else _H(x[ok]), dtype="float64"), H_expected=np.asarray(_e if rec.get("expectation_counted") else expected_H_counts(mu[ok].to_numpy(), _n2.to_numpy()), dtype="float64"))).to_csv(SITE_OUT, index=False)
         rec["sites_table"] = os.path.basename(SITE_OUT)
+    if counts is not None:   # 2026-11-02 (B8): the distance to the entropy ceiling, counted the same way as A
+        _nc = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy()
+        if "_hmean" in locals():
+            _hh, _ = donor_pair(np.rint(0.5 * _nc).astype("int64"), _nc, _Md, _Nd); _As = float(np.nanmean(_hh[_g]) / href)
+        else: _As = float(np.nanmean(expected_H_counts(np.full(len(_nc), 0.5), _nc)) / href)
+        rec["ceiling"] = ceiling_counted(A, _As, x[ok].to_numpy(), mu[ok].to_numpy())
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
     rec.update(A=round(A, 5), n_sites=int(ok.sum()), H_ref_atlas=round(href, 5),
                shift_per_1pct_loss=round(float(_H(xd).mean() / _H(x[ok]).mean() * A - A), 5),
@@ -361,6 +367,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5), expectation_rule=f"mixed over the cells with an atlas value; site kept at >= {MIX_COVER:.0%} of the shares",
                  shift_per_1pct_loss=round(float(_H(xd).mean() / he - A), 5), state="untared")
         if counts is None: r["ceiling"] = {k: v for k, v in ceiling_reading(x[ok].to_numpy(), e[ok].to_numpy()).items() if k != "A"}   # 2026-10-23
+        else: r["ceiling"] = ceiling_counted(A, float(np.nanmean(expected_H_counts(np.full(len(_n), 0.5), _n)) / he), x[ok].to_numpy(), e[ok].to_numpy())   # 2026-11-02 (B8)
         out["cells"].append(r)
     return out
 
@@ -509,6 +516,19 @@ def ceiling_reading(xs, es, w=None):
                 turnover_share=round(float((w * crossed).sum() / w.sum()), 5), methylated_sites_mean_beta=None if m is None else round(m, 4),
                 past_entropy_ceiling=None if m is None else bool(m < 0.5), rule="(A_sat - A) / (A_sat - 1); A_sat = sum w / sum w H(e)")
 
+def ceiling_counted(A, A_sat, x, e):
+    """2026-11-02 (sequencing atlas checklist B8, development): the distance to the entropy ceiling on sequencing, where the reading is counted.
+    A_sat is the reading the sample would give if every site's true level were one half, read at the sample's own reads by the same
+    expectation as A (derived, nothing fitted); the rest as ceiling_reading: distance (A_sat - A) / (A_sat - 1), 1 at the healthy expectation
+    and 0 at the ceiling; headroom used; the share of sites whose level has crossed one half from its healthy side."""
+    x = np.asarray(x, dtype="float64"); e = np.asarray(e, dtype="float64"); ok = np.isfinite(x) & np.isfinite(e); x, e = x[ok], e[ok]
+    if A is None or A_sat is None or not np.isfinite(A_sat) or len(x) < 100: return {"reason": "no counted ceiling"}
+    crossed = ((e > 0.5) & (x < 0.5)) | ((e < 0.5) & (x > 0.5)); hi = e > 0.5; m = float(x[hi].mean()) if hi.any() else None
+    return dict(A_sat=round(float(A_sat), 4), distance_to_ceiling=round((A_sat - A) / (A_sat - 1), 5) if A_sat > 1 else None,
+                headroom_used=round(1 - (A_sat - A) / (A_sat - 1), 5) if A_sat > 1 else None, turnover_share=round(float(crossed.mean()), 5),
+                methylated_sites_mean_beta=None if m is None else round(m, 4), past_entropy_ceiling=None if m is None else bool(m < 0.5),
+                rule="(A_sat - A) / (A_sat - 1); A_sat: every site at one half, read at the sample's own reads by the reading's own expectation (counted)")
+
 def territory_reading(beta, shares, counts=None):
     """The sample's disorder at each territory against IAM-Atlas v2.1 mixed in its own shares (read_in_mix's mix rule): A = mean H(beta) over
     mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of
@@ -529,14 +549,16 @@ def territory_reading(beta, shares, counts=None):
             _T = pd.DataFrame(dict(site=es.index, reads=_n3, sample_level=xs.to_numpy(), expected_level=es.to_numpy(), H_measured=hx, H_expected=he))
             _T["own_cell_level"] = MU[F.idxmax()].reindex(es.index).to_numpy(); _tp = TERR_SITE_OUT.replace(".csv.gz", f"_{name}.csv.gz")
             _T.to_csv(_tp, index=False, compression="gzip"); r["sites_table"] = os.path.basename(_tp)
-        r["ceiling"] = ceiling_reading(xs.to_numpy(), es.to_numpy())   # 2026-10-23: distance to the entropy ceiling
+        r["ceiling"] = ceiling_reading(xs.to_numpy(), es.to_numpy()) if counts is None else \
+            ceiling_counted(A, float(np.mean(_he(pd.Series(0.5, index=es.index), counts)) / he.mean()), xs.to_numpy(), es.to_numpy())   # 2026-11-02 (B8): counted on sequencing
         se = float(np.std(hx - A * he, ddof=1) / np.sqrt(len(hx)) / he.mean()); d = (xs - es).to_numpy()
         r.update(A=round(A, 5), se_over_sites=round(se, 6), level_change=round(float(d.mean()), 5), level_change_se=round(float(d.std(ddof=1) / np.sqrt(len(d))), 6),
                  coverage=round(ok.sum() / len(S), 4), state="untared")
         if name == "islands" and TERR_COUNTED and counts is not None and SEQ_ATLAS:   # 2026-11-01 (development): the expectation from the reference's own reads
             c_ = islands_counted(xs, counts, {kk: float(F[kk]) for kk in cells})
             r["counted"] = c_
-            if c_.get("A") is not None: r["A_plugin"] = r["A"]; r["A"] = c_["A"]
+            if c_.get("A") is not None:
+                r["A_plugin"] = r["A"]; r["A"] = c_["A"]; r["ceiling"] = ceiling_counted(c_["A"], c_.get("A_sat"), xs.to_numpy(), es.to_numpy())   # 2026-11-02 (B8)
         out["sets"][name] = r
     return out
 
@@ -604,7 +626,10 @@ def islands_counted(xs, counts, F):
     for mm in np.unique(m[ok]):
         s = ok & (m == mm); hm[s] = thin_H(k[s], n[s], int(mm)); he[s] = expected_H_mix_counts(Mk[s], Nk[s], Fk.to_numpy(), int(mm))
     g = ok & np.isfinite(he) & (he > 0) if ok.any() else ok
-    return dict(A=round(float(hm[g].sum() / he[g].sum()), 5) if g.any() else None, sites=int(g.sum()), left_out=int((~ok).sum()), cells=[(c, round(float(f), 4)) for c, f in Fk.items()],
+    hs = np.full(len(n), np.nan)   # 2026-11-02 (B8): the same thinning of a sample at one half at every site, for the counted ceiling
+    for mm in np.unique(m[g]):
+        s = g & (m == mm); hs[s] = thin_H(np.rint(0.5 * n[s]).astype("int64"), n[s], int(mm))
+    return dict(A=round(float(hm[g].sum() / he[g].sum()), 5) if g.any() else None, A_sat=round(float(hs[g].sum() / he[g].sum()), 5) if g.any() else None, sites=int(g.sum()), left_out=int((~ok).sum()), cells=[(c, round(float(f), 4)) for c, f in Fk.items()],
                 half=TERR_HALF, common_depth_max=TERR_M, expectation="each read from a cell of the mix, drawn without replacement from that cell's reference reads (expected_H_mix_counts)")
 
 TERR_SITE_OUT = None   # 2026-11-01: a path (NAME_terr_sites.csv.gz); when set, territory_reading() writes each set's per-site table (run_sample.py --dev-terr-sites)

@@ -1906,6 +1906,9 @@ All the new sections in their order, after the cell shares.
 ### stage_t_selftare.py::ruler_map
 The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v2.1's means at sites every cell type holds alike (islands and shores never anchors). Development; off unless run_sample.py is given --dev-ruler.
 
+### stage_metaa_atlas.py::ceiling_counted
+The distance to the entropy ceiling on sequencing: the reading the sample would give with every site at one half, read at its own reads by the reading's own expectation; distance, headroom used and the share of sites that crossed one half.
+
 ### stage_metaa_atlas.py::cscore_limits
 Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 450K platform term on a 450K array (measured once on spent healthy 450K bloods and frozen, Runtime Matrices/CScore_Limits/platform_term_450k.json; calibrated).
 

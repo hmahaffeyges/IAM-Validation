@@ -950,3 +950,13 @@ Met-A and the islands; the smallest difference each design could have found. Sco
 sizing the test, I read women against men on pass 5's sorted-cell Met-A (1.0029, 82; 1.0154, 55) and the healthy spread (relative SD
 0.0728, against about 0.02 on arrays); the sexes are therefore not used for a bar. With this spread a 1 % planted loss may fall under what
 137 samples can find; the result is recorded whatever it shows.
+
+**The tumor gauge on sequencing: the distance to the entropy ceiling, counted (B8; written and committed before it runs).** The
+ceiling reading (`stage_metaa_atlas.ceiling_reading`) was skipped on every sequenced sample's in-mix cells and missing from the sorted-cell
+reading, the one that reads a sample against its cell of origin; the territories gave it, but with the expectation at exact levels while
+their own reading is counted. **The change (`stage_metaa_atlas.ceiling_counted`):** on sequencing the ceiling is the reading the sample
+would give if every site's true level were one half, read at the sample's own reads by the same expectation as the reading itself
+(donor by donor at a common depth for the sorted-cell reading; the thinned counting for the counted islands; expected_H_counts elsewhere).
+Derived, nothing fitted; arrays unchanged. **Synthetic first** (`seq_atlas/ceiling_seq_synthetic.py`, through the one command): B-cell
+people drawn from the atlas at a real sample's reads, healthy, half way to one half, and at one half everywhere; bars on the sorted-cell
+distance to the ceiling: healthy at least 0.9, the ceiling sample at most 0.1, half way between.
