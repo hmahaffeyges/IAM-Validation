@@ -1,0 +1,2 @@
+59 libraries; islands level change median -0.00653 (below the atlas in 52);
+islands reading against the level change: rho +0.811; median calls per site 41

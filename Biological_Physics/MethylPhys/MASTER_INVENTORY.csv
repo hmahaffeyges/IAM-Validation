@@ -1,5 +1,6 @@
 accession,in_s3,s3_gb,format,chain_readable,spent,test_status,tested_by,test_records,use,cell_types,independent,raw_public,what,source
 "450K purified-cell sets GSE35069, GSE88824, GSE65097, GSE124565, GSE224807, GSE318669 - calibrated betas",,,,,spent,,,,,,,,,
+BLUEPRINT healthy blood-cell WGBS (outside-laboratory test; 59 libraries in blueprint_healthy_test_samples.csv),,,,,spent (test),,,,,,,,,
 BLUEPRINT mature neutrophil WGBS (C000S5; C0011I; PB100713),,,,,spent (development),,,,,,,,,
 BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313),,,,,reserved (confirmation),,,,,,,,,
 BLUEPRINT mature neutrophil WGBS (C0010K; C001UY; PB130513; PB270313) read,,,,,spent (confirmation of step 3 version 7),,,,,,,,,

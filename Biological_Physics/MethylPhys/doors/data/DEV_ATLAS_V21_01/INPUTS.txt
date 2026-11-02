@@ -87,3 +87,7 @@ minkowski_synthetic_v2.txt
 noise_minkowski.csv
 noise_minkowski.json
 noise_minkowski_summary.txt
+blueprint_healthy_test.csv
+blueprint_healthy_test.txt
+blueprint_islands_offset.csv
+blueprint_islands_offset.txt

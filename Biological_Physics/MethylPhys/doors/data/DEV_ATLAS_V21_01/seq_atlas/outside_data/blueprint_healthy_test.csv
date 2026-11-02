@@ -1,0 +1,60 @@
+gsm,cell,group,Met-A own cell,Met-A whole sample,islands,domains,C-Score,coupling-A,own-cell share,not read
+C000S5A1bs,monocytes,adult venous blood (scored),0.8084,1.00331,0.243,1.00331,0.9997,,0.6452,
+C0010KA2bs,monocytes,adult venous blood (scored),0.89712,1.07757,0.23361,1.08473,1.0059,,0.6239,
+C001UYA3bs,monocytes,adult venous blood (scored),0.83305,1.02147,0.24793,1.02281,1.0077,,0.6396,
+C00256A1bs,cd8 t cells,adult venous blood (scored),0.59325,0.77813,0.23777,0.70675,1.0076,,0.166,
+C00256A3bs,effector memory cd8 t cells,adult venous blood (scored),0.61319,1.05113,0.51273,0.94322,1.0019,,0.0794,
+C002CTA1bs,nk cells,adult venous blood (scored),0.76343,0.97444,0.21741,0.98208,1.0029,,0.7951,
+C003JB51,memory b cells,adult venous blood (scored),,1.12066,0.64417,1.0836,0.9978,,0.7877,only 4543 of 6000 identity sites measured (at least 90% needed)
+C003K951,b cells,cord blood (recorded),0.61287,0.73909,0.20554,0.70611,1.0146,,0.8127,
+C003N351,memory b cells,adult venous blood (scored),,0.97434,0.41437,0.93262,1.0075,,0.6069,only 4683 of 6000 identity sites measured (at least 90% needed)
+C003VO55,cd8 t cells,adult venous blood (scored),0.53951,0.70311,0.20921,0.60438,0.9988,,0.0688,
+C004SQ51,monocytes,adult venous blood (scored),,1.04125,0.18331,1.05444,0.9985,,0.6393,only 5184 of 6000 identity sites measured (at least 90% needed)
+C005PS51,monocytes,cord blood (recorded),,1.06518,0.18762,1.0711,1.0012,,0.5988,only 5275 of 6000 identity sites measured (at least 90% needed)
+C0066P51,cd8 t cells,cord blood (recorded),0.82348,0.79997,1.73976,0.59534,1.0042,,0.05,
+C0067N51,nk cells,cord blood (recorded),0.7644,0.9211,0.20847,0.93659,1.0046,,0.855,
+C0068L51,b cells,cord blood (recorded),0.58466,0.74608,0.19511,0.71263,0.999,,0.8576,
+C006G551,nk cells,adult venous blood (scored),0.80331,0.96525,0.16179,0.98167,1.0039,,0.9247,
+NBC_NC11_41,b cells,adult venous blood (scored),0.62006,0.7813,0.24384,0.74557,1.0021,,0.8947,
+NBC_NC11_83,b cells,adult venous blood (scored),,1.07802,0.29236,1.04498,1.0029,,0.8831,only 5195 of 6000 identity sites measured (at least 90% needed)
+P580,cd4 t cells,adult venous blood (scored),,0.9872,3.88955,0.83115,0.9965,,0.3615,only 2804 of 6000 identity sites measured (at least 90% needed)
+P582,cd4 t cells,adult venous blood (scored),,0.9221,4.38747,0.82223,1.011,,0.2848,only 2756 of 6000 identity sites measured (at least 90% needed)
+P584,cd4 t cells,adult venous blood (scored),,1.00057,3.72084,0.89933,0.9925,,0.24,only 2693 of 6000 identity sites measured (at least 90% needed)
+P586,cd4 t cells,adult venous blood (scored),,0.8987,4.37238,0.81105,0.9981,,0.3494,only 2599 of 6000 identity sites measured (at least 90% needed)
+S000RD54,monocytes,cord blood (recorded),0.88575,1.08244,0.49732,1.08702,1.0066,,0.5898,
+S001JP51,b cells,adult venous blood (scored),0.57003,0.72074,0.2959,0.6635,1.0005,,0.8769,
+S001U352,t effector memory cd4,adult venous blood (scored),,0.95874,0.4524,0.9308,1.0007,,0.3261,only 4984 of 6000 identity sites measured (at least 90% needed)
+S002R551,erythrocyte progenitors,cord blood (recorded),,0.77577,0.83741,0.61337,0.9953,,0.3827,only 4552 of 6000 identity sites measured (at least 90% needed)
+S002S351,erythrocyte progenitors,cord blood (recorded),,0.79355,0.41078,0.65601,0.9996,,0.4196,only 5011 of 6000 identity sites measured (at least 90% needed)
+S004P151,memory b cells,adult venous blood (scored),,1.06107,0.54079,1.03573,0.9912,,0.6955,only 4898 of 6000 identity sites measured (at least 90% needed)
+S006YC51,t central memory cd4,adult venous blood (scored),,1.00533,0.53738,0.97728,1.0011,,0.3819,only 4881 of 6000 identity sites measured (at least 90% needed)
+S007DD51,cd4 t cells,adult venous blood (scored),,0.74985,0.4028,0.6842,0.9974,,0.5629,only 5111 of 6000 identity sites measured (at least 90% needed)
+S007G756,cd4 t cells,adult venous blood (scored),,0.74661,0.33158,0.69611,1.0038,,0.53,only 5295 of 6000 identity sites measured (at least 90% needed)
+S008H151,cd4 t cells,adult venous blood (scored),,0.74949,0.3717,0.69157,0.9984,,0.3977,only 4968 of 6000 identity sites measured (at least 90% needed)
+S009W451,cd4 t cells,adult venous blood (scored),,0.76269,0.39249,0.70291,1.0026,,0.5263,only 5148 of 6000 identity sites measured (at least 90% needed)
+S00C2F51,cd8 t cells,cord blood (recorded),,0.65978,0.30703,0.54398,0.9946,,0.0127,only 5067 of 6000 identity sites measured (at least 90% needed)
+S00DM851,b cells,adult venous blood (scored),0.59805,0.78743,0.34309,0.74458,1.0091,,0.8555,
+S00V2DN1,monocytes,adult venous blood (scored),,1.01661,0.14735,1.02595,0.996,,0.5871,only 5065 of 6000 identity sites measured (at least 90% needed)
+S014QS51,t effector memory cd4,adult venous blood (scored),0.86926,0.9475,0.412,0.94439,1.0168,,0.467,
+S014QS55,t central memory cd4,adult venous blood (scored),0.76364,0.96935,0.41855,0.95733,1.001,,0.4553,
+S014WG51,effector memory cd8 t cells,adult venous blood (scored),0.57596,1.02159,0.54245,0.92945,1.0045,,0.1223,
+S017RE51,memory b cells,adult venous blood (scored),0.5611,0.94792,0.51388,0.87816,0.9966,,0.5746,
+S01B47A1,monocytes,adult venous blood (scored),0.73648,0.94843,0.20009,0.92353,0.999,,0.5709,
+S01B55A1,monocytes,adult venous blood (scored),0.69608,0.92635,0.19276,0.8985,0.9958,,0.526,
+S01B63A1,monocytes,adult venous blood (scored),0.71339,0.94859,0.20549,0.92381,1.0089,,0.536,
+S01B71A1,monocytes,adult venous blood (scored),0.71334,0.94661,0.2044,0.92114,1.0057,,0.5511,
+S01B9YA1,monocytes,adult venous blood (scored),0.6927,0.93246,0.22988,0.90317,0.9973,,0.5456,
+S01BAWA1,monocytes,adult venous blood (scored),0.81098,1.01007,0.38894,0.97512,1.0039,,0.5363,
+S01BBUA1,monocytes,adult venous blood (scored),0.69746,0.92566,0.22142,0.8958,1.0061,,0.5692,
+S01BCSA1,monocytes,adult venous blood (scored),0.71281,0.93147,0.2151,0.90714,1.0012,,0.5648,
+S01BDQA1,monocytes,adult venous blood (scored),0.7593,0.9747,0.24961,0.94403,1.0052,,0.5306,
+S01BEOA1,monocytes,adult venous blood (scored),0.73478,0.93928,0.24146,0.9092,1.0017,,0.523,
+S01BFMA1,monocytes,adult venous blood (scored),0.64856,0.88843,0.26103,0.84531,1.0025,,0.4985,
+S01BGKA1,monocytes,adult venous blood (scored),0.71461,0.94466,0.29467,0.91997,0.9971,,0.567,
+S01BHIA1,monocytes,adult venous blood (scored),0.70881,0.93219,0.2045,0.90057,1.0013,,0.4824,
+S01E03A1,monocytes,adult venous blood (scored),0.75587,0.93616,0.24295,0.93969,0.9994,,0.5336,
+S01E8O51,nk cells,cord blood (recorded),0.69526,0.85805,0.18277,0.86223,1.0053,,0.8557,
+S01ECGA1,b cells,adult venous blood (scored),0.55729,0.73189,0.24846,0.67676,0.9909,,0.8834,
+S01MAPA1,monocytes,adult venous blood (scored),0.7401,0.92035,0.23659,0.9088,0.9999,,0.5508,
+W653,memory b cells,adult venous blood (scored),,1.18647,1.53198,1.03235,1.0004,,0.6182,only 259 of 6000 identity sites measured (at least 90% needed)
+csMBC_NC11_41,memory b cells,adult venous blood (scored),0.77484,1.18879,0.8854,1.16112,1.0001,,0.894,

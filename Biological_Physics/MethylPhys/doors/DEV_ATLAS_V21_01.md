@@ -1032,3 +1032,16 @@ coverage bigWigs (`run_sample.py --dev-seq-beta CALL.bw,COV.bw`), `--specimen "s
 of the atlas. **Bars** (`seq_atlas/outside_data/blueprint_healthy_score.py`, on the adult libraries): own-cell Met-A median within 0.95 to
 1.05; at least 75 % of them within 0.95 to 1.05; whole-sample Met-A median within 0.95 to 1.05. Recorded: the territories, the C-Score,
 coupling-A, the own-cell share, each cell; the cord blood (newborn cells against an adult atlas).
+
+**Healthy samples from another laboratory: not met** (`seq_atlas/outside_data/blueprint_healthy_test.csv`,
+`blueprint_healthy_test.txt`). 38 of 59 read; 21 stopped because fewer than 90 % of their cell's identity sites had a value (BLUEPRINT's
+tracks leave out sites). On the 49 adult libraries: own-cell Met-A median 0.7134 (bar 1 not met), none within 0.95 to 1.05 (bar 2 not met),
+whole-sample Met-A 0.9479 (bar 3 not met). Every cell reads low, the islands lowest (median 0.2924). **The cause, measured**
+(`blueprint_islands_offset.py`, `.csv`, `.txt`; diagnostic, added after scoring): at the islands the libraries read 0.00653 less
+methylation than the atlas reference (below it in 52 of 59), and the islands reading follows that offset (rho +0.811). Where the true
+level is near 0, a fraction of a percent of methylated calls sets the disorder, and each laboratory's floor of such calls (its bisulfite
+conversion, its calling pipeline) differs; the atlas's one laboratory sits higher than BLUEPRINT's. The instruments are reading the
+laboratory's floor, not the cell. This is the laboratory offset (checklist A5), measured. **Next:** each sample's own floor, measured at the
+atlas's floor sites (`stage_seq_atlas.library_floor`, already in the chain) and the reference donors' floors, carried into the
+expectation (the sample against itself); synthetic first, with two laboratories' floors planted; then this test read again as development
+(the libraries are now spent), and a fresh outside laboratory kept for the test.

@@ -230,3 +230,4 @@ GSE98837 healthy CD8 T cell subsets WGBS (8),spent (sequencing commissioning tes
 GSE87197 megakaryocytes donor 3 (19 cells; GSE87196 parent series),spent (development),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md (the megakaryocyte column's test on donor 3),GEO
 GSE107729,spent (selection-free healthy test of Met-A on sequencing; written before reading),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
 GSE223153,spent (selection-free healthy test of Met-A on sequencing; written before reading),Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md,GEO
+BLUEPRINT healthy blood-cell WGBS (outside-laboratory test; 59 libraries in blueprint_healthy_test_samples.csv),spent (test),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md (healthy samples from another laboratory),EBI BLUEPRINT FTP

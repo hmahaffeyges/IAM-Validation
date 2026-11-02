@@ -9,7 +9,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | A2 | Built: each cell's measured disorder at every CpG | the atlas pieces (`disorder`) |
 | A3 | Built: level, spread, donors, reads per cell | the atlas pieces; `array_sites` |
 | A4 | Built: blank where unmeasured, counts beside every value | every column (65535 blank) |
-| A5 | Not measurable inside the atlas: one laboratory sequenced every input (the two recorded sources in six cells are tissue suppliers); laboratory offsets are measured by reading outside laboratories' healthy samples against it | `donor_traits.csv`, `outside_data/` |
+| A5 | Measured on BLUEPRINT: the outside laboratory reads 0.00653 less methylation at the islands, and the instruments follow it (outside-laboratory healthy test not met); the floor correction is next | `outside_data/blueprint_islands_offset.txt` |
 | A6 | Built for held error: the healthy held-error reference from the molecules | `held_reference_v1` |
 | A7 | Built: sex, age, race, tissue and source per input, from GEO | `donor_traits.csv` |
 | A8 | Built: 16-bit counts | every column |
