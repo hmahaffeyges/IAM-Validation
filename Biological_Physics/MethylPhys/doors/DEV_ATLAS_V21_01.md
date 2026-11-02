@@ -1020,3 +1020,15 @@ its departure is its spread changing across the sphere with each site's reads an
 maps the test therefore cannot yet tell structure from spread. **Needed:** each site's noise value divided by its own counting error before
 the map is drawn; the noise columns hold the half levels but not each half's reads, so the columns must carry those first. Until then the
 Minkowski functionals are built and tested on constructed maps, and not read on the atlas.
+
+## Healthy samples from another laboratory (written and committed before any is read)
+
+**The instrument's job:** a healthy sample sequenced and processed by another laboratory reads Normal against the IAM Sequencing Atlas.
+Every atlas input came from one laboratory, so this is the first test of the atlas as a ruler for anyone else's data (and the place a
+laboratory offset, checklist A5, shows). **Samples** (`seq_atlas/outside_data/blueprint_healthy_test_samples.csv`): BLUEPRINT's public
+healthy blood-cell bisulfite libraries, 49 adult venous blood and 10 cord blood, in 10 atlas cells, none read before (three donors also
+gave libraries of other cells that were read in earlier work, flagged in the list). Each read by the one command from its GRCh38 call and
+coverage bigWigs (`run_sample.py --dev-seq-beta CALL.bw,COV.bw`), `--specimen "sorted CELL"`, the study's settings, against every donor
+of the atlas. **Bars** (`seq_atlas/outside_data/blueprint_healthy_score.py`, on the adult libraries): own-cell Met-A median within 0.95 to
+1.05; at least 75 % of them within 0.95 to 1.05; whole-sample Met-A median within 0.95 to 1.05. Recorded: the territories, the C-Score,
+coupling-A, the own-cell share, each cell; the cord blood (newborn cells against an adult atlas).
