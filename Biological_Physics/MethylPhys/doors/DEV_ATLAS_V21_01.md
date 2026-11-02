@@ -832,3 +832,11 @@ restored and reproduces both files exactly.
 
 **The range synthetic through the one command: met** (`seq_atlas/sphere_range_synthetic.txt`): two donors 1.005 and 0.948, three donors
 1.007 and 0.948, the same as the first reading. The sphere columns are rebuilt with `mu_se`; the widths and the bridge reproduce unchanged.
+
+**The genome-distance spectrum: synthetic met; the counting map met** (`seq_atlas/genome_spectrum_synthetic.txt`, `seq_atlas/noise_spectrum.csv`,
+`seq_atlas/noise_spectrum_summary.py`, `seq_atlas/noise_spectrum_summary.txt`). Synthetic, through the one command: plain noise read no
+correlation in any band; the planted 1 Mb blocks read 0.2 within a block (as built) and none beyond 10 Mb. Real: the counting-only map's
+median correlation is at most 0.0002 in absolute value in every band (bar 0.02). The donor-half map gives the scale over which healthy
+people differ: median correlation 0.1223 between sites under 1 kb apart, 0.0283 at 1 to 10 kb, 0.0120 at 10 to 100 kb, 0.0037 at 0.1 to
+1 Mb, and none beyond. The differences are mostly local, among neighboring CpGs, with a weak tail to about 1 Mb that adds up to the
+large-scale power on the sphere. **The sky-null synthetic through the one command: met** (`seq_atlas/sky_null_synthetic.txt`).

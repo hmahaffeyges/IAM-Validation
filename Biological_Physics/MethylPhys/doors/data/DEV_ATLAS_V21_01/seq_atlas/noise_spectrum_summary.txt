@@ -1,0 +1,2 @@
+map1 donor halves: 48 cells; median correlation by band (under 1 kb, 1-10 kb, 10-100 kb, 0.1-1 Mb, 1-10 Mb, 10-100 Mb): 0.1223 0.0283 0.0120 0.0037 0.0006 0.0001; largest |median| 0.1223
+map2 read halves: 56 cells; median correlation by band (under 1 kb, 1-10 kb, 10-100 kb, 0.1-1 Mb, 1-10 Mb, 10-100 Mb): -0.0001 -0.0001 0.0001 -0.0000 -0.0000 -0.0002; largest |median| 0.0002

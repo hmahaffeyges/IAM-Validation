@@ -51,3 +51,7 @@ noise_null_summary.txt
 bridge_v21.csv
 bridge_v21.json
 bridge_summary.txt
+genome_spectrum_synthetic.txt
+noise_spectrum.csv
+noise_spectrum.json
+noise_spectrum_summary.txt

@@ -1,14 +1,14 @@
-sites 813951, placed 813950, masked 35560
-plain 1: bands above null [1], ratio [0.7614, 1.1124, 0.9687, 0.9851, 1.0031, 0.9895]
-planted 1: bands above null [0, 1, 2], ratio [594.138, 9.2361, 1.3714, 0.8699, 0.8322, 0.8158]
-plain 2: bands above null [], ratio [0.9091, 1.1011, 1.0235, 0.9804, 0.9971, 0.9787]
-planted 2: bands above null [0, 1, 2], ratio [591.929, 9.878, 1.4083, 0.8616, 0.8289, 0.8021]
-plain 3: bands above null [], ratio [1.1187, 0.9117, 1.0071, 0.9821, 1.0057, 0.9887]
-planted 3: bands above null [0, 1, 2], ratio [579.7969, 9.2765, 1.4635, 0.8743, 0.8328, 0.8132]
-plain 4: bands above null [], ratio [0.9066, 1.071, 1.0203, 0.9853, 0.9685, 1.0069]
-planted 4: bands above null [0, 1, 2], ratio [545.6738, 9.8993, 1.4351, 0.8706, 0.8032, 0.8271]
-plain 5: bands above null [], ratio [1.2017, 1.0525, 0.9546, 0.9927, 0.9896, 0.9923]
-planted 5: bands above null [0, 1, 2], ratio [535.958, 8.9104, 1.3658, 0.8789, 0.8227, 0.8172]
-bar 1 plain noise, at most one band above its null in each: [1, 0, 0, 0, 0]: met
-bar 2 planted change, lowest band above its null in all five: [True, True, True, True, True]: met
+read by run_sample.py --build seq-noise-null on constructed noise columns (seed 20261114)
+plain 1: bands above null [], ratio [0.7196, 1.0912, 0.9633, 0.9834, 0.9992, 0.987]
+planted 1: bands above null [0, 1, 2], ratio [561.1991, 9.7645, 1.4153, 0.8619, 0.8272, 0.8056]
+plain 2: bands above null [], ratio [1.1595, 0.899, 1.0078, 0.9831, 1.0055, 0.9923]
+planted 2: bands above null [0, 1, 2], ratio [550.531, 9.6764, 1.4304, 0.8717, 0.8008, 0.8276]
+plain 3: bands above null [], ratio [1.1846, 1.0544, 0.951, 0.9913, 0.9892, 0.9898]
+planted 3: bands above null [0, 1, 2], ratio [551.2817, 9.288, 1.4028, 0.8617, 0.8262, 0.8212]
+plain 4: bands above null [], ratio [0.7327, 1.0635, 1.0245, 0.9871, 1.0005, 0.9809]
+planted 4: bands above null [0, 1, 2], ratio [561.2259, 8.8734, 1.4236, 0.8713, 0.8237, 0.819]
+plain 5: bands above null [], ratio [0.907, 0.9468, 0.9616, 0.9873, 0.9937, 0.9883]
+planted 5: bands above null [0, 1, 2], ratio [568.6357, 9.3631, 1.3705, 0.8696, 0.8129, 0.8188]
+bar 1 plain, at most one band above its null in each: [0, 0, 0, 0, 0]: met
+bar 2 planted, lowest band above its null in all five: [True, True, True, True, True]: met
 synthetic: met
