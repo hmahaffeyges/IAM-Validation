@@ -2382,6 +2382,15 @@ The islands read with that expectation, against the donor half given, both sides
 ### stage_metaa_atlas.py::thin_H
 The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
 
+### stage_seq_atlas.py::sky_mask_sites
+The sites the sky statistics leave out: the sex chromosomes and the probes that cannot be placed uniquely in the genome.
+
+### stage_seq_atlas.py::sky_null
+A map in site order on the sky sphere at NSIDE 128, its band powers against its own shuffled null; the bands above it.
+
+### stage_seq_atlas.py::noise_null
+Every cell's two noise maps read by sky_null (`--build seq-noise-null`).
+
 ### stage_seq_atlas.py::noise_maps
 The atlas's two noise maps at v2.1's sites per cell (donor halves; read halves) and a summary row per cell.
 

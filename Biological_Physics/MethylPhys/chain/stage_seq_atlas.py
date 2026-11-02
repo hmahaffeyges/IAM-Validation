@@ -417,6 +417,43 @@ def noise_check(cols=None, ref=METAA_REF):
                 same += int((v[k] == w[k]).sum()); tot += int(k.sum())
     return dict(values=tot, identical=same, share=round(same / tot, 6) if tot else None)
 
+POOR_MAP = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "doors", "data", "DEV_MAPPABILITY_01", "epic_v1_poor_mapping_probes.txt.gz")
+
+def sky_mask_sites(ids):
+    """2026-11-01 (checklist D5): the sites the sky statistics leave out, by v2.1 site id: the sex chromosomes (a healthy foreground,
+    annotated, not subtracted) and the probes that cannot be placed uniquely in the genome (POOR_MAP, DEV-MAPPABILITY-01). Returns a bool array."""
+    import gzip, pandas as pd, pyarrow.parquet as pq, stage_metaa_atlas as SA
+    K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe").chrom_hg19
+    poor = {l.strip() for l in gzip.open(POOR_MAP, "rt") if l.strip() and not l.startswith("#")}
+    ch = pd.Series(ids).map(K).to_numpy(); return np.isin(ch, ["chrX", "chrY"]) | np.isin(np.asarray(ids, dtype=object), list(poor))
+
+def sky_null(v, order, masked, n_perm=20, rng=None):
+    """2026-11-01 (checklist D6 on the sphere, D10; nothing fitted): does a map in site order carry spatial structure beyond its own shuffled
+    null? The values (masked sites set blank) are placed on the sky sphere as the atlas's maps are (sky_maps_v21: genome order, NSIDE 256
+    NESTED), each NSIDE 128 pixel the mean of its four, reordered to RING, and read by sky_statistics.sky_spectrum_record with the apodised
+    mask (C2, 2 degrees). A band shows structure when its power is above all n_perm shuffles. Returns band powers, the null's mean and max
+    per band, and the bands above the null."""
+    import sys as _s; _s.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "atlas", "tools"))
+    import healpy as hp, sky_statistics as SS, sky_maps_v21 as SM
+    x = np.where(masked, np.nan, np.asarray(v, "float64"))[order]; m = SM.to_sky(x).astype("float64").reshape(-1, 4)
+    with np.errstate(all="ignore"): m = np.where(np.isfinite(m).any(1), np.nanmean(m, 1), np.nan)
+    ring = hp.reorder(m, n2r=True); r = SS.sky_spectrum_record(ring, n_perm=n_perm, rng=rng if rng is not None else np.random.default_rng(20261113), mask="apodised")
+    nb = r["null_bandpowers"]; above = [int(k) for k in np.flatnonzero(r["bandpowers"] > nb.max(0))]
+    return dict(bandpowers=[float(b) for b in r["bandpowers"]], null_mean=[float(b) for b in nb.mean(0)], null_max=[float(b) for b in nb.max(0)],
+                ratio=[round(float(b / n), 4) for b, n in zip(r["bandpowers"], nb.mean(0))], bands_above_null=above, f_sky=r["f_sky"], bands=SS.BANDS)
+
+def noise_null(cols=None, man=None):
+    """Each cell's two noise maps (noise_maps) read by sky_null, the masks of sky_mask_sites; rows per cell and map."""
+    import sys as _s; _s.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "atlas", "tools"))
+    import pyarrow.parquet as pq, sky_maps_v21 as SM, stage_metaa_atlas as SA
+    cols = cols or NOISE_DIR; ids = pq.read_table(os.path.join(SA.ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    order, _ = SM.genome_order(man, ids); msk = sky_mask_sites(ids); M, _r = noise_maps(cols); rows = []
+    for c, (m1, m2) in M.items():
+        for name, v in (("map1 donor halves", m1), ("map2 read halves", m2)):
+            if not np.isfinite(v).any(): continue
+            r = sky_null(v, order, msk); rows.append(dict(cell=c, map=name, **{k: r[k] for k in ("ratio", "bands_above_null", "f_sky")})); print(c, name, r["bands_above_null"], flush=True)
+    return rows
+
 TERR_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "terr_half_counts")   # terr_half_counts_v1.parquet
 TERR_FILE = None   # 2026-11-01: a constructed per-half island counts file (run_sample.py --dev-terr-counts), for synthetics
 

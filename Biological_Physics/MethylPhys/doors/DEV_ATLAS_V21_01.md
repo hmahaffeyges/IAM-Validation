@@ -774,3 +774,13 @@ chromosome's mean square up to 7.118 times the autosomes'; on the sphere, one di
 donor halves differ by 0.0614 across every chromosome (the median cell 0.0054), a whole-genome difference between its donors. **Next, read
 before anything is changed:** whether the identity and territory sites the readings use include the X chromosome, and each healthy input's
 sex against its reference half.
+
+**Masks, the spectrum on the sphere and the null test (written and committed before it runs; checklist D5, D6 on the sphere, D10).**
+Masks (`stage_seq_atlas.sky_mask_sites`): the sex chromosomes (the foreground the noise maps showed) and the 27117 probes that cannot be
+placed uniquely in the genome (DEV-MAPPABILITY-01's list), with apodized edges (C2, 2 degrees). The test (`stage_seq_atlas.sky_null`,
+`noise_null`; `run_sample.py --build seq-noise-null`): each map on the sphere at NSIDE 128, its band powers against 20 shuffles of its own
+values (`sky_statistics`); a band shows structure when it is above all 20. **The instrument's job:** a map with no spatial structure
+stays inside its null; real large-scale structure does not. **Synthetic first** (`seq_atlas/sky_null_synthetic.py`): plain noise at most
+one band above its null in each of 5 maps; a planted change along the genome puts the lowest band above its null in all 5. **Then the
+real maps, one bar:** the counting-only noise map (map 2) at most one band above its null in at least 90 % of cells. Recorded, not scored:
+the donor-half map (map 1) of every cell.
