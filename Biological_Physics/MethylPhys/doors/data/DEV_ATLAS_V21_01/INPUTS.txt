@@ -95,3 +95,4 @@ library_floors.csv
 library_floors.txt
 floor_synthetic.txt
 floor_synthetic_readings.csv
+gran_inputs.csv
