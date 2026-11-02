@@ -158,3 +158,9 @@ its full size. **Known answer** (`seq_band_01/transfer_synthetic.py`): the spent
 own level raised by delta and its reads drawn again (delta 0, 0.01, 0.02, 0.05, 0.1; three draws each); read by the one command with
 healthy pass 5's settings. **Bars** (`seq_band_01/transfer_score.py`): the slope of the chain's island level change on delta within 0.95
 to 1.05; the counted islands reading rising at every step. Recorded beside them: the plug-in islands reading and whole-sample Met-A.
+
+**The transfer function: met** (`seq_band_01/transfer_synthetic.txt`; 15 reads on five Google spot machines). The chain returns the
+planted change at full size: the slope of its island level change on delta is 1.0001 (bar 0.95 to 1.05), and the counted islands reading
+rises at every step: 0.7248 at no change, 1.5342 at 0.01, 2.2959 at 0.02, 4.3476 at 0.05 and 7.0964 at 0.1. Whole-sample Met-A on the
+same reads moves from 1.1197 to 1.2682. Nothing is absorbed between the reads and the reading, and a gain of one point at the islands
+doubles their reading on this sample.

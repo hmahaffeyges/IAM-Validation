@@ -1,0 +1,9 @@
+reads 15 of 15; by delta, median level change, islands (counted), islands (plug-in), whole-sample Met-A:
+  delta 0.00: -0.00172, 0.7248, 0.7717, 1.1197
+  delta 0.01: +0.00825, 1.5342, 1.6408, 1.1390
+  delta 0.02: +0.01821, 2.2959, 2.4520, 1.1570
+  delta 0.05: +0.04841, 4.3476, 4.6079, 1.2049
+  delta 0.10: +0.09826, 7.0964, 7.4619, 1.2682
+bar 1 slope of the level change on delta 1.0001 (within 0.95 to 1.05): met
+bar 2 the counted islands reading rises at every step: met
+synthetic: met
