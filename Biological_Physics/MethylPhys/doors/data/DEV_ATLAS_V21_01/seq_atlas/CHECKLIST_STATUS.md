@@ -9,7 +9,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | A2 | Built: each cell's measured disorder at every CpG | the atlas pieces (`disorder`) |
 | A3 | Built: level, spread, donors, reads per cell | the atlas pieces; `array_sites` |
 | A4 | Built: blank where unmeasured, counts beside every value | every column (65535 blank) |
-| A5 | Not yet: six cells have donors from two recorded sources (`donor_traits.csv`) | |
+| A5 | Not measurable inside the atlas: one laboratory sequenced every input (the two recorded sources in six cells are tissue suppliers); laboratory offsets are measured by reading outside laboratories' healthy samples against it | `donor_traits.csv`, `outside_data/` |
 | A6 | Built for held error: the healthy held-error reference from the molecules | `held_reference_v1` |
 | A7 | Built: sex, age, race, tissue and source per input, from GEO | `donor_traits.csv` |
 | A8 | Built: 16-bit counts | every column |
@@ -33,7 +33,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | D5 | Built: sex chromosomes and poorly mapping probes masked, apodized edges | `stage_seq_atlas.sky_mask_sites` |
 | D6 | Built on the sphere and along the genome; synthetics met | `noise_null_summary.txt`, `noise_spectrum_summary.txt` |
 | D7 | Built: copies of each cell per site behind each in-mix reading on sequencing, flagged below one; synthetic met | `copies_seq_synthetic.txt` |
-| D8 | Not yet as a covariance; the genome-distance spectrum gives its diagonal bands | `noise_spectrum_summary.txt` |
+| D8 | Built as a survey builds it when every pair cannot be measured: covariance by genome distance, from the spectrum (one to three donors per cell cannot give a covariance site by site) | `noise_spectrum_summary.txt` |
 | D9 | Built at the islands: slope 1.0001 | `DEV_TERRITORIES_01.md` |
 | D10 | Built: shuffled nulls on the sphere; counting map met in 56 of 56 cells | `noise_null_summary.txt` |
 | D11 | Built against v2.1 (platform offset per cell); bisulfite against enzymatic not yet | `bridge_v21.csv` |

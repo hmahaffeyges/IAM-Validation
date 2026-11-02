@@ -988,3 +988,9 @@ errors: found (met); the smallest difference the design could have found was 2.5
 the planted group at +1.10 % (1.274 standard errors, not found; the plant touched only each cell's own identity sites), and the halves at
 -1.64 % (-1.958). **Flagged:** on the islands the two healthy halves read as different, +4.51 % at 2.231 standard errors, where healthy
 groups should not differ. Group-A on the islands reading is not used on sequencing until that is understood.
+
+**Laboratory offsets (A5) and covariance (D8).** The "lab" field in the donor traits names the tissue supplier; one laboratory sequenced
+every input, so a laboratory offset cannot be measured inside the atlas. It is measured where it matters, by reading healthy samples from
+other laboratories against the atlas (`seq_atlas/outside_data/`). The covariance between sites cannot be estimated pair by pair from one to
+three donors per cell; as in a sky survey, it is taken as a function of distance, from the genome-distance spectrum already measured
+(`seq_atlas/noise_spectrum_summary.txt`).
