@@ -242,3 +242,13 @@ brightness, ruler, territories, information sphere, provisional megakaryocytes, 
 the chain's reason (four need IAM-Atlas v2's matrices, not in the repository; one is for EPIC v2 arrays). The territories here read
 against IAM-Atlas v2.1, which does not carry over to sequencing (DEV_TERRITORIES_01), so their values are not read as a result. One
 sample's results were first downloaded empty and were downloaded again.
+
+## The study read by the full working chain (written and committed before any of it is read)
+
+The earlier re-read of this study ran before the instruments worked on sequencing, and is set aside. Since then every reading reads
+Normal on the 137 healthy sequenced samples (healthy pass 5) against the IAM Sequencing Atlas, whose spheres, globes, noise maps, null
+tests and transfer function are built and checked (`DEV_ATLAS_V21_01.md`). **Now:** all 36 samples (`full_depth/hopkins_fullchain_samples.csv`:
+31 B-cell leukemias, 3 healthy cord-blood B-cell samples, the Reh line and its UHRF1 knockout) merged from their saved alignment pieces
+and read by the one command with the healthy passes' settings (`--full-chain --dev-seq-ref auto --dev-seq-level donors --dev-terr-counted`),
+against the sequencing atlas's B-cell column. **No bar:** every reading is reported as the chain gives it, by group, with the healthy band
+where the chain draws one (`full_depth/hopkins_fullchain_table.py`). Sent only after the globe test on the outside healthy samples lands.
