@@ -1,0 +1,2 @@
+map1 donor halves: 48 cells; tests outside their shuffles 459 of 480 (0.956)
+map2 read halves: 56 cells; tests outside their shuffles 455 of 560 (0.812)

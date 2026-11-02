@@ -83,3 +83,7 @@ groupa_bar1.txt
 groupa_bar2.txt
 groupa_seq_result.txt
 minkowski_synthetic.txt
+minkowski_synthetic_v2.txt
+noise_minkowski.csv
+noise_minkowski.json
+noise_minkowski_summary.txt

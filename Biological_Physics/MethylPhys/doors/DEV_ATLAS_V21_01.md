@@ -1011,3 +1011,12 @@ spread wider, and those pixels cluster where the genome's sites are sparse; a sh
 seeing the uneven spread of sites on the sphere, not the methylation. **Version 2 (written and committed before it runs;
 `seq_atlas/minkowski_synthetic_v2.py`, seed 20261123):** each shuffle only among pixels that average the same number of sites, so the null
 keeps the map's uneven spread; the bars unchanged.
+
+**Minkowski functionals: synthetic version 2 met; the real maps not yet readable** (`seq_atlas/minkowski_synthetic_v2.txt`,
+`seq_atlas/noise_minkowski.csv`, `seq_atlas/noise_minkowski_summary.txt`). Synthetic: the plain maps 3 of 50 tests outside their
+shuffles (bar at most 10, met); every planted map found (met). The real maps: the donor-half map outside in 459 of 480 tests (0.956), and the
+counting-only map in 455 of 560 (0.812). The counting map carries no spatial structure (it passes the null test on the power spectrum), so
+its departure is its spread changing across the sphere with each site's reads and level, which a shuffle among pixels does not keep. On real
+maps the test therefore cannot yet tell structure from spread. **Needed:** each site's noise value divided by its own counting error before
+the map is drawn; the noise columns hold the half levels but not each half's reads, so the columns must carry those first. Until then the
+Minkowski functionals are built and tested on constructed maps, and not read on the atlas.
