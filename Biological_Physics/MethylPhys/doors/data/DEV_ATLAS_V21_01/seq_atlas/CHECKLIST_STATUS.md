@@ -42,4 +42,4 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | D14 | Built: counting map the same on every autosome (0 of 1232 beyond 4 standard errors) | `isotropy.txt` |
 | D15 | Built: donor halves sealed; outside healthy samples kept unread by the build | `selfree_samples.csv` |
 | D16 | Built through the one command from committed code; the columns rebuilt identical | `DEV_ATLAS_V21_01.md` |
-| D17 | Not yet | |
+| D17 | Built: each tool, its origin in cosmology, its use, the chain's part and the result | `GUIDEBOOK.md` |
