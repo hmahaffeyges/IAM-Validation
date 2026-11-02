@@ -936,3 +936,17 @@ input's recorded characteristics from its GEO sample record: tissue, cell type, 
 which is the X-chromosome foreground the donor-half noise maps show (annotated, not subtracted). Age is recorded for 152 inputs. The
 "lab" field names six sources; six cells have donors from two of them (aorta endothelium, hepatocyte and four pancreatic cells), the only
 cells where a source offset (A5) can be measured.
+
+**Group-A on sequencing (B9; written and committed before any read).** **The instrument's job:** two groups of healthy people read as no
+different after the tare, and a group shift planted into healthy samples is found (the arrays' commissioning, word for word). **Chain:**
+`stage_groupa.py` now collects a sequencing reading from the one command's bundles (`collect ... sorted|whole|islands`; a list with no
+slide column is tared within its series); the tare and the comparison are unchanged. **Set:** the 137 healthy inputs of healthy pass 5
+(spent), `seq_atlas/groupa_seq/groupa_seq_samples.csv`. **Bar 1** (pass 5's committed bundles, sorted-cell Met-A): the sealed donor halves
+A (76) and B (61) read as no different: under 2 % and under 2 standard errors. **Bar 2:** the 137 read again by the one command with pass
+5's settings, every other sample (sorted by number, 68) with a planted 1 % loss of its own cell's identity pattern written into its read
+counts (`groupa_seq/groupa_seq_plant.py`: the arrays' plant on counts, rounded without bias; the other 69 written back unchanged by the
+same script): planted above unplanted by more than 2 standard errors, the unplanted the tare's references. Recorded, not scored: whole-sample
+Met-A and the islands; the smallest difference each design could have found. Scorer: `groupa_seq/groupa_seq_score.py`. **Disclosed:**
+sizing the test, I read women against men on pass 5's sorted-cell Met-A (1.0029, 82; 1.0154, 55) and the healthy spread (relative SD
+0.0728, against about 0.02 on arrays); the sexes are therefore not used for a bar. With this spread a 1 % planted loss may fall under what
+137 samples can find; the result is recorded whatever it shows.

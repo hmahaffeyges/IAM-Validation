@@ -6239,14 +6239,14 @@
   },
   {
    "file": "stage_groupa.py",
-   "lines": 100,
+   "lines": 118,
    "functions": [
     {
      "file": "stage_groupa.py",
      "function": "tare",
      "name": "tare",
-     "line": 28,
-     "end": 49,
+     "line": 29,
+     "end": 50,
      "args": [
       "r",
       "healthy"
@@ -6261,8 +6261,8 @@
      "file": "stage_groupa.py",
      "function": "welch",
      "name": "welch",
-     "line": 51,
-     "end": 54,
+     "line": 52,
+     "end": 55,
      "args": [
       "a",
       "b"
@@ -6277,8 +6277,8 @@
      "file": "stage_groupa.py",
      "function": "compare",
      "name": "compare",
-     "line": 56,
-     "end": 72,
+     "line": 57,
+     "end": 73,
      "args": [
       "rows",
       "group_col",
@@ -6298,21 +6298,40 @@
     },
     {
      "file": "stage_groupa.py",
-     "function": "collect",
-     "name": "collect",
-     "line": 74,
-     "end": 81,
+     "function": "_find",
+     "name": "_find",
+     "line": 81,
+     "end": 85,
      "args": [
       "bundle_dir",
-      "samples_csv",
-      "out_csv"
+      "i"
      ],
-     "lines": 8,
+     "lines": 5,
      "doc": "",
      "constants": [],
      "data_files": [
       "_bundle.json"
      ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_groupa.py",
+     "function": "collect",
+     "name": "collect",
+     "line": 87,
+     "end": 97,
+     "args": [
+      "bundle_dir",
+      "samples_csv",
+      "out_csv",
+      "reading"
+     ],
+     "lines": 11,
+     "doc": "reading: met_a (arrays, the commissioned reading) or, on sequencing (development), sorted (sorted-cell Met-A against the sequencing atlas), whole (whole-sample Met-A) or islands (the islands territory). A sample list without a slide column is tared within its series.",
+     "constants": [
+      "READINGS"
+     ],
+     "data_files": [],
      "traced_calls": {}
     }
    ],
@@ -9379,5 +9398,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 477
+ "n_functions": 478
 }

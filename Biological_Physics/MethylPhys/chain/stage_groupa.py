@@ -14,7 +14,8 @@ Groups must be run in the SAME series (same laboratory, same run): across labora
 (DEV-GROUP-01). Commissioned for whole blood, EPIC v1, two groups within one series; anything else is read and labeled preliminary.
 
 Usage:
-  python3 stage_groupa.py collect BUNDLE_DIR SAMPLES.csv OUT.csv     one row per person from run_sample.py bundles (<id>_bundle.json);
+  python3 stage_groupa.py collect BUNDLE_DIR SAMPLES.csv OUT.csv [READING]   one row per person from run_sample.py bundles (<id>_bundle.json);
+                                                                     READING met_a (arrays, default) or, on sequencing, sorted, whole, islands;
                                                                      SAMPLES.csv needs id, slide, and your group column (optional: healthy_reference)
   python3 stage_groupa.py compare READINGS.csv GROUP_COLUMN A B      tare, compare group A with group B, print the call
 """
@@ -71,24 +72,41 @@ def compare(rows, group_col, a, b, healthy=None, specimen="whole blood", platfor
         s["commissioning"] = PRELIMINARY.format(what=f"{specimen}, {platform}")
     s["rows"] = r; return s
 
-def collect(bundle_dir, samples_csv, out_csv):
+READINGS = {   # 2026-11-02 (sequencing atlas checklist B9, development): which reading of the bundle a group is compared on
+    "met_a": lambda b: (b.get("met_a") or {}, b.get("met_a_cscore") or {}),   # arrays (commissioned): whole-blood Met-A and its C-Score
+    "sorted": lambda b: ((b.get("development") or {}).get("metaa_atlas") or {}, ((b.get("cscore_each_cell") or {}).get("whole_genome") or {})),
+    "whole": lambda b: (b.get("met_a_whole") or {}, ((b.get("cscore_each_cell") or {}).get("whole_genome") or {})),
+    "islands": lambda b: ((((b.get("territories") or {}).get("sets") or {}).get("islands")) or {}, ((b.get("cscore_each_cell") or {}).get("whole_genome") or {}))}
+
+def _find(bundle_dir, i):
+    p = os.path.join(bundle_dir, f"{i}_bundle.json")
+    if os.path.exists(p): return p
+    import glob as _g   # 2026-11-02: sequencing runs land each bundle in its own folder
+    f = sorted(_g.glob(os.path.join(bundle_dir, "**", f"{i}_bundle.json"), recursive=True)); return f[-1] if f else None
+
+def collect(bundle_dir, samples_csv, out_csv, reading="met_a"):
+    """reading: met_a (arrays, the commissioned reading) or, on sequencing (development), sorted (sorted-cell Met-A against the sequencing
+    atlas), whole (whole-sample Met-A) or islands (the islands territory). A sample list without a slide column is tared within its series."""
     S = pd.read_csv(samples_csv); L = []
     for _, s in S.iterrows():
-        p = os.path.join(bundle_dir, f"{s['id']}_bundle.json")
-        b = json.load(open(p)) if os.path.exists(p) else {}
-        m = b.get("met_a") or {}; c = b.get("met_a_cscore") or {}
-        L.append(dict(s, gsm=s["id"], A=m.get("A"), C=c.get("C"), withheld=None if m.get("A") is not None else (m.get("reason") or ("no bundle" if not b else "no reason recorded"))))
+        p = _find(bundle_dir, s["id"]); b = json.load(open(p)) if p else {}
+        m, c = READINGS[reading](b); C = c.get("C")
+        row = dict(s, gsm=s["id"], A=m.get("A"), C=C, reading=reading, withheld=None if m.get("A") is not None else (m.get("reason") or ("no bundle" if not b else "no reason recorded")))
+        if "slide" not in row or pd.isna(row.get("slide")): row["slide"] = "series"
+        L.append(row)
     pd.DataFrame(L).to_csv(out_csv, index=False); return len(L)
 
 if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if len(sys.argv) >= 5 and sys.argv[1] == "collect":
-        print(f"collected {collect(sys.argv[2], sys.argv[3], sys.argv[4])} people into {sys.argv[4]}")
+        rd = sys.argv[5] if len(sys.argv) >= 6 else "met_a"
+        print(f"collected {collect(sys.argv[2], sys.argv[3], sys.argv[4], rd)} people into {sys.argv[4]} ({rd})")
     elif len(sys.argv) >= 5 and sys.argv[1] == "compare":
         R = pd.read_csv(sys.argv[2]); g, a, b = sys.argv[3], sys.argv[4], sys.argv[5]
         for col in (g,): R[col] = R[col].astype(str)
         h = R["healthy_reference"].astype(bool) if "healthy_reference" in R else None
-        o = compare(R, g, a, b, h)
+        rd = str(R["reading"].dropna().iloc[0]) if "reading" in R and R["reading"].notna().any() else "met_a"
+        o = compare(R, g, a, b, h, **({} if rd == "met_a" else dict(specimen=f"sorted cells ({rd} reading)", platform="whole-genome bisulfite sequencing")))
         if o.get("call") is None: print("Group-A: no call -", o["reason"]); sys.exit(2)
         print(f"Group-A ({GROUPA_COMMISSIONING['status']} {GROUPA_COMMISSIONING['date']}, {GROUPA_COMMISSIONING['scope']})\n"
               f"  {a}: tared mean {o['mean1']} (n {o['n1']})   {b}: tared mean {o['mean2']} (n {o['n2']})\n"

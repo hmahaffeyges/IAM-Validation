@@ -2,7 +2,7 @@
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **36 Python files** holding **477 functions** (nested ones included); 477 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **36 Python files** holding **478 functions** (nested ones included); 478 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
-| `stage_groupa.py` | 100 | 4 | 0 | 0 |
+| `stage_groupa.py` | 118 | 5 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 721 | 38 | 0 | 0 |
@@ -1804,31 +1804,37 @@ printed digit from the committed rows. Groups in any other specimen are read and
 **Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
 their laboratories.
 
+### `stage_groupa.py::_find`
+
+A person's bundle in the bundles folder, or in any folder below it (sequencing runs land each bundle in its own folder).
+
+*Code:* `stage_groupa.py` line 81 (5 lines) · arguments: bundle_dir, i · calls: not called on the traced runs · files named: `_bundle.json`
+
 ### `stage_groupa.py::tare`
 
 Each reading over the median of its healthy references (same slide when there are at least 3 there, else the series), excluding itself;
 records which scope was used.
 
-*Code:* `stage_groupa.py` line 28 (22 lines) · arguments: r, healthy · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 29 (22 lines) · arguments: r, healthy · calls: not called on the traced runs
 
 ### `stage_groupa.py::welch`
 
 The two groups' means, counts, difference, standard error and t.
 
-*Code:* `stage_groupa.py` line 51 (4 lines) · arguments: a, b · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 52 (4 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `stage_groupa.py::compare`
 
 Tares, compares and calls the result, with the smallest findable difference and the commissioning label.
 
-*Code:* `stage_groupa.py` line 56 (17 lines) · arguments: rows, group_col, a, b, healthy, specimen, platform · calls: not called on the traced runs · constants read: `PRELIMINARY`
+*Code:* `stage_groupa.py` line 57 (17 lines) · arguments: rows, group_col, a, b, healthy, specimen, platform · calls: not called on the traced runs · constants read: `PRELIMINARY`
 
 ### `stage_groupa.py::collect`
 
 Builds one row per person from the run's report bundles and the researcher's sample list (id, slide, group column, optional
 healthy_reference).
 
-*Code:* `stage_groupa.py` line 74 (8 lines) · arguments: bundle_dir, samples_csv, out_csv · calls: not called on the traced runs · files named: `_bundle.json`
+*Code:* `stage_groupa.py` line 87 (11 lines) · arguments: bundle_dir, samples_csv, out_csv, reading · calls: not called on the traced runs · constants read: `READINGS`
 
 ## 12. The retired position reading, Stage Q: `stage_q_iam_a.py`
 

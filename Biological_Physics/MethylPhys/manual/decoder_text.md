@@ -1240,6 +1240,9 @@ printed digit from the committed rows. Groups in any other specimen are read and
 **Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
 their laboratories.
 
+### stage_groupa.py::_find
+A person's bundle in the bundles folder, or in any folder below it (sequencing runs land each bundle in its own folder).
+
 ### stage_groupa.py::tare
 Each reading over the median of its healthy references (same slide when there are at least 3 there, else the series), excluding itself;
 records which scope was used.
