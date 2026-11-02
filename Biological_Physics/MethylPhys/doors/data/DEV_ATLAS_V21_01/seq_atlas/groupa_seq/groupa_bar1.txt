@@ -1,0 +1,28 @@
+== bar 1 (half A against B), sorted (scored)
+Group-A (COMMISSIONED 2026-10-20, two groups within one series, each person read by run_sample.py and tared against same-run healthy references)
+  A: tared mean 0.99572 (n 76)   B: tared mean 1.00544 (n 61)
+  difference -0.97 %, -0.772 standard errors -> no difference found
+  smallest difference this design could have found: 2.52 % (2 x the standard error)
+  tare references: {'slide': 137}; readings with no tare: 0
+  This score is preliminary until Group-A is officially commissioned on sorted cells (sorted reading), whole-genome bisulfite sequencing.
+== bar 1 (half A against B), whole (recorded)
+Group-A (COMMISSIONED 2026-10-20, two groups within one series, each person read by run_sample.py and tared against same-run healthy references)
+  A: tared mean 0.9924 (n 76)   B: tared mean 1.00881 (n 61)
+  difference -1.64 %, -1.958 standard errors -> no difference found
+  smallest difference this design could have found: 1.68 % (2 x the standard error)
+  tare references: {'slide': 137}; readings with no tare: 0
+  This score is preliminary until Group-A is officially commissioned on sorted cells (whole reading), whole-genome bisulfite sequencing.
+== bar 1 (half A against B), islands (recorded)
+Group-A (COMMISSIONED 2026-10-20, two groups within one series, each person read by run_sample.py and tared against same-run healthy references)
+  A: tared mean 1.03051 (n 76)   B: tared mean 0.98496 (n 61)
+  difference +4.51 %, 2.231 standard errors -> groups differ
+  smallest difference this design could have found: 4.08 % (2 x the standard error)
+  tare references: {'slide': 137}; readings with no tare: 0
+  This score is preliminary until Group-A is officially commissioned on sorted cells (islands reading), whole-genome bisulfite sequencing.
+== bar 2: not scored in this run
+
+
+
+
+
+bar 1 halves no different (|diff| < 2 %, |t| < 2): (-0.97, -0.772): met

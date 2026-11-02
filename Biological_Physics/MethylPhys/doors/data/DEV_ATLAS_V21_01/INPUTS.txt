@@ -79,3 +79,6 @@ donor_traits.txt
 ceiling_seq_synthetic.txt
 ceiling_seq_synthetic.log
 copies_seq_synthetic.txt
+groupa_bar1.txt
+groupa_bar2.txt
+groupa_seq_result.txt

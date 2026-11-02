@@ -980,3 +980,11 @@ gauge is in disorder, not in level. The tumor gauge now reads on sequencing agai
 Deconvolver's share times the reads (bar 1 met), and the flag fell on exactly the cells below one copy (bar 2 met). Monocytes, planted at
 0.1: 0.272 and 0.618 copies at 4 and 8 reads (flagged), 1.598 and 5.58 at 20 and 60 (not flagged); B cells 3.486 to 53.28, never flagged.
 For plasma this is the measure of which cells a library can speak for.
+
+**Group-A on sequencing: met on the sorted-cell reading** (`seq_atlas/groupa_seq/groupa_bar1.txt`, `groupa_bar2.txt`,
+`groupa_seq_result.txt`; bar 1 scored on GitHub from pass 5's artifacts, bar 2 from the 137 reads on Google spot machines). **Bar 1:** the
+sealed donor halves, -0.97 %, -0.772 standard errors: no difference found (met). **Bar 2:** the planted 1 % loss, +7.93 %, 6.493 standard
+errors: found (met); the smallest difference the design could have found was 2.55 %. **Recorded, not scored:** whole-sample Met-A saw
+the planted group at +1.10 % (1.274 standard errors, not found; the plant touched only each cell's own identity sites), and the halves at
+-1.64 % (-1.958). **Flagged:** on the islands the two healthy halves read as different, +4.51 % at 2.231 standard errors, where healthy
+groups should not differ. Group-A on the islands reading is not used on sequencing until that is understood.
