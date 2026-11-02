@@ -143,3 +143,9 @@ unchanged.
 the workflow's resumed download kept appending to it, then passed it on after its last try. The workflow now deletes a failed try and stops
 when no good file arrives. The 31 are re-sent with identical settings (`healthy_fullchain5b_samples.csv`), written before the re-send; the
 two runs are scored together by the committed scorer. The bar is unchanged.
+
+**Healthy pass 5: met** (`seq_band_01/healthy_fullchain5_summary.txt`, the committed scorer over both runs; all
+137 healthy sequencing inputs read). The islands, with the expectation from the reference's own reads: median 1.0122 (bar: within 0.05
+of 1; the plug-in read 1.0485 on these samples). Recorded beside it, not scored: Met-A in each cell 1.0077, Met-A for the whole sample
+1.0055, the domains 1.0011, the C-Score 1.0004 (0.964 inside its limit), coupling-A 1.0000 (0.993 inside its band), IAM-A 0.9518 (0.942
+inside its own band). Every reading of the chain now reads healthy sequenced cells Normal against the IAM Sequencing Atlas.

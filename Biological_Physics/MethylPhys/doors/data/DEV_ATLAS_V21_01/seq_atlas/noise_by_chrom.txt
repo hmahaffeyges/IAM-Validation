@@ -1,0 +1,2 @@
+cells with both donor halves: 48; chrX mean square over the autosomes' (median) 1.445; cells above 2: 16
+largest autosome offset between donor halves: smooth muscle 0.0614; median cell 0.0054

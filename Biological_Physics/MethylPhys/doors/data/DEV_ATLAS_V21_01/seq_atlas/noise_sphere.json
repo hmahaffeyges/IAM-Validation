@@ -1,0 +1,576 @@
+{
+ "atlas": "IAM Sequencing Atlas (development)",
+ "scale": [
+  -0.3,
+  0.3
+ ],
+ "unplaced": 1,
+ "check": {
+  "values": 1238368,
+  "identical": 1238368,
+  "share": 1.0
+ },
+ "cells": [
+  {
+   "cell": "adipocytes",
+   "sites_map1": 0,
+   "sites_map2": 813951,
+   "mean_map1": null,
+   "mean_map2": -9e-05,
+   "ms_map1": null,
+   "ms_map2": 0.004213,
+   "donor_part": null
+  },
+  {
+   "cell": "aorta endothelium",
+   "sites_map1": 813920,
+   "sites_map2": 813951,
+   "mean_map1": -0.0162,
+   "mean_map2": 1e-05,
+   "ms_map1": 0.022407,
+   "ms_map2": 0.00691,
+   "donor_part": 0.015497
+  },
+  {
+   "cell": "b cells",
+   "sites_map1": 813923,
+   "sites_map2": 813945,
+   "mean_map1": 0.00286,
+   "mean_map2": 7e-05,
+   "ms_map1": 0.008397,
+   "ms_map2": 0.004098,
+   "donor_part": 0.004299
+  },
+  {
+   "cell": "bladder epithelium",
+   "sites_map1": 813932,
+   "sites_map2": 813951,
+   "mean_map1": -0.00881,
+   "mean_map2": 0.0001,
+   "ms_map1": 0.013402,
+   "ms_map2": 0.004209,
+   "donor_part": 0.009193
+  },
+  {
+   "cell": "breast basal epithelium",
+   "sites_map1": 813916,
+   "sites_map2": 813951,
+   "mean_map1": 0.00194,
+   "mean_map2": 1e-05,
+   "ms_map1": 0.008159,
+   "ms_map2": 0.004164,
+   "donor_part": 0.003995
+  },
+  {
+   "cell": "breast luminal epithelium",
+   "sites_map1": 813935,
+   "sites_map2": 813951,
+   "mean_map1": 0.00311,
+   "mean_map2": 7e-05,
+   "ms_map1": 0.020392,
+   "ms_map2": 0.003925,
+   "donor_part": 0.016467
+  },
+  {
+   "cell": "cardiomyocyte",
+   "sites_map1": 813944,
+   "sites_map2": 813951,
+   "mean_map1": -0.00819,
+   "mean_map2": 1e-05,
+   "ms_map1": 0.006184,
+   "ms_map2": 0.003453,
+   "donor_part": 0.002731
+  },
+  {
+   "cell": "cd4 t cells",
+   "sites_map1": 813937,
+   "sites_map2": 813951,
+   "mean_map1": 0.01212,
+   "mean_map2": 1e-05,
+   "ms_map1": 0.008807,
+   "ms_map2": 0.003627,
+   "donor_part": 0.00518
+  },
+  {
+   "cell": "cd8 t cells",
+   "sites_map1": 813933,
+   "sites_map2": 813951,
+   "mean_map1": 0.02784,
+   "mean_map2": 1e-05,
+   "ms_map1": 0.012623,
+   "ms_map2": 0.004836,
+   "donor_part": 0.007787
+  },
+  {
+   "cell": "colon enteroendocrine",
+   "sites_map1": 813917,
+   "sites_map2": 813950,
+   "mean_map1": -0.00382,
+   "mean_map2": 6e-05,
+   "ms_map1": 0.008734,
+   "ms_map2": 0.004823,
+   "donor_part": 0.003911
+  },
+  {
+   "cell": "colon epithelium",
+   "sites_map1": 813923,
+   "sites_map2": 813951,
+   "mean_map1": 0.0044,
+   "mean_map2": -1e-05,
+   "ms_map1": 0.008663,
+   "ms_map2": 0.003553,
+   "donor_part": 0.00511
+  },
+  {
+   "cell": "colon fibroblasts",
+   "sites_map1": 813910,
+   "sites_map2": 813947,
+   "mean_map1": -0.00411,
+   "mean_map2": -6e-05,
+   "ms_map1": 0.015126,
+   "ms_map2": 0.006695,
+   "donor_part": 0.008431
+  },
+  {
+   "cell": "colon macrophages",
+   "sites_map1": 0,
+   "sites_map2": 813916,
+   "mean_map1": null,
+   "mean_map2": 4e-05,
+   "ms_map1": null,
+   "ms_map2": 0.00508,
+   "donor_part": null
+  },
+  {
+   "cell": "cortical neurons",
+   "sites_map1": 813943,
+   "sites_map2": 813951,
+   "mean_map1": 0.00981,
+   "mean_map2": -9e-05,
+   "ms_map1": 0.012235,
+   "ms_map2": 0.003726,
+   "donor_part": 0.008509
+  },
+  {
+   "cell": "effector memory cd8 t cells",
+   "sites_map1": 0,
+   "sites_map2": 813911,
+   "mean_map1": null,
+   "mean_map2": -3e-05,
+   "ms_map1": null,
+   "ms_map2": 0.015437,
+   "donor_part": null
+  },
+  {
+   "cell": "endometrium epithelium",
+   "sites_map1": 813929,
+   "sites_map2": 813951,
+   "mean_map1": 0.01072,
+   "mean_map2": -0.00012,
+   "ms_map1": 0.013968,
+   "ms_map2": 0.003705,
+   "donor_part": 0.010263
+  },
+  {
+   "cell": "erythrocyte progenitors",
+   "sites_map1": 813925,
+   "sites_map2": 813951,
+   "mean_map1": 0.03766,
+   "mean_map2": -0.00011,
+   "ms_map1": 0.009134,
+   "ms_map2": 0.005028,
+   "donor_part": 0.004106
+  },
+  {
+   "cell": "fallopien tubes epithelium",
+   "sites_map1": 813942,
+   "sites_map2": 813951,
+   "mean_map1": -0.00161,
+   "mean_map2": -5e-05,
+   "ms_map1": 0.007757,
+   "ms_map2": 0.003295,
+   "donor_part": 0.004462
+  },
+  {
+   "cell": "gastric antrum epithelium",
+   "sites_map1": 813937,
+   "sites_map2": 813951,
+   "mean_map1": 0.00927,
+   "mean_map2": -6e-05,
+   "ms_map1": 0.007283,
+   "ms_map2": 0.0033,
+   "donor_part": 0.003983
+  },
+  {
+   "cell": "gastric body epithelium",
+   "sites_map1": 813938,
+   "sites_map2": 813951,
+   "mean_map1": 0.0047,
+   "mean_map2": -6e-05,
+   "ms_map1": 0.007164,
+   "ms_map2": 0.003509,
+   "donor_part": 0.003655
+  },
+  {
+   "cell": "gastric fundus epithelium",
+   "sites_map1": 813939,
+   "sites_map2": 813951,
+   "mean_map1": -0.00454,
+   "mean_map2": 9e-05,
+   "ms_map1": 0.007075,
+   "ms_map2": 0.003107,
+   "donor_part": 0.003968
+  },
+  {
+   "cell": "heart fibroblasts",
+   "sites_map1": 813928,
+   "sites_map2": 813951,
+   "mean_map1": 0.00718,
+   "mean_map2": -6e-05,
+   "ms_map1": 0.008256,
+   "ms_map2": 0.004564,
+   "donor_part": 0.003692
+  },
+  {
+   "cell": "hepatocyte",
+   "sites_map1": 0,
+   "sites_map2": 813951,
+   "mean_map1": null,
+   "mean_map2": 8e-05,
+   "ms_map1": null,
+   "ms_map2": 0.002941,
+   "donor_part": null
+  },
+  {
+   "cell": "kidney glomerular endothelium",
+   "sites_map1": 813912,
+   "sites_map2": 813951,
+   "mean_map1": 0.0097,
+   "mean_map2": -1e-05,
+   "ms_map1": 0.012617,
+   "ms_map2": 0.00344,
+   "donor_part": 0.009176
+  },
+  {
+   "cell": "kidney glomerular epithelium",
+   "sites_map1": 0,
+   "sites_map2": 813933,
+   "mean_map1": null,
+   "mean_map2": -0.00017,
+   "ms_map1": null,
+   "ms_map2": 0.005916,
+   "donor_part": null
+  },
+  {
+   "cell": "kidney tubular endothelium",
+   "sites_map1": 813935,
+   "sites_map2": 813951,
+   "mean_map1": -0.00442,
+   "mean_map2": -2e-05,
+   "ms_map1": 0.007678,
+   "ms_map2": 0.004006,
+   "donor_part": 0.003672
+  },
+  {
+   "cell": "kidney tubular epithelium",
+   "sites_map1": 813898,
+   "sites_map2": 813951,
+   "mean_map1": 0.0163,
+   "mean_map2": -3e-05,
+   "ms_map1": 0.014836,
+   "ms_map2": 0.00308,
+   "donor_part": 0.011756
+  },
+  {
+   "cell": "lung alveolar endothelium",
+   "sites_map1": 813938,
+   "sites_map2": 813951,
+   "mean_map1": -0.01421,
+   "mean_map2": -2e-05,
+   "ms_map1": 0.016066,
+   "ms_map2": 0.003627,
+   "donor_part": 0.012438
+  },
+  {
+   "cell": "lung alveolar epithelium",
+   "sites_map1": 813938,
+   "sites_map2": 813951,
+   "mean_map1": 0.00474,
+   "mean_map2": -0.0,
+   "ms_map1": 0.007093,
+   "ms_map2": 0.002959,
+   "donor_part": 0.004134
+  },
+  {
+   "cell": "lung alveolar macrophages",
+   "sites_map1": 813917,
+   "sites_map2": 813951,
+   "mean_map1": 0.00505,
+   "mean_map2": -1e-05,
+   "ms_map1": 0.008299,
+   "ms_map2": 0.0042,
+   "donor_part": 0.0041
+  },
+  {
+   "cell": "lung bronchus epithelium",
+   "sites_map1": 813936,
+   "sites_map2": 813951,
+   "mean_map1": 0.01668,
+   "mean_map2": -4e-05,
+   "ms_map1": 0.008313,
+   "ms_map2": 0.002817,
+   "donor_part": 0.005496
+  },
+  {
+   "cell": "lung interstitial macrophages",
+   "sites_map1": 813924,
+   "sites_map2": 813951,
+   "mean_map1": -0.00206,
+   "mean_map2": 2e-05,
+   "ms_map1": 0.008087,
+   "ms_map2": 0.002665,
+   "donor_part": 0.005423
+  },
+  {
+   "cell": "memory b cells",
+   "sites_map1": 813888,
+   "sites_map2": 813941,
+   "mean_map1": 0.01244,
+   "mean_map2": -0.0001,
+   "ms_map1": 0.012231,
+   "ms_map2": 0.009323,
+   "donor_part": 0.002908
+  },
+  {
+   "cell": "monocytes",
+   "sites_map1": 813935,
+   "sites_map2": 813951,
+   "mean_map1": -0.00064,
+   "mean_map2": 0.00024,
+   "ms_map1": 0.007652,
+   "ms_map2": 0.003772,
+   "donor_part": 0.003881
+  },
+  {
+   "cell": "naive cd4 t cells",
+   "sites_map1": 0,
+   "sites_map2": 813919,
+   "mean_map1": null,
+   "mean_map2": -8e-05,
+   "ms_map1": null,
+   "ms_map2": 0.008105,
+   "donor_part": null
+  },
+  {
+   "cell": "naive cd8 t cells",
+   "sites_map1": 0,
+   "sites_map2": 813916,
+   "mean_map1": null,
+   "mean_map2": -3e-05,
+   "ms_map1": null,
+   "ms_map2": 0.007928,
+   "donor_part": null
+  },
+  {
+   "cell": "nk cells",
+   "sites_map1": 813938,
+   "sites_map2": 813951,
+   "mean_map1": 0.02938,
+   "mean_map2": 9e-05,
+   "ms_map1": 0.01324,
+   "ms_map2": 0.00398,
+   "donor_part": 0.00926
+  },
+  {
+   "cell": "oligodendrocytes",
+   "sites_map1": 813944,
+   "sites_map2": 813951,
+   "mean_map1": -0.00227,
+   "mean_map2": -0.00017,
+   "ms_map1": 0.006656,
+   "ms_map2": 0.003561,
+   "donor_part": 0.003096
+  },
+  {
+   "cell": "pancreas endothelium",
+   "sites_map1": 813942,
+   "sites_map2": 813951,
+   "mean_map1": 0.00106,
+   "mean_map2": -0.00012,
+   "ms_map1": 0.009498,
+   "ms_map2": 0.005861,
+   "donor_part": 0.003637
+  },
+  {
+   "cell": "pancreatic acinar",
+   "sites_map1": 813931,
+   "sites_map2": 813951,
+   "mean_map1": -0.00507,
+   "mean_map2": 6e-05,
+   "ms_map1": 0.00786,
+   "ms_map2": 0.003893,
+   "donor_part": 0.003967
+  },
+  {
+   "cell": "pancreatic alpha",
+   "sites_map1": 813919,
+   "sites_map2": 813951,
+   "mean_map1": 0.0022,
+   "mean_map2": 2e-05,
+   "ms_map1": 0.006404,
+   "ms_map2": 0.003677,
+   "donor_part": 0.002726
+  },
+  {
+   "cell": "pancreatic beta",
+   "sites_map1": 813919,
+   "sites_map2": 813951,
+   "mean_map1": -0.00206,
+   "mean_map2": -5e-05,
+   "ms_map1": 0.007234,
+   "ms_map2": 0.004228,
+   "donor_part": 0.003005
+  },
+  {
+   "cell": "pancreatic delta",
+   "sites_map1": 813918,
+   "sites_map2": 813951,
+   "mean_map1": 0.00079,
+   "mean_map2": 0.0001,
+   "ms_map1": 0.008664,
+   "ms_map2": 0.005026,
+   "donor_part": 0.003638
+  },
+  {
+   "cell": "pancreatic duct",
+   "sites_map1": 0,
+   "sites_map2": 813951,
+   "mean_map1": null,
+   "mean_map2": 7e-05,
+   "ms_map1": null,
+   "ms_map2": 0.003562,
+   "donor_part": null
+  },
+  {
+   "cell": "prostate epithelium",
+   "sites_map1": 813931,
+   "sites_map2": 813951,
+   "mean_map1": -0.00515,
+   "mean_map2": 4e-05,
+   "ms_map1": 0.009056,
+   "ms_map2": 0.003748,
+   "donor_part": 0.005308
+  },
+  {
+   "cell": "small intestine epithelium",
+   "sites_map1": 813922,
+   "sites_map2": 813951,
+   "mean_map1": -0.00093,
+   "mean_map2": 0.00012,
+   "ms_map1": 0.007455,
+   "ms_map2": 0.003433,
+   "donor_part": 0.004022
+  },
+  {
+   "cell": "smooth muscle",
+   "sites_map1": 813938,
+   "sites_map2": 813951,
+   "mean_map1": 0.06153,
+   "mean_map2": -1e-05,
+   "ms_map1": 0.046114,
+   "ms_map2": 0.004805,
+   "donor_part": 0.041308
+  },
+  {
+   "cell": "striated muscle",
+   "sites_map1": 813837,
+   "sites_map2": 813951,
+   "mean_map1": -0.00585,
+   "mean_map2": 0.0,
+   "ms_map1": 0.010855,
+   "ms_map2": 0.006684,
+   "donor_part": 0.004171
+  },
+  {
+   "cell": "t central memory cd4",
+   "sites_map1": 813946,
+   "sites_map2": 813951,
+   "mean_map1": 0.00582,
+   "mean_map2": 3e-05,
+   "ms_map1": 0.006698,
+   "ms_map2": 0.004565,
+   "donor_part": 0.002133
+  },
+  {
+   "cell": "t effector cell cd8",
+   "sites_map1": 813947,
+   "sites_map2": 813951,
+   "mean_map1": 0.0171,
+   "mean_map2": -1e-05,
+   "ms_map1": 0.009568,
+   "ms_map2": 0.00502,
+   "donor_part": 0.004548
+  },
+  {
+   "cell": "t effector memory cd4",
+   "sites_map1": 813946,
+   "sites_map2": 813951,
+   "mean_map1": 0.01416,
+   "mean_map2": -0.00012,
+   "ms_map1": 0.008768,
+   "ms_map2": 0.005259,
+   "donor_part": 0.003509
+  },
+  {
+   "cell": "thyroid epithelium",
+   "sites_map1": 813839,
+   "sites_map2": 813951,
+   "mean_map1": -0.00282,
+   "mean_map2": 2e-05,
+   "ms_map1": 0.005936,
+   "ms_map2": 0.003229,
+   "donor_part": 0.002707
+  },
+  {
+   "cell": "tongue epithelium",
+   "sites_map1": 813928,
+   "sites_map2": 813951,
+   "mean_map1": -0.00234,
+   "mean_map2": 4e-05,
+   "ms_map1": 0.008712,
+   "ms_map2": 0.003154,
+   "donor_part": 0.005558
+  },
+  {
+   "cell": "tonsil palatine epithelium",
+   "sites_map1": 813936,
+   "sites_map2": 813951,
+   "mean_map1": 0.01224,
+   "mean_map2": -8e-05,
+   "ms_map1": 0.007053,
+   "ms_map2": 0.003604,
+   "donor_part": 0.003449
+  },
+  {
+   "cell": "tonsil pharyngeal epithelium",
+   "sites_map1": 813856,
+   "sites_map2": 813951,
+   "mean_map1": 0.0302,
+   "mean_map2": 0.0,
+   "ms_map1": 0.017486,
+   "ms_map2": 0.006264,
+   "donor_part": 0.011223
+  },
+  {
+   "cell": "vascular saphenous endothelium",
+   "sites_map1": 813918,
+   "sites_map2": 813951,
+   "mean_map1": 0.02051,
+   "mean_map2": -2e-05,
+   "ms_map1": 0.014719,
+   "ms_map2": 0.003704,
+   "donor_part": 0.011015
+  }
+ ],
+ "source": "run_sample.py --build seq-noise-sphere (chain/MethylPhys_Interface/reference_globes.py)"
+}

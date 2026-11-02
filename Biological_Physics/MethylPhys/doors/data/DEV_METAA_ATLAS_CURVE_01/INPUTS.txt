@@ -73,3 +73,5 @@ healthy_fullchain5_samples.csv
 selfree4_perread.txt
 selfree4_perread.csv
 healthy_fullchain5b_samples.csv
+healthy_fullchain5_summary.txt
+healthy_fullchain5_readings.csv

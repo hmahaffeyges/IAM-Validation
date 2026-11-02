@@ -40,3 +40,7 @@ globe_compare.txt
 seq_globe.json
 v21_globe.json
 seq_globe.html
+noise_sphere.json
+noise_sphere_cells.csv
+noise_by_chrom.csv
+noise_by_chrom.txt

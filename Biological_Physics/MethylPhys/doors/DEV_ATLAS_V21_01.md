@@ -765,3 +765,12 @@ read half A and B at v2.1's sites; the committed columns are built as before), a
 summary (`stage_seq_atlas.noise_maps`). **Known answer, the bar:** the committed Met-A reference holds the same four values at every
 identity site from the same pieces, so the new columns must equal it there at least 0.999 of the time (`stage_seq_atlas.noise_check`).
 Recorded, not scored: each map's mean (a healthy split has none), mean square, and the donor part.
+
+**The two noise maps: drawn; the check met** (`seq_atlas/noise_sphere.json`, `seq_atlas/noise_sphere_cells.csv`; one Google spot machine).
+The new columns equal the committed Met-A reference at every identity site (1238368 of 1238368 values). Map 2 (read halves, counting only)
+carries no offset in any cell. Map 1 (donor halves) shows two healthy foregrounds, annotated, not subtracted (`seq_atlas/noise_by_chrom.py`,
+`seq_atlas/noise_by_chrom.txt`): **the X chromosome**, where 16 of the 48 cells with both halves have donor halves of different sex (the X
+chromosome's mean square up to 7.118 times the autosomes'; on the sphere, one diamond-shaped region); and **smooth muscle**, whose two
+donor halves differ by 0.0614 across every chromosome (the median cell 0.0054), a whole-genome difference between its donors. **Next, read
+before anything is changed:** whether the identity and territory sites the readings use include the X chromosome, and each healthy input's
+sex against its reference half.
