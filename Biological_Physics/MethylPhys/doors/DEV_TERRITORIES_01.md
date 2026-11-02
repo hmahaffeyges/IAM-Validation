@@ -149,3 +149,12 @@ two runs are scored together by the committed scorer. The bar is unchanged.
 of 1; the plug-in read 1.0485 on these samples). Recorded beside it, not scored: Met-A in each cell 1.0077, Met-A for the whole sample
 1.0055, the domains 1.0011, the C-Score 1.0004 (0.964 inside its limit), coupling-A 1.0000 (0.993 inside its band), IAM-A 0.9518 (0.942
 inside its own band). Every reading of the chain now reads healthy sequenced cells Normal against the IAM Sequencing Atlas.
+
+## The transfer function at the islands (written and committed before it runs)
+
+**Why:** the IAM Sequencing Atlas's checklist (D9) asks how much of a real change the chain absorbs, measured end to end before any study
+is read. The islands are where the early change in tumors shows. **The instrument's job:** a planted change at the islands is read back at
+its full size. **Known answer** (`seq_band_01/transfer_synthetic.py`): the spent healthy B-cell input GSM5652316; at every island site its
+own level raised by delta and its reads drawn again (delta 0, 0.01, 0.02, 0.05, 0.1; three draws each); read by the one command with
+healthy pass 5's settings. **Bars** (`seq_band_01/transfer_score.py`): the slope of the chain's island level change on delta within 0.95
+to 1.05; the counted islands reading rising at every step. Recorded beside them: the plug-in islands reading and whole-sample Met-A.
