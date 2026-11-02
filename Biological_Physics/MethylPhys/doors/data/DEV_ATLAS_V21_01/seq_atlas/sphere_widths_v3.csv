@@ -1,0 +1,57 @@
+cell,donors,half_width_median,share_past_scale
+effector memory cd8 t cells,1,0.1066,0.257
+naive cd4 t cells,1,0.0578,0.085
+naive cd8 t cells,1,0.0554,0.088
+aorta endothelium,2,0.234,0.626
+colon enteroendocrine,2,0.1468,0.492
+colon fibroblasts,2,0.2444,0.643
+colon macrophages,2,0.1853,0.571
+kidney glomerular epithelium,2,0.162,0.525
+lung alveolar macrophages,2,0.1424,0.481
+memory b cells,2,0.2104,0.611
+striated muscle,2,0.2091,0.604
+tonsil pharyngeal epithelium,2,0.2056,0.59
+adipocytes,3,0.087,0.276
+b cells,3,0.078,0.263
+bladder epithelium,3,0.0839,0.288
+breast basal epithelium,3,0.0718,0.249
+breast luminal epithelium,3,0.0801,0.32
+cardiomyocyte,3,0.0678,0.204
+cd4 t cells,3,0.0725,0.226
+cd8 t cells,3,0.0993,0.36
+colon epithelium,3,0.0692,0.239
+cortical neurons,3,0.0848,0.331
+endometrium epithelium,3,0.0828,0.305
+erythrocyte progenitors,3,0.1306,0.44
+fallopien tubes epithelium,3,0.0647,0.237
+gastric antrum epithelium,3,0.0708,0.235
+gastric body epithelium,3,0.0732,0.245
+gastric fundus epithelium,3,0.0712,0.237
+heart fibroblasts,3,0.0948,0.314
+hepatocyte,3,0.0683,0.243
+kidney glomerular endothelium,3,0.0808,0.295
+kidney tubular endothelium,3,0.0801,0.267
+kidney tubular epithelium,3,0.0761,0.306
+lung alveolar endothelium,3,0.0969,0.366
+lung alveolar epithelium,3,0.068,0.23
+lung bronchus epithelium,3,0.0682,0.235
+lung interstitial macrophages,3,0.065,0.212
+monocytes,3,0.0675,0.199
+nk cells,3,0.0838,0.294
+oligodendrocytes,3,0.0678,0.211
+pancreas endothelium,3,0.0988,0.337
+pancreatic acinar,3,0.0853,0.292
+pancreatic alpha,3,0.0711,0.226
+pancreatic beta,3,0.077,0.24
+pancreatic delta,3,0.0847,0.277
+pancreatic duct,3,0.0659,0.21
+prostate epithelium,3,0.0838,0.31
+small intestine epithelium,3,0.0673,0.228
+smooth muscle,3,0.17,0.538
+t central memory cd4,3,0.0829,0.263
+t effector cell cd8,3,0.0937,0.315
+t effector memory cd4,3,0.0941,0.308
+thyroid epithelium,3,0.0621,0.187
+tongue epithelium,3,0.0732,0.271
+tonsil palatine epithelium,3,0.0785,0.256
+vascular saphenous endothelium,3,0.0859,0.316

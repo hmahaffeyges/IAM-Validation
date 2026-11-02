@@ -882,3 +882,9 @@ taking the larger of the donors' error and counting's everywhere overstates the 
 to 0.925 for two donors. Where donors differ, their spread already holds each donor's counting; only where they agree exactly does it say
 nothing. **Version 3:** counting's error (from (m + 0.5) / (n + 1)) only where the donors' spread is exactly 0, and the donors' spread as
 before everywhere else. The same synthetic and the same four bars.
+
+**Synthetic version 3: met; the columns rebuilt** (`seq_atlas/sphere_range_synthetic_v3.txt`, `seq_atlas/zero_widths_after.txt`,
+`seq_atlas/sphere_widths_v3.txt`). Two donors: stated over true variance 1.010, coverage 0.955; three: 1.007 and 0.948; at the extreme
+sites 0.942 and 0.945; no measured site with zero width. The sphere columns are rebuilt with version 3: no site of any cell has zero width
+now (smallest 0.0002), and the cell medians of the range's half-width are unchanged for two and three donors (0.2056, 0.0783). The outside
+samples are read again against these columns once the first reading, on the old columns, has landed and been scored as committed.

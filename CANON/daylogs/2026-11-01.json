@@ -56,6 +56,56 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The sequencing atlas's null test on the sphere",
+     "status": "development",
+     "what": "Each cell's two noise maps against 20 shuffles of their own values, after a synthetic.",
+     "outcome": "Met: the counting-only map stays inside its null in all 56 cells; the donor-half map lies above it in every cell, the person-to-person part.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The genome-distance spectrum",
+     "status": "development",
+     "what": "The noise maps' correlation by the distance between sites, after a synthetic read by the one command.",
+     "outcome": "Met: the counting map reads no correlation at any distance; healthy people differ mostly among neighboring CpGs, fading by about 1 Mb.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The bridge to IAM-Atlas v2.1",
+     "status": "development",
+     "what": "Each of the 56 shared cells, sequencing against array, at every shared site.",
+     "outcome": "Median correlation 0.9941; the sequencing level sits below v2.1's in every cell, the platform difference measured.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The transfer function at the islands",
+     "status": "development",
+     "what": "A planted change at the islands of a healthy B-cell sample, five sizes, read back by the one command.",
+     "outcome": "Met: the chain returns the change at full size (slope 1.0001).",
+     "rows": [
+      "GRP-017"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "title": "Isotropy by chromosome",
+     "status": "development",
+     "what": "Each autosome's mean of the noise maps per cell.",
+     "outcome": "The counting map is the same on every autosome in every cell.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },
@@ -108,6 +158,16 @@
      "status": "development",
      "what": "Donor-half and read-half noise maps on the sky sphere for every cell.",
      "outcome": "Check met (1238368 of 1238368); the X chromosome in 16 cells and a smooth-muscle donor offset seen and annotated.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The globe and information sphere on sequencing",
+     "status": "development",
+     "what": "A sequenced sample's globe and its distance from its own healthy self now drawn against the sequencing atlas; atlas inputs flagged.",
+     "outcome": "Being tested on 35 healthy samples outside the atlas, read both ways.",
      "rows": [
       "COM-METAA-033"
      ],

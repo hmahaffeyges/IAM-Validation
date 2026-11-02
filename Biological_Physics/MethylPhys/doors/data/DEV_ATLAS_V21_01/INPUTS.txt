@@ -61,3 +61,8 @@ globe_bcell_check.txt
 zero_widths_before.csv
 zero_widths_before.txt
 sphere_range_synthetic_v2.txt
+sphere_range_synthetic_v3.txt
+zero_widths_after.csv
+zero_widths_after.txt
+sphere_widths_v3.csv
+sphere_widths_v3.txt

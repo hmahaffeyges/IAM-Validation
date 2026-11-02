@@ -29,7 +29,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | D1 | Built: two sealed donor halves | `seq_atlas_inputs.csv` |
 | D2 | Built: read halves | the atlas pieces |
 | D3 | Built: noise maps per cell | `noise_sphere.json` |
-| D4 | Built: 95 % range and standard error per value; synthetic met | `sphere_range_synthetic.txt` |
+| D4 | Built: 95 % range and standard error per value, with a counting floor where donors agree exactly; synthetic version 3 met | `sphere_range_synthetic_v3.txt` |
 | D5 | Built: sex chromosomes and poorly mapping probes masked, apodized edges | `stage_seq_atlas.sky_mask_sites` |
 | D6 | Built on the sphere and along the genome; synthetics met | `noise_null_summary.txt`, `noise_spectrum_summary.txt` |
 | D7 | Not yet (needed for plasma) | |

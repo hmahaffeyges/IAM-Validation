@@ -1,0 +1,11 @@
+read by run_sample.py --build seq-sphere-cols on constructed cells (seed 20261112, 20,000 sites, 200 builds, Poisson(33) reads a donor, person sd 0.3 logit)
+k = 1 donors: stated over true variance 0.628; coverage of the truth 0.860
+k = 2 donors: stated over true variance 1.010; coverage of the truth 0.955
+k = 3 donors: stated over true variance 1.007; coverage of the truth 0.948
+bars (k = 2 and 3): variance ratio within 0.9 to 1.1 and coverage within 0.90 to 0.99: met
+k = 1 donors, sites with truth outside 0.1 to 0.9 (8194): coverage 0.945
+k = 2 donors, sites with truth outside 0.1 to 0.9 (8194): coverage 0.942
+k = 3 donors, sites with truth outside 0.1 to 0.9 (8194): coverage 0.945
+bar 3 (k = 2 and 3) coverage at the extreme sites at least 0.90: met
+bar 4 no measured site with zero width (0): met
+synthetic: met

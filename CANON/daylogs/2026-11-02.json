@@ -1,0 +1,36 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be"
+ },
+ "date": "2026-11-02",
+ "title": "The sequencing atlas's globe, and the study by the full working chain",
+ "closing": "",
+ "set_out": "Finish the globe on sequencing against healthy samples outside the atlas, then read the Johns Hopkins leukemia study with the full working chain.",
+ "open_at_turnover": "The globe test on the 35 outside healthy samples (first reading on the old columns landing; then read again on the rebuilt columns); then the Johns Hopkins study by the full working chain.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": []
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": [
+    {
+     "title": "The range at levels of 0 or 1",
+     "status": "development",
+     "what": "Sites where every donor of a cell reads exactly 0 or 1 had no width; counting now sets it there.",
+     "outcome": "Synthetic version 3 met (version 2 not met, recorded); the sphere columns rebuilt with no zero widths.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  }
+ ]
+}
