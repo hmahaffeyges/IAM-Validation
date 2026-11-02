@@ -450,6 +450,61 @@ def sky_null(v, order, masked, n_perm=20, rng=None):
     return dict(bandpowers=[float(b) for b in r["bandpowers"]], null_mean=[float(b) for b in nb.mean(0)], null_max=[float(b) for b in nb.max(0)],
                 ratio=[round(float(b / n), 4) for b, n in zip(r["bandpowers"], nb.mean(0))], bands_above_null=above, f_sky=r["f_sky"], bands=SS.BANDS)
 
+MINK_NU = (-2.0, -1.0, 0.0, 1.0, 2.0)   # 2026-11-02 (D13, stated): thresholds in standard deviations of the map's unmasked pixels
+
+def minkowski(ring, nu=MINK_NU):
+    """2026-11-02 (checklist D13; derived, nothing fitted): the three Minkowski functionals of a RING map (blank pixels left out) at each
+    threshold nu (standard deviations from the mean): V0 the share of pixels above; V1 the share of neighboring pixel pairs that cross the
+    threshold (the boundary's length); V2 the patches above minus the patches below (the genus, connected through the 8 neighbors)."""
+    import healpy as hp
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import connected_components
+    ring = np.asarray(ring, "float64"); ns = hp.npix2nside(len(ring)); ok = np.isfinite(ring); pix = np.flatnonzero(ok)
+    z = (ring - ring[ok].mean()) / ring[ok].std(); nb = hp.get_all_neighbours(ns, pix).T   # (pixels, 8)
+    i = np.repeat(pix, 8); j = nb.reshape(-1); g = (j >= 0) & ok[np.clip(j, 0, None)] & (i < np.clip(j, 0, None)); i, j = i[g], j[g]
+    out = []
+    for t in nu:
+        up = z > t; v1 = float((up[i] != up[j]).mean())
+        def comps(sel):
+            k = sel[i] & sel[j]; n = len(ring); A = coo_matrix((np.ones(int(k.sum())), (i[k], j[k])), shape=(n, n))
+            nc, lab = connected_components(A, directed=False); return len(np.unique(lab[np.flatnonzero(sel)]))
+        out.append(dict(nu=t, V0=round(float(up[ok].mean()), 5), V1=round(v1, 5), V2=int(comps(up & ok) - comps(~up & ok))))
+    return out
+
+def sky_minkowski(v, order, masked, n_perm=20, rng=None):
+    """2026-11-02 (D13): a site-ordered map placed on the sphere as sky_null places it, its Minkowski functionals, and those of n_perm
+    shuffles of its own unmasked pixels (same values, no spatial structure). A functional shows structure at a threshold when it lies
+    outside every shuffle. V0 cannot (a shuffle keeps the values), so V1 and V2 carry the test."""
+    import sys as _s; _s.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "atlas", "tools"))
+    import healpy as hp, sky_maps_v21 as SM
+    rng = rng if rng is not None else np.random.default_rng(20261121)
+    x = np.where(masked, np.nan, np.asarray(v, "float64"))[order]; m = SM.to_sky(x).astype("float64").reshape(-1, 4)
+    with np.errstate(all="ignore"): m = np.where(np.isfinite(m).any(1), np.nanmean(m, 1), np.nan)
+    ring = hp.reorder(m, n2r=True); obs = minkowski(ring); ok = np.flatnonzero(np.isfinite(ring)); nulls = []
+    for _ in range(n_perm):
+        r2 = ring.copy(); r2[ok] = rng.permutation(ring[ok]); nulls.append(minkowski(r2))
+    rows = []
+    for k, o in enumerate(obs):
+        row = dict(o)
+        for f in ("V1", "V2"):
+            nv = np.array([nl[k][f] for nl in nulls], float); row[f + "_null_min"] = float(nv.min()); row[f + "_null_max"] = float(nv.max())
+            row[f + "_outside_null"] = bool(o[f] < nv.min() or o[f] > nv.max())
+        rows.append(row)
+    return rows
+
+def noise_minkowski(cols=None, man=None, n_perm=20):
+    """Each cell's two noise maps (noise_maps) read by sky_minkowski, the masks of sky_mask_sites; one row per cell, map and threshold."""
+    import sys as _s; _s.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "atlas", "tools"))
+    import pyarrow.parquet as pq, sky_maps_v21 as SM, stage_metaa_atlas as SA
+    cols = cols or NOISE_DIR; ids = pq.read_table(os.path.join(SA.ATLAS, "sites.parquet")).column("cpg").to_pylist()
+    order, _ = SM.genome_order(man, ids); msk = sky_mask_sites(ids); M, _r = noise_maps(cols); rows = []
+    for c, (m1, m2) in M.items():
+        for name, v in (("map1 donor halves", m1), ("map2 read halves", m2)):
+            if not np.isfinite(v).any(): continue
+            for r in sky_minkowski(v, order, msk, n_perm): rows.append(dict(cell=c, map=name, **r))
+            print(c, name, sum(r["V1_outside_null"] or r["V2_outside_null"] for r in rows if r["cell"] == c and r["map"] == name), flush=True)
+    return rows
+
 def noise_null(cols=None, man=None):
     """Each cell's two noise maps (noise_maps) read by sky_null, the masks of sky_mask_sites; rows per cell and map."""
     import sys as _s; _s.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "atlas", "tools"))

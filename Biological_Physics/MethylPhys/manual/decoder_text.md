@@ -2320,6 +2320,18 @@ levels), `spread` (the donors' standard deviation), `disorder` (each donor's bin
 each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
 seed 20261029; their difference is noise map 2, defined for a cell with one donor).
 
+### stage_seq_atlas.py::minkowski
+The three Minkowski functionals of a sphere map at each threshold: the share above, the boundary length, and the patches above minus below.
+
+### stage_seq_atlas.py::minkowski.comps
+The number of connected patches among the selected pixels (8 neighbors).
+
+### stage_seq_atlas.py::sky_minkowski
+A site-ordered map on the sphere, its Minkowski functionals, and those of shuffles of its own pixels.
+
+### stage_seq_atlas.py::noise_minkowski
+Every cell's two noise maps read by sky_minkowski (`--build seq-noise-minkowski`).
+
 ### stage_seq_atlas.py::read_block
 One input's methylated and all reads over a block of CpGs: a .beta file (uint8 pairs) read locally or straight from GEO by byte range, with
 retries, or an .lbeta (uint16 pairs, this stage's converted files). A file that is not the full hg19 length is refused.

@@ -994,3 +994,12 @@ every input, so a laboratory offset cannot be measured inside the atlas. It is m
 other laboratories against the atlas (`seq_atlas/outside_data/`). The covariance between sites cannot be estimated pair by pair from one to
 three donors per cell; as in a sky survey, it is taken as a function of distance, from the genome-distance spectrum already measured
 (`seq_atlas/noise_spectrum_summary.txt`).
+
+**Higher-order statistics: Minkowski functionals (D13; written and committed before it runs).** The power spectrum sees only pairs of
+sites; the Minkowski functionals see the shape of a map at each level, so structure that pairs miss shows here. For each noise map on the
+sphere (placed as the null test places it, the same masks) at 5 thresholds (-2 to 2 standard deviations): V0 the share of the sphere above,
+V1 the length of the boundary, V2 the patches above minus the patches below (`stage_seq_atlas.minkowski`, `sky_minkowski`,
+`noise_minkowski`; `run_sample.py --build seq-noise-minkowski`), each against 20 shuffles of the map's own pixels. **Synthetic first**
+(`seq_atlas/minkowski_synthetic.py`, constructed noise columns through the one command): the plain maps at most 10 of their 50 tests
+outside the shuffles; every planted map's boundary length at threshold 0 outside. **Then** every cell's two maps; recorded: the counting
+map is expected to look like its shuffles (no structure, as in the null test); the donor map shows the shape of how healthy people differ.
