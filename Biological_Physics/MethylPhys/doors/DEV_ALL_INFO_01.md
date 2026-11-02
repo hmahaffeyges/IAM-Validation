@@ -273,3 +273,13 @@ chain gives them (no bar; experts in the disease set the lines):
 The study's own healthy samples are cord-blood B cells, newborn cells read against an atlas of adult donors; they read below 1 on Met-A
 and the islands, and are the study's own healthy reference. The globe's change count is shown as read and stays flagged (not met on
 outside healthy neurons). The cultured line and its knockout split as no blood cell of the atlas (B-cell share 0).
+
+## The study read again by the complete chain (written and committed before it is read)
+
+The first full-chain reading above ran before the sequencing atlas's checklist was finished (my order error, disclosed). Since then the
+chain gained, on sequencing: the tumor gauge (the distance to the entropy ceiling, counted, against the sample's own cell of origin),
+the cell-count floor (copies of each cell per site), and Group-A; the report globe's width now includes the sample's own counting. **The
+same 36 samples, the same pieces and settings** (`full_depth/hopkins_fullchain_samples.csv`), read again by the one command, one machine
+each. **Table:** `full_depth/hopkins_fullchain2_table.py` (every reading of the first table, plus the tumor gauge on the B-cell reading and
+the islands, the B-cell copies per site, and Group-A, leukemias against the healthy cord-blood B cells). No bar; readings as the chain
+gives them.
