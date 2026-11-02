@@ -251,4 +251,4 @@ tests and transfer function are built and checked (`DEV_ATLAS_V21_01.md`). **Now
 31 B-cell leukemias, 3 healthy cord-blood B-cell samples, the Reh line and its UHRF1 knockout) merged from their saved alignment pieces
 and read by the one command with the healthy passes' settings (`--full-chain --dev-seq-ref auto --dev-seq-level donors --dev-terr-counted`),
 against the sequencing atlas's B-cell column. **No bar:** every reading is reported as the chain gives it, by group, with the healthy band
-where the chain draws one (`full_depth/hopkins_fullchain_table.py`). Sent only after the globe test on the outside healthy samples lands.
+where the chain draws one (`full_depth/hopkins_fullchain_table.py`). Sent after the globe test on the outside healthy samples landed: the globe's change count on sequencing is not met there (neurons) and is read and flagged; every other reading met its healthy test (healthy pass 5). The study's three healthy cord-blood B-cell samples are its own healthy reference for every reading.

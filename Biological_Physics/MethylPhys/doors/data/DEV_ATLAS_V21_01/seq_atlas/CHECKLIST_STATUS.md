@@ -23,7 +23,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | B8 | Not yet on sequencing | |
 | B9 | Not yet on sequencing | |
 | C1 | Built: the sky sphere, 56 cells, level and 95 % range | `sphere_cols`; `sphere_widths.txt` |
-| C2 | Built as the information globe (534617 sites); per-cell distance not yet | `globe/` |
+| C2 | Built: the information globe, and each sequenced sample's distance from its own healthy self against the sequencing atlas; the globe's change count flagged (outside healthy neurons above v2.1) | `globe_outside_3.txt` |
 | C3 | Built: both noise maps on the sky sphere | `noise_sphere.json` |
 | C4 | Built against v2.1 (the bridge); v2 is not in the repository | `bridge_summary.txt` |
 | D1 | Built: two sealed donor halves | `seq_atlas_inputs.csv` |

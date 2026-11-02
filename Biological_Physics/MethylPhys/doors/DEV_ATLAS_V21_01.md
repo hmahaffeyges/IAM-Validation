@@ -920,3 +920,12 @@ planted person at least that median plus half the planted blocks).
 three 2, 1 and 2 changed blocks (bar at most 50); the planted person 231 of its 275 planted blocks (bar at least 139.5). The second
 reading of the outside samples (rebuilt columns, before the sample's counting was added): 2670 changed blocks against 68 on v2.1 (bar 1
 not met), territories 0 against 1 (bar 2 met). The third reading, with the sample's counting in the width, is running.
+
+**The outside samples, third reading (the sample's own counting in the width): not met; the globe's change count flagged**
+(`seq_atlas/globe_outside_3.csv`, `seq_atlas/globe_outside_3.txt`). Changed blocks: median 156 against the sequencing atlas, 68 against
+v2.1 (bar 1 not met). By cell: pancreatic acinar 156 against 158 and duct 267 against 275, now level with v2.1; cortical neurons 109
+against 24. Changed territories 0 against 1 (bar 2 met); the distance from the own healthy self lower in every group. The neuron column
+rests on three donors, and its donor-half noise map carries the strongest large-scale person-to-person structure of any cell, so three
+donors understate how far healthy neurons from another laboratory differ, and the globe shows that as change; 109 of about 81,000 blocks.
+That is a matter of more donors, not of the instrument. **Status:** the globe's change count on sequencing is read and flagged as not met
+on healthy samples outside the atlas; the territories changed and the distance from the own healthy self are read as they are.

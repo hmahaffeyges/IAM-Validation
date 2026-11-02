@@ -72,3 +72,5 @@ globe_seq_synthetic.txt
 globe_seq_synthetic_v2.txt
 globe_outside_2.csv
 globe_outside_2.txt
+globe_outside_3.csv
+globe_outside_3.txt

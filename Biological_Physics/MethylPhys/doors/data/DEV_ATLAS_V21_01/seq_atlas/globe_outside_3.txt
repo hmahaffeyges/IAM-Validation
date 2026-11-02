@@ -1,0 +1,9 @@
+samples read both ways: 35 (any flagged as an atlas input: 0)
+median changed sites: sequencing atlas 156, v2.1 68; median changed territories: 0, 1
+median Fisher-Rao distance from the own healthy self: 0.17795, 0.19809
+  sorted cortical neurons: n 25, changed sites 109 vs 24, Fisher-Rao 0.17372 vs 0.18801
+  sorted pancreatic acinar: n 5, changed sites 156 vs 158, Fisher-Rao 0.24281 vs 0.27777
+  sorted pancreatic duct: n 5, changed sites 267 vs 275, Fisher-Rao 0.24037 vs 0.26477
+bar 1 changed sites no higher: not met
+bar 2 changed territories no higher: met
+globe on sequencing: not met
