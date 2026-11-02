@@ -946,7 +946,8 @@ A (76) and B (61) read as no different: under 2 % and under 2 standard errors. *
 5's settings, every other sample (sorted by number, 68) with a planted 1 % loss of its own cell's identity pattern written into its read
 counts (`groupa_seq/groupa_seq_plant.py`: the arrays' plant on counts, rounded without bias; the other 69 written back unchanged by the
 same script): planted above unplanted by more than 2 standard errors, the unplanted the tare's references. Recorded, not scored: whole-sample
-Met-A and the islands; the smallest difference each design could have found. Scorer: `groupa_seq/groupa_seq_score.py`. **Disclosed:**
+Met-A and the islands; the smallest difference each design could have found. Scorer: `groupa_seq/groupa_seq_score.py` (changed before any scoring so each bar is scored where its bundles are: bar 1 on GitHub
+from pass 5's artifacts, bar 2 from the Google bucket, then joined by its `combine` step; the bars unchanged). **Disclosed:**
 sizing the test, I read women against men on pass 5's sorted-cell Met-A (1.0029, 82; 1.0154, 55) and the healthy spread (relative SD
 0.0728, against about 0.02 on arrays); the sexes are therefore not used for a bar. With this spread a 1 % planted loss may fall under what
 137 samples can find; the result is recorded whatever it shows.
