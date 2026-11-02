@@ -1100,6 +1100,11 @@ def main():
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
+        if _S0spec.is_plasma(a.specimen):   # 2026-11-02 (DEV-ONE-DRAW-01 absorption test 1): the megakaryocyte stand-in, read against the person's own level
+            _SI = ("lung interstitial macrophages", "erythrocyte progenitors", "MEP (bone marrow)", "eosinophils"); _sh = {x["cell"]: x["share"] for x in ((o["cell_shares"] or {}).get("cells") or [])}
+            if _dsr: o["megakaryocyte_stand_in"] = dict(status="NOT_READ", reason="measured on IAM-Atlas v2.1; the IAM Sequencing Atlas lacks " + ", ".join(c for c in _SI if c not in _dsr[0]["cells"]))
+            else: o["megakaryocyte_stand_in"] = dict(share=round(float(sum(_sh.get(c, 0.0) for c in _SI)), 4), cells={c: round(float(_sh.get(c, 0.0)), 4) for c in _SI},
+                                                      flag="DEVELOPMENT: the summed shares of the four atlas cells pure megakaryocyte DNA lands on (absorption test 1); it also holds real erythroid and macrophage DNA; read against the person's own level")
         if getattr(a, "dev_shares", None):   # 2026-10-30 (development, diagnosis only): every reading that uses the shares reads these declared shares instead
             _dec = {x.split(":")[0].strip(): float(x.split(":")[1]) for x in a.dev_shares.split(",") if ":" in x}
             o["cell_shares_read"] = o["cell_shares"].get("cells")

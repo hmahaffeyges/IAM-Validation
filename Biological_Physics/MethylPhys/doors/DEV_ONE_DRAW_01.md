@@ -353,3 +353,10 @@ from chr15 on sit at shifted addresses and many chr21 and chr22 molecules fall i
 tiles from the dictionary instead. On one spent healthy plasma (`data/DEV_ONE_DRAW_01/tiles_01/tiles_compare.txt`): more tiles are read,
 the loose share moves in the fourth decimal, the held error is unchanged (it uses no tiles). The commissioned tiles stay the default until
 the self-reference line's healthy samples are recounted with the dictionary's tiles.
+
+**The megakaryocyte stand-in, printed by the one command** (development). Every plasma sample's bundle now carries
+`megakaryocyte_stand_in`: the summed shares of the four cells pure megakaryocyte DNA lands on in absorption test 1 (lung interstitial
+macrophages, erythrocyte progenitors, MEP (bone marrow), eosinophils), each cell's share beside it, read against the person's own level.
+It is read where it was measured, with IAM-Atlas v2.1 as the Deconvolver's ruler. Against the IAM Sequencing Atlas it is not read, and the
+bundle names the stand-in cells that atlas lacks (MEP and eosinophils). Absorption test 1 is its check (planted megakaryocyte DNA raised the
+sum as mixing predicts); nothing new is scored.
