@@ -1,0 +1,8 @@
+read by run_sample.py (seed 20261117); planted sites measured: 2756
+healthy 1: changed sites 5
+healthy 2: changed sites 1
+healthy 3: changed sites 3
+planted: changed sites 215
+bar 1 healthy median changed sites at most 50: 3.0: met
+bar 2 planted at least the healthy median plus half the planted sites (1381.0): not met
+synthetic: not met

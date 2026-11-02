@@ -906,3 +906,11 @@ e (1 - e) / n with half a read added each side, as in the atlas's range. Nothing
 a planted rise of 0.3 on chromosome 8 (100 to 115 Mb), read by the one command; bars: the healthy median at most 50 changed sites; the
 planted one at least that median plus half its planted sites. **Then** the outside samples read a third time, and the committed bar
 (changed sites, and changed territories, no higher than against v2.1) scored again.
+
+**The globe synthetic, version 1: not met as written; two errors in its design (mine, disclosed)** (`seq_atlas/globe_seq_synthetic.txt`).
+The three healthy people: 5, 1 and 3 changed (bar 1 met, median 3). The planted person: 215, against a bar of 1381 (not met). Two errors
+of mine: (1) the globe's "sites_changed" counts blocks of 10 sites (it equals "blocks_changed"), so the bar compared blocks with sites;
+the planted region holds 2756 measured sites, about 275 blocks; (2) a rise of 0.3 on mostly methylated B-cell sites was cut off at full
+methylation: only 1097 of the 2756 sites got the whole 0.3. **Version 2, written before it runs** (`seq_atlas/globe_seq_synthetic_v2.py`):
+a new seed; each planted site moved 0.3 toward the opposite end, so none is cut off; the bars in blocks (healthy median at most 50; the
+planted person at least that median plus half the planted blocks).
