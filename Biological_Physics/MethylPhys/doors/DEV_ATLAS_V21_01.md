@@ -875,3 +875,10 @@ reads never pin a level finer than about one read, and the average of several do
 (the donors' t quantile where their spread is the larger part). Nothing fitted. **Synthetic version 2** (`seq_atlas/sphere_range_synthetic.py`):
 the same bars, plus coverage of at least 0.90 at the sites outside 0.1 to 0.9, and no measured site with zero width. **Then:** the sphere
 columns rebuilt and the outside samples read again against them; the globe test is scored on the first reading as committed, and again.
+
+**Synthetic version 2: not met; version 3 written before it runs** (`seq_atlas/sphere_range_synthetic_v2.txt`). The floor met the two new
+bars (coverage at the extreme sites 0.943 and 0.944 for two and three donors; no measured site with zero width) but broke the first:
+taking the larger of the donors' error and counting's everywhere overstates the variance (1.251 and 1.166 of the true) and coverage fell
+to 0.925 for two donors. Where donors differ, their spread already holds each donor's counting; only where they agree exactly does it say
+nothing. **Version 3:** counting's error (from (m + 0.5) / (n + 1)) only where the donors' spread is exactly 0, and the donors' spread as
+before everywhere else. The same synthetic and the same four bars.

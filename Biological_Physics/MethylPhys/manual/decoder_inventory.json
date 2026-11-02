@@ -8622,7 +8622,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 749,
+   "lines": 750,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -8947,14 +8947,14 @@
      "function": "range_of_average",
      "name": "range_of_average",
      "line": 351,
-     "end": 368,
+     "end": 369,
      "args": [
       "meth",
       "reads",
       "donor_sd",
       "k"
      ],
-     "lines": 18,
+     "lines": 19,
      "doc": "2026-11-01 (checklist D4, derived, nothing fitted): each cell's pooled level at a site (meth over reads) and the 95 % range of the cell's average, by counting and donors. Two or more donors: standard error = donor spread (the sample standard deviation of the donors' levels, which already holds each donor's counting; the build leaves it blank where fewer than two donors measured the site) over the ",
      "constants": [],
      "data_files": [],
@@ -8964,8 +8964,8 @@
      "file": "stage_seq_atlas.py",
      "function": "sphere_columns",
      "name": "sphere_columns",
-     "line": 370,
-     "end": 389,
+     "line": 371,
+     "end": 390,
      "args": [
       "out",
       "cols",
@@ -8989,8 +8989,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_maps",
      "name": "noise_maps",
-     "line": 393,
-     "end": 409,
+     "line": 394,
+     "end": 410,
      "args": [
       "cols"
      ],
@@ -9009,8 +9009,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_check",
      "name": "noise_check",
-     "line": 411,
-     "end": 425,
+     "line": 412,
+     "end": 426,
      "args": [
       "cols",
       "ref"
@@ -9032,8 +9032,8 @@
      "file": "stage_seq_atlas.py",
      "function": "sky_mask_sites",
      "name": "sky_mask_sites",
-     "line": 429,
-     "end": 435,
+     "line": 430,
+     "end": 436,
      "args": [
       "ids"
      ],
@@ -9052,8 +9052,8 @@
      "file": "stage_seq_atlas.py",
      "function": "sky_null",
      "name": "sky_null",
-     "line": 437,
-     "end": 450,
+     "line": 438,
+     "end": 451,
      "args": [
       "v",
       "order",
@@ -9071,8 +9071,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_null",
      "name": "noise_null",
-     "line": 452,
-     "end": 462,
+     "line": 453,
+     "end": 463,
      "args": [
       "cols",
       "man"
@@ -9092,8 +9092,8 @@
      "file": "stage_seq_atlas.py",
      "function": "bridge",
      "name": "bridge",
-     "line": 464,
-     "end": 482,
+     "line": 465,
+     "end": 483,
      "args": [
       "cols"
      ],
@@ -9112,8 +9112,8 @@
      "file": "stage_seq_atlas.py",
      "function": "genome_spectrum",
      "name": "genome_spectrum",
-     "line": 487,
-     "end": 499,
+     "line": 488,
+     "end": 500,
      "args": [
       "v",
       "chrom",
@@ -9134,8 +9134,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_spectrum",
      "name": "noise_spectrum",
-     "line": 501,
-     "end": 511,
+     "line": 502,
+     "end": 512,
      "args": [
       "cols"
      ],
@@ -9153,8 +9153,8 @@
      "file": "stage_seq_atlas.py",
      "function": "terr_half_counts",
      "name": "terr_half_counts",
-     "line": 516,
-     "end": 529,
+     "line": 517,
+     "end": 530,
      "args": [
       "samples_csv",
       "out"
@@ -9175,8 +9175,8 @@
      "file": "stage_seq_atlas.py",
      "function": "terr_counts_of",
      "name": "terr_counts_of",
-     "line": 531,
-     "end": 547,
+     "line": 532,
+     "end": 548,
      "args": [
       "cells",
       "half",
@@ -9198,8 +9198,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donor_counts",
      "name": "metaa_donor_counts",
-     "line": 552,
-     "end": 565,
+     "line": 553,
+     "end": 566,
      "args": [
       "samples_csv",
       "out",
@@ -9218,8 +9218,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donors_of",
      "name": "metaa_donors_of",
-     "line": 567,
-     "end": 577,
+     "line": 568,
+     "end": 578,
      "args": [
       "cell",
       "half",
@@ -9240,8 +9240,8 @@
      "file": "stage_seq_atlas.py",
      "function": "beta_vs_pat",
      "name": "beta_vs_pat",
-     "line": 579,
-     "end": 607,
+     "line": 580,
+     "end": 608,
      "args": [
       "beta_src",
       "pat_path",
@@ -9261,8 +9261,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_at_identity",
      "name": "noise_at_identity",
-     "line": 609,
-     "end": 630,
+     "line": 610,
+     "end": 631,
      "args": [
       "path"
      ],
@@ -9282,8 +9282,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 632,
-     "end": 647,
+     "line": 633,
+     "end": 648,
      "args": [
       "cell",
       "path"
@@ -9304,8 +9304,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 649,
-     "end": 673,
+     "line": 650,
+     "end": 674,
      "args": [
       "samples",
       "out"
@@ -9320,8 +9320,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 675,
-     "end": 690,
+     "line": 676,
+     "end": 691,
      "args": [
       "a_path",
       "b_path",
@@ -9339,8 +9339,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 692,
-     "end": 744,
+     "line": 693,
+     "end": 745,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -9361,8 +9361,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 746,
-     "end": 748,
+     "line": 747,
+     "end": 749,
      "args": [
       "gsm",
       "title"
