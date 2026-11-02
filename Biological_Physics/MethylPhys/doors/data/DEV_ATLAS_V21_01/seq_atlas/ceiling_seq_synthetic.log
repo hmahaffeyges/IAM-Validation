@@ -1,0 +1,8 @@
+healthy | sorted A 0.94869 ceiling {'A_sat': 5.518, 'distance_to_ceiling': 1.01136, 'headroom_used': -0.01136, 'turnover_share': 0.0, 'methylated_sites_mean_beta': 0.9357, 'past_entropy_ceiling': False, 'rule': "(A_sat - A) / (A_sat - 1); A_sat: every site at one half, read at the sample's own reads by the reading's own expectation (counted)"} | islands A 1.07533 distance 0.99504 | rc 0
+half way | sorted A 4.42168 ceiling {'A_sat': 5.518, 'distance_to_ceiling': 0.24266, 'headroom_used': 0.75734, 'turnover_share': 0.0085, 'methylated_sites_mean_beta': 0.7213, 'past_entropy_ceiling': False, 'rule': "(A_sat - A) / (A_sat - 1); A_sat: every site at one half, read at the sample's own reads by the reading's own expectation (counted)"} | islands A 12.68972 distance 0.23095 | rc 0
+ceiling | sorted A 5.34112 ceiling {'A_sat': 5.518, 'distance_to_ceiling': 0.03915, 'headroom_used': 0.96085, 'turnover_share': 0.46, 'methylated_sites_mean_beta': 0.5013, 'past_entropy_ceiling': False, 'rule': "(A_sat - A) / (A_sat - 1); A_sat: every site at one half, read at the sample's own reads by the reading's own expectation (counted)"} | islands A 15.6159 distance 0.03845 | rc 0
+read by run_sample.py (seed 20261119): distance to the ceiling, sorted-cell reading: healthy 1.01136, half way 0.24266, ceiling 0.03915
+bar 1 healthy at least 0.9: met
+bar 2 ceiling at most 0.1: met
+bar 3 half way between: met
+synthetic: met

@@ -1,0 +1,5 @@
+read by run_sample.py (seed 20261119): distance to the ceiling, sorted-cell reading: healthy 1.01136, half way 0.24266, ceiling 0.03915
+bar 1 healthy at least 0.9: met
+bar 2 ceiling at most 0.1: met
+bar 3 half way between: met
+synthetic: met

@@ -20,7 +20,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | B5 | Built: C-Score, 0.964 inside its limit | pass 5 |
 | B6 | Built: the Deconvolver on the sequencing atlas; the megakaryocyte column provisional | `DEV_ATLAS_V21_01.md` |
 | B7 | Built: every cell in a mix (in-mix readings) | `DEV_ATLAS_V21_01.md` |
-| B8 | Not yet on sequencing | |
+| B8 | Built on sequencing: the counted distance to the entropy ceiling against the sample's own cell; synthetic met | `ceiling_seq_synthetic.txt` |
 | B9 | Not yet on sequencing | |
 | C1 | Built: the sky sphere, 56 cells, level and 95 % range | `sphere_cols`; `sphere_widths.txt` |
 | C2 | Built: the information globe, and each sequenced sample's distance from its own healthy self against the sequencing atlas; the globe's change count flagged (outside healthy neurons above v2.1) | `globe_outside_3.txt` |

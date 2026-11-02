@@ -969,3 +969,8 @@ sequencing):** each cell's reading records copies_per_site (share times the medi
 (share times all those reads), and is flagged below one copy per site (`COPY_FLOOR`, stated). Recorded, not a bar on any sample.
 **Synthetic first** (`seq_atlas/copies_seq_synthetic.py`, through the one command): B cells and monocytes at 0.9 and 0.1, every site at 4,
 8, 20 or 60 reads; bars: copies within 10 % of the Deconvolver's share times n, and the flag on exactly the cells below one copy.
+
+**The counted ceiling: synthetic met** (`seq_atlas/ceiling_seq_synthetic.txt`, `seq_atlas/ceiling_seq_synthetic.log`). Distance to the
+ceiling on the sorted-cell reading: healthy 1.01136 (bar at least 0.9), half way 0.24266, at one half everywhere 0.03915 (bar at most 0.1);
+the islands in the same order (each sample's readings in the log). Half way reads well below the middle because a site's disorder rises fastest near 0 and 1: the
+gauge is in disorder, not in level. The tumor gauge now reads on sequencing against each sample's own cell of origin.
