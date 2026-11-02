@@ -1,0 +1,136 @@
+atlas,cell,sites,zero,under_0005,smallest
+sequencing,adipocytes,813951,53126,56970,0.0
+sequencing,aorta endothelium,813920,112018,115859,0.0
+sequencing,b cells,813945,75302,77130,0.0
+sequencing,bladder epithelium,813934,89876,91866,0.0
+sequencing,breast basal epithelium,813951,93512,96610,0.0
+sequencing,breast luminal epithelium,813950,81549,83001,0.0
+sequencing,cardiomyocyte,813951,79266,83416,0.0
+sequencing,cd4 t cells,813951,68649,70620,0.0
+sequencing,cd8 t cells,813951,66573,68137,0.0
+sequencing,colon enteroendocrine,813917,121704,127589,0.0
+sequencing,colon epithelium,813951,86424,90159,0.0
+sequencing,colon fibroblasts,813910,74642,80922,0.0
+sequencing,colon macrophages,813918,81360,88370,0.0
+sequencing,cortical neurons,813951,77361,80090,0.0
+sequencing,effector memory cd8 t cells,0,0,0,
+sequencing,endometrium epithelium,813948,83875,85345,0.0
+sequencing,erythrocyte progenitors,813951,65119,66110,0.0
+sequencing,fallopien tubes epithelium,813950,91014,94520,0.0
+sequencing,gastric antrum epithelium,813946,81273,86160,0.0
+sequencing,gastric body epithelium,813946,81589,85052,0.0
+sequencing,gastric fundus epithelium,813951,73753,79560,0.0
+sequencing,heart fibroblasts,813949,73871,76772,0.0
+sequencing,hepatocyte,813949,63677,69427,0.0
+sequencing,kidney glomerular endothelium,813951,62316,66396,0.0
+sequencing,kidney glomerular epithelium,813934,129364,134673,0.0
+sequencing,kidney tubular endothelium,813947,74573,76416,0.0
+sequencing,kidney tubular epithelium,813914,68511,73536,0.0
+sequencing,lung alveolar endothelium,813951,61563,65364,0.0
+sequencing,lung alveolar epithelium,813951,51256,56543,0.0
+sequencing,lung alveolar macrophages,813917,111499,117455,0.0
+sequencing,lung bronchus epithelium,813948,67034,70411,0.0
+sequencing,lung interstitial macrophages,813950,66399,71161,0.0
+sequencing,memory b cells,813888,146782,148728,0.0
+sequencing,monocytes,813951,110677,112067,0.0
+sequencing,naive cd4 t cells,0,0,0,
+sequencing,naive cd8 t cells,0,0,0,
+sequencing,nk cells,813951,72584,74989,0.0
+sequencing,oligodendrocytes,813951,84072,86805,0.0
+sequencing,pancreas endothelium,813951,87698,89003,0.0
+sequencing,pancreatic acinar,813947,68103,69972,0.0
+sequencing,pancreatic alpha,813951,77367,81472,0.0
+sequencing,pancreatic beta,813950,88121,91402,0.0
+sequencing,pancreatic delta,813951,98664,100063,0.0
+sequencing,pancreatic duct,813949,94963,98414,0.0
+sequencing,prostate epithelium,813951,75719,79483,0.0
+sequencing,small intestine epithelium,813950,81000,83795,0.0
+sequencing,smooth muscle,813950,67866,69054,0.0
+sequencing,striated muscle,813837,95274,101617,0.0
+sequencing,t central memory cd4,813951,79516,81445,0.0
+sequencing,t effector cell cd8,813951,75521,77535,0.0
+sequencing,t effector memory cd4,813951,76100,78309,0.0
+sequencing,thyroid epithelium,813948,81951,87810,0.0
+sequencing,tongue epithelium,813951,76721,80134,0.0
+sequencing,tonsil palatine epithelium,813950,66268,70739,0.0
+sequencing,tonsil pharyngeal epithelium,813856,114361,118691,0.0
+sequencing,vascular saphenous endothelium,813951,64554,68152,0.0
+v2.1,CMP (bone marrow),412455,0,0,0.0151
+v2.1,GMP (bone marrow),406264,0,0,0.0126
+v2.1,HSC (bone marrow),413989,0,0,0.0115
+v2.1,L-MPP (bone marrow),406730,0,0,0.0151
+v2.1,MEP (bone marrow),411321,0,0,0.0148
+v2.1,MPP (bone marrow),411133,0,0,0.0191
+v2.1,adipocytes,813951,0,0,0.0109
+v2.1,aorta endothelium,813951,0,0,0.0205
+v2.1,astrocytes,793031,0,0,0.0281
+v2.1,b cells,813947,0,49655,0.0036
+v2.1,basophils,781340,0,0,0.0101
+v2.1,bladder epithelium,813951,0,0,0.0146
+v2.1,breast basal epithelium,813951,0,0,0.0144
+v2.1,breast luminal epithelium,813951,0,0,0.0171
+v2.1,cardiomyocyte,813951,0,0,0.0147
+v2.1,cd4 t cells,813951,0,46038,0.0037
+v2.1,cd56bright nk cells,780050,0,0,0.0082
+v2.1,cd8 central memory t cells,780635,0,0,0.008
+v2.1,cd8 t cells,813951,0,34970,0.0038
+v2.1,cd8 temra t cells,780028,0,0,0.0101
+v2.1,central memory th1 cells,413952,0,0,0.0116
+v2.1,colon enteroendocrine,813950,0,0,0.0202
+v2.1,colon epithelium,813951,0,0,0.0073
+v2.1,colon fibroblasts,813946,0,0,0.0203
+v2.1,colon macrophages,813914,0,0,0.0203
+v2.1,cortical neurons,813951,0,0,0.0068
+v2.1,cytotoxic cd4 t cells (cd28-),414154,0,0,0.0117
+v2.1,effector memory cd8 t cells,813943,0,0,0.0083
+v2.1,embryonic stem cells,813419,0,0,0.008
+v2.1,endometrium epithelium,813951,0,0,0.0169
+v2.1,eosinophils,780967,0,0,0.0127
+v2.1,erythrocyte progenitors,813951,0,0,0.0172
+v2.1,fallopien tubes epithelium,813951,0,0,0.0169
+v2.1,gastric antrum epithelium,813951,0,0,0.0169
+v2.1,gastric body epithelium,813951,0,0,0.0168
+v2.1,gastric fundus epithelium,813951,0,0,0.0168
+v2.1,heart fibroblasts,813951,0,0,0.017
+v2.1,hepatocyte,813951,0,0,0.0099
+v2.1,kidney glomerular endothelium,813951,0,0,0.0169
+v2.1,kidney glomerular epithelium,813933,0,0,0.0203
+v2.1,kidney tubular endothelium,813951,0,0,0.017
+v2.1,kidney tubular epithelium,813951,0,0,0.017
+v2.1,lung alveolar endothelium,813951,0,0,0.0165
+v2.1,lung alveolar epithelium,813951,0,0,0.0109
+v2.1,lung alveolar macrophages,813951,0,0,0.0204
+v2.1,lung bronchus epithelium,813951,0,0,0.0061
+v2.1,lung interstitial macrophages,813951,0,0,0.0169
+v2.1,memory b cells,813945,0,0,0.0067
+v2.1,memory cd4 t cells,778314,0,0,0.0133
+v2.1,microglia,813045,0,0,0.0085
+v2.1,monocytes,813951,0,75199,0.0033
+v2.1,naive b cells,780933,0,0,0.0074
+v2.1,naive cd4 t cells,813950,0,0,0.0059
+v2.1,naive cd8 t cells,813950,0,0,0.0055
+v2.1,neutrophils,813185,0,51253,0.0037
+v2.1,nk cells,813951,0,14308,0.0047
+v2.1,oligodendrocyte precursors,793005,0,0,0.0277
+v2.1,oligodendrocytes,813951,0,0,0.0075
+v2.1,pancreas endothelium,813951,0,0,0.0147
+v2.1,pancreatic acinar,813951,0,0,0.0113
+v2.1,pancreatic alpha,813951,0,0,0.0167
+v2.1,pancreatic beta,813951,0,0,0.0104
+v2.1,pancreatic delta,813951,0,0,0.0171
+v2.1,pancreatic duct,813951,0,0,0.0112
+v2.1,prostate epithelium,813951,0,0,0.0146
+v2.1,regulatory t cells,774735,0,0,0.0156
+v2.1,small intestine epithelium,813951,0,0,0.0075
+v2.1,smooth muscle,813951,0,0,0.013
+v2.1,striated muscle,813951,0,0,0.0207
+v2.1,t central memory cd4,813950,0,0,0.0079
+v2.1,t effector cell cd8,813951,0,0,0.0104
+v2.1,t effector memory cd4,813950,0,0,0.0172
+v2.1,thyroid epithelium,813951,0,0,0.0168
+v2.1,tongue epithelium,813951,0,0,0.0145
+v2.1,tonsil palatine epithelium,813951,0,0,0.0171
+v2.1,tonsil pharyngeal epithelium,813951,0,0,0.0204
+v2.1,vascular endothelium,762500,0,0,0.0206
+v2.1,vascular leptomeningeal cells,790817,0,0,0.028
+v2.1,vascular saphenous endothelium,813951,0,0,0.017

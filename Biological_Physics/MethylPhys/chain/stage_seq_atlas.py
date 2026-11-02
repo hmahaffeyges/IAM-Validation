@@ -353,12 +353,18 @@ def range_of_average(meth, reads, donor_sd, k):
     cell's average, by counting and donors. Two or more donors: standard error = donor spread (the sample standard deviation of the donors'
     levels, which already holds each donor's counting; the build leaves it blank where fewer than two donors measured the site) over the
     square root of the number of donors, the range level +/- t(0.975, k - 1) standard errors (the average of k donors: 12.71 for two, 4.30
-    for three). One donor, or a blank spread: counting only, sqrt(p (1 - p) / reads), +/- 1.96. Held inside 0 and 1. Returns level, lo, hi
+    for three). One donor, or a blank spread: counting only, +/- 1.96. Counting's error is taken from (meth + 0.5) / (reads + 1) and is a
+    floor under the donors' (2026-11-01). Held inside 0 and 1. Returns level, lo, hi
     and the standard error, in levels (0..1); NaN where unmeasured."""
     from scipy.stats import t as _t
     meth = np.asarray(meth, "float64"); reads = np.asarray(reads, "float64"); p = np.where(reads > 0, meth / np.maximum(reads, 1), np.nan)
-    sd = np.asarray(donor_sd, "float64"); cnt = np.sqrt(p * (1 - p) / np.maximum(reads, 1)); don = np.isfinite(sd) & (k >= 2)
-    se = np.where(don, sd / np.sqrt(max(k, 1)), cnt); q = np.where(don, _t.ppf(0.975, max(k - 1, 1)), 1.959964)
+    sd = np.asarray(donor_sd, "float64"); don = np.isfinite(sd) & (k >= 2)
+    # 2026-11-01 (the globe on sequencing: 77,361 neuron sites read exactly 0 or 1 and had no width): counting's error from the level with half
+    # a read added each side, (meth + 0.5) / (reads + 1), so n reads never pin a level finer than about one read; the average of k donors is
+    # never known better than its pooled counting allows. The donors' t quantile applies where their spread is the larger part.
+    pj = np.where(reads > 0, (meth + 0.5) / (reads + 1), np.nan); cnt = np.sqrt(pj * (1 - pj) / np.maximum(reads, 1))
+    sdk = sd / np.sqrt(max(k, 1)); use_d = don & (sdk >= cnt)
+    se = np.where(use_d, sdk, cnt); q = np.where(use_d, _t.ppf(0.975, max(k - 1, 1)), 1.959964)
     return p, np.clip(p - q * se, 0, 1), np.clip(p + q * se, 0, 1), se
 
 def sphere_columns(out, cols=None, inputs=None):

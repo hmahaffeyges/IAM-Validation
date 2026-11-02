@@ -6,6 +6,8 @@ Known answer (seed 20261112): 20,000 sites, each with a true cell level (Beta(0.
 cell in the committed layout (meth, reads, donor_sd; the inputs list giving each cell its k donors). The truth is the persons' average
 level. Bars, for k = 2 and 3, at sites whose truth lies between 0.1 and 0.9: mean stated variance (mu_se squared) over the true variance
 of the level about its truth within 0.9 to 1.1; coverage of the truth by the range within 0.90 to 0.99. k = 1 recorded, not scored.
+Version 2 (2026-11-01, before it runs): also, for k = 2 and 3, coverage at the sites whose truth lies outside 0.1 to 0.9 at least 0.90,
+and no measured site with a zero width.
 Usage: python3 sphere_range_synthetic.py WORKDIR OUT.txt"""
 import os, sys, subprocess, numpy as np, pandas as pd, pyarrow as pa, pyarrow.parquet as pq
 from scipy.special import expit, logit
@@ -38,4 +40,14 @@ for k in (1, 2, 3):
     L.append(f"k = {k} donors: stated over true variance {ratio:.3f}; coverage of the truth {cov:.3f}")
 ok = all(0.9 <= res[k][0] <= 1.1 and 0.90 <= res[k][1] <= 0.99 for k in (2, 3))
 L.append(f"bars (k = 2 and 3): variance ratio within 0.9 to 1.1 and coverage within 0.90 to 0.99: {'met' if ok else 'not met'}")
+# 2026-11-01 (version 2, written before it runs: the range at levels of 0 or 1): the sites outside 0.1 to 0.9 and every measured site's width
+ext = ~inner; e3 = {}; zero = 0
+for k in (1, 2, 3):
+    cs = [c for c in names if c.startswith(f"k{k} ")]
+    lo = np.stack([G[("mu_lo", c)] for c in cs]); hi = np.stack([G[("mu_hi", c)] for c in cs]); est = np.stack([G[("mu", c)] for c in cs])
+    e3[k] = float(((lo <= truth) & (truth <= hi))[:, ext].mean()); zero += int(((hi - lo) <= 0)[np.isfinite(est)].sum())
+    L.append(f"k = {k} donors, sites with truth outside 0.1 to 0.9 ({int(ext.sum())}): coverage {e3[k]:.3f}")
+b3 = all(e3[k] >= 0.90 for k in (2, 3)); b4 = zero == 0
+L += [f"bar 3 (k = 2 and 3) coverage at the extreme sites at least 0.90: {'met' if b3 else 'not met'}", f"bar 4 no measured site with zero width ({zero}): {'met' if b4 else 'not met'}",
+      f"synthetic: {'met' if ok and b3 and b4 else 'not met'}"]
 open(sys.argv[2], "w").write("\n".join(L) + "\n"); print("\n".join(L))

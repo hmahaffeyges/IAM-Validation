@@ -58,3 +58,5 @@ noise_spectrum_summary.txt
 isotropy.csv
 isotropy.txt
 globe_bcell_check.txt
+zero_widths_before.csv
+zero_widths_before.txt
