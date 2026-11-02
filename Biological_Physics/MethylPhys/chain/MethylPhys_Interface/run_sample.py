@@ -214,6 +214,8 @@ def _metaa_atlas(a, b):
     if getattr(a, "_seqv", None):   # 2026-10-22 (step 40): sequencing values; the self-tare maps the two array designs, so it does not apply
         SA.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or SA.SEQ_LEVEL   # 2026-10-31: pooled (default) or median, the healthy level on sequencing
         if getattr(a, "dev_seq_donors", None): import stage_seq_atlas as _SQdf; _SQdf.DONORS_FILE = a.dev_seq_donors   # 2026-10-31: a constructed donor file
+        if getattr(a, "dev_input_floors", None): import stage_seq_atlas as _SQff; _SQff.FLOORS_FILE = a.dev_input_floors   # 2026-11-02: a constructed floors file
+        if getattr(a, "dev_floor_equal", False): import stage_metaa_atlas as _SAfe; _SAfe.FLOOR_EQUAL = True   # 2026-11-02: the common library floor
         _sr = None
         if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
             import stage_seq_atlas as _SQr; _sr = _SQr.metaa_reference_of(a.dev_metaa_atlas, _SQr.METAA_REF if a.dev_seq_ref == "auto" else a.dev_seq_ref)
@@ -429,6 +431,11 @@ def _build(a):
         if a.build_out: import pandas as _pdnn; _pdnn.DataFrame(rows).to_csv(a.build_out, index=False)
         if a.bundle: json.dump(dict(rows=rows, command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT (plan 35.30)"), open(a.bundle, "w"), indent=1, default=str)
         return 0
+    if a.build == "seq-input-floors":   # 2026-11-02 (development): every atlas input's library floor, from its own .beta
+        import stage_seq_atlas as _SQif
+        rep = _SQif.input_floors(a.build_samples, a.build_out or _SQif.INPUT_FLOORS)
+        if a.bundle: json.dump(dict(rep, command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT (the laboratory floor)"), open(a.bundle, "w"), indent=1, default=str)
+        return 0
     if a.build == "seq-noise-minkowski":   # 2026-11-02 (checklist D13, development): Minkowski functionals of each noise map against shuffles of its pixels
         import stage_seq_atlas as _SQmk; import reference_globes as RG
         rows = _SQmk.noise_minkowski(a.build_input or _SQmk.NOISE_DIR, RG.manifests())
@@ -610,7 +617,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-noise-null", "seq-noise-minkowski", "seq-bridge", "seq-noise-spectrum"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-bridge", "seq-noise-spectrum"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -657,6 +664,8 @@ def main():
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
     ap.add_argument("--build-name", default=None, help="the atlas's name on a picture built from --build-input (info-globe)")
     ap.add_argument("--dev-terr-counted", action="store_true", help="DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given")
+    ap.add_argument("--dev-floor-equal", action="store_true", help="DEVELOPMENT: read a sequenced sample and its reference at a common library floor (the higher of the two)")
+    ap.add_argument("--dev-input-floors", default=None, help="DEVELOPMENT: an atlas input floors file in the committed format (gsm, cell, half, floor, calls), for synthetics")
     ap.add_argument("--dev-terr-counts", default=None, help="DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
@@ -705,6 +714,12 @@ def main():
             _vb, _vc, a._seqv = _SV.values_from_beta(a.dev_seq_beta, a.dev_seq_values or 1)
         a._seqc = _vc
         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
+        try:   # 2026-11-02 (the laboratory floor): the sample's own floor, before any reading, for --dev-floor-equal
+            import stage_seq_atlas as _SQf0, stage_metaa_atlas as _SAf0; _lf0 = _SQf0.library_floor(_vb, _vc)
+            _SAf0.SAMPLE_FLOOR = ((_lf0 or {}).get("unmarked") or {}).get("rate")
+            if getattr(a, "dev_floor_equal", False): _SAf0.FLOOR_EQUAL = True
+            if getattr(a, "dev_input_floors", None): _SQf0.FLOORS_FILE = a.dev_input_floors
+        except Exception as _e0: print(f"library floor not measured: {type(_e0).__name__}: {str(_e0)[:120]}", flush=True)
         print(f"Sequencing values from {os.path.basename(a.dev_seq_beta)}: {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites; median {a._seqv['calls_per_site_median']:.0f} calls", flush=True)
     elif a.dev_seq_values is not None:   # 2026-10-22 (step 40): the same molecules give a value at each atlas site
         if not a.pat: ap.error("--dev-seq-values needs --pat (or --geo-pat)")

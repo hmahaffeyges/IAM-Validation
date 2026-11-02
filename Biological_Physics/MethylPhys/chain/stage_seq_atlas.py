@@ -310,6 +310,43 @@ def floor_sites(piece_dirs, out, rule=FLOOR_RULE):
     D = pd.concat(parts, ignore_index=True).sort_values("cpg"); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); D.to_parquet(out, index=False)
     return dict(rule=rule, cells=ncell, sites=int(len(D)), by_side=D.side.value_counts().astype(int).to_dict(), output=os.path.basename(out))
 
+INPUT_FLOORS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "input_floors_v1.parquet")
+FLOORS_FILE = None   # 2026-11-02: a constructed floors file (run_sample.py --dev-input-floors), for synthetics
+
+def input_floors(samples_csv, out):
+    """2026-11-02 (the laboratory floor): every atlas input's library floor (library_floor, from its own .beta at the floor sites), as a table
+    gsm, cell, half, floor (the unmarked side's rate), calls. samples_csv: gsm, cell, half, file (a local path or the GEO address)."""
+    import pandas as pd, tempfile, urllib.request
+    S = pd.read_csv(samples_csv); D = pd.read_parquet(FLOOR_SITES); rows = []
+    K = D[["probe", "cpg"]].drop_duplicates("probe")
+    for r in S.itertuples():
+        f = str(r.file).strip(); tmp = None
+        if f.startswith(("http", "ftp")):
+            tmp = os.path.join(tempfile.mkdtemp(), os.path.basename(f)); urllib.request.urlretrieve(f, tmp); f = tmp
+        a = np.fromfile(f, np.uint8).reshape(-1, 2).astype("float64"); m, n = a[K.cpg.to_numpy() - 1, 0], a[K.cpg.to_numpy() - 1, 1]
+        with np.errstate(all="ignore"): b = pd.Series(np.where(n > 0, m / n, np.nan), index=K.probe.to_numpy())
+        lf = library_floor(b, pd.Series(n, index=K.probe.to_numpy()))
+        rows.append(dict(gsm=str(r.gsm).strip(), cell=str(r.cell).strip(), half=str(r.half).strip(), floor=(lf.get("unmarked") or {}).get("rate"), calls=(lf.get("unmarked") or {}).get("calls")))
+        if tmp: os.remove(tmp)
+        print(rows[-1]["gsm"], rows[-1]["floor"], flush=True)
+    pd.DataFrame(rows).to_parquet(out, index=False); return dict(inputs=len(rows), output=os.path.basename(out))
+
+def floors_of(gsms):
+    """The library floor of each named atlas input (input_floors_v1.parquet, or FLOORS_FILE); NaN where not recorded."""
+    import pandas as pd
+    p = FLOORS_FILE or INPUT_FLOORS
+    if not os.path.exists(p): return pd.Series(np.nan, index=list(gsms))
+    return pd.read_parquet(p).drop_duplicates("gsm").set_index("gsm").floor.reindex(list(gsms))
+
+def half_floor(half=None):
+    """The mean library floor of the atlas inputs in one sealed half (every input when no half), the floor of that half's pooled reads."""
+    import pandas as pd
+    p = FLOORS_FILE or INPUT_FLOORS
+    if not os.path.exists(p): return None
+    T = pd.read_parquet(p)
+    if str(half or "").upper() in ("A", "B"): T = T[T.half.str.upper() == str(half).upper()]
+    return float(T.floor.mean()) if len(T) else None
+
 def library_floor(beta, calls, path=FLOOR_SITES):
     """2026-10-29 (plan 35.30): a sequenced sample's library floor: at the floor sites, the share of opposite calls (methylated at unmarked sites,
     unmethylated at marked ones), each side and both pooled, from the sample's own calls (stage_seq_values). Development, flagged."""

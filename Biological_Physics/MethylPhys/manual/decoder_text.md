@@ -1906,6 +1906,12 @@ All the new sections in their order, after the cell shares.
 ### stage_t_selftare.py::ruler_map
 The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v2.1's means at sites every cell type holds alike (islands and shores never anchors). Development; off unless run_sample.py is given --dev-ruler.
 
+### stage_metaa_atlas.py::floor_raise
+The probability that raises a library's floor from f to F: (F - f) / (1 - f).
+
+### stage_metaa_atlas.py::_Hj
+The disorder of j methylated of m reads after each unmethylated read is turned methylated with probability u (a library's floor raised).
+
 ### stage_metaa_atlas.py::ceiling_counted
 The distance to the entropy ceiling on sequencing: the reading the sample would give with every site at one half, read at its own reads by the reading's own expectation; distance, headroom used and the share of sites that crossed one half.
 
@@ -2319,6 +2325,15 @@ v2.1, each with its GEO .beta file, cell and sealed donor half. Each block is a 
 levels), `spread` (the donors' standard deviation), `disorder` (each donor's binary entropy, averaged), `halfA`, `halfB` (the pooled level in
 each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
 seed 20261029; their difference is noise map 2, defined for a cell with one donor).
+
+### stage_seq_atlas.py::half_floor
+The mean library floor of the atlas inputs in one sealed half.
+
+### stage_seq_atlas.py::floors_of
+The recorded library floor of each named atlas input.
+
+### stage_seq_atlas.py::input_floors
+Every atlas input's library floor from its own .beta at the floor sites (`--build seq-input-floors`).
 
 ### stage_seq_atlas.py::minkowski
 The three Minkowski functionals of a sphere map at each threshold: the share above, the boundary length, and the patches above minus below.

@@ -162,7 +162,7 @@ def expected_H_donors(Md, Nd, n):
         if vals: out[i] = float(np.mean(vals))
     return out
 
-def donor_pair(k, n, Md, Nd):
+def donor_pair(k, n, Md, Nd, u_s=0.0, u_d=None):
     """2026-10-31 (derived, nothing fitted; after the donor-by-donor synthetic's run 1): the sample's measured disorder and one healthy
     person's expected disorder at each site, both at a common depth m = the smaller of the sample's reads n and the deepest donor's. The
     sample side: the exact expectation of H when its n reads (k methylated) are thinned to m without replacement (its own H(k/n) when n <= m).
@@ -170,17 +170,19 @@ def donor_pair(k, n, Md, Nd):
     (measured, expected); NaN where no donor has a read."""
     from scipy.stats import hypergeom
     k = np.asarray(k, "int64"); n = np.asarray(n, "int64"); Md = np.asarray(Md, "float64"); Nd = np.asarray(Nd, "float64")
-    meas = np.full(len(n), np.nan); exp = np.full(len(n), np.nan); memo = {}
-    def thin(K, N, m):
-        key = (int(K), int(N), int(m))
+    meas = np.full(len(n), np.nan); exp = np.full(len(n), np.nan); memo = {}; hv = {}
+    u_d = np.zeros(Md.shape[1]) if u_d is None else np.asarray(u_d, "float64")   # 2026-11-02: each library's floor raised to the common floor
+    def thin(K, N, m, u=0.0):
+        key = (int(K), int(N), int(m), round(float(u), 9))
         if key not in memo:
-            j = np.arange(m + 1); memo[key] = float(hypergeom.pmf(j, int(N), int(K), int(m)) @ np.asarray(_H(pd.Series(j / m)), "float64"))
+            if (m, round(float(u), 9)) not in hv: hv[(m, round(float(u), 9))] = _Hj(m, u)
+            j = np.arange(m + 1); memo[key] = float(hypergeom.pmf(j, int(N), int(K), int(m)) @ hv[(m, round(float(u), 9))])
         return memo[key]
     for i in range(len(n)):
         ok = np.isfinite(Nd[i]) & (Nd[i] >= 1)
         if n[i] < 1 or not ok.any(): continue
         m = int(min(n[i], N_EXACT, Nd[i][ok].max())); deep = ok & (Nd[i] >= m)
-        meas[i] = thin(k[i], n[i], m); exp[i] = float(np.mean([thin(M, N, m) for M, N in zip(Md[i][deep], Nd[i][deep])]))
+        meas[i] = thin(k[i], n[i], m, u_s); exp[i] = float(np.mean([thin(M, N, m, u) for M, N, u in zip(Md[i][deep], Nd[i][deep], u_d[deep])]))
     return meas, exp
 
 def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
@@ -223,7 +225,14 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
             _dc = _SQd2.metaa_donors_of(cell, half=half)
             if _dc is not None:
                 _Md, _Nd = (z.reindex(mu[ok].index).to_numpy() for z in _dc); _k = np.rint(x[ok].to_numpy() * _n).astype("int64")
-                _hm, _e = donor_pair(_k, _n, _Md, _Nd); _g = np.isfinite(_hm) & np.isfinite(_e); href = float(_e[_g].mean()); rec["expectation_counted"] = True
+                _us, _ud = 0.0, None
+                if FLOOR_EQUAL and SAMPLE_FLOOR is not None:   # 2026-11-02: the sample and every donor read at the common floor (the highest of them)
+                    _fd = _SQd2.floors_of(_dc[0].columns).to_numpy(dtype="float64")
+                    if np.isfinite(_fd).all():
+                        _F = float(max(SAMPLE_FLOOR, _fd.max())); _us = floor_raise(SAMPLE_FLOOR, _F); _ud = np.array([floor_raise(f, _F) for f in _fd])
+                        rec["floor"] = dict(sample=round(float(SAMPLE_FLOOR), 6), donors=[round(float(f), 6) for f in _fd], common=round(_F, 6), raise_sample=round(_us, 6))
+                    else: rec["floor"] = dict(status="NOT_APPLIED", reason="a reference donor has no recorded floor")
+                _hm, _e = donor_pair(_k, _n, _Md, _Nd, _us, _ud); _g = np.isfinite(_hm) & np.isfinite(_e); href = float(_e[_g].mean()); rec["expectation_counted"] = True
                 _hmean = float(_hm[_g].mean())   # the sample's disorder at the same common depth (donor_pair)
                 rec["expectation"] = ("donor by donor at a common depth (donor_pair): the sample's reads and each healthy donor's thinned without replacement "
                                       f"to the smaller of the two depths, {_Md.shape[1]} donors" + (f" of half {str(half).upper()}" if str(half or '').upper() in ('A', 'B') else ""))
@@ -237,7 +246,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     if counts is not None:   # 2026-11-02 (B8): the distance to the entropy ceiling, counted the same way as A
         _nc = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy()
         if "_hmean" in locals():
-            _hh, _ = donor_pair(np.rint(0.5 * _nc).astype("int64"), _nc, _Md, _Nd); _As = float(np.nanmean(_hh[_g]) / href)
+            _hh, _ = donor_pair(np.rint(0.5 * _nc).astype("int64"), _nc, _Md, _Nd, _us, _ud); _As = float(np.nanmean(_hh[_g]) / href)
         else: _As = float(np.nanmean(expected_H_counts(np.full(len(_nc), 0.5), _nc)) / href)
         rec["ceiling"] = ceiling_counted(A, _As, x[ok].to_numpy(), mu[ok].to_numpy())
     xd = (x[ok] + 0.01 * (0.5 - mu[ok]))   # a 1 % loss of the cell's pattern: every identity site moved 1 % of the way to 0.5
@@ -587,13 +596,29 @@ TERR_HALF = None       # the donor half the islands are read against (run_sample
 TERR_M = 20            # stated: both sides taken to a common depth of at most 20 reads, drawn without replacement, so the exact expectation stays cheap
 TERR_SHARE_MIN = 0.01  # stated: cells holding at least 1 % of the sample, their shares renormalized
 
-def thin_H(k, n, m):
+FLOOR_EQUAL = False   # 2026-11-02 (run_sample.py --dev-floor-equal; development): read the sample and its reference at a common library floor
+SAMPLE_FLOOR = None   # the sample's own floor (stage_seq_atlas.library_floor, unmarked side), set by the one command before the readings
+
+def _Hj(m, u=0.0):
+    """2026-11-02 (the laboratory floor; derived, nothing fitted): the disorder of j methylated of m reads, j = 0..m, after each of the m - j
+    unmethylated reads is turned methylated with probability u (a library's floor raised by u): sum over t of Binomial(t; m - j, u) H((j + t) / m).
+    u = 0 gives H(j / m) itself."""
+    from scipy.stats import binom
+    j = np.arange(m + 1); H0 = np.asarray(_H(pd.Series(j / m)), "float64")
+    if not u or u <= 0: return H0
+    return np.array([float(binom.pmf(np.arange(m - jj + 1), m - jj, u) @ H0[jj:]) for jj in j])
+
+def floor_raise(f_low, F):
+    """The probability u that turns a library at floor f_low into one at floor F >= f_low: f_low + (1 - f_low) u = F."""
+    return 0.0 if f_low is None or F is None or F <= f_low else float((F - f_low) / (1 - f_low))
+
+def thin_H(k, n, m, u=0.0):
     """The exact expected disorder of k methylated of n reads drawn down to m reads without replacement (H(k/n) itself when m == n)."""
     from scipy.stats import hypergeom
-    k = np.asarray(k, "int64"); n = np.asarray(n, "int64"); j = np.arange(m + 1); Hj = np.asarray(_H(pd.Series(j / m)), "float64")
+    k = np.asarray(k, "int64"); n = np.asarray(n, "int64"); j = np.arange(m + 1); Hj = _Hj(m, u)   # 2026-11-02: u raises the floor (FLOOR_EQUAL)
     return np.nan_to_num(hypergeom.pmf(j[None, :], n[:, None], k[:, None], m)) @ Hj
 
-def expected_H_mix_counts(Mk, Nk, F, m, block=8000):
+def expected_H_mix_counts(Mk, Nk, F, m, block=8000, u=0.0):
     """2026-11-01 (derived, nothing fitted): the expected disorder, at m reads, of a healthy sample of this mix, from each cell's reference reads
     (Mk methylated of Nk, sites x cells; F the cells' shares). Each of the m reads comes from cell k with probability F_k and is one of that
     cell's reference reads drawn without replacement; a subset of independent reads is itself independent, so this is an exactly unbiased
@@ -602,7 +627,7 @@ def expected_H_mix_counts(Mk, Nk, F, m, block=8000):
     from scipy.stats import hypergeom, binom
     import math
     Mk = np.asarray(Mk, "float64"); Nk = np.asarray(Nk, "float64"); F = np.asarray(F, "float64"); S, K = Mk.shape
-    j = np.arange(m + 1); Hj = np.asarray(_H(pd.Series(j / m)), "float64"); lg = np.array([math.lgamma(a + 1) for a in range(m + 1)]); out = np.empty(S)
+    j = np.arange(m + 1); Hj = _Hj(m, u); lg = np.array([math.lgamma(a + 1) for a in range(m + 1)]); out = np.empty(S)   # 2026-11-02: u raises the floor
     for s0 in range(0, S, block):
         sl = slice(s0, min(S, s0 + block)); W = np.zeros((sl.stop - sl.start, m + 1, m + 1)); W[:, 0, 0] = 1.0
         for k in range(K):
@@ -629,14 +654,20 @@ def islands_counted(xs, counts, F):
     if got is None: return dict(reason="no per-half island counts (terr_half_counts_v1.parquet)")
     Mk, Nk = got; n = pd.Series(counts).reindex(xs.index).fillna(0).astype("int64").to_numpy(); k = np.rint(xs.to_numpy() * n).astype("int64")
     ok = (Nk >= 1).all(1) & (n >= 1); m = np.minimum(n, TERR_M); hm = np.full(len(n), np.nan); he = np.full(len(n), np.nan)
+    us = ur = 0.0; fl = None
+    if FLOOR_EQUAL and SAMPLE_FLOOR is not None:   # 2026-11-02: the sample and the reference half's pooled reads at their common floor
+        fr = _SQt.half_floor(TERR_HALF)
+        if fr is not None:
+            Fc = max(float(SAMPLE_FLOOR), fr); us, ur = floor_raise(SAMPLE_FLOOR, Fc), floor_raise(fr, Fc)
+            fl = dict(sample=round(float(SAMPLE_FLOOR), 6), reference=round(fr, 6), common=round(Fc, 6))
     for mm in np.unique(m[ok]):
-        s = ok & (m == mm); hm[s] = thin_H(k[s], n[s], int(mm)); he[s] = expected_H_mix_counts(Mk[s], Nk[s], Fk.to_numpy(), int(mm))
+        s = ok & (m == mm); hm[s] = thin_H(k[s], n[s], int(mm), us); he[s] = expected_H_mix_counts(Mk[s], Nk[s], Fk.to_numpy(), int(mm), u=ur)
     g = ok & np.isfinite(he) & (he > 0) if ok.any() else ok
     hs = np.full(len(n), np.nan)   # 2026-11-02 (B8): the same thinning of a sample at one half at every site, for the counted ceiling
     for mm in np.unique(m[g]):
-        s = g & (m == mm); hs[s] = thin_H(np.rint(0.5 * n[s]).astype("int64"), n[s], int(mm))
+        s = g & (m == mm); hs[s] = thin_H(np.rint(0.5 * n[s]).astype("int64"), n[s], int(mm), us)
     return dict(A=round(float(hm[g].sum() / he[g].sum()), 5) if g.any() else None, A_sat=round(float(hs[g].sum() / he[g].sum()), 5) if g.any() else None, sites=int(g.sum()), left_out=int((~ok).sum()), cells=[(c, round(float(f), 4)) for c, f in Fk.items()],
-                half=TERR_HALF, common_depth_max=TERR_M, expectation="each read from a cell of the mix, drawn without replacement from that cell's reference reads (expected_H_mix_counts)")
+                half=TERR_HALF, common_depth_max=TERR_M, floor=fl, expectation="each read from a cell of the mix, drawn without replacement from that cell's reference reads (expected_H_mix_counts)")
 
 TERR_SITE_OUT = None   # 2026-11-01: a path (NAME_terr_sites.csv.gz); when set, territory_reading() writes each set's per-site table (run_sample.py --dev-terr-sites)
 RULER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Stage_T", "atlas_ruler_v1.json")

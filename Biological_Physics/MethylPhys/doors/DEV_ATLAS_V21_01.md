@@ -1045,3 +1045,22 @@ laboratory's floor, not the cell. This is the laboratory offset (checklist A5), 
 atlas's floor sites (`stage_seq_atlas.library_floor`, already in the chain) and the reference donors' floors, carried into the
 expectation (the sample against itself); synthetic first, with two laboratories' floors planted; then this test read again as development
 (the libraries are now spent), and a fresh outside laboratory kept for the test.
+
+**Each library's floor, measured** (`seq_atlas/outside_data/library_floors.py`, `library_floors.csv`, `library_floors.txt`; diagnostic,
+added after the outside-laboratory test was scored). The floor is the share of methylated calls at the atlas's floor sites (46989 sites
+unmarked in every cell), from each library's own calls (`stage_seq_atlas.library_floor`, already in every sequenced bundle). BLUEPRINT's 59
+libraries: median 0.00154; the atlas's own inputs (69 unplanted reads of Group-A): median 0.00626 (0.00469 to 0.01041). Each BLUEPRINT
+library's islands reading follows its own floor (rho +0.906), and so do the atlas's own inputs (rho +0.444).
+
+**The common library floor (written and committed before it runs).** **The instrument's job:** a healthy sample from another laboratory
+reads Normal. **The physics:** a library reads a truly unmethylated read as methylated with its own probability f (its floor), so it reads
+f + (1 - f) p where the truth is p. Two libraries with different floors are read alike by raising the lower to the higher: each of its
+unmethylated reads turned methylated with probability u = (F - f) / (1 - f). The expected disorder after that is exact
+(`stage_metaa_atlas._Hj`: the sum over Binomial(t; m - j, u) of H((j + t) / m)), so nothing is fitted and nothing is removed from a
+measurement. **The change** (`--dev-floor-equal`, development): the sample's own floor is measured before any reading; the sorted-cell
+reading puts the sample and each reference donor at the highest of their floors (`donor_pair`); the islands put the sample and the
+reference half's pooled reads at the higher of the sample's floor and that half's mean floor (`islands_counted`). Each atlas input's floor
+is recorded by `run_sample.py --build seq-input-floors` (`chain/Runtime Matrices/Seq_Atlas/input_floors_v1.parquet`, committed empty until it is built; empty, the chain applies no floor). **Synthetic first**
+(`seq_atlas/outside_data/floor_synthetic.py`): constructed reference donors at floor 0.006, nine constructed B-cell people in three
+laboratories (floors 0.0015, 0.006, 0.012), each read with and without the common floor. Bars: each laboratory's median sorted-cell
+Met-A, and median islands reading, within 0.03 of 1 with the common floor.

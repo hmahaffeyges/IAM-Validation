@@ -1,0 +1,2 @@
+BLUEPRINT: 59 libraries; floor median 0.00154 (range 0.00056 to 0.04326); islands median 0.2924; islands against own floor rho +0.906
+atlas_inputs_unplanted: 69 libraries; floor median 0.00626 (range 0.00469 to 0.01041); islands median 1.0144; islands against own floor rho +0.444

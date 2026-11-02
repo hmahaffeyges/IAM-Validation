@@ -1,0 +1,4 @@
+{
+ "status": "NOT BUILT: empty until run_sample.py --build seq-input-floors writes every atlas input's floor; the chain reads no floor from it (floor not applied)",
+ "label": "DEVELOPMENT (the laboratory floor)"
+}

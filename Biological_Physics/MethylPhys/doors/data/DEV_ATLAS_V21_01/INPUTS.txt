@@ -91,3 +91,5 @@ blueprint_healthy_test.csv
 blueprint_healthy_test.txt
 blueprint_islands_offset.csv
 blueprint_islands_offset.txt
+library_floors.csv
+library_floors.txt
