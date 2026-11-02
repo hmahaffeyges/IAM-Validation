@@ -744,3 +744,9 @@ structure as v2.1's. The uncertainty maps (`seq_atlas/sphere_widths.py`, `seq_at
 the median half-width of the 95 % range is 0.2056 for the 9 two-donor cells, past the 0.15 scale at 0.590 of their sites, and 0.0783 for
 the 44 three-donor cells (0.265 past it); the 3 one-donor cells (0.0524) carry counting only. The scale is kept at v2.1's so the two atlases
 read alike: the bright areas are where more healthy donors are needed.
+
+**The IAM Sequencing Atlas's information globe (written and committed before it runs).** The same build as IAM-Atlas v2.1's
+(`run_sample.py --build info-globe`, construction v5, the same site rule: measured in every cell, spread across cells above 0.08), now
+given the atlas folder (`--build-input`, the sphere columns) and its name (`--build-name`). Its layout is written beside the picture, so the
+chain's committed v2.1 layout is never replaced. **The job:** sites group by the cell family whose identity they carry, as on v2.1's globe.
+Recorded beside it, not scored: the sites placed, and how clearly each family gathers (the concentration the build reports), against v2.1's.

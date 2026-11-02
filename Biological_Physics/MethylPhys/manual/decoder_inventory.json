@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1321,
+   "lines": 1323,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 250,
-     "end": 424,
+     "end": 425,
      "args": [
       "a"
      ],
-     "lines": 175,
+     "lines": 176,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -239,6 +239,7 @@
       "--build seq-metaa-donors needs --build-samples INPUTS.csv",
       "--build seq-terr-halves needs --build-samples INPUTS.csv",
       "--build-samples B and --bundle OUT.json",
+      "_layout.npz",
       "_summary.txt",
       "import pyarrow.parquet",
       "sites.parquet",
@@ -250,8 +251,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 389,
-     "end": 389,
+     "line": 390,
+     "end": 390,
      "args": [
       "m"
      ],
@@ -265,8 +266,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 427,
-     "end": 447,
+     "line": 428,
+     "end": 448,
      "args": [
       "a",
       "cnt",
@@ -282,8 +283,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 450,
-     "end": 491,
+     "line": 451,
+     "end": 492,
      "args": [
       "a",
       "o",
@@ -303,10 +304,10 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 494,
-     "end": 1318,
+     "line": 495,
+     "end": 1320,
      "args": [],
-     "lines": 825,
+     "lines": 826,
      "doc": "",
      "constants": [
       "BIO",
@@ -338,8 +339,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 737,
-     "end": 741,
+     "line": 739,
+     "end": 743,
      "args": [
       "r"
      ],
@@ -355,8 +356,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 972,
-     "end": 979,
+     "line": 974,
+     "end": 981,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -368,8 +369,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1248,
-     "end": 1249,
+     "line": 1250,
+     "end": 1251,
      "args": [
       "b",
       "it",

@@ -372,18 +372,19 @@ def _build(a):
     if a.build == "info-globe":   # 2026-10-23 (DEV-SPHERE-01, development): the information sphere as a picture, from IAM-Atlas v2.1
         if not a.build_out: print("--build info-globe needs --build-out PAGE.html"); return 2
         import pyarrow.parquet as _pq, info_sphere_viewer as _ISV
-        AT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"); parts, cells = [], []
+        AT = a.build_input or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1"); parts, cells = [], []   # 2026-11-01: --build-input, another atlas in v2.1's layout
+        _v21 = os.path.realpath(AT) == os.path.realpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "atlas", "v2.1")); _an = "IAM-Atlas v2.1" if _v21 else (a.build_name or os.path.basename(os.path.normpath(AT)))
         for n in (1, 2, 3):   # read part by part as stored (uint16, 65535 = no value), so memory stays near the atlas's own size
             t = _pq.read_table(os.path.join(AT, f"mu_part{n}.parquet")); cells += t.column_names
             parts.append(_np.column_stack([t.column(c).to_numpy(zero_copy_only=False) for c in t.column_names]).astype("uint16")); del t
         U16 = _np.hstack(parts); del parts; ok = (U16 != 65535).all(1); B = U16[ok].astype("float32") / 10000.0; del U16
         keep = B.std(1, ddof=1) > 0.08; B = B[keep]   # the pool of DEV-SPHERE-01 tests 8 to 11 (pandas spread, n - 1): measured in all 79 cell types, spread above 0.08
-        print(f"Build: information sphere picture from IAM-Atlas v2.1 ({B.shape[0]:,} sites x {B.shape[1]} cell types; construction v5)", flush=True)
+        print(f"Build: information sphere picture from {_an} ({B.shape[0]:,} sites x {B.shape[1]} cell types; construction v5)", flush=True)
         L, rep = IS.build(B, None, n_random=0, construction="v5")
         cell, sgn, size, margin, cf = IS.roles(B, cells)
         import hashlib as _hl
         _sid = _np.array(_pq.read_table(os.path.join(AT, "sites.parquet")).column("cpg").to_pylist(), dtype=object)[ok][keep]
-        IS.save_layout(IS.LAYOUT, _sid, L["X"], cell, sgn, size, margin, cells, cf, _hl.sha256(open(os.path.join(AT, "sites.parquet"), "rb").read()).hexdigest())
+        IS.save_layout(IS.LAYOUT if _v21 else re.sub(r"\.html?$", "", a.build_out) + "_layout.npz", _sid, L["X"], cell, sgn, size, margin, cells, cf, _hl.sha256(open(os.path.join(AT, "sites.parquet"), "rb").read()).hexdigest())
         r = _ISV.write(a.build_out, L["X"], cell, sgn, size, margin, cells, cf, IS.FAMILIES, "The information sphere", a.build_about or _ISV_ABOUT)
         X3 = L["X"].astype(float); fo = cf[cell]; clr = margin >= _ISV.CLEAR
         def _R(m): return round(float(_np.linalg.norm(X3[m].mean(0))), 2) if m.sum() >= 20 else None
@@ -391,7 +392,7 @@ def _build(a):
                    concentration_by_family={f[0]: dict(all=_R(fo == k), methylated_there=_R((fo == k) & (sgn > 0)), unmethylated_there=_R((fo == k) & (sgn < 0)),
                                                         clear_methylated_there=_R(clr & (fo == k) & (sgn > 0)), clear_unmethylated_there=_R(clr & (fo == k) & (sgn < 0)))
                                             for k, f in enumerate(IS.FAMILIES)})
-        rep.update(picture=os.path.basename(a.build_out), page_bytes=r["bytes"], sites_by_family={f[0]: int((cf[cell] == k).sum()) for k, f in enumerate(IS.FAMILIES)},
+        rep.update(atlas=_an, picture=os.path.basename(a.build_out), page_bytes=r["bytes"], sites_by_family={f[0]: int((cf[cell] == k).sum()) for k, f in enumerate(IS.FAMILIES)},
                    command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (DEV-SPHERE-01)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: v for k, v in rep.items() if k not in ("command",)}, default=str)[:1800]); return 0
@@ -624,6 +625,7 @@ def main():
     ap.add_argument("--dev-metaa-sites", action="store_true", help="DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and "
                     "measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis")
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
+    ap.add_argument("--build-name", default=None, help="the atlas's name on a picture built from --build-input (info-globe)")
     ap.add_argument("--dev-terr-counted", action="store_true", help="DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given")
     ap.add_argument("--dev-terr-counts", default=None, help="DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
