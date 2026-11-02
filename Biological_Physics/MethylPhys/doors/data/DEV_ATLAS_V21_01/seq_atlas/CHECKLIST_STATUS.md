@@ -39,7 +39,7 @@ Each item of `SEQ_ATLAS_CHECKLIST.md`, built or not yet, with where its record i
 | D11 | Built against v2.1 (platform offset per cell); bisulfite against enzymatic not yet | `bridge_v21.csv` |
 | D12 | Not available: no oxidative data in the inputs | |
 | D13 | Not yet | |
-| D14 | Not yet | |
+| D14 | Built: counting map the same on every autosome (0 of 1232 beyond 4 standard errors) | `isotropy.txt` |
 | D15 | Built: donor halves sealed; outside healthy samples kept unread by the build | `selfree_samples.csv` |
 | D16 | Built through the one command from committed code; the columns rebuilt identical | `DEV_ATLAS_V21_01.md` |
 | D17 | Not yet | |

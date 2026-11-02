@@ -1,0 +1,2289 @@
+cell,map,chrom,sites,mean,z,z_from_cell
+adipocytes,map2 read halves,chr1,76842,-7.4e-05,-0.317231,-0.189092
+adipocytes,map2 read halves,chr2,61715,-2.2e-05,-0.084655,0.043484
+adipocytes,map2 read halves,chr3,46909,2.9e-05,0.099424,0.227563
+adipocytes,map2 read halves,chr4,34879,-0.00054,-1.547279,-1.41914
+adipocytes,map2 read halves,chr5,42646,-0.000136,-0.428999,-0.30086
+adipocytes,map2 read halves,chr6,41778,0.00028,0.88531,1.013449
+adipocytes,map2 read halves,chr7,44105,-0.000431,-1.408398,-1.280259
+adipocytes,map2 read halves,chr8,36399,0.000247,0.706665,0.834804
+adipocytes,map2 read halves,chr9,24226,-0.000511,-1.237111,-1.108972
+adipocytes,map2 read halves,chr10,39947,-0.000159,-0.491332,-0.363193
+adipocytes,map2 read halves,chr11,45681,-5.2e-05,-0.171623,-0.043484
+adipocytes,map2 read halves,chr12,41983,-0.000235,-0.748118,-0.619979
+adipocytes,map2 read halves,chr13,19968,-3.8e-05,-0.082913,0.045226
+adipocytes,map2 read halves,chr14,27233,0.000292,0.751063,0.879203
+adipocytes,map2 read halves,chr15,26588,-2.3e-05,-0.058254,0.069885
+adipocytes,map2 read halves,chr16,34120,-8e-05,-0.231083,-0.102944
+adipocytes,map2 read halves,chr17,39741,-2.6e-05,-0.081343,0.046796
+adipocytes,map2 read halves,chr18,13934,-0.00148,-2.666632,-2.538493
+adipocytes,map2 read halves,chr19,32959,0.000185,0.552714,0.680853
+adipocytes,map2 read halves,chr20,21217,0.000339,0.742046,0.870185
+adipocytes,map2 read halves,chr21,9481,0.000269,0.393075,0.521214
+adipocytes,map2 read halves,chr22,16040,-0.000573,-1.100834,-0.972695
+aorta endothelium,map1 donor halves,chr1,76840,-0.01684,-31.251617,-11.864318
+aorta endothelium,map1 donor halves,chr2,61713,-0.020193,-32.579259,-13.191961
+aorta endothelium,map1 donor halves,chr3,46908,-0.01889,-26.940542,-7.553243
+aorta endothelium,map1 donor halves,chr4,34878,-0.019017,-23.447099,-4.059801
+aorta endothelium,map1 donor halves,chr5,42646,-0.019855,-26.471214,-7.083915
+aorta endothelium,map1 donor halves,chr6,41778,-0.015948,-21.705789,-2.31849
+aorta endothelium,map1 donor halves,chr7,44100,-0.01259,-18.035826,1.351473
+aorta endothelium,map1 donor halves,chr8,36399,-0.015894,-19.506365,-0.119066
+aorta endothelium,map1 donor halves,chr9,24226,-0.015476,-16.27367,3.113629
+aorta endothelium,map1 donor halves,chr10,39946,-0.014602,-18.790233,0.597066
+aorta endothelium,map1 donor halves,chr11,45678,-0.01576,-23.027845,-3.640546
+aorta endothelium,map1 donor halves,chr12,41982,-0.016684,-23.089597,-3.702298
+aorta endothelium,map1 donor halves,chr13,19968,-0.01129,-10.431027,8.956272
+aorta endothelium,map1 donor halves,chr14,27233,-0.017131,-19.268233,0.119066
+aorta endothelium,map1 donor halves,chr15,26587,-0.020475,-22.195262,-2.807963
+aorta endothelium,map1 donor halves,chr16,34120,-0.013433,-17.368823,2.018476
+aorta endothelium,map1 donor halves,chr17,39734,-0.008619,-11.628869,7.758429
+aorta endothelium,map1 donor halves,chr18,13934,-0.028047,-21.481145,-2.093846
+aorta endothelium,map1 donor halves,chr19,32958,-0.005307,-7.612939,11.77436
+aorta endothelium,map1 donor halves,chr20,21217,-0.017057,-16.352306,3.034992
+aorta endothelium,map1 donor halves,chr21,9481,-0.019537,-12.154363,7.232936
+aorta endothelium,map1 donor halves,chr22,16040,-0.008097,-7.160542,12.226757
+aorta endothelium,map2 read halves,chr1,76842,0.000201,0.674486,0.537659
+aorta endothelium,map2 read halves,chr2,61715,2e-05,0.059689,-0.077139
+aorta endothelium,map2 read halves,chr3,46909,4.2e-05,0.114194,-0.022634
+aorta endothelium,map2 read halves,chr4,34879,0.000845,1.932845,1.796018
+aorta endothelium,map2 read halves,chr5,42646,-0.000286,-0.710653,-0.84748
+aorta endothelium,map2 read halves,chr6,41778,0.000185,0.474122,0.337295
+aorta endothelium,map2 read halves,chr7,44105,0.000125,0.315881,0.179053
+aorta endothelium,map2 read halves,chr8,36399,-0.00064,-1.449074,-1.585901
+aorta endothelium,map2 read halves,chr9,24226,-0.000733,-1.382823,-1.51965
+aorta endothelium,map2 read halves,chr10,39947,9.1e-05,0.21978,0.082953
+aorta endothelium,map2 read halves,chr11,45681,-1.9e-05,-0.048088,-0.184915
+aorta endothelium,map2 read halves,chr12,41983,6.3e-05,0.159461,0.022634
+aorta endothelium,map2 read halves,chr13,19968,-0.001265,-2.182999,-2.319827
+aorta endothelium,map2 read halves,chr14,27233,-0.000282,-0.56837,-0.705197
+aorta endothelium,map2 read halves,chr15,26588,0.000178,0.356979,0.220152
+aorta endothelium,map2 read halves,chr16,34120,0.000307,0.680942,0.544115
+aorta endothelium,map2 read halves,chr17,39741,-0.000275,-0.650955,-0.787782
+aorta endothelium,map2 read halves,chr18,13934,-0.000631,-0.899684,-1.036511
+aorta endothelium,map2 read halves,chr19,32959,0.000364,0.793647,0.65682
+aorta endothelium,map2 read halves,chr20,21217,0.000563,0.951839,0.815012
+aorta endothelium,map2 read halves,chr21,9481,-0.000197,-0.221578,-0.358406
+aorta endothelium,map2 read halves,chr22,16040,0.001488,2.21313,2.076302
+b cells,map1 donor halves,chr1,76841,0.002896,9.190643,3.046937
+b cells,map1 donor halves,chr2,61715,0.003117,8.925944,2.782238
+b cells,map1 donor halves,chr3,46909,0.003502,9.062474,2.918769
+b cells,map1 donor halves,chr4,34879,0.000829,1.809758,-4.333948
+b cells,map1 donor halves,chr5,42646,0.001503,3.437763,-2.705943
+b cells,map1 donor halves,chr6,41778,0.002443,5.960089,-0.183617
+b cells,map1 donor halves,chr7,44101,0.002379,5.538723,-0.604983
+b cells,map1 donor halves,chr8,36399,0.002456,5.255534,-0.888172
+b cells,map1 donor halves,chr9,24226,0.003777,6.689615,0.545909
+b cells,map1 donor halves,chr10,39947,0.002803,6.244344,0.100638
+b cells,map1 donor halves,chr11,45680,0.003635,8.873081,2.729375
+b cells,map1 donor halves,chr12,41983,0.002868,6.861642,0.717936
+b cells,map1 donor halves,chr13,19968,0.001627,2.705365,-3.438341
+b cells,map1 donor halves,chr14,27221,0.002434,4.572672,-1.571034
+b cells,map1 donor halves,chr15,26588,0.003175,5.868644,-0.275062
+b cells,map1 donor halves,chr16,34120,0.00357,7.480449,1.336743
+b cells,map1 donor halves,chr17,39737,0.003099,7.002063,0.858357
+b cells,map1 donor halves,chr18,13934,0.004564,6.043068,-0.100638
+b cells,map1 donor halves,chr19,32959,0.001035,2.126201,-4.017505
+b cells,map1 donor halves,chr20,21217,0.004536,6.998178,0.854472
+b cells,map1 donor halves,chr21,9481,0.001185,1.289886,-4.85382
+b cells,map1 donor halves,chr22,16040,0.005593,7.839706,1.696
+b cells,map2 read halves,chr1,76842,-0.000513,-2.220356,-2.359374
+b cells,map2 read halves,chr2,61715,0.000348,1.37736,1.238342
+b cells,map2 read halves,chr3,46909,-0.000156,-0.549079,-0.688097
+b cells,map2 read halves,chr4,34879,0.000281,0.846997,0.707979
+b cells,map2 read halves,chr5,42646,-9.7e-05,-0.316004,-0.455022
+b cells,map2 read halves,chr6,41778,-5.7e-05,-0.193537,-0.332555
+b cells,map2 read halves,chr7,44105,0.000505,1.677306,1.538288
+b cells,map2 read halves,chr8,36399,-0.000209,-0.624437,-0.763455
+b cells,map2 read halves,chr9,24226,0.000196,0.470048,0.33103
+b cells,map2 read halves,chr10,39947,-8e-05,-0.252185,-0.391202
+b cells,map2 read halves,chr11,45681,0.000356,1.169623,1.030605
+b cells,map2 read halves,chr12,41983,2.6e-05,0.084401,-0.054616
+b cells,map2 read halves,chr13,19968,0.00082,1.861166,1.722148
+b cells,map2 read halves,chr14,27227,-0.000193,-0.492202,-0.63122
+b cells,map2 read halves,chr15,26588,-0.000306,-0.785975,-0.924993
+b cells,map2 read halves,chr16,34120,-0.000145,-0.413768,-0.552786
+b cells,map2 read halves,chr17,39741,0.000134,0.417561,0.278543
+b cells,map2 read halves,chr18,13934,0.000105,0.193634,0.054616
+b cells,map2 read halves,chr19,32959,0.000144,0.402762,0.263744
+b cells,map2 read halves,chr20,21217,0.000706,1.531209,1.392191
+b cells,map2 read halves,chr21,9481,0.001187,1.798087,1.659069
+b cells,map2 read halves,chr22,16040,-0.000115,-0.219425,-0.358443
+bladder epithelium,map1 donor halves,chr1,76841,-0.008311,-20.762586,-6.516652
+bladder epithelium,map1 donor halves,chr2,61715,-0.008647,-18.627159,-4.381224
+bladder epithelium,map1 donor halves,chr3,46909,-0.011115,-21.467207,-7.221273
+bladder epithelium,map1 donor halves,chr4,34879,-0.01215,-19.424748,-5.178813
+bladder epithelium,map1 donor halves,chr5,42645,-0.009568,-16.581183,-2.335248
+bladder epithelium,map1 donor halves,chr6,41778,-0.009227,-16.395587,-2.149652
+bladder epithelium,map1 donor halves,chr7,44103,-0.009155,-16.576823,-2.330889
+bladder epithelium,map1 donor halves,chr8,36395,-0.010536,-17.220776,-2.974842
+bladder epithelium,map1 donor halves,chr9,24226,-0.010214,-13.820063,0.425871
+bladder epithelium,map1 donor halves,chr10,39947,-0.008177,-14.129177,0.116758
+bladder epithelium,map1 donor halves,chr11,45680,-0.009053,-16.978419,-2.732484
+bladder epithelium,map1 donor halves,chr12,41983,-0.008969,-16.26938,-2.023445
+bladder epithelium,map1 donor halves,chr13,19968,-0.011919,-14.362693,-0.116758
+bladder epithelium,map1 donor halves,chr14,27233,-0.007911,-11.203161,3.042773
+bladder epithelium,map1 donor halves,chr15,26588,-0.007826,-11.259564,2.986371
+bladder epithelium,map1 donor halves,chr16,34120,-0.005974,-9.728793,4.517141
+bladder epithelium,map1 donor halves,chr17,39740,-0.006153,-10.904952,3.340982
+bladder epithelium,map1 donor halves,chr18,13934,-0.010108,-9.970586,4.275349
+bladder epithelium,map1 donor halves,chr19,32959,-0.002299,-3.765149,10.480786
+bladder epithelium,map1 donor halves,chr20,21216,-0.008633,-10.76267,3.483264
+bladder epithelium,map1 donor halves,chr21,9481,-0.012386,-10.206258,4.039677
+bladder epithelium,map1 donor halves,chr22,16040,-0.009531,-10.519332,3.726603
+bladder epithelium,map2 read halves,chr1,76842,-3.3e-05,-0.142099,-0.283197
+bladder epithelium,map2 read halves,chr2,61715,-0.000152,-0.589148,-0.730246
+bladder epithelium,map2 read halves,chr3,46909,-0.000143,-0.494371,-0.635469
+bladder epithelium,map2 read halves,chr4,34879,-2.9e-05,-0.084156,-0.225254
+bladder epithelium,map2 read halves,chr5,42646,-0.00014,-0.445064,-0.586163
+bladder epithelium,map2 read halves,chr6,41778,-0.000162,-0.525934,-0.667033
+bladder epithelium,map2 read halves,chr7,44105,0.000142,0.459273,0.318174
+bladder epithelium,map2 read halves,chr8,36399,0.000178,0.525004,0.383905
+bladder epithelium,map2 read halves,chr9,24226,0.000408,0.979673,0.838574
+bladder epithelium,map2 read halves,chr10,39947,0.000593,1.836594,1.695495
+bladder epithelium,map2 read halves,chr11,45681,-0.000113,-0.369295,-0.510394
+bladder epithelium,map2 read halves,chr12,41983,0.000689,2.204999,2.063901
+bladder epithelium,map2 read halves,chr13,19968,-0.000433,-0.950622,-1.091721
+bladder epithelium,map2 read halves,chr14,27233,-0.000344,-0.889064,-1.030163
+bladder epithelium,map2 read halves,chr15,26588,0.000143,0.366353,0.225254
+bladder epithelium,map2 read halves,chr16,34120,0.000351,0.998354,0.857255
+bladder epithelium,map2 read halves,chr17,39741,0.000424,1.286201,1.145103
+bladder epithelium,map2 read halves,chr18,13934,-0.000309,-0.572583,-0.713681
+bladder epithelium,map2 read halves,chr19,32959,-0.000141,-0.403471,-0.54457
+bladder epithelium,map2 read halves,chr20,21217,0.000192,0.421769,0.28067
+bladder epithelium,map2 read halves,chr21,9481,0.001017,1.51067,1.369571
+bladder epithelium,map2 read halves,chr22,16040,0.001106,2.116868,1.97577
+breast basal epithelium,map1 donor halves,chr1,76841,0.002482,7.852776,3.908871
+breast basal epithelium,map1 donor halves,chr2,61715,0.003221,9.115042,5.171137
+breast basal epithelium,map1 donor halves,chr3,46909,0.003191,8.124723,4.180818
+breast basal epithelium,map1 donor halves,chr4,34878,0.00187,3.93695,-0.006955
+breast basal epithelium,map1 donor halves,chr5,42624,0.001736,3.949513,0.005608
+breast basal epithelium,map1 donor halves,chr6,41778,0.002326,5.473744,1.529839
+breast basal epithelium,map1 donor halves,chr7,44104,0.00102,2.31798,-1.625924
+breast basal epithelium,map1 donor halves,chr8,36399,0.001599,3.381165,-0.562739
+breast basal epithelium,map1 donor halves,chr9,24226,0.002259,3.938297,-0.005608
+breast basal epithelium,map1 donor halves,chr10,39947,0.002046,4.50106,0.557155
+breast basal epithelium,map1 donor halves,chr11,45681,0.002752,6.669825,2.72592
+breast basal epithelium,map1 donor halves,chr12,41982,0.002225,5.189865,1.24596
+breast basal epithelium,map1 donor halves,chr13,19968,0.00058,0.927575,-3.01633
+breast basal epithelium,map1 donor halves,chr14,27232,0.003404,6.416588,2.472683
+breast basal epithelium,map1 donor halves,chr15,26588,0.003486,6.462276,2.518371
+breast basal epithelium,map1 donor halves,chr16,34120,0.000188,0.376217,-3.567688
+breast basal epithelium,map1 donor halves,chr17,39741,0.001077,2.318516,-1.625389
+breast basal epithelium,map1 donor halves,chr18,13934,0.002875,3.8388,-0.105105
+breast basal epithelium,map1 donor halves,chr19,32959,0.00144,2.830056,-1.113849
+breast basal epithelium,map1 donor halves,chr20,21217,0.002705,4.264083,0.320178
+breast basal epithelium,map1 donor halves,chr21,9481,0.00036,0.38698,-3.556925
+breast basal epithelium,map1 donor halves,chr22,16040,0.00062,0.852195,-3.09171
+breast basal epithelium,map2 read halves,chr1,76842,-3.4e-05,-0.146644,-0.126812
+breast basal epithelium,map2 read halves,chr2,61715,3.5e-05,0.140147,0.159979
+breast basal epithelium,map2 read halves,chr3,46909,-9.3e-05,-0.326982,-0.30715
+breast basal epithelium,map2 read halves,chr4,34879,-0.000358,-1.088403,-1.068571
+breast basal epithelium,map2 read halves,chr5,42646,0.000253,0.82601,0.845842
+breast basal epithelium,map2 read halves,chr6,41778,5.8e-05,0.195179,0.215011
+breast basal epithelium,map2 read halves,chr7,44105,0.000278,0.898635,0.918467
+breast basal epithelium,map2 read halves,chr8,36399,2.3e-05,0.067247,0.08708
+breast basal epithelium,map2 read halves,chr9,24226,-0.000258,-0.624046,-0.604214
+breast basal epithelium,map2 read halves,chr10,39947,-3.4e-05,-0.106912,-0.08708
+breast basal epithelium,map2 read halves,chr11,45681,-0.000166,-0.542962,-0.523129
+breast basal epithelium,map2 read halves,chr12,41983,-0.000184,-0.584004,-0.564172
+breast basal epithelium,map2 read halves,chr13,19968,-0.000415,-0.95167,-0.931838
+breast basal epithelium,map2 read halves,chr14,27233,0.000173,0.452275,0.472107
+breast basal epithelium,map2 read halves,chr15,26588,0.000353,0.916709,0.936541
+breast basal epithelium,map2 read halves,chr16,34120,5.2e-05,0.141793,0.161625
+breast basal epithelium,map2 read halves,chr17,39741,0.000264,0.786603,0.806435
+breast basal epithelium,map2 read halves,chr18,13934,-0.000206,-0.393008,-0.373176
+breast basal epithelium,map2 read halves,chr19,32959,0.000364,0.972164,0.991996
+breast basal epithelium,map2 read halves,chr20,21217,0.00051,1.108584,1.128416
+breast basal epithelium,map2 read halves,chr21,9481,-0.000531,-0.782994,-0.763162
+breast basal epithelium,map2 read halves,chr22,16040,-0.000526,-0.988414,-0.968582
+breast luminal epithelium,map1 donor halves,chr1,76842,0.006846,13.345053,8.188225
+breast luminal epithelium,map1 donor halves,chr2,61715,0.005117,8.73366,3.576832
+breast luminal epithelium,map1 donor halves,chr3,46909,0.00464,6.9994,1.842572
+breast luminal epithelium,map1 donor halves,chr4,34879,0.002146,2.758282,-2.398546
+breast luminal epithelium,map1 donor halves,chr5,42646,0.003374,4.718272,-0.438557
+breast luminal epithelium,map1 donor halves,chr6,41777,0.004119,5.842975,0.686147
+breast luminal epithelium,map1 donor halves,chr7,44105,0.000966,1.405183,-3.751645
+breast luminal epithelium,map1 donor halves,chr8,36399,-0.002003,-2.592421,-7.749249
+breast luminal epithelium,map1 donor halves,chr9,24226,0.005807,6.22511,1.068281
+breast luminal epithelium,map1 donor halves,chr10,39947,0.002992,4.1862,-0.970629
+breast luminal epithelium,map1 donor halves,chr11,45681,0.003368,4.927204,-0.229624
+breast luminal epithelium,map1 donor halves,chr12,41983,0.004448,6.448006,1.291177
+breast luminal epithelium,map1 donor halves,chr13,19966,-0.004258,-4.148551,-9.305379
+breast luminal epithelium,map1 donor halves,chr14,27233,0.006508,7.702318,2.545489
+breast luminal epithelium,map1 donor halves,chr15,26588,0.004779,5.536506,0.379678
+breast luminal epithelium,map1 donor halves,chr16,34120,0.004042,5.386452,0.229624
+breast luminal epithelium,map1 donor halves,chr17,39741,0.010553,15.150094,9.993265
+breast luminal epithelium,map1 donor halves,chr18,13933,-0.002257,-1.758251,-6.915079
+breast luminal epithelium,map1 donor halves,chr19,32950,0.00841,12.173417,7.016589
+breast luminal epithelium,map1 donor halves,chr20,21217,-0.002379,-2.374929,-7.531758
+breast luminal epithelium,map1 donor halves,chr21,9481,-0.000975,-0.609464,-5.766292
+breast luminal epithelium,map1 donor halves,chr22,16040,0.003038,2.739166,-2.417662
+breast luminal epithelium,map2 read halves,chr1,76842,-0.000141,-0.640058,-1.15361
+breast luminal epithelium,map2 read halves,chr2,61715,1e-05,0.038691,-0.47486
+breast luminal epithelium,map2 read halves,chr3,46909,-0.000309,-1.089728,-1.60328
+breast luminal epithelium,map2 read halves,chr4,34879,0.000694,2.125621,1.612069
+breast luminal epithelium,map2 read halves,chr5,42646,0.000217,0.710568,0.197016
+breast luminal epithelium,map2 read halves,chr6,41778,0.000355,1.192547,0.678995
+breast luminal epithelium,map2 read halves,chr7,44105,-4.7e-05,-0.154909,-0.668461
+breast luminal epithelium,map2 read halves,chr8,36399,-2.7e-05,-0.081954,-0.595505
+breast luminal epithelium,map2 read halves,chr9,24226,0.000644,1.612989,1.099437
+breast luminal epithelium,map2 read halves,chr10,39947,-0.000286,-0.915633,-1.429185
+breast luminal epithelium,map2 read halves,chr11,45681,-0.000257,-0.870047,-1.383599
+breast luminal epithelium,map2 read halves,chr12,41983,-0.000202,-0.669818,-1.18337
+breast luminal epithelium,map2 read halves,chr13,19968,0.000428,0.967691,0.454139
+breast luminal epithelium,map2 read halves,chr14,27233,0.000687,1.842023,1.328471
+breast luminal epithelium,map2 read halves,chr15,26588,0.000224,0.600108,0.086556
+breast luminal epithelium,map2 read halves,chr16,34120,0.000147,0.426996,-0.086556
+breast luminal epithelium,map2 read halves,chr17,39741,0.000353,1.122079,0.608527
+breast luminal epithelium,map2 read halves,chr18,13934,-0.000823,-1.588178,-2.10173
+breast luminal epithelium,map2 read halves,chr19,32959,0.000473,1.385536,0.871985
+breast luminal epithelium,map2 read halves,chr20,21217,0.000312,0.70347,0.189919
+breast luminal epithelium,map2 read halves,chr21,9481,0.000621,0.946937,0.433385
+breast luminal epithelium,map2 read halves,chr22,16040,-0.001069,-2.146467,-2.660019
+cardiomyocyte,map1 donor halves,chr1,76842,-0.008644,-31.029225,-12.192249
+cardiomyocyte,map1 donor halves,chr2,61715,-0.008506,-27.671594,-8.834618
+cardiomyocyte,map1 donor halves,chr3,46909,-0.009321,-26.611211,-7.774234
+cardiomyocyte,map1 donor halves,chr4,34879,-0.006854,-16.641593,2.195383
+cardiomyocyte,map1 donor halves,chr5,42646,-0.009609,-25.144628,-6.307651
+cardiomyocyte,map1 donor halves,chr6,41778,-0.007572,-20.535213,-1.698237
+cardiomyocyte,map1 donor halves,chr7,44105,-0.00702,-18.816693,0.020284
+cardiomyocyte,map1 donor halves,chr8,36399,-0.009502,-22.928298,-4.091321
+cardiomyocyte,map1 donor halves,chr9,24226,-0.008979,-18.152588,0.684388
+cardiomyocyte,map1 donor halves,chr10,39947,-0.009552,-24.612039,-5.775062
+cardiomyocyte,map1 donor halves,chr11,45680,-0.009353,-25.678564,-6.841588
+cardiomyocyte,map1 donor halves,chr12,41983,-0.007682,-20.665735,-1.828758
+cardiomyocyte,map1 donor halves,chr13,19968,-0.00631,-11.646306,7.190671
+cardiomyocyte,map1 donor halves,chr14,27233,-0.007485,-16.269219,2.567758
+cardiomyocyte,map1 donor halves,chr15,26588,-0.009209,-19.58418,-0.747203
+cardiomyocyte,map1 donor halves,chr16,34119,-0.006921,-15.991444,2.845532
+cardiomyocyte,map1 donor halves,chr17,39741,-0.007358,-18.857261,-0.020284
+cardiomyocyte,map1 donor halves,chr18,13934,-0.007427,-11.281744,7.555232
+cardiomyocyte,map1 donor halves,chr19,32959,-0.006162,-14.239548,4.597429
+cardiomyocyte,map1 donor halves,chr20,21217,-0.00838,-14.940592,3.896385
+cardiomyocyte,map1 donor halves,chr21,9481,-0.007479,-9.178355,9.658621
+cardiomyocyte,map1 donor halves,chr22,16040,-0.010249,-16.255207,2.581769
+cardiomyocyte,map2 read halves,chr1,76842,1.9e-05,0.091362,0.103214
+cardiomyocyte,map2 read halves,chr2,61715,-0.000315,-1.379221,-1.367369
+cardiomyocyte,map2 read halves,chr3,46909,-5e-05,-0.192038,-0.180187
+cardiomyocyte,map2 read halves,chr4,34879,1.4e-05,0.045645,0.057496
+cardiomyocyte,map2 read halves,chr5,42646,0.000277,0.988045,0.999897
+cardiomyocyte,map2 read halves,chr6,41778,2.2e-05,0.081102,0.092954
+cardiomyocyte,map2 read halves,chr7,44105,-0.000154,-0.556661,-0.544809
+cardiomyocyte,map2 read halves,chr8,36399,-4.3e-05,-0.139295,-0.127443
+cardiomyocyte,map2 read halves,chr9,24226,1.2e-05,0.031916,0.043767
+cardiomyocyte,map2 read halves,chr10,39947,-0.000156,-0.538022,-0.526171
+cardiomyocyte,map2 read halves,chr11,45681,-7.9e-05,-0.284083,-0.272231
+cardiomyocyte,map2 read halves,chr12,41983,-4.8e-05,-0.168049,-0.156198
+cardiomyocyte,map2 read halves,chr13,19968,0.000163,0.410087,0.421939
+cardiomyocyte,map2 read halves,chr14,27233,-0.000552,-1.554276,-1.542424
+cardiomyocyte,map2 read halves,chr15,26588,0.000489,1.404925,1.416776
+cardiomyocyte,map2 read halves,chr16,34120,0.000206,0.623313,0.635165
+cardiomyocyte,map2 read halves,chr17,39741,0.000439,1.457372,1.469224
+cardiomyocyte,map2 read halves,chr18,13934,0.000494,1.022155,1.034007
+cardiomyocyte,map2 read halves,chr19,32959,-0.000315,-0.932853,-0.921001
+cardiomyocyte,map2 read halves,chr20,21217,-3.6e-05,-0.086587,-0.074736
+cardiomyocyte,map2 read halves,chr21,9481,-3.4e-05,-0.055619,-0.043767
+cardiomyocyte,map2 read halves,chr22,16040,0.000333,0.676064,0.687916
+cd4 t cells,map1 donor halves,chr1,76841,0.011788,36.529062,12.992499
+cd4 t cells,map1 donor halves,chr2,61715,0.013494,37.638044,14.10148
+cd4 t cells,map1 donor halves,chr3,46909,0.012935,32.25587,8.719306
+cd4 t cells,map1 donor halves,chr4,34879,0.013062,27.46993,3.933366
+cd4 t cells,map1 donor halves,chr5,42646,0.014197,32.144432,8.607869
+cd4 t cells,map1 donor halves,chr6,41778,0.011965,27.705336,4.168772
+cd4 t cells,map1 donor halves,chr7,44102,0.011879,27.175821,3.639257
+cd4 t cells,map1 donor halves,chr8,36399,0.01269,26.759176,3.222612
+cd4 t cells,map1 donor halves,chr9,24226,0.01311,22.583104,-0.95346
+cd4 t cells,map1 donor halves,chr10,39947,0.01309,28.400128,4.863565
+cd4 t cells,map1 donor halves,chr11,45680,0.01399,33.728423,10.191859
+cd4 t cells,map1 donor halves,chr12,41983,0.010153,24.050472,0.513908
+cd4 t cells,map1 donor halves,chr13,19968,0.012112,19.385478,-4.151086
+cd4 t cells,map1 donor halves,chr14,27233,0.011947,22.428454,-1.10811
+cd4 t cells,map1 donor halves,chr15,26588,0.012681,23.022656,-0.513908
+cd4 t cells,map1 donor halves,chr16,34120,0.009798,20.417767,-3.118797
+cd4 t cells,map1 donor halves,chr17,39737,0.008334,18.730084,-4.80648
+cd4 t cells,map1 donor halves,chr18,13934,0.017408,22.59078,-0.945784
+cd4 t cells,map1 donor halves,chr19,32959,0.007243,14.895892,-8.640671
+cd4 t cells,map1 donor halves,chr20,21217,0.01476,22.796995,-0.739569
+cd4 t cells,map1 donor halves,chr21,9481,0.013284,13.88273,-9.653834
+cd4 t cells,map1 donor halves,chr22,16040,0.010742,14.779806,-8.756758
+cd4 t cells,map2 read halves,chr1,76842,2.9e-05,0.133236,0.009728
+cd4 t cells,map2 read halves,chr2,61715,2.7e-05,0.113779,-0.009728
+cd4 t cells,map2 read halves,chr3,46909,-6e-06,-0.023634,-0.147141
+cd4 t cells,map2 read halves,chr4,34879,-0.000251,-0.790407,-0.913915
+cd4 t cells,map2 read halves,chr5,42646,0.000191,0.652874,0.529367
+cd4 t cells,map2 read halves,chr6,41778,0.00038,1.330863,1.207355
+cd4 t cells,map2 read halves,chr7,44105,-9.8e-05,-0.342672,-0.466179
+cd4 t cells,map2 read halves,chr8,36399,-0.000147,-0.468281,-0.591789
+cd4 t cells,map2 read halves,chr9,24226,7.5e-05,0.192015,0.068507
+cd4 t cells,map2 read halves,chr10,39947,0.000182,0.606052,0.482545
+cd4 t cells,map2 read halves,chr11,45681,-0.000136,-0.473622,-0.597129
+cd4 t cells,map2 read halves,chr12,41983,0.000386,1.347371,1.223864
+cd4 t cells,map2 read halves,chr13,19968,9.1e-05,0.219903,0.096396
+cd4 t cells,map2 read halves,chr14,27233,-0.000488,-1.376935,-1.500442
+cd4 t cells,map2 read halves,chr15,26588,-6.6e-05,-0.181492,-0.305
+cd4 t cells,map2 read halves,chr16,34120,0.000314,0.967412,0.843905
+cd4 t cells,map2 read halves,chr17,39741,0.000103,0.343849,0.220341
+cd4 t cells,map2 read halves,chr18,13934,0.000114,0.224259,0.100752
+cd4 t cells,map2 read halves,chr19,32959,-9.7e-05,-0.292104,-0.415611
+cd4 t cells,map2 read halves,chr20,21217,-0.000859,-1.976868,-2.100376
+cd4 t cells,map2 read halves,chr21,9481,0.000477,0.757902,0.634394
+cd4 t cells,map2 read halves,chr22,16040,-0.000293,-0.610415,-0.733922
+cd8 t cells,map1 donor halves,chr1,76841,0.028731,75.367339,28.28962
+cd8 t cells,map1 donor halves,chr2,61715,0.030039,70.270532,23.192813
+cd8 t cells,map1 donor halves,chr3,46909,0.029556,61.22477,14.147052
+cd8 t cells,map1 donor halves,chr4,34879,0.028267,49.53686,2.459141
+cd8 t cells,map1 donor halves,chr5,42646,0.028243,53.2067,6.128982
+cd8 t cells,map1 donor halves,chr6,41778,0.02585,50.783672,3.705954
+cd8 t cells,map1 donor halves,chr7,44101,0.028071,55.364836,8.287117
+cd8 t cells,map1 donor halves,chr8,36399,0.028645,51.354125,4.276407
+cd8 t cells,map1 donor halves,chr9,24226,0.028095,41.281438,-5.796281
+cd8 t cells,map1 donor halves,chr10,39947,0.030555,56.047319,8.9696
+cd8 t cells,map1 donor halves,chr11,45680,0.030965,62.190201,15.112482
+cd8 t cells,map1 donor halves,chr12,41983,0.025457,50.38867,3.310952
+cd8 t cells,map1 donor halves,chr13,19968,0.027655,37.096895,-9.980823
+cd8 t cells,map1 donor halves,chr14,27231,0.026529,41.742171,-5.335547
+cd8 t cells,map1 donor halves,chr15,26588,0.028288,43.296592,-3.781126
+cd8 t cells,map1 donor halves,chr16,34120,0.024884,44.618577,-2.459141
+cd8 t cells,map1 donor halves,chr17,39737,0.023195,44.272671,-2.805048
+cd8 t cells,map1 donor halves,chr18,13934,0.034624,37.240249,-9.837469
+cd8 t cells,map1 donor halves,chr19,32959,0.01766,30.777145,-16.300573
+cd8 t cells,map1 donor halves,chr20,21217,0.032946,43.222576,-3.855142
+cd8 t cells,map1 donor halves,chr21,9481,0.031816,28.56823,-18.509488
+cd8 t cells,map1 donor halves,chr22,16040,0.029092,34.380343,-12.697376
+cd8 t cells,map2 read halves,chr1,76842,2.2e-05,0.086399,0.148008
+cd8 t cells,map2 read halves,chr2,61715,0.000222,0.803964,0.865573
+cd8 t cells,map2 read halves,chr3,46909,0.000391,1.256515,1.318124
+cd8 t cells,map2 read halves,chr4,34879,-0.000517,-1.396238,-1.334629
+cd8 t cells,map2 read halves,chr5,42646,-0.000168,-0.501597,-0.439988
+cd8 t cells,map2 read halves,chr6,41778,0.000417,1.276046,1.337655
+cd8 t cells,map2 read halves,chr7,44105,-0.000665,-2.008188,-1.946579
+cd8 t cells,map2 read halves,chr8,36399,-0.000131,-0.360706,-0.299097
+cd8 t cells,map2 read halves,chr9,24226,-0.000179,-0.399014,-0.337405
+cd8 t cells,map2 read halves,chr10,39947,-0.000271,-0.76429,-0.702681
+cd8 t cells,map2 read halves,chr11,45681,-0.000338,-1.018545,-0.956936
+cd8 t cells,map2 read halves,chr12,41983,3.9e-05,0.117948,0.179557
+cd8 t cells,map2 read halves,chr13,19968,-0.000511,-1.069321,-1.007712
+cd8 t cells,map2 read halves,chr14,27233,0.000959,2.324036,2.385645
+cd8 t cells,map2 read halves,chr15,26588,-0.000411,-0.977128,-0.915519
+cd8 t cells,map2 read halves,chr16,34120,-0.00025,-0.666285,-0.604676
+cd8 t cells,map2 read halves,chr17,39741,-6.7e-05,-0.193947,-0.132338
+cd8 t cells,map2 read halves,chr18,13934,0.000654,1.111672,1.173281
+cd8 t cells,map2 read halves,chr19,32959,0.000445,1.159695,1.221304
+cd8 t cells,map2 read halves,chr20,21217,3.6e-05,0.070729,0.132338
+cd8 t cells,map2 read halves,chr21,9481,0.001477,2.031334,2.092943
+cd8 t cells,map2 read halves,chr22,16040,0.000524,0.916059,0.977668
+colon enteroendocrine,map1 donor halves,chr1,76838,-0.004158,-12.67991,-5.340302
+colon enteroendocrine,map1 donor halves,chr2,61714,-0.005237,-14.14055,-6.800942
+colon enteroendocrine,map1 donor halves,chr3,46909,-0.004537,-11.066491,-3.726883
+colon enteroendocrine,map1 donor halves,chr4,34879,-0.005588,-11.324778,-3.98517
+colon enteroendocrine,map1 donor halves,chr5,42646,-0.001907,-4.072556,3.267052
+colon enteroendocrine,map1 donor halves,chr6,41777,-0.004976,-11.129662,-3.790054
+colon enteroendocrine,map1 donor halves,chr7,44101,-0.003839,-8.505754,-1.166146
+colon enteroendocrine,map1 donor halves,chr8,36398,-0.003286,-6.749897,0.589711
+colon enteroendocrine,map1 donor halves,chr9,24226,-0.004166,-7.08187,0.257738
+colon enteroendocrine,map1 donor halves,chr10,39946,-0.004065,-8.70596,-1.366352
+colon enteroendocrine,map1 donor halves,chr11,45681,-0.003384,-7.948959,-0.609351
+colon enteroendocrine,map1 donor halves,chr12,41983,-0.003345,-7.597346,-0.257738
+colon enteroendocrine,map1 donor halves,chr13,19961,-0.004963,-6.964856,0.374752
+colon enteroendocrine,map1 donor halves,chr14,27230,-0.002881,-5.087998,2.25161
+colon enteroendocrine,map1 donor halves,chr15,26588,-0.003308,-5.925994,1.413615
+colon enteroendocrine,map1 donor halves,chr16,34119,-0.005473,-11.048779,-3.709171
+colon enteroendocrine,map1 donor halves,chr17,39741,-0.006405,-13.617712,-6.278104
+colon enteroendocrine,map1 donor halves,chr18,13934,-0.004428,-5.632791,1.706817
+colon enteroendocrine,map1 donor halves,chr19,32959,-0.001432,-2.770881,4.568727
+colon enteroendocrine,map1 donor halves,chr20,21216,-0.004046,-6.315842,1.023766
+colon enteroendocrine,map1 donor halves,chr21,9481,-0.006756,-6.529547,0.810061
+colon enteroendocrine,map1 donor halves,chr22,16040,-0.005272,-6.9196,0.420008
+colon enteroendocrine,map2 read halves,chr1,76841,-3.4e-05,-0.136788,-0.256266
+colon enteroendocrine,map2 read halves,chr2,61715,0.0004,1.491764,1.372286
+colon enteroendocrine,map2 read halves,chr3,46909,-4.5e-05,-0.148343,-0.267821
+colon enteroendocrine,map2 read halves,chr4,34879,0.000117,0.328952,0.209474
+colon enteroendocrine,map2 read halves,chr5,42646,-0.000491,-1.455224,-1.574702
+colon enteroendocrine,map2 read halves,chr6,41778,0.000333,1.027748,0.90827
+colon enteroendocrine,map2 read halves,chr7,44105,-0.000208,-0.637281,-0.756759
+colon enteroendocrine,map2 read halves,chr8,36399,4.7e-05,0.128337,0.008859
+colon enteroendocrine,map2 read halves,chr9,24226,0.000475,1.056693,0.937215
+colon enteroendocrine,map2 read halves,chr10,39947,0.000204,0.590978,0.4715
+colon enteroendocrine,map2 read halves,chr11,45681,-5e-05,-0.152289,-0.271767
+colon enteroendocrine,map2 read halves,chr12,41983,3.7e-05,0.110619,-0.008859
+colon enteroendocrine,map2 read halves,chr13,19968,-0.000479,-0.996249,-1.115727
+colon enteroendocrine,map2 read halves,chr14,27233,0.000654,1.590142,1.470664
+colon enteroendocrine,map2 read halves,chr15,26588,0.000705,1.718904,1.599426
+colon enteroendocrine,map2 read halves,chr16,34120,0.000303,0.785954,0.666476
+colon enteroendocrine,map2 read halves,chr17,39741,0.000377,1.082584,0.963105
+colon enteroendocrine,map2 read halves,chr18,13934,-0.000633,-1.077746,-1.197224
+colon enteroendocrine,map2 read halves,chr19,32959,0.000118,0.290543,0.171065
+colon enteroendocrine,map2 read halves,chr20,21217,-0.000677,-1.349635,-1.469114
+colon enteroendocrine,map2 read halves,chr21,9481,-2.7e-05,-0.036867,-0.156345
+colon enteroendocrine,map2 read halves,chr22,16040,-7.9e-05,-0.137548,-0.257026
+colon epithelium,map1 donor halves,chr1,76842,0.00485,15.388295,7.909926
+colon epithelium,map1 donor halves,chr2,61715,0.002489,6.817198,-0.661171
+colon epithelium,map1 donor halves,chr3,46909,0.003165,7.897073,0.418704
+colon epithelium,map1 donor halves,chr4,34879,0.002476,4.922049,-2.55632
+colon epithelium,map1 donor halves,chr5,42646,0.006377,13.953481,6.475112
+colon epithelium,map1 donor halves,chr6,41778,0.005043,11.589151,4.110783
+colon epithelium,map1 donor halves,chr7,44105,0.003066,6.819849,-0.658519
+colon epithelium,map1 donor halves,chr8,36399,0.002402,4.942326,-2.536043
+colon epithelium,map1 donor halves,chr9,24226,0.003675,6.573004,-0.905364
+colon epithelium,map1 donor halves,chr10,39946,0.004395,9.759562,2.281193
+colon epithelium,map1 donor halves,chr11,45679,0.004994,12.050052,4.571683
+colon epithelium,map1 donor halves,chr12,41983,0.003401,7.848085,0.369716
+colon epithelium,map1 donor halves,chr13,19968,0.004531,6.633023,-0.845346
+colon epithelium,map1 donor halves,chr14,27233,0.003698,6.882624,-0.595745
+colon epithelium,map1 donor halves,chr15,26588,0.005197,9.65902,2.180651
+colon epithelium,map1 donor halves,chr16,34118,0.003814,7.805051,0.326682
+colon epithelium,map1 donor halves,chr17,39739,0.008658,18.854374,11.376005
+colon epithelium,map1 donor halves,chr18,13934,0.001625,2.118978,-5.359391
+colon epithelium,map1 donor halves,chr19,32956,0.008277,16.953998,9.475629
+colon epithelium,map1 donor halves,chr20,21217,0.002545,4.107138,-3.371231
+colon epithelium,map1 donor halves,chr21,9481,0.003504,3.639836,-3.838533
+colon epithelium,map1 donor halves,chr22,16032,0.005075,7.151686,-0.326682
+colon epithelium,map2 read halves,chr1,76842,3.5e-05,0.166988,0.080652
+colon epithelium,map2 read halves,chr2,61715,-0.000201,-0.865321,-0.951657
+colon epithelium,map2 read halves,chr3,46909,-1.7e-05,-0.065924,-0.15226
+colon epithelium,map2 read halves,chr4,34879,-0.000567,-1.84571,-1.932046
+colon epithelium,map2 read halves,chr5,42646,-0.000257,-0.88711,-0.973446
+colon epithelium,map2 read halves,chr6,41778,6.9e-05,0.247993,0.161657
+colon epithelium,map2 read halves,chr7,44105,-3.8e-05,-0.136549,-0.222885
+colon epithelium,map2 read halves,chr8,36399,8.8e-05,0.27753,0.191194
+colon epithelium,map2 read halves,chr9,24226,0.000569,1.479152,1.392816
+colon epithelium,map2 read halves,chr10,39947,-0.000429,-1.4566,-1.542936
+colon epithelium,map2 read halves,chr11,45681,0.000307,1.102823,1.016487
+colon epithelium,map2 read halves,chr12,41983,2e-06,0.005684,-0.080652
+colon epithelium,map2 read halves,chr13,19968,0.000301,0.736593,0.650257
+colon epithelium,map2 read halves,chr14,27233,9.9e-05,0.282088,0.195752
+colon epithelium,map2 read halves,chr15,26588,-0.000336,-0.949978,-1.036314
+colon epithelium,map2 read halves,chr16,34120,-0.000453,-1.368898,-1.455235
+colon epithelium,map2 read halves,chr17,39741,0.000313,1.059697,0.973361
+colon epithelium,map2 read halves,chr18,13934,-7.8e-05,-0.155903,-0.242239
+colon epithelium,map2 read halves,chr19,32959,0.000187,0.559924,0.473587
+colon epithelium,map2 read halves,chr20,21217,0.00027,0.623741,0.537405
+colon epithelium,map2 read halves,chr21,9481,0.000354,0.565847,0.479511
+colon epithelium,map2 read halves,chr22,16040,-0.000269,-0.549239,-0.635575
+colon fibroblasts,map1 donor halves,chr1,76839,-0.005789,-13.135141,-6.930574
+colon fibroblasts,map1 donor halves,chr2,61715,-0.002723,-5.437489,0.767078
+colon fibroblasts,map1 donor halves,chr3,46908,-0.003848,-6.799543,-0.594977
+colon fibroblasts,map1 donor halves,chr4,34879,-0.001274,-1.906062,4.298504
+colon fibroblasts,map1 donor halves,chr5,42632,-0.004224,-7.014701,-0.810135
+colon fibroblasts,map1 donor halves,chr6,41778,-0.002629,-4.356434,1.848132
+colon fibroblasts,map1 donor halves,chr7,44101,-0.004288,-7.323052,-1.118486
+colon fibroblasts,map1 donor halves,chr8,36399,-0.004407,-6.645789,-0.441223
+colon fibroblasts,map1 donor halves,chr9,24226,-0.004899,-6.062002,0.142564
+colon fibroblasts,map1 donor halves,chr10,39940,-0.003159,-5.115647,1.088919
+colon fibroblasts,map1 donor halves,chr11,45679,-0.003598,-6.34713,-0.142564
+colon fibroblasts,map1 donor halves,chr12,41983,-0.00558,-9.453396,-3.24883
+colon fibroblasts,map1 donor halves,chr13,19968,-0.003633,-4.171943,2.032623
+colon fibroblasts,map1 donor halves,chr14,27233,-0.00476,-6.551612,-0.347046
+colon fibroblasts,map1 donor halves,chr15,26588,-0.002617,-3.545045,2.659521
+colon fibroblasts,map1 donor halves,chr16,34120,-0.007405,-11.252819,-5.048253
+colon fibroblasts,map1 donor halves,chr17,39740,-0.009672,-15.908785,-9.704219
+colon fibroblasts,map1 donor halves,chr18,13933,0.00234,2.225279,8.429846
+colon fibroblasts,map1 donor halves,chr19,32959,-0.006568,-10.358125,-4.153559
+colon fibroblasts,map1 donor halves,chr20,21216,-0.000807,-0.957342,5.247225
+colon fibroblasts,map1 donor halves,chr21,9481,-0.002018,-1.535393,4.669173
+colon fibroblasts,map1 donor halves,chr22,16040,-0.002995,-3.092617,3.111949
+colon fibroblasts,map2 read halves,chr1,76842,-8.2e-05,-0.281442,-0.252244
+colon fibroblasts,map2 read halves,chr2,61715,0.000111,0.337532,0.36673
+colon fibroblasts,map2 read halves,chr3,46909,0.000214,0.579868,0.609066
+colon fibroblasts,map2 read halves,chr4,34879,-5.2e-05,-0.121623,-0.092425
+colon fibroblasts,map2 read halves,chr5,42646,-0.000196,-0.497895,-0.468697
+colon fibroblasts,map2 read halves,chr6,41778,0.000428,1.107367,1.136565
+colon fibroblasts,map2 read halves,chr7,44101,-0.000333,-0.847258,-0.81806
+colon fibroblasts,map2 read halves,chr8,36399,-0.000737,-1.721716,-1.692519
+colon fibroblasts,map2 read halves,chr9,24226,-0.000284,-0.537476,-0.508278
+colon fibroblasts,map2 read halves,chr10,39947,-0.00051,-1.249841,-1.220643
+colon fibroblasts,map2 read halves,chr11,45681,-0.000378,-0.984767,-0.955569
+colon fibroblasts,map2 read halves,chr12,41983,-0.00046,-1.166198,-1.137
+colon fibroblasts,map2 read halves,chr13,19968,7.5e-05,0.130709,0.159907
+colon fibroblasts,map2 read halves,chr14,27233,-0.000925,-1.888359,-1.859161
+colon fibroblasts,map2 read halves,chr15,26588,0.000741,1.519214,1.548412
+colon fibroblasts,map2 read halves,chr16,34120,-0.000632,-1.423485,-1.394288
+colon fibroblasts,map2 read halves,chr17,39741,7.3e-05,0.17788,0.207077
+colon fibroblasts,map2 read halves,chr18,13934,0.000347,0.506005,0.535203
+colon fibroblasts,map2 read halves,chr19,32959,0.000808,1.822284,1.851482
+colon fibroblasts,map2 read halves,chr20,21217,0.000826,1.42856,1.457757
+colon fibroblasts,map2 read halves,chr21,9481,5.4e-05,0.063227,0.092425
+colon fibroblasts,map2 read halves,chr22,16040,0.000126,0.18613,0.215328
+colon macrophages,map2 read halves,chr1,76840,0.000205,0.803791,0.739518
+colon macrophages,map2 read halves,chr2,61714,0.000293,1.034703,0.970429
+colon macrophages,map2 read halves,chr3,46908,-8.8e-05,-0.274131,-0.338404
+colon macrophages,map2 read halves,chr4,34879,-0.000297,-0.774866,-0.83914
+colon macrophages,map2 read halves,chr5,42646,-0.000277,-0.794717,-0.858991
+colon macrophages,map2 read halves,chr6,41778,0.000317,0.928449,0.864175
+colon macrophages,map2 read halves,chr7,44105,-6.1e-05,-0.182576,-0.24685
+colon macrophages,map2 read halves,chr8,36398,-1.3e-05,-0.033944,-0.098217
+colon macrophages,map2 read halves,chr9,24226,0.000191,0.414651,0.350377
+colon macrophages,map2 read halves,chr10,39946,-0.0003,-0.84562,-0.909894
+colon macrophages,map2 read halves,chr11,45681,0.000358,1.069613,1.005339
+colon macrophages,map2 read halves,chr12,41982,0.000717,2.097858,2.033585
+colon macrophages,map2 read halves,chr13,19956,-0.000197,-0.395245,-0.459518
+colon macrophages,map2 read halves,chr14,27230,5e-06,0.011516,-0.052758
+colon macrophages,map2 read halves,chr15,26587,0.00014,0.326722,0.262448
+colon macrophages,map2 read halves,chr16,34118,0.000226,0.590771,0.526497
+colon macrophages,map2 read halves,chr17,39740,4.1e-05,0.117032,0.052758
+colon macrophages,map2 read halves,chr18,13934,-0.000198,-0.322741,-0.387015
+colon macrophages,map2 read halves,chr19,32959,-0.000226,-0.592091,-0.656365
+colon macrophages,map2 read halves,chr20,21216,0.00019,0.368332,0.304058
+colon macrophages,map2 read halves,chr21,9481,0.001178,1.615132,1.550858
+colon macrophages,map2 read halves,chr22,16040,-0.001087,-1.927564,-1.991837
+cortical neurons,map1 donor halves,chr1,76841,0.009138,23.146068,7.06647
+cortical neurons,map1 donor halves,chr2,61715,0.008648,19.525718,3.44612
+cortical neurons,map1 donor halves,chr3,46909,0.007056,14.60467,-1.474928
+cortical neurons,map1 donor halves,chr4,34879,0.006954,12.172218,-3.907381
+cortical neurons,map1 donor halves,chr5,42646,0.008676,16.511954,0.432356
+cortical neurons,map1 donor halves,chr6,41777,0.005398,10.552869,-5.526729
+cortical neurons,map1 donor halves,chr7,44104,0.014029,26.168622,10.089024
+cortical neurons,map1 donor halves,chr8,36399,0.011802,19.957306,3.877708
+cortical neurons,map1 donor halves,chr9,24226,0.010039,13.797988,-2.281611
+cortical neurons,map1 donor halves,chr10,39947,0.006694,12.259025,-3.820573
+cortical neurons,map1 donor halves,chr11,45681,0.010229,19.354576,3.274977
+cortical neurons,map1 donor halves,chr12,41983,0.012488,22.860873,6.781274
+cortical neurons,map1 donor halves,chr13,19968,0.009603,12.176439,-3.903159
+cortical neurons,map1 donor halves,chr14,27233,0.008977,13.806176,-2.273422
+cortical neurons,map1 donor halves,chr15,26588,0.010331,15.647243,-0.432356
+cortical neurons,map1 donor halves,chr16,34120,0.01533,24.825319,8.74572
+cortical neurons,map1 donor halves,chr17,39741,0.01472,25.363322,9.283724
+cortical neurons,map1 donor halves,chr18,13934,0.007747,8.272266,-7.807333
+cortical neurons,map1 donor halves,chr19,32959,0.013202,22.154375,6.074777
+cortical neurons,map1 donor halves,chr20,21217,0.008151,10.742115,-5.337483
+cortical neurons,map1 donor halves,chr21,9481,0.00481,4.238724,-11.840874
+cortical neurons,map1 donor halves,chr22,16038,0.017896,19.128567,3.048969
+cortical neurons,map2 read halves,chr1,76842,-0.000206,-0.939076,-0.699701
+cortical neurons,map2 read halves,chr2,61715,-0.000391,-1.62119,-1.381815
+cortical neurons,map2 read halves,chr3,46909,-0.000198,-0.728146,-0.488771
+cortical neurons,map2 read halves,chr4,34879,0.000269,0.855491,1.094866
+cortical neurons,map2 read halves,chr5,42646,-0.000357,-1.22413,-0.984754
+cortical neurons,map2 read halves,chr6,41778,-0.000316,-1.10252,-0.863144
+cortical neurons,map2 read halves,chr7,44105,-0.000119,-0.406265,-0.16689
+cortical neurons,map2 read halves,chr8,36399,0.000372,1.16956,1.408935
+cortical neurons,map2 read halves,chr9,24226,-0.000236,-0.602667,-0.363292
+cortical neurons,map2 read halves,chr10,39947,-0.000212,-0.693913,-0.454537
+cortical neurons,map2 read halves,chr11,45681,0.000221,0.767574,1.006949
+cortical neurons,map2 read halves,chr12,41983,0.000141,0.476504,0.715879
+cortical neurons,map2 read halves,chr13,19968,0.000231,0.554613,0.793988
+cortical neurons,map2 read halves,chr14,27233,-0.000123,-0.33413,-0.094755
+cortical neurons,map2 read halves,chr15,26588,1.4e-05,0.039155,0.27853
+cortical neurons,map2 read halves,chr16,34120,-4.9e-05,-0.14462,0.094755
+cortical neurons,map2 read halves,chr17,39741,0.00011,0.347076,0.586451
+cortical neurons,map2 read halves,chr18,13934,-0.000556,-1.124902,-0.885527
+cortical neurons,map2 read halves,chr19,32959,0.00029,0.843539,1.082915
+cortical neurons,map2 read halves,chr20,21217,-0.000432,-1.011852,-0.772477
+cortical neurons,map2 read halves,chr21,9481,5.4e-05,0.088486,0.327861
+cortical neurons,map2 read halves,chr22,16040,0.000231,0.462987,0.702363
+effector memory cd8 t cells,map2 read halves,chr1,76842,4.5e-05,0.099827,-0.07755
+effector memory cd8 t cells,map2 read halves,chr2,61715,0.000127,0.254926,0.07755
+effector memory cd8 t cells,map2 read halves,chr3,46909,0.000842,1.498783,1.321406
+effector memory cd8 t cells,map2 read halves,chr4,34879,-0.000886,-1.335419,-1.512796
+effector memory cd8 t cells,map2 read halves,chr5,42634,-0.000816,-1.348335,-1.525712
+effector memory cd8 t cells,map2 read halves,chr6,41778,0.000345,0.585581,0.408204
+effector memory cd8 t cells,map2 read halves,chr7,44105,-0.000811,-1.366068,-1.543444
+effector memory cd8 t cells,map2 read halves,chr8,36399,-0.00018,-0.275197,-0.452573
+effector memory cd8 t cells,map2 read halves,chr9,24226,0.000981,1.228888,1.051511
+effector memory cd8 t cells,map2 read halves,chr10,39947,0.000175,0.278976,0.1016
+effector memory cd8 t cells,map2 read halves,chr11,45681,-0.000194,-0.326465,-0.503842
+effector memory cd8 t cells,map2 read halves,chr12,41983,-0.001365,-2.306904,-2.48428
+effector memory cd8 t cells,map2 read halves,chr13,19967,0.000491,0.569444,0.392067
+effector memory cd8 t cells,map2 read halves,chr14,27224,0.001375,1.857702,1.680325
+effector memory cd8 t cells,map2 read halves,chr15,26580,-0.000379,-0.505543,-0.682919
+effector memory cd8 t cells,map2 read halves,chr16,34120,0.000624,0.937953,0.760576
+effector memory cd8 t cells,map2 read halves,chr17,39741,-0.000336,-0.546025,-0.723401
+effector memory cd8 t cells,map2 read halves,chr18,13934,-0.001157,-1.098092,-1.275469
+effector memory cd8 t cells,map2 read halves,chr19,32959,0.000496,0.748328,0.570951
+effector memory cd8 t cells,map2 read halves,chr20,21217,0.001872,2.115815,1.938439
+effector memory cd8 t cells,map2 read halves,chr21,9480,0.000659,0.505931,0.328555
+effector memory cd8 t cells,map2 read halves,chr22,16040,-0.001392,-1.388071,-1.565448
+endometrium epithelium,map1 donor halves,chr1,76839,0.010047,23.953381,6.125732
+endometrium epithelium,map1 donor halves,chr2,61715,0.011986,25.002555,7.174906
+endometrium epithelium,map1 donor halves,chr3,46909,0.013192,24.644221,6.816572
+endometrium epithelium,map1 donor halves,chr4,34878,0.015137,23.470258,5.64261
+endometrium epithelium,map1 donor halves,chr5,42645,0.011768,20.1496,2.321951
+endometrium epithelium,map1 donor halves,chr6,41777,0.014446,25.257263,7.429614
+endometrium epithelium,map1 donor halves,chr7,44100,0.011071,19.496685,1.669036
+endometrium epithelium,map1 donor halves,chr8,36399,0.012101,19.075569,1.24792
+endometrium epithelium,map1 donor halves,chr9,24226,0.010073,13.135944,-4.691705
+endometrium epithelium,map1 donor halves,chr10,39947,0.012662,21.125036,3.297388
+endometrium epithelium,map1 donor halves,chr11,45680,0.011657,21.432224,3.604575
+endometrium epithelium,map1 donor halves,chr12,41983,0.01108,19.507512,1.679863
+endometrium epithelium,map1 donor halves,chr13,19968,0.013503,15.633257,-2.194392
+endometrium epithelium,map1 donor halves,chr14,27233,0.011485,16.425759,-1.40189
+endometrium epithelium,map1 donor halves,chr15,26588,0.011861,16.579729,-1.24792
+endometrium epithelium,map1 donor halves,chr16,34116,0.004561,7.16459,-10.663059
+endometrium epithelium,map1 donor halves,chr17,39740,0.00646,11.020069,-6.80758
+endometrium epithelium,map1 donor halves,chr18,13934,0.014169,13.708787,-4.118861
+endometrium epithelium,map1 donor halves,chr19,32959,0.002169,3.64082,-14.186829
+endometrium epithelium,map1 donor halves,chr20,21217,0.012502,15.082523,-2.745126
+endometrium epithelium,map1 donor halves,chr21,9481,0.009531,7.546046,-10.281603
+endometrium epithelium,map1 donor halves,chr22,16040,0.008483,9.092336,-8.735313
+endometrium epithelium,map2 read halves,chr1,76842,-0.000203,-0.933351,-0.604779
+endometrium epithelium,map2 read halves,chr2,61715,-2.2e-05,-0.089248,0.239324
+endometrium epithelium,map2 read halves,chr3,46909,-0.000562,-2.065426,-1.736855
+endometrium epithelium,map2 read halves,chr4,34879,7e-05,0.220952,0.549523
+endometrium epithelium,map2 read halves,chr5,42646,-0.000366,-1.229215,-0.900644
+endometrium epithelium,map2 read halves,chr6,41778,-9.8e-05,-0.337117,-0.008545
+endometrium epithelium,map2 read halves,chr7,44105,-0.000266,-0.915827,-0.587256
+endometrium epithelium,map2 read halves,chr8,36399,-0.000102,-0.320026,0.008545
+endometrium epithelium,map2 read halves,chr9,24226,0.000422,1.092268,1.420839
+endometrium epithelium,map2 read halves,chr10,39947,0.000116,0.380924,0.709496
+endometrium epithelium,map2 read halves,chr11,45681,-0.0004,-1.412591,-1.084019
+endometrium epithelium,map2 read halves,chr12,41983,-0.000514,-1.752166,-1.423594
+endometrium epithelium,map2 read halves,chr13,19968,0.000867,2.031684,2.360255
+endometrium epithelium,map2 read halves,chr14,27233,-0.000281,-0.775463,-0.446891
+endometrium epithelium,map2 read halves,chr15,26588,0.000274,0.754374,1.082946
+endometrium epithelium,map2 read halves,chr16,34120,0.000139,0.416866,0.745438
+endometrium epithelium,map2 read halves,chr17,39741,-0.000597,-1.959868,-1.631296
+endometrium epithelium,map2 read halves,chr18,13934,0.000738,1.43833,1.766901
+endometrium epithelium,map2 read halves,chr19,32959,-0.000213,-0.640369,-0.311798
+endometrium epithelium,map2 read halves,chr20,21217,-0.000305,-0.693444,-0.364872
+endometrium epithelium,map2 read halves,chr21,9481,0.000586,0.918115,1.246687
+endometrium epithelium,map2 read halves,chr22,16040,9.3e-05,0.190408,0.51898
+erythrocyte progenitors,map1 donor halves,chr1,76842,0.035649,116.380397,36.327486
+erythrocyte progenitors,map1 donor halves,chr2,61715,0.039825,112.53986,32.486949
+erythrocyte progenitors,map1 donor halves,chr3,46909,0.036287,92.714671,12.661759
+erythrocyte progenitors,map1 donor halves,chr4,34879,0.040383,86.044481,5.99157
+erythrocyte progenitors,map1 donor halves,chr5,42646,0.039739,94.126858,14.073946
+erythrocyte progenitors,map1 donor halves,chr6,41777,0.037694,90.204299,10.151387
+erythrocyte progenitors,map1 donor halves,chr7,44103,0.038332,91.582107,11.529195
+erythrocyte progenitors,map1 donor halves,chr8,36393,0.042536,90.350324,10.297413
+erythrocyte progenitors,map1 donor halves,chr9,24226,0.038111,68.113293,-11.939618
+erythrocyte progenitors,map1 donor halves,chr10,39947,0.041553,94.399312,14.346401
+erythrocyte progenitors,map1 donor halves,chr11,45680,0.036771,90.491069,10.438158
+erythrocyte progenitors,map1 donor halves,chr12,41983,0.035439,85.640855,5.587943
+erythrocyte progenitors,map1 donor halves,chr13,19968,0.04047,64.520836,-15.532076
+erythrocyte progenitors,map1 donor halves,chr14,27233,0.036864,70.81788,-9.235032
+erythrocyte progenitors,map1 donor halves,chr15,26588,0.036552,71.149441,-8.90347
+erythrocyte progenitors,map1 donor halves,chr16,34120,0.033664,72.164445,-7.888467
+erythrocyte progenitors,map1 donor halves,chr17,39741,0.031758,74.464968,-5.587943
+erythrocyte progenitors,map1 donor halves,chr18,13934,0.040826,54.903946,-25.148965
+erythrocyte progenitors,map1 donor halves,chr19,32959,0.027475,60.76695,-19.285961
+erythrocyte progenitors,map1 donor halves,chr20,21217,0.039176,65.073931,-14.978981
+erythrocyte progenitors,map1 donor halves,chr21,9481,0.039467,42.311653,-37.741258
+erythrocyte progenitors,map1 donor halves,chr22,16040,0.03171,46.84557,-33.207342
+erythrocyte progenitors,map2 read halves,chr1,76842,0.000155,0.617013,0.786795
+erythrocyte progenitors,map2 read halves,chr2,61715,-0.000323,-1.130672,-0.96089
+erythrocyte progenitors,map2 read halves,chr3,46909,-7.2e-05,-0.224916,-0.055134
+erythrocyte progenitors,map2 read halves,chr4,34879,0.000174,0.454109,0.623891
+erythrocyte progenitors,map2 read halves,chr5,42646,0.000252,0.739324,0.909106
+erythrocyte progenitors,map2 read halves,chr6,41778,7.4e-05,0.215405,0.385187
+erythrocyte progenitors,map2 read halves,chr7,44105,0.000195,0.575391,0.745173
+erythrocyte progenitors,map2 read halves,chr8,36399,-0.000542,-1.42517,-1.255388
+erythrocyte progenitors,map2 read halves,chr9,24226,-0.000153,-0.336046,-0.166264
+erythrocyte progenitors,map2 read halves,chr10,39947,-0.000216,-0.599185,-0.429403
+erythrocyte progenitors,map2 read halves,chr11,45681,-4e-06,-0.012334,0.157448
+erythrocyte progenitors,map2 read halves,chr12,41983,-0.000435,-1.293626,-1.123844
+erythrocyte progenitors,map2 read halves,chr13,19968,-0.000244,-0.482069,-0.312287
+erythrocyte progenitors,map2 read halves,chr14,27233,-4.9e-05,-0.114648,0.055134
+erythrocyte progenitors,map2 read halves,chr15,26588,-1.8e-05,-0.042308,0.127474
+erythrocyte progenitors,map2 read halves,chr16,34120,8.3e-05,0.216314,0.386096
+erythrocyte progenitors,map2 read halves,chr17,39741,-0.000334,-0.963309,-0.793527
+erythrocyte progenitors,map2 read halves,chr18,13934,-0.000967,-1.572176,-1.402394
+erythrocyte progenitors,map2 read halves,chr19,32959,-0.000516,-1.414615,-1.244833
+erythrocyte progenitors,map2 read halves,chr20,21217,0.000144,0.294268,0.46405
+erythrocyte progenitors,map2 read halves,chr21,9481,-0.000262,-0.351397,-0.181615
+erythrocyte progenitors,map2 read halves,chr22,16040,0.001333,2.388404,2.558186
+fallopien tubes epithelium,map1 donor halves,chr1,76841,-0.001564,-4.992253,-1.283345
+fallopien tubes epithelium,map1 donor halves,chr2,61715,-0.000487,-1.399376,2.309532
+fallopien tubes epithelium,map1 donor halves,chr3,46909,0.000499,1.272352,4.98126
+fallopien tubes epithelium,map1 donor halves,chr4,34879,-0.000899,-1.899474,1.809434
+fallopien tubes epithelium,map1 donor halves,chr5,42646,-0.000847,-1.952124,1.756784
+fallopien tubes epithelium,map1 donor halves,chr6,41778,0.001659,3.851707,7.560615
+fallopien tubes epithelium,map1 donor halves,chr7,44105,-0.001625,-3.822624,-0.113716
+fallopien tubes epithelium,map1 donor halves,chr8,36398,-0.003458,-7.326349,-3.617442
+fallopien tubes epithelium,map1 donor halves,chr9,24226,-0.001122,-1.993171,1.715736
+fallopien tubes epithelium,map1 donor halves,chr10,39947,-0.000401,-0.894068,2.81484
+fallopien tubes epithelium,map1 donor halves,chr11,45681,-0.000699,-1.694307,2.014601
+fallopien tubes epithelium,map1 donor halves,chr12,41982,-0.001617,-3.873844,-0.164937
+fallopien tubes epithelium,map1 donor halves,chr13,19968,-0.003767,-6.107864,-2.398957
+fallopien tubes epithelium,map1 donor halves,chr14,27230,-0.003426,-6.311666,-2.602758
+fallopien tubes epithelium,map1 donor halves,chr15,26588,-0.002034,-3.891401,-0.182493
+fallopien tubes epithelium,map1 donor halves,chr16,34120,-0.00151,-3.152562,0.556346
+fallopien tubes epithelium,map1 donor halves,chr17,39741,-0.001465,-3.322884,0.386024
+fallopien tubes epithelium,map1 donor halves,chr18,13934,-0.002699,-3.595191,0.113716
+fallopien tubes epithelium,map1 donor halves,chr19,32959,-0.002379,-5.165475,-1.456568
+fallopien tubes epithelium,map1 donor halves,chr20,21217,-0.002617,-4.286045,-0.577138
+fallopien tubes epithelium,map1 donor halves,chr21,9481,-0.005713,-5.93028,-2.221373
+fallopien tubes epithelium,map1 donor halves,chr22,16040,-0.005461,-7.917354,-4.208446
+fallopien tubes epithelium,map2 read halves,chr1,76842,0.000121,0.587875,0.417887
+fallopien tubes epithelium,map2 read halves,chr2,61715,4.2e-05,0.188696,0.018708
+fallopien tubes epithelium,map2 read halves,chr3,46909,0.000244,0.983491,0.813503
+fallopien tubes epithelium,map2 read halves,chr4,34879,-3.4e-05,-0.115967,-0.285955
+fallopien tubes epithelium,map2 read halves,chr5,42646,-1e-05,-0.037002,-0.20699
+fallopien tubes epithelium,map2 read halves,chr6,41778,2e-05,0.073978,-0.09601
+fallopien tubes epithelium,map2 read halves,chr7,44105,-0.000256,-0.927403,-1.097391
+fallopien tubes epithelium,map2 read halves,chr8,36399,-0.001048,-3.465545,-3.635533
+fallopien tubes epithelium,map2 read halves,chr9,24226,-0.00029,-0.796603,-0.966591
+fallopien tubes epithelium,map2 read halves,chr10,39947,2e-05,0.070988,-0.099
+fallopien tubes epithelium,map2 read halves,chr11,45681,0.0001,0.369927,0.199939
+fallopien tubes epithelium,map2 read halves,chr12,41983,-0.000722,-2.630738,-2.800726
+fallopien tubes epithelium,map2 read halves,chr13,19968,0.000232,0.59255,0.422562
+fallopien tubes epithelium,map2 read halves,chr14,27233,-0.000107,-0.307276,-0.477264
+fallopien tubes epithelium,map2 read halves,chr15,26588,0.000123,0.360484,0.190496
+fallopien tubes epithelium,map2 read halves,chr16,34120,0.000426,1.312425,1.142437
+fallopien tubes epithelium,map2 read halves,chr17,39741,-0.000353,-1.199391,-1.369379
+fallopien tubes epithelium,map2 read halves,chr18,13934,9.1e-05,0.195232,0.025244
+fallopien tubes epithelium,map2 read halves,chr19,32959,5e-05,0.15128,-0.018708
+fallopien tubes epithelium,map2 read halves,chr20,21217,9.4e-05,0.227651,0.057663
+fallopien tubes epithelium,map2 read halves,chr21,9481,0.000141,0.242769,0.072781
+fallopien tubes epithelium,map2 read halves,chr22,16040,0.000145,0.303203,0.133215
+gastric antrum epithelium,map1 donor halves,chr1,76842,0.009754,32.763059,12.593207
+gastric antrum epithelium,map1 donor halves,chr2,61715,0.006806,19.897056,-0.272796
+gastric antrum epithelium,map1 donor halves,chr3,46909,0.007804,20.663516,0.493664
+gastric antrum epithelium,map1 donor halves,chr4,34879,0.006987,15.628589,-4.541263
+gastric antrum epithelium,map1 donor halves,chr5,42646,0.007601,18.578944,-1.590908
+gastric antrum epithelium,map1 donor halves,chr6,41778,0.006291,15.393163,-4.776689
+gastric antrum epithelium,map1 donor halves,chr7,44100,0.008929,22.106787,1.936934
+gastric antrum epithelium,map1 donor halves,chr8,36397,0.008936,19.536459,-0.633393
+gastric antrum epithelium,map1 donor halves,chr9,24225,0.009991,18.332765,-1.837088
+gastric antrum epithelium,map1 donor halves,chr10,39947,0.008695,20.442649,0.272796
+gastric antrum epithelium,map1 donor halves,chr11,45681,0.010658,26.621207,6.451354
+gastric antrum epithelium,map1 donor halves,chr12,41983,0.008775,21.542505,1.372652
+gastric antrum epithelium,map1 donor halves,chr13,19968,0.00569,9.63402,-10.535833
+gastric antrum epithelium,map1 donor halves,chr14,27233,0.009652,19.063134,-1.106719
+gastric antrum epithelium,map1 donor halves,chr15,26588,0.009043,17.253882,-2.91597
+gastric antrum epithelium,map1 donor halves,chr16,34120,0.011929,25.945166,5.775313
+gastric antrum epithelium,map1 donor halves,chr17,39741,0.012765,30.245031,10.075178
+gastric antrum epithelium,map1 donor halves,chr18,13934,0.007454,10.329596,-9.840256
+gastric antrum epithelium,map1 donor halves,chr19,32959,0.012375,27.6422,7.472348
+gastric antrum epithelium,map1 donor halves,chr20,21217,0.012479,20.876315,0.706462
+gastric antrum epithelium,map1 donor halves,chr21,9481,0.01173,12.221461,-7.948392
+gastric antrum epithelium,map1 donor halves,chr22,16040,0.015156,22.095183,1.925331
+gastric antrum epithelium,map2 read halves,chr1,76842,-0.000202,-0.991949,-0.363245
+gastric antrum epithelium,map2 read halves,chr2,61715,-0.000321,-1.426165,-0.797461
+gastric antrum epithelium,map2 read halves,chr3,46909,-0.000288,-1.146485,-0.517781
+gastric antrum epithelium,map2 read halves,chr4,34879,0.000325,1.089943,1.718647
+gastric antrum epithelium,map2 read halves,chr5,42646,-0.000354,-1.276657,-0.647953
+gastric antrum epithelium,map2 read halves,chr6,41778,-0.000221,-0.835438,-0.206734
+gastric antrum epithelium,map2 read halves,chr7,44105,-0.000483,-1.781512,-1.152808
+gastric antrum epithelium,map2 read halves,chr8,36399,-0.000399,-1.321316,-0.692612
+gastric antrum epithelium,map2 read halves,chr9,24226,-6.6e-05,-0.175191,0.453513
+gastric antrum epithelium,map2 read halves,chr10,39947,-0.000142,-0.493758,0.134946
+gastric antrum epithelium,map2 read halves,chr11,45681,9.9e-05,0.364583,0.993287
+gastric antrum epithelium,map2 read halves,chr12,41983,0.000265,0.962999,1.591703
+gastric antrum epithelium,map2 read halves,chr13,19968,-0.000414,-1.042903,-0.414199
+gastric antrum epithelium,map2 read halves,chr14,27233,0.000298,0.87012,1.498824
+gastric antrum epithelium,map2 read halves,chr15,26588,0.000403,1.162041,1.790745
+gastric antrum epithelium,map2 read halves,chr16,34120,0.000391,1.221626,1.85033
+gastric antrum epithelium,map2 read halves,chr17,39741,-0.00023,-0.79049,-0.161786
+gastric antrum epithelium,map2 read halves,chr18,13934,0.000329,0.67673,1.305434
+gastric antrum epithelium,map2 read halves,chr19,32959,8.1e-05,0.250234,0.878938
+gastric antrum epithelium,map2 read halves,chr20,21217,-0.000537,-1.30049,-0.671786
+gastric antrum epithelium,map2 read halves,chr21,9481,0.000951,1.559521,2.188225
+gastric antrum epithelium,map2 read halves,chr22,16040,-0.000359,-0.76365,-0.134946
+gastric body epithelium,map1 donor halves,chr1,76842,0.005251,17.572775,7.16829
+gastric body epithelium,map1 donor halves,chr2,61715,0.001965,5.75748,-4.647004
+gastric body epithelium,map1 donor halves,chr3,46909,0.002767,7.430553,-2.973932
+gastric body epithelium,map1 donor halves,chr4,34879,0.002427,5.538009,-4.866475
+gastric body epithelium,map1 donor halves,chr5,42646,0.003263,7.988309,-2.416176
+gastric body epithelium,map1 donor halves,chr6,41778,0.002045,5.07009,-5.334395
+gastric body epithelium,map1 donor halves,chr7,44100,0.005293,13.031726,2.627241
+gastric body epithelium,map1 donor halves,chr8,36396,0.003917,8.547222,-1.857262
+gastric body epithelium,map1 donor halves,chr9,24226,0.005437,10.051987,-0.352498
+gastric body epithelium,map1 donor halves,chr10,39947,0.004993,11.736809,1.332324
+gastric body epithelium,map1 donor halves,chr11,45681,0.005983,15.068216,4.663732
+gastric body epithelium,map1 donor halves,chr12,41983,0.00428,10.736424,0.331939
+gastric body epithelium,map1 donor halves,chr13,19968,0.002988,5.177795,-5.226689
+gastric body epithelium,map1 donor halves,chr14,27233,0.005931,11.690306,1.285821
+gastric body epithelium,map1 donor halves,chr15,26588,0.005105,10.072545,-0.331939
+gastric body epithelium,map1 donor halves,chr16,34120,0.006397,13.966703,3.562218
+gastric body epithelium,map1 donor halves,chr17,39741,0.008381,19.903708,9.499223
+gastric body epithelium,map1 donor halves,chr18,13934,0.00218,3.069598,-7.334887
+gastric body epithelium,map1 donor halves,chr19,32959,0.007304,16.282317,5.877833
+gastric body epithelium,map1 donor halves,chr20,21217,0.007591,12.676529,2.272044
+gastric body epithelium,map1 donor halves,chr21,9481,0.00663,7.010495,-3.39399
+gastric body epithelium,map1 donor halves,chr22,16040,0.010637,15.435701,5.031217
+gastric body epithelium,map2 read halves,chr1,76842,-0.000185,-0.882431,-0.651632
+gastric body epithelium,map2 read halves,chr2,61715,0.000154,0.666508,0.897306
+gastric body epithelium,map2 read halves,chr3,46909,0.000103,0.395357,0.626155
+gastric body epithelium,map2 read halves,chr4,34879,-0.000164,-0.535471,-0.304673
+gastric body epithelium,map2 read halves,chr5,42646,-0.000132,-0.461218,-0.230419
+gastric body epithelium,map2 read halves,chr6,41778,0.000216,0.795218,1.026016
+gastric body epithelium,map2 read halves,chr7,44105,-0.000207,-0.736074,-0.505275
+gastric body epithelium,map2 read halves,chr8,36399,5.6e-05,0.17877,0.409568
+gastric body epithelium,map2 read halves,chr9,24226,-0.000556,-1.45558,-1.224782
+gastric body epithelium,map2 read halves,chr10,39947,-0.000172,-0.58156,-0.350762
+gastric body epithelium,map2 read halves,chr11,45681,0.000157,0.562653,0.793451
+gastric body epithelium,map2 read halves,chr12,41983,0.000436,1.520299,1.751097
+gastric body epithelium,map2 read halves,chr13,19968,-1.2e-05,-0.028378,0.20242
+gastric body epithelium,map2 read halves,chr14,27233,-0.001111,-3.137052,-2.906253
+gastric body epithelium,map2 read halves,chr15,26588,0.000118,0.328939,0.559737
+gastric body epithelium,map2 read halves,chr16,34120,-9.9e-05,-0.300035,-0.069237
+gastric body epithelium,map2 read halves,chr17,39741,-0.000282,-0.939112,-0.708313
+gastric body epithelium,map2 read halves,chr18,13934,0.000246,0.498431,0.729229
+gastric body epithelium,map2 read halves,chr19,32959,0.000107,0.323204,0.554002
+gastric body epithelium,map2 read halves,chr20,21217,-7e-05,-0.161562,0.069237
+gastric body epithelium,map2 read halves,chr21,9481,-0.000699,-1.112848,-0.88205
+gastric body epithelium,map2 read halves,chr22,16040,-0.000473,-0.961848,-0.731049
+gastric fundus epithelium,map1 donor halves,chr1,76842,-0.004187,-14.048712,-3.960125
+gastric fundus epithelium,map1 donor halves,chr2,61715,-0.005157,-15.279034,-5.190446
+gastric fundus epithelium,map1 donor halves,chr3,46907,-0.004996,-13.318988,-3.230401
+gastric fundus epithelium,map1 donor halves,chr4,34879,-0.00454,-10.146773,-0.058186
+gastric fundus epithelium,map1 donor halves,chr5,42646,-0.004358,-10.604243,-0.515655
+gastric fundus epithelium,map1 donor halves,chr6,41778,-0.00582,-14.34259,-4.254003
+gastric fundus epithelium,map1 donor halves,chr7,44104,-0.002767,-6.901779,3.186809
+gastric fundus epithelium,map1 donor halves,chr8,36396,-0.004499,-9.978766,0.109821
+gastric fundus epithelium,map1 donor halves,chr9,24226,-0.005195,-9.509846,0.578742
+gastric fundus epithelium,map1 donor halves,chr10,39947,-0.004807,-11.412269,-1.323681
+gastric fundus epithelium,map1 donor halves,chr11,45681,-0.004019,-10.036159,0.052428
+gastric fundus epithelium,map1 donor halves,chr12,41983,-0.004699,-11.855556,-1.766968
+gastric fundus epithelium,map1 donor halves,chr13,19968,-0.005653,-9.76206,0.326527
+gastric fundus epithelium,map1 donor halves,chr14,27233,-0.00539,-10.787964,-0.699376
+gastric fundus epithelium,map1 donor halves,chr15,26588,-0.005157,-10.141016,-0.052428
+gastric fundus epithelium,map1 donor halves,chr16,34118,-0.003615,-7.942905,2.145683
+gastric fundus epithelium,map1 donor halves,chr17,39741,-0.003367,-8.105978,1.98261
+gastric fundus epithelium,map1 donor halves,chr18,13933,-0.005455,-7.491764,2.596823
+gastric fundus epithelium,map1 donor halves,chr19,32959,-0.003466,-7.85108,2.237508
+gastric fundus epithelium,map1 donor halves,chr20,21217,-0.007212,-12.288042,-2.199455
+gastric fundus epithelium,map1 donor halves,chr21,9481,-0.006412,-6.755936,3.332652
+gastric fundus epithelium,map1 donor halves,chr22,16040,-0.004167,-6.237064,3.851524
+gastric fundus epithelium,map2 read halves,chr1,76842,0.00038,1.930483,1.650687
+gastric fundus epithelium,map2 read halves,chr2,61715,0.000128,0.585221,0.305426
+gastric fundus epithelium,map2 read halves,chr3,46909,7e-06,0.030707,-0.249088
+gastric fundus epithelium,map2 read halves,chr4,34879,3.8e-05,0.131882,-0.147913
+gastric fundus epithelium,map2 read halves,chr5,42646,0.000136,0.505471,0.225675
+gastric fundus epithelium,map2 read halves,chr6,41778,0.000513,2.018547,1.738752
+gastric fundus epithelium,map2 read halves,chr7,44105,-0.000488,-1.837534,-2.117329
+gastric fundus epithelium,map2 read halves,chr8,36399,-5.7e-05,-0.194988,-0.474783
+gastric fundus epithelium,map2 read halves,chr9,24226,0.000307,0.868293,0.588497
+gastric fundus epithelium,map2 read halves,chr10,39947,0.000439,1.589725,1.309929
+gastric fundus epithelium,map2 read halves,chr11,45681,0.000113,0.427709,0.147913
+gastric fundus epithelium,map2 read halves,chr12,41983,-0.000249,-0.922561,-1.202357
+gastric fundus epithelium,map2 read halves,chr13,19968,0.000398,1.049485,0.769689
+gastric fundus epithelium,map2 read halves,chr14,27233,0.000395,1.176494,0.896698
+gastric fundus epithelium,map2 read halves,chr15,26588,0.000356,1.063562,0.783767
+gastric fundus epithelium,map2 read halves,chr16,34120,0.000259,0.82965,0.549854
+gastric fundus epithelium,map2 read halves,chr17,39741,-0.000224,-0.785147,-1.064943
+gastric fundus epithelium,map2 read halves,chr18,13934,-0.000168,-0.359917,-0.639713
+gastric fundus epithelium,map2 read halves,chr19,32959,-0.000295,-0.935436,-1.215232
+gastric fundus epithelium,map2 read halves,chr20,21217,-0.000244,-0.6018,-0.881596
+gastric fundus epithelium,map2 read halves,chr21,9481,7.6e-05,0.130693,-0.149102
+gastric fundus epithelium,map2 read halves,chr22,16040,-0.000376,-0.804804,-1.084599
+heart fibroblasts,map1 donor halves,chr1,76837,0.005722,18.423372,4.150461
+heart fibroblasts,map1 donor halves,chr2,61715,0.006904,19.900522,5.627612
+heart fibroblasts,map1 donor halves,chr3,46909,0.005765,14.980672,0.707761
+heart fibroblasts,map1 donor halves,chr4,34879,0.005226,11.415366,-2.857544
+heart fibroblasts,map1 donor halves,chr5,42644,0.007518,17.721288,3.448378
+heart fibroblasts,map1 donor halves,chr6,41777,0.005047,12.247312,-2.025599
+heart fibroblasts,map1 donor halves,chr7,44105,0.007986,19.302888,5.029977
+heart fibroblasts,map1 donor halves,chr8,36394,0.006301,13.468269,-0.804642
+heart fibroblasts,map1 donor halves,chr9,24226,0.00727,12.988274,-1.284636
+heart fibroblasts,map1 donor halves,chr10,39947,0.006225,14.283726,0.010815
+heart fibroblasts,map1 donor halves,chr11,45681,0.006328,15.691078,1.418168
+heart fibroblasts,map1 donor halves,chr12,41978,0.006245,14.949509,0.676599
+heart fibroblasts,map1 donor halves,chr13,19967,0.006951,11.565315,-2.707596
+heart fibroblasts,map1 donor halves,chr14,27233,0.006945,13.663731,-0.609179
+heart fibroblasts,map1 donor halves,chr15,26588,0.007167,13.780085,-0.492825
+heart fibroblasts,map1 donor halves,chr16,34120,0.007207,15.088787,0.815876
+heart fibroblasts,map1 donor halves,chr17,39741,0.006541,15.140719,0.867809
+heart fibroblasts,map1 donor halves,chr18,13934,0.00823,11.314667,-2.958244
+heart fibroblasts,map1 donor halves,chr19,32959,0.007858,16.848584,2.575674
+heart fibroblasts,map1 donor halves,chr20,21217,0.00857,14.262095,-0.010815
+heart fibroblasts,map1 donor halves,chr21,9481,0.007667,8.168872,-6.104038
+heart fibroblasts,map1 donor halves,chr22,16040,0.008826,12.840806,-1.432105
+heart fibroblasts,map2 read halves,chr1,76842,0.000305,1.260373,1.332597
+heart fibroblasts,map2 read halves,chr2,61715,0.000165,0.615835,0.688059
+heart fibroblasts,map2 read halves,chr3,46909,0.000316,1.046304,1.118528
+heart fibroblasts,map2 read halves,chr4,34879,4e-05,0.113429,0.185653
+heart fibroblasts,map2 read halves,chr5,42646,-0.000397,-1.234282,-1.162058
+heart fibroblasts,map2 read halves,chr6,41778,0.000349,1.098008,1.170232
+heart fibroblasts,map2 read halves,chr7,44105,-9.2e-05,-0.286493,-0.214268
+heart fibroblasts,map2 read halves,chr8,36399,-0.000496,-1.396521,-1.324297
+heart fibroblasts,map2 read halves,chr9,24226,0.000272,0.630744,0.702968
+heart fibroblasts,map2 read halves,chr10,39947,-0.000231,-0.684761,-0.612537
+heart fibroblasts,map2 read halves,chr11,45681,-0.000138,-0.434115,-0.361891
+heart fibroblasts,map2 read halves,chr12,41983,-0.00047,-1.459477,-1.387253
+heart fibroblasts,map2 read halves,chr13,19968,0.000267,0.571582,0.643807
+heart fibroblasts,map2 read halves,chr14,27233,-0.001012,-2.478104,-2.40588
+heart fibroblasts,map2 read halves,chr15,26588,-0.000145,-0.358372,-0.286148
+heart fibroblasts,map2 read halves,chr16,34120,9.9e-05,0.265268,0.337493
+heart fibroblasts,map2 read halves,chr17,39741,7.9e-05,0.233212,0.305437
+heart fibroblasts,map2 read halves,chr18,13934,-0.000503,-0.892975,-0.820751
+heart fibroblasts,map2 read halves,chr19,32959,-3.5e-05,-0.095335,-0.02311
+heart fibroblasts,map2 read halves,chr20,21217,-2.4e-05,-0.049114,0.02311
+heart fibroblasts,map2 read halves,chr21,9481,-0.001122,-1.584546,-1.512322
+heart fibroblasts,map2 read halves,chr22,16040,-1.6e-05,-0.028594,0.04363
+hepatocyte,map2 read halves,chr1,76842,-8.7e-05,-0.456215,-0.84866
+hepatocyte,map2 read halves,chr2,61715,0.000475,2.230072,1.837626
+hepatocyte,map2 read halves,chr3,46909,-6.6e-05,-0.279546,-0.671992
+hepatocyte,map2 read halves,chr4,34879,0.000371,1.283467,0.891022
+hepatocyte,map2 read halves,chr5,42646,0.000269,1.020136,0.62769
+hepatocyte,map2 read halves,chr6,41778,-0.000212,-0.838215,-1.230661
+hepatocyte,map2 read halves,chr7,44105,0.000382,1.49623,1.103784
+hepatocyte,map2 read halves,chr8,36399,0.000556,1.926943,1.534498
+hepatocyte,map2 read halves,chr9,24226,0.000369,1.088878,0.696432
+hepatocyte,map2 read halves,chr10,39947,0.00014,0.521951,0.129505
+hepatocyte,map2 read halves,chr11,45681,-8.3e-05,-0.325414,-0.717859
+hepatocyte,map2 read halves,chr12,41983,-2.2e-05,-0.084288,-0.476734
+hepatocyte,map2 read halves,chr13,19968,-0.000472,-1.238054,-1.6305
+hepatocyte,map2 read halves,chr14,27233,0.000442,1.372076,0.97963
+hepatocyte,map2 read halves,chr15,26588,0.000208,0.645117,0.252671
+hepatocyte,map2 read halves,chr16,34120,-0.000224,-0.760999,-1.153445
+hepatocyte,map2 read halves,chr17,39741,0.000141,0.523653,0.131207
+hepatocyte,map2 read halves,chr18,13934,-4e-05,-0.088775,-0.481221
+hepatocyte,map2 read halves,chr19,32959,-0.000172,-0.565813,-0.958259
+hepatocyte,map2 read halves,chr20,21217,0.000102,0.262941,-0.129505
+hepatocyte,map2 read halves,chr21,9481,-0.000194,-0.33714,-0.729586
+hepatocyte,map2 read halves,chr22,16040,0.000569,1.32213,0.929684
+kidney glomerular endothelium,map1 donor halves,chr1,76839,0.008627,21.693627,5.6513
+kidney glomerular endothelium,map1 donor halves,chr2,61715,0.010949,23.690341,7.648014
+kidney glomerular endothelium,map1 donor halves,chr3,46909,0.007982,15.538321,-0.504006
+kidney glomerular endothelium,map1 donor halves,chr4,34879,0.010252,16.546333,0.504006
+kidney glomerular endothelium,map1 donor halves,chr5,42646,0.01109,19.917185,3.874857
+kidney glomerular endothelium,map1 donor halves,chr6,41776,0.007603,13.910141,-2.132186
+kidney glomerular endothelium,map1 donor halves,chr7,44105,0.011397,21.266465,5.224137
+kidney glomerular endothelium,map1 donor halves,chr8,36374,0.012961,21.599642,5.557315
+kidney glomerular endothelium,map1 donor halves,chr9,24226,0.0096,13.112367,-2.92996
+kidney glomerular endothelium,map1 donor halves,chr10,39947,0.009868,17.330686,1.288359
+kidney glomerular endothelium,map1 donor halves,chr11,45681,0.008972,17.436654,1.394327
+kidney glomerular endothelium,map1 donor halves,chr12,41983,0.010611,19.500055,3.457728
+kidney glomerular endothelium,map1 donor halves,chr13,19968,0.01135,13.689377,-2.35295
+kidney glomerular endothelium,map1 donor halves,chr14,27233,0.012132,18.538474,2.496147
+kidney glomerular endothelium,map1 donor halves,chr15,26588,0.009121,13.546464,-2.495864
+kidney glomerular endothelium,map1 donor halves,chr16,34119,0.010727,17.923721,1.881394
+kidney glomerular endothelium,map1 donor halves,chr17,39741,0.007366,13.262151,-2.780176
+kidney glomerular endothelium,map1 donor halves,chr18,13934,0.010599,11.140221,-4.902107
+kidney glomerular endothelium,map1 donor halves,chr19,32959,0.007386,13.291846,-2.750481
+kidney glomerular endothelium,map1 donor halves,chr20,21217,0.009335,12.230594,-3.811733
+kidney glomerular endothelium,map1 donor halves,chr21,9481,0.011652,9.662412,-6.379916
+kidney glomerular endothelium,map1 donor halves,chr22,16040,0.00686,7.817642,-8.224685
+kidney glomerular endothelium,map2 read halves,chr1,76842,0.000148,0.701694,0.499937
+kidney glomerular endothelium,map2 read halves,chr2,61715,-0.000243,-1.046106,-1.247863
+kidney glomerular endothelium,map2 read halves,chr3,46909,0.000122,0.466465,0.264708
+kidney glomerular endothelium,map2 read halves,chr4,34879,-1.3e-05,-0.044018,-0.245775
+kidney glomerular endothelium,map2 read halves,chr5,42646,0.000265,0.94064,0.738883
+kidney glomerular endothelium,map2 read halves,chr6,41778,0.000101,0.366959,0.165202
+kidney glomerular endothelium,map2 read halves,chr7,44105,-0.000378,-1.344526,-1.546282
+kidney glomerular endothelium,map2 read halves,chr8,36399,0.00016,0.521591,0.319834
+kidney glomerular endothelium,map2 read halves,chr9,24226,-7e-06,-0.017662,-0.219418
+kidney glomerular endothelium,map2 read halves,chr10,39947,-0.000166,-0.572784,-0.77454
+kidney glomerular endothelium,map2 read halves,chr11,45681,8.2e-05,0.299254,0.097498
+kidney glomerular endothelium,map2 read halves,chr12,41983,-0.000403,-1.425458,-1.627215
+kidney glomerular endothelium,map2 read halves,chr13,19968,6.9e-05,0.171218,-0.030538
+kidney glomerular endothelium,map2 read halves,chr14,27233,-0.000212,-0.597954,-0.799711
+kidney glomerular endothelium,map2 read halves,chr15,26588,-8.4e-05,-0.239208,-0.440964
+kidney glomerular endothelium,map2 read halves,chr16,34120,0.000278,0.856381,0.654625
+kidney glomerular endothelium,map2 read halves,chr17,39741,-0.000401,-1.344501,-1.546257
+kidney glomerular endothelium,map2 read halves,chr18,13934,0.000114,0.232295,0.030538
+kidney glomerular endothelium,map2 read halves,chr19,32959,0.000341,1.056629,0.854873
+kidney glomerular endothelium,map2 read halves,chr20,21217,0.000112,0.270398,0.068641
+kidney glomerular endothelium,map2 read halves,chr21,9481,-4e-06,-0.006976,-0.208733
+kidney glomerular endothelium,map2 read halves,chr22,16040,0.000192,0.404097,0.20234
+kidney glomerular epithelium,map2 read halves,chr1,76841,-0.0002,-0.729355,-0.08884
+kidney glomerular epithelium,map2 read halves,chr2,61713,-0.000237,-0.776829,-0.136314
+kidney glomerular epithelium,map2 read halves,chr3,46909,-0.000571,-1.689742,-1.049228
+kidney glomerular epithelium,map2 read halves,chr4,34879,3.6e-05,0.091888,0.732403
+kidney glomerular epithelium,map2 read halves,chr5,42646,-0.000445,-1.200419,-0.559905
+kidney glomerular epithelium,map2 read halves,chr6,41778,0.000211,0.579824,1.220339
+kidney glomerular epithelium,map2 read halves,chr7,44103,1.3e-05,0.03492,0.675434
+kidney glomerular epithelium,map2 read halves,chr8,36399,0.000392,0.970285,1.610799
+kidney glomerular epithelium,map2 read halves,chr9,24226,-7.3e-05,-0.147805,0.492709
+kidney glomerular epithelium,map2 read halves,chr10,39947,-0.000588,-1.535745,-0.89523
+kidney glomerular epithelium,map2 read halves,chr11,45678,-0.000462,-1.271867,-0.631353
+kidney glomerular epithelium,map2 read halves,chr12,41983,-0.000257,-0.693278,-0.052763
+kidney glomerular epithelium,map2 read halves,chr13,19968,-0.000178,-0.332019,0.308495
+kidney glomerular epithelium,map2 read halves,chr14,27232,0.0003,0.654319,1.294833
+kidney glomerular epithelium,map2 read halves,chr15,26588,-0.00048,-1.0282,-0.387686
+kidney glomerular epithelium,map2 read halves,chr16,34120,0.000351,0.824857,1.465371
+kidney glomerular epithelium,map2 read halves,chr17,39737,-0.000336,-0.854951,-0.214436
+kidney glomerular epithelium,map2 read halves,chr18,13934,-0.000372,-0.587751,0.052763
+kidney glomerular epithelium,map2 read halves,chr19,32959,7.3e-05,0.169308,0.809822
+kidney glomerular epithelium,map2 read halves,chr20,21217,-0.000448,-0.818303,-0.177788
+kidney glomerular epithelium,map2 read halves,chr21,9481,-0.000334,-0.407408,0.233107
+kidney glomerular epithelium,map2 read halves,chr22,16040,-0.000827,-1.315131,-0.674616
+kidney tubular endothelium,map1 donor halves,chr1,76841,-0.004822,-15.690394,-7.232659
+kidney tubular endothelium,map1 donor halves,chr2,61715,-0.00457,-13.213471,-4.755736
+kidney tubular endothelium,map1 donor halves,chr3,46909,-0.005005,-12.942373,-4.484638
+kidney tubular endothelium,map1 donor halves,chr4,34879,-0.00702,-15.261672,-6.803937
+kidney tubular endothelium,map1 donor halves,chr5,42646,-0.005577,-13.047505,-4.58977
+kidney tubular endothelium,map1 donor halves,chr6,41778,-0.005861,-14.100906,-5.643172
+kidney tubular endothelium,map1 donor halves,chr7,44103,-0.003088,-7.45867,0.999065
+kidney tubular endothelium,map1 donor halves,chr8,36395,-0.005502,-12.014469,-3.556735
+kidney tubular endothelium,map1 donor halves,chr9,24226,-0.004111,-7.391276,1.066458
+kidney tubular endothelium,map1 donor halves,chr10,39947,-0.004407,-10.282981,-1.825246
+kidney tubular endothelium,map1 donor halves,chr11,45680,-0.005149,-12.868062,-4.410327
+kidney tubular endothelium,map1 donor halves,chr12,41983,-0.003899,-9.284255,-0.826521
+kidney tubular endothelium,map1 donor halves,chr13,19968,-0.004586,-7.445872,1.011863
+kidney tubular endothelium,map1 donor halves,chr14,27233,-0.002976,-5.866931,2.590804
+kidney tubular endothelium,map1 donor halves,chr15,26587,-0.004059,-7.631214,0.826521
+kidney tubular endothelium,map1 donor halves,chr16,34120,-0.002142,-4.603002,3.854733
+kidney tubular endothelium,map1 donor halves,chr17,39740,-0.001708,-3.897219,4.560515
+kidney tubular endothelium,map1 donor halves,chr18,13934,-0.007281,-9.999428,-1.541693
+kidney tubular endothelium,map1 donor halves,chr19,32956,-0.00132,-2.877419,5.580316
+kidney tubular endothelium,map1 donor halves,chr20,21217,-0.003807,-6.326729,2.131005
+kidney tubular endothelium,map1 donor halves,chr21,9481,-0.006167,-6.614396,1.843339
+kidney tubular endothelium,map1 donor halves,chr22,16040,-0.002567,-3.730313,4.727422
+kidney tubular endothelium,map2 read halves,chr1,76842,-9.1e-05,-0.395566,-0.307923
+kidney tubular endothelium,map2 read halves,chr2,61715,0.000116,0.467034,0.554677
+kidney tubular endothelium,map2 read halves,chr3,46909,-0.000259,-0.913484,-0.825841
+kidney tubular endothelium,map2 read halves,chr4,34879,-1.3e-05,-0.037926,0.049718
+kidney tubular endothelium,map2 read halves,chr5,42646,0.000154,0.508215,0.595858
+kidney tubular endothelium,map2 read halves,chr6,41778,0.000434,1.450046,1.53769
+kidney tubular endothelium,map2 read halves,chr7,44105,-0.000206,-0.681254,-0.593611
+kidney tubular endothelium,map2 read halves,chr8,36399,0.000403,1.228771,1.316414
+kidney tubular endothelium,map2 read halves,chr9,24226,0.00013,0.322134,0.409777
+kidney tubular endothelium,map2 read halves,chr10,39947,-0.000189,-0.605245,-0.517602
+kidney tubular endothelium,map2 read halves,chr11,45681,-4.1e-05,-0.137361,-0.049718
+kidney tubular endothelium,map2 read halves,chr12,41983,-0.000299,-0.986041,-0.898398
+kidney tubular endothelium,map2 read halves,chr13,19968,0.00038,0.868057,0.9557
+kidney tubular endothelium,map2 read halves,chr14,27233,-0.00121,-3.230019,-3.142376
+kidney tubular endothelium,map2 read halves,chr15,26588,0.000271,0.72028,0.807923
+kidney tubular endothelium,map2 read halves,chr16,34120,-0.000246,-0.701031,-0.613388
+kidney tubular endothelium,map2 read halves,chr17,39741,-6e-05,-0.187955,-0.100312
+kidney tubular endothelium,map2 read halves,chr18,13934,-0.00083,-1.589635,-1.501992
+kidney tubular endothelium,map2 read halves,chr19,32959,0.000318,0.901841,0.989484
+kidney tubular endothelium,map2 read halves,chr20,21217,-0.000311,-0.687713,-0.60007
+kidney tubular endothelium,map2 read halves,chr21,9481,0.000795,1.21867,1.306313
+kidney tubular endothelium,map2 read halves,chr22,16040,0.000743,1.446778,1.534421
+kidney tubular epithelium,map1 donor halves,chr1,76838,0.016935,38.701942,13.705344
+kidney tubular epithelium,map1 donor halves,chr2,61713,0.017321,34.97092,9.974322
+kidney tubular epithelium,map1 donor halves,chr3,46909,0.018464,32.771541,7.774943
+kidney tubular epithelium,map1 donor halves,chr4,34879,0.01576,24.751386,-0.245212
+kidney tubular epithelium,map1 donor halves,chr5,42646,0.013326,22.373289,-2.62331
+kidney tubular epithelium,map1 donor halves,chr6,41776,0.016115,26.799011,1.802413
+kidney tubular epithelium,map1 donor halves,chr7,44103,0.017263,30.303991,5.307393
+kidney tubular epithelium,map1 donor halves,chr8,36374,0.016399,25.241811,0.245212
+kidney tubular epithelium,map1 donor halves,chr9,24226,0.017676,21.870786,-3.125812
+kidney tubular epithelium,map1 donor halves,chr10,39947,0.016501,27.300275,2.303677
+kidney tubular epithelium,map1 donor halves,chr11,45678,0.017875,31.503864,6.507266
+kidney tubular epithelium,map1 donor halves,chr12,41983,0.017088,29.568677,4.572079
+kidney tubular epithelium,map1 donor halves,chr13,19968,0.014825,17.421875,-7.574723
+kidney tubular epithelium,map1 donor halves,chr14,27232,0.017425,23.979369,-1.017229
+kidney tubular epithelium,map1 donor halves,chr15,26588,0.016174,21.966623,-3.029976
+kidney tubular epithelium,map1 donor halves,chr16,34119,0.014442,22.778717,-2.217881
+kidney tubular epithelium,map1 donor halves,chr17,39737,0.019184,31.151982,6.155384
+kidney tubular epithelium,map1 donor halves,chr18,13934,0.017039,16.367611,-8.628987
+kidney tubular epithelium,map1 donor halves,chr19,32959,0.014655,25.283576,0.286978
+kidney tubular epithelium,map1 donor halves,chr20,21217,0.014335,17.733041,-7.263557
+kidney tubular epithelium,map1 donor halves,chr21,9481,0.018746,13.8238,-11.172798
+kidney tubular epithelium,map1 donor halves,chr22,16040,0.012521,13.448432,-11.548166
+kidney tubular epithelium,map2 read halves,chr1,76842,-6.9e-05,-0.347877,-0.298325
+kidney tubular epithelium,map2 read halves,chr2,61715,-2.4e-05,-0.109241,-0.059689
+kidney tubular epithelium,map2 read halves,chr3,46909,8e-06,0.03055,0.080102
+kidney tubular epithelium,map2 read halves,chr4,34879,-0.000349,-1.207881,-1.158328
+kidney tubular epithelium,map2 read halves,chr5,42646,3.4e-05,0.124785,0.174337
+kidney tubular epithelium,map2 read halves,chr6,41778,0.000381,1.441971,1.491523
+kidney tubular epithelium,map2 read halves,chr7,44105,-0.000281,-1.071053,-1.0215
+kidney tubular epithelium,map2 read halves,chr8,36399,0.000577,1.950463,2.000015
+kidney tubular epithelium,map2 read halves,chr9,24226,0.000179,0.5045,0.554052
+kidney tubular epithelium,map2 read halves,chr10,39947,-0.000322,-1.173145,-1.123592
+kidney tubular epithelium,map2 read halves,chr11,45681,-0.00011,-0.423533,-0.373981
+kidney tubular epithelium,map2 read halves,chr12,41983,3e-06,0.010137,0.059689
+kidney tubular epithelium,map2 read halves,chr13,19968,-0.000308,-0.797443,-0.747891
+kidney tubular epithelium,map2 read halves,chr14,27233,4.2e-05,0.124616,0.174169
+kidney tubular epithelium,map2 read halves,chr15,26588,0.000227,0.68229,0.731843
+kidney tubular epithelium,map2 read halves,chr16,34120,-0.000286,-0.937753,-0.8882
+kidney tubular epithelium,map2 read halves,chr17,39741,2.2e-05,0.079034,0.128586
+kidney tubular epithelium,map2 read halves,chr18,13934,2.9e-05,0.062021,0.111574
+kidney tubular epithelium,map2 read halves,chr19,32959,-3.6e-05,-0.117187,-0.067634
+kidney tubular epithelium,map2 read halves,chr20,21217,-0.000428,-1.084143,-1.03459
+kidney tubular epithelium,map2 read halves,chr21,9481,0.001498,2.557518,2.607071
+kidney tubular epithelium,map2 read halves,chr22,16040,-0.000572,-1.276623,-1.227071
+lung alveolar endothelium,map1 donor halves,chr1,76842,-0.012897,-28.674165,-7.701093
+lung alveolar endothelium,map1 donor halves,chr2,61715,-0.014138,-27.04249,-6.069418
+lung alveolar endothelium,map1 donor halves,chr3,46909,-0.015613,-26.387174,-5.414102
+lung alveolar endothelium,map1 donor halves,chr4,34877,-0.017661,-25.569194,-4.596122
+lung alveolar endothelium,map1 donor halves,chr5,42644,-0.016848,-26.933937,-5.960865
+lung alveolar endothelium,map1 donor halves,chr6,41778,-0.011842,-19.081117,1.891955
+lung alveolar endothelium,map1 donor halves,chr7,44105,-0.014472,-24.21167,-3.238598
+lung alveolar endothelium,map1 donor halves,chr8,36399,-0.017994,-26.162099,-5.189027
+lung alveolar endothelium,map1 donor halves,chr9,24226,-0.011381,-13.879237,7.093835
+lung alveolar endothelium,map1 donor halves,chr10,39946,-0.014159,-22.033294,-1.060222
+lung alveolar endothelium,map1 donor halves,chr11,45681,-0.012758,-21.836739,-0.863668
+lung alveolar endothelium,map1 donor halves,chr12,41983,-0.01224,-20.109404,0.863668
+lung alveolar endothelium,map1 donor halves,chr13,19968,-0.021588,-23.099842,-2.12677
+lung alveolar endothelium,map1 donor halves,chr14,27233,-0.012916,-17.35555,3.617521
+lung alveolar endothelium,map1 donor halves,chr15,26588,-0.013523,-17.476829,3.496243
+lung alveolar endothelium,map1 donor halves,chr16,34120,-0.010775,-16.307264,4.665808
+lung alveolar endothelium,map1 donor halves,chr17,39741,-0.007152,-11.27104,9.702032
+lung alveolar endothelium,map1 donor halves,chr18,13934,-0.019835,-18.062851,2.91022
+lung alveolar endothelium,map1 donor halves,chr19,32957,-0.011425,-18.734346,2.238726
+lung alveolar endothelium,map1 donor halves,chr20,21217,-0.019165,-22.23674,-1.263669
+lung alveolar endothelium,map1 donor halves,chr21,9481,-0.017711,-12.992521,7.980551
+lung alveolar endothelium,map1 donor halves,chr22,16040,-0.011747,-11.944624,9.028448
+lung alveolar endothelium,map2 read halves,chr1,76842,0.000198,0.908312,0.974435
+lung alveolar endothelium,map2 read halves,chr2,61715,-7.1e-05,-0.297707,-0.231584
+lung alveolar endothelium,map2 read halves,chr3,46909,-0.000201,-0.742229,-0.676106
+lung alveolar endothelium,map2 read halves,chr4,34879,-1.6e-05,-0.048934,0.017188
+lung alveolar endothelium,map2 read halves,chr5,42646,-0.000483,-1.663252,-1.597129
+lung alveolar endothelium,map2 read halves,chr6,41778,0.000336,1.177816,1.243939
+lung alveolar endothelium,map2 read halves,chr7,44105,0.000146,0.508612,0.574735
+lung alveolar endothelium,map2 read halves,chr8,36399,-0.000444,-1.403192,-1.337069
+lung alveolar endothelium,map2 read halves,chr9,24226,-0.000341,-0.876632,-0.810509
+lung alveolar endothelium,map2 read halves,chr10,39947,0.000557,1.858465,1.924587
+lung alveolar endothelium,map2 read halves,chr11,45681,0.000224,0.793273,0.859395
+lung alveolar endothelium,map2 read halves,chr12,41983,-2.3e-05,-0.080788,-0.014665
+lung alveolar endothelium,map2 read halves,chr13,19968,-0.000248,-0.589467,-0.523344
+lung alveolar endothelium,map2 read halves,chr14,27233,-0.000124,-0.346336,-0.280214
+lung alveolar endothelium,map2 read halves,chr15,26588,0.000229,0.627974,0.694097
+lung alveolar endothelium,map2 read halves,chr16,34120,0.000172,0.517854,0.583977
+lung alveolar endothelium,map2 read halves,chr17,39741,-0.000359,-1.177891,-1.111768
+lung alveolar endothelium,map2 read halves,chr18,13934,-2.6e-05,-0.05213,0.013993
+lung alveolar endothelium,map2 read halves,chr19,32959,-0.000356,-1.081863,-1.015741
+lung alveolar endothelium,map2 read halves,chr20,21217,0.000328,0.769328,0.835451
+lung alveolar endothelium,map2 read halves,chr21,9481,-5.1e-05,-0.080115,-0.013993
+lung alveolar endothelium,map2 read halves,chr22,16040,0.00049,0.985913,1.052036
+lung alveolar epithelium,map1 donor halves,chr1,76842,0.005005,16.787335,6.809216
+lung alveolar epithelium,map1 donor halves,chr2,61711,0.004832,14.214032,4.235913
+lung alveolar epithelium,map1 donor halves,chr3,46909,0.005112,13.620406,3.642287
+lung alveolar epithelium,map1 donor halves,chr4,34879,0.003389,7.549487,-2.428632
+lung alveolar epithelium,map1 donor halves,chr5,42646,0.00325,7.748284,-2.229835
+lung alveolar epithelium,map1 donor halves,chr6,41778,0.002655,6.555838,-3.422281
+lung alveolar epithelium,map1 donor halves,chr7,44104,0.00412,10.084771,0.106652
+lung alveolar epithelium,map1 donor halves,chr8,36394,0.003451,7.837625,-2.140494
+lung alveolar epithelium,map1 donor halves,chr9,24226,0.006679,11.925617,1.947498
+lung alveolar epithelium,map1 donor halves,chr10,39947,0.004011,9.640001,-0.338118
+lung alveolar epithelium,map1 donor halves,chr11,45681,0.005642,14.669482,4.691362
+lung alveolar epithelium,map1 donor halves,chr12,41983,0.003982,9.871468,-0.106652
+lung alveolar epithelium,map1 donor halves,chr13,19968,0.000288,0.480703,-9.497416
+lung alveolar epithelium,map1 donor halves,chr14,27233,0.004042,8.191953,-1.786166
+lung alveolar epithelium,map1 donor halves,chr15,26588,0.005495,11.060727,1.082608
+lung alveolar epithelium,map1 donor halves,chr16,34120,0.00745,16.315281,6.337162
+lung alveolar epithelium,map1 donor halves,chr17,39741,0.008472,20.10166,10.123541
+lung alveolar epithelium,map1 donor halves,chr18,13934,0.003784,5.291878,-4.686241
+lung alveolar epithelium,map1 donor halves,chr19,32959,0.006346,14.173311,4.195192
+lung alveolar epithelium,map1 donor halves,chr20,21216,0.004546,7.759211,-2.218908
+lung alveolar epithelium,map1 donor halves,chr21,9481,0.008245,9.095655,-0.882465
+lung alveolar epithelium,map1 donor halves,chr22,16040,0.007631,11.465157,1.487037
+lung alveolar epithelium,map2 read halves,chr1,76842,0.000177,0.904677,0.776602
+lung alveolar epithelium,map2 read halves,chr2,61715,0.000139,0.645306,0.517231
+lung alveolar epithelium,map2 read halves,chr3,46909,-9.8e-05,-0.410702,-0.538777
+lung alveolar epithelium,map2 read halves,chr4,34879,3.5e-05,0.125887,-0.002189
+lung alveolar epithelium,map2 read halves,chr5,42646,-0.000175,-0.679176,-0.807251
+lung alveolar epithelium,map2 read halves,chr6,41778,0.000117,0.457203,0.329128
+lung alveolar epithelium,map2 read halves,chr7,44105,0.000135,0.522275,0.3942
+lung alveolar epithelium,map2 read halves,chr8,36399,-4.9e-05,-0.175851,-0.303926
+lung alveolar epithelium,map2 read halves,chr9,24226,0.000111,0.31238,0.184305
+lung alveolar epithelium,map2 read halves,chr10,39947,3.5e-05,0.130264,0.002189
+lung alveolar epithelium,map2 read halves,chr11,45681,-0.000301,-1.162757,-1.290833
+lung alveolar epithelium,map2 read halves,chr12,41983,0.000173,0.666305,0.53823
+lung alveolar epithelium,map2 read halves,chr13,19968,-0.000156,-0.417584,-0.545659
+lung alveolar epithelium,map2 read halves,chr14,27233,0.000259,0.78771,0.659635
+lung alveolar epithelium,map2 read halves,chr15,26588,-4.3e-05,-0.13048,-0.258555
+lung alveolar epithelium,map2 read halves,chr16,34120,-0.000424,-1.397828,-1.525903
+lung alveolar epithelium,map2 read halves,chr17,39741,0.000183,0.655191,0.527115
+lung alveolar epithelium,map2 read halves,chr18,13934,-0.000446,-0.997205,-1.12528
+lung alveolar epithelium,map2 read halves,chr19,32959,-7.7e-05,-0.253978,-0.382053
+lung alveolar epithelium,map2 read halves,chr20,21217,5.5e-05,0.139342,0.011267
+lung alveolar epithelium,map2 read halves,chr21,9481,0.000624,1.103033,0.974957
+lung alveolar epithelium,map2 read halves,chr22,16040,-0.000379,-0.83652,-0.964596
+lung alveolar macrophages,map1 donor halves,chr1,76840,0.004772,14.918388,4.518127
+lung alveolar macrophages,map1 donor halves,chr2,61715,0.004996,13.696417,3.296156
+lung alveolar macrophages,map1 donor halves,chr3,46907,0.004394,10.719563,0.319302
+lung alveolar macrophages,map1 donor halves,chr4,34879,0.0048,10.080959,-0.319302
+lung alveolar macrophages,map1 donor halves,chr5,42646,0.006101,13.701289,3.301028
+lung alveolar macrophages,map1 donor halves,chr6,41778,0.00467,10.839181,0.43892
+lung alveolar macrophages,map1 donor halves,chr7,44103,0.004355,9.732304,-0.667957
+lung alveolar macrophages,map1 donor halves,chr8,36394,0.006256,13.14351,2.743249
+lung alveolar macrophages,map1 donor halves,chr9,24225,0.00453,7.786028,-2.614233
+lung alveolar macrophages,map1 donor halves,chr10,39942,0.005695,12.3697,1.96944
+lung alveolar macrophages,map1 donor halves,chr11,45678,0.005678,13.352077,2.951816
+lung alveolar macrophages,map1 donor halves,chr12,41977,0.004934,11.322842,0.922582
+lung alveolar macrophages,map1 donor halves,chr13,19967,0.006395,9.934722,-0.465539
+lung alveolar macrophages,map1 donor halves,chr14,27233,0.004982,9.122031,-1.278229
+lung alveolar macrophages,map1 donor halves,chr15,26588,0.005367,9.773198,-0.627062
+lung alveolar macrophages,map1 donor halves,chr16,34119,0.003727,7.491723,-2.908537
+lung alveolar macrophages,map1 donor halves,chr17,39741,0.005158,11.359433,0.959172
+lung alveolar macrophages,map1 donor halves,chr18,13934,0.00668,8.756159,-1.644102
+lung alveolar macrophages,map1 donor halves,chr19,32959,0.005542,11.429741,1.02948
+lung alveolar macrophages,map1 donor halves,chr20,21217,0.004589,7.114664,-3.285597
+lung alveolar macrophages,map1 donor halves,chr21,9481,0.003416,3.507169,-6.893092
+lung alveolar macrophages,map1 donor halves,chr22,16040,0.006431,8.978616,-1.421644
+lung alveolar macrophages,map2 read halves,chr1,76842,-0.000335,-1.452802,-1.369692
+lung alveolar macrophages,map2 read halves,chr2,61715,-0.000284,-1.103205,-1.020094
+lung alveolar macrophages,map2 read halves,chr3,46909,0.000442,1.535105,1.618215
+lung alveolar macrophages,map2 read halves,chr4,34879,-5.3e-05,-0.15661,-0.0735
+lung alveolar macrophages,map2 read halves,chr5,42646,0.0003,0.961408,1.044518
+lung alveolar macrophages,map2 read halves,chr6,41778,0.000394,1.293334,1.376445
+lung alveolar macrophages,map2 read halves,chr7,44105,0.000602,1.962948,2.046058
+lung alveolar macrophages,map2 read halves,chr8,36399,0.000273,0.80537,0.888481
+lung alveolar macrophages,map2 read halves,chr9,24226,0.000106,0.252364,0.335474
+lung alveolar macrophages,map2 read halves,chr10,39947,7.5e-05,0.233051,0.316162
+lung alveolar macrophages,map2 read halves,chr11,45681,-5.5e-05,-0.177543,-0.094432
+lung alveolar macrophages,map2 read halves,chr12,41983,-0.000225,-0.725572,-0.642461
+lung alveolar macrophages,map2 read halves,chr13,19968,0.000673,1.49194,1.57505
+lung alveolar macrophages,map2 read halves,chr14,27233,-4e-06,-0.009611,0.0735
+lung alveolar macrophages,map2 read halves,chr15,26588,-8.7e-05,-0.2267,-0.143589
+lung alveolar macrophages,map2 read halves,chr16,34120,-0.000568,-1.587593,-1.504482
+lung alveolar macrophages,map2 read halves,chr17,39741,-0.000466,-1.428327,-1.345216
+lung alveolar macrophages,map2 read halves,chr18,13934,-0.000219,-0.403143,-0.320032
+lung alveolar macrophages,map2 read halves,chr19,32959,-0.00048,-1.340925,-1.257814
+lung alveolar macrophages,map2 read halves,chr20,21217,-9e-05,-0.191091,-0.107981
+lung alveolar macrophages,map2 read halves,chr21,9481,0.000484,0.725208,0.808319
+lung alveolar macrophages,map2 read halves,chr22,16040,0.000189,0.357236,0.440346
+lung bronchus epithelium,map1 donor halves,chr1,76841,0.015602,50.089794,15.08102
+lung bronchus epithelium,map1 donor halves,chr2,61715,0.01546,42.96162,7.952846
+lung bronchus epithelium,map1 donor halves,chr3,46909,0.017223,43.913509,8.904735
+lung bronchus epithelium,map1 donor halves,chr4,34879,0.018807,38.550492,3.541718
+lung bronchus epithelium,map1 donor halves,chr5,42646,0.016407,37.345716,2.336942
+lung bronchus epithelium,map1 donor halves,chr6,41778,0.015377,36.124436,1.115662
+lung bronchus epithelium,map1 donor halves,chr7,44102,0.015757,36.597753,1.588979
+lung bronchus epithelium,map1 donor halves,chr8,36398,0.01883,39.69775,4.688976
+lung bronchus epithelium,map1 donor halves,chr9,24226,0.016596,29.93917,-5.069604
+lung bronchus epithelium,map1 donor halves,chr10,39947,0.016651,37.760897,2.752123
+lung bronchus epithelium,map1 donor halves,chr11,45681,0.01603,38.050537,3.041763
+lung bronchus epithelium,map1 donor halves,chr12,41982,0.016679,39.432962,4.424188
+lung bronchus epithelium,map1 donor halves,chr13,19968,0.017639,27.408287,-7.600487
+lung bronchus epithelium,map1 donor halves,chr14,27232,0.018088,33.893112,-1.115662
+lung bronchus epithelium,map1 donor halves,chr15,26588,0.014921,28.950563,-6.058211
+lung bronchus epithelium,map1 donor halves,chr16,34120,0.015197,31.416483,-3.592291
+lung bronchus epithelium,map1 donor halves,chr17,39741,0.01271,29.355089,-5.653685
+lung bronchus epithelium,map1 donor halves,chr18,13934,0.018678,24.114586,-10.894188
+lung bronchus epithelium,map1 donor halves,chr19,32959,0.012786,27.557731,-7.451043
+lung bronchus epithelium,map1 donor halves,chr20,21217,0.019113,30.920741,-4.088033
+lung bronchus epithelium,map1 donor halves,chr21,9481,0.020651,22.012843,-12.995931
+lung bronchus epithelium,map1 donor halves,chr22,16039,0.018043,25.502998,-9.505776
+lung bronchus epithelium,map2 read halves,chr1,76842,-0.00021,-1.109568,-1.251765
+lung bronchus epithelium,map2 read halves,chr2,61715,7.8e-05,0.374207,0.232011
+lung bronchus epithelium,map2 read halves,chr3,46909,4.6e-05,0.195115,0.052919
+lung bronchus epithelium,map2 read halves,chr4,34879,-6.7e-05,-0.249849,-0.392045
+lung bronchus epithelium,map2 read halves,chr5,42646,-5.5e-05,-0.217576,-0.359772
+lung bronchus epithelium,map2 read halves,chr6,41778,0.00016,0.646465,0.504269
+lung bronchus epithelium,map2 read halves,chr7,44105,-0.000464,-1.830352,-1.972548
+lung bronchus epithelium,map2 read halves,chr8,36399,0.000208,0.750878,0.608682
+lung bronchus epithelium,map2 read halves,chr9,24226,0.000205,0.597996,0.4558
+lung bronchus epithelium,map2 read halves,chr10,39947,-0.000563,-2.15312,-2.295316
+lung bronchus epithelium,map2 read halves,chr11,45681,0.000207,0.819667,0.677471
+lung bronchus epithelium,map2 read halves,chr12,41983,-0.000332,-1.304951,-1.447147
+lung bronchus epithelium,map2 read halves,chr13,19968,-0.000747,-2.041248,-2.183444
+lung bronchus epithelium,map2 read halves,chr14,27233,-4.2e-05,-0.13056,-0.272756
+lung bronchus epithelium,map2 read halves,chr15,26588,0.000609,1.909424,1.767228
+lung bronchus epithelium,map2 read halves,chr16,34120,-0.000384,-1.290525,-1.432721
+lung bronchus epithelium,map2 read halves,chr17,39741,0.000355,1.299315,1.157118
+lung bronchus epithelium,map2 read halves,chr18,13934,0.000129,0.301842,0.159646
+lung bronchus epithelium,map2 read halves,chr19,32959,0.00049,1.645515,1.503319
+lung bronchus epithelium,map2 read halves,chr20,21217,0.000112,0.294464,0.152268
+lung bronchus epithelium,map2 read halves,chr21,9481,4.9e-05,0.089277,-0.052919
+lung bronchus epithelium,map2 read halves,chr22,16040,-0.000333,-0.760776,-0.902972
+lung interstitial macrophages,map1 donor halves,chr1,76840,-0.001748,-5.573045,-1.142278
+lung interstitial macrophages,map1 donor halves,chr2,61715,-0.002582,-7.280372,-2.849605
+lung interstitial macrophages,map1 donor halves,chr3,46907,-0.003621,-9.232162,-4.801395
+lung interstitial macrophages,map1 donor halves,chr4,34879,-0.003799,-8.120428,-3.689661
+lung interstitial macrophages,map1 donor halves,chr5,42646,-0.003342,-7.616549,-3.185782
+lung interstitial macrophages,map1 donor halves,chr6,41778,-0.00108,-2.522898,1.907869
+lung interstitial macrophages,map1 donor halves,chr7,44104,-0.003126,-7.325235,-2.894468
+lung interstitial macrophages,map1 donor halves,chr8,36394,-0.002562,-5.370552,-0.939785
+lung interstitial macrophages,map1 donor halves,chr9,24225,-0.001458,-2.610393,1.820374
+lung interstitial macrophages,map1 donor halves,chr10,39945,-0.003102,-6.987479,-2.556712
+lung interstitial macrophages,map1 donor halves,chr11,45678,-0.001795,-4.39007,0.040697
+lung interstitial macrophages,map1 donor halves,chr12,41977,-0.000872,-2.051861,2.378906
+lung interstitial macrophages,map1 donor halves,chr13,19968,-0.00333,-5.268088,-0.837321
+lung interstitial macrophages,map1 donor halves,chr14,27233,-0.002152,-4.14171,0.289057
+lung interstitial macrophages,map1 donor halves,chr15,26588,-0.00162,-3.060071,1.370696
+lung interstitial macrophages,map1 donor halves,chr16,34119,-0.001309,-2.802952,1.627815
+lung interstitial macrophages,map1 donor halves,chr17,39741,0.002436,5.649926,10.080693
+lung interstitial macrophages,map1 donor halves,chr18,13934,-0.005855,-7.701009,-3.270242
+lung interstitial macrophages,map1 donor halves,chr19,32959,0.004174,8.912595,13.343362
+lung interstitial macrophages,map1 donor halves,chr20,21217,-0.001098,-1.743067,2.6877
+lung interstitial macrophages,map1 donor halves,chr21,9481,-0.004185,-4.471464,-0.040697
+lung interstitial macrophages,map1 donor halves,chr22,16040,0.000158,0.235526,4.666293
+lung interstitial macrophages,map2 read halves,chr1,76842,0.000121,0.654286,0.735355
+lung interstitial macrophages,map2 read halves,chr2,61715,-5.3e-05,-0.257211,-0.176143
+lung interstitial macrophages,map2 read halves,chr3,46909,-0.000119,-0.51955,-0.438482
+lung interstitial macrophages,map2 read halves,chr4,34879,-9.9e-05,-0.364514,-0.283446
+lung interstitial macrophages,map2 read halves,chr5,42646,2.4e-05,0.095074,0.176143
+lung interstitial macrophages,map2 read halves,chr6,41778,-0.000211,-0.863529,-0.782461
+lung interstitial macrophages,map2 read halves,chr7,44105,-0.000268,-1.105143,-1.024075
+lung interstitial macrophages,map2 read halves,chr8,36399,0.000162,0.599788,0.680856
+lung interstitial macrophages,map2 read halves,chr9,24226,-0.000307,-0.923966,-0.842898
+lung interstitial macrophages,map2 read halves,chr10,39947,-0.000249,-0.980153,-0.899084
+lung interstitial macrophages,map2 read halves,chr11,45681,0.00048,1.974076,2.055145
+lung interstitial macrophages,map2 read halves,chr12,41983,-9.8e-05,-0.397736,-0.316668
+lung interstitial macrophages,map2 read halves,chr13,19968,0.000221,0.620022,0.701091
+lung interstitial macrophages,map2 read halves,chr14,27233,-0.000408,-1.320124,-1.239055
+lung interstitial macrophages,map2 read halves,chr15,26588,0.000208,0.671756,0.752825
+lung interstitial macrophages,map2 read halves,chr16,34120,-0.000163,-0.575413,-0.494345
+lung interstitial macrophages,map2 read halves,chr17,39741,-8.2e-05,-0.316143,-0.235074
+lung interstitial macrophages,map2 read halves,chr18,13934,0.000123,0.28278,0.363849
+lung interstitial macrophages,map2 read halves,chr19,32959,0.0004,1.411277,1.492345
+lung interstitial macrophages,map2 read halves,chr20,21217,0.000336,0.904201,0.98527
+lung interstitial macrophages,map2 read halves,chr21,9481,0.001054,1.952972,2.03404
+lung interstitial macrophages,map2 read halves,chr22,16040,8.7e-05,0.208854,0.289923
+memory b cells,map1 donor halves,chr1,76820,0.011294,28.534274,7.312977
+memory b cells,map1 donor halves,chr2,61714,0.012367,28.031158,6.809861
+memory b cells,map1 donor halves,chr3,46909,0.011576,24.042708,2.821411
+memory b cells,map1 donor halves,chr4,34877,0.013506,23.255725,2.034428
+memory b cells,map1 donor halves,chr5,42646,0.013199,25.003018,3.781721
+memory b cells,map1 donor halves,chr6,41777,0.011054,21.36798,0.146684
+memory b cells,map1 donor halves,chr7,44105,0.013534,25.668604,4.447307
+memory b cells,map1 donor halves,chr8,36398,0.013902,24.059193,2.837896
+memory b cells,map1 donor halves,chr9,24226,0.01312,18.375068,-2.846229
+memory b cells,map1 donor halves,chr10,39946,0.012454,22.379867,1.15857
+memory b cells,map1 donor halves,chr11,45677,0.012675,24.362422,3.141125
+memory b cells,map1 donor halves,chr12,41983,0.010467,20.178359,-1.042938
+memory b cells,map1 donor halves,chr13,19966,0.013228,17.123339,-4.097958
+memory b cells,map1 donor halves,chr14,27219,0.011561,17.343962,-3.877335
+memory b cells,map1 donor halves,chr15,26587,0.012006,18.409875,-2.811422
+memory b cells,map1 donor halves,chr16,34117,0.012526,21.074613,-0.146684
+memory b cells,map1 donor halves,chr17,39741,0.011201,20.369056,-0.852241
+memory b cells,map1 donor halves,chr18,13934,0.012796,13.732661,-7.488636
+memory b cells,map1 donor halves,chr19,32959,0.012872,21.525304,0.304008
+memory b cells,map1 donor halves,chr20,21217,0.013968,17.992887,-3.22841
+memory b cells,map1 donor halves,chr21,9481,0.013178,11.100217,-10.12108
+memory b cells,map1 donor halves,chr22,16040,0.01228,13.816127,-7.40517
+memory b cells,map2 read halves,chr1,76842,0.000244,0.703411,1.006814
+memory b cells,map2 read halves,chr2,61715,0.000322,0.844164,1.147568
+memory b cells,map2 read halves,chr3,46909,-0.000579,-1.342135,-1.038732
+memory b cells,map2 read halves,chr4,34879,-0.000208,-0.408096,-0.104692
+memory b cells,map2 read halves,chr5,42646,-2.2e-05,-0.0465,0.256904
+memory b cells,map2 read halves,chr6,41778,-0.000215,-0.475748,-0.172345
+memory b cells,map2 read halves,chr7,44105,-0.000873,-1.903652,-1.600249
+memory b cells,map2 read halves,chr8,36399,-0.000398,-0.788735,-0.485331
+memory b cells,map2 read halves,chr9,24226,0.00067,1.068795,1.372198
+memory b cells,map2 read halves,chr10,39947,-0.000133,-0.273541,0.029862
+memory b cells,map2 read halves,chr11,45681,-0.000248,-0.539315,-0.235912
+memory b cells,map2 read halves,chr12,41983,-9.9e-05,-0.215051,0.088352
+memory b cells,map2 read halves,chr13,19968,-0.000224,-0.333266,-0.029862
+memory b cells,map2 read halves,chr14,27225,-0.00074,-1.270295,-0.966891
+memory b cells,map2 read halves,chr15,26588,0.000219,0.373959,0.677363
+memory b cells,map2 read halves,chr16,34120,0.000195,0.374156,0.677559
+memory b cells,map2 read halves,chr17,39741,-0.000434,-0.898746,-0.595342
+memory b cells,map2 read halves,chr18,13934,0.000128,0.156943,0.460347
+memory b cells,map2 read halves,chr19,32959,0.000953,1.797193,2.100596
+memory b cells,map2 read halves,chr20,21217,-0.000547,-0.782255,-0.478851
+memory b cells,map2 read halves,chr21,9481,-0.000438,-0.431446,-0.128043
+memory b cells,map2 read halves,chr22,16040,-1.8e-05,-0.022902,0.280501
+monocytes,map1 donor halves,chr1,76841,-0.001144,-3.880731,-2.779297
+monocytes,map1 donor halves,chr2,61715,-0.000603,-1.82485,-0.723416
+monocytes,map1 donor halves,chr3,46909,-0.000831,-2.304632,-1.203198
+monocytes,map1 donor halves,chr4,34879,-0.001335,-3.044133,-1.942699
+monocytes,map1 donor halves,chr5,42646,-0.001522,-3.720872,-2.619438
+monocytes,map1 donor halves,chr6,41778,-0.001045,-2.682909,-1.581475
+monocytes,map1 donor halves,chr7,44101,-0.000162,-0.401355,0.700079
+monocytes,map1 donor halves,chr8,36399,-0.000487,-1.110651,-0.009217
+monocytes,map1 donor halves,chr9,24226,-0.000575,-1.092217,0.009217
+monocytes,map1 donor halves,chr10,39947,-0.000287,-0.682156,0.419278
+monocytes,map1 donor halves,chr11,45680,-5.7e-05,-0.148845,0.952589
+monocytes,map1 donor halves,chr12,41983,-0.000392,-0.991337,0.110096
+monocytes,map1 donor halves,chr13,19968,-0.001136,-1.950292,-0.848858
+monocytes,map1 donor halves,chr14,27233,-0.000519,-1.050758,0.050676
+monocytes,map1 donor halves,chr15,26588,-0.001009,-2.035685,-0.934251
+monocytes,map1 donor halves,chr16,34120,-0.000345,-0.744553,0.356881
+monocytes,map1 donor halves,chr17,39737,0.00041,0.979682,2.081116
+monocytes,map1 donor halves,chr18,13934,0.001087,1.50667,2.608104
+monocytes,map1 donor halves,chr19,32959,-5e-05,-0.107488,0.993946
+monocytes,map1 donor halves,chr20,21217,-0.000761,-1.25611,-0.154676
+monocytes,map1 donor halves,chr21,9481,-0.002513,-2.837013,-1.735579
+monocytes,map1 donor halves,chr22,16040,-0.00036,-0.539906,0.561528
+monocytes,map2 read halves,chr1,76842,0.000202,0.917988,-0.096463
+monocytes,map2 read halves,chr2,61715,0.000268,1.110914,0.096463
+monocytes,map2 read halves,chr3,46909,0.000147,0.545799,-0.468652
+monocytes,map2 read halves,chr4,34879,0.000356,1.131626,0.117175
+monocytes,map2 read halves,chr5,42646,0.000423,1.449224,0.434773
+monocytes,map2 read halves,chr6,41778,-7.3e-05,-0.256195,-1.270646
+monocytes,map2 read halves,chr7,44105,0.00038,1.315052,0.300601
+monocytes,map2 read halves,chr8,36399,0.000517,1.626941,0.61249
+monocytes,map2 read halves,chr9,24226,0.000494,1.243696,0.229245
+monocytes,map2 read halves,chr10,39947,-0.00017,-0.563893,-1.578344
+monocytes,map2 read halves,chr11,45681,0.000472,1.609887,0.595436
+monocytes,map2 read halves,chr12,41983,0.000489,1.668276,0.653825
+monocytes,map2 read halves,chr13,19968,0.000598,1.440902,0.426451
+monocytes,map2 read halves,chr14,27233,-0.000125,-0.346969,-1.36142
+monocytes,map2 read halves,chr15,26588,9.2e-05,0.250685,-0.763766
+monocytes,map2 read halves,chr16,34120,-0.000268,-0.778643,-1.793094
+monocytes,map2 read halves,chr17,39741,0.00026,0.834863,-0.179588
+monocytes,map2 read halves,chr18,13934,0.000177,0.348551,-0.6659
+monocytes,map2 read halves,chr19,32959,-0.000451,-1.286351,-2.300802
+monocytes,map2 read halves,chr20,21217,-3e-06,-0.007541,-1.021992
+monocytes,map2 read halves,chr21,9481,0.001795,2.860633,1.846182
+monocytes,map2 read halves,chr22,16040,0.0015,2.978627,1.964176
+naive cd4 t cells,map2 read halves,chr1,76842,-0.000269,-0.841562,-0.890731
+naive cd4 t cells,map2 read halves,chr2,61715,0.000267,0.765178,0.716009
+naive cd4 t cells,map2 read halves,chr3,46909,7.1e-05,0.180328,0.13116
+naive cd4 t cells,map2 read halves,chr4,34879,-0.000481,-1.025703,-1.074872
+naive cd4 t cells,map2 read halves,chr5,42634,-0.000284,-0.658623,-0.707791
+naive cd4 t cells,map2 read halves,chr6,41778,1e-05,0.023343,-0.025825
+naive cd4 t cells,map2 read halves,chr7,44105,-0.000428,-1.003642,-1.052811
+naive cd4 t cells,map2 read halves,chr8,36399,0.000229,0.484852,0.435684
+naive cd4 t cells,map2 read halves,chr9,24226,0.000208,0.364031,0.314862
+naive cd4 t cells,map2 read halves,chr10,39947,-5.8e-05,-0.130859,-0.180028
+naive cd4 t cells,map2 read halves,chr11,45681,0.000515,1.19323,1.144061
+naive cd4 t cells,map2 read halves,chr12,41983,-0.001355,-3.112797,-3.161966
+naive cd4 t cells,map2 read halves,chr13,19967,0.000721,1.167841,1.118673
+naive cd4 t cells,map2 read halves,chr14,27232,0.000829,1.528272,1.479103
+naive cd4 t cells,map2 read halves,chr15,26580,-0.000845,-1.567431,-1.6166
+naive cd4 t cells,map2 read halves,chr16,34120,3.9e-05,0.078365,0.029196
+naive cd4 t cells,map2 read halves,chr17,39741,-8.1e-05,-0.178999,-0.228168
+naive cd4 t cells,map2 read halves,chr18,13934,5.7e-05,0.074994,0.025825
+naive cd4 t cells,map2 read halves,chr19,32959,-0.000941,-1.830514,-1.879682
+naive cd4 t cells,map2 read halves,chr20,21217,0.001135,1.743402,1.694233
+naive cd4 t cells,map2 read halves,chr21,9480,-0.000797,-0.885507,-0.934676
+naive cd4 t cells,map2 read halves,chr22,16040,0.000832,1.155931,1.106762
+naive cd8 t cells,map2 read halves,chr1,76842,-0.000734,-2.31446,-2.400186
+naive cd8 t cells,map2 read halves,chr2,61715,-9.4e-05,-0.271986,-0.357712
+naive cd8 t cells,map2 read halves,chr3,46909,-5.8e-05,-0.149299,-0.235025
+naive cd8 t cells,map2 read halves,chr4,34879,0.000423,0.910074,0.824348
+naive cd8 t cells,map2 read halves,chr5,42634,-0.000216,-0.505369,-0.591095
+naive cd8 t cells,map2 read halves,chr6,41778,0.000248,0.595691,0.509965
+naive cd8 t cells,map2 read halves,chr7,44102,0.00043,1.020338,0.934612
+naive cd8 t cells,map2 read halves,chr8,36399,-0.000765,-1.657898,-1.743624
+naive cd8 t cells,map2 read halves,chr9,24226,0.000226,0.397107,0.311381
+naive cd8 t cells,map2 read halves,chr10,39947,0.000609,1.371088,1.285362
+naive cd8 t cells,map2 read halves,chr11,45681,-0.000737,-1.750585,-1.836311
+naive cd8 t cells,map2 read halves,chr12,41983,-0.000187,-0.438817,-0.524543
+naive cd8 t cells,map2 read halves,chr13,19967,-0.000167,-0.271554,-0.35728
+naive cd8 t cells,map2 read halves,chr14,27232,-0.00056,-1.059084,-1.14481
+naive cd8 t cells,map2 read halves,chr15,26580,4.3e-05,0.079915,-0.005811
+naive cd8 t cells,map2 read halves,chr16,34120,-0.000801,-1.642397,-1.728123
+naive cd8 t cells,map2 read halves,chr17,39741,0.000793,1.776366,1.690639
+naive cd8 t cells,map2 read halves,chr18,13934,0.000529,0.712764,0.627038
+naive cd8 t cells,map2 read halves,chr19,32959,0.000553,1.085812,1.000086
+naive cd8 t cells,map2 read halves,chr20,21217,5.9e-05,0.091537,0.005811
+naive cd8 t cells,map2 read halves,chr21,9480,0.001397,1.559725,1.473999
+naive cd8 t cells,map2 read halves,chr22,16040,0.000313,0.440223,0.354497
+nk cells,map1 donor halves,chr1,76841,0.029742,76.613714,28.171121
+nk cells,map1 donor halves,chr2,61715,0.031551,71.359715,22.917122
+nk cells,map1 donor halves,chr3,46909,0.031706,62.665919,14.223326
+nk cells,map1 donor halves,chr4,34879,0.030517,50.962678,2.520085
+nk cells,map1 donor halves,chr5,42646,0.031478,56.977339,8.534747
+nk cells,map1 donor halves,chr6,41778,0.029475,55.477202,7.034609
+nk cells,map1 donor halves,chr7,44102,0.028742,54.735123,6.29253
+nk cells,map1 donor halves,chr8,36399,0.03221,54.777974,6.335382
+nk cells,map1 donor halves,chr9,24226,0.03161,45.279122,-3.163471
+nk cells,map1 donor halves,chr10,39947,0.031768,56.487743,8.04515
+nk cells,map1 donor halves,chr11,45680,0.032577,63.871872,15.429279
+nk cells,map1 donor halves,chr12,41983,0.027082,52.359185,3.916592
+nk cells,map1 donor halves,chr13,19968,0.028311,36.768763,-11.67383
+nk cells,map1 donor halves,chr14,27233,0.02831,43.749512,-4.693081
+nk cells,map1 donor halves,chr15,26588,0.030716,45.922508,-2.520085
+nk cells,map1 donor halves,chr16,34120,0.02321,41.893053,-6.54954
+nk cells,map1 donor halves,chr17,39737,0.023365,44.592499,-3.850093
+nk cells,map1 donor halves,chr18,13934,0.039132,40.048384,-8.394209
+nk cells,map1 donor halves,chr19,32959,0.01511,27.078901,-21.363692
+nk cells,map1 donor halves,chr20,21217,0.034593,44.839235,-3.603358
+nk cells,map1 donor halves,chr21,9481,0.034728,30.843643,-17.59895
+nk cells,map1 donor halves,chr22,16040,0.029373,34.499499,-13.943094
+nk cells,map2 read halves,chr1,76842,0.000249,1.107034,0.915572
+nk cells,map2 read halves,chr2,61715,-2.6e-05,-0.106216,-0.297678
+nk cells,map2 read halves,chr3,46909,-0.000753,-2.686567,-2.878028
+nk cells,map2 read halves,chr4,34879,0.000286,0.856022,0.66456
+nk cells,map2 read halves,chr5,42646,-5.6e-05,-0.184232,-0.375693
+nk cells,map2 read halves,chr6,41778,0.000446,1.494829,1.303367
+nk cells,map2 read halves,chr7,44105,0.000136,0.454105,0.262643
+nk cells,map2 read halves,chr8,36399,0.000342,1.040584,0.849122
+nk cells,map2 read halves,chr9,24226,-0.000688,-1.69145,-1.882911
+nk cells,map2 read halves,chr10,39947,-0.000117,-0.372686,-0.564147
+nk cells,map2 read halves,chr11,45681,0.000485,1.61686,1.425398
+nk cells,map2 read halves,chr12,41983,0.000569,1.914141,1.722679
+nk cells,map2 read halves,chr13,19968,-0.000186,-0.42593,-0.617391
+nk cells,map2 read halves,chr14,27233,0.000158,0.427748,0.236287
+nk cells,map2 read halves,chr15,26588,0.000276,0.720743,0.529281
+nk cells,map2 read halves,chr16,34120,6e-06,0.017617,-0.173844
+nk cells,map2 read halves,chr17,39741,-0.000243,-0.761167,-0.952628
+nk cells,map2 read halves,chr18,13934,0.000696,1.299062,1.107601
+nk cells,map2 read halves,chr19,32959,-5.8e-05,-0.166877,-0.358339
+nk cells,map2 read halves,chr20,21217,-8.4e-05,-0.184565,-0.376026
+nk cells,map2 read halves,chr21,9481,0.000239,0.365306,0.173844
+nk cells,map2 read halves,chr22,16040,-0.000358,-0.694805,-0.886267
+oligodendrocytes,map1 donor halves,chr1,76841,-0.002545,-8.794501,-4.200172
+oligodendrocytes,map1 donor halves,chr2,61715,-0.003307,-10.36164,-5.767312
+oligodendrocytes,map1 donor halves,chr3,46909,-0.003261,-9.189169,-4.594841
+oligodendrocytes,map1 donor halves,chr4,34879,-0.002328,-5.444303,-0.849975
+oligodendrocytes,map1 donor halves,chr5,42646,-0.003978,-9.86547,-5.271142
+oligodendrocytes,map1 donor halves,chr6,41777,-0.003123,-8.060401,-3.466072
+oligodendrocytes,map1 donor halves,chr7,44105,-0.002587,-6.557188,-1.96286
+oligodendrocytes,map1 donor halves,chr8,36399,-0.001905,-4.453237,0.141091
+oligodendrocytes,map1 donor halves,chr9,24226,-0.000331,-0.620087,3.974242
+oligodendrocytes,map1 donor halves,chr10,39947,-0.001649,-4.03935,0.554978
+oligodendrocytes,map1 donor halves,chr11,45681,-0.001199,-3.174624,1.419704
+oligodendrocytes,map1 donor halves,chr12,41983,-0.003512,-8.885351,-4.291022
+oligodendrocytes,map1 donor halves,chr13,19968,-0.002727,-4.73542,-0.141091
+oligodendrocytes,map1 donor halves,chr14,27233,-0.002736,-5.614006,-1.019678
+oligodendrocytes,map1 donor halves,chr15,26588,-0.003098,-6.285243,-1.690915
+oligodendrocytes,map1 donor halves,chr16,34120,-0.00115,-2.55549,2.038838
+oligodendrocytes,map1 donor halves,chr17,39741,-0.00184,-4.445315,0.149014
+oligodendrocytes,map1 donor halves,chr18,13934,-0.001448,-2.152359,2.441969
+oligodendrocytes,map1 donor halves,chr19,32959,0.000283,0.613306,5.207634
+oligodendrocytes,map1 donor halves,chr20,21217,-0.000799,-1.389982,3.204347
+oligodendrocytes,map1 donor halves,chr21,9481,-0.001163,-1.316259,3.278069
+oligodendrocytes,map1 donor halves,chr22,16038,-0.000361,-0.54962,4.044708
+oligodendrocytes,map2 read halves,chr1,76842,0.000233,1.086307,1.620925
+oligodendrocytes,map2 read halves,chr2,61715,-0.000588,-2.54496,-2.010342
+oligodendrocytes,map2 read halves,chr3,46909,7.3e-05,0.281095,0.815713
+oligodendrocytes,map2 read halves,chr4,34879,-0.00021,-0.688126,-0.153508
+oligodendrocytes,map2 read halves,chr5,42646,7.2e-05,0.25463,0.789248
+oligodendrocytes,map2 read halves,chr6,41778,-0.000147,-0.530146,0.004472
+oligodendrocytes,map2 read halves,chr7,44105,-3.6e-05,-0.126901,0.407717
+oligodendrocytes,map2 read halves,chr8,36399,0.000374,1.233127,1.767745
+oligodendrocytes,map2 read halves,chr9,24226,-0.000294,-0.756883,-0.222265
+oligodendrocytes,map2 read halves,chr10,39947,3.6e-05,0.123424,0.658042
+oligodendrocytes,map2 read halves,chr11,45681,-0.000238,-0.842839,-0.308221
+oligodendrocytes,map2 read halves,chr12,41983,5.1e-05,0.180061,0.714679
+oligodendrocytes,map2 read halves,chr13,19968,-0.000501,-1.246985,-0.712367
+oligodendrocytes,map2 read halves,chr14,27233,-0.000394,-1.106651,-0.572033
+oligodendrocytes,map2 read halves,chr15,26588,-0.000193,-0.53909,-0.004472
+oligodendrocytes,map2 read halves,chr16,34120,-0.000503,-1.469126,-0.934508
+oligodendrocytes,map2 read halves,chr17,39741,1.9e-05,0.058956,0.593574
+oligodendrocytes,map2 read halves,chr18,13934,-0.0001,-0.213366,0.321252
+oligodendrocytes,map2 read halves,chr19,32959,-0.001368,-3.830874,-3.296256
+oligodendrocytes,map2 read halves,chr20,21217,-0.000323,-0.755785,-0.221167
+oligodendrocytes,map2 read halves,chr21,9481,-0.000214,-0.342144,0.192474
+oligodendrocytes,map2 read halves,chr22,16040,-0.000402,-0.81441,-0.279792
+pancreas endothelium,map1 donor halves,chr1,76842,0.001638,4.703142,2.230155
+pancreas endothelium,map1 donor halves,chr2,61715,0.001613,4.131247,1.658259
+pancreas endothelium,map1 donor halves,chr3,46909,0.000391,0.903025,-1.569962
+pancreas endothelium,map1 donor halves,chr4,34879,0.000225,0.428062,-2.044925
+pancreas endothelium,map1 donor halves,chr5,42646,0.00172,3.596696,1.123709
+pancreas endothelium,map1 donor halves,chr6,41778,0.001163,2.517142,0.044154
+pancreas endothelium,map1 donor halves,chr7,44105,0.001131,2.428833,-0.044154
+pancreas endothelium,map1 donor halves,chr8,36398,0.000586,1.134721,-1.338267
+pancreas endothelium,map1 donor halves,chr9,24226,0.003189,5.050679,2.577692
+pancreas endothelium,map1 donor halves,chr10,39947,0.000837,1.709477,-0.763511
+pancreas endothelium,map1 donor halves,chr11,45681,0.001917,4.205237,1.732249
+pancreas endothelium,map1 donor halves,chr12,41983,0.001233,2.620542,0.147554
+pancreas endothelium,map1 donor halves,chr13,19968,-0.000563,-0.816618,-3.289605
+pancreas endothelium,map1 donor halves,chr14,27233,0.001245,2.156791,-0.316196
+pancreas endothelium,map1 donor halves,chr15,26587,0.001608,2.709841,0.236854
+pancreas endothelium,map1 donor halves,chr16,34120,0.002484,4.642646,2.169658
+pancreas endothelium,map1 donor halves,chr17,39741,0.003518,7.152225,4.679238
+pancreas endothelium,map1 donor halves,chr18,13933,0.000847,1.02804,-1.444948
+pancreas endothelium,map1 donor halves,chr19,32959,-0.000233,-0.452375,-2.925363
+pancreas endothelium,map1 donor halves,chr20,21217,-0.001115,-1.607995,-4.080982
+pancreas endothelium,map1 donor halves,chr21,9480,-0.002328,-2.240681,-4.713668
+pancreas endothelium,map1 donor halves,chr22,16038,0.002673,3.413373,0.940386
+pancreas endothelium,map2 read halves,chr1,76842,0.000326,1.180424,1.338731
+pancreas endothelium,map2 read halves,chr2,61715,-0.000622,-2.071113,-1.912805
+pancreas endothelium,map2 read halves,chr3,46909,-0.000465,-1.360316,-1.202009
+pancreas endothelium,map2 read halves,chr4,34879,0.000504,1.275345,1.433653
+pancreas endothelium,map2 read halves,chr5,42646,-3.5e-05,-0.097157,0.06115
+pancreas endothelium,map2 read halves,chr6,41778,0.000212,0.593529,0.751836
+pancreas endothelium,map2 read halves,chr7,44105,-4e-06,-0.011911,0.146397
+pancreas endothelium,map2 read halves,chr8,36399,0.000493,1.228548,1.386856
+pancreas endothelium,map2 read halves,chr9,24226,-0.000981,-2.015072,-1.856765
+pancreas endothelium,map2 read halves,chr10,39947,0.000124,0.32578,0.484087
+pancreas endothelium,map2 read halves,chr11,45681,-0.000554,-1.532496,-1.374188
+pancreas endothelium,map2 read halves,chr12,41983,-0.00011,-0.298558,-0.140251
+pancreas endothelium,map2 read halves,chr13,19968,-0.000135,-0.253934,-0.095626
+pancreas endothelium,map2 read halves,chr14,27233,0.000251,0.555149,0.713457
+pancreas endothelium,map2 read halves,chr15,26588,-0.000235,-0.508614,-0.350306
+pancreas endothelium,map2 read halves,chr16,34120,0.00026,0.600011,0.758319
+pancreas endothelium,map2 read halves,chr17,39741,-0.000705,-1.781091,-1.622783
+pancreas endothelium,map2 read halves,chr18,13934,-0.000864,-1.352281,-1.193973
+pancreas endothelium,map2 read halves,chr19,32959,-0.000285,-0.671378,-0.513071
+pancreas endothelium,map2 read halves,chr20,21217,-0.000122,-0.219458,-0.06115
+pancreas endothelium,map2 read halves,chr21,9481,0.00067,0.829991,0.988298
+pancreas endothelium,map2 read halves,chr22,16040,0.000538,0.837961,0.996269
+pancreatic acinar,map1 donor halves,chr1,76837,-0.006319,-20.946918,-10.683294
+pancreatic acinar,map1 donor halves,chr2,61713,-0.004151,-12.147677,-1.884053
+pancreatic acinar,map1 donor halves,chr3,46909,-0.005248,-13.696926,-3.433302
+pancreatic acinar,map1 donor halves,chr4,34879,-0.002856,-6.224903,4.038721
+pancreatic acinar,map1 donor halves,chr5,42646,-0.001171,-2.776663,7.486961
+pancreatic acinar,map1 donor halves,chr6,41778,-0.00246,-5.994284,4.26934
+pancreatic acinar,map1 donor halves,chr7,44105,-0.007475,-18.364229,-8.100605
+pancreatic acinar,map1 donor halves,chr8,36398,-0.001872,-4.108019,6.155605
+pancreatic acinar,map1 donor halves,chr9,24226,-0.005642,-10.327846,-0.064222
+pancreatic acinar,map1 donor halves,chr10,39947,-0.00116,-2.702022,7.561602
+pancreatic acinar,map1 donor halves,chr11,45681,-0.006421,-16.054218,-5.790594
+pancreatic acinar,map1 donor halves,chr12,41983,-0.004198,-10.199402,0.064222
+pancreatic acinar,map1 donor halves,chr13,19968,0.000944,1.573056,11.83668
+pancreatic acinar,map1 donor halves,chr14,27233,-0.005638,-11.262126,-0.998502
+pancreatic acinar,map1 donor halves,chr15,26586,-0.005818,-11.43206,-1.168437
+pancreatic acinar,map1 donor halves,chr16,34120,-0.006854,-14.152376,-3.888752
+pancreatic acinar,map1 donor halves,chr17,39741,-0.007956,-18.493815,-8.230191
+pancreatic acinar,map1 donor halves,chr18,13934,-0.001787,-2.499409,7.764215
+pancreatic acinar,map1 donor halves,chr19,32959,-0.008247,-17.807441,-7.543817
+pancreatic acinar,map1 donor halves,chr20,21217,-0.001061,-1.689812,8.573812
+pancreatic acinar,map1 donor halves,chr21,9481,0.00748,7.757324,18.020948
+pancreatic acinar,map1 donor halves,chr22,16039,-0.00384,-5.452727,4.810897
+pancreatic acinar,map2 read halves,chr1,76842,3.2e-05,0.142088,-0.111236
+pancreatic acinar,map2 read halves,chr2,61715,-0.000129,-0.517905,-0.771228
+pancreatic acinar,map2 read halves,chr3,46909,-0.000422,-1.547301,-1.800624
+pancreatic acinar,map2 read halves,chr4,34879,-4.3e-05,-0.132592,-0.385915
+pancreatic acinar,map2 read halves,chr5,42646,3.1e-05,0.103202,-0.150122
+pancreatic acinar,map2 read halves,chr6,41778,-0.000217,-0.735725,-0.989048
+pancreatic acinar,map2 read halves,chr7,44105,0.000181,0.617933,0.36461
+pancreatic acinar,map2 read halves,chr8,36399,5.1e-05,0.154535,-0.098789
+pancreatic acinar,map2 read halves,chr9,24226,-5.4e-05,-0.135614,-0.388937
+pancreatic acinar,map2 read halves,chr10,39947,0.000286,0.913653,0.66033
+pancreatic acinar,map2 read halves,chr11,45681,0.000339,1.154663,0.90134
+pancreatic acinar,map2 read halves,chr12,41983,0.000447,1.49779,1.244467
+pancreatic acinar,map2 read halves,chr13,19968,0.000223,0.513954,0.260631
+pancreatic acinar,map2 read halves,chr14,27233,-0.000349,-0.947943,-1.201267
+pancreatic acinar,map2 read halves,chr15,26588,0.000131,0.352112,0.098789
+pancreatic acinar,map2 read halves,chr16,34120,0.000313,0.919538,0.666214
+pancreatic acinar,map2 read halves,chr17,39741,0.000251,0.792992,0.539669
+pancreatic acinar,map2 read halves,chr18,13934,2.3e-05,0.043076,-0.210247
+pancreatic acinar,map2 read halves,chr19,32959,0.000351,1.036993,0.78367
+pancreatic acinar,map2 read halves,chr20,21217,0.000207,0.457931,0.204607
+pancreatic acinar,map2 read halves,chr21,9481,0.000901,1.349017,1.095694
+pancreatic acinar,map2 read halves,chr22,16040,3.1e-05,0.06019,-0.193134
+pancreatic alpha,map1 donor halves,chr1,76836,0.003144,11.225826,5.51061
+pancreatic alpha,map1 donor halves,chr2,61714,0.002262,7.168025,1.452809
+pancreatic alpha,map1 donor halves,chr3,46908,0.002217,6.184187,0.468971
+pancreatic alpha,map1 donor halves,chr4,34878,0.000803,1.885416,-3.829799
+pancreatic alpha,map1 donor halves,chr5,42645,0.002464,6.277567,0.562352
+pancreatic alpha,map1 donor halves,chr6,41778,0.003587,9.38091,3.665695
+pancreatic alpha,map1 donor halves,chr7,44105,0.000638,1.662774,-4.052442
+pancreatic alpha,map1 donor halves,chr8,36399,0.001471,3.552433,-2.162782
+pancreatic alpha,map1 donor halves,chr9,24226,0.003156,6.204179,0.488963
+pancreatic alpha,map1 donor halves,chr10,39945,0.003856,9.744315,4.0291
+pancreatic alpha,map1 donor halves,chr11,45679,0.00281,7.550975,1.835759
+pancreatic alpha,map1 donor halves,chr12,41981,0.002343,6.156796,0.44158
+pancreatic alpha,map1 donor halves,chr13,19968,0.002449,4.319622,-1.395594
+pancreatic alpha,map1 donor halves,chr14,27232,0.002083,4.308203,-1.407013
+pancreatic alpha,map1 donor halves,chr15,26588,0.003284,6.768495,1.053279
+pancreatic alpha,map1 donor halves,chr16,34120,0.002313,5.273636,-0.44158
+pancreatic alpha,map1 donor halves,chr17,39740,0.001039,2.628675,-3.086541
+pancreatic alpha,map1 donor halves,chr18,13934,0.002081,3.090688,-2.624528
+pancreatic alpha,map1 donor halves,chr19,32959,-9.9e-05,-0.227088,-5.942304
+pancreatic alpha,map1 donor halves,chr20,21216,0.002901,5.160006,-0.55521
+pancreatic alpha,map1 donor halves,chr21,9481,0.005382,6.302415,0.587199
+pancreatic alpha,map1 donor halves,chr22,16037,0.002264,3.423211,-2.292005
+pancreatic alpha,map2 read halves,chr1,76842,-0.00015,-0.701783,-0.623169
+pancreatic alpha,map2 read halves,chr2,61715,-0.000305,-1.290703,-1.212089
+pancreatic alpha,map2 read halves,chr3,46909,-0.000131,-0.496283,-0.417669
+pancreatic alpha,map2 read halves,chr4,34879,1.7e-05,0.055982,0.134596
+pancreatic alpha,map2 read halves,chr5,42646,-9.5e-05,-0.327383,-0.248769
+pancreatic alpha,map2 read halves,chr6,41778,9.6e-05,0.340531,0.419145
+pancreatic alpha,map2 read halves,chr7,44105,0.00024,0.850139,0.928753
+pancreatic alpha,map2 read halves,chr8,36399,-0.00011,-0.346437,-0.267823
+pancreatic alpha,map2 read halves,chr9,24226,0.000166,0.433184,0.511798
+pancreatic alpha,map2 read halves,chr10,39947,-0.000219,-0.726099,-0.647485
+pancreatic alpha,map2 read halves,chr11,45681,0.000367,1.279773,1.358386
+pancreatic alpha,map2 read halves,chr12,41983,-0.000313,-1.071848,-0.993235
+pancreatic alpha,map2 read halves,chr13,19968,0.000594,1.414221,1.492834
+pancreatic alpha,map2 read halves,chr14,27233,-0.000128,-0.349871,-0.271258
+pancreatic alpha,map2 read halves,chr15,26588,-7.8e-05,-0.21321,-0.134596
+pancreatic alpha,map2 read halves,chr16,34120,0.000352,1.029064,1.107678
+pancreatic alpha,map2 read halves,chr17,39741,0.00056,1.802522,1.881136
+pancreatic alpha,map2 read halves,chr18,13934,-0.000587,-1.127452,-1.048838
+pancreatic alpha,map2 read halves,chr19,32959,9.5e-05,0.276565,0.355179
+pancreatic alpha,map2 read halves,chr20,21217,0.000116,0.268187,0.346801
+pancreatic alpha,map2 read halves,chr21,9481,0.000156,0.237894,0.316508
+pancreatic alpha,map2 read halves,chr22,16040,-0.00012,-0.240075,-0.161462
+pancreatic beta,map1 donor halves,chr1,76835,-0.002213,-7.360719,-3.326917
+pancreatic beta,map1 donor halves,chr2,61715,-0.00149,-4.472289,-0.438487
+pancreatic beta,map1 donor halves,chr3,46908,-0.002066,-5.433906,-1.400104
+pancreatic beta,map1 donor halves,chr4,34878,-0.002521,-5.592403,-1.5586
+pancreatic beta,map1 donor halves,chr5,42645,-0.003493,-8.459446,-4.425644
+pancreatic beta,map1 donor halves,chr6,41778,-0.001156,-2.861466,1.172337
+pancreatic beta,map1 donor halves,chr7,44105,-0.002652,-6.510009,-2.476207
+pancreatic beta,map1 donor halves,chr8,36398,-0.001875,-4.234807,-0.201005
+pancreatic beta,map1 donor halves,chr9,24225,-0.000582,-1.080326,2.953476
+pancreatic beta,map1 donor halves,chr10,39945,-0.001404,-3.329036,0.704766
+pancreatic beta,map1 donor halves,chr11,45679,-0.001888,-4.7847,-0.750897
+pancreatic beta,map1 donor halves,chr12,41982,-0.000988,-2.447242,1.58656
+pancreatic beta,map1 donor halves,chr13,19968,-0.001517,-2.533083,1.500719
+pancreatic beta,map1 donor halves,chr14,27232,-0.001504,-2.916598,1.117205
+pancreatic beta,map1 donor halves,chr15,26588,-0.002623,-5.093303,-1.0595
+pancreatic beta,map1 donor halves,chr16,34120,-0.000745,-1.592005,2.441798
+pancreatic beta,map1 donor halves,chr17,39740,-0.00163,-3.832798,0.201005
+pancreatic beta,map1 donor halves,chr18,13934,-0.001468,-2.065841,1.967962
+pancreatic beta,map1 donor halves,chr19,32959,-0.003084,-6.540389,-2.506586
+pancreatic beta,map1 donor halves,chr20,21216,-0.002608,-4.434263,-0.400461
+pancreatic beta,map1 donor halves,chr21,9481,-0.001176,-1.293966,2.739836
+pancreatic beta,map1 donor halves,chr22,16037,-0.002261,-3.222592,0.81121
+pancreatic beta,map2 read halves,chr1,76842,1.7e-05,0.074448,-0.009473
+pancreatic beta,map2 read halves,chr2,61715,-4.2e-05,-0.166447,-0.250369
+pancreatic beta,map2 read halves,chr3,46909,0.000452,1.581056,1.497135
+pancreatic beta,map2 read halves,chr4,34879,-0.000752,-2.226275,-2.310197
+pancreatic beta,map2 read halves,chr5,42646,0.000141,0.444031,0.360109
+pancreatic beta,map2 read halves,chr6,41778,-0.00104,-3.437279,-3.521201
+pancreatic beta,map2 read halves,chr7,44105,7e-05,0.230048,0.146127
+pancreatic beta,map2 read halves,chr8,36399,9.6e-05,0.283622,0.199701
+pancreatic beta,map2 read halves,chr9,24226,-0.000205,-0.489557,-0.573478
+pancreatic beta,map2 read halves,chr10,39947,3.1e-05,0.098028,0.014106
+pancreatic beta,map2 read halves,chr11,45681,2.9e-05,0.093394,0.009473
+pancreatic beta,map2 read halves,chr12,41983,-0.000303,-0.975027,-1.058948
+pancreatic beta,map2 read halves,chr13,19968,-1.4e-05,-0.031813,-0.115735
+pancreatic beta,map2 read halves,chr14,27233,0.000313,0.787952,0.704031
+pancreatic beta,map2 read halves,chr15,26588,0.000161,0.417573,0.333652
+pancreatic beta,map2 read halves,chr16,34120,0.000211,0.575608,0.491687
+pancreatic beta,map2 read halves,chr17,39741,0.000178,0.537538,0.453616
+pancreatic beta,map2 read halves,chr18,13934,-0.000292,-0.540035,-0.623957
+pancreatic beta,map2 read halves,chr19,32959,-0.000272,-0.736779,-0.820701
+pancreatic beta,map2 read halves,chr20,21217,0.000478,1.030049,0.946128
+pancreatic beta,map2 read halves,chr21,9481,-1.8e-05,-0.026466,-0.110387
+pancreatic beta,map2 read halves,chr22,16040,-0.000371,-0.70459,-0.788511
+pancreatic delta,map1 donor halves,chr1,76834,0.000994,3.021269,0.857416
+pancreatic delta,map1 donor halves,chr2,61714,0.000833,2.277001,0.113148
+pancreatic delta,map1 donor halves,chr3,46908,0.001443,3.4976,1.333746
+pancreatic delta,map1 donor halves,chr4,34878,0.001095,2.233503,0.06965
+pancreatic delta,map1 donor halves,chr5,42644,0.000937,2.073776,-0.090078
+pancreatic delta,map1 donor halves,chr6,41778,0.001662,3.759285,1.595431
+pancreatic delta,map1 donor halves,chr7,44105,0.001254,2.833661,0.669807
+pancreatic delta,map1 donor halves,chr8,36398,0.000551,1.132663,-1.031191
+pancreatic delta,map1 donor halves,chr9,24226,0.001932,3.286096,1.122242
+pancreatic delta,map1 donor halves,chr10,39946,0.001133,2.456695,0.292841
+pancreatic delta,map1 donor halves,chr11,45679,0.000473,1.087544,-1.07631
+pancreatic delta,map1 donor halves,chr12,41981,0.000778,1.752917,-0.410936
+pancreatic delta,map1 donor halves,chr13,19968,0.001542,2.378713,0.214859
+pancreatic delta,map1 donor halves,chr14,27232,0.001169,2.094204,-0.06965
+pancreatic delta,map1 donor halves,chr15,26588,0.001354,2.392012,0.228158
+pancreatic delta,map1 donor halves,chr16,34120,0.000738,1.427957,-0.735897
+pancreatic delta,map1 donor halves,chr17,39740,0.000566,1.205963,-0.95789
+pancreatic delta,map1 donor halves,chr18,13934,0.000948,1.219419,-0.944435
+pancreatic delta,map1 donor halves,chr19,32959,-0.002205,-4.284991,-6.448845
+pancreatic delta,map1 donor halves,chr20,21216,-0.000713,-1.090356,-3.25421
+pancreatic delta,map1 donor halves,chr21,9481,0.002453,2.491282,0.327428
+pancreatic delta,map1 donor halves,chr22,16036,-0.001182,-1.522984,-3.686838
+pancreatic delta,map2 read halves,chr1,76842,0.0002,0.795633,0.593075
+pancreatic delta,map2 read halves,chr2,61715,0.000187,0.680029,0.477471
+pancreatic delta,map2 read halves,chr3,46909,-8e-06,-0.026137,-0.228695
+pancreatic delta,map2 read halves,chr4,34879,-0.000308,-0.836253,-1.038811
+pancreatic delta,map2 read halves,chr5,42646,-6.7e-05,-0.197871,-0.400429
+pancreatic delta,map2 read halves,chr6,41778,0.000197,0.599455,0.396897
+pancreatic delta,map2 read halves,chr7,44105,-0.000138,-0.414439,-0.616997
+pancreatic delta,map2 read halves,chr8,36399,0.000374,1.010977,0.808418
+pancreatic delta,map2 read halves,chr9,24226,0.000706,1.562562,1.360004
+pancreatic delta,map2 read halves,chr10,39947,6.1e-05,0.17469,-0.027869
+pancreatic delta,map2 read halves,chr11,45681,0.000116,0.344059,0.1415
+pancreatic delta,map2 read halves,chr12,41983,-0.000111,-0.325872,-0.528431
+pancreatic delta,map2 read halves,chr13,19968,0.000361,0.740158,0.537599
+pancreatic delta,map2 read halves,chr14,27233,0.000252,0.590752,0.388194
+pancreatic delta,map2 read halves,chr15,26588,0.000453,1.064852,0.862294
+pancreatic delta,map2 read halves,chr16,34120,-0.00016,-0.397054,-0.599612
+pancreatic delta,map2 read halves,chr17,39741,-8.3e-05,-0.22648,-0.429038
+pancreatic delta,map2 read halves,chr18,13934,0.000135,0.230427,0.027869
+pancreatic delta,map2 read halves,chr19,32959,-0.000447,-1.101389,-1.303948
+pancreatic delta,map2 read halves,chr20,21217,-0.00102,-2.003038,-2.205596
+pancreatic delta,map2 read halves,chr21,9481,-0.000772,-1.025717,-1.228275
+pancreatic delta,map2 read halves,chr22,16040,0.000971,1.695624,1.493066
+pancreatic duct,map2 read halves,chr1,76842,-0.000198,-0.936921,-1.283609
+pancreatic duct,map2 read halves,chr2,61715,0.000111,0.475639,0.128952
+pancreatic duct,map2 read halves,chr3,46909,-0.0003,-1.155317,-1.502004
+pancreatic duct,map2 read halves,chr4,34879,0.000507,1.666252,1.319564
+pancreatic duct,map2 read halves,chr5,42646,9.3e-05,0.323702,-0.022985
+pancreatic duct,map2 read halves,chr6,41778,0.00019,0.690964,0.344277
+pancreatic duct,map2 read halves,chr7,44105,-0.000109,-0.38566,-0.732347
+pancreatic duct,map2 read halves,chr8,36399,0.000375,1.187172,0.840485
+pancreatic duct,map2 read halves,chr9,24226,0.000949,2.4828,2.136112
+pancreatic duct,map2 read halves,chr10,39947,-0.000145,-0.492201,-0.838888
+pancreatic duct,map2 read halves,chr11,45681,-0.000149,-0.534302,-0.880989
+pancreatic duct,map2 read halves,chr12,41983,0.000106,0.369673,0.022985
+pancreatic duct,map2 read halves,chr13,19968,6.7e-05,0.167112,-0.179575
+pancreatic duct,map2 read halves,chr14,27233,0.000693,1.942809,1.596122
+pancreatic duct,map2 read halves,chr15,26588,0.00014,0.399787,0.0531
+pancreatic duct,map2 read halves,chr16,34120,0.000188,0.556273,0.209586
+pancreatic duct,map2 read halves,chr17,39741,-0.000495,-1.617857,-1.964545
+pancreatic duct,map2 read halves,chr18,13934,-0.000238,-0.489828,-0.836515
+pancreatic duct,map2 read halves,chr19,32959,0.000354,1.034641,0.687954
+pancreatic duct,map2 read halves,chr20,21217,-0.000272,-0.621376,-0.968063
+pancreatic duct,map2 read halves,chr21,9481,-0.000633,-1.03593,-1.382618
+pancreatic duct,map2 read halves,chr22,16040,0.000339,0.685361,0.338673
+prostate epithelium,map1 donor halves,chr1,76842,-0.005252,-15.580291,-5.851858
+prostate epithelium,map1 donor halves,chr2,61714,-0.005535,-14.498108,-4.769675
+prostate epithelium,map1 donor halves,chr3,46909,-0.004805,-11.237302,-1.508869
+prostate epithelium,map1 donor halves,chr4,34878,-0.006678,-13.031033,-3.302601
+prostate epithelium,map1 donor halves,chr5,42646,-0.004819,-10.16849,-0.440058
+prostate epithelium,map1 donor halves,chr6,41778,-0.005375,-11.717878,-1.989445
+prostate epithelium,map1 donor halves,chr7,44103,-0.003522,-7.660635,2.067797
+prostate epithelium,map1 donor halves,chr8,36399,-0.004678,-9.16987,0.558562
+prostate epithelium,map1 donor halves,chr9,24223,-0.005654,-9.288375,0.440058
+prostate epithelium,map1 donor halves,chr10,39944,-0.005502,-11.24017,-1.511737
+prostate epithelium,map1 donor halves,chr11,45681,-0.006473,-14.774721,-5.046289
+prostate epithelium,map1 donor halves,chr12,41983,-0.005176,-11.301892,-1.573459
+prostate epithelium,map1 donor halves,chr13,19968,-0.004864,-7.064995,2.663438
+prostate epithelium,map1 donor halves,chr14,27233,-0.004992,-8.986507,0.741926
+prostate epithelium,map1 donor halves,chr15,26588,-0.005175,-9.234485,0.493947
+prostate epithelium,map1 donor halves,chr16,34120,-0.006207,-12.449376,-2.720944
+prostate epithelium,map1 donor halves,chr17,39739,-0.006965,-14.859838,-5.131405
+prostate epithelium,map1 donor halves,chr18,13934,-0.005186,-6.337183,3.39125
+prostate epithelium,map1 donor halves,chr19,32959,-0.003226,-6.558541,3.169892
+prostate epithelium,map1 donor halves,chr20,21215,-0.003801,-5.763569,3.964863
+prostate epithelium,map1 donor halves,chr21,9481,-0.00348,-3.382475,6.345957
+prostate epithelium,map1 donor halves,chr22,16040,-0.005719,-7.712506,2.015926
+prostate epithelium,map2 read halves,chr1,76842,0.000265,1.209135,1.101799
+prostate epithelium,map2 read halves,chr2,61715,-0.000242,-0.994443,-1.101779
+prostate epithelium,map2 read halves,chr3,46909,0.000381,1.401708,1.294373
+prostate epithelium,map2 read halves,chr4,34879,-0.000228,-0.71644,-0.823776
+prostate epithelium,map2 read halves,chr5,42646,-5.6e-05,-0.189511,-0.296847
+prostate epithelium,map2 read halves,chr6,41778,1.3e-05,0.043835,-0.0635
+prostate epithelium,map2 read halves,chr7,44105,-0.000176,-0.606503,-0.713838
+prostate epithelium,map2 read halves,chr8,36399,0.000364,1.13882,1.031485
+prostate epithelium,map2 read halves,chr9,24226,0.000291,0.7345,0.627165
+prostate epithelium,map2 read halves,chr10,39947,0.000242,0.801698,0.694363
+prostate epithelium,map2 read halves,chr11,45681,-6e-06,-0.020497,-0.127833
+prostate epithelium,map2 read halves,chr12,41983,-3.3e-05,-0.113739,-0.221074
+prostate epithelium,map2 read halves,chr13,19968,0.000102,0.236206,0.128871
+prostate epithelium,map2 read halves,chr14,27233,-0.000162,-0.442236,-0.549571
+prostate epithelium,map2 read halves,chr15,26588,0.000623,1.679701,1.572366
+prostate epithelium,map2 read halves,chr16,34120,0.000143,0.424267,0.316932
+prostate epithelium,map2 read halves,chr17,39741,-0.000373,-1.191986,-1.299322
+prostate epithelium,map2 read halves,chr18,13934,8.6e-05,0.170835,0.0635
+prostate epithelium,map2 read halves,chr19,32959,0.0,4.5e-05,-0.10729
+prostate epithelium,map2 read halves,chr20,21217,0.000116,0.265524,0.158189
+prostate epithelium,map2 read halves,chr21,9481,0.000133,0.207694,0.100359
+prostate epithelium,map2 read halves,chr22,16040,-4.9e-05,-0.097844,-0.205179
+small intestine epithelium,map1 donor halves,chr1,76842,-0.001867,-6.350134,-2.647333
+small intestine epithelium,map1 donor halves,chr2,61715,-0.001336,-3.996618,-0.293818
+small intestine epithelium,map1 donor halves,chr3,46909,-0.001503,-4.004743,-0.301942
+small intestine epithelium,map1 donor halves,chr4,34879,-0.000344,-0.74022,2.962581
+small intestine epithelium,map1 donor halves,chr5,42646,0.002717,6.279398,9.982199
+small intestine epithelium,map1 donor halves,chr6,41778,0.001165,2.888561,6.591362
+small intestine epithelium,map1 donor halves,chr7,44104,0.0003,0.740094,4.442894
+small intestine epithelium,map1 donor halves,chr8,36399,-0.00031,-0.678266,3.024535
+small intestine epithelium,map1 donor halves,chr9,24226,-0.003291,-6.128409,-2.425609
+small intestine epithelium,map1 donor halves,chr10,39946,-0.001459,-3.408983,0.293818
+small intestine epithelium,map1 donor halves,chr11,45679,-0.002267,-5.812812,-2.110012
+small intestine epithelium,map1 donor halves,chr12,41983,-0.0018,-4.458549,-0.755748
+small intestine epithelium,map1 donor halves,chr13,19968,0.001111,1.781906,5.484706
+small intestine epithelium,map1 donor halves,chr14,27233,-0.002316,-4.665686,-0.962885
+small intestine epithelium,map1 donor halves,chr15,26588,-0.000146,-0.293549,3.409251
+small intestine epithelium,map1 donor halves,chr16,34118,-0.003447,-7.418014,-3.715214
+small intestine epithelium,map1 donor halves,chr17,39739,-0.001236,-2.941437,0.761364
+small intestine epithelium,map1 donor halves,chr18,13934,8.8e-05,0.125471,3.828272
+small intestine epithelium,map1 donor halves,chr19,32956,-0.002358,-4.928267,-1.225466
+small intestine epithelium,map1 donor halves,chr20,21217,-0.005181,-8.76975,-5.066949
+small intestine epithelium,map1 donor halves,chr21,9481,-0.002854,-3.137814,0.564987
+small intestine epithelium,map1 donor halves,chr22,16032,-0.006239,-9.143417,-5.440617
+small intestine epithelium,map2 read halves,chr1,76842,0.00014,0.675555,0.291975
+small intestine epithelium,map2 read halves,chr2,61715,0.000289,1.253957,0.870377
+small intestine epithelium,map2 read halves,chr3,46909,5e-06,0.020192,-0.363388
+small intestine epithelium,map2 read halves,chr4,34879,-0.000321,-1.062438,-1.446018
+small intestine epithelium,map2 read halves,chr5,42646,6e-06,0.02009,-0.36349
+small intestine epithelium,map2 read halves,chr6,41778,2.1e-05,0.076747,-0.306833
+small intestine epithelium,map2 read halves,chr7,44105,6.3e-05,0.229512,-0.154068
+small intestine epithelium,map2 read halves,chr8,36399,0.000257,0.83392,0.45034
+small intestine epithelium,map2 read halves,chr9,24226,0.000393,1.052901,0.669321
+small intestine epithelium,map2 read halves,chr10,39947,0.000319,1.099333,0.715753
+small intestine epithelium,map2 read halves,chr11,45681,0.000212,0.768607,0.385027
+small intestine epithelium,map2 read halves,chr12,41983,-0.000187,-0.66219,-1.04577
+small intestine epithelium,map2 read halves,chr13,19968,0.001117,2.722116,2.338536
+small intestine epithelium,map2 read halves,chr14,27233,0.000152,0.437296,0.053716
+small intestine epithelium,map2 read halves,chr15,26588,-9.7e-05,-0.279959,-0.663539
+small intestine epithelium,map2 read halves,chr16,34120,-0.000391,-1.211699,-1.595279
+small intestine epithelium,map2 read halves,chr17,39741,0.000307,1.046151,0.662571
+small intestine epithelium,map2 read halves,chr18,13934,2e-06,0.004561,-0.379019
+small intestine epithelium,map2 read halves,chr19,32959,0.000109,0.329864,-0.053716
+small intestine epithelium,map2 read halves,chr20,21217,0.000916,2.167032,1.783452
+small intestine epithelium,map2 read halves,chr21,9481,0.000612,0.981045,0.597465
+small intestine epithelium,map2 read halves,chr22,16040,0.000119,0.244991,-0.138589
+smooth muscle,map1 donor halves,chr1,76840,0.062182,83.57195,26.502777
+smooth muscle,map1 donor halves,chr2,61715,0.068143,79.100178,22.031006
+smooth muscle,map1 donor halves,chr3,46909,0.060424,63.257929,6.188757
+smooth muscle,map1 donor halves,chr4,34879,0.05342,48.828813,-8.240359
+smooth muscle,map1 donor halves,chr5,42645,0.060964,60.116836,3.047664
+smooth muscle,map1 donor halves,chr6,41778,0.06493,65.571509,8.502337
+smooth muscle,map1 donor halves,chr7,44105,0.061471,63.582637,6.513465
+smooth muscle,map1 donor halves,chr8,36395,0.070911,64.22432,7.155148
+smooth muscle,map1 donor halves,chr9,24226,0.065747,48.408372,-8.6608
+smooth muscle,map1 donor halves,chr10,39946,0.063207,59.659987,2.590815
+smooth muscle,map1 donor halves,chr11,45680,0.065308,66.180185,9.111012
+smooth muscle,map1 donor halves,chr12,41983,0.063375,62.781652,5.71248
+smooth muscle,map1 donor halves,chr13,19968,0.05155,35.355695,-21.713477
+smooth muscle,map1 donor halves,chr14,27233,0.04998,40.72767,-16.341502
+smooth muscle,map1 donor halves,chr15,26588,0.062739,49.485994,-7.583178
+smooth muscle,map1 donor halves,chr16,34119,0.064118,57.577038,0.507866
+smooth muscle,map1 donor halves,chr17,39741,0.058898,56.561307,-0.507866
+smooth muscle,map1 donor halves,chr18,13934,0.05811,33.617089,-23.452083
+smooth muscle,map1 donor halves,chr19,32959,0.049381,47.858854,-9.210318
+smooth muscle,map1 donor halves,chr20,21216,0.054158,38.821491,-18.247682
+smooth muscle,map1 donor halves,chr21,9480,0.060431,28.81756,-28.251612
+smooth muscle,map1 donor halves,chr22,16040,0.055043,33.904042,-23.16513
+smooth muscle,map2 read halves,chr1,76842,0.000368,1.482048,1.508136
+smooth muscle,map2 read halves,chr2,61715,0.000129,0.469167,0.495255
+smooth muscle,map2 read halves,chr3,46909,0.000331,1.059367,1.085455
+smooth muscle,map2 read halves,chr4,34879,4.4e-05,0.119716,0.145803
+smooth muscle,map2 read halves,chr5,42646,-2.5e-05,-0.075461,-0.049373
+smooth muscle,map2 read halves,chr6,41778,0.000103,0.31115,0.337238
+smooth muscle,map2 read halves,chr7,44105,-0.000439,-1.324783,-1.298695
+smooth muscle,map2 read halves,chr8,36399,0.000584,1.587763,1.613851
+smooth muscle,map2 read halves,chr9,24226,3e-05,0.067599,0.093686
+smooth muscle,map2 read halves,chr10,39947,8.6e-05,0.248158,0.274246
+smooth muscle,map2 read halves,chr11,45681,-1.4e-05,-0.041917,-0.01583
+smooth muscle,map2 read halves,chr12,41983,8.9e-05,0.26962,0.295707
+smooth muscle,map2 read halves,chr13,19968,-0.00011,-0.22445,-0.198362
+smooth muscle,map2 read halves,chr14,27233,0.000241,0.583398,0.609485
+smooth muscle,map2 read halves,chr15,26588,-0.000484,-1.161435,-1.135347
+smooth muscle,map2 read halves,chr16,34120,-4e-06,-0.010258,0.01583
+smooth muscle,map2 read halves,chr17,39741,-0.000132,-0.383581,-0.357493
+smooth muscle,map2 read halves,chr18,13934,-0.000641,-1.067269,-1.041181
+smooth muscle,map2 read halves,chr19,32959,-0.000358,-0.970338,-0.944251
+smooth muscle,map2 read halves,chr20,21217,-0.000242,-0.496265,-0.470177
+smooth muscle,map2 read halves,chr21,9481,-0.001041,-1.439153,-1.413065
+smooth muscle,map2 read halves,chr22,16040,-0.000866,-1.538626,-1.512538
+striated muscle,map1 donor halves,chr1,76787,-0.006758,-18.481489,-8.143911
+striated muscle,map1 donor halves,chr2,61715,-0.006,-14.823003,-4.485425
+striated muscle,map1 donor halves,chr3,46907,-0.004827,-10.684577,-0.346999
+striated muscle,map1 donor halves,chr4,34879,-0.00404,-7.497719,2.839859
+striated muscle,map1 donor halves,chr5,42645,-0.004516,-9.141646,1.195932
+striated muscle,map1 donor halves,chr6,41778,-0.004888,-10.131217,0.206361
+striated muscle,map1 donor halves,chr7,44105,-0.004835,-9.586667,0.750911
+striated muscle,map1 donor halves,chr8,36395,-0.004763,-8.875037,1.462541
+striated muscle,map1 donor halves,chr9,24212,-0.008481,-13.10297,-2.765392
+striated muscle,map1 donor halves,chr10,39946,-0.005403,-10.543939,-0.206361
+striated muscle,map1 donor halves,chr11,45681,-0.008059,-17.126874,-6.789296
+striated muscle,map1 donor halves,chr12,41983,-0.004608,-9.379406,0.958172
+striated muscle,map1 donor halves,chr13,19968,-0.003428,-4.775052,5.562526
+striated muscle,map1 donor halves,chr14,27231,-0.005573,-9.287689,1.049889
+striated muscle,map1 donor halves,chr15,26588,-0.00677,-11.227319,-0.889741
+striated muscle,map1 donor halves,chr16,34120,-0.007336,-12.990356,-2.652778
+striated muscle,map1 donor halves,chr17,39740,-0.009045,-17.504923,-7.167345
+striated muscle,map1 donor halves,chr18,13934,-0.002731,-3.2043,7.133278
+striated muscle,map1 donor halves,chr19,32959,-0.003364,-6.167648,4.16993
+striated muscle,map1 donor halves,chr20,21217,-0.008747,-12.34801,-2.010432
+striated muscle,map1 donor halves,chr21,9481,-0.005213,-4.880373,5.457205
+striated muscle,map1 donor halves,chr22,16040,-0.010887,-13.354362,-3.016784
+striated muscle,map2 read halves,chr1,76842,-4.2e-05,-0.140431,0.024156
+striated muscle,map2 read halves,chr2,61715,-0.000334,-1.037937,-0.873351
+striated muscle,map2 read halves,chr3,46909,-0.000235,-0.649612,-0.485026
+striated muscle,map2 read halves,chr4,34879,-0.000104,-0.248993,-0.084406
+striated muscle,map2 read halves,chr5,42646,-0.000423,-1.094876,-0.930289
+striated muscle,map2 read halves,chr6,41778,-0.000111,-0.290952,-0.126365
+striated muscle,map2 read halves,chr7,44105,3.5e-05,0.088702,0.253288
+striated muscle,map2 read halves,chr8,36399,0.000386,0.910234,1.07482
+striated muscle,map2 read halves,chr9,24226,0.000287,0.537639,0.702225
+striated muscle,map2 read halves,chr10,39947,-1.3e-05,-0.031325,0.133261
+striated muscle,map2 read halves,chr11,45681,0.000886,2.284796,2.449383
+striated muscle,map2 read halves,chr12,41983,0.000338,0.858538,1.023125
+striated muscle,map2 read halves,chr13,19968,-0.000395,-0.713233,-0.548646
+striated muscle,map2 read halves,chr14,27233,0.000224,0.461281,0.625868
+striated muscle,map2 read halves,chr15,26588,-0.000332,-0.675988,-0.511402
+striated muscle,map2 read halves,chr16,34120,-0.000177,-0.382415,-0.217828
+striated muscle,map2 read halves,chr17,39741,0.000239,0.558397,0.722984
+striated muscle,map2 read halves,chr18,13934,-0.000126,-0.188743,-0.024156
+striated muscle,map2 read halves,chr19,32959,-0.000149,-0.320298,-0.155711
+striated muscle,map2 read halves,chr20,21217,-0.000482,-0.830606,-0.66602
+striated muscle,map2 read halves,chr21,9481,0.001225,1.438871,1.603457
+striated muscle,map2 read halves,chr22,16040,0.000484,0.706998,0.871584
+t central memory cd4,map1 donor halves,chr1,76841,0.00543,18.912508,6.225982
+t central memory cd4,map1 donor halves,chr2,61715,0.005887,18.268922,5.582395
+t central memory cd4,map1 donor halves,chr3,46909,0.005927,16.282475,3.595948
+t central memory cd4,map1 donor halves,chr4,34879,0.006849,15.676013,2.989487
+t central memory cd4,map1 donor halves,chr5,42646,0.006279,15.839341,3.152814
+t central memory cd4,map1 donor halves,chr6,41777,0.005607,14.207124,1.520598
+t central memory cd4,map1 donor halves,chr7,44105,0.005877,15.127943,2.441416
+t central memory cd4,map1 donor halves,chr8,36399,0.006678,15.476838,2.790312
+t central memory cd4,map1 donor halves,chr9,24226,0.005501,10.494522,-2.192005
+t central memory cd4,map1 donor halves,chr10,39947,0.006209,14.867529,2.181003
+t central memory cd4,map1 donor halves,chr11,45681,0.006432,16.576799,3.890272
+t central memory cd4,map1 donor halves,chr12,41983,0.005052,13.217537,0.53101
+t central memory cd4,map1 donor halves,chr13,19968,0.006851,12.155516,-0.53101
+t central memory cd4,map1 donor halves,chr14,27233,0.004843,10.123191,-2.563336
+t central memory cd4,map1 donor halves,chr15,26588,0.005637,11.421868,-1.264659
+t central memory cd4,map1 donor halves,chr16,34120,0.003864,8.944719,-3.741808
+t central memory cd4,map1 donor halves,chr17,39741,0.003104,7.659127,-5.027399
+t central memory cd4,map1 donor halves,chr18,13934,0.008097,11.675561,-1.010966
+t central memory cd4,map1 donor halves,chr19,32958,0.002953,6.8147,-5.871827
+t central memory cd4,map1 donor halves,chr20,21217,0.005738,10.042096,-2.644431
+t central memory cd4,map1 donor halves,chr21,9481,0.005265,6.120123,-6.566403
+t central memory cd4,map1 donor halves,chr22,16040,0.004584,6.99098,-5.695546
+t central memory cd4,map2 read halves,chr1,76842,0.000307,1.267812,1.495895
+t central memory cd4,map2 read halves,chr2,61715,-8.6e-05,-0.319624,-0.091541
+t central memory cd4,map2 read halves,chr3,46909,0.000217,0.717407,0.94549
+t central memory cd4,map2 read halves,chr4,34879,-0.000264,-0.740175,-0.512092
+t central memory cd4,map2 read halves,chr5,42646,-0.000132,-0.404785,-0.176703
+t central memory cd4,map2 read halves,chr6,41778,0.000173,0.544913,0.772996
+t central memory cd4,map2 read halves,chr7,44105,-0.000254,-0.793573,-0.56549
+t central memory cd4,map2 read halves,chr8,36399,4.1e-05,0.115685,0.343768
+t central memory cd4,map2 read halves,chr9,24226,-9.9e-05,-0.22583,0.002253
+t central memory cd4,map2 read halves,chr10,39947,-0.000141,-0.418991,-0.190908
+t central memory cd4,map2 read halves,chr11,45681,-0.000128,-0.397713,-0.16963
+t central memory cd4,map2 read halves,chr12,41983,0.000671,2.078222,2.306304
+t central memory cd4,map2 read halves,chr13,19968,-0.000377,-0.818547,-0.590464
+t central memory cd4,map2 read halves,chr14,27233,0.00027,0.671954,0.900037
+t central memory cd4,map2 read halves,chr15,26588,0.000136,0.331908,0.55999
+t central memory cd4,map2 read halves,chr16,34120,0.000605,1.671153,1.899235
+t central memory cd4,map2 read halves,chr17,39741,0.000476,1.417208,1.64529
+t central memory cd4,map2 read halves,chr18,13934,-0.00109,-1.905649,-1.677566
+t central memory cd4,map2 read halves,chr19,32959,-0.000141,-0.384229,-0.156147
+t central memory cd4,map2 read halves,chr20,21217,-0.000113,-0.230335,-0.002253
+t central memory cd4,map2 read halves,chr21,9481,0.000293,0.417943,0.646026
+t central memory cd4,map2 read halves,chr22,16040,-0.000297,-0.537663,-0.30958
+t effector cell cd8,map1 donor halves,chr1,76841,0.016784,49.67699,18.462585
+t effector cell cd8,map1 donor halves,chr2,61715,0.017461,45.314429,14.100024
+t effector cell cd8,map1 donor halves,chr3,46909,0.018663,43.357192,12.142787
+t effector cell cd8,map1 donor halves,chr4,34879,0.019418,37.401569,6.187164
+t effector cell cd8,map1 donor halves,chr5,42646,0.018187,38.82721,7.612805
+t effector cell cd8,map1 donor halves,chr6,41777,0.015334,33.271711,2.057306
+t effector cell cd8,map1 donor halves,chr7,44105,0.018063,38.906594,7.69219
+t effector cell cd8,map1 donor halves,chr8,36399,0.019477,38.717355,7.502951
+t effector cell cd8,map1 donor halves,chr9,24226,0.017092,27.781792,-3.432612
+t effector cell cd8,map1 donor halves,chr10,39947,0.017552,36.227253,5.012848
+t effector cell cd8,map1 donor halves,chr11,45681,0.017744,39.017618,7.803214
+t effector cell cd8,map1 donor halves,chr12,41983,0.015455,33.893932,2.679528
+t effector cell cd8,map1 donor halves,chr13,19968,0.017332,25.859943,-5.354461
+t effector cell cd8,map1 donor halves,chr14,27233,0.016536,29.081832,-2.132573
+t effector cell cd8,map1 donor halves,chr15,26588,0.017017,29.157098,-2.057306
+t effector cell cd8,map1 donor halves,chr16,34120,0.013634,26.880883,-4.333522
+t effector cell cd8,map1 donor halves,chr17,39741,0.013494,28.220052,-2.994352
+t effector cell cd8,map1 donor halves,chr18,13934,0.021698,26.246116,-4.968289
+t effector cell cd8,map1 donor halves,chr19,32958,0.011959,22.830528,-8.383877
+t effector cell cd8,map1 donor halves,chr20,21217,0.018677,27.548491,-3.665914
+t effector cell cd8,map1 donor halves,chr21,9481,0.020514,20.09866,-11.115745
+t effector cell cd8,map1 donor halves,chr22,16040,0.015202,19.983992,-11.230413
+t effector cell cd8,map2 read halves,chr1,76842,0.000195,0.767979,0.592783
+t effector cell cd8,map2 read halves,chr2,61715,0.000123,0.438395,0.263199
+t effector cell cd8,map2 read halves,chr3,46909,-0.000118,-0.37105,-0.546246
+t effector cell cd8,map2 read halves,chr4,34879,-0.000142,-0.379167,-0.554363
+t effector cell cd8,map2 read halves,chr5,42646,0.000413,1.199496,1.024299
+t effector cell cd8,map2 read halves,chr6,41778,-0.000134,-0.39863,-0.573827
+t effector cell cd8,map2 read halves,chr7,44105,0.000659,1.954342,1.779146
+t effector cell cd8,map2 read halves,chr8,36399,0.000149,0.397871,0.222674
+t effector cell cd8,map2 read halves,chr9,24226,0.000142,0.308434,0.133238
+t effector cell cd8,map2 read halves,chr10,39947,0.000255,0.714054,0.538857
+t effector cell cd8,map2 read halves,chr11,45681,-0.001215,-3.616495,-3.791691
+t effector cell cd8,map2 read halves,chr12,41983,0.000234,0.696953,0.521756
+t effector cell cd8,map2 read halves,chr13,19968,-0.00105,-2.138046,-2.313242
+t effector cell cd8,map2 read halves,chr14,27233,0.000186,0.442085,0.266889
+t effector cell cd8,map2 read halves,chr15,26588,3.1e-05,0.072021,-0.103175
+t effector cell cd8,map2 read halves,chr16,34120,-0.00047,-1.247935,-1.423131
+t effector cell cd8,map2 read halves,chr17,39741,-0.000482,-1.37241,-1.547606
+t effector cell cd8,map2 read halves,chr18,13934,-0.000431,-0.714663,-0.889859
+t effector cell cd8,map2 read halves,chr19,32959,-0.000223,-0.576286,-0.751482
+t effector cell cd8,map2 read halves,chr20,21217,0.000141,0.278371,0.103175
+t effector cell cd8,map2 read halves,chr21,9481,0.000786,1.067175,0.891978
+t effector cell cd8,map2 read halves,chr22,16040,-2.6e-05,-0.046685,-0.221881
+t effector memory cd4,map1 donor halves,chr1,76840,0.013701,41.925539,14.277092
+t effector memory cd4,map1 donor halves,chr2,61715,0.01508,40.858549,13.210103
+t effector memory cd4,map1 donor halves,chr3,46909,0.015249,36.884246,9.235799
+t effector memory cd4,map1 donor halves,chr4,34879,0.016857,33.635747,5.9873
+t effector memory cd4,map1 donor halves,chr5,42646,0.014771,32.564768,4.916321
+t effector memory cd4,map1 donor halves,chr6,41777,0.014041,31.389527,3.74108
+t effector memory cd4,map1 donor halves,chr7,44105,0.01394,31.415339,3.766892
+t effector memory cd4,map1 donor halves,chr8,36399,0.015915,32.454781,4.806334
+t effector memory cd4,map1 donor halves,chr9,24226,0.015528,26.431679,-1.216768
+t effector memory cd4,map1 donor halves,chr10,39947,0.01506,31.990102,4.341655
+t effector memory cd4,map1 donor halves,chr11,45681,0.014688,33.638536,5.990089
+t effector memory cd4,map1 donor halves,chr12,41983,0.012622,28.865215,1.216768
+t effector memory cd4,map1 donor halves,chr13,19968,0.014382,22.181249,-5.467198
+t effector memory cd4,map1 donor halves,chr14,27233,0.013497,24.684993,-2.963454
+t effector memory cd4,map1 donor halves,chr15,26588,0.014154,25.343188,-2.305259
+t effector memory cd4,map1 donor halves,chr16,34120,0.009878,20.387462,-7.260985
+t effector memory cd4,map1 donor halves,chr17,39741,0.011132,24.265689,-3.382758
+t effector memory cd4,map1 donor halves,chr18,13934,0.016881,21.323404,-6.325043
+t effector memory cd4,map1 donor halves,chr19,32958,0.008287,17.015631,-10.632815
+t effector memory cd4,map1 donor halves,chr20,21217,0.014378,22.256122,-5.392325
+t effector memory cd4,map1 donor halves,chr21,9481,0.016697,17.14426,-10.504186
+t effector memory cd4,map1 donor halves,chr22,16040,0.010316,14.204564,-13.443883
+t effector memory cd4,map2 read halves,chr1,76842,-0.000107,-0.412074,0.141312
+t effector memory cd4,map2 read halves,chr2,61715,-0.000522,-1.802689,-1.249303
+t effector memory cd4,map2 read halves,chr3,46909,-0.000391,-1.195838,-0.642452
+t effector memory cd4,map2 read halves,chr4,34879,0.000315,0.814018,1.367403
+t effector memory cd4,map2 read halves,chr5,42646,-0.000411,-1.161246,-0.607861
+t effector memory cd4,map2 read halves,chr6,41778,-4.7e-05,-0.137351,0.416035
+t effector memory cd4,map2 read halves,chr7,44105,-0.000516,-1.491302,-0.937916
+t effector memory cd4,map2 read halves,chr8,36399,0.000406,1.0619,1.615286
+t effector memory cd4,map2 read halves,chr9,24226,-0.000199,-0.423771,0.129614
+t effector memory cd4,map2 read halves,chr10,39947,-0.000371,-1.01723,-0.463844
+t effector memory cd4,map2 read halves,chr11,45681,0.000506,1.463258,2.016643
+t effector memory cd4,map2 read halves,chr12,41983,-0.00037,-1.078814,-0.525428
+t effector memory cd4,map2 read halves,chr13,19968,0.000461,0.916058,1.469444
+t effector memory cd4,map2 read halves,chr14,27233,-0.000294,-0.68573,-0.132345
+t effector memory cd4,map2 read halves,chr15,26588,-0.000301,-0.683,-0.129614
+t effector memory cd4,map2 read halves,chr16,34120,-0.000567,-1.459486,-0.9061
+t effector memory cd4,map2 read halves,chr17,39741,-0.000484,-1.342435,-0.789049
+t effector memory cd4,map2 read halves,chr18,13934,-0.00076,-1.228068,-0.674682
+t effector memory cd4,map2 read halves,chr19,32959,0.000712,1.835383,2.388769
+t effector memory cd4,map2 read halves,chr20,21217,0.000221,0.430028,0.983414
+t effector memory cd4,map2 read halves,chr21,9481,-0.000153,-0.202731,0.350655
+t effector memory cd4,map2 read halves,chr22,16040,0.000342,0.582935,1.13632
+thyroid epithelium,map1 donor halves,chr1,76783,-0.003686,-13.631598,-7.147267
+thyroid epithelium,map1 donor halves,chr2,61715,-0.003393,-11.043743,-4.559412
+thyroid epithelium,map1 donor halves,chr3,46909,-0.00204,-5.921206,0.563125
+thyroid epithelium,map1 donor halves,chr4,34879,-0.000914,-2.276121,4.20821
+thyroid epithelium,map1 donor halves,chr5,42646,-0.002684,-7.165895,-0.681563
+thyroid epithelium,map1 donor halves,chr6,41778,-0.002008,-5.430874,1.053457
+thyroid epithelium,map1 donor halves,chr7,44105,-0.003025,-8.264935,-1.780604
+thyroid epithelium,map1 donor halves,chr8,36398,-0.003348,-8.4439,-1.959569
+thyroid epithelium,map1 donor halves,chr9,24226,-0.003106,-6.28995,0.194381
+thyroid epithelium,map1 donor halves,chr10,39947,-0.002424,-6.156571,0.32776
+thyroid epithelium,map1 donor halves,chr11,45681,-0.00362,-10.050126,-3.565795
+thyroid epithelium,map1 donor halves,chr12,41983,-0.002674,-7.278097,-0.793766
+thyroid epithelium,map1 donor halves,chr13,19968,-0.002746,-5.165737,1.318594
+thyroid epithelium,map1 donor halves,chr14,27233,-0.00298,-6.413358,0.070974
+thyroid epithelium,map1 donor halves,chr15,26575,-0.002421,-5.277817,1.206514
+thyroid epithelium,map1 donor halves,chr16,34120,-0.003694,-8.754068,-2.269737
+thyroid epithelium,map1 donor halves,chr17,39741,-0.004235,-10.986968,-4.502636
+thyroid epithelium,map1 donor halves,chr18,13934,-0.000958,-1.458624,5.025707
+thyroid epithelium,map1 donor halves,chr19,32959,-0.002268,-5.3729,1.111431
+thyroid epithelium,map1 donor halves,chr20,21217,-0.006183,-11.162087,-4.677756
+thyroid epithelium,map1 donor halves,chr21,9481,-0.002924,-3.684735,2.799597
+thyroid epithelium,map1 donor halves,chr22,16039,-0.004068,-6.555305,-0.070974
+thyroid epithelium,map2 read halves,chr1,76842,0.000131,0.646205,0.707797
+thyroid epithelium,map2 read halves,chr2,61715,0.000219,0.983979,1.045571
+thyroid epithelium,map2 read halves,chr3,46909,0.000162,0.64513,0.706722
+thyroid epithelium,map2 read halves,chr4,34879,-6.2e-05,-0.21202,-0.150427
+thyroid epithelium,map2 read halves,chr5,42646,-0.000467,-1.717923,-1.65633
+thyroid epithelium,map2 read halves,chr6,41778,-5.6e-05,-0.211818,-0.150226
+thyroid epithelium,map2 read halves,chr7,44105,-0.000143,-0.525409,-0.463816
+thyroid epithelium,map2 read halves,chr8,36399,0.000284,0.966045,1.027638
+thyroid epithelium,map2 read halves,chr9,24226,-3e-05,-0.083391,-0.021798
+thyroid epithelium,map2 read halves,chr10,39947,-0.000194,-0.694643,-0.633051
+thyroid epithelium,map2 read halves,chr11,45681,-1.1e-05,-0.039794,0.021798
+thyroid epithelium,map2 read halves,chr12,41983,-0.000158,-0.58095,-0.519358
+thyroid epithelium,map2 read halves,chr13,19968,-0.000147,-0.377496,-0.315904
+thyroid epithelium,map2 read halves,chr14,27233,0.000325,0.959544,1.021137
+thyroid epithelium,map2 read halves,chr15,26588,0.000453,1.340694,1.402287
+thyroid epithelium,map2 read halves,chr16,34120,-0.000163,-0.509841,-0.448248
+thyroid epithelium,map2 read halves,chr17,39741,-0.000329,-1.129032,-1.067439
+thyroid epithelium,map2 read halves,chr18,13934,-0.000137,-0.295336,-0.233743
+thyroid epithelium,map2 read halves,chr19,32959,0.000347,1.070473,1.132065
+thyroid epithelium,map2 read halves,chr20,21217,0.000284,0.67958,0.741172
+thyroid epithelium,map2 read halves,chr21,9481,0.000663,1.125346,1.186938
+thyroid epithelium,map2 read halves,chr22,16040,0.000253,0.535865,0.597457
+tongue epithelium,map1 donor halves,chr1,76840,-0.00191,-5.882374,-0.438244
+tongue epithelium,map1 donor halves,chr2,61715,-0.003676,-9.890557,-4.446427
+tongue epithelium,map1 donor halves,chr3,46909,-0.00498,-12.008086,-6.563956
+tongue epithelium,map1 donor halves,chr4,34878,-0.001738,-3.405011,2.039119
+tongue epithelium,map1 donor halves,chr5,42645,-0.004782,-10.450501,-5.006372
+tongue epithelium,map1 donor halves,chr6,41778,-0.004813,-10.9825,-5.53837
+tongue epithelium,map1 donor halves,chr7,44098,-0.002605,-5.843099,-0.398969
+tongue epithelium,map1 donor halves,chr8,36399,-0.004823,-9.691952,-4.247822
+tongue epithelium,map1 donor halves,chr9,24226,-0.002487,-4.316549,1.127581
+tongue epithelium,map1 donor halves,chr10,39942,-0.004016,-8.65199,-3.20786
+tongue epithelium,map1 donor halves,chr11,45681,-0.003662,-8.54424,-3.100111
+tongue epithelium,map1 donor halves,chr12,41983,-0.002798,-6.332683,-0.888553
+tongue epithelium,map1 donor halves,chr13,19967,-0.003195,-4.781003,0.663127
+tongue epithelium,map1 donor halves,chr14,27233,-0.00243,-4.368011,1.076119
+tongue epithelium,map1 donor halves,chr15,26588,-0.00279,-5.04516,0.398969
+tongue epithelium,map1 donor halves,chr16,34118,0.001615,3.30422,8.74835
+tongue epithelium,map1 donor halves,chr17,39741,-0.000278,-0.632862,4.811268
+tongue epithelium,map1 donor halves,chr18,13934,-0.0063,-8.0194,-2.575271
+tongue epithelium,map1 donor halves,chr19,32959,0.001377,2.909776,8.353905
+tongue epithelium,map1 donor halves,chr20,21216,-0.001951,-3.089216,2.354914
+tongue epithelium,map1 donor halves,chr21,9481,-0.002242,-2.355715,3.088414
+tongue epithelium,map1 donor halves,chr22,16040,0.000426,0.607,6.05113
+tongue epithelium,map2 read halves,chr1,76842,0.000171,0.860511,0.701133
+tongue epithelium,map2 read halves,chr2,61715,1.7e-05,0.075502,-0.083876
+tongue epithelium,map2 read halves,chr3,46909,0.000181,0.725177,0.565799
+tongue epithelium,map2 read halves,chr4,34879,-0.000307,-1.057126,-1.216504
+tongue epithelium,map2 read halves,chr5,42646,0.000309,1.145718,0.98634
+tongue epithelium,map2 read halves,chr6,41778,-0.000324,-1.213917,-1.373295
+tongue epithelium,map2 read halves,chr7,44105,0.00021,0.771261,0.611883
+tongue epithelium,map2 read halves,chr8,36399,0.000116,0.399303,0.239925
+tongue epithelium,map2 read halves,chr9,24226,-0.000284,-0.790123,-0.949501
+tongue epithelium,map2 read halves,chr10,39947,3.8e-05,0.135684,-0.023694
+tongue epithelium,map2 read halves,chr11,45681,-0.000349,-1.312293,-1.471671
+tongue epithelium,map2 read halves,chr12,41983,4.9e-05,0.183072,0.023694
+tongue epithelium,map2 read halves,chr13,19968,-0.000145,-0.364026,-0.523404
+tongue epithelium,map2 read halves,chr14,27233,-0.000304,-0.907401,-1.066779
+tongue epithelium,map2 read halves,chr15,26588,9e-06,0.028401,-0.130977
+tongue epithelium,map2 read halves,chr16,34120,-0.000152,-0.492383,-0.651761
+tongue epithelium,map2 read halves,chr17,39741,0.000343,1.220913,1.061535
+tongue epithelium,map2 read halves,chr18,13934,0.000489,1.049071,0.889693
+tongue epithelium,map2 read halves,chr19,32959,0.000491,1.576819,1.417441
+tongue epithelium,map2 read halves,chr20,21217,8.4e-05,0.21087,0.051492
+tongue epithelium,map2 read halves,chr21,9481,0.000336,0.586418,0.42704
+tongue epithelium,map2 read halves,chr22,16040,-0.000622,-1.369776,-1.529154
+tonsil palatine epithelium,map1 donor halves,chr1,76842,0.012948,45.2296,16.271475
+tonsil palatine epithelium,map1 donor halves,chr2,61715,0.0126,38.742569,9.784444
+tonsil palatine epithelium,map1 donor halves,chr3,46907,0.013931,38.159837,9.201712
+tonsil palatine epithelium,map1 donor halves,chr4,34879,0.012444,28.935843,-0.022282
+tonsil palatine epithelium,map1 donor halves,chr5,42646,0.012574,31.365447,2.407322
+tonsil palatine epithelium,map1 donor halves,chr6,41778,0.012799,33.418264,4.460139
+tonsil palatine epithelium,map1 donor halves,chr7,44103,0.012642,32.044702,3.086577
+tonsil palatine epithelium,map1 donor halves,chr8,36398,0.012448,28.716811,-0.241314
+tonsil palatine epithelium,map1 donor halves,chr9,24226,0.013588,25.994697,-2.963428
+tonsil palatine epithelium,map1 donor halves,chr10,39947,0.012303,30.293983,1.335859
+tonsil palatine epithelium,map1 donor halves,chr11,45681,0.012582,33.213153,4.255028
+tonsil palatine epithelium,map1 donor halves,chr12,41983,0.012162,31.045924,2.087799
+tonsil palatine epithelium,map1 donor halves,chr13,19968,0.011175,19.331581,-9.626544
+tonsil palatine epithelium,map1 donor halves,chr14,27232,0.012508,25.689076,-3.269049
+tonsil palatine epithelium,map1 donor halves,chr15,26588,0.014073,28.980407,0.022282
+tonsil palatine epithelium,map1 donor halves,chr16,34120,0.012351,27.699975,-1.25815
+tonsil palatine epithelium,map1 donor halves,chr17,39741,0.013286,33.052571,4.094446
+tonsil palatine epithelium,map1 donor halves,chr18,13934,0.013833,20.267555,-8.69057
+tonsil palatine epithelium,map1 donor halves,chr19,32957,0.008391,19.213576,-9.744549
+tonsil palatine epithelium,map1 donor halves,chr20,21216,0.011276,19.671072,-9.287052
+tonsil palatine epithelium,map1 donor halves,chr21,9481,0.012571,15.034635,-13.923489
+tonsil palatine epithelium,map1 donor halves,chr22,16040,0.013558,20.728414,-8.22971
+tonsil palatine epithelium,map2 read halves,chr1,76842,0.000121,0.563207,0.959203
+tonsil palatine epithelium,map2 read halves,chr2,61715,-8.3e-05,-0.34977,0.046226
+tonsil palatine epithelium,map2 read halves,chr3,46909,-9.4e-05,-0.351795,0.0442
+tonsil palatine epithelium,map2 read halves,chr4,34879,0.000616,1.994082,2.390077
+tonsil palatine epithelium,map2 read halves,chr5,42646,-0.000273,-0.951605,-0.555609
+tonsil palatine epithelium,map2 read halves,chr6,41778,0.000259,0.920378,1.316374
+tonsil palatine epithelium,map2 read halves,chr7,44105,0.00011,0.377679,0.773675
+tonsil palatine epithelium,map2 read halves,chr8,36399,0.00018,0.578518,0.974514
+tonsil palatine epithelium,map2 read halves,chr9,24226,-0.00025,-0.651816,-0.25582
+tonsil palatine epithelium,map2 read halves,chr10,39947,-2.9e-05,-0.096179,0.299817
+tonsil palatine epithelium,map2 read halves,chr11,45681,-0.000125,-0.440196,-0.0442
+tonsil palatine epithelium,map2 read halves,chr12,41983,-0.000161,-0.561256,-0.165261
+tonsil palatine epithelium,map2 read halves,chr13,19968,-1e-05,-0.022536,0.373459
+tonsil palatine epithelium,map2 read halves,chr14,27233,0.00035,0.974617,1.370613
+tonsil palatine epithelium,map2 read halves,chr15,26588,-0.000164,-0.460152,-0.064156
+tonsil palatine epithelium,map2 read halves,chr16,34120,-0.000605,-1.812937,-1.416941
+tonsil palatine epithelium,map2 read halves,chr17,39741,-0.000383,-1.269916,-0.873921
+tonsil palatine epithelium,map2 read halves,chr18,13934,-0.000543,-1.101805,-0.705809
+tonsil palatine epithelium,map2 read halves,chr19,32959,-0.00033,-0.989443,-0.593447
+tonsil palatine epithelium,map2 read halves,chr20,21217,-0.001338,-3.121046,-2.72505
+tonsil palatine epithelium,map2 read halves,chr21,9481,-8.5e-05,-0.140058,0.255938
+tonsil palatine epithelium,map2 read halves,chr22,16040,-0.000243,-0.501808,-0.105813
+tonsil pharyngeal epithelium,map1 donor halves,chr1,76786,0.028447,62.042756,19.477793
+tonsil pharyngeal epithelium,map1 donor halves,chr2,61715,0.028362,55.018049,12.453086
+tonsil pharyngeal epithelium,map1 donor halves,chr3,46907,0.03034,51.197506,8.632543
+tonsil pharyngeal epithelium,map1 donor halves,chr4,34879,0.030747,43.661555,1.096592
+tonsil pharyngeal epithelium,map1 donor halves,chr5,42646,0.034852,54.24857,11.683607
+tonsil pharyngeal epithelium,map1 donor halves,chr6,41778,0.026487,42.619473,0.05451
+tonsil pharyngeal epithelium,map1 donor halves,chr7,44104,0.030514,49.182672,6.617709
+tonsil pharyngeal epithelium,map1 donor halves,chr8,36399,0.031794,45.65237,3.087407
+tonsil pharyngeal epithelium,map1 donor halves,chr9,24226,0.031044,38.348248,-4.216714
+tonsil pharyngeal epithelium,map1 donor halves,chr10,39946,0.027726,42.510453,-0.05451
+tonsil pharyngeal epithelium,map1 donor halves,chr11,45681,0.033567,55.737704,13.172741
+tonsil pharyngeal epithelium,map1 donor halves,chr12,41982,0.02993,48.84643,6.281467
+tonsil pharyngeal epithelium,map1 donor halves,chr13,19968,0.031789,33.97709,-8.587873
+tonsil pharyngeal epithelium,map1 donor halves,chr14,27233,0.031002,39.486227,-3.078735
+tonsil pharyngeal epithelium,map1 donor halves,chr15,26588,0.02332,29.541996,-13.022967
+tonsil pharyngeal epithelium,map1 donor halves,chr16,34119,0.030318,43.791076,1.226113
+tonsil pharyngeal epithelium,map1 donor halves,chr17,39741,0.024279,38.694788,-3.870174
+tonsil pharyngeal epithelium,map1 donor halves,chr18,13934,0.033599,31.075544,-11.489419
+tonsil pharyngeal epithelium,map1 donor halves,chr19,32959,0.026422,40.323408,-2.241555
+tonsil pharyngeal epithelium,map1 donor halves,chr20,21215,0.035212,39.176003,-3.38896
+tonsil pharyngeal epithelium,map1 donor halves,chr21,9481,0.026191,17.845271,-24.719692
+tonsil pharyngeal epithelium,map1 donor halves,chr22,16040,0.036601,35.341222,-7.223741
+tonsil pharyngeal epithelium,map2 read halves,chr1,76842,-2.8e-05,-0.100185,-0.042273
+tonsil pharyngeal epithelium,map2 read halves,chr2,61715,0.000198,0.633423,0.691336
+tonsil pharyngeal epithelium,map2 read halves,chr3,46909,-0.000202,-0.574105,-0.516193
+tonsil pharyngeal epithelium,map2 read halves,chr4,34879,0.000294,0.715313,0.773225
+tonsil pharyngeal epithelium,map2 read halves,chr5,42646,-0.000448,-1.163591,-1.105679
+tonsil pharyngeal epithelium,map2 read halves,chr6,41778,-6.1e-05,-0.16497,-0.107057
+tonsil pharyngeal epithelium,map2 read halves,chr7,44105,-0.000639,-1.681062,-1.62315
+tonsil pharyngeal epithelium,map2 read halves,chr8,36399,0.000665,1.609717,1.66763
+tonsil pharyngeal epithelium,map2 read halves,chr9,24226,1.9e-05,0.038113,0.096025
+tonsil pharyngeal epithelium,map2 read halves,chr10,39947,0.000412,1.051912,1.109825
+tonsil pharyngeal epithelium,map2 read halves,chr11,45681,0.000562,1.507441,1.565353
+tonsil pharyngeal epithelium,map2 read halves,chr12,41983,-0.000125,-0.327925,-0.270013
+tonsil pharyngeal epithelium,map2 read halves,chr13,19968,-0.000539,-0.966509,-0.908597
+tonsil pharyngeal epithelium,map2 read halves,chr14,27233,0.000435,0.912671,0.970583
+tonsil pharyngeal epithelium,map2 read halves,chr15,26588,-7e-06,-0.015639,0.042273
+tonsil pharyngeal epithelium,map2 read halves,chr16,34120,0.000239,0.543798,0.60171
+tonsil pharyngeal epithelium,map2 read halves,chr17,39741,-0.000442,-1.102184,-1.044272
+tonsil pharyngeal epithelium,map2 read halves,chr18,13934,-0.000785,-1.186787,-1.128875
+tonsil pharyngeal epithelium,map2 read halves,chr19,32959,-6e-06,-0.013,0.044912
+tonsil pharyngeal epithelium,map2 read halves,chr20,21217,0.00027,0.483749,0.541662
+tonsil pharyngeal epithelium,map2 read halves,chr21,9481,-0.000595,-0.730124,-0.672212
+tonsil pharyngeal epithelium,map2 read halves,chr22,16040,-0.00146,-2.249249,-2.191336
+vascular saphenous endothelium,map1 donor halves,chr1,76842,0.020731,48.293882,16.166274
+vascular saphenous endothelium,map1 donor halves,chr2,61715,0.019373,39.362016,7.234407
+vascular saphenous endothelium,map1 donor halves,chr3,46908,0.020401,37.115415,4.987806
+vascular saphenous endothelium,map1 donor halves,chr4,34879,0.01678,25.816446,-6.311163
+vascular saphenous endothelium,map1 donor halves,chr5,42646,0.017876,30.534821,-1.592788
+vascular saphenous endothelium,map1 donor halves,chr6,41778,0.018116,30.678868,-1.448741
+vascular saphenous endothelium,map1 donor halves,chr7,44105,0.019585,34.067009,1.939401
+vascular saphenous endothelium,map1 donor halves,chr8,36399,0.021888,34.492487,2.364878
+vascular saphenous endothelium,map1 donor halves,chr9,24226,0.021962,27.763947,-4.363661
+vascular saphenous endothelium,map1 donor halves,chr10,39947,0.019011,31.15331,-0.974299
+vascular saphenous endothelium,map1 donor halves,chr11,45676,0.023532,42.83674,10.709131
+vascular saphenous endothelium,map1 donor halves,chr12,41983,0.020482,35.586922,3.459313
+vascular saphenous endothelium,map1 donor halves,chr13,19968,0.018448,21.513697,-10.613912
+vascular saphenous endothelium,map1 donor halves,chr14,27233,0.023671,33.101907,0.974299
+vascular saphenous endothelium,map1 donor halves,chr15,26588,0.018144,24.835917,-7.291692
+vascular saphenous endothelium,map1 donor halves,chr16,34120,0.025277,40.098678,7.97107
+vascular saphenous endothelium,map1 donor halves,chr17,39729,0.021,34.934216,2.806608
+vascular saphenous endothelium,map1 donor halves,chr18,13934,0.021697,21.214575,-10.913034
+vascular saphenous endothelium,map1 donor halves,chr19,32959,0.022523,38.108697,5.981088
+vascular saphenous endothelium,map1 donor halves,chr20,21217,0.023305,28.535651,-3.591958
+vascular saphenous endothelium,map1 donor halves,chr21,9481,0.022826,17.474467,-14.653142
+vascular saphenous endothelium,map1 donor halves,chr22,16040,0.025073,26.64419,-5.483418
+vascular saphenous endothelium,map2 read halves,chr1,76842,-0.000205,-0.939267,-0.900985
+vascular saphenous endothelium,map2 read halves,chr2,61715,-0.000234,-0.968176,-0.929895
+vascular saphenous endothelium,map2 read halves,chr3,46909,0.000489,1.804867,1.843149
+vascular saphenous endothelium,map2 read halves,chr4,34879,0.000241,0.754962,0.793244
+vascular saphenous endothelium,map2 read halves,chr5,42646,7.2e-05,0.247152,0.285434
+vascular saphenous endothelium,map2 read halves,chr6,41778,-0.000225,-0.779926,-0.741644
+vascular saphenous endothelium,map2 read halves,chr7,44105,-0.000271,-0.927332,-0.88905
+vascular saphenous endothelium,map2 read halves,chr8,36399,0.000254,0.794258,0.83254
+vascular saphenous endothelium,map2 read halves,chr9,24226,-0.000224,-0.573944,-0.535662
+vascular saphenous endothelium,map2 read halves,chr10,39947,0.000733,2.42264,2.460922
+vascular saphenous endothelium,map2 read halves,chr11,45681,0.000486,1.695279,1.733561
+vascular saphenous endothelium,map2 read halves,chr12,41983,-2.2e-05,-0.076542,-0.03826
+vascular saphenous endothelium,map2 read halves,chr13,19968,0.000175,0.410557,0.448839
+vascular saphenous endothelium,map2 read halves,chr14,27233,0.000309,0.851578,0.88986
+vascular saphenous endothelium,map2 read halves,chr15,26588,-0.000401,-1.095642,-1.05736
+vascular saphenous endothelium,map2 read halves,chr16,34120,0.000192,0.575786,0.614068
+vascular saphenous endothelium,map2 read halves,chr17,39741,-0.000233,-0.760374,-0.722092
+vascular saphenous endothelium,map2 read halves,chr18,13934,-0.000643,-1.264293,-1.226011
+vascular saphenous endothelium,map2 read halves,chr19,32959,-0.000325,-0.970444,-0.932162
+vascular saphenous endothelium,map2 read halves,chr20,21217,-0.0,-2.2e-05,0.03826
+vascular saphenous endothelium,map2 read halves,chr21,9481,0.000518,0.817059,0.855341
+vascular saphenous endothelium,map2 read halves,chr22,16040,-0.000553,-1.106684,-1.068402

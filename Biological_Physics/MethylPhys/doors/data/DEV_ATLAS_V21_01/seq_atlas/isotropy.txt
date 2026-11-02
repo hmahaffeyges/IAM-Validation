@@ -1,0 +1,2 @@
+map1 donor halves: 48 cells x 22 autosomes; |z from the cell's own median| above 4: 409 of 1056 (0.3873); largest 37.74 (erythrocyte progenitors, chr21)
+map2 read halves: 56 cells x 22 autosomes; |z from the cell's own median| above 4: 0 of 1232 (0.0000); largest 3.79 (t effector cell cd8, chr11)

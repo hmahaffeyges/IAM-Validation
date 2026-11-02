@@ -840,3 +840,10 @@ median correlation is at most 0.0002 in absolute value in every band (bar 0.02).
 people differ: median correlation 0.1223 between sites under 1 kb apart, 0.0283 at 1 to 10 kb, 0.0120 at 10 to 100 kb, 0.0037 at 0.1 to
 1 Mb, and none beyond. The differences are mostly local, among neighboring CpGs, with a weak tail to about 1 Mb that adds up to the
 large-scale power on the sphere. **The sky-null synthetic through the one command: met** (`seq_atlas/sky_null_synthetic.txt`).
+
+**Isotropy by chromosome (D14; a measurement, no bar; written and run after the noise maps)** (`seq_atlas/isotropy.py`,
+`seq_atlas/isotropy.csv`, `seq_atlas/isotropy.txt`). Each autosome's mean of each noise map, per cell, against its own standard error and
+the cell's median over its autosomes. The counting-only map: no autosome more than 4 standard errors from its cell's median in any of the
+1232 cell-chromosome pairs (largest 3.79), so the read split is the same everywhere in the genome. The donor-half map: 409 of 1056 pairs
+beyond 4 (largest 37.74, erythrocyte progenitors, chromosome 21). Its neighboring sites are correlated (the genome-distance spectrum), so
+these standard errors are too small and the count overstates; it is recorded, not scored, as the person-to-person part again.

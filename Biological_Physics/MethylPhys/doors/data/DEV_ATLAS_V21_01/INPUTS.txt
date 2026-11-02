@@ -55,3 +55,5 @@ genome_spectrum_synthetic.txt
 noise_spectrum.csv
 noise_spectrum.json
 noise_spectrum_summary.txt
+isotropy.csv
+isotropy.txt
