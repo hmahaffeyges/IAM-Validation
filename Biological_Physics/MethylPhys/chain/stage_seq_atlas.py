@@ -454,6 +454,26 @@ def noise_null(cols=None, man=None):
             r = sky_null(v, order, msk); rows.append(dict(cell=c, map=name, **{k: r[k] for k in ("ratio", "bands_above_null", "f_sky")})); print(c, name, r["bands_above_null"], flush=True)
     return rows
 
+def bridge(cols=None):
+    """2026-11-01 (checklist C4, D11; a measurement, nothing scored): each cell's sequencing level (the sphere columns' pooled level) against
+    IAM-Atlas v2.1's at the sites both measure: sites, Pearson r, mean and median absolute difference (sequencing minus v2.1), and the share
+    of v2.1 values inside the sequencing atlas's 95 % range of the cell's average. v2.1 drew in part on the same published sequencing atlas,
+    so the agreement is not independent; the offsets are what this records."""
+    import pyarrow.parquet as pq, stage_metaa_atlas as SA
+    cols = cols or SPHERE_DIR; dec = lambda a: np.where(a == BLANK, np.nan, a.astype("float64") / 1e4); V = {}; rows = []
+    for k in (1, 2, 3):
+        t = pq.read_table(os.path.join(SA.ATLAS, f"mu_part{k}.parquet"))
+        for c in t.column_names: V[c] = (k, c)
+    for k in (1, 2, 3):
+        S_, L_, H_ = (pq.read_table(os.path.join(cols, f"{st}_part{k}.parquet")) for st in ("mu", "mu_lo", "mu_hi"))
+        for c in S_.column_names:
+            if c not in V: continue
+            v = dec(pq.read_table(os.path.join(SA.ATLAS, f"mu_part{V[c][0]}.parquet"), columns=[c]).column(c).to_numpy()); q = dec(S_.column(c).to_numpy())
+            lo, hi = dec(L_.column(c).to_numpy()), dec(H_.column(c).to_numpy()); ok = np.isfinite(v) & np.isfinite(q); d = q[ok] - v[ok]
+            rows.append(dict(cell=c, sites=int(ok.sum()), r=round(float(np.corrcoef(q[ok], v[ok])[0, 1]), 4), mean_diff=round(float(d.mean()), 4),
+                             median_abs_diff=round(float(np.median(np.abs(d))), 4), inside_range=round(float(((v[ok] >= lo[ok]) & (v[ok] <= hi[ok])).mean()), 4)))
+    return rows
+
 TERR_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "terr_half_counts")   # terr_half_counts_v1.parquet
 TERR_FILE = None   # 2026-11-01: a constructed per-half island counts file (run_sample.py --dev-terr-counts), for synthetics
 

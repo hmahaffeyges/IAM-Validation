@@ -798,3 +798,8 @@ lies above its null in 4 to 6 bands in all 48 cells with both halves: median 2.5
 to 0.988 at the finest. Healthy people differ from one another over large stretches of the genome, not site by site; strongest in
 breast luminal epithelium, pancreatic acinar cells and cortical neurons. This is the person-to-person part the readings already carry
 through their donor references; it is the measured case for more donors per cell.
+
+**The bridge to IAM-Atlas v2.1 (written and committed before it runs; checklist C4, D11; a measurement, nothing scored).** For each of
+the 56 cells both atlases hold, at the sites both measure (`stage_seq_atlas.bridge`, `run_sample.py --build seq-bridge`): the correlation,
+the mean and median difference (sequencing minus v2.1), and how often v2.1's value sits inside the sequencing atlas's 95 % range. v2.1
+drew in part on the same published sequencing atlas, so close agreement is expected and not independent; the offsets are the record.

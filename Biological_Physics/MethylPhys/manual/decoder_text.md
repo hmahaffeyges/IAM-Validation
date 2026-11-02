@@ -2382,6 +2382,9 @@ The islands read with that expectation, against the donor half given, both sides
 ### stage_metaa_atlas.py::thin_H
 The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
 
+### stage_seq_atlas.py::bridge
+Each cell's sequencing level against IAM-Atlas v2.1's at the sites both measure (`--build seq-bridge`).
+
 ### stage_seq_atlas.py::sky_mask_sites
 The sites the sky statistics leave out: the sex chromosomes and the probes that cannot be placed uniquely in the genome.
 
