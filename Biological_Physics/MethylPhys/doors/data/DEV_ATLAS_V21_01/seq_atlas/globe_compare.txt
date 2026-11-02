@@ -1,0 +1,2 @@
+IAM Sequencing Atlas (development): 534617 sites placed, 142527 clear, margin median 0.042; family concentration median 0.42
+IAM-Atlas v2.1: 191458 sites placed, 41241 clear, margin median 0.036; family concentration median 0.35

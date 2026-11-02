@@ -1,0 +1,159 @@
+{
+ "stage": "information sphere (development)",
+ "construction": "v5: v1 on each site's square-root vector minus that of a flat profile at its own mean level, scaled to 1 (the level taken out)",
+ "distance_rho_fisher_rao": 0.1913,
+ "sites_without_direction": 0,
+ "sites": 534617,
+ "cell_types": 56,
+ "variance_kept": 0.3289,
+ "nside": 128,
+ "sky_covered": 0.8768,
+ "sky_masked": 0.1232,
+ "distance_rho": 0.6953,
+ "edge_ratio": 1.005,
+ "groups": {},
+ "margin_median": 0.042,
+ "sites_clear": 142527,
+ "clear_margin": 0.1,
+ "concentration_by_family": {
+  "T cells": {
+   "all": 0.11,
+   "methylated_there": 0.8,
+   "unmethylated_there": 0.86,
+   "clear_methylated_there": 0.81,
+   "clear_unmethylated_there": 0.88
+  },
+  "B and NK cells": {
+   "all": 0.53,
+   "methylated_there": 0.82,
+   "unmethylated_there": 0.76,
+   "clear_methylated_there": 0.83,
+   "clear_unmethylated_there": 0.78
+  },
+  "Myeloid cells": {
+   "all": 0.51,
+   "methylated_there": 0.68,
+   "unmethylated_there": 0.84,
+   "clear_methylated_there": 0.53,
+   "clear_unmethylated_there": 0.83
+  },
+  "Bone marrow progenitors": {
+   "all": 0.62,
+   "methylated_there": 0.67,
+   "unmethylated_there": 0.62,
+   "clear_methylated_there": null,
+   "clear_unmethylated_there": 0.69
+  },
+  "Liver": {
+   "all": 0.11,
+   "methylated_there": 0.55,
+   "unmethylated_there": 0.37,
+   "clear_methylated_there": 0.64,
+   "clear_unmethylated_there": 0.41
+  },
+  "Digestive tract": {
+   "all": 0.44,
+   "methylated_there": 0.75,
+   "unmethylated_there": 0.73,
+   "clear_methylated_there": 0.83,
+   "clear_unmethylated_there": 0.72
+  },
+  "Pancreas": {
+   "all": 0.25,
+   "methylated_there": 0.59,
+   "unmethylated_there": 0.52,
+   "clear_methylated_there": 0.68,
+   "clear_unmethylated_there": 0.58
+  },
+  "Lung and airway": {
+   "all": 0.43,
+   "methylated_there": 0.64,
+   "unmethylated_there": 0.48,
+   "clear_methylated_there": 0.67,
+   "clear_unmethylated_there": 0.32
+  },
+  "Kidney, bladder, prostate": {
+   "all": 0.22,
+   "methylated_there": 0.43,
+   "unmethylated_there": 0.31,
+   "clear_methylated_there": 0.56,
+   "clear_unmethylated_there": 0.26
+  },
+  "Breast and reproductive": {
+   "all": 0.26,
+   "methylated_there": 0.4,
+   "unmethylated_there": 0.4,
+   "clear_methylated_there": 0.42,
+   "clear_unmethylated_there": 0.32
+  },
+  "Squamous and thyroid": {
+   "all": 0.4,
+   "methylated_there": 0.42,
+   "unmethylated_there": 0.47,
+   "clear_methylated_there": 0.42,
+   "clear_unmethylated_there": 0.32
+  },
+  "Blood vessels": {
+   "all": 0.47,
+   "methylated_there": 0.75,
+   "unmethylated_there": 0.72,
+   "clear_methylated_there": 0.8,
+   "clear_unmethylated_there": 0.76
+  },
+  "Muscle, heart, fat, fibroblasts": {
+   "all": 0.51,
+   "methylated_there": 0.62,
+   "unmethylated_there": 0.6,
+   "clear_methylated_there": 0.69,
+   "clear_unmethylated_there": 0.65
+  },
+  "Brain": {
+   "all": 0.11,
+   "methylated_there": 0.48,
+   "unmethylated_there": 0.59,
+   "clear_methylated_there": 0.54,
+   "clear_unmethylated_there": 0.64
+  },
+  "Embryonic stem cells": {
+   "all": null,
+   "methylated_there": null,
+   "unmethylated_there": null,
+   "clear_methylated_there": null,
+   "clear_unmethylated_there": null
+  }
+ },
+ "atlas": "IAM Sequencing Atlas (development)",
+ "picture": "seq_globe.html",
+ "page_bytes": 7372491,
+ "sites_by_family": {
+  "T cells": 62866,
+  "B and NK cells": 24667,
+  "Myeloid cells": 20234,
+  "Bone marrow progenitors": 39834,
+  "Liver": 15446,
+  "Digestive tract": 59805,
+  "Pancreas": 53836,
+  "Lung and airway": 15277,
+  "Kidney, bladder, prostate": 20962,
+  "Breast and reproductive": 49211,
+  "Squamous and thyroid": 46604,
+  "Blood vessels": 16307,
+  "Muscle, heart, fat, fibroblasts": 72230,
+  "Brain": 37338,
+  "Embryonic stem cells": 0
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "info-globe",
+  "--build-input",
+  "/root/w/repo/Biological_Physics/MethylPhys/chain/Runtime Matrices/Seq_Atlas/sphere_cols",
+  "--build-name",
+  "IAM Sequencing Atlas (development)",
+  "--build-out",
+  "/root/w/seq_globe.html",
+  "--bundle",
+  "/root/w/seq_globe.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (DEV-SPHERE-01)"
+}

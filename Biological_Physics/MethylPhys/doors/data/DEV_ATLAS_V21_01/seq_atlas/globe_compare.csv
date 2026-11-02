@@ -1,0 +1,16 @@
+family,seq_sites,seq_all,seq_clear_methylated_there,v21_sites,v21_all,v21_clear_methylated_there
+T cells,62866,0.11,0.81,20197,0.14,0.88
+B and NK cells,24667,0.53,0.83,5978,0.45,
+Myeloid cells,20234,0.51,0.53,8567,0.53,0.32
+Bone marrow progenitors,39834,0.62,,9846,0.42,
+Liver,15446,0.11,0.64,6151,0.13,0.54
+Digestive tract,59805,0.44,0.83,17386,0.35,0.81
+Pancreas,53836,0.25,0.68,18761,0.21,0.64
+Lung and airway,15277,0.43,0.67,6720,0.48,0.85
+"Kidney, bladder, prostate",20962,0.22,0.56,7708,0.2,0.74
+Breast and reproductive,49211,0.26,0.42,18176,0.15,0.7
+Squamous and thyroid,46604,0.4,0.42,14284,0.35,0.66
+Blood vessels,16307,0.47,0.8,5610,0.36,0.76
+"Muscle, heart, fat, fibroblasts",72230,0.51,0.69,20532,0.45,0.74
+Brain,37338,0.11,0.54,22383,0.17,0.59
+Embryonic stem cells,0,,,9159,0.41,0.54

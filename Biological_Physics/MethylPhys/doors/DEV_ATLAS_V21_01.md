@@ -750,3 +750,10 @@ read alike: the bright areas are where more healthy donors are needed.
 given the atlas folder (`--build-input`, the sphere columns) and its name (`--build-name`). Its layout is written beside the picture, so the
 chain's committed v2.1 layout is never replaced. **The job:** sites group by the cell family whose identity they carry, as on v2.1's globe.
 Recorded beside it, not scored: the sites placed, and how clearly each family gathers (the concentration the build reports), against v2.1's.
+
+**The information globe: built** (`seq_atlas/globe/`; `seq_atlas/globe_compare.py`, `seq_atlas/globe_compare.txt`; one Google spot
+machine, both globes by the same command). The IAM Sequencing Atlas places 534617 sites (142527 clear of any second cell), IAM-Atlas
+v2.1 191458 (41241), on the same rule: v2.1 has 79 cells, so more sites fall out where one of them is unmeasured. Each family gathers
+about as tightly on the sequencing globe as on v2.1's (median concentration 0.42 against 0.35); embryonic stem cells are not in the
+sequencing atlas. Recorded, not scored. Part of the extra sites may be the thin columns' own noise passing the spread rule (two-donor cells);
+that is read when more donors are in.
