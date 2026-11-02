@@ -856,3 +856,11 @@ the same sites and now also each cell's donor spread (`donor_sd`, as stored in t
 everything else are unchanged. **The instrument's job:** a healthy sequenced sample shows little change on its globe. **Check, then one
 bar on the next healthy pass:** the spent healthy B-cell input GSM5652316 read both ways (diagnostic); then, on the healthy inputs, the
 median share of changed sites no higher against the sequencing atlas than against v2.1 (from pass 5's bundles).
+
+**The check, and the bar moved before any scoring (disclosed)** (`seq_atlas/globe_bcell_check.txt`). The B-cell input read against the sequencing atlas: 0 changed sites
+(62 against v2.1), 0 of 27 territories changed (1 against v2.1), Fisher-Rao distance from its own healthy self 0.11988 (0.20213);
+sorted-cell Met-A unchanged (1.06673). But this input is one of the atlas's own donors, and the sphere columns pool every donor, so its
+reference includes itself; the check is a diagnostic only. The one command now flags any sequenced sample that is an atlas input
+(`reference_includes_this_sample`). **The bar moves to the healthy samples no build has used** (the 25 outside neurons and 10 pancreas
+samples of the selection-free test): the median number of changed sites, and of changed territories, no higher against the sequencing
+atlas than against v2.1, the same samples read both ways by the one command (`--dev-globe-v21` draws the v2.1 globe; every other reading is the same).

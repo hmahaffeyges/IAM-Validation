@@ -1,0 +1,3 @@
+GSM5652316 against IAM-Atlas v2.1 (healthy pass 5 bundle, run 41345673476): globe sites changed 62 of 813933; territories changed 1 of 27; Fisher-Rao rms 0.20213, median 0.13027; sorted-cell Met-A 1.06673
+GSM5652316 against the IAM Sequencing Atlas (the one command, pass 5 settings, after 3fc545a5): globe sites changed 0 of 813935; territories changed 0 of 27; Fisher-Rao rms 0.11988, median 0.07525; sorted-cell Met-A 1.06673
+diagnostic only: GSM5652316 is an atlas input, so the sequencing atlas's pooled columns include it

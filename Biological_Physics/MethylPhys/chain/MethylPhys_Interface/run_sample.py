@@ -627,6 +627,7 @@ def main():
     ap.add_argument("--prior-name", default="the earlier reading", help="with --prior-pat: what the other file is, as the globe names it")
     ap.add_argument("--genome-region", type=int, default=1000, help="with --dev-genome-globe: CpGs per region (default 1000)")
     ap.add_argument("--dev-info-sphere", action="store_true", default=True, help="DEVELOPMENT - not commissioned (DEV-SPHERE-01): the sample's change on the information sphere (page OUT_info_sphere.html; needs the layout from --build info-globe). On by default since 2026-10-23 (author: 'it still gets created by the chain and we learn each time it does')")
+    ap.add_argument("--dev-globe-v21", action="store_true", help="DEVELOPMENT (plan 35.30): draw a sequenced sample's globe and information sphere against IAM-Atlas v2.1 instead of the IAM Sequencing Atlas (for comparison)")
     ap.add_argument("--no-info-sphere", dest="dev_info_sphere", action="store_false", help="skip the information sphere reading")
     ap.add_argument("--dev-metaa-curve", action="store_true", help="DEVELOPMENT (plan 14.14, 2026-10-25): with --dev-metaa-atlas CELL, read Met-A with the atlas as the ruler on the array's own response curve (stage_metaa_atlas.read_on_curve) instead of the same-run tare")
     ap.add_argument("--dev-metaa-atlas", default=None, metavar="CELL",
@@ -1136,13 +1137,17 @@ def main():
             except Exception as e: o["changes_sky"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
         try:   # the turning globe in the HTML report (2026-10-21, step 13d): sample, its healthy reference, the difference, Met-A's departures
             import report_globe_v4 as RG
-            if getattr(a, "_seqv", False) and getattr(a, "dev_seq_ref", None):   # 2026-11-01 (plan 35.30): a sequenced sample's globe and information sphere against the IAM Sequencing Atlas
+            if getattr(a, "_seqv", False) and getattr(a, "dev_seq_ref", None) and not getattr(a, "dev_globe_v21", False):   # 2026-11-01 (plan 35.30): a sequenced sample's globe and information sphere against the IAM Sequencing Atlas
                 import stage_seq_atlas as _SQg; RG.use_atlas(_SQg.SPHERE_DIR, "IAM Sequencing Atlas (development)")
             _g = RG.build(_pd.Series(beta, dtype="float64"), a.specimen, {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or []}, z=_z,
                            fractions=(o.get("composition") or {}).get("fractions"),
                            sex=(intake or {}).get("declared_sex") or (intake or {}).get("predicted_sex"), out_html=os.path.splitext(os.path.abspath(a.out))[0] + "_globe.html",
                            cell_departures=getattr(a, "_cell_dep", None))
             _fr = _g.pop("fragment", ""); _spec = _g.pop("spec", None); o["_globe_prose"] = _g.pop("prose", ""); _sites = _g.pop("_sites", None)
+            if getattr(a, "_seqv", False) and getattr(a, "dev_seq_ref", None):   # 2026-11-01 (plan 35.30): the sequencing atlas's sphere columns pool every input donor
+                _ins = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "seq_atlas_inputs.csv")
+                if os.path.exists(_ins) and str(a.id).strip() in set(_pd.read_csv(_ins).gsm.astype(str).str.strip()):
+                    _g["reference_includes_this_sample"] = True; _g["flag"] = "this sample is one of the IAM Sequencing Atlas's own donors, so its globe and information-sphere reference include it: not a self-free reading"
             if a.dev_info_sphere and _sites is None: o["info_sphere"] = {"reason": "the globe was not drawn, so there is no site-by-site change to place: " + str((o.get("globe") or {}).get("reason") or "")[:160]}   # 2026-10-23: never skip silently
             if a.dev_info_sphere and _sites is not None:   # 2026-10-23 (DEV-SPHERE-01, plan 35.2): the same change, on the information sphere
                 try:

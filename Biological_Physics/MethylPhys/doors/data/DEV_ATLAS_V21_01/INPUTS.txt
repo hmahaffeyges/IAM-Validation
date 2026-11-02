@@ -57,3 +57,4 @@ noise_spectrum.json
 noise_spectrum_summary.txt
 isotropy.csv
 isotropy.txt
+globe_bcell_check.txt
