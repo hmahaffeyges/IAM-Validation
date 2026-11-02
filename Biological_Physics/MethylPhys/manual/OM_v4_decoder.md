@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/reference_globes.py` | 179 | 10 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 167 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
-| `stage_seq_atlas.py` | 805 | 41 | 0 | 0 |
+| `stage_seq_atlas.py` | 809 | 41 | 0 | 0 |
 
 ## How to read the Decoder
 
@@ -3658,13 +3658,13 @@ The number of connected patches among the selected pixels (8 neighbors).
 
 A site-ordered map on the sphere, its Minkowski functionals, and those of shuffles of its own pixels.
 
-*Code:* `stage_seq_atlas.py` line 474 (20 lines) · arguments: v, order, masked, n_perm, rng · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 474 (24 lines) · arguments: v, order, masked, n_perm, rng · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::noise_minkowski`
 
 Every cell's two noise maps read by sky_minkowski (`--build seq-noise-minkowski`).
 
-*Code:* `stage_seq_atlas.py` line 495 (12 lines) · arguments: cols, man, n_perm · calls: not called on the traced runs · constants read: `NOISE_DIR` · files named: `import pyarrow.parquet`, `sites.parquet`
+*Code:* `stage_seq_atlas.py` line 499 (12 lines) · arguments: cols, man, n_perm · calls: not called on the traced runs · constants read: `NOISE_DIR` · files named: `import pyarrow.parquet`, `sites.parquet`
 
 ### `stage_seq_atlas.py::read_block`
 
@@ -3740,14 +3740,14 @@ Each cell's methylated and total reads at its Met-A identity sites in each seale
 At each cell's Met-A identity sites, by side: noise map 1 (donor halves) and noise map 2 (read halves) as mean squares, and map 1 against the
 counting its two halves' own reads predict (`run_sample.py --build seq-noise-identity`).
 
-*Code:* `stage_seq_atlas.py` line 665 (22 lines) · arguments: path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
+*Code:* `stage_seq_atlas.py` line 669 (22 lines) · arguments: path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::beta_vs_pat`
 
 One healthy input's published .beta counts against counts taken from its own molecule file at its cell's Met-A identity sites, and the
 share of molecules covering two or more of those sites (`run_sample.py --build seq-beta-vs-pat`).
 
-*Code:* `stage_seq_atlas.py` line 635 (29 lines) · arguments: beta_src, pat_path, cell, ref · calls: not called on the traced runs · constants read: `HG19_CPGS`, `METAA_REF`
+*Code:* `stage_seq_atlas.py` line 639 (29 lines) · arguments: beta_src, pat_path, cell, ref · calls: not called on the traced runs · constants read: `HG19_CPGS`, `METAA_REF`
 
 ### `stage_seq_atlas.py::table_to_lbeta`
 
@@ -3798,19 +3798,19 @@ Read the globe's healthy reference from another atlas in v2.1's layout (the sequ
 
 Each cell's sequencing level against IAM-Atlas v2.1's at the sites both measure (`--build seq-bridge`).
 
-*Code:* `stage_seq_atlas.py` line 520 (19 lines) · arguments: cols · calls: not called on the traced runs · constants read: `BLANK`, `SPHERE_DIR` · files named: `import pyarrow.parquet`
+*Code:* `stage_seq_atlas.py` line 524 (19 lines) · arguments: cols · calls: not called on the traced runs · constants read: `BLANK`, `SPHERE_DIR` · files named: `import pyarrow.parquet`
 
 ### `stage_seq_atlas.py::genome_spectrum`
 
 The correlation of a map's values at two sites by the genome distance between them, in distance bands.
 
-*Code:* `stage_seq_atlas.py` line 543 (13 lines) · arguments: v, chrom, pos, bins, offsets · calls: not called on the traced runs · constants read: `GD_BINS`, `GD_OFFSETS`
+*Code:* `stage_seq_atlas.py` line 547 (13 lines) · arguments: v, chrom, pos, bins, offsets · calls: not called on the traced runs · constants read: `GD_BINS`, `GD_OFFSETS`
 
 ### `stage_seq_atlas.py::noise_spectrum`
 
 Every cell's two noise maps read by genome_spectrum (`--build seq-noise-spectrum`).
 
-*Code:* `stage_seq_atlas.py` line 557 (11 lines) · arguments: cols · calls: not called on the traced runs · files named: `import pyarrow.parquet`, `sites.parquet`, `sites_sequencing_key.parquet`
+*Code:* `stage_seq_atlas.py` line 561 (11 lines) · arguments: cols · calls: not called on the traced runs · files named: `import pyarrow.parquet`, `sites.parquet`, `sites_sequencing_key.parquet`
 
 ### `stage_seq_atlas.py::sky_mask_sites`
 
@@ -3828,7 +3828,7 @@ A map in site order on the sky sphere at NSIDE 128, its band powers against its 
 
 Every cell's two noise maps read by sky_null (`--build seq-noise-null`).
 
-*Code:* `stage_seq_atlas.py` line 508 (11 lines) · arguments: cols, man · calls: not called on the traced runs · constants read: `NOISE_DIR` · files named: `import pyarrow.parquet`, `sites.parquet`
+*Code:* `stage_seq_atlas.py` line 512 (11 lines) · arguments: cols, man · calls: not called on the traced runs · constants read: `NOISE_DIR` · files named: `import pyarrow.parquet`, `sites.parquet`
 
 ### `stage_seq_atlas.py::noise_maps`
 
@@ -3871,13 +3871,13 @@ The sky sphere's input from the IAM Sequencing Atlas, in IAM-Atlas v2.1's layout
 
 Each cell's reads at every island site in each sealed donor half (`--build seq-terr-halves`).
 
-*Code:* `stage_seq_atlas.py` line 572 (14 lines) · arguments: samples_csv, out · calls: not called on the traced runs · constants read: `HG19_CPGS` · files named: `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sites_sequencing_key.parquet`
+*Code:* `stage_seq_atlas.py` line 576 (14 lines) · arguments: samples_csv, out · calls: not called on the traced runs · constants read: `HG19_CPGS` · files named: `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sites_sequencing_key.parquet`
 
 ### `stage_seq_atlas.py::terr_counts_of`
 
 The given cells' reads at the island sites, from one donor half or both.
 
-*Code:* `stage_seq_atlas.py` line 587 (17 lines) · arguments: cells, half, probes, own_cell · calls: not called on the traced runs · constants read: `TERR_DIR`, `TERR_FILE` · files named: `terr_half_counts_v1.parquet`
+*Code:* `stage_seq_atlas.py` line 591 (17 lines) · arguments: cells, half, probes, own_cell · calls: not called on the traced runs · constants read: `TERR_DIR`, `TERR_FILE` · files named: `terr_half_counts_v1.parquet`
 
 ### `stage_metaa_atlas.py::expected_H_donors`
 
@@ -3890,13 +3890,13 @@ One healthy person's expected disorder at k of n reads, from healthy donors' own
 
 Each healthy input's own methylated and total reads at its cell's Met-A identity sites, one row per input and site (`--build seq-metaa-donors`).
 
-*Code:* `stage_seq_atlas.py` line 608 (14 lines) · arguments: samples_csv, out, ref · calls: not called on the traced runs · constants read: `HG19_CPGS`, `METAA_REF`
+*Code:* `stage_seq_atlas.py` line 612 (14 lines) · arguments: samples_csv, out, ref · calls: not called on the traced runs · constants read: `HG19_CPGS`, `METAA_REF`
 
 ### `stage_seq_atlas.py::metaa_donors_of`
 
 One cell's per-donor counts at its identity sites (sites by donors), the donor half's donors only when a half is given.
 
-*Code:* `stage_seq_atlas.py` line 623 (11 lines) · arguments: cell, half, exclude · calls: not called on the traced runs · constants read: `DONORS_FILE`, `METAA_DONORS_DIR` · files named: `metaa_donor_counts_v1.parquet`
+*Code:* `stage_seq_atlas.py` line 627 (11 lines) · arguments: cell, half, exclude · calls: not called on the traced runs · constants read: `DONORS_FILE`, `METAA_DONORS_DIR` · files named: `metaa_donor_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::array_columns`
 
@@ -3947,7 +3947,7 @@ recorded on every sequenced sample as `development.library_floor`, flagged.
 One cell's rows of that reference, indexed by probe, levels 0 to 1 (blank as missing); nothing when the file or the cell is absent, and the
 reading then says it was read against IAM-Atlas v2.1.
 
-*Code:* `stage_seq_atlas.py` line 688 (16 lines) · arguments: cell, path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
+*Code:* `stage_seq_atlas.py` line 692 (16 lines) · arguments: cell, path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::held_reference`
 
@@ -3956,14 +3956,14 @@ sample's held-error counts by tile (`--dev-count-only --dev-count-tiles`; a tile
 ratios: donors, lone errors and their chances in all, in each sealed donor half, and in each half of every donor's molecules. A tile's held
 error is its lone errors over its chances. It is the healthy held error a plasma's own mix is built from: each cell's, weighted by its share.
 
-*Code:* `stage_seq_atlas.py` line 705 (25 lines) · arguments: samples, out · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 709 (25 lines) · arguments: samples, out · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::compare_pair`
 
 How far two samples sit from each other (`run_sample.py --build seq-pair`): at the CpGs where both have at least 5 reads, the mean level
 difference, and the summed squared differences over the squared difference counting predicts (about 1 for the same cell read twice).
 
-*Code:* `stage_seq_atlas.py` line 731 (16 lines) · arguments: a_path, b_path, min_reads · calls: not called on the traced runs · constants read: `HG19_CPGS`
+*Code:* `stage_seq_atlas.py` line 735 (16 lines) · arguments: a_path, b_path, min_reads · calls: not called on the traced runs · constants read: `HG19_CPGS`
 
 ### `stage_seq_atlas.py::compare`
 
@@ -3974,13 +3974,13 @@ CpGs) so a 16 GB machine holds it. Also a depth-weighted score per cell: each Cp
 (the sample's and the column's binomial scatter and the column's donors' spread squared), averaged, about 1 for a healthy cell of that column;
 ranked as `weighted_ranked`, so a column pooled from sparse reads is not pushed away by its own counting scatter.
 
-*Code:* `stage_seq_atlas.py` line 748 (53 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
+*Code:* `stage_seq_atlas.py` line 752 (53 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
 
 ### `stage_seq_atlas.py::geo_url`
 
 The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).
 
-*Code:* `stage_seq_atlas.py` line 802 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 806 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::_u16`
 

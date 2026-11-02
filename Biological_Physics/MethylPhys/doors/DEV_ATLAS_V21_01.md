@@ -1003,3 +1003,11 @@ V1 the length of the boundary, V2 the patches above minus the patches below (`st
 (`seq_atlas/minkowski_synthetic.py`, constructed noise columns through the one command): the plain maps at most 10 of their 50 tests
 outside the shuffles; every planted map's boundary length at threshold 0 outside. **Then** every cell's two maps; recorded: the counting
 map is expected to look like its shuffles (no structure, as in the null test); the donor map shows the shape of how healthy people differ.
+
+**Minkowski synthetic, version 1: not met** (`seq_atlas/minkowski_synthetic.txt`). Bar 1: the plain maps fell outside their shuffles in 15
+of 50 tests (at most 10); bar 2 met (every planted map's boundary length at threshold 0 outside). The plain maps' boundary length sat below
+the shuffles at plus and minus 2 standard deviations in all five: each sphere pixel averages one to four sites, so pixels with fewer sites
+spread wider, and those pixels cluster where the genome's sites are sparse; a shuffle over every pixel breaks that clustering. The test was
+seeing the uneven spread of sites on the sphere, not the methylation. **Version 2 (written and committed before it runs;
+`seq_atlas/minkowski_synthetic_v2.py`, seed 20261123):** each shuffle only among pixels that average the same number of sites, so the null
+keeps the map's uneven spread; the bars unchanged.

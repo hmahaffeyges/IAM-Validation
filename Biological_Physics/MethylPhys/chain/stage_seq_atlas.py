@@ -473,16 +473,20 @@ def minkowski(ring, nu=MINK_NU):
 
 def sky_minkowski(v, order, masked, n_perm=20, rng=None):
     """2026-11-02 (D13): a site-ordered map placed on the sphere as sky_null places it, its Minkowski functionals, and those of n_perm
-    shuffles of its own unmasked pixels (same values, no spatial structure). A functional shows structure at a threshold when it lies
+    shuffles of its own unmasked pixels (same values, no spatial structure), each shuffle among pixels averaging the same number of sites. A functional shows structure at a threshold when it lies
     outside every shuffle. V0 cannot (a shuffle keeps the values), so V1 and V2 carry the test."""
     import sys as _s; _s.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "atlas", "tools"))
     import healpy as hp, sky_maps_v21 as SM
     rng = rng if rng is not None else np.random.default_rng(20261121)
     x = np.where(masked, np.nan, np.asarray(v, "float64"))[order]; m = SM.to_sky(x).astype("float64").reshape(-1, 4)
-    with np.errstate(all="ignore"): m = np.where(np.isfinite(m).any(1), np.nanmean(m, 1), np.nan)
-    ring = hp.reorder(m, n2r=True); obs = minkowski(ring); ok = np.flatnonzero(np.isfinite(ring)); nulls = []
-    for _ in range(n_perm):
-        r2 = ring.copy(); r2[ok] = rng.permutation(ring[ok]); nulls.append(minkowski(r2))
+    kk = np.isfinite(m).sum(1).astype("float64")   # version 2 (2026-11-02, after synthetic 1): how many sites each pixel averages (1 to 4)
+    with np.errstate(all="ignore"): m = np.where(kk > 0, np.nanmean(m, 1), np.nan)
+    ring = hp.reorder(m, n2r=True); kr = hp.reorder(kk, n2r=True); obs = minkowski(ring); nulls = []
+    for _ in range(n_perm):   # shuffled only among pixels that average the same number of sites, so the null keeps the map's uneven spread
+        r2 = ring.copy()
+        for q in (1, 2, 3, 4):
+            ix = np.flatnonzero(np.isfinite(ring) & (kr == q)); r2[ix] = rng.permutation(ring[ix])
+        nulls.append(minkowski(r2))
     rows = []
     for k, o in enumerate(obs):
         row = dict(o)
