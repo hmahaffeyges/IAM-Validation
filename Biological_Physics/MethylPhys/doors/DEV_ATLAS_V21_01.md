@@ -1060,7 +1060,12 @@ unmethylated reads turned methylated with probability u = (F - f) / (1 - f). The
 measurement. **The change** (`--dev-floor-equal`, development): the sample's own floor is measured before any reading; the sorted-cell
 reading puts the sample and each reference donor at the highest of their floors (`donor_pair`); the islands put the sample and the
 reference half's pooled reads at the higher of the sample's floor and that half's mean floor (`islands_counted`). Each atlas input's floor
-is recorded by `run_sample.py --build seq-input-floors` (`chain/Runtime Matrices/Seq_Atlas/input_floors_v1.parquet`, committed empty until it is built; empty, the chain applies no floor). **Synthetic first**
+is recorded by `run_sample.py --build seq-input-floors` (`chain/Runtime Matrices/Seq_Atlas/input_floors_v1.parquet`; first committed empty, then built). **Synthetic first**
 (`seq_atlas/outside_data/floor_synthetic.py`): constructed reference donors at floor 0.006, nine constructed B-cell people in three
 laboratories (floors 0.0015, 0.006, 0.012), each read with and without the common floor. Bars: each laboratory's median sorted-cell
 Met-A, and median islands reading, within 0.03 of 1 with the common floor.
+
+**The atlas inputs' floors: built** (`chain/Runtime Matrices/Seq_Atlas/input_floors_v1.parquet` and `.json`; one Google spot machine, the
+137 cached inputs from the bucket and the other 16 from GEO, by `run_sample.py --build seq-input-floors`). All 153: median 0.00628 (0.00469
+to 0.01041); half A 0.00666, half B 0.00646 on average. The 69 unplanted inputs read again for Group-A carry the same floor in their bundles
+to six places, so the table and the chain's own measurement agree.
