@@ -252,3 +252,24 @@ tests and transfer function are built and checked (`DEV_ATLAS_V21_01.md`). **Now
 and read by the one command with the healthy passes' settings (`--full-chain --dev-seq-ref auto --dev-seq-level donors --dev-terr-counted`),
 against the sequencing atlas's B-cell column. **No bar:** every reading is reported as the chain gives it, by group, with the healthy band
 where the chain draws one (`full_depth/hopkins_fullchain_table.py`). Sent after the globe test on the outside healthy samples landed: the globe's change count on sequencing is not met there (neurons) and is read and flagged; every other reading met its healthy test (healthy pass 5). The study's three healthy cord-blood B-cell samples are its own healthy reference for every reading.
+
+**The study by the full working chain: read** (`full_depth/hopkins_fullchain.csv`, `full_depth/hopkins_fullchain.txt`; 36 merges and the
+scoring on GitHub machines). All 36 read; the only reading not run is the EPIC v2 reading, which is for arrays. Medians by group, as the
+chain gives them (no bar; experts in the disease set the lines):
+
+| Reading | Leukemia (31) | Healthy cord-blood B cells (3) | Reh line (1) | Reh UHRF1 knockout (1) |
+|---|---|---|---|---|
+| Met-A, B-cell column | 1.0410 | 0.8620 | 1.0837 | 2.2320 |
+| Met-A, whole sample | 1.0312 | 0.8998 | 0.8677 | 1.7404 |
+| Territories, islands | 1.3277 | 0.7709 | 2.2965 | 2.1013 |
+| Territories, domains | 0.9885 | 0.8508 | 0.7027 | 1.6123 |
+| Distance from own healthy self (Fisher-Rao) | 0.3884 | 0.2633 | 0.5213 | 0.7346 |
+| Globe, changed blocks (flagged) | 936 | 144 | 3851 | 4 |
+| C-Score | 0.9989 | 0.9995 | 1.0013 | 1.0024 |
+| Coupling-A | 1.0891 | 1.0116 | 1.0404 | 1.0259 |
+| IAM-A | 0.9043 | 0.7906 | 0.7654 | (not given) |
+| B-cell share (Deconvolver) | 0.4956 | 0.8372 | 0 | 0 |
+
+The study's own healthy samples are cord-blood B cells, newborn cells read against an atlas of adult donors; they read below 1 on Met-A
+and the islands, and are the study's own healthy reference. The globe's change count is shown as read and stays flagged (not met on
+outside healthy neurons). The cultured line and its knockout split as no blood cell of the atlas (B-cell share 0).
