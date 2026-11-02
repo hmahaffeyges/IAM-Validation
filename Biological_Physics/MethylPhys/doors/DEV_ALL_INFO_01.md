@@ -287,3 +287,12 @@ gives them.
 **The second reading's first scoring: Group-A did not run (mine, disclosed)** (`full_depth/hopkins_fullchain2_first_scoring.txt`). The
 table script looked for Group-A's code one folder too high, so the comparison did not run and printed nothing; every other reading is in
 the table. Fixed (the path, and the script now says why if Group-A does not run); the same bundles scored again.
+
+**The study read again by the complete chain: read** (`full_depth/hopkins_fullchain2.csv`, `full_depth/hopkins_fullchain2.txt`). All 36
+read; every reading of the first full-chain reading came out the same (the settings and pieces did not change). The new readings, medians
+by group: the tumor gauge (distance to the entropy ceiling, 1 at the healthy expectation and 0 at the ceiling) on the B-cell reading: the
+31 leukemias 0.9922, the 3 cord-blood B-cell samples 1.0269, the Reh line 0.9830, its UHRF1 knockout 0.7520; on the islands 0.9828,
+1.0136, 0.9257 and 0.9356. B-cell copies per site behind the in-mix reading: leukemias 4.7570, cord blood 11.0390; the cultured line and
+its knockout split as no blood cell (B-cell share 0), so no B-cell copies. **Group-A: no call.** Its tare reads each sample against the
+median of the other healthy references and needs at least 3; with 3 cord-blood samples each has only 2 others, so none could be tared. The
+chain refused, as it should; Group-A needs at least 4 healthy people in the study.
