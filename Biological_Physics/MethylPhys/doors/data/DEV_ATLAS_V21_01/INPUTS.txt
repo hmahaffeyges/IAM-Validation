@@ -93,3 +93,5 @@ blueprint_islands_offset.csv
 blueprint_islands_offset.txt
 library_floors.csv
 library_floors.txt
+floor_synthetic.txt
+floor_synthetic_readings.csv

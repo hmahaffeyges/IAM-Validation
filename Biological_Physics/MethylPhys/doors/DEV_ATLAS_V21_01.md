@@ -1069,3 +1069,15 @@ Met-A, and median islands reading, within 0.03 of 1 with the common floor.
 137 cached inputs from the bucket and the other 16 from GEO, by `run_sample.py --build seq-input-floors`). All 153: median 0.00628 (0.00469
 to 0.01041); half A 0.00666, half B 0.00646 on average. The 69 unplanted inputs read again for Group-A carry the same floor in their bundles
 to six places, so the table and the chain's own measurement agree.
+
+**The common floor: synthetic met** (`seq_atlas/outside_data/floor_synthetic.txt`, `floor_synthetic_readings.csv`). With the common
+floor every laboratory reads Normal: sorted-cell Met-A medians 1.0108, 0.9860 and 0.9990 (floors 0.0015, 0.006 and 0.012), the islands
+0.9973, 0.9904 and 0.9910 (both bars met). Without it the floor shows as the offset seen on BLUEPRINT: the low-floor laboratory 0.9388 and
+0.6618, the high-floor laboratory 1.0928 and 1.4236. Each library's floor was measured by the chain to within 0.0003 of the floor planted.
+
+**Healthy pass 6 and BLUEPRINT read again, with the common floor (written and committed before either is read).** **Pass 6:** the 137
+healthy inputs (`seq_atlas_01/healthy_fullchain6_samples.csv`: pass 5's settings plus `--dev-floor-equal`), each read by the one command from
+its cached .beta, scored by the committed pass scorer (`seq_atlas_01/healthy_fullchain_score.py`) with pass 5's bar: every reading Normal on
+the healthy inputs. **BLUEPRINT read again** (`seq_atlas/outside_data/blueprint_reread_floor_samples.csv`; development, the libraries are
+spent): the same 59 libraries with `--dev-floor-equal`, scored by the same committed scorer (`blueprint_healthy_score.py`); reported, not a
+test. The real outside-laboratory test waits for a laboratory not yet read.

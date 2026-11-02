@@ -1,0 +1,4 @@
+gsm,title,cell,half,file
+GSM5652313,Granulocytes-Z000000TZ,granulocytes,B,ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652313/suppl/GSM5652313_Blood-Granulocytes-Z000000TZ.beta
+GSM5652314,Granulocytes-Z000000UD,granulocytes,A,ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652314/suppl/GSM5652314_Blood-Granulocytes-Z000000UD.beta
+GSM5652315,Granulocytes-Z000000UT,granulocytes,A,ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652315/suppl/GSM5652315_Blood-Granulocytes-Z000000UT.beta

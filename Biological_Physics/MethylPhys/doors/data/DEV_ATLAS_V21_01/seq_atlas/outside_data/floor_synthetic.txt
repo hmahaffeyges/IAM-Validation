@@ -1,0 +1,10 @@
+The common library floor: synthetic, read by run_sample.py (seed 20261124, base GSM5652316, reference floor 0.006, nine people in three laboratories)
+floor 0.0015, without the common floor: sorted-cell Met-A median 0.9388, islands median 0.6618; measured floors 0.00149, 0.00153, 0.00147
+floor 0.0015, with the common floor: sorted-cell Met-A median 1.0108, islands median 0.9973; measured floors 0.00149, 0.00153, 0.00147
+floor 0.006, without the common floor: sorted-cell Met-A median 0.9899, islands median 1.0033; measured floors 0.00625, 0.00596, 0.00612
+floor 0.006, with the common floor: sorted-cell Met-A median 0.9860, islands median 0.9904; measured floors 0.00625, 0.00596, 0.00612
+floor 0.012, without the common floor: sorted-cell Met-A median 1.0928, islands median 1.4236; measured floors 0.01207, 0.01204, 0.01209
+floor 0.012, with the common floor: sorted-cell Met-A median 0.9990, islands median 0.9910; measured floors 0.01207, 0.01204, 0.01209
+bar 1 each laboratory's sorted-cell Met-A median within 0.03 of 1 (common floor): met
+bar 2 each laboratory's islands median within 0.03 of 1 (common floor): met
+synthetic: met

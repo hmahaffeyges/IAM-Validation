@@ -1,0 +1,19 @@
+lab,person,floor_equal,metaa,islands,measured_floor,floor_record
+floor 0.0015,0,False,0.91366,0.66181,0.001489,null
+floor 0.0015,0,True,0.98637,0.99726,0.001489,"{""sample"": 0.001489, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004518}"
+floor 0.0015,1,False,0.93876,0.6598,0.001531,null
+floor 0.0015,1,True,1.0108,0.99222,0.001531,"{""sample"": 0.001531, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004476}"
+floor 0.0015,2,False,0.9399,0.66311,0.001473,null
+floor 0.0015,2,True,1.01262,0.99968,0.001473,"{""sample"": 0.001473, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004534}"
+floor 0.006,0,False,0.98993,1.00333,0.00625,null
+floor 0.006,0,True,0.98601,0.98529,0.00625,"{""sample"": 0.00625, ""donors"": [0.006, 0.006], ""common"": 0.00625, ""raise_sample"": 0.0}"
+floor 0.006,1,False,0.9807,0.98717,0.005956,null
+floor 0.006,1,True,0.9814,0.9904,0.005956,"{""sample"": 0.005956, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 4.4e-05}"
+floor 0.006,2,False,1.00689,1.00791,0.006116,null
+floor 0.006,2,True,1.00503,0.99941,0.006116,"{""sample"": 0.006116, ""donors"": [0.006, 0.006], ""common"": 0.006116, ""raise_sample"": 0.0}"
+floor 0.012,0,False,1.10222,1.42361,0.012069,null
+floor 0.012,0,True,1.00717,0.99091,0.012069,"{""sample"": 0.012069, ""donors"": [0.006, 0.006], ""common"": 0.012069, ""raise_sample"": 0.0}"
+floor 0.012,1,False,1.09277,1.42158,0.012039,null
+floor 0.012,1,True,0.99896,0.99096,0.012039,"{""sample"": 0.012039, ""donors"": [0.006, 0.006], ""common"": 0.012039, ""raise_sample"": 0.0}"
+floor 0.012,2,False,1.08185,1.43274,0.012085,null
+floor 0.012,2,True,0.98833,0.99649,0.012085,"{""sample"": 0.012085, ""donors"": [0.006, 0.006], ""common"": 0.012085, ""raise_sample"": 0.0}"
