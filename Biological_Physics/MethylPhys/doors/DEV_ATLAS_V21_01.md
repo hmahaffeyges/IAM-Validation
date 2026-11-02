@@ -914,3 +914,9 @@ the planted region holds 2756 measured sites, about 275 blocks; (2) a rise of 0.
 methylation: only 1097 of the 2756 sites got the whole 0.3. **Version 2, written before it runs** (`seq_atlas/globe_seq_synthetic_v2.py`):
 a new seed; each planted site moved 0.3 toward the opposite end, so none is cut off; the bars in blocks (healthy median at most 50; the
 planted person at least that median plus half the planted blocks).
+
+**The globe synthetic version 2: met. The outside samples, second reading: not met** (`seq_atlas/globe_seq_synthetic_v2.txt`,
+`seq_atlas/globe_outside_2.csv`, `seq_atlas/globe_outside_2.txt`). Synthetic, with the sample's own counting in the width: the healthy
+three 2, 1 and 2 changed blocks (bar at most 50); the planted person 231 of its 275 planted blocks (bar at least 139.5). The second
+reading of the outside samples (rebuilt columns, before the sample's counting was added): 2670 changed blocks against 68 on v2.1 (bar 1
+not met), territories 0 against 1 (bar 2 met). The third reading, with the sample's counting in the width, is running.

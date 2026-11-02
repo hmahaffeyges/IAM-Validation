@@ -1,0 +1,8 @@
+read by run_sample.py (version 2, seed 20261118); planted blocks (planted sites measured / 10): 275
+healthy 1: changed blocks 2
+healthy 2: changed blocks 1
+healthy 3: changed blocks 2
+planted: changed blocks 231
+bar 1 healthy median changed blocks at most 50: 2.0: met
+bar 2 planted at least the healthy median plus half the planted blocks (139.5): met
+synthetic: met
