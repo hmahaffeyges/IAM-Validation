@@ -863,4 +863,4 @@ sorted-cell Met-A unchanged (1.06673). But this input is one of the atlas's own 
 reference includes itself; the check is a diagnostic only. The one command now flags any sequenced sample that is an atlas input
 (`reference_includes_this_sample`). **The bar moves to the healthy samples no build has used** (the 25 outside neurons and 10 pancreas
 samples of the selection-free test): the median number of changed sites, and of changed territories, no higher against the sequencing
-atlas than against v2.1, the same samples read both ways by the one command (`--dev-globe-v21` draws the v2.1 globe; every other reading is the same).
+atlas than against v2.1, the same samples read both ways by the one command (`--dev-globe-v21` draws the v2.1 globe; every other reading is the same). Scorer, committed before the reads: `seq_atlas/globe_outside_score.py`.
