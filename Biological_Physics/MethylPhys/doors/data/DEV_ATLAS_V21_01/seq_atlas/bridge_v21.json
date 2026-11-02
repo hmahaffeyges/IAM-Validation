@@ -1,0 +1,462 @@
+{
+ "rows": [
+  {
+   "cell": "adipocytes",
+   "sites": 813951,
+   "r": 0.9903,
+   "mean_diff": -0.0391,
+   "median_abs_diff": 0.0307,
+   "inside_range": 0.7936
+  },
+  {
+   "cell": "aorta endothelium",
+   "sites": 813951,
+   "r": 0.9944,
+   "mean_diff": -0.0359,
+   "median_abs_diff": 0.0235,
+   "inside_range": 0.8395
+  },
+  {
+   "cell": "b cells",
+   "sites": 813945,
+   "r": 0.9759,
+   "mean_diff": -0.0269,
+   "median_abs_diff": 0.0434,
+   "inside_range": 0.7431
+  },
+  {
+   "cell": "bladder epithelium",
+   "sites": 813951,
+   "r": 0.9918,
+   "mean_diff": -0.0428,
+   "median_abs_diff": 0.0304,
+   "inside_range": 0.7911
+  },
+  {
+   "cell": "breast basal epithelium",
+   "sites": 813951,
+   "r": 0.9948,
+   "mean_diff": -0.0312,
+   "median_abs_diff": 0.0206,
+   "inside_range": 0.8205
+  },
+  {
+   "cell": "breast luminal epithelium",
+   "sites": 813951,
+   "r": 0.9956,
+   "mean_diff": -0.0316,
+   "median_abs_diff": 0.0183,
+   "inside_range": 0.8506
+  },
+  {
+   "cell": "cardiomyocyte",
+   "sites": 813951,
+   "r": 0.9957,
+   "mean_diff": -0.0295,
+   "median_abs_diff": 0.02,
+   "inside_range": 0.8087
+  },
+  {
+   "cell": "cd4 t cells",
+   "sites": 813951,
+   "r": 0.9767,
+   "mean_diff": -0.0191,
+   "median_abs_diff": 0.0411,
+   "inside_range": 0.7346
+  },
+  {
+   "cell": "cd8 t cells",
+   "sites": 813951,
+   "r": 0.9587,
+   "mean_diff": -0.0492,
+   "median_abs_diff": 0.0494,
+   "inside_range": 0.773
+  },
+  {
+   "cell": "colon enteroendocrine",
+   "sites": 813950,
+   "r": 0.9955,
+   "mean_diff": -0.031,
+   "median_abs_diff": 0.0186,
+   "inside_range": 0.8116
+  },
+  {
+   "cell": "colon epithelium",
+   "sites": 813951,
+   "r": 0.9804,
+   "mean_diff": -0.0372,
+   "median_abs_diff": 0.0392,
+   "inside_range": 0.7299
+  },
+  {
+   "cell": "colon fibroblasts",
+   "sites": 813946,
+   "r": 0.9962,
+   "mean_diff": -0.036,
+   "median_abs_diff": 0.0266,
+   "inside_range": 0.8743
+  },
+  {
+   "cell": "colon macrophages",
+   "sites": 813914,
+   "r": 0.9968,
+   "mean_diff": -0.0291,
+   "median_abs_diff": 0.0193,
+   "inside_range": 0.8684
+  },
+  {
+   "cell": "cortical neurons",
+   "sites": 813951,
+   "r": 0.9824,
+   "mean_diff": -0.0256,
+   "median_abs_diff": 0.0365,
+   "inside_range": 0.7939
+  },
+  {
+   "cell": "effector memory cd8 t cells",
+   "sites": 813910,
+   "r": 0.9542,
+   "mean_diff": -0.0436,
+   "median_abs_diff": 0.0621,
+   "inside_range": 0.5986
+  },
+  {
+   "cell": "endometrium epithelium",
+   "sites": 813951,
+   "r": 0.9945,
+   "mean_diff": -0.0369,
+   "median_abs_diff": 0.02,
+   "inside_range": 0.8379
+  },
+  {
+   "cell": "erythrocyte progenitors",
+   "sites": 813951,
+   "r": 0.9938,
+   "mean_diff": -0.0469,
+   "median_abs_diff": 0.039,
+   "inside_range": 0.8167
+  },
+  {
+   "cell": "fallopien tubes epithelium",
+   "sites": 813951,
+   "r": 0.9964,
+   "mean_diff": -0.0313,
+   "median_abs_diff": 0.0177,
+   "inside_range": 0.809
+  },
+  {
+   "cell": "gastric antrum epithelium",
+   "sites": 813951,
+   "r": 0.9964,
+   "mean_diff": -0.0349,
+   "median_abs_diff": 0.0212,
+   "inside_range": 0.7953
+  },
+  {
+   "cell": "gastric body epithelium",
+   "sites": 813951,
+   "r": 0.9963,
+   "mean_diff": -0.0352,
+   "median_abs_diff": 0.0215,
+   "inside_range": 0.7979
+  },
+  {
+   "cell": "gastric fundus epithelium",
+   "sites": 813951,
+   "r": 0.9964,
+   "mean_diff": -0.0354,
+   "median_abs_diff": 0.0216,
+   "inside_range": 0.7978
+  },
+  {
+   "cell": "heart fibroblasts",
+   "sites": 813951,
+   "r": 0.9953,
+   "mean_diff": -0.0431,
+   "median_abs_diff": 0.0301,
+   "inside_range": 0.8012
+  },
+  {
+   "cell": "hepatocyte",
+   "sites": 813951,
+   "r": 0.991,
+   "mean_diff": -0.0309,
+   "median_abs_diff": 0.0268,
+   "inside_range": 0.8039
+  },
+  {
+   "cell": "kidney glomerular endothelium",
+   "sites": 813951,
+   "r": 0.9967,
+   "mean_diff": -0.0308,
+   "median_abs_diff": 0.0196,
+   "inside_range": 0.8629
+  },
+  {
+   "cell": "kidney glomerular epithelium",
+   "sites": 813933,
+   "r": 0.996,
+   "mean_diff": -0.0301,
+   "median_abs_diff": 0.0184,
+   "inside_range": 0.8096
+  },
+  {
+   "cell": "kidney tubular endothelium",
+   "sites": 813951,
+   "r": 0.9964,
+   "mean_diff": -0.0306,
+   "median_abs_diff": 0.0191,
+   "inside_range": 0.8519
+  },
+  {
+   "cell": "kidney tubular epithelium",
+   "sites": 813951,
+   "r": 0.9952,
+   "mean_diff": -0.0326,
+   "median_abs_diff": 0.0181,
+   "inside_range": 0.8588
+  },
+  {
+   "cell": "lung alveolar endothelium",
+   "sites": 813951,
+   "r": 0.9961,
+   "mean_diff": -0.034,
+   "median_abs_diff": 0.0221,
+   "inside_range": 0.8722
+  },
+  {
+   "cell": "lung alveolar epithelium",
+   "sites": 813951,
+   "r": 0.9825,
+   "mean_diff": -0.0458,
+   "median_abs_diff": 0.0412,
+   "inside_range": 0.714
+  },
+  {
+   "cell": "lung alveolar macrophages",
+   "sites": 813951,
+   "r": 0.9966,
+   "mean_diff": -0.0248,
+   "median_abs_diff": 0.0149,
+   "inside_range": 0.8339
+  },
+  {
+   "cell": "lung bronchus epithelium",
+   "sites": 813951,
+   "r": 0.9788,
+   "mean_diff": -0.0294,
+   "median_abs_diff": 0.033,
+   "inside_range": 0.709
+  },
+  {
+   "cell": "lung interstitial macrophages",
+   "sites": 813951,
+   "r": 0.9969,
+   "mean_diff": -0.0265,
+   "median_abs_diff": 0.0148,
+   "inside_range": 0.8591
+  },
+  {
+   "cell": "memory b cells",
+   "sites": 813941,
+   "r": 0.9686,
+   "mean_diff": -0.0194,
+   "median_abs_diff": 0.0553,
+   "inside_range": 0.7623
+  },
+  {
+   "cell": "monocytes",
+   "sites": 813951,
+   "r": 0.9787,
+   "mean_diff": -0.0197,
+   "median_abs_diff": 0.0411,
+   "inside_range": 0.7099
+  },
+  {
+   "cell": "naive cd4 t cells",
+   "sites": 813919,
+   "r": 0.9709,
+   "mean_diff": -0.0041,
+   "median_abs_diff": 0.0495,
+   "inside_range": 0.5321
+  },
+  {
+   "cell": "naive cd8 t cells",
+   "sites": 813917,
+   "r": 0.9699,
+   "mean_diff": -0.0004,
+   "median_abs_diff": 0.0513,
+   "inside_range": 0.5055
+  },
+  {
+   "cell": "nk cells",
+   "sites": 813951,
+   "r": 0.9779,
+   "mean_diff": -0.0251,
+   "median_abs_diff": 0.0403,
+   "inside_range": 0.7798
+  },
+  {
+   "cell": "oligodendrocytes",
+   "sites": 813951,
+   "r": 0.9827,
+   "mean_diff": -0.0275,
+   "median_abs_diff": 0.0376,
+   "inside_range": 0.7263
+  },
+  {
+   "cell": "pancreas endothelium",
+   "sites": 813951,
+   "r": 0.9948,
+   "mean_diff": -0.0338,
+   "median_abs_diff": 0.0255,
+   "inside_range": 0.8388
+  },
+  {
+   "cell": "pancreatic acinar",
+   "sites": 813951,
+   "r": 0.9878,
+   "mean_diff": -0.0469,
+   "median_abs_diff": 0.0402,
+   "inside_range": 0.7478
+  },
+  {
+   "cell": "pancreatic alpha",
+   "sites": 813951,
+   "r": 0.9968,
+   "mean_diff": -0.0285,
+   "median_abs_diff": 0.0187,
+   "inside_range": 0.8326
+  },
+  {
+   "cell": "pancreatic beta",
+   "sites": 813951,
+   "r": 0.9802,
+   "mean_diff": -0.0206,
+   "median_abs_diff": 0.0385,
+   "inside_range": 0.7352
+  },
+  {
+   "cell": "pancreatic delta",
+   "sites": 813951,
+   "r": 0.9963,
+   "mean_diff": -0.0294,
+   "median_abs_diff": 0.0197,
+   "inside_range": 0.8257
+  },
+  {
+   "cell": "pancreatic duct",
+   "sites": 813951,
+   "r": 0.9907,
+   "mean_diff": -0.0326,
+   "median_abs_diff": 0.0275,
+   "inside_range": 0.7642
+  },
+  {
+   "cell": "prostate epithelium",
+   "sites": 813951,
+   "r": 0.9905,
+   "mean_diff": -0.0476,
+   "median_abs_diff": 0.031,
+   "inside_range": 0.8091
+  },
+  {
+   "cell": "small intestine epithelium",
+   "sites": 813951,
+   "r": 0.9819,
+   "mean_diff": -0.0357,
+   "median_abs_diff": 0.0288,
+   "inside_range": 0.7324
+  },
+  {
+   "cell": "smooth muscle",
+   "sites": 813951,
+   "r": 0.98,
+   "mean_diff": -0.0591,
+   "median_abs_diff": 0.0535,
+   "inside_range": 0.8405
+  },
+  {
+   "cell": "striated muscle",
+   "sites": 813951,
+   "r": 0.9962,
+   "mean_diff": -0.0347,
+   "median_abs_diff": 0.0242,
+   "inside_range": 0.8474
+  },
+  {
+   "cell": "t central memory cd4",
+   "sites": 813950,
+   "r": 0.9772,
+   "mean_diff": -0.0239,
+   "median_abs_diff": 0.0464,
+   "inside_range": 0.7261
+  },
+  {
+   "cell": "t effector cell cd8",
+   "sites": 813951,
+   "r": 0.9863,
+   "mean_diff": -0.0265,
+   "median_abs_diff": 0.0305,
+   "inside_range": 0.8057
+  },
+  {
+   "cell": "t effector memory cd4",
+   "sites": 813950,
+   "r": 0.9961,
+   "mean_diff": -0.0339,
+   "median_abs_diff": 0.0233,
+   "inside_range": 0.8473
+  },
+  {
+   "cell": "thyroid epithelium",
+   "sites": 813951,
+   "r": 0.9971,
+   "mean_diff": -0.0254,
+   "median_abs_diff": 0.0152,
+   "inside_range": 0.8304
+  },
+  {
+   "cell": "tongue epithelium",
+   "sites": 813951,
+   "r": 0.9939,
+   "mean_diff": -0.0326,
+   "median_abs_diff": 0.0232,
+   "inside_range": 0.8029
+  },
+  {
+   "cell": "tonsil palatine epithelium",
+   "sites": 813951,
+   "r": 0.996,
+   "mean_diff": -0.039,
+   "median_abs_diff": 0.0243,
+   "inside_range": 0.7954
+  },
+  {
+   "cell": "tonsil pharyngeal epithelium",
+   "sites": 813951,
+   "r": 0.9939,
+   "mean_diff": -0.0434,
+   "median_abs_diff": 0.0273,
+   "inside_range": 0.8233
+  },
+  {
+   "cell": "vascular saphenous endothelium",
+   "sites": 813951,
+   "r": 0.9964,
+   "mean_diff": -0.0316,
+   "median_abs_diff": 0.0204,
+   "inside_range": 0.859
+  }
+ ],
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-bridge",
+  "--build-out",
+  "../../doors/data/DEV_ATLAS_V21_01/seq_atlas/bridge_v21.csv",
+  "--bundle",
+  "../../doors/data/DEV_ATLAS_V21_01/seq_atlas/bridge_v21.json"
+ ],
+ "label": "DEVELOPMENT (plan 35.30)"
+}

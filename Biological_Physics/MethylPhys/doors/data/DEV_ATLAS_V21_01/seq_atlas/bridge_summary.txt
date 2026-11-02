@@ -1,0 +1,1 @@
+56 cells; median r 0.9941 (lowest 0.9542, effector memory cd8 t cells); median mean difference (sequencing minus v2.1) -0.0316, cells with sequencing lower: 56; median absolute difference 0.0267; v2.1 inside the sequencing range 0.8048

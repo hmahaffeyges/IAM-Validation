@@ -803,3 +803,9 @@ through their donor references; it is the measured case for more donors per cell
 the 56 cells both atlases hold, at the sites both measure (`stage_seq_atlas.bridge`, `run_sample.py --build seq-bridge`): the correlation,
 the mean and median difference (sequencing minus v2.1), and how often v2.1's value sits inside the sequencing atlas's 95 % range. v2.1
 drew in part on the same published sequencing atlas, so close agreement is expected and not independent; the offsets are the record.
+
+**The bridge: measured** (`seq_atlas/bridge_v21.csv`, `seq_atlas/bridge_summary.txt`). Over the 56 cells the two atlases agree closely
+(median r 0.9941; lowest 0.9542, effector memory CD8 T cells, a one-donor cell), with one consistent offset: the sequencing level sits
+below v2.1's in all 56 cells (median -0.0316; median absolute difference 0.0267), so v2.1's value falls inside the sequencing atlas's
+95 % range at 0.8048 of sites. This is the array-to-sequencing platform difference, now measured cell by cell; the readings on
+sequencing use the sequencing atlas, so it does not enter them.
