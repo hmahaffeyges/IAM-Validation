@@ -67,6 +67,11 @@ across laboratories, its residual reported, unexpected cell types flagged; Met-A
 derived laboratory by laboratory. *Sources: `atlas/v2.1/README.md`; the deconvolution reproductions; `doors/DEV_METAA_HEALTHY_01.md`,
 `[pending]`.* **Figure 1.**
 
+The sequencing ruler (the IAM Sequencing Atlas: 56 healthy cell types from whole-genome bisulfite sequencing, donor halves sealed;
+its range of each cell's average, noise maps by donor and by read, the null test on the sphere, the genome-distance spectrum, the bridge
+to IAM-Atlas v2.1, isotropy by chromosome) is reported here beside the array ruler. *Sources: `doors/DEV_ATLAS_V21_01.md`;
+`doors/data/DEV_ATLAS_V21_01/seq_atlas/CHECKLIST_STATUS.md` and the outputs it names.*
+
 **R2. A thermodynamic bound sets the floor and the ceiling of methylation fidelity.** The derivation: the cost of holding one mark
 (M = 20.94 k_BT per ATP); the energy actually spent holding a mark, measured on single molecules in 56 healthy cell types (3.08 k_BT); the
 floor and the ceiling; the read-count correction, derived exactly; the distance to the ceiling. A prediction made before the data:
@@ -81,18 +86,21 @@ and in mouse; the molecule-level loose share for mixtures. *Sources: IAM-A recor
 **R4. The published leukemia data reread.** Every leukemia and control read by itself (IAM-A, Met-A, the territories, the C-Scores,
 the distance to the ceiling), and the groups compared within the series by Group-A, the instrument that reads groups against the healthy
 in the same series, on the study's own terms. Pass 1 at fixed depth on all 36 samples; pass 2 at full depth region by region beside the
-study's five findings. *Source: `doors/DEV_ALL_INFO_01.md`, `[pending]`.* **Figure 4.**
+study's five findings. Then every sample read by the full working chain on sequencing against the IAM Sequencing Atlas (the healthy
+sequenced samples first: every reading Normal on 137, healthy pass 5). *Sources: `doors/DEV_ALL_INFO_01.md`;
+`doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain.txt`; `doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain5_summary.txt`.* **Figure 4.**
 
 **R5. Loss of a maintenance factor read against the bound.** The UHRF1 knockout read molecule by molecule: held error against loose share;
-the entropy turnover in heterochromatic domains read as the distance to the ceiling. *Source: `doors/DEV_ERASE_01.md` (UHRF1),
-`[pending]`.* **Figure 5.**
+the entropy turnover in heterochromatic domains read as the distance to the ceiling. *Source: `doors/DEV_ERASE_01.md` (UHRF1); the Reh line and its UHRF1 knockout by the full working chain
+(`doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain.txt`).* **Figure 5.**
 
 **R6. How a change lies along the genome, not only how large it is (the C-Scores and the territories).** Ordinary wear is scattered;
 tumors break whole stretches. The C-Score reads clustering apart from size, for one cell, each cell and the whole genome; the territories
 read the islands no healthy cell marks and the domains some cell types hold loosely, where early cancer acts and identity sites do not
 look; the genome-wide projection and the information-geometric embedding show both, built for the study's own samples; each site's
-sensitivity to a small loss of holding (after the study's methylation sensitivity, derived analytically). *Sources: the C-Score records,
-DEV-TERRITORIES-01, DEV-SPHERE-01, plan 49.5, `[pending]`.* **Figure 6.**
+sensitivity to a small loss of holding (after the study's methylation sensitivity, derived analytically); the chain's transfer function
+at the islands (a planted change returned at full size). *Sources: the C-Score records, DEV-TERRITORIES-01 (with
+`seq_band_01/transfer_synthetic.txt`), DEV-SPHERE-01, plan 49.5, `[pending]`.* **Figure 6.**
 
 **R7. Beyond deep sequencing: arrays and cell-free DNA.** The same readings on arrays (Group-A across replays of published case-control
 series) and on shallow plasma sequencing; the molecule-level loose share under mixing; cell types the atlas lacks, flagged. *Sources:
