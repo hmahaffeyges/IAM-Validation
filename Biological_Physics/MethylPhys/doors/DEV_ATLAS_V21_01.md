@@ -784,3 +784,8 @@ stays inside its null; real large-scale structure does not. **Synthetic first** 
 one band above its null in each of 5 maps; a planted change along the genome puts the lowest band above its null in all 5. **Then the
 real maps, one bar:** the counting-only noise map (map 2) at most one band above its null in at least 90 % of cells. Recorded, not scored:
 the donor-half map (map 1) of every cell.
+
+**The null test: a setup failure before its first read.** The spot machine stopped at `import healpy`: the chain's requirements pinned
+healpy 1.16.6, which imports a function scipy 1.17.1 (also pinned) no longer has, so the sky statistics could not run on a fresh install.
+The pin is moved to healpy 1.17.3, checked with the chain's numpy and scipy (white noise reads 0.996 of its variance, as expected).
+Nothing was read; the synthetic and its bars are unchanged.
