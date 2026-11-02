@@ -83,6 +83,10 @@ Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.m
 
 Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.md)
 
+### · Still paused, and still unread. The chain's readings for sequenced cells come first: healthy sequenced cells now read close to 1 on each of them, including the CpG islands, which read slightly high until we counted their healthy reference from its own reads.
+
+Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
+
 <a id="neurons"></a>
 ## Brain cells: does healthy order hold in cells that never divide?
 
@@ -105,6 +109,10 @@ Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.m
 ### · Still paused. Neither independent laboratory's neurons has been opened, so the test is still blind when it resumes.
 
 Record: [DEV_IAMA_NEURON_01.md](doors/DEV_IAMA_NEURON_01.md)
+
+### · Still paused and still blind. Meanwhile neurons from an outside laboratory, read against the new sequencing atlas, read slightly low; the reading follows each library's own disorder, and the atlas holds only three neuron donors, so more donors come first.
+
+Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
 
 <a id="lung"></a>
 ## Lung cancer: waiting for a better map of the lung
@@ -129,6 +137,10 @@ Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.m
 
 Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
 
+### · Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.
+
+Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
+
 <a id="blood-group"></a>
 ## Can a tube of blood tell us about a GROUP of people?
 
@@ -145,6 +157,10 @@ Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.m
 ### · Still paused. Meanwhile the same chain read whole series of tissues: in prostate tumors the CpG islands read higher than in the neighboring normal tissue, across 237 samples, the early change this reading was built to catch.
 
 Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md)
+
+### · Still paused while the chain is finished for sequenced samples. The CpG island reading now reads healthy sequenced cells close to 1, after we counted its healthy reference from its own reads.
+
+Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 
 <a id="levers"></a>
 ## Testing the physics itself: the levers
@@ -166,5 +182,9 @@ Record: [loose_end_line.py](../../development/loose_end_2026-10-15/loose_end_lin
 Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.md)
 
 ### · Two new tests of where a cell's tagging mistakes come from. When we knocked out a protein that keeps the tags in repair, mistakes in the molecules that are still held nearly tripled. When we compared dividing and resting cells of one kind, dividing added only about a twentieth. Most of the mistakes come from the upkeep itself, not from copying the DNA.
+
+Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
+
+### · Waiting its turn behind the chain's readings for sequenced cells, which come first.
 
 Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)

@@ -138,3 +138,8 @@ naive CD4 T cells, naive CD8 T cells, pancreatic duct). A sample's own reads sit
 with no donor in the half given now reads both halves (still exact); the sample's own cell is always read from the other half only, and
 when that half is blank the islands keep the plug-in reading, recorded as not counted. Changed before any of pass 5 is read; the bar is
 unchanged.
+
+**Healthy pass 5: 31 re-sent (GEO).** 31 of the 137 were not read by the chain: GEO served an error page in place of the molecule file, and
+the workflow's resumed download kept appending to it, then passed it on after its last try. The workflow now deletes a failed try and stops
+when no good file arrives. The 31 are re-sent with identical settings (`healthy_fullchain5b_samples.csv`), written before the re-send; the
+two runs are scored together by the committed scorer. The bar is unchanged.
