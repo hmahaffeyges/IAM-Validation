@@ -605,3 +605,9 @@ own range and the rest below it. The reading follows the library; the ruler's ne
 low a healthy neuron library runs. Less pure samples hold more disorder per read, as a mix of cells does at one cell's identity
 sites. Pass 4's whole-sample reading of these samples was made while the "donors" setting fell through to the median level (fixed since)
 and is not used.
+
+**The X chromosome, checked** (`seq_atlas_01/metaa_chrx_diag.py`, `seq_atlas_01/metaa_chrx_diag.txt`; added after pass 5 was scored,
+disclosed; nothing scored). The atlas's noise maps showed donor halves of different sex in 16 cells. Over the 137 healthy inputs of pass 5,
+sorted-cell Met-A reads 1.0077 with the X chromosome's identity sites and 1.0077 without; the largest change in any sample is 0.0021. The
+reading is not moved by sex. Most cells hold few X-chromosome identity sites; lung alveolar epithelium holds the most, noted for the next
+identity-site build.

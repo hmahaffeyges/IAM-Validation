@@ -75,3 +75,5 @@ selfree4_perread.csv
 healthy_fullchain5b_samples.csv
 healthy_fullchain5_summary.txt
 healthy_fullchain5_readings.csv
+metaa_chrx_diag.csv
+metaa_chrx_diag.txt

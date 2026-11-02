@@ -1,0 +1,2 @@
+137 healthy samples; Met-A median with chrX 1.0077, without 1.0077; largest change 0.0021
+the chrX sites alone: median ratio 1.000; samples above 2: 3; below 0.5: 2
