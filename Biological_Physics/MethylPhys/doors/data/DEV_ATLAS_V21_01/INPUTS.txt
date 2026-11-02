@@ -66,3 +66,5 @@ zero_widths_after.csv
 zero_widths_after.txt
 sphere_widths_v3.csv
 sphere_widths_v3.txt
+globe_outside.csv
+globe_outside.txt

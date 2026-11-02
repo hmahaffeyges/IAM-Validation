@@ -888,3 +888,9 @@ before everywhere else. The same synthetic and the same four bars.
 sites 0.942 and 0.945; no measured site with zero width. The sphere columns are rebuilt with version 3: no site of any cell has zero width
 now (smallest 0.0002), and the cell medians of the range's half-width are unchanged for two and three donors (0.2056, 0.0783). The outside
 samples are read again against these columns once the first reading, on the old columns, has landed and been scored as committed.
+
+**The globe on the outside healthy samples, first reading (old columns): not met** (`seq_atlas/globe_outside.csv`,
+`seq_atlas/globe_outside.txt`). All 35 read both ways, none an atlas input. Changed sites: median 851 against the sequencing atlas, 68
+against v2.1 (bar 1 not met); changed territories 1 and 1 (bar 2 met); the distance from the own healthy self lower against the
+sequencing atlas in every group (median 0.17795 against 0.19809). The cause is the zero widths recorded above; the second reading, on
+the rebuilt columns, is running.
