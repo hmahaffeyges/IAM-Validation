@@ -304,10 +304,10 @@ def _build(a):
         rep = dict(_SQc.metaa_half_counts(a.build_samples, a.build_out), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps(rep, default=str)); return 0
-    if a.build == "seq-array-cols":   # 2026-10-30 (plan 35.30, development): the sequencing atlas at IAM-Atlas v2.1's sites, in v2.1's layout
+    if a.build in ("seq-array-cols", "seq-noise-cols"):   # 2026-10-30 (plan 35.30, development): the sequencing atlas at IAM-Atlas v2.1's sites, in v2.1's layout
         if not (a.build_samples and a.build_out): print("--build seq-array-cols needs --build-samples PIECE_DIR[,PIECE_DIR] and --build-out FOLDER"); return 2
         import stage_seq_atlas as _SQ
-        rep = dict(_SQ.array_columns([d for d in a.build_samples.split(",") if d], a.build_out), command=["run_sample.py"] + sys.argv[1:],
+        rep = dict(_SQ.array_columns([d for d in a.build_samples.split(",") if d], a.build_out, _SQ.NOISE_FIELDS if a.build == "seq-noise-cols" else _SQ.ARRAY_FIELDS), command=["run_sample.py"] + sys.argv[1:],
                    label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps({k: rep[k] for k in ("cells", "sites", "sites_with_every_cell")})); return 0
@@ -418,6 +418,11 @@ def _build(a):
     if a.build == "seq-atlas-sphere":   # 2026-11-01 (plan 35.30, checklist C1, development): the IAM Sequencing Atlas on the sky sphere
         import stage_seq_atlas as _SQs; import reference_globes as RG
         RG.atlas_sphere(a.build_out, a.build_input or _SQs.SPHERE_DIR, RG.manifests(), name="IAM Sequencing Atlas (development)", pages=False); return 0
+    if a.build == "seq-noise-sphere":   # 2026-11-01 (plan 35.30, checklist C3, development): the sequencing atlas's two noise maps on the sky sphere
+        import stage_seq_atlas as _SQn2; import reference_globes as RG
+        rep = RG.noise_sphere(a.build_out, a.build_input or _SQn2.NOISE_DIR, RG.manifests())
+        if a.bundle: json.dump(dict(rep, command=["run_sample.py"] + sys.argv[1:]), open(a.bundle, "w"), indent=1, default=str)
+        return 0
     if a.build == "atlas-sphere":
         RG.atlas_sphere(a.build_out, a.build_input or RG.ATLAS, RG.manifests()); return 0
     if a.build == "atlas-masks":
@@ -581,7 +586,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "

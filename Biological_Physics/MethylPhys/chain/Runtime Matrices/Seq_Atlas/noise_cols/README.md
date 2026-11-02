@@ -1,0 +1,1 @@
+The IAM Sequencing Atlas's two noise splits at IAM-Atlas v2.1's sites (stage_seq_atlas.array_columns with NOISE_FIELDS; run_sample.py --build seq-noise-cols): donor half A and B, read half A and B. Built on a Google spot machine; development (plan 35.30).

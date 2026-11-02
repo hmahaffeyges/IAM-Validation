@@ -134,6 +134,30 @@ def atlas_sphere(out, atlas, man, cells_index=None, name="IAM-Atlas v2.1", pages
               open(os.path.join(out, "sphere.json"), "w"), indent=1)
     print(f"sphere: {len(cells)} cells written to {out}")
 
+def noise_sphere(out, cols, man, lim=0.3):
+    """2026-11-01 (checklist C3, development): the IAM Sequencing Atlas's two noise maps on the sky sphere, per cell (stage_seq_atlas.noise_maps):
+    {slug}_n1.jpg (donor half A minus half B) and {slug}_n2.jpg (read half A minus read half B), a diverging scale -lim to +lim, grey where blank;
+    noise_sphere.json holds each cell's summary row and the known-answer check (stage_seq_atlas.noise_check)."""
+    import pyarrow.parquet as pq, sky_maps_v21 as SM, stage_seq_atlas as Q
+    from stage_v4 import nest_pix2ang
+    from scipy.spatial import cKDTree
+    import matplotlib.pyplot as plt
+    from PIL import Image
+    os.makedirs(out, exist_ok=True)
+    ids = pq.read_table(os.path.join(cols, "sites.parquet") if os.path.exists(os.path.join(cols, "sites.parquet")) else os.path.join(ATLAS, "sites.parquet")).column("cpg").to_pylist(); order, unplaced = SM.genome_order(man, ids)
+    th, ph = nest_pix2ang(SM.NSIDE, np.arange(SM.NPIX)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
+    tt = np.pi * (np.arange(HT) + 0.5) / HT; pp = 2 * np.pi * (np.arange(W) + 0.5) / W; T, P = np.meshgrid(tt, pp, indexing="ij")
+    look = cKDTree(xyz).query(np.c_[(np.sin(T) * np.cos(P)).ravel(), (np.sin(T) * np.sin(P)).ravel(), np.cos(T).ravel()])[1]; CM = plt.get_cmap("RdBu_r")
+    def tex(m, path):
+        v = m[look].reshape(HT, W); rgb = (CM(np.clip((np.nan_to_num(v, nan=0) + lim) / (2 * lim), 0, 1))[..., :3] * 255).astype(np.uint8)
+        rgb[~np.isfinite(v)] = GREY; Image.fromarray(rgb).save(path, quality=86, optimize=True)
+    M, rows = Q.noise_maps(cols)
+    for c, (m1, m2) in M.items():
+        s = slug(c); tex(SM.to_sky(m1[order]), os.path.join(out, s + "_n1.jpg")); tex(SM.to_sky(m2[order]), os.path.join(out, s + "_n2.jpg")); print(c, flush=True)
+    rep = dict(atlas="IAM Sequencing Atlas (development)", scale=[-lim, lim], unplaced=unplaced, check=Q.noise_check(cols), cells=rows,
+               source="run_sample.py --build seq-noise-sphere (chain/MethylPhys_Interface/reference_globes.py)")
+    json.dump(rep, open(os.path.join(out, "noise_sphere.json"), "w"), indent=1); print("noise sphere:", len(M), "cells; check", rep["check"]); return rep
+
 def atlas_masks(OUT, A=None):
     import pyarrow.parquet as pq, sky_maps_v21 as SM
     from PIL import Image

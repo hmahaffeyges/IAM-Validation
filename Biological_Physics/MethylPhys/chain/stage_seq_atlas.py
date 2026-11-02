@@ -182,7 +182,10 @@ def deconv_reference(piece_dirs, out, per_cell=None):
 
 ARRAY_COLS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "array_sites")
 
-def array_columns(piece_dirs, outdir):
+ARRAY_FIELDS = (("level", "mu"), ("spread", "donor_sd"), ("meth", "meth"), ("reads", "reads"))
+NOISE_FIELDS = (("halfA", "halfA"), ("halfB", "halfB"), ("readA", "readA"), ("readB", "readB"))   # 2026-11-01: the two noise splits (checklist D1, D2)
+
+def array_columns(piece_dirs, outdir, fields=ARRAY_FIELDS):
     """2026-10-30 (author: Met-A and every instrument built on it working on sequencing, the IAM Sequencing Atlas as the ruler): each cell's
     counted level (mu, the median of the donors), donor spread (donor_sd) and pooled methylated and all reads (meth, reads) at every site of IAM-Atlas v2.1, in v2.1's own site order and layout (three parts per
     stem, uint16, levels x 10,000, 65535 blank), so stage_metaa_atlas._col serves a sequenced sample's in-mix readings (Met-A for each cell
@@ -196,21 +199,20 @@ def array_columns(piece_dirs, outdir):
     for i, c in zip(np.flatnonzero(have), cpg[have].astype(np.int64)): pos.setdefault(int(c), []).append(int(i))
     F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
     cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")} - {"megakaryocytes"})
-    MU = np.full((len(ids), len(cells)), BLANK, np.uint16); SD = MU.copy(); ME = MU.copy(); RD = MU.copy(); ci = {c: j for j, c in enumerate(cells)}   # 2026-10-31: pooled counts too
+    ci = {c: j for j, c in enumerate(cells)}; ARR = {fd: np.full((len(ids), len(cells)), BLANK, np.uint16) for fd, _ in fields}   # 2026-11-01: any stored fields (default: level, spread, pooled counts)
     for f in F:
         sch = pq.read_schema(f).names; here = [c for c in cells if f"{c}|level" in sch]
         if not here: continue
-        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in here for x in ("level", "spread", "meth", "reads")]).to_pandas(); T = T[T.cpg.isin(pos.keys())]
+        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{x}" for c in here for x, _ in fields]).to_pandas(); T = T[T.cpg.isin(pos.keys())]
         if T.empty: continue
         rr = [r for c in T.cpg.to_numpy() for r in pos[int(c)]]; rep = [len(pos[int(c)]) for c in T.cpg.to_numpy()]
         for c in here:
-            MU[rr, ci[c]] = np.repeat(T[f"{c}|level"].to_numpy(np.uint16), rep); SD[rr, ci[c]] = np.repeat(T[f"{c}|spread"].to_numpy(np.uint16), rep)
-            ME[rr, ci[c]] = np.repeat(T[f"{c}|meth"].to_numpy(np.uint16), rep); RD[rr, ci[c]] = np.repeat(T[f"{c}|reads"].to_numpy(np.uint16), rep)
+            for fd, _ in fields: ARR[fd][rr, ci[c]] = np.repeat(T[f"{c}|{fd}"].to_numpy(np.uint16), rep)
     os.makedirs(outdir, exist_ok=True); thirds = np.array_split(np.arange(len(cells)), 3)
-    for stem, A in (("mu", MU), ("donor_sd", SD), ("meth", ME), ("reads", RD)):   # meth and reads: pooled counts (the pooled level, 2026-10-31)
+    for stem, A in ((st, ARR[fd]) for fd, st in fields):   # default: mu, donor_sd, and the pooled counts meth and reads (2026-10-31)
         for k, js in enumerate(thirds, 1):
             pq.write_table(pa.table({cells[j]: A[:, j] for j in js}), os.path.join(outdir, f"{stem}_part{k}.parquet"), compression="zstd")
-    return dict(cells=len(cells), sites=len(ids), sites_with_a_cpg=int(have.sum()), sites_with_every_cell=int((MU != BLANK).all(1).sum()),
+    return dict(cells=len(cells), sites=len(ids), sites_with_a_cpg=int(have.sum()), sites_with_every_cell=int((ARR[fields[0][0]] != BLANK).all(1).sum()), stems=[st for _, st in fields],
                 layout="IAM-Atlas v2.1's sites.parquet order; mu and donor_sd, three parts each", left_out=["megakaryocytes (provisional, version 1)"])
 
 HELD_REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "held_reference_v1.parquet")
@@ -378,6 +380,42 @@ def sphere_columns(out, cols=None, inputs=None):
     rep = dict(cells=sum(len(pq.read_schema(os.path.join(out, f"mu_part{k}.parquet")).names) for k in (1, 2, 3)), one_donor_counting_only=sorted(one),
                level="pooled (meth over reads)", range="95 % of the cell's average: donor spread / sqrt(donors) times t(0.975, donors - 1), or counting only (1.96) for one donor")
     _j.dump(rep, open(os.path.join(out, "sphere_cols.json"), "w"), indent=1); return rep
+
+NOISE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "noise_cols")   # --build seq-noise-cols
+
+def noise_maps(cols=None):
+    """2026-11-01 (checklist C3, D1 to D3; derived, nothing fitted): the IAM Sequencing Atlas's two noise maps at IAM-Atlas v2.1's sites, per
+    cell. Map 1: donor half A minus donor half B (donor-to-donor difference plus counting); map 2: read half A minus read half B over every
+    donor (counting only). Returns {cell: (map1, map2)} in levels (NaN where a side is blank) and a summary row per cell: sites measured,
+    each map's mean (a healthy split has none) and mean square, and the donor part (map 1's mean square minus map 2's)."""
+    import pyarrow.parquet as pq
+    cols = cols or NOISE_DIR; dec = lambda a: np.where(a == BLANK, np.nan, a.astype("float64") / 1e4); M, rows = {}, []
+    for part in (1, 2, 3):
+        T = {st: pq.read_table(os.path.join(cols, f"{st}_part{part}.parquet")) for st in ("halfA", "halfB", "readA", "readB")}
+        for c in T["halfA"].column_names:
+            m1 = dec(T["halfA"].column(c).to_numpy()) - dec(T["halfB"].column(c).to_numpy()); m2 = dec(T["readA"].column(c).to_numpy()) - dec(T["readB"].column(c).to_numpy())
+            M[c] = (m1, m2); f1, f2 = np.isfinite(m1), np.isfinite(m2)
+            ms1 = float(np.mean(m1[f1] ** 2)) if f1.any() else None; ms2 = float(np.mean(m2[f2] ** 2)) if f2.any() else None
+            rows.append(dict(cell=c, sites_map1=int(f1.sum()), sites_map2=int(f2.sum()), mean_map1=round(float(m1[f1].mean()), 5) if f1.any() else None,
+                             mean_map2=round(float(m2[f2].mean()), 5) if f2.any() else None, ms_map1=round(ms1, 6) if ms1 is not None else None,
+                             ms_map2=round(ms2, 6) if ms2 is not None else None, donor_part=round(ms1 - ms2, 6) if ms1 is not None and ms2 is not None else None))
+    return M, rows
+
+def noise_check(cols=None, ref=METAA_REF):
+    """The noise columns' known answer: at every Met-A identity site the committed reference (metaa_seq_reference_v1, built from the same
+    pieces) holds the same four half values; returns the share identical, over the values both hold."""
+    import pandas as pd, pyarrow.parquet as pq, stage_metaa_atlas as SA
+    cols = cols or NOISE_DIR; R = pd.read_parquet(ref, columns=["cell", "probe", "halfA", "halfB", "readA", "readB"])
+    ids = pd.Index(pq.read_table(os.path.join(SA.ATLAS, "sites.parquet")).column("cpg").to_pylist()); same = tot = 0
+    for part in (1, 2, 3):
+        for st in ("halfA", "halfB", "readA", "readB"):
+            T = pq.read_table(os.path.join(cols, f"{st}_part{part}.parquet"))
+            for c in T.column_names:
+                g = R[R.cell == c]
+                if g.empty: continue
+                v = T.column(c).to_numpy()[ids.get_indexer(g.probe)]; w = g[st].to_numpy(); k = (v != BLANK) | (w != BLANK)
+                same += int((v[k] == w[k]).sum()); tot += int(k.sum())
+    return dict(values=tot, identical=same, share=round(same / tot, 6) if tot else None)
 
 TERR_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "terr_half_counts")   # terr_half_counts_v1.parquet
 TERR_FILE = None   # 2026-11-01: a constructed per-half island counts file (run_sample.py --dev-terr-counts), for synthetics

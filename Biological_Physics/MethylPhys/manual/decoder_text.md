@@ -2382,6 +2382,18 @@ The islands read with that expectation, against the donor half given, both sides
 ### stage_metaa_atlas.py::thin_H
 The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
 
+### stage_seq_atlas.py::noise_maps
+The atlas's two noise maps at v2.1's sites per cell (donor halves; read halves) and a summary row per cell.
+
+### stage_seq_atlas.py::noise_check
+The noise columns against the committed Met-A reference at the identity sites: the share of values identical.
+
+### reference_globes.py::noise_sphere
+The sequencing atlas's two noise maps drawn on the sky sphere per cell (`--build seq-noise-sphere`).
+
+### reference_globes.py::noise_sphere.tex
+One noise map as a sky texture on a diverging scale, grey where blank.
+
 ### stage_seq_atlas.py::range_of_average
 Each cell's pooled level at a site and the 95 % range of the cell's average: donor spread over the square root of the donors times the t
 quantile, or counting only for one donor.

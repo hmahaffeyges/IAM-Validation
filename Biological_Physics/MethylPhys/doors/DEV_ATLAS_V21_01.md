@@ -757,3 +757,11 @@ v2.1 191458 (41241), on the same rule: v2.1 has 79 cells, so more sites fall out
 about as tightly on the sequencing globe as on v2.1's (median concentration 0.42 against 0.35); embryonic stem cells are not in the
 sequencing atlas. Recorded, not scored. Part of the extra sites may be the thin columns' own noise passing the spread rule (two-donor cells);
 that is read when more donors are in.
+
+**The two noise maps on the sky sphere (written and committed before it runs; checklist C3, D1 to D3).** The atlas stores both noise splits
+at every CpG; the column builder now takes a field list (`stage_seq_atlas.array_columns`, `--build seq-noise-cols`: donor half A and B,
+read half A and B at v2.1's sites; the committed columns are built as before), and `--build seq-noise-sphere` draws, per cell, map 1
+(donor half A minus half B: donors plus counting) and map 2 (read half A minus half B: counting only) on the sky sphere, with each cell's
+summary (`stage_seq_atlas.noise_maps`). **Known answer, the bar:** the committed Met-A reference holds the same four values at every
+identity site from the same pieces, so the new columns must equal it there at least 0.999 of the time (`stage_seq_atlas.noise_check`).
+Recorded, not scored: each map's mean (a healthy split has none), mean square, and the donor part.
