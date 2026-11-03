@@ -1,0 +1,8 @@
+30 plasmas; domains median 1.0226; whole-sample Met-A median 1.0439
+domains against the sites with a value: rho -0.177; against the cells found (share 0.01 or more): rho -0.174
+nk cells: median share 0.029; domains rho -0.243
+lung alveolar macrophages: median share 0.015; domains rho +0.241
+colon macrophages: median share 0.058; domains rho -0.232
+granulocytes: median share 0.347; domains rho +0.153
+hepatocyte: median share 0.026; domains rho -0.038
+monocytes: median share 0.087; domains rho -0.026

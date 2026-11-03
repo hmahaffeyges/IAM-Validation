@@ -480,3 +480,13 @@ to 1 and the share should scatter; if it is a cell whose domains are ordered, th
 few cells. **The run:** the 30 counted again from plasma_seq_02's saved molecules with plasma_seq_03's settings (the common floor) and
 `--dev-deconv-drop erythrocyte_progenitors` (`plasma_seq_04/plasma_seq_04_samples.csv`). **Reported, nothing scored:** the committed band
 scorer and share diagnostic, beside plasma_seq_03's. Not a reading the chain uses: the Deconvolver's reference keeps every cell.
+
+**plasma_seq_04: holding erythrocyte progenitors out trades one gap for another** (`plasma_seq_04/plasma_band_04_summary.txt`,
+`plasma_shares_diag_04.txt`; the committed scorers; nothing scored). All 30 read. The domains come to 1.023 (5 to 95 % 0.9239 to 1.104;
+from 0.8666) and whole-sample Met-A to 1.044 (from 0.9205), but Met-A at the identity sites of the cells found rises to 1.109 (from 0.9918),
+and the islands read 0.9149 (from 0.9272). The share goes mostly to blood cells (granulocytes 0.347, monocytes 0.087, NK cells 0.029), and
+the domains no longer follow any one cell (largest rho -0.243). **What it says:** the plasma DNA the Deconvolver gives to erythrocyte
+progenitors matches that cell at the identity sites (taking it away raises the disorder there) but not at the domains (keeping it lowers
+the domains). It reads as erythroid at its identity sites and more ordered than the atlas's bone-marrow erythrocyte progenitors at the
+domains. Neither panel reads every reading Normal; the Deconvolver's reference keeps every cell. What that DNA is (an erythroid cell at a
+stage the atlas does not hold, or a cell it lacks) stays open, and needs data of that cell, not a change to the reading.

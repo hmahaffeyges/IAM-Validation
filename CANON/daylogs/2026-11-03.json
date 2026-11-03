@@ -43,14 +43,75 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Plasma: the depth sweep",
+     "status": "synthetic only",
+     "what": "Constructed healthy plasmas at stated depths, read by the one command.",
+     "outcome": "Normal at 20 reads; at plasma's 1 read, depth moves the domains only a few hundredths.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Plasma: megakaryocyte DNA the atlas lacks",
+     "status": "synthetic only",
+     "what": "Constructed plasmas holding up to a quarter megakaryocyte DNA.",
+     "outcome": "The control missed its bar by 0.001; megakaryocyte DNA lowers the domains only 0.034.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Plasma: the domains follow the erythrocyte progenitor share",
+     "status": "diagnosis",
+     "what": "The 30 plasmas' domains against every cell's share.",
+     "outcome": "Rho -0.928; that cell carries the most domain disorder in the atlas, and it is real in its own donors.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Plasma: erythrocyte progenitors held out",
+     "status": "diagnosis",
+     "what": "The 30 counted again with that cell held out of the Deconvolver.",
+     "outcome": "The domains came to 1.023, but Met-A at the identity sites rose to 1.109: the DNA is erythroid at identity sites, more ordered at the domains.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },
   {
    "kind": "built",
    "heading": "What was built",
-   "entries": []
+   "entries": [
+    {
+     "title": "A switch to hold cells out of the Deconvolver",
+     "status": "structure",
+     "what": "run_sample.py --dev-deconv-drop, diagnosis only, flagged in the bundle.",
+     "outcome": "Built.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Each cell's domain disorder from the one command",
+     "status": "structure",
+     "what": "run_sample.py --build seq-domain-disorder.",
+     "outcome": "Built.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
   }
  ],
- "open_at_turnover": "Plasma: the domains, whole-sample Met-A and IAM-A below 1."
+ "open_at_turnover": "Plasma: what the erythroid-like DNA is; the Johns Hopkins study on the 57-cell atlas."
 }

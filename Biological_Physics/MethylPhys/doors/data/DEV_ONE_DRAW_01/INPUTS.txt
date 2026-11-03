@@ -16,3 +16,6 @@ plasma_mk_synthetic.txt
 plasma_shares_diag.txt
 plasma_shares_diag.csv
 domains_by_cell.txt
+plasma_shares_diag_04.txt
+plasma_shares_diag_04.csv
+plasma_band_04_summary.txt
