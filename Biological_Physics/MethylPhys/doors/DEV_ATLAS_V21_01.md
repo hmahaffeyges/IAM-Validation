@@ -1089,7 +1089,8 @@ blood or plasma sample's granulocyte DNA is given to other cells. **Inputs** (`s
 healthy blood granulocyte samples (GSM5652313, GSM5652314, GSM5652315; the same laboratory as the other 153 inputs), spent in earlier
 development work (DEV_METAA_HEALTHY_01, step 3), which does not bar a ruler's build; halves sealed by seed 20261125 (GSM5652314 and
 GSM5652315 in half A, GSM5652313 in half B). **Build:** the column's pieces by the one command (`--build seq-atlas`, the 56 cells' builder)
-into their own folder beside the 56 cells', then every derived table rebuilt from both folders as one 57-cell atlas: the Met-A identity
+into their own folder beside the 56 cells' (each machine downloads the three .beta files once, checks their size, and the builder reads
+them as local files; first launch read GEO's ftp addresses, which the builder does not open: corrected to https, disclosed), then every derived table rebuilt from both folders as one 57-cell atlas: the Met-A identity
 sites, the Deconvolver's reference, the array-site and noise columns, the floor sites, the per-donor and per-half counts, the held-error
 reference and the input floors. **Test:** the 57-cell atlas's healthy pass (every input read against the other sealed half of its own cell,
 as pass 6) with the same bar: every reading Normal. The granulocytes' own check: the two sealed halves' noise map and the bridge to
