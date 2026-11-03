@@ -719,12 +719,6 @@ def main():
             _vb, _vc, a._seqv = _SV.values_from_beta(a.dev_seq_beta, a.dev_seq_values or 1)
         a._seqc = _vc
         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
-        try:   # 2026-11-02 (the laboratory floor): the sample's own floor, before any reading, for --dev-floor-equal
-            import stage_seq_atlas as _SQf0, stage_metaa_atlas as _SAf0; _lf0 = _SQf0.library_floor(_vb, _vc)
-            _SAf0.SAMPLE_FLOOR = ((_lf0 or {}).get("unmarked") or {}).get("rate")
-            if getattr(a, "dev_floor_equal", False): _SAf0.FLOOR_EQUAL = True
-            if getattr(a, "dev_input_floors", None): _SQf0.FLOORS_FILE = a.dev_input_floors
-        except Exception as _e0: print(f"library floor not measured: {type(_e0).__name__}: {str(_e0)[:120]}", flush=True)
         print(f"Sequencing values from {os.path.basename(a.dev_seq_beta)}: {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites; median {a._seqv['calls_per_site_median']:.0f} calls", flush=True)
     elif a.dev_seq_values is not None:   # 2026-10-22 (step 40): the same molecules give a value at each atlas site
         if not a.pat: ap.error("--dev-seq-values needs --pat (or --geo-pat)")
@@ -734,6 +728,13 @@ def main():
         _vb, _vc, a._seqv = _SV.values_from_pat(a.pat, a.dev_seq_values); a._seqc = _vc   # read counts per site, for Met-A's k-of-n expectation (40.3)
         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
         print(f"  {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites with a value; median {a._seqv['calls_per_site_median']:.0f} calls per site", flush=True)
+    if a._seqv is not None:   # 2026-11-03: the sample's own floor, before any reading, for every sequencing input (.beta, bigWig and .pat; it was
+        try:                  # set for .beta and bigWig only, so plasma's molecules never took --dev-floor-equal: found in plasma_seq_03, disclosed)
+            import stage_seq_atlas as _SQf0, stage_metaa_atlas as _SAf0; _lf0 = _SQf0.library_floor(_vb, _vc)
+            _SAf0.SAMPLE_FLOOR = ((_lf0 or {}).get("unmarked") or {}).get("rate")
+            if getattr(a, "dev_floor_equal", False): _SAf0.FLOOR_EQUAL = True
+            if getattr(a, "dev_input_floors", None): _SQf0.FLOORS_FILE = a.dev_input_floors
+        except Exception as _e0: print(f"library floor not measured: {type(_e0).__name__}: {str(_e0)[:120]}", flush=True)
     if a.build: sys.exit(_build(a))
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --bam / --site-table")
     if sum(bool(x) for x in (a.pat, a.site_table, a.bam)) > 1: ap.error("give one of --pat, --bam or --site-table")

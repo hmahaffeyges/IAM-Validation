@@ -394,3 +394,10 @@ a mix of the atlas's cells in its own shares, reads Normal. **The run:** each of
 (`erase_test.yml`, `full=1`, `patfrom` the plasma_seq_02 run; no new alignment), read by the one command with plasma_seq_02's settings and
 `--dev-floor-equal` (`plasma_seq_03/plasma_seq_03_samples.csv`). **Reported, nothing scored:** the committed band scorer and floor check,
 beside plasma_seq_02's. The flag stays off by default (healthy pass 6) until a plasma test written before reading says otherwise.
+
+**plasma_seq_03's first reads: the flag was not applied (my error, disclosed).** 25 of the 30 were counted again with `--dev-floor-equal` on
+the command line, but the one command set the sample's floor (and the flag) only where it builds values from a `.beta` file or bigWig tracks,
+not from molecules (`--pat`), which is how every plasma comes in; the floor synthetic read `.beta` files, so it did not see this. The first
+bundle opened carried no floor record and read exactly as in plasma_seq_02; none of those 25 is used. **Fix:** the floor is set in one place
+after every sequencing input is turned into values. One plasma is read first and its bundle checked for the floor record before the other
+29 are sent (new run names, `pl3b_`).
