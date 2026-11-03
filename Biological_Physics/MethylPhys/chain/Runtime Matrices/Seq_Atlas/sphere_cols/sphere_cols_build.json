@@ -1,5 +1,5 @@
 {
- "cells": 56,
+ "cells": 57,
  "one_donor_counting_only": [
   "effector memory cd8 t cells",
   "naive cd4 t cells",
@@ -12,9 +12,9 @@
   "--build",
   "seq-sphere-cols",
   "--build-out",
-  "../Runtime Matrices/Seq_Atlas/sphere_cols",
+  "/root/w/sc",
   "--bundle",
-  "../Runtime Matrices/Seq_Atlas/sphere_cols/sphere_cols_build.json"
+  "/root/w/sc/sphere_cols_build.json"
  ],
  "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
 }

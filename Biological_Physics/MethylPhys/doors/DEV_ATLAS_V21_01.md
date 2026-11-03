@@ -1149,3 +1149,7 @@ given, checked before those rows were left out). Every input's floor measured ag
 granulocytes 0.00899, 0.005889, 0.008653), and the held-error reference rebuilt from every input's tiles (57 cells; granulocytes: 3
 donors, held error 0.03841). **Next:** the sphere columns, then the 57-cell healthy pass (`seq_atlas_01/healthy_fullchain7_samples.csv`:
 pass 5's 137 inputs and settings, and the three granulocytes, each read against the other sealed half), the same scorer and bar.
+
+**The 57-cell sphere columns** (`chain/Runtime Matrices/Seq_Atlas/sphere_cols/`, `sphere_cols_build.json`; `run_sample.py --build
+seq-sphere-cols` on one Google spot machine from the committed 57-cell tables). The 57-cell healthy pass's machines installed these same
+files from the bucket, each checked against its SHA-256 before any read.
