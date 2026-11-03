@@ -1164,3 +1164,14 @@ earlier inputs** read as they did on 56 cells (the largest change in any reading
 0.9731; whole-sample Met-A 0.9917 to 1.0340. Their islands read 1.2600 (GSM5652313, the only donor of half B, floor 0.00899, read against
 half A) and 0.7189 (GSM5652314, floor 0.005889, read against GSM5652313 alone): a mirror pair, the islands' known dependence on each
 library's floor seen between two people. The granulocyte column rests on three donors, so that dependence is not averaged out.
+
+**Where BLUEPRINT's own-cell share goes** (`seq_atlas/outside_data/blueprint_share_destinations.py`, `blueprint_share_destinations.txt`;
+diagnostic, added after the test and its re-read were scored; nothing scored). The share the Deconvolver does not give a sorted library's own
+cell goes almost entirely to that cell's own subtypes: BLUEPRINT's CD8-positive alpha-beta T cells (every CD8 T cell) read naive CD8 T cells
+0.482 against the atlas's "cd8 t cells" 0.059; its CD4-positive T cells naive CD4 0.251 beside 0.380; memory B cells B cells 0.187 beside
+0.657. Where BLUEPRINT's sorting matches an atlas cell's definition, the own share is high: naive B cells 0.877, CD56-dim NK cells 0.855.
+Monocytes are the exception: 0.558 own, 0.315 lung interstitial macrophages (a related but different cell). **So the test's low own-cell
+shares were mostly my mapping of BLUEPRINT's broad fractions onto the atlas's narrower cells** (the sample list's `atlas_cell` column),
+not the instrument; own-cell Met-A then read a mix of subtypes against one subtype. **For the next outside laboratory, written before it
+is read:** only libraries whose sorting definition matches an atlas cell's, and the whole-sample (in-mix) reading as the primary one.
+What remains on BLUEPRINT that is not definition: the monocytes' share given to macrophages, and the islands' floor dependence.

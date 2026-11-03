@@ -1,0 +1,10 @@
+b cells (7; BLUEPRINT label: CD38-negative naive B cell; naive B cell): own 0.877; then lung interstitial macrophages 0.045, monocytes 0.023, naive cd8 t cells 0.023, thyroid epithelium 0.011
+cd4 t cells (8; BLUEPRINT label: CD4-positive, alpha-beta T cell): own 0.380; then naive cd4 t cells 0.251, naive cd8 t cells 0.094, t central memory cd4 0.085, t effector memory cd4 0.021
+cd8 t cells (4; BLUEPRINT label: CD8-positive, alpha-beta T cell): own 0.059; then naive cd8 t cells 0.482, cd4 t cells 0.162, nk cells 0.104, naive cd4 t cells 0.099
+effector memory cd8 t cells (2; BLUEPRINT label: effector memory CD8-positive, alpha-beta T cell): own 0.101; then t effector cell cd8 0.324, cd8 t cells 0.305, t effector memory cd4 0.133, t central memory cd4 0.050
+erythrocyte progenitors (2; BLUEPRINT label: erythroblast): own 0.401; then lung interstitial macrophages 0.122, naive cd8 t cells 0.099, nk cells 0.064, cortical neurons 0.053
+memory b cells (6; BLUEPRINT label: class switched memory B cell; memory B cell): own 0.657; then b cells 0.187, effector memory cd8 t cells 0.035, t effector cell cd8 0.033, bladder epithelium 0.010
+monocytes (22; BLUEPRINT label: CD14-positive, CD16-negative classical monocyte; monocyte): own 0.558; then lung interstitial macrophages 0.315, colon macrophages 0.057, lung alveolar macrophages 0.043, naive cd8 t cells 0.006
+nk cells (4; BLUEPRINT label: cytotoxic CD56-dim natural killer cell): own 0.855; then naive cd8 t cells 0.064, colon macrophages 0.024, lung interstitial macrophages 0.013, cortical neurons 0.009
+t central memory cd4 (2; BLUEPRINT label: central memory CD4-positive, alpha-beta T cell): own 0.419; then cd4 t cells 0.273, t effector memory cd4 0.211, cd8 t cells 0.036, naive cd4 t cells 0.017
+t effector memory cd4 (2; BLUEPRINT label: effector memory CD4-positive, alpha-beta T cell): own 0.397; then t central memory cd4 0.325, cd4 t cells 0.091, effector memory cd8 t cells 0.062, cd8 t cells 0.062
