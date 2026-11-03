@@ -77,3 +77,6 @@ healthy_fullchain5_summary.txt
 healthy_fullchain5_readings.csv
 metaa_chrx_diag.csv
 metaa_chrx_diag.txt
+healthy_fullchain6_summary.txt
+healthy_fullchain6_readings.csv
+pass6_floor_diag.txt

@@ -1094,3 +1094,16 @@ sites, the Deconvolver's reference, the array-site and noise columns, the floor 
 reference and the input floors. **Test:** the 57-cell atlas's healthy pass (every input read against the other sealed half of its own cell,
 as pass 6) with the same bar: every reading Normal. The granulocytes' own check: the two sealed halves' noise map and the bridge to
 IAM-Atlas v2.1's neutrophils, recorded.
+
+**Healthy pass 6 (the common floor): every reading Normal, but the floor overcorrects** (`seq_atlas/outside_data/healthy_fullchain6_summary.txt`, a copy of
+`DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain6_summary.txt`; the committed pass scorer). All 137 read: C-Score 1.0003 (0.964 inside its limit), sorted-cell Met-A
+1.0085, whole-sample Met-A 1.0055, the domains 1.0011, the islands 1.0403 (pass 5 1.0122). **Read against each input's floor**
+(`seq_atlas_01/pass6_floor_diag.py`, `pass6_floor_diag.txt`; diagnostic, added after scoring): without the floor the islands rise with the
+floor difference between sample and reference (rho +0.341); with it they fall with it (rho -0.555). The data carry 0.488 of the correction
+the floor makes: within the atlas's laboratory, only about half of the rate measured at the floor sites reaches the islands, so the rate
+there is not one false-call rate shared by every site. Sorted-cell Met-A does not follow the floor at all (rho -0.010), and the correction
+adds a small tilt (-0.126). **So the common floor, applied whole, is not the physics of these libraries:** it stays a development flag, off by
+default; pass 5's settings remain the healthy baseline. **What it leaves:** the floor sites measure something more than a uniform false
+call (part of it is specific to the sites, the person or the cell), and the outside laboratory's shortfall at the islands (0.2924) is larger
+than a floor of 0.0015 makes in the synthetic (0.6618), so more than the floor separates the two laboratories. BLUEPRINT read again with the
+floor (development) is recorded below whatever it shows.

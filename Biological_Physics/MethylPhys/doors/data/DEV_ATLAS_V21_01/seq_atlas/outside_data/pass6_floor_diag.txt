@@ -1,0 +1,2 @@
+islands: 137 inputs; median pass 5 1.0122, pass 6 1.0403; against the floor difference (sample minus reference): pass 5 rho +0.341, pass 6 rho -0.555; slope of the reading +49.70, of the correction -101.89 (share of the correction the data carry 0.488)
+metaa: 137 inputs; median pass 5 1.0077, pass 6 1.0085; against the floor difference (sample minus reference): pass 5 rho -0.010, pass 6 rho -0.126; slope of the reading -1.55, of the correction -12.13 (share of the correction the data carry -0.128)

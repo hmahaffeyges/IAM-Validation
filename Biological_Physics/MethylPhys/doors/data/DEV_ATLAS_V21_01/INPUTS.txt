@@ -96,3 +96,5 @@ library_floors.txt
 floor_synthetic.txt
 floor_synthetic_readings.csv
 gran_inputs.csv
+healthy_fullchain6_summary.txt
+pass6_floor_diag.txt
