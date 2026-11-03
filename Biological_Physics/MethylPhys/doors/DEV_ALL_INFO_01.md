@@ -306,3 +306,15 @@ sample's library floor for every input kind. **The run:** the same 36 samples (`
 settings), each merged from its saved alignment pieces (split_align.yml, `full=1`, the same pieces as the second reading) and read by the one
 command at the current commit. **Table:** `full_depth/hopkins_fullchain3_table.py`, version 2's table under a new name. No bar: the readings
 are reported as the chain gives them; experts in the disease set the lines.
+
+**The third reading: read** (`full_depth/hopkins_fullchain3.csv`, `full_depth/hopkins_fullchain3.txt`, `full_depth/hopkins_3_vs_2.txt`; 36 of
+36 merges succeeded; no bar). Every reading is the same as the second reading to its last place, except the Deconvolver's B-cell share
+(largest change in any sample 0.0569; leukemia median 0.4956 to 0.495, cord blood 0.8372 to 0.8192) and the B-cell copies per site that
+follow it. That is as it should be: the samples are declared sorted B cells, so Met-A for the whole sample, the territories and the B-cell
+reading are read against the B-cell column (unchanged by the granulocyte column); only the shares read against every cell. By group
+(median): leukemia (31) IAM-A 0.9043, coupling-A 1.0891 (none inside its healthy band), Met-A B cells 1.0410, whole sample 1.0312, islands
+1.3277, domains 0.9885, C-Score 0.9989; cord-blood B cells (3) IAM-A 0.7906, Met-A B cells 0.8620, islands 0.7709; the Reh line's UHRF1
+knockout Met-A B cells 2.2320, islands 2.1013, domains 1.6123, against its control line's 1.0837, 2.2965 and 0.7027. Group-A gives no call,
+as in the second reading: the three cord-blood samples leave each only two others for its tare (at least three required).
+**A label corrected (mine, disclosed):** the bundles' flag on the atlas readings said "read against IAM-Atlas v2.1" on sequencing too,
+where the ruler is the IAM Sequencing Atlas; the flag now names the ruler used (`stage_metaa_atlas._flag`). No number changes.

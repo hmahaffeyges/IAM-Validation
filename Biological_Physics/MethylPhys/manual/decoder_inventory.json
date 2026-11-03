@@ -6926,14 +6926,30 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 788,
+   "lines": 790,
    "functions": [
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "_flag",
+     "name": "_flag",
+     "line": 29,
+     "end": 30,
+     "args": [],
+     "lines": 2,
+     "doc": "",
+     "constants": [
+      "FLAG",
+      "SEQ_ATLAS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
     {
      "file": "stage_metaa_atlas.py",
      "function": "_H",
      "name": "_H",
-     "line": 37,
-     "end": 38,
+     "line": 39,
+     "end": 40,
      "args": [
       "b"
      ],
@@ -6947,8 +6963,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_col",
      "name": "_col",
-     "line": 40,
-     "end": 70,
+     "line": 42,
+     "end": 72,
      "args": [
       "stem",
       "cell"
@@ -6972,8 +6988,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "width",
      "name": "width",
-     "line": 72,
-     "end": 75,
+     "line": 74,
+     "end": 77,
      "args": [
       "cell"
      ],
@@ -6987,8 +7003,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "identity_sites",
      "name": "identity_sites",
-     "line": 80,
-     "end": 95,
+     "line": 82,
+     "end": 97,
      "args": [
       "cell"
      ],
@@ -7006,8 +7022,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "specific_sites",
      "name": "specific_sites",
-     "line": 97,
-     "end": 110,
+     "line": 99,
+     "end": 112,
      "args": [
       "cell",
       "others",
@@ -7025,8 +7041,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "seq_units",
      "name": "seq_units",
-     "line": 113,
-     "end": 117,
+     "line": 115,
+     "end": 119,
      "args": [
       "p"
      ],
@@ -7042,8 +7058,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_counts",
      "name": "expected_H_counts",
-     "line": 119,
-     "end": 129,
+     "line": 121,
+     "end": 131,
      "args": [
       "p",
       "n"
@@ -7060,8 +7076,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_counted",
      "name": "expected_H_counted",
-     "line": 131,
-     "end": 143,
+     "line": 133,
+     "end": 145,
      "args": [
       "mref",
       "nref",
@@ -7079,8 +7095,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_donors",
      "name": "expected_H_donors",
-     "line": 145,
-     "end": 168,
+     "line": 147,
+     "end": 170,
      "args": [
       "Md",
       "Nd",
@@ -7098,8 +7114,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "donor_pair",
      "name": "donor_pair",
-     "line": 170,
-     "end": 191,
+     "line": 172,
+     "end": 193,
      "args": [
       "k",
       "n",
@@ -7120,8 +7136,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "donor_pair.thin",
      "name": "thin",
-     "line": 180,
-     "end": 185,
+     "line": 182,
+     "end": 187,
      "args": [
       "K",
       "N",
@@ -7138,8 +7154,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read",
      "name": "read",
-     "line": 193,
-     "end": 266,
+     "line": 195,
+     "end": 268,
      "args": [
       "beta",
       "cell",
@@ -7151,7 +7167,6 @@
      "lines": 74,
      "doc": "Met-A against the atlas cell (untared). beta: Series probe -> beta from Stage 1. 2026-10-29: with sequencing counts and seqref (the cell's rows of the IAM Sequencing Atlas's Met-A reference, stage_seq_atlas.metaa_reference_of), the healthy level at each identity site is the sequencing atlas's, counted from sequencing reads (half 'A' or 'B': that sealed donor half only, for a sample of the other ha",
      "constants": [
-      "FLAG",
       "FLOOR_EQUAL",
       "RULE",
       "SAMPLE_FLOOR",
@@ -7166,8 +7181,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_on_curve",
      "name": "read_on_curve",
-     "line": 270,
-     "end": 297,
+     "line": 272,
+     "end": 299,
      "args": [
       "beta",
       "cell"
@@ -7176,7 +7191,6 @@
      "doc": "2026-10-25 (DEVELOPMENT, plan 14.14; author: 'the atlas is our ruler'): Met-A with the atlas as the ruler and each array self-referenced. Sites: identity_sites(cell), chosen on the atlas, never on the array read. Ruler: the array's own response curve against the atlas cell's best value, measured at every atlas site that is not an identity site and that the array read: sites binned by the atlas lev",
      "constants": [
       "CURVE_EDGES",
-      "FLAG",
       "RULE"
      ],
      "data_files": [],
@@ -7186,8 +7200,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "tare",
      "name": "tare",
-     "line": 299,
-     "end": 308,
+     "line": 301,
+     "end": 310,
      "args": [
       "A",
       "refs"
@@ -7195,7 +7209,6 @@
      "lines": 10,
      "doc": "The same-run tare: A_rel = A / median(refs); spread of the references and the detection limit as conductor_v3.stage_t_tare.",
      "constants": [
-      "FLAG",
       "RULE"
      ],
      "data_files": [],
@@ -7205,8 +7218,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_all",
      "name": "plant_all",
-     "line": 310,
-     "end": 314,
+     "line": 312,
+     "end": 316,
      "args": [
       "beta",
       "cell",
@@ -7222,8 +7235,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_runs",
      "name": "plant_runs",
-     "line": 317,
-     "end": 329,
+     "line": 319,
+     "end": 331,
      "args": [
       "beta",
       "cell",
@@ -7248,8 +7261,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant",
      "name": "plant",
-     "line": 331,
-     "end": 335,
+     "line": 333,
+     "end": 337,
      "args": [
       "beta",
       "cell",
@@ -7265,8 +7278,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 344,
-     "end": 392,
+     "line": 346,
+     "end": 394,
      "args": [
       "beta",
       "shares",
@@ -7277,7 +7290,6 @@
      "doc": "Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written 2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21). For each cell c: its identity sites (identity_sites, Met-A's rule on the atlas); the healthy expectation e = sum_k f_k mu_k at t",
      "constants": [
       "COPY_FLOOR",
-      "FLAG",
       "MIX_COVER",
       "NOT_FOUND_SHARE",
       "READ_COVER_MIN",
@@ -7292,8 +7304,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 395,
-     "end": 406,
+     "line": 397,
+     "end": 408,
      "args": [
       "beta",
       "shares",
@@ -7311,8 +7323,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 409,
-     "end": 438,
+     "line": 411,
+     "end": 440,
      "args": [
       "beta",
       "shares"
@@ -7320,7 +7332,6 @@
      "lines": 30,
      "doc": "Met-A for each cell over EVERY IAM-Atlas v2.1 site (development, written 2026-10-22 before any comparison is run; author: \"Met-A should be able to read 800K sites so long as they correspond to the cells in the atlas\"). For cell c, each site s counts by how much a loss of c's pattern would move it, the chain's own shift rule (conductor_v3.stage_m_blood): w_s = f_c x |0.5 - mu_c,s|. Nothing is chose",
      "constants": [
-      "FLAG",
       "MIX_COVER"
      ],
      "data_files": [],
@@ -7330,8 +7341,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_clustering",
      "name": "_clustering",
-     "line": 444,
-     "end": 450,
+     "line": 446,
+     "end": 452,
      "args": [
       "z",
       "w"
@@ -7348,8 +7359,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_genome_order",
      "name": "_genome_order",
-     "line": 452,
-     "end": 457,
+     "line": 454,
+     "end": 459,
      "args": [
       "ids"
      ],
@@ -7369,8 +7380,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
-     "line": 459,
-     "end": 489,
+     "line": 461,
+     "end": 491,
      "args": [
       "beta",
       "shares",
@@ -7381,7 +7392,6 @@
      "constants": [
       "CS_BLOCK",
       "CS_FLAG_SHARE",
-      "FLAG",
       "MIX_COVER"
      ],
      "data_files": [],
@@ -7391,8 +7401,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_sets",
      "name": "territory_sets",
-     "line": 499,
-     "end": 515,
+     "line": 501,
+     "end": 517,
      "args": [],
      "lines": 17,
      "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
@@ -7410,8 +7420,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_reading",
      "name": "ceiling_reading",
-     "line": 517,
-     "end": 537,
+     "line": 519,
+     "end": 539,
      "args": [
       "xs",
       "es",
@@ -7429,8 +7439,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_counted",
      "name": "ceiling_counted",
-     "line": 539,
-     "end": 550,
+     "line": 541,
+     "end": 552,
      "args": [
       "A",
       "A_sat",
@@ -7447,8 +7457,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_reading",
      "name": "territory_reading",
-     "line": 552,
-     "end": 583,
+     "line": 554,
+     "end": 585,
      "args": [
       "beta",
       "shares",
@@ -7457,7 +7467,6 @@
      "lines": 32,
      "doc": "The sample's disorder at each territory against IAM-Atlas v2.1 mixed in its own shares (read_in_mix's mix rule): A = mean H(beta) over mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of the set this array measures. Development, flagged; healthy is read first and its spread sets any line, not this function.",
      "constants": [
-      "FLAG",
       "MIX_COVER",
       "SEQ_ATLAS",
       "TERR_COUNTED",
@@ -7471,8 +7480,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 585,
-     "end": 591,
+     "line": 587,
+     "end": 593,
      "args": [
       "beta",
       "name",
@@ -7490,8 +7499,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_he",
      "name": "_he",
-     "line": 595,
-     "end": 597,
+     "line": 597,
+     "end": 599,
      "args": [
       "es",
       "counts"
@@ -7506,8 +7515,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_Hj",
      "name": "_Hj",
-     "line": 607,
-     "end": 614,
+     "line": 609,
+     "end": 616,
      "args": [
       "m",
       "u"
@@ -7522,8 +7531,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "floor_raise",
      "name": "floor_raise",
-     "line": 616,
-     "end": 618,
+     "line": 618,
+     "end": 620,
      "args": [
       "f_low",
       "F"
@@ -7538,8 +7547,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "thin_H",
      "name": "thin_H",
-     "line": 620,
-     "end": 624,
+     "line": 622,
+     "end": 626,
      "args": [
       "k",
       "n",
@@ -7556,8 +7565,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_mix_counts",
      "name": "expected_H_mix_counts",
-     "line": 626,
-     "end": 649,
+     "line": 628,
+     "end": 651,
      "args": [
       "Mk",
       "Nk",
@@ -7576,8 +7585,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "islands_counted",
      "name": "islands_counted",
-     "line": 651,
-     "end": 675,
+     "line": 653,
+     "end": 677,
      "args": [
       "xs",
       "counts",
@@ -7601,8 +7610,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 681,
-     "end": 684,
+     "line": 683,
+     "end": 686,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -7616,8 +7625,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 686,
-     "end": 699,
+     "line": 688,
+     "end": 701,
      "args": [
       "xs",
       "es"
@@ -7632,8 +7641,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 701,
-     "end": 716,
+     "line": 703,
+     "end": 718,
      "args": [
       "xs",
       "es",
@@ -7652,8 +7661,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 718,
-     "end": 760,
+     "line": 720,
+     "end": 762,
      "args": [
       "beta",
       "shares",
@@ -7662,7 +7671,6 @@
      "lines": 43,
      "doc": "Met-A for the whole sample over EVERY IAM-Atlas v2.1 site (development, 2026-10-23; author: 'adjust Met-A to read from the entire IAM-Atlas'). One reading per sample: e = the atlas mixed in the sample's own shares (read_in_mix's rule, MIX_COVER); each site counts by how firmly a healthy sample of this mix holds it, w = |0.5 - e| (a site held near 0 or 1 counts most, a half-held one least; nothing ",
      "constants": [
-      "FLAG",
       "MIX_COVER",
       "WHOLE_SITE_OUT"
      ],
@@ -7673,8 +7681,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 741,
-     "end": 746,
+     "line": 743,
+     "end": 748,
      "args": [
       "m"
      ],
@@ -7688,8 +7696,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limit",
      "name": "cscore_limit",
-     "line": 770,
-     "end": 773,
+     "line": 772,
+     "end": 775,
      "args": [
       "n_sites",
       "q",
@@ -7707,8 +7715,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limits",
      "name": "cscore_limits",
-     "line": 775,
-     "end": 787,
+     "line": 777,
+     "end": 789,
      "args": [
       "cs",
       "array_type"
@@ -9626,5 +9634,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 490
+ "n_functions": 491
 }

@@ -13,3 +13,6 @@ hopkins_fullchain2.csv
 hopkins_fullchain2.txt
 hopkins_fullchain2_first_scoring.csv
 hopkins_fullchain2_first_scoring.txt
+hopkins_fullchain3.csv
+hopkins_fullchain3.txt
+hopkins_3_vs_2.txt

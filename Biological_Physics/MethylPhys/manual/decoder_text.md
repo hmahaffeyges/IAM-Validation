@@ -1906,6 +1906,9 @@ All the new sections in their order, after the cell shares.
 ### stage_t_selftare.py::ruler_map
 The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v2.1's means at sites every cell type holds alike (islands and shores never anchors). Development; off unless run_sample.py is given --dev-ruler.
 
+### stage_metaa_atlas.py::_flag
+The development flag on every atlas reading, naming the ruler used (IAM-Atlas v2.1 or the IAM Sequencing Atlas).
+
 ### stage_metaa_atlas.py::floor_raise
 The probability that raises a library's floor from f to F: (F - f) / (1 - f).
 

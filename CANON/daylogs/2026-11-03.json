@@ -83,6 +83,16 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "The Johns Hopkins study against the 57-cell atlas",
+     "status": "development",
+     "what": "All 36 merged from saved pieces and read by the full working chain.",
+     "outcome": "Every reading as in the second reading except the B-cell share, as expected for declared sorted B cells.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
     }
    ]
   },
@@ -113,5 +123,5 @@
    ]
   }
  ],
- "open_at_turnover": "Plasma: what the erythroid-like DNA is; the Johns Hopkins study on the 57-cell atlas."
+ "open_at_turnover": "The paper draft (not sent); plasma's erythroid question."
 }

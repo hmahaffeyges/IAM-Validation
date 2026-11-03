@@ -1,0 +1,17 @@
+36 samples, 16 readings compared
+IAM-A: largest change in any sample 0; medians by group, second -> third: control line 0.7654 -> 0.7654, cord-blood B cells 0.7906 -> 0.7906, knockout nan -> nan, leukemia 0.9043 -> 0.9043
+coupling-A: largest change in any sample 0; medians by group, second -> third: control line 1.04 -> 1.04, cord-blood B cells 1.012 -> 1.012, knockout 1.026 -> 1.026, leukemia 1.089 -> 1.089
+coupling-A inside band: largest change in any sample 0; medians by group, second -> third: control line 1 -> 1, cord-blood B cells 1 -> 1, knockout 1 -> 1, leukemia 0 -> 0
+Met-A B cells: largest change in any sample 0; medians by group, second -> third: control line 1.084 -> 1.084, cord-blood B cells 0.862 -> 0.862, knockout 2.232 -> 2.232, leukemia 1.041 -> 1.041
+Met-A whole sample: largest change in any sample 0; medians by group, second -> third: control line 0.8677 -> 0.8677, cord-blood B cells 0.8998 -> 0.8998, knockout 1.74 -> 1.74, leukemia 1.031 -> 1.031
+territory islands: largest change in any sample 0; medians by group, second -> third: control line 2.297 -> 2.297, cord-blood B cells 0.7709 -> 0.7709, knockout 2.101 -> 2.101, leukemia 1.328 -> 1.328
+territory domains: largest change in any sample 0; medians by group, second -> third: control line 0.7027 -> 0.7027, cord-blood B cells 0.8508 -> 0.8508, knockout 1.612 -> 1.612, leukemia 0.9885 -> 0.9885
+C-Score: largest change in any sample 0; medians by group, second -> third: control line 1.001 -> 1.001, cord-blood B cells 0.9995 -> 0.9995, knockout 1.002 -> 1.002, leukemia 0.9989 -> 0.9989
+C-Score inside limit: largest change in any sample 0; medians by group, second -> third: control line 1 -> 1, cord-blood B cells 1 -> 1, knockout 1 -> 1, leukemia 1 -> 1
+ceiling distance, Met-A B cells: largest change in any sample 0; medians by group, second -> third: control line 0.983 -> 0.983, cord-blood B cells 1.027 -> 1.027, knockout 0.752 -> 0.752, leukemia 0.9922 -> 0.9922
+ceiling distance, islands: largest change in any sample 0; medians by group, second -> third: control line 0.9257 -> 0.9257, cord-blood B cells 1.014 -> 1.014, knockout 0.9356 -> 0.9356, leukemia 0.9828 -> 0.9828
+B-cell copies per site: largest change in any sample 0.512; medians by group, second -> third: control line 0 -> 0, cord-blood B cells 11.04 -> 10.88, knockout 0 -> 0, leukemia 4.757 -> 4.799
+globe sites changed: largest change in any sample 0; medians by group, second -> third: control line 3851 -> 3851, cord-blood B cells 144 -> 144, knockout 4 -> 4, leukemia 936 -> 936
+territories changed: largest change in any sample 0; medians by group, second -> third: control line 0 -> 0, cord-blood B cells 2 -> 2, knockout 0 -> 0, leukemia 0 -> 0
+Fisher-Rao from own healthy self: largest change in any sample 0; medians by group, second -> third: control line 0.5213 -> 0.5213, cord-blood B cells 0.2633 -> 0.2633, knockout 0.7346 -> 0.7346, leukemia 0.3884 -> 0.3884
+B-cell share: largest change in any sample 0.0569; medians by group, second -> third: control line 0 -> 0, cord-blood B cells 0.8372 -> 0.8192, knockout 0 -> 0, leukemia 0.4956 -> 0.495

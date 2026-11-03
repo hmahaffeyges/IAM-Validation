@@ -26,6 +26,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ATLAS = os.path.join(HERE, "..", "atlas", "v2.1"); NA = 65535
 SEQ_TERM = json.load(open(os.path.join(HERE, "Runtime Matrices", "Atlas_V21", "sequencing_term_v1.json")))   # the atlas's measured sequencing source term
 FLAG = "read against IAM-Atlas v2.1; not commissioned by our standards (DEV-METAA-ATLAS-01)"
+def _flag():   # 2026-11-03: the flag names the ruler actually used (the fixed FLAG said IAM-Atlas v2.1 on sequencing too; corrected, disclosed)
+    return ("read against the IAM Sequencing Atlas; not commissioned by our standards (DEV-METAA-ATLAS-01)" if SEQ_ATLAS else FLAG)
 RULE = dict(spread_max=0.05, high=(0.75, 0.95), low=(0.05, 0.25), per_side=3000, coverage_min=0.90, normal=(0.95, 1.05), min_refs=3)
 SEQ_ATLAS = None   # 2026-10-30: a folder of the IAM Sequencing Atlas at v2.1's sites (stage_seq_atlas.ARRAY_COLS); set for a sequenced sample, _col serves it
 SEQ_LEVEL = "pooled"   # 2026-10-31: on sequencing the expectation is the pooled level (meth / reads); "median" reads the median of the donors (the earlier rule); "donors" reads sorted-cell Met-A donor by donor (donor_pair) and every column reading on the pooled level
@@ -195,7 +197,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     rows of the IAM Sequencing Atlas's Met-A reference, stage_seq_atlas.metaa_reference_of), the healthy level at each identity site is the
     sequencing atlas's, counted from sequencing reads (half 'A' or 'B': that sealed donor half only, for a sample of the other half), not the
     array atlas's; the sites are the same."""
-    S = identity_sites(cell); rec = dict(stage="M-atlas", reading="Met-A against IAM-Atlas v2.1", cell=cell, specimen=specimen, flag=FLAG,
+    S = identity_sites(cell); rec = dict(stage="M-atlas", reading="Met-A against IAM-Atlas v2.1", cell=cell, specimen=specimen, flag=_flag(),
                                          rule=RULE, n_identity_sites=len(S), A=None)
     if not S: rec["reason"] = f"no site of '{cell}' meets Met-A's site rule in the atlas"; return rec
     use_seq = counts is not None and seqref is not None
@@ -276,7 +278,7 @@ def read_on_curve(beta, cell):
     with the array's own spread around its curve there (each bin's standard deviation of the readings about the curve; 21-point Gauss-Hermite); A = the array's own mean entropy there over that mark. Binned means only; nothing fitted; no cohort,
     no same-run references. Also returned: the mean of the array above its own curve at the identity sites, the selection check."""
     S = identity_sites(cell); mu = _col("mu", cell); x = beta.astype("float64")
-    rec = dict(stage="M-atlas-curve", reading="Met-A with IAM-Atlas v2.1 as the ruler, on the array's own response curve", cell=cell, flag=FLAG,
+    rec = dict(stage="M-atlas-curve", reading="Met-A with IAM-Atlas v2.1 as the ruler, on the array's own response curve", cell=cell, flag=_flag(),
                rule=dict(sites="identity_sites (atlas)", curve_edges=CURVE_EDGES, curve_sites="atlas sites read by the array, identity sites excluded"), A=None)
     ids = pd.Index(S); off = mu.index[mu.notna()].difference(ids).intersection(x.dropna().index)
     if len(off) < 10000: rec["reason"] = f"only {len(off)} curve sites read"; return rec
@@ -299,7 +301,7 @@ def read_on_curve(beta, cell):
 def tare(A, refs):
     """The same-run tare: A_rel = A / median(refs); spread of the references and the detection limit as conductor_v3.stage_t_tare."""
     r = [float(v) for v in refs if v is not None and np.isfinite(v)]
-    out = dict(rule="A_rel = A / median(A of same-run healthy references of the same cell)", n_refs=len(r), flag=FLAG)
+    out = dict(rule="A_rel = A / median(A of same-run healthy references of the same cell)", n_refs=len(r), flag=_flag())
     if A is None or len(r) < RULE["min_refs"]:
         out.update(A_rel=None, reason=f"{len(r)} same-run healthy references of this cell given; at least {RULE['min_refs']} needed"); return out
     m = float(np.median(r)); a = A / m; sp = float(np.std(np.array(r) / m, ddof=1)) if len(r) > 1 else None
@@ -351,7 +353,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
     that makes A_c read 1 when healthy. Known from exploration (GRP-014, 2026-10-21): a loss at every one of a cell's sites is partly absorbed
     into the Deconvolver's share of that cell, so A_c reads a loss smaller than planted; the record says so."""
     cells = [c for c, f in shares.items() if f is not None]
-    out = dict(stage="M-atlas-mix", reading="Met-A for each cell, against IAM-Atlas v2.1 in this sample's own cell shares", flag=FLAG, cells=[],
+    out = dict(stage="M-atlas-mix", reading="Met-A for each cell, against " + ("the IAM Sequencing Atlas" if SEQ_ATLAS else "IAM-Atlas v2.1") + " in this sample's own cell shares", flag=_flag(), cells=[],
                shares_from="IAM-Deconvolver (Stage D21)",
                note="untared; a loss at every site of a cell is partly absorbed into that cell's share (GRP-014), so a loss reads smaller than planted")
     if not cells: out["reason"] = "no cell shares"; return out
@@ -415,7 +417,7 @@ def read_in_mix_allsites(beta, shares):
     over sites (weighted, from the per-site ratios), so the two versions can be compared by how far a planted loss moves each in its own error."""
     cells = [c for c, f in shares.items() if f is not None]
     out = dict(stage="M-atlas-mix-allsites", reading="Met-A for each cell over every atlas site, each site weighted by the shift a loss of that cell would make",
-               flag=FLAG, cells=[], weight_rule="w = share x |0.5 - mu| (conductor_v3.stage_m_blood's shift)")
+               flag=_flag(), cells=[], weight_rule="w = share x |0.5 - mu| (conductor_v3.stage_m_blood's shift)")
     if not cells: out["reason"] = "no cell shares"; return out
     x = pd.Series(beta, dtype="float64"); idx = x.dropna().index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
@@ -465,7 +467,7 @@ def cscore_in_mix(beta, shares, deps=None):
     against healthy samples; here healthy samples of the same series are the comparison until a tare for these readings is built."""
     cells = [c for c, f in shares.items() if f is not None]
     out = dict(stage="C-atlas-mix", reading="C-Score for each cell and for the whole genome, against IAM-Atlas v2.1 in this sample's own shares",
-               flag=FLAG, block_sites=CS_BLOCK, flag_share=CS_FLAG_SHARE, cells=[], note="untared; healthy samples of the same series are the comparison")
+               flag=_flag(), block_sites=CS_BLOCK, flag_share=CS_FLAG_SHARE, cells=[], note="untared; healthy samples of the same series are the comparison")
     if not cells: out["reason"] = "no cell shares"; return out
     for c in cells:
         f = float(shares[c]); r = dict(cell=c, share=round(f, 4), C=None)
@@ -554,7 +556,7 @@ def territory_reading(beta, shares, counts=None):
     mean H(e); also the mean level change (beta - e: positive a gain, negative a loss), the reading's standard error over sites, and how much of
     the set this array measures. Development, flagged; healthy is read first and its spread sets any line, not this function."""
     x = pd.Series(beta, dtype="float64"); cells = [c for c, f in shares.items() if f]; F = pd.Series({k: float(shares[k]) for k in cells})
-    out = dict(stage="M-territories", reading="disorder at cancer's own territories, against the atlas in this sample's mix", flag=FLAG, rules=TERR_RULES, sets={})
+    out = dict(stage="M-territories", reading="disorder at cancer's own territories, against the atlas in this sample's mix", flag=_flag(), rules=TERR_RULES, sets={})
     if not cells: out["reason"] = "no cell shares"; return out
     for name, S in territory_sets().items():
         idx = pd.Index(S).intersection(x.dropna().index)
@@ -724,7 +726,7 @@ def read_whole(beta, shares, counts=None):
     cell found, the islands and the domains (territory_sets), and the rest. The per-cell readings say which cell; this one says whether the sample
     as a whole has departed."""
     x = pd.Series(beta, dtype="float64"); cells = [c for c, f in shares.items() if f]; F = pd.Series({k: float(shares[k]) for k in cells})
-    out = dict(stage="M-whole", reading="Met-A for the whole sample over every atlas site, against the atlas in this sample's mix", flag=FLAG,
+    out = dict(stage="M-whole", reading="Met-A for the whole sample over every atlas site, against the atlas in this sample's mix", flag=_flag(),
                weight_rule="w = |0.5 - e|, e the atlas in the sample's shares", A=None)
     if not cells: out["reason"] = "no cell shares"; return out
     idx = x.dropna().index
