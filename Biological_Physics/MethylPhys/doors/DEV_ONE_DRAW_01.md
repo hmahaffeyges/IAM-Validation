@@ -381,3 +381,16 @@ its mix predicts (level change 0.01623); its library floor (unmarked side) is 0.
 of the islands' excess. The atlas's own inputs carried only 0.488 of their floor differences at the islands, so one plasma does not decide
 it. **Written now, before the other 29:** `plasma_seq_02/plasma_floor_check.py` (each plasma's floor against its islands; the slope through
 the origin, 1 if every false call at the floor sites also falls at the islands). Development; nothing scored.
+
+**An interim look at 12 of the 30** (`plasma_seq_02/plasma_floor_check_12.txt`, the committed check; nothing scored): floors 0.022102 to
+0.029562 (median 0.023822), the islands' level change on the floor difference through the origin 0.974, the islands reading against the
+floor rho +0.608. In plasma, nearly every false call at the floor sites also falls at the islands (the atlas's own inputs carried 0.488,
+where the floor differences are a few thousandths).
+
+## The same 30 plasmas with the common floor (plasma_seq_03)
+
+Written and committed before any of it runs (development; the 30 are spent for tuning). **The instrument's job:** a healthy plasma, read as
+a mix of the atlas's cells in its own shares, reads Normal. **The run:** each of the 30 counted again from the molecules plasma_seq_02 saved
+(`erase_test.yml`, `full=1`, `patfrom` the plasma_seq_02 run; no new alignment), read by the one command with plasma_seq_02's settings and
+`--dev-floor-equal` (`plasma_seq_03/plasma_seq_03_samples.csv`). **Reported, nothing scored:** the committed band scorer and floor check,
+beside plasma_seq_02's. The flag stays off by default (healthy pass 6) until a plasma test written before reading says otherwise.
