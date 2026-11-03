@@ -296,3 +296,13 @@ by group: the tumor gauge (distance to the entropy ceiling, 1 at the healthy exp
 its knockout split as no blood cell (B-cell share 0), so no B-cell copies. **Group-A: no call.** Its tare reads each sample against the
 median of the other healthy references and needs at least 3; with 3 cord-blood samples each has only 2 others, so none could be tared. The
 chain refused, as it should; Group-A needs at least 4 healthy people in the study.
+
+## The study read against the 57-cell atlas (written and committed before it is read)
+
+The third reading by the full working chain, the last before the paper (author's order: the instruments working on sequencing, then the
+atlas with its spheres and globes, then this study). What changed since the second reading: the IAM Sequencing Atlas holds 57 cells
+(granulocytes added; every derived table rebuilt; the 57-cell healthy pass met on all 140 inputs), and the one command sets each sequenced
+sample's library floor for every input kind. **The run:** the same 36 samples (`full_depth/hopkins_fullchain_samples.csv`, the same
+settings), each merged from its saved alignment pieces (split_align.yml, `full=1`, the same pieces as the second reading) and read by the one
+command at the current commit. **Table:** `full_depth/hopkins_fullchain3_table.py`, version 2's table under a new name. No bar: the readings
+are reported as the chain gives them; experts in the disease set the lines.
