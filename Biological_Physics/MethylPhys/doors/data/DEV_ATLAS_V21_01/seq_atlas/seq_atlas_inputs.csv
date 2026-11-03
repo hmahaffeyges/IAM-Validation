@@ -152,3 +152,6 @@ GSM5652375,Colon-Left-Endocrine-Z0000044T,colon enteroendocrine,A,https://ftp.nc
 GSM5652379,Small-int-Epithelium-Z000000RT,small intestine epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652379/suppl/GSM5652379_Small-int-Epithelial-Z000000RT.beta
 GSM5652380,Small-int-Epithelium-Z000000UW,small intestine epithelium,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652380/suppl/GSM5652380_Small-int-Epithelial-Z000000UW.beta
 GSM5652381,Small-int-Epithelium-Z000000UY,small intestine epithelium,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652381/suppl/GSM5652381_Small-int-Epithelial-Z000000UY.beta
+GSM5652313,Granulocytes-Z000000TZ,granulocytes,B,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652313/suppl/GSM5652313_Blood-Granulocytes-Z000000TZ.beta
+GSM5652314,Granulocytes-Z000000UD,granulocytes,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652314/suppl/GSM5652314_Blood-Granulocytes-Z000000UD.beta
+GSM5652315,Granulocytes-Z000000UT,granulocytes,A,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5652nnn/GSM5652315/suppl/GSM5652315_Blood-Granulocytes-Z000000UT.beta

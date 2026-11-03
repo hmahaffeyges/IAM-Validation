@@ -390,7 +390,7 @@
   },
   {
    "file": "stage_0_intake.py",
-   "lines": 1190,
+   "lines": 1193,
    "functions": [
     {
      "file": "stage_0_intake.py",
@@ -447,14 +447,15 @@
      "function": "atlas_cell_of",
      "name": "atlas_cell_of",
      "line": 90,
-     "end": 97,
+     "end": 98,
      "args": [
       "specimen"
      ],
-     "lines": 8,
+     "lines": 9,
      "doc": "2026-10-22 (author: read and flag): an isolated, sorted or purified cell of any IAM-Atlas v2.1 type other than neutrophils is accepted and read by Met-A against the atlas (development, not commissioned). Returns that atlas cell's name, else None.",
      "constants": [
-      "ATLAS_CELL_WORDS"
+      "ATLAS_CELL_WORDS",
+      "SEQ_ATLAS_ONLY_CELLS"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -463,8 +464,8 @@
      "file": "stage_0_intake.py",
      "function": "is_plasma",
      "name": "is_plasma",
-     "line": 100,
-     "end": 102,
+     "line": 103,
+     "end": 105,
      "args": [
       "specimen"
      ],
@@ -480,8 +481,8 @@
      "file": "stage_0_intake.py",
      "function": "is_tissue",
      "name": "is_tissue",
-     "line": 105,
-     "end": 116,
+     "line": 108,
+     "end": 119,
      "args": [
       "specimen"
      ],
@@ -497,8 +498,8 @@
      "file": "stage_0_intake.py",
      "function": "specimen_refusal",
      "name": "specimen_refusal",
-     "line": 118,
-     "end": 126,
+     "line": 121,
+     "end": 129,
      "args": [
       "specimen"
      ],
@@ -517,8 +518,8 @@
      "file": "stage_0_intake.py",
      "function": "_infer_platform",
      "name": "_infer_platform",
-     "line": 139,
-     "end": 146,
+     "line": 142,
+     "end": 149,
      "args": [
       "nsnps"
      ],
@@ -534,8 +535,8 @@
      "file": "stage_0_intake.py",
      "function": "read_idat_nsnps",
      "name": "read_idat_nsnps",
-     "line": 151,
-     "end": 174,
+     "line": 154,
+     "end": 177,
      "args": [
       "path"
      ],
@@ -551,8 +552,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_1_idat_arrival",
      "name": "step_0_1_idat_arrival",
-     "line": 179,
-     "end": 267,
+     "line": 182,
+     "end": 270,
      "args": [
       "manifest_entry",
       "grn_path",
@@ -575,8 +576,8 @@
      "file": "stage_0_intake.py",
      "function": "_log_intake",
      "name": "_log_intake",
-     "line": 272,
-     "end": 281,
+     "line": 275,
+     "end": 284,
      "args": [
       "intake_log_path",
       "result"
@@ -593,8 +594,8 @@
      "file": "stage_0_intake.py",
      "function": "_is_duplicate_within_24h",
      "name": "_is_duplicate_within_24h",
-     "line": 284,
-     "end": 304,
+     "line": 287,
+     "end": 307,
      "args": [
       "intake_log_path",
       "sentrix_id"
@@ -611,8 +612,8 @@
      "file": "stage_0_intake.py",
      "function": "_is_null_answer",
      "name": "_is_null_answer",
-     "line": 367,
-     "end": 369,
+     "line": 370,
+     "end": 372,
      "args": [
       "v"
      ],
@@ -628,8 +629,8 @@
      "file": "stage_0_intake.py",
      "function": "_answer_present",
      "name": "_answer_present",
-     "line": 372,
-     "end": 376,
+     "line": 375,
+     "end": 379,
      "args": [
       "v"
      ],
@@ -646,8 +647,8 @@
      "file": "stage_0_intake.py",
      "function": "_age_from_dob",
      "name": "_age_from_dob",
-     "line": 379,
-     "end": 386,
+     "line": 382,
+     "end": 389,
      "args": [
       "dob",
       "on_date"
@@ -662,8 +663,8 @@
      "file": "stage_0_intake.py",
      "function": "parse_questionnaire",
      "name": "parse_questionnaire",
-     "line": 389,
-     "end": 406,
+     "line": 392,
+     "end": 409,
      "args": [
       "answers",
       "intake_date"
@@ -681,8 +682,8 @@
      "file": "stage_0_intake.py",
      "function": "_looks_like_cleartext_pii",
      "name": "_looks_like_cleartext_pii",
-     "line": 409,
-     "end": 417,
+     "line": 412,
+     "end": 420,
      "args": [
       "patient_id"
      ],
@@ -698,8 +699,8 @@
      "file": "stage_0_intake.py",
      "function": "_write_manifest",
      "name": "_write_manifest",
-     "line": 420,
-     "end": 427,
+     "line": 423,
+     "end": 430,
      "args": [
       "manifest_dir",
       "record"
@@ -718,8 +719,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_2_manifest_creation",
      "name": "step_0_2_manifest_creation",
-     "line": 430,
-     "end": 469,
+     "line": 433,
+     "end": 472,
      "args": [
       "step_0_1_result",
       "questionnaire_answers",
@@ -738,8 +739,8 @@
      "file": "stage_0_intake.py",
      "function": "_sha256_file",
      "name": "_sha256_file",
-     "line": 478,
-     "end": 483,
+     "line": 481,
+     "end": 486,
      "args": [
       "path"
      ],
@@ -755,8 +756,8 @@
      "file": "stage_0_intake.py",
      "function": "_prior_hashes_for_sentrix",
      "name": "_prior_hashes_for_sentrix",
-     "line": 486,
-     "end": 499,
+     "line": 489,
+     "end": 502,
      "args": [
       "integrity_log_path",
       "sentrix_id"
@@ -773,8 +774,8 @@
      "file": "stage_0_intake.py",
      "function": "_log_integrity",
      "name": "_log_integrity",
-     "line": 502,
-     "end": 507,
+     "line": 505,
+     "end": 510,
      "args": [
       "integrity_log_path",
       "row"
@@ -791,8 +792,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_3_integrity_hash",
      "name": "step_0_3_integrity_hash",
-     "line": 510,
-     "end": 546,
+     "line": 513,
+     "end": 549,
      "args": [
       "record",
       "grn_path",
@@ -811,8 +812,8 @@
      "file": "stage_0_intake.py",
      "function": "extract_control_probes",
      "name": "extract_control_probes",
-     "line": 568,
-     "end": 574,
+     "line": 571,
+     "end": 577,
      "args": [
       "grn_path",
       "red_path",
@@ -828,8 +829,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_control_probes",
      "name": "validate_control_probes",
-     "line": 577,
-     "end": 629,
+     "line": 580,
+     "end": 632,
      "args": [
       "control_summary"
      ],
@@ -850,8 +851,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_4_control_probe_validation",
      "name": "step_0_4_control_probe_validation",
-     "line": 632,
-     "end": 651,
+     "line": 635,
+     "end": 654,
      "args": [
       "record",
       "grn_path",
@@ -870,8 +871,8 @@
      "file": "stage_0_intake.py",
      "function": "_normal_sf",
      "name": "_normal_sf",
-     "line": 671,
-     "end": 679,
+     "line": 674,
+     "end": 682,
      "args": [
       "z"
      ],
@@ -887,8 +888,8 @@
      "file": "stage_0_intake.py",
      "function": "compute_detection_p",
      "name": "compute_detection_p",
-     "line": 682,
-     "end": 687,
+     "line": 685,
+     "end": 690,
      "args": [
       "probe_intensities",
       "mu_bg",
@@ -906,8 +907,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_detection_p",
      "name": "validate_detection_p",
-     "line": 690,
-     "end": 704,
+     "line": 693,
+     "end": 707,
      "args": [
       "detection_p_array"
      ],
@@ -929,8 +930,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_5_detection_pvalue_qc",
      "name": "step_0_5_detection_pvalue_qc",
-     "line": 707,
-     "end": 728,
+     "line": 710,
+     "end": 731,
      "args": [
       "record",
       "probe_intensities",
@@ -948,8 +949,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_bead_count",
      "name": "validate_bead_count",
-     "line": 739,
-     "end": 746,
+     "line": 742,
+     "end": 749,
      "args": [
       "bead_counts",
       "min_beads"
@@ -969,8 +970,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_6_bead_count_qc",
      "name": "step_0_6_bead_count_qc",
-     "line": 749,
-     "end": 762,
+     "line": 752,
+     "end": 765,
      "args": [
       "record",
       "bead_counts"
@@ -987,8 +988,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_call_rate",
      "name": "validate_call_rate",
-     "line": 773,
-     "end": 781,
+     "line": 776,
+     "end": 784,
      "args": [
       "n_passing_both",
       "n_total"
@@ -1008,8 +1009,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7_call_rate",
      "name": "step_0_7_call_rate",
-     "line": 784,
-     "end": 805,
+     "line": 787,
+     "end": 808,
      "args": [
       "record",
       "detection_pass_mask",
@@ -1027,8 +1028,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_7b_platform_coverage",
      "name": "step_0_7b_platform_coverage",
-     "line": 815,
-     "end": 839,
+     "line": 818,
+     "end": 842,
      "args": [
       "record",
       "reference_cpg_coverage"
@@ -1047,8 +1048,8 @@
      "file": "stage_0_intake.py",
      "function": "predict_sex",
      "name": "predict_sex",
-     "line": 849,
-     "end": 850,
+     "line": 852,
+     "end": 853,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -1068,8 +1069,8 @@
      "file": "stage_0_intake.py",
      "function": "validate_sex",
      "name": "validate_sex",
-     "line": 853,
-     "end": 859,
+     "line": 856,
+     "end": 862,
      "args": [
       "log2_x_median",
       "log2_y_median",
@@ -1087,8 +1088,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_8_sex_check",
      "name": "step_0_8_sex_check",
-     "line": 862,
-     "end": 876,
+     "line": 865,
+     "end": 879,
      "args": [
       "record",
       "sex_intensities"
@@ -1105,8 +1106,8 @@
      "file": "stage_0_intake.py",
      "function": "_fmt",
      "name": "_fmt",
-     "line": 891,
-     "end": 892,
+     "line": 894,
+     "end": 895,
      "args": [
       "x",
       "nd"
@@ -1123,8 +1124,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0",
      "name": "explain_stage0",
-     "line": 893,
-     "end": 952,
+     "line": 896,
+     "end": 955,
      "args": [
       "record",
       "hard_fail",
@@ -1159,8 +1160,8 @@
      "file": "stage_0_intake.py",
      "function": "explain_stage0.add",
      "name": "add",
-     "line": 895,
-     "end": 896,
+     "line": 898,
+     "end": 899,
      "args": [
       "check",
       "outcome",
@@ -1183,8 +1184,8 @@
      "file": "stage_0_intake.py",
      "function": "step_0_9_decision_gate",
      "name": "step_0_9_decision_gate",
-     "line": 955,
-     "end": 1034,
+     "line": 958,
+     "end": 1037,
      "args": [
       "record",
       "verdict_log_path"
@@ -6925,7 +6926,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 783,
+   "lines": 788,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -6986,14 +6987,15 @@
      "file": "stage_metaa_atlas.py",
      "function": "identity_sites",
      "name": "identity_sites",
-     "line": 77,
-     "end": 90,
+     "line": 80,
+     "end": 95,
      "args": [
       "cell"
      ],
-     "lines": 14,
-     "doc": "Met-A's site rule on the atlas (see the module text). Returns the site names, high side then low side.",
+     "lines": 16,
+     "doc": "Met-A's site rule on the atlas (see the module text). Returns the site names, high side then low side. A cell named in IDENTITY_OF is read at the sites of the v2.1 cell it names.",
      "constants": [
+      "IDENTITY_OF",
       "RULE",
       "SEQ_ATLAS"
      ],
@@ -7004,8 +7006,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "specific_sites",
      "name": "specific_sites",
-     "line": 92,
-     "end": 105,
+     "line": 97,
+     "end": 110,
      "args": [
       "cell",
       "others",
@@ -7023,8 +7025,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "seq_units",
      "name": "seq_units",
-     "line": 108,
-     "end": 112,
+     "line": 113,
+     "end": 117,
      "args": [
       "p"
      ],
@@ -7040,8 +7042,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_counts",
      "name": "expected_H_counts",
-     "line": 114,
-     "end": 124,
+     "line": 119,
+     "end": 129,
      "args": [
       "p",
       "n"
@@ -7058,8 +7060,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_counted",
      "name": "expected_H_counted",
-     "line": 126,
-     "end": 138,
+     "line": 131,
+     "end": 143,
      "args": [
       "mref",
       "nref",
@@ -7077,8 +7079,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_donors",
      "name": "expected_H_donors",
-     "line": 140,
-     "end": 163,
+     "line": 145,
+     "end": 168,
      "args": [
       "Md",
       "Nd",
@@ -7096,8 +7098,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "donor_pair",
      "name": "donor_pair",
-     "line": 165,
-     "end": 186,
+     "line": 170,
+     "end": 191,
      "args": [
       "k",
       "n",
@@ -7118,8 +7120,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "donor_pair.thin",
      "name": "thin",
-     "line": 175,
-     "end": 180,
+     "line": 180,
+     "end": 185,
      "args": [
       "K",
       "N",
@@ -7136,8 +7138,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read",
      "name": "read",
-     "line": 188,
-     "end": 261,
+     "line": 193,
+     "end": 266,
      "args": [
       "beta",
       "cell",
@@ -7164,8 +7166,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_on_curve",
      "name": "read_on_curve",
-     "line": 265,
-     "end": 292,
+     "line": 270,
+     "end": 297,
      "args": [
       "beta",
       "cell"
@@ -7184,8 +7186,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "tare",
      "name": "tare",
-     "line": 294,
-     "end": 303,
+     "line": 299,
+     "end": 308,
      "args": [
       "A",
       "refs"
@@ -7203,8 +7205,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_all",
      "name": "plant_all",
-     "line": 305,
-     "end": 309,
+     "line": 310,
+     "end": 314,
      "args": [
       "beta",
       "cell",
@@ -7220,8 +7222,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_runs",
      "name": "plant_runs",
-     "line": 312,
-     "end": 324,
+     "line": 317,
+     "end": 329,
      "args": [
       "beta",
       "cell",
@@ -7246,8 +7248,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant",
      "name": "plant",
-     "line": 326,
-     "end": 330,
+     "line": 331,
+     "end": 335,
      "args": [
       "beta",
       "cell",
@@ -7263,8 +7265,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 339,
-     "end": 387,
+     "line": 344,
+     "end": 392,
      "args": [
       "beta",
       "shares",
@@ -7290,8 +7292,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 390,
-     "end": 401,
+     "line": 395,
+     "end": 406,
      "args": [
       "beta",
       "shares",
@@ -7309,8 +7311,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 404,
-     "end": 433,
+     "line": 409,
+     "end": 438,
      "args": [
       "beta",
       "shares"
@@ -7328,8 +7330,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_clustering",
      "name": "_clustering",
-     "line": 439,
-     "end": 445,
+     "line": 444,
+     "end": 450,
      "args": [
       "z",
       "w"
@@ -7346,8 +7348,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_genome_order",
      "name": "_genome_order",
-     "line": 447,
-     "end": 452,
+     "line": 452,
+     "end": 457,
      "args": [
       "ids"
      ],
@@ -7367,8 +7369,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
-     "line": 454,
-     "end": 484,
+     "line": 459,
+     "end": 489,
      "args": [
       "beta",
       "shares",
@@ -7389,8 +7391,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_sets",
      "name": "territory_sets",
-     "line": 494,
-     "end": 510,
+     "line": 499,
+     "end": 515,
      "args": [],
      "lines": 17,
      "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
@@ -7408,8 +7410,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_reading",
      "name": "ceiling_reading",
-     "line": 512,
-     "end": 532,
+     "line": 517,
+     "end": 537,
      "args": [
       "xs",
       "es",
@@ -7427,8 +7429,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_counted",
      "name": "ceiling_counted",
-     "line": 534,
-     "end": 545,
+     "line": 539,
+     "end": 550,
      "args": [
       "A",
       "A_sat",
@@ -7445,8 +7447,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_reading",
      "name": "territory_reading",
-     "line": 547,
-     "end": 578,
+     "line": 552,
+     "end": 583,
      "args": [
       "beta",
       "shares",
@@ -7469,8 +7471,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 580,
-     "end": 586,
+     "line": 585,
+     "end": 591,
      "args": [
       "beta",
       "name",
@@ -7488,8 +7490,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_he",
      "name": "_he",
-     "line": 590,
-     "end": 592,
+     "line": 595,
+     "end": 597,
      "args": [
       "es",
       "counts"
@@ -7504,8 +7506,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_Hj",
      "name": "_Hj",
-     "line": 602,
-     "end": 609,
+     "line": 607,
+     "end": 614,
      "args": [
       "m",
       "u"
@@ -7520,8 +7522,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "floor_raise",
      "name": "floor_raise",
-     "line": 611,
-     "end": 613,
+     "line": 616,
+     "end": 618,
      "args": [
       "f_low",
       "F"
@@ -7536,8 +7538,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "thin_H",
      "name": "thin_H",
-     "line": 615,
-     "end": 619,
+     "line": 620,
+     "end": 624,
      "args": [
       "k",
       "n",
@@ -7554,8 +7556,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_mix_counts",
      "name": "expected_H_mix_counts",
-     "line": 621,
-     "end": 644,
+     "line": 626,
+     "end": 649,
      "args": [
       "Mk",
       "Nk",
@@ -7574,8 +7576,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "islands_counted",
      "name": "islands_counted",
-     "line": 646,
-     "end": 670,
+     "line": 651,
+     "end": 675,
      "args": [
       "xs",
       "counts",
@@ -7599,8 +7601,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 676,
-     "end": 679,
+     "line": 681,
+     "end": 684,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -7614,8 +7616,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 681,
-     "end": 694,
+     "line": 686,
+     "end": 699,
      "args": [
       "xs",
       "es"
@@ -7630,8 +7632,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 696,
-     "end": 711,
+     "line": 701,
+     "end": 716,
      "args": [
       "xs",
       "es",
@@ -7650,8 +7652,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 713,
-     "end": 755,
+     "line": 718,
+     "end": 760,
      "args": [
       "beta",
       "shares",
@@ -7671,8 +7673,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 736,
-     "end": 741,
+     "line": 741,
+     "end": 746,
      "args": [
       "m"
      ],
@@ -7686,8 +7688,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limit",
      "name": "cscore_limit",
-     "line": 765,
-     "end": 768,
+     "line": 770,
+     "end": 773,
      "args": [
       "n_sites",
       "q",
@@ -7705,8 +7707,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limits",
      "name": "cscore_limits",
-     "line": 770,
-     "end": 782,
+     "line": 775,
+     "end": 787,
      "args": [
       "cs",
       "array_type"

@@ -1108,3 +1108,14 @@ default; pass 5's settings remain the healthy baseline. **What it leaves:** the 
 call (part of it is specific to the sites, the person or the cell), and the outside laboratory's shortfall at the islands (0.2924) is larger
 than a floor of 0.0015 makes in the synthetic (0.6618), so more than the floor separates the two laboratories. BLUEPRINT read again with the
 floor (development) is recorded below whatever it shows.
+
+**The granulocyte column: pieces built; identity sites and intake.** The column's 113 pieces were built by the one command on four Google
+spot machines (`seq_atlas/pieces_gran/` in the bucket): 3 donors (2 in half A, 1 in half B), median 87 reads per site, the same stored
+fields as the 56 cells. IAM-Atlas v2.1 has no granulocyte column, and Met-A's identity sites are chosen on v2.1, so the granulocyte column
+is read at v2.1's neutrophil identity sites (`stage_metaa_atlas.IDENTITY_OF`; blood granulocytes are mostly neutrophils; stated). Intake
+accepts isolated or sorted granulocytes as a cell of the sequencing atlas (`stage_0_intake.SEQ_ATLAS_ONLY_CELLS`), read and flagged like any
+atlas cell. The three inputs are added to `seq_atlas/seq_atlas_inputs.csv` (156 inputs, 57 cells). **The rebuild:** the tables that compare
+cells (the Deconvolver's reference, the floor sites, the Met-A reference, the array-site and noise columns) are rebuilt by the same commands
+from all the piece folders; the per-input tables (per-donor and per-half counts, island counts, held-error tiles) take the granulocytes'
+rows counted the same way; the input floors are measured again on the new floor sites; then the sphere columns. **Test:** a healthy pass
+on the 57-cell atlas with pass 5's settings and bar.

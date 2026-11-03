@@ -94,7 +94,10 @@ def atlas_cell_of(specimen):
     for w in ATLAS_CELL_WORDS:
         c = {x.lower(): x for x in atlas_cells()}.get(s[len(w):])
         if s.startswith(w) and c and c != "neutrophils": return c
+        if s.startswith(w) and s[len(w):] in SEQ_ATLAS_ONLY_CELLS: return s[len(w):]   # 2026-11-02: a cell the IAM Sequencing Atlas holds and v2.1 does not
     return None
+
+SEQ_ATLAS_ONLY_CELLS = ("granulocytes",)   # 2026-11-02: read against the IAM Sequencing Atlas (Met-A at v2.1's neutrophil sites, stage_metaa_atlas.IDENTITY_OF)
 
 PLASMA_WORDS = ("plasma", "cfdna", "cell-free dna", "cell free dna", "plasma cfdna", "plasma cell-free dna", "serum cfdna")
 def is_plasma(specimen):

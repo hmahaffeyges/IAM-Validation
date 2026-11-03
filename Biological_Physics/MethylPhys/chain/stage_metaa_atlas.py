@@ -74,8 +74,13 @@ def width(cell):
     un = (_col("mu_hi", cell) - _col("mu_lo", cell)) / 3.92
     return np.sqrt(_col("donor_sd", cell) ** 2 + un ** 2)
 
+IDENTITY_OF = {"granulocytes": "neutrophils"}   # 2026-11-02 (the sequencing atlas's granulocyte column): IAM-Atlas v2.1 has no granulocyte
+# column; blood granulocytes are mostly neutrophils, so the column is read at v2.1's neutrophil identity sites (stated, not fitted)
+
 def identity_sites(cell):
-    """Met-A's site rule on the atlas (see the module text). Returns the site names, high side then low side."""
+    """Met-A's site rule on the atlas (see the module text). Returns the site names, high side then low side. A cell named in IDENTITY_OF is
+    read at the sites of the v2.1 cell it names."""
+    cell = IDENTITY_OF.get(cell, cell)
     k = ("sites", cell)
     if k in _cache: return _cache[k]
     global SEQ_ATLAS
