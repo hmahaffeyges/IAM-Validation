@@ -1,0 +1,36 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "AWS billing could not be read from 2026-10-20; this block is filled by CANON/day_compute.py once it can be"
+ },
+ "date": "2026-11-03",
+ "title": "Plasma against the 57-cell sequencing atlas",
+ "closing": "",
+ "set_out": "Read the 30 tuning plasmas again against the 57-cell IAM Sequencing Atlas, by the one command.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The first plasma against the 57-cell atlas",
+     "status": "development",
+     "what": "One tuning plasma read end to end by the one command.",
+     "outcome": "Its islands read high, and its library floor is 3.6 times the atlas's; a floor check over all 30 was written before the other 29 are opened.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": []
+  }
+ ],
+ "open_at_turnover": "The other 29 plasmas aligning on GitHub."
+}

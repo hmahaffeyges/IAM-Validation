@@ -9,12 +9,73 @@
  "title": "The sequencing atlas's globe, and the study by the full working chain",
  "closing": "",
  "set_out": "Finish the globe on sequencing against healthy samples outside the atlas, then read the Johns Hopkins leukemia study with the full working chain.",
- "open_at_turnover": "The globe test on the 35 outside healthy samples (first reading on the old columns landing; then read again on the rebuilt columns); then the Johns Hopkins study by the full working chain.",
+ "open_at_turnover": "The 30 tuning plasmas read again against the 57-cell atlas, aligning on GitHub.",
  "sections": [
   {
    "kind": "ran",
    "heading": "What ran, and how each came out",
-   "entries": []
+   "entries": [
+    {
+     "title": "Healthy samples from another laboratory (BLUEPRINT)",
+     "status": "failed",
+     "what": "59 public healthy blood-cell libraries from another laboratory read by the one command against the IAM Sequencing Atlas.",
+     "outcome": "Not met: own-cell Met-A 0.7134 and the islands 0.2924. The islands follow each library's own floor.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The common library floor: synthetic",
+     "status": "synthetic only",
+     "what": "Constructed people from three laboratories of different floors, read with and without a common floor.",
+     "outcome": "Met: with the common floor every laboratory read Normal.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Healthy pass 6 with the common floor",
+     "status": "development",
+     "what": "All 137 healthy inputs read with the common floor.",
+     "outcome": "Every reading Normal, but the floor overcorrects: the real data carry 0.488 of it. The flag stays off.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "BLUEPRINT read again with the common floor",
+     "status": "development",
+     "what": "The spent BLUEPRINT libraries read again with the common floor.",
+     "outcome": "The islands rose from 0.2924 to 0.8594; own-cell Met-A from 0.7134 to 0.7983.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Where BLUEPRINT's own-cell share goes",
+     "status": "diagnosis",
+     "what": "From the Deconvolver's shares in each BLUEPRINT bundle, by sorted cell.",
+     "outcome": "Mostly to the cell's own subtypes: BLUEPRINT's broad fractions were mapped onto the atlas's narrower cells. Matched definitions read 0.86 to 0.88 own.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The 57-cell healthy pass",
+     "status": "development",
+     "what": "All 140 inputs, including the three granulocytes, read against the 57-cell atlas.",
+     "outcome": "Met: every reading Normal; the 137 earlier inputs unchanged within 0.0059.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
   },
   {
    "kind": "built",
@@ -25,6 +86,36 @@
      "status": "development",
      "what": "Sites where every donor of a cell reads exactly 0 or 1 had no width; counting now sets it there.",
      "outcome": "Synthetic version 3 met (version 2 not met, recorded); the sphere columns rebuilt with no zero widths.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Every atlas input's library floor",
+     "status": "structure",
+     "what": "The floor of all 153 inputs, by the one command.",
+     "outcome": "Built; identical to the chain's own bundle floors.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The megakaryocyte stand-in printed for plasma",
+     "status": "structure",
+     "what": "The summed shares of the four cells pure megakaryocyte DNA lands on, against IAM-Atlas v2.1.",
+     "outcome": "In every plasma bundle on the v2.1 ruler.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "A granulocyte column; the atlas at 57 cells",
+     "status": "structure",
+     "what": "Three granulocyte donors built into the atlas, and every derived table rebuilt from merged pieces.",
+     "outcome": "Built; the 56 cells' values unchanged.",
      "rows": [
       "COM-METAA-033"
      ],

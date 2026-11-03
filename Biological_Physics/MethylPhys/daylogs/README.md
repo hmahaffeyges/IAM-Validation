@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-03](2026-11-03.md) | Plasma against the 57-cell sequencing atlas |
 | [2026-11-02](2026-11-02.md) | The sequencing atlas's globe, and the study by the full working chain |
 | [2026-11-01](2026-11-01.md) | Met-A on sequencing: what the healthy spread is made of |
 | [2026-10-31](2026-10-31.md) | Met-A for the whole sample and the territories on sequencing |

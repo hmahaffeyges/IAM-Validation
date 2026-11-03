@@ -373,3 +373,11 @@ earlier molecule files are no longer kept) and read by the one command with the 
 the band of every reading over the 30 by the committed band scorer (`plasma_seq_01/plasma_band.py`), beside plasma_seq_01's. The
 megakaryocyte stand-in is not read (it was measured on v2.1, and the sequencing atlas lacks MEP and eosinophils). The commissioning test
 for plasma waits for the plasma line to read Normal here, and is then written before any untouched plasma is read.
+
+**The first plasma, and a check written before the other 29 are opened.** SRR23279758 read end to end by the one command (median 1 call per
+site, 407263 sites). Its islands read 2.59257 (the plug-in expectation 2.58541, so not the counted method;
+`plasma_seq_02/plasma_floor_check_first.txt`), with 1.6 points more methylation than
+its mix predicts (level change 0.01623); its library floor (unmarked side) is 0.022906, the atlas inputs' median 0.0062855: a difference of 0.0166, the size
+of the islands' excess. The atlas's own inputs carried only 0.488 of their floor differences at the islands, so one plasma does not decide
+it. **Written now, before the other 29:** `plasma_seq_02/plasma_floor_check.py` (each plasma's floor against its islands; the slope through
+the origin, 1 if every false call at the floor sites also falls at the islands). Development; nothing scored.
