@@ -401,3 +401,13 @@ not from molecules (`--pat`), which is how every plasma comes in; the floor synt
 bundle opened carried no floor record and read exactly as in plasma_seq_02; none of those 25 is used. **Fix:** the floor is set in one place
 after every sequencing input is turned into values. One plasma is read first and its bundle checked for the floor record before the other
 29 are sent (new run names, `pl3b_`).
+
+**plasma_seq_02: the 30 against the 57-cell atlas** (`plasma_seq_02/plasma_band_02_summary.txt`, `plasma_floor_check.txt`; the committed
+scorers on a GitHub machine; nothing scored). All 30 read. Against plasma_seq_01 (IAM-Atlas v2.1): Met-A at the identity sites of the cells
+found 0.7594 to 0.9918; whole-sample Met-A 0.8302 to 0.9205; the domains 0.86 to 0.8666; the globe's changed blocks 21.5 to 0. The largest
+share is now granulocytes (0.319), which v2.1's plasma reading gave to lung interstitial macrophages. IAM-A reads each plasma's own
+molecules, and the same committed pipeline reproduced them exactly (IAM-A 0.7733, held error 0.03854, both as in plasma_seq_01). **The
+islands read 2.681**, against 0.8391 on v2.1: every plasma's floor (0.022102 to 0.037124, median 0.024661) is several times the atlas's,
+and the islands' level change follows it with slope 0.939 through the origin (rho +0.719). Against the array-based v2.1 the same plasmas'
+islands read low; against a sequencing atlas whose own floor is 0.0063 they read high, so the ruler's floor matters as much as the
+sample's.

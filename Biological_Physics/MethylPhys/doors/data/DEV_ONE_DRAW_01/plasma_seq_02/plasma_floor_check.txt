@@ -1,0 +1,6 @@
+30 plasmas; atlas inputs' median floor 0.0062855
+SRR23279758: floor 0.022906; islands 2.59257 (plug-in 2.58541), level change 0.01623
+floor median 0.024661 (range 0.022102 to 0.037124)
+islands level change median 0.01809; islands median 2.6805; domains median 0.8666; Met-A whole median 0.9205
+slope of the islands' level change on (floor - 0.00629), through the origin: 0.939
+islands against the floor: Spearman rho +0.589; level change against the floor: rho +0.719

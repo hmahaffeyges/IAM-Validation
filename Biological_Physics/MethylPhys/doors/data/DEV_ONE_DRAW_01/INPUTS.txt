@@ -4,3 +4,6 @@ mk_donor1_8Nup.csv
 plasma_floor_check_first.txt
 plasma_floor_check_first.csv
 plasma_floor_check_12.txt
+plasma_band_02_summary.txt
+plasma_floor_check.txt
+plasma_floor_check.csv

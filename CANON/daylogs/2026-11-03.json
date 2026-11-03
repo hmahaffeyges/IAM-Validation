@@ -23,6 +23,16 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "The 30 tuning plasmas against the 57-cell atlas",
+     "status": "development",
+     "what": "All 30 read by the one command against the 57-cell IAM Sequencing Atlas.",
+     "outcome": "Met-A at the cells' identity sites near 1 and the globe quiet; the islands read high, following each plasma's floor, several times the atlas's.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },
@@ -32,5 +42,5 @@
    "entries": []
   }
  ],
- "open_at_turnover": "The other 29 plasmas aligning on GitHub."
+ "open_at_turnover": "The same 30 with the common floor, from their saved molecules, on GitHub."
 }
