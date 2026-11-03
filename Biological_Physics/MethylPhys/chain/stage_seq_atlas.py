@@ -153,6 +153,29 @@ METAA_COLS = ("donors", "reads", "meth", "level", "spread", "disorder", "halfA",
 DECONV_REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "deconv_reference_v1.parquet")
 DECONV_SD_FLOOR = 0.01   # operational: the least spread a cell's level is given, so a cell counted from one donor is not treated as exact
 
+def merge_pieces(piece_dirs, out_dir):
+    """2026-11-02 (the granulocyte column): the pieces of several folders joined block by block into one folder, so every builder that reads
+    one piece file at a time (floor_sites, deconv_reference, array_columns, ...) sees every cell of the atlas in each file. Same-named pieces
+    must hold the same CpG rows (checked); a cell present in two folders is refused. Folders whose pieces are named differently (the
+    provisional megakaryocyte column) are not merged."""
+    import glob, pyarrow.parquet as pq, pyarrow as pa
+    os.makedirs(out_dir, exist_ok=True); first = sorted(glob.glob(os.path.join(piece_dirs[0], "piece_*.parquet"))); n = 0
+    for f in first:
+        nm = os.path.basename(f); T = pq.read_table(f); have = set(T.column_names)
+        for d in piece_dirs[1:]:
+            g = os.path.join(d, nm)
+            if not os.path.exists(g): raise FileNotFoundError(f"{nm} missing in {d}")
+            U = pq.read_table(g)
+            if not np.array_equal(U.column("cpg").to_numpy(), T.column("cpg").to_numpy()): raise ValueError(f"{nm}: CpG rows differ in {d}")
+            dup = (set(U.column_names) - {"cpg"}) & have
+            if dup: raise ValueError(f"{nm}: {sorted(dup)[:3]} in two folders")
+            for c in U.column_names:
+                if c != "cpg": T = T.append_column(c, U.column(c))
+            have |= set(U.column_names)
+        pq.write_table(T, os.path.join(out_dir, nm), compression="zstd"); n += 1
+    cells = sorted({c.rsplit("|", 1)[0] for c in have if c.endswith("|level")})
+    return dict(pieces=n, cells=len(cells), cell_names=cells, folders=[os.path.basename(os.path.normpath(d)) for d in piece_dirs], output=os.path.basename(os.path.normpath(out_dir)))
+
 def deconv_reference(piece_dirs, out, per_cell=None):
     """2026-10-30 (author: everything broken for sequencing fixed first): the IAM-Deconvolver's reference for sequenced samples, from the IAM
     Sequencing Atlas. Each cell's counted level and donor spread at every array site the sequencing key holds (so a sequenced sample, read onto

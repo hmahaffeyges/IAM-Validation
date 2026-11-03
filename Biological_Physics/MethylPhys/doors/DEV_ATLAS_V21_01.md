@@ -1127,3 +1127,12 @@ small part of own-cell Met-A's. **What stays open:** the Deconvolver gives these
 atlas's own inputs read 0.9817), so against the atlas they read as mixtures; own-cell Met-A is then read at sites the other cells do not
 share. Next on this line: why a sorted library from another laboratory reads as half its own cell (the Deconvolver's markers on that
 laboratory's floor, or the cells themselves), synthetic first, before any outside laboratory not yet read is used.
+
+**The rebuild's first attempt (my error, disclosed).** The builders read one piece file at a time and take the cells in that file as
+every cell; given the granulocytes' folder beside the 56 cells', the floor-site rule judged the granulocyte-only files alone (442223
+sites, against 46989: a site "unmarked in every cell" there meant unmarked in granulocytes). The provisional megakaryocyte folder had
+worked only because the builders leave that column out. The machine was stopped and none of its tables used. **Fix:**
+`stage_seq_atlas.merge_pieces` (`run_sample.py --build seq-merge-pieces`) joins the folders block by block into one 57-cell folder (the
+same CpG rows checked; a cell in two folders refused), and every builder reads that folder. Checked on one block: every value identical to
+its source; the 57-cell floor sites a subset of the 56-cell ones (592 of 593); and the 56-cell rule on the same block gives v1's sites
+exactly.

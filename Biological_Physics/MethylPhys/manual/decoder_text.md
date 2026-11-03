@@ -2326,6 +2326,9 @@ levels), `spread` (the donors' standard deviation), `disorder` (each donor's bin
 each sealed donor half; their difference is noise map 1), `readA`, `readB` (the pooled level in two random halves of every donor's reads,
 seed 20261029; their difference is noise map 2, defined for a cell with one donor).
 
+### stage_seq_atlas.py::merge_pieces
+Piece folders joined block by block into one folder, so each builder sees every cell (`--build seq-merge-pieces`).
+
 ### stage_seq_atlas.py::half_floor
 The mean library floor of the atlas inputs in one sealed half.
 
