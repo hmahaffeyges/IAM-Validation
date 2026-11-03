@@ -462,3 +462,11 @@ atlas lacks lowers the domains by about 0.034, a small part of the plasmas' gap 
 whole-sample Met-A (rho +0.973, `plasma_seq_02/plasma_floor_check.csv`), not the floor (rho -0.055), and spread 0.6857 to 1.0699, wider
 than depth alone gives. **Next (diagnostic, nothing scored):** `plasma_seq_02/plasma_shares_diag.py`, each plasma's domains and
 whole-sample Met-A against every cell's share and the sites read.
+
+**The plasmas' domains follow the erythrocyte progenitor share** (`plasma_seq_02/plasma_shares_diag.txt`, `domains_by_cell.txt`;
+diagnostics, nothing scored). Over the 30, the domains fall as the Deconvolver's erythrocyte progenitor share rises (rho -0.928; median
+share 0.093); no other cell comes close (granulocytes +0.384), nor the sites read (-0.119). The erythrocyte progenitor column carries the
+most expected disorder at the domains of all 57 cells (pooled level 0.652, disorder 0.8534, against a median of 0.4573), and that is in each
+person: its donor spread there is moderate (0.0815) and its three inputs read their own domains 0.9879, 1.0287 and 0.9712 in the 57-cell
+healthy pass. **So the plasma DNA the Deconvolver gives to erythrocyte progenitors is more ordered at the domains than that cell.** The
+megakaryocyte synthetic did not reproduce it (its megakaryocyte DNA went mostly elsewhere). What that DNA is stays open.

@@ -1,0 +1,7 @@
+expected disorder at the domains (100101 sites), median over the 57 cells 0.4573; highest:
+erythrocyte progenitors: level 0.6520, disorder 0.8534, donor spread 0.0815
+smooth muscle: level 0.7336, disorder 0.7057, donor spread 0.1261
+heart fibroblasts: level 0.7578, disorder 0.6512, donor spread 0.0673
+colon fibroblasts: level 0.8243, disorder 0.5955, donor spread 0.0594
+granulocytes: level 0.9102, disorder 0.3669
+erythrocyte progenitor inputs' own domains, 57-cell healthy pass: GSM5652274 0.9879, GSM5652275 1.0287, GSM5652276 0.9712

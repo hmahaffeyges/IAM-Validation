@@ -153,6 +153,20 @@ METAA_COLS = ("donors", "reads", "meth", "level", "spread", "disorder", "halfA",
 DECONV_REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "deconv_reference_v1.parquet")
 DECONV_SD_FLOOR = 0.01   # operational: the least spread a cell's level is given, so a cell counted from one donor is not treated as exact
 
+def domain_disorder():
+    """2026-11-03 (development; plasma's domains): for every cell of the IAM Sequencing Atlas, at the domains (stage_metaa_atlas.territory_sets):
+    the mean pooled level, the mean binary entropy of that level (the disorder a person at that level carries), and the mean donor spread,
+    from the committed array-site columns. Returns one row per cell."""
+    import pandas as pd, stage_metaa_atlas as SA
+    keep = (SA.SEQ_ATLAS, SA.SEQ_LEVEL); SA.SEQ_ATLAS = ARRAY_COLS; SA.SEQ_LEVEL = "pooled"
+    try:
+        dom = pd.Index(SA.territory_sets()["domains"]); rows = []
+        for c in sorted(pd.read_csv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "seq_atlas_inputs.csv")).cell.str.strip().unique()):
+            mu = SA._col("mu", c).reindex(dom); sd = SA._col("donor_sd", c).reindex(dom)
+            rows.append(dict(cell=c, sites=int(mu.notna().sum()), level=round(float(mu.mean()), 4), disorder=round(float(np.nanmean(np.asarray(SA._H(mu.dropna()), float))), 4), donor_sd=round(float(sd.mean()), 4)))
+        return rows
+    finally: SA.SEQ_ATLAS, SA.SEQ_LEVEL = keep
+
 def merge_pieces(piece_dirs, out_dir):
     """2026-11-02 (the granulocyte column): the pieces of several folders joined block by block into one folder, so every builder that reads
     one piece file at a time (floor_sites, deconv_reference, array_columns, ...) sees every cell of the atlas in each file. Same-named pieces

@@ -1,0 +1,8 @@
+30 plasmas; domains median 0.8666; whole-sample Met-A median 0.9205
+domains against the sites with a value: rho -0.119; against the cells found (share 0.01 or more): rho -0.154
+erythrocyte progenitors: median share 0.093; domains rho -0.928
+granulocytes: median share 0.319; domains rho +0.384
+nk cells: median share 0.023; domains rho -0.222
+colon macrophages: median share 0.054; domains rho -0.192
+hepatocyte: median share 0.023; domains rho +0.141
+monocytes: median share 0.046; domains rho +0.060

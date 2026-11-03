@@ -13,3 +13,6 @@ plasma_floor_check_03.csv
 plasma_depth_synthetic.txt
 plasma_depth_sweep.txt
 plasma_mk_synthetic.txt
+plasma_shares_diag.txt
+plasma_shares_diag.csv
+domains_by_cell.txt

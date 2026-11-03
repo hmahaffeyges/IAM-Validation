@@ -431,6 +431,12 @@ def _build(a):
         if a.build_out: import pandas as _pdnn; _pdnn.DataFrame(rows).to_csv(a.build_out, index=False)
         if a.bundle: json.dump(dict(rows=rows, command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT (plan 35.30)"), open(a.bundle, "w"), indent=1, default=str)
         return 0
+    if a.build == "seq-domain-disorder":   # 2026-11-03 (development): each cell's expected disorder at the domains (stage_seq_atlas.domain_disorder)
+        import stage_seq_atlas as _SQdd; import pandas as _pddd
+        rows = _SQdd.domain_disorder()
+        if a.build_out: _pddd.DataFrame(rows).to_csv(a.build_out, index=False)
+        if a.bundle: json.dump(dict(rows=rows, command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT (IAM Sequencing Atlas)"), open(a.bundle, "w"), indent=1)
+        print(len(rows), "cells"); return 0
     if a.build == "seq-merge-pieces":   # 2026-11-02 (development): piece folders joined block by block (stage_seq_atlas.merge_pieces)
         import stage_seq_atlas as _SQmp
         rep = _SQmp.merge_pieces([d for d in a.build_samples.split(",") if d], a.build_out)
@@ -622,7 +628,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-bridge", "seq-noise-spectrum"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
