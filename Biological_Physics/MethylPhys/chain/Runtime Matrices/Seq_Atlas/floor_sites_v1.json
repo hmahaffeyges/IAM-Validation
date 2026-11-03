@@ -4,10 +4,10 @@
   "marked_min": 0.95,
   "min_reads": 20
  },
- "cells": 56,
- "sites": 46989,
+ "cells": 57,
+ "sites": 46947,
  "by_side": {
-  "unmarked": 46967,
+  "unmarked": 46925,
   "marked": 22
  },
  "output": "floor_sites_v1.parquet",
@@ -16,7 +16,7 @@
   "--build",
   "seq-floor",
   "--build-samples",
-  "/root/w/p56,/root/w/pmk",
+  "/root/w/p57",
   "--build-out",
   "/root/w/floor_sites_v1.parquet",
   "--bundle",

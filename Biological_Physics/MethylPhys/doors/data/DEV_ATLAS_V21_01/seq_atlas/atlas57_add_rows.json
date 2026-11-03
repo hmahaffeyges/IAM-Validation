@@ -1,0 +1,17 @@
+{
+ "metaa_donor_counts_v1.parquet": {
+  "rows_kept": 887266,
+  "rows_added": 18000,
+  "cells": 57
+ },
+ "metaa_half_counts_v1.parquet": {
+  "rows_kept": 320633,
+  "rows_added": 6000,
+  "cells": 57
+ },
+ "terr_half_counts_v1.parquet": {
+  "rows_kept": 3751216,
+  "rows_added": 66986,
+  "cells": 57
+ }
+}

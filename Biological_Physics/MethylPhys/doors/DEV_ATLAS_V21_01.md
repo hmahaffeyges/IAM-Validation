@@ -1136,3 +1136,16 @@ worked only because the builders leave that column out. The machine was stopped 
 same CpG rows checked; a cell in two folders refused), and every builder reads that folder. Checked on one block: every value identical to
 its source; the 57-cell floor sites a subset of the 56-cell ones (592 of 593); and the 56-cell rule on the same block gives v1's sites
 exactly.
+
+**The 57-cell atlas: built** (one Google spot machine, the one command throughout; `seq_atlas/atlas57_summary.txt`, `seq_atlas/atlas57_merge.json`,
+`seq_atlas/atlas57_add_rows.py` and `.json`). The pieces merged into one 57-cell folder (113 pieces; kept in the bucket at
+`seq_atlas/pieces57/`), then from it: the Deconvolver's reference (57 cells, 5699 markers, was 5599), the floor sites (46947, was 46989;
+the 57-cell sites a subset of the 56-cell ones), the Met-A reference (57 cells; granulocytes 6000 identity sites, v2.1's neutrophil
+sites; every other cell's rows unchanged), the array-site columns (every 56-cell value identical, checked on eight cell and field pairs;
+the granulocyte column at all 813951 sites) and the noise columns (kept in the bucket, `seq_atlas/atlas57b/noise_cols.tgz`). The
+granulocytes' per-input rows were counted from their own three inputs and added (per-donor counts 18000 rows, per-half counts 6000, island
+counts 66986; the 56 cells' rows kept as they were, checked; a builder that writes a row for every cell gives zeros for cells it was not
+given, checked before those rows were left out). Every input's floor measured again on the new floor sites (156; median 0.0062855; the
+granulocytes 0.00899, 0.005889, 0.008653), and the held-error reference rebuilt from every input's tiles (57 cells; granulocytes: 3
+donors, held error 0.03841). **Next:** the sphere columns, then the 57-cell healthy pass (`seq_atlas_01/healthy_fullchain7_samples.csv`:
+pass 5's 137 inputs and settings, and the three granulocytes, each read against the other sealed half), the same scorer and bar.

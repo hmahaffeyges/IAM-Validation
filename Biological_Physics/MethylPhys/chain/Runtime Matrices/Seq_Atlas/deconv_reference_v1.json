@@ -1,7 +1,7 @@
 {
- "cells": 56,
+ "cells": 57,
  "sites_with_all_cells": 813866,
- "markers": 5599,
+ "markers": 5699,
  "per_cell": 50,
  "sd_floor": 0.01,
  "left_out": [
@@ -13,7 +13,7 @@
   "--build",
   "seq-deconv-ref",
   "--build-samples",
-  "/root/w/p56,/root/w/pmk",
+  "/root/w/p57",
   "--build-out",
   "/root/w/deconv_reference_v1.parquet",
   "--bundle",

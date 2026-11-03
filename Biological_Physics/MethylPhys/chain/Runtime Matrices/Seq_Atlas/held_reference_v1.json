@@ -147,6 +147,13 @@
    "held_error": 0.04643,
    "tile_median": 0.04585
   },
+  "granulocytes": {
+   "donors": 3,
+   "half_A": 2,
+   "tiles": 14132,
+   "held_error": 0.03841,
+   "tile_median": 0.03674
+  },
   "heart fibroblasts": {
    "donors": 3,
    "half_A": 1,

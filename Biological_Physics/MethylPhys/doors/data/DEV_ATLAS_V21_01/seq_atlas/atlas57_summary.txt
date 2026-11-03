@@ -1,0 +1,5 @@
+Deconvolver reference: 57 cells, 5699 markers
+floor sites: 46947 (57 cells)
+Met-A reference: 57 cells, granulocytes 6000 sites
+input floors: 156 inputs, median 0.0062855; GSM5652313 0.00899, GSM5652314 0.005889, GSM5652315 0.008653
+held-error reference: 57 cells; granulocytes {'donors': 3, 'half_A': 2, 'tiles': 14132, 'held_error': 0.03841, 'tile_median': 0.03674}
