@@ -490,3 +490,8 @@ progenitors matches that cell at the identity sites (taking it away raises the d
 the domains). It reads as erythroid at its identity sites and more ordered than the atlas's bone-marrow erythrocyte progenitors at the
 domains. Neither panel reads every reading Normal; the Deconvolver's reference keeps every cell. What that DNA is (an erythroid cell at a
 stage the atlas does not hold, or a cell it lacks) stays open, and needs data of that cell, not a change to the reading.
+
+**Public data for the erythroid question (a search; nothing read).** The published plasma study of erythroblast and megakaryocyte DNA used
+bone-marrow erythroblasts from the same series as the atlas's erythrocyte progenitors (GSE186458), so it adds no new erythroid stage. The
+same study deposited platelet whole-genome bisulfite sequencing (GSE206818), a bulk source from the megakaryocyte lineage, untouched and
+kept for commissioning unless the author chooses to spend it on a megakaryocyte column.
