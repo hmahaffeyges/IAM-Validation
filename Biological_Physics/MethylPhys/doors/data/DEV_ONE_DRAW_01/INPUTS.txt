@@ -7,3 +7,6 @@ plasma_floor_check_12.txt
 plasma_band_02_summary.txt
 plasma_floor_check.txt
 plasma_floor_check.csv
+plasma_band_03_summary.txt
+plasma_floor_check_03.txt
+plasma_floor_check_03.csv

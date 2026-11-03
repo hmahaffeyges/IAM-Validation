@@ -33,6 +33,16 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "The 30 plasmas with the common floor",
+     "status": "development",
+     "what": "The same 30 counted again from their saved molecules with the common floor.",
+     "outcome": "The islands came to 0.9272 from 2.681; the domains, whole-sample Met-A and IAM-A are unchanged and still below 1.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },
@@ -42,5 +52,5 @@
    "entries": []
   }
  ],
- "open_at_turnover": "The same 30 with the common floor, from their saved molecules, on GitHub."
+ "open_at_turnover": "Plasma: the domains, whole-sample Met-A and IAM-A below 1."
 }

@@ -411,3 +411,11 @@ islands read 2.681**, against 0.8391 on v2.1: every plasma's floor (0.022102 to 
 and the islands' level change follows it with slope 0.939 through the origin (rho +0.719). Against the array-based v2.1 the same plasmas'
 islands read low; against a sequencing atlas whose own floor is 0.0063 they read high, so the ruler's floor matters as much as the
 sample's.
+
+**plasma_seq_03: the common floor brings plasma's islands to 0.9272** (`plasma_seq_03/plasma_band_03_summary.txt`,
+`plasma_floor_check_03.txt`; the same committed scorers on a GitHub machine; nothing scored). All 30 counted again from plasma_seq_02's
+molecules with `--dev-floor-equal` (after the fix). The islands read 0.9272 (25 to 75 % 0.8803 to 0.956; 5 to 95 % 0.8194 to 0.9637),
+against 2.681 without the floor; against the floor the islands now run slightly the other way (rho -0.428), as the slope below 1 (0.939)
+predicts: a little over-corrected. Everything else is unchanged, as it should be (the floor enters only the islands and sorted-cell Met-A):
+whole-sample Met-A 0.9205 (its islands part 2.711, where the floor is not applied), the domains 0.8666, IAM-A 0.7733. **Open on plasma:**
+the domains and whole-sample Met-A below 1, and IAM-A (which falls as the loose share rises, rho -0.94, as in plasma_seq_01).

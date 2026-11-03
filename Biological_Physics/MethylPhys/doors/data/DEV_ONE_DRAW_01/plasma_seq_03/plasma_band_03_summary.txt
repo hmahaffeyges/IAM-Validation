@@ -1,0 +1,17 @@
+plasma_seq_01 healthy band: 30 plasmas read by the one command
+IAM-A                                      n 30 | median 0.7733 | 25-75 % 0.755 to 0.8103 | 5-95 % 0.7145 to 0.8398
+held error                                 n 30 | median 0.03854 | 25-75 % 0.03805 to 0.03914 | 5-95 % 0.03716 to 0.04019
+loose share                                n 30 | median 0.2864 | 25-75 % 0.1996 to 0.3216 | 5-95 % 0.1305 to 0.4019
+sites with a value                         n 30 | median 4.312e+05 | 25-75 % 3.947e+05 to 5.113e+05 | 5-95 % 3.234e+05 to 5.54e+05
+Met-A whole                                n 30 | median 0.9205 | 25-75 % 0.8641 to 0.9786 | 5-95 % 0.8296 to 1.052
+ceiling distance                           n 30 | median 1.567 | 25-75 % 1.525 to 1.63 | 5-95 % 1.478 to 1.707
+globe changed blocks                       n 30 | median 0 | 25-75 % 0 to 16.75 | 5-95 % 0 to 30.1
+sphere territories changed                 n 30 | median 0 | 25-75 % 0 to 0 | 5-95 % 0 to 1
+Met-A whole, identity sites of the cells found n 30 | median 0.9918 | 25-75 % 0.92 to 1.055 | 5-95 % 0.8835 to 1.119
+Met-A whole, islands                       n 30 | median 2.711 | 25-75 % 2.621 to 2.841 | 5-95 % 2.354 to 3.051
+Met-A whole, domains                       n 30 | median 0.8646 | 25-75 % 0.7834 to 0.929 | 5-95 % 0.7149 to 1.079
+Met-A whole, the rest                      n 30 | median 0.8937 | 25-75 % 0.8436 to 0.9393 | 5-95 % 0.8073 to 1.018
+territory islands                          n 30 | median 0.9272 | 25-75 % 0.8803 to 0.956 | 5-95 % 0.8194 to 0.9637
+territory domains                          n 30 | median 0.8666 | 25-75 % 0.7873 to 0.921 | 5-95 % 0.7222 to 1.051
+IAM-A against the loose share: Spearman rho -0.94 (p 2.7e-14, n 30)
+cell shares, median over the plasmas: granulocytes 0.319, erythrocyte progenitors 0.093, colon macrophages 0.054, monocytes 0.046, nk cells 0.023, hepatocyte 0.023, lung alveolar macrophages 0.009, lung interstitial macrophages 0.002, pancreatic acinar 0.000, memory b cells 0.000
