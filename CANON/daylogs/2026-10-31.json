@@ -75,6 +75,16 @@
       "GRP-019"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "Outside healthy neurons, donor by donor",
+     "status": "development",
+     "what": "25 healthy neurons from outside the atlas read by sorted-cell Met-A donor by donor.",
+     "outcome": "0.9108, below its bar; the readings follow each sample's neuron share. Not met.",
+     "rows": [
+      "GRP-019"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   },

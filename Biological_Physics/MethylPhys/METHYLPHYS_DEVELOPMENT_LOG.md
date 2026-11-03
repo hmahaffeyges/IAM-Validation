@@ -3235,3 +3235,276 @@ Explorer, the information sphere, Met-A's healthy line) were loaded into the boo
 were added to every document. Overnight on the 27th the machines sat idle for about eleven hours after GitHub moved its result storage;
 the watcher now stops on a failed download, re-reads its registry before writing and keeps watching when machines are free. In the evening a declared sorted cell was set to be read against its own atlas column (the territories' synthetic had found a naive B cell
 compared with the blood panel's adult B-cell column), and all 36 study samples were queued for a re-read as sorted naive B cells from their saved pieces.
+
+### 2026-10-29 · The leukemia study re-read as sorted B cells (GRP-020)
+All 36 samples read again from their saved pieces as sorted B cells, the column the atlas, IAM-A and the coupling all hold. Re-sent after the first re-reads used a name IAM-A holds no reference for; the first re-sent samples read on every instrument. Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
+
+### 2026-10-29 · Every A score in the A-score database, with where Normal begins and ends (OTH-051)
+The A-score database now reads every current-chain reading of the sequencing groups and every replay so far (1,592 samples), reference only where not scored; each row carries its reading's state and chain version, and the gauge's band where the bundle records one (IAM-A, coupling-A, the C-Score's limits). 150,771 readings on six instruments; Bands.csv gives, for each instrument, cell, platform and chain version, the gauge's band beside the healthy samples' own spread. Record: [README.md](ASCORES/README.md).
+
+### 2026-10-29 · Met-A on sequencing: over healthy Met-A of its own cell (GRP-019)
+Two approaches recorded as not met (the atlas converted to sequencing units; the atlas's own sequencing columns, synthetic). The third reads a sample over healthy Met-A of its own cell, as the coupling gauge does. Its depth check: healthy samples center on 1 (median 0.9988) but the ratio falls with depth, so the next step reads every sample at one fixed number of reads per identity site. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-29 · The IAM Sequencing Atlas: every CpG, counted (COM-METAA-033)
+A second atlas for sequenced samples, beside IAM-Atlas v2.1: each healthy cell type's level, spread, each donor's disorder and two noise maps at every hg19 CpG, from the 153 healthy sequencing inputs. Built by the one command over all 28,217,448 CpGs in 113 pieces on Google spot machines, after its synthetic met; each cell has reads at 97 to 98 % of all CpGs. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-29 · Google spot machines join GitHub's (COM-METAA-033)
+Eight discounted spot machines beside GitHub's twenty, each launch price-checked, capped to delete itself, and logged with its cost. One healthy sample read the same on Google as on GitHub; the atlas's counting step took about 15 minutes. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-29 · A megakaryocyte column for the sequencing atlas (GRP-016)
+The plasma cell type the atlases lack, from two healthy donors, moved from GRCh38 to hg19 by a new chain step tested on a known answer first; a third donor is held back to test it. Under way. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-29 · A ruler measured with each instrument's own chemistry (GRP-017)
+Why arrays read against IAM-Atlas v2.1 and sequenced samples against the IAM Sequencing Atlas, written into both atlas definitions, the book's atlas chapter, the instruments document and the Introduction. An array never quite reads 0 or 1; sequencing does. Read against the array atlas, healthy sequenced samples' territories read about 14 at the islands where healthy reads 1. Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md).
+
+### 2026-10-29 · Met-A against the IAM Sequencing Atlas (GRP-019)
+Met-A's own identity sites, with each cell's healthy level counted from sequencing; synthetic first, then 137 healthy samples each read against the other half of its own cell's donors. Synthetic met. The healthy test was not met (median 1.0704; shallower libraries read higher). The extra disorder goes with the library, not with the read count, so the next step measures each library's own floor. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-29 · The library floor (GRP-019)
+Each sequenced sample's own error rate at 46,989 sites where every healthy cell agrees completely; recorded on every sequenced sample. Synthetic met; its test on the 137 healthy samples is running. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-29 · The megakaryocyte column's test on donor 3 (COM-METAA-033)
+Donor 3, unread until its test was written, compared with every cell of the sequencing atlas. Not met: it read nearest monocytes. A score weighing counting scatter did not name its cell either, so depth is not the reason; the next check compares the three donors directly. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-29 · Google machines relaunch themselves (COM-METAA-033)
+Every Google job saves as it goes; a watcher relaunches any machine Google takes back, after the day's price check. The first reclaim came at 8:58 PM; the machine was relaunched and lost one sample. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-29 · The IAM Sequencing Atlas designed (COM-METAA-033)
+A second ruler, separate from IAM-Atlas v2.1: healthy cells read by whole-genome bisulfite sequencing, measured, not fitted, with sealed donor halves. The design and its checklist committed; built on discounted cloud machines. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-29 · Day summary
+The leukemia study re-read as sorted B cells: Re-sent after the first re-reads used a name IAM-A holds no reference for; the first re-sent samples read on every instrument. Every A score in the A-score database, with where Normal begins and ends: 150,771 readings on six instruments; Bands.csv gives, for each instrument, cell, platform and chain version, the gauge's band beside the healthy samples' own spread. Met-A on sequencing: over healthy Met-A of its own cell: Its depth check: healthy samples center on 1 (median 0.9988) but the ratio falls with depth, so the next step reads every sample at one fixed number of reads per identity site. The IAM Sequencing Atlas: every CpG, counted: Built by the one command over all 28,217,448 CpGs in 113 pieces on Google spot machines, after its synthetic met; each cell has reads at 97 to 98 % of all CpGs. Google spot machines join GitHub's: One healthy sample read the same on Google as on GitHub; the atlas's counting step took about 15 minutes. A megakaryocyte column for the sequencing atlas: Under way. A ruler measured with each instrument's own chemistry: An array never quite reads 0 or 1; sequencing does. Read against the array atlas, healthy sequenced samples' territories read about 14 at the islands where healthy reads 1. Met-A against the IAM Sequencing Atlas: Synthetic met. The healthy test was not met (median 1.0704; shallower libraries read higher). The extra disorder goes with the library, not with the read count, so the next step measures each library's own floor. The library floor: Synthetic met; its test on the 137 healthy samples is running. The megakaryocyte column's test on donor 3: Not met: it read nearest monocytes. A score weighing counting scatter did not name its cell either, so depth is not the reason; the next check compares the three donors directly. Google machines relaunch themselves: The first reclaim came at 8:58 PM; the machine was relaunched and lost one sample. Built: the IAM Sequencing Atlas designed. Open at the turnover: Running on GitHub's machines: the B and T commissioning samples and the study's re-reads.
+
+### 2026-10-30 · The megakaryocyte donors read against each other (COM-METAA-033)
+The three megakaryocyte donors compared pairwise, and each with a monocyte and a lung macrophage input, by a new pair comparison tested on a known answer first. The donors agree with each other more than with the cells donor 3 was named as. The comparison's depth-weighted score had a fault (it averaged a ratio at each site) and was corrected; read again with it, donor 3 reads nearest megakaryocytes (development, on a spent donor; the committed test stays not met). Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-30 · Each healthy cell's held error, region by region (COM-METAA-033)
+The 153 healthy sequenced inputs' molecules counted on Google spot machines, pooled by cell into 14,133 regions beside the sequencing atlas. Built and in the chain: 56 cells. It is the reference IAM-A needs to read plasma once the Deconvolver has found what is in it. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-30 · Each library's own floor (GRP-019)
+Each of the 137 healthy sequenced samples' error rate at 46,989 sites where every healthy cell agrees completely, read by the one command. Not met: the floor is low (median 0.00625) and does not follow depth, and Met-A does not follow it. Library noise is not why shallower libraries read higher. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-30 · The study read with the full chain (GRP-020)
+All 36 samples read again from their saved alignment pieces with every reading the chain holds, each flagged. All 36 read; nine development readings ran on each, five were recorded as not run with the chain's reason. Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
+
+### 2026-10-30 · Replays with the full chain (OTH-082)
+Seven earlier replays and two new ones (cervical self-samples, plasma cfDNA on arrays) sent with the full chain. Landed so far: aging, glioma blood, endothelial, stroke, Crohn's and colitis sorted cells, prostate, cervical; reference only. Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
+
+### 2026-10-30 · Blood drawn before a cancer diagnosis (reference only) (OTH-082)
+The Italian prospective cohort's 329 bloods, drawn years before 146 breast cancer diagnoses, read with the full chain. Every cell's Met-A reads higher in the later cancers, and holds within slides; reference only, and blood drawn farther from diagnosis reads higher than nearer, so it needs its own test before it means anything. Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md).
+
+### 2026-10-30 · The Deconvolver on the sequencing atlas (COM-METAA-033)
+A sequenced sample split into its cells against the IAM Sequencing Atlas's own levels (56 cells, 5,599 marker sites), through the one command. 8 of 9 planted mixes read their shares; the ninth gave 8 % to close relatives of its cells. The share a pure cell gives others from counting alone is 1 to 2 %. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-30 · The healthy full-chain pass on sequencing (GRP-019)
+The 137 healthy sequenced samples read by the one command with the full chain, twice: before and after the in-mix readings moved onto the sequencing atlas. The C-Score, IAM-A and coupling-A read Normal on healthy samples; Met-A for the sorted cell (1.07), for the whole sample (1.09) and the territories read high. Purity does not explain it. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-30 · The in-mix readings on the sequencing atlas (COM-METAA-033)
+Met-A for the whole sample, the territories and the C-Score per cell mixed from the sequencing atlas's counted levels at IAM-Atlas v2.1's sites. 6 of 6 constructed healthy samples read 0.97 to 1.02. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-30 · The sky on sequencing (COM-METAA-033)
+The residual sky read against the sample's own mix of the sequencing atlas, after a fault that left holes in its map was fixed. None of 6 constructed healthy samples shows structure beyond the null; contiguous regional shifts are not what it reads, by construction. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-30 · IAM-A in the sample's mix (COM-METAA-033)
+IAM-A for plasma and other mixed samples: held errors over the number the sample's own shares predict, from each cell's healthy held-error rate. Run 2 met: healthy mixes 0.991 to 0.993, every rate raised a fifth 1.190. Run 1 asked donor half A for a cell it does not hold. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-30 · Met-A site by site (GRP-019)
+Every identity site's reads, levels and disorder for 20 healthy samples, written by the one command. The excess sits where the reference level is near 0. Treating the reference as counted explains about 2 % of it. The two donor halves agree far more closely than counting allows, and the published counts equal each sample's own molecules, so the sites were chosen where these donors agree. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-30 · Met-A on samples the atlas does not hold (GRP-019)
+35 healthy sequenced samples never read before and not atlas inputs: 25 control prefrontal neurons and 10 sorted pancreas samples, through the one command. The 25 neurons read Met-A 1.0132: sorted-cell Met-A reads Normal outside the atlas. The pancreas libraries cover too few identity sites to read. Met-A for the whole sample and the territories read high on the neurons too. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-30 · Day summary
+The megakaryocyte donors read against each other: The donors agree with each other more than with the cells donor 3 was named as. The comparison's depth-weighted score had a fault (it averaged a ratio at each site) and was corrected; read again with it, donor 3 reads nearest megakaryocytes (development, on a spent donor; the committed test stays not met). Each healthy cell's held error, region by region: Built and in the chain: 56 cells. It is the reference IAM-A needs to read plasma once the Deconvolver has found what is in it. Each library's own floor: Not met: the floor is low (median 0.00625) and does not follow depth, and Met-A does not follow it. Library noise is not why shallower libraries read higher. The study read with the full chain: All 36 read; nine development readings ran on each, five were recorded as not run with the chain's reason. Replays with the full chain: Landed so far: aging, glioma blood, endothelial, stroke, Crohn's and colitis sorted cells, prostate, cervical; reference only. Blood drawn before a cancer diagnosis (reference only): Every cell's Met-A reads higher in the later cancers, and holds within slides; reference only, and blood drawn farther from diagnosis reads higher than nearer, so it needs its own test before it means anything. The Deconvolver on the sequencing atlas: 8 of 9 planted mixes read their shares; the ninth gave 8 % to close relatives of its cells. The share a pure cell gives others from counting alone is 1 to 2 %. The healthy full-chain pass on sequencing: The C-Score, IAM-A and coupling-A read Normal on healthy samples; Met-A for the sorted cell (1.07), for the whole sample (1.09) and the territories read high. Purity does not explain it. The in-mix readings on the sequencing atlas: 6 of 6 constructed healthy samples read 0.97 to 1.02. The sky on sequencing: None of 6 constructed healthy samples shows structure beyond the null; contiguous regional shifts are not what it reads, by construction. IAM-A in the sample's mix: Run 2 met: healthy mixes 0.991 to 0.993, every rate raised a fifth 1.190. Run 1 asked donor half A for a cell it does not hold. Met-A site by site: The excess sits where the reference level is near 0. Treating the reference as counted explains about 2 % of it. The two donor halves agree far more closely than counting allows, and the published counts equal each sample's own molecules, so the sites were chosen where these donors agree. Met-A on samples the atlas does not hold: The 25 neurons read Met-A 1.0132: sorted-cell Met-A reads Normal outside the atlas. The pancreas libraries cover too few identity sites to read. Met-A for the whole sample and the territories read high on the neurons too. Open at the turnover: Met-A for the sorted cell reads Normal on healthy samples from outside the atlas; Met-A for the whole sample and the territories read high on them too, and are next. GitHub's machines are free; nothing ahead of the sequencing instruments needs them.
+
+### 2026-10-31 · The healthy level on sequencing: the median of the donors (GRP-019)
+One spent B-cell atlas input read by the one command with a new per-site table of Met-A for the whole sample. About a quarter of the reading's weight sat where the expected level was exactly 0 or 1. The atlas's level is the median of 1 to 3 donors, which sits at 0 or 1 wherever a donor has few reads; the pooled count, which the atlas also stores, does so far less. The expectation on sequencing is now the pooled level. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · The pooled-level synthetic (GRP-019)
+Hidden truth, three donors counted from it, samples at seven depths, read both ways by the one command. Not met: the median reading met its bar, the trend with depth narrowly missed its bar; the median of the donors read higher on the same samples. The bar was not changed after the run. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · The B-cell input with the pooled level (GRP-019)
+The same spent input read again on the fixed chain. The islands reading came down to below 1; the remaining excess sits at the marked sites, where this sample's level is lower than the expected one. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · Healthy pass 3, first 44 of 137 (GRP-019)
+The 137 healthy inputs read on the fixed chain with per-site tables; 93 blocked by GEO and re-sent. Met-A for the whole sample and the domains read Normal on the 44; the islands near 1.05; sorted-cell Met-A still near 1.07. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · The outside samples with the pooled level (GRP-019)
+The 25 outside neurons and 10 pancreas samples read again on the fixed chain. Not met: the neurons fell below Normal. Pooling donors whose levels differ overstates one person's disorder; the median of a few sparse donors understates it. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · Met-A donor by donor, synthetic runs 1 and 2 (GRP-019)
+The expectation taken donor by donor, then both sides thinned to a common depth. Not met: the median met both times; a small rise with depth was caught by the rank bar. Nearest to Normal of the three expectations at every depth. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · Outside healthy neurons, donor by donor (GRP-019)
+25 healthy neurons from outside the atlas read by sorted-cell Met-A donor by donor. 0.9108, below its bar; the readings follow each sample's neuron share. Not met. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · Commits through a gated runner (COM-METAA-033)
+The working session can no longer keep a .git folder, so each change is committed through GitHub's API to a gate/* branch, and a runner rebases it, rebuilds the generated documents and pushes to main only through CANON/checked_push.sh, the same gate as before. The workflow file itself (.github/workflows/gated_merge.yml) was added directly, the one change that did not pass through the gate. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-10-31 · Pooled counts in the sequencing atlas's columns at v2.1's sites (GRP-019)
+The array-site columns rebuilt on a Google spot machine with each cell's pooled methylated and all reads. Built in minutes; the median and spread columns came out byte-identical to the committed ones. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · A broken settings block, fixed (disclosed) (GRP-019)
+An insert in stage_metaa_atlas.py matched inside another setting's name, so two settings were missing on main for one commit. Fixed and every setting checked present; no reading was made with the broken commit. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · Per-donor counts at the Met-A identity sites (GRP-019)
+Each of the 153 healthy inputs' own reads at its cell's identity sites, built on Google spot machines. Built and committed; pass 4 reads with them. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · Scoring on remote machines (GRP-019)
+A workflow that scores a finished run with the committed scorers on a GitHub machine. The per-site tables are too large for the laptop; scoring now runs where the files are. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-10-31 · Day summary
+The healthy level on sequencing: the median of the donors: About a quarter of the reading's weight sat where the expected level was exactly 0 or 1. The atlas's level is the median of 1 to 3 donors, which sits at 0 or 1 wherever a donor has few reads; the pooled count, which the atlas also stores, does so far less. The expectation on sequencing is now the pooled level. The pooled-level synthetic: Not met: the median reading met its bar, the trend with depth narrowly missed its bar; the median of the donors read higher on the same samples. The bar was not changed after the run. The B-cell input with the pooled level: The islands reading came down to below 1; the remaining excess sits at the marked sites, where this sample's level is lower than the expected one. Healthy pass 3, first 44 of 137: Met-A for the whole sample and the domains read Normal on the 44; the islands near 1.05; sorted-cell Met-A still near 1.07. The outside samples with the pooled level: Not met: the neurons fell below Normal. Pooling donors whose levels differ overstates one person's disorder; the median of a few sparse donors understates it. Met-A donor by donor, synthetic runs 1 and 2: Not met: the median met both times; a small rise with depth was caught by the rank bar. Nearest to Normal of the three expectations at every depth. Outside healthy neurons, donor by donor: 0.9108, below its bar; the readings follow each sample's neuron share. Not met. Built: commits through a gated runner; pooled counts in the sequencing atlas's columns at v2.1's sites; a broken settings block, fixed (disclosed); per-donor counts at the Met-A identity sites; scoring on remote machines. Open at the turnover: Pass 4 (sorted-cell Met-A donor by donor) on the 137 inputs (GitHub) and the 35 outside samples (Google); pass 3's combined scoring queued.
+
+### 2026-11-01 · Pass 4's depth trend, diagnosed (GRP-019)
+From committed chain outputs, each healthy input's disorder per read at its identity sites, against the donors it was read against. Met-A follows that ratio almost exactly; shallower libraries of a cell hold more off-pattern reads at its identity sites. Not purity, not general library error. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-11-01 · The islands on sequencing: synthetic (GRP-017)
+Six constructed healthy B-cell samples read by the one command with the expectation from the reference's own reads. Met: median 0.9963 against a bar of 1 within 0.02; the plug-in expectation read 1.0358 on the same samples. Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md).
+
+### 2026-11-01 · Healthy pass 5: every reading on sequencing (GRP-017, GRP-019)
+All 137 healthy sequencing inputs read by the full chain against the IAM Sequencing Atlas, the islands from the reference's own reads. Met: islands 1.0122 (bar within 0.05 of 1); Met-A in each cell 1.0077, whole sample 1.0055, domains 1.0011, C-Score 1.0004, coupling-A 1.0000, IAM-A 0.9518. Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md).
+
+### 2026-11-01 · The X chromosome and Met-A (GRP-019)
+Met-A with and without the X chromosome's identity sites on the 137 healthy inputs. No effect: 1.0077 both ways; largest change 0.0021. Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md).
+
+### 2026-11-01 · The sequencing atlas's null test on the sphere (COM-METAA-033)
+Each cell's two noise maps against 20 shuffles of their own values, after a synthetic. Met: the counting-only map stays inside its null in all 56 cells; the donor-half map lies above it in every cell, the person-to-person part. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · The genome-distance spectrum (COM-METAA-033)
+The noise maps' correlation by the distance between sites, after a synthetic read by the one command. Met: the counting map reads no correlation at any distance; healthy people differ mostly among neighboring CpGs, fading by about 1 Mb. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · The bridge to IAM-Atlas v2.1 (COM-METAA-033)
+Each of the 56 shared cells, sequencing against array, at every shared site. Median correlation 0.9941; the sequencing level sits below v2.1's in every cell, the platform difference measured. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · The transfer function at the islands (GRP-017)
+A planted change at the islands of a healthy B-cell sample, five sizes, read back by the one command. Met: the chain returns the change at full size (slope 1.0001). Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md).
+
+### 2026-11-01 · Isotropy by chromosome (COM-METAA-033)
+Each autosome's mean of the noise maps per cell. The counting map is the same on every autosome in every cell. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · The islands' expectation from the reference's own reads (GRP-017)
+Each read of a healthy sample drawn without replacement from its mix's reference reads, so no counted level is treated as exact. In the chain behind a development flag; per-half island counts built for 56 cells at 66986 island sites. Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md).
+
+### 2026-11-01 · Per-site tables for the territories (GRP-014)
+Each island and domain site's reads, levels and disorder, written beside the bundle on request. Used to find the islands' cause on a spent healthy sample. Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md).
+
+### 2026-11-01 · The sequencing atlas on the sky sphere (COM-METAA-033)
+Each cell's level and the 95 % range of its average, drawn for 56 cells by v2.1's builder. Range synthetic met (two donors 1.005 and 0.948, three donors 1.007 and 0.948). Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · The sequencing atlas's information globe (COM-METAA-033)
+The information globe built from the sequencing atlas beside v2.1's. 534617 sites placed; families gather about as tightly as on v2.1's (0.42 against 0.35). Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · The sequencing atlas's two noise maps (COM-METAA-033)
+Donor-half and read-half noise maps on the sky sphere for every cell. Check met (1238368 of 1238368); the X chromosome in 16 cells and a smooth-muscle donor offset seen and annotated. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · The globe and information sphere on sequencing (COM-METAA-033)
+A sequenced sample's globe and its distance from its own healthy self now drawn against the sequencing atlas; atlas inputs flagged. Being tested on 35 healthy samples outside the atlas, read both ways. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-01 · Day summary
+Pass 4's depth trend, diagnosed: Met-A follows that ratio almost exactly; shallower libraries of a cell hold more off-pattern reads at its identity sites. Not purity, not general library error. The islands on sequencing: synthetic: Met: median 0.9963 against a bar of 1 within 0.02; the plug-in expectation read 1.0358 on the same samples. Healthy pass 5: every reading on sequencing: Met: islands 1.0122 (bar within 0.05 of 1); Met-A in each cell 1.0077, whole sample 1.0055, domains 1.0011, C-Score 1.0004, coupling-A 1.0000, IAM-A 0.9518. The X chromosome and Met-A: No effect: 1.0077 both ways; largest change 0.0021. The sequencing atlas's null test on the sphere: Met: the counting-only map stays inside its null in all 56 cells; the donor-half map lies above it in every cell, the person-to-person part. The genome-distance spectrum: Met: the counting map reads no correlation at any distance; healthy people differ mostly among neighboring CpGs, fading by about 1 Mb. The bridge to IAM-Atlas v2.1: Median correlation 0.9941; the sequencing level sits below v2.1's in every cell, the platform difference measured. The transfer function at the islands: Met: the chain returns the change at full size (slope 1.0001). Isotropy by chromosome: The counting map is the same on every autosome in every cell. Built: the islands' expectation from the reference's own reads; per-site tables for the territories; the sequencing atlas on the sky sphere; the sequencing atlas's information globe; the sequencing atlas's two noise maps; the globe and information sphere on sequencing. Open at the turnover: The IAM Sequencing Atlas's checklist: masks, genome-distance spectra and null tests next.
+
+### 2026-11-02 · The study by the full working chain (GRP-020)
+All 36 samples of the leukemia study merged from saved pieces and read by the full working chain against the IAM Sequencing Atlas. All 36 read: leukemia Met-A in the B-cell column 1.0410, islands 1.3277; cord-blood B cells 0.8620 and 0.7709. Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
+
+### 2026-11-02 · The study read again by the complete chain (GRP-020)
+The same 36 with the tumor gauge, the B-cell copies and Group-A added. All 36 read: tumor gauge leukemia 0.9922, cord blood 1.0269, the UHRF1 knockout 0.7520. Group-A gives no call: three healthy references leave each only two others for the tare. Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
+
+### 2026-11-02 · Group-A on sequencing (COM-METAA-033)
+Group-A read on sequencing bundles: two sealed healthy halves, and a planted 1 % loss written into half of the healthy inputs' own read counts. Met on the sorted-cell reading: healthy halves alike (-0.97 %, t -0.772), planted loss found (+7.93 %, t 6.493). On the islands the healthy halves differ (+4.51 %, t 2.231), flagged. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The tumor gauge on sequencing: synthetic (COM-METAA-033)
+The distance to the entropy ceiling, counted from reads, in the sorted-cell, in-mix and territory readings. Met: a healthy sample reads 1.01136, half way to the ceiling 0.24266, at the ceiling 0.03915. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The cell-count floor: synthetic (COM-METAA-033)
+The copies of each cell per site behind every in-mix reading on sequencing, flagged below one copy. Met: the copies match share times reads, and the flag falls exactly on the cells below one copy. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Higher-order statistics on the sphere (COM-METAA-033)
+Minkowski functionals of the noise maps against shuffles of their pixels. Synthetic met on its second version (the first broke the uneven sites per pixel); the real maps are not yet readable, because spread varies across the sphere. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The globe on healthy samples outside the atlas (COM-METAA-033)
+35 healthy samples no build had used, read with the globe against the sequencing atlas and against IAM-Atlas v2.1. The range at levels of 0 or 1 was given a counting floor (synthetic met on version 3) and the sample's own counting added; the pancreas samples read level with v2.1, the neurons above it (a three-donor column). The globe's change count is flagged. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Healthy samples from another laboratory (BLUEPRINT) (COM-METAA-033)
+59 public healthy blood-cell libraries from another laboratory read by the one command against the IAM Sequencing Atlas. Not met: own-cell Met-A 0.7134 and the islands 0.2924. The islands follow each library's own floor. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The common library floor: synthetic (COM-METAA-033)
+Constructed people from three laboratories of different floors, read with and without a common floor. Met: with the common floor every laboratory read Normal. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Healthy pass 6 with the common floor (GRP-019)
+All 137 healthy inputs read with the common floor. Every reading Normal, but the floor overcorrects: the real data carry 0.488 of it. The flag stays off. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · BLUEPRINT read again with the common floor (COM-METAA-033)
+The spent BLUEPRINT libraries read again with the common floor. The islands rose from 0.2924 to 0.8594; own-cell Met-A from 0.7134 to 0.7983. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Where BLUEPRINT's own-cell share goes (COM-METAA-033)
+From the Deconvolver's shares in each BLUEPRINT bundle, by sorted cell. Mostly to the cell's own subtypes: BLUEPRINT's broad fractions were mapped onto the atlas's narrower cells. Matched definitions read 0.86 to 0.88 own. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The 57-cell healthy pass (GRP-019)
+All 140 inputs, including the three granulocytes, read against the 57-cell atlas. Met: every reading Normal; the 137 earlier inputs unchanged within 0.0059. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Donor traits of the atlas's inputs (COM-METAA-033)
+Each input's recorded sex, age and source from its public record. 92 female and 60 male inputs; 29 cells have donor halves of different sex; 6 cells have two tissue sources. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The sequencing atlas's guidebook (COM-METAA-033)
+Each tool of the atlas: its origin in sky surveys, its use here, the chain part and its result file. Written. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Laboratory offsets and covariance (COM-METAA-033)
+What one sequencing laboratory can and cannot measure inside the atlas. Laboratory offsets are measured by reading other laboratories' healthy samples against the atlas; the covariance between sites is taken by genome distance from the spectrum. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Healthy data from other laboratories, listed (COM-METAA-033)
+Public healthy libraries matched to the atlas's cells, and public plasma sets, kept for testing. Listed: healthy blood-cell libraries for 10 atlas cells, and two plasma sets. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The range at levels of 0 or 1 (COM-METAA-033)
+Sites where every donor of a cell reads exactly 0 or 1 had no width; counting now sets it there. Synthetic version 3 met (version 2 not met, recorded); the sphere columns rebuilt with no zero widths. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Every atlas input's library floor (COM-METAA-033)
+The floor of all 153 inputs, by the one command. Built; identical to the chain's own bundle floors. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · The megakaryocyte stand-in printed for plasma (GRP-016)
+The summed shares of the four cells pure megakaryocyte DNA lands on, against IAM-Atlas v2.1. In every plasma bundle on the v2.1 ruler. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-02 · A granulocyte column; the atlas at 57 cells (COM-METAA-033)
+Three granulocyte donors built into the atlas, and every derived table rebuilt from merged pieces. Built; the 56 cells' values unchanged. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-02 · Day summary
+The study by the full working chain: All 36 read: leukemia Met-A in the B-cell column 1.0410, islands 1.3277; cord-blood B cells 0.8620 and 0.7709. The study read again by the complete chain: All 36 read: tumor gauge leukemia 0.9922, cord blood 1.0269, the UHRF1 knockout 0.7520. Group-A gives no call: three healthy references leave each only two others for the tare. Group-A on sequencing: Met on the sorted-cell reading: healthy halves alike (-0.97 %, t -0.772), planted loss found (+7.93 %, t 6.493). On the islands the healthy halves differ (+4.51 %, t 2.231), flagged. The tumor gauge on sequencing: synthetic: Met: a healthy sample reads 1.01136, half way to the ceiling 0.24266, at the ceiling 0.03915. The cell-count floor: synthetic: Met: the copies match share times reads, and the flag falls exactly on the cells below one copy. Higher-order statistics on the sphere: Synthetic met on its second version (the first broke the uneven sites per pixel); the real maps are not yet readable, because spread varies across the sphere. The globe on healthy samples outside the atlas: The range at levels of 0 or 1 was given a counting floor (synthetic met on version 3) and the sample's own counting added; the pancreas samples read level with v2.1, the neurons above it (a three-donor column). The globe's change count is flagged. Healthy samples from another laboratory (BLUEPRINT): Not met: own-cell Met-A 0.7134 and the islands 0.2924. The islands follow each library's own floor. The common library floor: synthetic: Met: with the common floor every laboratory read Normal. Healthy pass 6 with the common floor: Every reading Normal, but the floor overcorrects: the real data carry 0.488 of it. The flag stays off. BLUEPRINT read again with the common floor: The islands rose from 0.2924 to 0.8594; own-cell Met-A from 0.7134 to 0.7983. Where BLUEPRINT's own-cell share goes: Mostly to the cell's own subtypes: BLUEPRINT's broad fractions were mapped onto the atlas's narrower cells. Matched definitions read 0.86 to 0.88 own. The 57-cell healthy pass: Met: every reading Normal; the 137 earlier inputs unchanged within 0.0059. Built: donor traits of the atlas's inputs; the sequencing atlas's guidebook; laboratory offsets and covariance; healthy data from other laboratories, listed; the range at levels of 0 or 1; every atlas input's library floor; the megakaryocyte stand-in printed for plasma; a granulocyte column; the atlas at 57 cells. Open at the turnover: The 30 tuning plasmas read again against the 57-cell atlas, aligning on GitHub.
+
+### 2026-11-03 · The first plasma against the 57-cell atlas (GRP-016)
+One tuning plasma read end to end by the one command. Its islands read high, and its library floor is 3.6 times the atlas's; a floor check over all 30 was written before the other 29 are opened. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · The 30 tuning plasmas against the 57-cell atlas (GRP-016)
+All 30 read by the one command against the 57-cell IAM Sequencing Atlas. Met-A at the cells' identity sites near 1 and the globe quiet; the islands read high, following each plasma's floor, several times the atlas's. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · The 30 plasmas with the common floor (GRP-016)
+The same 30 counted again from their saved molecules with the common floor. The islands came to 0.9272 from 2.681; the domains, whole-sample Met-A and IAM-A are unchanged and still below 1. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · Plasma: the depth sweep (GRP-016)
+Constructed healthy plasmas at stated depths, read by the one command. Normal at 20 reads; at plasma's 1 read, depth moves the domains only a few hundredths. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · Plasma: megakaryocyte DNA the atlas lacks (GRP-016)
+Constructed plasmas holding up to a quarter megakaryocyte DNA. The control missed its bar by 0.001; megakaryocyte DNA lowers the domains only 0.034. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · Plasma: the domains follow the erythrocyte progenitor share (GRP-016)
+The 30 plasmas' domains against every cell's share. Rho -0.928; that cell carries the most domain disorder in the atlas, and it is real in its own donors. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · Plasma: erythrocyte progenitors held out (GRP-016)
+The 30 counted again with that cell held out of the Deconvolver. The domains came to 1.023, but Met-A at the identity sites rose to 1.109: the DNA is erythroid at identity sites, more ordered at the domains. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · The Johns Hopkins study against the 57-cell atlas (GRP-020)
+All 36 merged from saved pieces and read by the full working chain. Every reading as in the second reading except the B-cell share, as expected for declared sorted B cells. Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
+
+### 2026-11-03 · A switch to hold cells out of the Deconvolver (GRP-016)
+run_sample.py --dev-deconv-drop, diagnosis only, flagged in the bundle. Built. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · Each cell's domain disorder from the one command (COM-METAA-033)
+run_sample.py --build seq-domain-disorder. Built. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+### 2026-11-03 · Two labels and a wiring corrected (disclosed) (GRP-016, COM-METAA-033)
+The common floor was wired only for .beta and bigWig inputs, not molecule files; the atlas readings' flag said IAM-Atlas v2.1 on sequencing too. Both fixed; the 25 plasma reads made before the floor fix were not used; no number changed with the label. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · Public data for the erythroid question (GRP-016)
+A search for healthy erythroid-stage and megakaryocyte-lineage sequencing. The published erythroblasts are the atlas's own inputs; platelet sequencing (GSE206818) is untouched and kept. Record: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md).
+
+### 2026-11-03 · The development log brought up to date (COM-METAA-033)
+The development log had stopped after the 28th: the day logs and the records carried the work, but the log's threads and day summaries were not written (missed: the gate asked for a day summary only on days with threads, so it did not refuse). Every day-log entry from the 29th to the 2nd is now a thread, with each day's summary. Record: this log.

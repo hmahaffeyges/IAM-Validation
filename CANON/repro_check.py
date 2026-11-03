@@ -21,7 +21,7 @@ Rule 9 (2026-10-11): laboratory independence from GEO contributors (CANON/indepe
   18. the funding statement in README.md, FOLLOW.md or the book preface differs from CANON/funding.json;
   19. the atlas README's last search for new purified cells is more than 6 months old;
   20. a new or changed outcome note's test note has no '**Test data:**' line."""
-import os, re, subprocess, sys
+import os, re, subprocess, sys, glob
 def git(*a): return subprocess.run(["git", *a], capture_output=True, text=True).stdout
 fail = []
 junk = re.compile(r"(__pycache__|\.pyc$|\.DS_Store|/_data/|/_cache/|/_atlas_cache/)")
@@ -63,7 +63,8 @@ for f in [t for t in tree if re.match(r"Biological_Physics/MethylPhys/doors/[^/]
     try: txt = open(f, encoding="utf-8").read()
     except FileNotFoundError: continue
     if "**Milestone:**" in txt and f.rsplit("/", 1)[1] not in adv: fail.append(f"{f}: marked **Milestone:** but not linked in {README} Advancements")
-days = sorted({d for d in re.findall(r"^### (\d{4}-\d{2}-\d{2})", log, re.M) if d >= "2026-10-10"})
+days = sorted({d for d in re.findall(r"^### (\d{4}-\d{2}-\d{2})", log, re.M) if d >= "2026-10-10"}
+              | {os.path.basename(p)[:10] for p in glob.glob("CANON/daylogs/2026-*.json") if os.path.basename(p)[:10] >= "2026-10-29"})   # 2026-11-03: a day with a day log needs its development-log summary too (the log had gone silent after 10-28 with no refusal)
 today = datetime.datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
 for d in days:
     if (d < today or d < days[-1]) and not re.search(rf"^### {d} · Day summary", log, re.M): fail.append(f"{LOGF}: no '### {d} · Day summary' (a later day has begun)")

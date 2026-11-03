@@ -16,6 +16,76 @@
    "heading": "What ran, and how each came out",
    "entries": [
     {
+     "title": "The study by the full working chain",
+     "status": "development",
+     "what": "All 36 samples of the leukemia study merged from saved pieces and read by the full working chain against the IAM Sequencing Atlas.",
+     "outcome": "All 36 read: leukemia Met-A in the B-cell column 1.0410, islands 1.3277; cord-blood B cells 0.8620 and 0.7709.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "The study read again by the complete chain",
+     "status": "development",
+     "what": "The same 36 with the tumor gauge, the B-cell copies and Group-A added.",
+     "outcome": "All 36 read: tumor gauge leukemia 0.9922, cord blood 1.0269, the UHRF1 knockout 0.7520. Group-A gives no call: three healthy references leave each only two others for the tare.",
+     "rows": [
+      "GRP-020"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "Group-A on sequencing",
+     "status": "development",
+     "what": "Group-A read on sequencing bundles: two sealed healthy halves, and a planted 1 % loss written into half of the healthy inputs' own read counts.",
+     "outcome": "Met on the sorted-cell reading: healthy halves alike (-0.97 %, t -0.772), planted loss found (+7.93 %, t 6.493). On the islands the healthy halves differ (+4.51 %, t 2.231), flagged.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The tumor gauge on sequencing: synthetic",
+     "status": "synthetic only",
+     "what": "The distance to the entropy ceiling, counted from reads, in the sorted-cell, in-mix and territory readings.",
+     "outcome": "Met: a healthy sample reads 1.01136, half way to the ceiling 0.24266, at the ceiling 0.03915.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The cell-count floor: synthetic",
+     "status": "synthetic only",
+     "what": "The copies of each cell per site behind every in-mix reading on sequencing, flagged below one copy.",
+     "outcome": "Met: the copies match share times reads, and the flag falls exactly on the cells below one copy.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Higher-order statistics on the sphere",
+     "status": "development",
+     "what": "Minkowski functionals of the noise maps against shuffles of their pixels.",
+     "outcome": "Synthetic met on its second version (the first broke the uneven sites per pixel); the real maps are not yet readable, because spread varies across the sphere.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The globe on healthy samples outside the atlas",
+     "status": "development",
+     "what": "35 healthy samples no build had used, read with the globe against the sequencing atlas and against IAM-Atlas v2.1.",
+     "outcome": "The range at levels of 0 or 1 was given a counting floor (synthetic met on version 3) and the sample's own counting added; the pancreas samples read level with v2.1, the neurons above it (a three-donor column). The globe's change count is flagged.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
      "title": "Healthy samples from another laboratory (BLUEPRINT)",
      "status": "failed",
      "what": "59 public healthy blood-cell libraries from another laboratory read by the one command against the IAM Sequencing Atlas.",
@@ -81,6 +151,46 @@
    "kind": "built",
    "heading": "What was built",
    "entries": [
+    {
+     "title": "Donor traits of the atlas's inputs",
+     "status": "structure",
+     "what": "Each input's recorded sex, age and source from its public record.",
+     "outcome": "92 female and 60 male inputs; 29 cells have donor halves of different sex; 6 cells have two tissue sources.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The sequencing atlas's guidebook",
+     "status": "structure",
+     "what": "Each tool of the atlas: its origin in sky surveys, its use here, the chain part and its result file.",
+     "outcome": "Written.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Laboratory offsets and covariance",
+     "status": "structure",
+     "what": "What one sequencing laboratory can and cannot measure inside the atlas.",
+     "outcome": "Laboratory offsets are measured by reading other laboratories' healthy samples against the atlas; the covariance between sites is taken by genome distance from the spectrum.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Healthy data from other laboratories, listed",
+     "status": "structure",
+     "what": "Public healthy libraries matched to the atlas's cells, and public plasma sets, kept for testing.",
+     "outcome": "Listed: healthy blood-cell libraries for 10 atlas cells, and two plasma sets.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
     {
      "title": "The range at levels of 0 or 1",
      "status": "development",

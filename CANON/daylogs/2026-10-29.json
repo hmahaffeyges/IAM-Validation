@@ -120,6 +120,22 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": [
+    {
+     "title": "The IAM Sequencing Atlas designed",
+     "status": "structure",
+     "what": "A second ruler, separate from IAM-Atlas v2.1: healthy cells read by whole-genome bisulfite sequencing, measured, not fitted, with sealed donor halves.",
+     "outcome": "The design and its checklist committed; built on discounted cloud machines.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
   }
  ],
  "open_at_turnover": "Running on GitHub's machines: the B and T commissioning samples and the study's re-reads.",
