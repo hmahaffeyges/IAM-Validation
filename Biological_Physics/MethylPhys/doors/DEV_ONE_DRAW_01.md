@@ -445,3 +445,10 @@ at their 1 read per site, depth alone moves the domains a few hundredths (the sy
 sequencing atlas lacks. Megakaryocytes are the first candidate on our own evidence: pure megakaryocyte DNA lands on erythrocyte
 progenitors and other cells in IAM-Atlas v2.1 (absorption test 1), and the plasmas' largest share after granulocytes is erythrocyte
 progenitors.
+
+**A plasma holding a cell the atlas lacks: synthetic (written and committed before it runs)** (`plasma_seq_03/plasma_mk_synthetic.py`).
+The depth sweep's construction at 20 reads, with a megakaryocyte fraction m of 0, 0.1 and 0.25 at the provisional megakaryocyte column's
+pooled level, read against the 57-cell atlas (which has no megakaryocytes); only atlas sites where that column has at least 10 reads
+(or 8, or 6, whichever first leaves the Deconvolver 500 markers), since a level counted from a few reads looks ordered. Bar: the control
+(m = 0) reads Normal. Recorded: how the domains and whole-sample Met-A move with m, against the real plasmas' 0.8666 and 0.9205, and where
+the Deconvolver puts the megakaryocyte DNA.
