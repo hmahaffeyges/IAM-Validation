@@ -426,3 +426,12 @@ the atlas's pooled level of a cell of the mix; read by the one command with plas
 the median whole-sample Met-A, each within 0.02 of 1. If met, the instrument reads Normal at plasma depth and the plasmas' shortfall is in
 the plasmas (cells the atlas lacks, or the plasmas themselves); if not, it is the reading at that depth. Run on a GitHub machine from
 SRR23279758's saved molecules and plasma_seq_02 bundle.
+
+**Plasma at plasma depth: synthetic not met** (`plasma_seq_03/plasma_depth_synthetic.txt`; the bars unchanged). At SRR23279758's own depth
+(407263 sites, median 1 read per site) six plasmas healthy by construction read the domains 0.9307 to 1.1279 (median 0.9766) and
+whole-sample Met-A 0.9507 to 1.0816 (median 0.9759): both just outside 0.02 of 1. What the run shows beyond the bars: at 1 read per site
+the reading of one plasma moves by several hundredths between draws of the same truth, and the Deconvolver does not hold the planted mix
+(the sum of |returned - planted| over the planted cells 0.4359 to 0.7826, so about a fifth to two fifths of the mix placed elsewhere);
+Met-A at the identity sites of the cells found reads 0.9594 to 1.0724, the islands 0.8832 to 1.0314. The real plasmas' domains (0.8666)
+sit below even this. **Next, written before it runs:** the same construction at stated depths, to find the depth at which plasma reads
+Normal; it spends no data. (`plasma_seq_03/plasma_depth_sweep.py`: D in 2, 5, 10, 20 reads, three each; bar, at 20 both medians within 0.02 of 1.)

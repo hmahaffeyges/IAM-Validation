@@ -10,3 +10,4 @@ plasma_floor_check.csv
 plasma_band_03_summary.txt
 plasma_floor_check_03.txt
 plasma_floor_check_03.csv
+plasma_depth_synthetic.txt
