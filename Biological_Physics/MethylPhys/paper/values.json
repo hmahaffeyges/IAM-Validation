@@ -63,5 +63,53 @@
  "uhrf1_held_err_ratio": {
   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt",
   "re": "held error x ([0-9.]+)"
+ },
+ "seq_healthy_n": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt",
+  "re": "(\\d+) of \\d+ read"
+ },
+ "seq_metaa_sorted_healthy": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt",
+  "re": "^Met-A sorted cell \\| \\d+ \\| ([0-9.]+)"
+ },
+ "seq_islands_healthy": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt",
+  "re": "^territory islands \\| \\d+ \\| ([0-9.]+)"
+ },
+ "seq_domains_healthy": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt",
+  "re": "^territory domains \\| \\d+ \\| ([0-9.]+)"
+ },
+ "plasma_identity_metaa": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_02/plasma_band_02_summary.txt",
+  "re": "^Met-A whole, identity sites of the cells found +n 30 \\| median ([0-9.]+)"
+ },
+ "plasma_islands_floor": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_03/plasma_band_03_summary.txt",
+  "re": "^territory islands +n 30 \\| median ([0-9.]+)"
+ },
+ "plasma_domains": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_02/plasma_band_02_summary.txt",
+  "re": "^territory domains +n 30 \\| median ([0-9.]+)"
+ },
+ "plasma_floor_slope": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_02/plasma_floor_check.txt",
+  "re": "through the origin: ([0-9.]+)"
+ },
+ "plasma_ep_rho": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_02/plasma_shares_diag.txt",
+  "re": "^erythrocyte progenitors: .*domains rho ([+-][0-9.]+)"
+ },
+ "hopkins3_leuk_metaa_b": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain3.txt",
+  "re": "leukemia \\(31\\): .*?Met-A B cells ([0-9.]+)"
+ },
+ "hopkins3_ko_metaa_b": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain3.txt",
+  "re": "knockout \\(1\\): .*?Met-A B cells ([0-9.]+)"
+ },
+ "hopkins3_ctrl_metaa_b": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain3.txt",
+  "re": "control line \\(1\\): .*?Met-A B cells ([0-9.]+)"
  }
 }

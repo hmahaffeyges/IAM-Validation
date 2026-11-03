@@ -74,6 +74,14 @@ flag. A site a cell's sources never measured is left unmeasured, never imputed. 
 (Zenodo 10.5281/zenodo.23422688). **Split-half null test:** the atlas refitted on two halves of every cell's donors; the difference map
 must be noise. `[check: the null result to cite.]`
 
+**What the atlas is and is not.** The atlas is a statistical reference: anyone with the same public data and model obtains the same atlas,
+and nothing in its construction depends on the bound. The bound enters in three places. (1) It checks the atlas: at firmly held sites
+each cell type's healthy level must equal 1 minus the held error that cell type's molecules show when counted directly (layer 1,
+`doors/DEV_METAA_HEALTHY_01.md`); a column that fails is wrong somewhere, a check that needs no cohort. (2) It could bound the atlas: no held
+level closer to 0 or 1 than ε_min allows, as a prior `[pending: tested on v2.1 for whether it costs fit anywhere, plan 35.30]`. (3) It gives
+the readings their meaning: floor, ceiling, entropy against the floor and each site's sensitivity dH/dε at its held level are what turn a
+departure from the atlas into an instrument reading.
+
 ## Deconvolution
 
 Each sample's cell-type shares are estimated by weighted non-negative least squares on marker sites, the sites that best separate each cell

@@ -67,7 +67,8 @@ across laboratories, its residual reported, unexpected cell types flagged; Met-A
 derived laboratory by laboratory. *Sources: `atlas/v2.1/README.md`; the deconvolution reproductions; `doors/DEV_METAA_HEALTHY_01.md`,
 `[pending]`.* **Figure 1.**
 
-The sequencing ruler (the IAM Sequencing Atlas: 56 healthy cell types from whole-genome bisulfite sequencing, donor halves sealed;
+The sequencing ruler (the IAM Sequencing Atlas: 57 healthy cell types from whole-genome bisulfite sequencing, donor halves sealed; every
+healthy sequenced input read Normal, {{seq_healthy_n}} samples: sorted-cell Met-A {{seq_metaa_sorted_healthy}}, islands {{seq_islands_healthy}}, domains {{seq_domains_healthy}};
 its range of each cell's average, noise maps by donor and by read, the null test on the sphere, the genome-distance spectrum, the bridge
 to IAM-Atlas v2.1, isotropy by chromosome) is reported here beside the array ruler. *Sources: `doors/DEV_ATLAS_V21_01.md`;
 `doors/data/DEV_ATLAS_V21_01/seq_atlas/CHECKLIST_STATUS.md` and the outputs it names.*
@@ -87,8 +88,9 @@ and in mouse; the molecule-level loose share for mixtures. *Sources: IAM-A recor
 the distance to the ceiling), and the groups compared within the series by Group-A, the instrument that reads groups against the healthy
 in the same series, on the study's own terms. Pass 1 at fixed depth on all 36 samples; pass 2 at full depth region by region beside the
 study's five findings. Then every sample read by the full working chain on sequencing against the IAM Sequencing Atlas (the healthy
-sequenced samples first: every reading Normal on 137, healthy pass 5). *Sources: `doors/DEV_ALL_INFO_01.md`;
-`doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain.txt`; `doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain5_summary.txt`.* **Figure 4.**
+sequenced samples first), against the 57-cell atlas: Met-A in the B-cell column {{hopkins3_leuk_metaa_b}} in the 31 leukemias; the Reh line
+{{hopkins3_ctrl_metaa_b}} and its UHRF1 knockout {{hopkins3_ko_metaa_b}}. *Sources: `doors/DEV_ALL_INFO_01.md`;
+`doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain3.txt`; `doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt`.* **Figure 4.**
 
 **R5. Loss of a maintenance factor read against the bound.** The UHRF1 knockout read molecule by molecule: held error against loose share;
 the entropy turnover in heterochromatic domains read as the distance to the ceiling. *Source: `doors/DEV_ERASE_01.md` (UHRF1); the Reh line and its UHRF1 knockout by the full working chain
@@ -103,8 +105,10 @@ at the islands (a planted change returned at full size). *Sources: the C-Score r
 `seq_band_01/transfer_synthetic.txt`), DEV-SPHERE-01, plan 49.5, `[pending]`.* **Figure 6.**
 
 **R7. Beyond deep sequencing: arrays and cell-free DNA.** The same readings on arrays (Group-A across replays of published case-control
-series) and on shallow plasma sequencing; the molecule-level loose share under mixing; cell types the atlas lacks, flagged. *Sources:
-the replays, `doors/DEV_ONE_DRAW_01.md`, `[pending]`.* **Extended Data.**
+series) and on shallow plasma sequencing; the molecule-level loose share under mixing; cell types the atlas lacks, flagged. Healthy plasma at one read per site against the
+sequencing atlas: Met-A at the cells found {{plasma_identity_metaa}}; the islands carry each library's floor (slope {{plasma_floor_slope}}) and read
+{{plasma_islands_floor}} at a common floor; the domains {{plasma_domains}}, following the erythrocyte progenitor share (rho {{plasma_ep_rho}}), an open question
+stated as one. *Sources: the replays, `doors/DEV_ONE_DRAW_01.md` (plasma_seq_02 to 04, the depth and megakaryocyte synthetics).* **Extended Data.**
 
 **R8. What each reading cannot see, and how the chain checks itself.** The blind-spot table: each instrument, what it is referenced
 against, what it cannot see and which instrument covers it (from `CANON/catalogue.json`). The checks: synthetic tests before real data,
