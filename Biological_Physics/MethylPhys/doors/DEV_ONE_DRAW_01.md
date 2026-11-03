@@ -470,3 +470,13 @@ most expected disorder at the domains of all 57 cells (pooled level 0.652, disor
 person: its donor spread there is moderate (0.0815) and its three inputs read their own domains 0.9879, 1.0287 and 0.9712 in the 57-cell
 healthy pass. **So the plasma DNA the Deconvolver gives to erythrocyte progenitors is more ordered at the domains than that cell.** The
 megakaryocyte synthetic did not reproduce it (its megakaryocyte DNA went mostly elsewhere). What that DNA is stays open.
+
+## The 30 plasmas with erythrocyte progenitors held out of the Deconvolver (plasma_seq_04)
+
+Written and committed before any of it runs (diagnosis only; the 30 are spent for tuning). **The question:** what is the plasma DNA the
+Deconvolver gives to erythrocyte progenitors? Held out of its reference (`run_sample.py --dev-deconv-drop`, new, flagged in the bundle as
+`cell_shares.held_out`), that share goes to the cells that remain. If it is erythrocyte progenitor DNA, the domains should read no closer
+to 1 and the share should scatter; if it is a cell whose domains are ordered, the domains should come toward 1 and the share land on a
+few cells. **The run:** the 30 counted again from plasma_seq_02's saved molecules with plasma_seq_03's settings (the common floor) and
+`--dev-deconv-drop erythrocyte_progenitors` (`plasma_seq_04/plasma_seq_04_samples.csv`). **Reported, nothing scored:** the committed band
+scorer and share diagnostic, beside plasma_seq_03's. Not a reading the chain uses: the Deconvolver's reference keeps every cell.

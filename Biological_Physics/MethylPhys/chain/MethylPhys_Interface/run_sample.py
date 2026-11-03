@@ -662,6 +662,8 @@ def main():
                     "cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare)")
     ap.add_argument("--dev-seq-ref", default=None, metavar="auto|FILE", help="DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels "
                     "from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1")
+    ap.add_argument("--dev-deconv-drop", default=None, metavar="CELL,...", help="DEVELOPMENT, diagnosis only: hold these cells out of the Deconvolver's "
+                    "sequencing reference (the IAM Sequencing Atlas), so their share goes to the cells that remain; flagged in the bundle")
     ap.add_argument("--dev-shares", default=None, metavar="CELL:SHARE,...", help="DEVELOPMENT, diagnosis only: read every share-based reading against these "
                     "declared shares instead of the Deconvolver's (which are kept under cell_shares_read)")
     ap.add_argument("--dev-seq-level", default=None, choices=("pooled", "median", "donors"), help="DEVELOPMENT: on sequencing, the healthy level the "
@@ -1105,13 +1107,17 @@ def main():
         import stage_v4 as V4
         _dsr = None
         if a._seqv and getattr(a, "dev_seq_ref", None):   # 2026-10-30 (plan 35.30): a sequenced sample split on the IAM Sequencing Atlas, flagged
-            import stage_seq_atlas as _SQd, stage_metaa_atlas as _SAd; _dsr = _SQd.deconv_reference_of()
+            import stage_seq_atlas as _SQd, stage_metaa_atlas as _SAd
+            if getattr(a, "dev_deconv_drop", None): _SQd.DECONV_DROP = tuple(x.strip().replace("_", " ") for x in a.dev_deconv_drop.split(",") if x.strip())   # underscores for spaces (sample lists pass flags unquoted)   # 2026-11-03: diagnosis only
+            _dsr = _SQd.deconv_reference_of()
             if os.path.exists(os.path.join(_SQd.ARRAY_COLS, "mu_part1.parquet")): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
             _SAd.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or _SAd.SEQ_LEVEL   # 2026-10-31: the expectation's level (pooled by default)
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
+        if _dsr is not None and getattr(a, "dev_deconv_drop", None) and isinstance(o["cell_shares"], dict):   # 2026-11-03: the hold-out, flagged
+            o["cell_shares"]["held_out"] = dict(cells=list(_SQd.DECONV_DROP), flag="DEVELOPMENT, diagnosis only: these cells were held out of the Deconvolver's reference")
         if _S0spec.is_plasma(a.specimen):   # 2026-11-02 (DEV-ONE-DRAW-01 absorption test 1): the megakaryocyte stand-in, read against the person's own level
             _SI = ("lung interstitial macrophages", "erythrocyte progenitors", "MEP (bone marrow)", "eosinophils"); _sh = {x["cell"]: x["share"] for x in ((o["cell_shares"] or {}).get("cells") or [])}
             if _dsr: o["megakaryocyte_stand_in"] = dict(status="NOT_READ", reason="measured on IAM-Atlas v2.1; the IAM Sequencing Atlas lacks " + ", ".join(c for c in _SI if c not in _dsr[0]["cells"]))

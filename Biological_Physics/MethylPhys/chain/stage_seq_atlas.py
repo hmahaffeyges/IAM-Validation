@@ -287,9 +287,11 @@ def deconv_reference_of(path=DECONV_REF):
     the file is absent (the reading then says it was read against IAM-Atlas v2.1)."""
     import pandas as pd
     if not os.path.exists(path): return None
-    T = pd.read_parquet(path).set_index("probe"); cells = [c[:-3] for c in T.columns if c.endswith("|mu")]
+    T = pd.read_parquet(path).set_index("probe"); cells = [c[:-3] for c in T.columns if c.endswith("|mu") and c[:-3] not in DECONV_DROP]
     mu = T[[c + "|mu" for c in cells]]; mu.columns = cells; sd = T[[c + "|sd" for c in cells]]; sd.columns = cells
     return dict(mu=mu, sd=sd, cells=cells, spread="full"), list(T.index)
+
+DECONV_DROP = ()   # 2026-11-03 (run_sample.py --dev-deconv-drop; development, diagnosis only): cells held out of the Deconvolver's sequencing reference
 
 def metaa_reference(piece_dirs, out):
     """2026-10-29 (plan 35.30; author: the right ruler for each kind of instrument): each cell's IAM Sequencing Atlas values at its Met-A identity
