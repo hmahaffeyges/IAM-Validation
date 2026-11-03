@@ -6,7 +6,7 @@ reading not run. The purity check: each sample's own-cell share against its dept
 Usage: python3 healthy_fullchain_score.py LANDED_DIR OUT.txt"""
 import sys, os, glob, json, collections, numpy as np, pandas as pd
 from scipy.stats import spearmanr
-H = os.path.dirname(os.path.abspath(__file__)); S = pd.read_csv(os.path.join(H, "healthy_fullchain_samples.csv"))
+H = os.path.dirname(os.path.abspath(__file__)); S = pd.read_csv(sys.argv[3] if len(sys.argv) > 3 else os.path.join(H, "healthy_fullchain_samples.csv"))   # 2026-11-02: an optional sample list (the 57-cell pass); the default unchanged
 dep = pd.read_csv(os.path.join(H, "metaa_seqatlas_readings.csv")).set_index("gsm").depth; rows, nr = [], collections.Counter()
 def band(v):
     b = v.get("band") if isinstance(v, dict) else None

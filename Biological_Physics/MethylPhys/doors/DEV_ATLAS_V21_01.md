@@ -1153,3 +1153,14 @@ pass 5's 137 inputs and settings, and the three granulocytes, each read against 
 **The 57-cell sphere columns** (`chain/Runtime Matrices/Seq_Atlas/sphere_cols/`, `sphere_cols_build.json`; `run_sample.py --build
 seq-sphere-cols` on one Google spot machine from the committed 57-cell tables). The 57-cell healthy pass's machines installed these same
 files from the bucket, each checked against its SHA-256 before any read.
+
+**The 57-cell healthy pass: met** (`seq_atlas/outside_data/healthy_fullchain7_summary.txt`, a copy of
+`DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt`; `seq_atlas/outside_data/pass7_vs_pass5.txt`). All 140 inputs read
+by the one command against the 57-cell atlas (five Google spot machines), scored by the committed pass scorer (given the 140-input list:
+an optional third argument added before scoring, the default unchanged): C-Score 1.0003 (0.964 inside its limit), sorted-cell Met-A 1.0075,
+whole-sample Met-A 1.0059, own-cell share 0.9812, the domains 1.0014, the islands 1.0118: every reading Normal, the bar met. **The 137
+earlier inputs** read as they did on 56 cells (the largest change in any reading 0.0059, in an own-cell share; Met-A within 0.00012).
+**The granulocytes**, each read against the other sealed half: own-cell share 0.9907 to 0.9929; sorted-cell Met-A 1.0516, 0.9346 and
+0.9731; whole-sample Met-A 0.9917 to 1.0340. Their islands read 1.2600 (GSM5652313, the only donor of half B, floor 0.00899, read against
+half A) and 0.7189 (GSM5652314, floor 0.005889, read against GSM5652313 alone): a mirror pair, the islands' known dependence on each
+library's floor seen between two people. The granulocyte column rests on three donors, so that dependence is not averaged out.

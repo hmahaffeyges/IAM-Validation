@@ -1,0 +1,4 @@
+822 readings of the 137 inputs compared; largest change by reading: C-Score whole genome 0.00010; Met-A sorted cell 0.00012; Met-A whole sample 0.00001; own-cell share 0.00590; territory domains 0.00001; territory islands 0.00000
+GSM5652313: C-Score whole genome 0.9927; Met-A sorted cell 1.0516; Met-A whole sample 1.0340; own-cell share 0.9907; territory domains 1.0163; territory islands 1.2600
+GSM5652314: C-Score whole genome 1.0032; Met-A sorted cell 0.9346; Met-A whole sample 0.9917; own-cell share 0.9929; territory domains 1.0024; territory islands 0.7189
+GSM5652315: C-Score whole genome 0.9910; Met-A sorted cell 0.9731; Met-A whole sample 1.0063; own-cell share 0.9922; territory domains 0.9936; territory islands 0.9722
