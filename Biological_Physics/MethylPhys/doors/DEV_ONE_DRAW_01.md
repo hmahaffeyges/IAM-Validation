@@ -360,3 +360,16 @@ macrophages, erythrocyte progenitors, MEP (bone marrow), eosinophils), each cell
 It is read where it was measured, with IAM-Atlas v2.1 as the Deconvolver's ruler. Against the IAM Sequencing Atlas it is not read, and the
 bundle names the stand-in cells that atlas lacks (MEP and eosinophils). Absorption test 1 is its check (planted megakaryocyte DNA raised the
 sum as mixing predicts); nothing new is scored.
+
+## The 30 tuning plasmas read again against the 57-cell IAM Sequencing Atlas (plasma_seq_02)
+
+Written and committed before any of them is read (development; the 30 were spent for tuning in plasma_seq_01). **The instrument's job:** a
+healthy plasma, read as a mix of the atlas's cells in its own shares, reads Normal. **Why again:** plasma_seq_01 read them against
+IAM-Atlas v2.1 with each site's level treated as exact, before Met-A, the territories and the Deconvolver were made to work on sequencing
+against the sequencing atlas (healthy passes 5 and 7), and before the atlas held granulocytes. **The run:** the same 30
+(`plasma_seq_02/plasma_seq_02_samples.csv`), each aligned again from SRA by the committed pipeline (`erase_test.yml`, `full=1`; their
+earlier molecule files are no longer kept) and read by the one command with the healthy passes' settings (`--full-chain --dev-seq-ref auto
+--dev-whole-sites --dev-seq-level donors --dev-terr-counted`; no donor half, since no plasma is an atlas input). **Reported, nothing scored:**
+the band of every reading over the 30 by the committed band scorer (`plasma_seq_01/plasma_band.py`), beside plasma_seq_01's. The
+megakaryocyte stand-in is not read (it was measured on v2.1, and the sequencing atlas lacks MEP and eosinophils). The commissioning test
+for plasma waits for the plasma line to read Normal here, and is then written before any untouched plasma is read.
