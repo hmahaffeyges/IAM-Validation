@@ -12,3 +12,4 @@ plasma_floor_check_03.txt
 plasma_floor_check_03.csv
 plasma_depth_synthetic.txt
 plasma_depth_sweep.txt
+plasma_mk_synthetic.txt

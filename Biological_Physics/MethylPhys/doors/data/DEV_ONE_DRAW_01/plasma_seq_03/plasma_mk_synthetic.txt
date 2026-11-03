@@ -1,0 +1,7 @@
+A plasma holding megakaryocyte DNA the atlas lacks: synthetic, seed 20261104; 146979 atlas sites with at least 8 megakaryocyte reads (19581 domain sites, 1033 Deconvolver markers); Poisson(20) reads
+shares (from plasma_depth_synthetic.txt): erythrocyte progenitors 0.297, monocytes 0.147, lung interstitial macrophages 0.103, granulocytes 0.099, t effector cell cd8 0.074, striated muscle 0.048, cortical neurons 0.048, nk cells 0.036, kidney glomerular endothelium 0.032, hepatocyte 0.031, pancreatic delta 0.030, bladder epithelium 0.021, cardiomyocyte 0.017, small intestine epithelium 0.016
+m 0.0: domains 1.0210, whole-sample Met-A 1.0176, islands 1.0028, identity sites 1.0104 (medians of 3)
+m 0.1: domains 1.0089, whole-sample Met-A 1.0039, islands 0.9749, identity sites 1.0060 (medians of 3)
+m 0.25: domains 0.9866, whole-sample Met-A 0.9719, islands 0.9280, identity sites 0.9563 (medians of 3)
+Deconvolver's five largest shares at m 0.25 (recorded): erythrocyte progenitors 0.248, monocytes 0.177, nk cells 0.072, lung alveolar macrophages 0.070, granulocytes 0.069
+bar 1 at m 0, domains and whole-sample Met-A within 0.02 of 1: not met

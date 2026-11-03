@@ -452,3 +452,13 @@ pooled level, read against the 57-cell atlas (which has no megakaryocytes); only
 (or 8, or 6, whichever first leaves the Deconvolver 500 markers), since a level counted from a few reads looks ordered. Bar: the control
 (m = 0) reads Normal. Recorded: how the domains and whole-sample Met-A move with m, against the real plasmas' 0.8666 and 0.9205, and where
 the Deconvolver puts the megakaryocyte DNA.
+
+**A plasma holding megakaryocyte DNA: the control not met; megakaryocytes a small part** (`plasma_seq_03/plasma_mk_synthetic.txt`; bar
+unchanged). 146979 atlas sites with at least 8 megakaryocyte reads (19581 domain sites, 1033 Deconvolver markers; 10 reads left fewer
+than 500 markers). The control (m = 0) read the domains 1.0210 and whole-sample Met-A 1.0176: 0.001 outside the bar on the domains, not met.
+With megakaryocyte DNA: m 0.1, domains 1.0089 and whole-sample Met-A 1.0039; m 0.25, 0.9866 and 0.9719 (the islands 1.0028 to 0.9280);
+the Deconvolver spreads it, mostly onto erythrocyte progenitors (0.248 at m 0.25) and NK cells. So a quarter of the DNA from a cell the
+atlas lacks lowers the domains by about 0.034, a small part of the plasmas' gap (0.8666). In the 30 real plasmas the domains follow
+whole-sample Met-A (rho +0.973, `plasma_seq_02/plasma_floor_check.csv`), not the floor (rho -0.055), and spread 0.6857 to 1.0699, wider
+than depth alone gives. **Next (diagnostic, nothing scored):** `plasma_seq_02/plasma_shares_diag.py`, each plasma's domains and
+whole-sample Met-A against every cell's share and the sites read.
