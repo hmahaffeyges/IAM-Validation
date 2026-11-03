@@ -435,3 +435,13 @@ the reading of one plasma moves by several hundredths between draws of the same 
 Met-A at the identity sites of the cells found reads 0.9594 to 1.0724, the islands 0.8832 to 1.0314. The real plasmas' domains (0.8666)
 sit below even this. **Next, written before it runs:** the same construction at stated depths, to find the depth at which plasma reads
 Normal; it spends no data. (`plasma_seq_03/plasma_depth_sweep.py`: D in 2, 5, 10, 20 reads, three each; bar, at 20 both medians within 0.02 of 1.)
+
+**The depth sweep: met at 20 reads** (`plasma_seq_03/plasma_depth_sweep.txt`). Constructed healthy plasmas (the same truth and shares) at
+Poisson(D) reads per site, medians of three: at 2, domains 0.9574 and whole-sample Met-A 0.9531; at 5, 0.9854 and 0.9874; at 10, 0.9685 and
+0.9801; at 20, 1.0137 and 1.0078 (bar met), with the islands 1.0036 and Met-A at the identity sites 1.0034. The Deconvolver's share gap
+falls from 0.523 at 2 reads to 0.1925 at 20, never below 0.1 on this fourteen-cell mix (recorded). **What it says about the 30 plasmas:**
+at their 1 read per site, depth alone moves the domains a few hundredths (the synthetic at that depth read 0.9766); the real plasmas read
+0.8666, so most of their gap is in the plasmas, not the reading. **Next, written before it runs:** a constructed plasma holding a cell the
+sequencing atlas lacks. Megakaryocytes are the first candidate on our own evidence: pure megakaryocyte DNA lands on erythrocyte
+progenitors and other cells in IAM-Atlas v2.1 (absorption test 1), and the plasmas' largest share after granulocytes is erythrocyte
+progenitors.

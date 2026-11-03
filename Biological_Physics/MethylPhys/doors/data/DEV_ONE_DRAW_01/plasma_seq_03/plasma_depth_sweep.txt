@@ -1,0 +1,8 @@
+Plasma at stated depths: synthetic, seed 20261103, shares from SRR23279758; Poisson(D) reads at 407263 sites
+shares planted: erythrocyte progenitors 0.297, monocytes 0.147, lung interstitial macrophages 0.103, granulocytes 0.099, t effector cell cd8 0.074, striated muscle 0.048, cortical neurons 0.048, nk cells 0.036, kidney glomerular endothelium 0.032, hepatocyte 0.031, pancreatic delta 0.030, bladder epithelium 0.021, cardiomyocyte 0.017, small intestine epithelium 0.016
+D 2: domains 0.9574, whole-sample Met-A 0.9531, islands 1.0048, identity sites 0.9332, share gap 0.5230 (medians of 3)
+D 5: domains 0.9854, whole-sample Met-A 0.9874, islands 1.0199, identity sites 0.9929, share gap 0.3801 (medians of 3)
+D 10: domains 0.9685, whole-sample Met-A 0.9801, islands 0.9946, identity sites 0.9818, share gap 0.3840 (medians of 3)
+D 20: domains 1.0137, whole-sample Met-A 1.0078, islands 1.0036, identity sites 1.0034, share gap 0.1925 (medians of 3)
+lowest depth with domains and whole-sample Met-A within 0.02 of 1 and share gap below 0.1 (recorded): none of 2, 5, 10, 20
+bar 1 at D 20, domains and whole-sample Met-A within 0.02 of 1: met
