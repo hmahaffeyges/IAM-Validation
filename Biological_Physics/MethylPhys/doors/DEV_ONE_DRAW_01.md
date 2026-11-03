@@ -419,3 +419,10 @@ against 2.681 without the floor; against the floor the islands now run slightly 
 predicts: a little over-corrected. Everything else is unchanged, as it should be (the floor enters only the islands and sorted-cell Met-A):
 whole-sample Met-A 0.9205 (its islands part 2.711, where the floor is not applied), the domains 0.8666, IAM-A 0.7733. **Open on plasma:**
 the domains and whole-sample Met-A below 1, and IAM-A (which falls as the loose share rises, rho -0.94, as in plasma_seq_01).
+
+**Plasma at plasma depth: synthetic (written and committed before it runs)** (`plasma_seq_03/plasma_depth_synthetic.py`). Six constructed
+plasmas, healthy by construction, with a spent plasma's own read count at every atlas site and its own cell shares, every read drawn from
+the atlas's pooled level of a cell of the mix; read by the one command with plasma_seq_02's settings. Bars: the median domains reading, and
+the median whole-sample Met-A, each within 0.02 of 1. If met, the instrument reads Normal at plasma depth and the plasmas' shortfall is in
+the plasmas (cells the atlas lacks, or the plasmas themselves); if not, it is the reading at that depth. Run on a GitHub machine from
+SRR23279758's saved molecules and plasma_seq_02 bundle.
