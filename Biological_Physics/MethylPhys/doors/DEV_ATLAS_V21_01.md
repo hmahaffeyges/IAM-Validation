@@ -1119,3 +1119,11 @@ cells (the Deconvolver's reference, the floor sites, the Met-A reference, the ar
 from all the piece folders; the per-input tables (per-donor and per-half counts, island counts, held-error tiles) take the granulocytes'
 rows counted the same way; the input floors are measured again on the new floor sites; then the sphere columns. **Test:** a healthy pass
 on the 57-cell atlas with pass 5's settings and bar.
+
+**BLUEPRINT read again with the common floor (development; the libraries are spent)** (`seq_atlas/outside_data/blueprint_reread_floor.txt`,
+`blueprint_reread_floor.csv`; the committed scorer). The adult libraries' islands rise from 0.2924 to 0.8594 and own-cell Met-A from
+0.7134 to 0.7983; the whole-sample reading (0.9479) and the domains (0.9211) do not move. The floor closes most of the islands' gap and a
+small part of own-cell Met-A's. **What stays open:** the Deconvolver gives these sorted libraries a median own-cell share of 0.5508 (the
+atlas's own inputs read 0.9817), so against the atlas they read as mixtures; own-cell Met-A is then read at sites the other cells do not
+share. Next on this line: why a sorted library from another laboratory reads as half its own cell (the Deconvolver's markers on that
+laboratory's floor, or the cells themselves), synthetic first, before any outside laboratory not yet read is used.

@@ -1,0 +1,16 @@
+healthy samples from another laboratory: 38 of 59 read (49 adult scored)
+  adult venous blood (scored) (49): Met-A own cell median 0.7983; Met-A whole sample median 0.9479; islands median 0.8594; domains median 0.9211; C-Score median 1.0011; own-cell share median 0.5508
+  cord blood (recorded) (10): Met-A own cell median 0.7624; Met-A whole sample median 0.7968; islands median 0.6948; domains median 0.7094; C-Score median 1.0027; own-cell share median 0.5943
+    b cells (5): Met-A own cell 0.7490, 0.6767, 0.7064, 0.6800
+    cd4 t cells (8): Met-A own cell 
+    cd8 t cells (2): Met-A own cell 0.7031, 0.6499
+    effector memory cd8 t cells (2): Met-A own cell 0.6584, 0.6219
+    memory b cells (6): Met-A own cell 0.6105, 0.8088
+    monocytes (20): Met-A own cell 0.8867, 0.9753, 0.9090, 0.8235, 0.7839, 0.7991, 0.7999, 0.7766, 0.8766, 0.7821, 0.7975, 0.8407, 0.8168, 0.7297, 0.7917, 0.7946, 0.8356, 0.8202
+    nk cells (2): Met-A own cell 0.8556, 0.8960
+    t central memory cd4 (2): Met-A own cell 0.8166
+    t effector memory cd4 (2): Met-A own cell 0.9325
+bar 1 own-cell Met-A median within 0.95 to 1.05: 0.798305: not met
+bar 2 at least 75 % within 0.95 to 1.05: 0.03125: not met
+bar 3 whole-sample Met-A median within 0.95 to 1.05: 0.94792: not met
+another laboratory's healthy samples: not met

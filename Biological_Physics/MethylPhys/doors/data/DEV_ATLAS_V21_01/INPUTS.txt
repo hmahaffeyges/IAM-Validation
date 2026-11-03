@@ -98,3 +98,5 @@ floor_synthetic_readings.csv
 gran_inputs.csv
 healthy_fullchain6_summary.txt
 pass6_floor_diag.txt
+blueprint_reread_floor.txt
+blueprint_reread_floor.csv
