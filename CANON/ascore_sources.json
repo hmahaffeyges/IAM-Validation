@@ -463,6 +463,27 @@
    "condition": "healthy",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
    "rows_table": true
+  },
+  {
+   "id": "PLASMA-SEQ-02",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_02/plasma_seq_02_rows.csv",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "PLASMA-SEQ-03",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_03/plasma_seq_03_rows.csv",
+   "status": "development (common floor)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "HOPKINS-FULLCHAIN-3",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain3_rows.csv",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
+   "rows_table": true
   }
  ],
  "lines": {

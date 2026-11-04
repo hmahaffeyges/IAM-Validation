@@ -173,18 +173,18 @@ reading made another way (an earlier tare), so those rows show none.
 | Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | knockout | 1 | 3.3205 | 3.3205 to 3.3205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | C-Score | C-Score whole genome | whole genome | sorted b cells | knockout | 1 | 1.0006 | 1.0006 to 1.0006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted b cells | knockout | 1 | 0.9305 | 0.9305 to 0.9305 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted b cells | cord-blood B cells | 3 | 0.70259 | 0.67982 to 0.73957 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cord-blood B cells | 3 | 0.59296 | 0.56799 to 0.61059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted b cells | cord-blood B cells | 3 | 0.21677 | 0.19309 to 0.3673 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted b cells | cord-blood B cells | 3 | 0.7953 | 0.72517 to 0.84664 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cord-blood B cells | 3 | 0.72333 | 0.69197 to 0.75951 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted b cells | cord-blood B cells | 3 | 3.9224 | 3.5052 to 5.7344 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted b cells | cord-blood B cells | 3 | 0.66743 | 0.60538 to 0.69195 | no line set for this reading | [Territories.csv](Territories.csv) |
-| IAM-A | IAM-A | b cells | sorted b cells | cord-blood B cells | 3 | 0.7906 | 0.77116 to 0.79411 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Coupling-A | coupling-A | b cells | sorted b cells | cord-blood B cells | 3 | 1.0116 | 0.99999 to 1.0456 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cord-blood B cells | 3 | 1.2817 | 1.2682 to 1.3914 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted b cells | cord-blood B cells | 3 | 0.9963 | 0.99405 to 1.0056 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | b cells | sorted b cells | cord-blood B cells | 3 | 0.9691 | 0.94462 to 1.0253 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cord-blood B cells | 6 | 0.80527 | 0.68361 to 0.93968 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cord-blood B cells | 6 | 0.75672 | 0.57215 to 0.96644 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cord-blood B cells | 6 | 0.55171 | 0.19704 to 1.3137 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cord-blood B cells | 6 | 0.84211 | 0.73686 to 0.97767 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cord-blood B cells | 6 | 0.81174 | 0.6972 to 0.93693 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cord-blood B cells | 6 | 2.4247 | 0.69927 to 5.4324 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cord-blood B cells | 6 | 0.73308 | 0.61572 to 0.89233 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | cord-blood B cells | 6 | 0.7906 | 0.769 to 0.7945 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cord-blood B cells | 6 | 1.0116 | 0.9987 to 1.0494 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cord-blood B cells | 6 | 1.0958 | 0.85389 to 1.3731 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cord-blood B cells | 6 | 0.99925 | 0.99443 to 1.0071 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cord-blood B cells | 6 | 1.0284 | 0.9487 to 1.0466 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted adipocytes | healthy | 3 | 1.1307 | 1.1256 to 1.1386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted adipocytes | healthy | 3 | 1.1004 | 1.1003 to 1.1054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | islands | sorted adipocytes | healthy | 3 | 0.21125 | 0.19427 to 0.25929 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -7207,8 +7207,624 @@ reading made another way (an earlier tare), so those rows show none.
 | Met-A | Met-A each cell | vascular saphenous endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95603 | 0.94964 to 0.96243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Information sphere | information sphere | Fisher-Rao rms (rad) | sorted effector memory cd8 t cells | healthy | 4 | 0.17554 | 0.16333 to 0.18775 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
 | C-Score | C-Score each cell | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 1.0313 | 0.9307 to 1.132 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | plasma | healthy | 60 | 0.92051 | 0.82899 to 1.0582 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | plasma | healthy | 60 | 0.9918 | 0.87946 to 1.1268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | plasma | healthy | 60 | 2.7112 | 2.3336 to 3.1352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | plasma | healthy | 60 | 0.86463 | 0.70207 to 1.0981 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | plasma | healthy | 60 | 0.89375 | 0.80608 to 1.025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | plasma | healthy | 60 | 0.97474 | 0.83384 to 1.0922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | plasma | healthy | 60 | 0.89942 | 0.76262 to 1.2101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | plasma | healthy | 60 | 1.007 | 0.80789 to 1.2689 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | plasma | healthy | 60 | 0.94721 | 0.77818 to 1.0984 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | plasma | healthy | 60 | 0.94362 | 0.84741 to 1.0858 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | plasma | healthy | 60 | 0.98724 | 0.84771 to 1.0922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | plasma | healthy | 60 | 0.98077 | 0.81077 to 1.1104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | plasma | healthy | 60 | 0.99873 | 0.81465 to 1.3185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | plasma | healthy | 60 | 0.9892 | 0.77702 to 1.2625 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | plasma | healthy | 60 | 0.94046 | 0.78132 to 1.2292 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | plasma | healthy | 60 | 1.0161 | 0.90486 to 1.3474 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | plasma | healthy | 60 | 0.94546 | 0.8281 to 1.3591 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | plasma | healthy | 60 | 0.93644 | 0.74567 to 1.1315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | plasma | healthy | 60 | 1.0161 | 0.88745 to 1.1817 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | plasma | healthy | 60 | 1.0122 | 0.84981 to 1.2388 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | plasma | healthy | 60 | 0.98159 | 0.869 to 1.127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | plasma | healthy | 60 | 0.95144 | 0.85958 to 1.0845 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | plasma | healthy | 60 | 0.94965 | 0.82665 to 1.0771 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | plasma | healthy | 60 | 0.94712 | 0.81982 to 1.2113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | plasma | healthy | 60 | 0.95108 | 0.83984 to 1.176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | plasma | healthy | 60 | 0.97113 | 0.81339 to 1.1406 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | plasma | healthy | 60 | 0.93778 | 0.70693 to 1.1559 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | plasma | healthy | 60 | 0.95998 | 0.82849 to 1.1173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | plasma | healthy | 60 | 0.94442 | 0.82293 to 1.0461 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | plasma | healthy | 60 | 0.98704 | 0.81635 to 1.1415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | plasma | healthy | 60 | 0.92305 | 0.74639 to 1.1416 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | plasma | healthy | 60 | 0.99103 | 0.81444 to 1.1342 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | plasma | healthy | 60 | 1.0039 | 0.8729 to 1.1839 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | plasma | healthy | 60 | 0.96279 | 0.80558 to 1.1608 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | plasma | healthy | 60 | 0.98805 | 0.85225 to 1.1392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | plasma | healthy | 60 | 0.90029 | 0.73938 to 1.152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | plasma | healthy | 60 | 1.0378 | 0.86222 to 1.286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | plasma | healthy | 60 | 0.94195 | 0.75654 to 1.0966 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | plasma | healthy | 60 | 0.98035 | 0.72876 to 1.1646 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | plasma | healthy | 60 | 0.91605 | 0.78829 to 1.0558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | plasma | healthy | 60 | 0.98964 | 0.76986 to 1.2456 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | plasma | healthy | 60 | 0.99204 | 0.79631 to 1.2372 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | plasma | healthy | 60 | 1.0228 | 0.82429 to 1.3021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | plasma | healthy | 60 | 0.99532 | 0.91114 to 1.1913 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | plasma | healthy | 60 | 0.9741 | 0.76047 to 1.1678 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | plasma | healthy | 60 | 0.90855 | 0.7895 to 1.046 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | plasma | healthy | 60 | 0.97249 | 0.82389 to 1.209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | plasma | healthy | 60 | 0.99687 | 0.85731 to 1.132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | plasma | healthy | 60 | 0.96671 | 0.87184 to 1.1424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | plasma | healthy | 60 | 0.8765 | 0.81347 to 1.0132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | plasma | healthy | 60 | 0.95811 | 0.83542 to 1.0784 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | plasma | healthy | 60 | 1.0648 | 0.8745 to 1.4415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | plasma | healthy | 60 | 0.93947 | 0.77349 to 1.0654 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | plasma | healthy | 60 | 0.98396 | 0.75826 to 1.221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | plasma | healthy | 60 | 0.9954 | 0.7952 to 1.1708 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | plasma | healthy | 60 | 0.91886 | 0.79808 to 1.1016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | plasma | healthy | 60 | 0.98033 | 0.80522 to 1.1757 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | plasma | healthy | 60 | 0.9673 | 0.87272 to 1.1284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | plasma | healthy | 60 | 0.93159 | 0.81612 to 1.1144 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | plasma | healthy | 60 | 0.99051 | 0.8828 to 1.0945 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | plasma | healthy | 60 | 0.95146 | 0.73704 to 1.2127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | plasma | healthy | 60 | 0.94922 | 0.81123 to 1.1362 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | plasma | healthy | 60 | 1.5371 | 0.84744 to 2.8961 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | plasma | healthy | 60 | 0.86657 | 0.70644 to 1.0654 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | mixed specimen (plasma) | plasma | healthy | 60 | 0.7733 | 0.7084 to 0.8399 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | plasma | healthy | 60 | 0.91888 | 0.86827 to 0.97609 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | plasma | healthy | 18 | 0.000526 | 0.000348 to 0.000746 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | plasma | healthy | 60 | 0.53424 | 0.49642 to 0.56052 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | plasma | healthy | 60 | 1.003 | 0.9901 to 1.012 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | plasma | healthy | 18 | 0.9659 | 0.8677 to 1.0941 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | plasma | healthy | 12 | 0.9597 | 0.8956 to 1.1323 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cardiomyocyte | plasma | healthy | 26 | 1.049 | 0.9198 to 1.1373 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | plasma | healthy | 28 | 1.0267 | 0.85308 to 1.1368 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | plasma | healthy | 16 | 1.0017 | 0.9174 to 1.0586 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | plasma | healthy | 50 | 1.0139 | 0.9157 to 1.0723 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | plasma | healthy | 20 | 0.9945 | 0.936 to 1.0562 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | granulocytes | plasma | healthy | 60 | 0.96355 | 0.8363 to 1.1259 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | hepatocyte | plasma | healthy | 48 | 0.97505 | 0.8394 to 1.113 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney glomerular endothelium | plasma | healthy | 16 | 0.9577 | 0.8498 to 1.0699 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | plasma | healthy | 30 | 1.0023 | 0.93417 to 1.0516 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | plasma | healthy | 50 | 1.0156 | 0.9077 to 1.1057 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | plasma | healthy | 40 | 1.0046 | 0.87783 to 1.1092 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | plasma | healthy | 18 | 0.9993 | 0.9098 to 1.1118 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic delta | plasma | healthy | 10 | 1.0851 | 0.9069 to 1.1685 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | plasma | healthy | 12 | 0.9468 | 0.83 to 1.0405 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | plasma | healthy | 6 | 0.9968 | 0.8918 to 1.0698 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | striated muscle | plasma | healthy | 26 | 1.0217 | 0.9369 to 1.2187 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | plasma | healthy | 24 | 0.99705 | 0.89743 to 1.1662 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | plasma | healthy | 26 | 0.9759 | 0.86862 to 1.0624 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | plasma | healthy | 18 | 0.9134 | 0.7906 to 1.1523 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | plasma | healthy | 30 | 0.9638 | 0.86633 to 1.0809 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | plasma | healthy | 6 | 0.9414 | 0.8993 to 1.0092 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | thyroid epithelium | plasma | healthy | 22 | 0.9971 | 0.91329 to 1.1888 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil pharyngeal epithelium | plasma | healthy | 6 | 1.1637 | 1.084 to 1.1687 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | plasma | healthy | 38 | 0.9693 | 0.85889 to 1.0744 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | plasma | healthy | 6 | 0.8626 | 0.8133 to 1.0203 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric body epithelium | plasma | healthy | 4 | 1.0685 | 1.0627 to 1.0743 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | plasma | healthy | 8 | 0.9947 | 0.8425 to 1.0941 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | plasma | healthy | 30 | 1.0202 | 0.93376 to 1.1788 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic alpha | plasma | healthy | 12 | 1.0191 | 0.9969 to 1.0656 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | plasma | healthy | 6 | 1.0389 | 0.9607 to 1.1415 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | plasma | healthy | 18 | 0.9953 | 0.8226 to 1.1034 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | plasma | healthy | 12 | 0.95105 | 0.8555 to 0.9924 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar endothelium | plasma | healthy | 14 | 0.9695 | 0.9021 to 1.1002 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | plasma | healthy | 22 | 1.0086 | 0.94668 to 1.0653 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreas endothelium | plasma | healthy | 16 | 1.0259 | 0.8864 to 1.0909 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic duct | plasma | healthy | 22 | 0.9875 | 0.81461 to 1.104 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular saphenous endothelium | plasma | healthy | 12 | 0.99395 | 0.8986 to 1.1077 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | plasma | healthy | 26 | 0.9691 | 0.798 to 1.0957 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | plasma | healthy | 14 | 1.0152 | 0.8764 to 1.089 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | plasma | healthy | 6 | 1.1087 | 0.99 to 1.1237 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd4 t cells | plasma | healthy | 4 | 1.0716 | 1.0191 to 1.1242 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | plasma | healthy | 6 | 1.0806 | 1.0323 to 1.1418 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular epithelium | plasma | healthy | 4 | 1.0742 | 0.9981 to 1.1503 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | plasma | healthy | 6 | 0.8938 | 0.8849 to 1.1302 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | plasma | healthy | 10 | 0.9839 | 0.799 to 1.1251 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon fibroblasts | plasma | healthy | 2 | 1.1447 | 1.1447 to 1.1447 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular endothelium | plasma | healthy | 12 | 0.9868 | 0.9449 to 1.1357 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | plasma | healthy | 2 | 0.9956 | 0.9956 to 0.9956 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney glomerular epithelium | plasma | healthy | 6 | 1.026 | 0.8925 to 1.0572 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | aorta endothelium | plasma | healthy | 4 | 1.0675 | 0.9371 to 1.198 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric fundus epithelium | plasma | healthy | 6 | 0.9905 | 0.9712 to 0.9992 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | plasma | healthy | 4 | 0.929 | 0.9111 to 0.9469 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | plasma | healthy | 2 | 0.9849 | 0.9849 to 0.9849 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector memory cd4 | plasma | healthy | 2 | 1.037 | 1.037 to 1.037 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.99421 | 0.92361 to 1.0589 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 1.0534 | 0.99824 to 1.1246 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 1.8605 | 1.1659 to 2.0797 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.97986 | 0.89244 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.98907 | 0.90995 to 1.0516 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.91385 | 0.81787 to 0.98922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.80017 | 0.72286 to 0.86806 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.82046 | 0.72309 to 0.8632 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.8396 | 0.73297 to 0.89902 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.81624 | 0.72176 to 0.86484 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.8437 | 0.73628 to 0.89804 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.79963 | 0.70357 to 0.86512 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.84782 | 0.74517 to 0.90984 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.86509 | 0.77949 to 0.94989 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.81394 | 0.72568 to 0.88016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.89149 | 0.77963 to 0.92372 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 1.0096 | 0.93034 to 1.0713 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.91727 | 0.86664 to 0.99252 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.77904 | 0.68214 to 0.81117 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.86648 | 0.80066 to 0.92059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.83099 | 0.74239 to 0.9023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.90346 | 0.81125 to 0.98276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.81801 | 0.72855 to 0.86422 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.80046 | 0.71061 to 0.86034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.80605 | 0.71167 to 0.86017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.80566 | 0.71823 to 0.86487 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.80767 | 0.70733 to 0.85845 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.85156 | 0.77606 to 0.94668 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.81509 | 0.72625 to 0.87242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.84356 | 0.76055 to 0.92138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.79032 | 0.69984 to 0.82316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.84245 | 0.7409 to 0.90777 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.83386 | 0.74723 to 0.90574 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.85557 | 0.79382 to 0.96231 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.81807 | 0.70093 to 0.87521 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.78581 | 0.68012 to 0.84335 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.90515 | 0.8424 to 0.98345 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.88483 | 0.76064 to 0.91897 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.86138 | 0.76961 to 0.97128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.74185 | 0.6411 to 0.78214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.80803 | 0.71031 to 0.83525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.8432 | 0.7491 to 0.8843 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.86915 | 0.76444 to 0.90093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.77116 | 0.66922 to 0.81323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.82339 | 0.74419 to 0.911 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.7819 | 0.70414 to 0.84688 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.84459 | 0.75457 to 0.91368 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.88861 | 0.78868 to 0.96975 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.85747 | 0.77278 to 0.91871 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.74473 | 0.66879 to 0.80128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.79191 | 0.70851 to 0.85247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.9143 | 0.80617 to 0.96433 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.8023 | 0.72506 to 0.8972 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.86391 | 0.76674 to 0.94123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.82785 | 0.74422 to 0.88298 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.80074 | 0.71356 to 0.8537 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.88857 | 0.83071 to 0.97145 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.82539 | 0.73249 to 0.89507 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.7942 | 0.69255 to 0.85334 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.84508 | 0.74263 to 0.90402 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.82112 | 0.74075 to 0.87979 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.85667 | 0.73927 to 0.91688 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 1.7796 | 1.1128 to 1.9958 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.89309 | 0.80604 to 0.92791 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.89985 | 0.82586 to 0.92903 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.89973 | 0.79651 to 0.96202 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.010951 | 0.0079731 to 0.021613 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.39348 | 0.3331 to 0.44851 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 1.0966 | 1.0364 to 1.1155 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.99399 | 0.93569 to 1.0562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.99815 | 0.99209 to 1.0053 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, ETV6-RUNX1) | 10 | 0.9842 | 0.91143 to 1.0319 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0564 | 0.94853 to 1.2329 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.1353 | 1.0173 to 1.3433 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0854 | 0.94901 to 1.5212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.1581 | 1.0016 to 1.341 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0389 | 0.93167 to 1.2094 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.94586 | 0.82935 to 1.0653 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.90362 | 0.74177 to 1.037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.88437 | 0.72519 to 1.0078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.79831 | 0.72149 to 0.98545 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.81332 | 0.70937 to 0.97781 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.81045 | 0.74209 to 0.98286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.82385 | 0.70868 to 0.98289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.88953 | 0.73446 to 1.0445 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.90893 | 0.7771 to 1.0658 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.87654 | 0.76105 to 1.0215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.93362 | 0.80262 to 1.0599 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0958 | 0.95703 to 1.2018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0392 | 0.85195 to 1.1412 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.80441 | 0.67012 to 0.95922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.89093 | 0.77603 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.83213 | 0.7584 to 1.0099 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.91353 | 0.79389 to 1.027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.80267 | 0.72154 to 0.97452 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.76163 | 0.68055 to 0.94411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.79269 | 0.70891 to 0.96084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.78418 | 0.67946 to 0.9582 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.86874 | 0.70229 to 1.0098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.84308 | 0.75948 to 1.0117 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.80695 | 0.69717 to 0.98088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.88583 | 0.75768 to 1.0262 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.88389 | 0.7333 to 1.0283 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.86776 | 0.76879 to 1.0198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.87599 | 0.77984 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.8918 | 0.78197 to 1.0261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.85236 | 0.72679 to 0.96036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.91193 | 0.71163 to 1.0459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.9189 | 0.81648 to 1.0692 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.91063 | 0.76267 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.86889 | 0.70961 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.79866 | 0.68043 to 0.94521 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.88819 | 0.72774 to 1.0007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.87427 | 0.74406 to 0.99715 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.91886 | 0.76389 to 1.0507 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.80983 | 0.68215 to 0.95771 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.87938 | 0.74773 to 1.0141 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.78558 | 0.67307 to 0.9637 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.83368 | 0.74372 to 1.0014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.92992 | 0.79903 to 1.0678 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.8684 | 0.76082 to 1.0205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.77072 | 0.64825 to 0.93541 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.79156 | 0.69213 to 0.95938 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.98314 | 0.85644 to 1.11 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.80261 | 0.71183 to 0.96063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.98109 | 0.80885 to 1.0864 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.86081 | 0.72597 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.78245 | 0.67332 to 0.94883 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.88733 | 0.78022 to 1.0463 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.84701 | 0.72962 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.77268 | 0.67135 to 0.96109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.82365 | 0.72503 to 1.008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.88224 | 0.78209 to 1.0698 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.86014 | 0.76012 to 1.0338 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0309 | 0.90934 to 1.4519 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0572 | 0.8986 to 1.2134 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0914 | 0.93617 to 1.1345 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.010634 | 0.007937 to 0.025795 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.36425 | 0.3055 to 0.46447 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0586 | 1.0233 to 1.1132 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.074 | 0.96433 to 1.2708 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 0.9972 | 0.9904 to 1.0042 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 11 | 1.0177 | 0.95885 to 1.0946 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Hyperdiploid) | 6 | 0.9247 | 0.88128 to 0.9811 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0523 | 0.95534 to 1.1846 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0819 | 1.0379 to 1.2127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0646 | 0.87903 to 1.4789 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0996 | 0.96252 to 1.2908 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0441 | 0.94131 to 1.1744 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.95755 | 0.81442 to 1.0409 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.91278 | 0.69461 to 1.0475 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.8838 | 0.69239 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.89077 | 0.72873 to 0.96791 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.8791 | 0.69742 to 0.93766 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.88673 | 0.72483 to 0.97706 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.87597 | 0.69837 to 0.94747 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.92266 | 0.68081 to 1.0355 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.96534 | 0.69094 to 1.1142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.915 | 0.70097 to 1.032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.97014 | 0.76763 to 1.0426 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.1521 | 0.93342 to 1.2876 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0419 | 0.7987 to 1.1969 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.84062 | 0.62824 to 0.9145 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.96293 | 0.74168 to 1.0807 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.91822 | 0.73318 to 0.98369 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.92708 | 0.82902 to 1.0528 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.88546 | 0.70234 to 0.96159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.83962 | 0.68577 to 0.9351 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.87532 | 0.70076 to 0.95658 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.86109 | 0.69943 to 0.94307 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.89734 | 0.66773 to 0.9866 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.91515 | 0.76495 to 0.99288 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.83197 | 0.70911 to 0.91304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.9138 | 0.75382 to 0.99107 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.91996 | 0.64998 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.92024 | 0.75167 to 0.99701 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90817 | 0.73628 to 0.98208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.93662 | 0.79328 to 1.0167 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90265 | 0.68238 to 0.98664 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90741 | 0.64969 to 1.0317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.97452 | 0.79321 to 1.0921 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.92075 | 0.72746 to 1.0206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.98542 | 0.69998 to 1.1397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.82654 | 0.60341 to 0.90759 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90008 | 0.65432 to 1.0068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.91505 | 0.70436 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.94106 | 0.72598 to 1.0772 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.84057 | 0.63631 to 0.93445 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90944 | 0.72798 to 0.97696 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.85002 | 0.65314 to 0.94314 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90902 | 0.73427 to 0.9729 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.95427 | 0.76263 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.92656 | 0.75022 to 1.0018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.81526 | 0.61293 to 0.9075 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.86452 | 0.67371 to 0.92822 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0088 | 0.79179 to 1.0844 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.86932 | 0.72559 to 0.95804 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.99204 | 0.73012 to 1.0989 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90713 | 0.68338 to 1.0083 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.85419 | 0.6419 to 0.97516 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.97 | 0.79545 to 1.0575 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90731 | 0.72263 to 0.95687 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.8482 | 0.68945 to 0.93746 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.90607 | 0.75129 to 0.99186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.95996 | 0.71797 to 1.0717 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.89731 | 0.73877 to 1.0065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0149 | 0.83895 to 1.4159 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.99823 | 0.85239 to 1.1651 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.9023 | 0.83888 to 0.92768 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0299 | 0.82199 to 1.0723 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.011695 | 0.006814 to 0.032257 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.33008 | 0.30754 to 0.46244 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.078 | 1.0635 to 1.1322 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.0228 | 0.97845 to 1.147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 1.003 | 1.0001 to 1.006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, TCF3-PBX1) | 6 | 0.99775 | 0.89465 to 1.0758 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.0671 | 0.89341 to 1.2173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.1885 | 0.94228 to 1.3045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.8508 | 1.4558 to 2.2525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.1293 | 0.89596 to 1.207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.0394 | 0.88016 to 1.1945 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.89887 | 0.79649 to 1.0546 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.81946 | 0.67511 to 0.85603 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.84281 | 0.65615 to 0.89274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.8016 | 0.70574 to 0.93409 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.77796 | 0.68686 to 0.89789 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.81715 | 0.7116 to 0.93928 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.77182 | 0.68629 to 0.91017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.84431 | 0.6956 to 0.9195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.87362 | 0.72361 to 0.91793 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.82287 | 0.70813 to 0.9163 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.90622 | 0.76244 to 1.0033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.083 | 0.92504 to 1.1494 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.95975 | 0.80543 to 0.99457 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.75435 | 0.63034 to 0.87183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.8371 | 0.70988 to 0.90954 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.82149 | 0.72597 to 0.92974 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.89744 | 0.81267 to 1.0084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.78426 | 0.68081 to 0.89306 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.76426 | 0.67967 to 0.87402 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.77926 | 0.69327 to 0.89443 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.77534 | 0.69561 to 0.89846 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.82298 | 0.65318 to 0.90979 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.85146 | 0.75069 to 0.97792 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.78201 | 0.68731 to 0.93598 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.85894 | 0.75195 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.79282 | 0.66938 to 0.87601 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.85857 | 0.73929 to 0.97564 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.84397 | 0.72836 to 0.97841 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.90504 | 0.77403 to 1.015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.83513 | 0.70585 to 0.91648 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.78966 | 0.65686 to 0.8455 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.93186 | 0.792 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.85756 | 0.71188 to 0.95509 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.79376 | 0.67667 to 0.85272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.74177 | 0.57594 to 0.83314 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.82451 | 0.64987 to 0.88594 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.83528 | 0.6681 to 0.90714 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.8595 | 0.69867 to 0.94494 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.74924 | 0.6325 to 0.88734 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.82653 | 0.7281 to 0.95116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.73223 | 0.6488 to 0.8607 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.83406 | 0.72092 to 0.94076 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.88764 | 0.76018 to 1.0282 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.84919 | 0.72296 to 0.97312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.71626 | 0.60063 to 0.82826 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.75609 | 0.66591 to 0.8895 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.94846 | 0.76798 to 1.0378 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.78641 | 0.69181 to 0.92488 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.90151 | 0.75068 to 0.97395 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.8212 | 0.67556 to 0.8857 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.77682 | 0.6371 to 0.82103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.92056 | 0.78286 to 1.0024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.82232 | 0.69982 to 0.9434 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.75802 | 0.65369 to 0.88861 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.80846 | 0.72306 to 0.96318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.85006 | 0.73142 to 0.91196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.8289 | 0.73508 to 0.97178 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.7715 | 1.3936 to 2.1508 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.0119 | 0.80227 to 1.0988 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 3 | 0.9396 | 0.87561 to 0.97317 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.98528 | 0.87332 to 1.0071 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.024819 | 0.020756 to 0.030408 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.42127 | 0.3702 to 0.47268 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.1178 | 1.0928 to 1.1285 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.1163 | 0.88636 to 1.2257 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 0.99865 | 0.99574 to 1.0045 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cancer (pediatric pre-B acute lymphoblastic leukemia, Dicentric (9;20)) | 4 | 1.0408 | 1.0187 to 1.0873 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cell line (control) | 1 | 0.86765 | 0.86765 to 0.86765 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cell line (control) | 1 | 1.1805 | 1.1805 to 1.1805 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cell line (control) | 1 | 2.4345 | 2.4345 to 2.4345 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cell line (control) | 1 | 0.78122 | 0.78122 to 0.78122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cell line (control) | 1 | 0.8447 | 0.8447 to 0.8447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | cell line (control) | 1 | 0.64459 | 0.64459 to 0.64459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | cell line (control) | 1 | 0.57123 | 0.57123 to 0.57123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | cell line (control) | 1 | 0.70931 | 0.70931 to 0.70931 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | cell line (control) | 1 | 0.67771 | 0.67771 to 0.67771 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | cell line (control) | 1 | 0.62822 | 0.62822 to 0.62822 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | cell line (control) | 1 | 0.66549 | 0.66549 to 0.66549 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | cell line (control) | 1 | 0.59412 | 0.59412 to 0.59412 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | cell line (control) | 1 | 0.6914 | 0.6914 to 0.6914 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | cell line (control) | 1 | 0.73202 | 0.73202 to 0.73202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | cell line (control) | 1 | 0.63098 | 0.63098 to 0.63098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | cell line (control) | 1 | 0.72227 | 0.72227 to 0.72227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | cell line (control) | 1 | 0.76679 | 0.76679 to 0.76679 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | cell line (control) | 1 | 0.72821 | 0.72821 to 0.72821 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | cell line (control) | 1 | 0.62507 | 0.62507 to 0.62507 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | cell line (control) | 1 | 0.79823 | 0.79823 to 0.79823 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | cell line (control) | 1 | 0.676 | 0.676 to 0.676 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | cell line (control) | 1 | 0.79509 | 0.79509 to 0.79509 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | cell line (control) | 1 | 0.64703 | 0.64703 to 0.64703 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | cell line (control) | 1 | 0.63839 | 0.63839 to 0.63839 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | cell line (control) | 1 | 0.64874 | 0.64874 to 0.64874 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | cell line (control) | 1 | 0.64429 | 0.64429 to 0.64429 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | cell line (control) | 1 | 0.67345 | 0.67345 to 0.67345 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | cell line (control) | 1 | 0.70563 | 0.70563 to 0.70563 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | cell line (control) | 1 | 0.57342 | 0.57342 to 0.57342 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | cell line (control) | 1 | 0.6508 | 0.6508 to 0.6508 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | cell line (control) | 1 | 0.56942 | 0.56942 to 0.56942 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | cell line (control) | 1 | 0.68463 | 0.68463 to 0.68463 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | cell line (control) | 1 | 0.65788 | 0.65788 to 0.65788 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | cell line (control) | 1 | 0.68631 | 0.68631 to 0.68631 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | cell line (control) | 1 | 0.64269 | 0.64269 to 0.64269 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | cell line (control) | 1 | 0.56245 | 0.56245 to 0.56245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | cell line (control) | 1 | 0.75221 | 0.75221 to 0.75221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | cell line (control) | 1 | 0.70674 | 0.70674 to 0.70674 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | cell line (control) | 1 | 0.73625 | 0.73625 to 0.73625 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | cell line (control) | 1 | 0.60471 | 0.60471 to 0.60471 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | cell line (control) | 1 | 0.66928 | 0.66928 to 0.66928 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | cell line (control) | 1 | 0.74229 | 0.74229 to 0.74229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | cell line (control) | 1 | 0.69411 | 0.69411 to 0.69411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | cell line (control) | 1 | 0.6214 | 0.6214 to 0.6214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | cell line (control) | 1 | 0.66741 | 0.66741 to 0.66741 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | cell line (control) | 1 | 0.56429 | 0.56429 to 0.56429 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | cell line (control) | 1 | 0.6639 | 0.6639 to 0.6639 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | cell line (control) | 1 | 0.68281 | 0.68281 to 0.68281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | cell line (control) | 1 | 0.67364 | 0.67364 to 0.67364 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | cell line (control) | 1 | 0.52621 | 0.52621 to 0.52621 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | cell line (control) | 1 | 0.62538 | 0.62538 to 0.62538 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | cell line (control) | 1 | 0.75862 | 0.75862 to 0.75862 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | cell line (control) | 1 | 0.63232 | 0.63232 to 0.63232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | cell line (control) | 1 | 0.61247 | 0.61247 to 0.61247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | cell line (control) | 1 | 0.69735 | 0.69735 to 0.69735 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | cell line (control) | 1 | 0.70721 | 0.70721 to 0.70721 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | cell line (control) | 1 | 0.91728 | 0.91728 to 0.91728 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | cell line (control) | 1 | 0.62871 | 0.62871 to 0.62871 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | cell line (control) | 1 | 0.61664 | 0.61664 to 0.61664 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | cell line (control) | 1 | 0.66749 | 0.66749 to 0.66749 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | cell line (control) | 1 | 0.62225 | 0.62225 to 0.62225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | cell line (control) | 1 | 0.64679 | 0.64679 to 0.64679 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cell line (control) | 1 | 2.2965 | 2.2965 to 2.2965 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cell line (control) | 1 | 0.70275 | 0.70275 to 0.70275 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | cell line (control) | 1 | 0.7654 | 0.7654 to 0.7654 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | cell line (control) | 1 | 0.6579 | 0.6579 to 0.6579 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | cell line (control) | 1 | 0.047442 | 0.047442 to 0.047442 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | cell line (control) | 1 | 0.52135 | 0.52135 to 0.52135 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cell line (control) | 1 | 1.0404 | 1.0404 to 1.0404 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cell line (control) | 1 | 1.0837 | 1.0837 to 1.0837 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cell line (control) | 1 | 1.0013 | 1.0013 to 1.0013 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cell line (control) | 1 | 0.9527 | 0.9527 to 0.9527 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.7404 | 1.7404 to 1.7404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | cell line (UHRF1 knockout) | 1 | 2.3918 | 2.3918 to 2.3918 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | cell line (UHRF1 knockout) | 1 | 2.2359 | 2.2359 to 2.2359 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.9313 | 1.9313 to 1.9313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.6941 | 1.6941 to 1.6941 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0628 | 1.0628 to 1.0628 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.2572 | 1.2572 to 1.2572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0861 | 1.0861 to 1.0861 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.9265 | 0.9265 to 0.9265 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.81498 | 0.81498 to 0.81498 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.91953 | 0.91953 to 0.91953 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.87014 | 0.87014 to 0.87014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0471 | 1.0471 to 1.0471 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.222 | 1.222 to 1.222 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.99816 | 0.99816 to 0.99816 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0093 | 1.0093 to 1.0093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.4664 | 1.4664 to 1.4664 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.1739 | 1.1739 to 1.1739 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.81289 | 0.81289 to 0.81289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.3681 | 1.3681 to 1.3681 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.94879 | 0.94879 to 0.94879 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.3134 | 1.3134 to 1.3134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.86284 | 0.86284 to 0.86284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.91308 | 0.91308 to 0.91308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.94534 | 0.94534 to 0.94534 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.95159 | 0.95159 to 0.95159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0002 | 1.0002 to 1.0002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.3158 | 1.3158 to 1.3158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.80845 | 0.80845 to 0.80845 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0146 | 1.0146 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.97401 | 0.97401 to 0.97401 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0156 | 1.0156 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.91315 | 0.91315 to 0.91315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.1178 | 1.1178 to 1.1178 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.88002 | 0.88002 to 0.88002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.93251 | 0.93251 to 0.93251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.4182 | 1.4182 to 1.4182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.87796 | 0.87796 to 0.87796 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.158 | 1.158 to 1.158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.85138 | 0.85138 to 0.85138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.99719 | 0.99719 to 0.99719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.1301 | 1.1301 to 1.1301 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0602 | 1.0602 to 1.0602 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.79353 | 0.79353 to 0.79353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0437 | 1.0437 to 1.0437 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.90539 | 0.90539 to 0.90539 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.94357 | 0.94357 to 0.94357 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0107 | 1.0107 to 1.0107 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.96564 | 0.96564 to 0.96564 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.74096 | 0.74096 to 0.74096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.84874 | 0.84874 to 0.84874 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.1018 | 1.1018 to 1.1018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.23 | 1.23 to 1.23 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.1299 | 1.1299 to 1.1299 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0217 | 1.0217 to 1.0217 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0416 | 1.0416 to 1.0416 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.1621 | 1.1621 to 1.1621 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.89805 | 0.89805 to 0.89805 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.887 | 0.887 to 0.887 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0359 | 1.0359 to 1.0359 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.1259 | 1.1259 to 1.1259 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0414 | 1.0414 to 1.0414 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | cell line (UHRF1 knockout) | 1 | 2.1013 | 2.1013 to 2.1013 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.6123 | 1.6123 to 1.6123 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.9173 | 1.9173 to 1.9173 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | cell line (UHRF1 knockout) | 1 | 4.9e-05 | 4.9e-05 to 4.9e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.73461 | 0.73461 to 0.73461 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0259 | 1.0259 to 1.0259 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 2.232 | 2.232 to 2.232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | cell line (UHRF1 knockout) | 1 | 1.0024 | 1.0024 to 1.0024 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | cell line (UHRF1 knockout) | 1 | 0.945 | 0.945 to 0.945 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | cord-blood B cells | 3 | 0.79353 | 0.7711 to 0.81134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | cord-blood B cells | 3 | 0.8657 | 0.79699 to 0.87876 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | cord-blood B cells | 3 | 0.83146 | 0.82637 to 0.8727 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | cord-blood B cells | 3 | 0.84666 | 0.83891 to 0.84987 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | cord-blood B cells | 3 | 0.82496 | 0.81186 to 0.84831 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | cord-blood B cells | 3 | 0.83652 | 0.83203 to 0.84209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | cord-blood B cells | 3 | 0.78837 | 0.78055 to 0.81448 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | cord-blood B cells | 3 | 0.86463 | 0.85265 to 0.88028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | cord-blood B cells | 3 | 0.91569 | 0.90299 to 0.93876 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | cord-blood B cells | 3 | 0.83231 | 0.7848 to 0.85824 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | cord-blood B cells | 3 | 0.83666 | 0.81529 to 0.8564 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | cord-blood B cells | 3 | 1.0778 | 1.0081 to 1.1121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | cord-blood B cells | 3 | 0.9332 | 0.90711 to 1.004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | cord-blood B cells | 3 | 0.80008 | 0.79473 to 0.80036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | cord-blood B cells | 3 | 0.98132 | 0.96206 to 0.9962 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | cord-blood B cells | 3 | 0.8451 | 0.83249 to 0.85738 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | cord-blood B cells | 3 | 0.89004 | 0.8675 to 0.90915 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | cord-blood B cells | 3 | 0.84067 | 0.8357 to 0.84776 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | cord-blood B cells | 3 | 0.84122 | 0.81481 to 0.85439 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | cord-blood B cells | 3 | 0.85034 | 0.83723 to 0.86928 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | cord-blood B cells | 3 | 0.82698 | 0.81559 to 0.85615 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | cord-blood B cells | 3 | 0.8051 | 0.78709 to 0.81842 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | cord-blood B cells | 3 | 0.85015 | 0.83561 to 0.86971 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | cord-blood B cells | 3 | 0.76033 | 0.75782 to 0.78956 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | cord-blood B cells | 3 | 0.76965 | 0.76374 to 0.80059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | cord-blood B cells | 3 | 0.8031 | 0.78217 to 0.82923 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | cord-blood B cells | 3 | 0.82252 | 0.81752 to 0.83208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | cord-blood B cells | 3 | 0.785 | 0.7796 to 0.81361 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | cord-blood B cells | 3 | 0.80351 | 0.80345 to 0.83276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | cord-blood B cells | 3 | 0.74581 | 0.74015 to 0.75755 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | cord-blood B cells | 3 | 0.77975 | 0.73361 to 0.81038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | cord-blood B cells | 3 | 0.91518 | 0.91167 to 0.92648 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | cord-blood B cells | 3 | 0.78733 | 0.7836 to 0.81019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | cord-blood B cells | 3 | 1.0351 | 1.0225 to 1.0368 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | cord-blood B cells | 3 | 0.70249 | 0.69122 to 0.72146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | cord-blood B cells | 3 | 0.80833 | 0.78911 to 0.82657 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | cord-blood B cells | 3 | 0.89429 | 0.87806 to 0.92001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | cord-blood B cells | 3 | 0.85786 | 0.82453 to 0.87769 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | cord-blood B cells | 3 | 0.76788 | 0.74387 to 0.78376 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | cord-blood B cells | 3 | 0.81203 | 0.80368 to 0.82435 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | cord-blood B cells | 3 | 0.84379 | 0.8223 to 0.85819 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | cord-blood B cells | 3 | 0.79457 | 0.79283 to 0.8183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | cord-blood B cells | 3 | 0.83511 | 0.80239 to 0.84765 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | cord-blood B cells | 3 | 0.8262 | 0.81161 to 0.8441 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | cord-blood B cells | 3 | 0.80157 | 0.77416 to 0.83132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | cord-blood B cells | 3 | 0.82189 | 0.82112 to 0.84895 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | cord-blood B cells | 3 | 0.8593 | 0.85423 to 0.8998 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | cord-blood B cells | 3 | 0.82429 | 0.81034 to 0.85207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | cord-blood B cells | 3 | 0.82269 | 0.778 to 0.85603 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | cord-blood B cells | 3 | 0.84526 | 0.84452 to 0.88182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | cord-blood B cells | 3 | 0.91809 | 0.89994 to 0.93326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | cord-blood B cells | 3 | 0.97268 | 0.95746 to 0.97384 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | cord-blood B cells | 3 | 0.77224 | 0.76427 to 0.79323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | cord-blood B cells | 3 | 0.84215 | 0.81834 to 0.85498 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | cord-blood B cells | 3 | 0.85159 | 0.84674 to 0.86963 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | cord-blood B cells | 3 | 0.85649 | 0.81438 to 0.87095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | cord-blood B cells | 3 | 0.78244 | 0.77883 to 0.80435 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | cord-blood B cells | 3 | 0.88956 | 0.83337 to 0.89503 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | cord-blood B cells | 3 | 0.001772 | 0.0016613 to 0.0018422 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | cord-blood B cells | 3 | 0.26328 | 0.25675 to 0.26884 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
 
-168973 readings from 38 sources. Status and record for every row are in the tables.
+176610 readings from 41 sources. Status and record for every row are in the tables.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).
