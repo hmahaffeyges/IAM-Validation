@@ -200,196 +200,196 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | b cells | sorted adipocytes | healthy | 3 | 0.9882 | 0.9873 to 0.99081 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted adipocytes | healthy | 3 | 1.0475 | 1.0294 to 1.1217 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted adipocytes | healthy | 3 | 0.9872 | 0.97766 to 1.0372 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted aorta endothelium | healthy | 2 | 1.0491 | 1.0265 to 1.0717 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted aorta endothelium | healthy | 2 | 1.0207 | 0.99208 to 1.0492 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted aorta endothelium | healthy | 2 | 0.19412 | 0.19013 to 0.19812 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted aorta endothelium | healthy | 2 | 1.2872 | 1.2868 to 1.2877 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted aorta endothelium | healthy | 2 | 1.0694 | 1.0422 to 1.0965 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted aorta endothelium | healthy | 2 | 0.16711 | 0.16435 to 0.16986 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted aorta endothelium | healthy | 2 | 1.124 | 1.1161 to 1.1319 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted aorta endothelium | healthy | 4 | 1.0328 | 0.97294 to 1.0693 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted aorta endothelium | healthy | 4 | 1.0494 | 0.99751 to 1.0939 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted aorta endothelium | healthy | 4 | 0.62194 | 0.19102 to 1.0892 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted aorta endothelium | healthy | 4 | 1.148 | 1.0089 to 1.2876 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted aorta endothelium | healthy | 4 | 1.0428 | 0.9668 to 1.0916 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted aorta endothelium | healthy | 4 | 0.57308 | 0.16496 to 1.0619 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted aorta endothelium | healthy | 4 | 1.0585 | 0.99603 to 1.1301 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | aorta endothelium | sorted aorta endothelium | healthy | 2 | 0.9585 | 0.92322 to 0.99378 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | aorta endothelium | sorted aorta endothelium | healthy | 2 | 1.0098 | 0.98689 to 1.0327 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted aorta endothelium | healthy | 2 | 0.995 | 0.99212 to 0.99788 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | aorta endothelium | sorted aorta endothelium | healthy | 4 | 1.0098 | 0.95576 to 1.0493 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted aorta endothelium | healthy | 4 | 0.99825 | 0.99276 to 1.0039 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted aorta endothelium | healthy | 2 | 0.93285 | 0.90571 to 0.95998 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted aorta endothelium | healthy | 2 | 0.9937 | 0.93952 to 1.0479 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted aorta endothelium | healthy | 2 | 0.993 | 0.98256 to 1.0034 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted aorta endothelium | healthy | 2 | 1.0677 | 1.0637 to 1.0717 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted aorta endothelium | healthy | 2 | 0.973 | 0.93502 to 1.011 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted vascular saphenous endothelium | healthy | 3 | 0.98006 | 0.94923 to 1.0651 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted vascular saphenous endothelium | healthy | 3 | 0.95501 | 0.91322 to 1.0462 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted vascular saphenous endothelium | healthy | 3 | 0.21979 | 0.21814 to 0.22207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted vascular saphenous endothelium | healthy | 3 | 1.1617 | 1.1249 to 1.2954 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted vascular saphenous endothelium | healthy | 3 | 1.0037 | 0.97216 to 1.0861 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted vascular saphenous endothelium | healthy | 3 | 0.19606 | 0.19009 to 0.19907 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted vascular saphenous endothelium | healthy | 3 | 1.0272 | 0.99958 to 1.1296 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted vascular saphenous endothelium | healthy | 6 | 0.97839 | 0.94361 to 1.0804 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted vascular saphenous endothelium | healthy | 6 | 1.0466 | 0.92019 to 1.0945 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted vascular saphenous endothelium | healthy | 6 | 0.62976 | 0.21842 to 1.0453 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted vascular saphenous endothelium | healthy | 6 | 1.113 | 0.94552 to 1.2731 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted vascular saphenous endothelium | healthy | 6 | 0.99008 | 0.94815 to 1.0912 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted vascular saphenous endothelium | healthy | 6 | 0.60388 | 0.19109 to 1.0167 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted vascular saphenous endothelium | healthy | 6 | 1.0119 | 0.9429 to 1.1269 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | vascular saphenous endothelium | sorted vascular saphenous endothelium | healthy | 3 | 1.0054 | 0.99883 to 1.0373 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | vascular saphenous endothelium | sorted vascular saphenous endothelium | healthy | 3 | 0.7461 | 0.73658 to 0.77845 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted vascular saphenous endothelium | healthy | 3 | 1.0013 | 1.0011 to 1.0035 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | vascular saphenous endothelium | sorted vascular saphenous endothelium | healthy | 6 | 0.86007 | 0.73816 to 1.0388 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted vascular saphenous endothelium | healthy | 6 | 1.0025 | 0.99967 to 1.0067 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted vascular saphenous endothelium | healthy | 3 | 0.8744 | 0.85829 to 0.94181 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted vascular saphenous endothelium | healthy | 3 | 0.9609 | 0.93057 to 0.97287 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted vascular saphenous endothelium | healthy | 3 | 1.0013 | 0.96413 to 1.0152 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted vascular saphenous endothelium | healthy | 3 | 1.0672 | 1.0563 to 1.0749 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted vascular saphenous endothelium | healthy | 3 | 1.0262 | 0.98219 to 1.0394 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted kidney glomerular endothelium | healthy | 3 | 1.0041 | 0.92378 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted kidney glomerular endothelium | healthy | 3 | 0.98404 | 0.89098 to 1.0008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted kidney glomerular endothelium | healthy | 3 | 0.2206 | 0.2025 to 0.22155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted kidney glomerular endothelium | healthy | 3 | 1.1786 | 1.0995 to 1.2385 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted kidney glomerular endothelium | healthy | 3 | 1.0299 | 0.9448 to 1.0423 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted kidney glomerular endothelium | healthy | 3 | 0.19803 | 0.17861 to 0.1981 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted kidney glomerular endothelium | healthy | 3 | 1.0479 | 0.97879 to 1.0887 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted kidney glomerular endothelium | healthy | 6 | 1.0134 | 0.9195 to 1.036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted kidney glomerular endothelium | healthy | 6 | 1.0211 | 0.90649 to 1.073 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted kidney glomerular endothelium | healthy | 6 | 0.59957 | 0.20552 to 1.0683 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted kidney glomerular endothelium | healthy | 6 | 1.0792 | 0.95365 to 1.2285 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted kidney glomerular endothelium | healthy | 6 | 1.0307 | 0.93129 to 1.0413 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted kidney glomerular endothelium | healthy | 6 | 0.56017 | 0.18185 to 1.0268 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted kidney glomerular endothelium | healthy | 6 | 1.0249 | 0.93988 to 1.0836 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | kidney glomerular endothelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0349 | 1.0038 to 1.0443 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | kidney glomerular endothelium | sorted kidney glomerular endothelium | healthy | 3 | 0.75493 | 0.73754 to 0.75883 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted kidney glomerular endothelium | healthy | 3 | 0.9994 | 0.99787 to 1.0025 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | kidney glomerular endothelium | sorted kidney glomerular endothelium | healthy | 6 | 0.87207 | 0.74044 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted kidney glomerular endothelium | healthy | 6 | 1.0001 | 0.99665 to 1.0057 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted kidney glomerular endothelium | healthy | 3 | 0.8897 | 0.88691 to 0.91166 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted kidney glomerular endothelium | healthy | 3 | 1.0012 | 0.9841 to 1.0158 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0199 | 0.98759 to 1.036 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0164 | 0.96555 to 1.0277 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted kidney glomerular endothelium | healthy | 3 | 0.9561 | 0.94323 to 0.97662 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted kidney tubular endothelium | healthy | 3 | 0.93373 | 0.93265 to 0.9478 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted kidney tubular endothelium | healthy | 3 | 0.90007 | 0.89462 to 0.92003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted kidney tubular endothelium | healthy | 3 | 0.22317 | 0.21262 to 0.22736 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted kidney tubular endothelium | healthy | 3 | 1.1052 | 1.0905 to 1.118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted kidney tubular endothelium | healthy | 3 | 0.95543 | 0.95527 to 0.97079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted kidney tubular endothelium | healthy | 3 | 0.18591 | 0.18232 to 0.20247 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted kidney tubular endothelium | healthy | 3 | 0.97263 | 0.93729 to 0.98771 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted kidney tubular endothelium | healthy | 6 | 0.97444 | 0.93283 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted kidney tubular endothelium | healthy | 6 | 0.96512 | 0.89553 to 1.13 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted kidney tubular endothelium | healthy | 6 | 0.61579 | 0.21438 to 1.0675 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted kidney tubular endothelium | healthy | 6 | 1.0541 | 0.99357 to 1.1159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted kidney tubular endothelium | healthy | 6 | 0.98439 | 0.9553 to 1.0139 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted kidney tubular endothelium | healthy | 6 | 0.58044 | 0.18292 to 1.0227 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted kidney tubular endothelium | healthy | 6 | 0.98667 | 0.94318 to 1.0089 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | kidney tubular endothelium | sorted kidney tubular endothelium | healthy | 3 | 1.0255 | 1.0241 to 1.027 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | kidney tubular endothelium | sorted kidney tubular endothelium | healthy | 3 | 0.77506 | 0.72703 to 0.80766 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted kidney tubular endothelium | healthy | 3 | 1.0001 | 0.99848 to 1.0022 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | kidney tubular endothelium | sorted kidney tubular endothelium | healthy | 6 | 0.87024 | 0.73503 to 1.1188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted kidney tubular endothelium | healthy | 6 | 1.0002 | 0.9956 to 1.004 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted kidney tubular endothelium | healthy | 3 | 0.9269 | 0.90656 to 0.98558 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted kidney tubular endothelium | healthy | 3 | 1.0149 | 0.97692 to 1.037 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted kidney tubular endothelium | healthy | 3 | 1.0034 | 0.9863 to 1.0443 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted kidney tubular endothelium | healthy | 3 | 1.0011 | 0.99759 to 1.0245 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted kidney tubular endothelium | healthy | 3 | 1.0049 | 0.97916 to 1.017 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted lung alveolar endothelium | healthy | 3 | 1.0395 | 1.0248 to 1.0449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung alveolar endothelium | healthy | 3 | 1.0195 | 0.99242 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted lung alveolar endothelium | healthy | 3 | 0.22615 | 0.19415 to 0.23106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted lung alveolar endothelium | healthy | 3 | 1.2281 | 1.2124 to 1.3068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted lung alveolar endothelium | healthy | 3 | 1.0534 | 1.0483 to 1.0707 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted lung alveolar endothelium | healthy | 3 | 0.19838 | 0.16947 to 0.20727 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted lung alveolar endothelium | healthy | 3 | 1.0908 | 1.0747 to 1.1584 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted lung alveolar endothelium | healthy | 6 | 1.0118 | 0.97171 to 1.044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung alveolar endothelium | healthy | 6 | 1.0364 | 0.99693 to 1.0679 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted lung alveolar endothelium | healthy | 6 | 0.57527 | 0.19948 to 1.0943 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted lung alveolar endothelium | healthy | 6 | 1.1336 | 0.95171 to 1.2937 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted lung alveolar endothelium | healthy | 6 | 1.0259 | 0.9695 to 1.0678 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted lung alveolar endothelium | healthy | 6 | 0.52394 | 0.17429 to 1.063 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted lung alveolar endothelium | healthy | 6 | 1.0523 | 0.95173 to 1.1471 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | lung alveolar endothelium | sorted lung alveolar endothelium | healthy | 3 | 0.9922 | 0.9337 to 1.0062 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | lung alveolar endothelium | sorted lung alveolar endothelium | healthy | 3 | 0.7626 | 0.7536 to 0.76541 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted lung alveolar endothelium | healthy | 3 | 1.0006 | 1.0002 to 1.0097 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | lung alveolar endothelium | sorted lung alveolar endothelium | healthy | 6 | 0.87718 | 0.7551 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted lung alveolar endothelium | healthy | 6 | 1.0004 | 0.99503 to 1.0088 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted lung alveolar endothelium | healthy | 3 | 0.9146 | 0.85961 to 0.94727 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted lung alveolar endothelium | healthy | 3 | 0.9704 | 0.91343 to 1.0442 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted lung alveolar endothelium | healthy | 3 | 0.9419 | 0.93974 to 1.0252 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted lung alveolar endothelium | healthy | 3 | 1.0399 | 1.0161 to 1.0518 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted lung alveolar endothelium | healthy | 3 | 0.9676 | 0.96544 to 1.0083 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted pancreas endothelium | healthy | 3 | 1.0746 | 1.0663 to 1.0799 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreas endothelium | healthy | 3 | 1.0607 | 1.0483 to 1.0613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted pancreas endothelium | healthy | 3 | 0.19587 | 0.19491 to 0.2004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted pancreas endothelium | healthy | 3 | 1.2926 | 1.2861 to 1.3059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted pancreas endothelium | healthy | 3 | 1.0986 | 1.0887 to 1.1047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted pancreas endothelium | healthy | 3 | 0.16496 | 0.16147 to 0.17262 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted pancreas endothelium | healthy | 3 | 1.0939 | 1.0919 to 1.1212 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted pancreas endothelium | healthy | 6 | 1.045 | 1.0039 to 1.079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreas endothelium | healthy | 6 | 1.061 | 1.0338 to 1.1211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted pancreas endothelium | healthy | 6 | 0.62069 | 0.19507 to 1.0566 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted pancreas endothelium | healthy | 6 | 1.156 | 1.0059 to 1.3037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted pancreas endothelium | healthy | 6 | 1.0555 | 1.0023 to 1.1037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted pancreas endothelium | healthy | 6 | 0.59065 | 0.16205 to 1.0851 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted pancreas endothelium | healthy | 6 | 1.052 | 1.003 to 1.1166 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | pancreas endothelium | sorted pancreas endothelium | healthy | 3 | 1.0506 | 1.0085 to 1.0528 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | pancreas endothelium | sorted pancreas endothelium | healthy | 3 | 0.84448 | 0.789 to 0.84936 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted pancreas endothelium | healthy | 3 | 1.0001 | 0.99605 to 1.001 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | pancreas endothelium | sorted pancreas endothelium | healthy | 6 | 0.88679 | 0.79825 to 1.056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted pancreas endothelium | healthy | 6 | 0.99955 | 0.9905 to 1.0053 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted pancreas endothelium | healthy | 3 | 0.9662 | 0.94766 to 0.99392 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted pancreas endothelium | healthy | 3 | 1.0065 | 0.95286 to 1.0172 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted pancreas endothelium | healthy | 3 | 0.9871 | 0.93409 to 1.0189 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted pancreas endothelium | healthy | 3 | 1.0404 | 0.98775 to 1.0426 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted pancreas endothelium | healthy | 3 | 0.984 | 0.97671 to 1.0815 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted colon fibroblasts | healthy | 2 | 1.2186 | 1.2067 to 1.2304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted colon fibroblasts | healthy | 2 | 1.1856 | 1.1824 to 1.1888 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted colon fibroblasts | healthy | 2 | 0.22609 | 0.22578 to 0.22641 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted colon fibroblasts | healthy | 2 | 1.4745 | 1.4733 to 1.4756 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted colon fibroblasts | healthy | 2 | 1.2471 | 1.2323 to 1.2619 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted colon fibroblasts | healthy | 2 | 0.20316 | 0.20296 to 0.20337 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted colon fibroblasts | healthy | 2 | 1.313 | 1.3088 to 1.3172 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted colon fibroblasts | healthy | 4 | 1.1201 | 0.99582 to 1.2277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted colon fibroblasts | healthy | 4 | 1.1224 | 1.0555 to 1.1881 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted colon fibroblasts | healthy | 4 | 0.64231 | 0.22585 to 1.0619 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted colon fibroblasts | healthy | 4 | 1.2469 | 1.0095 to 1.4753 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted colon fibroblasts | healthy | 4 | 1.1338 | 0.99174 to 1.2586 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted colon fibroblasts | healthy | 4 | 0.60431 | 0.20301 to 1.0056 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted colon fibroblasts | healthy | 4 | 1.1607 | 1.0037 to 1.3163 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | colon fibroblasts | sorted colon fibroblasts | healthy | 2 | 0.9906 | 0.98385 to 0.99735 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | colon fibroblasts | sorted colon fibroblasts | healthy | 2 | 0.92575 | 0.92285 to 0.92865 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted colon fibroblasts | healthy | 2 | 0.99295 | 0.99164 to 0.99425 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | colon fibroblasts | sorted colon fibroblasts | healthy | 4 | 0.96098 | 0.9235 to 1.0049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted colon fibroblasts | healthy | 4 | 0.99295 | 0.99023 to 1.0004 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted colon fibroblasts | healthy | 2 | 0.9425 | 0.92135 to 0.96365 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted colon fibroblasts | healthy | 2 | 1.0226 | 1.0173 to 1.0279 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted colon fibroblasts | healthy | 2 | 0.9631 | 0.95896 to 0.96724 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted colon fibroblasts | healthy | 2 | 1.0599 | 1.0395 to 1.0803 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted colon fibroblasts | healthy | 2 | 0.9867 | 0.96762 to 1.0058 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted heart fibroblasts | healthy | 3 | 1.1879 | 1.1527 to 1.2122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted heart fibroblasts | healthy | 3 | 1.1973 | 1.1649 to 1.2153 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted heart fibroblasts | healthy | 3 | 0.2028 | 0.18576 to 0.20312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted heart fibroblasts | healthy | 3 | 1.6459 | 1.5799 to 1.6543 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted heart fibroblasts | healthy | 3 | 1.1811 | 1.1491 to 1.2118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted heart fibroblasts | healthy | 3 | 0.17747 | 0.16003 to 0.17868 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted heart fibroblasts | healthy | 3 | 1.4417 | 1.3876 to 1.4515 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted heart fibroblasts | healthy | 6 | 1.099 | 0.9734 to 1.2082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted heart fibroblasts | healthy | 6 | 1.1188 | 1.05 to 1.2123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted heart fibroblasts | healthy | 6 | 0.59224 | 0.1886 to 1.0719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted heart fibroblasts | healthy | 6 | 1.3015 | 0.97739 to 1.6529 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted heart fibroblasts | healthy | 6 | 1.0988 | 0.97097 to 1.2067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted heart fibroblasts | healthy | 6 | 0.55373 | 0.16293 to 1.0327 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted heart fibroblasts | healthy | 6 | 1.1994 | 0.9815 to 1.4499 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | heart fibroblasts | sorted heart fibroblasts | healthy | 3 | 0.8859 | 0.88473 to 0.89508 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | heart fibroblasts | sorted heart fibroblasts | healthy | 3 | 0.75967 | 0.74465 to 0.76502 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted heart fibroblasts | healthy | 3 | 0.991 | 0.98884 to 0.99577 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | heart fibroblasts | sorted heart fibroblasts | healthy | 6 | 0.87848 | 0.74715 to 1.0295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted heart fibroblasts | healthy | 6 | 0.99435 | 0.9892 to 0.99935 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted heart fibroblasts | healthy | 3 | 0.9013 | 0.8797 to 0.93964 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted heart fibroblasts | healthy | 3 | 0.9246 | 0.92226 to 0.99561 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted heart fibroblasts | healthy | 3 | 0.956 | 0.947 to 0.9758 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted heart fibroblasts | healthy | 3 | 1.0599 | 1.0176 to 1.0807 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted heart fibroblasts | healthy | 3 | 1.0198 | 0.98632 to 1.0251 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted striated muscle | healthy | 2 | 1.1593 | 1.154 to 1.1646 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted striated muscle | healthy | 2 | 1.1337 | 1.129 to 1.1384 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted striated muscle | healthy | 2 | 0.18732 | 0.18301 to 0.19163 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted striated muscle | healthy | 2 | 1.4014 | 1.3887 to 1.4141 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted striated muscle | healthy | 2 | 1.1869 | 1.1817 to 1.1921 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted striated muscle | healthy | 2 | 0.16335 | 0.16037 to 0.16633 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted striated muscle | healthy | 2 | 1.2333 | 1.2207 to 1.2458 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted striated muscle | healthy | 4 | 1.0856 | 1.0132 to 1.1634 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted striated muscle | healthy | 4 | 1.1003 | 1.0534 to 1.1374 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted striated muscle | healthy | 4 | 0.61601 | 0.18397 to 1.088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted striated muscle | healthy | 4 | 1.2076 | 1.0079 to 1.4113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted striated muscle | healthy | 4 | 1.0982 | 1.0128 to 1.191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted striated muscle | healthy | 4 | 0.56683 | 0.16103 to 1.0598 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted striated muscle | healthy | 4 | 1.1195 | 1.0038 to 1.2431 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | striated muscle | sorted striated muscle | healthy | 2 | 1.0544 | 1.0423 to 1.0665 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | striated muscle | sorted striated muscle | healthy | 2 | 0.9128 | 0.90499 to 0.9206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted striated muscle | healthy | 2 | 0.996 | 0.99546 to 0.99654 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | striated muscle | sorted striated muscle | healthy | 4 | 0.95141 | 0.90672 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted striated muscle | healthy | 4 | 0.99655 | 0.99556 to 0.99855 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted striated muscle | healthy | 2 | 0.9691 | 0.96298 to 0.97522 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted striated muscle | healthy | 2 | 0.96045 | 0.95959 to 0.96131 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted striated muscle | healthy | 2 | 0.9923 | 0.98375 to 1.0009 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted striated muscle | healthy | 2 | 1.0621 | 1.0244 to 1.0998 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted striated muscle | healthy | 2 | 0.98805 | 0.93607 to 1.04 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted smooth muscle | healthy | 3 | 1.29 | 1.085 to 1.3152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted smooth muscle | healthy | 3 | 1.3257 | 1.1003 to 1.3357 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted smooth muscle | healthy | 3 | 0.20347 | 0.19849 to 0.23202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted smooth muscle | healthy | 3 | 1.8064 | 1.4338 to 1.811 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted smooth muscle | healthy | 3 | 1.2797 | 1.0871 to 1.3124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted smooth muscle | healthy | 3 | 0.17877 | 0.16969 to 0.20444 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted smooth muscle | healthy | 3 | 1.5675 | 1.2657 to 1.5855 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted smooth muscle | healthy | 6 | 1.052 | 0.85847 to 1.311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted smooth muscle | healthy | 6 | 1.1117 | 0.9832 to 1.334 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted smooth muscle | healthy | 6 | 0.60386 | 0.19932 to 1.0867 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted smooth muscle | healthy | 6 | 1.2315 | 0.83278 to 1.8103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted smooth muscle | healthy | 6 | 1.0515 | 0.85806 to 1.3069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted smooth muscle | healthy | 6 | 0.53382 | 0.1712 to 1.0892 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted smooth muscle | healthy | 6 | 1.128 | 0.85083 to 1.5825 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | smooth muscle | sorted smooth muscle | healthy | 3 | 0.874 | 0.86077 to 0.89947 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | smooth muscle | sorted smooth muscle | healthy | 3 | 0.86884 | 0.75982 to 0.8782 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted smooth muscle | healthy | 3 | 0.9996 | 0.99465 to 1.0005 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | smooth muscle | sorted smooth muscle | healthy | 6 | 0.87496 | 0.77799 to 1.1761 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted smooth muscle | healthy | 6 | 1 | 0.99455 to 1.0026 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted smooth muscle | healthy | 3 | 0.9969 | 0.94803 to 0.99879 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted smooth muscle | healthy | 3 | 0.9612 | 0.93996 to 1.0325 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted smooth muscle | healthy | 3 | 0.9903 | 0.94008 to 1.0453 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted smooth muscle | healthy | 3 | 1.0675 | 1.0149 to 1.0761 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted smooth muscle | healthy | 3 | 0.9851 | 0.91337 to 1.006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted cardiomyocyte | healthy | 3 | 0.86952 | 0.84146 to 0.87643 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cardiomyocyte | healthy | 3 | 0.85 | 0.82294 to 0.85459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted cardiomyocyte | healthy | 3 | 0.20048 | 0.19976 to 0.20404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted cardiomyocyte | healthy | 3 | 1.0653 | 1.0291 to 1.0819 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted cardiomyocyte | healthy | 3 | 0.88425 | 0.85574 to 0.89048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted cardiomyocyte | healthy | 3 | 0.17798 | 0.17706 to 0.17911 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted cardiomyocyte | healthy | 3 | 0.92054 | 0.89991 to 0.94528 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted cardiomyocyte | healthy | 6 | 0.92781 | 0.84613 to 1.0317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cardiomyocyte | healthy | 6 | 0.947 | 0.82745 to 1.092 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted cardiomyocyte | healthy | 6 | 0.61753 | 0.19988 to 1.0557 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted cardiomyocyte | healthy | 6 | 1.0331 | 0.98677 to 1.0791 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted cardiomyocyte | healthy | 6 | 0.9344 | 0.86049 to 1.0305 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted cardiomyocyte | healthy | 6 | 0.58281 | 0.17722 to 1.0285 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted cardiomyocyte | healthy | 6 | 0.96165 | 0.90335 to 1.026 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | cardiomyocyte | sorted cardiomyocyte | healthy | 3 | 0.9498 | 0.94773 to 0.95259 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | cardiomyocyte | sorted cardiomyocyte | healthy | 3 | 0.74678 | 0.73017 to 0.76684 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted cardiomyocyte | healthy | 3 | 1.0033 | 1.0018 to 1.0042 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | cardiomyocyte | sorted cardiomyocyte | healthy | 6 | 0.87387 | 0.73294 to 1.0505 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted cardiomyocyte | healthy | 6 | 1.0034 | 0.9977 to 1.0066 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted cardiomyocyte | healthy | 3 | 1.0029 | 0.9858 to 1.0478 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted cardiomyocyte | healthy | 3 | 0.9541 | 0.94447 to 1.037 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted cardiomyocyte | healthy | 3 | 0.9712 | 0.94276 to 0.97642 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted cardiomyocyte | healthy | 3 | 1.0893 | 1.0351 to 1.0955 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted cardiomyocyte | healthy | 3 | 0.9944 | 0.93977 to 1.009 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted oligodendrocytes | healthy | 3 | 0.83856 | 0.82549 to 0.85003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted oligodendrocytes | healthy | 3 | 0.83081 | 0.82071 to 0.83638 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted oligodendrocytes | healthy | 3 | 0.20053 | 0.17711 to 0.2262 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted oligodendrocytes | healthy | 3 | 0.99751 | 0.97586 to 1.0039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted oligodendrocytes | healthy | 3 | 0.85535 | 0.84187 to 0.87182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted oligodendrocytes | healthy | 3 | 0.17452 | 0.15237 to 0.19937 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted oligodendrocytes | healthy | 3 | 0.85476 | 0.85194 to 0.86353 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted oligodendrocytes | healthy | 6 | 0.92011 | 0.82767 to 1.0341 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted oligodendrocytes | healthy | 6 | 0.92679 | 0.82239 to 1.0629 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted oligodendrocytes | healthy | 6 | 0.56432 | 0.18102 to 1.1326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted oligodendrocytes | healthy | 6 | 1.0011 | 0.97806 to 1.0282 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted oligodendrocytes | healthy | 6 | 0.92926 | 0.84411 to 1.0374 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted oligodendrocytes | healthy | 6 | 0.49042 | 0.15606 to 1.1228 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted oligodendrocytes | healthy | 6 | 0.92721 | 0.85241 to 1.0182 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | oligodendrocytes | sorted oligodendrocytes | healthy | 3 | 0.9154 | 0.90793 to 0.94402 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | oligodendrocytes | sorted oligodendrocytes | healthy | 3 | 0.755 | 0.72503 to 0.75703 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted oligodendrocytes | healthy | 3 | 0.9937 | 0.99343 to 1.0007 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | oligodendrocytes | sorted oligodendrocytes | healthy | 6 | 0.85934 | 0.73003 to 1.0499 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted oligodendrocytes | healthy | 6 | 0.99955 | 0.99347 to 1.0073 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted oligodendrocytes | healthy | 3 | 0.9375 | 0.91401 to 0.9969 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted oligodendrocytes | healthy | 3 | 0.9404 | 0.92654 to 0.94292 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted oligodendrocytes | healthy | 3 | 0.9635 | 0.95018 to 1.0633 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted oligodendrocytes | healthy | 3 | 1.01 | 1.0041 to 1.0144 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted oligodendrocytes | healthy | 3 | 0.9918 | 0.9774 to 0.99702 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted cortical neurons | healthy | 3 | 0.82649 | 0.8023 to 0.97304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cortical neurons | healthy | 3 | 0.82818 | 0.80627 to 0.96632 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted cortical neurons | healthy | 3 | 0.21262 | 0.21036 to 0.24822 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted cortical neurons | healthy | 3 | 0.97949 | 0.91906 to 1.094 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted cortical neurons | healthy | 3 | 0.84274 | 0.82285 to 1.0021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted cortical neurons | healthy | 3 | 0.18478 | 0.18348 to 0.21471 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted cortical neurons | healthy | 3 | 0.84706 | 0.7924 to 0.9396 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted cortical neurons | healthy | 31 | 1.1511 | 0.84756 to 1.4103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cortical neurons | healthy | 31 | 1.0253 | 0.86435 to 1.8575 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted cortical neurons | healthy | 31 | 1.4756 | 0.2324 to 16.774 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted cortical neurons | healthy | 31 | 1.1608 | 0.93169 to 1.2752 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted cortical neurons | healthy | 31 | 1.1301 | 0.85445 to 1.293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted cortical neurons | healthy | 31 | 1.1929 | 0.20141 to 12.858 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted cortical neurons | healthy | 31 | 1.0019 | 0.86837 to 1.0798 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | cortical neurons | sorted cortical neurons | healthy | 3 | 0.7885 | 0.7714 to 0.84349 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | cortical neurons | sorted cortical neurons | healthy | 3 | 0.86063 | 0.77314 to 0.92823 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted cortical neurons | healthy | 3 | 0.9971 | 0.99467 to 0.99773 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | cortical neurons | sorted cortical neurons | healthy | 31 | 0.91078 | 0.80312 to 1.4674 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted cortical neurons | healthy | 31 | 0.9982 | 0.99105 to 1.0048 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted cortical neurons | healthy | 3 | 0.9233 | 0.89063 to 0.95165 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted cortical neurons | healthy | 3 | 0.9644 | 0.91841 to 0.97817 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted cortical neurons | healthy | 3 | 0.9789 | 0.9384 to 0.98205 | no line set for this reading | [C_Score.csv](C_Score.csv) |
@@ -410,75 +410,75 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | b cells | sorted hepatocyte | healthy | 3 | 0.9472 | 0.9391 to 0.96151 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted hepatocyte | healthy | 3 | 0.9805 | 0.97546 to 0.99931 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted hepatocyte | healthy | 3 | 0.9268 | 0.89053 to 0.9646 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted pancreatic duct | healthy | 3 | 0.82873 | 0.80252 to 0.85431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic duct | healthy | 3 | 0.82171 | 0.76912 to 0.8234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted pancreatic duct | healthy | 3 | 0.18355 | 0.17432 to 0.18784 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted pancreatic duct | healthy | 3 | 0.96697 | 0.93048 to 1.0075 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic duct | healthy | 3 | 0.84969 | 0.82458 to 0.87658 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted pancreatic duct | healthy | 3 | 0.15895 | 0.15283 to 0.1605 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted pancreatic duct | healthy | 3 | 0.81913 | 0.80996 to 0.8787 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted pancreatic duct | healthy | 8 | 1.0389 | 0.8098 to 1.0995 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic duct | healthy | 8 | 0.84119 | 0.78373 to 0.9332 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted pancreatic duct | healthy | 8 | 2.1802 | 0.17688 to 3.2121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted pancreatic duct | healthy | 8 | 1.0133 | 0.94061 to 1.0743 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic duct | healthy | 8 | 1.0257 | 0.83156 to 1.0831 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted pancreatic duct | healthy | 8 | 1.8264 | 0.15453 to 2.5648 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted pancreatic duct | healthy | 8 | 0.84586 | 0.81251 to 0.87529 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | pancreatic duct | sorted pancreatic duct | healthy | 3 | 0.9588 | 0.95007 to 0.97464 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | Met-A | Met-A sorted cell (atlas) | pancreatic duct | sorted pancreatic duct | healthy | 3 | 0.81583 | 0.77192 to 0.82161 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted pancreatic duct | healthy | 3 | 0.9985 | 0.99499 to 0.99985 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted pancreatic duct | healthy | 8 | 0.99925 | 0.99434 to 1.0059 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted pancreatic duct | healthy | 3 | 0.9492 | 0.94101 to 1.0037 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted pancreatic duct | healthy | 3 | 0.9488 | 0.93107 to 0.97265 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted pancreatic duct | healthy | 3 | 0.9724 | 0.96205 to 1.0431 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted pancreatic duct | healthy | 3 | 1.0343 | 1.0032 to 1.0529 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted pancreatic duct | healthy | 3 | 0.9548 | 0.94589 to 1.0649 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted pancreatic acinar | healthy | 3 | 1.0857 | 1.0274 to 1.0901 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic acinar | healthy | 3 | 1.0859 | 1.0469 to 1.1067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted pancreatic acinar | healthy | 3 | 0.17636 | 0.16645 to 0.18558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted pancreatic acinar | healthy | 3 | 1.4502 | 1.3666 to 1.4619 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic acinar | healthy | 3 | 1.0865 | 1.0309 to 1.0998 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted pancreatic acinar | healthy | 3 | 0.1521 | 0.1521 to 0.16797 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted pancreatic acinar | healthy | 3 | 1.2394 | 1.219 to 1.2725 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted pancreatic acinar | healthy | 10 | 1.0324 | 0.96386 to 1.0987 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic acinar | healthy | 10 | 1.0329 | 0.84386 to 1.1093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted pancreatic acinar | healthy | 10 | 1.0913 | 0.1703 to 2.7619 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted pancreatic acinar | healthy | 10 | 1.0465 | 0.93559 to 1.4573 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic acinar | healthy | 10 | 1.0267 | 0.95716 to 1.0946 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted pancreatic acinar | healthy | 10 | 1.0458 | 0.1521 to 2.1839 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted pancreatic acinar | healthy | 10 | 0.99346 | 0.79884 to 1.2596 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | pancreatic acinar | sorted pancreatic acinar | healthy | 3 | 0.8983 | 0.8263 to 0.91207 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | pancreatic acinar | sorted pancreatic acinar | healthy | 3 | 0.84536 | 0.78105 to 0.86192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted pancreatic acinar | healthy | 3 | 1 | 0.9991 to 1.0043 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | pancreatic acinar | sorted pancreatic acinar | healthy | 6 | 0.89477 | 0.79177 to 1.1192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted pancreatic acinar | healthy | 10 | 1.0034 | 0.99577 to 1.0084 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted pancreatic acinar | healthy | 3 | 0.9336 | 0.93279 to 0.99678 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted pancreatic acinar | healthy | 3 | 0.9456 | 0.9312 to 0.97872 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted pancreatic acinar | healthy | 3 | 0.9661 | 0.94333 to 0.97465 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted pancreatic acinar | healthy | 3 | 1.1509 | 1.088 to 1.1513 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted pancreatic acinar | healthy | 3 | 1.0167 | 0.98043 to 1.0195 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted pancreatic delta | healthy | 3 | 0.97647 | 0.93519 to 0.98964 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic delta | healthy | 3 | 0.96605 | 0.92011 to 0.98264 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted pancreatic delta | healthy | 3 | 0.20163 | 0.20046 to 0.20245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted pancreatic delta | healthy | 3 | 1.1804 | 1.118 to 1.2066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic delta | healthy | 3 | 0.99534 | 0.95568 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted pancreatic delta | healthy | 3 | 0.16748 | 0.1652 to 0.17472 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted pancreatic delta | healthy | 3 | 0.99305 | 0.96876 to 1.0154 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted pancreatic delta | healthy | 6 | 0.98483 | 0.94207 to 1.0457 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic delta | healthy | 6 | 1.0062 | 0.92776 to 1.1268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted pancreatic delta | healthy | 6 | 0.62075 | 0.20066 to 1.0605 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted pancreatic delta | healthy | 6 | 1.088 | 0.98497 to 1.2022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic delta | healthy | 6 | 1.0019 | 0.95821 to 1.0431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted pancreatic delta | healthy | 6 | 0.60032 | 0.16558 to 1.0472 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted pancreatic delta | healthy | 6 | 1.0055 | 0.96724 to 1.0448 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | pancreatic delta | sorted pancreatic delta | healthy | 3 | 1.0545 | 1.0232 to 1.0596 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | pancreatic delta | sorted pancreatic delta | healthy | 3 | 0.79697 | 0.73754 to 0.79783 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted pancreatic delta | healthy | 3 | 0.9963 | 0.99522 to 0.99846 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | pancreatic delta | sorted pancreatic delta | healthy | 6 | 0.85325 | 0.74745 to 1.0564 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted pancreatic delta | healthy | 6 | 0.99685 | 0.9942 to 0.9985 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted pancreatic delta | healthy | 3 | 0.9674 | 0.9539 to 0.98225 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted pancreatic delta | healthy | 3 | 1.0059 | 0.95847 to 1.0113 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted pancreatic delta | healthy | 3 | 0.9904 | 0.97339 to 1.0827 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted pancreatic delta | healthy | 3 | 0.9624 | 0.93927 to 1.0061 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted pancreatic delta | healthy | 1 | 1.0117 | 1.0117 to 1.0117 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted pancreatic beta | healthy | 3 | 0.92301 | 0.89563 to 0.95496 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic beta | healthy | 3 | 0.90098 | 0.87341 to 0.93335 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted pancreatic beta | healthy | 3 | 0.21266 | 0.21026 to 0.21594 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted pancreatic beta | healthy | 3 | 1.0921 | 1.0524 to 1.1525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic beta | healthy | 3 | 0.94378 | 0.91659 to 0.97389 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted pancreatic beta | healthy | 3 | 0.18123 | 0.18111 to 0.18573 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted pancreatic beta | healthy | 3 | 0.93854 | 0.90767 to 0.99778 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted pancreatic beta | healthy | 6 | 0.96496 | 0.90019 to 1.0438 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic beta | healthy | 6 | 0.98547 | 0.87801 to 1.0638 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted pancreatic beta | healthy | 6 | 0.62284 | 0.21066 to 1.0567 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted pancreatic beta | healthy | 6 | 1.0618 | 0.96849 to 1.1425 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic beta | healthy | 6 | 0.97464 | 0.92112 to 1.0415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted pancreatic beta | healthy | 6 | 0.59475 | 0.18113 to 1.0354 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted pancreatic beta | healthy | 6 | 0.97833 | 0.91282 to 1.0473 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | pancreatic beta | sorted pancreatic beta | healthy | 3 | 1.0103 | 0.99311 to 1.0305 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | pancreatic beta | sorted pancreatic beta | healthy | 3 | 0.84695 | 0.82568 to 0.85172 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted pancreatic beta | healthy | 3 | 1.0022 | 0.99833 to 1.0041 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | pancreatic beta | sorted pancreatic beta | healthy | 6 | 0.91202 | 0.82923 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted pancreatic beta | healthy | 6 | 1.0019 | 0.99808 to 1.0041 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted pancreatic beta | healthy | 3 | 0.9815 | 0.95621 to 0.99725 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted pancreatic beta | healthy | 3 | 1.0083 | 0.97104 to 1.0374 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted pancreatic beta | healthy | 3 | 1.0592 | 1.0345 to 1.084 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted pancreatic beta | healthy | 3 | 0.9401 | 0.93272 to 1.005 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted pancreatic alpha | healthy | 3 | 0.93361 | 0.90972 to 0.93395 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic alpha | healthy | 3 | 0.90664 | 0.89048 to 0.90821 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted pancreatic alpha | healthy | 3 | 0.22261 | 0.22193 to 0.22778 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted pancreatic alpha | healthy | 3 | 1.1384 | 1.0996 to 1.1386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic alpha | healthy | 3 | 0.94974 | 0.92589 to 0.94984 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted pancreatic alpha | healthy | 3 | 0.19633 | 0.19317 to 0.1989 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted pancreatic alpha | healthy | 3 | 0.99138 | 0.95768 to 1.0018 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted pancreatic alpha | healthy | 6 | 0.96128 | 0.9137 to 1.0222 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted pancreatic alpha | healthy | 6 | 0.97671 | 0.89318 to 1.0851 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted pancreatic alpha | healthy | 6 | 0.62726 | 0.22205 to 1.0585 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted pancreatic alpha | healthy | 6 | 1.0616 | 0.99139 to 1.1386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted pancreatic alpha | healthy | 6 | 0.96885 | 0.92986 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted pancreatic alpha | healthy | 6 | 0.58393 | 0.1937 to 1.042 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted pancreatic alpha | healthy | 6 | 0.99717 | 0.95991 to 1.0186 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | pancreatic alpha | sorted pancreatic alpha | healthy | 3 | 1.0253 | 1.011 to 1.028 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | pancreatic alpha | sorted pancreatic alpha | healthy | 3 | 0.74826 | 0.72824 to 0.75265 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted pancreatic alpha | healthy | 3 | 1.0042 | 1.0001 to 1.0045 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | pancreatic alpha | sorted pancreatic alpha | healthy | 6 | 0.86994 | 0.73157 to 1.0379 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted pancreatic alpha | healthy | 6 | 1.0017 | 0.99525 to 1.0044 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted pancreatic alpha | healthy | 3 | 0.9785 | 0.96617 to 0.99443 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted pancreatic alpha | healthy | 3 | 0.9537 | 0.86127 to 0.9591 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted pancreatic alpha | healthy | 3 | 1.0416 | 1.0139 to 1.0454 | no line set for this reading | [C_Score.csv](C_Score.csv) |
@@ -498,146 +498,146 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | b cells | sorted kidney glomerular epithelium | healthy | 2 | 1.0567 | 1.0355 to 1.0778 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted kidney glomerular epithelium | healthy | 2 | 1.012 | 1.0113 to 1.0128 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted kidney glomerular epithelium | healthy | 2 | 0.97025 | 0.95976 to 0.98074 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted kidney tubular epithelium | healthy | 3 | 0.86989 | 0.81368 to 0.91878 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted kidney tubular epithelium | healthy | 3 | 0.84866 | 0.78145 to 0.90549 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted kidney tubular epithelium | healthy | 3 | 0.20803 | 0.19092 to 0.22228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted kidney tubular epithelium | healthy | 3 | 1.0377 | 0.91869 to 1.0948 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted kidney tubular epithelium | healthy | 3 | 0.88991 | 0.83793 to 0.93923 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted kidney tubular epithelium | healthy | 3 | 0.18345 | 0.17001 to 0.19852 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted kidney tubular epithelium | healthy | 3 | 0.9146 | 0.81121 to 0.95794 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted kidney tubular epithelium | healthy | 6 | 0.92423 | 0.82305 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted kidney tubular epithelium | healthy | 6 | 0.97294 | 0.79265 to 1.0901 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted kidney tubular epithelium | healthy | 6 | 0.5865 | 0.19377 to 1.0999 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted kidney tubular epithelium | healthy | 6 | 1.0202 | 0.89146 to 1.0953 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted kidney tubular epithelium | healthy | 6 | 0.9354 | 0.8466 to 1.0139 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted kidney tubular epithelium | healthy | 6 | 0.53196 | 0.17225 to 1.1745 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted kidney tubular epithelium | healthy | 6 | 0.93868 | 0.81613 to 1.0333 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | kidney tubular epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.9737 | 0.90791 to 0.98927 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | kidney tubular epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.73804 | 0.71985 to 0.75721 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted kidney tubular epithelium | healthy | 3 | 0.9985 | 0.99364 to 1.0049 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | kidney tubular epithelium | sorted kidney tubular epithelium | healthy | 6 | 0.8704 | 0.72288 to 1.0515 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted kidney tubular epithelium | healthy | 6 | 1.0012 | 0.99347 to 1.0054 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted kidney tubular epithelium | healthy | 3 | 0.9666 | 0.93618 to 1.0088 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted kidney tubular epithelium | healthy | 2 | 0.95635 | 0.94929 to 0.96341 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted kidney tubular epithelium | healthy | 3 | 1.0195 | 1.0029 to 1.0409 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted kidney tubular epithelium | healthy | 3 | 1.0614 | 1.0052 to 1.1077 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted kidney tubular epithelium | healthy | 3 | 0.9931 | 0.94558 to 1.0169 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted thyroid epithelium | healthy | 3 | 0.80298 | 0.79585 to 0.80671 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted thyroid epithelium | healthy | 3 | 0.76842 | 0.76184 to 0.77181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted thyroid epithelium | healthy | 3 | 0.21121 | 0.20887 to 0.22128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted thyroid epithelium | healthy | 3 | 0.92621 | 0.91871 to 0.93952 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted thyroid epithelium | healthy | 3 | 0.82303 | 0.81597 to 0.82637 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted thyroid epithelium | healthy | 3 | 0.18363 | 0.18306 to 0.1939 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted thyroid epithelium | healthy | 3 | 0.81225 | 0.80384 to 0.82376 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted thyroid epithelium | healthy | 6 | 0.9041 | 0.79704 to 1.018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted thyroid epithelium | healthy | 6 | 0.91944 | 0.76294 to 1.0731 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted thyroid epithelium | healthy | 6 | 0.61921 | 0.20926 to 1.071 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted thyroid epithelium | healthy | 6 | 0.96998 | 0.91996 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted thyroid epithelium | healthy | 6 | 0.91358 | 0.81715 to 1.0165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted thyroid epithelium | healthy | 6 | 0.57567 | 0.18316 to 1.0697 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted thyroid epithelium | healthy | 6 | 0.91 | 0.80524 to 1.0152 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | thyroid epithelium | sorted thyroid epithelium | healthy | 3 | 0.9983 | 0.99713 to 1.0097 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | thyroid epithelium | sorted thyroid epithelium | healthy | 3 | 0.73552 | 0.73507 to 0.73983 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted thyroid epithelium | healthy | 3 | 1.0013 | 0.99797 to 1.0017 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | thyroid epithelium | sorted thyroid epithelium | healthy | 6 | 0.87031 | 0.73514 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted thyroid epithelium | healthy | 6 | 1.001 | 0.9976 to 1.0018 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted thyroid epithelium | healthy | 3 | 0.9951 | 0.98178 to 1.0006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted thyroid epithelium | healthy | 3 | 0.9998 | 0.9413 to 1.0118 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted thyroid epithelium | healthy | 3 | 1.0083 | 0.99021 to 1.0444 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted thyroid epithelium | healthy | 3 | 0.9222 | 0.90672 to 0.95919 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted fallopien tubes epithelium | healthy | 3 | 0.83544 | 0.82771 to 0.84597 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted fallopien tubes epithelium | healthy | 3 | 0.80111 | 0.79678 to 0.82946 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted fallopien tubes epithelium | healthy | 3 | 0.19047 | 0.18898 to 0.25476 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted fallopien tubes epithelium | healthy | 3 | 1.0194 | 1.0096 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted fallopien tubes epithelium | healthy | 3 | 0.85 | 0.84316 to 0.85794 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted fallopien tubes epithelium | healthy | 3 | 0.16784 | 0.16269 to 0.21939 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted fallopien tubes epithelium | healthy | 3 | 0.8921 | 0.88696 to 0.89255 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted fallopien tubes epithelium | healthy | 6 | 0.91966 | 0.829 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted fallopien tubes epithelium | healthy | 6 | 0.92837 | 0.7975 to 1.1014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted fallopien tubes epithelium | healthy | 6 | 0.59133 | 0.18923 to 1.2098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted fallopien tubes epithelium | healthy | 6 | 1.0106 | 1.0019 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted fallopien tubes epithelium | healthy | 6 | 0.9255 | 0.8443 to 1.0102 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted fallopien tubes epithelium | healthy | 6 | 0.51474 | 0.16355 to 1.3338 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted fallopien tubes epithelium | healthy | 6 | 0.94192 | 0.88782 to 1.0039 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | fallopien tubes epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.9378 | 0.88722 to 0.95238 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | fallopien tubes epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.7179 | 0.69125 to 0.73999 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted fallopien tubes epithelium | healthy | 3 | 0.9959 | 0.99221 to 0.9968 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | fallopien tubes epithelium | sorted fallopien tubes epithelium | healthy | 6 | 0.85288 | 0.69569 to 1.072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted fallopien tubes epithelium | healthy | 6 | 0.9964 | 0.99225 to 1 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted fallopien tubes epithelium | healthy | 3 | 0.9257 | 0.91481 to 0.94046 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted fallopien tubes epithelium | healthy | 3 | 1.0206 | 0.99072 to 1.023 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted fallopien tubes epithelium | healthy | 3 | 0.9874 | 0.92656 to 1.0163 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted fallopien tubes epithelium | healthy | 3 | 1.0212 | 0.99789 to 1.028 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted endometrium epithelium | healthy | 3 | 0.87847 | 0.86832 to 1.0027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted endometrium epithelium | healthy | 3 | 0.86016 | 0.8484 to 0.99149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted endometrium epithelium | healthy | 3 | 0.18939 | 0.17327 to 0.20289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted endometrium epithelium | healthy | 3 | 1.0587 | 1.0539 to 1.1763 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted endometrium epithelium | healthy | 3 | 0.8971 | 0.8854 to 1.0304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted endometrium epithelium | healthy | 3 | 0.16428 | 0.14328 to 0.18169 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted endometrium epithelium | healthy | 3 | 0.93616 | 0.92567 to 0.99628 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted endometrium epithelium | healthy | 6 | 0.93848 | 0.87001 to 1.125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted endometrium epithelium | healthy | 6 | 1.0021 | 0.85036 to 1.1665 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted endometrium epithelium | healthy | 6 | 0.58322 | 0.17596 to 1.0806 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted endometrium epithelium | healthy | 6 | 1.056 | 0.9601 to 1.1714 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted endometrium epithelium | healthy | 6 | 0.93156 | 0.88735 to 1.1402 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted endometrium epithelium | healthy | 6 | 0.54694 | 0.14678 to 1.2219 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted endometrium epithelium | healthy | 6 | 0.96545 | 0.92741 to 1.0583 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | endometrium epithelium | sorted endometrium epithelium | healthy | 3 | 0.9201 | 0.89112 to 0.93882 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | endometrium epithelium | sorted endometrium epithelium | healthy | 3 | 0.72973 | 0.69227 to 0.81051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted endometrium epithelium | healthy | 3 | 1.0018 | 1.0004 to 1.0077 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | endometrium epithelium | sorted endometrium epithelium | healthy | 6 | 0.82695 | 0.69851 to 1.0992 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted endometrium epithelium | healthy | 6 | 1.0015 | 1.0004 to 1.0071 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted endometrium epithelium | healthy | 3 | 0.9685 | 0.94699 to 0.97498 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted endometrium epithelium | healthy | 3 | 0.9762 | 0.9564 to 0.99348 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted endometrium epithelium | healthy | 3 | 0.9599 | 0.92462 to 1.0027 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted endometrium epithelium | healthy | 3 | 1.0173 | 1.0052 to 1.0612 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted erythrocyte progenitors | healthy | 3 | 1.5553 | 1.5246 to 1.5734 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted erythrocyte progenitors | healthy | 3 | 1.5314 | 1.4848 to 1.5409 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted erythrocyte progenitors | healthy | 3 | 0.18951 | 0.17855 to 0.19994 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted erythrocyte progenitors | healthy | 3 | 2.1646 | 2.116 to 2.2058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted erythrocyte progenitors | healthy | 3 | 1.5515 | 1.5253 to 1.5711 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted erythrocyte progenitors | healthy | 3 | 0.17212 | 0.14665 to 0.18435 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted erythrocyte progenitors | healthy | 3 | 1.9037 | 1.8187 to 1.9679 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted erythrocyte progenitors | healthy | 10 | 0.98935 | 0.77577 to 1.5663 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted erythrocyte progenitors | healthy | 10 | 1.0123 | 0.93651 to 1.5372 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted erythrocyte progenitors | healthy | 10 | 0.6502 | 0.18281 to 1.0487 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted erythrocyte progenitors | healthy | 10 | 0.97111 | 0.58315 to 2.1898 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted erythrocyte progenitors | healthy | 10 | 0.99079 | 0.81002 to 1.5635 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted erythrocyte progenitors | healthy | 10 | 0.90175 | 0.15655 to 1.1141 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted erythrocyte progenitors | healthy | 10 | 0.97954 | 0.61337 to 1.9429 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | erythrocyte progenitors | sorted erythrocyte progenitors | healthy | 3 | 0.7374 | 0.72138 to 0.73965 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | erythrocyte progenitors | sorted erythrocyte progenitors | healthy | 3 | 0.74692 | 0.72741 to 0.85149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted erythrocyte progenitors | healthy | 3 | 0.9997 | 0.99889 to 1.0048 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | erythrocyte progenitors | sorted erythrocyte progenitors | healthy | 6 | 0.91705 | 0.73066 to 1.1247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted erythrocyte progenitors | healthy | 10 | 0.99965 | 0.9953 to 1.0061 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted erythrocyte progenitors | healthy | 3 | 1.0375 | 1.0017 to 1.0472 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted erythrocyte progenitors | healthy | 3 | 0.986 | 0.97358 to 0.9878 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted erythrocyte progenitors | healthy | 3 | 0.9045 | 0.89694 to 0.91521 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted erythrocyte progenitors | healthy | 3 | 0.977 | 0.94856 to 1.0118 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted erythrocyte progenitors | healthy | 3 | 0.9167 | 0.9149 to 0.9365 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted cd4 t cells | healthy | 3 | 0.80439 | 0.7923 to 0.85843 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cd4 t cells | healthy | 3 | 0.69578 | 0.6729 to 0.76176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted cd4 t cells | healthy | 3 | 0.31133 | 0.24394 to 0.31215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted cd4 t cells | healthy | 3 | 0.87382 | 0.87075 to 0.95667 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted cd4 t cells | healthy | 3 | 0.82923 | 0.81942 to 0.88098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted cd4 t cells | healthy | 3 | 0.25439 | 0.21493 to 0.27102 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted cd4 t cells | healthy | 3 | 0.80542 | 0.80302 to 0.84881 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted cd4 t cells | healthy | 22 | 0.88157 | 0.74675 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cd4 t cells | healthy | 22 | 0.68307 | 0.54813 to 1.0307 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted cd4 t cells | healthy | 22 | 0.64992 | 0.31138 to 4.6175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted cd4 t cells | healthy | 22 | 0.8264 | 0.70972 to 0.98962 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted cd4 t cells | healthy | 22 | 0.89677 | 0.76217 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted cd4 t cells | healthy | 22 | 0.8041 | 0.25531 to 4.3482 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted cd4 t cells | healthy | 22 | 0.81105 | 0.68457 to 0.9822 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | cd4 t cells | sorted cd4 t cells | healthy | 3 | 0.9282 | 0.92712 to 0.94638 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | cd4 t cells | sorted cd4 t cells | healthy | 3 | 0.6925 | 0.6694 to 0.75763 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted cd4 t cells | healthy | 3 | 1.0072 | 0.99298 to 1.0085 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | cd4 t cells | sorted cd4 t cells | healthy | 3 | 0.996 | 0.99267 to 1.0645 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted cd8 t cells | healthy | 3 | 0.99039 | 0.88514 to 1.0294 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cd8 t cells | healthy | 3 | 0.76109 | 0.68696 to 0.77078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted cd8 t cells | healthy | 3 | 0.31616 | 0.31096 to 0.37599 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted cd8 t cells | healthy | 3 | 1.1259 | 0.98432 to 1.212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted cd8 t cells | healthy | 3 | 1.0112 | 0.90952 to 1.051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted cd8 t cells | healthy | 3 | 0.27609 | 0.26452 to 0.31827 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted cd8 t cells | healthy | 3 | 1.0217 | 0.90437 to 1.0695 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A sorted cell (atlas) | cd4 t cells | sorted cd4 t cells | healthy | 6 | 0.82272 | 0.67325 to 1.0662 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted cd4 t cells | healthy | 22 | 1.0005 | 0.9925 to 1.0109 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd4 t cells | sorted cd4 t cells | healthy | 22 | 1.0254 | 0.90714 to 1.1115 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted cd8 t cells | healthy | 14 | 0.79997 | 0.65978 to 1.0488 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cd8 t cells | healthy | 14 | 0.71991 | 0.54474 to 1.0856 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted cd8 t cells | healthy | 14 | 0.33996 | 0.22203 to 1.907 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted cd8 t cells | healthy | 14 | 0.75107 | 0.61113 to 1.1635 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted cd8 t cells | healthy | 14 | 0.79975 | 0.67896 to 1.0606 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted cd8 t cells | healthy | 14 | 0.62709 | 0.22777 to 1.4326 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted cd8 t cells | healthy | 14 | 0.70675 | 0.54398 to 1.0852 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | cd8 t cells | sorted cd8 t cells | healthy | 3 | 0.9518 | 0.89168 to 0.97547 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | cd8 t cells | sorted cd8 t cells | healthy | 3 | 0.75742 | 0.68366 to 0.76676 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted cd8 t cells | healthy | 3 | 0.9959 | 0.99563 to 1.0076 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | cd8 t cells | sorted cd8 t cells | healthy | 3 | 1.0961 | 1.004 to 1.111 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted t central memory cd4 | healthy | 3 | 0.92355 | 0.91644 to 0.95589 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted t central memory cd4 | healthy | 3 | 0.69526 | 0.67718 to 0.73389 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted t central memory cd4 | healthy | 3 | 0.23048 | 0.22811 to 0.2311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted t central memory cd4 | healthy | 3 | 1.0779 | 1.062 to 1.1334 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted t central memory cd4 | healthy | 3 | 0.94917 | 0.94347 to 0.97937 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted t central memory cd4 | healthy | 3 | 0.19411 | 0.19149 to 0.20171 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted t central memory cd4 | healthy | 3 | 0.9679 | 0.96657 to 0.99358 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A sorted cell (atlas) | cd8 t cells | sorted cd8 t cells | healthy | 12 | 0.73921 | 0.56907 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted cd8 t cells | healthy | 14 | 0.99985 | 0.9946 to 1.0081 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | sorted cd8 t cells | healthy | 14 | 1.0802 | 0.9545 to 1.1019 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted t central memory cd4 | healthy | 10 | 0.9844 | 0.9192 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted t central memory cd4 | healthy | 10 | 0.77617 | 0.68421 to 1.086 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted t central memory cd4 | healthy | 10 | 0.51688 | 0.22903 to 1.0555 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted t central memory cd4 | healthy | 10 | 1.0073 | 0.97792 to 1.1118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted t central memory cd4 | healthy | 10 | 0.99147 | 0.94569 to 1.0283 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted t central memory cd4 | healthy | 10 | 0.73794 | 0.19251 to 1.0316 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted t central memory cd4 | healthy | 10 | 0.97728 | 0.95733 to 1.0291 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | t central memory cd4 | sorted t central memory cd4 | healthy | 3 | 1.0593 | 1.0216 to 1.0604 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | t central memory cd4 | sorted t central memory cd4 | healthy | 3 | 0.78507 | 0.75222 to 0.8234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted t central memory cd4 | healthy | 3 | 0.9998 | 0.99872 to 1.0016 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | t central memory cd4 | sorted t central memory cd4 | healthy | 8 | 0.82215 | 0.75384 to 1.0829 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted t central memory cd4 | healthy | 10 | 1.001 | 0.99613 to 1.0045 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted t central memory cd4 | healthy | 3 | 1.0059 | 0.94164 to 1.0071 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted t effector cell cd8 | healthy | 3 | 0.97655 | 0.95454 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted t effector cell cd8 | healthy | 3 | 0.71944 | 0.70343 to 0.77705 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted t effector cell cd8 | healthy | 3 | 0.29797 | 0.27875 to 0.30592 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted t effector cell cd8 | healthy | 3 | 1.1272 | 1.0795 to 1.1979 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted t effector cell cd8 | healthy | 3 | 1.0012 | 0.98096 to 1.0347 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted t effector cell cd8 | healthy | 3 | 0.25658 | 0.23968 to 0.25676 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted t effector cell cd8 | healthy | 3 | 1.0205 | 0.96132 to 1.0802 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted t effector cell cd8 | healthy | 6 | 0.99043 | 0.9582 to 1.0303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted t effector cell cd8 | healthy | 6 | 0.91249 | 0.7061 to 1.0899 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted t effector cell cd8 | healthy | 6 | 0.64306 | 0.28196 to 1.0818 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted t effector cell cd8 | healthy | 6 | 1.073 | 0.95506 to 1.1862 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted t effector cell cd8 | healthy | 6 | 1.0009 | 0.97981 to 1.0363 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted t effector cell cd8 | healthy | 6 | 0.60158 | 0.2425 to 1.0608 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted t effector cell cd8 | healthy | 6 | 1.0069 | 0.94788 to 1.0791 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | t effector cell cd8 | sorted t effector cell cd8 | healthy | 3 | 1.0169 | 0.91592 to 1.0405 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | t effector cell cd8 | sorted t effector cell cd8 | healthy | 3 | 0.82295 | 0.82256 to 0.8616 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted t effector cell cd8 | healthy | 3 | 0.9969 | 0.99438 to 0.99726 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | t effector cell cd8 | sorted t effector cell cd8 | healthy | 6 | 0.9072 | 0.82263 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted t effector cell cd8 | healthy | 6 | 0.9947 | 0.99193 to 0.9972 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted t effector cell cd8 | healthy | 3 | 1.0108 | 1.0089 to 1.0588 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted t effector cell cd8 | healthy | 3 | 0.9783 | 0.95076 to 0.99288 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted t effector memory cd4 | healthy | 3 | 1.0644 | 1.0289 to 1.0666 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted t effector memory cd4 | healthy | 3 | 0.93742 | 0.89501 to 0.95032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted t effector memory cd4 | healthy | 3 | 0.24249 | 0.24244 to 0.25295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted t effector memory cd4 | healthy | 3 | 1.3066 | 1.2391 to 1.3106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted t effector memory cd4 | healthy | 3 | 1.082 | 1.051 to 1.0864 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted t effector memory cd4 | healthy | 3 | 0.20742 | 0.20414 to 0.21616 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted t effector memory cd4 | healthy | 3 | 1.1678 | 1.0949 to 1.1681 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted t effector memory cd4 | healthy | 10 | 1.0027 | 0.9475 to 1.0657 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted t effector memory cd4 | healthy | 10 | 0.91848 | 0.89007 to 1.0922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted t effector memory cd4 | healthy | 10 | 0.46385 | 0.24246 to 1.0554 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted t effector memory cd4 | healthy | 10 | 0.99574 | 0.95133 to 1.3091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted t effector memory cd4 | healthy | 10 | 1.0021 | 0.95729 to 1.0847 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted t effector memory cd4 | healthy | 10 | 0.67898 | 0.20541 to 1.0707 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted t effector memory cd4 | healthy | 10 | 0.99301 | 0.9308 to 1.168 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | t effector memory cd4 | sorted t effector memory cd4 | healthy | 3 | 0.9412 | 0.90331 to 0.98791 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | t effector memory cd4 | sorted t effector memory cd4 | healthy | 3 | 0.77313 | 0.7676 to 0.79855 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted t effector memory cd4 | healthy | 3 | 0.9946 | 0.99433 to 0.99712 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | t effector memory cd4 | sorted t effector memory cd4 | healthy | 8 | 0.90085 | 0.76914 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted t effector memory cd4 | healthy | 10 | 1.0007 | 0.99443 to 1.0168 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted t effector memory cd4 | healthy | 3 | 1.0469 | 0.96464 to 1.0532 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted t effector memory cd4 | healthy | 3 | 0.9737 | 0.96272 to 0.98441 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted t effector memory cd4 | healthy | 3 | 0.9943 | 0.98449 to 1.087 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted effector memory cd8 t cells | healthy | 1 | 1.0595 | 1.0595 to 1.0595 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted effector memory cd8 t cells | healthy | 1 | 0.74034 | 0.74034 to 0.74034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted effector memory cd8 t cells | healthy | 1 | 0.28196 | 0.28196 to 0.28196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted effector memory cd8 t cells | healthy | 1 | 1.2785 | 1.2785 to 1.2785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted effector memory cd8 t cells | healthy | 1 | 1.0803 | 1.0803 to 1.0803 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted effector memory cd8 t cells | healthy | 1 | 0.24442 | 0.24442 to 0.24442 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted effector memory cd8 t cells | healthy | 1 | 1.1461 | 1.1461 to 1.1461 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted effector memory cd8 t cells | healthy | 5 | 1.0511 | 1.0216 to 1.0578 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted effector memory cd8 t cells | healthy | 5 | 0.68119 | 0.6477 to 0.72851 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted effector memory cd8 t cells | healthy | 5 | 0.60879 | 0.34733 to 0.65881 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted effector memory cd8 t cells | healthy | 5 | 1.013 | 0.98258 to 1.2254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted effector memory cd8 t cells | healthy | 5 | 1.0702 | 1.0389 to 1.0783 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted effector memory cd8 t cells | healthy | 5 | 0.54245 | 0.29808 to 0.9445 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted effector memory cd8 t cells | healthy | 5 | 0.94322 | 0.92945 to 1.1056 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 1 | 0.9094 | 0.9094 to 0.9094 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 1 | 0.73758 | 0.73758 to 0.73758 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted effector memory cd8 t cells | healthy | 1 | 0.9948 | 0.9948 to 0.9948 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 5 | 0.62192 | 0.58341 to 0.72175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted effector memory cd8 t cells | healthy | 5 | 1.0019 | 0.99622 to 1.0045 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted effector memory cd8 t cells | healthy | 1 | 1.0814 | 1.0814 to 1.0814 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted naive cd4 t cells | healthy | 1 | 0.61564 | 0.61564 to 0.61564 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted naive cd4 t cells | healthy | 1 | 0.43466 | 0.43466 to 0.43466 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -661,30 +661,30 @@ reading made another way (an earlier tare), so those rows show none.
 | Met-A | Met-A sorted cell (atlas) | naive cd8 t cells | sorted naive cd8 t cells | healthy | 1 | 0.63896 | 0.63896 to 0.63896 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | C-Score | C-Score whole genome | whole genome | sorted naive cd8 t cells | healthy | 1 | 0.9964 | 0.9964 to 0.9964 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted naive cd8 t cells | healthy | 1 | 1.0111 | 1.0111 to 1.0111 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted nk cells | healthy | 3 | 0.80829 | 0.77107 to 0.9738 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted nk cells | healthy | 3 | 0.70856 | 0.70493 to 0.75017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted nk cells | healthy | 3 | 0.27612 | 0.27351 to 0.28583 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted nk cells | healthy | 3 | 0.87508 | 0.83 to 1.1104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted nk cells | healthy | 3 | 0.83593 | 0.79647 to 1.0038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted nk cells | healthy | 3 | 0.24276 | 0.22479 to 0.25069 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted nk cells | healthy | 3 | 0.79512 | 0.73567 to 0.99878 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted nk cells | healthy | 14 | 0.92261 | 0.79381 to 1.05 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted nk cells | healthy | 14 | 0.7928 | 0.70715 to 1.0362 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted nk cells | healthy | 14 | 0.23394 | 0.17082 to 1.0456 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted nk cells | healthy | 14 | 0.97943 | 0.84233 to 1.1584 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted nk cells | healthy | 14 | 0.92834 | 0.82059 to 1.0684 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted nk cells | healthy | 14 | 0.46547 | 0.17543 to 1.0237 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted nk cells | healthy | 14 | 0.93659 | 0.772 to 1.0769 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | nk cells | sorted nk cells | healthy | 3 | 0.9105 | 0.89619 to 0.95775 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | nk cells | sorted nk cells | healthy | 3 | 0.70767 | 0.70417 to 0.83281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted nk cells | healthy | 3 | 1.0003 | 0.99607 to 1.0013 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | nk cells | sorted nk cells | healthy | 3 | 0.9064 | 0.89785 to 0.92224 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | nk cells | sorted nk cells | healthy | 14 | 0.81004 | 0.7008 to 1.0055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted nk cells | healthy | 14 | 1.0029 | 0.99249 to 1.0053 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | sorted nk cells | healthy | 14 | 0.93435 | 0.89487 to 0.9971 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted nk cells | healthy | 1 | 1.0463 | 1.0463 to 1.0463 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted monocytes | healthy | 3 | 0.75462 | 0.74462 to 0.79298 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted monocytes | healthy | 3 | 0.6662 | 0.65385 to 0.69439 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted monocytes | healthy | 3 | 0.18876 | 0.18156 to 0.23943 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted monocytes | healthy | 3 | 0.84628 | 0.84335 to 0.90662 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted monocytes | healthy | 3 | 0.77945 | 0.77031 to 0.82101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted monocytes | healthy | 3 | 0.15765 | 0.14798 to 0.20535 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted monocytes | healthy | 3 | 0.76359 | 0.74799 to 0.776 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted monocytes | healthy | 50 | 0.94752 | 0.83828 to 1.0776 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted monocytes | healthy | 50 | 0.75524 | 0.66682 to 0.97262 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted monocytes | healthy | 50 | 0.25765 | 0.18436 to 0.74037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted monocytes | healthy | 50 | 0.95247 | 0.86545 to 1.1326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted monocytes | healthy | 50 | 0.96504 | 0.86254 to 1.0856 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted monocytes | healthy | 50 | 0.49057 | 0.1692 to 0.86956 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted monocytes | healthy | 50 | 0.92367 | 0.80795 to 1.0847 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | monocytes | sorted monocytes | healthy | 3 | 0.8997 | 0.8799 to 0.91788 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | monocytes | sorted monocytes | healthy | 3 | 0.7519 | 0.7425 to 0.79834 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted monocytes | healthy | 3 | 0.9987 | 0.99861 to 1.003 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | monocytes | sorted monocytes | healthy | 44 | 0.79604 | 0.69629 to 0.97886 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted monocytes | healthy | 50 | 1.0012 | 0.99589 to 1.0077 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted monocytes | healthy | 3 | 1.0928 | 1.0527 to 1.1077 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | monocytes | sorted monocytes | healthy | 3 | 0.9953 | 0.99449 to 1.0154 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | sorted monocytes | healthy | 50 | 1.0024 | 0.8922 to 1.0553 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted colon macrophages | healthy | 2 | 0.97606 | 0.91485 to 1.0373 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted colon macrophages | healthy | 2 | 0.8187 | 0.73635 to 0.90105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | islands | sorted colon macrophages | healthy | 2 | 0.2312 | 0.21792 to 0.24449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -701,276 +701,276 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | cd4 t cells | sorted colon macrophages | healthy | 1 | 1.0155 | 1.0155 to 1.0155 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted colon macrophages | healthy | 2 | 1.0399 | 1.0051 to 1.0747 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted colon macrophages | healthy | 1 | 0.9282 | 0.9282 to 0.9282 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted lung alveolar macrophages | healthy | 2 | 0.79668 | 0.77766 to 0.81571 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung alveolar macrophages | healthy | 2 | 0.6649 | 0.65794 to 0.67186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted lung alveolar macrophages | healthy | 2 | 0.19789 | 0.19504 to 0.20074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted lung alveolar macrophages | healthy | 2 | 0.86533 | 0.8419 to 0.88877 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted lung alveolar macrophages | healthy | 2 | 0.83225 | 0.81229 to 0.85221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted lung alveolar macrophages | healthy | 2 | 0.17376 | 0.16711 to 0.18041 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted lung alveolar macrophages | healthy | 2 | 0.77957 | 0.74641 to 0.81273 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted lung alveolar macrophages | healthy | 4 | 0.90132 | 0.78189 to 1.0357 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung alveolar macrophages | healthy | 4 | 0.84332 | 0.65949 to 1.1167 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted lung alveolar macrophages | healthy | 4 | 0.63236 | 0.19567 to 1.0695 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted lung alveolar macrophages | healthy | 4 | 0.93938 | 0.84711 to 1.0401 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted lung alveolar macrophages | healthy | 4 | 0.91836 | 0.81672 to 1.0343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted lung alveolar macrophages | healthy | 4 | 0.59767 | 0.16859 to 1.0329 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted lung alveolar macrophages | healthy | 4 | 0.89858 | 0.75378 to 1.0325 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | lung alveolar macrophages | sorted lung alveolar macrophages | healthy | 2 | 0.8507 | 0.84035 to 0.86105 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | lung alveolar macrophages | sorted lung alveolar macrophages | healthy | 2 | 0.8924 | 0.85005 to 0.93474 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted lung alveolar macrophages | healthy | 2 | 1.0011 | 0.99472 to 1.0076 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | lung alveolar macrophages | sorted lung alveolar macrophages | healthy | 4 | 0.9192 | 0.85338 to 1.0865 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted lung alveolar macrophages | healthy | 4 | 1.0048 | 0.99508 to 1.0087 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted lung alveolar macrophages | healthy | 2 | 1.008 | 0.99018 to 1.0258 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted lung alveolar macrophages | healthy | 2 | 0.9617 | 0.96134 to 0.96206 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted lung alveolar macrophages | healthy | 1 | 0.9876 | 0.9876 to 0.9876 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted lung interstitial macrophages | healthy | 3 | 0.76998 | 0.74158 to 0.84819 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung interstitial macrophages | healthy | 3 | 0.67711 | 0.59274 to 0.69373 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted lung interstitial macrophages | healthy | 3 | 0.21435 | 0.19255 to 0.21582 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted lung interstitial macrophages | healthy | 3 | 0.84871 | 0.80393 to 0.93186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted lung interstitial macrophages | healthy | 3 | 0.80099 | 0.77465 to 0.88365 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted lung interstitial macrophages | healthy | 3 | 0.19032 | 0.16945 to 0.1925 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted lung interstitial macrophages | healthy | 3 | 0.77831 | 0.73313 to 0.839 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted lung interstitial macrophages | healthy | 6 | 0.88502 | 0.74631 to 1.0851 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung interstitial macrophages | healthy | 6 | 0.86027 | 0.6068 to 1.116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted lung interstitial macrophages | healthy | 6 | 0.58923 | 0.19618 to 1.0848 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted lung interstitial macrophages | healthy | 6 | 0.92889 | 0.81139 to 1.0848 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted lung interstitial macrophages | healthy | 6 | 0.90195 | 0.77904 to 1.0849 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted lung interstitial macrophages | healthy | 6 | 0.542 | 0.17293 to 1.0502 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted lung interstitial macrophages | healthy | 6 | 0.88312 | 0.74066 to 1.0634 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | lung interstitial macrophages | sorted lung interstitial macrophages | healthy | 3 | 0.847 | 0.84439 to 0.86005 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | lung interstitial macrophages | sorted lung interstitial macrophages | healthy | 3 | 0.70454 | 0.70434 to 0.77389 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted lung interstitial macrophages | healthy | 3 | 1.0043 | 0.99719 to 1.0088 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | lung interstitial macrophages | sorted lung interstitial macrophages | healthy | 6 | 0.84021 | 0.70437 to 1.0671 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted lung interstitial macrophages | healthy | 6 | 1.0051 | 0.9979 to 1.009 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted lung interstitial macrophages | healthy | 3 | 0.9713 | 0.93512 to 0.97256 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted lung interstitial macrophages | healthy | 2 | 0.9833 | 0.94775 to 1.0189 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted lung interstitial macrophages | healthy | 1 | 0.9977 | 0.9977 to 0.9977 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted lung interstitial macrophages | healthy | 1 | 1.0377 | 1.0377 to 1.0377 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted lung interstitial macrophages | healthy | 1 | 0.9858 | 0.9858 to 0.9858 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted b cells | healthy | 4 | 0.87722 | 0.77662 to 1.0198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | healthy | 4 | 0.69226 | 0.62619 to 0.89161 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted b cells | healthy | 4 | 0.27803 | 0.23415 to 0.31587 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted b cells | healthy | 4 | 0.97922 | 0.83487 to 1.2285 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted b cells | healthy | 4 | 0.90295 | 0.80093 to 1.0384 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted b cells | healthy | 4 | 0.27028 | 0.21603 to 2.8595 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted b cells | healthy | 4 | 0.8361 | 0.77166 to 0.92822 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | healthy | 21 | 0.7813 | 0.72074 to 1.078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | healthy | 21 | 0.62328 | 0.56447 to 1.0935 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | healthy | 21 | 0.31066 | 0.20756 to 1.092 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | healthy | 21 | 0.78232 | 0.70082 to 1.1784 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | healthy | 21 | 0.79667 | 0.73534 to 1.0841 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | healthy | 21 | 0.66883 | 0.20554 to 1.1417 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | healthy | 21 | 0.74557 | 0.6635 to 1.045 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | b cells | sorted b cells | healthy | 4 | 0.87995 | 0.81288 to 0.95544 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | healthy | 4 | 0.68907 | 0.62347 to 1.8717 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted b cells | healthy | 4 | 0.99885 | 0.99582 to 1.005 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | b cells | sorted b cells | healthy | 4 | 0.9742 | 0.96156 to 1.0043 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted memory b cells | healthy | 4 | 0.9918 | 0.96169 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted memory b cells | healthy | 4 | 0.82049 | 0.6983 to 0.92072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted memory b cells | healthy | 4 | 0.22834 | 0.21299 to 0.2434 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted memory b cells | healthy | 4 | 1.1859 | 1.135 to 1.2349 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted memory b cells | healthy | 4 | 1.0127 | 0.98557 to 1.0415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted memory b cells | healthy | 4 | 0.63989 | 0.19743 to 1.0824 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted memory b cells | healthy | 4 | 0.92036 | 0.77583 to 1.0687 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | healthy | 19 | 0.67996 | 0.56876 to 1.1677 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | healthy | 21 | 1.0005 | 0.9909 to 1.0146 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | healthy | 21 | 0.9998 | 0.9369 to 1.072 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted memory b cells | healthy | 18 | 1.0395 | 0.94792 to 1.1888 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted memory b cells | healthy | 16 | 0.75255 | 0.61871 to 1.0706 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted memory b cells | healthy | 18 | 0.61925 | 0.21702 to 1.7074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted memory b cells | healthy | 18 | 1.0945 | 0.90267 to 1.2572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted memory b cells | healthy | 18 | 1.048 | 0.96554 to 1.1976 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted memory b cells | healthy | 18 | 1.003 | 0.19955 to 1.2882 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted memory b cells | healthy | 18 | 1.0324 | 0.81132 to 1.1611 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | memory b cells | sorted memory b cells | healthy | 4 | 0.88975 | 0.78753 to 1.0152 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | memory b cells | sorted memory b cells | healthy | 4 | 1.3665 | 0.72604 to 1.9766 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted memory b cells | healthy | 4 | 0.99755 | 0.99298 to 0.99787 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | memory b cells | sorted memory b cells | healthy | 10 | 0.79184 | 0.58334 to 1.9745 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted memory b cells | healthy | 18 | 0.9978 | 0.9912 to 1.0075 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted memory b cells | healthy | 2 | 0.9713 | 0.95447 to 0.98813 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted tonsil palatine epithelium | healthy | 3 | 1.0382 | 1.0032 to 1.0535 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted tonsil palatine epithelium | healthy | 3 | 1.0051 | 0.98378 to 1.0375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted tonsil palatine epithelium | healthy | 3 | 0.19037 | 0.18941 to 0.19431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted tonsil palatine epithelium | healthy | 3 | 1.3633 | 1.3143 to 1.4063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted tonsil palatine epithelium | healthy | 3 | 1.0466 | 1.01 to 1.0576 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted tonsil palatine epithelium | healthy | 3 | 0.17092 | 0.16921 to 0.17293 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted tonsil palatine epithelium | healthy | 3 | 1.2087 | 1.1598 to 1.2363 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted tonsil palatine epithelium | healthy | 6 | 1.024 | 0.97369 to 1.0509 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted tonsil palatine epithelium | healthy | 6 | 1.0405 | 0.98732 to 1.0777 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted tonsil palatine epithelium | healthy | 6 | 0.60887 | 0.18957 to 1.0587 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted tonsil palatine epithelium | healthy | 6 | 1.1794 | 0.97117 to 1.3992 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted tonsil palatine epithelium | healthy | 6 | 1.0224 | 0.97476 to 1.0558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted tonsil palatine epithelium | healthy | 6 | 0.56973 | 0.1695 to 1.0235 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted tonsil palatine epithelium | healthy | 6 | 1.0957 | 0.97347 to 1.2317 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | tonsil palatine epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0066 | 0.95962 to 1.013 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | tonsil palatine epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.73051 | 0.7236 to 0.75055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted tonsil palatine epithelium | healthy | 3 | 1.0027 | 0.99901 to 1.0027 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | tonsil palatine epithelium | sorted tonsil palatine epithelium | healthy | 6 | 0.87104 | 0.72475 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted tonsil palatine epithelium | healthy | 6 | 1.0012 | 0.99867 to 1.0046 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted tonsil palatine epithelium | healthy | 3 | 0.9473 | 0.90365 to 0.97565 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted tonsil palatine epithelium | healthy | 3 | 0.9731 | 0.92729 to 0.99011 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted tonsil palatine epithelium | healthy | 3 | 0.9759 | 0.94656 to 1.0407 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted tonsil palatine epithelium | healthy | 3 | 1.0704 | 1.0083 to 1.0811 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted tonsil palatine epithelium | healthy | 3 | 0.9368 | 0.91025 to 0.94256 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.027 | 1.0014 to 1.0525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0091 | 0.97964 to 1.0386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.18816 | 0.18802 to 0.1883 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.3528 | 1.2871 to 1.4184 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.033 | 1.0119 to 1.054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.16417 | 0.16236 to 0.16597 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.182 | 1.1129 to 1.2512 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted tonsil pharyngeal epithelium | healthy | 4 | 1.0151 | 0.98249 to 1.0518 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted tonsil pharyngeal epithelium | healthy | 4 | 1.0418 | 0.98617 to 1.0973 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted tonsil pharyngeal epithelium | healthy | 4 | 0.62507 | 0.18805 to 1.0754 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted tonsil pharyngeal epithelium | healthy | 4 | 1.1747 | 0.95427 to 1.4038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted tonsil pharyngeal epithelium | healthy | 4 | 1.0168 | 0.9896 to 1.0515 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted tonsil pharyngeal epithelium | healthy | 4 | 0.58676 | 0.16276 to 1.0239 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted tonsil pharyngeal epithelium | healthy | 4 | 1.0782 | 0.95205 to 1.2358 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | tonsil pharyngeal epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.98485 | 0.94458 to 1.0251 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | tonsil pharyngeal epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.93591 | 0.91147 to 0.96035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0076 | 1.0036 to 1.0116 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | tonsil pharyngeal epithelium | sorted tonsil pharyngeal epithelium | healthy | 4 | 0.95294 | 0.91386 to 1.046 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted tonsil pharyngeal epithelium | healthy | 4 | 1.0034 | 0.99878 to 1.0107 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.94005 | 0.94 to 0.9401 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0072 | 1.0062 to 1.0083 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.98645 | 0.96849 to 1.0044 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0247 | 0.99167 to 1.0577 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.91755 | 0.90698 to 0.92812 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted tongue epithelium | healthy | 3 | 0.92043 | 0.90284 to 0.9246 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted tongue epithelium | healthy | 3 | 0.90272 | 0.89041 to 0.91562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted tongue epithelium | healthy | 3 | 0.19742 | 0.19311 to 0.20173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted tongue epithelium | healthy | 3 | 1.1647 | 1.1613 to 1.191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted tongue epithelium | healthy | 3 | 0.93146 | 0.91017 to 0.93234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted tongue epithelium | healthy | 3 | 0.17247 | 0.17017 to 0.18046 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted tongue epithelium | healthy | 3 | 1.0314 | 1.0192 to 1.0546 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted tongue epithelium | healthy | 6 | 0.94905 | 0.90577 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted tongue epithelium | healthy | 6 | 0.97552 | 0.89246 to 1.0848 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted tongue epithelium | healthy | 6 | 0.61021 | 0.19383 to 1.0535 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted tongue epithelium | healthy | 6 | 1.0898 | 0.98393 to 1.1866 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted tongue epithelium | healthy | 6 | 0.95098 | 0.91372 to 1.0065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted tongue epithelium | healthy | 6 | 0.57634 | 0.17055 to 1.01 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted tongue epithelium | healthy | 6 | 1.0117 | 0.97926 to 1.0508 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | tongue epithelium | sorted tongue epithelium | healthy | 3 | 1.0094 | 0.99806 to 1.0432 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | tongue epithelium | sorted tongue epithelium | healthy | 3 | 0.70774 | 0.7015 to 0.73838 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted tongue epithelium | healthy | 3 | 1.0042 | 0.99826 to 1.0049 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | tongue epithelium | sorted tongue epithelium | healthy | 6 | 0.86898 | 0.70254 to 1.0487 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted tongue epithelium | healthy | 6 | 1.0027 | 0.99572 to 1.0049 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted tongue epithelium | healthy | 3 | 0.9637 | 0.93238 to 0.98206 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted tongue epithelium | healthy | 3 | 0.9825 | 0.94794 to 0.99375 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted tongue epithelium | healthy | 3 | 0.9992 | 0.99137 to 1.0274 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted tongue epithelium | healthy | 3 | 1.0957 | 1.0913 to 1.1088 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted tongue epithelium | healthy | 3 | 0.9117 | 0.89451 to 0.94401 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted lung bronchus epithelium | healthy | 3 | 0.92693 | 0.91339 to 0.96448 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung bronchus epithelium | healthy | 3 | 0.89275 | 0.88157 to 0.94257 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted lung bronchus epithelium | healthy | 3 | 0.1914 | 0.18905 to 0.19678 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted lung bronchus epithelium | healthy | 3 | 1.1633 | 1.1526 to 1.243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted lung bronchus epithelium | healthy | 3 | 0.9409 | 0.92608 to 0.97407 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted lung bronchus epithelium | healthy | 3 | 0.17011 | 0.16746 to 0.18032 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted lung bronchus epithelium | healthy | 3 | 1.0353 | 1.0248 to 1.0979 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted lung bronchus epithelium | healthy | 6 | 0.97032 | 0.91564 to 1.0306 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung bronchus epithelium | healthy | 6 | 0.97277 | 0.88343 to 1.0682 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted lung bronchus epithelium | healthy | 6 | 0.61515 | 0.18944 to 1.0451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted lung bronchus epithelium | healthy | 6 | 1.1101 | 0.97198 to 1.2297 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted lung bronchus epithelium | healthy | 6 | 0.97433 | 0.92855 to 1.0273 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted lung bronchus epithelium | healthy | 6 | 0.58808 | 0.16791 to 1.0065 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted lung bronchus epithelium | healthy | 6 | 1.0295 | 0.97233 to 1.0914 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | lung bronchus epithelium | sorted lung bronchus epithelium | healthy | 3 | 1.0042 | 1.0027 to 1.0253 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | lung bronchus epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.68651 | 0.6662 to 0.71703 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted lung bronchus epithelium | healthy | 3 | 1.0009 | 0.99928 to 1.006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | lung bronchus epithelium | sorted lung bronchus epithelium | healthy | 6 | 0.82 | 0.66958 to 1.051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted lung bronchus epithelium | healthy | 6 | 1 | 0.99335 to 1.0067 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted lung bronchus epithelium | healthy | 3 | 0.9407 | 0.9407 to 0.99578 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted lung bronchus epithelium | healthy | 3 | 1.0171 | 0.97156 to 1.0243 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted lung bronchus epithelium | healthy | 3 | 0.9814 | 0.94306 to 0.98932 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted lung bronchus epithelium | healthy | 3 | 1.0488 | 1.0425 to 1.0871 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted lung bronchus epithelium | healthy | 3 | 0.8874 | 0.86634 to 0.92484 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted prostate epithelium | healthy | 3 | 0.96723 | 0.96205 to 0.96728 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted prostate epithelium | healthy | 3 | 0.95227 | 0.95115 to 0.96524 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted prostate epithelium | healthy | 3 | 0.2006 | 0.18656 to 0.21649 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted prostate epithelium | healthy | 3 | 1.1094 | 1.0892 to 1.1714 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted prostate epithelium | healthy | 3 | 0.99764 | 0.98044 to 0.99936 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted prostate epithelium | healthy | 3 | 0.1775 | 0.15983 to 0.19153 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted prostate epithelium | healthy | 3 | 0.96564 | 0.95391 to 1.0184 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted prostate epithelium | healthy | 6 | 0.97187 | 0.96291 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted prostate epithelium | healthy | 6 | 1.0078 | 0.95133 to 1.069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted prostate epithelium | healthy | 6 | 0.59128 | 0.1889 to 1.0896 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted prostate epithelium | healthy | 6 | 1.0678 | 0.97264 to 1.1611 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted prostate epithelium | healthy | 6 | 0.99769 | 0.96732 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted prostate epithelium | healthy | 6 | 0.56971 | 0.16278 to 1.0679 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted prostate epithelium | healthy | 6 | 0.97176 | 0.95467 to 1.0348 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | prostate epithelium | sorted prostate epithelium | healthy | 3 | 0.9435 | 0.92181 to 1.0151 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | prostate epithelium | sorted prostate epithelium | healthy | 3 | 0.7715 | 0.76171 to 0.77272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted prostate epithelium | healthy | 3 | 0.997 | 0.99322 to 1.0062 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | prostate epithelium | sorted prostate epithelium | healthy | 6 | 0.87935 | 0.76334 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted prostate epithelium | healthy | 6 | 0.9976 | 0.99367 to 1.006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted prostate epithelium | healthy | 3 | 0.9266 | 0.89906 to 0.94568 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted prostate epithelium | healthy | 3 | 1.0041 | 0.99528 to 1.0257 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted prostate epithelium | healthy | 3 | 0.9533 | 0.9245 to 1.0475 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted prostate epithelium | healthy | 3 | 1.0237 | 0.96439 to 1.0417 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted prostate epithelium | healthy | 3 | 0.9161 | 0.88577 to 0.92852 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted bladder epithelium | healthy | 3 | 0.95882 | 0.93804 to 0.97145 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted bladder epithelium | healthy | 3 | 0.94195 | 0.91388 to 0.94963 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted bladder epithelium | healthy | 3 | 0.17708 | 0.16636 to 0.17995 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted bladder epithelium | healthy | 3 | 1.1687 | 1.1504 to 1.1738 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted bladder epithelium | healthy | 3 | 0.97847 | 0.95696 to 0.99489 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted bladder epithelium | healthy | 3 | 0.15492 | 0.14064 to 0.15763 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted bladder epithelium | healthy | 3 | 1.0064 | 0.99681 to 1.0262 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted bladder epithelium | healthy | 6 | 0.96974 | 0.9415 to 1.0407 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted bladder epithelium | healthy | 6 | 0.99216 | 0.91856 to 1.125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted bladder epithelium | healthy | 6 | 0.59299 | 0.16815 to 1.0611 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted bladder epithelium | healthy | 6 | 1.0874 | 0.99117 to 1.1729 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted bladder epithelium | healthy | 6 | 0.98759 | 0.95643 to 1.0435 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted bladder epithelium | healthy | 6 | 0.5538 | 0.14302 to 1.1188 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted bladder epithelium | healthy | 6 | 1.0035 | 0.99052 to 1.0245 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | bladder epithelium | sorted bladder epithelium | healthy | 3 | 0.9913 | 0.98572 to 1.0144 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | bladder epithelium | sorted bladder epithelium | healthy | 3 | 0.76341 | 0.7579 to 0.83181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted bladder epithelium | healthy | 3 | 0.992 | 0.99182 to 0.9965 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | bladder epithelium | sorted bladder epithelium | healthy | 6 | 0.86891 | 0.75882 to 1.0608 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted bladder epithelium | healthy | 6 | 0.9967 | 0.99185 to 1.0081 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted bladder epithelium | healthy | 3 | 0.9545 | 0.89888 to 0.97556 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted bladder epithelium | healthy | 3 | 0.999 | 0.9522 to 1.0103 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted bladder epithelium | healthy | 3 | 0.9311 | 0.87557 to 0.96602 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted bladder epithelium | healthy | 3 | 1.0394 | 1.032 to 1.0474 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted bladder epithelium | healthy | 3 | 0.9701 | 0.95444 to 1.0001 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted breast luminal epithelium | healthy | 3 | 0.89183 | 0.86782 to 0.93088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted breast luminal epithelium | healthy | 3 | 0.88168 | 0.83826 to 0.92546 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted breast luminal epithelium | healthy | 3 | 0.26015 | 0.21304 to 0.29277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted breast luminal epithelium | healthy | 3 | 1.0277 | 0.96809 to 1.0573 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted breast luminal epithelium | healthy | 3 | 0.91075 | 0.89699 to 0.95512 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted breast luminal epithelium | healthy | 3 | 0.21556 | 0.18788 to 0.25484 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted breast luminal epithelium | healthy | 3 | 0.89265 | 0.84655 to 0.89634 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted breast luminal epithelium | healthy | 6 | 0.94081 | 0.87182 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted breast luminal epithelium | healthy | 6 | 0.96954 | 0.8455 to 1.145 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted breast luminal epithelium | healthy | 6 | 0.57403 | 0.22089 to 1.1924 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted breast luminal epithelium | healthy | 6 | 1.0272 | 0.94306 to 1.0558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted breast luminal epithelium | healthy | 6 | 0.95503 | 0.89928 to 1.0183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted breast luminal epithelium | healthy | 6 | 0.47769 | 0.1925 to 1.2021 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted breast luminal epithelium | healthy | 6 | 0.91607 | 0.85424 to 1.0196 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | breast luminal epithelium | sorted breast luminal epithelium | healthy | 3 | 0.915 | 0.86613 to 0.91833 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | breast luminal epithelium | sorted breast luminal epithelium | healthy | 3 | 0.76674 | 0.7182 to 0.81009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted breast luminal epithelium | healthy | 3 | 0.9965 | 0.99218 to 0.99902 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | breast luminal epithelium | sorted breast luminal epithelium | healthy | 6 | 0.87166 | 0.72629 to 1.0713 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted breast luminal epithelium | healthy | 6 | 0.9963 | 0.99215 to 0.9987 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted breast luminal epithelium | healthy | 3 | 0.8954 | 0.87218 to 0.9251 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted breast luminal epithelium | healthy | 3 | 0.9482 | 0.94694 to 1.017 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted breast luminal epithelium | healthy | 3 | 1.0041 | 0.94677 to 1.0289 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted breast luminal epithelium | healthy | 3 | 1.0185 | 0.95658 to 1.0257 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted breast luminal epithelium | healthy | 3 | 0.9476 | 0.94238 to 0.96389 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted breast basal epithelium | healthy | 3 | 0.8366 | 0.80335 to 0.86514 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted breast basal epithelium | healthy | 3 | 0.82404 | 0.78701 to 0.85702 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted breast basal epithelium | healthy | 3 | 0.26074 | 0.25603 to 0.26358 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted breast basal epithelium | healthy | 3 | 0.98073 | 0.93102 to 1.0012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted breast basal epithelium | healthy | 3 | 0.8524 | 0.81927 to 0.88383 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted breast basal epithelium | healthy | 3 | 0.22147 | 0.21617 to 0.22447 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted breast basal epithelium | healthy | 3 | 0.83822 | 0.79797 to 0.85482 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted breast basal epithelium | healthy | 6 | 0.91458 | 0.8089 to 1.0427 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted breast basal epithelium | healthy | 6 | 0.95935 | 0.79319 to 1.0942 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted breast basal epithelium | healthy | 6 | 0.64589 | 0.25682 to 1.0567 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted breast basal epithelium | healthy | 6 | 0.99212 | 0.93339 to 1.0403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted breast basal epithelium | healthy | 6 | 0.92285 | 0.82479 to 1.0428 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted breast basal epithelium | healthy | 6 | 0.61367 | 0.21705 to 1.0333 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted breast basal epithelium | healthy | 6 | 0.90514 | 0.80468 to 1.0255 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | breast basal epithelium | sorted breast basal epithelium | healthy | 3 | 0.899 | 0.89351 to 0.90143 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | breast basal epithelium | sorted breast basal epithelium | healthy | 3 | 0.79568 | 0.78044 to 0.80706 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted breast basal epithelium | healthy | 3 | 0.9994 | 0.99841 to 1.0007 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | breast basal epithelium | sorted breast basal epithelium | healthy | 6 | 0.88534 | 0.78298 to 1.0297 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted breast basal epithelium | healthy | 6 | 0.99885 | 0.9966 to 1.0031 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted breast basal epithelium | healthy | 3 | 0.9194 | 0.89168 to 0.92147 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted breast basal epithelium | healthy | 3 | 0.9172 | 0.88615 to 0.95482 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted breast basal epithelium | healthy | 3 | 0.9788 | 0.97673 to 0.99374 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted breast basal epithelium | healthy | 3 | 0.9889 | 0.92086 to 1.0121 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted breast basal epithelium | healthy | 3 | 1.0291 | 1.0268 to 1.033 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted lung alveolar epithelium | healthy | 3 | 0.95081 | 0.94233 to 0.96061 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung alveolar epithelium | healthy | 3 | 0.94566 | 0.93446 to 0.95047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted lung alveolar epithelium | healthy | 3 | 0.27551 | 0.27028 to 0.28534 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted lung alveolar epithelium | healthy | 3 | 1.1442 | 1.1344 to 1.1575 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted lung alveolar epithelium | healthy | 3 | 0.96656 | 0.95711 to 0.97644 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted lung alveolar epithelium | healthy | 3 | 0.24782 | 0.2393 to 0.25697 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted lung alveolar epithelium | healthy | 3 | 1.0124 | 1.0078 to 1.032 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted lung alveolar epithelium | healthy | 6 | 0.97599 | 0.94374 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted lung alveolar epithelium | healthy | 6 | 0.99417 | 0.93633 to 1.058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted lung alveolar epithelium | healthy | 6 | 0.65241 | 0.27115 to 1.0581 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted lung alveolar epithelium | healthy | 6 | 1.0751 | 0.99511 to 1.1553 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted lung alveolar epithelium | healthy | 6 | 0.9825 | 0.95869 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted lung alveolar epithelium | healthy | 6 | 0.61847 | 0.24072 to 1.0323 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted lung alveolar epithelium | healthy | 6 | 1.0083 | 0.99075 to 1.0287 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | lung alveolar epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.9565 | 0.94705 to 0.96478 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | lung alveolar epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.82321 | 0.81855 to 0.83419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted lung alveolar epithelium | healthy | 3 | 1.0018 | 1.0015 to 1.0037 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | lung alveolar epithelium | sorted lung alveolar epithelium | healthy | 6 | 0.9146 | 0.81933 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted lung alveolar epithelium | healthy | 6 | 0.99855 | 0.99213 to 1.0034 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted lung alveolar epithelium | healthy | 3 | 0.9694 | 0.92782 to 0.97588 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted lung alveolar epithelium | healthy | 3 | 0.9717 | 0.9384 to 0.97755 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted lung alveolar epithelium | healthy | 3 | 0.9525 | 0.91407 to 0.95628 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted lung alveolar epithelium | healthy | 3 | 1.0854 | 1.0116 to 1.0951 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted lung alveolar epithelium | healthy | 3 | 0.9106 | 0.90421 to 0.91735 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted gastric fundus epithelium | healthy | 3 | 0.97454 | 0.92074 to 0.97719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted gastric fundus epithelium | healthy | 3 | 0.95031 | 0.88944 to 0.95319 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted gastric fundus epithelium | healthy | 3 | 0.18422 | 0.18075 to 0.19572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted gastric fundus epithelium | healthy | 3 | 1.2536 | 1.1532 to 1.2921 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted gastric fundus epithelium | healthy | 3 | 0.9827 | 0.93433 to 0.98447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted gastric fundus epithelium | healthy | 3 | 0.16237 | 0.16207 to 0.17506 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted gastric fundus epithelium | healthy | 3 | 1.1099 | 1.0226 to 1.1493 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted gastric fundus epithelium | healthy | 6 | 0.97601 | 0.92511 to 1.0296 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted gastric fundus epithelium | healthy | 6 | 0.99143 | 0.89959 to 1.0726 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted gastric fundus epithelium | healthy | 6 | 0.59751 | 0.18133 to 1.0791 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted gastric fundus epithelium | healthy | 6 | 1.1041 | 0.94413 to 1.2857 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted gastric fundus epithelium | healthy | 6 | 0.98369 | 0.93691 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted gastric fundus epithelium | healthy | 6 | 0.57716 | 0.16212 to 1.0566 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted gastric fundus epithelium | healthy | 6 | 1.0341 | 0.94783 to 1.1428 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | gastric fundus epithelium | sorted gastric fundus epithelium | healthy | 3 | 0.9544 | 0.92497 to 0.95971 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | gastric fundus epithelium | sorted gastric fundus epithelium | healthy | 3 | 0.70167 | 0.68971 to 0.71715 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted gastric fundus epithelium | healthy | 3 | 0.9985 | 0.99715 to 1.0053 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | gastric fundus epithelium | sorted gastric fundus epithelium | healthy | 6 | 0.83846 | 0.6917 to 1.0274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted gastric fundus epithelium | healthy | 6 | 1.0023 | 0.99528 to 1.0071 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted gastric fundus epithelium | healthy | 3 | 0.9109 | 0.892 to 0.92476 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted gastric fundus epithelium | healthy | 3 | 0.9566 | 0.95021 to 0.98459 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted gastric fundus epithelium | healthy | 3 | 0.9435 | 0.93261 to 0.94386 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted gastric fundus epithelium | healthy | 3 | 1.0295 | 1.0229 to 1.0798 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted gastric fundus epithelium | healthy | 3 | 0.9092 | 0.90479 to 0.94511 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted gastric body epithelium | healthy | 3 | 0.95434 | 0.9137 to 0.96028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted gastric body epithelium | healthy | 3 | 0.93335 | 0.88666 to 0.93517 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted gastric body epithelium | healthy | 3 | 0.18619 | 0.17024 to 0.19523 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted gastric body epithelium | healthy | 3 | 1.2332 | 1.1398 to 1.2532 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted gastric body epithelium | healthy | 3 | 0.96097 | 0.92799 to 0.97046 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted gastric body epithelium | healthy | 3 | 0.16547 | 0.14836 to 0.17469 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted gastric body epithelium | healthy | 3 | 1.0917 | 1.0045 to 1.0924 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted gastric body epithelium | healthy | 6 | 0.96548 | 0.92047 to 1.0277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted gastric body epithelium | healthy | 6 | 0.98947 | 0.89444 to 1.0835 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted gastric body epithelium | healthy | 6 | 0.57965 | 0.1729 to 1.0887 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted gastric body epithelium | healthy | 6 | 1.0918 | 0.95843 to 1.2498 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted gastric body epithelium | healthy | 6 | 0.97291 | 0.93348 to 1.025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted gastric body epithelium | healthy | 6 | 0.55292 | 0.15121 to 1.0479 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted gastric body epithelium | healthy | 6 | 1.0332 | 0.95258 to 1.0923 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | gastric body epithelium | sorted gastric body epithelium | healthy | 3 | 0.9479 | 0.94025 to 0.96887 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | gastric body epithelium | sorted gastric body epithelium | healthy | 3 | 0.71009 | 0.70567 to 0.73345 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted gastric body epithelium | healthy | 3 | 1.0019 | 0.99587 to 1.0045 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | gastric body epithelium | sorted gastric body epithelium | healthy | 6 | 0.87045 | 0.70641 to 1.0367 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted gastric body epithelium | healthy | 6 | 1.0017 | 0.99622 to 1.0057 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted gastric body epithelium | healthy | 3 | 0.8689 | 0.86449 to 0.93127 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted gastric body epithelium | healthy | 3 | 0.9908 | 0.94427 to 1.0147 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted gastric body epithelium | healthy | 3 | 0.9364 | 0.91777 to 0.94486 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted gastric body epithelium | healthy | 3 | 1.0821 | 1.0424 to 1.1075 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted gastric body epithelium | healthy | 3 | 0.9306 | 0.93024 to 0.93564 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted gastric antrum epithelium | healthy | 3 | 0.91957 | 0.91515 to 0.9507 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted gastric antrum epithelium | healthy | 3 | 0.89274 | 0.88946 to 0.9266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted gastric antrum epithelium | healthy | 3 | 0.18266 | 0.17298 to 0.19215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted gastric antrum epithelium | healthy | 3 | 1.1819 | 1.1418 to 1.24 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted gastric antrum epithelium | healthy | 3 | 0.93038 | 0.92912 to 0.95903 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted gastric antrum epithelium | healthy | 3 | 0.16453 | 0.15466 to 0.16887 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted gastric antrum epithelium | healthy | 3 | 1.0441 | 1.0038 to 1.0953 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted gastric antrum epithelium | healthy | 6 | 0.97154 | 0.91589 to 1.0254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted gastric antrum epithelium | healthy | 6 | 0.98723 | 0.89001 to 1.0783 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted gastric antrum epithelium | healthy | 6 | 0.58881 | 0.1746 to 1.0979 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted gastric antrum epithelium | healthy | 6 | 1.1014 | 0.96326 to 1.2303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted gastric antrum epithelium | healthy | 6 | 0.97581 | 0.92933 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted gastric antrum epithelium | healthy | 6 | 0.55953 | 0.1563 to 1.0627 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted gastric antrum epithelium | healthy | 6 | 1.0217 | 0.96538 to 1.0879 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | gastric antrum epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.9684 | 0.94302 to 0.97416 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | gastric antrum epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.69206 | 0.69135 to 0.71554 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted gastric antrum epithelium | healthy | 3 | 0.9999 | 0.99522 to 1.0012 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | gastric antrum epithelium | sorted gastric antrum epithelium | healthy | 6 | 0.85799 | 0.69147 to 1.03 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted gastric antrum epithelium | healthy | 6 | 1.0017 | 0.996 to 1.004 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted gastric antrum epithelium | healthy | 3 | 0.8792 | 0.86066 to 0.8927 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted gastric antrum epithelium | healthy | 3 | 0.9823 | 0.92551 to 0.98842 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted gastric antrum epithelium | healthy | 3 | 0.9555 | 0.94857 to 1.0008 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted gastric antrum epithelium | healthy | 3 | 1.1008 | 1.0609 to 1.1164 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted gastric antrum epithelium | healthy | 3 | 0.9281 | 0.9119 to 0.95186 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted colon epithelium | healthy | 3 | 0.84131 | 0.82947 to 0.90358 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted colon epithelium | healthy | 3 | 0.83214 | 0.82276 to 0.90424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted colon epithelium | healthy | 3 | 0.27682 | 0.1931 to 0.2785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted colon epithelium | healthy | 3 | 1.0384 | 0.96776 to 1.1104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted colon epithelium | healthy | 3 | 0.85491 | 0.8452 to 0.91399 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted colon epithelium | healthy | 3 | 0.23826 | 0.16869 to 0.24191 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted colon epithelium | healthy | 3 | 0.91317 | 0.8408 to 0.97513 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted colon epithelium | healthy | 6 | 0.93466 | 0.83144 to 1.0433 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted colon epithelium | healthy | 6 | 0.95349 | 0.82432 to 1.0835 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted colon epithelium | healthy | 6 | 0.52988 | 0.20705 to 1.188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted colon epithelium | healthy | 6 | 1.0216 | 0.92341 to 1.1113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted colon epithelium | healthy | 6 | 0.94116 | 0.84682 to 1.0379 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted colon epithelium | healthy | 6 | 0.44731 | 0.18029 to 1.5595 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted colon epithelium | healthy | 6 | 0.94939 | 0.85286 to 1.0516 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | colon epithelium | sorted colon epithelium | healthy | 3 | 0.8883 | 0.88452 to 0.96219 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | colon epithelium | sorted colon epithelium | healthy | 3 | 0.77386 | 0.7691 to 0.85035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted colon epithelium | healthy | 3 | 0.9979 | 0.9961 to 0.99925 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | colon epithelium | sorted colon epithelium | healthy | 6 | 0.9037 | 0.76989 to 1.0803 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted colon epithelium | healthy | 6 | 0.9977 | 0.99523 to 1.0029 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted colon epithelium | healthy | 3 | 0.9532 | 0.93844 to 0.97669 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted colon epithelium | healthy | 3 | 0.9517 | 0.93118 to 1.0017 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted colon epithelium | healthy | 3 | 0.958 | 0.8986 to 1.0062 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted colon epithelium | healthy | 3 | 1.1166 | 1.0805 to 1.145 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted colon epithelium | healthy | 3 | 0.9292 | 0.89959 to 0.93604 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted colon enteroendocrine | healthy | 2 | 0.86051 | 0.8554 to 0.86563 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted colon enteroendocrine | healthy | 2 | 0.84345 | 0.8416 to 0.84529 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted colon enteroendocrine | healthy | 2 | 0.20759 | 0.20347 to 0.21171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted colon enteroendocrine | healthy | 2 | 1.0277 | 1.0227 to 1.0327 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted colon enteroendocrine | healthy | 2 | 0.87866 | 0.87318 to 0.88414 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted colon enteroendocrine | healthy | 2 | 0.1817 | 0.17555 to 0.18785 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted colon enteroendocrine | healthy | 2 | 0.90519 | 0.89181 to 0.91857 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted colon enteroendocrine | healthy | 4 | 0.93755 | 0.85654 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted colon enteroendocrine | healthy | 4 | 0.93697 | 0.84201 to 1.1015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted colon enteroendocrine | healthy | 4 | 0.62926 | 0.20438 to 1.076 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted colon enteroendocrine | healthy | 4 | 1.0263 | 1.0165 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted colon enteroendocrine | healthy | 4 | 0.94565 | 0.8744 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted colon enteroendocrine | healthy | 4 | 0.58596 | 0.17692 to 1.0416 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted colon enteroendocrine | healthy | 4 | 0.96365 | 0.89478 to 1.0196 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | colon enteroendocrine | sorted colon enteroendocrine | healthy | 2 | 0.9142 | 0.91357 to 0.91483 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | colon enteroendocrine | sorted colon enteroendocrine | healthy | 2 | 0.85735 | 0.82804 to 0.88667 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted colon enteroendocrine | healthy | 2 | 0.99965 | 0.99862 to 1.0007 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | colon enteroendocrine | sorted colon enteroendocrine | healthy | 4 | 0.90809 | 0.83455 to 1.0566 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted colon enteroendocrine | healthy | 4 | 1.0007 | 0.99882 to 1.0014 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted colon enteroendocrine | healthy | 2 | 0.96625 | 0.95693 to 0.97557 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted colon enteroendocrine | healthy | 2 | 0.9499 | 0.93964 to 0.96016 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted colon enteroendocrine | healthy | 2 | 0.97185 | 0.97027 to 0.97342 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted colon enteroendocrine | healthy | 2 | 1.1204 | 1.1171 to 1.1236 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted colon enteroendocrine | healthy | 2 | 0.91615 | 0.90809 to 0.92421 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted small intestine epithelium | healthy | 3 | 0.87347 | 0.86731 to 0.91032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted small intestine epithelium | healthy | 3 | 0.86721 | 0.8499 to 0.91504 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted small intestine epithelium | healthy | 3 | 0.25513 | 0.20867 to 0.27431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted small intestine epithelium | healthy | 3 | 1.0565 | 1.0489 to 1.1066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted small intestine epithelium | healthy | 3 | 0.89123 | 0.88101 to 0.92203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted small intestine epithelium | healthy | 3 | 0.22721 | 0.18663 to 0.23336 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted small intestine epithelium | healthy | 3 | 0.93665 | 0.93002 to 0.96046 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted small intestine epithelium | healthy | 6 | 0.95107 | 0.86834 to 1.0324 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted small intestine epithelium | healthy | 6 | 0.96171 | 0.85279 to 1.1025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted small intestine epithelium | healthy | 6 | 0.57188 | 0.21641 to 1.1887 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted small intestine epithelium | healthy | 6 | 1.0512 | 0.98978 to 1.0983 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted small intestine epithelium | healthy | 6 | 0.95525 | 0.88271 to 1.0288 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted small intestine epithelium | healthy | 6 | 0.51927 | 0.19339 to 1.1131 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted small intestine epithelium | healthy | 6 | 0.97358 | 0.93112 to 1.0285 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | small intestine epithelium | sorted small intestine epithelium | healthy | 3 | 0.9421 | 0.93976 to 0.95092 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | small intestine epithelium | sorted small intestine epithelium | healthy | 3 | 0.73445 | 0.72538 to 0.80919 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted small intestine epithelium | healthy | 3 | 0.9959 | 0.99338 to 1.0003 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | small intestine epithelium | sorted small intestine epithelium | healthy | 6 | 0.90243 | 0.72689 to 1.0832 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted small intestine epithelium | healthy | 6 | 0.99555 | 0.9889 to 1.0001 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted small intestine epithelium | healthy | 3 | 0.9226 | 0.9199 to 0.95248 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | monocytes | sorted small intestine epithelium | healthy | 3 | 1.0358 | 1.0233 to 1.0363 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted small intestine epithelium | healthy | 3 | 0.9884 | 0.96959 to 0.99623 | no line set for this reading | [C_Score.csv](C_Score.csv) |
@@ -978,7 +978,7 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | nk cells | sorted small intestine epithelium | healthy | 3 | 0.9091 | 0.90244 to 0.97048 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Coupling-A | coupling-A | b cells | sorted b cells | healthy | 1 | 1.1266 | 1.1266 to 1.1266 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | Coupling-A | coupling-A | memory b cells | sorted memory b cells | healthy | 2 | 1.0233 | 1.0168 to 1.0299 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
-| C-Score | C-Score each cell | memory b cells | sorted memory b cells | healthy | 2 | 0.9936 | 0.96606 to 1.0211 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | sorted memory b cells | healthy | 16 | 0.9827 | 0.8799 to 1.1641 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Coupling-A | coupling-A, own sample left out of the reference | adipocytes | healthy | 3 | 0.99949 | 0.97219 to 1.0288 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | Coupling-A | coupling-A, own sample left out of the reference | aorta endothelium | healthy | 2 | 1.0028 | 0.93517 to 1.0705 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | Coupling-A | coupling-A, own sample left out of the reference | vascular saphenous endothelium | healthy | 3 | 1.0028 | 0.99285 to 1.0052 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
@@ -4203,8 +4203,3012 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | heart fibroblasts | whole blood | 3 rec lgg, still lgg | 1 | 0.9828 | 0.9828 to 0.9828 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | lung interstitial macrophages | whole blood | 3 rec lgg, still lgg | 1 | 1.1153 | 1.1153 to 1.1153 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | whole blood | 1 new gbm | 2 | 0.9033 | 0.9033 to 0.9033 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted aorta endothelium | healthy | 2 | 1.0044 | 0.98408 to 1.0247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted aorta endothelium | healthy | 2 | 1.0699 | 1.0473 to 1.0924 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted aorta endothelium | healthy | 2 | 0.9967 | 0.96849 to 1.0249 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted aorta endothelium | healthy | 2 | 0.99345 | 0.95462 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted aorta endothelium | healthy | 2 | 0.9873 | 0.96863 to 1.006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted aorta endothelium | healthy | 2 | 0.99125 | 0.97509 to 1.0074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted aorta endothelium | healthy | 2 | 0.98661 | 0.95464 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted aorta endothelium | healthy | 2 | 0.99658 | 0.96353 to 1.0296 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted aorta endothelium | healthy | 2 | 0.99682 | 0.96491 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted aorta endothelium | healthy | 2 | 0.989 | 0.98309 to 0.9949 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted aorta endothelium | healthy | 2 | 0.99893 | 0.98802 to 1.0098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted aorta endothelium | healthy | 2 | 0.99827 | 0.9784 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted aorta endothelium | healthy | 2 | 0.99613 | 0.97377 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted aorta endothelium | healthy | 2 | 0.99279 | 0.96205 to 1.0235 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted aorta endothelium | healthy | 2 | 0.99351 | 0.94016 to 1.0469 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted aorta endothelium | healthy | 2 | 0.9943 | 0.97637 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted aorta endothelium | healthy | 2 | 0.99006 | 0.91777 to 1.0623 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted aorta endothelium | healthy | 2 | 0.9886 | 0.94821 to 1.029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted aorta endothelium | healthy | 2 | 0.98546 | 0.93131 to 1.0396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted aorta endothelium | healthy | 2 | 0.98784 | 0.93773 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted aorta endothelium | healthy | 2 | 0.98656 | 0.93198 to 1.0411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted aorta endothelium | healthy | 2 | 0.99491 | 0.96951 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted aorta endothelium | healthy | 2 | 1.001 | 0.95571 to 1.0462 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted aorta endothelium | healthy | 2 | 0.99118 | 0.94056 to 1.0418 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted aorta endothelium | healthy | 2 | 1.0002 | 0.98347 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted aorta endothelium | healthy | 2 | 0.98756 | 0.97086 to 1.0043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted aorta endothelium | healthy | 2 | 0.99452 | 0.98277 to 1.0063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted aorta endothelium | healthy | 2 | 0.99311 | 0.98137 to 1.0049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted aorta endothelium | healthy | 2 | 1.0049 | 0.98791 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted aorta endothelium | healthy | 2 | 0.99519 | 0.98406 to 1.0063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted aorta endothelium | healthy | 2 | 0.98901 | 0.9887 to 0.98933 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted aorta endothelium | healthy | 2 | 1.0099 | 0.97047 to 1.0492 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted aorta endothelium | healthy | 2 | 0.9905 | 0.96145 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted aorta endothelium | healthy | 2 | 0.99286 | 0.95391 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted aorta endothelium | healthy | 2 | 0.98571 | 0.96506 to 1.0064 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted aorta endothelium | healthy | 2 | 0.99046 | 0.97359 to 1.0073 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted aorta endothelium | healthy | 2 | 0.995 | 0.95489 to 1.0351 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted aorta endothelium | healthy | 2 | 0.9996 | 0.96843 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted aorta endothelium | healthy | 2 | 0.99054 | 0.97372 to 1.0074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted aorta endothelium | healthy | 2 | 0.99577 | 0.95957 to 1.032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted aorta endothelium | healthy | 2 | 0.9898 | 0.94572 to 1.0339 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted aorta endothelium | healthy | 2 | 0.98713 | 0.96152 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted aorta endothelium | healthy | 2 | 1.0006 | 0.97746 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted aorta endothelium | healthy | 2 | 0.9888 | 0.95884 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted aorta endothelium | healthy | 2 | 0.98405 | 0.9389 to 1.0292 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted aorta endothelium | healthy | 2 | 0.99096 | 0.96294 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted aorta endothelium | healthy | 2 | 1.0019 | 0.99561 to 1.0083 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted aorta endothelium | healthy | 2 | 0.9925 | 0.947 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted aorta endothelium | healthy | 2 | 0.99235 | 0.95342 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted aorta endothelium | healthy | 2 | 0.99616 | 0.96202 to 1.0303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted aorta endothelium | healthy | 2 | 0.9915 | 0.93313 to 1.0499 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted aorta endothelium | healthy | 2 | 0.99251 | 0.94038 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted aorta endothelium | healthy | 2 | 0.99118 | 0.96124 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted aorta endothelium | healthy | 2 | 0.99006 | 0.96013 to 1.02 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted aorta endothelium | healthy | 2 | 0.9892 | 0.95942 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted aorta endothelium | healthy | 2 | 0.99066 | 0.98904 to 0.99229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted aorta endothelium | healthy | 2 | 1.0052 | 0.97507 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted aorta endothelium | healthy | 2 | 0.000424 | 0.0003412 to 0.0005068 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted aorta endothelium | healthy | 2 | 0.12313 | 0.12282 to 0.12345 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | aorta endothelium | sorted aorta endothelium | healthy | 2 | 1.0579 | 1.0469 to 1.069 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted vascular saphenous endothelium | healthy | 3 | 0.97131 | 0.95367 to 1.0429 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97858 | 0.91431 to 1.0688 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted vascular saphenous endothelium | healthy | 3 | 0.97733 | 0.93274 to 1.0474 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.98105 | 0.92982 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97076 | 0.95093 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.98356 | 0.94098 to 1.0311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted vascular saphenous endothelium | healthy | 3 | 0.97325 | 0.93176 to 1.0312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted vascular saphenous endothelium | healthy | 3 | 0.97864 | 0.93422 to 1.0482 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted vascular saphenous endothelium | healthy | 3 | 0.97478 | 0.93133 to 1.0547 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted vascular saphenous endothelium | healthy | 3 | 0.96586 | 0.92925 to 1.0464 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97964 | 0.93606 to 1.0507 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted vascular saphenous endothelium | healthy | 3 | 0.9716 | 0.93628 to 1.0461 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted vascular saphenous endothelium | healthy | 3 | 0.97192 | 0.9157 to 1.064 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted vascular saphenous endothelium | healthy | 3 | 0.97414 | 0.94736 to 1.0428 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted vascular saphenous endothelium | healthy | 3 | 0.97466 | 0.92327 to 1.0633 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.9789 | 0.94062 to 1.0334 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted vascular saphenous endothelium | healthy | 3 | 0.97687 | 0.91774 to 1.0569 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.9737 | 0.93129 to 1.0372 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.9789 | 0.93109 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97496 | 0.92998 to 1.0301 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.9787 | 0.92672 to 1.0304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted vascular saphenous endothelium | healthy | 3 | 0.97877 | 0.93215 to 1.0498 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted vascular saphenous endothelium | healthy | 3 | 0.98797 | 0.96845 to 0.99855 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted vascular saphenous endothelium | healthy | 3 | 0.97617 | 0.93119 to 1.042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97125 | 0.92743 to 1.0514 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.96698 | 0.91728 to 1.056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted vascular saphenous endothelium | healthy | 3 | 0.96267 | 0.91455 to 1.0679 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97756 | 0.94579 to 1.0295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted vascular saphenous endothelium | healthy | 3 | 0.96835 | 0.91761 to 1.0765 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.94247 | 0.92176 to 1.0506 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted vascular saphenous endothelium | healthy | 3 | 0.96644 | 0.92186 to 1.0559 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.98529 | 0.94036 to 1.0421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted vascular saphenous endothelium | healthy | 3 | 0.96856 | 0.92728 to 1.0477 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted vascular saphenous endothelium | healthy | 3 | 0.9904 | 0.91736 to 1.0437 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted vascular saphenous endothelium | healthy | 3 | 0.97911 | 0.92938 to 1.0404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted vascular saphenous endothelium | healthy | 3 | 0.98537 | 0.92424 to 1.049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted vascular saphenous endothelium | healthy | 3 | 0.98284 | 0.92155 to 1.052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted vascular saphenous endothelium | healthy | 3 | 0.98633 | 0.93864 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted vascular saphenous endothelium | healthy | 3 | 0.96914 | 0.93739 to 1.0443 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97005 | 0.94477 to 1.0394 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted vascular saphenous endothelium | healthy | 3 | 0.97941 | 0.94078 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted vascular saphenous endothelium | healthy | 3 | 0.9777 | 0.93341 to 1.0341 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted vascular saphenous endothelium | healthy | 3 | 0.97405 | 0.94489 to 1.0395 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted vascular saphenous endothelium | healthy | 3 | 0.98375 | 0.93748 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted vascular saphenous endothelium | healthy | 3 | 0.97413 | 0.93844 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.98059 | 0.93939 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.96918 | 0.93907 to 1.0586 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted vascular saphenous endothelium | healthy | 3 | 0.97032 | 0.96146 to 1.002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted vascular saphenous endothelium | healthy | 3 | 0.97696 | 0.94645 to 1.0327 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted vascular saphenous endothelium | healthy | 3 | 0.96839 | 0.93045 to 1.0517 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted vascular saphenous endothelium | healthy | 3 | 0.98041 | 0.93095 to 1.0344 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted vascular saphenous endothelium | healthy | 3 | 0.97185 | 0.90791 to 1.0597 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97427 | 0.93023 to 1.0401 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.98092 | 0.93359 to 1.0303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97661 | 0.93717 to 1.0303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted vascular saphenous endothelium | healthy | 3 | 0.97484 | 0.92811 to 1.039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted vascular saphenous endothelium | healthy | 3 | 1.0329 | 1.017 to 1.0432 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted vascular saphenous endothelium | healthy | 3 | 0.000135 | 1.35e-05 to 0.0008982 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted vascular saphenous endothelium | healthy | 3 | 0.11069 | 0.10786 to 0.13011 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | vascular saphenous endothelium | sorted vascular saphenous endothelium | healthy | 3 | 0.9608 | 0.95081 to 0.96359 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted kidney glomerular endothelium | healthy | 3 | 1.0194 | 0.94004 to 1.0262 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted kidney glomerular endothelium | healthy | 3 | 0.99912 | 0.93338 to 1.0543 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0165 | 0.92738 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0039 | 0.93878 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0007 | 0.94571 to 1.011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted kidney glomerular endothelium | healthy | 3 | 0.99966 | 0.95181 to 1.015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted kidney glomerular endothelium | healthy | 3 | 0.99877 | 0.93584 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0157 | 0.92664 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0079 | 0.93072 to 1.0479 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted kidney glomerular endothelium | healthy | 3 | 1.0045 | 0.92899 to 1.0299 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0134 | 0.93976 to 1.0367 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted kidney glomerular endothelium | healthy | 3 | 0.99706 | 0.95281 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted kidney glomerular endothelium | healthy | 3 | 1.0134 | 0.92255 to 1.039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted kidney glomerular endothelium | healthy | 3 | 1.0021 | 0.94688 to 1.0305 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0157 | 0.9199 to 1.0379 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted kidney glomerular endothelium | healthy | 3 | 0.99399 | 0.94875 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted kidney glomerular endothelium | healthy | 3 | 1.029 | 0.90986 to 1.03 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0058 | 0.93607 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0139 | 0.92537 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0108 | 0.93452 to 1.0128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0072 | 0.93626 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted kidney glomerular endothelium | healthy | 3 | 1.022 | 0.93328 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted kidney glomerular endothelium | healthy | 3 | 1.0033 | 0.95412 to 1.0052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted kidney glomerular endothelium | healthy | 3 | 1.0073 | 0.92991 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted kidney glomerular endothelium | healthy | 3 | 1.025 | 1.0247 to 1.0504 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0009 | 0.93843 to 1.0294 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0289 | 0.90499 to 1.0503 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0095 | 0.94461 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted kidney glomerular endothelium | healthy | 3 | 1.028 | 0.93264 to 1.0294 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0192 | 0.92344 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted kidney glomerular endothelium | healthy | 3 | 1.0118 | 0.9204 to 1.035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0134 | 0.94118 to 1.0275 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted kidney glomerular endothelium | healthy | 3 | 1.0167 | 0.9189 to 1.0237 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted kidney glomerular endothelium | healthy | 3 | 1.016 | 0.92117 to 1.0338 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted kidney glomerular endothelium | healthy | 3 | 1.0113 | 0.92902 to 1.0253 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0161 | 0.92817 to 1.0282 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0187 | 0.92337 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted kidney glomerular endothelium | healthy | 3 | 1.0115 | 0.92748 to 1.0366 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted kidney glomerular endothelium | healthy | 3 | 1.0135 | 0.93982 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0063 | 0.9454 to 1.0176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted kidney glomerular endothelium | healthy | 3 | 1.0042 | 0.93083 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted kidney glomerular endothelium | healthy | 3 | 1.0075 | 0.93804 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted kidney glomerular endothelium | healthy | 3 | 1.0115 | 0.94141 to 1.0191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted kidney glomerular endothelium | healthy | 3 | 1.0051 | 0.93293 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted kidney glomerular endothelium | healthy | 3 | 1.0044 | 0.93181 to 1.0103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0041 | 0.95102 to 1.0041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0252 | 0.93257 to 1.0355 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted kidney glomerular endothelium | healthy | 3 | 0.98105 | 0.97293 to 0.982 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted kidney glomerular endothelium | healthy | 3 | 1.0064 | 0.94031 to 1.0303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted kidney glomerular endothelium | healthy | 3 | 1.0211 | 0.92328 to 1.0301 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted kidney glomerular endothelium | healthy | 3 | 1.0194 | 0.92255 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted kidney glomerular endothelium | healthy | 3 | 1.0255 | 0.90238 to 1.0314 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0068 | 0.93241 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted kidney glomerular endothelium | healthy | 3 | 0.99979 | 0.93746 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0047 | 0.93276 to 1.0161 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0186 | 0.92829 to 1.0269 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted kidney glomerular endothelium | healthy | 3 | 1.0166 | 0.94341 to 1.0176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted kidney glomerular endothelium | healthy | 3 | 2.5e-05 | 2.5e-06 to 4.66e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted kidney glomerular endothelium | healthy | 3 | 0.11023 | 0.099862 to 0.12287 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | kidney glomerular endothelium | sorted kidney glomerular endothelium | healthy | 3 | 0.9579 | 0.95655 to 1.0137 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted kidney tubular endothelium | healthy | 3 | 0.99048 | 0.9833 to 1.025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted kidney tubular endothelium | healthy | 3 | 0.9952 | 0.97038 to 1.0049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted kidney tubular endothelium | healthy | 3 | 0.98969 | 0.97758 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99863 | 0.98796 to 1.0002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99365 | 0.9865 to 0.99955 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99847 | 0.99207 to 0.99975 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted kidney tubular endothelium | healthy | 3 | 0.99485 | 0.98842 to 0.99654 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted kidney tubular endothelium | healthy | 3 | 0.99175 | 0.985 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted kidney tubular endothelium | healthy | 3 | 0.99177 | 0.98351 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted kidney tubular endothelium | healthy | 3 | 0.98928 | 0.98789 to 0.99955 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99784 | 0.99137 to 1.0054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted kidney tubular endothelium | healthy | 3 | 1.0008 | 0.98021 to 1.0018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted kidney tubular endothelium | healthy | 3 | 0.98751 | 0.98571 to 1.0018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted kidney tubular endothelium | healthy | 3 | 0.99554 | 0.99237 to 1.0009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted kidney tubular endothelium | healthy | 3 | 0.99875 | 0.98058 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99578 | 0.99142 to 1.0009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted kidney tubular endothelium | healthy | 3 | 1.0153 | 0.96898 to 1.0163 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99719 | 0.98616 to 1.001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.9997 | 0.9829 to 1.0025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99864 | 0.98443 to 1.0026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.9953 | 0.9841 to 0.99833 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted kidney tubular endothelium | healthy | 3 | 0.99228 | 0.992 to 1.0066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted kidney tubular endothelium | healthy | 3 | 0.99957 | 0.97224 to 1.0021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted kidney tubular endothelium | healthy | 3 | 0.9977 | 0.98979 to 1.001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted kidney tubular endothelium | healthy | 3 | 0.99383 | 0.9616 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99937 | 0.98029 to 1.0029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted kidney tubular endothelium | healthy | 3 | 1.0664 | 0.9862 to 1.1227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99199 | 0.9883 to 1.0042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted kidney tubular endothelium | healthy | 3 | 0.99042 | 0.9873 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.98025 | 0.96723 to 1.0106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted kidney tubular endothelium | healthy | 3 | 0.99201 | 0.98074 to 1.0041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99706 | 0.99028 to 1.0079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted kidney tubular endothelium | healthy | 3 | 0.99318 | 0.98593 to 0.99798 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted kidney tubular endothelium | healthy | 3 | 0.98784 | 0.97966 to 1.018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted kidney tubular endothelium | healthy | 3 | 0.99317 | 0.9883 to 0.99659 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted kidney tubular endothelium | healthy | 3 | 1.0022 | 0.97842 to 1.0024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted kidney tubular endothelium | healthy | 3 | 0.98905 | 0.98067 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted kidney tubular endothelium | healthy | 3 | 0.99924 | 0.98658 to 1.0011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted kidney tubular endothelium | healthy | 3 | 0.99409 | 0.98101 to 1.0053 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted kidney tubular endothelium | healthy | 3 | 1.0014 | 0.9631 to 1.0123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted kidney tubular endothelium | healthy | 3 | 0.99789 | 0.97794 to 1.006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted kidney tubular endothelium | healthy | 3 | 0.99121 | 0.98676 to 1.0028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted kidney tubular endothelium | healthy | 3 | 0.99685 | 0.98578 to 1.004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted kidney tubular endothelium | healthy | 3 | 0.99493 | 0.99215 to 0.99992 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted kidney tubular endothelium | healthy | 3 | 0.99076 | 0.98555 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99318 | 0.99278 to 0.99581 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99995 | 0.99779 to 1.0037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted kidney tubular endothelium | healthy | 3 | 0.9887 | 0.98348 to 1.0045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted kidney tubular endothelium | healthy | 3 | 0.99071 | 0.98061 to 1.0058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted kidney tubular endothelium | healthy | 3 | 0.99622 | 0.98371 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted kidney tubular endothelium | healthy | 3 | 1.0014 | 0.97866 to 1.0057 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted kidney tubular endothelium | healthy | 3 | 0.99413 | 0.97276 to 1.0166 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99417 | 0.98832 to 0.99966 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99848 | 0.98872 to 0.99909 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted kidney tubular endothelium | healthy | 3 | 1.0015 | 0.98074 to 1.0105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted kidney tubular endothelium | healthy | 3 | 0.99726 | 0.98458 to 1.0003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted kidney tubular endothelium | healthy | 3 | 0.99681 | 0.97723 to 1.0052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted kidney tubular endothelium | healthy | 3 | 3.7e-05 | 3.7e-06 to 0.0002026 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted kidney tubular endothelium | healthy | 3 | 0.12163 | 0.095098 to 0.12698 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | kidney tubular endothelium | sorted kidney tubular endothelium | healthy | 3 | 1.0424 | 0.98633 to 1.1135 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted lung alveolar endothelium | healthy | 3 | 0.98828 | 0.95822 to 0.98862 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted lung alveolar endothelium | healthy | 3 | 0.98054 | 0.96618 to 0.98364 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted lung alveolar endothelium | healthy | 3 | 0.96557 | 0.95373 to 0.98309 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.97466 | 0.9367 to 0.98001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96876 | 0.95526 to 0.97271 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96837 | 0.96665 to 0.96839 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted lung alveolar endothelium | healthy | 3 | 0.96022 | 0.95083 to 0.97142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted lung alveolar endothelium | healthy | 3 | 0.97444 | 0.95798 to 0.97931 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted lung alveolar endothelium | healthy | 3 | 0.97614 | 0.95486 to 0.98059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted lung alveolar endothelium | healthy | 3 | 0.95406 | 0.94451 to 0.98277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.97235 | 0.94917 to 1.0025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted lung alveolar endothelium | healthy | 3 | 0.96546 | 0.94516 to 1.0101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted lung alveolar endothelium | healthy | 3 | 0.96345 | 0.96035 to 0.96719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted lung alveolar endothelium | healthy | 3 | 0.97187 | 0.96587 to 0.97492 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted lung alveolar endothelium | healthy | 3 | 0.9525 | 0.93822 to 0.99375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96989 | 0.95623 to 0.97768 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted lung alveolar endothelium | healthy | 3 | 0.96802 | 0.88864 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96848 | 0.94736 to 0.96898 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.95611 | 0.93806 to 0.97613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.9666 | 0.94576 to 0.96867 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.9527 | 0.93931 to 0.977 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted lung alveolar endothelium | healthy | 3 | 0.96662 | 0.95877 to 0.97549 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted lung alveolar endothelium | healthy | 3 | 0.96091 | 0.94743 to 0.98913 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted lung alveolar endothelium | healthy | 3 | 0.9793 | 0.93074 to 0.98953 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted lung alveolar endothelium | healthy | 3 | 0.96375 | 0.94176 to 1.0024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.94108 | 0.93548 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted lung alveolar endothelium | healthy | 3 | 0.96834 | 0.96493 to 0.96896 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.97925 | 0.94545 to 0.97994 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted lung alveolar endothelium | healthy | 3 | 1.0284 | 0.99072 to 1.0508 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96346 | 0.96332 to 0.97352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted lung alveolar endothelium | healthy | 3 | 0.94939 | 0.94799 to 0.99206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.9741 | 0.97401 to 0.98017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted lung alveolar endothelium | healthy | 3 | 0.96597 | 0.94325 to 0.97777 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted lung alveolar endothelium | healthy | 3 | 0.96227 | 0.93497 to 0.98624 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted lung alveolar endothelium | healthy | 3 | 0.96675 | 0.94929 to 0.97511 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted lung alveolar endothelium | healthy | 3 | 0.97108 | 0.95916 to 0.97274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted lung alveolar endothelium | healthy | 3 | 0.96336 | 0.95753 to 0.97826 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted lung alveolar endothelium | healthy | 3 | 0.96997 | 0.95896 to 0.98783 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted lung alveolar endothelium | healthy | 3 | 0.961 | 0.95362 to 0.98569 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted lung alveolar endothelium | healthy | 3 | 0.98331 | 0.93815 to 0.99443 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted lung alveolar endothelium | healthy | 3 | 0.96481 | 0.94435 to 0.9742 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted lung alveolar endothelium | healthy | 3 | 0.96356 | 0.9601 to 0.96852 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted lung alveolar endothelium | healthy | 3 | 0.97681 | 0.96006 to 0.97776 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted lung alveolar endothelium | healthy | 3 | 0.95846 | 0.95683 to 0.97674 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted lung alveolar endothelium | healthy | 3 | 0.96066 | 0.94815 to 0.96828 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96674 | 0.95609 to 0.97107 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96488 | 0.96328 to 0.99039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted lung alveolar endothelium | healthy | 3 | 0.95064 | 0.93351 to 1.0052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted lung alveolar endothelium | healthy | 3 | 0.97094 | 0.89633 to 1.0479 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted lung alveolar endothelium | healthy | 3 | 0.95821 | 0.95308 to 0.98594 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted lung alveolar endothelium | healthy | 3 | 0.95942 | 0.92387 to 0.99448 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted lung alveolar endothelium | healthy | 3 | 0.96112 | 0.90943 to 0.99967 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96838 | 0.95712 to 0.97443 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96831 | 0.94589 to 0.9707 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.96088 | 0.94977 to 0.97212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted lung alveolar endothelium | healthy | 3 | 0.95229 | 0.94696 to 0.98908 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted lung alveolar endothelium | healthy | 3 | 0.99135 | 0.94386 to 0.99389 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted lung alveolar endothelium | healthy | 3 | 1.2e-05 | 1.2e-06 to 2.37e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted lung alveolar endothelium | healthy | 3 | 0.12044 | 0.1148 to 0.14022 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | lung alveolar endothelium | sorted lung alveolar endothelium | healthy | 3 | 1.003 | 0.99499 to 1.0203 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted pancreas endothelium | healthy | 3 | 1.0181 | 0.99315 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted pancreas endothelium | healthy | 3 | 1.0136 | 0.97198 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted pancreas endothelium | healthy | 3 | 1.0093 | 0.98906 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted pancreas endothelium | healthy | 3 | 1.0004 | 0.9943 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted pancreas endothelium | healthy | 3 | 0.99971 | 0.99761 to 1.0081 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted pancreas endothelium | healthy | 3 | 1.0008 | 0.99274 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted pancreas endothelium | healthy | 3 | 0.99131 | 0.99103 to 1.0121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted pancreas endothelium | healthy | 3 | 1.0065 | 0.99071 to 1.0163 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted pancreas endothelium | healthy | 3 | 1.0139 | 0.99229 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted pancreas endothelium | healthy | 3 | 0.99896 | 0.99677 to 1.0143 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted pancreas endothelium | healthy | 3 | 1.0046 | 1.0042 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted pancreas endothelium | healthy | 3 | 1.007 | 0.99256 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted pancreas endothelium | healthy | 3 | 0.99339 | 0.99186 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted pancreas endothelium | healthy | 3 | 1.0039 | 0.99857 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted pancreas endothelium | healthy | 3 | 1.008 | 0.98972 to 1.0121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted pancreas endothelium | healthy | 3 | 1.0023 | 0.99511 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted pancreas endothelium | healthy | 3 | 1.0034 | 0.98821 to 1.012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted pancreas endothelium | healthy | 3 | 1.0034 | 0.99466 to 1.0098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted pancreas endothelium | healthy | 3 | 0.99691 | 0.99131 to 1.0065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted pancreas endothelium | healthy | 3 | 1.0044 | 0.98909 to 1.005 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted pancreas endothelium | healthy | 3 | 1.0021 | 0.99062 to 1.0037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted pancreas endothelium | healthy | 3 | 1.0049 | 0.99311 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted pancreas endothelium | healthy | 3 | 1.0035 | 0.99157 to 1.0174 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted pancreas endothelium | healthy | 3 | 1.0067 | 0.99356 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted pancreas endothelium | healthy | 3 | 1.0093 | 0.99383 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted pancreas endothelium | healthy | 3 | 0.99812 | 0.98954 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted pancreas endothelium | healthy | 3 | 1.01 | 0.97182 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted pancreas endothelium | healthy | 3 | 1.0081 | 0.99991 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted pancreas endothelium | healthy | 3 | 1.007 | 0.99795 to 1.0093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted pancreas endothelium | healthy | 3 | 1.0035 | 1.0009 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted pancreas endothelium | healthy | 3 | 1.0043 | 0.99183 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted pancreas endothelium | healthy | 3 | 1.0084 | 1.0001 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted pancreas endothelium | healthy | 3 | 1.0003 | 0.99706 to 1.0101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted pancreas endothelium | healthy | 3 | 1.0115 | 0.98439 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted pancreas endothelium | healthy | 3 | 0.99921 | 0.99628 to 1.0082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted pancreas endothelium | healthy | 3 | 1.0096 | 0.99305 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted pancreas endothelium | healthy | 3 | 1.0129 | 0.99396 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted pancreas endothelium | healthy | 3 | 1.013 | 0.99218 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted pancreas endothelium | healthy | 3 | 1.001 | 1.001 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted pancreas endothelium | healthy | 3 | 1.093 | 1.0075 to 1.1071 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted pancreas endothelium | healthy | 3 | 1.0037 | 0.99095 to 1.0057 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted pancreas endothelium | healthy | 3 | 1.0026 | 0.99662 to 1.0102 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted pancreas endothelium | healthy | 3 | 1.0061 | 0.99637 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted pancreas endothelium | healthy | 3 | 0.99663 | 0.9931 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted pancreas endothelium | healthy | 3 | 0.99964 | 0.99524 to 1.0053 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted pancreas endothelium | healthy | 3 | 1.0047 | 0.9947 to 1.0082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted pancreas endothelium | healthy | 3 | 1.0055 | 1.0031 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted pancreas endothelium | healthy | 3 | 1.0095 | 0.97619 to 1.0291 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted pancreas endothelium | healthy | 3 | 0.98954 | 0.98817 to 1.0336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted pancreas endothelium | healthy | 3 | 1.0058 | 0.99798 to 1.0093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted pancreas endothelium | healthy | 3 | 0.99722 | 0.99495 to 1.0081 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted pancreas endothelium | healthy | 3 | 0.98981 | 0.98477 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted pancreas endothelium | healthy | 3 | 1.0056 | 0.99856 to 1.0057 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted pancreas endothelium | healthy | 3 | 1.0018 | 0.99203 to 1.005 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted pancreas endothelium | healthy | 3 | 1.0021 | 0.99446 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted pancreas endothelium | healthy | 3 | 1.0083 | 0.99283 to 1.0137 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted pancreas endothelium | healthy | 3 | 1.0071 | 0.99848 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted pancreas endothelium | healthy | 3 | 0 | 0 to 2.25e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted pancreas endothelium | healthy | 3 | 0.12241 | 0.10165 to 0.13206 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | pancreas endothelium | sorted pancreas endothelium | healthy | 3 | 1.0405 | 1.02 to 1.082 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted colon fibroblasts | healthy | 2 | 1.0108 | 0.97484 to 1.0468 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted colon fibroblasts | healthy | 2 | 1.0072 | 0.99032 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted colon fibroblasts | healthy | 2 | 1.0072 | 0.99389 to 1.0206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted colon fibroblasts | healthy | 2 | 1.0028 | 0.96939 to 1.0361 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted colon fibroblasts | healthy | 2 | 1.0009 | 0.96971 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted colon fibroblasts | healthy | 2 | 1.0044 | 0.97953 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted colon fibroblasts | healthy | 2 | 1.0014 | 0.95834 to 1.0444 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted colon fibroblasts | healthy | 2 | 1.0075 | 0.99601 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted colon fibroblasts | healthy | 2 | 1.0087 | 0.98818 to 1.0291 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted colon fibroblasts | healthy | 2 | 1.0066 | 0.98697 to 1.0262 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted colon fibroblasts | healthy | 2 | 1.013 | 0.99444 to 1.0316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted colon fibroblasts | healthy | 2 | 1.053 | 1.05 to 1.056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted colon fibroblasts | healthy | 2 | 1.0092 | 0.99633 to 1.0222 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted colon fibroblasts | healthy | 2 | 1.006 | 0.99357 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted colon fibroblasts | healthy | 2 | 1.0053 | 0.98421 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted colon fibroblasts | healthy | 2 | 1.0055 | 0.96659 to 1.0444 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted colon fibroblasts | healthy | 2 | 1.0071 | 0.99862 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted colon fibroblasts | healthy | 2 | 1.003 | 0.98166 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted colon fibroblasts | healthy | 2 | 0.99987 | 0.96734 to 1.0324 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted colon fibroblasts | healthy | 2 | 1.0016 | 0.96515 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted colon fibroblasts | healthy | 2 | 1.0002 | 0.96805 to 1.0324 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted colon fibroblasts | healthy | 2 | 1.0068 | 1.0025 to 1.0111 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted colon fibroblasts | healthy | 2 | 1.0054 | 0.95812 to 1.0527 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted colon fibroblasts | healthy | 2 | 1.001 | 0.96978 to 1.0322 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted colon fibroblasts | healthy | 2 | 1.0057 | 0.9586 to 1.0528 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted colon fibroblasts | healthy | 2 | 1.0058 | 0.98275 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted colon fibroblasts | healthy | 2 | 1.0065 | 0.96342 to 1.0496 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted colon fibroblasts | healthy | 2 | 1.0056 | 0.97006 to 1.0411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted colon fibroblasts | healthy | 2 | 1.0077 | 0.95979 to 1.0556 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted colon fibroblasts | healthy | 2 | 1.0051 | 0.97939 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted colon fibroblasts | healthy | 2 | 1.0056 | 0.9903 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted colon fibroblasts | healthy | 2 | 1.012 | 0.99994 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted colon fibroblasts | healthy | 2 | 1.0059 | 1.0046 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted colon fibroblasts | healthy | 2 | 1.0052 | 0.98401 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted colon fibroblasts | healthy | 2 | 1.0047 | 0.98879 to 1.0206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted colon fibroblasts | healthy | 2 | 1.0069 | 1.0058 to 1.008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted colon fibroblasts | healthy | 2 | 1.0058 | 0.99005 to 1.0215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted colon fibroblasts | healthy | 2 | 1.0095 | 1.0038 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted colon fibroblasts | healthy | 2 | 1.0042 | 0.98753 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted colon fibroblasts | healthy | 2 | 1.0055 | 0.95154 to 1.0595 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted colon fibroblasts | healthy | 2 | 1.0007 | 0.97962 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted colon fibroblasts | healthy | 2 | 1.0039 | 0.97247 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted colon fibroblasts | healthy | 2 | 1.008 | 0.98047 to 1.0355 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted colon fibroblasts | healthy | 2 | 1.0044 | 0.96712 to 1.0417 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted colon fibroblasts | healthy | 2 | 0.99823 | 0.97259 to 1.0239 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted colon fibroblasts | healthy | 2 | 1.0016 | 0.95971 to 1.0435 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted colon fibroblasts | healthy | 2 | 1.0115 | 0.9987 to 1.0244 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted colon fibroblasts | healthy | 2 | 1.0013 | 0.93207 to 1.0706 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted colon fibroblasts | healthy | 2 | 1.0094 | 0.97755 to 1.0412 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted colon fibroblasts | healthy | 2 | 1.0059 | 0.99349 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted colon fibroblasts | healthy | 2 | 0.99971 | 0.98184 to 1.0176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted colon fibroblasts | healthy | 2 | 1.0057 | 0.97917 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted colon fibroblasts | healthy | 2 | 1.0036 | 0.97236 to 1.0348 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted colon fibroblasts | healthy | 2 | 1.0003 | 0.96377 to 1.0367 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted colon fibroblasts | healthy | 2 | 1.003 | 0.96699 to 1.0389 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted colon fibroblasts | healthy | 2 | 1.0065 | 0.9868 to 1.0261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted colon fibroblasts | healthy | 2 | 1.0072 | 0.95907 to 1.0553 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted colon fibroblasts | healthy | 2 | 0.0002885 | 0.00027185 to 0.00030515 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted colon fibroblasts | healthy | 2 | 0.09371 | 0.092864 to 0.094556 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | colon fibroblasts | sorted colon fibroblasts | healthy | 2 | 0.9541 | 0.93763 to 0.97057 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted heart fibroblasts | healthy | 3 | 1.0023 | 0.96824 to 1.0326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted heart fibroblasts | healthy | 3 | 1.0179 | 0.9591 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted heart fibroblasts | healthy | 3 | 1.0087 | 0.98494 to 1.0139 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted heart fibroblasts | healthy | 3 | 0.99446 | 0.97684 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted heart fibroblasts | healthy | 3 | 0.99522 | 0.98006 to 1.0138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted heart fibroblasts | healthy | 3 | 0.99418 | 0.97312 to 1.0264 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted heart fibroblasts | healthy | 3 | 0.99571 | 0.9735 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted heart fibroblasts | healthy | 3 | 0.9997 | 0.97709 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted heart fibroblasts | healthy | 3 | 1.0098 | 0.98017 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted heart fibroblasts | healthy | 3 | 1.0012 | 0.97579 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted heart fibroblasts | healthy | 3 | 1.0113 | 0.9862 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted heart fibroblasts | healthy | 3 | 1.0171 | 0.96362 to 1.0333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted heart fibroblasts | healthy | 3 | 1.0105 | 0.97045 to 1.0221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted heart fibroblasts | healthy | 3 | 1.005 | 0.98886 to 1.0102 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted heart fibroblasts | healthy | 3 | 1.0009 | 0.96919 to 1.0341 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted heart fibroblasts | healthy | 3 | 0.99824 | 0.96842 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted heart fibroblasts | healthy | 3 | 0.99195 | 0.97438 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted heart fibroblasts | healthy | 3 | 0.9848 | 0.98369 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted heart fibroblasts | healthy | 3 | 0.99327 | 0.97371 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted heart fibroblasts | healthy | 3 | 0.98917 | 0.96953 to 1.0255 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted heart fibroblasts | healthy | 3 | 0.99162 | 0.96822 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted heart fibroblasts | healthy | 3 | 1.0024 | 0.97828 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted heart fibroblasts | healthy | 3 | 1.0335 | 1.0219 to 1.0645 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted heart fibroblasts | healthy | 3 | 0.99153 | 0.9823 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted heart fibroblasts | healthy | 3 | 1.0024 | 0.97293 to 1.028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted heart fibroblasts | healthy | 3 | 1.0083 | 0.98145 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted heart fibroblasts | healthy | 3 | 0.99954 | 0.97788 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted heart fibroblasts | healthy | 3 | 0.99434 | 0.98029 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted heart fibroblasts | healthy | 3 | 1.0037 | 0.97723 to 1.0259 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted heart fibroblasts | healthy | 3 | 1.0029 | 0.95161 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted heart fibroblasts | healthy | 3 | 1.0056 | 0.97613 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted heart fibroblasts | healthy | 3 | 1.0007 | 0.97008 to 1.0364 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted heart fibroblasts | healthy | 3 | 0.99435 | 0.98051 to 1.0168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted heart fibroblasts | healthy | 3 | 0.99781 | 0.97392 to 1.0272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted heart fibroblasts | healthy | 3 | 0.99631 | 0.97737 to 1.0187 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted heart fibroblasts | healthy | 3 | 1.0012 | 0.97685 to 1.0237 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted heart fibroblasts | healthy | 3 | 1.0018 | 0.97327 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted heart fibroblasts | healthy | 3 | 1.006 | 0.9755 to 1.0277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted heart fibroblasts | healthy | 3 | 0.99912 | 0.98905 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted heart fibroblasts | healthy | 3 | 1.0023 | 0.97325 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted heart fibroblasts | healthy | 3 | 0.9868 | 0.97275 to 1.0235 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted heart fibroblasts | healthy | 3 | 0.9938 | 0.97513 to 1.02 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted heart fibroblasts | healthy | 3 | 0.998 | 0.9765 to 1.0255 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted heart fibroblasts | healthy | 3 | 0.99725 | 0.97318 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted heart fibroblasts | healthy | 3 | 0.99089 | 0.97744 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted heart fibroblasts | healthy | 3 | 0.9911 | 0.98439 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted heart fibroblasts | healthy | 3 | 1.0133 | 0.9778 to 1.0234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted heart fibroblasts | healthy | 3 | 0.98234 | 0.95181 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted heart fibroblasts | healthy | 3 | 1.0091 | 0.97087 to 1.029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted heart fibroblasts | healthy | 3 | 1.0029 | 0.97918 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted heart fibroblasts | healthy | 3 | 0.99577 | 0.97686 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted heart fibroblasts | healthy | 3 | 0.99566 | 0.97203 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted heart fibroblasts | healthy | 3 | 0.99478 | 0.97403 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted heart fibroblasts | healthy | 3 | 0.99286 | 0.97076 to 1.0215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted heart fibroblasts | healthy | 3 | 0.99278 | 0.97996 to 1.0234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted heart fibroblasts | healthy | 3 | 1.0062 | 0.96699 to 1.0239 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted heart fibroblasts | healthy | 3 | 1.0022 | 0.97587 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted heart fibroblasts | healthy | 3 | 1.2e-05 | 1.2e-05 to 0.0008859 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted heart fibroblasts | healthy | 3 | 0.10617 | 0.094857 to 0.11008 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | sorted heart fibroblasts | healthy | 3 | 1.0106 | 0.97676 to 1.0559 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted striated muscle | healthy | 2 | 1.019 | 1.0019 to 1.036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted striated muscle | healthy | 2 | 1.013 | 1.0112 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted striated muscle | healthy | 2 | 1.0153 | 1.0083 to 1.0223 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted striated muscle | healthy | 2 | 1.0111 | 1.0087 to 1.0136 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted striated muscle | healthy | 2 | 1.0103 | 1.0079 to 1.0128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted striated muscle | healthy | 2 | 1.0134 | 1.0125 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted striated muscle | healthy | 2 | 1.012 | 1.0101 to 1.0139 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted striated muscle | healthy | 2 | 1.0146 | 1.009 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted striated muscle | healthy | 2 | 1.0157 | 1.0128 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted striated muscle | healthy | 2 | 1.0112 | 1.007 to 1.0153 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted striated muscle | healthy | 2 | 1.0161 | 1.0127 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted striated muscle | healthy | 2 | 1.0174 | 1.0159 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted striated muscle | healthy | 2 | 1.0143 | 1.0132 to 1.0153 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted striated muscle | healthy | 2 | 1.013 | 1.0087 to 1.0174 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted striated muscle | healthy | 2 | 1.0153 | 1.0128 to 1.0178 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted striated muscle | healthy | 2 | 1.0139 | 1.0127 to 1.015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted striated muscle | healthy | 2 | 1.0137 | 1.0017 to 1.0258 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted striated muscle | healthy | 2 | 1.0114 | 1.0107 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted striated muscle | healthy | 2 | 1.0117 | 1.0115 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted striated muscle | healthy | 2 | 1.0118 | 1.0093 to 1.0143 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted striated muscle | healthy | 2 | 1.0107 | 1.0067 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted striated muscle | healthy | 2 | 1.0159 | 1.0122 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted striated muscle | healthy | 2 | 1.0147 | 1.0091 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted striated muscle | healthy | 2 | 1.0121 | 1.0118 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted striated muscle | healthy | 2 | 1.0163 | 1.0052 to 1.0273 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted striated muscle | healthy | 2 | 1.0113 | 1.0066 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted striated muscle | healthy | 2 | 1.0154 | 1.0053 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted striated muscle | healthy | 2 | 1.0132 | 1.0117 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted striated muscle | healthy | 2 | 1.0181 | 1.0069 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted striated muscle | healthy | 2 | 1.0013 | 0.97382 to 1.0288 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted striated muscle | healthy | 2 | 1.0112 | 1.0055 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted striated muscle | healthy | 2 | 1.02 | 1.0197 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted striated muscle | healthy | 2 | 1.0123 | 1.0066 to 1.018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted striated muscle | healthy | 2 | 1.0153 | 1.0148 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted striated muscle | healthy | 2 | 1.0142 | 1.0125 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted striated muscle | healthy | 2 | 1.0144 | 1.012 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted striated muscle | healthy | 2 | 1.0164 | 1.0156 to 1.0172 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted striated muscle | healthy | 2 | 1.0152 | 1.0116 to 1.0189 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted striated muscle | healthy | 2 | 1.0128 | 1.0075 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted striated muscle | healthy | 2 | 1.0151 | 1.0044 to 1.0259 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted striated muscle | healthy | 2 | 1.0102 | 1.0068 to 1.0136 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted striated muscle | healthy | 2 | 1.0121 | 1.0107 to 1.0136 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted striated muscle | healthy | 2 | 1.017 | 1.0163 to 1.0176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted striated muscle | healthy | 2 | 1.0134 | 1.0111 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted striated muscle | healthy | 2 | 1.0105 | 1.0053 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted striated muscle | healthy | 2 | 1.0127 | 1.0095 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted striated muscle | healthy | 2 | 1.0171 | 1.0141 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted striated muscle | healthy | 2 | 1.015 | 1.0147 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted striated muscle | healthy | 2 | 1.0588 | 1.0481 to 1.0695 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted striated muscle | healthy | 2 | 1.013 | 1.0078 to 1.0183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted striated muscle | healthy | 2 | 1.0138 | 1.0094 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted striated muscle | healthy | 2 | 1.0121 | 1.0102 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted striated muscle | healthy | 2 | 1.0117 | 1.0088 to 1.0147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted striated muscle | healthy | 2 | 1.0116 | 1.0101 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted striated muscle | healthy | 2 | 1.0144 | 1.0108 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted striated muscle | healthy | 2 | 1.0134 | 1.0118 to 1.015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted striated muscle | healthy | 2 | 1.0159 | 1.008 to 1.0239 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted striated muscle | healthy | 2 | 0.000977 | 0.0003965 to 0.0015575 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted striated muscle | healthy | 2 | 0.08988 | 0.0879 to 0.09186 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | striated muscle | sorted striated muscle | healthy | 2 | 0.9335 | 0.90722 to 0.95978 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted smooth muscle | healthy | 3 | 0.99857 | 0.85397 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted smooth muscle | healthy | 3 | 1.0508 | 0.80128 to 1.0511 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted smooth muscle | healthy | 3 | 0.99032 | 0.82007 to 1.0091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted smooth muscle | healthy | 3 | 0.9496 | 0.84857 to 0.97952 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted smooth muscle | healthy | 3 | 0.94974 | 0.85977 to 0.97562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted smooth muscle | healthy | 3 | 0.97271 | 0.84645 to 0.98881 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted smooth muscle | healthy | 3 | 0.97015 | 0.83814 to 0.98058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted smooth muscle | healthy | 3 | 0.99656 | 0.82734 to 1.0094 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted smooth muscle | healthy | 3 | 1.0094 | 0.80997 to 1.0246 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted smooth muscle | healthy | 3 | 0.99541 | 0.83353 to 0.99736 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted smooth muscle | healthy | 3 | 0.99907 | 0.84219 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted smooth muscle | healthy | 3 | 1.033 | 0.8198 to 1.0636 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted smooth muscle | healthy | 3 | 1.0112 | 0.80405 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted smooth muscle | healthy | 3 | 0.97132 | 0.84996 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted smooth muscle | healthy | 3 | 0.98738 | 0.81261 to 1.0312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted smooth muscle | healthy | 3 | 0.96332 | 0.86465 to 0.97895 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted smooth muscle | healthy | 3 | 0.92433 | 0.83272 to 0.98663 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted smooth muscle | healthy | 3 | 0.95428 | 0.84553 to 0.97611 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted smooth muscle | healthy | 3 | 0.96106 | 0.83847 to 0.97202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted smooth muscle | healthy | 3 | 0.95749 | 0.84119 to 0.97265 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted smooth muscle | healthy | 3 | 0.9565 | 0.83 to 0.96757 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted smooth muscle | healthy | 3 | 0.97983 | 0.8356 to 1.0013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted smooth muscle | healthy | 3 | 1.0075 | 0.84091 to 1.0278 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted smooth muscle | healthy | 3 | 0.93906 | 0.83731 to 0.97083 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted smooth muscle | healthy | 3 | 1.0058 | 0.8425 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted smooth muscle | healthy | 3 | 1.0028 | 0.83572 to 1.0123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted smooth muscle | healthy | 3 | 0.98855 | 0.8433 to 1.0036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted smooth muscle | healthy | 3 | 0.97452 | 0.8568 to 0.99595 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted smooth muscle | healthy | 3 | 1.0173 | 0.83479 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted smooth muscle | healthy | 3 | 0.95919 | 0.85793 to 0.96333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted smooth muscle | healthy | 3 | 1.0024 | 0.81712 to 1.0089 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted smooth muscle | healthy | 3 | 1.0127 | 0.82139 to 1.0338 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted smooth muscle | healthy | 3 | 0.96526 | 0.84286 to 0.97295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted smooth muscle | healthy | 3 | 0.99093 | 0.81034 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted smooth muscle | healthy | 3 | 0.96372 | 0.84317 to 0.98946 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted smooth muscle | healthy | 3 | 0.98329 | 0.83502 to 1.0008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted smooth muscle | healthy | 3 | 0.99676 | 0.82221 to 1.0068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted smooth muscle | healthy | 3 | 0.99626 | 0.82842 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted smooth muscle | healthy | 3 | 0.96308 | 0.84851 to 1.0005 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted smooth muscle | healthy | 3 | 1.0211 | 0.83845 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted smooth muscle | healthy | 3 | 0.95029 | 0.82033 to 0.97436 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted smooth muscle | healthy | 3 | 0.95979 | 0.84803 to 0.97862 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted smooth muscle | healthy | 3 | 0.98041 | 0.83173 to 0.99531 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted smooth muscle | healthy | 3 | 0.9655 | 0.84895 to 0.97812 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted smooth muscle | healthy | 3 | 0.93542 | 0.83643 to 0.96557 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted smooth muscle | healthy | 3 | 0.94704 | 0.85599 to 0.97912 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted smooth muscle | healthy | 3 | 0.9891 | 0.84184 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted smooth muscle | healthy | 3 | 1.066 | 0.93485 to 1.0972 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted smooth muscle | healthy | 3 | 1.0364 | 0.82526 to 1.0447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted smooth muscle | healthy | 3 | 0.97216 | 0.8252 to 1.0015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted smooth muscle | healthy | 3 | 0.97655 | 0.80871 to 0.99631 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted smooth muscle | healthy | 3 | 0.96816 | 0.80946 to 0.99035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted smooth muscle | healthy | 3 | 0.97122 | 0.85388 to 0.97899 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted smooth muscle | healthy | 3 | 0.9443 | 0.85529 to 0.96962 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted smooth muscle | healthy | 3 | 0.96866 | 0.84264 to 0.97981 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted smooth muscle | healthy | 3 | 1.0123 | 0.82241 to 1.0172 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted smooth muscle | healthy | 3 | 1.009 | 0.84798 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted smooth muscle | healthy | 3 | 6.1e-05 | 3.94e-05 to 9.43e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted smooth muscle | healthy | 3 | 0.18676 | 0.16058 to 0.21642 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | smooth muscle | sorted smooth muscle | healthy | 3 | 0.9381 | 0.93342 to 0.97491 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted cardiomyocyte | healthy | 3 | 1.0196 | 0.98062 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted cardiomyocyte | healthy | 3 | 1.0184 | 0.97528 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted cardiomyocyte | healthy | 3 | 1.0109 | 0.99012 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted cardiomyocyte | healthy | 3 | 1.0008 | 0.98637 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted cardiomyocyte | healthy | 3 | 1.0029 | 0.98979 to 1.011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted cardiomyocyte | healthy | 3 | 1.0154 | 0.981 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted cardiomyocyte | healthy | 3 | 1.0386 | 1.0259 to 1.0798 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted cardiomyocyte | healthy | 3 | 1.0139 | 0.98088 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted cardiomyocyte | healthy | 3 | 1.0127 | 0.9825 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted cardiomyocyte | healthy | 3 | 1.0109 | 0.97936 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted cardiomyocyte | healthy | 3 | 1.0147 | 0.98532 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted cardiomyocyte | healthy | 3 | 1.0134 | 0.98297 to 1.0162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted cardiomyocyte | healthy | 3 | 1.0076 | 0.98038 to 1.011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted cardiomyocyte | healthy | 3 | 1.0061 | 0.98199 to 1.0299 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted cardiomyocyte | healthy | 3 | 1.0143 | 0.97516 to 1.0333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted cardiomyocyte | healthy | 3 | 1.0016 | 0.98395 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted cardiomyocyte | healthy | 3 | 1.0012 | 0.98519 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted cardiomyocyte | healthy | 3 | 1.0113 | 0.97652 to 1.0117 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted cardiomyocyte | healthy | 3 | 1.0035 | 0.97919 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted cardiomyocyte | healthy | 3 | 0.99781 | 0.98638 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted cardiomyocyte | healthy | 3 | 1.0105 | 0.97552 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted cardiomyocyte | healthy | 3 | 1.0089 | 0.98363 to 1.0257 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted cardiomyocyte | healthy | 3 | 1.0078 | 0.98332 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted cardiomyocyte | healthy | 3 | 1.0074 | 0.98891 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted cardiomyocyte | healthy | 3 | 1.0139 | 0.98285 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted cardiomyocyte | healthy | 3 | 1.0089 | 0.97506 to 1.0244 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted cardiomyocyte | healthy | 3 | 1.0119 | 0.98116 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted cardiomyocyte | healthy | 3 | 1.0098 | 0.98383 to 1.0116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted cardiomyocyte | healthy | 3 | 1.0118 | 0.99263 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted cardiomyocyte | healthy | 3 | 1.0054 | 0.98777 to 1.0183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted cardiomyocyte | healthy | 3 | 1.0083 | 0.97889 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted cardiomyocyte | healthy | 3 | 1.0277 | 0.97415 to 1.0285 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted cardiomyocyte | healthy | 3 | 1.0065 | 0.98587 to 1.0112 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted cardiomyocyte | healthy | 3 | 1.0175 | 0.97654 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted cardiomyocyte | healthy | 3 | 1.0132 | 0.98184 to 1.0144 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted cardiomyocyte | healthy | 3 | 1.0111 | 0.98594 to 1.0187 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted cardiomyocyte | healthy | 3 | 1.0207 | 0.97729 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted cardiomyocyte | healthy | 3 | 1.0131 | 0.9835 to 1.0177 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted cardiomyocyte | healthy | 3 | 1.0001 | 0.98014 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted cardiomyocyte | healthy | 3 | 1.0063 | 0.98371 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted cardiomyocyte | healthy | 3 | 1.0042 | 0.98329 to 1.0151 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted cardiomyocyte | healthy | 3 | 1.0002 | 0.98104 to 1.0258 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted cardiomyocyte | healthy | 3 | 1.0098 | 0.99162 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted cardiomyocyte | healthy | 3 | 1.0123 | 0.98043 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted cardiomyocyte | healthy | 3 | 1.0076 | 0.98163 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted cardiomyocyte | healthy | 3 | 1.0108 | 0.97882 to 1.0177 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted cardiomyocyte | healthy | 3 | 1.0154 | 0.99474 to 1.0178 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted cardiomyocyte | healthy | 3 | 0.99367 | 0.97863 to 1.0236 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted cardiomyocyte | healthy | 3 | 0.99043 | 0.97847 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted cardiomyocyte | healthy | 3 | 1.0124 | 0.98786 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted cardiomyocyte | healthy | 3 | 1.01 | 0.98152 to 1.0148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted cardiomyocyte | healthy | 3 | 1.0066 | 0.98501 to 1.0082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted cardiomyocyte | healthy | 3 | 1.0167 | 0.97613 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted cardiomyocyte | healthy | 3 | 1.0048 | 0.97868 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted cardiomyocyte | healthy | 3 | 1.013 | 0.97859 to 1.0145 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted cardiomyocyte | healthy | 3 | 1.0105 | 0.98226 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted cardiomyocyte | healthy | 3 | 1.0095 | 0.97998 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted cardiomyocyte | healthy | 3 | 2.5e-05 | 2.5e-06 to 5.74e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted cardiomyocyte | healthy | 3 | 0.1003 | 0.09868 to 0.10775 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | cardiomyocyte | sorted cardiomyocyte | healthy | 3 | 0.9578 | 0.95735 to 1.0325 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted oligodendrocytes | healthy | 3 | 1.007 | 0.98477 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted oligodendrocytes | healthy | 3 | 1.0079 | 0.98639 to 1.0163 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted oligodendrocytes | healthy | 3 | 1.0076 | 0.99429 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted oligodendrocytes | healthy | 3 | 0.98628 | 0.98536 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted oligodendrocytes | healthy | 3 | 1.0069 | 0.9847 to 1.0151 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted oligodendrocytes | healthy | 3 | 1.0083 | 0.98301 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted oligodendrocytes | healthy | 3 | 0.98908 | 0.98584 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted oligodendrocytes | healthy | 3 | 1.0022 | 0.99393 to 1.0161 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted oligodendrocytes | healthy | 3 | 1.0054 | 0.99667 to 1.0063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted oligodendrocytes | healthy | 3 | 1.0081 | 0.98251 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted oligodendrocytes | healthy | 3 | 1.0106 | 0.99726 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted oligodendrocytes | healthy | 3 | 1.0038 | 0.99575 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted oligodendrocytes | healthy | 3 | 1.0068 | 0.99421 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted oligodendrocytes | healthy | 3 | 0.9944 | 0.98831 to 1.0394 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted oligodendrocytes | healthy | 3 | 1.0072 | 0.99392 to 1.0111 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted oligodendrocytes | healthy | 3 | 0.99668 | 0.98962 to 1.0119 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted oligodendrocytes | healthy | 3 | 0.99096 | 0.97726 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted oligodendrocytes | healthy | 3 | 0.98887 | 0.98632 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted oligodendrocytes | healthy | 3 | 0.99548 | 0.98649 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted oligodendrocytes | healthy | 3 | 0.99225 | 0.9854 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted oligodendrocytes | healthy | 3 | 0.98556 | 0.98339 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted oligodendrocytes | healthy | 3 | 1.0038 | 0.99582 to 1.0071 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted oligodendrocytes | healthy | 3 | 0.99538 | 0.99232 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted oligodendrocytes | healthy | 3 | 1.0005 | 0.98457 to 1.0052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted oligodendrocytes | healthy | 3 | 0.99955 | 0.9885 to 1.0105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted oligodendrocytes | healthy | 3 | 0.99849 | 0.98458 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted oligodendrocytes | healthy | 3 | 0.99294 | 0.9859 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted oligodendrocytes | healthy | 3 | 1.0035 | 0.98963 to 1.0119 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted oligodendrocytes | healthy | 3 | 0.98952 | 0.98701 to 1.025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted oligodendrocytes | healthy | 3 | 0.99391 | 0.993 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted oligodendrocytes | healthy | 3 | 1.0126 | 0.97858 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted oligodendrocytes | healthy | 3 | 1.0057 | 1.0011 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted oligodendrocytes | healthy | 3 | 0.9978 | 0.99128 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted oligodendrocytes | healthy | 3 | 1.0134 | 0.98878 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted oligodendrocytes | healthy | 3 | 1.0005 | 0.9963 to 1.0064 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted oligodendrocytes | healthy | 3 | 1.0065 | 0.99177 to 1.0176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted oligodendrocytes | healthy | 3 | 1.0151 | 0.98269 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted oligodendrocytes | healthy | 3 | 1.0019 | 0.99511 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted oligodendrocytes | healthy | 3 | 1.0456 | 1.0068 to 1.058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted oligodendrocytes | healthy | 3 | 0.98792 | 0.97861 to 1.0286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted oligodendrocytes | healthy | 3 | 0.99032 | 0.98851 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted oligodendrocytes | healthy | 3 | 0.98769 | 0.98611 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted oligodendrocytes | healthy | 3 | 1.0081 | 0.9988 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted oligodendrocytes | healthy | 3 | 0.99652 | 0.99289 to 1.0166 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted oligodendrocytes | healthy | 3 | 0.98812 | 0.9842 to 1.0151 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted oligodendrocytes | healthy | 3 | 0.99815 | 0.98625 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted oligodendrocytes | healthy | 3 | 1.0019 | 1.0012 to 1.0183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted oligodendrocytes | healthy | 3 | 0.98462 | 0.97964 to 1.028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted oligodendrocytes | healthy | 3 | 1.0166 | 0.97797 to 1.0236 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted oligodendrocytes | healthy | 3 | 1.0041 | 1.0001 to 1.0055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted oligodendrocytes | healthy | 3 | 1.0017 | 0.98983 to 1.0076 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted oligodendrocytes | healthy | 3 | 0.99332 | 0.98737 to 1.02 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted oligodendrocytes | healthy | 3 | 0.99906 | 0.99414 to 1.0111 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted oligodendrocytes | healthy | 3 | 0.9915 | 0.9731 to 1.0303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted oligodendrocytes | healthy | 3 | 0.98853 | 0.98569 to 1.0222 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted oligodendrocytes | healthy | 3 | 0.99436 | 0.99427 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted oligodendrocytes | healthy | 3 | 0.99129 | 0.99074 to 1.0183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted oligodendrocytes | healthy | 3 | 0.000123 | 3.48e-05 to 0.0001338 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted oligodendrocytes | healthy | 3 | 0.11268 | 0.10132 to 0.11433 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | sorted oligodendrocytes | healthy | 3 | 1.0006 | 0.98224 to 1.0575 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted cortical neurons | healthy | 3 | 0.94858 | 0.93508 to 1.0063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted cortical neurons | healthy | 3 | 0.96106 | 0.92514 to 0.99714 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted cortical neurons | healthy | 3 | 0.92913 | 0.89923 to 1.0451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted cortical neurons | healthy | 3 | 0.90502 | 0.90247 to 1.0278 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted cortical neurons | healthy | 3 | 0.91394 | 0.89097 to 1.0418 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted cortical neurons | healthy | 3 | 0.92184 | 0.9209 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted cortical neurons | healthy | 3 | 0.9183 | 0.90876 to 1.0222 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted cortical neurons | healthy | 3 | 0.93647 | 0.91367 to 1.0301 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted cortical neurons | healthy | 3 | 0.94773 | 0.91357 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted cortical neurons | healthy | 3 | 0.9301 | 0.91916 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted cortical neurons | healthy | 3 | 0.93673 | 0.93561 to 1.0254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted cortical neurons | healthy | 3 | 0.96073 | 0.95345 to 0.9841 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted cortical neurons | healthy | 3 | 0.93785 | 0.92765 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted cortical neurons | healthy | 3 | 1.0307 | 0.92732 to 1.0778 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted cortical neurons | healthy | 3 | 0.93836 | 0.91317 to 1.0223 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted cortical neurons | healthy | 3 | 0.93644 | 0.9157 to 1.0141 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted cortical neurons | healthy | 3 | 0.93369 | 0.916 to 1.0013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted cortical neurons | healthy | 3 | 0.91672 | 0.89844 to 1.0306 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted cortical neurons | healthy | 3 | 0.92325 | 0.90665 to 1.0168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted cortical neurons | healthy | 3 | 0.92783 | 0.90371 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted cortical neurons | healthy | 3 | 0.92 | 0.9062 to 1.012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted cortical neurons | healthy | 3 | 0.92101 | 0.91307 to 1.0381 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted cortical neurons | healthy | 3 | 0.93596 | 0.92755 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted cortical neurons | healthy | 3 | 0.91483 | 0.90826 to 1.0346 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted cortical neurons | healthy | 3 | 0.94501 | 0.93043 to 1.0011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted cortical neurons | healthy | 3 | 0.92339 | 0.91122 to 1.0359 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted cortical neurons | healthy | 3 | 0.93966 | 0.92053 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted cortical neurons | healthy | 3 | 0.92778 | 0.91405 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted cortical neurons | healthy | 3 | 0.95212 | 0.93804 to 0.9918 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted cortical neurons | healthy | 3 | 0.9249 | 0.91537 to 1.0255 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted cortical neurons | healthy | 3 | 0.93553 | 0.91695 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted cortical neurons | healthy | 3 | 0.96447 | 0.93598 to 1.0144 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted cortical neurons | healthy | 3 | 0.92426 | 0.90233 to 1.0368 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted cortical neurons | healthy | 3 | 0.9206 | 0.91566 to 1.031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted cortical neurons | healthy | 3 | 0.91523 | 0.90262 to 1.0351 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted cortical neurons | healthy | 3 | 0.9279 | 0.91822 to 1.0304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted cortical neurons | healthy | 3 | 0.94686 | 0.91134 to 1.0237 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted cortical neurons | healthy | 3 | 0.94696 | 0.90534 to 1.0281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted cortical neurons | healthy | 3 | 0.93362 | 0.92375 to 1.0325 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted cortical neurons | healthy | 3 | 0.95208 | 0.92706 to 0.9923 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted cortical neurons | healthy | 3 | 0.90449 | 0.90255 to 1.0288 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted cortical neurons | healthy | 3 | 0.92912 | 0.91527 to 1.0312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted cortical neurons | healthy | 3 | 0.93643 | 0.92392 to 1.0311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted cortical neurons | healthy | 3 | 0.9213 | 0.91073 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted cortical neurons | healthy | 3 | 0.89365 | 0.89224 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted cortical neurons | healthy | 3 | 0.92273 | 0.89677 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted cortical neurons | healthy | 3 | 0.94088 | 0.9376 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted cortical neurons | healthy | 3 | 0.93631 | 0.92443 to 1.0077 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted cortical neurons | healthy | 3 | 0.94897 | 0.94485 to 1.0013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted cortical neurons | healthy | 3 | 0.91482 | 0.91471 to 1.0347 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted cortical neurons | healthy | 3 | 0.90822 | 0.89198 to 1.0381 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted cortical neurons | healthy | 3 | 0.91172 | 0.91136 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted cortical neurons | healthy | 3 | 0.91892 | 0.91525 to 1.02 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted cortical neurons | healthy | 3 | 0.91133 | 0.88739 to 1.0379 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted cortical neurons | healthy | 3 | 0.94474 | 0.91096 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted cortical neurons | healthy | 3 | 0.94016 | 0.91662 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted cortical neurons | healthy | 3 | 0.94407 | 0.92355 to 1.0038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted cortical neurons | healthy | 28 | 0.0002735 | 0 to 0.024601 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted cortical neurons | healthy | 28 | 0.18733 | 0.1471 to 0.22362 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | cortical neurons | sorted cortical neurons | healthy | 28 | 1.0158 | 0.91706 to 1.0677 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted pancreatic acinar | healthy | 3 | 1.001 | 0.98611 to 1.018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted pancreatic acinar | healthy | 3 | 1.0301 | 0.96633 to 1.0421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted pancreatic acinar | healthy | 3 | 1.0085 | 0.98246 to 1.0338 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted pancreatic acinar | healthy | 3 | 1.0195 | 0.97338 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted pancreatic acinar | healthy | 3 | 1.0146 | 0.97537 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted pancreatic acinar | healthy | 3 | 1.015 | 0.97399 to 1.0271 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted pancreatic acinar | healthy | 3 | 1.0113 | 0.97814 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted pancreatic acinar | healthy | 3 | 1.0072 | 0.98487 to 1.0336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted pancreatic acinar | healthy | 3 | 1.0201 | 0.97727 to 1.0369 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted pancreatic acinar | healthy | 3 | 1.0216 | 0.96965 to 1.0344 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted pancreatic acinar | healthy | 3 | 1.0115 | 0.98331 to 1.0346 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted pancreatic acinar | healthy | 3 | 1.0223 | 0.96923 to 1.0409 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted pancreatic acinar | healthy | 3 | 1.0114 | 0.97672 to 1.0315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted pancreatic acinar | healthy | 3 | 1.02 | 0.98367 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted pancreatic acinar | healthy | 3 | 1.03 | 0.96833 to 1.0405 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted pancreatic acinar | healthy | 3 | 1.0136 | 0.97108 to 1.0322 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted pancreatic acinar | healthy | 3 | 1.0262 | 0.95657 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted pancreatic acinar | healthy | 3 | 1.019 | 0.97391 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted pancreatic acinar | healthy | 3 | 1.0174 | 0.96603 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted pancreatic acinar | healthy | 3 | 1.0201 | 0.96931 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted pancreatic acinar | healthy | 3 | 1.0151 | 0.96731 to 1.0343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted pancreatic acinar | healthy | 3 | 1.0194 | 0.97919 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted pancreatic acinar | healthy | 3 | 1.021 | 0.9691 to 1.0257 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted pancreatic acinar | healthy | 3 | 1.0078 | 0.9844 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted pancreatic acinar | healthy | 3 | 1.0051 | 0.98004 to 1.0206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted pancreatic acinar | healthy | 3 | 1.009 | 0.97394 to 1.0366 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted pancreatic acinar | healthy | 3 | 1.0147 | 0.97768 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted pancreatic acinar | healthy | 3 | 0.99383 | 0.98358 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted pancreatic acinar | healthy | 3 | 1.0218 | 0.97444 to 1.0261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted pancreatic acinar | healthy | 3 | 1.0121 | 0.95589 to 1.0381 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted pancreatic acinar | healthy | 3 | 1.0172 | 0.97965 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted pancreatic acinar | healthy | 3 | 1.0219 | 0.9705 to 1.0481 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted pancreatic acinar | healthy | 3 | 1.0042 | 0.98485 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted pancreatic acinar | healthy | 3 | 1.0245 | 0.97504 to 1.0311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted pancreatic acinar | healthy | 3 | 1.0124 | 0.98497 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted pancreatic acinar | healthy | 3 | 1.015 | 0.98771 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted pancreatic acinar | healthy | 3 | 1.0143 | 0.97789 to 1.0305 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted pancreatic acinar | healthy | 3 | 1.0064 | 0.98667 to 1.0275 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted pancreatic acinar | healthy | 3 | 1.0151 | 0.98492 to 1.0166 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted pancreatic acinar | healthy | 3 | 1.0082 | 0.9757 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted pancreatic acinar | healthy | 3 | 1.071 | 0.97748 to 1.077 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted pancreatic acinar | healthy | 3 | 0.99601 | 0.98385 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted pancreatic acinar | healthy | 3 | 1.012 | 0.98452 to 1.0386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted pancreatic acinar | healthy | 3 | 0.99944 | 0.98447 to 1.0269 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted pancreatic acinar | healthy | 3 | 1.0089 | 0.97585 to 1.0147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted pancreatic acinar | healthy | 3 | 1.0108 | 0.97596 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted pancreatic acinar | healthy | 3 | 1.0063 | 0.98544 to 1.0368 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted pancreatic acinar | healthy | 3 | 1.0178 | 0.9697 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted pancreatic acinar | healthy | 3 | 1.0103 | 0.97965 to 1.0278 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted pancreatic acinar | healthy | 3 | 1.0155 | 0.97962 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted pancreatic acinar | healthy | 3 | 1.0185 | 0.97638 to 1.0254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted pancreatic acinar | healthy | 3 | 1.0161 | 0.97324 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted pancreatic acinar | healthy | 3 | 1.0074 | 0.97852 to 1.0205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted pancreatic acinar | healthy | 3 | 1.0181 | 0.96948 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted pancreatic acinar | healthy | 3 | 1.0164 | 0.97448 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted pancreatic acinar | healthy | 3 | 1.0172 | 0.96934 to 1.0393 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted pancreatic acinar | healthy | 3 | 1.0099 | 0.98054 to 1.0162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted pancreatic acinar | healthy | 7 | 0.001069 | 9.58e-05 to 0.002975 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted pancreatic acinar | healthy | 7 | 0.27141 | 0.097449 to 0.30708 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | sorted pancreatic acinar | healthy | 7 | 0.9814 | 0.95876 to 1.0639 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted pancreatic delta | healthy | 3 | 1.0321 | 0.98269 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted pancreatic delta | healthy | 3 | 1.0286 | 0.97244 to 1.042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted pancreatic delta | healthy | 3 | 1.023 | 0.98339 to 1.0445 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted pancreatic delta | healthy | 3 | 1.0323 | 0.97301 to 1.0369 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted pancreatic delta | healthy | 3 | 1.0129 | 0.97593 to 1.0391 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted pancreatic delta | healthy | 3 | 1.0213 | 0.97821 to 1.0358 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted pancreatic delta | healthy | 3 | 1.0174 | 0.98189 to 1.0277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted pancreatic delta | healthy | 3 | 1.0302 | 0.98434 to 1.0377 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted pancreatic delta | healthy | 3 | 1.0285 | 0.97452 to 1.0504 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted pancreatic delta | healthy | 3 | 1.0362 | 0.97507 to 1.0369 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted pancreatic delta | healthy | 3 | 1.0328 | 0.98165 to 1.0411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted pancreatic delta | healthy | 3 | 1.0396 | 0.97019 to 1.048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted pancreatic delta | healthy | 3 | 1.0258 | 0.97183 to 1.0469 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted pancreatic delta | healthy | 3 | 1.0201 | 0.98177 to 1.0422 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted pancreatic delta | healthy | 3 | 1.0293 | 0.98752 to 1.0312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted pancreatic delta | healthy | 3 | 1.0318 | 0.97441 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted pancreatic delta | healthy | 3 | 1.0093 | 0.99161 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted pancreatic delta | healthy | 3 | 1.0256 | 0.97147 to 1.0396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted pancreatic delta | healthy | 3 | 1.0283 | 0.97146 to 1.0319 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted pancreatic delta | healthy | 3 | 1.0264 | 0.97345 to 1.0417 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted pancreatic delta | healthy | 3 | 1.0315 | 0.97194 to 1.0336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted pancreatic delta | healthy | 3 | 1.0273 | 0.97841 to 1.0459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted pancreatic delta | healthy | 3 | 1.0188 | 0.98752 to 1.0223 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted pancreatic delta | healthy | 3 | 1.0147 | 0.98554 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted pancreatic delta | healthy | 3 | 1.0376 | 0.97259 to 1.0386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted pancreatic delta | healthy | 3 | 1.0444 | 0.96465 to 1.051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted pancreatic delta | healthy | 3 | 1.0215 | 0.97537 to 1.0483 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted pancreatic delta | healthy | 3 | 1.0377 | 0.97315 to 1.0392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted pancreatic delta | healthy | 3 | 1.0177 | 0.96726 to 1.0542 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted pancreatic delta | healthy | 3 | 1.0316 | 0.98122 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted pancreatic delta | healthy | 3 | 1.0205 | 0.97261 to 1.0427 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted pancreatic delta | healthy | 3 | 1.0406 | 0.98189 to 1.0459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted pancreatic delta | healthy | 3 | 1.0234 | 0.98468 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted pancreatic delta | healthy | 3 | 1.0297 | 0.97738 to 1.0408 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted pancreatic delta | healthy | 3 | 1.0313 | 0.9771 to 1.0336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted pancreatic delta | healthy | 3 | 1.0249 | 0.98289 to 1.0388 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted pancreatic delta | healthy | 3 | 1.0323 | 0.98781 to 1.0355 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted pancreatic delta | healthy | 3 | 1.0238 | 0.98706 to 1.0414 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted pancreatic delta | healthy | 3 | 1.0288 | 0.97628 to 1.0399 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted pancreatic delta | healthy | 3 | 1.0259 | 0.97706 to 1.0357 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted pancreatic delta | healthy | 3 | 1.0152 | 0.98949 to 1.0177 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted pancreatic delta | healthy | 3 | 1.0098 | 0.98288 to 1.0501 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted pancreatic delta | healthy | 3 | 1.0448 | 0.9739 to 1.0544 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted pancreatic delta | healthy | 3 | 1.1137 | 1.0203 to 1.1175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted pancreatic delta | healthy | 3 | 1.0279 | 0.96725 to 1.0387 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted pancreatic delta | healthy | 3 | 1.023 | 0.97478 to 1.0363 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted pancreatic delta | healthy | 3 | 1.0413 | 0.97107 to 1.0577 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted pancreatic delta | healthy | 3 | 1.0178 | 0.98743 to 1.0191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted pancreatic delta | healthy | 3 | 1.0225 | 0.96432 to 1.0594 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted pancreatic delta | healthy | 3 | 1.0333 | 0.97863 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted pancreatic delta | healthy | 3 | 1.0232 | 0.98486 to 1.0273 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted pancreatic delta | healthy | 3 | 1.0158 | 0.98332 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted pancreatic delta | healthy | 3 | 1.0303 | 0.97723 to 1.0344 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted pancreatic delta | healthy | 3 | 1.0236 | 0.97719 to 1.0299 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted pancreatic delta | healthy | 3 | 1.0278 | 0.97611 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted pancreatic delta | healthy | 3 | 1.0243 | 0.97201 to 1.0541 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted pancreatic delta | healthy | 3 | 1.0327 | 0.9718 to 1.0335 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted pancreatic delta | healthy | 3 | 8.6e-05 | 8.6e-06 to 0.0001742 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted pancreatic delta | healthy | 3 | 0.12515 | 0.099995 to 0.12529 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | pancreatic delta | sorted pancreatic delta | healthy | 3 | 0.9362 | 0.91271 to 0.95159 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted pancreatic beta | healthy | 3 | 1.0183 | 0.98054 to 1.0309 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted pancreatic beta | healthy | 3 | 1.0069 | 0.955 to 1.0482 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted pancreatic beta | healthy | 3 | 1.002 | 0.97736 to 1.0431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted pancreatic beta | healthy | 3 | 1.0108 | 0.97008 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted pancreatic beta | healthy | 3 | 0.99607 | 0.97587 to 1.0281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted pancreatic beta | healthy | 3 | 1.0022 | 0.97609 to 1.0373 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted pancreatic beta | healthy | 3 | 1.0014 | 0.97174 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted pancreatic beta | healthy | 3 | 1.0006 | 0.97789 to 1.0422 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted pancreatic beta | healthy | 3 | 1.0077 | 0.96297 to 1.0467 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted pancreatic beta | healthy | 3 | 0.9923 | 0.96847 to 1.0468 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted pancreatic beta | healthy | 3 | 1.0044 | 0.97272 to 1.0451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted pancreatic beta | healthy | 3 | 1.0113 | 0.96509 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted pancreatic beta | healthy | 3 | 0.99958 | 0.9749 to 1.0388 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted pancreatic beta | healthy | 3 | 1.0065 | 0.98122 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted pancreatic beta | healthy | 3 | 1.0228 | 0.96772 to 1.0374 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted pancreatic beta | healthy | 3 | 0.99824 | 0.98683 to 1.0296 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted pancreatic beta | healthy | 3 | 1.0095 | 0.98305 to 1.0162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted pancreatic beta | healthy | 3 | 1.0003 | 0.97227 to 1.034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted pancreatic beta | healthy | 3 | 0.99826 | 0.98373 to 1.0237 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted pancreatic beta | healthy | 3 | 1.0029 | 0.97904 to 1.0264 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted pancreatic beta | healthy | 3 | 0.99477 | 0.97475 to 1.0281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted pancreatic beta | healthy | 3 | 1.0005 | 0.98176 to 1.0404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted pancreatic beta | healthy | 3 | 0.99907 | 0.9842 to 1.0201 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted pancreatic beta | healthy | 3 | 0.99546 | 0.98713 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted pancreatic beta | healthy | 3 | 1.0057 | 0.97893 to 1.032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted pancreatic beta | healthy | 3 | 0.99886 | 0.95453 to 1.0615 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted pancreatic beta | healthy | 3 | 1.0036 | 0.97664 to 1.034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted pancreatic beta | healthy | 3 | 1.0009 | 0.976 to 1.0376 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted pancreatic beta | healthy | 3 | 1.0065 | 0.97198 to 1.0364 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted pancreatic beta | healthy | 3 | 1.0018 | 0.98427 to 1.0307 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted pancreatic beta | healthy | 3 | 1.0118 | 0.96114 to 1.0424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted pancreatic beta | healthy | 3 | 1.0047 | 0.98754 to 1.0424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted pancreatic beta | healthy | 3 | 1.0052 | 0.97314 to 1.0307 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted pancreatic beta | healthy | 3 | 1.0064 | 0.97712 to 1.0371 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted pancreatic beta | healthy | 3 | 0.99904 | 0.96452 to 1.047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted pancreatic beta | healthy | 3 | 1.0106 | 0.97477 to 1.0374 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted pancreatic beta | healthy | 3 | 1.0165 | 0.96936 to 1.0361 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted pancreatic beta | healthy | 3 | 1.0062 | 0.96683 to 1.0438 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted pancreatic beta | healthy | 3 | 1.0103 | 0.96369 to 1.0425 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted pancreatic beta | healthy | 3 | 0.99881 | 0.97858 to 1.0352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted pancreatic beta | healthy | 3 | 0.99841 | 0.98398 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted pancreatic beta | healthy | 3 | 1.002 | 0.96559 to 1.0562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted pancreatic beta | healthy | 3 | 1.0558 | 1.0311 to 1.0625 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted pancreatic beta | healthy | 3 | 1.0048 | 0.98218 to 1.0402 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted pancreatic beta | healthy | 3 | 1.0023 | 0.97315 to 1.0276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted pancreatic beta | healthy | 3 | 0.99903 | 0.97133 to 1.0324 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted pancreatic beta | healthy | 3 | 1.0077 | 0.97415 to 1.0577 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted pancreatic beta | healthy | 3 | 1.0016 | 0.98732 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted pancreatic beta | healthy | 3 | 0.99781 | 0.96367 to 1.0485 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted pancreatic beta | healthy | 3 | 1.0013 | 0.97443 to 1.0421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted pancreatic beta | healthy | 3 | 0.99531 | 0.98096 to 1.0352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted pancreatic beta | healthy | 3 | 0.99949 | 0.97452 to 1.0373 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted pancreatic beta | healthy | 3 | 1.0085 | 0.9647 to 1.0393 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted pancreatic beta | healthy | 3 | 1.0044 | 0.97968 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted pancreatic beta | healthy | 3 | 1.0068 | 0.98642 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted pancreatic beta | healthy | 3 | 1.0096 | 0.96409 to 1.0527 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted pancreatic beta | healthy | 3 | 0.99541 | 0.9778 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted pancreatic beta | healthy | 3 | 1.2e-05 | 1.2e-05 to 0.0001227 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted pancreatic beta | healthy | 3 | 0.11172 | 0.10421 to 0.11234 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | pancreatic beta | sorted pancreatic beta | healthy | 3 | 0.9916 | 0.9151 to 1.0556 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted pancreatic alpha | healthy | 3 | 1.0174 | 0.98347 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted pancreatic alpha | healthy | 3 | 1.0021 | 0.98168 to 1.0098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted pancreatic alpha | healthy | 3 | 1.0046 | 0.99906 to 1.0093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted pancreatic alpha | healthy | 3 | 1.0035 | 0.97895 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted pancreatic alpha | healthy | 3 | 0.99775 | 0.98614 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted pancreatic alpha | healthy | 3 | 1.0056 | 0.98201 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted pancreatic alpha | healthy | 3 | 0.99979 | 0.97049 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted pancreatic alpha | healthy | 3 | 1.0065 | 1.0003 to 1.008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted pancreatic alpha | healthy | 3 | 1.0015 | 0.99553 to 1.0175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted pancreatic alpha | healthy | 3 | 1.0046 | 0.97966 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted pancreatic alpha | healthy | 3 | 1.0051 | 0.98954 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted pancreatic alpha | healthy | 3 | 1.0064 | 0.97413 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted pancreatic alpha | healthy | 3 | 1.003 | 0.97988 to 1.0189 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted pancreatic alpha | healthy | 3 | 1.0078 | 0.98397 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted pancreatic alpha | healthy | 3 | 1.0037 | 0.99583 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted pancreatic alpha | healthy | 3 | 1.0076 | 0.97901 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted pancreatic alpha | healthy | 3 | 0.99601 | 0.98381 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted pancreatic alpha | healthy | 3 | 1.0083 | 0.97961 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted pancreatic alpha | healthy | 3 | 1.0008 | 0.98043 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted pancreatic alpha | healthy | 3 | 1.0048 | 0.98077 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted pancreatic alpha | healthy | 3 | 1.0032 | 0.98046 to 1.0086 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted pancreatic alpha | healthy | 3 | 1.0063 | 0.9877 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted pancreatic alpha | healthy | 3 | 1.0039 | 0.98553 to 1.0039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted pancreatic alpha | healthy | 3 | 1.0027 | 0.98839 to 1.009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted pancreatic alpha | healthy | 3 | 1.0099 | 0.98289 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted pancreatic alpha | healthy | 3 | 1.0113 | 0.97587 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted pancreatic alpha | healthy | 3 | 1.0098 | 0.98254 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted pancreatic alpha | healthy | 3 | 1.0033 | 0.97514 to 1.0235 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted pancreatic alpha | healthy | 3 | 1.0094 | 0.97446 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted pancreatic alpha | healthy | 3 | 1.0084 | 0.98591 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted pancreatic alpha | healthy | 3 | 1.0105 | 0.96812 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted pancreatic alpha | healthy | 3 | 1.016 | 0.98899 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted pancreatic alpha | healthy | 3 | 0.99481 | 0.98836 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted pancreatic alpha | healthy | 3 | 1.0052 | 0.99381 to 1.0068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted pancreatic alpha | healthy | 3 | 1.002 | 0.97321 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted pancreatic alpha | healthy | 3 | 1.0056 | 0.98416 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted pancreatic alpha | healthy | 3 | 1.0071 | 0.99145 to 1.0083 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted pancreatic alpha | healthy | 3 | 1.012 | 0.99009 to 1.0164 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted pancreatic alpha | healthy | 3 | 1.0154 | 0.97948 to 1.0167 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted pancreatic alpha | healthy | 3 | 1.0017 | 0.9839 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted pancreatic alpha | healthy | 3 | 1.0022 | 0.98562 to 1.0078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted pancreatic alpha | healthy | 3 | 1.0643 | 1.0227 to 1.0702 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted pancreatic alpha | healthy | 3 | 1.0228 | 0.98355 to 1.0272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted pancreatic alpha | healthy | 3 | 1.0034 | 0.9826 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted pancreatic alpha | healthy | 3 | 0.99755 | 0.98068 to 1.0098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted pancreatic alpha | healthy | 3 | 0.99786 | 0.98057 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted pancreatic alpha | healthy | 3 | 1.0144 | 0.98693 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted pancreatic alpha | healthy | 3 | 1.0017 | 0.97845 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted pancreatic alpha | healthy | 3 | 1.0003 | 0.97633 to 1.0162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted pancreatic alpha | healthy | 3 | 1.0107 | 0.98653 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted pancreatic alpha | healthy | 3 | 0.99841 | 0.9968 to 1.0089 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted pancreatic alpha | healthy | 3 | 0.99963 | 0.98821 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted pancreatic alpha | healthy | 3 | 1.0022 | 0.97902 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted pancreatic alpha | healthy | 3 | 1.0042 | 0.98675 to 1.0065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted pancreatic alpha | healthy | 3 | 0.99935 | 0.98841 to 1.0062 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted pancreatic alpha | healthy | 3 | 1.0086 | 0.98711 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted pancreatic alpha | healthy | 3 | 1.0016 | 0.98657 to 1.0106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted pancreatic alpha | healthy | 3 | 4.9e-05 | 1.57e-05 to 9.31e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted pancreatic alpha | healthy | 3 | 0.10549 | 0.095086 to 0.10729 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | pancreatic alpha | sorted pancreatic alpha | healthy | 3 | 0.9643 | 0.91489 to 0.96493 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted kidney tubular epithelium | healthy | 3 | 0.93487 | 0.93147 to 0.99685 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted kidney tubular epithelium | healthy | 3 | 0.93949 | 0.85637 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted kidney tubular epithelium | healthy | 3 | 0.95034 | 0.87044 to 1.001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.93864 | 0.9097 to 0.98377 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.92987 | 0.9196 to 0.98612 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.92782 | 0.92099 to 0.99325 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted kidney tubular epithelium | healthy | 3 | 0.92866 | 0.9125 to 0.97596 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted kidney tubular epithelium | healthy | 3 | 0.9462 | 0.8826 to 1.0168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted kidney tubular epithelium | healthy | 3 | 0.95143 | 0.87404 to 1.0094 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted kidney tubular epithelium | healthy | 3 | 0.95061 | 0.88732 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.95741 | 0.88758 to 1.0358 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted kidney tubular epithelium | healthy | 3 | 0.93324 | 0.88054 to 1.007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted kidney tubular epithelium | healthy | 3 | 0.9457 | 0.87851 to 1.0236 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted kidney tubular epithelium | healthy | 3 | 0.96903 | 0.88205 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted kidney tubular epithelium | healthy | 3 | 0.93695 | 0.88375 to 1.0019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.95342 | 0.9155 to 0.98298 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted kidney tubular epithelium | healthy | 3 | 0.93256 | 0.89734 to 0.96284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.93041 | 0.91446 to 0.97286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.92462 | 0.90766 to 0.97081 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.93449 | 0.90785 to 0.97596 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.91043 | 0.90876 to 0.96819 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted kidney tubular epithelium | healthy | 3 | 0.94236 | 0.89083 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted kidney tubular epithelium | healthy | 3 | 0.9154 | 0.90118 to 0.98089 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted kidney tubular epithelium | healthy | 3 | 0.95918 | 0.87052 to 1.0003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted kidney tubular epithelium | healthy | 3 | 0.92659 | 0.90072 to 0.99359 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.94895 | 0.92659 to 1.0665 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted kidney tubular epithelium | healthy | 3 | 0.90991 | 0.90321 to 0.99525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted kidney tubular epithelium | healthy | 3 | 1.0411 | 1.0276 to 1.0685 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted kidney tubular epithelium | healthy | 3 | 0.91283 | 0.90851 to 1.0039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.93826 | 0.92122 to 0.98535 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted kidney tubular epithelium | healthy | 3 | 0.9481 | 0.86668 to 1.0101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.93833 | 0.92728 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted kidney tubular epithelium | healthy | 3 | 0.92177 | 0.9089 to 0.98965 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted kidney tubular epithelium | healthy | 3 | 0.92598 | 0.88016 to 1.0022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted kidney tubular epithelium | healthy | 3 | 0.93306 | 0.88916 to 0.98782 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted kidney tubular epithelium | healthy | 3 | 0.93841 | 0.88228 to 1.0091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted kidney tubular epithelium | healthy | 3 | 0.94904 | 0.8805 to 1.0187 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted kidney tubular epithelium | healthy | 3 | 0.96401 | 0.87568 to 1.0021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted kidney tubular epithelium | healthy | 3 | 0.93653 | 0.90192 to 1.0075 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted kidney tubular epithelium | healthy | 3 | 0.91625 | 0.9026 to 0.99902 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted kidney tubular epithelium | healthy | 3 | 0.93823 | 0.89244 to 0.97343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted kidney tubular epithelium | healthy | 3 | 0.92163 | 0.91306 to 0.99129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted kidney tubular epithelium | healthy | 3 | 0.96725 | 0.9132 to 1.0049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted kidney tubular epithelium | healthy | 3 | 0.92509 | 0.92178 to 0.97762 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted kidney tubular epithelium | healthy | 3 | 0.91532 | 0.90073 to 0.97299 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.94976 | 0.89827 to 0.96613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.95861 | 0.89482 to 1.0351 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted kidney tubular epithelium | healthy | 3 | 0.9244 | 0.90039 to 0.96846 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted kidney tubular epithelium | healthy | 3 | 0.93286 | 0.8738 to 1.0103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted kidney tubular epithelium | healthy | 3 | 0.93544 | 0.89211 to 0.99424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted kidney tubular epithelium | healthy | 3 | 0.94214 | 0.88346 to 0.99445 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted kidney tubular epithelium | healthy | 3 | 0.92533 | 0.89008 to 0.9931 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.93581 | 0.90971 to 1.0031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.94027 | 0.89072 to 0.9669 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.93711 | 0.90232 to 0.97012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted kidney tubular epithelium | healthy | 3 | 0.92511 | 0.8984 to 1.027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted kidney tubular epithelium | healthy | 3 | 0.91024 | 0.90679 to 0.99457 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted kidney tubular epithelium | healthy | 3 | 7.4e-05 | 2.99e-05 to 0.0001397 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted kidney tubular epithelium | healthy | 3 | 0.13414 | 0.13183 to 0.17287 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | kidney tubular epithelium | sorted kidney tubular epithelium | healthy | 3 | 1.0029 | 0.9786 to 1.0326 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted thyroid epithelium | healthy | 3 | 1.0127 | 0.99478 to 1.0166 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted thyroid epithelium | healthy | 3 | 1.0065 | 0.98469 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted thyroid epithelium | healthy | 3 | 1.0045 | 1.0024 to 1.0119 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted thyroid epithelium | healthy | 3 | 0.99701 | 0.98917 to 1.0132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted thyroid epithelium | healthy | 3 | 1.0019 | 0.99538 to 1.0061 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted thyroid epithelium | healthy | 3 | 1.0039 | 0.99539 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted thyroid epithelium | healthy | 3 | 0.99947 | 0.99665 to 1.0065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted thyroid epithelium | healthy | 3 | 1.006 | 1.0043 to 1.0084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted thyroid epithelium | healthy | 3 | 1.009 | 1.0018 to 1.0123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted thyroid epithelium | healthy | 3 | 1.0049 | 0.99653 to 1.0096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted thyroid epithelium | healthy | 3 | 1.0127 | 1.0019 to 1.0164 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted thyroid epithelium | healthy | 3 | 0.99961 | 0.99958 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted thyroid epithelium | healthy | 3 | 1.0021 | 0.99343 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted thyroid epithelium | healthy | 3 | 1.0062 | 0.99845 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted thyroid epithelium | healthy | 3 | 1.0119 | 0.98635 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted thyroid epithelium | healthy | 3 | 1.0092 | 0.98713 to 1.0117 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted thyroid epithelium | healthy | 3 | 0.99772 | 0.99093 to 1.0136 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted thyroid epithelium | healthy | 3 | 0.9966 | 0.99322 to 1.0102 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted thyroid epithelium | healthy | 3 | 0.99727 | 0.98884 to 1.008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted thyroid epithelium | healthy | 3 | 0.99975 | 0.99309 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted thyroid epithelium | healthy | 3 | 1.008 | 0.98284 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted thyroid epithelium | healthy | 3 | 1.0071 | 0.99384 to 1.0143 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted thyroid epithelium | healthy | 3 | 0.9938 | 0.98509 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted thyroid epithelium | healthy | 3 | 1.0011 | 0.99617 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted thyroid epithelium | healthy | 3 | 1.0013 | 0.99357 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted thyroid epithelium | healthy | 3 | 1.0122 | 0.99288 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted thyroid epithelium | healthy | 3 | 1.004 | 0.99248 to 1.0087 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted thyroid epithelium | healthy | 3 | 1.0077 | 0.99906 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted thyroid epithelium | healthy | 3 | 1.0089 | 0.99915 to 1.0104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted thyroid epithelium | healthy | 3 | 1.0075 | 0.98832 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted thyroid epithelium | healthy | 3 | 1.0011 | 0.9974 to 1.0035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted thyroid epithelium | healthy | 3 | 1.0092 | 1.0059 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted thyroid epithelium | healthy | 3 | 1.0001 | 0.99582 to 1.0082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted thyroid epithelium | healthy | 3 | 1.0022 | 0.99561 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted thyroid epithelium | healthy | 3 | 1.0088 | 0.99359 to 1.0099 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted thyroid epithelium | healthy | 3 | 1.009 | 0.99042 to 1.0184 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted thyroid epithelium | healthy | 3 | 1.0009 | 0.99519 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted thyroid epithelium | healthy | 3 | 1.0034 | 0.99803 to 1.0162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted thyroid epithelium | healthy | 3 | 1.0054 | 0.99926 to 1.0085 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted thyroid epithelium | healthy | 3 | 1.002 | 1.0008 to 1.0029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted thyroid epithelium | healthy | 3 | 1.004 | 0.99096 to 1.005 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted thyroid epithelium | healthy | 3 | 1.0096 | 0.98445 to 1.0123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted thyroid epithelium | healthy | 3 | 1.0052 | 1.0045 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted thyroid epithelium | healthy | 3 | 1.006 | 0.99289 to 1.0114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted thyroid epithelium | healthy | 3 | 0.99795 | 0.99531 to 0.99871 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted thyroid epithelium | healthy | 3 | 0.99694 | 0.99506 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted thyroid epithelium | healthy | 3 | 1.0138 | 1.0018 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted thyroid epithelium | healthy | 3 | 0.99783 | 0.98803 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted thyroid epithelium | healthy | 3 | 1.0011 | 0.99364 to 1.0133 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted thyroid epithelium | healthy | 3 | 1.0119 | 0.99652 to 1.012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted thyroid epithelium | healthy | 3 | 1.0019 | 0.9968 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted thyroid epithelium | healthy | 3 | 1.0036 | 0.98705 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted thyroid epithelium | healthy | 3 | 1.0541 | 1.0516 to 1.0632 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted thyroid epithelium | healthy | 3 | 0.99814 | 0.99483 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted thyroid epithelium | healthy | 3 | 1.0012 | 0.99656 to 1.0116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted thyroid epithelium | healthy | 3 | 1.0097 | 0.98823 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted thyroid epithelium | healthy | 3 | 1.0049 | 0.99089 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted thyroid epithelium | healthy | 3 | 3.7e-05 | 2.62e-05 to 9.19e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted thyroid epithelium | healthy | 3 | 0.10142 | 0.10142 to 0.10588 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | thyroid epithelium | sorted thyroid epithelium | healthy | 3 | 0.94 | 0.91309 to 1.0423 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted fallopien tubes epithelium | healthy | 3 | 0.99579 | 0.96743 to 1.0406 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted fallopien tubes epithelium | healthy | 3 | 0.9913 | 0.97326 to 1.0132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted fallopien tubes epithelium | healthy | 3 | 0.9886 | 0.97857 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98718 | 0.9811 to 1.0037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98294 | 0.96671 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.99268 | 0.98077 to 1.0138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted fallopien tubes epithelium | healthy | 3 | 0.98971 | 0.96336 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted fallopien tubes epithelium | healthy | 3 | 0.99621 | 0.97843 to 1.0165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted fallopien tubes epithelium | healthy | 3 | 0.98738 | 0.98405 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted fallopien tubes epithelium | healthy | 3 | 1.0021 | 0.97147 to 1.0114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.99745 | 0.98673 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted fallopien tubes epithelium | healthy | 3 | 0.98909 | 0.97964 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted fallopien tubes epithelium | healthy | 3 | 0.99237 | 0.97523 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted fallopien tubes epithelium | healthy | 3 | 0.98759 | 0.98133 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted fallopien tubes epithelium | healthy | 3 | 0.99515 | 0.9816 to 1.0096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98857 | 0.97717 to 1.0223 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted fallopien tubes epithelium | healthy | 3 | 0.98836 | 0.97705 to 1 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted fallopien tubes epithelium | healthy | 3 | 1.0571 | 1.0149 to 1.0807 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98006 | 0.97869 to 0.99244 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98864 | 0.97744 to 0.99309 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98445 | 0.97711 to 0.99998 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted fallopien tubes epithelium | healthy | 3 | 0.98996 | 0.98064 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted fallopien tubes epithelium | healthy | 3 | 0.99036 | 0.97954 to 0.99293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted fallopien tubes epithelium | healthy | 3 | 0.98673 | 0.97241 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted fallopien tubes epithelium | healthy | 3 | 0.9759 | 0.95815 to 1.0447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98036 | 0.97947 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98312 | 0.9741 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.97807 | 0.95878 to 1.0434 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98189 | 0.97481 to 1.0284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98459 | 0.9746 to 1.023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted fallopien tubes epithelium | healthy | 3 | 0.97852 | 0.97059 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.99305 | 0.98678 to 1.0332 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted fallopien tubes epithelium | healthy | 3 | 0.98647 | 0.97265 to 1.0164 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted fallopien tubes epithelium | healthy | 3 | 0.98969 | 0.98872 to 1.0009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted fallopien tubes epithelium | healthy | 3 | 0.98487 | 0.98193 to 1.0113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted fallopien tubes epithelium | healthy | 3 | 0.98262 | 0.98094 to 1.0164 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted fallopien tubes epithelium | healthy | 3 | 0.9929 | 0.98687 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted fallopien tubes epithelium | healthy | 3 | 0.98794 | 0.98159 to 1.0254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted fallopien tubes epithelium | healthy | 3 | 0.98857 | 0.96557 to 1.0281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted fallopien tubes epithelium | healthy | 3 | 0.97432 | 0.9717 to 1.0286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted fallopien tubes epithelium | healthy | 3 | 0.99148 | 0.98002 to 0.99611 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted fallopien tubes epithelium | healthy | 3 | 0.99199 | 0.96862 to 1.0096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted fallopien tubes epithelium | healthy | 3 | 0.98665 | 0.97761 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted fallopien tubes epithelium | healthy | 3 | 0.99323 | 0.95781 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted fallopien tubes epithelium | healthy | 3 | 0.99084 | 0.97042 to 1.0014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98858 | 0.97088 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.9874 | 0.97479 to 1.0407 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted fallopien tubes epithelium | healthy | 3 | 0.98068 | 0.97105 to 1.0061 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted fallopien tubes epithelium | healthy | 3 | 0.97787 | 0.97123 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted fallopien tubes epithelium | healthy | 3 | 0.9966 | 0.98572 to 1.0001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted fallopien tubes epithelium | healthy | 3 | 0.99452 | 0.98895 to 0.99773 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted fallopien tubes epithelium | healthy | 3 | 0.98473 | 0.97659 to 1.004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98164 | 0.96078 to 1.0335 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98173 | 0.97539 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.98408 | 0.98155 to 1.0008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted fallopien tubes epithelium | healthy | 3 | 0.9972 | 0.98663 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted fallopien tubes epithelium | healthy | 3 | 0.97803 | 0.96931 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted fallopien tubes epithelium | healthy | 3 | 2.5e-05 | 2.5e-06 to 7.99e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted fallopien tubes epithelium | healthy | 3 | 0.11828 | 0.099596 to 0.11957 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | sorted fallopien tubes epithelium | healthy | 3 | 1.012 | 0.97762 to 1.0828 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted endometrium epithelium | healthy | 3 | 0.98244 | 0.96197 to 1.0333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted endometrium epithelium | healthy | 3 | 0.97392 | 0.94626 to 1.0268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted endometrium epithelium | healthy | 3 | 0.95145 | 0.94136 to 1.0543 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted endometrium epithelium | healthy | 3 | 0.95128 | 0.93021 to 1.0688 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted endometrium epithelium | healthy | 3 | 0.95881 | 0.93556 to 1.0469 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted endometrium epithelium | healthy | 3 | 0.95335 | 0.93909 to 1.0654 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted endometrium epithelium | healthy | 3 | 0.96402 | 0.9377 to 1.0431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted endometrium epithelium | healthy | 3 | 0.95354 | 0.9516 to 1.0415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted endometrium epithelium | healthy | 3 | 0.95711 | 0.9388 to 1.0652 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted endometrium epithelium | healthy | 3 | 0.96864 | 0.9369 to 1.0498 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted endometrium epithelium | healthy | 3 | 0.98016 | 0.97014 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted endometrium epithelium | healthy | 3 | 0.97374 | 0.95734 to 1.0148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted endometrium epithelium | healthy | 3 | 0.95908 | 0.94291 to 1.0431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted endometrium epithelium | healthy | 3 | 0.95307 | 0.9523 to 1.0511 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted endometrium epithelium | healthy | 3 | 0.93874 | 0.93016 to 1.0821 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted endometrium epithelium | healthy | 3 | 1.0441 | 0.98361 to 1.1089 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted endometrium epithelium | healthy | 3 | 0.94329 | 0.92507 to 1.0833 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted endometrium epithelium | healthy | 3 | 0.94041 | 0.92658 to 1.0683 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted endometrium epithelium | healthy | 3 | 0.9248 | 0.90865 to 1.0882 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted endometrium epithelium | healthy | 3 | 0.92887 | 0.91788 to 1.0876 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted endometrium epithelium | healthy | 3 | 0.94176 | 0.89766 to 1.0971 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted endometrium epithelium | healthy | 3 | 0.95941 | 0.93843 to 1.0565 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted endometrium epithelium | healthy | 3 | 0.96425 | 0.93609 to 1.0373 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted endometrium epithelium | healthy | 3 | 0.95215 | 0.94007 to 1.0647 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted endometrium epithelium | healthy | 3 | 0.97459 | 0.96264 to 1.009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted endometrium epithelium | healthy | 3 | 0.9625 | 0.95847 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted endometrium epithelium | healthy | 3 | 0.97496 | 0.95143 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted endometrium epithelium | healthy | 3 | 0.95929 | 0.9567 to 1.0433 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted endometrium epithelium | healthy | 3 | 0.97477 | 0.96233 to 1.0167 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted endometrium epithelium | healthy | 3 | 0.96206 | 0.95421 to 1.0454 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted endometrium epithelium | healthy | 3 | 0.95697 | 0.94577 to 1.0339 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted endometrium epithelium | healthy | 3 | 0.97931 | 0.95319 to 1.0475 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted endometrium epithelium | healthy | 3 | 0.95536 | 0.93252 to 1.0561 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted endometrium epithelium | healthy | 3 | 0.95374 | 0.93065 to 1.057 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted endometrium epithelium | healthy | 3 | 0.94221 | 0.9324 to 1.0639 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted endometrium epithelium | healthy | 3 | 0.95527 | 0.94612 to 1.0484 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted endometrium epithelium | healthy | 3 | 0.94614 | 0.94452 to 1.0617 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted endometrium epithelium | healthy | 3 | 0.95493 | 0.95414 to 1.0501 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted endometrium epithelium | healthy | 3 | 0.95443 | 0.95401 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted endometrium epithelium | healthy | 3 | 0.98073 | 0.95377 to 1.0121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted endometrium epithelium | healthy | 3 | 0.93755 | 0.91632 to 1.0821 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted endometrium epithelium | healthy | 3 | 0.94455 | 0.93839 to 1.0558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted endometrium epithelium | healthy | 3 | 0.96828 | 0.95497 to 1.0546 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted endometrium epithelium | healthy | 3 | 0.95574 | 0.93931 to 1.0591 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted endometrium epithelium | healthy | 3 | 0.92381 | 0.90288 to 1.098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted endometrium epithelium | healthy | 3 | 0.95187 | 0.93494 to 1.0585 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted endometrium epithelium | healthy | 3 | 0.96597 | 0.96306 to 1.0449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted endometrium epithelium | healthy | 3 | 0.98508 | 0.93709 to 1.0247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted endometrium epithelium | healthy | 3 | 0.96689 | 0.95974 to 1.0025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted endometrium epithelium | healthy | 3 | 0.9497 | 0.93621 to 1.0589 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted endometrium epithelium | healthy | 3 | 0.94694 | 0.92534 to 1.0659 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted endometrium epithelium | healthy | 3 | 0.93852 | 0.92731 to 1.0589 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted endometrium epithelium | healthy | 3 | 0.95311 | 0.94826 to 1.045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted endometrium epithelium | healthy | 3 | 0.94672 | 0.92429 to 1.0678 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted endometrium epithelium | healthy | 3 | 0.95141 | 0.93176 to 1.0699 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted endometrium epithelium | healthy | 3 | 0.97508 | 0.94417 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted endometrium epithelium | healthy | 3 | 0.97029 | 0.96427 to 1.0084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted endometrium epithelium | healthy | 3 | 3.7e-05 | 3.7e-05 to 7.03e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted endometrium epithelium | healthy | 3 | 0.12014 | 0.10485 to 0.14933 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | sorted endometrium epithelium | healthy | 3 | 0.9517 | 0.9274 to 0.99796 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted erythrocyte progenitors | healthy | 7 | 0.8166 | 0.80045 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted erythrocyte progenitors | healthy | 7 | 0.77962 | 0.73458 to 1.0173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted erythrocyte progenitors | healthy | 7 | 0.75037 | 0.7406 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.8459 | 0.84106 to 1.0047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.88249 | 0.87436 to 1.001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.8527 | 0.84934 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted erythrocyte progenitors | healthy | 7 | 0.83913 | 0.8342 to 1.0045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted erythrocyte progenitors | healthy | 7 | 0.7716 | 0.7303 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted erythrocyte progenitors | healthy | 7 | 0.74107 | 0.73162 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted erythrocyte progenitors | healthy | 7 | 0.83411 | 0.811 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.79714 | 0.78858 to 1.0123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted erythrocyte progenitors | healthy | 7 | 0.77769 | 0.75178 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted erythrocyte progenitors | healthy | 7 | 0.78154 | 0.74574 to 1.0173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted erythrocyte progenitors | healthy | 7 | 0.81207 | 0.80534 to 1.0066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted erythrocyte progenitors | healthy | 7 | 0.73782 | 0.72809 to 1.0217 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.85214 | 0.84771 to 1.005 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted erythrocyte progenitors | healthy | 7 | 0.72269 | 0.70768 to 1.1374 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.85358 | 0.84287 to 1.0062 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.85509 | 0.84236 to 1.0086 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.85212 | 0.8349 to 1.0082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.8361 | 0.83529 to 1.0068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted erythrocyte progenitors | healthy | 3 | 0.99414 | 0.98132 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted erythrocyte progenitors | healthy | 7 | 0.79613 | 0.79331 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted erythrocyte progenitors | healthy | 7 | 0.80058 | 0.78299 to 1.0051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted erythrocyte progenitors | healthy | 7 | 0.8145 | 0.79702 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.83495 | 0.79752 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted erythrocyte progenitors | healthy | 7 | 0.82915 | 0.81472 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.85042 | 0.84967 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted erythrocyte progenitors | healthy | 7 | 0.8162 | 0.79533 to 1.0133 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.84121 | 0.81947 to 1.0129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted erythrocyte progenitors | healthy | 7 | 0.80792 | 0.77333 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.77178 | 0.76972 to 1.0215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted erythrocyte progenitors | healthy | 7 | 0.81301 | 0.79873 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted erythrocyte progenitors | healthy | 7 | 0.74718 | 0.73419 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted erythrocyte progenitors | healthy | 7 | 0.80806 | 0.80378 to 1.0089 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted erythrocyte progenitors | healthy | 7 | 0.79068 | 0.7695 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted erythrocyte progenitors | healthy | 7 | 0.74641 | 0.74291 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted erythrocyte progenitors | healthy | 7 | 0.76763 | 0.75035 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted erythrocyte progenitors | healthy | 7 | 0.83241 | 0.82532 to 1.0042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted erythrocyte progenitors | healthy | 7 | 0.82078 | 0.81699 to 1.0096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted erythrocyte progenitors | healthy | 7 | 0.81644 | 0.80164 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted erythrocyte progenitors | healthy | 7 | 0.8475 | 0.83103 to 1.0066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted erythrocyte progenitors | healthy | 7 | 0.81329 | 0.80293 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted erythrocyte progenitors | healthy | 7 | 0.8492 | 0.84672 to 1.0078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted erythrocyte progenitors | healthy | 7 | 0.83529 | 0.81258 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.86646 | 0.86095 to 1.004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.80505 | 0.79135 to 1.0151 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted erythrocyte progenitors | healthy | 7 | 0.82726 | 0.82164 to 1.0087 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted erythrocyte progenitors | healthy | 7 | 0.81227 | 0.7925 to 1.0119 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted erythrocyte progenitors | healthy | 7 | 0.76166 | 0.74814 to 1.015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted erythrocyte progenitors | healthy | 7 | 0.76586 | 0.75136 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted erythrocyte progenitors | healthy | 7 | 0.77169 | 0.75568 to 1.0148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.82673 | 0.81993 to 1.0074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.8656 | 0.85477 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.8477 | 0.8395 to 1.0078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted erythrocyte progenitors | healthy | 7 | 0.80488 | 0.78935 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted erythrocyte progenitors | healthy | 7 | 0.83225 | 0.80764 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted erythrocyte progenitors | healthy | 7 | 0.008443 | 3.6e-06 to 0.010259 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted erythrocyte progenitors | healthy | 7 | 0.29476 | 0.076989 to 0.32046 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | sorted erythrocyte progenitors | healthy | 7 | 0.9699 | 0.94965 to 1.0675 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted cd4 t cells | healthy | 19 | 0.85033 | 0.81581 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted cd4 t cells | healthy | 19 | 0.78359 | 0.72755 to 0.99421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted cd4 t cells | healthy | 19 | 0.71902 | 0.67837 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted cd4 t cells | healthy | 19 | 0.87128 | 0.81131 to 0.99773 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted cd4 t cells | healthy | 19 | 0.91754 | 0.81034 to 1.0007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted cd4 t cells | healthy | 19 | 0.92303 | 0.78745 to 1.0084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted cd4 t cells | healthy | 19 | 0.86301 | 0.80976 to 1.005 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted cd4 t cells | healthy | 19 | 0.66358 | 0.59406 to 1.0327 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted cd4 t cells | healthy | 19 | 0.74049 | 0.67881 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted cd4 t cells | healthy | 19 | 0.84729 | 0.75797 to 0.99148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted cd4 t cells | healthy | 19 | 0.80764 | 0.70434 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted cd4 t cells | healthy | 19 | 0.79339 | 0.72574 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted cd4 t cells | healthy | 19 | 0.75709 | 0.71615 to 0.9948 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted cd4 t cells | healthy | 19 | 0.88984 | 0.74357 to 1.0121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted cd4 t cells | healthy | 19 | 0.7876 | 0.64323 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted cd4 t cells | healthy | 19 | 0.90319 | 0.81384 to 1.0034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted cd4 t cells | healthy | 19 | 0.87174 | 0.85049 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted cd4 t cells | healthy | 19 | 0.92106 | 0.80386 to 1.0002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted cd4 t cells | healthy | 19 | 0.90088 | 0.81009 to 1.0008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted cd4 t cells | healthy | 19 | 0.89505 | 0.81023 to 1.0013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted cd4 t cells | healthy | 19 | 0.89216 | 0.82289 to 0.99877 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted cd4 t cells | healthy | 3 | 0.99806 | 0.97204 to 1.0719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted cd4 t cells | healthy | 19 | 0.89958 | 0.82739 to 0.99721 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted cd4 t cells | healthy | 19 | 0.89023 | 0.83043 to 1.0031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted cd4 t cells | healthy | 19 | 0.85491 | 0.77586 to 1.0024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted cd4 t cells | healthy | 19 | 0.79418 | 0.71677 to 0.99148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted cd4 t cells | healthy | 19 | 0.88608 | 0.77447 to 0.99577 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted cd4 t cells | healthy | 19 | 0.88812 | 0.77923 to 1.0032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted cd4 t cells | healthy | 19 | 0.87628 | 0.7741 to 1.0031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted cd4 t cells | healthy | 19 | 0.871 | 0.736 to 1.0063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted cd4 t cells | healthy | 19 | 0.78766 | 0.70326 to 0.99809 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted cd4 t cells | healthy | 19 | 0.82499 | 0.78263 to 1.0034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted cd4 t cells | healthy | 19 | 0.79175 | 0.73157 to 1.0039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted cd4 t cells | healthy | 19 | 0.82193 | 0.72938 to 1.0055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted cd4 t cells | healthy | 19 | 0.83112 | 0.68079 to 1.0162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted cd4 t cells | healthy | 19 | 0.70716 | 0.59487 to 0.99991 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted cd4 t cells | healthy | 19 | 0.69761 | 0.68271 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted cd4 t cells | healthy | 19 | 0.74661 | 0.68457 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted cd4 t cells | healthy | 19 | 0.87488 | 0.72579 to 1.0042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted cd4 t cells | healthy | 19 | 0.87171 | 0.80191 to 1.0022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted cd4 t cells | healthy | 19 | 0.8516 | 0.83234 to 0.9959 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted cd4 t cells | healthy | 19 | 0.88536 | 0.78791 to 1.0068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted cd4 t cells | healthy | 19 | 0.87661 | 0.77537 to 1.0068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted cd4 t cells | healthy | 19 | 0.88849 | 0.80699 to 1.0034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted cd4 t cells | healthy | 19 | 0.83565 | 0.80555 to 0.99207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted cd4 t cells | healthy | 19 | 0.90224 | 0.81506 to 1.0003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted cd4 t cells | healthy | 19 | 0.80278 | 0.69798 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted cd4 t cells | healthy | 19 | 0.89565 | 0.83635 to 0.9941 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted cd4 t cells | healthy | 19 | 0.81059 | 0.71235 to 0.99517 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted cd4 t cells | healthy | 19 | 0.72888 | 0.66859 to 1.0076 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted cd4 t cells | healthy | 19 | 0.79192 | 0.72964 to 1.0018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted cd4 t cells | healthy | 19 | 0.80417 | 0.68308 to 1.0044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted cd4 t cells | healthy | 19 | 0.86333 | 0.78673 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted cd4 t cells | healthy | 19 | 0.86164 | 0.81698 to 0.99685 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted cd4 t cells | healthy | 19 | 0.87311 | 0.81529 to 1.0047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted cd4 t cells | healthy | 19 | 0.81361 | 0.73481 to 0.99101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted cd4 t cells | healthy | 19 | 0.89891 | 0.7683 to 1.004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted cd4 t cells | healthy | 19 | 0.000524 | 3.33e-05 to 0.002974 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted cd4 t cells | healthy | 19 | 0.20198 | 0.096286 to 0.27367 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted cd8 t cells | healthy | 11 | 0.89849 | 0.80268 to 1.0572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted cd8 t cells | healthy | 11 | 0.87449 | 0.80676 to 1.0553 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted cd8 t cells | healthy | 11 | 0.78501 | 0.72145 to 1.0826 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted cd8 t cells | healthy | 11 | 0.90212 | 0.81976 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted cd8 t cells | healthy | 11 | 0.90031 | 0.83754 to 1.0334 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted cd8 t cells | healthy | 11 | 0.88288 | 0.84433 to 1.0419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted cd8 t cells | healthy | 11 | 0.88861 | 0.7981 to 1.0378 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted cd8 t cells | healthy | 11 | 0.77816 | 0.7268 to 1.088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted cd8 t cells | healthy | 11 | 0.78675 | 0.74626 to 1.0941 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted cd8 t cells | healthy | 11 | 0.88413 | 0.77651 to 1.0574 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted cd8 t cells | healthy | 11 | 0.82269 | 0.74552 to 1.065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted cd8 t cells | healthy | 11 | 0.91222 | 0.83432 to 1.0654 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted cd8 t cells | healthy | 11 | 0.88804 | 0.78598 to 1.0767 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted cd8 t cells | healthy | 11 | 0.84908 | 0.76788 to 1.0421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted cd8 t cells | healthy | 11 | 0.84479 | 0.79764 to 1.1662 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted cd8 t cells | healthy | 11 | 0.8937 | 0.85949 to 1.0344 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted cd8 t cells | healthy | 11 | 0.91313 | 0.83615 to 1.0365 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted cd8 t cells | healthy | 11 | 0.89918 | 0.82787 to 1.0311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted cd8 t cells | healthy | 11 | 0.91259 | 0.81764 to 1.0292 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted cd8 t cells | healthy | 11 | 0.90597 | 0.80772 to 1.0333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted cd8 t cells | healthy | 11 | 0.90549 | 0.8331 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted cd8 t cells | healthy | 3 | 1.0556 | 0.93119 to 1.0834 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted cd8 t cells | healthy | 11 | 0.8965 | 0.82415 to 1.0315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted cd8 t cells | healthy | 11 | 0.9004 | 0.81491 to 1.0371 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted cd8 t cells | healthy | 11 | 0.89357 | 0.77603 to 1.0522 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted cd8 t cells | healthy | 11 | 0.85952 | 0.77756 to 1.0629 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted cd8 t cells | healthy | 11 | 0.86996 | 0.81624 to 1.0529 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted cd8 t cells | healthy | 11 | 0.90057 | 0.81524 to 1.0466 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted cd8 t cells | healthy | 11 | 0.88754 | 0.81024 to 1.053 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted cd8 t cells | healthy | 11 | 0.87016 | 0.74233 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted cd8 t cells | healthy | 11 | 0.8565 | 0.74949 to 1.0806 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted cd8 t cells | healthy | 11 | 0.86655 | 0.84934 to 1.1431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted cd8 t cells | healthy | 11 | 0.84761 | 0.77829 to 1.0764 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted cd8 t cells | healthy | 11 | 0.87818 | 0.81157 to 1.0955 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted cd8 t cells | healthy | 11 | 0.83437 | 0.71137 to 1.0678 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted cd8 t cells | healthy | 11 | 0.78822 | 0.66725 to 1.0844 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted cd8 t cells | healthy | 11 | 0.70734 | 0.63473 to 1.0759 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted cd8 t cells | healthy | 11 | 0.77464 | 0.73203 to 1.1097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted cd8 t cells | healthy | 11 | 0.84243 | 0.77444 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted cd8 t cells | healthy | 11 | 0.88813 | 0.80585 to 1.0434 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted cd8 t cells | healthy | 11 | 0.90379 | 0.83713 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted cd8 t cells | healthy | 11 | 0.88569 | 0.81135 to 1.0442 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted cd8 t cells | healthy | 11 | 0.87758 | 0.79331 to 1.056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted cd8 t cells | healthy | 11 | 0.90163 | 0.82532 to 1.0495 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted cd8 t cells | healthy | 11 | 0.8933 | 0.82279 to 1.0343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted cd8 t cells | healthy | 11 | 0.89781 | 0.83476 to 1.0337 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted cd8 t cells | healthy | 11 | 0.82533 | 0.74929 to 1.0803 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted cd8 t cells | healthy | 11 | 0.90855 | 0.83342 to 1.0296 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted cd8 t cells | healthy | 11 | 0.86473 | 0.74828 to 1.075 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted cd8 t cells | healthy | 11 | 0.80923 | 0.74037 to 1.0805 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted cd8 t cells | healthy | 11 | 0.80572 | 0.78079 to 1.0391 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted cd8 t cells | healthy | 11 | 0.87805 | 0.82673 to 1.1143 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted cd8 t cells | healthy | 11 | 0.8873 | 0.7992 to 1.0514 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted cd8 t cells | healthy | 11 | 0.90741 | 0.84064 to 1.0277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted cd8 t cells | healthy | 11 | 0.90188 | 0.8201 to 1.0386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted cd8 t cells | healthy | 11 | 0.88073 | 0.80219 to 1.0567 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted cd8 t cells | healthy | 11 | 0.8737 | 0.77933 to 1.0508 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted cd8 t cells | healthy | 11 | 0.000321 | 0 to 0.001369 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted cd8 t cells | healthy | 11 | 0.25 | 0.11943 to 0.29866 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted t central memory cd4 | healthy | 7 | 0.91797 | 0.89998 to 1.0283 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted t central memory cd4 | healthy | 7 | 0.90185 | 0.89031 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted t central memory cd4 | healthy | 7 | 0.84495 | 0.81853 to 1.0492 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted t central memory cd4 | healthy | 7 | 0.93742 | 0.91812 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted t central memory cd4 | healthy | 7 | 0.93613 | 0.92786 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted t central memory cd4 | healthy | 7 | 0.91668 | 0.91532 to 1.0297 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted t central memory cd4 | healthy | 7 | 0.92598 | 0.92459 to 1.0218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted t central memory cd4 | healthy | 7 | 0.81628 | 0.80488 to 1.046 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted t central memory cd4 | healthy | 7 | 0.82367 | 0.82091 to 1.0406 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted t central memory cd4 | healthy | 7 | 0.91753 | 0.90839 to 1.0319 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted t central memory cd4 | healthy | 7 | 0.88701 | 0.88263 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted t central memory cd4 | healthy | 7 | 0.89425 | 0.89198 to 1.0304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted t central memory cd4 | healthy | 7 | 0.88547 | 0.87855 to 1.0454 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted t central memory cd4 | healthy | 7 | 0.9086 | 0.89548 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted t central memory cd4 | healthy | 7 | 0.81239 | 0.80084 to 1.0365 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted t central memory cd4 | healthy | 7 | 0.92573 | 0.92061 to 1.0231 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted t central memory cd4 | healthy | 7 | 0.95574 | 0.90192 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted t central memory cd4 | healthy | 7 | 0.92756 | 0.91957 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted t central memory cd4 | healthy | 7 | 0.92929 | 0.91744 to 1.0184 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted t central memory cd4 | healthy | 7 | 0.92092 | 0.91225 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted t central memory cd4 | healthy | 7 | 0.92239 | 0.91887 to 1.0173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted t central memory cd4 | healthy | 3 | 1.0101 | 0.97837 to 1.0491 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted t central memory cd4 | healthy | 7 | 0.9351 | 0.91025 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted t central memory cd4 | healthy | 7 | 0.9303 | 0.92406 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted t central memory cd4 | healthy | 7 | 0.91061 | 0.90337 to 1.0288 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted t central memory cd4 | healthy | 7 | 0.92921 | 0.91368 to 1.0419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted t central memory cd4 | healthy | 7 | 0.91748 | 0.91086 to 1.0283 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted t central memory cd4 | healthy | 7 | 0.91383 | 0.90834 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted t central memory cd4 | healthy | 7 | 0.91534 | 0.90194 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted t central memory cd4 | healthy | 7 | 0.91553 | 0.86462 to 0.99929 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted t central memory cd4 | healthy | 7 | 0.914 | 0.89247 to 1.036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted t central memory cd4 | healthy | 7 | 0.88715 | 0.86726 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted t central memory cd4 | healthy | 7 | 0.88896 | 0.8843 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted t central memory cd4 | healthy | 7 | 0.86126 | 0.85134 to 1.0337 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted t central memory cd4 | healthy | 7 | 0.90919 | 0.88166 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted t central memory cd4 | healthy | 7 | 0.86841 | 0.85184 to 1.0506 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted t central memory cd4 | healthy | 7 | 0.86124 | 0.84881 to 1.0464 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted t central memory cd4 | healthy | 7 | 0.85641 | 0.84027 to 1.0417 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted t central memory cd4 | healthy | 7 | 0.90786 | 0.88145 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted t central memory cd4 | healthy | 7 | 0.91178 | 0.91151 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted t central memory cd4 | healthy | 7 | 0.93571 | 0.92078 to 1.0253 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted t central memory cd4 | healthy | 7 | 0.92421 | 0.91745 to 1.0272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted t central memory cd4 | healthy | 7 | 0.90837 | 0.8927 to 1.0375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted t central memory cd4 | healthy | 7 | 0.9224 | 0.91861 to 1.0267 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted t central memory cd4 | healthy | 7 | 0.93976 | 0.91998 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted t central memory cd4 | healthy | 7 | 0.93187 | 0.92922 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted t central memory cd4 | healthy | 7 | 0.88924 | 0.88154 to 1.0374 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted t central memory cd4 | healthy | 7 | 0.93374 | 0.92998 to 1.0175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted t central memory cd4 | healthy | 7 | 0.90855 | 0.88264 to 1.0335 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted t central memory cd4 | healthy | 7 | 0.79839 | 0.77352 to 1.0905 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted t central memory cd4 | healthy | 7 | 0.82227 | 0.803 to 1.0436 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted t central memory cd4 | healthy | 7 | 0.83427 | 0.83096 to 1.0375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted t central memory cd4 | healthy | 7 | 0.91986 | 0.90817 to 1.0234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted t central memory cd4 | healthy | 7 | 0.92694 | 0.92367 to 1.0137 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted t central memory cd4 | healthy | 7 | 0.92945 | 0.91112 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted t central memory cd4 | healthy | 7 | 0.91069 | 0.89549 to 1.027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted t central memory cd4 | healthy | 7 | 0.91601 | 0.90227 to 1.0254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted t central memory cd4 | healthy | 7 | 0.002427 | 1.95e-05 to 0.002626 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted t central memory cd4 | healthy | 7 | 0.12145 | 0.096252 to 0.14692 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | sorted t central memory cd4 | healthy | 7 | 0.9894 | 0.9138 to 1.026 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted t effector cell cd8 | healthy | 3 | 1.0022 | 0.99172 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted t effector cell cd8 | healthy | 3 | 0.98134 | 0.96528 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted t effector cell cd8 | healthy | 3 | 0.98683 | 0.94675 to 1.0651 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99524 | 0.98654 to 1.0148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted t effector cell cd8 | healthy | 3 | 1.0011 | 0.99188 to 1.006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted t effector cell cd8 | healthy | 3 | 1.0071 | 0.98893 to 1.0078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted t effector cell cd8 | healthy | 3 | 0.9895 | 0.9848 to 1.0147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted t effector cell cd8 | healthy | 3 | 0.98521 | 0.94989 to 1.0661 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted t effector cell cd8 | healthy | 3 | 0.97793 | 0.96387 to 1.0562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted t effector cell cd8 | healthy | 3 | 0.98407 | 0.97053 to 1.0363 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99431 | 0.98171 to 1.0311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted t effector cell cd8 | healthy | 3 | 0.98613 | 0.97162 to 1.0391 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted t effector cell cd8 | healthy | 3 | 0.9952 | 0.94268 to 1.054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted t effector cell cd8 | healthy | 3 | 0.99704 | 0.98592 to 1.0187 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted t effector cell cd8 | healthy | 3 | 1.0041 | 0.97637 to 1.0247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99613 | 0.99334 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted t effector cell cd8 | healthy | 3 | 0.99998 | 0.98708 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99251 | 0.98681 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99301 | 0.98659 to 1.011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99616 | 0.99355 to 1.0051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted t effector cell cd8 | healthy | 3 | 0.9938 | 0.98825 to 1.0105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted t effector cell cd8 | healthy | 3 | 0.99863 | 0.97887 to 1.0298 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted t effector cell cd8 | healthy | 3 | 0.99756 | 0.99565 to 1.0071 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted t effector cell cd8 | healthy | 3 | 0.99802 | 0.996 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted t effector cell cd8 | healthy | 3 | 0.98783 | 0.98163 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted t effector cell cd8 | healthy | 3 | 0.98654 | 0.95896 to 1.0421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted t effector cell cd8 | healthy | 3 | 0.99771 | 0.9857 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted t effector cell cd8 | healthy | 3 | 0.9953 | 0.99441 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted t effector cell cd8 | healthy | 3 | 1.0048 | 0.98947 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99262 | 0.98447 to 0.99848 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted t effector cell cd8 | healthy | 3 | 0.98689 | 0.96557 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99883 | 0.98268 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted t effector cell cd8 | healthy | 3 | 1.0021 | 0.97316 to 1.026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted t effector cell cd8 | healthy | 3 | 0.9926 | 0.96923 to 1.0438 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted t effector cell cd8 | healthy | 3 | 1.0001 | 0.97236 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted t effector cell cd8 | healthy | 3 | 0.9938 | 0.95559 to 1.0496 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted t effector cell cd8 | healthy | 3 | 0.99208 | 0.96783 to 1.0486 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted t effector cell cd8 | healthy | 3 | 0.98469 | 0.95924 to 1.0564 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted t effector cell cd8 | healthy | 3 | 0.98607 | 0.98497 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted t effector cell cd8 | healthy | 3 | 0.99622 | 0.99194 to 1.0112 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted t effector cell cd8 | healthy | 3 | 0.99165 | 0.99124 to 1.0091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted t effector cell cd8 | healthy | 3 | 0.99928 | 0.98788 to 1.0132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted t effector cell cd8 | healthy | 3 | 1.0036 | 0.98951 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted t effector cell cd8 | healthy | 3 | 1.0002 | 0.99462 to 1.009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted t effector cell cd8 | healthy | 3 | 0.99111 | 0.97878 to 1.0178 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99315 | 0.98846 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted t effector cell cd8 | healthy | 3 | 0.98917 | 0.96899 to 1.0491 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted t effector cell cd8 | healthy | 3 | 1.0033 | 0.98946 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted t effector cell cd8 | healthy | 3 | 0.98486 | 0.95801 to 1.0454 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted t effector cell cd8 | healthy | 3 | 0.98131 | 0.96102 to 1.0615 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted t effector cell cd8 | healthy | 3 | 1.0363 | 1.0362 to 1.0882 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted t effector cell cd8 | healthy | 3 | 1.0078 | 0.95932 to 1.0413 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99184 | 0.99044 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99255 | 0.99222 to 1.008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99801 | 0.99623 to 1.0085 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted t effector cell cd8 | healthy | 3 | 0.99312 | 0.97098 to 1.0272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted t effector cell cd8 | healthy | 3 | 0.99147 | 0.9833 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted t effector cell cd8 | healthy | 3 | 3.7e-05 | 3.7e-06 to 0.0003358 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted t effector cell cd8 | healthy | 3 | 0.11767 | 0.10726 to 0.12837 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | sorted t effector cell cd8 | healthy | 3 | 0.9961 | 0.9898 to 1.0175 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted t effector memory cd4 | healthy | 7 | 0.96773 | 0.94007 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted t effector memory cd4 | healthy | 7 | 0.9659 | 0.94837 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted t effector memory cd4 | healthy | 7 | 0.91663 | 0.89433 to 1.0419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted t effector memory cd4 | healthy | 7 | 0.97051 | 0.94655 to 1.0166 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted t effector memory cd4 | healthy | 7 | 0.98032 | 0.95157 to 1.0143 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted t effector memory cd4 | healthy | 7 | 0.96415 | 0.94063 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted t effector memory cd4 | healthy | 7 | 0.96771 | 0.95026 to 1.0144 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted t effector memory cd4 | healthy | 7 | 0.8869 | 0.88596 to 1.049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted t effector memory cd4 | healthy | 7 | 0.87025 | 0.86276 to 1.0384 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted t effector memory cd4 | healthy | 7 | 0.98059 | 0.96224 to 1.0294 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted t effector memory cd4 | healthy | 7 | 0.93251 | 0.92761 to 1.0282 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted t effector memory cd4 | healthy | 7 | 0.95683 | 0.91972 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted t effector memory cd4 | healthy | 7 | 0.9638 | 0.93588 to 1.0401 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted t effector memory cd4 | healthy | 7 | 0.932 | 0.92576 to 1.018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted t effector memory cd4 | healthy | 7 | 0.84161 | 0.80219 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted t effector memory cd4 | healthy | 7 | 0.96329 | 0.9475 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted t effector memory cd4 | healthy | 7 | 0.95779 | 0.91261 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted t effector memory cd4 | healthy | 7 | 0.9681 | 0.94631 to 1.0162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted t effector memory cd4 | healthy | 7 | 0.96879 | 0.94353 to 1.0165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted t effector memory cd4 | healthy | 7 | 0.95967 | 0.94489 to 1.0153 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted t effector memory cd4 | healthy | 7 | 0.97233 | 0.94217 to 1.0139 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted t effector memory cd4 | healthy | 3 | 1.0097 | 0.98441 to 1.0408 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted t effector memory cd4 | healthy | 7 | 0.94236 | 0.93044 to 1.0151 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted t effector memory cd4 | healthy | 7 | 0.96899 | 0.95039 to 1.0152 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted t effector memory cd4 | healthy | 7 | 0.97583 | 0.93716 to 1.0251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted t effector memory cd4 | healthy | 7 | 0.9776 | 0.97214 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted t effector memory cd4 | healthy | 7 | 0.95679 | 0.93514 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted t effector memory cd4 | healthy | 7 | 0.95173 | 0.94092 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted t effector memory cd4 | healthy | 7 | 0.95807 | 0.9357 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted t effector memory cd4 | healthy | 7 | 0.96787 | 0.90219 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted t effector memory cd4 | healthy | 7 | 0.96455 | 0.96327 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted t effector memory cd4 | healthy | 7 | 0.93347 | 0.9064 to 1.0237 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted t effector memory cd4 | healthy | 7 | 0.95373 | 0.92878 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted t effector memory cd4 | healthy | 7 | 0.92614 | 0.89798 to 1.0383 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted t effector memory cd4 | healthy | 7 | 0.95154 | 0.94509 to 1.0286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted t effector memory cd4 | healthy | 7 | 0.9366 | 0.933 to 1.0339 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted t effector memory cd4 | healthy | 7 | 0.92357 | 0.88022 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted t effector memory cd4 | healthy | 7 | 0.91817 | 0.90787 to 1.0391 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted t effector memory cd4 | healthy | 7 | 0.93541 | 0.92238 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted t effector memory cd4 | healthy | 7 | 0.95614 | 0.94547 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted t effector memory cd4 | healthy | 7 | 0.95657 | 0.94857 to 1.0144 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted t effector memory cd4 | healthy | 7 | 0.96155 | 0.94908 to 1.0172 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted t effector memory cd4 | healthy | 7 | 0.96104 | 0.92926 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted t effector memory cd4 | healthy | 7 | 0.96767 | 0.95325 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted t effector memory cd4 | healthy | 7 | 0.97302 | 0.96259 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted t effector memory cd4 | healthy | 7 | 0.96934 | 0.95378 to 1.0175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted t effector memory cd4 | healthy | 7 | 0.93468 | 0.92706 to 1.0426 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted t effector memory cd4 | healthy | 7 | 0.96102 | 0.94028 to 1.0115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted t effector memory cd4 | healthy | 7 | 0.97821 | 0.96097 to 1.0335 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted t effector memory cd4 | healthy | 7 | 0.8534 | 0.8486 to 1.039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted t effector memory cd4 | healthy | 7 | 0.84778 | 0.83186 to 1.0346 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted t effector memory cd4 | healthy | 7 | 0.89318 | 0.86762 to 1.0941 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted t effector memory cd4 | healthy | 7 | 0.96495 | 0.94803 to 1.0198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted t effector memory cd4 | healthy | 7 | 0.96288 | 0.95049 to 1.0116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted t effector memory cd4 | healthy | 7 | 0.9668 | 0.93576 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted t effector memory cd4 | healthy | 7 | 0.97496 | 0.96118 to 1.03 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted t effector memory cd4 | healthy | 7 | 0.95567 | 0.93777 to 1.0205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted t effector memory cd4 | healthy | 7 | 0.001224 | 2.22e-05 to 0.00173 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted t effector memory cd4 | healthy | 7 | 0.12538 | 0.10599 to 0.14163 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | t effector memory cd4 | sorted t effector memory cd4 | healthy | 7 | 1.0471 | 0.9604 to 1.106 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted nk cells | healthy | 11 | 0.88191 | 0.75335 to 1.0234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted nk cells | healthy | 11 | 0.91948 | 0.81644 to 1.0403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted nk cells | healthy | 11 | 0.83837 | 0.79037 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted nk cells | healthy | 11 | 0.88736 | 0.82776 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted nk cells | healthy | 11 | 0.87868 | 0.83943 to 1.0132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted nk cells | healthy | 11 | 0.87374 | 0.83274 to 1.0184 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted nk cells | healthy | 11 | 0.87381 | 0.79126 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted nk cells | healthy | 11 | 0.87026 | 0.77515 to 1.0342 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted nk cells | healthy | 11 | 0.84764 | 0.78129 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted nk cells | healthy | 11 | 0.90447 | 0.82457 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted nk cells | healthy | 11 | 0.83462 | 0.77284 to 1.027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted nk cells | healthy | 11 | 0.92457 | 0.82546 to 1.0583 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted nk cells | healthy | 11 | 0.91734 | 0.81936 to 1.0511 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted nk cells | healthy | 11 | 0.849 | 0.77593 to 1.0185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted nk cells | healthy | 11 | 0.8564 | 0.81245 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted nk cells | healthy | 11 | 0.87874 | 0.82925 to 1.0084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted nk cells | healthy | 11 | 0.89494 | 0.80527 to 1.0121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted nk cells | healthy | 11 | 0.88839 | 0.8359 to 1.0112 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted nk cells | healthy | 11 | 0.90149 | 0.83626 to 1.0103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted nk cells | healthy | 11 | 0.8873 | 0.83214 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted nk cells | healthy | 11 | 0.89997 | 0.83558 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted nk cells | healthy | 3 | 0.90591 | 0.85999 to 1.1286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted nk cells | healthy | 11 | 0.89803 | 0.81049 to 1.0147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted nk cells | healthy | 11 | 0.89107 | 0.78578 to 1.0128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted nk cells | healthy | 11 | 0.85565 | 0.75893 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted nk cells | healthy | 11 | 0.90642 | 0.81269 to 1.0325 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted nk cells | healthy | 11 | 0.869 | 0.79174 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted nk cells | healthy | 11 | 0.83852 | 0.7923 to 1.0174 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted nk cells | healthy | 11 | 0.87321 | 0.7905 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted nk cells | healthy | 11 | 0.83143 | 0.73164 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted nk cells | healthy | 11 | 0.88345 | 0.79282 to 1.0424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted nk cells | healthy | 11 | 0.89199 | 0.78827 to 1.0231 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted nk cells | healthy | 11 | 0.83359 | 0.76648 to 1.0272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted nk cells | healthy | 11 | 0.87595 | 0.80162 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted nk cells | healthy | 11 | 0.82905 | 0.74227 to 1.0274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted nk cells | healthy | 11 | 0.85168 | 0.75357 to 1.0329 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted nk cells | healthy | 11 | 0.83768 | 0.75155 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted nk cells | healthy | 11 | 0.7756 | 0.72025 to 1.0475 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted nk cells | healthy | 11 | 0.83228 | 0.77086 to 1.0177 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted nk cells | healthy | 11 | 0.85882 | 0.79347 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted nk cells | healthy | 11 | 0.92639 | 0.83661 to 1.0091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted nk cells | healthy | 11 | 0.8709 | 0.79777 to 1.0184 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted nk cells | healthy | 11 | 0.86604 | 0.77837 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted nk cells | healthy | 11 | 0.85236 | 0.80165 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted nk cells | healthy | 11 | 0.90401 | 0.8314 to 1.0128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted nk cells | healthy | 11 | 0.89516 | 0.85349 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted nk cells | healthy | 11 | 0.85635 | 0.76091 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted nk cells | healthy | 11 | 0.91224 | 0.82701 to 1.0091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted nk cells | healthy | 11 | 0.88457 | 0.80031 to 1.026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted nk cells | healthy | 11 | 0.84422 | 0.76639 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted nk cells | healthy | 11 | 0.8486 | 0.82637 to 1.0105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted nk cells | healthy | 11 | 0.86464 | 0.82157 to 1.0129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted nk cells | healthy | 11 | 0.85609 | 0.77628 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted nk cells | healthy | 11 | 0.89591 | 0.84701 to 1.0094 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted nk cells | healthy | 11 | 0.89113 | 0.83977 to 1.0173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted nk cells | healthy | 11 | 0.89777 | 0.82476 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted nk cells | healthy | 11 | 0.86998 | 0.76504 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted nk cells | healthy | 11 | 0.002263 | 0 to 0.005439 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted nk cells | healthy | 11 | 0.15845 | 0.11978 to 0.19334 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted monocytes | healthy | 47 | 0.84568 | 0.81535 to 0.97172 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted monocytes | healthy | 47 | 0.86854 | 0.82336 to 0.98928 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted monocytes | healthy | 47 | 0.77858 | 0.74238 to 0.97042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted monocytes | healthy | 47 | 0.8842 | 0.85191 to 0.98418 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted monocytes | healthy | 47 | 0.87299 | 0.85383 to 0.97562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted monocytes | healthy | 47 | 0.86262 | 0.83994 to 0.98167 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted monocytes | healthy | 47 | 0.85699 | 0.84373 to 0.96721 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted monocytes | healthy | 47 | 0.7755 | 0.74234 to 0.96116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted monocytes | healthy | 47 | 0.7793 | 0.74417 to 0.9788 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted monocytes | healthy | 47 | 0.8618 | 0.83078 to 0.99571 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted monocytes | healthy | 47 | 0.81447 | 0.76311 to 0.97093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted monocytes | healthy | 47 | 0.85641 | 0.81456 to 1.0231 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted monocytes | healthy | 47 | 0.82988 | 0.77717 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted monocytes | healthy | 47 | 0.81633 | 0.77505 to 0.96823 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted monocytes | healthy | 47 | 0.81016 | 0.76837 to 0.9804 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted monocytes | healthy | 47 | 0.87752 | 0.84235 to 0.98883 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted monocytes | healthy | 47 | 0.8346 | 0.78194 to 0.98486 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted monocytes | healthy | 47 | 0.88145 | 0.84672 to 0.97912 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted monocytes | healthy | 47 | 0.8824 | 0.85393 to 0.98069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted monocytes | healthy | 47 | 0.88135 | 0.84815 to 0.98482 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted monocytes | healthy | 47 | 0.88082 | 0.85555 to 0.97682 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted monocytes | healthy | 3 | 1.0122 | 0.98799 to 1.0414 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted monocytes | healthy | 47 | 0.85704 | 0.83574 to 0.9772 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted monocytes | healthy | 47 | 0.86604 | 0.84328 to 0.96392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted monocytes | healthy | 47 | 0.83544 | 0.81578 to 0.97035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted monocytes | healthy | 47 | 0.86465 | 0.83071 to 0.9925 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted monocytes | healthy | 47 | 0.83338 | 0.80726 to 0.9729 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted monocytes | healthy | 47 | 0.83761 | 0.81718 to 0.96623 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted monocytes | healthy | 47 | 0.83251 | 0.8082 to 0.97934 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted monocytes | healthy | 47 | 0.847 | 0.80235 to 0.92871 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted monocytes | healthy | 47 | 0.8146 | 0.76684 to 0.97973 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted monocytes | healthy | 47 | 0.81852 | 0.78367 to 0.98455 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted monocytes | healthy | 47 | 0.78861 | 0.74803 to 0.97419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted monocytes | healthy | 47 | 0.80107 | 0.76324 to 0.97839 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted monocytes | healthy | 47 | 0.72376 | 0.66835 to 0.95529 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted monocytes | healthy | 47 | 0.79193 | 0.7423 to 0.96933 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted monocytes | healthy | 47 | 0.80008 | 0.76608 to 0.97378 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted monocytes | healthy | 47 | 0.78405 | 0.74771 to 0.9745 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted monocytes | healthy | 47 | 0.81833 | 0.79003 to 0.95438 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted monocytes | healthy | 47 | 0.85407 | 0.82757 to 0.9801 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted monocytes | healthy | 47 | 0.88327 | 0.86267 to 0.96951 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted monocytes | healthy | 47 | 0.86539 | 0.84655 to 0.97449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted monocytes | healthy | 47 | 0.82827 | 0.79804 to 0.97088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted monocytes | healthy | 47 | 0.86556 | 0.84043 to 0.97783 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted monocytes | healthy | 47 | 0.878 | 0.85483 to 0.97234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted monocytes | healthy | 47 | 0.87234 | 0.85068 to 0.98234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted monocytes | healthy | 47 | 0.80034 | 0.7557 to 0.99032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted monocytes | healthy | 47 | 0.87525 | 0.84376 to 0.97635 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted monocytes | healthy | 47 | 0.83774 | 0.78686 to 0.98518 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted monocytes | healthy | 47 | 0.78465 | 0.7446 to 0.9634 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted monocytes | healthy | 47 | 0.80997 | 0.77318 to 0.96509 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted monocytes | healthy | 47 | 0.83292 | 0.79933 to 0.98218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted monocytes | healthy | 47 | 0.85057 | 0.83356 to 0.96857 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted monocytes | healthy | 47 | 0.88738 | 0.8675 to 0.97812 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted monocytes | healthy | 47 | 0.86654 | 0.83624 to 0.98408 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted monocytes | healthy | 47 | 0.85359 | 0.82281 to 0.98434 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted monocytes | healthy | 47 | 0.83725 | 0.81564 to 0.97416 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted monocytes | healthy | 47 | 0.003295 | 0.0012563 to 0.012665 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted monocytes | healthy | 47 | 0.14546 | 0.11872 to 0.16229 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted lung alveolar macrophages | healthy | 2 | 1.0224 | 1.0141 to 1.0307 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted lung alveolar macrophages | healthy | 2 | 1.0117 | 0.98796 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted lung alveolar macrophages | healthy | 2 | 1.014 | 0.97926 to 1.0488 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0136 | 1.0066 to 1.0205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0102 | 0.99776 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0136 | 0.99901 to 1.0281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted lung alveolar macrophages | healthy | 2 | 1.0089 | 0.99222 to 1.0255 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted lung alveolar macrophages | healthy | 2 | 1.0155 | 0.981 to 1.05 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted lung alveolar macrophages | healthy | 2 | 1.0136 | 0.9888 to 1.0383 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted lung alveolar macrophages | healthy | 2 | 1.0132 | 0.99538 to 1.031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0176 | 0.99612 to 1.0391 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted lung alveolar macrophages | healthy | 2 | 1.0196 | 1.0099 to 1.0294 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted lung alveolar macrophages | healthy | 2 | 1.0152 | 0.98204 to 1.0484 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted lung alveolar macrophages | healthy | 2 | 1.009 | 0.9835 to 1.0345 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted lung alveolar macrophages | healthy | 2 | 1.0136 | 0.98576 to 1.0414 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0114 | 1.0042 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted lung alveolar macrophages | healthy | 2 | 1.0166 | 1.0021 to 1.0311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.01 | 0.99647 to 1.0236 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0087 | 0.99422 to 1.0231 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0094 | 0.9925 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0078 | 0.99145 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted lung alveolar macrophages | healthy | 2 | 1.021 | 0.99728 to 1.0447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted lung alveolar macrophages | healthy | 2 | 1.013 | 1.0005 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted lung alveolar macrophages | healthy | 2 | 1.012 | 1.0029 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted lung alveolar macrophages | healthy | 2 | 1.0159 | 1.0067 to 1.025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0106 | 0.98887 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted lung alveolar macrophages | healthy | 2 | 1.0127 | 0.9978 to 1.0276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.013 | 0.998 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted lung alveolar macrophages | healthy | 2 | 1.0166 | 1.0093 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0224 | 1.0203 to 1.0246 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted lung alveolar macrophages | healthy | 2 | 1.0721 | 1.0191 to 1.1251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0185 | 0.99316 to 1.0439 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted lung alveolar macrophages | healthy | 2 | 1.0239 | 1.0103 to 1.0375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted lung alveolar macrophages | healthy | 2 | 1.0137 | 0.98271 to 1.0447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted lung alveolar macrophages | healthy | 2 | 1.0172 | 0.99042 to 1.0439 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted lung alveolar macrophages | healthy | 2 | 1.0142 | 0.98351 to 1.0449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted lung alveolar macrophages | healthy | 2 | 1.0095 | 0.96815 to 1.0509 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted lung alveolar macrophages | healthy | 2 | 1.0165 | 0.98587 to 1.0472 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted lung alveolar macrophages | healthy | 2 | 1.0115 | 0.99591 to 1.0271 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted lung alveolar macrophages | healthy | 2 | 1.013 | 1.002 to 1.0239 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted lung alveolar macrophages | healthy | 2 | 1.0061 | 0.98532 to 1.027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted lung alveolar macrophages | healthy | 2 | 1.0115 | 0.99596 to 1.027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted lung alveolar macrophages | healthy | 2 | 1.0183 | 1.0011 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted lung alveolar macrophages | healthy | 2 | 1.0135 | 1.0047 to 1.0223 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted lung alveolar macrophages | healthy | 2 | 1.0051 | 0.98043 to 1.0299 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0097 | 0.99991 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0217 | 1.0044 to 1.0389 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted lung alveolar macrophages | healthy | 2 | 1.0075 | 0.99012 to 1.0248 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted lung alveolar macrophages | healthy | 2 | 1.0194 | 1.0107 to 1.028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted lung alveolar macrophages | healthy | 2 | 1.015 | 0.98288 to 1.047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted lung alveolar macrophages | healthy | 2 | 1.012 | 0.98321 to 1.0407 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted lung alveolar macrophages | healthy | 2 | 1.0107 | 0.97571 to 1.0456 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0118 | 0.99923 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0067 | 0.99025 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.012 | 1.0011 to 1.023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted lung alveolar macrophages | healthy | 2 | 1.0122 | 0.99325 to 1.0311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted lung alveolar macrophages | healthy | 2 | 1.0178 | 1.0131 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted lung alveolar macrophages | healthy | 2 | 0.0002335 | 0.00022225 to 0.00024475 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted lung alveolar macrophages | healthy | 2 | 0.09191 | 0.070292 to 0.11353 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | sorted lung alveolar macrophages | healthy | 2 | 0.94495 | 0.93959 to 0.9503 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted lung interstitial macrophages | healthy | 3 | 0.95905 | 0.89926 to 1.0962 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted lung interstitial macrophages | healthy | 3 | 0.97125 | 0.91548 to 1.0691 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted lung interstitial macrophages | healthy | 3 | 0.99187 | 0.96264 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.9523 | 0.90391 to 1.0809 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95071 | 0.90659 to 1.0732 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95508 | 0.91248 to 1.0726 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted lung interstitial macrophages | healthy | 3 | 0.94482 | 0.91289 to 1.0729 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted lung interstitial macrophages | healthy | 3 | 1.0192 | 0.95264 to 1.0205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted lung interstitial macrophages | healthy | 3 | 0.99965 | 0.97664 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted lung interstitial macrophages | healthy | 3 | 0.9574 | 0.90858 to 1.0835 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.96986 | 0.92392 to 1.0776 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted lung interstitial macrophages | healthy | 3 | 0.9905 | 0.93918 to 1.0479 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted lung interstitial macrophages | healthy | 3 | 0.97285 | 0.93458 to 1.0651 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted lung interstitial macrophages | healthy | 3 | 0.95896 | 0.92569 to 1.0611 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted lung interstitial macrophages | healthy | 3 | 1.0024 | 0.98334 to 1.0058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.9544 | 0.90703 to 1.0801 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted lung interstitial macrophages | healthy | 3 | 0.94933 | 0.9194 to 1.0722 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95042 | 0.90502 to 1.0813 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95261 | 0.91028 to 1.0729 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95113 | 0.90332 to 1.0792 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95406 | 0.90651 to 1.0678 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted lung interstitial macrophages | healthy | 3 | 0.96428 | 0.91629 to 1.097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted lung interstitial macrophages | healthy | 3 | 0.94468 | 0.91005 to 1.0837 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted lung interstitial macrophages | healthy | 3 | 0.95021 | 0.91814 to 1.0626 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted lung interstitial macrophages | healthy | 3 | 0.95034 | 0.896 to 1.0935 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.96393 | 0.91734 to 1.0817 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted lung interstitial macrophages | healthy | 3 | 0.94265 | 0.90624 to 1.0907 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.93804 | 0.90515 to 1.0828 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted lung interstitial macrophages | healthy | 3 | 0.95683 | 0.9057 to 1.083 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.9226 | 0.90728 to 1.0456 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted lung interstitial macrophages | healthy | 3 | 0.9487 | 0.89266 to 1.112 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.98087 | 0.93393 to 1.0497 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted lung interstitial macrophages | healthy | 3 | 1.0194 | 1.0193 to 1.0712 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted lung interstitial macrophages | healthy | 3 | 0.98224 | 0.9465 to 1.0476 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted lung interstitial macrophages | healthy | 3 | 0.94422 | 0.89088 to 1.1148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted lung interstitial macrophages | healthy | 3 | 0.98592 | 0.94131 to 1.0634 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted lung interstitial macrophages | healthy | 3 | 1.0067 | 0.95933 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted lung interstitial macrophages | healthy | 3 | 0.99675 | 0.96298 to 1.036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted lung interstitial macrophages | healthy | 3 | 0.94968 | 0.92015 to 1.0781 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted lung interstitial macrophages | healthy | 3 | 0.94106 | 0.89792 to 1.0908 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted lung interstitial macrophages | healthy | 3 | 0.97106 | 0.91474 to 1.0538 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted lung interstitial macrophages | healthy | 3 | 0.95879 | 0.90795 to 1.0778 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted lung interstitial macrophages | healthy | 3 | 0.96925 | 0.91313 to 1.0704 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted lung interstitial macrophages | healthy | 3 | 0.96297 | 0.907 to 1.074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted lung interstitial macrophages | healthy | 3 | 0.95425 | 0.91766 to 1.0595 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95386 | 0.90264 to 1.0771 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.98411 | 0.9121 to 1.0938 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted lung interstitial macrophages | healthy | 3 | 0.95574 | 0.9089 to 1.0683 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted lung interstitial macrophages | healthy | 3 | 0.96032 | 0.88911 to 1.1115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted lung interstitial macrophages | healthy | 3 | 1.0056 | 0.94583 to 1.0404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted lung interstitial macrophages | healthy | 3 | 0.99523 | 0.9523 to 1.0249 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted lung interstitial macrophages | healthy | 3 | 0.99029 | 0.96263 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95754 | 0.90425 to 1.0785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95936 | 0.90993 to 1.063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.95268 | 0.9208 to 1.0685 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted lung interstitial macrophages | healthy | 3 | 0.9506 | 0.91862 to 1.0819 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted lung interstitial macrophages | healthy | 3 | 0.94649 | 0.9071 to 1.0815 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted lung interstitial macrophages | healthy | 3 | 7.4e-05 | 7.4e-06 to 7.4e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted lung interstitial macrophages | healthy | 3 | 0.12015 | 0.11105 to 0.13126 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | sorted lung interstitial macrophages | healthy | 3 | 0.9984 | 0.95511 to 1.1356 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted granulocytes | healthy | 3 | 1.0063 | 0.99315 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted granulocytes | healthy | 3 | 1.0326 | 0.99133 to 1.0572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted granulocytes | healthy | 3 | 1.1417 | 0.87782 to 1.2172 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted granulocytes | healthy | 3 | 1.0123 | 0.99854 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted granulocytes | healthy | 3 | 1.0047 | 0.9928 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted granulocytes | healthy | 3 | 0.99162 | 0.98824 to 1.0467 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted granulocytes | healthy | 3 | 1.0028 | 0.99372 to 1.0079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted granulocytes | healthy | 3 | 1.0184 | 0.98274 to 1.0547 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted granulocytes | healthy | 3 | 0.99941 | 0.98929 to 1.0173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted granulocytes | healthy | 3 | 1.0037 | 0.98382 to 1.0201 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted granulocytes | healthy | 3 | 1.0053 | 0.97969 to 1.0305 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted granulocytes | healthy | 3 | 1.0011 | 0.98311 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted granulocytes | healthy | 3 | 1.021 | 0.98895 to 1.044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted granulocytes | healthy | 3 | 1.0242 | 0.99302 to 1.0343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted granulocytes | healthy | 3 | 0.99802 | 0.99282 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted granulocytes | healthy | 3 | 0.99978 | 0.99264 to 1.0437 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted granulocytes | healthy | 3 | 1.0154 | 0.99869 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted granulocytes | healthy | 3 | 1.0055 | 0.98984 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted granulocytes | healthy | 3 | 1.0066 | 0.98264 to 1.0404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted granulocytes | healthy | 3 | 1.0017 | 0.99426 to 1.0407 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted granulocytes | healthy | 3 | 1.0099 | 0.97893 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted granulocytes | healthy | 3 | 0.99763 | 0.9879 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted granulocytes | healthy | 3 | 1.0062 | 0.99095 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted granulocytes | healthy | 3 | 0.99744 | 0.98949 to 1.0246 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted granulocytes | healthy | 3 | 0.9928 | 0.99074 to 1.0198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted granulocytes | healthy | 3 | 1.0004 | 0.99325 to 1.0123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted granulocytes | healthy | 3 | 1.0187 | 0.98276 to 1.042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted granulocytes | healthy | 3 | 0.99473 | 0.99394 to 1.0173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted granulocytes | healthy | 3 | 0.9991 | 0.98712 to 1.0205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted granulocytes | healthy | 3 | 0.99685 | 0.98522 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted granulocytes | healthy | 3 | 0.9998 | 0.99972 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted granulocytes | healthy | 3 | 1.0011 | 0.98966 to 1.0252 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted granulocytes | healthy | 3 | 1.0107 | 0.97673 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted granulocytes | healthy | 3 | 1.0025 | 0.9976 to 1.0137 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted granulocytes | healthy | 3 | 1.0167 | 0.92874 to 1.0459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted granulocytes | healthy | 3 | 1.0071 | 0.99575 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted granulocytes | healthy | 3 | 1.0083 | 1.007 to 1.0175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted granulocytes | healthy | 3 | 1.002 | 0.98328 to 1.0447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted granulocytes | healthy | 3 | 1.0205 | 0.97901 to 1.0342 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted granulocytes | healthy | 3 | 1.0173 | 0.98026 to 1.0437 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted granulocytes | healthy | 3 | 1.0181 | 0.98945 to 1.0351 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted granulocytes | healthy | 3 | 1.0125 | 0.98985 to 1.0295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted granulocytes | healthy | 3 | 0.99981 | 0.99095 to 1.0577 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted granulocytes | healthy | 3 | 1.0123 | 0.98304 to 1.0286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted granulocytes | healthy | 3 | 1.002 | 0.98995 to 1.0237 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted granulocytes | healthy | 3 | 0.99465 | 0.99005 to 1.0191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted granulocytes | healthy | 3 | 1.0023 | 0.98643 to 1.028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted granulocytes | healthy | 3 | 1.0076 | 0.99228 to 1.0244 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted granulocytes | healthy | 3 | 0.9944 | 0.99292 to 1.0268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted granulocytes | healthy | 3 | 0.99692 | 0.98798 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted granulocytes | healthy | 3 | 1.0051 | 0.98641 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted granulocytes | healthy | 3 | 1.0249 | 0.99381 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted granulocytes | healthy | 3 | 0.9986 | 0.9955 to 1.0042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted granulocytes | healthy | 3 | 1.0135 | 0.99182 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted granulocytes | healthy | 3 | 1.0055 | 0.9856 to 1.0468 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted granulocytes | healthy | 3 | 1.003 | 0.98622 to 1.0258 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted granulocytes | healthy | 3 | 1.0042 | 0.98183 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted granulocytes | healthy | 3 | 0.99507 | 0.98957 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted granulocytes | healthy | 3 | 0.99534 | 0.98911 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted granulocytes | healthy | 3 | 0.99812 | 0.99718 to 1.018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted granulocytes | healthy | 3 | 1.007 | 0.99547 to 1.0133 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted granulocytes | healthy | 3 | 1.0037 | 0.98547 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted granulocytes | healthy | 3 | 0.97224 | 0.74424 to 1.2312 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted granulocytes | healthy | 3 | 1.0024 | 0.99451 to 1.0149 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | sorted granulocytes | healthy | 3 | 4.9e-05 | 2.74e-05 to 0.0009886 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted granulocytes | healthy | 3 | 0.10821 | 0.10161 to 0.11938 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A sorted cell (atlas) | granulocytes | sorted granulocytes | healthy | 3 | 0.97307 | 0.93844 to 1.0437 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted granulocytes | healthy | 3 | 0.9927 | 0.99117 to 1.0022 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | granulocytes | sorted granulocytes | healthy | 3 | 0.9771 | 0.97251 to 1.0109 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | healthy | 17 | 0.73762 | 0.65418 to 1.0422 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | healthy | 17 | 0.71016 | 0.62228 to 1.0892 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | healthy | 17 | 0.58033 | 0.54614 to 1.0572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | healthy | 17 | 0.75674 | 0.72054 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | healthy | 17 | 0.74095 | 0.68847 to 1.0285 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | healthy | 17 | 0.73076 | 0.6828 to 1.0281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | healthy | 17 | 0.73713 | 0.66124 to 1.0336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | healthy | 17 | 0.63223 | 0.57721 to 1.0768 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | healthy | 17 | 0.66074 | 0.60645 to 1.1301 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | healthy | 17 | 0.69149 | 0.63495 to 1.0258 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | healthy | 17 | 0.63608 | 0.58849 to 1.044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | healthy | 17 | 0.77692 | 0.71572 to 1.3214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | healthy | 17 | 0.71655 | 0.65093 to 1.1837 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | healthy | 17 | 0.67197 | 0.59926 to 1.0337 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | healthy | 17 | 0.70866 | 0.67442 to 1.2504 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | healthy | 17 | 0.75255 | 0.70929 to 1.0234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | healthy | 17 | 0.74807 | 0.69916 to 1.072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | healthy | 17 | 0.73969 | 0.68413 to 1.0258 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | healthy | 17 | 0.75589 | 0.71451 to 1.0176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | healthy | 17 | 0.75793 | 0.70973 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | healthy | 17 | 0.76265 | 0.71616 to 1.0292 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | healthy | 3 | 1.0439 | 0.92357 to 1.1078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | healthy | 17 | 0.75376 | 0.68828 to 1.0322 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | healthy | 17 | 0.75103 | 0.65944 to 1.0365 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | healthy | 17 | 0.69947 | 0.61754 to 1.0381 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | healthy | 17 | 0.68054 | 0.60212 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | healthy | 17 | 0.69497 | 0.63008 to 1.0497 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | healthy | 17 | 0.70023 | 0.64653 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | healthy | 17 | 0.71103 | 0.65101 to 1.0424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | healthy | 17 | 0.70006 | 0.5951 to 0.99413 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | healthy | 17 | 0.63236 | 0.55785 to 1.04 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | healthy | 17 | 0.73854 | 0.67561 to 1.1845 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | healthy | 17 | 0.62998 | 0.57401 to 1.0359 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | healthy | 17 | 0.73459 | 0.71022 to 1.3452 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | healthy | 17 | 0.5744 | 0.50733 to 1.0506 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | healthy | 17 | 0.6107 | 0.5506 to 1.0497 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | healthy | 17 | 0.68259 | 0.63141 to 1.0991 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | healthy | 17 | 0.63007 | 0.58851 to 1.041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | healthy | 17 | 0.65664 | 0.58888 to 1.0385 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | healthy | 17 | 0.71492 | 0.66027 to 1.0351 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | healthy | 17 | 0.78611 | 0.72121 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | healthy | 17 | 0.72471 | 0.6655 to 1.0284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | healthy | 17 | 0.72578 | 0.6679 to 1.032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | healthy | 17 | 0.7264 | 0.66761 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | healthy | 17 | 0.75613 | 0.69318 to 1.0282 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | healthy | 17 | 0.75288 | 0.69081 to 1.0316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | healthy | 17 | 0.65306 | 0.59304 to 1.0495 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | healthy | 17 | 0.77722 | 0.70053 to 1.0274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | healthy | 17 | 0.67834 | 0.61007 to 1.0426 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | healthy | 17 | 0.63379 | 0.60043 to 1.0404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | healthy | 17 | 0.72067 | 0.68798 to 1.0518 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | healthy | 17 | 0.75175 | 0.68859 to 1.0703 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | healthy | 17 | 0.71667 | 0.64996 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | healthy | 17 | 0.76261 | 0.72318 to 1.028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | healthy | 17 | 0.75754 | 0.69637 to 1.0264 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | healthy | 17 | 0.70759 | 0.63365 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | healthy | 17 | 0.70626 | 0.63722 to 1.0422 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | healthy | 17 | 0.000638 | 3.2e-05 to 0.007096 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | healthy | 17 | 0.18793 | 0.11513 to 0.23073 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted memory b cells | healthy | 14 | 1.0345 | 0.93265 to 1.1966 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted memory b cells | healthy | 12 | 1.0145 | 0.86195 to 1.0965 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted memory b cells | healthy | 12 | 0.94524 | 0.75547 to 1.0938 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted memory b cells | healthy | 12 | 1.0037 | 0.92563 to 1.0679 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted memory b cells | healthy | 12 | 1.0113 | 0.9315 to 1.0524 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted memory b cells | healthy | 12 | 0.99789 | 0.9163 to 1.069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted memory b cells | healthy | 12 | 1.0067 | 0.9299 to 1.0785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted memory b cells | healthy | 12 | 0.97276 | 0.81288 to 1.1261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted memory b cells | healthy | 12 | 0.95536 | 0.80552 to 1.0978 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted memory b cells | healthy | 12 | 1.0226 | 0.90381 to 1.1042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted memory b cells | healthy | 12 | 1.0026 | 0.87065 to 1.1131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted memory b cells | healthy | 12 | 1.0063 | 0.86683 to 1.1333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted memory b cells | healthy | 12 | 1.0286 | 0.8673 to 1.1628 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted memory b cells | healthy | 12 | 0.97424 | 0.88083 to 1.0438 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted memory b cells | healthy | 12 | 0.91981 | 0.78467 to 1.0394 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted memory b cells | healthy | 12 | 1.0098 | 0.91963 to 1.0601 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted memory b cells | healthy | 12 | 1.0094 | 0.91765 to 1.1165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted memory b cells | healthy | 12 | 1.007 | 0.92341 to 1.0481 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted memory b cells | healthy | 12 | 1.0072 | 0.92156 to 1.043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted memory b cells | healthy | 12 | 1.0064 | 0.91878 to 1.0456 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted memory b cells | healthy | 12 | 1.0012 | 0.9208 to 1.0591 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted memory b cells | healthy | 2 | 1.0338 | 1.0035 to 1.0642 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted memory b cells | healthy | 12 | 1.0054 | 0.91157 to 1.0705 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted memory b cells | healthy | 14 | 1.0273 | 0.92947 to 1.1742 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted memory b cells | healthy | 12 | 1.0143 | 0.90716 to 1.1148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted memory b cells | healthy | 12 | 1.0229 | 0.89675 to 1.1067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted memory b cells | healthy | 12 | 1.015 | 0.91627 to 1.104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted memory b cells | healthy | 12 | 1.0144 | 0.92607 to 1.1045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted memory b cells | healthy | 12 | 1.0121 | 0.90799 to 1.127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted memory b cells | healthy | 12 | 1.0014 | 0.87438 to 1.0931 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted memory b cells | healthy | 12 | 1.0089 | 0.89191 to 1.1353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted memory b cells | healthy | 12 | 0.99701 | 0.86381 to 1.0954 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted memory b cells | healthy | 12 | 1.0154 | 0.89392 to 1.1676 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted memory b cells | healthy | 12 | 0.7302 | 0.64493 to 1.0794 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted memory b cells | healthy | 12 | 1.0037 | 0.89196 to 1.0878 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted memory b cells | healthy | 12 | 0.99661 | 0.85592 to 1.1142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted memory b cells | healthy | 12 | 0.97439 | 0.80833 to 1.0887 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted memory b cells | healthy | 12 | 0.98531 | 0.82824 to 1.1327 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted memory b cells | healthy | 12 | 0.98995 | 0.88769 to 1.0561 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted memory b cells | healthy | 12 | 1.0081 | 0.91752 to 1.0856 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted memory b cells | healthy | 14 | 1.0255 | 0.92712 to 1.0656 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted memory b cells | healthy | 12 | 1.0138 | 0.91646 to 1.0884 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted memory b cells | healthy | 12 | 1.0074 | 0.90029 to 1.116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted memory b cells | healthy | 12 | 1.0206 | 0.91873 to 1.0935 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted memory b cells | healthy | 14 | 1.0171 | 0.91909 to 1.0972 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted memory b cells | healthy | 12 | 1.0089 | 0.92967 to 1.0491 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted memory b cells | healthy | 12 | 0.99927 | 0.87857 to 1.1421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted memory b cells | healthy | 12 | 1.0052 | 0.92065 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted memory b cells | healthy | 12 | 1.0411 | 0.89724 to 1.1403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted memory b cells | healthy | 12 | 0.98446 | 0.82703 to 1.1321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted memory b cells | healthy | 12 | 0.89141 | 0.81031 to 1.0319 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted memory b cells | healthy | 12 | 0.97742 | 0.83604 to 1.0973 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted memory b cells | healthy | 12 | 1.0101 | 0.91205 to 1.0947 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted memory b cells | healthy | 12 | 1.0006 | 0.92502 to 1.0502 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted memory b cells | healthy | 12 | 1.0118 | 0.91627 to 1.0804 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted memory b cells | healthy | 12 | 1.0185 | 0.90082 to 1.1105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted memory b cells | healthy | 12 | 1.0156 | 0.9162 to 1.1125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted memory b cells | healthy | 14 | 0.00645 | 0.00010585 to 0.010306 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted memory b cells | healthy | 14 | 0.16617 | 0.10472 to 0.3496 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted tonsil palatine epithelium | healthy | 3 | 0.98808 | 0.98157 to 1.0377 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0007 | 0.97331 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted tonsil palatine epithelium | healthy | 3 | 0.99979 | 0.97712 to 1.0286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99229 | 0.97877 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99839 | 0.97812 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99974 | 0.98022 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted tonsil palatine epithelium | healthy | 3 | 0.99686 | 0.98382 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted tonsil palatine epithelium | healthy | 3 | 0.99805 | 0.98043 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted tonsil palatine epithelium | healthy | 3 | 1.0022 | 0.98118 to 1.027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted tonsil palatine epithelium | healthy | 3 | 1.0007 | 0.95707 to 1.0395 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0102 | 0.97146 to 1.0369 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted tonsil palatine epithelium | healthy | 3 | 0.99974 | 0.9676 to 1.0336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted tonsil palatine epithelium | healthy | 3 | 1.0078 | 0.96377 to 1.0295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted tonsil palatine epithelium | healthy | 3 | 0.99507 | 0.98531 to 1.0257 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted tonsil palatine epithelium | healthy | 3 | 1.0092 | 0.97475 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99963 | 0.96867 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted tonsil palatine epithelium | healthy | 3 | 0.99406 | 0.98531 to 1.012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99798 | 0.97871 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0002 | 0.97079 to 1.0175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99598 | 0.97703 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99603 | 0.97669 to 1.0198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted tonsil palatine epithelium | healthy | 3 | 0.99774 | 0.97818 to 1.0317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted tonsil palatine epithelium | healthy | 3 | 0.98678 | 0.98301 to 1.0244 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted tonsil palatine epithelium | healthy | 3 | 0.99536 | 0.98593 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted tonsil palatine epithelium | healthy | 3 | 0.98989 | 0.97746 to 1.0314 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0024 | 0.96562 to 1.041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99058 | 0.98057 to 1.0267 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99291 | 0.97979 to 1.0284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted tonsil palatine epithelium | healthy | 3 | 0.98951 | 0.97503 to 1.0386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0067 | 0.9536 to 1.008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted tonsil palatine epithelium | healthy | 3 | 0.99772 | 0.97218 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0109 | 0.97302 to 1.0453 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted tonsil palatine epithelium | healthy | 3 | 0.9905 | 0.98239 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted tonsil palatine epithelium | healthy | 3 | 1.0023 | 0.97715 to 1.0248 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted tonsil palatine epithelium | healthy | 3 | 0.99153 | 0.9814 to 1.0223 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted tonsil palatine epithelium | healthy | 3 | 0.99527 | 0.98043 to 1.0326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted tonsil palatine epithelium | healthy | 3 | 1.0012 | 0.98075 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted tonsil palatine epithelium | healthy | 3 | 1.0002 | 0.97888 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted tonsil palatine epithelium | healthy | 3 | 0.99107 | 0.9853 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99045 | 0.97659 to 1.0351 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted tonsil palatine epithelium | healthy | 3 | 0.9944 | 0.97564 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted tonsil palatine epithelium | healthy | 3 | 0.98734 | 0.98552 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted tonsil palatine epithelium | healthy | 3 | 0.99541 | 0.98033 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted tonsil palatine epithelium | healthy | 3 | 0.99431 | 0.98472 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted tonsil palatine epithelium | healthy | 3 | 0.9928 | 0.98604 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0007 | 0.97111 to 1.0274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99786 | 0.98025 to 1.0396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted tonsil palatine epithelium | healthy | 3 | 0.99454 | 0.97757 to 1.0198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted tonsil palatine epithelium | healthy | 3 | 0.98442 | 0.96955 to 1.0453 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted tonsil palatine epithelium | healthy | 3 | 0.99779 | 0.9857 to 1.0215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted tonsil palatine epithelium | healthy | 3 | 0.99499 | 0.98036 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted tonsil palatine epithelium | healthy | 3 | 1.0023 | 0.97188 to 1.0174 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.9903 | 0.98393 to 1.0201 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0063 | 0.95108 to 1.0364 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0425 | 1.0176 to 1.0675 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1.0056 | 0.95558 to 1.0572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted tonsil palatine epithelium | healthy | 3 | 0.99108 | 0.9796 to 1.0323 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted tonsil palatine epithelium | healthy | 3 | 3.7e-05 | 3.7e-05 to 5.86e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted tonsil palatine epithelium | healthy | 3 | 0.10472 | 0.09338 to 0.10558 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | tonsil palatine epithelium | sorted tonsil palatine epithelium | healthy | 3 | 0.9304 | 0.91897 to 0.97351 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0034 | 0.96027 to 1.0465 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9976 | 0.94689 to 1.0483 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0009 | 0.97679 to 1.0249 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99948 | 0.96372 to 1.0352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99601 | 0.97791 to 1.0141 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0018 | 0.96764 to 1.036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9944 | 0.96756 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9998 | 0.96718 to 1.0324 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0027 | 0.97718 to 1.0283 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99289 | 0.94227 to 1.0435 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0004 | 0.94834 to 1.0525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99859 | 0.95946 to 1.0377 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99705 | 0.95446 to 1.0396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99577 | 0.96834 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0037 | 0.97725 to 1.0301 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99731 | 0.96377 to 1.0309 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99943 | 0.98932 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99726 | 0.96668 to 1.0278 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99683 | 0.97069 to 1.023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99669 | 0.96167 to 1.0317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9954 | 0.96486 to 1.0259 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99911 | 0.96006 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0029 | 0.98654 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99703 | 0.97509 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99399 | 0.95052 to 1.0375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9941 | 0.93819 to 1.05 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99518 | 0.95883 to 1.0315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99779 | 0.95543 to 1.0402 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99963 | 0.96222 to 1.037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99675 | 0.95041 to 1.0431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99094 | 0.93723 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0131 | 0.94739 to 1.0787 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9943 | 0.96513 to 1.0235 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0031 | 0.98525 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99611 | 0.96384 to 1.0284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99616 | 0.9555 to 1.0368 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0004 | 0.97486 to 1.026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0012 | 0.96579 to 1.0366 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99361 | 0.96041 to 1.0268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99945 | 0.96674 to 1.0322 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99569 | 0.98367 to 1.0077 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99788 | 0.96273 to 1.033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0037 | 0.96442 to 1.0429 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9952 | 0.96086 to 1.0295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99323 | 0.97194 to 1.0145 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99656 | 0.94687 to 1.0462 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0015 | 0.94525 to 1.0578 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0014 | 0.99752 to 1.0054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99474 | 0.9392 to 1.0503 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99996 | 0.9697 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0009 | 0.98208 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99706 | 0.98382 to 1.0103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99144 | 0.94541 to 1.0375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0025 | 0.98188 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0148 | 0.98785 to 1.0417 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.073 | 1.0452 to 1.1007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.99759 | 0.96254 to 1.0326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.000418 | 0.0003739 to 0.0004621 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.10905 | 0.095837 to 0.12225 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | tonsil pharyngeal epithelium | sorted tonsil pharyngeal epithelium | healthy | 2 | 0.9656 | 0.95336 to 0.97784 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted tongue epithelium | healthy | 3 | 1.0045 | 0.95053 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted tongue epithelium | healthy | 3 | 0.97467 | 0.96137 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted tongue epithelium | healthy | 3 | 0.9906 | 0.98048 to 0.99206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted tongue epithelium | healthy | 3 | 0.98964 | 0.95986 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted tongue epithelium | healthy | 3 | 0.99687 | 0.95705 to 0.99727 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted tongue epithelium | healthy | 3 | 0.98685 | 0.96078 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted tongue epithelium | healthy | 3 | 0.98833 | 0.95086 to 0.99974 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted tongue epithelium | healthy | 3 | 0.98555 | 0.96975 to 0.99722 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted tongue epithelium | healthy | 3 | 0.98296 | 0.98245 to 0.99392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted tongue epithelium | healthy | 3 | 0.97971 | 0.95338 to 1.0121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted tongue epithelium | healthy | 3 | 0.98566 | 0.977 to 1.0129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted tongue epithelium | healthy | 3 | 0.97553 | 0.96778 to 1.0044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted tongue epithelium | healthy | 3 | 0.97374 | 0.96657 to 0.99873 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted tongue epithelium | healthy | 3 | 0.98861 | 0.97876 to 0.98964 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted tongue epithelium | healthy | 3 | 0.98431 | 0.97702 to 0.99696 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted tongue epithelium | healthy | 3 | 0.99011 | 0.95974 to 0.99818 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted tongue epithelium | healthy | 3 | 0.97267 | 0.97057 to 0.98767 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted tongue epithelium | healthy | 3 | 0.99266 | 0.95684 to 0.99699 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted tongue epithelium | healthy | 3 | 0.98418 | 0.95322 to 0.99597 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted tongue epithelium | healthy | 3 | 0.9742 | 0.95442 to 1.0014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted tongue epithelium | healthy | 3 | 0.9923 | 0.95242 to 0.99756 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted tongue epithelium | healthy | 3 | 0.99331 | 0.96587 to 1.0073 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted tongue epithelium | healthy | 3 | 0.99004 | 0.95642 to 0.99602 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted tongue epithelium | healthy | 3 | 0.98268 | 0.96238 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted tongue epithelium | healthy | 3 | 0.98404 | 0.96054 to 0.99957 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted tongue epithelium | healthy | 3 | 0.97958 | 0.95121 to 1.0262 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted tongue epithelium | healthy | 3 | 0.9972 | 0.95624 to 1.0037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted tongue epithelium | healthy | 3 | 0.99121 | 0.95288 to 1.0062 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted tongue epithelium | healthy | 3 | 0.99015 | 0.96228 to 1.0065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted tongue epithelium | healthy | 3 | 0.97238 | 0.92572 to 1.0107 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted tongue epithelium | healthy | 3 | 0.98241 | 0.95646 to 1.0074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted tongue epithelium | healthy | 3 | 0.99682 | 0.98709 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted tongue epithelium | healthy | 3 | 0.99176 | 0.96286 to 0.99183 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted tongue epithelium | healthy | 3 | 0.98005 | 0.9744 to 0.99503 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted tongue epithelium | healthy | 3 | 0.98614 | 0.9654 to 1.0023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted tongue epithelium | healthy | 3 | 0.98269 | 0.97106 to 1.003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted tongue epithelium | healthy | 3 | 0.98686 | 0.98489 to 0.9944 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted tongue epithelium | healthy | 3 | 0.98453 | 0.98089 to 1.0043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted tongue epithelium | healthy | 3 | 0.98553 | 0.9592 to 1.0046 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted tongue epithelium | healthy | 3 | 0.99279 | 0.95201 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted tongue epithelium | healthy | 3 | 0.98957 | 0.95834 to 0.99561 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted tongue epithelium | healthy | 3 | 0.99179 | 0.9492 to 1.0044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted tongue epithelium | healthy | 3 | 0.9894 | 0.96481 to 1.0027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted tongue epithelium | healthy | 3 | 1.0016 | 0.95326 to 1.0031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted tongue epithelium | healthy | 3 | 0.98574 | 0.96437 to 0.98929 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted tongue epithelium | healthy | 3 | 0.98615 | 0.95477 to 1.0139 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted tongue epithelium | healthy | 3 | 0.98912 | 0.98876 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted tongue epithelium | healthy | 3 | 0.99135 | 0.95564 to 0.99792 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted tongue epithelium | healthy | 3 | 0.9831 | 0.9485 to 1.0165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted tongue epithelium | healthy | 3 | 0.97925 | 0.97239 to 0.99743 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted tongue epithelium | healthy | 3 | 0.98001 | 0.97889 to 0.98472 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted tongue epithelium | healthy | 3 | 0.98136 | 0.97493 to 0.98515 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted tongue epithelium | healthy | 3 | 0.99595 | 0.94559 to 1.0034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted tongue epithelium | healthy | 3 | 1.0272 | 0.99959 to 1.0632 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted tongue epithelium | healthy | 3 | 1.0145 | 0.94699 to 1.0258 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted tongue epithelium | healthy | 3 | 1.016 | 0.95398 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted tongue epithelium | healthy | 3 | 0.99972 | 0.95607 to 1.0003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted tongue epithelium | healthy | 3 | 4.9e-05 | 3.82e-05 to 0.0001048 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted tongue epithelium | healthy | 3 | 0.121 | 0.10781 to 0.12311 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | tongue epithelium | sorted tongue epithelium | healthy | 3 | 0.964 | 0.93799 to 0.97291 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted lung bronchus epithelium | healthy | 3 | 0.97726 | 0.96575 to 1.0494 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted lung bronchus epithelium | healthy | 3 | 0.97514 | 0.9682 to 1.0425 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted lung bronchus epithelium | healthy | 3 | 0.98365 | 0.97857 to 1.0378 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.98539 | 0.97104 to 1.0272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.98605 | 0.96682 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.99325 | 0.96801 to 1.0362 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted lung bronchus epithelium | healthy | 3 | 0.9752 | 0.96164 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted lung bronchus epithelium | healthy | 3 | 0.98533 | 0.97674 to 1.0403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted lung bronchus epithelium | healthy | 3 | 0.99015 | 0.98689 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted lung bronchus epithelium | healthy | 3 | 0.96779 | 0.96769 to 1.0408 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.97965 | 0.97422 to 1.0466 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted lung bronchus epithelium | healthy | 3 | 0.97857 | 0.97001 to 1.0411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted lung bronchus epithelium | healthy | 3 | 0.97367 | 0.97347 to 1.0418 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted lung bronchus epithelium | healthy | 3 | 0.97975 | 0.97208 to 1.0434 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted lung bronchus epithelium | healthy | 3 | 0.99249 | 0.98956 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.98857 | 0.96627 to 1.0299 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted lung bronchus epithelium | healthy | 3 | 0.9846 | 0.97651 to 1.0117 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.97763 | 0.96488 to 1.0346 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.98937 | 0.96957 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.99557 | 0.9706 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.99106 | 0.96647 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted lung bronchus epithelium | healthy | 3 | 0.98294 | 0.98167 to 1.0317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted lung bronchus epithelium | healthy | 3 | 0.98135 | 0.96977 to 1.0238 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted lung bronchus epithelium | healthy | 3 | 0.98964 | 0.97298 to 1.0271 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted lung bronchus epithelium | healthy | 3 | 0.96593 | 0.96261 to 1.047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.97807 | 0.95759 to 1.0616 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted lung bronchus epithelium | healthy | 3 | 0.97603 | 0.96643 to 1.0392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.96458 | 0.96061 to 1.0504 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted lung bronchus epithelium | healthy | 3 | 0.97783 | 0.97176 to 1.0361 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted lung bronchus epithelium | healthy | 3 | 1.0046 | 0.9292 to 1.0261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted lung bronchus epithelium | healthy | 3 | 0.97243 | 0.96605 to 1.0477 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted lung bronchus epithelium | healthy | 3 | 1.0247 | 0.99292 to 1.0687 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted lung bronchus epithelium | healthy | 3 | 0.97772 | 0.97067 to 1.031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted lung bronchus epithelium | healthy | 3 | 0.98898 | 0.98422 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted lung bronchus epithelium | healthy | 3 | 0.98041 | 0.96895 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted lung bronchus epithelium | healthy | 3 | 0.98249 | 0.97516 to 1.039 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted lung bronchus epithelium | healthy | 3 | 0.98855 | 0.98437 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted lung bronchus epithelium | healthy | 3 | 0.98767 | 0.98192 to 1.03 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted lung bronchus epithelium | healthy | 3 | 0.98036 | 0.96631 to 1.0425 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted lung bronchus epithelium | healthy | 3 | 0.96854 | 0.968 to 1.0317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted lung bronchus epithelium | healthy | 3 | 0.98597 | 0.9718 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted lung bronchus epithelium | healthy | 3 | 0.97214 | 0.96084 to 1.0485 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted lung bronchus epithelium | healthy | 3 | 0.97666 | 0.9699 to 1.0458 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted lung bronchus epithelium | healthy | 3 | 0.97062 | 0.96807 to 1.0415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted lung bronchus epithelium | healthy | 3 | 0.98241 | 0.96388 to 1.0284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.99242 | 0.95496 to 1.0403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.9782 | 0.97513 to 1.0544 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted lung bronchus epithelium | healthy | 3 | 0.97903 | 0.97619 to 1.0101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted lung bronchus epithelium | healthy | 3 | 0.97197 | 0.95785 to 1.0463 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted lung bronchus epithelium | healthy | 3 | 0.98646 | 0.98613 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted lung bronchus epithelium | healthy | 3 | 0.98669 | 0.98367 to 1.0123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted lung bronchus epithelium | healthy | 3 | 0.98334 | 0.98227 to 1.0107 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.97144 | 0.9574 to 1.053 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.98314 | 0.96885 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.99265 | 0.983 to 1.0175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted lung bronchus epithelium | healthy | 3 | 0.98415 | 0.97457 to 1.0464 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted lung bronchus epithelium | healthy | 3 | 0.9764 | 0.96478 to 1.0472 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted lung bronchus epithelium | healthy | 3 | 7.4e-05 | 4.07e-05 to 0.0001622 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted lung bronchus epithelium | healthy | 3 | 0.10629 | 0.088614 to 0.11173 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | sorted lung bronchus epithelium | healthy | 3 | 1.0691 | 0.96434 to 1.0811 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted prostate epithelium | healthy | 3 | 0.97637 | 0.92034 to 1.0357 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted prostate epithelium | healthy | 3 | 0.97066 | 0.96793 to 1.0081 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted prostate epithelium | healthy | 3 | 0.98701 | 0.97539 to 0.99557 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted prostate epithelium | healthy | 3 | 0.96721 | 0.9377 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted prostate epithelium | healthy | 3 | 0.97268 | 0.96807 to 0.99613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted prostate epithelium | healthy | 3 | 0.98027 | 0.96665 to 0.99061 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted prostate epithelium | healthy | 3 | 0.98628 | 0.92584 to 1.0106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted prostate epithelium | healthy | 3 | 0.98613 | 0.97887 to 0.99478 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted prostate epithelium | healthy | 3 | 0.99202 | 0.97969 to 0.99367 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted prostate epithelium | healthy | 3 | 0.98618 | 0.96839 to 0.98858 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted prostate epithelium | healthy | 3 | 0.98635 | 0.97063 to 1.0037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted prostate epithelium | healthy | 3 | 0.98086 | 0.9791 to 0.98155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted prostate epithelium | healthy | 3 | 0.98657 | 0.97489 to 0.98709 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted prostate epithelium | healthy | 3 | 0.97921 | 0.97901 to 0.98904 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted prostate epithelium | healthy | 3 | 0.98908 | 0.97678 to 0.9922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted prostate epithelium | healthy | 3 | 0.97673 | 0.95192 to 1.0074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted prostate epithelium | healthy | 3 | 0.99081 | 0.92154 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted prostate epithelium | healthy | 3 | 0.97691 | 0.95008 to 1.0044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted prostate epithelium | healthy | 3 | 0.98308 | 0.93723 to 1.0044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted prostate epithelium | healthy | 3 | 0.9878 | 0.94142 to 1.0017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted prostate epithelium | healthy | 3 | 0.97957 | 0.93503 to 1.0099 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted prostate epithelium | healthy | 3 | 0.98004 | 0.97938 to 0.99159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted prostate epithelium | healthy | 3 | 0.97741 | 0.93186 to 1.0114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted prostate epithelium | healthy | 3 | 0.97448 | 0.93368 to 1.0174 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted prostate epithelium | healthy | 3 | 0.96592 | 0.94026 to 1.0191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted prostate epithelium | healthy | 3 | 0.97504 | 0.96214 to 1.0071 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted prostate epithelium | healthy | 3 | 0.97892 | 0.94659 to 1.0036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted prostate epithelium | healthy | 3 | 0.97734 | 0.94329 to 1.0137 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted prostate epithelium | healthy | 3 | 0.97659 | 0.95411 to 1.0071 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted prostate epithelium | healthy | 3 | 0.97482 | 0.95695 to 1.0082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted prostate epithelium | healthy | 3 | 0.97247 | 0.97177 to 0.98534 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted prostate epithelium | healthy | 3 | 0.99913 | 0.95869 to 1.0101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted prostate epithelium | healthy | 3 | 0.98683 | 0.932 to 1.0144 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted prostate epithelium | healthy | 3 | 0.98359 | 0.97949 to 0.98806 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted prostate epithelium | healthy | 3 | 0.98207 | 0.97366 to 0.98866 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted prostate epithelium | healthy | 3 | 0.98369 | 0.98358 to 0.98689 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted prostate epithelium | healthy | 3 | 0.97696 | 0.9753 to 0.99745 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted prostate epithelium | healthy | 3 | 0.98284 | 0.97715 to 1.0021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted prostate epithelium | healthy | 3 | 0.98194 | 0.98063 to 0.98763 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted prostate epithelium | healthy | 3 | 0.97314 | 0.93943 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted prostate epithelium | healthy | 3 | 0.97766 | 0.94646 to 1.0017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted prostate epithelium | healthy | 3 | 0.97841 | 0.94857 to 1 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted prostate epithelium | healthy | 3 | 0.97678 | 0.94968 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted prostate epithelium | healthy | 3 | 0.97839 | 0.94688 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted prostate epithelium | healthy | 3 | 0.97755 | 0.93945 to 1.0014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted prostate epithelium | healthy | 3 | 1.0272 | 1.0246 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted prostate epithelium | healthy | 3 | 0.98809 | 0.97442 to 1.0011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted prostate epithelium | healthy | 3 | 0.96382 | 0.93031 to 1.023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted prostate epithelium | healthy | 3 | 0.98074 | 0.97594 to 0.98404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted prostate epithelium | healthy | 3 | 0.98227 | 0.9685 to 0.99375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted prostate epithelium | healthy | 3 | 0.97464 | 0.96928 to 0.98905 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted prostate epithelium | healthy | 3 | 0.98204 | 0.95038 to 1.0038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted prostate epithelium | healthy | 3 | 0.98097 | 0.94833 to 1.0023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted prostate epithelium | healthy | 3 | 0.97085 | 0.93094 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted prostate epithelium | healthy | 3 | 0.96174 | 0.93509 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted prostate epithelium | healthy | 3 | 0.97948 | 0.97737 to 0.99311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted prostate epithelium | healthy | 3 | 0.97418 | 0.95217 to 1.0058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted prostate epithelium | healthy | 3 | 0 | 0 to 3.33e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted prostate epithelium | healthy | 3 | 0.1122 | 0.11128 to 0.13577 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | prostate epithelium | sorted prostate epithelium | healthy | 3 | 1.0032 | 0.97287 to 1.0039 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted bladder epithelium | healthy | 3 | 0.98868 | 0.98375 to 1.007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted bladder epithelium | healthy | 3 | 0.99184 | 0.98703 to 1.0033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted bladder epithelium | healthy | 3 | 0.99999 | 0.9759 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted bladder epithelium | healthy | 3 | 1.0266 | 1.0262 to 1.1051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted bladder epithelium | healthy | 3 | 0.9911 | 0.98414 to 0.998 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted bladder epithelium | healthy | 3 | 0.99368 | 0.98242 to 1.0092 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted bladder epithelium | healthy | 3 | 0.98853 | 0.98169 to 1.0022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted bladder epithelium | healthy | 3 | 0.99934 | 0.97649 to 1.0103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted bladder epithelium | healthy | 3 | 0.99215 | 0.98806 to 1.0051 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted bladder epithelium | healthy | 3 | 0.98821 | 0.98283 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted bladder epithelium | healthy | 3 | 0.98931 | 0.98549 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted bladder epithelium | healthy | 3 | 1.0068 | 0.97615 to 1.0117 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted bladder epithelium | healthy | 3 | 0.99276 | 0.9726 to 1.0111 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted bladder epithelium | healthy | 3 | 0.99933 | 0.98448 to 1.0018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted bladder epithelium | healthy | 3 | 0.99624 | 0.97853 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted bladder epithelium | healthy | 3 | 0.9954 | 0.98455 to 1.0036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted bladder epithelium | healthy | 3 | 0.98027 | 0.97156 to 1.0176 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted bladder epithelium | healthy | 3 | 0.99405 | 0.98257 to 0.99631 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted bladder epithelium | healthy | 3 | 0.99986 | 0.9691 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted bladder epithelium | healthy | 3 | 1.0002 | 0.97219 to 1.0079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted bladder epithelium | healthy | 3 | 1.0008 | 0.97136 to 1.001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted bladder epithelium | healthy | 3 | 0.99524 | 0.98283 to 1.0121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted bladder epithelium | healthy | 3 | 0.98513 | 0.98018 to 1.0035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted bladder epithelium | healthy | 3 | 0.98833 | 0.98047 to 0.99935 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted bladder epithelium | healthy | 3 | 0.99583 | 0.98756 to 1.0001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted bladder epithelium | healthy | 3 | 0.99218 | 0.97315 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted bladder epithelium | healthy | 3 | 0.98614 | 0.98522 to 1.0041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted bladder epithelium | healthy | 3 | 0.99018 | 0.96373 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted bladder epithelium | healthy | 3 | 0.98875 | 0.98735 to 1.0026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted bladder epithelium | healthy | 3 | 0.99332 | 0.98678 to 1.0045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted bladder epithelium | healthy | 3 | 0.98702 | 0.98051 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted bladder epithelium | healthy | 3 | 0.99558 | 0.98516 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted bladder epithelium | healthy | 3 | 0.99429 | 0.98246 to 0.99494 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted bladder epithelium | healthy | 3 | 1.0004 | 0.97002 to 1.0163 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted bladder epithelium | healthy | 3 | 0.99719 | 0.97925 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted bladder epithelium | healthy | 3 | 1.005 | 0.98145 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted bladder epithelium | healthy | 3 | 0.99727 | 0.98111 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted bladder epithelium | healthy | 3 | 0.99476 | 0.98235 to 1.0096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted bladder epithelium | healthy | 3 | 0.99488 | 0.97978 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted bladder epithelium | healthy | 3 | 0.99054 | 0.98288 to 0.99922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted bladder epithelium | healthy | 3 | 0.99627 | 0.97414 to 1.0023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted bladder epithelium | healthy | 3 | 0.97938 | 0.97205 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted bladder epithelium | healthy | 3 | 0.9862 | 0.9848 to 1.0129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted bladder epithelium | healthy | 3 | 0.98928 | 0.97457 to 1.011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted bladder epithelium | healthy | 3 | 0.99233 | 0.97172 to 1.0019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted bladder epithelium | healthy | 3 | 0.99834 | 0.97836 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted bladder epithelium | healthy | 3 | 1.0021 | 0.98396 to 1.0146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted bladder epithelium | healthy | 3 | 0.98945 | 0.97132 to 1.0063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted bladder epithelium | healthy | 3 | 0.99336 | 0.98088 to 1.003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted bladder epithelium | healthy | 3 | 0.99699 | 0.98704 to 0.9995 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted bladder epithelium | healthy | 3 | 0.99254 | 0.96956 to 1.0167 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted bladder epithelium | healthy | 3 | 0.9992 | 0.96213 to 1.0116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted bladder epithelium | healthy | 3 | 1.0003 | 0.96155 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted bladder epithelium | healthy | 3 | 0.98619 | 0.97139 to 1.0071 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted bladder epithelium | healthy | 3 | 0.98576 | 0.97955 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted bladder epithelium | healthy | 3 | 0.98641 | 0.98581 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted bladder epithelium | healthy | 3 | 0.98914 | 0.9793 to 1.0064 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted bladder epithelium | healthy | 3 | 1.2e-05 | 1.2e-06 to 2.37e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted bladder epithelium | healthy | 3 | 0.1021 | 0.10044 to 0.14113 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | bladder epithelium | sorted bladder epithelium | healthy | 3 | 1.108 | 1.0544 to 1.1146 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted breast luminal epithelium | healthy | 3 | 0.98986 | 0.92025 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted breast luminal epithelium | healthy | 3 | 0.9598 | 0.94337 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted breast luminal epithelium | healthy | 3 | 0.97828 | 0.93832 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted breast luminal epithelium | healthy | 3 | 0.99174 | 0.93567 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted breast luminal epithelium | healthy | 3 | 0.98415 | 0.90027 to 1.045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0683 | 1.0016 to 1.1396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted breast luminal epithelium | healthy | 3 | 0.98641 | 0.91998 to 1.0034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted breast luminal epithelium | healthy | 3 | 0.97395 | 0.94303 to 1.0251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted breast luminal epithelium | healthy | 3 | 0.97723 | 0.94257 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted breast luminal epithelium | healthy | 3 | 0.99195 | 0.93034 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0187 | 0.92945 to 1.0221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted breast luminal epithelium | healthy | 3 | 0.97841 | 0.93245 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted breast luminal epithelium | healthy | 3 | 0.9762 | 0.93007 to 1.0234 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted breast luminal epithelium | healthy | 3 | 0.99132 | 0.93583 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted breast luminal epithelium | healthy | 3 | 0.95986 | 0.95519 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0125 | 0.91707 to 1.0165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted breast luminal epithelium | healthy | 3 | 0.9483 | 0.94612 to 1.0125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted breast luminal epithelium | healthy | 3 | 0.99962 | 0.91682 to 1.0057 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted breast luminal epithelium | healthy | 3 | 0.95887 | 0.93558 to 1.0114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted breast luminal epithelium | healthy | 3 | 0.9783 | 0.94117 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted breast luminal epithelium | healthy | 3 | 0.96028 | 0.93859 to 1.0105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted breast luminal epithelium | healthy | 3 | 1.0016 | 0.94114 to 1.0126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted breast luminal epithelium | healthy | 3 | 0.99213 | 0.92628 to 1.0001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted breast luminal epithelium | healthy | 3 | 0.97146 | 0.9496 to 1.0041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted breast luminal epithelium | healthy | 3 | 1.0064 | 0.90356 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0011 | 0.9328 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted breast luminal epithelium | healthy | 3 | 1.0172 | 0.90264 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0117 | 0.92184 to 1.0222 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted breast luminal epithelium | healthy | 3 | 0.99657 | 0.93149 to 1.0127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0032 | 0.93432 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted breast luminal epithelium | healthy | 3 | 0.97783 | 0.93008 to 1.0066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0249 | 0.94349 to 1.0277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted breast luminal epithelium | healthy | 3 | 0.98923 | 0.93063 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted breast luminal epithelium | healthy | 3 | 0.95068 | 0.95015 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted breast luminal epithelium | healthy | 3 | 0.98025 | 0.93366 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted breast luminal epithelium | healthy | 3 | 0.98963 | 0.94022 to 1.0049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted breast luminal epithelium | healthy | 3 | 0.97821 | 0.94839 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted breast luminal epithelium | healthy | 3 | 0.9969 | 0.93773 to 1.0276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted breast luminal epithelium | healthy | 3 | 1.0095 | 0.92432 to 1.0113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted breast luminal epithelium | healthy | 3 | 0.99073 | 0.92293 to 1.0124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted breast luminal epithelium | healthy | 3 | 0.96199 | 0.94443 to 0.99201 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted breast luminal epithelium | healthy | 3 | 0.98519 | 0.9383 to 1.0141 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted breast luminal epithelium | healthy | 3 | 1.0113 | 0.93471 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted breast luminal epithelium | healthy | 3 | 1.0029 | 0.92913 to 1.0132 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted breast luminal epithelium | healthy | 3 | 0.9811 | 0.92307 to 0.99584 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0187 | 0.91633 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0166 | 0.9278 to 1.0348 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted breast luminal epithelium | healthy | 3 | 0.9936 | 0.92401 to 0.99418 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted breast luminal epithelium | healthy | 3 | 1.0026 | 0.92467 to 1.0043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted breast luminal epithelium | healthy | 3 | 0.96157 | 0.9498 to 1.0114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted breast luminal epithelium | healthy | 3 | 0.95838 | 0.94634 to 1.0044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted breast luminal epithelium | healthy | 3 | 0.96599 | 0.93878 to 1.0081 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0023 | 0.91871 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0037 | 0.89013 to 1.0282 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted breast luminal epithelium | healthy | 3 | 0.98383 | 0.91082 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted breast luminal epithelium | healthy | 3 | 1.0173 | 0.92542 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted breast luminal epithelium | healthy | 3 | 0.99955 | 0.91622 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted breast luminal epithelium | healthy | 3 | 0 | 0 to 0 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted breast luminal epithelium | healthy | 3 | 0.14228 | 0.12528 to 0.14681 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | sorted breast luminal epithelium | healthy | 3 | 0.9799 | 0.91852 to 0.98485 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted breast basal epithelium | healthy | 3 | 1.0021 | 0.97424 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted breast basal epithelium | healthy | 3 | 1.0185 | 0.94202 to 1.024 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted breast basal epithelium | healthy | 3 | 0.99783 | 0.97631 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted breast basal epithelium | healthy | 3 | 1.0006 | 0.96251 to 1.0113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted breast basal epithelium | healthy | 3 | 1.0611 | 1.035 to 1.0702 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted breast basal epithelium | healthy | 3 | 1.0025 | 0.98044 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted breast basal epithelium | healthy | 3 | 0.99493 | 0.94547 to 1.0264 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted breast basal epithelium | healthy | 3 | 1.0032 | 0.95695 to 1.0392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted breast basal epithelium | healthy | 3 | 0.99636 | 0.96179 to 1.0377 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted breast basal epithelium | healthy | 3 | 0.996 | 0.95657 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted breast basal epithelium | healthy | 3 | 1.0175 | 0.96577 to 1.023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted breast basal epithelium | healthy | 3 | 1.0082 | 0.93789 to 1.0312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted breast basal epithelium | healthy | 3 | 1.0024 | 0.93913 to 1.0394 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted breast basal epithelium | healthy | 3 | 1.0037 | 0.96139 to 1.0325 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted breast basal epithelium | healthy | 3 | 0.99562 | 0.94989 to 1.043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted breast basal epithelium | healthy | 3 | 0.99883 | 0.9605 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted breast basal epithelium | healthy | 3 | 0.99044 | 0.95134 to 1.026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted breast basal epithelium | healthy | 3 | 0.98804 | 0.97284 to 1.0128 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted breast basal epithelium | healthy | 3 | 0.97949 | 0.96141 to 1.0165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted breast basal epithelium | healthy | 3 | 0.99013 | 0.96042 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted breast basal epithelium | healthy | 3 | 0.97783 | 0.96778 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted breast basal epithelium | healthy | 3 | 1.0122 | 0.96016 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted breast basal epithelium | healthy | 3 | 1.0043 | 0.96035 to 1.0111 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted breast basal epithelium | healthy | 3 | 0.99091 | 0.95982 to 1.0252 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted breast basal epithelium | healthy | 3 | 0.9969 | 0.96483 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted breast basal epithelium | healthy | 3 | 1.0007 | 0.96081 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted breast basal epithelium | healthy | 3 | 0.98079 | 0.96199 to 1.0276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted breast basal epithelium | healthy | 3 | 0.99642 | 0.96262 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted breast basal epithelium | healthy | 3 | 1.0043 | 0.96588 to 1.0168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted breast basal epithelium | healthy | 3 | 0.98827 | 0.9627 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted breast basal epithelium | healthy | 3 | 0.99457 | 0.9492 to 1.0313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted breast basal epithelium | healthy | 3 | 1.0233 | 0.97649 to 1.0268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted breast basal epithelium | healthy | 3 | 0.9959 | 0.95312 to 1.0217 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted breast basal epithelium | healthy | 3 | 0.99788 | 0.95769 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted breast basal epithelium | healthy | 3 | 0.99928 | 0.95049 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted breast basal epithelium | healthy | 3 | 1.0056 | 0.96024 to 1.028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted breast basal epithelium | healthy | 3 | 1.0024 | 0.95104 to 1.0316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted breast basal epithelium | healthy | 3 | 1.0032 | 0.95572 to 1.0393 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted breast basal epithelium | healthy | 3 | 1.0107 | 0.95892 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted breast basal epithelium | healthy | 3 | 0.99847 | 0.95638 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted breast basal epithelium | healthy | 3 | 0.98481 | 0.95668 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted breast basal epithelium | healthy | 3 | 0.99669 | 0.96011 to 1.023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted breast basal epithelium | healthy | 3 | 0.99748 | 0.96436 to 1.0215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted breast basal epithelium | healthy | 3 | 0.99226 | 0.95475 to 1.0309 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted breast basal epithelium | healthy | 3 | 0.99069 | 0.95056 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted breast basal epithelium | healthy | 3 | 0.99176 | 0.96283 to 1.0138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted breast basal epithelium | healthy | 3 | 1.0082 | 0.97117 to 1.0278 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted breast basal epithelium | healthy | 3 | 0.996 | 0.9495 to 1.0217 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted breast basal epithelium | healthy | 3 | 1.0041 | 0.95273 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted breast basal epithelium | healthy | 3 | 0.99611 | 0.95004 to 1.0356 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted breast basal epithelium | healthy | 3 | 0.9998 | 0.96105 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted breast basal epithelium | healthy | 3 | 0.99611 | 0.96042 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted breast basal epithelium | healthy | 3 | 0.98331 | 0.96381 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted breast basal epithelium | healthy | 3 | 0.99202 | 0.95329 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted breast basal epithelium | healthy | 3 | 1.002 | 0.9607 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted breast basal epithelium | healthy | 3 | 1.0102 | 0.94831 to 1.0314 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted breast basal epithelium | healthy | 3 | 0.99443 | 0.96064 to 1.0307 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted breast basal epithelium | healthy | 3 | 2.5e-05 | 1.33e-05 to 2.5e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted breast basal epithelium | healthy | 3 | 0.12939 | 0.11911 to 0.12943 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | sorted breast basal epithelium | healthy | 3 | 0.9545 | 0.92435 to 0.9815 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted lung alveolar epithelium | healthy | 3 | 1.0007 | 0.99205 to 1.0033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted lung alveolar epithelium | healthy | 3 | 0.99583 | 0.98529 to 1.0014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted lung alveolar epithelium | healthy | 3 | 0.99953 | 0.98855 to 1.0136 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.99106 | 0.98754 to 1.008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.99761 | 0.99246 to 0.99794 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted lung alveolar epithelium | healthy | 3 | 1.0002 | 0.9894 to 1.0044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted lung alveolar epithelium | healthy | 3 | 0.99088 | 0.98816 to 0.99782 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted lung alveolar epithelium | healthy | 3 | 1.0033 | 0.99143 to 1.0054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted lung alveolar epithelium | healthy | 3 | 1.0051 | 0.9882 to 1.0074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted lung alveolar epithelium | healthy | 3 | 0.99506 | 0.99012 to 1.0037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.99843 | 0.99631 to 1.0064 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted lung alveolar epithelium | healthy | 3 | 1.0008 | 0.97937 to 1.0066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted lung alveolar epithelium | healthy | 3 | 1.0062 | 0.98127 to 1.0065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted lung alveolar epithelium | healthy | 3 | 0.99996 | 0.99481 to 1.005 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted lung alveolar epithelium | healthy | 3 | 1.0073 | 0.979 to 1.0103 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.99731 | 0.9907 to 1.0012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted lung alveolar epithelium | healthy | 3 | 1.0003 | 0.97518 to 1.0054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted lung alveolar epithelium | healthy | 3 | 1.002 | 0.98178 to 1.003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.98866 | 0.97913 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.98874 | 0.98247 to 1.0091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.98918 | 0.97863 to 1.0076 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted lung alveolar epithelium | healthy | 3 | 1.0003 | 0.99302 to 1.0059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted lung alveolar epithelium | healthy | 3 | 0.99853 | 0.9773 to 1.0061 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted lung alveolar epithelium | healthy | 3 | 0.99787 | 0.98424 to 1.0057 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted lung alveolar epithelium | healthy | 3 | 0.99535 | 0.99386 to 0.99641 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.99451 | 0.98621 to 1.0062 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted lung alveolar epithelium | healthy | 3 | 0.99362 | 0.99301 to 0.99696 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.99841 | 0.98796 to 1.0016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted lung alveolar epithelium | healthy | 3 | 0.99526 | 0.98855 to 1.0025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted lung alveolar epithelium | healthy | 3 | 1.0284 | 1.0268 to 1.055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted lung alveolar epithelium | healthy | 3 | 0.99209 | 0.98778 to 0.997 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted lung alveolar epithelium | healthy | 3 | 1.0079 | 0.99585 to 1.0086 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted lung alveolar epithelium | healthy | 3 | 0.98907 | 0.98851 to 1.0062 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted lung alveolar epithelium | healthy | 3 | 1.0022 | 0.98444 to 1.0083 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted lung alveolar epithelium | healthy | 3 | 0.99319 | 0.98967 to 1.0075 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted lung alveolar epithelium | healthy | 3 | 0.9966 | 0.99079 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted lung alveolar epithelium | healthy | 3 | 0.99697 | 0.99611 to 1.0041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted lung alveolar epithelium | healthy | 3 | 1 | 0.99496 to 1.0032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted lung alveolar epithelium | healthy | 3 | 0.99619 | 0.99504 to 1.0007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted lung alveolar epithelium | healthy | 3 | 0.99609 | 0.98901 to 1.004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted lung alveolar epithelium | healthy | 3 | 1.0002 | 0.97787 to 1.0003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted lung alveolar epithelium | healthy | 3 | 1.001 | 0.98281 to 1.0013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted lung alveolar epithelium | healthy | 3 | 0.9969 | 0.99641 to 1.0021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted lung alveolar epithelium | healthy | 3 | 0.9918 | 0.98884 to 1.0045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted lung alveolar epithelium | healthy | 3 | 0.99131 | 0.9776 to 1.0029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.9911 | 0.99093 to 1.006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted lung alveolar epithelium | healthy | 3 | 1.0008 | 0.99856 to 1.0093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted lung alveolar epithelium | healthy | 3 | 0.99174 | 0.98228 to 1.0033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted lung alveolar epithelium | healthy | 3 | 0.99329 | 0.98586 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted lung alveolar epithelium | healthy | 3 | 1.0075 | 0.98159 to 1.0077 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted lung alveolar epithelium | healthy | 3 | 1.005 | 0.97564 to 1.0096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted lung alveolar epithelium | healthy | 3 | 0.9963 | 0.98463 to 0.99927 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.98982 | 0.98649 to 1.0046 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.98418 | 0.9795 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.99814 | 0.98667 to 1.0111 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted lung alveolar epithelium | healthy | 3 | 1.0008 | 0.98989 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted lung alveolar epithelium | healthy | 3 | 0.99675 | 0.98887 to 1.0055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted lung alveolar epithelium | healthy | 3 | 1.2e-05 | 1.2e-06 to 3.45e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted lung alveolar epithelium | healthy | 3 | 0.09217 | 0.091207 to 0.10323 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | sorted lung alveolar epithelium | healthy | 3 | 0.9288 | 0.91404 to 0.98838 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted gastric fundus epithelium | healthy | 3 | 1.0103 | 0.97295 to 1.0129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted gastric fundus epithelium | healthy | 3 | 1.0088 | 0.94195 to 1.0407 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted gastric fundus epithelium | healthy | 3 | 1.0213 | 0.95813 to 1.0242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0161 | 0.95054 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0027 | 0.96071 to 1.0164 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0157 | 0.94324 to 1.0332 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted gastric fundus epithelium | healthy | 3 | 1.0013 | 0.97049 to 1.0093 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted gastric fundus epithelium | healthy | 3 | 1.0121 | 0.95413 to 1.0314 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted gastric fundus epithelium | healthy | 3 | 1.0117 | 0.96029 to 1.0261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted gastric fundus epithelium | healthy | 3 | 1.014 | 0.93712 to 1.0413 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0143 | 0.95164 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted gastric fundus epithelium | healthy | 3 | 1.0165 | 0.94026 to 1.0349 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted gastric fundus epithelium | healthy | 3 | 1.0144 | 0.94203 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted gastric fundus epithelium | healthy | 3 | 1.0064 | 0.96535 to 1.0222 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted gastric fundus epithelium | healthy | 3 | 1.0148 | 0.95606 to 1.0321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.019 | 0.94811 to 1.0247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted gastric fundus epithelium | healthy | 3 | 0.99217 | 0.9852 to 1.0019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0163 | 0.94666 to 1.0168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0394 | 0.91574 to 1.0451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0371 | 0.92469 to 1.042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0296 | 1.0237 to 1.0462 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted gastric fundus epithelium | healthy | 3 | 1.0117 | 0.96305 to 1.0259 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted gastric fundus epithelium | healthy | 3 | 1 | 0.95989 to 1.0168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted gastric fundus epithelium | healthy | 3 | 0.99873 | 0.99011 to 1.0009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted gastric fundus epithelium | healthy | 3 | 1.007 | 0.9623 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0218 | 0.93198 to 1.042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted gastric fundus epithelium | healthy | 3 | 1.007 | 0.96161 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0056 | 0.9525 to 1.0292 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted gastric fundus epithelium | healthy | 3 | 1.0055 | 0.96685 to 1.0184 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0189 | 0.95794 to 1.0244 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted gastric fundus epithelium | healthy | 3 | 1.008 | 0.94437 to 1.0355 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0258 | 0.94831 to 1.0361 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted gastric fundus epithelium | healthy | 3 | 1.0052 | 0.96108 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted gastric fundus epithelium | healthy | 3 | 1.0128 | 0.95367 to 1.0235 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted gastric fundus epithelium | healthy | 3 | 1.0132 | 0.94727 to 1.0319 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted gastric fundus epithelium | healthy | 3 | 1.0166 | 0.94309 to 1.0349 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted gastric fundus epithelium | healthy | 3 | 1.0189 | 0.96169 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted gastric fundus epithelium | healthy | 3 | 1.0162 | 0.95857 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted gastric fundus epithelium | healthy | 3 | 1.0095 | 0.96221 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted gastric fundus epithelium | healthy | 3 | 1.0119 | 0.95608 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted gastric fundus epithelium | healthy | 3 | 1.0018 | 0.96631 to 1.0105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted gastric fundus epithelium | healthy | 3 | 1.0088 | 0.96478 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted gastric fundus epithelium | healthy | 3 | 1.0118 | 0.95976 to 1.0305 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted gastric fundus epithelium | healthy | 3 | 1.0036 | 0.96662 to 1.0191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted gastric fundus epithelium | healthy | 3 | 1.0074 | 0.962 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0206 | 0.94813 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0259 | 0.9476 to 1.0385 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted gastric fundus epithelium | healthy | 3 | 0.99575 | 0.96984 to 1.0112 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted gastric fundus epithelium | healthy | 3 | 1.0144 | 0.93333 to 1.0386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted gastric fundus epithelium | healthy | 3 | 1.0144 | 0.95648 to 1.0178 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted gastric fundus epithelium | healthy | 3 | 1.009 | 0.95691 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted gastric fundus epithelium | healthy | 3 | 1.0018 | 0.96296 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0079 | 0.96128 to 1.0221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0144 | 0.94657 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0147 | 0.94602 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted gastric fundus epithelium | healthy | 3 | 1.0167 | 0.92944 to 1.0453 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted gastric fundus epithelium | healthy | 3 | 1.0162 | 0.96003 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted gastric fundus epithelium | healthy | 3 | 2.5e-05 | 2.5e-06 to 2.5e-05 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted gastric fundus epithelium | healthy | 3 | 0.09938 | 0.094799 to 0.10094 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | gastric fundus epithelium | sorted gastric fundus epithelium | healthy | 3 | 0.9901 | 0.91585 to 1.0542 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted gastric body epithelium | healthy | 3 | 0.9972 | 0.97977 to 1.0138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted gastric body epithelium | healthy | 3 | 1.0242 | 0.94767 to 1.0267 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted gastric body epithelium | healthy | 3 | 1.0068 | 0.97284 to 1.0251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted gastric body epithelium | healthy | 3 | 0.99314 | 0.96173 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted gastric body epithelium | healthy | 3 | 0.9857 | 0.97785 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted gastric body epithelium | healthy | 3 | 1.0101 | 0.9626 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted gastric body epithelium | healthy | 3 | 0.98574 | 0.97683 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted gastric body epithelium | healthy | 3 | 1.0114 | 0.97252 to 1.0153 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted gastric body epithelium | healthy | 3 | 1.0185 | 0.96672 to 1.0251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted gastric body epithelium | healthy | 3 | 1.0265 | 0.93997 to 1.0308 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted gastric body epithelium | healthy | 3 | 1.0263 | 0.94857 to 1.0274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted gastric body epithelium | healthy | 3 | 1.0079 | 0.95489 to 1.0275 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted gastric body epithelium | healthy | 3 | 1.0059 | 0.94836 to 1.0312 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted gastric body epithelium | healthy | 3 | 1.0058 | 0.97584 to 1.0178 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted gastric body epithelium | healthy | 3 | 0.99996 | 0.96445 to 1.0276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted gastric body epithelium | healthy | 3 | 1.0157 | 0.95282 to 1.0247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted gastric body epithelium | healthy | 3 | 0.98121 | 0.98093 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted gastric body epithelium | healthy | 3 | 0.99876 | 0.96028 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted gastric body epithelium | healthy | 3 | 1.0235 | 0.93328 to 1.0478 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted gastric body epithelium | healthy | 3 | 1.034 | 1.0284 to 1.0711 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted gastric body epithelium | healthy | 3 | 1.0123 | 0.92689 to 1.0584 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted gastric body epithelium | healthy | 3 | 1.0183 | 0.96703 to 1.0196 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted gastric body epithelium | healthy | 3 | 0.97884 | 0.97223 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted gastric body epithelium | healthy | 3 | 0.99494 | 0.98141 to 1.0116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted gastric body epithelium | healthy | 3 | 0.99318 | 0.96929 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted gastric body epithelium | healthy | 3 | 1.0272 | 0.94285 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted gastric body epithelium | healthy | 3 | 0.99376 | 0.97243 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted gastric body epithelium | healthy | 3 | 1.0033 | 0.96783 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted gastric body epithelium | healthy | 3 | 1.0052 | 0.9687 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted gastric body epithelium | healthy | 3 | 1.0029 | 0.96596 to 1.0226 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted gastric body epithelium | healthy | 3 | 1.0198 | 0.95028 to 1.0278 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted gastric body epithelium | healthy | 3 | 1.0134 | 0.96081 to 1.032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted gastric body epithelium | healthy | 3 | 0.99945 | 0.96916 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted gastric body epithelium | healthy | 3 | 1.01 | 0.96794 to 1.0181 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted gastric body epithelium | healthy | 3 | 1.0119 | 0.96464 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted gastric body epithelium | healthy | 3 | 1.0108 | 0.97196 to 1.017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted gastric body epithelium | healthy | 3 | 0.99973 | 0.97182 to 1.02 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted gastric body epithelium | healthy | 3 | 1.013 | 0.96559 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted gastric body epithelium | healthy | 3 | 1.0118 | 0.9747 to 1.0142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted gastric body epithelium | healthy | 3 | 1.0008 | 0.97779 to 1.0056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted gastric body epithelium | healthy | 3 | 0.99923 | 0.97875 to 1.0078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted gastric body epithelium | healthy | 3 | 0.99814 | 0.96558 to 1.014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted gastric body epithelium | healthy | 3 | 1.0114 | 0.97429 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted gastric body epithelium | healthy | 3 | 1.0063 | 0.97308 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted gastric body epithelium | healthy | 3 | 0.99008 | 0.97766 to 1.0086 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted gastric body epithelium | healthy | 3 | 1.0066 | 0.95781 to 1.0264 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted gastric body epithelium | healthy | 3 | 1.0285 | 0.9588 to 1.0306 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted gastric body epithelium | healthy | 3 | 0.98418 | 0.9739 to 1.0147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted gastric body epithelium | healthy | 3 | 1.0197 | 0.94788 to 1.0227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted gastric body epithelium | healthy | 3 | 1.007 | 0.96581 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted gastric body epithelium | healthy | 3 | 0.99605 | 0.96241 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted gastric body epithelium | healthy | 3 | 0.98741 | 0.97217 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted gastric body epithelium | healthy | 3 | 1.0094 | 0.96029 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted gastric body epithelium | healthy | 3 | 0.99788 | 0.96288 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted gastric body epithelium | healthy | 3 | 0.99869 | 0.95106 to 1.031 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted gastric body epithelium | healthy | 3 | 1.0223 | 0.94051 to 1.03 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted gastric body epithelium | healthy | 3 | 0.99395 | 0.96686 to 1.0224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted gastric body epithelium | healthy | 3 | 3.7e-05 | 3.7e-06 to 0.0001144 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted gastric body epithelium | healthy | 3 | 0.10249 | 0.094705 to 0.11254 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | gastric body epithelium | sorted gastric body epithelium | healthy | 3 | 1.0453 | 0.99868 to 1.0519 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted gastric antrum epithelium | healthy | 3 | 0.99258 | 0.96779 to 1.0343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted gastric antrum epithelium | healthy | 3 | 0.98236 | 0.96845 to 1.0317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted gastric antrum epithelium | healthy | 3 | 0.99026 | 0.9798 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.97906 | 0.9713 to 1.0276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98217 | 0.97835 to 1.0164 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98382 | 0.97434 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted gastric antrum epithelium | healthy | 3 | 1.0043 | 0.97221 to 1.0092 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted gastric antrum epithelium | healthy | 3 | 0.98477 | 0.98451 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted gastric antrum epithelium | healthy | 3 | 0.98386 | 0.98054 to 1.0304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted gastric antrum epithelium | healthy | 3 | 0.97944 | 0.96073 to 1.0455 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98284 | 0.97903 to 1.0349 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted gastric antrum epithelium | healthy | 3 | 0.98757 | 0.97127 to 1.0286 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted gastric antrum epithelium | healthy | 3 | 0.98708 | 0.9644 to 1.0343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted gastric antrum epithelium | healthy | 3 | 0.99082 | 0.984 to 1.0231 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted gastric antrum epithelium | healthy | 3 | 0.98542 | 0.97188 to 1.0361 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98224 | 0.97563 to 1.0268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted gastric antrum epithelium | healthy | 3 | 1.0035 | 0.95892 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.97768 | 0.97104 to 1.0272 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted gastric antrum epithelium | healthy | 3 | 1.0303 | 1.0283 to 1.058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.99733 | 0.96627 to 1.0433 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98208 | 0.95177 to 1.0558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted gastric antrum epithelium | healthy | 3 | 0.98155 | 0.97729 to 1.0319 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted gastric antrum epithelium | healthy | 3 | 0.98725 | 0.976 to 1.0134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted gastric antrum epithelium | healthy | 3 | 1.0111 | 0.97082 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted gastric antrum epithelium | healthy | 3 | 0.98825 | 0.97525 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98917 | 0.96468 to 1.0365 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted gastric antrum epithelium | healthy | 3 | 0.98393 | 0.96894 to 1.0274 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.99066 | 0.96909 to 1.0298 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted gastric antrum epithelium | healthy | 3 | 0.98948 | 0.9763 to 1.0265 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.99034 | 0.97764 to 1.0303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted gastric antrum epithelium | healthy | 3 | 0.98605 | 0.96838 to 1.0291 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98595 | 0.97276 to 1.0447 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted gastric antrum epithelium | healthy | 3 | 0.98828 | 0.96817 to 1.0258 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted gastric antrum epithelium | healthy | 3 | 0.98078 | 0.97017 to 1.0328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted gastric antrum epithelium | healthy | 3 | 0.98435 | 0.98339 to 1.0248 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted gastric antrum epithelium | healthy | 3 | 0.98554 | 0.98167 to 1.0316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted gastric antrum epithelium | healthy | 3 | 0.99282 | 0.98537 to 1.0205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted gastric antrum epithelium | healthy | 3 | 0.98507 | 0.97945 to 1.0355 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted gastric antrum epithelium | healthy | 3 | 0.99012 | 0.98423 to 1.0193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted gastric antrum epithelium | healthy | 3 | 0.97911 | 0.97468 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted gastric antrum epithelium | healthy | 3 | 0.99157 | 0.98511 to 1.0052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted gastric antrum epithelium | healthy | 3 | 0.98504 | 0.97173 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted gastric antrum epithelium | healthy | 3 | 0.98406 | 0.98192 to 1.0332 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted gastric antrum epithelium | healthy | 3 | 0.99522 | 0.97869 to 1.0114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted gastric antrum epithelium | healthy | 3 | 0.99463 | 0.97347 to 1.01 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.97866 | 0.96697 to 1.0409 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98541 | 0.97365 to 1.0477 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted gastric antrum epithelium | healthy | 3 | 0.98882 | 0.97417 to 1.0133 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted gastric antrum epithelium | healthy | 3 | 0.98056 | 0.96907 to 1.0333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted gastric antrum epithelium | healthy | 3 | 0.98649 | 0.97428 to 1.0283 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted gastric antrum epithelium | healthy | 3 | 0.97968 | 0.97901 to 1.0235 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted gastric antrum epithelium | healthy | 3 | 0.98072 | 0.97916 to 1.0189 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.99345 | 0.97396 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.97339 | 0.97253 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.9767 | 0.97233 to 1.0307 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.98878 | 0.95581 to 1.0414 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted gastric antrum epithelium | healthy | 3 | 0.99326 | 0.96857 to 1.0267 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted gastric antrum epithelium | healthy | 3 | 4.9e-05 | 1.57e-05 to 0.0001372 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted gastric antrum epithelium | healthy | 3 | 0.10241 | 0.098495 to 0.10429 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | sorted gastric antrum epithelium | healthy | 3 | 0.9782 | 0.95903 to 0.9854 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted colon epithelium | healthy | 3 | 1.0013 | 0.93541 to 1.0437 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted colon epithelium | healthy | 3 | 0.98036 | 0.94363 to 1.0551 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted colon epithelium | healthy | 3 | 0.97486 | 0.95284 to 1.0586 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted colon epithelium | healthy | 3 | 0.97848 | 0.94377 to 1.0529 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted colon epithelium | healthy | 3 | 0.99599 | 0.94129 to 1.033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted colon epithelium | healthy | 3 | 0.98906 | 0.95094 to 1.0525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted colon epithelium | healthy | 3 | 0.98735 | 0.94244 to 1.0418 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted colon epithelium | healthy | 3 | 0.97609 | 0.95885 to 1.0537 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted colon epithelium | healthy | 3 | 0.98173 | 0.95703 to 1.0527 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted colon epithelium | healthy | 3 | 0.97605 | 0.94338 to 1.0758 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted colon epithelium | healthy | 3 | 0.9976 | 0.98634 to 1.0942 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted colon epithelium | healthy | 3 | 0.97713 | 0.93723 to 1.0558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted colon epithelium | healthy | 3 | 0.96892 | 0.94802 to 1.0491 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted colon epithelium | healthy | 3 | 0.96774 | 0.96399 to 1.0468 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted colon epithelium | healthy | 3 | 0.97303 | 0.95778 to 1.0488 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted colon epithelium | healthy | 3 | 0.97289 | 0.94664 to 1.0527 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted colon epithelium | healthy | 3 | 0.97672 | 0.95569 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted colon epithelium | healthy | 3 | 0.9853 | 0.94261 to 1.0486 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted colon epithelium | healthy | 3 | 0.97801 | 0.94712 to 1.0459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted colon epithelium | healthy | 3 | 0.97611 | 0.93239 to 1.0669 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted colon epithelium | healthy | 3 | 0.96119 | 0.9356 to 1.0563 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted colon epithelium | healthy | 3 | 0.97046 | 0.96242 to 1.0572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted colon epithelium | healthy | 3 | 0.9913 | 0.94424 to 1.0316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted colon epithelium | healthy | 3 | 0.98898 | 0.94325 to 1.0352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted colon epithelium | healthy | 3 | 0.99372 | 0.92525 to 1.0555 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted colon epithelium | healthy | 3 | 0.96901 | 0.94794 to 1.0658 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted colon epithelium | healthy | 3 | 0.99221 | 0.93437 to 1.0489 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted colon epithelium | healthy | 3 | 0.99786 | 0.93742 to 1.0518 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted colon epithelium | healthy | 3 | 0.99223 | 0.93312 to 1.0523 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted colon epithelium | healthy | 3 | 0.94442 | 0.89356 to 1.0677 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted colon epithelium | healthy | 3 | 0.96211 | 0.95827 to 1.0547 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted colon epithelium | healthy | 3 | 0.96992 | 0.96259 to 1.0649 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted colon epithelium | healthy | 3 | 0.98786 | 0.9425 to 1.0395 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted colon epithelium | healthy | 3 | 0.98963 | 0.95512 to 1.0441 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted colon epithelium | healthy | 3 | 0.96402 | 0.96088 to 1.0489 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted colon epithelium | healthy | 3 | 0.96613 | 0.95892 to 1.055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted colon epithelium | healthy | 3 | 0.98071 | 0.95844 to 1.0516 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted colon epithelium | healthy | 3 | 0.97103 | 0.94612 to 1.0659 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted colon epithelium | healthy | 3 | 0.9758 | 0.95981 to 1.0508 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted colon epithelium | healthy | 3 | 0.98556 | 0.9337 to 1.0477 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted colon epithelium | healthy | 3 | 0.9877 | 0.95107 to 1.0221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted colon epithelium | healthy | 3 | 0.99135 | 0.93274 to 1.0581 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted colon epithelium | healthy | 3 | 0.98922 | 0.92914 to 1.0632 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted colon epithelium | healthy | 3 | 0.99524 | 0.93856 to 1.0485 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted colon epithelium | healthy | 3 | 0.97192 | 0.94622 to 1.032 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted colon epithelium | healthy | 3 | 0.98262 | 0.93959 to 1.055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted colon epithelium | healthy | 3 | 0.97289 | 0.95584 to 1.0888 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted colon epithelium | healthy | 3 | 0.98983 | 0.94872 to 1.0271 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted colon epithelium | healthy | 3 | 0.95672 | 0.95581 to 1.065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted colon epithelium | healthy | 3 | 0.96861 | 0.96062 to 1.0489 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted colon epithelium | healthy | 3 | 0.97761 | 0.96061 to 1.033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted colon epithelium | healthy | 3 | 0.97494 | 0.94673 to 1.0453 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted colon epithelium | healthy | 3 | 0.99103 | 0.93908 to 1.0469 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted colon epithelium | healthy | 3 | 0.9781 | 0.94702 to 1.0431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted colon epithelium | healthy | 3 | 0.97776 | 0.94124 to 1.0552 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted colon epithelium | healthy | 3 | 0.96517 | 0.95313 to 1.065 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted colon epithelium | healthy | 3 | 0.99884 | 0.93369 to 1.0502 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted colon epithelium | healthy | 3 | 0.000258 | 0.0002031 to 0.0003354 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted colon epithelium | healthy | 3 | 0.12143 | 0.1097 to 0.13476 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | colon epithelium | sorted colon epithelium | healthy | 3 | 1.023 | 0.98736 to 1.0547 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted colon enteroendocrine | healthy | 2 | 1.0181 | 1.0163 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted colon enteroendocrine | healthy | 2 | 1.0186 | 1.0014 to 1.0358 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted colon enteroendocrine | healthy | 2 | 1.021 | 1.0172 to 1.0247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0148 | 0.99938 to 1.0302 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0118 | 1.0081 to 1.0155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0152 | 1.0086 to 1.0217 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted colon enteroendocrine | healthy | 2 | 1.0127 | 1.0061 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted colon enteroendocrine | healthy | 2 | 1.019 | 1.0177 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted colon enteroendocrine | healthy | 2 | 1.0204 | 1.0167 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted colon enteroendocrine | healthy | 2 | 1.0682 | 1.0289 to 1.1075 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted colon enteroendocrine | healthy | 2 | 1.025 | 1.0167 to 1.0333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted colon enteroendocrine | healthy | 2 | 1.0191 | 1.0141 to 1.0241 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted colon enteroendocrine | healthy | 2 | 1.0164 | 1.0123 to 1.0206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted colon enteroendocrine | healthy | 2 | 1.0145 | 1.0103 to 1.0186 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted colon enteroendocrine | healthy | 2 | 1.022 | 1.0174 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0151 | 1.0038 to 1.0264 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted colon enteroendocrine | healthy | 2 | 1.0125 | 1.0046 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0122 | 0.99905 to 1.0253 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0135 | 1.0001 to 1.0269 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0184 | 1.0148 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0177 | 1.0088 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted colon enteroendocrine | healthy | 2 | 1.0174 | 1.0097 to 1.0251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted colon enteroendocrine | healthy | 2 | 1.0112 | 1.0036 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted colon enteroendocrine | healthy | 2 | 1.0126 | 1.0095 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted colon enteroendocrine | healthy | 2 | 1.0155 | 1.0081 to 1.023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0157 | 1.0157 to 1.0157 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted colon enteroendocrine | healthy | 2 | 1.0153 | 1.0062 to 1.0244 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0139 | 1.0015 to 1.0263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted colon enteroendocrine | healthy | 2 | 1.016 | 1.0109 to 1.0211 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0174 | 1.0139 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted colon enteroendocrine | healthy | 2 | 1.0133 | 1.013 to 1.0137 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0207 | 1.0163 to 1.0251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted colon enteroendocrine | healthy | 2 | 1.0135 | 1.0126 to 1.0144 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted colon enteroendocrine | healthy | 2 | 1.0176 | 1.0095 to 1.0257 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted colon enteroendocrine | healthy | 2 | 1.0157 | 1.0091 to 1.0223 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted colon enteroendocrine | healthy | 2 | 1.0176 | 1.0173 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted colon enteroendocrine | healthy | 2 | 1.0202 | 1.0106 to 1.0298 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted colon enteroendocrine | healthy | 2 | 1.0211 | 1.02 to 1.0221 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted colon enteroendocrine | healthy | 2 | 1.0142 | 1.0086 to 1.0197 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted colon enteroendocrine | healthy | 2 | 1.0134 | 1.0132 to 1.0136 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted colon enteroendocrine | healthy | 2 | 1.0106 | 1.0009 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted colon enteroendocrine | healthy | 2 | 1.0131 | 1.0061 to 1.0202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted colon enteroendocrine | healthy | 2 | 1.0188 | 1.0097 to 1.0279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted colon enteroendocrine | healthy | 2 | 1.0141 | 1.0054 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted colon enteroendocrine | healthy | 2 | 1.0111 | 1.0073 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0164 | 1.0068 to 1.026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0248 | 1.0223 to 1.0273 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted colon enteroendocrine | healthy | 2 | 1.0122 | 1.0096 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted colon enteroendocrine | healthy | 2 | 1.0131 | 1.0043 to 1.0219 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted colon enteroendocrine | healthy | 2 | 1.0173 | 1.0138 to 1.0208 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted colon enteroendocrine | healthy | 2 | 1.0138 | 1.0046 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted colon enteroendocrine | healthy | 2 | 1.0138 | 1.0128 to 1.0147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted colon enteroendocrine | healthy | 2 | 1.014 | 1.013 to 1.015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0117 | 1.0018 to 1.0216 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted colon enteroendocrine | healthy | 2 | 1.0169 | 1.0081 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted colon enteroendocrine | healthy | 2 | 1.018 | 1.0068 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted colon enteroendocrine | healthy | 2 | 1.017 | 1.015 to 1.019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted colon enteroendocrine | healthy | 2 | 0.00051 | 0.0004713 to 0.0005487 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted colon enteroendocrine | healthy | 2 | 0.09119 | 0.077483 to 0.1049 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | sorted colon enteroendocrine | healthy | 2 | 0.9813 | 0.97941 to 0.98319 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted small intestine epithelium | healthy | 3 | 1.0061 | 0.96817 to 1.0424 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted small intestine epithelium | healthy | 3 | 0.99765 | 0.97304 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted small intestine epithelium | healthy | 3 | 1.0036 | 0.97053 to 1.0534 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted small intestine epithelium | healthy | 3 | 0.99669 | 0.96005 to 1.0525 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted small intestine epithelium | healthy | 3 | 0.98707 | 0.97497 to 1.0315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted small intestine epithelium | healthy | 3 | 0.99667 | 0.9748 to 1.0391 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted small intestine epithelium | healthy | 3 | 1.0007 | 0.96114 to 1.0342 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted small intestine epithelium | healthy | 3 | 0.99676 | 0.97256 to 1.0546 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted small intestine epithelium | healthy | 3 | 0.99462 | 0.96704 to 1.0619 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted small intestine epithelium | healthy | 3 | 0.9924 | 0.9842 to 1.0459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted small intestine epithelium | healthy | 3 | 0.98828 | 0.98343 to 1.0734 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted small intestine epithelium | healthy | 3 | 0.98731 | 0.97415 to 1.0483 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted small intestine epithelium | healthy | 3 | 0.99526 | 0.97153 to 1.0412 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted small intestine epithelium | healthy | 3 | 0.99102 | 0.98553 to 1.0393 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted small intestine epithelium | healthy | 3 | 0.99813 | 0.97701 to 1.0411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted small intestine epithelium | healthy | 3 | 0.98459 | 0.97291 to 1.0478 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted small intestine epithelium | healthy | 3 | 0.99599 | 0.95926 to 1.0304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted small intestine epithelium | healthy | 3 | 0.98991 | 0.9679 to 1.035 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted small intestine epithelium | healthy | 3 | 0.99693 | 0.95288 to 1.061 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted small intestine epithelium | healthy | 3 | 0.98679 | 0.97267 to 1.0385 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted small intestine epithelium | healthy | 3 | 0.98387 | 0.95898 to 1.0511 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted small intestine epithelium | healthy | 3 | 0.99212 | 0.98354 to 1.0464 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted small intestine epithelium | healthy | 3 | 0.99551 | 0.95949 to 1.0388 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted small intestine epithelium | healthy | 3 | 1.0044 | 0.9639 to 1.0333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted small intestine epithelium | healthy | 3 | 0.99817 | 0.96032 to 1.0464 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted small intestine epithelium | healthy | 3 | 0.99749 | 0.96706 to 1.0476 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted small intestine epithelium | healthy | 3 | 0.99786 | 0.97191 to 1.0376 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted small intestine epithelium | healthy | 3 | 0.99647 | 0.96653 to 1.0445 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted small intestine epithelium | healthy | 3 | 0.99871 | 0.96597 to 1.0411 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted small intestine epithelium | healthy | 3 | 0.95698 | 0.9291 to 1.0696 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted small intestine epithelium | healthy | 3 | 0.9864 | 0.98105 to 1.0408 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted small intestine epithelium | healthy | 3 | 0.98645 | 0.98301 to 1.0543 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted small intestine epithelium | healthy | 3 | 0.99498 | 0.96653 to 1.0395 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted small intestine epithelium | healthy | 3 | 0.99281 | 0.97892 to 1.0466 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted small intestine epithelium | healthy | 3 | 0.99117 | 0.97869 to 1.0395 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted small intestine epithelium | healthy | 3 | 0.99953 | 0.98851 to 1.0331 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted small intestine epithelium | healthy | 3 | 0.98878 | 0.98353 to 1.0491 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted small intestine epithelium | healthy | 3 | 1.0001 | 0.97554 to 1.0528 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted small intestine epithelium | healthy | 3 | 0.99034 | 0.98695 to 1.034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted small intestine epithelium | healthy | 3 | 0.99506 | 0.96124 to 1.0439 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted small intestine epithelium | healthy | 3 | 1.0076 | 0.96985 to 1.0207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted small intestine epithelium | healthy | 3 | 0.9976 | 0.96338 to 1.0419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted small intestine epithelium | healthy | 3 | 1.005 | 0.96807 to 1.0478 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted small intestine epithelium | healthy | 3 | 1.0027 | 0.96294 to 1.04 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted small intestine epithelium | healthy | 3 | 0.98823 | 0.96776 to 1.0293 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted small intestine epithelium | healthy | 3 | 0.99234 | 0.97338 to 1.0377 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted small intestine epithelium | healthy | 3 | 1.0145 | 1.0045 to 1.1141 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted small intestine epithelium | healthy | 3 | 0.99659 | 0.97356 to 1.0154 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted small intestine epithelium | healthy | 3 | 0.99924 | 0.96895 to 1.0465 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted small intestine epithelium | healthy | 3 | 0.98817 | 0.9859 to 1.0359 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted small intestine epithelium | healthy | 3 | 0.98667 | 0.98221 to 1.037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted small intestine epithelium | healthy | 3 | 0.98951 | 0.97971 to 1.0326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted small intestine epithelium | healthy | 3 | 0.99686 | 0.97183 to 1.0332 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted small intestine epithelium | healthy | 3 | 0.98453 | 0.97692 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted small intestine epithelium | healthy | 3 | 0.99576 | 0.96457 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted small intestine epithelium | healthy | 3 | 1.0034 | 0.96937 to 1.0385 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted small intestine epithelium | healthy | 3 | 0.99419 | 0.96212 to 1.0479 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted small intestine epithelium | healthy | 3 | 9.8e-05 | 2.06e-05 to 0.0005291 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted small intestine epithelium | healthy | 3 | 0.10816 | 0.10392 to 0.12189 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | sorted small intestine epithelium | healthy | 3 | 1.0176 | 0.99546 to 1.0767 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Globe | globe changed blocks | share of blocks | sorted pancreatic duct | healthy | 5 | 0.004557 | 0.003471 to 0.0048552 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted pancreatic duct | healthy | 5 | 0.26477 | 0.25109 to 0.29175 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | pancreatic duct | sorted pancreatic duct | healthy | 5 | 0.9651 | 0.94122 to 1.0461 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted effector memory cd8 t cells | healthy | 4 | 0.96141 | 0.95549 to 0.96733 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95046 | 0.93318 to 0.96774 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted effector memory cd8 t cells | healthy | 4 | 0.87939 | 0.86912 to 0.88965 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95467 | 0.94372 to 0.96562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9645 | 0.94851 to 0.98049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9513 | 0.93877 to 0.96382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted effector memory cd8 t cells | healthy | 4 | 0.9618 | 0.95191 to 0.97169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.87167 | 0.8692 to 0.87415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.81746 | 0.80559 to 0.82933 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted effector memory cd8 t cells | healthy | 4 | 0.9533 | 0.94052 to 0.96608 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.92547 | 0.92051 to 0.93043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted effector memory cd8 t cells | healthy | 4 | 0.92507 | 0.90563 to 0.94451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted effector memory cd8 t cells | healthy | 4 | 0.93549 | 0.91767 to 0.95332 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted effector memory cd8 t cells | healthy | 4 | 0.926 | 0.92091 to 0.93109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.78045 | 0.7656 to 0.7953 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95459 | 0.94621 to 0.96297 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted effector memory cd8 t cells | healthy | 4 | 0.95479 | 0.95173 to 0.95785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95713 | 0.94383 to 0.97042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95941 | 0.94781 to 0.97101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95871 | 0.9468 to 0.97063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95371 | 0.9405 to 0.96691 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted effector memory cd8 t cells | healthy | 4 | 0.94285 | 0.93221 to 0.95349 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted effector memory cd8 t cells | healthy | 4 | 0.96254 | 0.96229 to 0.9628 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95773 | 0.94549 to 0.96997 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.96673 | 0.94553 to 0.98792 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95654 | 0.94732 to 0.96575 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9603 | 0.94898 to 0.97162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95331 | 0.94824 to 0.95839 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.94151 | 0.92404 to 0.95899 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted effector memory cd8 t cells | healthy | 4 | 0.95613 | 0.94686 to 0.9654 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9018 | 0.88607 to 0.91752 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted effector memory cd8 t cells | healthy | 4 | 0.94471 | 0.94156 to 0.94786 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted effector memory cd8 t cells | healthy | 4 | 0.88018 | 0.86772 to 0.89263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted effector memory cd8 t cells | healthy | 4 | 0.94165 | 0.93977 to 0.94352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.91823 | 0.91017 to 0.92629 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.86935 | 0.86696 to 0.87175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted effector memory cd8 t cells | healthy | 4 | 0.89037 | 0.88821 to 0.89253 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted effector memory cd8 t cells | healthy | 4 | 0.93111 | 0.92107 to 0.94114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95545 | 0.94076 to 0.97014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted effector memory cd8 t cells | healthy | 4 | 0.95056 | 0.94324 to 0.95788 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted effector memory cd8 t cells | healthy | 4 | 0.9546 | 0.94214 to 0.96707 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted effector memory cd8 t cells | healthy | 4 | 0.94477 | 0.93002 to 0.95952 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted effector memory cd8 t cells | healthy | 4 | 0.95819 | 0.95218 to 0.96419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted effector memory cd8 t cells | healthy | 4 | 0.95979 | 0.95449 to 0.9651 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95643 | 0.94152 to 0.97134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.92777 | 0.92208 to 0.93346 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted effector memory cd8 t cells | healthy | 4 | 0.95334 | 0.93853 to 0.96814 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted effector memory cd8 t cells | healthy | 4 | 0.95982 | 0.94589 to 0.97375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted effector memory cd8 t cells | healthy | 4 | 0.8798 | 0.87718 to 0.88243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted effector memory cd8 t cells | healthy | 4 | 0.76565 | 0.76199 to 0.76932 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted effector memory cd8 t cells | healthy | 4 | 0.8607 | 0.84804 to 0.87336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.96074 | 0.94797 to 0.9735 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95232 | 0.93942 to 0.96522 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95675 | 0.94204 to 0.97146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95039 | 0.93292 to 0.96785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95603 | 0.94964 to 0.96243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted effector memory cd8 t cells | healthy | 4 | 0.17554 | 0.16333 to 0.18775 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 1.0313 | 0.9307 to 1.132 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 
-151042 readings from 34 sources. Status and record for every row are in the tables.
+168973 readings from 38 sources. Status and record for every row are in the tables.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).

@@ -23,12 +23,12 @@ def load(s):
 LINES = {}
 INSTR = {"IAM-A": "IAM-A", "coupling-A": "Coupling-A", "Met-A": "Met-A", "Met-A sorted cell (atlas)": "Met-A", "Met-A whole sample": "Met-A",
          "Met-A whole sample, by place": "Met-A", "Met-A each cell": "Met-A", "territory": "Territories", "C-Score whole genome": "C-Score",
-         "C-Score each cell": "C-Score"}
+         "C-Score each cell": "C-Score", "IAM-A in the mix": "IAM-A", "globe changed blocks": "Globe", "information sphere": "Information sphere"}
 def load_rows(s):
     """2026-10-29 (author: every A score logged, with where Normal begins and ends): a rows table from CANON/bundle_rows.py, one row per sample
     and reading, with the band each gauge used and the reading's state, all copied from the one command's bundles."""
     d = pd.read_csv(os.path.join(ROOT, s["file"]), low_memory=False); d = d[pd.to_numeric(d["A"], errors="coerce").notna() & d.reading.isin(list(INSTR))]
-    for c in ("band_lo", "band_hi", "state", "flag", "chain_commit"):
+    for c in ("band_lo", "band_hi", "state", "flag", "chain_commit", "cancer_type", "stage"):
         if c not in d: d[c] = None
     dev = d.flag.fillna("").str.contains("DEVELOPMENT|not commissioned", case=False)
     return pd.DataFrame({"instrument": d.reading.map(INSTR).values, "source": s["id"], "sample": d.gsm.astype(str).values,
@@ -36,7 +36,8 @@ def load_rows(s):
         "platform": d.platform.fillna("").astype(str).str.replace(r"^sequencing.*", "sequencing", regex=True).values, "reading": (d.reading + " | " + d.place.fillna("").astype(str)).values,
         "value": pd.to_numeric(d.A).round(6).values, "status": [("development (flagged in the bundle)" if x else s["status"]) for x in dev],
         "record": s["record"], "line": None, "band_lo": pd.to_numeric(d.band_lo, errors="coerce").values, "band_hi": pd.to_numeric(d.band_hi, errors="coerce").values,
-        "state": d.state.fillna("").astype(str).values, "chain_commit": d.chain_commit.fillna("").astype(str).values})
+        "state": d.state.fillna("").astype(str).values, "chain_commit": d.chain_commit.fillna("").astype(str).values,
+        "cancer_type": d.cancer_type.fillna(s.get("cancer_type", "")).astype(str).values, "stage": d.stage.fillna(s.get("stage", "")).astype(str).values})
 def bands(T):
     """Where Normal begins and ends, for each instrument, reading, cell and platform: the band the gauge used (from the bundles), and the spread of
     the healthy readings themselves (2.5th to 97.5th percentile; at least 3 healthy samples), so a band can be checked against healthy."""
@@ -71,7 +72,9 @@ def build():
          "Healthy rows show how rarely a healthy sample crosses its line; tumor rows show how often a tumor does. A line is never applied to a",
          "reading made another way (an earlier tare), so those rows show none.", "",
          "| instrument | reading | specimen | condition | samples | median | middle 90 percent | past the healthy line | file |", "|---|---|---|---|---|---|---|---|---|"]
-    for (ins, rd, sp, cd), g in T.groupby(["instrument", "reading", "specimen", "condition"], sort=False):
+    T["cancer_type"] = T["cancer_type"].fillna("") if "cancer_type" in T else ""   # 2026-11-03: each kind of cancer kept apart, for our own look; nothing declared
+    for (ins, rd, sp, cd, ct), g in T.groupby(["instrument", "reading", "specimen", "condition", "cancer_type"], sort=False):
+        cd = cd + (f" ({ct})" if ct else "")
         v = g.value; f = re.sub(r"[^A-Za-z0-9]+", "_", ins) + ".csv"
         ln = S.get("lines", {}).get(rd)
         if g.line.notna().any(): k = int((v > g.line).sum()); past = f"{k} of {len(g)} ({100 * k / len(g):.0f} %) above {g.line.iloc[0]:.3f}"

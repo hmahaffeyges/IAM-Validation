@@ -44,6 +44,7 @@ C-Score,C-Score each cell,adipocytes,HM450K,c8ff5cc,,,0,,,,40,reference only (re
 C-Score,C-Score each cell,adipocytes,HM450K,ca58285,,,0,,,,120,reference only (replay)
 C-Score,C-Score each cell,adipocytes,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 C-Score,C-Score each cell,aorta endothelium,HM450K,3463259,,,39,0.9762,1.0576,1.2963,85,reference only (replay)
+C-Score,C-Score each cell,aorta endothelium,sequencing,9d8ea3d,,1.115,2,,1.058,,2,development
 C-Score,C-Score each cell,astrocytes,HM450K,3463259,,,0,,,,32,reference only (replay)
 C-Score,C-Score each cell,astrocytes,HM450K,ca58285,,,0,,,,23,reference only (replay)
 C-Score,C-Score each cell,astrocytes,HM450K,e98b90f,,,0,,,,2,reference only (replay)
@@ -58,6 +59,7 @@ C-Score,C-Score each cell,b cells,HM450K,ca58285,,,0,,,,4,reference only (replay
 C-Score,C-Score each cell,b cells,HM450K,e98b90f,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,b cells,sequencing,0801c4b,,1.0902,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,0a01f6d,,1.0902,1,,0.9797,,37,development
+C-Score,C-Score each cell,b cells,sequencing,1.519e+61,,1.0933,7,0.9372,0.9998,1.0684,7,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,b cells,sequencing,155b14e,,,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,1dcb6df,,1.09,127,0.8974,0.9756,1.0513,127,development
 C-Score,C-Score each cell,b cells,sequencing,22ff8df,,,0,,,,2,development
@@ -66,9 +68,11 @@ C-Score,C-Score each cell,b cells,sequencing,3ab30ad,,,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,3cfd195,,,0,,,,5,development
 C-Score,C-Score each cell,b cells,sequencing,4545ab1,,,0,,,,3,development
 C-Score,C-Score each cell,b cells,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,b cells,sequencing,8db1559,,1.0933,7,0.9372,0.9998,1.0684,7,development (common floor)
 C-Score,C-Score each cell,b cells,sequencing,9135cc6,,,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,925d3ce,,,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,9a552a2,,,0,,,,2,development
+C-Score,C-Score each cell,b cells,sequencing,9d8ea3d,,1.09,3,0.9582,1.0164,1.0251,3,development
 C-Score,C-Score each cell,b cells,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,acbc25a,,1.0902,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,b00c2ab,,,0,,,,1,development
@@ -88,6 +92,7 @@ C-Score,C-Score each cell,bladder epithelium,EPIC_v1,801e08b,,1.0923,0,,,,1,refe
 C-Score,C-Score each cell,bladder epithelium,HM450K,3463259,,,0,,,,45,reference only (replay)
 C-Score,C-Score each cell,bladder epithelium,HM450K,ca58285,,,0,,,,46,reference only (replay)
 C-Score,C-Score each cell,bladder epithelium,HM450K,e98b90f,,,0,,,,3,reference only (replay)
+C-Score,C-Score each cell,bladder epithelium,sequencing,9d8ea3d,,1.09,3,1.0514,1.108,1.1149,3,development
 C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,3463259,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,505bea0,,1.0932,4,1.0283,1.0564,1.0682,4,reference only (replay)
 C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,801e08b,,1.0924,13,0.9385,1.0293,1.1735,23,reference only (replay)
@@ -96,6 +101,7 @@ C-Score,C-Score each cell,breast basal epithelium,HM450K,50bcb5a,,,0,,,,1,refere
 C-Score,C-Score each cell,breast basal epithelium,HM450K,c8ff5cc,,,0,,,,6,reference only (replay)
 C-Score,C-Score each cell,breast basal epithelium,HM450K,ca58285,,,0,,,,41,reference only (replay)
 C-Score,C-Score each cell,breast basal epithelium,HM450K,e98b90f,,,0,,,,3,reference only (replay)
+C-Score,C-Score each cell,breast basal epithelium,sequencing,9d8ea3d,,1.09,3,0.9227,0.9545,0.983,3,development
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,3463259,,,0,,,,26,reference only (replay)
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,505bea0,,1.1259,1,,0.8734,,1,reference only (replay)
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,801e08b,,1.1268,1,,1.0184,,1,reference only (replay)
@@ -104,11 +110,13 @@ C-Score,C-Score each cell,breast luminal epithelium,HM450K,3463259,,,0,,,,54,ref
 C-Score,C-Score each cell,breast luminal epithelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,breast luminal epithelium,HM450K,ca58285,,,0,,,,49,reference only (replay)
 C-Score,C-Score each cell,breast luminal epithelium,HM450K,e98b90f,,,0,,,,6,reference only (replay)
+C-Score,C-Score each cell,breast luminal epithelium,sequencing,9d8ea3d,,1.09,3,0.9151,0.9799,0.9851,3,development
 C-Score,C-Score each cell,cardiomyocyte,EPIC_v1,801e08b,,1.1274,1,,0.95,,1,reference only (replay)
 C-Score,C-Score each cell,cardiomyocyte,HM450K,3463259,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,cardiomyocyte,HM450K,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,cardiomyocyte,sequencing,36f8243,,,0,,,,1,development
 C-Score,C-Score each cell,cardiomyocyte,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,cardiomyocyte,sequencing,9d8ea3d,,1.09,3,0.9573,0.9578,1.0366,3,development
 C-Score,C-Score each cell,cd4 t cells,EPIC_v1,07638a9,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,cd4 t cells,EPIC_v1,3463259,,,0,,,,3,reference only (replay)
 C-Score,C-Score each cell,cd4 t cells,EPIC_v1,505bea0,,1.1115,6,0.925,0.9631,1.0417,6,reference only (replay)
@@ -116,7 +124,10 @@ C-Score,C-Score each cell,cd4 t cells,EPIC_v1,801e08b,,1.0902,6,0.8964,0.9725,1.
 C-Score,C-Score each cell,cd4 t cells,HM450K,50bcb5a,,,10,0.9444,1.0518,1.2082,51,reference only (replay)
 C-Score,C-Score each cell,cd4 t cells,HM450K,c8ff5cc,,,45,0.9064,1.0551,1.1718,166,reference only (replay)
 C-Score,C-Score each cell,cd4 t cells,HM450K,ca58285,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,cd4 t cells,sequencing,1.519e+61,,1.1153,8,0.9105,1.0348,1.109,8,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,cd4 t cells,sequencing,1dcb6df,,1.09,129,0.9482,1.0343,1.1454,129,development
+C-Score,C-Score each cell,cd4 t cells,sequencing,8db1559,,1.1153,8,0.9105,1.0348,1.109,8,development (common floor)
+C-Score,C-Score each cell,cd4 t cells,sequencing,9d8ea3d,,1.09,3,0.9511,1.0122,1.0554,3,development
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,3463259,,,0,,,,133,reference only (replay)
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,505bea0,,1.1163,41,0.8742,0.953,1.0375,41,reference only (replay)
@@ -144,7 +155,10 @@ C-Score,C-Score each cell,cd8 t cells,HM450K,3463259,,,0,,,,2,reference only (re
 C-Score,C-Score each cell,cd8 t cells,HM450K,50bcb5a,,,7,0.9148,1.0059,1.0564,43,reference only (replay)
 C-Score,C-Score each cell,cd8 t cells,HM450K,c8ff5cc,,,37,0.878,0.9611,1.066,174,reference only (replay)
 C-Score,C-Score each cell,cd8 t cells,HM450K,ca58285,,,0,,,,2,reference only (replay)
+C-Score,C-Score each cell,cd8 t cells,sequencing,1.519e+61,,1.0935,4,0.9639,1.0813,1.0867,4,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,cd8 t cells,sequencing,1dcb6df,,1.09,15,0.987,1.0377,1.1073,15,development
+C-Score,C-Score each cell,cd8 t cells,sequencing,8db1559,,1.0935,4,0.9639,1.0813,1.0867,4,development (common floor)
+C-Score,C-Score each cell,cd8 t cells,sequencing,9d8ea3d,,1.09,3,0.9841,0.9915,1.0388,3,development
 C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,07638a9,,,0,,,,8,reference only (replay)
 C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,3463259,,,0,,,,205,reference only (replay)
 C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,505bea0,,1.118,34,0.9385,1.0288,1.1417,34,reference only (replay)
@@ -169,6 +183,7 @@ C-Score,C-Score each cell,colon enteroendocrine,HM450K,50bcb5a,,,0,,,,1,referenc
 C-Score,C-Score each cell,colon enteroendocrine,HM450K,c8ff5cc,,,0,,,,13,reference only (replay)
 C-Score,C-Score each cell,colon enteroendocrine,HM450K,ca58285,,,0,,,,73,reference only (replay)
 C-Score,C-Score each cell,colon enteroendocrine,HM450K,e98b90f,,,0,,,,8,reference only (replay)
+C-Score,C-Score each cell,colon enteroendocrine,sequencing,9d8ea3d,,1.1067,2,,0.9813,,2,development
 C-Score,C-Score each cell,colon epithelium,EPIC_v1,3463259,,,0,,,,160,reference only (replay)
 C-Score,C-Score each cell,colon epithelium,EPIC_v1,801e08b,,1.0907,4,0.9637,1.0162,1.024,7,reference only (replay)
 C-Score,C-Score each cell,colon epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
@@ -177,6 +192,7 @@ C-Score,C-Score each cell,colon epithelium,HM450K,50bcb5a,,,0,,,,2,reference onl
 C-Score,C-Score each cell,colon epithelium,HM450K,c8ff5cc,,,0,,,,14,reference only (replay)
 C-Score,C-Score each cell,colon epithelium,HM450K,ca58285,,,0,,,,78,reference only (replay)
 C-Score,C-Score each cell,colon epithelium,HM450K,e98b90f,,,0,,,,12,reference only (replay)
+C-Score,C-Score each cell,colon epithelium,sequencing,9d8ea3d,,1.09,3,0.9854,1.023,1.0564,3,development
 C-Score,C-Score each cell,colon fibroblasts,HM450K,3463259,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,colon fibroblasts,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,colon fibroblasts,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
@@ -186,6 +202,7 @@ C-Score,C-Score each cell,colon fibroblasts,sequencing,155b14e,,,0,,,,1,developm
 C-Score,C-Score each cell,colon fibroblasts,sequencing,3cfd195,,,0,,,,2,development
 C-Score,C-Score each cell,colon fibroblasts,sequencing,9135cc6,,,0,,,,1,development
 C-Score,C-Score each cell,colon fibroblasts,sequencing,925d3ce,,,0,,,,1,development
+C-Score,C-Score each cell,colon fibroblasts,sequencing,9d8ea3d,,1.1069,2,,0.9541,,2,development
 C-Score,C-Score each cell,colon fibroblasts,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,colon fibroblasts,sequencing,c464b26,,,0,,,,1,development
 C-Score,C-Score each cell,colon macrophages,EPIC_v1,3463259,,,0,,,,4,reference only (replay)
@@ -221,7 +238,9 @@ C-Score,C-Score each cell,cortical neurons,HM450K,50bcb5a,,,0,,,,13,reference on
 C-Score,C-Score each cell,cortical neurons,HM450K,c8ff5cc,,,0,,,,60,reference only (replay)
 C-Score,C-Score each cell,cortical neurons,HM450K,ca58285,,,0,,,,60,reference only (replay)
 C-Score,C-Score each cell,cortical neurons,HM450K,e98b90f,,,0,,,,8,reference only (replay)
+C-Score,C-Score each cell,cortical neurons,sequencing,15ddba1,,1.0908,25,0.8896,1.0164,1.074,25,development
 C-Score,C-Score each cell,cortical neurons,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,cortical neurons,sequencing,9d8ea3d,,1.09,3,0.9876,0.988,1.0328,3,development
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,505bea0,,1.0924,19,0.8996,0.9447,1.0479,19,reference only (replay)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),HM450K,3463259,,,41,0.9163,0.9688,1.031,210,reference only (replay)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),HM450K,50bcb5a,,,1,,0.9821,,22,reference only (replay)
@@ -235,6 +254,8 @@ C-Score,C-Score each cell,effector memory cd8 t cells,HM450K,3463259,,,0,,,,4,re
 C-Score,C-Score each cell,effector memory cd8 t cells,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,effector memory cd8 t cells,HM450K,c8ff5cc,,,4,0.8567,0.9674,0.9762,19,reference only (replay)
 C-Score,C-Score each cell,effector memory cd8 t cells,HM450K,ca58285,,,0,,,,2,reference only (replay)
+C-Score,C-Score each cell,effector memory cd8 t cells,sequencing,1.519e+61,,1.0922,2,,1.0314,,2,"development (outside-laboratory test, not met)"
+C-Score,C-Score each cell,effector memory cd8 t cells,sequencing,8db1559,,1.0922,2,,1.0314,,2,development (common floor)
 C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,3463259,,,0,,,,170,reference only (replay)
 C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,505bea0,,1.0934,2,,1.0284,,2,reference only (replay)
 C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,801e08b,,1.0933,10,0.9324,1.019,1.0761,17,reference only (replay)
@@ -251,6 +272,7 @@ C-Score,C-Score each cell,endometrium epithelium,HM450K,3463259,,,0,,,,81,refere
 C-Score,C-Score each cell,endometrium epithelium,HM450K,c8ff5cc,,,0,,,,3,reference only (replay)
 C-Score,C-Score each cell,endometrium epithelium,HM450K,ca58285,,,0,,,,77,reference only (replay)
 C-Score,C-Score each cell,endometrium epithelium,HM450K,e98b90f,,,0,,,,6,reference only (replay)
+C-Score,C-Score each cell,endometrium epithelium,sequencing,9d8ea3d,,1.09,3,0.926,0.9517,1.0005,3,development
 C-Score,C-Score each cell,endometrium epithelium,sequencing,c464b26,,,0,,,,1,development
 C-Score,C-Score each cell,eosinophils,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 C-Score,C-Score each cell,eosinophils,EPIC_v1,3463259,,,0,,,,82,reference only (replay)
@@ -266,14 +288,17 @@ C-Score,C-Score each cell,erythrocyte progenitors,EPIC_v1,801e08b,,1.0922,4,0.98
 C-Score,C-Score each cell,erythrocyte progenitors,HM450K,3463259,,,1,,1.0018,,2,reference only (replay)
 C-Score,C-Score each cell,erythrocyte progenitors,HM450K,50bcb5a,,,3,0.9302,1.0508,1.1044,11,reference only (replay)
 C-Score,C-Score each cell,erythrocyte progenitors,HM450K,c8ff5cc,,,0,,,,50,reference only (replay)
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,1.519e+61,,1.1009,2,,1.0187,,2,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,155b14e,,,0,,,,1,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,22ff8df,,,0,,,,2,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,36f8243,,,0,,,,1,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,3cfd195,,,0,,,,4,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,4545ab1,,,0,,,,1,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,8db1559,,1.1009,2,,1.0187,,2,development (common floor)
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,9135cc6,,,0,,,,1,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,9a552a2,,,0,,,,4,development
+C-Score,C-Score each cell,erythrocyte progenitors,sequencing,9d8ea3d,,1.09,3,0.947,0.957,1.0133,3,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,acbc25a,,1.0901,0,,,,1,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,b00c2ab,,,0,,,,1,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,c464b26,,,0,,,,4,development
@@ -283,20 +308,25 @@ C-Score,C-Score each cell,fallopien tubes epithelium,EPIC_v1,801e08b,,1.1338,0,,
 C-Score,C-Score each cell,fallopien tubes epithelium,HM450K,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,fallopien tubes epithelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,fallopien tubes epithelium,HM450K,ca58285,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,fallopien tubes epithelium,sequencing,9d8ea3d,,1.09,3,0.9757,1.012,1.0868,3,development
 C-Score,C-Score each cell,gastric antrum epithelium,EPIC_v1,801e08b,,1.1307,1,,0.9827,,1,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,3463259,,,0,,,,44,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,c8ff5cc,,,0,,,,3,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,ca58285,,,0,,,,35,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,e98b90f,,,0,,,,5,reference only (replay)
+C-Score,C-Score each cell,gastric antrum epithelium,sequencing,9d8ea3d,,1.09,3,0.958,0.9782,0.9858,3,development
 C-Score,C-Score each cell,gastric body epithelium,EPIC_v1,801e08b,,1.0924,1,,1.061,,2,reference only (replay)
 C-Score,C-Score each cell,gastric body epithelium,HM450K,3463259,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,gastric body epithelium,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,gastric body epithelium,HM450K,ca58285,,,0,,,,4,reference only (replay)
+C-Score,C-Score each cell,gastric body epithelium,sequencing,9d8ea3d,,1.09,3,0.9961,1.0453,1.0522,3,development
 C-Score,C-Score each cell,gastric fundus epithelium,EPIC_v1,801e08b,,1.0924,1,,1.074,,4,reference only (replay)
 C-Score,C-Score each cell,gastric fundus epithelium,HM450K,3463259,,,0,,,,11,reference only (replay)
 C-Score,C-Score each cell,gastric fundus epithelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,gastric fundus epithelium,HM450K,ca58285,,,0,,,,8,reference only (replay)
+C-Score,C-Score each cell,gastric fundus epithelium,sequencing,9d8ea3d,,1.09,3,0.9117,0.9901,1.0577,3,development
+C-Score,C-Score each cell,granulocytes,sequencing,9d8ea3d,,1.09,3,0.9723,0.9771,1.0127,3,development
 C-Score,C-Score each cell,heart fibroblasts,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,heart fibroblasts,HM450K,3463259,,,2,,0.9822,,41,reference only (replay)
 C-Score,C-Score each cell,heart fibroblasts,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
@@ -304,6 +334,7 @@ C-Score,C-Score each cell,heart fibroblasts,HM450K,c8ff5cc,,,0,,,,11,reference o
 C-Score,C-Score each cell,heart fibroblasts,HM450K,ca58285,,,0,,,,25,reference only (replay)
 C-Score,C-Score each cell,heart fibroblasts,HM450K,e98b90f,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,heart fibroblasts,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,heart fibroblasts,sequencing,9d8ea3d,,1.09,3,0.9749,1.0106,1.0584,3,development
 C-Score,C-Score each cell,hepatocyte,EPIC_v1,3463259,,,0,,,,10,reference only (replay)
 C-Score,C-Score each cell,hepatocyte,EPIC_v1,505bea0,,1.0926,1,,0.996,,1,reference only (replay)
 C-Score,C-Score each cell,hepatocyte,EPIC_v1,ca58285,,,0,,,,2,reference only (replay)
@@ -314,16 +345,20 @@ C-Score,C-Score each cell,hepatocyte,HM450K,ca58285,,,0,,,,4,reference only (rep
 C-Score,C-Score each cell,hepatocyte,HM450K,e98b90f,,,0,,,,3,reference only (replay)
 C-Score,C-Score each cell,kidney glomerular endothelium,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,kidney glomerular endothelium,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,kidney glomerular endothelium,sequencing,9d8ea3d,,1.09,3,0.9565,0.9579,1.0168,3,development
 C-Score,C-Score each cell,kidney glomerular epithelium,EPIC_v1,801e08b,,1.1147,1,,0.8901,,1,reference only (replay)
 C-Score,C-Score each cell,kidney tubular endothelium,HM450K,3463259,,,28,0.9388,0.9683,1.0573,48,reference only (replay)
 C-Score,C-Score each cell,kidney tubular endothelium,HM450K,c8ff5cc,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,kidney tubular endothelium,HM450K,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,kidney tubular endothelium,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,kidney tubular endothelium,sequencing,9d8ea3d,,1.09,3,0.9832,1.0424,1.1174,3,development
 C-Score,C-Score each cell,kidney tubular endothelium,sequencing,b00c2ab,,,0,,,,1,development
 C-Score,C-Score each cell,kidney tubular endothelium,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,kidney tubular epithelium,sequencing,9d8ea3d,,1.09,3,0.9772,1.0029,1.0343,3,development
 C-Score,C-Score each cell,lung alveolar endothelium,HM450K,3463259,,,39,0.85,0.9736,1.0189,83,reference only (replay)
 C-Score,C-Score each cell,lung alveolar endothelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,lung alveolar endothelium,HM450K,ca58285,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,lung alveolar endothelium,sequencing,9d8ea3d,,1.09,3,0.9945,1.003,1.0212,3,development
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,3463259,,,0,,,,52,reference only (replay)
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,801e08b,,1.0901,6,0.9691,0.991,1.0583,11,reference only (replay)
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,ca58285,,,0,,,,19,reference only (replay)
@@ -331,11 +366,13 @@ C-Score,C-Score each cell,lung alveolar epithelium,HM450K,3463259,,,0,,,,63,refe
 C-Score,C-Score each cell,lung alveolar epithelium,HM450K,c8ff5cc,,,0,,,,3,reference only (replay)
 C-Score,C-Score each cell,lung alveolar epithelium,HM450K,ca58285,,,0,,,,45,reference only (replay)
 C-Score,C-Score each cell,lung alveolar epithelium,HM450K,e98b90f,,,0,,,,5,reference only (replay)
+C-Score,C-Score each cell,lung alveolar epithelium,sequencing,9d8ea3d,,1.09,3,0.9132,0.9288,0.9917,3,development
 C-Score,C-Score each cell,lung alveolar macrophages,EPIC_v1,505bea0,,1.1649,3,0.8829,0.9396,0.9606,3,reference only (replay)
 C-Score,C-Score each cell,lung alveolar macrophages,HM450K,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,lung alveolar macrophages,HM450K,50bcb5a,,,1,,1.0083,,5,reference only (replay)
 C-Score,C-Score each cell,lung alveolar macrophages,HM450K,c8ff5cc,,,4,0.8769,0.965,1.0553,26,reference only (replay)
 C-Score,C-Score each cell,lung alveolar macrophages,HM450K,ca58285,,,0,,,,2,reference only (replay)
+C-Score,C-Score each cell,lung alveolar macrophages,sequencing,9d8ea3d,,1.1099,2,,0.945,,2,development
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,07638a9,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,3463259,,,0,,,,49,reference only (replay)
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,801e08b,,1.0931,5,0.9662,0.9948,1.1048,15,reference only (replay)
@@ -345,6 +382,7 @@ C-Score,C-Score each cell,lung bronchus epithelium,HM450K,50bcb5a,,,0,,,,1,refer
 C-Score,C-Score each cell,lung bronchus epithelium,HM450K,c8ff5cc,,,0,,,,26,reference only (replay)
 C-Score,C-Score each cell,lung bronchus epithelium,HM450K,ca58285,,,0,,,,110,reference only (replay)
 C-Score,C-Score each cell,lung bronchus epithelium,HM450K,e98b90f,,,0,,,,12,reference only (replay)
+C-Score,C-Score each cell,lung bronchus epithelium,sequencing,9d8ea3d,,1.09,3,0.9585,1.0691,1.0817,3,development
 C-Score,C-Score each cell,lung interstitial macrophages,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,lung interstitial macrophages,EPIC_v1,505bea0,,1.1243,11,0.921,1.0394,1.1608,11,reference only (replay)
 C-Score,C-Score each cell,lung interstitial macrophages,HM450K,50bcb5a,,,1,,1.044,,18,reference only (replay)
@@ -358,6 +396,7 @@ C-Score,C-Score each cell,lung interstitial macrophages,sequencing,4b17362,,,0,,
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,9135cc6,,,0,,,,1,development
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,925d3ce,,,0,,,,1,development
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,9a552a2,,,0,,,,3,development
+C-Score,C-Score each cell,lung interstitial macrophages,sequencing,9d8ea3d,,1.09,3,0.9527,0.9984,1.1432,3,development
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,acbc25a,,1.0901,0,,,,1,development
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,b00c2ab,,,0,,,,1,development
@@ -376,14 +415,17 @@ C-Score,C-Score each cell,memory b cells,HM450K,ca58285,,,0,,,,118,reference onl
 C-Score,C-Score each cell,memory b cells,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 C-Score,C-Score each cell,memory b cells,sequencing,0801c4b,,1.0902,0,,,,1,development
 C-Score,C-Score each cell,memory b cells,sequencing,0a01f6d,,1.0903,2,,0.9936,,2,development
+C-Score,C-Score each cell,memory b cells,sequencing,1.519e+61,,1.1008,6,0.892,0.9819,1.1488,6,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,memory b cells,sequencing,2bcc01f,,1.0902,0,,,,2,development
 C-Score,C-Score each cell,memory b cells,sequencing,3ab30ad,,,0,,,,1,development
 C-Score,C-Score each cell,memory b cells,sequencing,3cfd195,,,0,,,,4,development
 C-Score,C-Score each cell,memory b cells,sequencing,4545ab1,,,0,,,,2,development
 C-Score,C-Score each cell,memory b cells,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,sequencing,8db1559,,1.1008,6,0.892,0.9819,1.1488,6,development (common floor)
 C-Score,C-Score each cell,memory b cells,sequencing,9135cc6,,,0,,,,1,development
 C-Score,C-Score each cell,memory b cells,sequencing,925d3ce,,,0,,,,1,development
 C-Score,C-Score each cell,memory b cells,sequencing,9a552a2,,,0,,,,4,development
+C-Score,C-Score each cell,memory b cells,sequencing,9d8ea3d,,1.09,2,,1.0686,,2,development
 C-Score,C-Score each cell,memory b cells,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,memory b cells,sequencing,b00c2ab,,,0,,,,1,development
 C-Score,C-Score each cell,memory b cells,sequencing,c464b26,,,0,,,,5,development
@@ -413,7 +455,10 @@ C-Score,C-Score each cell,monocytes,HM450K,50bcb5a,,,10,0.8637,0.9749,1.0451,63,
 C-Score,C-Score each cell,monocytes,HM450K,c8ff5cc,,,29,0.8824,0.9869,1.1138,212,reference only (replay)
 C-Score,C-Score each cell,monocytes,HM450K,ca58285,,,0,,,,48,reference only (replay)
 C-Score,C-Score each cell,monocytes,HM450K,e98b90f,,,0,,,,7,reference only (replay)
+C-Score,C-Score each cell,monocytes,sequencing,1.519e+61,,1.0928,22,0.884,1.0073,1.075,22,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,monocytes,sequencing,1dcb6df,,1.09,118,0.9169,0.9787,1.0539,118,development
+C-Score,C-Score each cell,monocytes,sequencing,8db1559,,1.0928,22,0.884,1.0073,1.075,22,development (common floor)
+C-Score,C-Score each cell,monocytes,sequencing,9d8ea3d,,1.09,3,0.9565,0.9773,0.9846,3,development
 C-Score,C-Score each cell,naive b cells,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
 C-Score,C-Score each cell,naive b cells,EPIC_v1,3463259,,,0,,,,193,reference only (replay)
 C-Score,C-Score each cell,naive b cells,EPIC_v1,505bea0,,1.1204,34,0.9071,1.0318,1.1488,34,reference only (replay)
@@ -469,7 +514,10 @@ C-Score,C-Score each cell,nk cells,HM450K,3463259,,,0,,,,1,reference only (repla
 C-Score,C-Score each cell,nk cells,HM450K,50bcb5a,,,9,0.9299,1.0003,1.0656,50,reference only (replay)
 C-Score,C-Score each cell,nk cells,HM450K,c8ff5cc,,,39,0.8876,0.9658,1.0643,162,reference only (replay)
 C-Score,C-Score each cell,nk cells,HM450K,ca58285,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,nk cells,sequencing,1.519e+61,,1.0938,4,0.9219,0.9686,0.9968,4,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,nk cells,sequencing,1dcb6df,,1.09,118,0.8873,0.9536,1.046,118,development
+C-Score,C-Score each cell,nk cells,sequencing,8db1559,,1.0938,4,0.9219,0.9686,0.9968,4,development (common floor)
+C-Score,C-Score each cell,nk cells,sequencing,9d8ea3d,,1.09,3,0.8921,0.9105,0.9688,3,development
 C-Score,C-Score each cell,oligodendrocyte precursors,EPIC_v1,801e08b,,1.1296,1,,0.8474,,1,reference only (replay)
 C-Score,C-Score each cell,oligodendrocyte precursors,HM450K,3463259,,,0,,,,36,reference only (replay)
 C-Score,C-Score each cell,oligodendrocyte precursors,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
@@ -488,6 +536,7 @@ C-Score,C-Score each cell,oligodendrocytes,HM450K,c8ff5cc,,,0,,,,20,reference on
 C-Score,C-Score each cell,oligodendrocytes,HM450K,ca58285,,,0,,,,87,reference only (replay)
 C-Score,C-Score each cell,oligodendrocytes,HM450K,e98b90f,,,0,,,,13,reference only (replay)
 C-Score,C-Score each cell,oligodendrocytes,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,oligodendrocytes,sequencing,9d8ea3d,,1.09,3,0.9812,1.0006,1.0606,3,development
 C-Score,C-Score each cell,pancreas endothelium,HM450K,3463259,,,0,,,,58,reference only (replay)
 C-Score,C-Score each cell,pancreas endothelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,pancreas endothelium,HM450K,ca58285,,,0,,,,61,reference only (replay)
@@ -496,6 +545,7 @@ C-Score,C-Score each cell,pancreas endothelium,sequencing,3ab30ad,,,0,,,,1,devel
 C-Score,C-Score each cell,pancreas endothelium,sequencing,3cfd195,,,0,,,,2,development
 C-Score,C-Score each cell,pancreas endothelium,sequencing,4545ab1,,,0,,,,1,development
 C-Score,C-Score each cell,pancreas endothelium,sequencing,9135cc6,,,0,,,,1,development
+C-Score,C-Score each cell,pancreas endothelium,sequencing,9d8ea3d,,1.09,3,1.0188,1.0405,1.0843,3,development
 C-Score,C-Score each cell,pancreas endothelium,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,pancreas endothelium,sequencing,b00c2ab,,,0,,,,1,development
 C-Score,C-Score each cell,pancreas endothelium,sequencing,c464b26,,,0,,,,2,development
@@ -509,8 +559,11 @@ C-Score,C-Score each cell,pancreatic acinar,HM450K,50bcb5a,,,0,,,,4,reference on
 C-Score,C-Score each cell,pancreatic acinar,HM450K,c8ff5cc,,,0,,,,17,reference only (replay)
 C-Score,C-Score each cell,pancreatic acinar,HM450K,ca58285,,,0,,,,105,reference only (replay)
 C-Score,C-Score each cell,pancreatic acinar,HM450K,e98b90f,,,0,,,,12,reference only (replay)
+C-Score,C-Score each cell,pancreatic acinar,sequencing,15ddba1,,1.11,4,0.9558,0.982,1.0798,4,development
 C-Score,C-Score each cell,pancreatic acinar,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,pancreatic acinar,sequencing,9d8ea3d,,1.09,3,0.9804,0.9814,1.0095,3,development
 C-Score,C-Score each cell,pancreatic alpha,EPIC_v1,505bea0,,1.0934,1,,0.9874,,1,reference only (replay)
+C-Score,C-Score each cell,pancreatic alpha,sequencing,9d8ea3d,,1.09,3,0.9121,0.9643,0.965,3,development
 C-Score,C-Score each cell,pancreatic beta,EPIC_v1,3463259,,,0,,,,141,reference only (replay)
 C-Score,C-Score each cell,pancreatic beta,EPIC_v1,801e08b,,1.0902,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,pancreatic beta,EPIC_v1,ca58285,,,0,,,,50,reference only (replay)
@@ -519,11 +572,14 @@ C-Score,C-Score each cell,pancreatic beta,HM450K,50bcb5a,,,0,,,,2,reference only
 C-Score,C-Score each cell,pancreatic beta,HM450K,c8ff5cc,,,0,,,,15,reference only (replay)
 C-Score,C-Score each cell,pancreatic beta,HM450K,ca58285,,,0,,,,78,reference only (replay)
 C-Score,C-Score each cell,pancreatic beta,HM450K,e98b90f,,,0,,,,13,reference only (replay)
+C-Score,C-Score each cell,pancreatic beta,sequencing,9d8ea3d,,1.09,3,0.9108,0.9916,1.0591,3,development
 C-Score,C-Score each cell,pancreatic delta,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,pancreatic delta,sequencing,9d8ea3d,,1.09,3,0.9114,0.9362,0.9524,3,development
 C-Score,C-Score each cell,pancreatic duct,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,pancreatic duct,HM450K,3463259,,,0,,,,42,reference only (replay)
 C-Score,C-Score each cell,pancreatic duct,HM450K,ca58285,,,0,,,,38,reference only (replay)
 C-Score,C-Score each cell,pancreatic duct,HM450K,e98b90f,,,0,,,,4,reference only (replay)
+C-Score,C-Score each cell,pancreatic duct,sequencing,15ddba1,,1.1085,5,0.9393,0.9651,1.0511,5,development
 C-Score,C-Score each cell,prostate epithelium,EPIC_v1,07638a9,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,prostate epithelium,EPIC_v1,3463259,,,0,,,,170,reference only (replay)
 C-Score,C-Score each cell,prostate epithelium,EPIC_v1,505bea0,,1.1312,3,0.8841,0.974,1.094,3,reference only (replay)
@@ -538,6 +594,7 @@ C-Score,C-Score each cell,prostate epithelium,sequencing,2bcc01f,,1.092,0,,,,1,d
 C-Score,C-Score each cell,prostate epithelium,sequencing,3cfd195,,,0,,,,1,development
 C-Score,C-Score each cell,prostate epithelium,sequencing,4545ab1,,,0,,,,2,development
 C-Score,C-Score each cell,prostate epithelium,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,prostate epithelium,sequencing,9d8ea3d,,1.09,3,0.9712,1.0032,1.004,3,development
 C-Score,C-Score each cell,prostate epithelium,sequencing,b00c2ab,,,0,,,,1,development
 C-Score,C-Score each cell,prostate epithelium,sequencing,e87632c,,,0,,,,1,development
 C-Score,C-Score each cell,regulatory t cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -556,6 +613,7 @@ C-Score,C-Score each cell,small intestine epithelium,HM450K,50bcb5a,,,0,,,,9,ref
 C-Score,C-Score each cell,small intestine epithelium,HM450K,c8ff5cc,,,0,,,,51,reference only (replay)
 C-Score,C-Score each cell,small intestine epithelium,HM450K,ca58285,,,0,,,,55,reference only (replay)
 C-Score,C-Score each cell,small intestine epithelium,HM450K,e98b90f,,,0,,,,8,reference only (replay)
+C-Score,C-Score each cell,small intestine epithelium,sequencing,9d8ea3d,,1.09,3,0.9942,1.0176,1.08,3,development
 C-Score,C-Score each cell,smooth muscle,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,smooth muscle,EPIC_v1,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,smooth muscle,HM450K,3463259,,,7,0.893,0.9688,0.9901,79,reference only (replay)
@@ -564,17 +622,22 @@ C-Score,C-Score each cell,smooth muscle,HM450K,ca58285,,,0,,,,59,reference only 
 C-Score,C-Score each cell,smooth muscle,HM450K,e98b90f,,,0,,,,6,reference only (replay)
 C-Score,C-Score each cell,smooth muscle,sequencing,4b17362,,,0,,,,1,development
 C-Score,C-Score each cell,smooth muscle,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,smooth muscle,sequencing,9d8ea3d,,1.09,3,0.9332,0.9381,0.977,3,development
 C-Score,C-Score each cell,smooth muscle,sequencing,c464b26,,,0,,,,1,development
 C-Score,C-Score each cell,striated muscle,HM450K,3463259,,,0,,,,34,reference only (replay)
 C-Score,C-Score each cell,striated muscle,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,striated muscle,HM450K,ca58285,,,0,,,,25,reference only (replay)
 C-Score,C-Score each cell,striated muscle,HM450K,e98b90f,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,striated muscle,sequencing,9a552a2,,,0,,,,2,development
+C-Score,C-Score each cell,striated muscle,sequencing,9d8ea3d,,1.1081,2,,0.9335,,2,development
 C-Score,C-Score each cell,t central memory cd4,EPIC_v1,07638a9,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,t central memory cd4,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,t central memory cd4,EPIC_v1,801e08b,,1.104,5,0.8785,0.932,1.0763,10,reference only (replay)
 C-Score,C-Score each cell,t central memory cd4,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,t central memory cd4,HM450K,c8ff5cc,,,0,,,,8,reference only (replay)
+C-Score,C-Score each cell,t central memory cd4,sequencing,1.519e+61,,1.095,2,,0.9564,,2,"development (outside-laboratory test, not met)"
+C-Score,C-Score each cell,t central memory cd4,sequencing,8db1559,,1.095,2,,0.9564,,2,development (common floor)
+C-Score,C-Score each cell,t central memory cd4,sequencing,9d8ea3d,,1.09,3,0.9747,0.9894,1.0352,3,development
 C-Score,C-Score each cell,t effector cell cd8,EPIC_v1,505bea0,,1.0938,9,0.8982,0.9706,1.1296,9,reference only (replay)
 C-Score,C-Score each cell,t effector cell cd8,HM450K,3463259,,,0,,,,107,reference only (replay)
 C-Score,C-Score each cell,t effector cell cd8,HM450K,50bcb5a,,,1,,0.9924,,28,reference only (replay)
@@ -587,33 +650,41 @@ C-Score,C-Score each cell,t effector cell cd8,sequencing,3ab30ad,,,0,,,,1,develo
 C-Score,C-Score each cell,t effector cell cd8,sequencing,3cfd195,,,0,,,,2,development
 C-Score,C-Score each cell,t effector cell cd8,sequencing,4545ab1,,,0,,,,2,development
 C-Score,C-Score each cell,t effector cell cd8,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,t effector cell cd8,sequencing,9d8ea3d,,1.09,3,0.9894,0.9961,1.0187,3,development
 C-Score,C-Score each cell,t effector cell cd8,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,t effector cell cd8,sequencing,e87632c,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,HM450K,50bcb5a,,,0,,,,8,reference only (replay)
 C-Score,C-Score each cell,t effector memory cd4,HM450K,c8ff5cc,,,1,,1.1017,,39,reference only (replay)
+C-Score,C-Score each cell,t effector memory cd4,sequencing,1.519e+61,,1.0951,2,,1.0332,,2,"development (outside-laboratory test, not met)"
 C-Score,C-Score each cell,t effector memory cd4,sequencing,155b14e,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,22ff8df,,,0,,,,2,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,3ab30ad,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,3cfd195,,,0,,,,4,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,4545ab1,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,8db1559,,1.0951,2,,1.0332,,2,development (common floor)
 C-Score,C-Score each cell,t effector memory cd4,sequencing,9135cc6,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,925d3ce,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,9a552a2,,,0,,,,4,development
+C-Score,C-Score each cell,t effector memory cd4,sequencing,9d8ea3d,,1.09,3,1.0159,1.0471,1.0599,3,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,acbc25a,,1.0901,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,b00c2ab,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,c464b26,,,0,,,,5,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,c543f9e,,,0,,,,1,development
 C-Score,C-Score each cell,t effector memory cd4,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,thyroid epithelium,sequencing,9d8ea3d,,1.09,3,0.9116,0.94,1.048,3,development
 C-Score,C-Score each cell,tongue epithelium,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,tongue epithelium,EPIC_v1,801e08b,,1.0922,4,0.9379,0.9432,0.9863,10,reference only (replay)
 C-Score,C-Score each cell,tongue epithelium,sequencing,22ff8df,,,0,,,,1,development
+C-Score,C-Score each cell,tongue epithelium,sequencing,9d8ea3d,,1.09,3,0.9365,0.964,0.9734,3,development
 C-Score,C-Score each cell,tonsil palatine epithelium,EPIC_v1,801e08b,,1.0919,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,tonsil palatine epithelium,sequencing,9d8ea3d,,1.09,3,0.9183,0.9304,0.9759,3,development
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,HM450K,ca58285,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,HM450K,e98b90f,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,tonsil pharyngeal epithelium,sequencing,9d8ea3d,,1.1092,2,,0.9656,,2,development
 C-Score,C-Score each cell,vascular endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,EPIC_v1,3463259,,,0,,,,261,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,EPIC_v1,505bea0,,1.1176,41,0.9751,1.0543,1.1321,41,reference only (replay)
@@ -631,6 +702,7 @@ C-Score,C-Score each cell,vascular leptomeningeal cells,HM450K,ca58285,,,0,,,,46
 C-Score,C-Score each cell,vascular leptomeningeal cells,HM450K,e98b90f,,,0,,,,9,reference only (replay)
 C-Score,C-Score each cell,vascular leptomeningeal cells,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,vascular saphenous endothelium,HM450K,3463259,,,19,0.9033,0.9397,1.0664,39,reference only (replay)
+C-Score,C-Score each cell,vascular saphenous endothelium,sequencing,9d8ea3d,,1.09,3,0.9503,0.9608,0.9637,3,development
 C-Score,C-Score whole genome,whole genome,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 C-Score,C-Score whole genome,whole genome,EPIC_v1,3463259,,,0,,,,267,reference only (replay)
 C-Score,C-Score whole genome,whole genome,EPIC_v1,505bea0,,1.0113,42,0.9953,1.005,1.0137,42,reference only (replay)
@@ -643,7 +715,9 @@ C-Score,C-Score whole genome,whole genome,HM450K,ca58285,,,0,,,,131,reference on
 C-Score,C-Score whole genome,whole genome,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 C-Score,C-Score whole genome,whole genome,sequencing,0801c4b,,1.0077,0,,,,1,development
 C-Score,C-Score whole genome,whole genome,sequencing,0a01f6d,,1.0077,3,0.9976,0.9977,0.9979,39,development
+C-Score,C-Score whole genome,whole genome,sequencing,1.519e+61,,1.0081,59,0.9918,1.0012,1.013,59,"development (outside-laboratory test, not met)"
 C-Score,C-Score whole genome,whole genome,sequencing,155b14e,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,15ddba1,,1.008,34,0.9901,0.9992,1.0067,34,development
 C-Score,C-Score whole genome,whole genome,sequencing,1dcb6df,,1.0077,153,0.9917,0.9994,1.0087,153,development
 C-Score,C-Score whole genome,whole genome,sequencing,22ff8df,,,0,,,,2,development
 C-Score,C-Score whole genome,whole genome,sequencing,2bcc01f,,1.0078,0,,,,2,development
@@ -652,9 +726,11 @@ C-Score,C-Score whole genome,whole genome,sequencing,3ab30ad,,,0,,,,1,developmen
 C-Score,C-Score whole genome,whole genome,sequencing,3cfd195,,,0,,,,5,development
 C-Score,C-Score whole genome,whole genome,sequencing,4545ab1,,,0,,,,3,development
 C-Score,C-Score whole genome,whole genome,sequencing,4b17362,,,0,,,,1,development
+C-Score,C-Score whole genome,whole genome,sequencing,8db1559,,1.0081,59,0.9918,1.0012,1.013,59,development (common floor)
 C-Score,C-Score whole genome,whole genome,sequencing,9135cc6,,,0,,,,1,development
 C-Score,C-Score whole genome,whole genome,sequencing,925d3ce,,,0,,,,1,development
 C-Score,C-Score whole genome,whole genome,sequencing,9a552a2,,,0,,,,6,development
+C-Score,C-Score whole genome,whole genome,sequencing,9d8ea3d,,1.0077,140,0.991,1.0003,1.0083,140,development
 C-Score,C-Score whole genome,whole genome,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score whole genome,whole genome,sequencing,acbc25a,,1.0077,0,,,,1,development
 C-Score,C-Score whole genome,whole genome,sequencing,b00c2ab,,,0,,,,1,development
@@ -729,6 +805,10 @@ Coupling-A,"coupling-A, own sample left out of the reference",tongue epithelium,
 Coupling-A,"coupling-A, own sample left out of the reference",tonsil palatine epithelium,sequencing,,,,3,0.9967,0.9982,1.0049,3,development
 Coupling-A,"coupling-A, own sample left out of the reference",tonsil pharyngeal epithelium,sequencing,,,,2,,1.0016,,2,development
 Coupling-A,"coupling-A, own sample left out of the reference",vascular saphenous endothelium,sequencing,,,,3,0.9923,1.0028,1.0053,3,development
+Globe,globe changed blocks,share of blocks,sequencing,1.519e+61,,,57,0.0003,0.0027,0.0117,57,"development (outside-laboratory test, not met)"
+Globe,globe changed blocks,share of blocks,sequencing,15ddba1,,,34,0.0001,0.0009,0.0421,34,development
+Globe,globe changed blocks,share of blocks,sequencing,8db1559,,,57,0.0003,0.0027,0.0117,57,development (common floor)
+Globe,globe changed blocks,share of blocks,sequencing,9d8ea3d,,,140,0.0,0.0,0.001,140,development
 IAM-A,IAM-A,adipocytes,sequencing,1dcb6df,0.7787,1.0551,3,1.0065,1.0094,1.0234,3,development
 IAM-A,IAM-A,aorta endothelium,sequencing,1dcb6df,0.7787,1.0551,2,,0.9585,,2,development
 IAM-A,IAM-A,b cells,sequencing,0a01f6d,0.7787,1.0551,1,,0.8055,,30,development
@@ -810,6 +890,10 @@ IAM-A,"held error eps, earlier counter (end CpGs counted), conversion-corrected"
 IAM-A,"held error eps, earlier counter (end CpGs counted), conversion-corrected",oral tissue,oxWGBS,,,,0,,,,8,development
 IAM-A,"held error eps, per interior opportunity (commissioned counter)",cell types (56),WGBS,,,,56,0.0341,0.0447,0.0533,56,commissioned counter (chain Stage Q2)
 IAM-A,island gain error (PROC-CHANNEL-01 rule),colon tissue,WGBS,,,,0,,,,12,development
+Information sphere,information sphere,Fisher-Rao rms (rad),sequencing,1.519e+61,,,59,0.1229,0.1633,0.3106,59,development (flagged in the bundle)
+Information sphere,information sphere,Fisher-Rao rms (rad),sequencing,15ddba1,,,34,0.171,0.1946,0.2998,34,development (flagged in the bundle)
+Information sphere,information sphere,Fisher-Rao rms (rad),sequencing,8db1559,,,59,0.1229,0.1633,0.3106,59,development (flagged in the bundle)
+Information sphere,information sphere,Fisher-Rao rms (rad),sequencing,9d8ea3d,,,140,0.0838,0.1109,0.1576,140,development (flagged in the bundle)
 Met-A,"A, tared to the same laboratory",granulocytes,EPIC v1,,,,26,0.9742,1.001,1.0303,64,development
 Met-A,"A, tared to the same laboratory",neutrophils,EPIC v1,,,,13,0.9161,1.0027,1.0636,29,commissioned
 Met-A,"A, untared",neutrophils,EPIC v1,,0.95,1.05,6,0.9942,1.0008,1.006,6,commissioned (reference arrays)
@@ -887,11 +971,17 @@ Met-A,Met-A each cell,adipocytes,HM450K,50bcb5a,,,18,0.9161,0.9573,1.0035,98,ref
 Met-A,Met-A each cell,adipocytes,HM450K,c8ff5cc,,,66,0.9355,0.9658,1.0094,326,reference only (replay)
 Met-A,Met-A each cell,adipocytes,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,adipocytes,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,adipocytes,sequencing,1.519e+61,,,59,0.6735,0.8638,1.1253,59,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,adipocytes,sequencing,8db1559,,,59,0.6735,0.8638,1.1253,59,development (common floor)
+Met-A,Met-A each cell,adipocytes,sequencing,9d8ea3d,,,140,0.9109,1.0021,1.0626,140,development
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,3463259,,,0,,,,235,reference only (replay)
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,505bea0,,,13,0.9263,0.9524,0.9729,13,reference only (replay)
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,801e08b,,,237,0.9652,1.0163,1.0731,439,reference only (replay)
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
+Met-A,Met-A each cell,aorta endothelium,sequencing,1.519e+61,,,58,0.6385,0.8641,1.067,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,aorta endothelium,sequencing,8db1559,,,58,0.6385,0.8641,1.067,58,development (common floor)
+Met-A,Met-A each cell,aorta endothelium,sequencing,9d8ea3d,,,140,0.9064,0.9993,1.0841,140,development
 Met-A,Met-A each cell,astrocytes,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,astrocytes,EPIC_v1,3463259,,,0,,,,237,reference only (replay)
 Met-A,Met-A each cell,astrocytes,EPIC_v1,505bea0,,,13,0.9173,0.9589,0.9803,13,reference only (replay)
@@ -907,6 +997,9 @@ Met-A,Met-A each cell,b cells,HM450K,50bcb5a,,,18,0.8508,0.9111,0.9636,98,refere
 Met-A,Met-A each cell,b cells,HM450K,c8ff5cc,,,66,0.8718,0.9145,0.96,326,reference only (replay)
 Met-A,Met-A each cell,b cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,b cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,b cells,sequencing,1.519e+61,,,58,0.5535,0.7813,1.0247,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,b cells,sequencing,8db1559,,,58,0.5535,0.7813,1.0247,58,development (common floor)
+Met-A,Met-A each cell,b cells,sequencing,9d8ea3d,,,140,0.9178,0.9999,1.0771,140,development
 Met-A,Met-A each cell,basophils,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,basophils,EPIC_v1,3463259,,,0,,,,264,reference only (replay)
 Met-A,Met-A each cell,basophils,EPIC_v1,505bea0,,,42,0.8943,0.9159,0.9539,42,reference only (replay)
@@ -927,6 +1020,9 @@ Met-A,Met-A each cell,bladder epithelium,HM450K,50bcb5a,,,2,,0.9517,,22,referenc
 Met-A,Met-A each cell,bladder epithelium,HM450K,c8ff5cc,,,9,0.9446,0.9558,0.9795,72,reference only (replay)
 Met-A,Met-A each cell,bladder epithelium,HM450K,ca58285,,,0,,,,4,reference only (replay)
 Met-A,Met-A each cell,bladder epithelium,HM450K,e98b90f,,,0,,,,1,reference only (replay)
+Met-A,Met-A each cell,bladder epithelium,sequencing,1.519e+61,,,58,0.726,0.8864,1.0234,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,bladder epithelium,sequencing,8db1559,,,58,0.726,0.8864,1.0234,58,development (common floor)
+Met-A,Met-A each cell,bladder epithelium,sequencing,9d8ea3d,,,140,0.9035,0.9962,1.0725,140,development
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,3463259,,,0,,,,226,reference only (replay)
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,505bea0,,,13,0.9683,0.9816,0.9999,13,reference only (replay)
@@ -934,6 +1030,9 @@ Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,801e08b,,,237,0.9668,1.001
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,ca58285,,,0,,,,63,reference only (replay)
 Met-A,Met-A each cell,breast basal epithelium,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 Met-A,Met-A each cell,breast basal epithelium,HM450K,c8ff5cc,,,0,,,,14,reference only (replay)
+Met-A,Met-A each cell,breast basal epithelium,sequencing,1.519e+61,,,58,0.721,0.882,1.0136,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,breast basal epithelium,sequencing,8db1559,,,58,0.721,0.882,1.0136,58,development (common floor)
+Met-A,Met-A each cell,breast basal epithelium,sequencing,9d8ea3d,,,140,0.8961,0.9972,1.0628,140,development
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,505bea0,,,42,0.9476,0.9754,0.9934,42,reference only (replay)
@@ -944,6 +1043,9 @@ Met-A,Met-A each cell,breast luminal epithelium,HM450K,50bcb5a,,,13,0.9062,0.947
 Met-A,Met-A each cell,breast luminal epithelium,HM450K,c8ff5cc,,,39,0.9245,0.951,0.9923,203,reference only (replay)
 Met-A,Met-A each cell,breast luminal epithelium,HM450K,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,breast luminal epithelium,HM450K,e98b90f,,,0,,,,8,reference only (replay)
+Met-A,Met-A each cell,breast luminal epithelium,sequencing,1.519e+61,,,58,0.6983,0.8731,1.0142,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,breast luminal epithelium,sequencing,8db1559,,,58,0.6983,0.8731,1.0142,58,development (common floor)
+Met-A,Met-A each cell,breast luminal epithelium,sequencing,9d8ea3d,,,140,0.9186,0.9992,1.0804,140,development
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,07638a9,,,0,,,,11,reference only (replay)
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,3463259,,,0,,,,236,reference only (replay)
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,505bea0,,,13,0.9703,0.9862,1.0007,13,reference only (replay)
@@ -954,6 +1056,9 @@ Met-A,Met-A each cell,cardiomyocyte,HM450K,50bcb5a,,,9,0.9086,0.9401,0.9744,47,r
 Met-A,Met-A each cell,cardiomyocyte,HM450K,c8ff5cc,,,26,0.9383,0.9509,0.99,143,reference only (replay)
 Met-A,Met-A each cell,cardiomyocyte,HM450K,ca58285,,,0,,,,7,reference only (replay)
 Met-A,Met-A each cell,cardiomyocyte,HM450K,e98b90f,,,0,,,,2,reference only (replay)
+Met-A,Met-A each cell,cardiomyocyte,sequencing,1.519e+61,,,58,0.6696,0.8649,1.0206,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,cardiomyocyte,sequencing,8db1559,,,58,0.6696,0.8649,1.0206,58,development (common floor)
+Met-A,Met-A each cell,cardiomyocyte,sequencing,9d8ea3d,,,140,0.91,0.9953,1.0678,140,development
 Met-A,Met-A each cell,cd4 t cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,cd4 t cells,EPIC_v1,3463259,,,0,,,,263,reference only (replay)
 Met-A,Met-A each cell,cd4 t cells,EPIC_v1,505bea0,,,42,0.8896,0.9195,0.9692,42,reference only (replay)
@@ -964,6 +1069,9 @@ Met-A,Met-A each cell,cd4 t cells,HM450K,50bcb5a,,,18,0.8855,0.943,1.0103,98,ref
 Met-A,Met-A each cell,cd4 t cells,HM450K,c8ff5cc,,,66,0.8934,0.948,1.0039,326,reference only (replay)
 Met-A,Met-A each cell,cd4 t cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,cd4 t cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,cd4 t cells,sequencing,1.519e+61,,,58,0.5973,0.7734,1.0498,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,cd4 t cells,sequencing,8db1559,,,58,0.5973,0.7734,1.0498,58,development (common floor)
+Met-A,Met-A each cell,cd4 t cells,sequencing,9d8ea3d,,,140,0.9184,1.0014,1.0941,140,development
 Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,3463259,,,0,,,,261,reference only (replay)
 Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,505bea0,,,42,0.9183,0.9441,0.9837,42,reference only (replay)
@@ -994,6 +1102,9 @@ Met-A,Met-A each cell,cd8 t cells,HM450K,50bcb5a,,,18,0.8666,0.9286,0.986,98,ref
 Met-A,Met-A each cell,cd8 t cells,HM450K,c8ff5cc,,,66,0.885,0.9366,0.987,326,reference only (replay)
 Met-A,Met-A each cell,cd8 t cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,cd8 t cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,cd8 t cells,sequencing,1.519e+61,,,58,0.6241,0.7794,1.0947,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,cd8 t cells,sequencing,8db1559,,,58,0.6241,0.7794,1.0947,58,development (common floor)
+Met-A,Met-A each cell,cd8 t cells,sequencing,9d8ea3d,,,140,0.9242,1.0018,1.0789,140,development
 Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,3463259,,,0,,,,262,reference only (replay)
 Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,505bea0,,,42,0.8822,0.9046,0.9496,42,reference only (replay)
@@ -1019,6 +1130,9 @@ Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,3463259,,,0,,,,235,reference
 Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,505bea0,,,13,0.9353,0.9553,0.979,13,reference only (replay)
 Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,801e08b,,,237,0.9607,1.0073,1.0541,439,reference only (replay)
 Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
+Met-A,Met-A each cell,colon enteroendocrine,sequencing,1.519e+61,,,58,0.6616,0.8651,1.0356,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,colon enteroendocrine,sequencing,8db1559,,,58,0.6616,0.8651,1.0356,58,development (common floor)
+Met-A,Met-A each cell,colon enteroendocrine,sequencing,9d8ea3d,,,140,0.9038,0.9956,1.0925,140,development
 Met-A,Met-A each cell,colon epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,colon epithelium,EPIC_v1,3463259,,,0,,,,258,reference only (replay)
 Met-A,Met-A each cell,colon epithelium,EPIC_v1,505bea0,,,42,0.8925,0.9135,0.9525,42,reference only (replay)
@@ -1029,6 +1143,9 @@ Met-A,Met-A each cell,colon epithelium,HM450K,50bcb5a,,,18,0.9067,0.9481,1.0568,
 Met-A,Met-A each cell,colon epithelium,HM450K,c8ff5cc,,,66,0.9035,0.9726,1.0584,326,reference only (replay)
 Met-A,Met-A each cell,colon epithelium,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,colon epithelium,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,colon epithelium,sequencing,1.519e+61,,,58,0.6135,0.815,1.0132,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,colon epithelium,sequencing,8db1559,,,58,0.6135,0.815,1.0132,58,development (common floor)
+Met-A,Met-A each cell,colon epithelium,sequencing,9d8ea3d,,,140,0.9192,1.0049,1.0864,140,development
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,3463259,,,0,,,,266,reference only (replay)
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,505bea0,,,42,0.9333,0.9592,0.9892,42,reference only (replay)
@@ -1039,6 +1156,9 @@ Met-A,Met-A each cell,colon fibroblasts,HM450K,50bcb5a,,,15,0.9032,0.9523,1.0268
 Met-A,Met-A each cell,colon fibroblasts,HM450K,c8ff5cc,,,63,0.9289,0.9756,1.0325,284,reference only (replay)
 Met-A,Met-A each cell,colon fibroblasts,HM450K,ca58285,,,0,,,,123,reference only (replay)
 Met-A,Met-A each cell,colon fibroblasts,HM450K,e98b90f,,,0,,,,14,reference only (replay)
+Met-A,Met-A each cell,colon fibroblasts,sequencing,1.519e+61,,,58,0.7264,0.8555,1.1031,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,colon fibroblasts,sequencing,8db1559,,,58,0.7264,0.8555,1.1031,58,development (common floor)
+Met-A,Met-A each cell,colon fibroblasts,sequencing,9d8ea3d,,,140,0.9259,1.0027,1.0658,140,development
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,3463259,,,0,,,,258,reference only (replay)
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,505bea0,,,34,0.9202,0.944,0.9834,34,reference only (replay)
@@ -1049,6 +1169,9 @@ Met-A,Met-A each cell,colon macrophages,HM450K,50bcb5a,,,13,0.8945,0.9483,1.0169
 Met-A,Met-A each cell,colon macrophages,HM450K,c8ff5cc,,,36,0.9238,0.9662,1.0233,191,reference only (replay)
 Met-A,Met-A each cell,colon macrophages,HM450K,ca58285,,,0,,,,36,reference only (replay)
 Met-A,Met-A each cell,colon macrophages,HM450K,e98b90f,,,0,,,,4,reference only (replay)
+Met-A,Met-A each cell,colon macrophages,sequencing,1.519e+61,,,58,0.6797,0.8262,1.1266,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,colon macrophages,sequencing,8db1559,,,58,0.6797,0.8262,1.1266,58,development (common floor)
+Met-A,Met-A each cell,colon macrophages,sequencing,9d8ea3d,,,140,0.9109,0.9974,1.0786,140,development
 Met-A,Met-A each cell,cortical neurons,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,cortical neurons,EPIC_v1,3463259,,,0,,,,256,reference only (replay)
 Met-A,Met-A each cell,cortical neurons,EPIC_v1,505bea0,,,42,0.9205,0.9477,0.9791,42,reference only (replay)
@@ -1059,6 +1182,9 @@ Met-A,Met-A each cell,cortical neurons,HM450K,50bcb5a,,,18,0.9025,0.9511,1.0042,
 Met-A,Met-A each cell,cortical neurons,HM450K,c8ff5cc,,,66,0.9099,0.956,1.0159,326,reference only (replay)
 Met-A,Met-A each cell,cortical neurons,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,cortical neurons,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,cortical neurons,sequencing,1.519e+61,,,58,0.605,0.8396,0.9904,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,cortical neurons,sequencing,8db1559,,,58,0.605,0.8396,0.9904,58,development (common floor)
+Met-A,Met-A each cell,cortical neurons,sequencing,9d8ea3d,,,140,0.9188,1.0006,1.0646,140,development
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,3463259,,,0,,,,255,reference only (replay)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,505bea0,,,42,0.8688,0.8997,0.9516,42,reference only (replay)
@@ -1079,6 +1205,9 @@ Met-A,Met-A each cell,effector memory cd8 t cells,HM450K,50bcb5a,,,18,0.9124,0.9
 Met-A,Met-A each cell,effector memory cd8 t cells,HM450K,c8ff5cc,,,66,0.9184,0.9746,1.0316,325,reference only (replay)
 Met-A,Met-A each cell,effector memory cd8 t cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,effector memory cd8 t cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,effector memory cd8 t cells,sequencing,1.519e+61,,,58,0.6584,0.7994,1.1045,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,effector memory cd8 t cells,sequencing,8db1559,,,58,0.6584,0.7994,1.1045,58,development (common floor)
+Met-A,Met-A each cell,effector memory cd8 t cells,sequencing,9d8ea3d,,,140,0.9138,1.002,1.0596,140,development
 Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,3463259,,,0,,,,253,reference only (replay)
 Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,505bea0,,,42,0.9035,0.9282,0.9706,42,reference only (replay)
@@ -1099,6 +1228,9 @@ Met-A,Met-A each cell,endometrium epithelium,HM450K,50bcb5a,,,12,0.9204,0.9599,0
 Met-A,Met-A each cell,endometrium epithelium,HM450K,c8ff5cc,,,30,0.9412,0.9606,1.0045,175,reference only (replay)
 Met-A,Met-A each cell,endometrium epithelium,HM450K,ca58285,,,0,,,,8,reference only (replay)
 Met-A,Met-A each cell,endometrium epithelium,HM450K,e98b90f,,,0,,,,2,reference only (replay)
+Met-A,Met-A each cell,endometrium epithelium,sequencing,1.519e+61,,,58,0.7227,0.8865,1.0216,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,endometrium epithelium,sequencing,8db1559,,,58,0.7227,0.8865,1.0216,58,development (common floor)
+Met-A,Met-A each cell,endometrium epithelium,sequencing,9d8ea3d,,,140,0.9075,0.9979,1.0652,140,development
 Met-A,Met-A each cell,eosinophils,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,eosinophils,EPIC_v1,3463259,,,0,,,,264,reference only (replay)
 Met-A,Met-A each cell,eosinophils,EPIC_v1,505bea0,,,42,0.9269,0.946,0.9684,42,reference only (replay)
@@ -1119,17 +1251,26 @@ Met-A,Met-A each cell,erythrocyte progenitors,HM450K,50bcb5a,,,18,0.9208,0.9726,
 Met-A,Met-A each cell,erythrocyte progenitors,HM450K,c8ff5cc,,,66,0.9468,0.9753,1.0146,315,reference only (replay)
 Met-A,Met-A each cell,erythrocyte progenitors,HM450K,ca58285,,,0,,,,129,reference only (replay)
 Met-A,Met-A each cell,erythrocyte progenitors,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,erythrocyte progenitors,sequencing,1.519e+61,,,58,0.7057,0.8629,1.0794,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,erythrocyte progenitors,sequencing,8db1559,,,58,0.7057,0.8629,1.0794,58,development (common floor)
+Met-A,Met-A each cell,erythrocyte progenitors,sequencing,9d8ea3d,,,140,0.895,0.9976,1.0785,140,development
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,3463259,,,0,,,,225,reference only (replay)
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,505bea0,,,13,0.9605,0.9761,0.9974,13,reference only (replay)
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,801e08b,,,237,0.9672,1.0013,1.0343,439,reference only (replay)
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,ca58285,,,0,,,,63,reference only (replay)
+Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,1.519e+61,,,58,0.7075,0.8875,1.0173,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,8db1559,,,58,0.7075,0.8875,1.0173,58,development (common floor)
+Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,9d8ea3d,,,140,0.9036,0.9954,1.0786,140,development
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,3463259,,,0,,,,233,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,505bea0,,,13,0.9661,0.9776,0.9962,13,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,801e08b,,,237,0.9693,1.0012,1.0298,439,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,HM450K,c8ff5cc,,,0,,,,14,reference only (replay)
+Met-A,Met-A each cell,gastric antrum epithelium,sequencing,1.519e+61,,,58,0.7174,0.8909,1.0117,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,gastric antrum epithelium,sequencing,8db1559,,,58,0.7174,0.8909,1.0117,58,development (common floor)
+Met-A,Met-A each cell,gastric antrum epithelium,sequencing,9d8ea3d,,,140,0.9052,0.9956,1.0648,140,development
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,3463259,,,0,,,,232,reference only (replay)
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,505bea0,,,13,0.962,0.9802,0.9974,13,reference only (replay)
@@ -1140,12 +1281,19 @@ Met-A,Met-A each cell,gastric body epithelium,HM450K,50bcb5a,,,0,,,,12,reference
 Met-A,Met-A each cell,gastric body epithelium,HM450K,c8ff5cc,,,4,0.9435,0.9579,0.9837,45,reference only (replay)
 Met-A,Met-A each cell,gastric body epithelium,HM450K,ca58285,,,0,,,,3,reference only (replay)
 Met-A,Met-A each cell,gastric body epithelium,HM450K,e98b90f,,,0,,,,1,reference only (replay)
+Met-A,Met-A each cell,gastric body epithelium,sequencing,1.519e+61,,,58,0.7228,0.8912,1.0152,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,gastric body epithelium,sequencing,8db1559,,,58,0.7228,0.8912,1.0152,58,development (common floor)
+Met-A,Met-A each cell,gastric body epithelium,sequencing,9d8ea3d,,,140,0.9029,0.9946,1.0761,140,development
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,3463259,,,0,,,,234,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,505bea0,,,13,0.9659,0.9792,0.9951,13,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,801e08b,,,237,0.971,1.0042,1.0354,439,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,HM450K,c8ff5cc,,,0,,,,9,reference only (replay)
+Met-A,Met-A each cell,gastric fundus epithelium,sequencing,1.519e+61,,,58,0.7207,0.8927,1.0111,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,gastric fundus epithelium,sequencing,8db1559,,,58,0.7207,0.8927,1.0111,58,development (common floor)
+Met-A,Met-A each cell,gastric fundus epithelium,sequencing,9d8ea3d,,,140,0.9029,0.9936,1.0659,140,development
+Met-A,Met-A each cell,granulocytes,sequencing,9d8ea3d,,,140,0.9079,1.0004,1.0835,140,development
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,3463259,,,0,,,,257,reference only (replay)
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,505bea0,,,34,0.9495,0.97,0.9929,34,reference only (replay)
@@ -1156,6 +1304,9 @@ Met-A,Met-A each cell,heart fibroblasts,HM450K,50bcb5a,,,11,0.9168,0.9527,0.9817
 Met-A,Met-A each cell,heart fibroblasts,HM450K,c8ff5cc,,,24,0.9359,0.9608,0.9852,165,reference only (replay)
 Met-A,Met-A each cell,heart fibroblasts,HM450K,ca58285,,,0,,,,14,reference only (replay)
 Met-A,Met-A each cell,heart fibroblasts,HM450K,e98b90f,,,0,,,,2,reference only (replay)
+Met-A,Met-A each cell,heart fibroblasts,sequencing,1.519e+61,,,58,0.7026,0.8705,1.0355,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,heart fibroblasts,sequencing,8db1559,,,58,0.7026,0.8705,1.0355,58,development (common floor)
+Met-A,Met-A each cell,heart fibroblasts,sequencing,9d8ea3d,,,140,0.9106,0.9961,1.0632,140,development
 Met-A,Met-A each cell,hepatocyte,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,hepatocyte,EPIC_v1,3463259,,,0,,,,257,reference only (replay)
 Met-A,Met-A each cell,hepatocyte,EPIC_v1,505bea0,,,42,0.9551,0.9798,0.9918,42,reference only (replay)
@@ -1166,6 +1317,9 @@ Met-A,Met-A each cell,hepatocyte,HM450K,50bcb5a,,,18,0.9287,0.9635,0.9956,98,ref
 Met-A,Met-A each cell,hepatocyte,HM450K,c8ff5cc,,,66,0.9443,0.9658,1.0005,326,reference only (replay)
 Met-A,Met-A each cell,hepatocyte,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,hepatocyte,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,hepatocyte,sequencing,1.519e+61,,,59,0.6844,0.8729,1.0847,59,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,hepatocyte,sequencing,8db1559,,,59,0.6844,0.8729,1.0847,59,development (common floor)
+Met-A,Met-A each cell,hepatocyte,sequencing,9d8ea3d,,,140,0.9109,0.9979,1.0557,140,development
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,505bea0,,,42,0.9478,0.975,0.9978,42,reference only (replay)
@@ -1176,11 +1330,17 @@ Met-A,Met-A each cell,kidney glomerular endothelium,HM450K,50bcb5a,,,17,0.906,0.
 Met-A,Met-A each cell,kidney glomerular endothelium,HM450K,c8ff5cc,,,66,0.9317,0.9553,0.9966,307,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular endothelium,HM450K,ca58285,,,0,,,,126,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular endothelium,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,kidney glomerular endothelium,sequencing,1.519e+61,,,58,0.6334,0.8537,1.0333,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,kidney glomerular endothelium,sequencing,8db1559,,,58,0.6334,0.8537,1.0333,58,development (common floor)
+Met-A,Met-A each cell,kidney glomerular endothelium,sequencing,9d8ea3d,,,140,0.8948,0.9975,1.0681,140,development
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,3463259,,,0,,,,235,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,505bea0,,,13,0.9283,0.9546,0.9773,13,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,801e08b,,,237,0.9662,1.0135,1.0628,439,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
+Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,1.519e+61,,,58,0.6244,0.8564,1.0489,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,8db1559,,,58,0.6244,0.8564,1.0489,58,development (common floor)
+Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,9d8ea3d,,,140,0.9108,0.9995,1.0873,140,development
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,505bea0,,,42,0.9432,0.9694,0.9893,42,reference only (replay)
@@ -1191,6 +1351,9 @@ Met-A,Met-A each cell,kidney tubular endothelium,HM450K,50bcb5a,,,15,0.9058,0.95
 Met-A,Met-A each cell,kidney tubular endothelium,HM450K,c8ff5cc,,,59,0.928,0.9556,1.0027,285,reference only (replay)
 Met-A,Met-A each cell,kidney tubular endothelium,HM450K,ca58285,,,0,,,,122,reference only (replay)
 Met-A,Met-A each cell,kidney tubular endothelium,HM450K,e98b90f,,,0,,,,14,reference only (replay)
+Met-A,Met-A each cell,kidney tubular endothelium,sequencing,1.519e+61,,,58,0.6469,0.8523,1.0377,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,kidney tubular endothelium,sequencing,8db1559,,,58,0.6469,0.8523,1.0377,58,development (common floor)
+Met-A,Met-A each cell,kidney tubular endothelium,sequencing,9d8ea3d,,,140,0.8964,0.9973,1.0771,140,development
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,505bea0,,,42,0.9595,0.9828,0.9999,42,reference only (replay)
@@ -1201,6 +1364,9 @@ Met-A,Met-A each cell,kidney tubular epithelium,HM450K,50bcb5a,,,18,0.9066,0.949
 Met-A,Met-A each cell,kidney tubular epithelium,HM450K,c8ff5cc,,,66,0.9287,0.9549,0.9875,312,reference only (replay)
 Met-A,Met-A each cell,kidney tubular epithelium,HM450K,ca58285,,,0,,,,128,reference only (replay)
 Met-A,Met-A each cell,kidney tubular epithelium,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,kidney tubular epithelium,sequencing,1.519e+61,,,58,0.6555,0.8516,1.0329,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,kidney tubular epithelium,sequencing,8db1559,,,58,0.6555,0.8516,1.0329,58,development (common floor)
+Met-A,Met-A each cell,kidney tubular epithelium,sequencing,9d8ea3d,,,140,0.908,0.9984,1.0661,140,development
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,505bea0,,,42,0.948,0.9752,0.9958,42,reference only (replay)
@@ -1211,6 +1377,9 @@ Met-A,Met-A each cell,lung alveolar endothelium,HM450K,50bcb5a,,,18,0.902,0.9517
 Met-A,Met-A each cell,lung alveolar endothelium,HM450K,c8ff5cc,,,66,0.9239,0.9553,0.9933,309,reference only (replay)
 Met-A,Met-A each cell,lung alveolar endothelium,HM450K,ca58285,,,0,,,,127,reference only (replay)
 Met-A,Met-A each cell,lung alveolar endothelium,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,lung alveolar endothelium,sequencing,1.519e+61,,,58,0.6636,0.8626,1.0447,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,lung alveolar endothelium,sequencing,8db1559,,,58,0.6636,0.8626,1.0447,58,development (common floor)
+Met-A,Met-A each cell,lung alveolar endothelium,sequencing,9d8ea3d,,,140,0.9071,1.0035,1.0801,140,development
 Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,3463259,,,0,,,,260,reference only (replay)
 Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,505bea0,,,42,0.8943,0.9485,0.9898,42,reference only (replay)
@@ -1221,11 +1390,17 @@ Met-A,Met-A each cell,lung alveolar epithelium,HM450K,50bcb5a,,,18,0.8783,0.923,
 Met-A,Met-A each cell,lung alveolar epithelium,HM450K,c8ff5cc,,,66,0.8985,0.9369,1.0339,322,reference only (replay)
 Met-A,Met-A each cell,lung alveolar epithelium,HM450K,ca58285,,,0,,,,130,reference only (replay)
 Met-A,Met-A each cell,lung alveolar epithelium,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,lung alveolar epithelium,sequencing,1.519e+61,,,58,0.6489,0.8492,1.0017,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,lung alveolar epithelium,sequencing,8db1559,,,58,0.6489,0.8492,1.0017,58,development (common floor)
+Met-A,Met-A each cell,lung alveolar epithelium,sequencing,9d8ea3d,,,140,0.909,0.9985,1.0692,140,development
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,3463259,,,0,,,,235,reference only (replay)
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,505bea0,,,13,0.9173,0.9442,0.9685,13,reference only (replay)
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,801e08b,,,237,0.9538,1.0068,1.0642,439,reference only (replay)
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
+Met-A,Met-A each cell,lung alveolar macrophages,sequencing,1.519e+61,,,58,0.5874,0.8184,1.0449,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,lung alveolar macrophages,sequencing,8db1559,,,58,0.5874,0.8184,1.0449,58,development (common floor)
+Met-A,Met-A each cell,lung alveolar macrophages,sequencing,9d8ea3d,,,140,0.8849,0.9969,1.1178,140,development
 Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,3463259,,,0,,,,231,reference only (replay)
 Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,505bea0,,,42,0.9037,0.9371,0.9819,42,reference only (replay)
@@ -1236,6 +1411,9 @@ Met-A,Met-A each cell,lung bronchus epithelium,HM450K,50bcb5a,,,18,0.9323,0.9783
 Met-A,Met-A each cell,lung bronchus epithelium,HM450K,c8ff5cc,,,66,0.9396,0.9921,1.0466,326,reference only (replay)
 Met-A,Met-A each cell,lung bronchus epithelium,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,lung bronchus epithelium,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,lung bronchus epithelium,sequencing,1.519e+61,,,58,0.69,0.8482,1.1228,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,lung bronchus epithelium,sequencing,8db1559,,,58,0.69,0.8482,1.1228,58,development (common floor)
+Met-A,Met-A each cell,lung bronchus epithelium,sequencing,9d8ea3d,,,140,0.9301,1.0081,1.0777,140,development
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,3463259,,,0,,,,264,reference only (replay)
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,505bea0,,,42,0.9346,0.9576,0.9854,42,reference only (replay)
@@ -1246,6 +1424,9 @@ Met-A,Met-A each cell,lung interstitial macrophages,HM450K,50bcb5a,,,16,0.8915,0
 Met-A,Met-A each cell,lung interstitial macrophages,HM450K,c8ff5cc,,,60,0.9117,0.9497,1.0005,287,reference only (replay)
 Met-A,Met-A each cell,lung interstitial macrophages,HM450K,ca58285,,,0,,,,117,reference only (replay)
 Met-A,Met-A each cell,lung interstitial macrophages,HM450K,e98b90f,,,0,,,,14,reference only (replay)
+Met-A,Met-A each cell,lung interstitial macrophages,sequencing,1.519e+61,,,58,0.6036,0.8122,1.0424,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,lung interstitial macrophages,sequencing,8db1559,,,58,0.6036,0.8122,1.0424,58,development (common floor)
+Met-A,Met-A each cell,lung interstitial macrophages,sequencing,9d8ea3d,,,140,0.9034,0.9956,1.0868,140,development
 Met-A,Met-A each cell,memory b cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,memory b cells,EPIC_v1,3463259,,,0,,,,257,reference only (replay)
 Met-A,Met-A each cell,memory b cells,EPIC_v1,505bea0,,,42,0.8696,0.8944,0.9484,42,reference only (replay)
@@ -1256,6 +1437,9 @@ Met-A,Met-A each cell,memory b cells,HM450K,50bcb5a,,,17,0.9002,0.9291,1.0175,94
 Met-A,Met-A each cell,memory b cells,HM450K,c8ff5cc,,,65,0.89,0.957,1.044,306,reference only (replay)
 Met-A,Met-A each cell,memory b cells,HM450K,ca58285,,,0,,,,128,reference only (replay)
 Met-A,Met-A each cell,memory b cells,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,memory b cells,sequencing,1.519e+61,,,58,0.7104,0.8066,1.0291,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,memory b cells,sequencing,8db1559,,,58,0.7104,0.8066,1.0291,58,development (common floor)
+Met-A,Met-A each cell,memory b cells,sequencing,9d8ea3d,,,140,0.9128,0.9991,1.0621,140,development
 Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,3463259,,,0,,,,258,reference only (replay)
 Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,505bea0,,,42,0.8952,0.9176,0.9584,42,reference only (replay)
@@ -1286,6 +1470,9 @@ Met-A,Met-A each cell,monocytes,HM450K,50bcb5a,,,18,0.9001,0.944,0.9958,98,refer
 Met-A,Met-A each cell,monocytes,HM450K,c8ff5cc,,,66,0.9095,0.9478,1.0077,325,reference only (replay)
 Met-A,Met-A each cell,monocytes,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,monocytes,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,monocytes,sequencing,1.519e+61,,,58,0.5129,0.7879,1.0153,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,monocytes,sequencing,8db1559,,,58,0.5129,0.7879,1.0153,58,development (common floor)
+Met-A,Met-A each cell,monocytes,sequencing,9d8ea3d,,,140,0.8904,0.9963,1.093,140,development
 Met-A,Met-A each cell,naive b cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,naive b cells,EPIC_v1,3463259,,,0,,,,261,reference only (replay)
 Met-A,Met-A each cell,naive b cells,EPIC_v1,505bea0,,,42,0.8877,0.9101,0.9547,42,reference only (replay)
@@ -1306,6 +1493,9 @@ Met-A,Met-A each cell,naive cd4 t cells,HM450K,50bcb5a,,,18,0.9181,0.9742,1.1091
 Met-A,Met-A each cell,naive cd4 t cells,HM450K,c8ff5cc,,,66,0.9045,0.9915,1.0898,326,reference only (replay)
 Met-A,Met-A each cell,naive cd4 t cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,naive cd4 t cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,naive cd4 t cells,sequencing,1.519e+61,,,58,0.5785,0.7894,1.0126,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,naive cd4 t cells,sequencing,8db1559,,,58,0.5785,0.7894,1.0126,58,development (common floor)
+Met-A,Met-A each cell,naive cd4 t cells,sequencing,9d8ea3d,,,140,0.913,1.0017,1.0904,140,development
 Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,3463259,,,0,,,,253,reference only (replay)
 Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,505bea0,,,42,0.8977,0.9317,0.9793,42,reference only (replay)
@@ -1316,6 +1506,9 @@ Met-A,Met-A each cell,naive cd8 t cells,HM450K,50bcb5a,,,18,0.9208,0.9675,1.0725
 Met-A,Met-A each cell,naive cd8 t cells,HM450K,c8ff5cc,,,66,0.9145,0.9836,1.0558,326,reference only (replay)
 Met-A,Met-A each cell,naive cd8 t cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,naive cd8 t cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,naive cd8 t cells,sequencing,1.519e+61,,,58,0.6354,0.7945,1.0487,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,naive cd8 t cells,sequencing,8db1559,,,58,0.6354,0.7945,1.0487,58,development (common floor)
+Met-A,Met-A each cell,naive cd8 t cells,sequencing,9d8ea3d,,,140,0.9137,0.9997,1.0735,140,development
 Met-A,Met-A each cell,neutrophils,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,neutrophils,EPIC_v1,3463259,,,0,,,,229,reference only (replay)
 Met-A,Met-A each cell,neutrophils,EPIC_v1,505bea0,,,42,0.9005,0.9326,0.9867,42,reference only (replay)
@@ -1336,6 +1529,9 @@ Met-A,Met-A each cell,nk cells,HM450K,50bcb5a,,,18,0.8679,0.9288,0.9857,98,refer
 Met-A,Met-A each cell,nk cells,HM450K,c8ff5cc,,,66,0.8826,0.9313,0.9833,326,reference only (replay)
 Met-A,Met-A each cell,nk cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,nk cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,nk cells,sequencing,1.519e+61,,,58,0.6031,0.7754,1.0649,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,nk cells,sequencing,8db1559,,,58,0.6031,0.7754,1.0649,58,development (common floor)
+Met-A,Met-A each cell,nk cells,sequencing,9d8ea3d,,,140,0.9192,1.0004,1.0834,140,development
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,3463259,,,0,,,,237,reference only (replay)
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,505bea0,,,13,0.92,0.9588,0.9813,13,reference only (replay)
@@ -1351,6 +1547,9 @@ Met-A,Met-A each cell,oligodendrocytes,HM450K,50bcb5a,,,18,0.9003,0.9387,1.0081,
 Met-A,Met-A each cell,oligodendrocytes,HM450K,c8ff5cc,,,66,0.9007,0.954,1.0198,316,reference only (replay)
 Met-A,Met-A each cell,oligodendrocytes,HM450K,ca58285,,,0,,,,130,reference only (replay)
 Met-A,Met-A each cell,oligodendrocytes,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,oligodendrocytes,sequencing,1.519e+61,,,58,0.5957,0.8323,0.994,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,oligodendrocytes,sequencing,8db1559,,,58,0.5957,0.8323,0.994,58,development (common floor)
+Met-A,Met-A each cell,oligodendrocytes,sequencing,9d8ea3d,,,140,0.9116,0.9998,1.0689,140,development
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,3463259,,,0,,,,232,reference only (replay)
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,505bea0,,,13,0.9544,0.9724,0.9911,13,reference only (replay)
@@ -1361,6 +1560,9 @@ Met-A,Met-A each cell,pancreas endothelium,HM450K,50bcb5a,,,4,0.9286,0.937,0.961
 Met-A,Met-A each cell,pancreas endothelium,HM450K,c8ff5cc,,,16,0.9266,0.9434,0.9788,104,reference only (replay)
 Met-A,Met-A each cell,pancreas endothelium,HM450K,ca58285,,,0,,,,5,reference only (replay)
 Met-A,Met-A each cell,pancreas endothelium,HM450K,e98b90f,,,0,,,,1,reference only (replay)
+Met-A,Met-A each cell,pancreas endothelium,sequencing,1.519e+61,,,58,0.6751,0.8581,1.0204,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,pancreas endothelium,sequencing,8db1559,,,58,0.6751,0.8581,1.0204,58,development (common floor)
+Met-A,Met-A each cell,pancreas endothelium,sequencing,9d8ea3d,,,140,0.9026,0.9986,1.0894,140,development
 Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,3463259,,,0,,,,262,reference only (replay)
 Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,505bea0,,,42,0.9455,0.9656,0.9873,42,reference only (replay)
@@ -1371,6 +1573,9 @@ Met-A,Met-A each cell,pancreatic acinar,HM450K,50bcb5a,,,18,0.9477,0.9781,1.0238
 Met-A,Met-A each cell,pancreatic acinar,HM450K,c8ff5cc,,,66,0.9611,0.9883,1.0305,326,reference only (replay)
 Met-A,Met-A each cell,pancreatic acinar,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,pancreatic acinar,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,pancreatic acinar,sequencing,1.519e+61,,,59,0.7418,0.8833,1.0399,59,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,pancreatic acinar,sequencing,8db1559,,,59,0.7418,0.8833,1.0399,59,development (common floor)
+Met-A,Met-A each cell,pancreatic acinar,sequencing,9d8ea3d,,,140,0.905,0.994,1.0705,140,development
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,3463259,,,0,,,,257,reference only (replay)
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,505bea0,,,33,0.9523,0.9722,0.9942,33,reference only (replay)
@@ -1381,6 +1586,9 @@ Met-A,Met-A each cell,pancreatic alpha,HM450K,50bcb5a,,,11,0.905,0.9457,0.966,53
 Met-A,Met-A each cell,pancreatic alpha,HM450K,c8ff5cc,,,23,0.924,0.9463,0.9783,163,reference only (replay)
 Met-A,Met-A each cell,pancreatic alpha,HM450K,ca58285,,,0,,,,8,reference only (replay)
 Met-A,Met-A each cell,pancreatic alpha,HM450K,e98b90f,,,0,,,,2,reference only (replay)
+Met-A,Met-A each cell,pancreatic alpha,sequencing,1.519e+61,,,58,0.6743,0.8713,1.0339,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,pancreatic alpha,sequencing,8db1559,,,58,0.6743,0.8713,1.0339,58,development (common floor)
+Met-A,Met-A each cell,pancreatic alpha,sequencing,9d8ea3d,,,140,0.9129,0.9964,1.0695,140,development
 Met-A,Met-A each cell,pancreatic beta,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,pancreatic beta,EPIC_v1,3463259,,,0,,,,262,reference only (replay)
 Met-A,Met-A each cell,pancreatic beta,EPIC_v1,505bea0,,,42,0.9322,0.957,0.9824,42,reference only (replay)
@@ -1391,6 +1599,9 @@ Met-A,Met-A each cell,pancreatic beta,HM450K,50bcb5a,,,18,0.9106,0.9488,1.0094,9
 Met-A,Met-A each cell,pancreatic beta,HM450K,c8ff5cc,,,66,0.9203,0.9656,1.0237,326,reference only (replay)
 Met-A,Met-A each cell,pancreatic beta,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,pancreatic beta,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,pancreatic beta,sequencing,1.519e+61,,,58,0.6737,0.8532,1.0328,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,pancreatic beta,sequencing,8db1559,,,58,0.6737,0.8532,1.0328,58,development (common floor)
+Met-A,Met-A each cell,pancreatic beta,sequencing,9d8ea3d,,,140,0.9125,1.0013,1.0735,140,development
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,3463259,,,0,,,,262,reference only (replay)
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,505bea0,,,42,0.9508,0.9794,0.9976,42,reference only (replay)
@@ -1401,6 +1612,9 @@ Met-A,Met-A each cell,pancreatic delta,HM450K,50bcb5a,,,15,0.9147,0.9532,0.9907,
 Met-A,Met-A each cell,pancreatic delta,HM450K,c8ff5cc,,,49,0.9335,0.9599,1.0054,257,reference only (replay)
 Met-A,Met-A each cell,pancreatic delta,HM450K,ca58285,,,0,,,,96,reference only (replay)
 Met-A,Met-A each cell,pancreatic delta,HM450K,e98b90f,,,0,,,,10,reference only (replay)
+Met-A,Met-A each cell,pancreatic delta,sequencing,1.519e+61,,,58,0.677,0.8744,1.0432,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,pancreatic delta,sequencing,8db1559,,,58,0.677,0.8744,1.0432,58,development (common floor)
+Met-A,Met-A each cell,pancreatic delta,sequencing,9d8ea3d,,,140,0.9062,0.9964,1.0815,140,development
 Met-A,Met-A each cell,pancreatic duct,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,pancreatic duct,EPIC_v1,3463259,,,0,,,,258,reference only (replay)
 Met-A,Met-A each cell,pancreatic duct,EPIC_v1,505bea0,,,42,0.9501,0.9685,0.9931,42,reference only (replay)
@@ -1411,12 +1625,18 @@ Met-A,Met-A each cell,pancreatic duct,HM450K,50bcb5a,,,18,0.938,0.9744,1.0248,98
 Met-A,Met-A each cell,pancreatic duct,HM450K,c8ff5cc,,,66,0.9497,0.977,1.0204,326,reference only (replay)
 Met-A,Met-A each cell,pancreatic duct,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,pancreatic duct,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,pancreatic duct,sequencing,1.519e+61,,,59,0.7018,0.8772,1.0457,59,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,pancreatic duct,sequencing,8db1559,,,59,0.7018,0.8772,1.0457,59,development (common floor)
+Met-A,Met-A each cell,pancreatic duct,sequencing,9d8ea3d,,,140,0.8962,0.9918,1.063,140,development
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,3463259,,,0,,,,232,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,505bea0,,,13,0.9634,0.9788,0.9981,13,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,801e08b,,,237,0.972,1.0057,1.0345,439,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,HM450K,c8ff5cc,,,0,,,,12,reference only (replay)
+Met-A,Met-A each cell,prostate epithelium,sequencing,1.519e+61,,,58,0.7198,0.8843,1.0101,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,prostate epithelium,sequencing,8db1559,,,58,0.7198,0.8843,1.0101,58,development (common floor)
+Met-A,Met-A each cell,prostate epithelium,sequencing,9d8ea3d,,,140,0.8953,0.9965,1.0622,140,development
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,3463259,,,0,,,,262,reference only (replay)
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,505bea0,,,42,0.9132,0.9339,0.9556,42,reference only (replay)
@@ -1437,6 +1657,9 @@ Met-A,Met-A each cell,small intestine epithelium,HM450K,50bcb5a,,,18,0.9077,0.95
 Met-A,Met-A each cell,small intestine epithelium,HM450K,c8ff5cc,,,66,0.9094,0.9751,1.0517,326,reference only (replay)
 Met-A,Met-A each cell,small intestine epithelium,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,small intestine epithelium,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,small intestine epithelium,sequencing,1.519e+61,,,58,0.6134,0.8098,1.0293,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,small intestine epithelium,sequencing,8db1559,,,58,0.6134,0.8098,1.0293,58,development (common floor)
+Met-A,Met-A each cell,small intestine epithelium,sequencing,9d8ea3d,,,140,0.9074,1.0034,1.104,140,development
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,3463259,,,0,,,,234,reference only (replay)
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,505bea0,,,13,0.9624,0.9791,0.9976,13,reference only (replay)
@@ -1447,6 +1670,9 @@ Met-A,Met-A each cell,smooth muscle,HM450K,50bcb5a,,,0,,,,11,reference only (rep
 Met-A,Met-A each cell,smooth muscle,HM450K,c8ff5cc,,,4,0.9539,0.9683,0.9892,43,reference only (replay)
 Met-A,Met-A each cell,smooth muscle,HM450K,ca58285,,,0,,,,4,reference only (replay)
 Met-A,Met-A each cell,smooth muscle,HM450K,e98b90f,,,0,,,,1,reference only (replay)
+Met-A,Met-A each cell,smooth muscle,sequencing,1.519e+61,,,58,0.7206,0.8911,1.014,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,smooth muscle,sequencing,8db1559,,,58,0.7206,0.8911,1.014,58,development (common floor)
+Met-A,Met-A each cell,smooth muscle,sequencing,9d8ea3d,,,140,0.9182,0.9947,1.0725,140,development
 Met-A,Met-A each cell,striated muscle,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,striated muscle,EPIC_v1,3463259,,,0,,,,235,reference only (replay)
 Met-A,Met-A each cell,striated muscle,EPIC_v1,505bea0,,,13,0.922,0.9503,0.9744,13,reference only (replay)
@@ -1454,6 +1680,9 @@ Met-A,Met-A each cell,striated muscle,EPIC_v1,801e08b,,,237,0.9596,1.0121,1.0731
 Met-A,Met-A each cell,striated muscle,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,striated muscle,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 Met-A,Met-A each cell,striated muscle,HM450K,c8ff5cc,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,striated muscle,sequencing,1.519e+61,,,58,0.6128,0.8391,1.0622,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,striated muscle,sequencing,8db1559,,,58,0.6128,0.8391,1.0622,58,development (common floor)
+Met-A,Met-A each cell,striated muscle,sequencing,9d8ea3d,,,140,0.8844,0.9978,1.0987,140,development
 Met-A,Met-A each cell,t central memory cd4,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,t central memory cd4,EPIC_v1,3463259,,,0,,,,235,reference only (replay)
 Met-A,Met-A each cell,t central memory cd4,EPIC_v1,505bea0,,,42,0.8809,0.9109,0.972,42,reference only (replay)
@@ -1464,6 +1693,9 @@ Met-A,Met-A each cell,t central memory cd4,HM450K,50bcb5a,,,18,0.9474,0.9989,1.1
 Met-A,Met-A each cell,t central memory cd4,HM450K,c8ff5cc,,,66,0.933,1.0211,1.1066,318,reference only (replay)
 Met-A,Met-A each cell,t central memory cd4,HM450K,ca58285,,,0,,,,130,reference only (replay)
 Met-A,Met-A each cell,t central memory cd4,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,t central memory cd4,sequencing,1.519e+61,,,58,0.6163,0.7768,1.0332,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,t central memory cd4,sequencing,8db1559,,,58,0.6163,0.7768,1.0332,58,development (common floor)
+Met-A,Met-A each cell,t central memory cd4,sequencing,9d8ea3d,,,140,0.9135,1.0001,1.0874,140,development
 Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,3463259,,,0,,,,239,reference only (replay)
 Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,505bea0,,,42,0.8805,0.9113,0.9605,42,reference only (replay)
@@ -1474,6 +1706,9 @@ Met-A,Met-A each cell,t effector cell cd8,HM450K,50bcb5a,,,18,0.914,0.9629,1.047
 Met-A,Met-A each cell,t effector cell cd8,HM450K,c8ff5cc,,,66,0.9081,0.9877,1.0617,326,reference only (replay)
 Met-A,Met-A each cell,t effector cell cd8,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,t effector cell cd8,HM450K,e98b90f,,,0,,,,16,reference only (replay)
+Met-A,Met-A each cell,t effector cell cd8,sequencing,1.519e+61,,,58,0.7003,0.8058,1.0148,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,t effector cell cd8,sequencing,8db1559,,,58,0.7003,0.8058,1.0148,58,development (common floor)
+Met-A,Met-A each cell,t effector cell cd8,sequencing,9d8ea3d,,,140,0.9099,0.9964,1.0563,140,development
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,3463259,,,0,,,,257,reference only (replay)
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,505bea0,,,41,0.9237,0.9465,0.9759,41,reference only (replay)
@@ -1484,6 +1719,9 @@ Met-A,Met-A each cell,t effector memory cd4,HM450K,50bcb5a,,,11,0.8877,0.9331,0.
 Met-A,Met-A each cell,t effector memory cd4,HM450K,c8ff5cc,,,27,0.9031,0.9418,0.9795,171,reference only (replay)
 Met-A,Met-A each cell,t effector memory cd4,HM450K,ca58285,,,0,,,,54,reference only (replay)
 Met-A,Met-A each cell,t effector memory cd4,HM450K,e98b90f,,,0,,,,6,reference only (replay)
+Met-A,Met-A each cell,t effector memory cd4,sequencing,1.519e+61,,,58,0.7008,0.8316,1.0858,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,t effector memory cd4,sequencing,8db1559,,,58,0.7008,0.8316,1.0858,58,development (common floor)
+Met-A,Met-A each cell,t effector memory cd4,sequencing,9d8ea3d,,,140,0.9022,0.9978,1.0702,140,development
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,3463259,,,0,,,,262,reference only (replay)
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,505bea0,,,42,0.9511,0.9779,0.9979,42,reference only (replay)
@@ -1494,6 +1732,9 @@ Met-A,Met-A each cell,thyroid epithelium,HM450K,50bcb5a,,,13,0.9033,0.9518,0.979
 Met-A,Met-A each cell,thyroid epithelium,HM450K,c8ff5cc,,,41,0.9215,0.9531,0.9907,211,reference only (replay)
 Met-A,Met-A each cell,thyroid epithelium,HM450K,ca58285,,,0,,,,68,reference only (replay)
 Met-A,Met-A each cell,thyroid epithelium,HM450K,e98b90f,,,0,,,,8,reference only (replay)
+Met-A,Met-A each cell,thyroid epithelium,sequencing,1.519e+61,,,58,0.6538,0.8569,1.0307,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,thyroid epithelium,sequencing,8db1559,,,58,0.6538,0.8569,1.0307,58,development (common floor)
+Met-A,Met-A each cell,thyroid epithelium,sequencing,9d8ea3d,,,140,0.908,0.9964,1.0721,140,development
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,3463259,,,0,,,,234,reference only (replay)
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,505bea0,,,13,0.9624,0.9768,0.9944,13,reference only (replay)
@@ -1501,6 +1742,9 @@ Met-A,Met-A each cell,tongue epithelium,EPIC_v1,801e08b,,,237,0.9734,1.0066,1.03
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,tongue epithelium,HM450K,50bcb5a,,,0,,,,3,reference only (replay)
 Met-A,Met-A each cell,tongue epithelium,HM450K,c8ff5cc,,,0,,,,18,reference only (replay)
+Met-A,Met-A each cell,tongue epithelium,sequencing,1.519e+61,,,58,0.7307,0.8904,1.0091,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,tongue epithelium,sequencing,8db1559,,,58,0.7307,0.8904,1.0091,58,development (common floor)
+Met-A,Met-A each cell,tongue epithelium,sequencing,9d8ea3d,,,140,0.8916,0.9954,1.0656,140,development
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,3463259,,,0,,,,263,reference only (replay)
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,505bea0,,,42,0.9531,0.9792,0.996,42,reference only (replay)
@@ -1511,11 +1755,17 @@ Met-A,Met-A each cell,tonsil palatine epithelium,HM450K,50bcb5a,,,15,0.9144,0.95
 Met-A,Met-A each cell,tonsil palatine epithelium,HM450K,c8ff5cc,,,41,0.9347,0.9574,0.9931,223,reference only (replay)
 Met-A,Met-A each cell,tonsil palatine epithelium,HM450K,ca58285,,,0,,,,68,reference only (replay)
 Met-A,Met-A each cell,tonsil palatine epithelium,HM450K,e98b90f,,,0,,,,8,reference only (replay)
+Met-A,Met-A each cell,tonsil palatine epithelium,sequencing,1.519e+61,,,58,0.7143,0.8767,1.0238,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,tonsil palatine epithelium,sequencing,8db1559,,,58,0.7143,0.8767,1.0238,58,development (common floor)
+Met-A,Met-A each cell,tonsil palatine epithelium,sequencing,9d8ea3d,,,140,0.9048,0.9981,1.0713,140,development
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,3463259,,,0,,,,236,reference only (replay)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,505bea0,,,13,0.9336,0.9584,0.9829,13,reference only (replay)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,801e08b,,,237,0.9664,1.0141,1.0644,439,reference only (replay)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
+Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,1.519e+61,,,58,0.6692,0.8535,1.0284,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,8db1559,,,58,0.6692,0.8535,1.0284,58,development (common floor)
+Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,9d8ea3d,,,140,0.9055,1.0021,1.0918,140,development
 Met-A,Met-A each cell,vascular endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,vascular endothelium,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
 Met-A,Met-A each cell,vascular endothelium,EPIC_v1,505bea0,,,42,0.9248,0.9714,1.006,42,reference only (replay)
@@ -1541,64 +1791,133 @@ Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,50bcb5a,,,16,0.9031,
 Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,c8ff5cc,,,65,0.9292,0.9554,0.9932,304,reference only (replay)
 Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,ca58285,,,0,,,,124,reference only (replay)
 Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,e98b90f,,,0,,,,15,reference only (replay)
+Met-A,Met-A each cell,vascular saphenous endothelium,sequencing,1.519e+61,,,58,0.6469,0.855,1.0376,58,"development (outside-laboratory test, not met)"
+Met-A,Met-A each cell,vascular saphenous endothelium,sequencing,8db1559,,,58,0.6469,0.855,1.0376,58,development (common floor)
+Met-A,Met-A each cell,vascular saphenous endothelium,sequencing,9d8ea3d,,,140,0.9045,0.9992,1.0643,140,development
 Met-A,Met-A sorted cell (atlas),adipocytes,sequencing,1dcb6df,,,3,0.8326,0.844,0.8696,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),aorta endothelium,sequencing,1dcb6df,,,2,,1.0098,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),aorta endothelium,sequencing,9d8ea3d,,,2,,1.0013,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),b cells,sequencing,0a01f6d,,,1,,2.0768,,37,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),b cells,sequencing,1.519e+61,,,6,0.5589,0.5914,0.6192,6,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),b cells,sequencing,1dcb6df,,,3,0.6181,0.6689,0.7072,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),b cells,sequencing,8db1559,,,6,0.6771,0.708,0.7473,6,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),b cells,sequencing,9d8ea3d,,,3,0.9253,1.0379,1.0653,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),bladder epithelium,sequencing,1dcb6df,,,3,0.7576,0.7634,0.8356,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),bladder epithelium,sequencing,9d8ea3d,,,3,0.8988,0.9066,1.102,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),breast basal epithelium,sequencing,1dcb6df,,,3,0.7796,0.7957,0.8077,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),breast basal epithelium,sequencing,9d8ea3d,,,3,0.9634,0.9841,1.0419,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),breast luminal epithelium,sequencing,1dcb6df,,,3,0.7155,0.7667,0.8125,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),breast luminal epithelium,sequencing,9d8ea3d,,,3,0.9355,1.0699,1.0716,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),cardiomyocyte,sequencing,1dcb6df,,,3,0.7292,0.7468,0.768,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cardiomyocyte,sequencing,9d8ea3d,,,3,0.981,1.0256,1.0571,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),cd4 t cells,sequencing,1dcb6df,,,3,0.6681,0.6925,0.7613,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cd4 t cells,sequencing,9d8ea3d,,,3,0.8818,0.9062,1.1088,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cd8 t cells,sequencing,1.519e+61,,,3,0.5422,0.5933,0.812,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),cd8 t cells,sequencing,1dcb6df,,,3,0.6796,0.7574,0.7673,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cd8 t cells,sequencing,8db1559,,,3,0.6525,0.7031,0.7201,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cd8 t cells,sequencing,9d8ea3d,,,3,0.8788,0.9756,1.0827,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),colon enteroendocrine,sequencing,1dcb6df,,,2,,0.8574,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),colon enteroendocrine,sequencing,9d8ea3d,,,2,,1.0029,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),colon epithelium,sequencing,1dcb6df,,,3,0.7688,0.7739,0.8546,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),colon epithelium,sequencing,9d8ea3d,,,3,0.9506,0.9889,1.1047,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),colon fibroblasts,sequencing,1dcb6df,,,2,,0.9258,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),colon fibroblasts,sequencing,9d8ea3d,,,2,,1.0,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),colon macrophages,sequencing,1dcb6df,,,2,,0.8718,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cortical neurons,sequencing,15ddba1,,,25,0.805,0.9108,1.5211,25,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),cortical neurons,sequencing,1dcb6df,,,3,0.7683,0.8606,0.932,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),cortical neurons,sequencing,9d8ea3d,,,3,0.8962,1.0568,1.0855,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),effector memory cd8 t cells,sequencing,1.519e+61,,,2,,0.5946,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),effector memory cd8 t cells,sequencing,1dcb6df,,,1,,0.7376,,1,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),effector memory cd8 t cells,sequencing,8db1559,,,2,,0.6402,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),endometrium epithelium,sequencing,1dcb6df,,,3,0.6902,0.7297,0.815,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),endometrium epithelium,sequencing,9d8ea3d,,,3,0.837,0.8856,1.1561,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),erythrocyte progenitors,sequencing,1dcb6df,,,3,0.7263,0.7469,0.8573,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),erythrocyte progenitors,sequencing,9d8ea3d,,,3,0.9739,1.0294,1.1502,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),fallopien tubes epithelium,sequencing,1dcb6df,,,3,0.6898,0.7179,0.7412,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),fallopien tubes epithelium,sequencing,9d8ea3d,,,3,0.9674,1.0453,1.0792,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),gastric antrum epithelium,sequencing,1dcb6df,,,3,0.6913,0.6921,0.7168,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),gastric antrum epithelium,sequencing,9d8ea3d,,,3,0.9984,1.0092,1.0355,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),gastric body epithelium,sequencing,1dcb6df,,,3,0.7054,0.7101,0.7347,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),gastric body epithelium,sequencing,9d8ea3d,,,3,1.005,1.0077,1.0444,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),gastric fundus epithelium,sequencing,1dcb6df,,,3,0.689,0.7017,0.718,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),gastric fundus epithelium,sequencing,9d8ea3d,,,3,0.959,0.9763,1.0411,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),granulocytes,sequencing,9d8ea3d,,,3,0.9365,0.9731,1.0476,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),heart fibroblasts,sequencing,1dcb6df,,,3,0.7438,0.7597,0.7653,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),heart fibroblasts,sequencing,9d8ea3d,,,3,0.9929,1.022,1.0315,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),hepatocyte,sequencing,1dcb6df,,,3,0.7921,0.8068,0.8219,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),kidney glomerular endothelium,sequencing,1dcb6df,,,3,0.7366,0.7549,0.759,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),kidney glomerular endothelium,sequencing,9d8ea3d,,,3,0.9869,1.0257,1.0339,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),kidney glomerular epithelium,sequencing,1dcb6df,,,2,,0.9458,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),kidney tubular endothelium,sequencing,1dcb6df,,,3,0.7244,0.7751,0.8095,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),kidney tubular endothelium,sequencing,9d8ea3d,,,3,0.9367,1.0792,1.1294,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),kidney tubular epithelium,sequencing,1dcb6df,,,3,0.7188,0.738,0.7583,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),kidney tubular epithelium,sequencing,9d8ea3d,,,3,0.9838,1.0279,1.0578,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),lung alveolar endothelium,sequencing,1dcb6df,,,3,0.7531,0.7626,0.7656,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung alveolar endothelium,sequencing,9d8ea3d,,,3,0.9895,1.0053,1.0202,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),lung alveolar epithelium,sequencing,1dcb6df,,,3,0.8183,0.8232,0.8348,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung alveolar epithelium,sequencing,9d8ea3d,,,3,0.9945,1.009,1.0173,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),lung alveolar macrophages,sequencing,1dcb6df,,,2,,0.8924,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung alveolar macrophages,sequencing,9d8ea3d,,,2,,1.0057,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),lung bronchus epithelium,sequencing,1dcb6df,,,3,0.6651,0.6865,0.7187,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung bronchus epithelium,sequencing,9d8ea3d,,,3,0.9212,0.9522,1.0773,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),lung interstitial macrophages,sequencing,1dcb6df,,,3,0.7043,0.7045,0.7777,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),lung interstitial macrophages,sequencing,9d8ea3d,,,3,0.8989,0.9002,1.1116,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),memory b cells,sequencing,0a01f6d,,,2,,1.9741,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),memory b cells,sequencing,1.519e+61,,,2,,0.668,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),memory b cells,sequencing,1dcb6df,,,2,,0.741,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),memory b cells,sequencing,8db1559,,,2,,0.7097,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),memory b cells,sequencing,9d8ea3d,,,2,,1.0019,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),monocytes,sequencing,1.519e+61,,,19,0.6684,0.7348,0.892,19,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),monocytes,sequencing,1dcb6df,,,3,0.742,0.7519,0.8009,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),monocytes,sequencing,8db1559,,,19,0.7508,0.8168,0.9454,19,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),monocytes,sequencing,9d8ea3d,,,3,0.9813,1.0151,1.0812,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),naive cd4 t cells,sequencing,1dcb6df,,,1,,0.6715,,1,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),naive cd8 t cells,sequencing,1dcb6df,,,1,,0.639,,1,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),nk cells,sequencing,1.519e+61,,,4,0.7004,0.7639,0.8004,4,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),nk cells,sequencing,1dcb6df,,,3,0.704,0.7077,0.8398,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),nk cells,sequencing,8db1559,,,4,0.7934,0.8526,0.8929,4,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),nk cells,sequencing,9d8ea3d,,,3,0.8176,0.8329,1.1901,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),oligodendrocytes,sequencing,1dcb6df,,,3,0.7234,0.755,0.7571,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),oligodendrocytes,sequencing,9d8ea3d,,,3,0.9657,1.0479,1.0505,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),pancreas endothelium,sequencing,1dcb6df,,,3,0.7859,0.8445,0.8496,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreas endothelium,sequencing,9d8ea3d,,,3,0.928,1.0108,1.0681,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),pancreatic acinar,sequencing,1dcb6df,,,3,0.7775,0.8454,0.8628,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic acinar,sequencing,9d8ea3d,,,3,0.9344,1.0989,1.1246,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),pancreatic alpha,sequencing,1dcb6df,,,3,0.7271,0.7483,0.7529,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic alpha,sequencing,9d8ea3d,,,3,0.989,1.0327,1.0393,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),pancreatic beta,sequencing,1dcb6df,,,3,0.8245,0.847,0.852,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic beta,sequencing,9d8ea3d,,,3,0.9735,1.006,1.0218,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),pancreatic delta,sequencing,1dcb6df,,,3,0.7342,0.797,0.7979,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),pancreatic delta,sequencing,9d8ea3d,,,3,0.9131,0.9986,1.0719,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),pancreatic duct,sequencing,1dcb6df,,,3,0.7695,0.8158,0.8219,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),prostate epithelium,sequencing,1dcb6df,,,3,0.7612,0.7715,0.7728,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),prostate epithelium,sequencing,9d8ea3d,,,3,0.9866,1.0004,1.0269,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),small intestine epithelium,sequencing,1dcb6df,,,3,0.7249,0.7345,0.8133,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),small intestine epithelium,sequencing,9d8ea3d,,,3,0.9883,1.0053,1.104,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),smooth muscle,sequencing,1dcb6df,,,3,0.7538,0.8688,0.8787,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),smooth muscle,sequencing,9d8ea3d,,,3,0.8853,1.1633,1.1795,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),striated muscle,sequencing,1dcb6df,,,2,,0.9128,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),striated muscle,sequencing,9d8ea3d,,,2,,1.0002,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t central memory cd4,sequencing,1.519e+61,,,1,,0.7636,,1,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),t central memory cd4,sequencing,1dcb6df,,,3,0.7504,0.7851,0.8255,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t central memory cd4,sequencing,8db1559,,,1,,0.8166,,1,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t central memory cd4,sequencing,9d8ea3d,,,3,0.9578,1.0472,1.0993,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),t effector cell cd8,sequencing,1dcb6df,,,3,0.8225,0.823,0.8638,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t effector cell cd8,sequencing,9d8ea3d,,,3,0.9485,0.9494,1.0541,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t effector memory cd4,sequencing,1.519e+61,,,1,,0.8693,,1,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),t effector memory cd4,sequencing,1dcb6df,,,3,0.7673,0.7731,0.8,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t effector memory cd4,sequencing,8db1559,,,1,,0.9324,,1,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),t effector memory cd4,sequencing,9d8ea3d,,,3,0.9536,0.9615,1.0529,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),thyroid epithelium,sequencing,1dcb6df,,,3,0.735,0.7355,0.7401,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),thyroid epithelium,sequencing,9d8ea3d,,,3,1.0007,1.0073,1.0147,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),tongue epithelium,sequencing,1dcb6df,,,3,0.7012,0.7077,0.7401,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),tongue epithelium,sequencing,9d8ea3d,,,3,0.9969,1.0106,1.0588,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),tonsil palatine epithelium,sequencing,1dcb6df,,,3,0.7232,0.7305,0.7517,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),tonsil palatine epithelium,sequencing,9d8ea3d,,,3,0.9904,1.012,1.0305,3,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),tonsil pharyngeal epithelium,sequencing,1dcb6df,,,2,,0.9359,,2,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),tonsil pharyngeal epithelium,sequencing,9d8ea3d,,,2,,1.0017,,2,development (flagged in the bundle)
 Met-A,Met-A sorted cell (atlas),vascular saphenous endothelium,sequencing,1dcb6df,,,3,0.736,0.7461,0.7802,3,development (flagged in the bundle)
+Met-A,Met-A sorted cell (atlas),vascular saphenous endothelium,sequencing,9d8ea3d,,,3,0.9388,0.9516,1.062,3,development (flagged in the bundle)
 Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",adipocytes,sequencing,,,,3,1.4813,1.5036,1.5471,3,development (band not met)
 Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",aorta endothelium,sequencing,,,,2,,1.3658,,2,development (band not met)
 Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",b cells,sequencing,,,,3,1.4008,1.5061,1.6018,3,development (band not met)
@@ -1667,7 +1986,9 @@ Met-A,Met-A whole sample,whole sample,HM450K,ca58285,,,0,,,,131,reference only (
 Met-A,Met-A whole sample,whole sample,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A whole sample,whole sample,sequencing,0801c4b,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,0a01f6d,,,3,0.9598,0.9995,1.0353,39,development
+Met-A,Met-A whole sample,whole sample,sequencing,1.519e+61,,,59,0.711,0.9447,1.1569,59,"development (outside-laboratory test, not met)"
 Met-A,Met-A whole sample,whole sample,sequencing,155b14e,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,15ddba1,,,34,1.0068,1.1377,1.456,34,development
 Met-A,Met-A whole sample,whole sample,sequencing,1dcb6df,,,153,0.7524,0.9336,1.2956,153,development
 Met-A,Met-A whole sample,whole sample,sequencing,22ff8df,,,0,,,,2,development
 Met-A,Met-A whole sample,whole sample,sequencing,2bcc01f,,,0,,,,2,development
@@ -1676,9 +1997,11 @@ Met-A,Met-A whole sample,whole sample,sequencing,3ab30ad,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,3cfd195,,,0,,,,5,development
 Met-A,Met-A whole sample,whole sample,sequencing,4545ab1,,,0,,,,3,development
 Met-A,Met-A whole sample,whole sample,sequencing,4b17362,,,0,,,,1,development
+Met-A,Met-A whole sample,whole sample,sequencing,8db1559,,,59,0.711,0.9447,1.1569,59,development (common floor)
 Met-A,Met-A whole sample,whole sample,sequencing,9135cc6,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,925d3ce,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,9a552a2,,,0,,,,6,development
+Met-A,Met-A whole sample,whole sample,sequencing,9d8ea3d,,,140,0.9061,1.0059,1.1241,140,development
 Met-A,Met-A whole sample,whole sample,sequencing,a04bf22,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,acbc25a,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,b00c2ab,,,0,,,,1,development
@@ -1697,7 +2020,9 @@ Met-A,"Met-A whole sample, by place",domains,HM450K,ca58285,,,0,,,,131,reference
 Met-A,"Met-A whole sample, by place",domains,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",domains,sequencing,0801c4b,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,0a01f6d,,,3,1.1342,1.2102,1.2567,39,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,1.519e+61,,,59,0.6164,0.9362,1.1532,59,"development (outside-laboratory test, not met)"
 Met-A,"Met-A whole sample, by place",domains,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,15ddba1,,,34,0.9423,1.1568,1.3046,34,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,1dcb6df,,,153,0.8245,1.1259,1.8074,153,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,22ff8df,,,0,,,,2,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,2bcc01f,,,0,,,,2,development
@@ -1706,9 +2031,11 @@ Met-A,"Met-A whole sample, by place",domains,sequencing,3ab30ad,,,0,,,,1,develop
 Met-A,"Met-A whole sample, by place",domains,sequencing,3cfd195,,,0,,,,5,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,4545ab1,,,0,,,,3,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,8db1559,,,59,0.6164,0.9362,1.1532,59,development (common floor)
 Met-A,"Met-A whole sample, by place",domains,sequencing,9135cc6,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,925d3ce,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",domains,sequencing,9d8ea3d,,,140,0.8902,1.009,1.1258,140,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,a04bf22,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,acbc25a,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,b00c2ab,,,0,,,,1,development
@@ -1727,7 +2054,9 @@ Met-A,"Met-A whole sample, by place",identity sites of the cells found,HM450K,ca
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,0801c4b,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,0a01f6d,,,3,0.9061,0.9232,0.9234,39,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,1.519e+61,,,58,0.5483,0.7461,0.9375,58,"development (outside-laboratory test, not met)"
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,15ddba1,,,34,0.8237,0.993,1.895,34,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,1dcb6df,,,153,0.6456,0.8903,1.3279,153,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,22ff8df,,,0,,,,2,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,2bcc01f,,,0,,,,2,development
@@ -1736,9 +2065,11 @@ Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencin
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,3cfd195,,,0,,,,5,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,4545ab1,,,0,,,,3,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,8db1559,,,58,0.5483,0.7461,0.9375,58,development (common floor)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,9135cc6,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,925d3ce,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,9d8ea3d,,,140,0.9727,1.0604,1.1542,140,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,a04bf22,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,acbc25a,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,b00c2ab,,,0,,,,1,development
@@ -1757,7 +2088,9 @@ Met-A,"Met-A whole sample, by place",islands,HM450K,ca58285,,,0,,,,131,reference
 Met-A,"Met-A whole sample, by place",islands,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",islands,sequencing,0801c4b,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,0a01f6d,,,3,0.2124,0.2179,0.2315,39,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,1.519e+61,,,59,0.1814,0.3113,4.3713,59,"development (outside-laboratory test, not met)"
 Met-A,"Met-A whole sample, by place",islands,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,15ddba1,,,34,0.9133,2.1802,18.5047,34,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,1dcb6df,,,153,0.1718,0.2086,0.3115,153,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,22ff8df,,,0,,,,2,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,2bcc01f,,,0,,,,2,development
@@ -1766,9 +2099,11 @@ Met-A,"Met-A whole sample, by place",islands,sequencing,3ab30ad,,,0,,,,1,develop
 Met-A,"Met-A whole sample, by place",islands,sequencing,3cfd195,,,0,,,,5,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,4545ab1,,,0,,,,3,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,8db1559,,,59,0.1814,0.3113,4.3713,59,development (common floor)
 Met-A,"Met-A whole sample, by place",islands,sequencing,9135cc6,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,925d3ce,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",islands,sequencing,9d8ea3d,,,140,0.8688,1.0483,1.2181,140,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,a04bf22,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,acbc25a,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,b00c2ab,,,0,,,,1,development
@@ -1787,7 +2122,9 @@ Met-A,"Met-A whole sample, by place",the rest,HM450K,ca58285,,,0,,,,131,referenc
 Met-A,"Met-A whole sample, by place",the rest,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,"Met-A whole sample, by place",the rest,sequencing,0801c4b,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,0a01f6d,,,3,0.9835,1.0181,1.0526,39,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,1.519e+61,,,59,0.7302,0.9573,1.1566,59,"development (outside-laboratory test, not met)"
 Met-A,"Met-A whole sample, by place",the rest,sequencing,155b14e,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,15ddba1,,,34,0.9963,1.1253,1.3062,34,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,1dcb6df,,,153,0.7779,0.9513,1.287,153,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,22ff8df,,,0,,,,2,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,2bcc01f,,,0,,,,2,development
@@ -1796,9 +2133,11 @@ Met-A,"Met-A whole sample, by place",the rest,sequencing,3ab30ad,,,0,,,,1,develo
 Met-A,"Met-A whole sample, by place",the rest,sequencing,3cfd195,,,0,,,,5,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,4545ab1,,,0,,,,3,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,4b17362,,,0,,,,1,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,8db1559,,,59,0.7302,0.9573,1.1566,59,development (common floor)
 Met-A,"Met-A whole sample, by place",the rest,sequencing,9135cc6,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,925d3ce,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,9a552a2,,,0,,,,6,development
+Met-A,"Met-A whole sample, by place",the rest,sequencing,9d8ea3d,,,140,0.8996,1.0042,1.1234,140,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,a04bf22,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,acbc25a,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",the rest,sequencing,b00c2ab,,,0,,,,1,development
@@ -1820,7 +2159,9 @@ Territories,territory,domains,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Territories,territory,domains,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Territories,territory,domains,sequencing,0801c4b,,,0,,,,1,development
 Territories,territory,domains,sequencing,0a01f6d,,,3,0.7708,0.8189,0.8618,39,development
+Territories,territory,domains,sequencing,1.519e+61,,,59,0.5994,0.9092,1.086,59,"development (outside-laboratory test, not met)"
 Territories,territory,domains,sequencing,155b14e,,,0,,,,1,development
+Territories,territory,domains,sequencing,15ddba1,,,34,0.8054,0.991,1.0873,34,development
 Territories,territory,domains,sequencing,1dcb6df,,,153,0.74,0.993,1.5715,153,development
 Territories,territory,domains,sequencing,22ff8df,,,0,,,,2,development
 Territories,territory,domains,sequencing,2bcc01f,,,0,,,,2,development
@@ -1829,9 +2170,11 @@ Territories,territory,domains,sequencing,3ab30ad,,,0,,,,1,development
 Territories,territory,domains,sequencing,3cfd195,,,0,,,,5,development
 Territories,territory,domains,sequencing,4545ab1,,,0,,,,3,development
 Territories,territory,domains,sequencing,4b17362,,,0,,,,1,development
+Territories,territory,domains,sequencing,8db1559,,,59,0.5994,0.9092,1.086,59,development (common floor)
 Territories,territory,domains,sequencing,9135cc6,,,0,,,,1,development
 Territories,territory,domains,sequencing,925d3ce,,,0,,,,1,development
 Territories,territory,domains,sequencing,9a552a2,,,0,,,,6,development
+Territories,territory,domains,sequencing,9d8ea3d,,,140,0.8903,1.0014,1.0891,140,development
 Territories,territory,domains,sequencing,a04bf22,,,0,,,,1,development
 Territories,territory,domains,sequencing,acbc25a,,,0,,,,1,development
 Territories,territory,domains,sequencing,b00c2ab,,,0,,,,1,development
@@ -1850,7 +2193,9 @@ Territories,territory,islands,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Territories,territory,islands,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Territories,territory,islands,sequencing,0801c4b,,,0,,,,1,development
 Territories,territory,islands,sequencing,0a01f6d,,,3,1.0799,1.0828,3.2036,39,development
+Territories,territory,islands,sequencing,1.519e+61,,,59,0.1712,0.2924,4.1551,59,"development (outside-laboratory test, not met)"
 Territories,territory,islands,sequencing,155b14e,,,0,,,,1,development
+Territories,territory,islands,sequencing,15ddba1,,,34,0.5734,1.8264,14.3165,34,development
 Territories,territory,islands,sequencing,1dcb6df,,,153,0.1468,0.1833,0.2652,153,development
 Territories,territory,islands,sequencing,22ff8df,,,0,,,,2,development
 Territories,territory,islands,sequencing,2bcc01f,,,0,,,,2,development
@@ -1859,9 +2204,11 @@ Territories,territory,islands,sequencing,3ab30ad,,,0,,,,1,development
 Territories,territory,islands,sequencing,3cfd195,,,0,,,,5,development
 Territories,territory,islands,sequencing,4545ab1,,,0,,,,3,development
 Territories,territory,islands,sequencing,4b17362,,,0,,,,1,development
+Territories,territory,islands,sequencing,8db1559,,,59,0.6269,0.8586,1.217,59,development (common floor)
 Territories,territory,islands,sequencing,9135cc6,,,0,,,,1,development
 Territories,territory,islands,sequencing,925d3ce,,,0,,,,1,development
 Territories,territory,islands,sequencing,9a552a2,,,0,,,,6,development
+Territories,territory,islands,sequencing,9d8ea3d,,,140,0.7909,1.0118,1.3312,140,development
 Territories,territory,islands,sequencing,a04bf22,,,0,,,,1,development
 Territories,territory,islands,sequencing,acbc25a,,,0,,,,1,development
 Territories,territory,islands,sequencing,b00c2ab,,,0,,,,1,development

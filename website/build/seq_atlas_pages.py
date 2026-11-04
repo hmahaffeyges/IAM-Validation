@@ -60,7 +60,7 @@ def write(out, art_rel, css_tag, style, back):
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(head("The IAM Sequencing Atlas: every cell at every CpG")
         + f'<p><a href="{back}">&larr; IAMPerformance front page</a> &middot; <a href="../atlas/index.html">IAM-Atlas v2.1 (arrays)</a></p>'
         + f'<h1>The IAM Sequencing Atlas: {len(C)} healthy cell types at every CpG</h1><p><b>In development.</b> The ruler for sequenced samples, measured with '
-        + "sequencing's own chemistry; IAM-Atlas v2.1 stays the ruler for arrays. " + E(PHYS) + "</p><p>" + E(HOW) + ' Choose a cell.</p><div class="cg">' + "".join(g) + "</div></section></body></html>")
+        + "sequencing's own chemistry; IAM-Atlas v2.1 stays the ruler for arrays. " + E(PHYS) + '</p><p>The whole atlas, every cell at every CpG with its runtime tables and a checksum for every piece, is on Zenodo: <a href="https://doi.org/10.5281/zenodo.23934666">doi.org/10.5281/zenodo.23934666</a>.</p><p>' + E(HOW) + ' Choose a cell.</p><div class="cg">' + "".join(g) + "</div></section></body></html>")
     for k, c in enumerate(C):
         p, n = C[k - 1], C[(k + 1) % len(C)]; dn = don.get(c["cell"], [])
         halves = collections.Counter(h for _, h in dn); sx = collections.Counter(sex.get(g_, "") or "not recorded" for g_, _ in dn)

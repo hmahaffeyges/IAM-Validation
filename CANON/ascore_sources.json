@@ -431,6 +431,38 @@
    "status": "reference only (replay)",
    "rows_table": true,
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+  },
+  {
+   "id": "SEQ-HEALTHY-PASS7",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_rows.csv",
+   "status": "development",
+   "condition": "healthy",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "SEQ-SELFREE-OUTSIDE",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/selfree4_rows.csv",
+   "status": "development",
+   "condition": "healthy",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "SEQ-BLUEPRINT-TEST",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/blueprint_healthy_test_rows.csv",
+   "status": "development (outside-laboratory test, not met)",
+   "condition": "healthy",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "SEQ-BLUEPRINT-FLOOR",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/blueprint_reread_floor_rows.csv",
+   "status": "development (common floor)",
+   "condition": "healthy",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "rows_table": true
   }
  ],
  "lines": {
