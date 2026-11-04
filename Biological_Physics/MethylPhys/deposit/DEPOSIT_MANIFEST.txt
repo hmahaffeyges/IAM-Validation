@@ -1,9 +1,9 @@
-deposit manifest: 1341 files
+deposit manifest: 1343 files
   atlas: IAM Sequencing Atlas (Zenodo): 131 files, 36243.2 MB in hand
   atlas: IAM-Atlas v2.1: 25 files, 437.6 MB in hand
   atlas: runtime tables: 46 files, 55.5 MB in hand
   atlas: runtime tables (IAM Sequencing Atlas): 50 files, 635.1 MB in hand
   chain: 62 files, 1.1 MB in hand
   input: 345 files, 0.0 MB in hand
-  test file: 682 files, 31.5 MB in hand
-  where: repository 865; public archive only (to stage) 172; public archive (GEO), checksum recorded 137; Zenodo 10.5281/zenodo.23934666 131; public archive (reads; aligned pieces are GitHub artifacts until they expire) 36
+  test file: 684 files, 31.5 MB in hand
+  where: repository 867; public archive only (to stage) 172; public archive (GEO), checksum recorded 137; Zenodo 10.5281/zenodo.23934666 131; public archive (reads; aligned pieces are GitHub artifacts until they expire) 36

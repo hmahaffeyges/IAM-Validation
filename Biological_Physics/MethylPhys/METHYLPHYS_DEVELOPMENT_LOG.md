@@ -3519,3 +3519,14 @@ The introduction, the catalogue, the book's toolbox and atlas section, and the Q
 ### 2026-11-03 · How the library floor reaches each kind of site (COM-METAA-033)
 At sites each sample's own mix expects unmarked, the share of reads called methylated against the library's floor, over the 137 healthy inputs and the 30 plasmas. In plasma the floor is one rate for the whole library (islands 1.005 of it, following it, rho +0.749); inside the atlas's laboratory the islands take 0.291 of it and do not follow it (rho +0.039). Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
 
+### 2026-11-03 · The IAM Sequencing Atlas on Zenodo (COM-METAA-033)
+The whole atlas at every CpG, its runtime tables, input lists and a SHA-256 for every piece, uploaded from a Google machine and checked file by file; published by the author. DOI 10.5281/zenodo.23934666: 19 files, 18.43 GB. The first upload stopped at Zenodo's 100-file limit for a record; the pieces were sent again in 12 sets. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+
+### 2026-11-03 · Every cell of the IAM Sequencing Atlas on its own page (COM-METAA-033)
+57 cell pages on the site, the maps drawn by the chain's sphere build and every number read from committed tables, checked on every site build. Live; the site build first failed for a missing package in the site workflow and was fixed. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+
+
+### 2026-11-03 · The sequencing atlas in the book and README (COM-METAA-033)
+A full book chapter on the IAM Sequencing Atlas, how it differs from IAM-Atlas v2.1 and why both are needed; the DOI added to the README, the canon, the introduction, the catalogue, the front page and the researcher page. Every number in the chapter checked against a committed output before it went in. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+

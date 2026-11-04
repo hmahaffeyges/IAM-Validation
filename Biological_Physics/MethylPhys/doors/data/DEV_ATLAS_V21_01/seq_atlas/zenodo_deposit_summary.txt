@@ -1,0 +1,21 @@
+IAM Sequencing Atlas on Zenodo, DOI 10.5281/zenodo.23934666
+files in the record: 19 (the 18 listed below and the SHA-256 manifest itself); 18.43 GB
+merged 57-cell pieces: 113, 17.81 GB, in 12 sets
+  seq_atlas_runtime_tables.tgz: 622,941,599 bytes
+  seq_atlas_inputs.csv: 27,853 bytes
+  gran_inputs.csv: 514 bytes
+  atlas57_merge.json: 1,799 bytes
+  atlas57_summary.txt: 367 bytes
+  donor_traits.csv: 15,847 bytes
+  pieces57_set01_of_12.tar: 1,579,223,040 bytes
+  pieces57_set02_of_12.tar: 1,598,904,320 bytes
+  pieces57_set03_of_12.tar: 1,620,234,240 bytes
+  pieces57_set04_of_12.tar: 1,593,108,480 bytes
+  pieces57_set05_of_12.tar: 1,591,224,320 bytes
+  pieces57_set06_of_12.tar: 1,586,329,600 bytes
+  pieces57_set07_of_12.tar: 1,593,466,880 bytes
+  pieces57_set08_of_12.tar: 1,599,047,680 bytes
+  pieces57_set09_of_12.tar: 1,580,718,080 bytes
+  pieces57_set10_of_12.tar: 1,570,856,960 bytes
+  pieces57_set11_of_12.tar: 1,558,784,000 bytes
+  pieces57_set12_of_12.tar: 338,329,600 bytes

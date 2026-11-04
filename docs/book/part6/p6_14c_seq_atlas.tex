@@ -1,0 +1,88 @@
+\chapter{The IAM Sequencing Atlas: a ruler counted from sequencing}\label{ch:seqatlas}
+
+% physics-tie: begin (CANON/physics_ties.py; edit CANON/physics_ties.json)
+\paragraph{The physics behind this tool.} The atlas holds no scale of its own: the gauge's ends come from the energy with which a cell holds a mark (Chapter~\ref{ch:landauer}), and the atlas measures, by counting healthy donors' reads, where healthy cells of each kind sit between those ends, so a sequenced sample's disorder is read in bits against healthy disorder counted with the same chemistry.
+% physics-tie: end
+
+IAM has two atlases, and both are needed. IAM-Atlas v2.1 (Chapter~\ref{ch:atlas}) is the ruler for methylation arrays: 79 purified healthy cell types at 813,951 array sites, fitted as one model with a 95~\% range at every value. The IAM Sequencing Atlas is the ruler for sequenced samples: 57 healthy cell types at all 28,217,448 CpGs of the genome, counted directly from healthy donors' reads with nothing fitted. This chapter explains why a second ruler is needed, what it holds, how it is built and checked, and what it lets the instruments do. It is in development; each of its cells is commissioned when healthy samples from laboratories it has never held read Normal against it.
+
+\section{Why a second ruler}
+
+The physics does not change with the platform. A methyl mark is a record a cell keeps against heat at a price Landauer's bound sets (Chapter~\ref{ch:landauer}), so the gauge's floor and ceiling are derived, and the instruments read a sample's disorder, in bits, against healthy disorder of its own cell type (Section~\ref{sec:physics_root}). What changes is the chemistry that turns a cell's marks into numbers. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts molecules, so the same site reads about 0. Disorder is the binary entropy of a level, and near 0 a small offset in level is a large offset in disorder. Read against IAM-Atlas v2.1, healthy sequenced samples showed it at once: at the islands, which every healthy cell keeps unmarked, they read 14.5255 where healthy reads 1. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. Nothing built for sequencing can move an array reading.
+
+\section{What it holds}
+
+For each of its 57 healthy cell types, at every CpG of the hg19 numbering, the atlas holds:
+\begin{itemize}
+\item the donors and the reads behind the value, and the methylated reads among them;
+\item the healthy level, both as the median of the cell's donors and as the pooled level (methylated reads over all reads), because the two answer different questions (Section~\ref{sec:seqatlas:levels});
+\item the spread between donors, and each donor's own measured disorder at every site;
+\item the range of the average: the donors' spread over the square root of their number, times the $t$ quantile, or the counting spread alone where a cell has one donor or every donor reads exactly 0 or 1;
+\item two noise maps: one from splitting the cell's donors into two sealed halves, one from splitting every donor's reads at random in two.
+\end{itemize}
+Each of the first 56 cells has reads at 97.3 to 98.4~\% of all CpGs (median 27.7 million, against 813,951 array sites), so a sequenced sample's departures can be read across the whole genome, including clusters far from any array site.
+
+\section{How it is built}
+
+The inputs are 156: 153 healthy whole-genome bisulfite sequencing libraries from the published sequencing atlas of human cell types, and 3 healthy blood granulocyte donors from the same series, added later; granulocytes are the largest source of healthy plasma's DNA. Each cell has one to three donors. Before anything was counted, each cell's donors were sealed into two halves, so every healthy input can later be read against the other half of its own cell, a donor it never touched.
+
+The one command builds it: \texttt{run\_sample.py --build seq-atlas} counts each donor's reads, 250,000 CpGs at a time, into 113 pieces; \texttt{--build seq-merge-pieces} joins the pieces of a new column to the existing ones block by block, refusing a cell present twice or CpG rows that differ; and the runtime tables the instruments read (the cell-share reference, the Met-A identity sites and their counts, the island counts, the floor sites, every input's library floor, the held-error reference, the array-site columns and the sphere columns) are built from those pieces by further \texttt{--build} routes. Every step was checked first on constructed data with a known answer, and when the granulocyte column was added, the merged pieces were checked to carry every value of their sources unchanged.
+
+\section{Two levels, and why reading at the sample's own depth matters}\label{sec:seqatlas:levels}
+
+With one to three donors at a few dozen reads each, the median of a cell's donors lands at exactly 0 or 1 at most sparse sites. A level of exactly 0 or 1 carries no disorder, so a healthy sample read against it reads high: the expected disorder is too low, not the sample's too high. The pooled level suffers far less from this, but it pools disorder across people, which a single person does not carry. So the instruments use the atlas the way the counting requires.
+\begin{itemize}
+\item A sample declared as one sorted cell is read donor by donor: its disorder at its cell's identity sites against that of each healthy donor of the same cell, both at the same number of reads, so counting is exact on both sides and nothing is fitted.
+\item The islands' expectation is counted from the reference donors' own reads against the other donor half, not treated as an exact level.
+\item A mixed sample, such as whole blood or plasma, is read against the atlas in its own cell shares, found by the IAM-Deconvolver on the same atlas.
+\end{itemize}
+These three choices are what took the sequencing readings from reading high on healthy cells to reading Normal (Section~\ref{sec:seqatlas:healthy}).
+
+\section{Each library's floor}
+
+Physics sets the cell's floor: below it, heat alone would set the error. A laboratory's chemistry adds its own small rate of false ``methylated'' calls on top of it. The atlas names 46,947 floor sites, CpGs that no healthy cell of the 57 marks, and the chain measures every sequenced library's rate there before any reading. Across its 156 inputs the median floor is 0.0062855, and its 69 unplanted inputs run 0.00469 to 0.01041. The floor is a property of the library, not of the cell, and it behaves differently by chemistry: in healthy plasma it is one rate for the whole library, which the islands take in full (1.005 of it), while inside the atlas's own laboratory the islands take only 0.291 of the floor-site rate and do not follow it. Reading a sample and its reference at a common floor is a development setting for that reason, off by default, and on in plasma.
+
+\section{Methods from the sky}
+
+The atlas is drawn and tested with the tools cosmology built for a faint signal on a sphere, because a methyl mark and a fluctuation on the sky are both records held against noise, and the same statistics serve both (Chapter~\ref{ch:skytools}).
+\begin{description}
+\item[The sphere.] Every CpG keeps one place on a HEALPix sphere, set by where it sits in the genome, the same layout for every cell, so any two cells, and a person's sample, can be compared site for site. Each cell is drawn twice: its healthy level, and how sure the atlas is of it.
+\item[Masks.] The sex chromosomes, a healthy difference between people that is annotated and never subtracted, and 27,117 sites that cannot be placed uniquely in the genome are left out of the statistics.
+\item[Noise maps and their null.] The read-split map is pure counting: it stays inside its shuffled null in every cell. The donor-split map is not: it carries real differences between people, with two foregrounds named: the X chromosome, standing above the autosomes in 16 of the 48 cells with both donor halves, where the halves differ in sex; and a donor offset in smooth muscle.
+\item[The spectrum.] The donor differences are local: a median correlation of 0.1223 between sites under 1~kb apart, 0.0283 at 1 to 10~kb, and 0.0006 at 1 to 10~Mb; the read-split map shows none at any distance.
+\item[The transfer function.] A change planted at the islands comes back at full size, slope 1.0001.
+\item[Isotropy.] The counting map shows no chromosome out of line (0 of 1,232 autosome-cell pairs beyond four standard errors).
+\item[The bridge.] At the sites both atlases hold, each cell's sequencing level follows its v2.1 level closely (median correlation 0.9941 over the 56 cells both hold), sequencing reading a little lower in every one of them, the platform offset this chapter began with.
+\end{description}
+An information globe places the 57 cells by how alike their methylation is, built beside IAM-Atlas v2.1's, and the cell families gather similarly on both.
+
+\section{What it reads}\label{sec:seqatlas:healthy}
+
+Read against it, every healthy sequenced input reads Normal on every reading, 140 of 140: Met-A read as the sample's own cell 1.0075, whole-sample Met-A 1.0059, the islands 1.0118, the domains 1.0014 and the C-Score 1.0003. Eight cells have every donor in one sealed half, so there is no other half of the same cell to read them against, and they are left out of that test rather than read against themselves. Healthy plasma, at about one read per site, reads Met-A at the identity sites of the cells found 0.9918. Every cell has its own page on the site, with its two maps, its donors, its library floor and how its healthy inputs read.
+
+\section{How the two atlases differ}
+
+\begin{table}[htbp]\centering\small
+\caption{The two rulers. Both serve the same instruments and the same physics; each is measured with its platform's own chemistry.}\label{tab:two_atlases}
+\begin{tabular}{@{}p{0.24\textwidth}p{0.34\textwidth}p{0.34\textwidth}@{}}\toprule
+ & IAM-Atlas v2.1 & IAM Sequencing Atlas \\\midrule
+reads & methylation arrays & whole-genome bisulfite sequencing \\
+cell types & 79 & 57 \\
+sites & 813,951 array sites & all 28,217,448 CpGs \\
+built by & one model fitted to 21 public sources & counting healthy donors' reads; nothing fitted \\
+how sure & a 95~\% range from the fit at every value & the donors' spread and the counting at every value \\
+donors & from 21 public sources & one to three per cell, sealed halves \\
+noise & the fit's posterior draws & two measured noise maps \\
+status & commissioned use by use & in development \\
+on Zenodo & 10.5281/zenodo.23441999 & 10.5281/zenodo.23934666 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{What it does not hold yet}
+
+Cells with no open bulk sequencing of healthy donors are not in it: megakaryocytes, erythroid cells beyond the bone-marrow progenitors, the progenitor of both, and eosinophils. Healthy plasma shows why that matters: its domains follow the share the IAM-Deconvolver gives to erythroid cells, DNA that is erythroid at the identity sites but more ordered at the domains than the atlas's bone-marrow progenitors. Columns resting on three donors, such as the neurons, cannot yet say how far a healthy library of that cell runs. Each new donor sharpens a column without changing how it is counted.
+
+\section{Getting it and rebuilding it}
+
+The whole atlas is deposited on Zenodo (DOI 10.5281/zenodo.23934666): the 113 merged pieces in 12 sets, the runtime tables the chain reads, the input lists, and a SHA-256 manifest naming every piece. The repository holds the runtime tables and the code; its deposit manifest lists every file a test recalls at one of three places, the repository, Zenodo, or the public archive the input came from. To rebuild it from the public files, run \texttt{run\_sample.py --build seq-atlas} over the committed input list, then the table builds named above; every value should match the deposit's checksums.

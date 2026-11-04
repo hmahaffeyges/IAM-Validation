@@ -4,6 +4,14 @@
 commissioned chain (CANON/chain_front.json). These results came before it: most were development tests, read before the chain that now
 runs every sample existed. Each keeps its record; none is withdrawn.*
 
+## The IAM Sequencing Atlas is public
+
+**2026-11-03** · published · DOI
+
+57 healthy cell types at every CpG, counted from healthy donors' reads with nothing fitted; every piece checksummed. DOI 10.5281/zenodo.23934666.
+
+Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
+
 ## Every healthy cell follows the same simple rule
 
 **2026-10-15** · commissioned, early result (data already read) · 53 of 56 on one line

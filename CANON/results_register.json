@@ -488,6 +488,24 @@
     "sub": "On 278 healthy people from a new laboratory, a 1 % change planted into half of them was found at more than seven times the noise."
    },
    "title": "Group-A commissioned for groups of whole bloods"
+  },
+  {
+   "id": "SEQ-ATLAS-PUBLIC",
+   "date": "2026-11-03",
+   "kind": "milestone",
+   "instrument": "atlas",
+   "status": "published",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "compute": "seq_atlas_release",
+   "title": "The IAM Sequencing Atlas is public, with a DOI",
+   "plain": "Our second reference, for sequenced samples, is deposited on Zenodo with a permanent DOI and an open license: every healthy cell type it holds, at every CpG of the genome, counted from healthy donors' public reads with nothing fitted, with a checksum for every piece. The repository's one command rebuilds it from the public files.",
+   "win": {
+    "rank": 13.5,
+    "stat": "DOI",
+    "head": "The IAM Sequencing Atlas is public",
+    "sub": "{cells} healthy cell types at every CpG, counted from healthy donors' reads with nothing fitted; every piece checksummed. DOI {doi}."
+   }
   }
  ],
  "losses": [

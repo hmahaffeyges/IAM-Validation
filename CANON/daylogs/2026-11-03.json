@@ -103,6 +103,16 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The IAM Sequencing Atlas on Zenodo",
+     "status": "development",
+     "what": "The whole atlas at every CpG, its runtime tables, input lists and a SHA-256 for every piece, uploaded from a Google machine and checked file by file; published by the author.",
+     "outcome": "DOI 10.5281/zenodo.23934666: 19 files, 18.43 GB. The first upload stopped at Zenodo's 100-file limit for a record; the pieces were sent again in 12 sets.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },
@@ -180,6 +190,26 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/INTRODUCTION.md"
+    },
+    {
+     "title": "Every cell of the IAM Sequencing Atlas on its own page",
+     "status": "development",
+     "what": "57 cell pages on the site, the maps drawn by the chain's sphere build and every number read from committed tables, checked on every site build.",
+     "outcome": "Live; the site build first failed for a missing package in the site workflow and was fixed.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The sequencing atlas in the book and README",
+     "status": "development",
+     "what": "A full book chapter on the IAM Sequencing Atlas, how it differs from IAM-Atlas v2.1 and why both are needed; the DOI added to the README, the canon, the introduction, the catalogue, the front page and the researcher page.",
+     "outcome": "Every number in the chapter checked against a committed output before it went in.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }
