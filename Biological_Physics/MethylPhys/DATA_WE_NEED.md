@@ -1,0 +1,19 @@
+# Data that would extend IAM
+
+IAM reads a methylation mark as a record a cell holds against heat, at a cost set by physics: the gauge's ends come from that cost, and an
+atlas of healthy cells says where each kind of healthy cell sits between them. Every reading is only as good as the healthy cells behind
+it. The chain, the atlases and every result are public (this repository and Zenodo). The data below is what we could not find in public
+archives, or could not reach. Each item would let us build or test something specific, and each is tied to the record that found the need.
+If you hold such data, or know where it is, we would welcome the chance to work with it and with you.
+
+| Data | What it is for in the chain | What it would let us build or test | Record |
+|---|---|---|---|
+| Bulk sorted megakaryocytes, whole-genome bisulfite or enzymatic sequencing with reads, at least two healthy donors | A megakaryocyte column in the IAM Sequencing Atlas, counted from reads and sealed into two donor halves like every other cell. The column built from single cells has too few reads per site. | Megakaryocytes as a full atlas cell; plasma, where megakaryocyte DNA is a large share | [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md), [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md) |
+| Erythroid cells at each stage, from early erythroblasts to reticulocytes, bulk with reads | In plasma, DNA the Deconvolver gives to erythrocyte progenitors matches that cell at its identity sites but is more ordered at the domains than the atlas's bone-marrow erythrocyte progenitors | Plasma's domains and IAM-A, which follow that share | [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md) |
+| Platelet methylation at read level | The one public platelet set holds a merged level track of three donors; its reads are under controlled access, so it can be neither counted nor split into donor halves | The megakaryocyte lineage, counted | [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md) |
+| MEP and eosinophils, sequenced with reads | The plasma megakaryocyte stand-in, read on IAM-Atlas v2.1, needs both cells | The stand-in on sequencing | [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md) |
+| More healthy donors for the thinnest columns: cortical neurons (three donors), the eight cells whose donors all sit in one sealed half, pancreas | A ruler is only as good as its donors: healthy neurons from outside the atlas read against three neuron donors, and the one-half cells have no held-out donors to test on | Healthy tests for those cells | [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md), [the cell pages](https://hmahaffeyges.github.io/IAM-Validation/seq-atlas/index.html) |
+| Healthy sorted blood and tissue cells, sequenced in other laboratories | Each laboratory's chemistry leaves its own floor of false calls; the chain measures it, and a healthy set from a laboratory it has not seen is the test | The healthy test across laboratories, cell by cell | [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md) |
+| Healthy sorted cells by enzymatic conversion (EM-seq), with matched bisulfite libraries where possible | Bisulfite against enzymatic chemistry, measured cell by cell | Every instrument on enzymatic libraries | [CHECKLIST_STATUS.md](doors/data/DEV_ATLAS_V21_01/seq_atlas/CHECKLIST_STATUS.md) |
+| Oxidative bisulfite libraries of healthy cells | Separating 5-hydroxymethylcytosine from 5-methylcytosine | The atlas's item D12 | [CHECKLIST_STATUS.md](doors/data/DEV_ATLAS_V21_01/seq_atlas/CHECKLIST_STATUS.md) |
+| Cancer methylomes (tissue or plasma, with reads) with each sample's recorded stage or grade | The A-score database keeps every score with its cancer type and stage | Where each kind and stage of cancer sits on every instrument, beside healthy | [ASCORES](ASCORES/README.md) |

@@ -11,6 +11,8 @@ semiconductor work is not needed to run or rebuild anything here.
 **IAM-Atlas v2.1:** https://doi.org/10.5281/zenodo.23441999 (the atlas) and https://doi.org/10.5281/zenodo.23422688 (the fit's full outputs).
 **Questions:** [Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md), the hard questions first, every answer linked to its record; among them how each instrument accounts for sex and the X chromosome.
 
+**Data that would extend IAM:** [Biological_Physics/MethylPhys/DATA_WE_NEED.md](DATA_WE_NEED.md), the data we could not find or reach and what each would let us build or test; if you hold any of it, we would welcome working with you.
+
 ## Three ways in
 
 ### 1. Look (no install)

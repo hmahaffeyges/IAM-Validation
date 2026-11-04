@@ -257,6 +257,7 @@ find through the repository's issue form, so every result becomes part of the pu
 - [The researcher package](RESEARCHER_PACKAGE.md): what is in the package, and the three ways in (look, run, reproduce).
 - [The instrument catalogue](INSTRUMENTS.md) and [the commissioning report](COMMISSIONING_REPORT.md): every instrument, its scope and its
   record.
+- [Data that would extend IAM](DATA_WE_NEED.md): the data we could not find or reach, and what each would let us build or test.
 - [The A-score database](ASCORES/README.md): every sample each instrument has read, healthy and tumor, and how many cross the healthy line.
 - [The book](https://hmahaffeyges.github.io/IAM-Validation/book/): the physics in full, from cosmology to the cell.
 
