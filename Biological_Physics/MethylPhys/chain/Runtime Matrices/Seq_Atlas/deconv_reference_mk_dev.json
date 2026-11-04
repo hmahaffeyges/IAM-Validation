@@ -1,0 +1,23 @@
+{
+ "cells": 58,
+ "sites_with_all_cells": 776130,
+ "markers": 5799,
+ "per_cell": 50,
+ "sd_floor": 0.01,
+ "left_out": [],
+ "output": "deconv_reference_mk_dev.parquet",
+ "flag": "DEVELOPMENT, diagnosis only: holds the provisional megakaryocyte column",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-deconv-ref",
+  "--build-with-mk",
+  "--build-samples",
+  "/root/w/p57,/root/w/pmk",
+  "--build-out",
+  "/root/w/deconv_reference_mk_dev.parquet",
+  "--bundle",
+  "/root/w/deconv_reference_mk_dev.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
+}

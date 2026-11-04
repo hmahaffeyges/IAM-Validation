@@ -30,3 +30,5 @@ plasma_seq_05_rows.csv
 plasma_seq_05_samples.csv
 prjna929650_clinical.csv
 iama_mix_diag.txt
+deconv_mk_synthetic.txt
+plasma_seq_06_samples.csv

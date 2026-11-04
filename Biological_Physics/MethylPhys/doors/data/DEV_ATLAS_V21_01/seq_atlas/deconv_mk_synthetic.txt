@@ -1,0 +1,9 @@
+Deconvolver with megakaryocytes, synthetic: 6 mixes, 5799 marker sites, 20 reads per site, 58 cells, seed 20261104
+mix | planted MK, EP | read against REF: MK, EP | bars | read against the committed reference: EP, and the three largest other than G and MO
+0 | 0.20, 0.10 | 0.215, 0.088 | met | 0.129; erythrocyte progenitors 0.129, naive cd8 t cells 0.013, nk cells 0.012
+1 | 0.30, 0.00 | 0.292, 0.000 | met | 0.041; erythrocyte progenitors 0.041, lung interstitial macrophages 0.027, nk cells 0.027
+2 | 0.00, 0.30 | 0.003, 0.299 | met | 0.296; erythrocyte progenitors 0.296, naive cd8 t cells 0.003, nk cells 0.002
+3 | 0.00, 0.00 | 0.001, 0.000 | met | 0.000; lung alveolar macrophages 0.008, kidney tubular endothelium 0.003, thyroid epithelium 0.002
+4 | 0.10, 0.20 | 0.100, 0.206 | met | 0.225; erythrocyte progenitors 0.225, smooth muscle 0.014, tongue epithelium 0.007
+5 | 0.15, 0.15 | 0.147, 0.163 | met | 0.177; erythrocyte progenitors 0.177, lung interstitial macrophages 0.023, pancreas endothelium 0.015
+synthetic: met

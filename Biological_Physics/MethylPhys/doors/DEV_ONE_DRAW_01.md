@@ -586,3 +586,11 @@ mixes planted from that reference's levels, with megakaryocyte and erythrocyte p
 the committed reference; bars: both shares within 0.05 of planted in every mix against the megakaryocyte reference. The build and the
 synthetic run on one Google spot machine. **If met:** the 30 tuning plasmas read again from their saved molecules against it. **Expected
 if the DNA is megakaryocyte DNA:** the erythrocyte progenitor share moves to megakaryocytes and the domains move toward 1.
+
+**The megakaryocyte reference and its synthetic: met** (`chain/Runtime Matrices/Seq_Atlas/deconv_reference_mk_dev.parquet`, built by the
+one command on a Google spot machine from the 57-cell pieces and the provisional megakaryocyte pieces: 58 cells, 5799 marker sites;
+`seq_atlas/deconv_mk_synthetic.txt`). In all six mixes the megakaryocyte and erythrocyte progenitor shares read within 0.05 of planted
+(largest error 0.015 and 0.013). Recorded, not scored: against the committed reference, planted megakaryocyte DNA goes mostly to
+granulocytes and monocytes and little to erythrocyte progenitors (0.3 planted, 0.041 to them), unlike absorption test 1 on IAM-Atlas v2.1.
+**Next:** plasma_seq_06, the 30 tuning plasmas read again from plasma_seq_02's saved molecules with `--dev-deconv-ref
+deconv_reference_mk_dev.parquet` (`plasma_seq_06/plasma_seq_06_samples.csv`), scored with the committed scorers.

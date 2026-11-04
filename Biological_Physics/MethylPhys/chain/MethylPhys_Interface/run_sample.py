@@ -1111,7 +1111,10 @@ def main():
         if a._seqv and getattr(a, "dev_seq_ref", None):   # 2026-10-30 (plan 35.30): a sequenced sample split on the IAM Sequencing Atlas, flagged
             import stage_seq_atlas as _SQd, stage_metaa_atlas as _SAd
             if getattr(a, "dev_deconv_drop", None): _SQd.DECONV_DROP = tuple(x.strip().replace("_", " ") for x in a.dev_deconv_drop.split(",") if x.strip())   # underscores for spaces (sample lists pass flags unquoted)   # 2026-11-03: diagnosis only
-            _dsr = _SQd.deconv_reference_of(getattr(a, "dev_deconv_ref", None) or _SQd.DECONV_REF)   # 2026-11-04: --dev-deconv-ref, development, diagnosis only
+            _dref = getattr(a, "dev_deconv_ref", None)   # 2026-11-04: --dev-deconv-ref, development, diagnosis only; a bare name is a file beside the committed reference
+            if _dref and not os.path.exists(_dref): _dref = os.path.join(os.path.dirname(_SQd.DECONV_REF), os.path.basename(_dref))
+            if _dref and not os.path.exists(_dref): print(f"--dev-deconv-ref {a.dev_deconv_ref}: not found"); return 2
+            _dsr = _SQd.deconv_reference_of(_dref or _SQd.DECONV_REF)
             if os.path.exists(os.path.join(_SQd.ARRAY_COLS, "mu_part1.parquet")): _SAd.SEQ_ATLAS = _SQd.ARRAY_COLS   # and its in-mix readings against the sequencing atlas's counted levels
             _SAd.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or _SAd.SEQ_LEVEL   # 2026-10-31: the expectation's level (pooled by default)
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
