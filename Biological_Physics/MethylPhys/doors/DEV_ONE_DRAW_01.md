@@ -495,3 +495,13 @@ stage the atlas does not hold, or a cell it lacks) stays open, and needs data of
 bone-marrow erythroblasts from the same series as the atlas's erythrocyte progenitors (GSE186458), so it adds no new erythroid stage. The
 same study deposited platelet whole-genome bisulfite sequencing (GSE206818), a bulk source from the megakaryocyte lineage, untouched and
 kept for commissioning unless the author chooses to spend it on a megakaryocyte column.
+
+## IAM-A on plasma, on the molecule-level loose share (diagnostic, written and committed before it runs on the plasmas)
+
+**The instrument's job:** a healthy plasma reads Normal on IAM-A. On the 30 tuning plasmas it reads 0.7733, following their loose share
+(rho -0.94), and synthetic test cfDNA 2 showed why: mixing raises the tile loose share, while the share of loose molecules stays put. The
+atlas's 153 inputs already carry the molecule-level share in their count records (`iama_mol_01/healthy_count_records.csv`, copied from
+them). `iama_mol_01/iama_mol_lines.py` builds a line on each share the way the chain builds its own (per cell, a Theil-Sen line across 56
+cells) and reads every plasma bundle on both, on a GitHub machine. On the healthy inputs alone, before any plasma: 0.9498 on the tile
+line, 0.9678 on the molecule line. **Expected if the mix is the cause:** the plasmas read near the healthy inputs on the molecule line and
+low on the tile line. Nothing scored; it says whether the molecule-level line is worth building into the chain, synthetic first.
