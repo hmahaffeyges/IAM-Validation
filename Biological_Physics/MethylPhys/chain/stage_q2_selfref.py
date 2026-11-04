@@ -102,8 +102,35 @@ def _mol(M):
     Both add linearly when cell types are mixed, so a mix of cells with the same shares reads the same share; the tile loose share does not
     (synthetic test cfDNA 1)."""
     return dict(mol_n=int(M[0]), mol_low_share=(M[1] / M[0] if M[0] else None), mol_mid_share=(M[2] / M[0] if M[0] else None))
+def qual_iso_expect(L, e):
+    """2026-11-03 (plan 40.11, development; derived, nothing fitted): on a molecule of L calls, each call independently lost with probability e,
+    the expected number of isolated losses (a T between two C, the held error's count) given that the molecule qualifies (at least
+    QUAL_MIN_CALLS calls, at least QUAL_MIN_METH methylated). Exact, by a walk over every pattern (state: losses so far, the last two calls)."""
+    if L < QUAL_MIN_CALLS: return None
+    st = {(0, None, 0): [1 - e, 0.0], (1, None, 1): [e, 0.0]}
+    for _ in range(1, L):
+        new = {}
+        for (k, a, b), (p, s) in st.items():
+            for x, px in ((0, 1 - e), (1, e)):
+                w = p * px; add = 1.0 if (a == 0 and b == 1 and x == 0) else 0.0; r = new.setdefault((k + x, b, x), [0.0, 0.0]); r[0] += w; r[1] += s * px + w * add
+        st = new
+    q = [(p, s) for (k, a, b), (p, s) in st.items() if (L - k) >= QUAL_MIN_METH * L]
+    P = sum(p for p, _ in q); return sum(s for _, s in q) / P if P else None
+def held_err_length(by_len):
+    """2026-11-03 (plan 40.11, development, recorded only): the held error with the qualifying rule's length bias removed. Short molecules that
+    carry a second loss fail to qualify, so the isolated losses counted per opportunity fall with molecule length (synthetic test cfDNA 1).
+    by_len: {L: [qualifying molecules, isolated losses, opportunities]}. The per-call loss e is the value at which the expected isolated losses
+    of the molecules actually counted, length by length (qual_iso_expect), equal the isolated losses counted; returned as the held error a
+    molecule would show with no qualifying rule, e (1 - e)^2, on the same axis as held_err."""
+    from scipy.optimize import brentq
+    obs = sum(v[1] for v in by_len.values())
+    if not by_len or obs <= 0: return dict(held_err_length=None, held_e_call=None)
+    f = lambda e: sum(v[0] * qual_iso_expect(int(L), e) for L, v in by_len.items()) - obs
+    lo, hi = 1e-6, 0.2
+    if f(lo) > 0 or f(hi) < 0: return dict(held_err_length=None, held_e_call=None)
+    e = brentq(f, lo, hi, xtol=1e-10); return dict(held_err_length=float(e * (1 - e) ** 2), held_e_call=float(e))
 def count_pat(lines, tiles):
-    tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
+    tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]; QL = {}   # 2026-11-03 (plan 40.11): qualifying molecules by length: [molecules, isolated losses, opportunities]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
     K = [0, 0, 0, 0, 0]   # 2026-10-28: K[4] the most adjacent pairs possible (each molecule's errors in one run, t - 1); 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
     for k, line in enumerate(lines):
         p = line.rstrip("\n").split("\t")
@@ -119,11 +146,12 @@ def count_pat(lines, tiles):
             if len(s) >= QUAL_MIN_CALLS:   # the loose share counted molecule by molecule, which adds linearly when cell types mix (the tile share does not)
                 f = s.count("C") / len(s); M[0] += n; M[1] += n * (f < CUT); M[2] += n * (QUAL_MAX_METH < f < QUAL_MIN_METH)
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") >= QUAL_MIN_METH * len(s):
-            e_opp += n * (len(s) - 2); e_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
+            _iso = sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C"); e_opp += n * (len(s) - 2); e_iso += n * _iso
+            _ql = QL.setdefault(len(s), [0, 0, 0]); _ql[0] += n; _ql[1] += n * _iso; _ql[2] += n * (len(s) - 2)
             _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s); K[4] += n * max(_t - 1, 0)
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
-    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K)), g_iso, g_opp)
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())}), g_iso, g_opp)
 
 def _coupling(K):
     """2026-10-25 (plan 49.5, development, recorded only; from the published information-theory study's nearest-neighbor coupling): whether held

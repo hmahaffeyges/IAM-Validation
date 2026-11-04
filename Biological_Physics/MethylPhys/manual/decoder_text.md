@@ -1031,6 +1031,12 @@ give at random (`_coupling`); 1 is independent. It is written beside the held er
 uses. In development: recorded and flagged, no gauge yet (INSTRUMENTS.md, In development).
 
 
+### stage_q2_selfref.py::qual_iso_expect
+The expected number of isolated losses on a qualifying molecule of L calls at a per-call loss e (development, plan 40.11). Exact: a walk over every pattern of the molecule's calls, keeping the losses so far and the last two calls, then only the patterns the qualifying rule keeps (at least 6 calls, at least 80 % methylated). Nothing fitted.
+
+### stage_q2_selfref.py::held_err_length
+The held error with the qualifying rule's length bias removed (development, recorded only, plan 40.11). Short molecules carrying a second loss fail to qualify, so the raw held error falls with molecule length. From the qualifying molecules counted at each length, it finds the per-call loss at which their expected isolated losses equal those counted, and reports it as the held error a molecule shows with no qualifying rule, e (1 - e)^2.
+
 ### stage_q2_selfref.py::_coupling
 Nearest-neighbor coupling on held molecules (development, recorded only, plan 49.5): the adjacent pairs of unmethylated calls, set against what random placement gives each molecule from its own length L and its own number k of unmethylated calls, k (k - 1) / L. 1 when errors fall independently, above 1 when they cluster along the molecule. Nothing fitted. Clustered errors lower the lone-error count IAM-A uses at the same error share, so the two are reported together.
 

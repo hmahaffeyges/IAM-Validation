@@ -1,0 +1,5 @@
+per-call loss 0.035; with no qualifying rule 0.03259 per opportunity
+6 calls: expected held error 0.02979 per opportunity
+8 calls: expected held error 0.02811 per opportunity
+12 calls: expected held error 0.03161 per opportunity
+20 calls: expected held error 0.03253 per opportunity

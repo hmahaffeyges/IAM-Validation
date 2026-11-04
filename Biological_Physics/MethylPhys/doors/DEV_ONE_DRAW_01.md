@@ -512,3 +512,17 @@ mix as the cause is not met: plasma's molecule-level share (0.3310) sits above t
 mix is not what holds plasma's IAM-A down. That leaves the other cause synthetic test cfDNA 1 found: plasma's short molecules, where the
 qualifying rule (at least 6 calls, at least 80 % methylated) drops molecules carrying a second error and lowers the held error counted.
 **Next:** that length bias computed exactly for each molecule length, as the read-count correction was, synthetic first.
+
+## Plasma's short molecules: the length bias removed, synthetic test cfDNA 3 (written and committed before it runs; plan 40.11)
+
+**The instrument's job:** a sample's held error does not depend on how long its molecules are. The held error counts isolated losses on
+molecules that qualify (at least 6 calls, at least 80 % methylated); a short molecule carrying a second loss fails to qualify, so short
+molecules count low. Derived exactly (`stage_q2_selfref.qual_iso_expect`, a walk over every pattern of a molecule's calls; nothing fitted;
+`length_bias_expect.txt`): for each length, the expected isolated losses on a qualifying molecule at a per-call loss e. Stage Q2 now records the qualifying molecules by
+length, and `held_err_length`: the e at which the expected losses of the molecules actually counted equal the losses counted, written as the
+held error a molecule would show with no qualifying rule, e (1 - e)^2. It is used by no reading yet. The derivation reproduces synthetic test
+cfDNA 1's measured held errors (per opportunity, at a loss of 0.035: 0.02979, 0.02811 and 0.03161 expected at 6, 8 and 12 calls, against
+0.03000, 0.02786 and 0.03186 counted). **Synthetic test cfDNA 3** (`synthetic_cfdna_03.py`): one constructed cell, molecules cut to 6, 8,
+12 and 20 calls, through the one command. Bars: the corrected held error within 5 % of the known answer at every length, and its spread
+across lengths under half the raw spread. If met, the healthy line is rebuilt on the corrected held error (the 153 inputs counted again for
+their tallies by length) and the 30 plasmas read on it.
