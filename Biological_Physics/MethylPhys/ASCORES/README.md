@@ -7919,3 +7919,17 @@ reading made another way (an earlier tare), so those rows show none.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).
+
+**Group-A** reads a group, not a sample: [Group_A.csv](Group_A.csv) holds one row per committed comparison (the two groups' tared means,
+the difference and its standard errors).
+
+| source | comparison | reading | groups (n) | difference | standard errors | verdict | specimen |
+|---|---|---|---|---|---|---|---|
+| GROUPA-COMMISSION-01 | women against men (healthy, tared) | A, tared | women (75) vs men (188) | -0.36 % | -1.21 | met | whole blood |
+| GROUPA-COMMISSION-01 | planted 1 % neutrophil-pattern loss against unplanted | A, tared | planted (136) vs unplanted (127) | +2.00 % | 7.25 | met | whole blood |
+| GROUPA-SEQ-BAR1 | bar 1 (half A against B) | sorted | A (76) vs B (61) | -0.97 % | -0.77 | no difference found | sorted cells |
+| GROUPA-SEQ-BAR1 | bar 1 (half A against B) | whole | A (76) vs B (61) | -1.64 % | -1.96 | no difference found | sorted cells |
+| GROUPA-SEQ-BAR1 | bar 1 (half A against B) | islands | A (76) vs B (61) | +4.51 % | 2.23 | groups differ | sorted cells |
+| GROUPA-SEQ-BAR2 | bar 2 (planted 1 against 0) | sorted | 1 (68) vs 0 (69) | +7.93 % | 6.49 | groups differ | sorted cells |
+| GROUPA-SEQ-BAR2 | bar 2 (planted 1 against 0) | whole | 1 (68) vs 0 (69) | +1.10 % | 1.27 | no difference found | sorted cells |
+| GROUPA-SEQ-BAR2 | bar 2 (planted 1 against 0) | islands | 1 (68) vs 0 (69) | -0.22 % | -0.11 | no difference found | sorted cells |

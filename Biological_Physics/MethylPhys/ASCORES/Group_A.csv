@@ -1,0 +1,9 @@
+source,comparison,reading,group1,n1,mean1,group2,n2,mean2,difference_pct,t,verdict,use,specimen,platform,status,record
+GROUPA-COMMISSION-01,"women against men (healthy, tared)","A, tared",women,75,0.99698,men,188,1.00059,-0.36,-1.206,met,scored,whole blood,EPIC v1,commissioned,Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md
+GROUPA-COMMISSION-01,planted 1 % neutrophil-pattern loss against unplanted,"A, tared",planted,136,1.01883,unplanted,127,0.99868,2.0,7.253,met,scored,whole blood,EPIC v1,commissioned,Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md
+GROUPA-SEQ-BAR1,bar 1 (half A against B),sorted,A,76,0.99572,B,61,1.00544,-0.97,-0.772,no difference found,scored,sorted cells,WGBS,development (read and flagged),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md
+GROUPA-SEQ-BAR1,bar 1 (half A against B),whole,A,76,0.9924,B,61,1.00881,-1.64,-1.958,no difference found,recorded,sorted cells,WGBS,development (read and flagged),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md
+GROUPA-SEQ-BAR1,bar 1 (half A against B),islands,A,76,1.03051,B,61,0.98496,4.51,2.231,groups differ,recorded,sorted cells,WGBS,development (read and flagged),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md
+GROUPA-SEQ-BAR2,bar 2 (planted 1 against 0),sorted,1,68,1.08456,0,69,1.00183,7.93,6.493,groups differ,scored,sorted cells,WGBS,development (read and flagged),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md
+GROUPA-SEQ-BAR2,bar 2 (planted 1 against 0),whole,1,68,1.01045,0,69,0.99936,1.1,1.274,no difference found,recorded,sorted cells,WGBS,development (read and flagged),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md
+GROUPA-SEQ-BAR2,bar 2 (planted 1 against 0),islands,1,68,1.01011,0,69,1.01235,-0.22,-0.106,no difference found,recorded,sorted cells,WGBS,development (read and flagged),Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md

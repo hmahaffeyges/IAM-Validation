@@ -55,6 +55,30 @@ def bands(T):
                       healthy_samples=int(len(h)), healthy_lo=round(h.quantile(.025), 4) if len(h) >= 3 else None, healthy_median=round(h.median(), 4) if len(h) else None,
                       healthy_hi=round(h.quantile(.975), 4) if len(h) >= 3 else None, all_samples=int(len(g)), status="; ".join(sorted(set(g.status.astype(str))))[:120]))
     return pd.DataFrame(R)
+GA_BLOCK = re.compile(r"^== (?P<cmp>.+?), (?P<reading>[a-z ]+) \((?P<use>scored|recorded)\)\n.*?\n\s+(?P<g1>\S+): tared mean (?P<m1>[\d.]+) \(n (?P<n1>\d+)\)\s+(?P<g2>\S+): tared mean (?P<m2>[\d.]+) \(n (?P<n2>\d+)\)\n\s+difference (?P<d>[+-]?[\d.]+) %, (?P<t>[+-]?[\d.]+) standard errors -> (?P<verdict>[^\n]+)", re.M)
+def groupa(S):
+    """2026-11-04 (author: every score of every instrument in the A-score document): Group-A's scores. Group-A reads a group, not a sample, so
+    its table has one row per committed comparison: the two groups' tared means, the difference and its standard errors, copied from the
+    committed output (the printed Group-A blocks, or the commissioning JSON's bars)."""
+    R = []
+    for s in S.get("group_a", []):
+        f = os.path.join(ROOT, s["file"]); base = dict(source=s["id"], specimen=s.get("specimen", ""), platform=s.get("platform", ""), status=s["status"], record=s["record"])
+        if s.get("json_bars"):
+            d = json.load(open(f, encoding="utf-8"))
+            for b, lab in s["json_bars"].items():
+                x = d.get(b) or {}
+                if "mean1" not in x: continue
+                R.append(dict(base, comparison=lab, reading=s.get("reading", ""), group1=s.get("groups", {}).get(b, ["1", "2"])[0], n1=x["n1"], mean1=x["mean1"],
+                              group2=s.get("groups", {}).get(b, ["1", "2"])[1], n2=x["n2"], mean2=x["mean2"], difference_pct=round(100 * x["rel_difference"], 2),
+                              t=x["t"], verdict="met" if x.get("met") else "not met", use="scored"))
+        else:
+            for m in GA_BLOCK.finditer(open(f, encoding="utf-8").read()):
+                R.append(dict(base, comparison=m["cmp"], reading=m["reading"], group1=m["g1"], n1=int(m["n1"]), mean1=float(m["m1"]), group2=m["g2"], n2=int(m["n2"]),
+                              mean2=float(m["m2"]), difference_pct=float(m["d"]), t=float(m["t"]), verdict=m["verdict"].strip(), use=m["use"]))
+        for nc in s.get("no_call", []): R.append(dict(base, comparison=nc["comparison"], reading=nc.get("reading", ""), verdict="no call: " + nc["why"], use="recorded"))
+    return pd.DataFrame(R, columns=["source", "comparison", "reading", "group1", "n1", "mean1", "group2", "n2", "mean2", "difference_pct", "t", "verdict", "use",
+                                    "specimen", "platform", "status", "record"])
+
 def build():
     S = json.load(open(os.path.join(ROOT, "CANON", "ascore_sources.json"), encoding="utf-8")); global LINES; LINES = S.get("lines", {})
     T = pd.concat([x.astype({'line': float}) for x in ((load_rows(s) if s.get("rows_table") else load(s)) for s in S["sources"])], ignore_index=True); files = {}
@@ -84,6 +108,16 @@ def build():
     L += ["", f"{len(T)} readings from {T.source.nunique()} sources. Status and record for every row are in the tables.", "",
           "**Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew",
           "(copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).", ""]
+    G = groupa(S)
+    if len(G):
+        b = io.StringIO(); G.to_csv(b, index=False, lineterminator="\n"); files["Group_A.csv"] = b.getvalue()
+        L += ["**Group-A** reads a group, not a sample: [Group_A.csv](Group_A.csv) holds one row per committed comparison (the two groups' tared means,",
+              "the difference and its standard errors).", "", "| source | comparison | reading | groups (n) | difference | standard errors | verdict | specimen |", "|---|---|---|---|---|---|---|---|"]
+        for _, r in G.iterrows():
+            gr = f"{r.group1} ({r.n1:.0f}) vs {r.group2} ({r.n2:.0f})" if pd.notna(r.n1) else ""
+            df = f"{r.difference_pct:+.2f} %" if pd.notna(r.difference_pct) else ""; tt = f"{r.t:.2f}" if pd.notna(r.t) else ""
+            L.append(f"| {r.source} | {r.comparison} | {r.reading} | {gr} | {df} | {tt} | {r.verdict} | {r.specimen} |")
+        L.append("")
     files["README.md"] = "\n".join(L); return files
 if __name__ == "__main__":
     F = build()
