@@ -564,3 +564,12 @@ one of the 517 plasmas its age, tumor stage, tumor type, tumor count and diamete
 239 nonmetastatic breast cancers: stage I 44 (I, IA, IB), stage II 100 (II, IIA, IIB), stage III 34 (III, IIIA), not recorded 61. The
 A-score database now carries each plasma's stage and subtype (`CANON/ascore_labels.py`). The 239 stay unread until plasma reads Normal on
 healthy plasma on every reading; they are then a cancer set with recorded stage, as the A-score database needs.
+
+**IAM-A in the plasma's own mix: one open question, not two** (`plasma_seq_02/iama_mix_diag.py`, `iama_mix_diag.txt`; added after both
+were read, disclosed; nothing scored). Read against a line across cells, IAM-A puts 13 of the 30 tuning plasmas inside the healthy inputs'
+band (median 0.7733). Read against the plasma's own mix of cells, which the chain already prints, 25 of 30 sit inside the healthy inputs'
+band (median 0.9189; healthy inputs 0.9977, 80 read). What remains follows the domains (rho +0.756) and the erythrocyte progenitor share
+(rho -0.634): the plasmas that read lowest on IAM-A in the mix are the ones whose domains read lowest and that put most DNA on erythrocyte
+progenitors. So plasma's low IAM-A and its low domains point at the same DNA, which the atlas reads as erythroid at the identity sites
+and as more ordered than its bone-marrow erythrocyte progenitors at the domains. What that DNA is stays open, and needs data of that cell,
+with reads.

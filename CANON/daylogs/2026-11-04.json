@@ -44,13 +44,44 @@
       "GRP-016"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "IAM-A in the plasma's own mix",
+     "status": "diagnosis",
+     "what": "IAM-A in the sample's own mix, already printed by the chain, read on the 30 tuning plasmas against the healthy inputs.",
+     "outcome": "25 of 30 inside the healthy band; what remains follows the domains and the erythrocyte progenitor share, one open question rather than two.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "The platelet set checked for a megakaryocyte column",
+     "status": "diagnosis",
+     "what": "GSE206818's public files read for their form.",
+     "outcome": "One merged level track of three donors, no reads: it cannot be counted or sealed into halves, and stays unspent.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },
   {
    "kind": "built",
    "heading": "What was built",
-   "entries": []
+   "entries": [
+    {
+     "title": "Stage and subtype for the breast cancer plasmas",
+     "status": "development",
+     "what": "The publication's clinical table joined to all 517 PRJNA929650 plasmas.",
+     "outcome": "Stage I 44, II 100, III 34, not recorded 61; in the A-score database; the cancers stay unread until plasma reads Normal.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    }
+   ]
   }
  ]
 }
