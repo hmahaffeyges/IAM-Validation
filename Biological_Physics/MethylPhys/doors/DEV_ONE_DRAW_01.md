@@ -551,3 +551,9 @@ than a healthy cell's; why is open, and is not assumed. `held_err_length` stays 
 
 **Disclosed (mine):** the dispatcher for plasma_seq_05 matched the registry's scoring runs as samples and sent two meaningless runs, which
 failed and were removed; the same error as before, now fixed by matching sample identifiers.
+
+**The platelet set cannot build a megakaryocyte column (its files checked; no methylation value read).** GSE206818's public files are one
+merged level track of its three platelet donors (a bedGraph of methylated fractions, and its bigWig); the reads are protected, and there is
+no per-donor file and no read count. The IAM Sequencing Atlas counts every cell from donors' reads and seals its donors into two halves, one
+to build and one to test, so a merged level track can be neither counted nor split. The set stays unspent. The erythroid question still
+needs bulk data, with reads, of a megakaryocyte or erythroid cell the atlas lacks.
