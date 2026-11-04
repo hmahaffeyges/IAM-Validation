@@ -135,6 +135,21 @@ def today_pt():
     import datetime, zoneinfo
     return datetime.datetime.now(zoneinfo.ZoneInfo("America/Los_Angeles")).date().isoformat()
 
+# 2026-11-04 (author: "a pre-determined 'outline' ... for the daily summaries now and going forward so its the same each time"): every day
+# summary from OUTLINE_FROM on carries these ten headings, in this order; a section with nothing that day says "None today".
+OUTLINE_FROM = "2026-10-29"
+OUTLINE = ("Set out:", "Ran, and how each came out:", "Successes:", "Learned:", "Errors (the agent's own), and what caught each:",
+           "The author's instructions and corrections:", "Path changes:", "Data:", "Machines:", "Open at turnover:")
+
+def outline_problems(date):
+    """The fixed outline's headings missing or out of order in this day's summary (empty list when it follows the outline)."""
+    s = day_summary(date)
+    if s is None or date < OUTLINE_FROM: return []
+    pos = [s.find("**" + h + "**") for h in OUTLINE]
+    miss = [h for h, p in zip(OUTLINE, pos) if p < 0]
+    if miss: return ["missing " + ", ".join(miss)]
+    return [] if pos == sorted(pos) else ["headings out of order"]
+
 def coverage(d):
     """Committed development-log headings for this day whose content words do not appear in the rendered day log.
 
@@ -189,6 +204,8 @@ if __name__ == "__main__":
         if re.search(r"(?i)in progress", (d.get("title", "") + " " + str(d.get("open_at_turnover", "")) + " " + d.get("set_out", ""))):
             P.append(f"[daylog] {day}: the day is over and its log still says in progress")
         for h in coverage(d): P.append(f"[daylog] {day}: committed thread missing from the day log: {h[:80]}")
+        if day_summary(day) is None and day >= OUTLINE_FROM: P.append(f"[daylog] {day}: the day is over and has no hand-written day summary in the development log")
+        for x in outline_problems(day): P.append(f"[daylog] {day}: day summary does not follow the fixed outline: {x}")
         try: _cs = json.load(open(os.path.join(ROOT, "CANON", "compute_snapshot.json"))).get("as_of", "")
         except Exception: _cs = ""
         if _cs < day and not os.path.exists(os.path.join(ROOT, "CANON", "billing_unreadable.json")): P.append(f"[daylog] {day}: the campaign counts (CANON/compute_snapshot.json, as of {_cs}) predate this closed day: run python3 CANON/compute_snapshot.py")
