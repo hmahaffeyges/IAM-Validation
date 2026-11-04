@@ -111,5 +111,33 @@
  "hopkins3_ctrl_metaa_b": {
   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ALL_INFO_01/full_depth/hopkins_fullchain3.txt",
   "re": "control line \\(1\\): .*?Met-A B cells ([0-9.]+)"
+ },
+ "bp_own_metaa": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/blueprint_healthy_test.txt",
+  "re": "adult venous blood \\(scored\\) \\(\\d+\\): Met-A own cell median ([0-9.]+)"
+ },
+ "bp_islands": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/blueprint_healthy_test.txt",
+  "re": "adult venous blood \\(scored\\) \\(\\d+\\):.*?islands median ([0-9.]+)"
+ },
+ "bp_whole_metaa": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/blueprint_healthy_test.txt",
+  "re": "adult venous blood \\(scored\\) \\(\\d+\\):.*?Met-A whole sample median ([0-9.]+)"
+ },
+ "bp_floor": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/library_floors.txt",
+  "re": "^BLUEPRINT: \\d+ libraries; floor median ([0-9.]+)"
+ },
+ "atlas_floor": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/library_floors.txt",
+  "re": "^atlas_inputs_unplanted: \\d+ libraries; floor median ([0-9.]+)"
+ },
+ "plasma_islands_floor_share": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/floor_by_site_class_plasma.txt",
+  "re": "^islands:.*?median share of the library's floor ([0-9.]+)"
+ },
+ "atlas_islands_floor_share": {
+  "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/floor_by_site_class_healthy.txt",
+  "re": "^islands:.*?median share of the library's floor ([0-9.]+)"
  }
 }
