@@ -71,7 +71,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `stage_metaa_atlas.py` | 790 | 42 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
-| `MethylPhys_Interface/reference_globes.py` | 179 | 10 | 0 | 0 |
+| `MethylPhys_Interface/reference_globes.py` | 181 | 10 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 167 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 | `stage_seq_atlas.py` | 885 | 46 | 0 | 0 |
@@ -3480,7 +3480,7 @@ Finds Illumina's 450K and EPIC manifests in methylprep's download folder (it dif
 The 79 cells' globe textures (best value and how sure), laid out by the frozen sky order; each cell's measured pixels must equal its cell
 page's count, or the build stops.
 
-*Code:* `MethylPhys_Interface/reference_globes.py` line 104 (32 lines) · arguments: out, atlas, man, cells_index, name, pages · calls: not called on the traced runs · constants read: `GREY`, `HERE`, `HW_MAX`, `REPO` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `index.json`, `s measured-pixel count equal to website/art/out/cells/index.json`, `sites.parquet`, `sphere.json`
+*Code:* `MethylPhys_Interface/reference_globes.py` line 104 (34 lines) · arguments: out, atlas, man, cells_index, name, pages · calls: not called on the traced runs · constants read: `GREY`, `HERE`, `HW_MAX`, `REPO` · files named: `Planck_Parchment_RGB.txt`, `import pyarrow.parquet`, `index.json`, `s measured-pixel count equal to website/art/out/cells/index.json`, `sites.parquet`, `sphere.json`
 
 ### `reference_globes.py::atlas_sphere.tex`
 
@@ -3492,13 +3492,13 @@ One texture from a sky map.
 
 The value pictures for the atlas globe's sliders (best value, and half-width of the 95 % range), losslessly coded; checked against the textures.
 
-*Code:* `MethylPhys_Interface/reference_globes.py` line 161 (18 lines) · arguments: OUT, A · calls: not called on the traced runs · constants read: `ATLAS`, `HW_MAX` · files named: `import pyarrow.parquet`, `sphere.json`
+*Code:* `MethylPhys_Interface/reference_globes.py` line 163 (18 lines) · arguments: OUT, A · calls: not called on the traced runs · constants read: `ATLAS`, `HW_MAX` · files named: `import pyarrow.parquet`, `sphere.json`
 
 ### `reference_globes.py::atlas_masks.code`
 
 Codes a map 1 to 255 on its scale, 0 where no site.
 
-*Code:* `MethylPhys_Interface/reference_globes.py` line 167 (2 lines) · arguments: v, hi · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/reference_globes.py` line 169 (2 lines) · arguments: v, hi · calls: not called on the traced runs
 
 ### `run_series.py::matrix_values`
 
@@ -3927,13 +3927,13 @@ The noise columns against the committed Met-A reference at the identity sites: t
 
 The sequencing atlas's two noise maps drawn on the sky sphere per cell (`--build seq-noise-sphere`).
 
-*Code:* `MethylPhys_Interface/reference_globes.py` line 137 (23 lines) · arguments: out, cols, man, lim · calls: not called on the traced runs · constants read: `ATLAS`, `GREY` · files named: `import pyarrow.parquet`, `noise_sphere.json`, `sites.parquet`
+*Code:* `MethylPhys_Interface/reference_globes.py` line 139 (23 lines) · arguments: out, cols, man, lim · calls: not called on the traced runs · constants read: `ATLAS`, `GREY` · files named: `import pyarrow.parquet`, `noise_sphere.json`, `sites.parquet`
 
 ### `reference_globes.py::noise_sphere.tex`
 
 One noise map as a sky texture on a diverging scale, grey where blank.
 
-*Code:* `MethylPhys_Interface/reference_globes.py` line 151 (3 lines) · arguments: m, path · calls: not called on the traced runs · constants read: `GREY`
+*Code:* `MethylPhys_Interface/reference_globes.py` line 153 (3 lines) · arguments: m, path · calls: not called on the traced runs · constants read: `GREY`
 
 ### `stage_seq_atlas.py::range_of_average`
 

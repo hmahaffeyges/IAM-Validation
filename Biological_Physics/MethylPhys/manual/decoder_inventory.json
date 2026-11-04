@@ -8273,7 +8273,7 @@
   },
   {
    "file": "MethylPhys_Interface/reference_globes.py",
-   "lines": 179,
+   "lines": 181,
    "functions": [
     {
      "file": "MethylPhys_Interface/reference_globes.py",
@@ -8348,7 +8348,7 @@
      "function": "atlas_sphere",
      "name": "atlas_sphere",
      "line": 104,
-     "end": 135,
+     "end": 137,
      "args": [
       "out",
       "atlas",
@@ -8357,7 +8357,7 @@
       "name",
       "pages"
      ],
-     "lines": 32,
+     "lines": 34,
      "doc": "",
      "constants": [
       "GREY",
@@ -8400,8 +8400,8 @@
      "file": "MethylPhys_Interface/reference_globes.py",
      "function": "noise_sphere",
      "name": "noise_sphere",
-     "line": 137,
-     "end": 159,
+     "line": 139,
+     "end": 161,
      "args": [
       "out",
       "cols",
@@ -8425,8 +8425,8 @@
      "file": "MethylPhys_Interface/reference_globes.py",
      "function": "noise_sphere.tex",
      "name": "tex",
-     "line": 151,
-     "end": 153,
+     "line": 153,
+     "end": 155,
      "args": [
       "m",
       "path"
@@ -8443,8 +8443,8 @@
      "file": "MethylPhys_Interface/reference_globes.py",
      "function": "atlas_masks",
      "name": "atlas_masks",
-     "line": 161,
-     "end": 178,
+     "line": 163,
+     "end": 180,
      "args": [
       "OUT",
       "A"
@@ -8465,8 +8465,8 @@
      "file": "MethylPhys_Interface/reference_globes.py",
      "function": "atlas_masks.code",
      "name": "code",
-     "line": 167,
-     "end": 168,
+     "line": 169,
+     "end": 170,
      "args": [
       "v",
       "hi"

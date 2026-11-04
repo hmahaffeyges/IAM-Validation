@@ -122,7 +122,9 @@ def atlas_sphere(out, atlas, man, cells_index=None, name="IAM-Atlas v2.1", pages
         for c in a.column_names:
             mu = SM.to_sky(SM.decode(a.column(c).to_numpy())[order]); hw = SM.to_sky(((SM.decode(hi.column(c).to_numpy()) - SM.decode(lo.column(c).to_numpy())) / 2)[order])
             s = slug(c); tex(mu, CM, 0.0, 1.0, os.path.join(out, s + "_v.jpg")); tex(hw, UC, 0.0, HW_MAX, os.path.join(out, s + "_u.jpg"))
-            cells.append(dict(cell=c, slug=s, pixels_measured=int(np.isfinite(mu).sum()))); print(c, flush=True)
+            _f = np.isfinite(mu); _h = hw[np.isfinite(hw)]   # 2026-11-03: the numbers each cell page prints, from the same maps (the v2.1 index fields)
+            cells.append(dict(cell=c, slug=s, pixels_measured=int(_f.sum()), pixels=int(SM.NPIX), mean_methylation=round(float(np.nanmean(mu)), 3) if _f.any() else None,
+                              halfwidth_median=round(float(np.median(_h)), 4) if len(_h) else None, halfwidth_p90=round(float(np.percentile(_h, 90)), 4) if len(_h) else None)); print(c, flush=True)
     cells.sort(key=lambda x: x["cell"].lower())
     # the layout must be the cell pages' own: every cell's measured-pixel count equal to website/art/out/cells/index.json
     ix = {c["slug"]: c.get("pixels_measured") for c in json.load(open(cells_index or os.path.join(REPO, "website", "art", "out", "cells", "index.json")))["cells"]} if pages else {}
