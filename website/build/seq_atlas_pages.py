@@ -11,7 +11,7 @@ MP = os.path.join(REPO, "Biological_Physics", "MethylPhys"); SD = os.path.join(M
 ART = os.path.join(REPO, "website", "art", "out", "seq_cells")
 READINGS = os.path.join(MP, "doors", "data", "DEV_METAA_ATLAS_CURVE_01", "seq_atlas_01", "healthy_fullchain7_readings.csv")
 FLOORS = os.path.join(MP, "chain", "Runtime Matrices", "Seq_Atlas", "input_floors_v1.parquet")
-SEXW = {"F": "female", "M": "male"}
+SEXW = {"F": "female", "M": "male", "not recorded": "with sex not recorded"}
 SHOW = (("Met-A sorted cell", "Met-A, read as this cell"), ("territory islands", "the islands"), ("territory domains", "the domains"), ("C-Score whole genome", "the C-Score"))
 PHYS = ("Why a map like this can be a ruler: a methyl mark is a record a cell keeps against heat, at a price Landauer's bound sets, so the "
         "reading scale's ends come from physics (a mark held at the holding energy, and a mark lost entirely, one bit of disorder). This map "
@@ -43,7 +43,8 @@ def problems():
             if not os.path.exists(os.path.join(ART, c["slug"] + k)): P.append(f"{c['cell']}: no {c['slug'] + k}")
         if c["cell"] not in don: P.append(f"{c['cell']}: in the sphere build but not in the atlas's inputs")
         if c.get("mean_methylation") is None: P.append(f"{c['cell']}: no numbers in the sphere build")
-        if not rd.get(c["cell"]): P.append(f"{c['cell']}: no healthy readings in the 57-cell pass")
+        if not rd.get(c["cell"]) and len({h for _, h in don.get(c["cell"], [])}) > 1: P.append(f"{c['cell']}: no healthy readings in the 57-cell pass")
+        if rd.get(c["cell"]) and len({h for _, h in don.get(c["cell"], [])}) == 1: P.append(f"{c['cell']}: read in the healthy pass though its donors sit in one half")
     return P
 
 def write(out, art_rel, css_tag, style, back):
@@ -64,7 +65,7 @@ def write(out, art_rel, css_tag, style, back):
         p, n = C[k - 1], C[(k + 1) % len(C)]; dn = don.get(c["cell"], [])
         halves = collections.Counter(h for _, h in dn); sx = collections.Counter(sex.get(g_, "") or "not recorded" for g_, _ in dn)
         fl = [floor[g_] for g_, _ in dn if g_ in floor]
-        rows = [f'<tr><th>Built from</th><td>{len(dn)} healthy donor{"s" if len(dn) != 1 else ""}, sealed into two halves ({halves.get("A", 0)} in half A, {halves.get("B", 0)} in half B); '
+        rows = [f'<tr><th>Built from</th><td>{len(dn)} healthy donor{"s" if len(dn) != 1 else ""}, ' + (f'sealed into two halves ({halves.get("A", 0)} in half A, {halves.get("B", 0)} in half B); ' if len(halves) > 1 else f'all in sealed half {next(iter(halves), "")}; ')
                 + ", ".join(f"{v} {E(SEXW.get(s, s))}" for s, v in sorted(sx.items())) + "</td></tr>",
                 f'<tr><th>Average methylation</th><td>{c["mean_methylation"]:.3f}</td></tr>',
                 f'<tr><th>How sure (half-width of the 95&nbsp;% range of the average)</th><td>half the sites within &plusmn;{c["halfwidth_median"]:.3f}; nine in ten within &plusmn;{c["halfwidth_p90"]:.3f}</td></tr>',
@@ -74,6 +75,7 @@ def write(out, art_rel, css_tag, style, back):
         for key, lab in SHOW:
             v = list(R.get(key, {}).values())
             if v: rows.append(f'<tr><th>Its own healthy inputs read ({E(lab)})</th><td>median {statistics.median(v):.4f} over {len(v)} (healthy reads 1)</td></tr>')
+        if not R: rows.append('<tr><th>Its own healthy inputs read</th><td>not read in the healthy pass: all its donors sit in one sealed half, so there is no other half of the same cell to read them against</td></tr>')
         body = (f'<p><a href="index.html">&larr; all {len(C)} cells</a> &middot; <a href="{back}">front page</a>'
                 + (f' &middot; <a href="../atlas/{c["slug"]}.html">this cell in IAM-Atlas v2.1</a>' if c["slug"] in v21 else '') + f'</p><h1>{E(nm(c))}</h1>'
                 f'<p><b>In development.</b> A cell is commissioned when healthy samples from laboratories the atlas has never held read Normal against it.</p>'

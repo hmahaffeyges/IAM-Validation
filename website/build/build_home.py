@@ -622,6 +622,7 @@ if __name__ == "__main__":
     ART = os.path.join(REPO, "website", "art", "out")
     if sys.argv[1] == "--check":
         import atlas_pages   # 2026-10-18: a syntax error in the cell-page code passed this check and broke the live build; import it here too
+        import seq_atlas_pages
         _, b = full(lambda n: "../art/" + n, ""); P = problems(b)
         print("build_home: " + ("ok" if not P else "REFUSED: " + "; ".join(P))); sys.exit(1 if P else 0)
     if sys.argv[1] == "--standalone":
@@ -641,4 +642,8 @@ if __name__ == "__main__":
     for q in DOCS: open(os.path.join(out, docname(q)), "w", encoding="utf-8").write(_nodates(off_site(doc_page(q, _css, DOCS))))
     import atlas_pages   # IAM-Atlas v2.1: every cell on its own page (author 2026-10-18)
     print("build_home:", atlas_pages.write(out, pre + "../art/", f'<link rel="stylesheet" href="{pre}../static/themes.css">', CSS, "../index.html"), "atlas cell pages written")
+    import seq_atlas_pages   # the IAM Sequencing Atlas: every cell on its own page (2026-11-03)
+    _sp = seq_atlas_pages.problems()
+    if _sp: raise SystemExit("build_home: sequencing atlas pages: " + "; ".join(_sp[:5]))
+    print("build_home:", seq_atlas_pages.write(out, pre + "../art/", f'<link rel="stylesheet" href="{pre}../static/themes.css">', CSS, "../index.html"), "sequencing atlas cell pages written")
     print("build_home:", len(DOCS), "document pages written")

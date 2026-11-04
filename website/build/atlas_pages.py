@@ -72,7 +72,7 @@ def write(out, art_rel, css_tag, style, back):
                       f'.cg a{{text-decoration:none;color:inherit}}.cg img{{width:100%;border-radius:4px}}.cg span{{font-size:14px}}</style></head><body><section class="wrap">')
     g = [f'<a href="{c["slug"]}.html"><img loading="lazy" src="{art_rel}cells/{c["slug"]}_thumb.jpg" alt="{E(c["name"])} on the sphere"><span>{E(c["name"])}</span></a>' for c in I]
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(head("IAM-Atlas v2.1: every cell on the sky")
-        + f'<p><a href="{back}">&larr; IAMPerformance front page</a></p><h1>IAM-Atlas v2.1: all {len(I)} healthy cell types on the sky</h1><p>{E(HOW)} '
+        + f'<p><a href="{back}">&larr; IAMPerformance front page</a> &middot; <a href="../seq-atlas/index.html">the IAM Sequencing Atlas (sequencing)</a></p><h1>IAM-Atlas v2.1: all {len(I)} healthy cell types on the sky</h1><p>{E(HOW)} '
         + 'Choose a cell to see its map beside how sure the atlas is at every site.' + (' Or <a href="sphere.html">turn any cell on the globe</a>.' if globe else '')
         + '</p><div class="cg">' + "".join(g) + "</div></section></body></html>")
     for k, c in enumerate(I):
