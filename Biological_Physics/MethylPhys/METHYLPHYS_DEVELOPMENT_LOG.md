@@ -3585,7 +3585,58 @@ Donor-half and read-half noise maps on the sky sphere for every cell. Check met 
 A sequenced sample's globe and its distance from its own healthy self now drawn against the sequencing atlas; atlas inputs flagged. Being tested on 35 healthy samples outside the atlas, read both ways. Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
 
 ### 2026-11-01 · Day summary
-Pass 4's depth trend, diagnosed: Met-A follows that ratio almost exactly; shallower libraries of a cell hold more off-pattern reads at its identity sites. Not purity, not general library error. The islands on sequencing: synthetic: Met: median 0.9963 against a bar of 1 within 0.02; the plug-in expectation read 1.0358 on the same samples. Healthy pass 5: every reading on sequencing: Met: islands 1.0122 (bar within 0.05 of 1); Met-A in each cell 1.0077, whole sample 1.0055, domains 1.0011, C-Score 1.0004, coupling-A 1.0000, IAM-A 0.9518. The X chromosome and Met-A: No effect: 1.0077 both ways; largest change 0.0021. The sequencing atlas's null test on the sphere: Met: the counting-only map stays inside its null in all 56 cells; the donor-half map lies above it in every cell, the person-to-person part. The genome-distance spectrum: Met: the counting map reads no correlation at any distance; healthy people differ mostly among neighboring CpGs, fading by about 1 Mb. The bridge to IAM-Atlas v2.1: Median correlation 0.9941; the sequencing level sits below v2.1's in every cell, the platform difference measured. The transfer function at the islands: Met: the chain returns the change at full size (slope 1.0001). Isotropy by chromosome: The counting map is the same on every autosome in every cell. Built: the islands' expectation from the reference's own reads; per-site tables for the territories; the sequencing atlas on the sky sphere; the sequencing atlas's information globe; the sequencing atlas's two noise maps; the globe and information sphere on sequencing. Open at the turnover: The IAM Sequencing Atlas's checklist: masks, genome-distance spectra and null tests next.
+**Set out:** Item 1 of the author's order: finish every sequencing reading on healthy samples (sorted-cell Met-A's depth trend, the islands, IAM-A). Then item 2: the IAM Sequencing Atlas's spheres, globes and the rest of its checklist.
+
+**Ran, and how each came out:**
+- Sorted-cell Met-A's depth trend, diagnosed from pass 4's committed tables (`6008c8eb`): in 41 of 45 cells the deeper sample reads lower. Met-A matches each library's own disorder per read at the identity sites, and the shallower libraries carry more off-pattern reads. Not purity (rho 0.07 with the own-share difference) and not IAM-A's held error. The published titles carry sample IDs, not person IDs (153 distinct), so a per-person cause cannot be tested from these data.
+- IAM-A against its own derived healthy band: 93.8 % of the 130 healthy samples inside it; closed.
+- The islands' offset (1.0485): it follows cell type (0.95 to 1.17), not depth, off-pattern reads, IAM-A or purity. On one B-cell input read locally through the one command (matching pass 3 exactly), the island table showed the expectation treats the pooled level, from about 100 healthy reads, as exact, and the array-site pools include the sample itself: on a synthetic sample the old expectation runs 2.7 % high outside the pool and 3.4 % inside it. The counted expectation (exact for a mix of cells, from the reference halves' own reads) matched thinning exactly for one cell and read 1.0032 and 0.9979 on two seeds in a mix. Island synthetic through the one command (`592d3420`): median 0.9963 over six runs, against 1.0358 on the old one; met.
+- The per-half island counts, built on 7 Toronto spot machines: 66,986 island sites. Eight cells have donors in only one half, so each sample's own cell is pinned to the other half while the rest of its mix uses both (recorded before pass 5 ran).
+- Healthy pass 5 (137): first scoring 106 read, islands 1.0095; the 31 unread had been handed a GEO error page in place of a molecule file. The workflow now deletes a failed try and stops if no good file arrives. Re-sent (`650f4bab`); both runs scored together: **all 137 read, every reading Normal** (`f3e08efe`): C-Score 1.0004, coupling-A 1.0000, Met-A sorted cell 1.0077, whole sample 1.0055, domains 1.0011, islands 1.0122, IAM-A 0.9518 (94.2 % inside its band). Item 1 done.
+- The outside neurons read against the atlas's three neuron donors: Met-A tracks each library's disorder against its reference donors; 13 of the 25 sit inside the donors' range, the rest below it.
+- The X chromosome: 0.45 % of Met-A's identity sites (1,454 of 320,633) and 98 of 66,986 island sites; lung alveolar epithelium the most (171 of 6,000). Ruled out on all 137: median 1.0077 with or without chrX, largest change 0.0021.
+- The 95 % range per value (checklist D4): t-quantile ranges with k − 1 degrees of freedom, counting only where a cell has one donor (`287d86f0`). Synthetic: two and three donors gave variance ratios near 1.0 and about 95 % coverage; one donor understates (0.613, 85.1 %), as recorded beforehand. Columns built: 56 cells, 3 one-donor (`57108038`).
+- The sky sphere (C1), drawn on a Google spot machine by the same builder as v2.1's: 56 cells in about a minute; level maps match v2.1's in layout; on v2.1's 0.15 scale, 59 % of two-donor sites and 27 % of three-donor sites are past the cap (`31fcdc05`).
+- The information globe (`cdf424eb`, `5a2fa1c1`): the sequencing atlas places 534,617 sites, v2.1 191,458; family concentration median 0.42 against 0.36. v2.1's committed layout file is untouched.
+- The two noise maps (C3, D3): the known-answer check matched on all 1,238,368 values. The read-half map is clean. The donor-half map shows chrX in 16 of the 48 cells with two halves (donors of different sex; chrX noise 5 to 6 times the autosomes in B and CD4 T cells) and a whole-genome offset in smooth muscle (halves 0.062 apart, its donors likely from different tissues).
+- Masks and the null test (D5, D10) (`ba60c967`, `360fcc5d`): the pinned healpy 1.16.6 would not import with scipy 1.17.1 on a fresh machine, so the sky statistics had been broken; pinned to 1.17.3 (disclosed). Synthetic met. The read-half map meets its bar in all 56 cells; the donor-half map shows regional structure in all 48, 2.6 to 2.9 times its null at large and middle scales, fading at the finest (recorded, not scored).
+- The bridge to v2.1 (`seq-bridge`, `3f6f6be7`): median correlation 0.9942, lowest 0.9542 (effector memory CD8 T, one donor); sequencing about 0.032 below v2.1 in the median cell, so 80 % of v2.1's values fall in the sequencing range. Not independent: v2.1 draws partly on the same atlas.
+- The genome-distance spectrum (D6): synthetic met (planted 1 Mb blocks 0.202 below 100 kb, 0.127 at 100 kb to 1 Mb; noise reads zero) (`0d40458c`); real: the read-half map reads zero at every distance, met; donor differences mostly within about 1 kb, a weak tail to about 1 Mb (`5520bcf1`).
+- The transfer function (D9), planted gains in a real healthy B-cell input, 5 Toronto machines: the islands' level change tracks the planted gain (slope 1.0001); at 0.05 the islands reading rises from about 1 to 4.36; whole-sample Met-A moves much less (`1317b62e`).
+- Isotropy (D14): no autosome stands out in the read-half map in any cell (0 of 1,232); the donor-half map shows many, recorded not scored (`94e1ec95`).
+- The checklist's status table written beside it (`de54a050`).
+- The globe and information sphere against the sequencing atlas for sequenced samples (`3fc545a5`, `bdbc5399`): on the spent B-cell input, no changed sites or territories against v2.1 and distance from its healthy self 0.120, sorted-cell Met-A unchanged; it is one of the atlas's own donors, so it is a diagnostic and the bar is scored on outside samples. The 35 outside samples, read both ways, started on 3 Toronto machines (scorer committed first, `d4eb8205`); the first read 819 changed sites against 13 on v2.1.
+- The Johns Hopkins re-run prepared, nothing sent: 31 B-ALL leukemias, 3 healthy cord bloods, 2 Reh cell-line samples; all 36 have their 20 saved pieces, kept until late January; its table script and record committed before reading.
+
+**Successes:** item 1 of the author's order done, every reading Normal on all 137 healthy sequenced samples; the sequencing atlas's sky sphere, globe, both noise maps, masks, null test, bridge, spectrum, transfer function and isotropy built and checked, each synthetic first.
+
+**Learned:**
+- Sorted-cell Met-A's remaining depth trend lives in the libraries themselves: shallower libraries carry more off-pattern reads at the identity sites.
+- A pooled level from about 100 reads, used as exact, biases a near-zero expectation by several percent; counting the expectation from the reference's own reads removes it.
+- Healthy donors differ over broad genomic stretches (the donor-half map), but mostly within about 1 kb; counting noise alone is flat.
+- Sex and tissue of origin show up as foregrounds in the donor-half noise map.
+- Sequencing levels sit about 0.032 below the array atlas's in the median cell.
+- The healthy islands reading is very sensitive: a 5-point gain in level raises it about fourfold.
+
+**Errors (the agent's own), and what caught each:**
+- A setup line treated the atlas setting as on/off when it is a path, and a comment cut off the rest of a line (seed and genome length). Caught when the synthetic failed before reading.
+- The machine check read only the first 100 jobs and missed 25 still running, so pass 5's scoring was sent early. Caught; cancelled; the check pages.
+- A commit was refused, but the next command ran because its check matched the word REFUSED. Caught; that run cancelled.
+- The outside neurons were first recorded as inside the donors' range; only 13 of 25 are. Corrected.
+- Three synthetics called chain functions directly instead of the one command. The chain gate caught the third; all three rewritten through `run_sample.py` and disclosed.
+- An edit made while a commit was running was overwritten when the commit finished; three edits lost and re-applied.
+- The widths script was emptied while changing "colour" to "color", and the empty file was committed. Caught when it printed nothing; restored, reproducing its committed output exactly.
+- Record numbers not in any committed output (0.98; the pass 5 summary). The gate refused them; matched to the outputs.
+
+**The author's instructions and corrections:** None today (no message from the author on November 1, Pacific time).
+
+**Path changes:** item 1 closed; item 2 begun from the atlas's own checklist; atlas donors read against themselves are flagged and the bar scored on outside samples; healpy pinned to 1.17.3; the Johns Hopkins re-run waits on the globe test.
+
+**Data:** none spent. The outside healthy samples (already spent) read again.
+
+**Machines:** GitHub ran pass 5 and its re-send of 31, scoring and the chrX diagnostic; Toronto spot machines at $0.0192 an hour ran the island counts (7), the sphere, globe, noise columns and null test, the spectrum, the transfer function (5) and the outside re-reads (3). Google reclaimed machine 1 of the outside re-reads late in the evening; its unread samples relaunched.
+
+**Open at turnover:** the outside healthy samples read against both globe references; then the Johns Hopkins re-run; the rest of the checklist (C2, C4, A7, D8).
 
 ### 2026-11-02 · The study by the full working chain (GRP-020)
 All 36 samples of the leukemia study merged from saved pieces and read by the full working chain against the IAM Sequencing Atlas. All 36 read: leukemia Met-A in the B-cell column 1.0410, islands 1.3277; cord-blood B cells 0.8620 and 0.7709. Record: [DEV_ALL_INFO_01.md](doors/DEV_ALL_INFO_01.md).
