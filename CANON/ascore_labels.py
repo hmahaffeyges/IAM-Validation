@@ -13,7 +13,13 @@ S = rd("DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_samples.csv")
 put("healthy_pass7", S.assign(series=S.gse, condition=S.genotype, cancer_type="", stage=""))
 S = rd("DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/selfree_samples.csv"); put("selfree", S.assign(series=S.gse, condition="healthy", cancer_type="", stage=""))
 S = rd("DEV_ATLAS_V21_01/seq_atlas/outside_data/blueprint_healthy_test_samples.csv"); put("blueprint", S.assign(series="BLUEPRINT", condition="healthy", cancer_type="", stage=""))
-S = rd("DEV_ONE_DRAW_01/plasma_seq_02/plasma_seq_02_samples.csv"); put("plasma", S.assign(series=S.gse, condition=S.genotype, cancer_type="", stage=""))
+# 2026-11-04: PRJNA929650's plasmas, every one of the 517 (healthy and breast cancer), with stage and subtype from the publication's Table S1
+# (DEV_ONE_DRAW_01/plasma_seq_01/prjna929650_clinical.csv, written by prjna929650_clinical.py); the tuning plasmas are its healthy controls
+K = pd.read_csv(os.path.join(D, "DEV_ONE_DRAW_01/plasma_seq_01/prjna929650_clinical.csv")).fillna("")
+ca = K.Label == "Breast cancer"
+put("plasma", pd.DataFrame(dict(gsm=K.run_accession, series="PRJNA929650", condition=["cancer" if c else "healthy" for c in ca],
+    cancer_type=["nonmetastatic breast cancer" + (f", {s}" if s and s != "not recorded" else "") if c else "" for c, s in zip(ca, K.subtype)],
+    stage=[s if c else "" for c, s in zip(ca, K.tumor_stage)])))
 S = rd("DEV_ALL_INFO_01/full_depth/hopkins_fullchain_samples.csv"); T = rd("DEV_ALL_INFO_01/full_depth/hopkins_geo_traits.csv").set_index("gsm")
 COND = {"leukemia": "cancer", "knockout": "cell line (UHRF1 knockout)", "control line": "cell line (control)", "cord-blood B cells": "cord-blood B cells"}
 cy = S.gsm.map(T.cytogenetics).fillna("").replace("N/A", "")

@@ -557,3 +557,10 @@ merged level track of its three platelet donors (a bedGraph of methylated fracti
 no per-donor file and no read count. The IAM Sequencing Atlas counts every cell from donors' reads and seals its donors into two halves, one
 to build and one to test, so a merged level track can be neither counted nor split. The set stays unspent. The erythroid question still
 needs bulk data, with reads, of a megakaryocyte or erythroid cell the atlas lacks.
+
+**PRJNA929650's stage and subtype, from its publication (a table, no methylation value read)** (`plasma_seq_01/prjna929650_clinical.py`,
+`plasma_seq_01/prjna929650_clinical.csv`). The publication's Table S1, taken from Europe PMC's open-access supplementary files, gives every
+one of the 517 plasmas its age, tumor stage, tumor type, tumor count and diameter, and molecular subtype; all 517 match the run list. Of the
+239 nonmetastatic breast cancers: stage I 44 (I, IA, IB), stage II 100 (II, IIA, IIB), stage III 34 (III, IIIA), not recorded 61. The
+A-score database now carries each plasma's stage and subtype (`CANON/ascore_labels.py`). The 239 stay unread until plasma reads Normal on
+healthy plasma on every reading; they are then a cancer set with recorded stage, as the A-score database needs.

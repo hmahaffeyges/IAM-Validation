@@ -1,0 +1,518 @@
+run_accession,sample_accession,SampleID,Group,Label,no,age,sex,tumor_stage,tumor_type,metastasis,tumors,tumor_diameter,subtype
+SRR23279779,SAMN32964687,MB117,Discovery,Breast cancer,119,34,F,IIA,Carcinoma,Yes,1,3cm,HER2
+SRR23279787,SAMN32964633,MB010AR,Discovery,Breast cancer,65,56,F,III,Carcinoma,Yes,1,300mm,Luminal B
+SRR23279792,SAMN32964575,LBMB207,Discovery,Breast cancer,7,67,F,II,Carcinoma,No,NA,NA,Luminal B - HER2
+SRR23279794,SAMN32964627,LBMB291,Discovery,Breast cancer,59,61,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279804,SAMN32965039,K1519,Validation,Healthy control,471,65,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279806,SAMN32965038,K1516,Validation,Healthy control,470,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279819,SAMN32964982,NB040,Validation,Breast cancer,414,44,F,III,Carcinoma,Yes,1,4cm,TNBC
+SRR23279834,SAMN32964926,LBMB237,Validation,Breast cancer,358,49,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279837,SAMN32964923,LBMB228,Validation,Breast cancer,355,38,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279850,SAMN32964572,LBMB203,Discovery,Breast cancer,4,47,F,not recorded,Carcinoma,NA,1,44x22mm,not recorded
+SRR23279855,SAMN32964864,K1633,Discovery,Healthy control,296,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279858,SAMN32964861,K1623,Discovery,Healthy control,293,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279868,SAMN32964593,LBMB235,Discovery,Breast cancer,25,47,F,IIA,Carcinoma,NA,1,22x15mm,Luminal A
+SRR23279874,SAMN32964803,K0578,Discovery,Healthy control,235,51,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279877,SAMN32964800,K0483,Discovery,Healthy control,232,65,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279881,SAMN32964797,K0465,Discovery,Healthy control,229,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279883,SAMN32964780,K0278,Discovery,Healthy control,212,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279885,SAMN32964590,LBMB231,Discovery,Breast cancer,22,47,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279896,SAMN32964589,LBMB230,Discovery,Breast cancer,21,57,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279927,SAMN32964579,LBMB215,Discovery,Breast cancer,11,53,F,IIA,Carcinoma,No,NA,NA,HER2
+SRR23279931,SAMN32964666,MB078A,Discovery,Breast cancer,98,66,F,II,Carcinoma,No,1,35mm,Luminal B
+SRR23279932,SAMN32964665,MB075A,Discovery,Breast cancer,97,38,F,III,Carcinoma,Yes,1,13x16mm,Luminal B
+SRR23279935,SAMN32965083,LBGS080R,Validation,Healthy control,515,59,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279946,SAMN32965073,LBGS045R,Validation,Healthy control,505,32,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279947,SAMN32965072,LBGS027,Validation,Healthy control,504,38,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279954,SAMN32965023,K0466,Validation,Healthy control,455,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279958,SAMN32965019,K0423,Validation,Healthy control,451,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279959,SAMN32964614,LBMB270,Discovery,Breast cancer,46,53,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279960,SAMN32965018,K0313,Validation,Healthy control,450,66,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279964,SAMN32965014,K0293,Validation,Healthy control,446,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279966,SAMN32964609,LBMB263,Discovery,Breast cancer,41,36,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279969,SAMN32964967,MB133,Validation,Breast cancer,399,62,F,II,Carcinoma,Yes,1,3cm,Luminal B - HER2
+SRR23279970,SAMN32964966,MB107,Validation,Breast cancer,398,41,F,IA,Carcinoma,No,1,15x20mm,Luminal B
+SRR23279971,SAMN32964965,MB106A,Validation,Breast cancer,397,51,F,not recorded,Carcinoma,NA,1,4cm,not recorded
+SRR23279973,SAMN32964963,MB098,Validation,Breast cancer,395,56,F,II,Carcinoma,No,1,20x12mm,Luminal B
+SRR23279975,SAMN32964961,MB092,Validation,Breast cancer,393,60,F,III,Carcinoma,Yes,1,26mm,HER2
+SRR23279979,SAMN32964958,MB076A,Validation,Breast cancer,390,51,F,II,Carcinoma,No,1,35mm,Luminal B
+SRR23279996,SAMN32964928,LBMB247,Validation,Breast cancer,360,66,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279998,SAMN32964911,LBGS015,Discovery,Healthy control,343,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280005,SAMN32964905,LBGS001R,Discovery,Healthy control,337,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280010,SAMN32964900,KAAC18,Discovery,Healthy control,332,36,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280014,SAMN32964854,K1591,Discovery,Healthy control,286,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280022,SAMN32964847,K1560,Discovery,Healthy control,279,48,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280023,SAMN32964846,K1557,Discovery,Healthy control,278,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280024,SAMN32964845,K1556,Discovery,Healthy control,277,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280037,SAMN32964761,K0169,Discovery,Healthy control,193,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280041,SAMN32964758,K0164,Discovery,Healthy control,190,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280046,SAMN32964724,NB04,Discovery,Breast cancer,156,41,F,II,Carcinoma,No,1,26mm,Luminal B - HER2
+SRR23280051,SAMN32964719,NB027,Discovery,Breast cancer,151,50,F,II,Carcinoma,No,1,23x21mm,HER2
+SRR23280053,SAMN32964718,NB023,Discovery,Breast cancer,150,37,F,I,Carcinoma,No,1,16mm,Luminal B
+SRR23280059,SAMN32964712,MB206,Discovery,Breast cancer,144,33,F,I,Carcinoma,No,2,"15x8 mm, 8x6 mm",Luminal B
+SRR23280065,SAMN32964660,MB066A,Discovery,Breast cancer,92,52,F,I,Carcinoma,No,1,14x8mm,Luminal B
+SRR23280066,SAMN32964659,MB065,Discovery,Breast cancer,91,61,F,II,Carcinoma,No,1,30x20mm,HER2
+SRR23280074,SAMN32964652,MB054A,Discovery,Breast cancer,84,41,F,II,Carcinoma,Yes,1,32x19mm,HER2
+SRR23280080,SAMN32964574,LBMB206,Discovery,Breast cancer,6,72,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280082,SAMN32965067,LBGS008,Validation,Healthy control,499,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280095,SAMN32965011,K0270,Validation,Healthy control,443,57,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280096,SAMN32965010,K0228,Validation,Healthy control,442,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280098,SAMN32964613,LBMB269,Discovery,Breast cancer,45,50,F,I,Carcinoma,No,1,8x11mm,Luminal B - HER2
+SRR23280101,SAMN32965006,K0177,Validation,Healthy control,438,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280103,SAMN32965004,K0162,Validation,Healthy control,436,51,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280109,SAMN32964612,LBMB268,Discovery,Breast cancer,44,45,F,II,Carcinoma,No,1,12x17mm,Luminal B
+SRR23280110,SAMN32964897,KAAB61,Discovery,Healthy control,329,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280111,SAMN32964896,KAAB58,Discovery,Healthy control,328,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280116,SAMN32964891,KAAB43,Discovery,Healthy control,323,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280117,SAMN32964890,KAAB21,Discovery,Healthy control,322,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280119,SAMN32964601,LBMB246,Discovery,Breast cancer,33,48,F,II,Carcinoma,No,1,"2,6x4mm",HER2
+SRR23280133,SAMN32964833,K1509,Discovery,Healthy control,265,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280137,SAMN32964829,K1497,Discovery,Healthy control,261,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280138,SAMN32964595,LBMB240,Discovery,Breast cancer,27,51,F,II,Carcinoma,No,1,15x22mm,Luminal B
+SRR23280139,SAMN32964828,K1492,Discovery,Healthy control,260,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280141,SAMN32964826,K1479,Discovery,Healthy control,258,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280148,SAMN32964790,K0444,Discovery,Healthy control,222,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280151,SAMN32964788,K0431,Discovery,Healthy control,220,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280159,SAMN32964752,K0131,Discovery,Healthy control,184,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280161,SAMN32964750,K0122,Discovery,Healthy control,182,64,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280162,SAMN32964749,K0115,Discovery,Healthy control,181,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280165,SAMN32964747,K0103,Discovery,Healthy control,179,67,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280166,SAMN32964746,K0099,Discovery,Healthy control,178,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280169,SAMN32964743,K0065,Discovery,Healthy control,175,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280170,SAMN32964742,K0058,Discovery,Healthy control,174,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280178,SAMN32964706,MB155,Discovery,Breast cancer,138,58,F,II,Carcinoma,NA,1,23x24x27mm,not recorded
+SRR23280180,SAMN32964704,MB153,Discovery,Breast cancer,136,70,F,not recorded,Carcinoma,Yes,1,3x3cm,HER2
+SRR23280181,SAMN32964703,MB152,Discovery,Breast cancer,135,41,F,IIA,Carcinoma,NA,2,3cm,Luminal A
+SRR23280182,SAMN32964702,MB148,Discovery,Breast cancer,134,67,F,IA,Carcinoma,NA,1,"1,5cm",Luminal B
+SRR23280202,SAMN32964638,MB023A,Discovery,Breast cancer,70,40,F,II,Carcinoma,No,1,40x23mm,Luminal A
+SRR23280203,SAMN32964637,MB021,Discovery,Breast cancer,69,47,F,II,Carcinoma,No,1,36x17mm,Luminal B - HER2
+SRR23280207,SAMN32965055,KAAA73,Validation,Healthy control,487,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280208,SAMN32965054,KAAA51,Validation,Healthy control,486,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280213,SAMN32965049,K1697,Validation,Healthy control,481,61,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280216,SAMN32965047,K1668,Validation,Healthy control,478,55,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280217,SAMN32965046,K1641,Validation,Healthy control,478,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280225,SAMN32964995,K0059,Validation,Healthy control,427,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280229,SAMN32964991,K0009,Validation,Healthy control,423,66,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280232,SAMN32964611,LBMB265,Discovery,Breast cancer,43,49,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280237,SAMN32964984,NB06R2,Validation,Breast cancer,416,49,F,III,Carcinoma,Yes,1,32x18mm,HER2
+SRR23280241,SAMN32964952,MB053A,Validation,Breast cancer,384,45,F,II,Carcinoma,No,1,60x45mm,Luminal B
+SRR23280245,SAMN32964607,LBMB260,Discovery,Breast cancer,39,41,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280248,SAMN32964946,MB035,Validation,Breast cancer,378,48,F,II,Carcinoma,No,2,"50x29mm, 22x14mm",Luminal B
+SRR23280256,SAMN32964880,KAAA33,Discovery,Healthy control,312,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280259,SAMN32964878,KAAA31,Discovery,Healthy control,310,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280273,SAMN32964822,K1152,Discovery,Healthy control,254,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279772,SAMN32964693,MB129,Discovery,Breast cancer,125,32,F,IIA,Carcinoma,No,2,"28x18mm, 8x6mm",Luminal B
+SRR23279775,SAMN32964690,MB122,Discovery,Breast cancer,122,65,F,IIA,Carcinoma,No,1,16x24mm,Luminal B
+SRR23279782,SAMN32964684,MB114A,Discovery,Breast cancer,116,48,F,I,Carcinoma,NA,1,15x18mm,Luminal B - HER2
+SRR23279783,SAMN32964683,MB110,Discovery,Breast cancer,115,47,F,IIIA,Carcinoma,Yes,1,13x29mm,TNBC
+SRR23279784,SAMN32964682,MB108A,Discovery,Breast cancer,114,61,F,not recorded,Carcinoma,Yes,1,8cm,HER2
+SRR23279788,SAMN32964632,MB009,Discovery,Breast cancer,64,63,F,I,Carcinoma,Yes,1,20x26mm,Luminal B
+SRR23279790,SAMN32964630,LBMB294,Discovery,Breast cancer,62,72,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279791,SAMN32964629,LBMB293,Discovery,Breast cancer,61,49,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279793,SAMN32964628,LBMB292,Discovery,Breast cancer,60,60,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279799,SAMN32964622,LBMB285,Discovery,Breast cancer,54,62,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279807,SAMN32965037,K1507,Validation,Healthy control,469,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279809,SAMN32965035,K1500,Validation,Healthy control,467,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279811,SAMN32965033,K1483,Validation,Healthy control,465,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279812,SAMN32965032,K1478,Validation,Healthy control,464,48,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279820,SAMN32964981,NB036,Validation,Breast cancer,413,64,F,III,Carcinoma,Yes,1,"17x13,6mm",Luminal B
+SRR23279821,SAMN32964980,NB034,Validation,Breast cancer,412,50,F,II,Carcinoma,No,1,27x15mm,Luminal B
+SRR23279829,SAMN32964973,MB213,Validation,Breast cancer,405,35,F,I,Carcinoma,No,1,19x10mm,Luminal B
+SRR23279833,SAMN32964969,MB149,Validation,Breast cancer,401,60,F,not recorded,Carcinoma,NA,1,23x23x29mm,TNBC
+SRR23279836,SAMN32964924,LBMB229,Validation,Breast cancer,356,51,F,not recorded,Carcinoma,NA,NA,NA,Luminal B
+SRR23279841,SAMN32964919,LBMB211,Validation,Breast cancer,351,57,F,II,Carcinoma,No,NA,NA,Luminal A
+SRR23279844,SAMN32964917,LBMB198,Validation,Breast cancer,349,63,F,IIA,Carcinoma,No,1,25x20mm,Luminal B - HER2
+SRR23279845,SAMN32964916,LBGS021,Discovery,Healthy control,348,30,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279848,SAMN32964913,LBGS017,Discovery,Healthy control,345,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279854,SAMN32964865,K1634,Discovery,Healthy control,297,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279856,SAMN32964863,K1630,Discovery,Healthy control,295,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279862,SAMN32964858,K1612,Discovery,Healthy control,290,59,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279865,SAMN32964855,K1593,Discovery,Healthy control,287,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279869,SAMN32964808,K0610,Discovery,Healthy control,240,55,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279870,SAMN32964807,K0601,Discovery,Healthy control,239,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279886,SAMN32964778,K0271,Discovery,Healthy control,210,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279892,SAMN32964772,K0229,Discovery,Healthy control,204,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279893,SAMN32964771,K0215,Discovery,Healthy control,203,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279895,SAMN32964769,K0206,Discovery,Healthy control,201,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279905,SAMN32964732,NB15,Discovery,Breast cancer,164,50,F,III,Carcinoma,Yes,1,10x6mm,HER2
+SRR23279906,SAMN32964731,NB14,Discovery,Breast cancer,163,48,F,I,Carcinoma,No,1,27mm,Luminal B
+SRR23279908,SAMN32964729,NB12R2,Discovery,Breast cancer,161,45,F,II,Carcinoma,No,1,22x17mm,TNBC
+SRR23279917,SAMN32964678,MB095A,Discovery,Breast cancer,110,43,F,III,Carcinoma,No,2,"40x36mm, 20x8mm",TNBC
+SRR23279919,SAMN32964676,MB093,Discovery,Breast cancer,108,41,F,I,Carcinoma,Yes,1,15x15mm,Luminal A
+SRR23279921,SAMN32964674,MB089A,Discovery,Breast cancer,106,63,F,II,Carcinoma,No,1,20mm,Luminal B
+SRR23279922,SAMN32964673,MB088AR,Discovery,Breast cancer,105,57,F,III,Carcinoma,Yes,1,25x15mm,Luminal B - HER2
+SRR23279926,SAMN32964669,MB084AR,Discovery,Breast cancer,101,52,F,II,Carcinoma,Yes,1,24x19mm,HER2
+SRR23279928,SAMN32964570,LBMB043,Discovery,Breast cancer,2,56,F,IB,Carcinoma,No,1,4x6mm,Luminal A
+SRR23279940,SAMN32964620,LBMB280R2,Discovery,Breast cancer,52,62,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279949,SAMN32965070,LBGS013,Validation,Healthy control,502,39,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279951,SAMN32965026,K0603,Validation,Healthy control,458,48,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279953,SAMN32965024,K0579,Validation,Healthy control,456,49,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279955,SAMN32965022,K0434,Validation,Healthy control,454,68,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279956,SAMN32965021,K0433,Validation,Healthy control,453,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279962,SAMN32965016,K0304,Validation,Healthy control,448,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279965,SAMN32965013,K0287,Validation,Healthy control,445,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279978,SAMN32964608,LBMB262,Discovery,Breast cancer,40,41,F,I,Carcinoma,No,1,15x7mm,Luminal A
+SRR23279980,SAMN32964957,MB074A,Validation,Breast cancer,389,45,F,I,Carcinoma,No,1,12x25mm,Luminal B
+SRR23279982,SAMN32964940,MB025,Validation,Breast cancer,372,35,F,II,Carcinoma,NA,1,22x10mm,not recorded
+SRR23279997,SAMN32964927,LBMB238,Validation,Breast cancer,359,38,F,IA,Carcinoma,No,1,11x11mm,Luminal A
+SRR23280002,SAMN32964908,LBGS006,Discovery,Healthy control,340,31,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280003,SAMN32964907,LBGS004R,Discovery,Healthy control,339,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280020,SAMN32964597,LBMB242,Discovery,Breast cancer,29,60,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280021,SAMN32964848,K1569,Discovery,Healthy control,280,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280025,SAMN32964844,K1553,Discovery,Healthy control,276,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280030,SAMN32964768,K0201,Discovery,Healthy control,200,49,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280031,SAMN32964767,K0198,Discovery,Healthy control,199,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280040,SAMN32964588,LBMB226,Discovery,Breast cancer,20,68,F,not recorded,Carcinoma,NA,NA,NA,HER2
+SRR23280056,SAMN32964715,MB210,Discovery,Breast cancer,147,38,F,III,Carcinoma,No,1,50x30mm,Luminal A
+SRR23280063,SAMN32964662,MB068,Discovery,Breast cancer,94,38,F,II,Carcinoma,Yes,1,35x22mm,Luminal B - HER2
+SRR23280068,SAMN32964658,MB064A,Discovery,Breast cancer,90,59,F,I,Carcinoma,Yes,1,12x14mm,Luminal A
+SRR23280075,SAMN32964651,MB050A,Discovery,Breast cancer,83,48,F,II,Carcinoma,No,1,24x18mm,Luminal B
+SRR23280079,SAMN32964619,LBMB276R2,Discovery,Breast cancer,51,47,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280088,SAMN32965061,KAAC99,Validation,Healthy control,493,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280089,SAMN32965060,KAAB76,Validation,Healthy control,492,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280092,SAMN32965058,KAAA97,Validation,Healthy control,490,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280097,SAMN32965009,K0200,Validation,Healthy control,441,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280100,SAMN32965007,K0189,Validation,Healthy control,439,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280108,SAMN32964999,K0114,Validation,Healthy control,431,49,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280112,SAMN32964895,KAAB55,Discovery,Healthy control,327,65,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280120,SAMN32964888,KAAB11,Discovery,Healthy control,320,49,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280125,SAMN32964883,KAAA79,Discovery,Healthy control,315,51,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280126,SAMN32964839,K1536,Discovery,Healthy control,271,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280129,SAMN32964837,K1520,Discovery,Healthy control,269,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280130,SAMN32964836,K1518,Discovery,Healthy control,268,67,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280135,SAMN32964831,K1504,Discovery,Healthy control,263,59,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280140,SAMN32964827,K1491,Discovery,Healthy control,259,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280142,SAMN32964796,K0460,Discovery,Healthy control,228,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280144,SAMN32964794,K0453,Discovery,Healthy control,226,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280160,SAMN32964751,K0126,Discovery,Healthy control,183,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280183,SAMN32964701,MB146,Discovery,Breast cancer,133,37,F,IIIA,Carcinoma,Yes,1,47x35x35mm,Luminal A
+SRR23280185,SAMN32964699,MB144,Discovery,Breast cancer,131,42,F,IIB,Carcinoma,NA,1,36x24x51mm,Luminal B
+SRR23280186,SAMN32964582,LBMB218,Discovery,Breast cancer,14,59,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280189,SAMN32964696,MB135,Discovery,Breast cancer,128,28,F,IIA,Carcinoma,No,1,19x33x36mm,Luminal B
+SRR23280191,SAMN32964648,MB047A,Discovery,Breast cancer,80,77,F,II,Carcinoma,No,1,35x23mm,Luminal B
+SRR23280195,SAMN32964644,MB038A,Discovery,Breast cancer,76,48,F,II,Carcinoma,No,1,"2,6x4mm",HER2
+SRR23280196,SAMN32964643,MB037A,Discovery,Breast cancer,75,54,F,II,Carcinoma,No,1,26x13mm,Luminal B - HER2
+SRR23280198,SAMN32964641,MB031A,Discovery,Breast cancer,73,36,F,I,Carcinoma,No,1,8x9mm,Luminal B - HER2
+SRR23280201,SAMN32964576,LBMB208,Discovery,Breast cancer,8,65,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280210,SAMN32965052,KAAA20,Validation,Healthy control,484,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280212,SAMN32965050,K1778,Validation,Healthy control,482,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280220,SAMN32965043,K1568,Validation,Healthy control,475,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280230,SAMN32964990,K0006,Validation,Healthy control,422,61,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280231,SAMN32964989,K0004,Validation,Healthy control,421,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280243,SAMN32964950,MB051AR,Validation,Breast cancer,382,60,F,II,Carcinoma,No,1,23x13mm,HER2
+SRR23280246,SAMN32964948,MB042A,Validation,Breast cancer,380,69,F,II,Carcinoma,No,1,20x22mm,Luminal A
+SRR23280252,SAMN32964942,MB029A,Validation,Breast cancer,374,32,F,I,Carcinoma,No,1,16x8mm,Luminal B - HER2
+SRR23280258,SAMN32964600,LBMB245,Discovery,Breast cancer,32,44,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280262,SAMN32964875,K1779,Discovery,Healthy control,307,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280271,SAMN32964824,K1471,Discovery,Healthy control,256,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279759,SAMN32964820,K0691,Discovery,Healthy control,252,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279761,SAMN32964594,LBMB239,Discovery,Breast cancer,26,58,F,II,Carcinoma,No,1,17x14mm,Luminal B
+SRR23279767,SAMN32964813,K0638,Discovery,Healthy control,245,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279768,SAMN32964812,K0619,Discovery,Healthy control,244,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279770,SAMN32964695,MB132,Discovery,Breast cancer,127,59,F,IIA,Carcinoma,Yes,1,17x21x22mm,Luminal B
+SRR23279771,SAMN32964694,MB131,Discovery,Breast cancer,126,38,F,IIA,Carcinoma,NA,1,28x19x28mm,Luminal A
+SRR23279778,SAMN32964688,MB118,Discovery,Breast cancer,120,56,F,II,Carcinoma,Yes,1,2cm,Luminal B - HER2
+SRR23279780,SAMN32964686,MB116,Discovery,Breast cancer,118,25,F,IIA,Carcinoma,No,1,2cm,Luminal B - HER2
+SRR23279781,SAMN32964685,MB115,Discovery,Breast cancer,117,43,F,IIIA,Carcinoma,Yes,1,20x21mm,Luminal B - HER2
+SRR23279785,SAMN32964681,MB102,Discovery,Breast cancer,113,62,F,II,Carcinoma,Yes,1,22x21x20mm,Luminal B - HER2
+SRR23279789,SAMN32964631,MB008,Discovery,Breast cancer,63,62,F,I,Carcinoma,No,1,"7,5mm",Luminal A
+SRR23279795,SAMN32964626,LBMB290,Discovery,Breast cancer,58,54,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279796,SAMN32964625,LBMB289,Discovery,Breast cancer,57,42,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279798,SAMN32964623,LBMB286,Discovery,Breast cancer,55,66,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279801,SAMN32965085,LBGS111,Validation,Healthy control,517,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279803,SAMN32965040,K1523,Validation,Healthy control,472,69,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279805,SAMN32964616,LBMB273R2,Discovery,Breast cancer,48,51,F,not recorded,Carcinoma,NA,NA,NA,HER2
+SRR23279808,SAMN32965036,K1505,Validation,Healthy control,468,59,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279813,SAMN32965031,K1464,Validation,Healthy control,463,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279822,SAMN32964979,NB033,Validation,Breast cancer,411,47,F,II,Carcinoma,No,1,25mm,Luminal B
+SRR23279826,SAMN32964976,NB024,Validation,Breast cancer,408,52,F,I,Carcinoma,No,1,15x10mm,Luminal B
+SRR23279842,SAMN32964604,LBMB251,Discovery,Breast cancer,36,52,F,not recorded,Carcinoma,NA,NA,NA,Luminal B - HER2
+SRR23279852,SAMN32964867,K1638,Discovery,Healthy control,299,63,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279857,SAMN32964862,K1626,Discovery,Healthy control,294,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279860,SAMN32964859,K1615,Discovery,Healthy control,291,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279872,SAMN32964805,K0591,Discovery,Healthy control,237,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279873,SAMN32964804,K0590,Discovery,Healthy control,236,67,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279876,SAMN32964801,K0534,Discovery,Healthy control,233,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279878,SAMN32964799,K0478,Discovery,Healthy control,231,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279887,SAMN32964777,K0259,Discovery,Healthy control,209,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279889,SAMN32964775,K0257,Discovery,Healthy control,207,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279891,SAMN32964773,K0233,Discovery,Healthy control,205,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279897,SAMN32964571,LBMB200,Discovery,Breast cancer,3,61,F,IIA,Carcinoma,No,2,"14x20mm, 12x24mm",HER2
+SRR23279898,SAMN32964586,LBMB223,Discovery,Breast cancer,18,47,F,not recorded,Carcinoma,NA,NA,NA,Luminal B
+SRR23279899,SAMN32964738,K0013,Discovery,Healthy control,170,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279900,SAMN32964737,K0011,Discovery,Healthy control,169,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279910,SAMN32964728,NB11,Discovery,Breast cancer,160,52,F,III,Carcinoma,Yes,1,25x18mm,Luminal B - HER2
+SRR23279912,SAMN32964726,NB045,Discovery,Breast cancer,158,64,F,I,Carcinoma,No,1,5mm,Luminal A
+SRR23279929,SAMN32964569,LBMB011,Discovery,Breast cancer,1,62,F,II,Carcinoma,Yes,1,9x13mm,Luminal B - HER2
+SRR23279937,SAMN32965081,LBGS075,Validation,Healthy control,513,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279941,SAMN32965078,LBGS055,Validation,Healthy control,510,36,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279948,SAMN32965071,LBGS023R,Validation,Healthy control,503,39,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279952,SAMN32965025,K0585,Validation,Healthy control,457,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279968,SAMN32964968,MB134,Validation,Breast cancer,400,32,F,IIIA,Carcinoma,Yes,1,4x5cm,Luminal B
+SRR23279974,SAMN32964962,MB097,Validation,Breast cancer,394,31,F,III,Carcinoma,NA,1,19x14mm,not recorded
+SRR23279977,SAMN32964959,MB082A,Validation,Breast cancer,391,58,F,III,Carcinoma,Yes,1,26x16mm,Luminal B
+SRR23279986,SAMN32964937,MB014AR,Validation,Breast cancer,369,52,F,II,Carcinoma,No,1,14x47mm,HER2
+SRR23279987,SAMN32964936,MB013,Validation,Breast cancer,368,63,F,II,Carcinoma,No,1,21x20mm,HER2
+SRR23279989,SAMN32964934,LBMB300,Validation,Breast cancer,366,43,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279992,SAMN32964931,LBMB272,Validation,Breast cancer,363,61,F,I,Carcinoma,No,1,11x12mm,not recorded
+SRR23279994,SAMN32964929,LBMB261,Validation,Breast cancer,361,56,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279995,SAMN32964605,LBMB253,Discovery,Breast cancer,37,59,F,IIA,Carcinoma,No,1,18x14mm,Luminal A
+SRR23280008,SAMN32964902,KAAD70,Discovery,Healthy control,334,64,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280012,SAMN32964602,LBMB248,Discovery,Breast cancer,34,66,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280018,SAMN32964850,K1585,Discovery,Healthy control,282,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280028,SAMN32964841,K1539,Discovery,Healthy control,273,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280029,SAMN32964840,K1537,Discovery,Healthy control,272,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280033,SAMN32964765,K0184,Discovery,Healthy control,197,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280035,SAMN32964763,K0176,Discovery,Healthy control,195,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280045,SAMN32964754,K0143,Discovery,Healthy control,186,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280048,SAMN32964722,NB031,Discovery,Breast cancer,154,43,F,I,Carcinoma,No,1,13x9mm,Luminal A
+SRR23280052,SAMN32964584,LBMB221,Discovery,Breast cancer,16,65,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280067,SAMN32964578,LBMB213,Discovery,Breast cancer,10,57,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280072,SAMN32964654,MB056AR,Discovery,Breast cancer,86,37,F,II,Carcinoma,No,1,24x34mm,TNBC
+SRR23280084,SAMN32965065,KAAE40,Validation,Healthy control,497,68,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280090,SAMN32965059,KAAB46,Validation,Healthy control,491,55,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280104,SAMN32965003,K0161,Validation,Healthy control,435,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280113,SAMN32964894,KAAB52,Discovery,Healthy control,326,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280114,SAMN32964893,KAAB49,Discovery,Healthy control,325,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280118,SAMN32964889,KAAB12,Discovery,Healthy control,321,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280123,SAMN32964885,KAAA92,Discovery,Healthy control,317,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280134,SAMN32964832,K1508,Discovery,Healthy control,264,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280145,SAMN32964793,K0449,Discovery,Healthy control,225,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280147,SAMN32964791,K0445,Discovery,Healthy control,223,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280150,SAMN32964591,LBMB232,Discovery,Breast cancer,23,66,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280156,SAMN32964783,K0294,Discovery,Healthy control,215,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280157,SAMN32964782,K0286,Discovery,Healthy control,214,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280164,SAMN32964748,K0109,Discovery,Healthy control,180,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280167,SAMN32964745,K0094,Discovery,Healthy control,177,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280171,SAMN32964741,K0054,Discovery,Healthy control,173,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280173,SAMN32964739,K0038,Discovery,Healthy control,171,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280184,SAMN32964700,MB145,Discovery,Breast cancer,132,40,F,not recorded,Carcinoma,Yes,1,26x26x27mm,not recorded
+SRR23280188,SAMN32964697,MB138,Discovery,Breast cancer,129,52,F,IIB,Carcinoma,NA,1,2x3cm,Luminal B - HER2
+SRR23280190,SAMN32964577,LBMB210,Discovery,Breast cancer,9,48,F,not recorded,Carcinoma,NA,NA,NA,Luminal B - HER2
+SRR23280194,SAMN32964645,MB040,Discovery,Breast cancer,77,50,F,II,Carcinoma,No,1,22x17mm,TNBC
+SRR23280197,SAMN32964642,MB032A,Discovery,Breast cancer,74,39,F,II,Carcinoma,No,1,28mm,Luminal B
+SRR23280204,SAMN32964636,MB018R1,Discovery,Breast cancer,68,57,F,II,Carcinoma,No,1,24x14mm,Luminal B
+SRR23280205,SAMN32964635,MB017,Discovery,Breast cancer,67,55,F,II,Carcinoma,No,2,"9mm, 14x21mm",Luminal B - HER2
+SRR23280209,SAMN32965053,KAAA44,Validation,Healthy control,485,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280215,SAMN32965048,K1693,Validation,Healthy control,480,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280218,SAMN32965045,K1629,Validation,Healthy control,477,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280219,SAMN32965044,K1614,Validation,Healthy control,476,57,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280234,SAMN32964987,NB21,Validation,Breast cancer,419,53,F,III,Carcinoma,Yes,1,28x8mm,HER2
+SRR23280236,SAMN32964985,NB07R2,Validation,Breast cancer,417,44,F,II,Carcinoma,No,1,21x13mm,Luminal B
+SRR23280240,SAMN32964953,MB057A,Validation,Breast cancer,385,57,F,II,Carcinoma,Yes,1,18x15mm,Luminal B - HER2
+SRR23280244,SAMN32964949,MB045A,Validation,Breast cancer,381,78,F,I,Carcinoma,No,1,14x13mm,Luminal A
+SRR23280250,SAMN32964944,MB033,Validation,Breast cancer,376,51,F,II,Carcinoma,No,1,32x11mm,HER2
+SRR23280254,SAMN32964882,KAAA57,Discovery,Healthy control,314,70,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280260,SAMN32964877,KAAA19,Discovery,Healthy control,309,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280261,SAMN32964876,KAAA11,Discovery,Healthy control,308,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280267,SAMN32964870,K1643,Discovery,Healthy control,302,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279758,SAMN32964821,K0784,Discovery,Healthy control,253,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279760,SAMN32964819,K0679,Discovery,Healthy control,251,51,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279762,SAMN32964818,K0672,Discovery,Healthy control,250,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279763,SAMN32964817,K0669,Discovery,Healthy control,249,66,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279764,SAMN32964816,K0668,Discovery,Healthy control,248,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279769,SAMN32964811,K0618,Discovery,Healthy control,243,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279774,SAMN32964691,MB123,Discovery,Breast cancer,123,77,F,IIB,Carcinoma,Yes,1,22x27x26mm,Luminal B
+SRR23279776,SAMN32964689,MB119,Discovery,Breast cancer,121,44,F,II,Carcinoma,No,1,5x4cm,Luminal B
+SRR23279777,SAMN32964581,LBMB217,Discovery,Breast cancer,13,51,F,II,Carcinoma,No,1,12x11mm,Luminal B
+SRR23279800,SAMN32964621,LBMB282,Discovery,Breast cancer,53,29,F,not recorded,Carcinoma,NA,NA,NA,TNBC
+SRR23279815,SAMN32965029,K0683,Validation,Healthy control,461,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279816,SAMN32964615,LBMB271,Discovery,Breast cancer,47,48,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279825,SAMN32964977,NB029,Validation,Breast cancer,409,51,F,II,Carcinoma,NA,1,26x20mm,Luminal B - HER2
+SRR23279828,SAMN32964974,MB214,Validation,Breast cancer,406,32,F,II,Carcinoma,No,1,10x23mm,Luminal B - HER2
+SRR23279830,SAMN32964972,MB211A,Validation,Breast cancer,404,56,F,III,Carcinoma,Yes,1,47x38mm,HER2
+SRR23279831,SAMN32964971,MB207,Validation,Breast cancer,403,67,F,I,Carcinoma,Yes,1,16x15mm,Luminal A
+SRR23279835,SAMN32964925,LBMB236,Validation,Breast cancer,357,47,F,II,Carcinoma,Yes,1,13x14mm,Luminal A
+SRR23279839,SAMN32964921,LBMB224,Validation,Breast cancer,353,41,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279846,SAMN32964915,LBGS020R,Discovery,Healthy control,347,34,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279847,SAMN32964914,LBGS019,Discovery,Healthy control,346,32,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279849,SAMN32964912,LBGS016,Discovery,Healthy control,344,37,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279859,SAMN32964860,K1621,Discovery,Healthy control,292,66,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279867,SAMN32964809,K0611,Discovery,Healthy control,241,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279875,SAMN32964802,K0568,Discovery,Healthy control,234,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279879,SAMN32964592,LBMB233,Discovery,Breast cancer,24,55,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279884,SAMN32964779,K0273,Discovery,Healthy control,211,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279888,SAMN32964776,K0258,Discovery,Healthy control,208,64,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279894,SAMN32964770,K0207,Discovery,Healthy control,202,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279902,SAMN32964735,NB46,Discovery,Breast cancer,167,62,F,I,Carcinoma,No,1,20x15mm,Luminal B - HER2
+SRR23279903,SAMN32964734,NB17,Discovery,Breast cancer,166,40,F,II,Carcinoma,No,1,21x14mm,Luminal B
+SRR23279907,SAMN32964730,NB13,Discovery,Breast cancer,162,52,F,II,Carcinoma,No,1,25mm,Luminal B
+SRR23279916,SAMN32964580,LBMB216,Discovery,Breast cancer,12,37,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279924,SAMN32964671,MB086AR,Discovery,Breast cancer,103,61,F,III,Carcinoma,Yes,1,15x18mm,Luminal B - HER2
+SRR23279933,SAMN32964664,MB072A,Discovery,Breast cancer,96,68,F,II,Carcinoma,No,1,24x18mm,TNBC
+SRR23279934,SAMN32965084,LBGS103R,Validation,Healthy control,516,64,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279942,SAMN32965077,LBGS054,Validation,Healthy control,509,33,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279944,SAMN32965075,LBGS051R,Validation,Healthy control,507,37,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279950,SAMN32965027,K0633,Validation,Healthy control,459,55,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279957,SAMN32965020,K0428,Validation,Healthy control,452,51,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279961,SAMN32965017,K0308,Validation,Healthy control,449,64,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279963,SAMN32965015,K0296,Validation,Healthy control,447,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279984,SAMN32964606,LBMB256,Discovery,Breast cancer,38,52,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279993,SAMN32964930,LBMB266,Validation,Breast cancer,362,57,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280001,SAMN32964603,LBMB249,Discovery,Breast cancer,35,48,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280004,SAMN32964906,LBGS002R,Discovery,Healthy control,338,37,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280006,SAMN32964904,KAAE24,Discovery,Healthy control,336,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280015,SAMN32964853,K1589,Discovery,Healthy control,285,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280016,SAMN32964852,K1588,Discovery,Healthy control,284,49,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280019,SAMN32964849,K1570,Discovery,Healthy control,281,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280026,SAMN32964843,K1550,Discovery,Healthy control,275,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280027,SAMN32964842,K1543,Discovery,Healthy control,274,63,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280032,SAMN32964766,K0185,Discovery,Healthy control,198,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280038,SAMN32964760,K0167,Discovery,Healthy control,192,75,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280039,SAMN32964759,K0165,Discovery,Healthy control,191,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280042,SAMN32964757,K0151,Discovery,Healthy control,189,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280043,SAMN32964756,K0148,Discovery,Healthy control,188,48,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280044,SAMN32964755,K0146,Discovery,Healthy control,187,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280049,SAMN32964721,NB030,Discovery,Breast cancer,153,37,F,III,Carcinoma,Yes,1,20x30mm,Luminal B - HER2
+SRR23280050,SAMN32964720,NB028,Discovery,Breast cancer,152,41,F,II,Carcinoma,No,1,13x22mm,HER2
+SRR23280054,SAMN32964717,MB215,Discovery,Breast cancer,149,39,F,I,Carcinoma,No,1,19x18mm,TNBC
+SRR23280055,SAMN32964716,MB212AR,Discovery,Breast cancer,148,67,F,II,Carcinoma,Yes,1,19x27mm,Luminal B - HER2
+SRR23280057,SAMN32964714,MB209,Discovery,Breast cancer,146,42,F,I,Carcinoma,No,1,15x11mm,Luminal B - HER2
+SRR23280064,SAMN32964661,MB067A,Discovery,Breast cancer,93,59,F,II,Carcinoma,No,1,24x18mm,Luminal A
+SRR23280070,SAMN32964656,MB059AR,Discovery,Breast cancer,88,64,F,III,Carcinoma,Yes,2,"30x20mm, 13mm",HER2
+SRR23280081,SAMN32965068,LBGS009,Validation,Healthy control,500,34,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280085,SAMN32965064,KAAD81,Validation,Healthy control,496,59,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280086,SAMN32965063,KAAD76,Validation,Healthy control,495,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280094,SAMN32965012,K0282,Validation,Healthy control,444,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280099,SAMN32965008,K0191,Validation,Healthy control,440,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280102,SAMN32965005,K0173,Validation,Healthy control,437,55,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280105,SAMN32965002,K0135,Validation,Healthy control,434,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280106,SAMN32965001,K0121,Validation,Healthy control,433,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280121,SAMN32964887,KAAB06,Discovery,Healthy control,319,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280124,SAMN32964884,KAAA87,Discovery,Healthy control,316,60,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280127,SAMN32964596,LBMB241,Discovery,Breast cancer,28,67,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280132,SAMN32964834,K1512,Discovery,Healthy control,266,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280136,SAMN32964830,K1499,Discovery,Healthy control,262,51,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280143,SAMN32964795,K0457,Discovery,Healthy control,227,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280146,SAMN32964792,K0447,Discovery,Healthy control,224,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280149,SAMN32964789,K0432,Discovery,Healthy control,221,63,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280163,SAMN32964587,LBMB225,Discovery,Breast cancer,19,58,F,IIA,Carcinoma,NA,NA,NA,Luminal A
+SRR23280172,SAMN32964740,K0040,Discovery,Healthy control,172,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280175,SAMN32964583,LBMB220,Discovery,Breast cancer,15,39,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23280179,SAMN32964705,MB154,Discovery,Breast cancer,137,61,F,IIA,Carcinoma,Yes,1,22x11mm,Luminal B - HER2
+SRR23280187,SAMN32964698,MB139,Discovery,Breast cancer,130,43,F,IIA,Carcinoma,NA,1,3cm,Luminal B - HER2
+SRR23280192,SAMN32964647,MB046A,Discovery,Breast cancer,79,55,F,I,Carcinoma,No,1,"19x13,2mm",Luminal A
+SRR23280200,SAMN32964639,MB026A,Discovery,Breast cancer,71,60,F,III,Carcinoma,No,1,12x28mm,HER2
+SRR23280206,SAMN32965056,KAAA81,Validation,Healthy control,488,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280211,SAMN32965051,KAAA18,Validation,Healthy control,483,59,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280226,SAMN32964994,K0052,Validation,Healthy control,426,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280239,SAMN32964954,MB069A,Validation,Breast cancer,386,57,F,II,Carcinoma,No,1,24x23mm,Luminal B
+SRR23280242,SAMN32964951,MB052,Validation,Breast cancer,383,51,F,III,Carcinoma,Yes,2,"42x25mm, 10x9mm",Luminal B
+SRR23280253,SAMN32964941,MB027AR,Validation,Breast cancer,373,58,F,II,Carcinoma,Yes,1,40mm,HER2
+SRR23280255,SAMN32964881,KAAA55,Discovery,Healthy control,313,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280263,SAMN32964874,K1776,Discovery,Healthy control,306,51,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280265,SAMN32964872,K1667,Discovery,Healthy control,304,55,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280266,SAMN32964871,K1645,Discovery,Healthy control,303,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280268,SAMN32964869,K1642,Discovery,Healthy control,301,48,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280269,SAMN32964599,LBMB244,Discovery,Breast cancer,31,67,F,not recorded,Carcinoma,NA,NA,NA,Luminal A
+SRR23280270,SAMN32964825,K1474,Discovery,Healthy control,257,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280272,SAMN32964823,K1470,Discovery,Healthy control,255,48,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279765,SAMN32964815,K0665,Discovery,Healthy control,247,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279766,SAMN32964814,K0652,Discovery,Healthy control,246,49,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279773,SAMN32964692,MB124,Discovery,Breast cancer,124,37,F,IIA,Carcinoma,Yes,1,18x20x23mm,Luminal B - HER2
+SRR23279786,SAMN32964634,MB016A,Discovery,Breast cancer,66,41,F,III,Carcinoma,Yes,1,21x27mm,Luminal B
+SRR23279797,SAMN32964624,LBMB288,Discovery,Breast cancer,56,56,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279802,SAMN32965041,K1530,Validation,Healthy control,473,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279810,SAMN32965034,K1489,Validation,Healthy control,466,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279814,SAMN32965030,K0779,Validation,Healthy control,462,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279817,SAMN32965028,K0670,Validation,Healthy control,460,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279818,SAMN32964983,NB05R2,Validation,Breast cancer,415,71,F,I,Carcinoma,No,1,1cm,HER2
+SRR23279823,SAMN32964610,LBMB264,Discovery,Breast cancer,42,45,F,not recorded,Carcinoma,NA,NA,NA,HER2
+SRR23279824,SAMN32964978,NB03,Validation,Breast cancer,410,39,F,III,Carcinoma,Yes,1,36mm,Luminal B
+SRR23279827,SAMN32964975,NB01,Validation,Breast cancer,407,48,F,III,Carcinoma,No,1,7x5cm,HER2
+SRR23279832,SAMN32964970,MB205,Validation,Breast cancer,402,46,F,II,Carcinoma,No,1,25mm,Luminal A
+SRR23279838,SAMN32964922,LBMB227,Validation,Breast cancer,354,39,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279840,SAMN32964920,LBMB219,Validation,Breast cancer,352,39,F,not recorded,Carcinoma,NA,NA,NA,Luminal B
+SRR23279843,SAMN32964918,LBMB205,Validation,Breast cancer,350,38,F,II,Carcinoma,Yes,NA,NA,Luminal B
+SRR23279851,SAMN32964868,K1640,Discovery,Healthy control,300,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279853,SAMN32964866,K1637,Discovery,Healthy control,298,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279861,SAMN32964598,LBMB243,Discovery,Breast cancer,30,61,F,not recorded,Carcinoma,NA,NA,NA,Luminal A
+SRR23279863,SAMN32964857,K1598,Discovery,Healthy control,289,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279864,SAMN32964856,K1596,Discovery,Healthy control,288,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279866,SAMN32964810,K0616,Discovery,Healthy control,242,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279871,SAMN32964806,K0597,Discovery,Healthy control,238,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279880,SAMN32964798,K0467,Discovery,Healthy control,230,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279882,SAMN32964781,K0285,Discovery,Healthy control,213,71,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279890,SAMN32964774,K0244,Discovery,Healthy control,206,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279901,SAMN32964736,K0001,Discovery,Healthy control,168,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279904,SAMN32964733,NB16,Discovery,Breast cancer,165,32,F,III,Carcinoma,Yes,1,14x7mm,Luminal B
+SRR23279909,SAMN32964585,LBMB222,Discovery,Breast cancer,17,44,F,II,Carcinoma,NA,NA,NA,TNBC
+SRR23279911,SAMN32964727,NB05,Discovery,Breast cancer,159,71,F,I,Carcinoma,No,1,1cm,HER2
+SRR23279913,SAMN32964725,NB041,Discovery,Breast cancer,157,41,F,III,Carcinoma,Yes,1,24x10x13mm,Luminal B - HER2
+SRR23279914,SAMN32964680,MB100,Discovery,Breast cancer,112,43,F,III,Carcinoma,Yes,1,5cm,Luminal B
+SRR23279915,SAMN32964679,MB096,Discovery,Breast cancer,111,80,F,I,Carcinoma,No,2,"7x10mm, 19x16mm",Luminal A
+SRR23279918,SAMN32964677,MB094,Discovery,Breast cancer,109,51,F,I,Carcinoma,No,1,28x12mm,Luminal B
+SRR23279920,SAMN32964675,MB091,Discovery,Breast cancer,107,44,F,II,Carcinoma,No,1,10x23mm,Luminal A
+SRR23279923,SAMN32964672,MB087,Discovery,Breast cancer,104,63,F,II,Carcinoma,No,1,28x18mm,Luminal B
+SRR23279925,SAMN32964670,MB085A,Discovery,Breast cancer,102,44,F,I,Carcinoma,No,1,14x16mm,Luminal B
+SRR23279930,SAMN32964667,MB079AR,Discovery,Breast cancer,99,44,F,II,Carcinoma,No,1,23x19x22mm,Luminal B
+SRR23279936,SAMN32965082,LBGS076,Validation,Healthy control,514,77,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279938,SAMN32965080,LBGS067,Validation,Healthy control,512,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279939,SAMN32965079,LBGS062,Validation,Healthy control,511,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279943,SAMN32965076,LBGS052R,Validation,Healthy control,508,37,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279945,SAMN32965074,LBGS047R,Validation,Healthy control,506,31,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23279967,SAMN32964573,LBMB204,Discovery,Breast cancer,5,39,F,IIA,Carcinoma,No,NA,NA,Luminal A
+SRR23279972,SAMN32964964,MB101,Validation,Breast cancer,396,55,F,II,Carcinoma,Yes,1,22x24mm,HER2
+SRR23279976,SAMN32964960,MB083AR,Validation,Breast cancer,392,57,F,III,Carcinoma,Yes,1,40x30x30mm,HER2
+SRR23279981,SAMN32964956,MB073,Validation,Breast cancer,388,40,F,II,Carcinoma,Yes,1,15x25mm,Luminal B
+SRR23279983,SAMN32964939,MB024,Validation,Breast cancer,371,58,F,II,Carcinoma,No,1,17x14mm,Luminal B
+SRR23279985,SAMN32964938,MB022,Validation,Breast cancer,370,28,F,II,Carcinoma,No,1,7x10cm,Luminal B
+SRR23279988,SAMN32964935,MB003AR,Validation,Breast cancer,367,57,F,II,Carcinoma,Yes,1,62x30mm,HER2
+SRR23279990,SAMN32964933,LBMB299,Validation,Breast cancer,365,64,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279991,SAMN32964932,LBMB287,Validation,Breast cancer,364,70,F,not recorded,Carcinoma,NA,NA,NA,not recorded
+SRR23279999,SAMN32964910,LBGS014,Discovery,Healthy control,342,32,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280000,SAMN32964909,LBGS007R,Discovery,Healthy control,341,33,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280007,SAMN32964903,KAAD79,Discovery,Healthy control,335,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280009,SAMN32964901,KAAD36,Discovery,Healthy control,333,57,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280011,SAMN32964899,KAAB71,Discovery,Healthy control,331,66,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280013,SAMN32964898,KAAB63,Discovery,Healthy control,330,44,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280017,SAMN32964851,K1587,Discovery,Healthy control,283,67,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280034,SAMN32964764,K0178,Discovery,Healthy control,196,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280036,SAMN32964762,K0172,Discovery,Healthy control,194,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280047,SAMN32964723,NB037,Discovery,Breast cancer,155,59,F,III,Carcinoma,Yes,1,22x25mm,Luminal B - HER2
+SRR23280058,SAMN32964713,MB208AR,Discovery,Breast cancer,145,71,F,I,Carcinoma,No,1,"10,5x10mm",Luminal A
+SRR23280060,SAMN32964711,MB204AR,Discovery,Breast cancer,143,60,F,I,Carcinoma,No,1,10x14mm,TNBC
+SRR23280061,SAMN32964710,MB203,Discovery,Breast cancer,142,57,F,II,Carcinoma,Yes,1,22x13 mm,Luminal B
+SRR23280062,SAMN32964663,MB070,Discovery,Breast cancer,95,68,F,II,Carcinoma,No,1,24x14mm,Luminal A
+SRR23280069,SAMN32964657,MB063A,Discovery,Breast cancer,89,60,F,III,Carcinoma,Yes,1,25mm,Luminal B - HER2
+SRR23280071,SAMN32964655,MB058A,Discovery,Breast cancer,87,66,F,I,Carcinoma,No,1,5x9mm,HER2
+SRR23280073,SAMN32964653,MB055A,Discovery,Breast cancer,85,56,F,I,Carcinoma,No,1,15x13mm,TNBC
+SRR23280076,SAMN32964650,MB049A,Discovery,Breast cancer,82,44,F,II,Carcinoma,No,1,26x18x42mm,HER2
+SRR23280077,SAMN32964649,MB048A,Discovery,Breast cancer,81,47,F,II,Carcinoma,No,1,35x15mm,HER2
+SRR23280078,SAMN32965069,LBGS010R,Validation,Healthy control,501,36,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280083,SAMN32965066,LBGS005R,Validation,Healthy control,498,32,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280087,SAMN32965062,KAAD65,Validation,Healthy control,494,54,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280091,SAMN32964618,LBMB275R2,Discovery,Breast cancer,50,34,F,not recorded,Carcinoma,NA,NA,NA,Luminal B
+SRR23280093,SAMN32965057,KAAA83,Validation,Healthy control,489,53,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280107,SAMN32965000,K0119,Validation,Healthy control,432,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280115,SAMN32964892,KAAB48,Discovery,Healthy control,324,56,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280122,SAMN32964886,KAAB02,Discovery,Healthy control,318,57,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280128,SAMN32964838,K1526,Discovery,Healthy control,270,64,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280131,SAMN32964835,K1513,Discovery,Healthy control,267,47,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280152,SAMN32964787,K0426,Discovery,Healthy control,219,46,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280153,SAMN32964786,K0412,Discovery,Healthy control,218,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280154,SAMN32964785,K0410,Discovery,Healthy control,217,52,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280155,SAMN32964784,K0405,Discovery,Healthy control,216,43,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280158,SAMN32964753,K0136,Discovery,Healthy control,185,45,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280168,SAMN32964744,K0087,Discovery,Healthy control,176,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280174,SAMN32964709,MB171,Discovery,Breast cancer,141,48,F,I,Carcinoma,NA,1,12x6mm,not recorded
+SRR23280176,SAMN32964708,MB170,Discovery,Breast cancer,140,42,F,II,Carcinoma,NA,1,30x30x20mm,not recorded
+SRR23280177,SAMN32964707,MB161,Discovery,Breast cancer,139,37,F,I,Carcinoma,NA,1,9x11mm,not recorded
+SRR23280193,SAMN32964646,MB043,Discovery,Breast cancer,78,55,F,II,Carcinoma,No,1,26x17mm,HER2
+SRR23280199,SAMN32964640,MB028,Discovery,Breast cancer,72,64,F,II,Carcinoma,No,1,11x23mm,Luminal B
+SRR23280214,SAMN32964617,LBMB274,Discovery,Breast cancer,49,50,F,I,Carcinoma,No,NA,NA,Luminal A
+SRR23280221,SAMN32965042,K1533,Validation,Healthy control,474,50,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280222,SAMN32964998,K0111,Validation,Healthy control,430,49,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280223,SAMN32964997,K0107,Validation,Healthy control,429,41,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280224,SAMN32964996,K0071,Validation,Healthy control,428,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280227,SAMN32964993,K0020,Validation,Healthy control,425,40,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280228,SAMN32964992,K0014,Validation,Healthy control,424,42,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280233,SAMN32964988,NB47,Validation,Breast cancer,420,48,F,III,Carcinoma,Yes,1,53mm,Luminal B - HER2
+SRR23280235,SAMN32964986,NB08,Validation,Breast cancer,418,68,F,I,Carcinoma,No,1,17x9mm,HER2
+SRR23280238,SAMN32964955,MB071AR,Validation,Breast cancer,387,66,F,II,Carcinoma,No,1,10x20mm,Luminal A
+SRR23280247,SAMN32964947,MB039A,Validation,Breast cancer,379,52,F,I,Carcinoma,No,1,12x6mm,Luminal B
+SRR23280249,SAMN32964945,MB034A,Validation,Breast cancer,377,55,F,II,Carcinoma,No,1,28x12mm,HER2
+SRR23280251,SAMN32964943,MB030A,Validation,Breast cancer,375,48,F,II,Carcinoma,Yes,1,12x21mm,Luminal B
+SRR23280257,SAMN32964879,KAAA32,Discovery,Healthy control,311,62,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280264,SAMN32964873,K1695,Discovery,Healthy control,305,58,F,not recorded,not recorded,NA,NA,NA,not recorded
+SRR23280274,SAMN32964668,MB081AR,Discovery,Breast cancer,100,45,F,I,Carcinoma,Yes,1,12x5mm,Luminal B

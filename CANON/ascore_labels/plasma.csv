@@ -1,31 +1,518 @@
 gsm,series,condition,cancer_type,stage
-SRR23279758,PRJNA929650,healthy,,
-SRR23279768,PRJNA929650,healthy,,
-SRR23279809,PRJNA929650,healthy,,
-SRR23279846,PRJNA929650,healthy,,
-SRR23279856,PRJNA929650,healthy,,
-SRR23279866,PRJNA929650,healthy,,
-SRR23279876,PRJNA929650,healthy,,
-SRR23279887,PRJNA929650,healthy,,
-SRR23279899,PRJNA929650,healthy,,
-SRR23279941,PRJNA929650,healthy,,
-SRR23279950,PRJNA929650,healthy,,
+SRR23279779,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",IIA
+SRR23279787,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279792,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23279794,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279804,PRJNA929650,healthy,,
+SRR23279806,PRJNA929650,healthy,,
+SRR23279819,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",III
+SRR23279834,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279837,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279850,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279855,PRJNA929650,healthy,,
+SRR23279858,PRJNA929650,healthy,,
+SRR23279868,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IIA
+SRR23279874,PRJNA929650,healthy,,
+SRR23279877,PRJNA929650,healthy,,
+SRR23279881,PRJNA929650,healthy,,
+SRR23279883,PRJNA929650,healthy,,
+SRR23279885,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279896,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279927,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",IIA
+SRR23279931,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279932,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279935,PRJNA929650,healthy,,
+SRR23279946,PRJNA929650,healthy,,
+SRR23279947,PRJNA929650,healthy,,
+SRR23279954,PRJNA929650,healthy,,
+SRR23279958,PRJNA929650,healthy,,
+SRR23279959,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
 SRR23279960,PRJNA929650,healthy,,
-SRR23280002,PRJNA929650,healthy,,
-SRR23280011,PRJNA929650,healthy,,
+SRR23279964,PRJNA929650,healthy,,
+SRR23279966,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279969,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23279970,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IA
+SRR23279971,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279973,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279975,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23279979,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279996,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279998,PRJNA929650,healthy,,
+SRR23280005,PRJNA929650,healthy,,
+SRR23280010,PRJNA929650,healthy,,
+SRR23280014,PRJNA929650,healthy,,
 SRR23280022,PRJNA929650,healthy,,
-SRR23280031,PRJNA929650,healthy,,
+SRR23280023,PRJNA929650,healthy,,
+SRR23280024,PRJNA929650,healthy,,
+SRR23280037,PRJNA929650,healthy,,
 SRR23280041,PRJNA929650,healthy,,
-SRR23280084,PRJNA929650,healthy,,
-SRR23280094,PRJNA929650,healthy,,
-SRR23280104,PRJNA929650,healthy,,
-SRR23280114,PRJNA929650,healthy,,
-SRR23280124,PRJNA929650,healthy,,
-SRR23280134,PRJNA929650,healthy,,
+SRR23280046,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23280051,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280053,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23280059,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23280065,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23280066,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280074,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280080,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280082,PRJNA929650,healthy,,
+SRR23280095,PRJNA929650,healthy,,
+SRR23280096,PRJNA929650,healthy,,
+SRR23280098,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",I
+SRR23280101,PRJNA929650,healthy,,
+SRR23280103,PRJNA929650,healthy,,
+SRR23280109,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280110,PRJNA929650,healthy,,
+SRR23280111,PRJNA929650,healthy,,
+SRR23280116,PRJNA929650,healthy,,
+SRR23280117,PRJNA929650,healthy,,
+SRR23280119,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280133,PRJNA929650,healthy,,
+SRR23280137,PRJNA929650,healthy,,
+SRR23280138,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280139,PRJNA929650,healthy,,
+SRR23280141,PRJNA929650,healthy,,
+SRR23280148,PRJNA929650,healthy,,
+SRR23280151,PRJNA929650,healthy,,
+SRR23280159,PRJNA929650,healthy,,
+SRR23280161,PRJNA929650,healthy,,
+SRR23280162,PRJNA929650,healthy,,
+SRR23280165,PRJNA929650,healthy,,
+SRR23280166,PRJNA929650,healthy,,
+SRR23280169,PRJNA929650,healthy,,
+SRR23280170,PRJNA929650,healthy,,
+SRR23280178,PRJNA929650,cancer,nonmetastatic breast cancer,II
+SRR23280180,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",not recorded
+SRR23280181,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IIA
+SRR23280182,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IA
+SRR23280202,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23280203,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23280207,PRJNA929650,healthy,,
+SRR23280208,PRJNA929650,healthy,,
+SRR23280213,PRJNA929650,healthy,,
+SRR23280216,PRJNA929650,healthy,,
+SRR23280217,PRJNA929650,healthy,,
+SRR23280225,PRJNA929650,healthy,,
+SRR23280229,PRJNA929650,healthy,,
+SRR23280232,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280237,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23280241,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280245,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280248,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280256,PRJNA929650,healthy,,
+SRR23280259,PRJNA929650,healthy,,
+SRR23280273,PRJNA929650,healthy,,
+SRR23279772,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IIA
+SRR23279775,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IIA
+SRR23279782,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",I
+SRR23279783,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",IIIA
+SRR23279784,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",not recorded
+SRR23279788,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23279790,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279791,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279793,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279799,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279807,PRJNA929650,healthy,,
+SRR23279809,PRJNA929650,healthy,,
+SRR23279811,PRJNA929650,healthy,,
+SRR23279812,PRJNA929650,healthy,,
+SRR23279820,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279821,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279829,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23279833,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",not recorded
+SRR23279836,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",not recorded
+SRR23279841,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23279844,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",IIA
+SRR23279845,PRJNA929650,healthy,,
+SRR23279848,PRJNA929650,healthy,,
+SRR23279854,PRJNA929650,healthy,,
+SRR23279856,PRJNA929650,healthy,,
+SRR23279862,PRJNA929650,healthy,,
+SRR23279865,PRJNA929650,healthy,,
+SRR23279869,PRJNA929650,healthy,,
+SRR23279870,PRJNA929650,healthy,,
+SRR23279886,PRJNA929650,healthy,,
+SRR23279892,PRJNA929650,healthy,,
+SRR23279893,PRJNA929650,healthy,,
+SRR23279895,PRJNA929650,healthy,,
+SRR23279905,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23279906,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23279908,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",II
+SRR23279917,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",III
+SRR23279919,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23279921,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279922,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23279926,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23279928,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IB
+SRR23279940,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279949,PRJNA929650,healthy,,
+SRR23279951,PRJNA929650,healthy,,
+SRR23279953,PRJNA929650,healthy,,
+SRR23279955,PRJNA929650,healthy,,
+SRR23279956,PRJNA929650,healthy,,
+SRR23279962,PRJNA929650,healthy,,
+SRR23279965,PRJNA929650,healthy,,
+SRR23279978,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23279980,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23279982,PRJNA929650,cancer,nonmetastatic breast cancer,II
+SRR23279997,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IA
+SRR23280002,PRJNA929650,healthy,,
+SRR23280003,PRJNA929650,healthy,,
+SRR23280020,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280021,PRJNA929650,healthy,,
+SRR23280025,PRJNA929650,healthy,,
+SRR23280030,PRJNA929650,healthy,,
+SRR23280031,PRJNA929650,healthy,,
+SRR23280040,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",not recorded
+SRR23280056,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",III
+SRR23280063,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23280068,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23280075,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280079,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280088,PRJNA929650,healthy,,
+SRR23280089,PRJNA929650,healthy,,
+SRR23280092,PRJNA929650,healthy,,
+SRR23280097,PRJNA929650,healthy,,
+SRR23280100,PRJNA929650,healthy,,
+SRR23280108,PRJNA929650,healthy,,
+SRR23280112,PRJNA929650,healthy,,
+SRR23280120,PRJNA929650,healthy,,
+SRR23280125,PRJNA929650,healthy,,
+SRR23280126,PRJNA929650,healthy,,
+SRR23280129,PRJNA929650,healthy,,
+SRR23280130,PRJNA929650,healthy,,
+SRR23280135,PRJNA929650,healthy,,
+SRR23280140,PRJNA929650,healthy,,
+SRR23280142,PRJNA929650,healthy,,
 SRR23280144,PRJNA929650,healthy,,
-SRR23280154,PRJNA929650,healthy,,
+SRR23280160,PRJNA929650,healthy,,
+SRR23280183,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IIIA
+SRR23280185,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IIB
+SRR23280186,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280189,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IIA
+SRR23280191,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280195,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280196,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23280198,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",I
+SRR23280201,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280210,PRJNA929650,healthy,,
+SRR23280212,PRJNA929650,healthy,,
+SRR23280220,PRJNA929650,healthy,,
+SRR23280230,PRJNA929650,healthy,,
+SRR23280231,PRJNA929650,healthy,,
+SRR23280243,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280246,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23280252,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",I
+SRR23280258,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280262,PRJNA929650,healthy,,
+SRR23280271,PRJNA929650,healthy,,
+SRR23279759,PRJNA929650,healthy,,
+SRR23279761,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279767,PRJNA929650,healthy,,
+SRR23279768,PRJNA929650,healthy,,
+SRR23279770,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IIA
+SRR23279771,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IIA
+SRR23279778,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23279780,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",IIA
+SRR23279781,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",IIIA
+SRR23279785,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23279789,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23279795,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279796,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279798,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279801,PRJNA929650,healthy,,
+SRR23279803,PRJNA929650,healthy,,
+SRR23279805,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",not recorded
+SRR23279808,PRJNA929650,healthy,,
+SRR23279813,PRJNA929650,healthy,,
+SRR23279822,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279826,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23279842,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",not recorded
+SRR23279852,PRJNA929650,healthy,,
+SRR23279857,PRJNA929650,healthy,,
+SRR23279860,PRJNA929650,healthy,,
+SRR23279872,PRJNA929650,healthy,,
+SRR23279873,PRJNA929650,healthy,,
+SRR23279876,PRJNA929650,healthy,,
+SRR23279878,PRJNA929650,healthy,,
+SRR23279887,PRJNA929650,healthy,,
+SRR23279889,PRJNA929650,healthy,,
+SRR23279891,PRJNA929650,healthy,,
+SRR23279897,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",IIA
+SRR23279898,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",not recorded
+SRR23279899,PRJNA929650,healthy,,
+SRR23279900,PRJNA929650,healthy,,
+SRR23279910,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23279912,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23279929,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23279937,PRJNA929650,healthy,,
+SRR23279941,PRJNA929650,healthy,,
+SRR23279948,PRJNA929650,healthy,,
+SRR23279952,PRJNA929650,healthy,,
+SRR23279968,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IIIA
+SRR23279974,PRJNA929650,cancer,nonmetastatic breast cancer,III
+SRR23279977,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279986,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23279987,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23279989,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279992,PRJNA929650,cancer,nonmetastatic breast cancer,I
+SRR23279994,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279995,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IIA
+SRR23280008,PRJNA929650,healthy,,
+SRR23280012,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280018,PRJNA929650,healthy,,
+SRR23280028,PRJNA929650,healthy,,
+SRR23280029,PRJNA929650,healthy,,
+SRR23280033,PRJNA929650,healthy,,
+SRR23280035,PRJNA929650,healthy,,
+SRR23280045,PRJNA929650,healthy,,
+SRR23280048,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23280052,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280067,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280072,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",II
+SRR23280084,PRJNA929650,healthy,,
+SRR23280090,PRJNA929650,healthy,,
+SRR23280104,PRJNA929650,healthy,,
+SRR23280113,PRJNA929650,healthy,,
+SRR23280114,PRJNA929650,healthy,,
+SRR23280118,PRJNA929650,healthy,,
+SRR23280123,PRJNA929650,healthy,,
+SRR23280134,PRJNA929650,healthy,,
+SRR23280145,PRJNA929650,healthy,,
+SRR23280147,PRJNA929650,healthy,,
+SRR23280150,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280156,PRJNA929650,healthy,,
+SRR23280157,PRJNA929650,healthy,,
 SRR23280164,PRJNA929650,healthy,,
+SRR23280167,PRJNA929650,healthy,,
+SRR23280171,PRJNA929650,healthy,,
 SRR23280173,PRJNA929650,healthy,,
+SRR23280184,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280188,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",IIB
+SRR23280190,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",not recorded
+SRR23280194,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",II
+SRR23280197,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280204,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280205,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23280209,PRJNA929650,healthy,,
 SRR23280215,PRJNA929650,healthy,,
-SRR23280224,PRJNA929650,healthy,,
+SRR23280218,PRJNA929650,healthy,,
+SRR23280219,PRJNA929650,healthy,,
+SRR23280234,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23280236,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280240,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23280244,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23280250,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280254,PRJNA929650,healthy,,
+SRR23280260,PRJNA929650,healthy,,
+SRR23280261,PRJNA929650,healthy,,
+SRR23280267,PRJNA929650,healthy,,
+SRR23279758,PRJNA929650,healthy,,
+SRR23279760,PRJNA929650,healthy,,
+SRR23279762,PRJNA929650,healthy,,
+SRR23279763,PRJNA929650,healthy,,
+SRR23279764,PRJNA929650,healthy,,
+SRR23279769,PRJNA929650,healthy,,
+SRR23279774,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",IIB
+SRR23279776,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279777,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279800,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",not recorded
+SRR23279815,PRJNA929650,healthy,,
+SRR23279816,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279825,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23279828,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23279830,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23279831,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23279835,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23279839,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279846,PRJNA929650,healthy,,
+SRR23279847,PRJNA929650,healthy,,
+SRR23279849,PRJNA929650,healthy,,
+SRR23279859,PRJNA929650,healthy,,
+SRR23279867,PRJNA929650,healthy,,
+SRR23279875,PRJNA929650,healthy,,
+SRR23279879,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279884,PRJNA929650,healthy,,
+SRR23279888,PRJNA929650,healthy,,
+SRR23279894,PRJNA929650,healthy,,
+SRR23279902,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",I
+SRR23279903,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279907,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279916,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279924,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23279933,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",II
+SRR23279934,PRJNA929650,healthy,,
+SRR23279942,PRJNA929650,healthy,,
+SRR23279944,PRJNA929650,healthy,,
+SRR23279950,PRJNA929650,healthy,,
+SRR23279957,PRJNA929650,healthy,,
+SRR23279961,PRJNA929650,healthy,,
+SRR23279963,PRJNA929650,healthy,,
+SRR23279984,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279993,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280001,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280004,PRJNA929650,healthy,,
+SRR23280006,PRJNA929650,healthy,,
+SRR23280015,PRJNA929650,healthy,,
+SRR23280016,PRJNA929650,healthy,,
+SRR23280019,PRJNA929650,healthy,,
+SRR23280026,PRJNA929650,healthy,,
+SRR23280027,PRJNA929650,healthy,,
+SRR23280032,PRJNA929650,healthy,,
+SRR23280038,PRJNA929650,healthy,,
+SRR23280039,PRJNA929650,healthy,,
+SRR23280042,PRJNA929650,healthy,,
+SRR23280043,PRJNA929650,healthy,,
+SRR23280044,PRJNA929650,healthy,,
+SRR23280049,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23280050,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280054,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",I
+SRR23280055,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",II
+SRR23280057,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",I
+SRR23280064,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23280070,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23280081,PRJNA929650,healthy,,
+SRR23280085,PRJNA929650,healthy,,
+SRR23280086,PRJNA929650,healthy,,
+SRR23280094,PRJNA929650,healthy,,
+SRR23280099,PRJNA929650,healthy,,
+SRR23280102,PRJNA929650,healthy,,
+SRR23280105,PRJNA929650,healthy,,
+SRR23280106,PRJNA929650,healthy,,
+SRR23280121,PRJNA929650,healthy,,
+SRR23280124,PRJNA929650,healthy,,
+SRR23280127,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280132,PRJNA929650,healthy,,
+SRR23280136,PRJNA929650,healthy,,
+SRR23280143,PRJNA929650,healthy,,
+SRR23280146,PRJNA929650,healthy,,
+SRR23280149,PRJNA929650,healthy,,
+SRR23280163,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IIA
+SRR23280172,PRJNA929650,healthy,,
+SRR23280175,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23280179,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",IIA
+SRR23280187,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",IIA
+SRR23280192,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23280200,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23280206,PRJNA929650,healthy,,
+SRR23280211,PRJNA929650,healthy,,
+SRR23280226,PRJNA929650,healthy,,
+SRR23280239,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280242,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23280253,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
 SRR23280255,PRJNA929650,healthy,,
+SRR23280263,PRJNA929650,healthy,,
+SRR23280265,PRJNA929650,healthy,,
+SRR23280266,PRJNA929650,healthy,,
+SRR23280268,PRJNA929650,healthy,,
+SRR23280269,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",not recorded
+SRR23280270,PRJNA929650,healthy,,
+SRR23280272,PRJNA929650,healthy,,
+SRR23279765,PRJNA929650,healthy,,
+SRR23279766,PRJNA929650,healthy,,
+SRR23279773,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",IIA
+SRR23279786,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279797,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279802,PRJNA929650,healthy,,
+SRR23279810,PRJNA929650,healthy,,
+SRR23279814,PRJNA929650,healthy,,
+SRR23279817,PRJNA929650,healthy,,
+SRR23279818,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",I
+SRR23279823,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",not recorded
+SRR23279824,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279827,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23279832,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23279838,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279840,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",not recorded
+SRR23279843,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279851,PRJNA929650,healthy,,
+SRR23279853,PRJNA929650,healthy,,
+SRR23279861,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",not recorded
+SRR23279863,PRJNA929650,healthy,,
+SRR23279864,PRJNA929650,healthy,,
+SRR23279866,PRJNA929650,healthy,,
+SRR23279871,PRJNA929650,healthy,,
+SRR23279880,PRJNA929650,healthy,,
+SRR23279882,PRJNA929650,healthy,,
+SRR23279890,PRJNA929650,healthy,,
+SRR23279901,PRJNA929650,healthy,,
+SRR23279904,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279909,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",II
+SRR23279911,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",I
+SRR23279913,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23279914,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",III
+SRR23279915,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23279918,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23279920,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23279923,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279925,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23279930,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279936,PRJNA929650,healthy,,
+SRR23279938,PRJNA929650,healthy,,
+SRR23279939,PRJNA929650,healthy,,
+SRR23279943,PRJNA929650,healthy,,
+SRR23279945,PRJNA929650,healthy,,
+SRR23279967,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",IIA
+SRR23279972,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23279976,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",III
+SRR23279981,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279983,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279985,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23279988,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23279990,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279991,PRJNA929650,cancer,nonmetastatic breast cancer,not recorded
+SRR23279999,PRJNA929650,healthy,,
+SRR23280000,PRJNA929650,healthy,,
+SRR23280007,PRJNA929650,healthy,,
+SRR23280009,PRJNA929650,healthy,,
+SRR23280011,PRJNA929650,healthy,,
+SRR23280013,PRJNA929650,healthy,,
+SRR23280017,PRJNA929650,healthy,,
+SRR23280034,PRJNA929650,healthy,,
+SRR23280036,PRJNA929650,healthy,,
+SRR23280047,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23280058,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23280060,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",I
+SRR23280061,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280062,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23280069,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23280071,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",I
+SRR23280073,PRJNA929650,cancer,"nonmetastatic breast cancer, TNBC",I
+SRR23280076,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280077,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280078,PRJNA929650,healthy,,
+SRR23280083,PRJNA929650,healthy,,
+SRR23280087,PRJNA929650,healthy,,
+SRR23280091,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",not recorded
+SRR23280093,PRJNA929650,healthy,,
+SRR23280107,PRJNA929650,healthy,,
+SRR23280115,PRJNA929650,healthy,,
+SRR23280122,PRJNA929650,healthy,,
+SRR23280128,PRJNA929650,healthy,,
+SRR23280131,PRJNA929650,healthy,,
+SRR23280152,PRJNA929650,healthy,,
+SRR23280153,PRJNA929650,healthy,,
+SRR23280154,PRJNA929650,healthy,,
+SRR23280155,PRJNA929650,healthy,,
+SRR23280158,PRJNA929650,healthy,,
+SRR23280168,PRJNA929650,healthy,,
+SRR23280174,PRJNA929650,cancer,nonmetastatic breast cancer,I
+SRR23280176,PRJNA929650,cancer,nonmetastatic breast cancer,II
+SRR23280177,PRJNA929650,cancer,nonmetastatic breast cancer,I
+SRR23280193,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280199,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280214,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",I
+SRR23280221,PRJNA929650,healthy,,
+SRR23280222,PRJNA929650,healthy,,
+SRR23280223,PRJNA929650,healthy,,
+SRR23280224,PRJNA929650,healthy,,
+SRR23280227,PRJNA929650,healthy,,
+SRR23280228,PRJNA929650,healthy,,
+SRR23280233,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B - HER2",III
+SRR23280235,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",I
+SRR23280238,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal A",II
+SRR23280247,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
+SRR23280249,PRJNA929650,cancer,"nonmetastatic breast cancer, HER2",II
+SRR23280251,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",II
+SRR23280257,PRJNA929650,healthy,,
+SRR23280264,PRJNA929650,healthy,,
+SRR23280274,PRJNA929650,cancer,"nonmetastatic breast cancer, Luminal B",I
