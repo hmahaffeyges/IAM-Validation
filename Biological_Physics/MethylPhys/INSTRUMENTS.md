@@ -2,6 +2,39 @@
 
 *Generated from CANON/catalogue.json; every status line comes from the Master Testing Manifest.*
 
+## Why the chain works: IAM's physics
+
+Every reading this chain makes rests on one physical fact. A methyl mark on DNA is a stored record, and keeping a record against heat
+costs energy. Landauer's principle sets the least energy that can hold one bit against thermal noise. IAM's Law is that this price
+governs every physical record: a qubit, a transistor, the large-scale structure of the universe, and a methyl mark. Two consequences
+make the instruments possible.
+
+1. **The scale is derived, not learned.** The energy a cell spends holding a mark sets the least error it can reach: the floor. A site
+   whose mark is lost entirely reads as a coin flip, one bit of disorder: the ceiling. Counting single DNA molecules in 56 healthy human
+   cell types, the energy that holds a methyl mark is 3.08 k_B T, about 0.147 of the ATP the cell pays to keep each site (M = 20.94 k_B T).
+   A healthy cell sits at a measured place between the floor and the ceiling, so a reading in bits means the same thing in any
+   laboratory, for any cell type, before anything has been trained.
+2. **Disorder is counted, and counting has exact statistics.** A sample's disorder at a site is the binary entropy of its measured level,
+   and the disorder that heat and counting alone would give at that site's number of reads follows exactly. So every instrument sets a
+   measured disorder beside an expectation derived from the physics and from the sample's own reads. Nothing is fitted to the sample.
+
+**How each part of the chain uses it.**
+- **Met-A** reads a sample's disorder at its cells' identity sites against the disorder healthy cells of the same kind carry there, on
+  the floor-to-ceiling scale; 1 is healthy.
+- **IAM-A** reads the held error on single molecules against what the cell's own loosely held share predicts, on a line whose form comes
+  from the holding physics. The sample is its own reference.
+- **The C-Score** asks whether departures from the expected disorder are scattered along the genome, as ordinary wear is, or clustered,
+  as when a whole region loses its holding.
+- **The territories** make the same comparison at the islands every healthy cell holds unmethylated and the domains some cell types hold
+  loosely.
+- **Coupling-A** asks whether neighboring marks on one molecule were lost together, against its counted floor and ceiling.
+- **The tumor gauge** reads the distance from the measured disorder to the entropy ceiling.
+- **Group-A** asks whether a whole group has moved against the healthy samples of its own series.
+- **The atlases and the IAM-Deconvolver are the rulers.** They say which healthy cells a sample is made of and where healthy disorder
+  sits for each, so the physics can be applied to each person's own mix of cells.
+- **The library floor.** Every laboratory's chemistry adds a small rate of false "methylated" calls. The chain measures it at the sites
+  no healthy cell marks, and reads it as a property of the library, not of the cell.
+
 ## Why a self-reference matters
 
 Until now every instrument needed a reference: healthy cells of the same kind, often from the same laboratory, to say what normal looks like. That reference is the hardest thing in this field to get, and it is why most tests work in one lab and stumble in the next. Across 56 kinds of healthy human cells, we found that a cell's tagging mistakes follow one straight line set by how loosely it holds its own DNA. So a healthy cell's expected reading can come from its own sample. An instrument that carries its own reference does not need a library of other people's cells, does not inherit another lab's quirks, and can be pointed at any tissue, any lab, even any species that tags its DNA. That step is now commissioned: IAM-A reads each sample against its own reference.
@@ -180,9 +213,9 @@ Read and flagged development, by the same chain; each becomes an instrument only
 
 ### The IAM Sequencing Atlas
 
-A second atlas, for sequenced samples only, beside IAM-Atlas v2.1 (which stays the reference for arrays). Measured, not fitted: for each of 56 healthy cell types, at every one of the 28.2 million CpGs of the hg19 numbering, it holds the donors and reads, the methylated reads, the healthy level, the spread between donors, each donor's own measured disorder, and two noise maps (sealed donor halves, and random halves of every donor's reads, which stand in where a cell has one donor). Each cell has reads at 97 to 98 % of all CpGs, about 32 times the sites an array reads, so the sequencing instruments can read a sample's disorder at every CpG against healthy disorder of its own cell type. Built from the 153 healthy sequencing inputs behind IAM-Atlas v2.1 by the one command (run_sample.py --build seq-atlas), every step checked first on constructed data with a known answer; it rebuilds from the public files in minutes. A megakaryocyte column, a large source of plasma DNA, is being added from two donors and tested on a third. Each kind of instrument reads the same biology through its own chemistry. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts reads, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder; the offset also changes with each laboratory's chemistry and library. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. The physics and the instruments are the same; only the ruler changes with the platform. Read against IAM-Atlas v2.1, healthy sequenced samples showed it: at the islands every healthy cell keeps unmarked they read about 14 where healthy reads 1, and Met-A followed each sample's source.
+A second atlas, for sequenced samples only, beside IAM-Atlas v2.1 (which stays the reference for arrays). Measured, not fitted: for each of 57 healthy cell types, at every one of the 28.2 million CpGs of the hg19 numbering, it holds the donors and reads, the methylated reads, the healthy level, the spread between donors, each donor's own measured disorder, and two noise maps (sealed donor halves, and random halves of every donor's reads, which stand in where a cell has one donor). Each cell has reads at 97 to 98 % of all CpGs, about 32 times the sites an array reads, so the sequencing instruments can read a sample's disorder at every CpG against healthy disorder of its own cell type. Built from the healthy sequencing inputs behind IAM-Atlas v2.1, with a granulocyte column added from three more donors, by the one command (run_sample.py --build seq-atlas), every step checked first on constructed data with a known answer; it rebuilds from the public files in minutes. Each kind of instrument reads the same biology through its own chemistry. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts reads, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder; the offset also changes with each laboratory's chemistry and library. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. The physics and the instruments are the same; only the ruler changes with the platform. Read against IAM-Atlas v2.1, healthy sequenced samples showed it: at the islands every healthy cell keeps unmarked they read about 14 where healthy reads 1, and Met-A followed each sample's source. Read against it, every healthy sequenced input reads Normal on every reading, 140 of 140: sorted-cell Met-A 1.0075, whole-sample Met-A 1.0059, the islands 1.0118, the domains 1.0014, the C-Score 1.0003. It carries the sky-survey tools a faint signal on a sphere needs: each cell drawn on the sphere with the range of its average, its two noise maps and their null tests, the genome-distance spectrum, masks for the sex chromosomes and poorly mapping sites, and an information globe. Each library's floor, the rate of false "methylated" calls its chemistry adds, is measured at the sites no healthy cell marks.
 
-**Next:** The healthy references every sequencing instrument reads against (Met-A, the territories, IAM-A, the coupling, the C-Score's clustering at every CpG), each with its synthetic first; then the spheres, spectra and masks at full resolution; each cell commissioned on healthy sequenced samples the atlas does not hold. **Record:** [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
+**Next:** Each cell commissioned on healthy sequenced samples from laboratories the atlas does not hold; columns for cells it lacks (megakaryocytes and later erythroid stages) as public data allows. **Record:** [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
 
 ### The information sphere
 
@@ -204,15 +237,15 @@ One run of the one command finds every cell of IAM-Atlas v2.1 in a sample and re
 
 ### One blood draw
 
-One tube, two halves: the buffy coat (the person's own white cells, long DNA) and the plasma (cell-free DNA). The one command reads both and writes one record, including what the plasma holds that the person's own white cells do not explain, and IAM-Atlas v2.1 says which tissue it came from. Constructed draws with known answers test it; a public set of matched halves from healthy people is held unread for the test that counts.
+One tube, two halves: the buffy coat (the person's own white cells, long DNA) and the plasma (cell-free DNA). The one command reads both and writes one record, including what the plasma holds that the person's own white cells do not explain, and IAM-Atlas v2.1 says which tissue it came from. Constructed draws with known answers test it; a public set of matched halves from healthy people is held unread for the test that counts. Plasma is read against the IAM Sequencing Atlas at about one read per site: Met-A at the identity sites of the cells found reads 0.9918 on healthy plasma, and the islands carry each library's floor, read 0.9272 at a common floor. Constructed healthy plasmas read Normal at 20 reads per site, so the instrument's own reach is known by depth.
 
-**Next:** The smallest share each instrument reads at each depth; then the test on the held set. **Record:** [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md)
+**Next:** What the plasma DNA the Deconvolver gives to erythroid cells is; then the held set of matched halves. **Record:** [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md)
 
 ### The territories
 
-Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against IAM-Atlas v2.1 at each site's own read count: the islands, sites every healthy cell type keeps unmarked, where a mark gained is disorder; and the domains, marked sites some healthy cell types hold loosely, where the hold is lost first. Every run of the one command reads both, on arrays and on sequencing, so a change outside a cell's identity sites is seen where it starts. The synthetic tests pass, and tumors read above their own normal tissue on the islands.
+Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against the atlas of the sample's own platform (IAM-Atlas v2.1 for arrays, the IAM Sequencing Atlas for sequencing) at each site's own read count: the islands, sites every healthy cell type keeps unmarked, where a mark gained is disorder; and the domains, marked sites some healthy cell types hold loosely, where the hold is lost first. Every run of the one command reads both, on arrays and on sequencing, so a change outside a cell's identity sites is seen where it starts. The synthetic tests pass, and tumors read above their own normal tissue on the islands. On sequencing the islands' expectation is counted from the reference's own reads; healthy sequenced inputs read the islands 1.0118 and the domains 1.0014.
 
-**Next:** Healthy samples read Normal first, on arrays and on sequencing against the same atlas columns, sequencing samples in sequencing units as Met-A is; then tumors and blood cancers against their own healthy cells. **Record:** [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
+**Next:** Tumors and blood cancers against their own healthy cells, on arrays and on sequencing. **Record:** [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 
 ### Nearest-neighbor coupling
 
@@ -222,9 +255,9 @@ Whether a molecule's held errors fall one at a time or together, read on the A-s
 
 ### Met-A on sequencing
 
-Met-A against IAM-Atlas v2.1 for a sample sequenced by whole-genome bisulfite. The atlas is built on the array scale, where a site a cell keeps unmarked reads about 0.055; sequencing counts unmarked molecules as 0. Read on the array scale, healthy sequenced cells read 0.6 to 0.8. The atlas's own build measured how the published sequencing atlas maps onto its scale (sequencing level = -0.0902 + 1.1026 x atlas level, 17 shared cells), so the chain puts each atlas column in sequencing units before comparing. The atlas stays the ruler and nothing new is fitted. Planted healthy sequencing samples read 1.00 on average, and a 5 % loss of pattern reads about 1.9.
+Met-A for a sample sequenced by whole-genome bisulfite, read against the IAM Sequencing Atlas, the ruler measured with sequencing's own chemistry. A sorted cell is read donor by donor: the sample's disorder at its cell's identity sites against that of each healthy donor of the same cell, both at the same number of reads, so counting is exact on both sides and nothing is fitted. Every healthy sequenced input reads Normal, 140 of 140, sorted-cell Met-A 1.0075; a mixed sample is read against the atlas in its own cell shares.
 
-**Next:** Its healthy band from the 153 healthy sequencing samples behind the atlas; then healthy sorted B and T cells from two laboratories the atlas has never held, read against that band. Each instrument that meets its bar there is commissioned on sequenced B and T cells. **Record:** [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
+**Next:** Healthy sorted cells from laboratories the atlas has never held, each read against its own cell; the library floor carried into the expectation where a laboratory's floor differs. **Record:** [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
 
 ## Sex and the X chromosome
 

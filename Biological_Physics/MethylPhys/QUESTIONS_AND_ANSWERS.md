@@ -196,6 +196,34 @@ samples it was built from. Certainty follows that number: 17 cells rest on more 
 (https://doi.org/10.5281/zenodo.23441999); book: [the atlas](https://hmahaffeyges.github.io/IAM-Validation/book/ch_atlas.html).
 **Open question:** more healthy samples of the cells with one to three would narrow their ranges.
 
+**My samples are sequenced, not arrays. What are they read against?**
+Against the IAM Sequencing Atlas, a ruler measured with sequencing's own chemistry. An array reads a probe's light, which never reaches 0
+or 1; sequencing counts molecules, so a site no cell marks reads about 0. Near the floor a small offset in level is a large offset in
+disorder, so each platform reads against a ruler measured on that platform: arrays against IAM-Atlas v2.1, sequenced samples against the
+IAM Sequencing Atlas. The physics and the instruments are the same. The atlas holds 57 healthy cell types at all 28.2 million CpGs, counted
+from healthy donors' reads with nothing fitted, and every healthy sequenced input reads Normal against it, 140 of 140: sorted-cell Met-A
+1.0075, the islands 1.0118, the domains 1.0014. It is in development: each cell is commissioned when healthy samples from laboratories it
+has never held read Normal against it.
+Evidence: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md),
+[healthy_fullchain7_summary.txt](doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt).
+
+**Each laboratory's chemistry is different. How is that handled on sequencing?**
+The chain measures each library's own floor before any reading: the rate of "methylated" calls at the sites no healthy cell marks.
+Physics sets the cell's floor; the chemistry adds the library's. The chain reads the library's floor as a property of the library, not of
+the cell. In healthy plasma it falls almost entirely on the islands (slope 0.939), and read at a common floor the islands come to 0.9272.
+Inside one laboratory's healthy libraries, only part of the floor rate reaches the islands, so the common floor is a development setting,
+off by default. **Open question:** how the floor reaches each kind of site, library by library.
+Evidence: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md),
+[plasma_band_03_summary.txt](doors/data/DEV_ONE_DRAW_01/plasma_seq_03/plasma_band_03_summary.txt).
+
+**Can it read plasma?**
+In development. Healthy plasma is read against the IAM Sequencing Atlas at about one read per site: Met-A at the identity sites of the
+cells found reads 0.9918, and the globe is quiet. Constructed healthy plasmas read Normal at 20 reads per site, so the instrument's reach is
+known by depth. **Open question:** the domains read 0.8666 and follow the share the Deconvolver gives to erythroid cells, DNA that is
+erythroid at the identity sites but more ordered at the domains than the atlas's bone-marrow cells. That needs data of that cell type.
+Evidence: [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md),
+[plasma_band_02_summary.txt](doors/data/DEV_ONE_DRAW_01/plasma_seq_02/plasma_band_02_summary.txt).
+
 ## Measurement quality
 
 **Batch effects, slide position, laboratory?**

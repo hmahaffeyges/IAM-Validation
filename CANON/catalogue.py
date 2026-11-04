@@ -29,6 +29,7 @@ def stage(inst, M):
     return "in development"
 def markdown(C, M):
     L = ["# The IAM instrument catalogue", "", "*Generated from CANON/catalogue.json; every status line comes from the Master Testing Manifest.*", "",
+         (lambda _p: "#" + open(_p, encoding="utf-8").read().strip())(os.path.join(os.path.dirname(os.path.abspath(__file__)), "physics_root.md")), "",   # 2026-11-03: the physics every instrument rests on, from one source
          "## Why a self-reference matters", "", C["why_self_reference"], "", "## How they work together", "", C["together"], ""]
     if C.get("coverage"):   # 2026-10-24 (author): what each instrument is referenced against, and which instrument covers its blind spot
         _I = {i["id"]: i for i in C["instruments"]}; _cv = C["coverage"]

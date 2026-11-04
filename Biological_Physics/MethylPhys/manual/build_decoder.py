@@ -32,7 +32,8 @@ def build():
     key = {f"{f['file'].split('/')[-1]}::{x['function']}": x for f in inv["files"] for x in f["functions"]}
     have = {k for s in stages for k in s["entries"]}
     missing = [k for k in key if k not in have]; unknown = sorted(have - set(key))
-    out = [head, "", "## The chain in numbers", "",
+    out = [head, "", (lambda _p: "#" + open(_p, encoding="utf-8").read().strip())(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "CANON", "physics_root.md")), "",   # 2026-11-03: the physics every instrument rests on
+           "## The chain in numbers", "",
            f"Read from the code at build time: the one command can load **{inv['n_files']} Python files** holding **{inv['n_functions']} functions** "
            f"(nested ones included); {len(key) - len(missing)} of them have their entry in this Decoder, and a push is refused when one does not. "
            "Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the "

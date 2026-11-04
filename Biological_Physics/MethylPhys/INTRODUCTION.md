@@ -131,15 +131,26 @@ directly ([the record](doors/DEV_METAA_HEALTHY_01.md)). Its values are on the ar
 ### The IAM Sequencing Atlas: every CpG, in development
 
 A second atlas, for sequenced samples only. IAM-Atlas v2.1 stays the reference for arrays; nothing in the new one touches an array reading.
-For each of 56 healthy cell types, at every one of the 28.2 million CpGs of the genome numbering sequencing uses, it holds the healthy level,
+For each of 57 healthy cell types, at every one of the 28.2 million CpGs of the genome numbering sequencing uses, it holds the healthy level,
 the spread between donors, each donor's own measured disorder, the reads behind every value, and two noise maps (one from splitting the
 donors in sealed halves, one from splitting every donor's reads). Each cell has reads at 97 to 98 % of all CpGs, about 32 times the sites
 an array reads. It is counted, not fitted, and rebuilds from the public files with one command in minutes. It lets the sequencing
 instruments read a sample's disorder at every CpG against healthy disorder of its own cell type, including clusters far from any array
-site, and it is the reference the plasma readings are being built on. In development: each cell is commissioned when healthy sequenced
+site, and it is the reference the plasma readings are built on. Read against it, every healthy sequenced input reads Normal on every
+reading, 140 of 140: sorted-cell Met-A 1.0075, the islands 1.0118, the domains 1.0014
+([healthy_fullchain7_summary.txt](doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt)). It carries the
+sky-survey tools a faint signal on a sphere needs (each cell on the sphere with the range of its average, two noise maps and their null
+tests, the genome-distance spectrum, masks, an information globe), because the statistics of a faint signal are the same for the sky and
+for the cell. In development: each cell is commissioned when healthy sequenced
 samples it has never held read Normal against it ([the record](doors/DEV_ATLAS_V21_01.md)).
 
 **A ruler for each kind of instrument.** Each kind of instrument reads the same biology through its own chemistry. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts reads, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder; the offset also changes with each laboratory's chemistry and library. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. The physics and the instruments are the same; only the ruler changes with the platform. Read against IAM-Atlas v2.1, healthy sequenced samples showed it: at the islands every healthy cell keeps unmarked they read about 14 where healthy reads 1, and Met-A followed each sample's source.
+
+**Each library's own floor.** The physical floor is set by the energy that holds a mark. A laboratory's chemistry adds its own small rate
+of false "methylated" calls on top of it, and that rate differs from library to library. The chain measures it in every sequenced sample,
+at the sites no healthy cell marks, and reads it as a property of the library, not of the cell. In healthy plasma it falls almost
+entirely on the islands (slope 0.939), and with the sample and the reference read at a common floor the islands read 0.9272
+([plasma_band_03_summary.txt](doors/data/DEV_ONE_DRAW_01/plasma_seq_03/plasma_band_03_summary.txt); in development).
 
 ### IAM-Deconvolver: the cell mix of a sample
 
@@ -165,7 +176,7 @@ smallest difference the study could have found.
 
 Two more readings come out of every run. **The territories** read disorder where the identity readings do not reach: the islands, sites
 every healthy cell type keeps unmarked, and the domains, marked sites some cell types hold loosely, each on the same A-score gauge against
-IAM-Atlas v2.1. **Nearest-neighbor coupling** reads, on single molecules, whether lost marks fall one at a time or together along a stretch
+the atlas of the sample's own platform (IAM-Atlas v2.1 for arrays, the IAM Sequencing Atlas for sequencing). **Nearest-neighbor coupling** reads, on single molecules, whether lost marks fall one at a time or together along a stretch
 of DNA, a question from the information-theory study of methylation; 1 is independent. Both are shown beside the commissioned readings and
 flagged as in development ([the instruments](INSTRUMENTS.md)). It is drawn on the A-score gauge as coupling-A, the sample's coupling over the healthy coupling of its own cell type, so a healthy cell reads 1; its healthy reference comes from the 153 healthy sequencing samples behind the atlas.
 
