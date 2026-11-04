@@ -1,0 +1,9 @@
+plasma_seq_01 healthy band: 30 plasmas read by the one command
+IAM-A                                      n 30 | median 0.7733 | 25-75 % 0.755 to 0.8103 | 5-95 % 0.7145 to 0.8398
+held error                                 n 30 | median 0.03854 | 25-75 % 0.03805 to 0.03914 | 5-95 % 0.03716 to 0.04019
+loose share                                n 30 | median 0.2864 | 25-75 % 0.1996 to 0.3216 | 5-95 % 0.1305 to 0.4019
+sites with a value                         n 30 | median 4.312e+05 | 25-75 % 3.947e+05 to 5.113e+05 | 5-95 % 3.234e+05 to 5.54e+05
+globe changed blocks                       n  2 | median 0 | 25-75 % 0 to 0 | 5-95 % 0 to 0
+sphere territories changed                 n  2 | median 0 | 25-75 % 0 to 0 | 5-95 % 0 to 0
+IAM-A against the loose share: Spearman rho -0.94 (p 2.7e-14, n 30)
+cell shares, median over the plasmas: granulocytes 0.334, colon macrophages 0.059, erythrocyte progenitors 0.036, nk cells 0.032, hepatocyte 0.031, megakaryocytes 0.024, lung alveolar macrophages 0.014, monocytes 0.013, cardiomyocyte 0.003, lung interstitial macrophages 0.003

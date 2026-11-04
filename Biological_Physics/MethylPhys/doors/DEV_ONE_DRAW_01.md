@@ -594,3 +594,15 @@ one command on a Google spot machine from the 57-cell pieces and the provisional
 granulocytes and monocytes and little to erythrocyte progenitors (0.3 planted, 0.041 to them), unlike absorption test 1 on IAM-Atlas v2.1.
 **Next:** plasma_seq_06, the 30 tuning plasmas read again from plasma_seq_02's saved molecules with `--dev-deconv-ref
 deconv_reference_mk_dev.parquet` (`plasma_seq_06/plasma_seq_06_samples.csv`), scored with the committed scorers.
+
+**plasma_seq_06: megakaryocytes take a small share; the domains could not be read** (`plasma_seq_06/mk_shares_compare.py`,
+`mk_shares_compare.txt`, `plasma_shares_diag_06.txt`, `plasma_band_06_summary.txt`; 30 of 30 read on GitHub; nothing scored). With the
+megakaryocyte reference, the erythrocyte progenitor share falls from 0.0926 to 0.0358, while megakaryocytes take 0.0235 (5 to 95 % 0.0038 to
+0.0675); the fall does not follow the megakaryocyte share (rho -0.186), and the megakaryocyte share does not follow plasma_seq_02's domains
+(rho +0.230). Adding a cell also changes the marker sites, so other shares move (monocytes 0.0459 to 0.0132). **What it says:** megakaryocyte
+DNA is at most a small part of the DNA read as erythroid. **The domains and whole-sample Met-A were not read,** for two reasons in the chain:
+1. a reading for each cell stopped at the megakaryocytes, which are not a cell of IAM-Atlas v2.1 where Met-A's identity sites are chosen,
+and the readings after it in the same step were not reached (fixed: `stage_metaa_atlas.read_in_mix`, `departure_in_mix` and `read_whole`
+now name such a cell and read the rest); 2. even read, a site is kept only where
+cells holding 99 % of the shares have a value, and the sequencing atlas's site tables hold no megakaryocyte column, so a share of 0.024
+would blank every site. **Next:** the provisional megakaryocyte column at v2.1's sites, development only, so the mix has its levels.

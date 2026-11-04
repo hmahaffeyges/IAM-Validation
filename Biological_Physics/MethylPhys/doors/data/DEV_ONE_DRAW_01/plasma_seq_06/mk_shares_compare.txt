@@ -1,0 +1,7 @@
+30 plasmas; erythrocyte progenitors median 0.0926 without megakaryocytes, 0.0358 with; megakaryocytes median 0.0235 (5 to 95 % 0.0038 to 0.0675)
+the erythrocyte progenitor drop against the megakaryocyte share: rho -0.186; the megakaryocyte share against plasma_seq_02's domains: rho +0.230
+granulocytes: 0.3192 without, 0.3342 with
+monocytes: 0.0459 without, 0.0132 with
+colon macrophages: 0.0542 without, 0.0594 with
+nk cells: 0.0227 without, 0.0315 with
+hepatocyte: 0.0226 without, 0.0312 with

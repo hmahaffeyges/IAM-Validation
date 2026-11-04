@@ -1,0 +1,10 @@
+30 plasmas; domains median nan; whole-sample Met-A median nan
+domains against the sites with a value: rho +nan; against the cells found (share 0.01 or more): rho +nan
+colon macrophages: median share 0.059; domains rho +nan
+erythrocyte progenitors: median share 0.036; domains rho +nan
+granulocytes: median share 0.334; domains rho +nan
+hepatocyte: median share 0.031; domains rho +nan
+lung alveolar macrophages: median share 0.014; domains rho +nan
+megakaryocytes: median share 0.024; domains rho +nan
+monocytes: median share 0.013; domains rho +nan
+nk cells: median share 0.032; domains rho +nan

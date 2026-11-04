@@ -359,7 +359,9 @@ def read_in_mix(beta, shares, counts=None, specific=None):
     if not cells: out["reason"] = "no cell shares"; return out
     if specific is not None: out.update(sites_rule=f"specific_sites: Met-A's site rule and at least {specific} from every other panel cell (development, 39.9)")
     for c in cells:
-        S = identity_sites(c) if specific is None else specific_sites(c, [k for k in cells if k != c], specific)
+        try: S = identity_sites(c) if specific is None else specific_sites(c, [k for k in cells if k != c], specific)
+        except KeyError:   # 2026-11-04: a cell outside IAM-Atlas v2.1 (e.g. the provisional megakaryocytes): no identity sites; named, and the other cells read
+            out["cells"].append(dict(cell=c, share=round(float(shares[c]), 4), n_identity_sites=0, A=None, reason="not a cell of IAM-Atlas v2.1, where Met-A's identity sites are chosen")); continue
         r = dict(cell=c, share=round(float(shares[c]), 4), n_identity_sites=len(S), A=None)
         if float(shares[c]) < NOT_FOUND_SHARE:   # 2026-10-24: read and flagged, never presented as that cell's reading
             r["not_found_flag"] = (f"the IAM-Deconvolver found {float(shares[c]):.1%} of this cell in the sample, so its identity sites here carry "
@@ -398,7 +400,8 @@ def departure_in_mix(beta, shares, cell):
     """The per-site departure behind Met-A for one cell of a mixed sample (development, 2026-10-22, for the globe's layer for each cell): at the
     cell's identity sites, H(beta) - H(e), e the atlas mixed in this sample's shares by read_in_mix's rule (MIX_COVER). A pd.Series by site id,
     or None when the cell has no identity sites. Positive: more disorder than this mix of healthy cells holds there."""
-    S = identity_sites(cell)
+    try: S = identity_sites(cell)
+    except KeyError: return None   # 2026-11-04: a cell outside IAM-Atlas v2.1 has no identity sites
     if not S: return None
     cells = [c for c, f in shares.items() if f is not None]
     MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
@@ -749,7 +752,11 @@ def read_whole(beta, shares, counts=None):
     allm = np.ones(len(xs), bool); r = one(allm)
     xd = np.clip(xs.to_numpy() + 0.01 * (0.5 - es.to_numpy()), 1e-6, 1 - 1e-6)
     sh = float((w * np.asarray(_H(pd.Series(xd)), dtype="float64")).sum() / (w * he).sum() - r["A"])
-    ident = set().union(*[set(identity_sites(c)) for c in cells]); T = territory_sets(); isl, dom = set(T["islands"]), set(T["domains"]); ix = xs.index
+    ident = set()
+    for c in cells:   # 2026-11-04: a cell outside IAM-Atlas v2.1 has no identity sites to set aside
+        try: ident |= set(identity_sites(c))
+        except KeyError: pass
+    T = territory_sets(); isl, dom = set(T["islands"]), set(T["domains"]); ix = xs.index
     mi = np.fromiter((i in ident for i in ix), bool, len(ix)); ms = np.fromiter((i in isl for i in ix), bool, len(ix)); md = np.fromiter((i in dom for i in ix), bool, len(ix))
     out.update(A=r["A"], se_over_sites=r["se_over_sites"], sites=r["sites"], ceiling=r["ceiling"], shift_per_1pct_loss=round(sh, 5),
                effective_sites=int(w.sum() ** 2 / (w ** 2).sum()), state="untared",

@@ -32,3 +32,8 @@ prjna929650_clinical.csv
 iama_mix_diag.txt
 deconv_mk_synthetic.txt
 plasma_seq_06_samples.csv
+mk_shares_compare.txt
+plasma_shares_diag_06.txt
+plasma_shares_diag_06.csv
+plasma_band_06_summary.txt
+plasma_seq_06_rows.csv
