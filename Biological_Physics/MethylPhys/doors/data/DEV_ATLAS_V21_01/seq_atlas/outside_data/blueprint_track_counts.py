@@ -12,7 +12,16 @@ Usage: python3 blueprint_track_counts.py SAMPLES.csv N OUT.csv OUT.txt   (SAMPLE
 """
 import sys, numpy as np, pandas as pd, pyBigWig
 
+def local(u):
+    """A local copy of a track (pyBigWig is not always built to open web addresses): downloaded with retries, removed after reading."""
+    import subprocess, tempfile, os
+    if not u.startswith(("http://", "https://", "ftp://")): return u, False
+    f = os.path.join(tempfile.gettempdir(), os.path.basename(u))
+    subprocess.run(["curl", "-sfL", "--retry", "5", "--retry-delay", "10", "-o", f, u], check=True); return f, True
+
 def one(call_bw, cov_bw, chroms=("chr21", "chr22")):
+    import os
+    (call_bw, d1), (cov_bw, d2) = local(call_bw), local(cov_bw)
     lv, cv = [], []
     bc, bv = pyBigWig.open(call_bw), pyBigWig.open(cov_bw)
     for ch in chroms:
@@ -20,6 +29,9 @@ def one(call_bw, cov_bw, chroms=("chr21", "chr22")):
         L = {a: v for a, b, v in (bc.intervals(ch) or [])}; C = {a: v for a, b, v in (bv.intervals(ch) or [])}
         for a, v in L.items():
             if a in C and C[a] > 0: lv.append(v); cv.append(C[a])
+    bc.close(); bv.close()
+    for f, d in ((call_bw, d1), (cov_bw, d2)):
+        if d: os.remove(f)
     lv, cv = np.array(lv), np.array(cv)
     m = lv * cv; whole = float(np.mean(np.abs(m - np.round(m)) < 0.01))
     at10 = lv[cv == 10]; distinct10 = int(len(np.unique(np.round(at10, 6))))
