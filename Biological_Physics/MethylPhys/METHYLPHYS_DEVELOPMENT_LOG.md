@@ -3515,3 +3515,7 @@ One source, CANON/physics_root.md, says why the chain works: a methyl mark is a 
 
 ### 2026-11-03 · Documents brought up to the 57-cell atlas (COM-METAA-033)
 The introduction, the catalogue, the book's toolbox and atlas section, and the Q&A now carry the 57-cell IAM Sequencing Atlas, its healthy pass (140 of 140 Normal), each library's floor and plasma in development; the Q&A answers sequencing, laboratory chemistry and plasma. The book said chain v4 carries five commissioned instruments in four places; it carries six (Group-A was missing), corrected. One commit went out with the message '--help' (the commit tool took it as the message; its contents passed every check), and a direct edit to the book's generated atlas section was overwritten by its generator and moved to its source, CANON/atlas_story.json; the commit tool now refuses a flag as a message. Record: [INTRODUCTION.md](INTRODUCTION.md).
+
+### 2026-11-03 · How the library floor reaches each kind of site (COM-METAA-033)
+At sites each sample's own mix expects unmarked, the share of reads called methylated against the library's floor, over the 137 healthy inputs and the 30 plasmas. In plasma the floor is one rate for the whole library (islands 1.005 of it, following it, rho +0.749); inside the atlas's laboratory the islands take 0.291 of it and do not follow it (rho +0.039). Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md).
+

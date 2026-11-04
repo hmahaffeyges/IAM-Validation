@@ -1175,3 +1175,13 @@ shares were mostly my mapping of BLUEPRINT's broad fractions onto the atlas's na
 not the instrument; own-cell Met-A then read a mix of subtypes against one subtype. **For the next outside laboratory, written before it
 is read:** only libraries whose sorting definition matches an atlas cell's, and the whole-sample (in-mix) reading as the primary one.
 What remains on BLUEPRINT that is not definition: the monocytes' share given to macrophages, and the islands' floor dependence.
+
+**How each library's floor reaches each kind of site** (`seq_atlas/outside_data/floor_by_site_class.py`,
+`floor_by_site_class_healthy.txt`, `floor_by_site_class_plasma.txt`; diagnostic, development, nothing scored). At sites each sample's own
+mix expects unmarked, the share of reads called methylated, against the library's floor measured at the floor sites. **In the 30 healthy
+plasmas the floor is one rate for the whole library:** the islands take 1.005 of it and other unmarked sites 1.061, and both follow each
+library's floor (rho +0.749 and +0.885). **Inside the atlas's own laboratory it is not:** across the 137 healthy inputs the islands take
+0.291 of the floor-site rate and other unmarked sites 0.393, and neither follows the library's floor (rho +0.039 and +0.026). So in those
+libraries most of what the floor sites read is not a false-call rate the whole library shares, which is why the common floor overcorrected
+in healthy pass 6 and closed the gap in plasma. **Next, written before it runs:** the floor read where a reading reads, at the unmarked
+sites of the reading's own class rather than at the floor sites, synthetic first.

@@ -93,6 +93,16 @@
       "GRP-020"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
+    },
+    {
+     "title": "How the library floor reaches each kind of site",
+     "status": "diagnosis",
+     "what": "At sites each sample's own mix expects unmarked, the share of reads called methylated against the library's floor, over the 137 healthy inputs and the 30 plasmas.",
+     "outcome": "In plasma the floor is one rate for the whole library (islands 1.005 of it, following it, rho +0.749); inside the atlas's laboratory the islands take 0.291 of it and do not follow it (rho +0.039).",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },

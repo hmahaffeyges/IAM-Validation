@@ -106,3 +106,7 @@ atlas57_summary.txt
 healthy_fullchain7_summary.txt
 pass7_vs_pass5.txt
 blueprint_share_destinations.txt
+floor_by_site_class_healthy.txt
+floor_by_site_class_healthy.csv
+floor_by_site_class_plasma.txt
+floor_by_site_class_plasma.csv
