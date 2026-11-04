@@ -190,7 +190,7 @@ def merge_pieces(piece_dirs, out_dir):
     cells = sorted({c.rsplit("|", 1)[0] for c in have if c.endswith("|level")})
     return dict(pieces=n, cells=len(cells), cell_names=cells, folders=[os.path.basename(os.path.normpath(d)) for d in piece_dirs], output=os.path.basename(os.path.normpath(out_dir)))
 
-def deconv_reference(piece_dirs, out, per_cell=None):
+def deconv_reference(piece_dirs, out, per_cell=None, with_mk=False):
     """2026-10-30 (author: everything broken for sequencing fixed first): the IAM-Deconvolver's reference for sequenced samples, from the IAM
     Sequencing Atlas. Each cell's counted level and donor spread at every array site the sequencing key holds (so a sequenced sample, read onto
     those sites by stage_seq_values, meets it site for site); marker sites chosen on the sequencing atlas itself by the Deconvolver's own rule
@@ -199,7 +199,9 @@ def deconv_reference(piece_dirs, out, per_cell=None):
     K = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").drop_duplicates("loyfer_cpg_index")
     P = pd.Series(K.probe.to_numpy(), index=K.loyfer_cpg_index.to_numpy(np.int64))
     F = sorted(f for d in piece_dirs for f in glob.glob(os.path.join(d, "piece_*.parquet")))
-    cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")} - {"megakaryocytes"}); mu, sd = [], []
+    # 2026-11-04 (DEV-ONE-DRAW-01, development, diagnosis only): with_mk keeps the provisional megakaryocyte column (donors 1 and 2 of the
+    # single-cell series, spent; it failed Met-A's test on donor 3), to ask whether plasma DNA read as erythroid is megakaryocyte DNA
+    cells = sorted({c.rsplit("|", 1)[0] for f in F for c in pq.read_schema(f).names if c.endswith("|level")} - (set() if with_mk else {"megakaryocytes"})); mu, sd = [], []
     for f in F:
         sch = pq.read_schema(f).names; here = [c for c in cells if f"{c}|level" in sch]
         if not here: continue
@@ -215,7 +217,8 @@ def deconv_reference(piece_dirs, out, per_cell=None):
     T = pd.concat([MU.loc[M].add_suffix("|mu"), SD.loc[M].add_suffix("|sd")], axis=1); T.index.name = "probe"
     T.reset_index().to_parquet(out, index=False)
     return dict(cells=len(cells), sites_with_all_cells=int(MU.notna().all(1).sum()), markers=len(M), per_cell=per_cell or D21.PER_CELL,
-                sd_floor=DECONV_SD_FLOOR, left_out=["megakaryocytes (provisional, version 1)"], output=os.path.basename(out))
+                sd_floor=DECONV_SD_FLOOR, left_out=[] if with_mk else ["megakaryocytes (provisional, version 1)"], output=os.path.basename(out),
+                flag="DEVELOPMENT, diagnosis only: holds the provisional megakaryocyte column" if with_mk else "")
 
 ARRAY_COLS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "array_sites")
 

@@ -573,3 +573,16 @@ band (median 0.9189; healthy inputs 0.9977, 80 read). What remains follows the d
 progenitors. So plasma's low IAM-A and its low domains point at the same DNA, which the atlas reads as erythroid at the identity sites
 and as more ordered than its bone-marrow erythrocyte progenitors at the domains. What that DNA is stays open, and needs data of that cell,
 with reads.
+
+## Is plasma's "erythroid" DNA megakaryocyte DNA? (written and committed before it runs; development, diagnosis only)
+
+Absorption test 1 found that pure megakaryocyte DNA, read on IAM-Atlas v2.1, lands partly on erythrocyte progenitors, and the published
+plasma study reports megakaryocyte DNA as a large share of healthy plasma. The IAM Sequencing Atlas holds no megakaryocyte column; its
+provisional one (donors 1 and 2 of the single-cell series, spent) failed Met-A's test on donor 3 for too few reads per site, but the
+Deconvolver needs only its marker sites. **The chain:** `stage_seq_atlas.deconv_reference(..., with_mk=True)` (`run_sample.py --build
+seq-deconv-ref --build-with-mk`) builds a development reference that keeps that column, and `run_sample.py --dev-deconv-ref PARQUET` reads a
+sequenced sample's cell shares against it, flagged in the bundle. **Synthetic first** (`seq_atlas/deconv_mk_synthetic.py`): six plasma-like
+mixes planted from that reference's levels, with megakaryocyte and erythrocyte progenitor shares from 0 to 0.3, read against it and against
+the committed reference; bars: both shares within 0.05 of planted in every mix against the megakaryocyte reference. The build and the
+synthetic run on one Google spot machine. **If met:** the 30 tuning plasmas read again from their saved molecules against it. **Expected
+if the DNA is megakaryocyte DNA:** the erythrocyte progenitor share moves to megakaryocytes and the domains move toward 1.
