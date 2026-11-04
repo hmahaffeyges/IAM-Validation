@@ -19,3 +19,6 @@ domains_by_cell.txt
 plasma_shares_diag_04.txt
 plasma_shares_diag_04.csv
 plasma_band_04_summary.txt
+iama_mol_lines.txt
+iama_mol_lines.csv
+healthy_count_records.csv

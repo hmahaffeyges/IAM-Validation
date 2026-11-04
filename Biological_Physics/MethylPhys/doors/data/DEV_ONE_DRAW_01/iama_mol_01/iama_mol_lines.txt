@@ -1,0 +1,4 @@
+line on the loose_share: firm 0.04026, slope 0.03462, 56 cells
+line on the mol_low_share: firm 0.01683, slope 0.10293, 56 cells
+healthy input (153): IAM-A on the tile line median 0.9498 (5 to 95 % 0.8366 to 1.0460); on the molecule line median 0.9678 (5 to 95 % 0.8685 to 1.0860); tile share 0.1323, molecule share 0.2730
+plasma (30): IAM-A on the tile line median 0.7733 (5 to 95 % 0.7145 to 0.8398); on the molecule line median 0.7618 (5 to 95 % 0.6934 to 0.8829); tile share 0.2864, molecule share 0.3310

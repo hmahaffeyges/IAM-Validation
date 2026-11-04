@@ -505,3 +505,10 @@ them). `iama_mol_01/iama_mol_lines.py` builds a line on each share the way the c
 cells) and reads every plasma bundle on both, on a GitHub machine. On the healthy inputs alone, before any plasma: 0.9498 on the tile
 line, 0.9678 on the molecule line. **Expected if the mix is the cause:** the plasmas read near the healthy inputs on the molecule line and
 low on the tile line. Nothing scored; it says whether the molecule-level line is worth building into the chain, synthetic first.
+
+**Read: the molecule-level line does not lift plasma** (`iama_mol_01/iama_mol_lines.txt`; GitHub run on plasma_seq_02's 30 bundles). The 30
+plasmas read 0.7618 on the molecule line, against 0.7733 on the tile line; the healthy inputs read 0.9678 and 0.9498. The expectation for the
+mix as the cause is not met: plasma's molecule-level share (0.3310) sits above the healthy inputs' (0.2730) as its tile share does, so the
+mix is not what holds plasma's IAM-A down. That leaves the other cause synthetic test cfDNA 1 found: plasma's short molecules, where the
+qualifying rule (at least 6 calls, at least 80 % methylated) drops molecules carrying a second error and lowers the held error counted.
+**Next:** that length bias computed exactly for each molecule length, as the read-count correction was, synthetic first.
