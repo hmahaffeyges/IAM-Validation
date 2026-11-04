@@ -48,7 +48,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Python packages
-        run: pip install numpy scipy sympy beautifulsoup4 matplotlib pillow
+        run: pip install numpy scipy sympy beautifulsoup4 matplotlib pillow pyarrow   # pyarrow: the sequencing atlas cell pages read the library-floor table (2026-11-03)
       - name: Build site and PDFs
         run: bash website/build/build.sh
       - name: Check the PDFs and the EPUB are in the site
