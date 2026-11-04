@@ -1,0 +1,56 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "date": "2026-11-04",
+ "title": "Why IAM-A reads low on plasma",
+ "closing": "",
+ "set_out": "Test the two causes synthetic test cfDNA 1 found for plasma's low IAM-A, the mix of cells and short molecules, each on the 30 tuning plasmas through the one command.",
+ "open_at_turnover": "Plasma: IAM-A's cause open (neither the mix nor molecule length); the domains follow the erythrocyte progenitor share.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "IAM-A on plasma on the molecule-level loose share",
+     "status": "diagnosis",
+     "what": "The 30 tuning plasmas read on a line built on the share of loose molecules, which mixing cells does not change.",
+     "outcome": "0.7618, against 0.7733 on the tile line: the mix of cells is not why plasma reads low.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "Synthetic test cfDNA 3: the held error's length bias removed",
+     "status": "synthetic only",
+     "what": "Constructed molecules cut to 6, 8, 12 and 20 calls, through the one command.",
+     "outcome": "Met: the corrected held error within 1 % of the truth at every length.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "IAM-A on plasma on the length-corrected line",
+     "status": "diagnosis",
+     "what": "Healthy pass 8 (140 inputs) and the 30 plasmas counted again with the corrected held error, read on a line rebuilt on it.",
+     "outcome": "Plasma 0.7485, healthy 0.9420: molecule length is not the cause either; the cause is open.",
+     "rows": [
+      "GRP-016"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What was built",
+   "entries": []
+  }
+ ]
+}

@@ -484,6 +484,20 @@
    "status": "development",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md",
    "rows_table": true
+  },
+  {
+   "id": "SEQ-HEALTHY-PASS8",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain8_rows.csv",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "PLASMA-SEQ-05",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ONE_DRAW_01/plasma_seq_05/plasma_seq_05_rows.csv",
+   "status": "development",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+   "rows_table": true
   }
  ],
  "lines": {

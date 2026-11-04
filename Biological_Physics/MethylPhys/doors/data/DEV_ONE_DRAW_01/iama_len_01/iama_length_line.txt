@@ -1,0 +1,4 @@
+line on held_err: firm 0.04090, slope 0.03165, 48 cells
+line on held_err_length: firm 0.04647, slope 0.04185, 48 cells
+healthy input (137): raw line median 0.9491 (5 to 95 % 0.8358 to 1.0431); corrected line median 0.9420 (5 to 95 % 0.8181 to 1.0498); held error 0.04461, corrected 0.05139, loose share 0.1339
+plasma (30): raw line median 0.7768 (5 to 95 % 0.7218 to 0.8358); corrected line median 0.7485 (5 to 95 % 0.6872 to 0.8146); held error 0.03854, corrected 0.04331, loose share 0.2864

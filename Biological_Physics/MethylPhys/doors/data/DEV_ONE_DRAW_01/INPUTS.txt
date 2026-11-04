@@ -24,3 +24,7 @@ iama_mol_lines.csv
 healthy_count_records.csv
 length_bias_expect.txt
 synthetic_cfdna_03_summary.txt
+iama_length_line.txt
+iama_length_line.csv
+plasma_seq_05_rows.csv
+plasma_seq_05_samples.csv

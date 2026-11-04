@@ -540,3 +540,14 @@ plasma_seq_02's saved molecules with its settings (`plasma_seq_05/plasma_seq_05_
 (`iama_len_01/iama_length_line.py`): a raw line and a corrected line across the healthy cells, built as the chain builds its line; every
 sample read on both. **Expected if length is the cause:** the plasmas read near the healthy inputs on the corrected line, and about 0.77 on
 the raw line. Nothing scored. Both passes' readings go into the A-score database when they land.
+
+**Read: the length-corrected line does not lift plasma either** (`iama_len_01/iama_length_line.txt`; healthy pass 8, 140 of 140 jobs, and
+plasma_seq_05, 30 of 30, both on GitHub; scored on a GitHub machine). The lines were built from 48 cells (137 healthy inputs with both
+values). Healthy inputs: 0.9491 on the raw line, 0.9420 on the corrected line. Plasmas: 0.7768 raw, 0.7485 corrected. The correction raises
+the healthy inputs' held error (0.04461 to 0.05139) as well as the plasmas' (0.03854 to 0.04331), and plasma stays below what its loose
+share (0.2864 against 0.1339) predicts on either line. **The expectation for length as the cause is not met.** With the mix ruled out
+before, neither cause synthetic test cfDNA 1 found explains plasma's low IAM-A. Plasma's held error is lower, and its loose share higher,
+than a healthy cell's; why is open, and is not assumed. `held_err_length` stays recorded and used by no reading.
+
+**Disclosed (mine):** the dispatcher for plasma_seq_05 matched the registry's scoring runs as samples and sent two meaningless runs, which
+failed and were removed; the same error as before, now fixed by matching sample identifiers.
