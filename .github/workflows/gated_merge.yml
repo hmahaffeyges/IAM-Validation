@@ -46,7 +46,7 @@ jobs:
           for l in g("diff", "--raw", "--no-renames", "--no-abbrev", base, "HEAD").splitlines():
               meta, p = l.split("\t", 1); f = meta.split(); st = f[4]
               if st == "D": out["deleted"].append(p)
-              else: out["files"][p] = base64.b64encode(open(p, "rb").read()).decode(); out["modes"][p] = f[1]
+              else: out["files"][p] = base64.b64encode(subprocess.run(["git", "show", "HEAD:" + p], capture_output=True, check=True).stdout).decode(); out["modes"][p] = f[1]   # from the gated commit, not the working folder (checks rewrite files after the commit)
           json.dump(out, open(os.environ["RUNNER_TEMP"] + "/handback.json", "w")); print("GATED MERGE: PASSED", out["tree"][:12], len(out["files"]), "files")
           EOF
             echo "GATED MERGE: PASSED" >> $RUNNER_TEMP/gate.log
