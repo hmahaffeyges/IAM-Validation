@@ -42,6 +42,13 @@ for rel, tests, idc, urlc in LISTS:
                 rows.append(dict(file=f"{g} {os.path.basename(str(u))}", kind="input", tests=tests, where="public archive (GEO), checksum recorded", location=str(u), size=None, sha256=CACHE[key])); continue
             else: where, loc = "public archive only (to stage)", str(u)
             rows.append(dict(file=f"{g} {os.path.basename(str(u)) if u else ''}".strip(), kind="input", tests=tests, where=where, location=loc, size=None, sha256=None))
+# 2026-11-03: the IAM Sequencing Atlas at every CpG (the 57-cell merged pieces, packed in sets) and its runtime tables, on Zenodo, read from the
+# record's own SHA-256 list (deposit/zenodo_seq_atlas_SHA256.txt, the file the upload wrote into the record)
+ZM = os.path.join(os.path.dirname(os.path.abspath(__file__)), "zenodo_seq_atlas_SHA256.txt")
+if os.path.exists(ZM):
+    for l in open(ZM, encoding="utf-8"):
+        h, n, b = l.rstrip("\n").split("  ")
+        rows.append(dict(file=n, kind="atlas: IAM Sequencing Atlas (Zenodo)", tests="every sequencing test; the atlas rebuild", where="Zenodo 10.5281/zenodo.23934666", location=n, size=int(b), sha256=h))
 # every test's own committed files (sample lists, scripts, outputs) under the door data folders the sequencing work uses
 for d in ("DEV_METAA_ATLAS_CURVE_01", "DEV_ATLAS_V21_01", "DEV_TERRITORIES_01", "DEV_ALL_INFO_01"):
     for p in sorted(glob.glob(os.path.join(SEQ, d, "**", "*"), recursive=True)):
