@@ -150,6 +150,26 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "The physics at the root of every document",
+     "status": "structure",
+     "what": "One source, CANON/physics_root.md, says why the chain works: a methyl mark is a record held against heat at a price Landauer's bound sets, so the gauge's ends are derived and disorder is counted with exact statistics, and how each instrument, the atlases and the library floor use that. The instrument catalogue, the Operator Guide, the Chain Decoder and the book's chain chapter now open with it; 17 book chapters on the instruments and tools now open with one sentence naming the physics each rests on (CANON/physics_ties.json); both are rebuilt and checked on every push.",
+     "outcome": "Written and wired into the master rebuild.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "CANON/physics_root.md"
+    },
+    {
+     "title": "Documents brought up to the 57-cell atlas",
+     "status": "structure",
+     "what": "The introduction, the catalogue, the book's toolbox and atlas section, and the Q&A now carry the 57-cell IAM Sequencing Atlas, its healthy pass (140 of 140 Normal), each library's floor and plasma in development; the Q&A answers sequencing, laboratory chemistry and plasma. The book said chain v4 carries five commissioned instruments in four places; it carries six (Group-A was missing), corrected. One commit went out with the message '--help' (the commit tool took it as the message; its contents passed every check), and a direct edit to the book's generated atlas section was overwritten by its generator and moved to its source, CANON/atlas_story.json; the commit tool now refuses a flag as a message.",
+     "outcome": "Corrected and committed.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/INTRODUCTION.md"
     }
    ]
   }

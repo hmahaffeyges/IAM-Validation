@@ -3508,3 +3508,10 @@ A search for healthy erythroid-stage and megakaryocyte-lineage sequencing. The p
 
 ### 2026-11-03 · The development log brought up to date (COM-METAA-033)
 The development log had stopped after the 28th: the day logs and the records carried the work, but the log's threads and day summaries were not written (missed: the gate asked for a day summary only on days with threads, so it did not refuse). Every day-log entry from the 29th to the 2nd is now a thread, with each day's summary. Record: this log.
+
+### 2026-11-03 · The physics at the root of every document (COM-METAA-033)
+One source, CANON/physics_root.md, says why the chain works: a methyl mark is a record held against heat at a price Landauer's bound sets, so the gauge's ends are derived and disorder is counted with exact statistics, and how each instrument, the atlases and the library floor use that. The instrument catalogue, the Operator Guide, the Chain Decoder and the book's chain chapter now open with it; 17 book chapters on the instruments and tools now open with one sentence naming the physics each rests on (CANON/physics_ties.json); both are rebuilt and checked on every push. Record: [physics_root.md](../../CANON/physics_root.md).
+
+
+### 2026-11-03 · Documents brought up to the 57-cell atlas (COM-METAA-033)
+The introduction, the catalogue, the book's toolbox and atlas section, and the Q&A now carry the 57-cell IAM Sequencing Atlas, its healthy pass (140 of 140 Normal), each library's floor and plasma in development; the Q&A answers sequencing, laboratory chemistry and plasma. The book said chain v4 carries five commissioned instruments in four places; it carries six (Group-A was missing), corrected. One commit went out with the message '--help' (the commit tool took it as the message; its contents passed every check), and a direct edit to the book's generated atlas section was overwritten by its generator and moved to its source, CANON/atlas_story.json; the commit tool now refuses a flag as a message. Record: [INTRODUCTION.md](INTRODUCTION.md).
