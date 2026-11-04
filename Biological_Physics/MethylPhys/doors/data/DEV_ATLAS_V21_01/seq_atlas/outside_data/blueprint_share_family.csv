@@ -1,0 +1,60 @@
+gsm,cell,own,family,largest,largest_in_family,outside_1,outside_1_share
+C000S5A1bs,monocytes,0.6452,0.9669,monocytes,True,endometrium epithelium,0.0138
+C0010KA2bs,monocytes,0.6239,0.9742000000000001,monocytes,True,bladder epithelium,0.0063
+C001UYA3bs,monocytes,0.6396,0.9593999999999998,monocytes,True,endometrium epithelium,0.0141
+C00256A1bs,cd8 t cells,0.166,0.5419,naive cd8 t cells,True,nk cells,0.2069
+C00256A3bs,effector memory cd8 t cells,0.0794,0.7192000000000001,t effector cell cd8,True,t effector memory cd4,0.1261
+C002CTA1bs,nk cells,0.7951,0.7951,nk cells,True,naive cd8 t cells,0.0784
+C003JB51,memory b cells,0.7877,0.9069999999999999,memory b cells,True,t effector cell cd8,0.0596
+C003K951,b cells,0.8127,0.8127,b cells,True,naive cd8 t cells,0.053
+C003N351,memory b cells,0.6069,0.9592,memory b cells,True,naive cd8 t cells,0.0131
+C003VO55,cd8 t cells,0.0688,0.6032,naive cd8 t cells,True,cd4 t cells,0.2358
+C004SQ51,monocytes,0.6393,0.9895999999999999,monocytes,True,endometrium epithelium,0.0069
+C005PS51,monocytes,0.5988,0.8982,monocytes,True,naive cd8 t cells,0.0327
+C0066P51,cd8 t cells,0.05,0.5756,naive cd8 t cells,True,naive cd4 t cells,0.125
+C0067N51,nk cells,0.855,0.855,nk cells,True,naive cd8 t cells,0.0685
+C0068L51,b cells,0.8576,0.8576,b cells,True,monocytes,0.0542
+C006G551,nk cells,0.9247,0.9247,nk cells,True,colon macrophages,0.0471
+NBC_NC11_41,b cells,0.8947,0.8947,b cells,True,lung interstitial macrophages,0.0441
+NBC_NC11_83,b cells,0.8831,0.8831,b cells,True,lung interstitial macrophages,0.0492
+P580,cd4 t cells,0.3615,0.5818,cd4 t cells,True,monocytes,0.1117
+P582,cd4 t cells,0.2848,0.7585,naive cd4 t cells,True,naive cd8 t cells,0.075
+P584,cd4 t cells,0.24,0.7266,t central memory cd4,True,naive cd8 t cells,0.0556
+P586,cd4 t cells,0.3494,0.8015,cd4 t cells,True,cd8 t cells,0.0392
+S000RD54,monocytes,0.5898,0.9357000000000001,monocytes,True,naive cd4 t cells,0.0196
+S001JP51,b cells,0.8769,0.8769,b cells,True,monocytes,0.0458
+S001U352,t effector memory cd4,0.3261,0.7645,t effector memory cd4,True,cd8 t cells,0.0728
+S002R551,erythrocyte progenitors,0.3827,0.3827,erythrocyte progenitors,True,naive cd8 t cells,0.1066
+S002S351,erythrocyte progenitors,0.4196,0.4196,erythrocyte progenitors,True,lung interstitial macrophages,0.1454
+S004P151,memory b cells,0.6955,0.948,memory b cells,True,colon fibroblasts,0.0218
+S006YC51,t central memory cd4,0.3819,0.8747,t central memory cd4,True,cd8 t cells,0.0533
+S007DD51,cd4 t cells,0.5629,0.8328,cd4 t cells,True,naive cd8 t cells,0.1232
+S007G756,cd4 t cells,0.53,0.8025,cd4 t cells,True,naive cd8 t cells,0.1456
+S008H151,cd4 t cells,0.3977,0.7814,cd4 t cells,True,naive cd8 t cells,0.1681
+S009W451,cd4 t cells,0.5263,0.8276,cd4 t cells,True,naive cd8 t cells,0.1265
+S00C2F51,cd8 t cells,0.0127,0.529,naive cd8 t cells,True,naive cd4 t cells,0.1548
+S00DM851,b cells,0.8555,0.8555,b cells,True,lung interstitial macrophages,0.0747
+S00V2DN1,monocytes,0.5871,0.996,monocytes,True,tonsil palatine epithelium,0.0022
+S014QS51,t effector memory cd4,0.467,0.8604,t effector memory cd4,True,effector memory cd8 t cells,0.0676
+S014QS55,t central memory cd4,0.4553,0.9639,t central memory cd4,True,cd8 t cells,0.0183
+S014WG51,effector memory cd8 t cells,0.1223,0.7784,t effector cell cd8,True,t effector memory cd4,0.1406
+S017RE51,memory b cells,0.5746,0.9718,memory b cells,True,effector memory cd8 t cells,0.0063
+S01B47A1,monocytes,0.5709,0.9783999999999999,monocytes,True,naive cd8 t cells,0.0121
+S01B55A1,monocytes,0.526,0.99,monocytes,True,naive cd8 t cells,0.0066
+S01B63A1,monocytes,0.536,0.9783000000000001,monocytes,True,naive cd8 t cells,0.012
+S01B71A1,monocytes,0.5511,0.9903000000000001,monocytes,True,naive cd8 t cells,0.0051
+S01B9YA1,monocytes,0.5456,0.9788,monocytes,True,naive cd8 t cells,0.0072
+S01BAWA1,monocytes,0.5363,0.9902000000000001,monocytes,True,naive cd8 t cells,0.0094
+S01BBUA1,monocytes,0.5692,0.9837,monocytes,True,naive cd8 t cells,0.0123
+S01BCSA1,monocytes,0.5648,0.9964,monocytes,True,thyroid epithelium,0.0023
+S01BDQA1,monocytes,0.5306,0.9863999999999999,monocytes,True,naive cd8 t cells,0.0075
+S01BEOA1,monocytes,0.523,0.9862,monocytes,True,b cells,0.0073
+S01BFMA1,monocytes,0.4985,1.0,monocytes,True,adipocytes,0.0
+S01BGKA1,monocytes,0.567,0.9941,monocytes,True,thyroid epithelium,0.006
+S01BHIA1,monocytes,0.4824,1.0001,monocytes,True,adipocytes,0.0
+S01E03A1,monocytes,0.5336,0.9954000000000001,monocytes,True,thyroid epithelium,0.0046
+S01E8O51,nk cells,0.8557,0.8557,nk cells,True,naive cd8 t cells,0.0808
+S01ECGA1,b cells,0.8834,0.8834,b cells,True,lung interstitial macrophages,0.0625
+S01MAPA1,monocytes,0.5508,0.9954000000000001,monocytes,True,naive cd8 t cells,0.0046
+W653,memory b cells,0.6182,0.6182,memory b cells,True,effector memory cd8 t cells,0.1813
+csMBC_NC11_41,memory b cells,0.894,0.894,memory b cells,True,t effector cell cd8,0.0741

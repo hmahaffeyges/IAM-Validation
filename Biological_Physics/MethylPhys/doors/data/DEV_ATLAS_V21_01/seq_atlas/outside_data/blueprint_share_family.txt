@@ -1,0 +1,12 @@
+59 libraries; the largest share is the declared cell or its family in 59 of 59
+declared cell's share median 0.551; its family's share median 0.894
+b cells: 7; own 0.877; family 0.877; most share outside the family: lung interstitial macrophages (0.053)
+cd4 t cells: 8; own 0.380; family 0.791; most share outside the family: naive cd8 t cells (0.117)
+cd8 t cells: 4; own 0.059; family 0.559; most share outside the family: naive cd4 t cells (0.181)
+effector memory cd8 t cells: 2; own 0.101; family 0.749; most share outside the family: t effector memory cd4 (0.133)
+erythrocyte progenitors: 2; own 0.401; family 0.401; most share outside the family: lung interstitial macrophages (0.126)
+memory b cells: 6; own 0.657; family 0.927; most share outside the family: effector memory cd8 t cells (0.041)
+monocytes: 22; own 0.558; family 0.988; most share outside the family: naive cd8 t cells (0.007)
+nk cells: 4; own 0.855; family 0.855; most share outside the family: naive cd8 t cells (0.073)
+t central memory cd4: 2; own 0.419; family 0.919; most share outside the family: cd8 t cells (0.036)
+t effector memory cd4: 2; own 0.397; family 0.812; most share outside the family: cd8 t cells (0.070)

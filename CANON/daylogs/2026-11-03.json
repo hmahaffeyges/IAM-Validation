@@ -210,6 +210,16 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The commit runner's handback read the wrong copy (mine, disclosed)",
+     "status": "development",
+     "what": "The gated runner handed back each file from its working folder instead of the commit it had checked; a check rewrites one file after the commit, so the trees differed and the commit was refused.",
+     "outcome": "The handback now reads every file from the gated commit; nothing wrong reached main, because the tree comparison refused it.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }
