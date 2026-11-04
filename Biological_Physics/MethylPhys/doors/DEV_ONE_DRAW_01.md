@@ -526,3 +526,17 @@ cfDNA 1's measured held errors (per opportunity, at a loss of 0.035: 0.02979, 0.
 12 and 20 calls, through the one command. Bars: the corrected held error within 5 % of the known answer at every length, and its spread
 across lengths under half the raw spread. If met, the healthy line is rebuilt on the corrected held error (the 153 inputs counted again for
 their tallies by length) and the 30 plasmas read on it.
+
+**Synthetic test cfDNA 3: met** (`synthetic_cfdna_03_summary.txt`). Truth 0.03259. Raw held error 0.02956, 0.02864, 0.03153 and 0.03260 at
+6, 8, 12 and 20 calls; corrected 0.03232, 0.0333, 0.03251 and 0.03267, every length within 5 % (bar 1 met); spread across lengths 0.00098
+against 0.00396 raw (bar 2 met).
+
+## IAM-A on plasma on the length-corrected line (written and committed before any reading)
+
+**The instrument's job:** a healthy plasma reads Normal on IAM-A. With synthetic test cfDNA 3 met, the healthy line is rebuilt on the
+corrected held error. **Readings:** healthy pass 8, the atlas's 140 inputs counted again by the one command with pass 7's list and settings
+(`DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain8_samples.csv`), and plasma_seq_05, the 30 tuning plasmas counted again from
+plasma_seq_02's saved molecules with its settings (`plasma_seq_05/plasma_seq_05_samples.csv`), both on GitHub. **Scorer**
+(`iama_len_01/iama_length_line.py`): a raw line and a corrected line across the healthy cells, built as the chain builds its line; every
+sample read on both. **Expected if length is the cause:** the plasmas read near the healthy inputs on the corrected line, and about 0.77 on
+the raw line. Nothing scored. Both passes' readings go into the A-score database when they land.

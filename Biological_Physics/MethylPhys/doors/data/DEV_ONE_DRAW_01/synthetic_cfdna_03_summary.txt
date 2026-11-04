@@ -1,0 +1,8 @@
+DEV-ONE-DRAW-01 synthetic test cfDNA 3: 880 tiles on 22 autosomes, 70 molecules per tile, per-call loss 0.035, seed 20261103; truth 0.03259
+6 calls: held error 0.02956 | length-corrected 0.03232 | opportunities 111440
+8 calls: held error 0.02864 | length-corrected 0.0333 | opportunities 165252
+12 calls: held error 0.03153 | length-corrected 0.03251 | opportunities 281340
+20 calls: held error 0.03260 | length-corrected 0.03267 | opportunities 510138
+bar 1 every length within 5 % of the truth: met
+bar 2 the corrected spread across lengths under half the raw spread (0.00098 against 0.00396): met
+synthetic: met
