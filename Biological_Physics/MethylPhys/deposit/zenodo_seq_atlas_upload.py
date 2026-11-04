@@ -1,5 +1,5 @@
 """The IAM Sequencing Atlas Zenodo deposit (draft 23934666, reserved DOI 10.5281/zenodo.23934666): run on a Google machine, never the laptop.
-Streams the 113 merged 57-cell pieces from the project's bucket (seq_atlas/pieces57/) and the runtime tables the chain reads (committed in
+Streams the 113 merged 57-cell pieces from the project's bucket (seq_atlas/pieces57/), packed in 12 sets of ten (a record holds at most 100 files), and the runtime tables the chain reads (committed in
 chain/Runtime Matrices/Seq_Atlas, packed here) to the draft's file bucket one file at a time, with retries, and checks the MD5 Zenodo returns
 against the bytes sent. The Zenodo key is read from Google's secret store (secret zenodo-upload) at run time and never written anywhere. The
 record stays a draft: the author publishes. Usage: python3 zenodo_seq_atlas_upload.py BUCKET ZENODO_FILE_BUCKET_URL WORKDIR"""
@@ -43,10 +43,21 @@ for p in small:
     if os.path.exists(p): man.append((os.path.basename(p), os.path.getsize(p), sha256(p))); print(os.path.basename(p), put(p, os.path.basename(p), done), flush=True)
 keys = sorted(l.strip() for l in subprocess.run(["gcloud", "storage", "ls", f"gs://{GBK}/seq_atlas/pieces57/"], capture_output=True, text=True, check=True).stdout.splitlines() if l.strip().endswith(".parquet"))
 print(len(keys), "pieces", flush=True)
-for k in keys:
-    name = os.path.basename(k); p = os.path.join(W, name)
-    subprocess.run(["gcloud", "storage", "cp", "-q", k, p], check=True, capture_output=True)
-    man.append((name, os.path.getsize(p), sha256(p))); print(name, put(p, name, done), flush=True); os.remove(p)
+# 2026-11-03: a Zenodo record holds at most 100 files, so the 113 pieces go up as 12 sets of ten (plain tar; the pieces are already compressed).
+# Single pieces left in the draft by the first run are removed first; every piece's own checksum is in the manifest.
+for name, f in done.items():
+    if name.startswith("piece_") and name.endswith(".parquet"):
+        requests.delete(f["links"]["self"], headers=H, timeout=120).raise_for_status(); print("removed single piece", name, flush=True)
+done = have()
+for s in range(0, len(keys), 10):
+    tn = f"pieces57_set{s // 10 + 1:02d}_of_{(len(keys) + 9) // 10:02d}.tar"; tp = os.path.join(W, tn)
+    if tn in done: print(tn, "already there", flush=True); continue
+    with tarfile.open(tp, "w") as z:
+        for k in keys[s:s + 10]:
+            name = os.path.basename(k); p = os.path.join(W, name)
+            subprocess.run(["gcloud", "storage", "cp", "-q", k, p], check=True, capture_output=True)
+            man.append((f"{tn}/{name}", os.path.getsize(p), sha256(p))); z.add(p, arcname=name); os.remove(p)
+    man.append((tn, os.path.getsize(tp), sha256(tp))); print(tn, put(tp, tn, done), flush=True); os.remove(tp)
 mf = os.path.join(W, "SHA256_MANIFEST.txt")
 open(mf, "w").write("".join(f"{s}  {n}  {b}\n" for n, b, s in man))
 print("SHA256_MANIFEST.txt", put(mf, "SHA256_MANIFEST.txt", have()), flush=True)

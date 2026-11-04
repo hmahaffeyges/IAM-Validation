@@ -37,7 +37,9 @@ for rel, tests, idc, urlc in LISTS:
         for u in urls:
             key = f"seq_atlas/inputs/{g}.beta" if (u and str(u).endswith(".beta")) else None
             if rel.startswith("DEV_ALL_INFO_01"): where, loc = "public archive (reads; aligned pieces are GitHub artifacts until they expire)", "SRA, by the sample list"
-            elif key and key in CACHE: where, loc = "Google bucket", key; rows.append(dict(file=f"{g} {os.path.basename(str(u))}", kind="input", tests=tests, where=where, location=loc, size=56434896, sha256=CACHE[key])); continue
+            elif key and key in CACHE:   # 2026-11-03 (author: replication relies only on Zenodo and GitHub): the input is its public archive file; our bucket copy is not a source.
+                # The checksum taken when it was staged lets a researcher check the same bytes. (Earlier every row carried one hard-coded size; removed.)
+                rows.append(dict(file=f"{g} {os.path.basename(str(u))}", kind="input", tests=tests, where="public archive (GEO), checksum recorded", location=str(u), size=None, sha256=CACHE[key])); continue
             else: where, loc = "public archive only (to stage)", str(u)
             rows.append(dict(file=f"{g} {os.path.basename(str(u)) if u else ''}".strip(), kind="input", tests=tests, where=where, location=loc, size=None, sha256=None))
 # every test's own committed files (sample lists, scripts, outputs) under the door data folders the sequencing work uses
