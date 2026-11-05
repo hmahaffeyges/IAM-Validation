@@ -259,3 +259,9 @@ GSE85566,spent (IAM-Atlas v2.1 build or held-out test),IAM-Atlas v2.1 U1 held-ou
 GSE85647,spent (IAM-Atlas v2.1 build or held-out test),IAM-Atlas v2.1 U1 held-out test: read in 1 cell-platform verdicts (u1_scored_v21.json) (Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md),register audit 2026-11-04
 GSE87095,spent (IAM-Atlas v2.1 build or held-out test),IAM-Atlas v2.1 U1 held-out test: read in 1 cell-platform verdicts (u1_scored_v21.json) (Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md),register audit 2026-11-04
 GSE98203,spent (IAM-Atlas v2.1 build or held-out test),IAM-Atlas v2.1 U1 held-out test: read in 1 cell-platform verdicts (u1_scored_v21.json) (Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md),register audit 2026-11-04
+GSE137716,spent (IAM-Atlas v2.1 build),IAM-Atlas v2.1 final source: 12 samples in final_samples_v21.csv (Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md),register audit 2026-11-04
+GSE63409,spent (IAM-Atlas v2.1 build),IAM-Atlas v2.1 final source: 18 samples in final_samples_v21.csv (Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md),register audit 2026-11-04
+GSE281305,spent (showcase),"showcase v4 scenario 3, the nine-cell DNA mixtures read through the one command (Biological_Physics/MethylPhys/doors/data/SHOWCASE_V4/README.md)",register audit 2026-11-04
+GSE94785,spent (test),"lung tissue test, scored (Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_01.md; MASTER_INVENTORY test_status scored)",register audit 2026-11-04
+GSE135205,spent (test),"PROC-DNMT-01 part A, Met-A and C-score on EPIC arrays of three AML lines (Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md)",register audit 2026-11-04
+GSE329728,spent (test),"PROC-DNMT-01 part B, IAM-A on EM-seq molecules (Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md)",register audit 2026-11-04
