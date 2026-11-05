@@ -1275,3 +1275,8 @@ Met-A on sequencing from another laboratory needs each site's laboratory term, m
 laboratories, as IAM-Atlas v2.1 measured each source's offset in its calibration stage. The spent outside sets (BLUEPRINT, GSE245832) can
 measure it; a fresh laboratory (GSE144691) then tests it. Whole-sample Met-A, which reads the sample's own mix at every atlas site, already reads
 Normal on both outside laboratories (1.0258 here).
+
+**BLUEPRINT read again for its per-site tables (development, spent; written before it runs).** To measure the laboratory term at the identity sites (above), the laboratories' own per-site tables are needed beside the atlas's. The first
+BLUEPRINT read kept bundles only. The same 59 spent libraries (`blueprint_healthy_test_samples.csv`) are read again by the one command, each with
+its row's own flags plus `--dev-metaa-sites` (`seq_atlas/outside_data/blueprint_sites_read.sh`, 7 Toronto spot machines); the readings must match
+the first read exactly (a check of the chain), and the tables go to `blueprint_sites/`. Nothing is scored.
