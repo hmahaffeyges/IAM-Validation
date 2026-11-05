@@ -651,3 +651,9 @@ values at 6 to 16 calls per site. It is not the library kit (the hexamer-trimmin
 GSE134664's runs are not in genome order (a chunk holds every chromosome), so the B cells' cap cost depth only. **Rule from here:** no reading
 takes the first N read pairs of a run; a run is read at full depth, or its order is checked first (the chromosome mix of one chunk). The B
 and T test is read again at full depth before it is scored again; its two not-met readings stand as recorded.
+
+**Correction to the correction above (same evening, disclosed).** The B cells were read from 140 million of 177.7 to 191.1 million read pairs (three runs each in `bt_seq_01/bt_seq_samples.csv`: for
+GSM3963003, 47,700,227 + 47,699,310 + 44,600,463), not "47.7 million of 177.7 million" as written above (that was the first run alone). Their
+6 to 7 calls per site come from the libraries themselves, not from the cap; at full depth they would gain about a quarter. The depth reading
+above stands (shallow libraries read Met-A higher in the atlas's own laboratory, about 1.14 at their depth), with the cause being the
+libraries' depth, not the cap.
