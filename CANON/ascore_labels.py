@@ -37,3 +37,5 @@ S = rd("DEV_REPLICATE_01/r5_liver_labels.csv"); c = S.status.astype(str).str.con
 put("r5_liver", S.assign(series="GSE281691", condition=["cancer" if x else "control" for x in c], cancer_type=["metabolic liver cancer (HCC)" if x else "" for x in c], stage="not recorded"))
 S = rd("DEV_REPLICATE_01/r13_cervical_labels.csv"); c = S.status.astype(str) != "benign"
 put("r13_cervical", S.assign(series="GSE287994", condition=["cancer or CIN3" if x else "benign" for x in c], cancer_type=["cervical CIN3 or cancer, " + h if x else "" for x, h in zip(c, S.hpv)], stage="not recorded"))
+# 2026-11-05: R14, never-smoker lung adenocarcinoma tissue by stage (GSE256092; stage from the committed label column)
+S = rd("DEV_REPLICATE_01/r14_lung_labels.csv"); put("r14_lung", S.assign(series="GSE256092", condition="cancer", cancer_type="lung adenocarcinoma (never-smoker), tumor tissue", stage=S.status.astype(str)))

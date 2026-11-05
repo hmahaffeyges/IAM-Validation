@@ -380,3 +380,9 @@ p 2.1e-11) and Met-A at several cells (vascular endothelium 1.0490 against 1.013
 HPV-positive women only (116 against 29), 4 readings separate below p 0.001, all cell shares. Whole-sample Met-A does not separate (0.8825
 against 0.8897, p 0.73). Cervical cytology is not a commissioned specimen; the readings in other cells' identity sites are the specimen's mix,
 not those cells. Many readings are compared here, so the list is reported, not claimed.
+
+**R14 lung adenocarcinoma by stage, read** (every atlas cell, scored by `r23_score.py r14`). (`data/DEV_REPLICATE_01/r14_full/r14_lung_summary.txt`; GSE256092, never-smoker lung adenocarcinoma; 131 of 141 arrays, EPIC v1, tissue, pass 1, untared; series run
+42011098741.) Reference only. Stage 3 or 4 (43) against stage 1 (52): no reading of 169 separates below p 0.001; 5 below p 0.01, all Met-A at
+cells absent from lung tissue (astrocytes 1.0916 against 1.0514, p 0.0012), as many as chance gives among 169. Stage 2 (36) against stage 1:
+none below p 0.01. Read on every cell, tumor stage does not move the readings of the tumor tissue itself in this set. The 10 arrays not read
+failed their download from GEO (HTTP errors after retries); they are sent again (`r14_lung_samples_resend.csv`).

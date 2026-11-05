@@ -49,6 +49,7 @@ C-Score,C-Score each cell,adipocytes,EPIC_v1,3463259,,,0,,,,1,reference only (re
 C-Score,C-Score each cell,adipocytes,EPIC_v1,5b01d36,,1.093,0,,,,2,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,adipocytes,EPIC_v1,801e08b,,1.0928,52,0.8704,0.9787,1.0897,90,reference only (replay)
 C-Score,C-Score each cell,adipocytes,EPIC_v1,af2c330,,1.0928,0,,,,91,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,adipocytes,EPIC_v1,c15538a,,1.0929,0,,,,76,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,adipocytes,HM450K,3463259,,,4,0.9216,1.0331,1.1446,140,reference only (replay)
 C-Score,C-Score each cell,adipocytes,HM450K,50bcb5a,,,0,,,,11,reference only (replay)
 C-Score,C-Score each cell,adipocytes,HM450K,c8ff5cc,,,0,,,,40,reference only (replay)
@@ -72,6 +73,7 @@ C-Score,C-Score each cell,b cells,EPIC_v1,3463259,,,0,,,,12,reference only (repl
 C-Score,C-Score each cell,b cells,EPIC_v1,505bea0,,1.1079,25,0.9142,1.0287,1.1107,25,reference only (replay)
 C-Score,C-Score each cell,b cells,EPIC_v1,801e08b,,1.0901,11,0.8972,1.0279,1.0609,25,reference only (replay)
 C-Score,C-Score each cell,b cells,EPIC_v1,af2c330,,1.0901,0,,,,36,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,b cells,EPIC_v1,c15538a,,1.0901,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,b cells,HM450K,3463259,,,0,,,,12,reference only (replay)
 C-Score,C-Score each cell,b cells,HM450K,50bcb5a,,,4,0.9205,0.966,1.0629,42,reference only (replay)
 C-Score,C-Score each cell,b cells,HM450K,c8ff5cc,,,24,0.9025,1.0059,1.1771,166,reference only (replay)
@@ -113,6 +115,7 @@ C-Score,C-Score each cell,basophils,EPIC_v1,505bea0,,1.1239,39,0.8697,0.9946,1.0
 C-Score,C-Score each cell,basophils,EPIC_v1,5b01d36,,1.0959,0,,,,79,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,basophils,EPIC_v1,801e08b,,1.0901,255,0.8921,0.9732,1.0996,470,reference only (replay)
 C-Score,C-Score each cell,basophils,EPIC_v1,af2c330,,1.0901,0,,,,534,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,basophils,EPIC_v1,c15538a,,1.0905,0,,,,10,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,basophils,EPIC_v1,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,basophils,HM450K,3463259,,,0,,,,5,reference only (replay)
 C-Score,C-Score each cell,basophils,HM450K,50bcb5a,,,0,,,,7,reference only (replay)
@@ -121,6 +124,7 @@ C-Score,C-Score each cell,basophils,HM450K,ca58285,,,0,,,,2,reference only (repl
 C-Score,C-Score each cell,bladder epithelium,EPIC_v1,5b01d36,,1.0989,0,,,,155,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,bladder epithelium,EPIC_v1,801e08b,,1.0923,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,bladder epithelium,EPIC_v1,af2c330,,1.0923,0,,,,1,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,bladder epithelium,EPIC_v1,c15538a,,1.0939,0,,,,5,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,bladder epithelium,HM450K,3463259,,,0,,,,45,reference only (replay)
 C-Score,C-Score each cell,bladder epithelium,HM450K,ca58285,,,0,,,,46,reference only (replay)
 C-Score,C-Score each cell,bladder epithelium,HM450K,e98b90f,,,0,,,,3,reference only (replay)
@@ -135,6 +139,7 @@ C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,505bea0,,1.0932,4,1.02
 C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,5b01d36,,1.0975,0,,,,9,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,801e08b,,1.0924,13,0.9385,1.0293,1.1735,23,reference only (replay)
 C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,af2c330,,1.0924,0,,,,26,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,c15538a,,1.0938,0,,,,18,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,breast basal epithelium,HM450K,3463259,,,0,,,,33,reference only (replay)
 C-Score,C-Score each cell,breast basal epithelium,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,breast basal epithelium,HM450K,c8ff5cc,,,0,,,,6,reference only (replay)
@@ -150,6 +155,7 @@ C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,505bea0,,1.1259,1,,0
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,5b01d36,,1.096,0,,,,28,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,801e08b,,1.1268,1,,1.0184,,1,reference only (replay)
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,af2c330,,1.1268,0,,,,1,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,c15538a,,1.0933,0,,,,112,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,ca58285,,,0,,,,10,reference only (replay)
 C-Score,C-Score each cell,breast luminal epithelium,HM450K,3463259,,,0,,,,54,reference only (replay)
 C-Score,C-Score each cell,breast luminal epithelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
@@ -162,6 +168,7 @@ C-Score,C-Score each cell,breast luminal epithelium,sequencing,7e26d9f,,1.1141,9
 C-Score,C-Score each cell,breast luminal epithelium,sequencing,9d8ea3d,,1.09,3,0.9151,0.9799,0.9851,3,development
 C-Score,C-Score each cell,cardiomyocyte,EPIC_v1,801e08b,,1.1274,1,,0.95,,1,reference only (replay)
 C-Score,C-Score each cell,cardiomyocyte,EPIC_v1,af2c330,,1.1274,0,,,,1,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,cardiomyocyte,EPIC_v1,c15538a,,1.0933,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,cardiomyocyte,HM450K,3463259,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,cardiomyocyte,HM450K,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,cardiomyocyte,sequencing,10f1149,,1.1122,5,0.9087,0.9972,1.1273,5,development
@@ -193,6 +200,7 @@ C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,505bea0,,1.1163,41,0.8742,
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,5b01d36,,1.0922,0,,,,199,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,801e08b,,1.0901,244,0.8913,0.9716,1.0697,452,reference only (replay)
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,af2c330,,1.0901,0,,,,528,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,c15538a,,1.0902,0,,,,3,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,ca58285,,,0,,,,8,reference only (replay)
 C-Score,C-Score each cell,cd56bright nk cells,HM450K,3463259,,,0,,,,6,reference only (replay)
 C-Score,C-Score each cell,cd56bright nk cells,HM450K,50bcb5a,,,0,,,,7,reference only (replay)
@@ -204,6 +212,7 @@ C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,505bea0,,1.0901,7,0
 C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,5b01d36,,1.0911,0,,,,76,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,801e08b,,1.0901,219,0.873,0.9703,1.064,387,reference only (replay)
 C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,af2c330,,1.0901,0,,,,416,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,c15538a,,1.0902,0,,,,8,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,ca58285,,,0,,,,5,reference only (replay)
 C-Score,C-Score each cell,cd8 central memory t cells,HM450K,3463259,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,cd8 central memory t cells,HM450K,50bcb5a,,,0,,,,4,reference only (replay)
@@ -234,6 +243,7 @@ C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,505bea0,,1.118,34,0.9385,1.0
 C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,5b01d36,,1.0968,0,,,,96,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,801e08b,,1.0902,214,0.9332,1.0158,1.1287,411,reference only (replay)
 C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,af2c330,,1.0902,0,,,,457,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,c15538a,,1.0906,0,,,,131,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,cd8 temra t cells,EPIC_v1,ca58285,,,0,,,,59,reference only (replay)
 C-Score,C-Score each cell,cd8 temra t cells,HM450K,3463259,,,0,,,,81,reference only (replay)
 C-Score,C-Score each cell,cd8 temra t cells,HM450K,50bcb5a,,,0,,,,11,reference only (replay)
@@ -242,6 +252,7 @@ C-Score,C-Score each cell,cd8 temra t cells,HM450K,ca58285,,,0,,,,68,reference o
 C-Score,C-Score each cell,cd8 temra t cells,HM450K,e98b90f,,,0,,,,9,reference only (replay)
 C-Score,C-Score each cell,cd8 temra t cells,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,central memory th1 cells,EPIC_v1,505bea0,,1.0928,3,0.9424,0.9787,0.9805,3,reference only (replay)
+C-Score,C-Score each cell,central memory th1 cells,EPIC_v1,c15538a,,1.0927,0,,,,19,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,central memory th1 cells,HM450K,3463259,,,35,0.8799,0.9631,1.0336,110,reference only (replay)
 C-Score,C-Score each cell,central memory th1 cells,HM450K,50bcb5a,,,4,0.9155,1.0057,1.0506,41,reference only (replay)
 C-Score,C-Score each cell,central memory th1 cells,HM450K,c8ff5cc,,,23,0.9184,1.0106,1.063,170,reference only (replay)
@@ -251,6 +262,7 @@ C-Score,C-Score each cell,colon enteroendocrine,EPIC_v1,505bea0,,1.1605,1,,1.050
 C-Score,C-Score each cell,colon enteroendocrine,EPIC_v1,5b01d36,,1.1131,0,,,,24,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,colon enteroendocrine,EPIC_v1,801e08b,,1.1102,7,0.8783,0.9807,1.1711,11,reference only (replay)
 C-Score,C-Score each cell,colon enteroendocrine,EPIC_v1,af2c330,,1.1102,0,,,,11,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,colon enteroendocrine,EPIC_v1,c15538a,,1.1102,0,,,,81,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,colon enteroendocrine,HM450K,3463259,,,0,,,,79,reference only (replay)
 C-Score,C-Score each cell,colon enteroendocrine,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,colon enteroendocrine,HM450K,c8ff5cc,,,0,,,,13,reference only (replay)
@@ -266,6 +278,7 @@ C-Score,C-Score each cell,colon epithelium,EPIC_v1,3463259,,,0,,,,160,reference 
 C-Score,C-Score each cell,colon epithelium,EPIC_v1,5b01d36,,1.0935,0,,,,211,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,colon epithelium,EPIC_v1,801e08b,,1.0907,4,0.9637,1.0162,1.024,7,reference only (replay)
 C-Score,C-Score each cell,colon epithelium,EPIC_v1,af2c330,,1.0907,0,,,,7,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,colon epithelium,EPIC_v1,c15538a,,1.0908,0,,,,51,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,colon epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 C-Score,C-Score each cell,colon epithelium,HM450K,3463259,,,0,,,,91,reference only (replay)
 C-Score,C-Score each cell,colon epithelium,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
@@ -276,6 +289,7 @@ C-Score,C-Score each cell,colon epithelium,sequencing,5ce8a0b,,1.1153,1,,0.9849,
 C-Score,C-Score each cell,colon epithelium,sequencing,721daf8,,1.1153,1,,0.9849,,1,development (common floor)
 C-Score,C-Score each cell,colon epithelium,sequencing,7e26d9f,,1.0901,4,0.9835,1.0039,1.0556,4,development
 C-Score,C-Score each cell,colon epithelium,sequencing,9d8ea3d,,1.09,3,0.9854,1.023,1.0564,3,development
+C-Score,C-Score each cell,colon fibroblasts,EPIC_v1,c15538a,,1.1098,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,colon fibroblasts,HM450K,3463259,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,colon fibroblasts,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,colon fibroblasts,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
@@ -326,6 +340,7 @@ C-Score,C-Score each cell,cortical neurons,EPIC_v1,505bea0,,1.112,20,0.8944,1.01
 C-Score,C-Score each cell,cortical neurons,EPIC_v1,5b01d36,,1.0929,0,,,,237,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,cortical neurons,EPIC_v1,801e08b,,1.0901,205,0.8992,0.9942,1.0951,366,reference only (replay)
 C-Score,C-Score each cell,cortical neurons,EPIC_v1,af2c330,,1.0901,0,,,,413,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,cortical neurons,EPIC_v1,c15538a,,1.0902,0,,,,62,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,cortical neurons,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 C-Score,C-Score each cell,cortical neurons,HM450K,3463259,,,0,,,,63,reference only (replay)
 C-Score,C-Score each cell,cortical neurons,HM450K,50bcb5a,,,0,,,,13,reference only (replay)
@@ -341,6 +356,7 @@ C-Score,C-Score each cell,cortical neurons,sequencing,9a552a2,,,0,,,,1,developme
 C-Score,C-Score each cell,cortical neurons,sequencing,9d8ea3d,,1.09,3,0.9876,0.988,1.0328,3,development
 C-Score,C-Score each cell,cortical neurons,sequencing,b91a18a,,1.1283,3,0.856,1.0501,1.0608,3,development
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,505bea0,,1.0924,19,0.8996,0.9447,1.0479,19,reference only (replay)
+C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,c15538a,,1.0929,0,,,,37,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),HM450K,3463259,,,41,0.9163,0.9688,1.031,210,reference only (replay)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),HM450K,50bcb5a,,,1,,0.9821,,22,reference only (replay)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),HM450K,c8ff5cc,,,13,0.9501,1.0348,1.1916,109,reference only (replay)
@@ -368,6 +384,7 @@ C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,505bea0,,1.0934,2,,1.0284
 C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,5b01d36,,1.0962,0,,,,233,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,801e08b,,1.0933,10,0.9324,1.019,1.0761,17,reference only (replay)
 C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,af2c330,,1.0933,0,,,,18,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,c15538a,,1.0933,0,,,,90,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,embryonic stem cells,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 C-Score,C-Score each cell,embryonic stem cells,HM450K,3463259,,,39,0.9202,0.9946,1.0516,205,reference only (replay)
 C-Score,C-Score each cell,embryonic stem cells,HM450K,50bcb5a,,,0,,,,14,reference only (replay)
@@ -377,6 +394,7 @@ C-Score,C-Score each cell,embryonic stem cells,HM450K,e98b90f,,,0,,,,13,referenc
 C-Score,C-Score each cell,embryonic stem cells,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,endometrium epithelium,EPIC_v1,505bea0,,1.0939,1,,0.903,,1,reference only (replay)
 C-Score,C-Score each cell,endometrium epithelium,EPIC_v1,5b01d36,,1.1,0,,,,68,reference only (replay; cervical cytology not commissioned)
+C-Score,C-Score each cell,endometrium epithelium,EPIC_v1,c15538a,,1.0941,0,,,,70,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,endometrium epithelium,EPIC_v1,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,endometrium epithelium,HM450K,3463259,,,0,,,,81,reference only (replay)
 C-Score,C-Score each cell,endometrium epithelium,HM450K,c8ff5cc,,,0,,,,3,reference only (replay)
@@ -403,6 +421,7 @@ C-Score,C-Score each cell,erythrocyte progenitors,EPIC_v1,3463259,,,0,,,,1,refer
 C-Score,C-Score each cell,erythrocyte progenitors,EPIC_v1,505bea0,,1.1209,1,,1.122,,1,reference only (replay)
 C-Score,C-Score each cell,erythrocyte progenitors,EPIC_v1,801e08b,,1.0922,4,0.983,1.0183,1.0319,14,reference only (replay)
 C-Score,C-Score each cell,erythrocyte progenitors,EPIC_v1,af2c330,,1.0922,0,,,,15,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,erythrocyte progenitors,EPIC_v1,c15538a,,1.0938,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,erythrocyte progenitors,HM450K,3463259,,,1,,1.0018,,2,reference only (replay)
 C-Score,C-Score each cell,erythrocyte progenitors,HM450K,50bcb5a,,,3,0.9302,1.0508,1.1044,11,reference only (replay)
 C-Score,C-Score each cell,erythrocyte progenitors,HM450K,c8ff5cc,,,0,,,,50,reference only (replay)
@@ -440,6 +459,7 @@ C-Score,C-Score each cell,fallopien tubes epithelium,sequencing,9d8ea3d,,1.09,3,
 C-Score,C-Score each cell,fallopien tubes epithelium,sequencing,b91a18a,,1.1208,4,0.9855,0.9897,1.0125,4,development
 C-Score,C-Score each cell,gastric antrum epithelium,EPIC_v1,801e08b,,1.1307,1,,0.9827,,1,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,EPIC_v1,af2c330,,1.1307,0,,,,1,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,gastric antrum epithelium,EPIC_v1,c15538a,,1.0942,0,,,,20,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,3463259,,,0,,,,44,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,HM450K,c8ff5cc,,,0,,,,3,reference only (replay)
@@ -460,6 +480,7 @@ C-Score,C-Score each cell,gastric body epithelium,sequencing,7e26d9f,,1.09,5,0.9
 C-Score,C-Score each cell,gastric body epithelium,sequencing,9d8ea3d,,1.09,3,0.9961,1.0453,1.0522,3,development
 C-Score,C-Score each cell,gastric fundus epithelium,EPIC_v1,801e08b,,1.0924,1,,1.074,,4,reference only (replay)
 C-Score,C-Score each cell,gastric fundus epithelium,EPIC_v1,af2c330,,1.0924,0,,,,4,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,gastric fundus epithelium,EPIC_v1,c15538a,,1.0942,0,,,,11,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,gastric fundus epithelium,HM450K,3463259,,,0,,,,11,reference only (replay)
 C-Score,C-Score each cell,gastric fundus epithelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,gastric fundus epithelium,HM450K,ca58285,,,0,,,,8,reference only (replay)
@@ -476,6 +497,7 @@ C-Score,C-Score each cell,granulocytes,sequencing,9d8ea3d,,1.09,3,0.9723,0.9771,
 C-Score,C-Score each cell,granulocytes,sequencing,b91a18a,,1.1283,9,0.8877,0.9655,1.1054,9,development
 C-Score,C-Score each cell,heart fibroblasts,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,heart fibroblasts,EPIC_v1,af2c330,,1.0923,0,,,,1,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,heart fibroblasts,EPIC_v1,c15538a,,1.0945,0,,,,11,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,heart fibroblasts,HM450K,3463259,,,2,,0.9822,,41,reference only (replay)
 C-Score,C-Score each cell,heart fibroblasts,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,heart fibroblasts,HM450K,c8ff5cc,,,0,,,,11,reference only (replay)
@@ -489,6 +511,7 @@ C-Score,C-Score each cell,heart fibroblasts,sequencing,9d8ea3d,,1.09,3,0.9749,1.
 C-Score,C-Score each cell,heart fibroblasts,sequencing,b91a18a,,1.1104,2,,0.9947,,2,development
 C-Score,C-Score each cell,hepatocyte,EPIC_v1,3463259,,,0,,,,10,reference only (replay)
 C-Score,C-Score each cell,hepatocyte,EPIC_v1,505bea0,,1.0926,1,,0.996,,1,reference only (replay)
+C-Score,C-Score each cell,hepatocyte,EPIC_v1,c15538a,,1.0907,0,,,,11,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,hepatocyte,EPIC_v1,ca58285,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,hepatocyte,HM450K,3463259,,,17,0.8525,0.9282,1.0279,29,reference only (replay)
 C-Score,C-Score each cell,hepatocyte,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
@@ -533,6 +556,7 @@ C-Score,C-Score each cell,kidney tubular epithelium,sequencing,5ce8a0b,,1.107,1,
 C-Score,C-Score each cell,kidney tubular epithelium,sequencing,721daf8,,1.1136,2,,1.0742,,2,development (common floor)
 C-Score,C-Score each cell,kidney tubular epithelium,sequencing,7e26d9f,,1.09,5,0.9779,1.0031,1.1389,5,development
 C-Score,C-Score each cell,kidney tubular epithelium,sequencing,9d8ea3d,,1.09,3,0.9772,1.0029,1.0343,3,development
+C-Score,C-Score each cell,lung alveolar endothelium,EPIC_v1,c15538a,,1.0934,0,,,,29,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar endothelium,HM450K,3463259,,,39,0.85,0.9736,1.0189,83,reference only (replay)
 C-Score,C-Score each cell,lung alveolar endothelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,lung alveolar endothelium,HM450K,ca58285,,,0,,,,1,reference only (replay)
@@ -546,6 +570,7 @@ C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,3463259,,,0,,,,52,ref
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,5b01d36,,1.0933,0,,,,183,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,801e08b,,1.0901,6,0.9691,0.991,1.0583,11,reference only (replay)
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,af2c330,,1.0901,0,,,,11,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,c15538a,,1.0902,0,,,,131,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,ca58285,,,0,,,,19,reference only (replay)
 C-Score,C-Score each cell,lung alveolar epithelium,HM450K,3463259,,,0,,,,63,reference only (replay)
 C-Score,C-Score each cell,lung alveolar epithelium,HM450K,c8ff5cc,,,0,,,,3,reference only (replay)
@@ -556,6 +581,7 @@ C-Score,C-Score each cell,lung alveolar epithelium,sequencing,721daf8,,1.1098,1,
 C-Score,C-Score each cell,lung alveolar epithelium,sequencing,7e26d9f,,1.09,4,0.9136,0.9619,0.9956,4,development
 C-Score,C-Score each cell,lung alveolar epithelium,sequencing,9d8ea3d,,1.09,3,0.9132,0.9288,0.9917,3,development
 C-Score,C-Score each cell,lung alveolar macrophages,EPIC_v1,505bea0,,1.1649,3,0.8829,0.9396,0.9606,3,reference only (replay)
+C-Score,C-Score each cell,lung alveolar macrophages,EPIC_v1,c15538a,,1.1134,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar macrophages,HM450K,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,lung alveolar macrophages,HM450K,50bcb5a,,,1,,1.0083,,5,reference only (replay)
 C-Score,C-Score each cell,lung alveolar macrophages,HM450K,c8ff5cc,,,4,0.8769,0.965,1.0553,26,reference only (replay)
@@ -571,6 +597,7 @@ C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,3463259,,,0,,,,49,ref
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,5b01d36,,1.0976,0,,,,213,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,801e08b,,1.0931,5,0.9662,0.9948,1.1048,15,reference only (replay)
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,af2c330,,1.0931,0,,,,17,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,c15538a,,1.0937,0,,,,64,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,ca58285,,,0,,,,20,reference only (replay)
 C-Score,C-Score each cell,lung bronchus epithelium,HM450K,3463259,,,41,0.8571,0.9526,1.0449,206,reference only (replay)
 C-Score,C-Score each cell,lung bronchus epithelium,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
@@ -614,6 +641,7 @@ C-Score,C-Score each cell,memory b cells,EPIC_v1,505bea0,,1.1234,22,0.8833,1.012
 C-Score,C-Score each cell,memory b cells,EPIC_v1,5b01d36,,1.0934,0,,,,127,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,memory b cells,EPIC_v1,801e08b,,1.0901,203,0.9224,1.0411,1.1476,364,reference only (replay)
 C-Score,C-Score each cell,memory b cells,EPIC_v1,af2c330,,1.0901,0,,,,407,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,memory b cells,EPIC_v1,c15538a,,1.0902,0,,,,129,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,memory b cells,EPIC_v1,ca58285,,,0,,,,35,reference only (replay)
 C-Score,C-Score each cell,memory b cells,HM450K,3463259,,,0,,,,131,reference only (replay)
 C-Score,C-Score each cell,memory b cells,HM450K,50bcb5a,,,0,,,,7,reference only (replay)
@@ -648,6 +676,7 @@ C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,505bea0,,1.1213,28,0.8959,0
 C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,5b01d36,,1.0934,0,,,,23,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,801e08b,,1.0902,254,0.894,1.0081,1.1078,467,reference only (replay)
 C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,af2c330,,1.0902,0,,,,535,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,c15538a,,1.0909,0,,,,32,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,memory cd4 t cells,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,microglia,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -656,6 +685,7 @@ C-Score,C-Score each cell,microglia,EPIC_v1,505bea0,,1.1193,37,0.9342,1.0213,1.1
 C-Score,C-Score each cell,microglia,EPIC_v1,5b01d36,,1.0928,0,,,,214,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,microglia,EPIC_v1,801e08b,,1.0901,234,0.9045,0.9877,1.0972,428,reference only (replay)
 C-Score,C-Score each cell,microglia,EPIC_v1,af2c330,,1.0901,0,,,,497,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,microglia,EPIC_v1,c15538a,,1.0901,0,,,,72,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,microglia,EPIC_v1,ca58285,,,0,,,,12,reference only (replay)
 C-Score,C-Score each cell,microglia,HM450K,3463259,,,0,,,,79,reference only (replay)
 C-Score,C-Score each cell,microglia,HM450K,50bcb5a,,,0,,,,8,reference only (replay)
@@ -668,6 +698,7 @@ C-Score,C-Score each cell,monocytes,EPIC_v1,505bea0,,1.1249,40,0.8517,1.036,1.19
 C-Score,C-Score each cell,monocytes,EPIC_v1,5b01d36,,1.0941,0,,,,179,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,monocytes,EPIC_v1,801e08b,,1.0926,243,0.8987,0.9904,1.102,453,reference only (replay)
 C-Score,C-Score each cell,monocytes,EPIC_v1,af2c330,,1.0926,0,,,,528,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,monocytes,EPIC_v1,c15538a,,1.0926,0,,,,33,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,monocytes,HM450K,3463259,,,0,,,,60,reference only (replay)
 C-Score,C-Score each cell,monocytes,HM450K,50bcb5a,,,10,0.8637,0.9749,1.0451,63,reference only (replay)
 C-Score,C-Score each cell,monocytes,HM450K,c8ff5cc,,,29,0.8824,0.9869,1.1138,212,reference only (replay)
@@ -688,6 +719,7 @@ C-Score,C-Score each cell,naive b cells,EPIC_v1,505bea0,,1.1204,34,0.9071,1.0318
 C-Score,C-Score each cell,naive b cells,EPIC_v1,5b01d36,,1.0934,0,,,,214,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,naive b cells,EPIC_v1,801e08b,,1.0901,253,0.9197,1.0206,1.1324,466,reference only (replay)
 C-Score,C-Score each cell,naive b cells,EPIC_v1,af2c330,,1.0901,0,,,,539,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,naive b cells,EPIC_v1,c15538a,,1.0901,0,,,,11,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,naive b cells,EPIC_v1,ca58285,,,0,,,,38,reference only (replay)
 C-Score,C-Score each cell,naive b cells,HM450K,3463259,,,0,,,,5,reference only (replay)
 C-Score,C-Score each cell,naive b cells,HM450K,50bcb5a,,,0,,,,7,reference only (replay)
@@ -706,6 +738,7 @@ C-Score,C-Score each cell,naive cd4 t cells,EPIC_v1,505bea0,,1.0911,31,0.9437,1.
 C-Score,C-Score each cell,naive cd4 t cells,EPIC_v1,5b01d36,,1.0934,0,,,,57,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,naive cd4 t cells,EPIC_v1,801e08b,,1.0901,179,0.9075,0.9866,1.0819,287,reference only (replay)
 C-Score,C-Score each cell,naive cd4 t cells,EPIC_v1,af2c330,,1.0901,0,,,,336,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,naive cd4 t cells,EPIC_v1,c15538a,,1.0902,0,,,,3,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,naive cd4 t cells,EPIC_v1,ca58285,,,0,,,,22,reference only (replay)
 C-Score,C-Score each cell,naive cd4 t cells,HM450K,3463259,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,naive cd4 t cells,HM450K,50bcb5a,,,3,1.031,1.1228,1.1301,25,reference only (replay)
@@ -743,6 +776,7 @@ C-Score,C-Score each cell,neutrophils,EPIC_v1,505bea0,,1.0936,42,0.8923,1.0056,1
 C-Score,C-Score each cell,neutrophils,EPIC_v1,5b01d36,,1.0933,0,,,,234,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,neutrophils,EPIC_v1,801e08b,,1.0907,260,0.9272,1.0188,1.1192,481,reference only (replay)
 C-Score,C-Score each cell,neutrophils,EPIC_v1,af2c330,,1.0907,0,,,,557,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,neutrophils,EPIC_v1,c15538a,,1.0908,0,,,,44,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,neutrophils,EPIC_v1,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,neutrophils,HM450K,3463259,,,0,,,,61,reference only (replay)
 C-Score,C-Score each cell,neutrophils,HM450K,50bcb5a,,,7,0.9614,1.047,1.1148,66,reference only (replay)
@@ -781,6 +815,7 @@ C-Score,C-Score each cell,oligodendrocytes,EPIC_v1,505bea0,,1.12,27,0.9128,1.045
 C-Score,C-Score each cell,oligodendrocytes,EPIC_v1,5b01d36,,1.0974,0,,,,186,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,oligodendrocytes,EPIC_v1,801e08b,,1.0902,92,0.8816,0.9794,1.086,167,reference only (replay)
 C-Score,C-Score each cell,oligodendrocytes,EPIC_v1,af2c330,,1.0902,0,,,,170,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,oligodendrocytes,EPIC_v1,c15538a,,1.0904,0,,,,111,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,oligodendrocytes,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 C-Score,C-Score each cell,oligodendrocytes,HM450K,3463259,,,0,,,,110,reference only (replay)
 C-Score,C-Score each cell,oligodendrocytes,HM450K,50bcb5a,,,0,,,,6,reference only (replay)
@@ -794,6 +829,7 @@ C-Score,C-Score each cell,oligodendrocytes,sequencing,7e26d9f,,1.1168,14,0.9493,
 C-Score,C-Score each cell,oligodendrocytes,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,oligodendrocytes,sequencing,9d8ea3d,,1.09,3,0.9812,1.0006,1.0606,3,development
 C-Score,C-Score each cell,oligodendrocytes,sequencing,b91a18a,,1.127,7,0.9513,1.0086,1.046,7,development
+C-Score,C-Score each cell,pancreas endothelium,EPIC_v1,c15538a,,1.1289,0,,,,13,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,pancreas endothelium,HM450K,3463259,,,0,,,,58,reference only (replay)
 C-Score,C-Score each cell,pancreas endothelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,pancreas endothelium,HM450K,ca58285,,,0,,,,61,reference only (replay)
@@ -817,6 +853,7 @@ C-Score,C-Score each cell,pancreatic acinar,EPIC_v1,3463259,,,0,,,,102,reference
 C-Score,C-Score each cell,pancreatic acinar,EPIC_v1,5b01d36,,1.0909,0,,,,22,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,pancreatic acinar,EPIC_v1,801e08b,,1.0902,5,0.9031,0.9532,0.9716,10,reference only (replay)
 C-Score,C-Score each cell,pancreatic acinar,EPIC_v1,af2c330,,1.0902,0,,,,10,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,pancreatic acinar,EPIC_v1,c15538a,,1.0904,0,,,,93,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,pancreatic acinar,EPIC_v1,ca58285,,,0,,,,37,reference only (replay)
 C-Score,C-Score each cell,pancreatic acinar,HM450K,3463259,,,2,,1.1165,,130,reference only (replay)
 C-Score,C-Score each cell,pancreatic acinar,HM450K,50bcb5a,,,0,,,,4,reference only (replay)
@@ -841,6 +878,7 @@ C-Score,C-Score each cell,pancreatic beta,EPIC_v1,3463259,,,0,,,,141,reference o
 C-Score,C-Score each cell,pancreatic beta,EPIC_v1,5b01d36,,1.0916,0,,,,78,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,pancreatic beta,EPIC_v1,801e08b,,1.0902,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,pancreatic beta,EPIC_v1,af2c330,,1.0902,0,,,,1,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,pancreatic beta,EPIC_v1,c15538a,,1.0902,0,,,,55,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,pancreatic beta,EPIC_v1,ca58285,,,0,,,,50,reference only (replay)
 C-Score,C-Score each cell,pancreatic beta,HM450K,3463259,,,0,,,,96,reference only (replay)
 C-Score,C-Score each cell,pancreatic beta,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
@@ -874,6 +912,7 @@ C-Score,C-Score each cell,prostate epithelium,EPIC_v1,505bea0,,1.1312,3,0.8841,0
 C-Score,C-Score each cell,prostate epithelium,EPIC_v1,5b01d36,,1.1006,0,,,,237,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,prostate epithelium,EPIC_v1,801e08b,,1.0924,3,0.9796,0.992,1.0173,5,reference only (replay)
 C-Score,C-Score each cell,prostate epithelium,EPIC_v1,af2c330,,1.0924,0,,,,6,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,prostate epithelium,EPIC_v1,c15538a,,1.0942,0,,,,117,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,prostate epithelium,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 C-Score,C-Score each cell,prostate epithelium,HM450K,3463259,,,0,,,,114,reference only (replay)
 C-Score,C-Score each cell,prostate epithelium,HM450K,50bcb5a,,,0,,,,5,reference only (replay)
@@ -896,6 +935,7 @@ C-Score,C-Score each cell,regulatory t cells,EPIC_v1,505bea0,,1.1257,42,0.8574,0
 C-Score,C-Score each cell,regulatory t cells,EPIC_v1,5b01d36,,1.1002,0,,,,89,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,regulatory t cells,EPIC_v1,801e08b,,1.0902,32,0.9211,0.9984,1.0933,57,reference only (replay)
 C-Score,C-Score each cell,regulatory t cells,EPIC_v1,af2c330,,1.0903,0,,,,130,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,regulatory t cells,EPIC_v1,c15538a,,1.0909,0,,,,56,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,regulatory t cells,EPIC_v1,ca58285,,,0,,,,52,reference only (replay)
 C-Score,C-Score each cell,regulatory t cells,HM450K,3463259,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,regulatory t cells,HM450K,50bcb5a,,,5,0.9314,1.0329,1.0808,32,reference only (replay)
@@ -904,6 +944,7 @@ C-Score,C-Score each cell,small intestine epithelium,EPIC_v1,3463259,,,0,,,,5,re
 C-Score,C-Score each cell,small intestine epithelium,EPIC_v1,5b01d36,,1.0962,0,,,,78,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,small intestine epithelium,EPIC_v1,801e08b,,1.0929,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,small intestine epithelium,EPIC_v1,af2c330,,1.0928,0,,,,5,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,small intestine epithelium,EPIC_v1,c15538a,,1.0929,0,,,,11,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,small intestine epithelium,EPIC_v1,ca58285,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,small intestine epithelium,HM450K,3463259,,,0,,,,69,reference only (replay)
 C-Score,C-Score each cell,small intestine epithelium,HM450K,50bcb5a,,,0,,,,9,reference only (replay)
@@ -917,6 +958,7 @@ C-Score,C-Score each cell,small intestine epithelium,sequencing,7e26d9f,,1.1108,
 C-Score,C-Score each cell,small intestine epithelium,sequencing,9d8ea3d,,1.09,3,0.9942,1.0176,1.08,3,development
 C-Score,C-Score each cell,small intestine epithelium,sequencing,b91a18a,,1.1353,1,,0.83,,1,development
 C-Score,C-Score each cell,smooth muscle,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,smooth muscle,EPIC_v1,c15538a,,1.0938,0,,,,21,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,smooth muscle,EPIC_v1,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,smooth muscle,HM450K,3463259,,,7,0.893,0.9688,0.9901,79,reference only (replay)
 C-Score,C-Score each cell,smooth muscle,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
@@ -929,6 +971,7 @@ C-Score,C-Score each cell,smooth muscle,sequencing,7e26d9f,,1.1004,6,0.897,0.958
 C-Score,C-Score each cell,smooth muscle,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,smooth muscle,sequencing,9d8ea3d,,1.09,3,0.9332,0.9381,0.977,3,development
 C-Score,C-Score each cell,smooth muscle,sequencing,c464b26,,,0,,,,1,development
+C-Score,C-Score each cell,striated muscle,EPIC_v1,c15538a,,1.1124,0,,,,4,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,striated muscle,HM450K,3463259,,,0,,,,34,reference only (replay)
 C-Score,C-Score each cell,striated muscle,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,striated muscle,HM450K,ca58285,,,0,,,,25,reference only (replay)
@@ -945,6 +988,7 @@ C-Score,C-Score each cell,t central memory cd4,EPIC_v1,3463259,,,0,,,,1,referenc
 C-Score,C-Score each cell,t central memory cd4,EPIC_v1,5b01d36,,1.109,0,,,,10,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,t central memory cd4,EPIC_v1,801e08b,,1.104,5,0.8785,0.932,1.0763,10,reference only (replay)
 C-Score,C-Score each cell,t central memory cd4,EPIC_v1,af2c330,,1.0904,0,,,,11,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,t central memory cd4,EPIC_v1,c15538a,,1.104,0,,,,2,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,t central memory cd4,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,t central memory cd4,HM450K,c8ff5cc,,,0,,,,8,reference only (replay)
 C-Score,C-Score each cell,t central memory cd4,sequencing,1.519e+61,,1.095,2,,0.9564,,2,"development (outside-laboratory test, not met)"
@@ -1018,6 +1062,7 @@ C-Score,C-Score each cell,tonsil palatine epithelium,EPIC_v1,af2c330,,1.0919,0,,
 C-Score,C-Score each cell,tonsil palatine epithelium,sequencing,7e26d9f,,1.09,3,0.9184,0.93,0.9762,3,development
 C-Score,C-Score each cell,tonsil palatine epithelium,sequencing,9d8ea3d,,1.09,3,0.9183,0.9304,0.9759,3,development
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,EPIC_v1,5b01d36,,1.1169,0,,,,8,reference only (replay; cervical cytology not commissioned)
+C-Score,C-Score each cell,tonsil pharyngeal epithelium,EPIC_v1,c15538a,,1.1122,0,,,,8,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,HM450K,ca58285,,,0,,,,2,reference only (replay)
@@ -1033,6 +1078,7 @@ C-Score,C-Score each cell,vascular endothelium,EPIC_v1,505bea0,,1.1176,41,0.9751
 C-Score,C-Score each cell,vascular endothelium,EPIC_v1,5b01d36,,1.0909,0,,,,241,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score each cell,vascular endothelium,EPIC_v1,801e08b,,1.0901,227,0.9103,0.9942,1.0944,423,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,EPIC_v1,af2c330,,1.0901,0,,,,495,"reference only (replay, every atlas cell)"
+C-Score,C-Score each cell,vascular endothelium,EPIC_v1,c15538a,,1.0902,0,,,,129,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,vascular endothelium,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,HM450K,3463259,,,41,0.8954,0.962,1.0327,233,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,HM450K,50bcb5a,,,0,,,,5,reference only (replay)
@@ -1040,6 +1086,7 @@ C-Score,C-Score each cell,vascular endothelium,HM450K,c8ff5cc,,,0,,,,11,referenc
 C-Score,C-Score each cell,vascular endothelium,HM450K,ca58285,,,0,,,,122,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,HM450K,e98b90f,,,0,,,,14,reference only (replay)
 C-Score,C-Score each cell,vascular leptomeningeal cells,EPIC_v1,3463259,,,0,,,,12,reference only (replay)
+C-Score,C-Score each cell,vascular leptomeningeal cells,EPIC_v1,c15538a,,1.1296,0,,,,11,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,vascular leptomeningeal cells,EPIC_v1,ca58285,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,vascular leptomeningeal cells,HM450K,3463259,,,0,,,,55,reference only (replay)
 C-Score,C-Score each cell,vascular leptomeningeal cells,HM450K,ca58285,,,0,,,,46,reference only (replay)
@@ -1058,6 +1105,7 @@ C-Score,C-Score whole genome,whole genome,EPIC_v1,505bea0,,1.0113,42,0.9953,1.00
 C-Score,C-Score whole genome,whole genome,EPIC_v1,5b01d36,,1.0084,0,,,,241,reference only (replay; cervical cytology not commissioned)
 C-Score,C-Score whole genome,whole genome,EPIC_v1,801e08b,,1.008,260,0.9924,1.0015,1.0111,481,reference only (replay)
 C-Score,C-Score whole genome,whole genome,EPIC_v1,af2c330,,1.008,0,,,,557,"reference only (replay, every atlas cell)"
+C-Score,C-Score whole genome,whole genome,EPIC_v1,c15538a,,1.008,0,,,,131,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score whole genome,whole genome,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 C-Score,C-Score whole genome,whole genome,HM450K,3463259,,,41,0.9854,0.9956,1.0069,238,reference only (replay)
 C-Score,C-Score whole genome,whole genome,HM450K,50bcb5a,,,18,0.997,1.0122,1.0202,98,reference only (replay)
@@ -1222,6 +1270,7 @@ Coupling-A,"coupling-A, own sample left out of the reference",tonsil pharyngeal 
 Coupling-A,"coupling-A, own sample left out of the reference",vascular saphenous endothelium,sequencing,,,,3,0.9923,1.0028,1.0053,3,development
 Globe,globe changed blocks,share of blocks,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Globe,globe changed blocks,share of blocks,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Globe,globe changed blocks,share of blocks,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Globe,globe changed blocks,share of blocks,sequencing,1.519e+61,,,57,0.0003,0.0027,0.0117,57,"development (outside-laboratory test, not met)"
 Globe,globe changed blocks,share of blocks,sequencing,10f1149,,,4,0.0004,0.0004,0.0006,4,development
 Globe,globe changed blocks,share of blocks,sequencing,15ddba1,,,34,0.0001,0.0009,0.0421,34,development
@@ -1384,6 +1433,7 @@ IAM-A,"held error eps, per interior opportunity (commissioned counter)",cell typ
 IAM-A,island gain error (PROC-CHANNEL-01 rule),colon tissue,WGBS,,,,0,,,,12,development
 Information sphere,information sphere,Fisher-Rao rms (rad),EPIC_v1,5b01d36,,,0,,,,241,development (flagged in the bundle)
 Information sphere,information sphere,Fisher-Rao rms (rad),EPIC_v1,af2c330,,,0,,,,557,development (flagged in the bundle)
+Information sphere,information sphere,Fisher-Rao rms (rad),EPIC_v1,c15538a,,,0,,,,131,development (flagged in the bundle)
 Information sphere,information sphere,Fisher-Rao rms (rad),sequencing,1.519e+61,,,59,0.1229,0.1633,0.3106,59,development (flagged in the bundle)
 Information sphere,information sphere,Fisher-Rao rms (rad),sequencing,10f1149,,,15,0.5043,0.5353,0.5588,15,development (flagged in the bundle)
 Information sphere,information sphere,Fisher-Rao rms (rad),sequencing,15ddba1,,,34,0.171,0.1946,0.2998,34,development (flagged in the bundle)
@@ -1411,6 +1461,7 @@ Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,505bea0,,,42,0.9542,0.9811,1.004
 Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,801e08b,,,260,0.9831,1.0222,1.0555,481,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,CMP (bone marrow),EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),HM450K,3463259,,,41,0.8667,0.9243,0.9753,238,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),HM450K,50bcb5a,,,18,0.8804,0.9423,0.9678,98,reference only (replay)
@@ -1423,6 +1474,7 @@ Met-A,Met-A each cell,GMP (bone marrow),EPIC_v1,505bea0,,,42,0.9357,0.9622,0.982
 Met-A,Met-A each cell,GMP (bone marrow),EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,GMP (bone marrow),EPIC_v1,801e08b,,,260,0.9825,1.0232,1.0627,481,reference only (replay)
 Met-A,Met-A each cell,GMP (bone marrow),EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,GMP (bone marrow),EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,GMP (bone marrow),EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,GMP (bone marrow),HM450K,3463259,,,41,0.9275,0.9768,1.0325,238,reference only (replay)
 Met-A,Met-A each cell,GMP (bone marrow),HM450K,50bcb5a,,,18,0.8642,0.932,0.9624,98,reference only (replay)
@@ -1435,6 +1487,7 @@ Met-A,Met-A each cell,HSC (bone marrow),EPIC_v1,505bea0,,,42,0.9178,0.9462,0.975
 Met-A,Met-A each cell,HSC (bone marrow),EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,HSC (bone marrow),EPIC_v1,801e08b,,,260,0.9581,1.0114,1.0714,481,reference only (replay)
 Met-A,Met-A each cell,HSC (bone marrow),EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,HSC (bone marrow),EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,HSC (bone marrow),EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,HSC (bone marrow),HM450K,3463259,,,41,0.9844,1.0411,1.1159,238,reference only (replay)
 Met-A,Met-A each cell,HSC (bone marrow),HM450K,50bcb5a,,,18,0.8853,0.944,0.9912,98,reference only (replay)
@@ -1447,6 +1500,7 @@ Met-A,Met-A each cell,L-MPP (bone marrow),EPIC_v1,505bea0,,,42,0.9504,0.9747,0.9
 Met-A,Met-A each cell,L-MPP (bone marrow),EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,L-MPP (bone marrow),EPIC_v1,801e08b,,,260,0.9733,1.0115,1.0473,481,reference only (replay)
 Met-A,Met-A each cell,L-MPP (bone marrow),EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,L-MPP (bone marrow),EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,L-MPP (bone marrow),EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,L-MPP (bone marrow),HM450K,3463259,,,41,0.8548,0.9153,0.9641,238,reference only (replay)
 Met-A,Met-A each cell,L-MPP (bone marrow),HM450K,50bcb5a,,,18,0.8905,0.9519,0.9858,98,reference only (replay)
@@ -1459,6 +1513,7 @@ Met-A,Met-A each cell,MEP (bone marrow),EPIC_v1,505bea0,,,42,0.9326,0.9526,0.979
 Met-A,Met-A each cell,MEP (bone marrow),EPIC_v1,5b01d36,,,0,,,,239,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,MEP (bone marrow),EPIC_v1,801e08b,,,260,0.9613,0.9965,1.0333,481,reference only (replay)
 Met-A,Met-A each cell,MEP (bone marrow),EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,MEP (bone marrow),EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,MEP (bone marrow),EPIC_v1,ca58285,,,0,,,,63,reference only (replay)
 Met-A,Met-A each cell,MEP (bone marrow),HM450K,3463259,,,41,0.8623,0.9294,0.9762,238,reference only (replay)
 Met-A,Met-A each cell,MEP (bone marrow),HM450K,50bcb5a,,,18,0.9069,0.9463,1.0315,98,reference only (replay)
@@ -1471,6 +1526,7 @@ Met-A,Met-A each cell,MPP (bone marrow),EPIC_v1,505bea0,,,42,0.9196,0.9682,1.007
 Met-A,Met-A each cell,MPP (bone marrow),EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,MPP (bone marrow),EPIC_v1,801e08b,,,260,0.941,0.9972,1.0523,481,reference only (replay)
 Met-A,Met-A each cell,MPP (bone marrow),EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,MPP (bone marrow),EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,MPP (bone marrow),EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,MPP (bone marrow),HM450K,3463259,,,41,0.8281,0.9008,0.9746,238,reference only (replay)
 Met-A,Met-A each cell,MPP (bone marrow),HM450K,50bcb5a,,,18,0.8715,0.9288,1.0143,98,reference only (replay)
@@ -1483,6 +1539,7 @@ Met-A,Met-A each cell,adipocytes,EPIC_v1,505bea0,,,42,0.9535,0.9793,1.0018,42,re
 Met-A,Met-A each cell,adipocytes,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,adipocytes,EPIC_v1,801e08b,,,260,0.9658,1.01,1.0562,481,reference only (replay)
 Met-A,Met-A each cell,adipocytes,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,adipocytes,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,adipocytes,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,adipocytes,HM450K,3463259,,,41,0.9379,0.9905,1.0578,238,reference only (replay)
 Met-A,Met-A each cell,adipocytes,HM450K,50bcb5a,,,18,0.9161,0.9573,1.0035,98,reference only (replay)
@@ -1507,6 +1564,7 @@ Met-A,Met-A each cell,aorta endothelium,EPIC_v1,505bea0,,,13,0.9263,0.9524,0.972
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,801e08b,,,237,0.9652,1.0163,1.0731,439,reference only (replay)
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,aorta endothelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,aorta endothelium,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,aorta endothelium,sequencing,1.519e+61,,,58,0.6385,0.8641,1.067,58,"development (outside-laboratory test, not met)"
 Met-A,Met-A each cell,aorta endothelium,sequencing,10f1149,,,15,0.7645,0.8988,1.1533,15,development
@@ -1526,6 +1584,7 @@ Met-A,Met-A each cell,astrocytes,EPIC_v1,505bea0,,,13,0.9173,0.9589,0.9803,13,re
 Met-A,Met-A each cell,astrocytes,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,astrocytes,EPIC_v1,801e08b,,,237,0.9879,1.0453,1.0975,439,reference only (replay)
 Met-A,Met-A each cell,astrocytes,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,astrocytes,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,astrocytes,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,Met-A each cell,b cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,b cells,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
@@ -1533,6 +1592,7 @@ Met-A,Met-A each cell,b cells,EPIC_v1,505bea0,,,42,0.8929,0.9227,0.958,42,refere
 Met-A,Met-A each cell,b cells,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,b cells,EPIC_v1,801e08b,,,260,0.9645,1.0293,1.0919,481,reference only (replay)
 Met-A,Met-A each cell,b cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,b cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,b cells,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,b cells,HM450K,3463259,,,41,1.0325,1.0732,1.1763,238,reference only (replay)
 Met-A,Met-A each cell,b cells,HM450K,50bcb5a,,,18,0.8508,0.9111,0.9636,98,reference only (replay)
@@ -1557,6 +1617,7 @@ Met-A,Met-A each cell,basophils,EPIC_v1,505bea0,,,42,0.8943,0.9159,0.9539,42,ref
 Met-A,Met-A each cell,basophils,EPIC_v1,5b01d36,,,0,,,,178,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,basophils,EPIC_v1,801e08b,,,260,0.9523,1.0006,1.0575,481,reference only (replay)
 Met-A,Met-A each cell,basophils,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,basophils,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,basophils,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,basophils,HM450K,3463259,,,41,0.9298,0.9726,1.0322,218,reference only (replay)
 Met-A,Met-A each cell,basophils,HM450K,50bcb5a,,,14,0.8979,0.932,0.9974,81,reference only (replay)
@@ -1569,6 +1630,7 @@ Met-A,Met-A each cell,bladder epithelium,EPIC_v1,505bea0,,,13,0.9652,0.9827,1.00
 Met-A,Met-A each cell,bladder epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,bladder epithelium,EPIC_v1,801e08b,,,237,0.9713,1.0049,1.035,439,reference only (replay)
 Met-A,Met-A each cell,bladder epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,bladder epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,bladder epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,bladder epithelium,HM450K,3463259,,,0,,,,1,reference only (replay)
 Met-A,Met-A each cell,bladder epithelium,HM450K,50bcb5a,,,2,,0.9517,,22,reference only (replay)
@@ -1593,6 +1655,7 @@ Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,505bea0,,,13,0.9683,0.9816
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,801e08b,,,237,0.9668,1.001,1.0313,439,reference only (replay)
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,ca58285,,,0,,,,63,reference only (replay)
 Met-A,Met-A each cell,breast basal epithelium,HM450K,50bcb5a,,,0,,,,2,reference only (replay)
 Met-A,Met-A each cell,breast basal epithelium,HM450K,c8ff5cc,,,0,,,,14,reference only (replay)
@@ -1614,6 +1677,7 @@ Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,505bea0,,,42,0.9476,0.97
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,801e08b,,,257,0.9641,1.0047,1.0413,474,reference only (replay)
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,af2c330,,,0,,,,550,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,c15538a,,,0,,,,129,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,breast luminal epithelium,HM450K,3463259,,,41,0.9702,1.0045,1.0561,157,reference only (replay)
 Met-A,Met-A each cell,breast luminal epithelium,HM450K,50bcb5a,,,13,0.9062,0.9476,0.9848,68,reference only (replay)
@@ -1638,6 +1702,7 @@ Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,505bea0,,,13,0.9703,0.9862,1.0007,13
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,801e08b,,,237,0.9815,1.0114,1.0401,439,reference only (replay)
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,af2c330,,,0,,,,493,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,cardiomyocyte,HM450K,3463259,,,0,,,,4,reference only (replay)
 Met-A,Met-A each cell,cardiomyocyte,HM450K,50bcb5a,,,9,0.9086,0.9401,0.9744,47,reference only (replay)
@@ -1662,6 +1727,7 @@ Met-A,Met-A each cell,cd4 t cells,EPIC_v1,505bea0,,,42,0.8896,0.9195,0.9692,42,r
 Met-A,Met-A each cell,cd4 t cells,EPIC_v1,5b01d36,,,0,,,,239,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cd4 t cells,EPIC_v1,801e08b,,,260,0.944,1.0135,1.081,481,reference only (replay)
 Met-A,Met-A each cell,cd4 t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cd4 t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cd4 t cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,cd4 t cells,HM450K,3463259,,,41,1.0171,1.0597,1.1683,238,reference only (replay)
 Met-A,Met-A each cell,cd4 t cells,HM450K,50bcb5a,,,18,0.8855,0.943,1.0103,98,reference only (replay)
@@ -1686,6 +1752,7 @@ Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,505bea0,,,42,0.9183,0.9441,0.9
 Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,5b01d36,,,0,,,,236,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,801e08b,,,260,0.9266,0.9896,1.0519,481,reference only (replay)
 Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cd56bright nk cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,cd56bright nk cells,HM450K,3463259,,,41,0.9576,1.0023,1.1156,238,reference only (replay)
 Met-A,Met-A each cell,cd56bright nk cells,HM450K,50bcb5a,,,18,0.9424,0.983,1.0404,98,reference only (replay)
@@ -1698,6 +1765,7 @@ Met-A,Met-A each cell,cd8 central memory t cells,EPIC_v1,505bea0,,,42,0.88,0.909
 Met-A,Met-A each cell,cd8 central memory t cells,EPIC_v1,5b01d36,,,0,,,,235,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cd8 central memory t cells,EPIC_v1,801e08b,,,260,0.9424,1.0082,1.0704,481,reference only (replay)
 Met-A,Met-A each cell,cd8 central memory t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cd8 central memory t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cd8 central memory t cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,cd8 central memory t cells,HM450K,3463259,,,41,0.9934,1.025,1.1373,237,reference only (replay)
 Met-A,Met-A each cell,cd8 central memory t cells,HM450K,50bcb5a,,,18,0.888,0.9344,0.9996,98,reference only (replay)
@@ -1710,6 +1778,7 @@ Met-A,Met-A each cell,cd8 t cells,EPIC_v1,505bea0,,,42,0.9002,0.9262,0.9732,42,r
 Met-A,Met-A each cell,cd8 t cells,EPIC_v1,5b01d36,,,0,,,,240,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cd8 t cells,EPIC_v1,801e08b,,,260,0.962,1.0295,1.0937,481,reference only (replay)
 Met-A,Met-A each cell,cd8 t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cd8 t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cd8 t cells,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,cd8 t cells,HM450K,3463259,,,41,1.0283,1.0628,1.1768,238,reference only (replay)
 Met-A,Met-A each cell,cd8 t cells,HM450K,50bcb5a,,,18,0.8666,0.9286,0.986,98,reference only (replay)
@@ -1734,6 +1803,7 @@ Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,505bea0,,,42,0.8822,0.9046,0.949
 Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,5b01d36,,,0,,,,209,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,801e08b,,,260,0.9415,0.999,1.0608,481,reference only (replay)
 Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cd8 temra t cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,cd8 temra t cells,HM450K,3463259,,,41,0.9753,1.0049,1.0854,233,reference only (replay)
 Met-A,Met-A each cell,cd8 temra t cells,HM450K,50bcb5a,,,18,0.8739,0.9264,0.9993,98,reference only (replay)
@@ -1746,6 +1816,7 @@ Met-A,Met-A each cell,central memory th1 cells,EPIC_v1,505bea0,,,42,0.8794,0.908
 Met-A,Met-A each cell,central memory th1 cells,EPIC_v1,5b01d36,,,0,,,,240,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,central memory th1 cells,EPIC_v1,801e08b,,,260,0.937,0.9964,1.0634,481,reference only (replay)
 Met-A,Met-A each cell,central memory th1 cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,central memory th1 cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,central memory th1 cells,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,central memory th1 cells,HM450K,3463259,,,41,0.8804,0.9348,0.9909,238,reference only (replay)
 Met-A,Met-A each cell,central memory th1 cells,HM450K,50bcb5a,,,18,0.9011,0.9447,1.0445,98,reference only (replay)
@@ -1758,6 +1829,7 @@ Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,505bea0,,,13,0.9353,0.9553,0
 Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,801e08b,,,237,0.9607,1.0073,1.0541,439,reference only (replay)
 Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,colon enteroendocrine,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,colon enteroendocrine,sequencing,1.519e+61,,,58,0.6616,0.8651,1.0356,58,"development (outside-laboratory test, not met)"
 Met-A,Met-A each cell,colon enteroendocrine,sequencing,10f1149,,,15,0.7397,0.9169,1.1007,15,development
@@ -1777,6 +1849,7 @@ Met-A,Met-A each cell,colon epithelium,EPIC_v1,505bea0,,,42,0.8925,0.9135,0.9525
 Met-A,Met-A each cell,colon epithelium,EPIC_v1,5b01d36,,,0,,,,240,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,colon epithelium,EPIC_v1,801e08b,,,260,0.9308,0.9864,1.0529,481,reference only (replay)
 Met-A,Met-A each cell,colon epithelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,colon epithelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,colon epithelium,EPIC_v1,ca58285,,,0,,,,63,reference only (replay)
 Met-A,Met-A each cell,colon epithelium,HM450K,3463259,,,41,0.9663,1.0271,1.1131,238,reference only (replay)
 Met-A,Met-A each cell,colon epithelium,HM450K,50bcb5a,,,18,0.9067,0.9481,1.0568,98,reference only (replay)
@@ -1801,6 +1874,7 @@ Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,505bea0,,,42,0.9333,0.9592,0.989
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,801e08b,,,259,0.9575,1.0147,1.077,480,reference only (replay)
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,af2c330,,,0,,,,556,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,colon fibroblasts,HM450K,3463259,,,41,1.0503,1.098,1.1715,217,reference only (replay)
 Met-A,Met-A each cell,colon fibroblasts,HM450K,50bcb5a,,,15,0.9032,0.9523,1.0268,87,reference only (replay)
@@ -1825,6 +1899,7 @@ Met-A,Met-A each cell,colon macrophages,EPIC_v1,505bea0,,,34,0.9202,0.944,0.9834
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,801e08b,,,254,0.9575,1.0156,1.0798,469,reference only (replay)
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,af2c330,,,0,,,,541,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,colon macrophages,EPIC_v1,c15538a,,,0,,,,111,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,colon macrophages,HM450K,3463259,,,16,1.0212,1.0388,1.0738,79,reference only (replay)
 Met-A,Met-A each cell,colon macrophages,HM450K,50bcb5a,,,13,0.8945,0.9483,1.0169,62,reference only (replay)
@@ -1849,6 +1924,7 @@ Met-A,Met-A each cell,cortical neurons,EPIC_v1,505bea0,,,42,0.9205,0.9477,0.9791
 Met-A,Met-A each cell,cortical neurons,EPIC_v1,5b01d36,,,0,,,,238,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cortical neurons,EPIC_v1,801e08b,,,260,0.9356,0.9886,1.0416,481,reference only (replay)
 Met-A,Met-A each cell,cortical neurons,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cortical neurons,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cortical neurons,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,cortical neurons,HM450K,3463259,,,41,0.9878,1.0236,1.1283,238,reference only (replay)
 Met-A,Met-A each cell,cortical neurons,HM450K,50bcb5a,,,18,0.9025,0.9511,1.0042,98,reference only (replay)
@@ -1873,6 +1949,7 @@ Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,505bea0,,,42,0.8688,
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,5b01d36,,,0,,,,236,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,801e08b,,,260,0.926,0.9881,1.0621,481,reference only (replay)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),HM450K,3463259,,,41,0.8925,0.9367,0.9987,238,reference only (replay)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),HM450K,50bcb5a,,,18,0.9057,0.9559,1.0617,98,reference only (replay)
@@ -1885,6 +1962,7 @@ Met-A,Met-A each cell,effector memory cd8 t cells,EPIC_v1,505bea0,,,42,0.9336,0.
 Met-A,Met-A each cell,effector memory cd8 t cells,EPIC_v1,5b01d36,,,0,,,,236,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,effector memory cd8 t cells,EPIC_v1,801e08b,,,260,0.9252,0.9925,1.0575,481,reference only (replay)
 Met-A,Met-A each cell,effector memory cd8 t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,effector memory cd8 t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,effector memory cd8 t cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,effector memory cd8 t cells,HM450K,3463259,,,41,0.9903,1.0341,1.1361,238,reference only (replay)
 Met-A,Met-A each cell,effector memory cd8 t cells,HM450K,50bcb5a,,,18,0.9124,0.9598,1.0154,98,reference only (replay)
@@ -1909,6 +1987,7 @@ Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,505bea0,,,42,0.9035,0.9282,0.
 Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,5b01d36,,,0,,,,238,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,801e08b,,,260,0.9369,0.9938,1.0611,481,reference only (replay)
 Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,embryonic stem cells,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,embryonic stem cells,HM450K,3463259,,,41,0.9821,1.0074,1.098,238,reference only (replay)
 Met-A,Met-A each cell,embryonic stem cells,HM450K,50bcb5a,,,18,0.9079,0.9478,1.0798,98,reference only (replay)
@@ -1921,6 +2000,7 @@ Met-A,Met-A each cell,endometrium epithelium,EPIC_v1,505bea0,,,34,0.9534,0.9713,
 Met-A,Met-A each cell,endometrium epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,endometrium epithelium,EPIC_v1,801e08b,,,252,0.9638,1.0006,1.0379,466,reference only (replay)
 Met-A,Met-A each cell,endometrium epithelium,EPIC_v1,af2c330,,,0,,,,538,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,endometrium epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,endometrium epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,endometrium epithelium,HM450K,3463259,,,0,,,,4,reference only (replay)
 Met-A,Met-A each cell,endometrium epithelium,HM450K,50bcb5a,,,12,0.9204,0.9599,0.9912,59,reference only (replay)
@@ -1945,6 +2025,7 @@ Met-A,Met-A each cell,eosinophils,EPIC_v1,505bea0,,,42,0.9269,0.946,0.9684,42,re
 Met-A,Met-A each cell,eosinophils,EPIC_v1,5b01d36,,,0,,,,188,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,eosinophils,EPIC_v1,801e08b,,,260,0.9692,1.0042,1.0463,481,reference only (replay)
 Met-A,Met-A each cell,eosinophils,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,eosinophils,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,eosinophils,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,eosinophils,HM450K,3463259,,,41,0.9006,0.9398,0.9849,229,reference only (replay)
 Met-A,Met-A each cell,eosinophils,HM450K,50bcb5a,,,17,0.8889,0.9326,0.9877,94,reference only (replay)
@@ -1957,6 +2038,7 @@ Met-A,Met-A each cell,erythrocyte progenitors,EPIC_v1,505bea0,,,42,0.9461,0.9711
 Met-A,Met-A each cell,erythrocyte progenitors,EPIC_v1,5b01d36,,,0,,,,187,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,erythrocyte progenitors,EPIC_v1,801e08b,,,260,0.9624,1.0052,1.0491,481,reference only (replay)
 Met-A,Met-A each cell,erythrocyte progenitors,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,erythrocyte progenitors,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,erythrocyte progenitors,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,erythrocyte progenitors,HM450K,3463259,,,41,0.8633,0.9123,0.9602,229,reference only (replay)
 Met-A,Met-A each cell,erythrocyte progenitors,HM450K,50bcb5a,,,18,0.9208,0.9726,1.0025,96,reference only (replay)
@@ -1981,6 +2063,7 @@ Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,505bea0,,,13,0.9605,0.9
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,801e08b,,,237,0.9672,1.0013,1.0343,439,reference only (replay)
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,fallopien tubes epithelium,EPIC_v1,ca58285,,,0,,,,63,reference only (replay)
 Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,1.519e+61,,,58,0.7075,0.8875,1.0173,58,"development (outside-laboratory test, not met)"
 Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,10f1149,,,15,0.7773,0.9444,1.0367,15,development
@@ -2000,6 +2083,7 @@ Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,505bea0,,,13,0.9661,0.97
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,801e08b,,,237,0.9693,1.0012,1.0298,439,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,HM450K,c8ff5cc,,,0,,,,14,reference only (replay)
 Met-A,Met-A each cell,gastric antrum epithelium,sequencing,1.519e+61,,,58,0.7174,0.8909,1.0117,58,"development (outside-laboratory test, not met)"
@@ -2020,6 +2104,7 @@ Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,505bea0,,,13,0.962,0.9802,
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,801e08b,,,237,0.9696,1.0038,1.0344,439,reference only (replay)
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,gastric body epithelium,HM450K,3463259,,,0,,,,1,reference only (replay)
 Met-A,Met-A each cell,gastric body epithelium,HM450K,50bcb5a,,,0,,,,12,reference only (replay)
@@ -2044,6 +2129,7 @@ Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,505bea0,,,13,0.9659,0.97
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,801e08b,,,237,0.971,1.0042,1.0354,439,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,HM450K,c8ff5cc,,,0,,,,9,reference only (replay)
 Met-A,Met-A each cell,gastric fundus epithelium,sequencing,1.519e+61,,,58,0.7207,0.8927,1.0111,58,"development (outside-laboratory test, not met)"
@@ -2074,6 +2160,7 @@ Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,505bea0,,,34,0.9495,0.97,0.9929,
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,801e08b,,,253,0.9613,1.0018,1.0408,467,reference only (replay)
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,af2c330,,,0,,,,539,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,heart fibroblasts,HM450K,3463259,,,9,0.9543,0.9647,0.9814,49,reference only (replay)
 Met-A,Met-A each cell,heart fibroblasts,HM450K,50bcb5a,,,11,0.9168,0.9527,0.9817,53,reference only (replay)
@@ -2098,6 +2185,7 @@ Met-A,Met-A each cell,hepatocyte,EPIC_v1,505bea0,,,42,0.9551,0.9798,0.9918,42,re
 Met-A,Met-A each cell,hepatocyte,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,hepatocyte,EPIC_v1,801e08b,,,260,0.9724,1.0057,1.0343,481,reference only (replay)
 Met-A,Met-A each cell,hepatocyte,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,hepatocyte,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,hepatocyte,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,hepatocyte,HM450K,3463259,,,41,0.7945,0.8564,0.9115,238,reference only (replay)
 Met-A,Met-A each cell,hepatocyte,HM450K,50bcb5a,,,18,0.9287,0.9635,0.9956,98,reference only (replay)
@@ -2122,6 +2210,7 @@ Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,505bea0,,,42,0.9478,
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,5b01d36,,,0,,,,178,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,801e08b,,,260,0.9699,1.0087,1.048,481,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular endothelium,HM450K,3463259,,,41,0.9968,1.0136,1.0671,224,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular endothelium,HM450K,50bcb5a,,,17,0.906,0.9544,0.986,95,reference only (replay)
@@ -2146,6 +2235,7 @@ Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,505bea0,,,13,0.9283,0
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,801e08b,,,237,0.9662,1.0135,1.0628,439,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,kidney glomerular epithelium,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,1.519e+61,,,58,0.6244,0.8564,1.0489,58,"development (outside-laboratory test, not met)"
 Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,10f1149,,,15,0.7253,0.8738,1.0082,15,development
@@ -2165,6 +2255,7 @@ Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,505bea0,,,42,0.9432,0.9
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,801e08b,,,260,0.9614,1.001,1.0431,481,reference only (replay)
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,kidney tubular endothelium,HM450K,3463259,,,41,0.9625,1.0021,1.0514,215,reference only (replay)
 Met-A,Met-A each cell,kidney tubular endothelium,HM450K,50bcb5a,,,15,0.9058,0.952,0.9903,87,reference only (replay)
@@ -2189,6 +2280,7 @@ Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,505bea0,,,42,0.9595,0.98
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,5b01d36,,,0,,,,178,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,801e08b,,,260,0.9699,1.0089,1.0451,481,reference only (replay)
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,kidney tubular epithelium,HM450K,3463259,,,41,0.9802,1.0073,1.0526,226,reference only (replay)
 Met-A,Met-A each cell,kidney tubular epithelium,HM450K,50bcb5a,,,18,0.9066,0.9494,0.9762,96,reference only (replay)
@@ -2213,6 +2305,7 @@ Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,505bea0,,,42,0.948,0.975
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,5b01d36,,,0,,,,178,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,801e08b,,,260,0.9676,1.0081,1.0521,481,reference only (replay)
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,lung alveolar endothelium,HM450K,3463259,,,41,0.9717,1.0013,1.0591,226,reference only (replay)
 Met-A,Met-A each cell,lung alveolar endothelium,HM450K,50bcb5a,,,18,0.902,0.9517,0.9817,96,reference only (replay)
@@ -2237,6 +2330,7 @@ Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,505bea0,,,42,0.8943,0.948
 Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,5b01d36,,,0,,,,221,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,801e08b,,,260,0.927,0.9815,1.0397,481,reference only (replay)
 Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,lung alveolar epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,lung alveolar epithelium,HM450K,3463259,,,41,0.9022,0.9605,1.0569,234,reference only (replay)
 Met-A,Met-A each cell,lung alveolar epithelium,HM450K,50bcb5a,,,18,0.8783,0.923,1.0195,98,reference only (replay)
@@ -2261,6 +2355,7 @@ Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,505bea0,,,13,0.9173,0.94
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,801e08b,,,237,0.9538,1.0068,1.0642,439,reference only (replay)
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,lung alveolar macrophages,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,lung alveolar macrophages,sequencing,1.519e+61,,,58,0.5874,0.8184,1.0449,58,"development (outside-laboratory test, not met)"
 Met-A,Met-A each cell,lung alveolar macrophages,sequencing,10f1149,,,15,0.7512,0.8601,1.0605,15,development
@@ -2280,6 +2375,7 @@ Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,505bea0,,,42,0.9037,0.937
 Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,801e08b,,,260,0.9378,0.994,1.0624,481,reference only (replay)
 Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,lung bronchus epithelium,EPIC_v1,ca58285,,,0,,,,59,reference only (replay)
 Met-A,Met-A each cell,lung bronchus epithelium,HM450K,3463259,,,41,0.9736,0.9967,1.0987,238,reference only (replay)
 Met-A,Met-A each cell,lung bronchus epithelium,HM450K,50bcb5a,,,18,0.9323,0.9783,1.0324,98,reference only (replay)
@@ -2304,6 +2400,7 @@ Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,505bea0,,,42,0.9346,
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,801e08b,,,260,0.9524,1.0003,1.0471,481,reference only (replay)
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,lung interstitial macrophages,HM450K,3463259,,,41,0.94,0.9788,1.0209,214,reference only (replay)
 Met-A,Met-A each cell,lung interstitial macrophages,HM450K,50bcb5a,,,16,0.8915,0.9362,0.9809,88,reference only (replay)
@@ -2328,6 +2425,7 @@ Met-A,Met-A each cell,memory b cells,EPIC_v1,505bea0,,,42,0.8696,0.8944,0.9484,4
 Met-A,Met-A each cell,memory b cells,EPIC_v1,5b01d36,,,0,,,,180,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,memory b cells,EPIC_v1,801e08b,,,260,0.9283,0.9853,1.0489,481,reference only (replay)
 Met-A,Met-A each cell,memory b cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,memory b cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,memory b cells,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,memory b cells,HM450K,3463259,,,41,0.9756,1.0104,1.0931,228,reference only (replay)
 Met-A,Met-A each cell,memory b cells,HM450K,50bcb5a,,,17,0.9002,0.9291,1.0175,94,reference only (replay)
@@ -2352,6 +2450,7 @@ Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,505bea0,,,42,0.8952,0.9176,0.95
 Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,5b01d36,,,0,,,,182,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,801e08b,,,260,0.9356,0.9889,1.0457,481,reference only (replay)
 Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,memory cd4 t cells,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,memory cd4 t cells,HM450K,3463259,,,41,0.8687,0.9159,0.955,226,reference only (replay)
 Met-A,Met-A each cell,memory cd4 t cells,HM450K,50bcb5a,,,17,0.8892,0.9276,1.0055,94,reference only (replay)
@@ -2364,6 +2463,7 @@ Met-A,Met-A each cell,microglia,EPIC_v1,505bea0,,,42,0.8817,0.9093,0.9684,42,ref
 Met-A,Met-A each cell,microglia,EPIC_v1,5b01d36,,,0,,,,228,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,microglia,EPIC_v1,801e08b,,,260,0.9154,0.9821,1.0551,481,reference only (replay)
 Met-A,Met-A each cell,microglia,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,microglia,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,microglia,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,microglia,HM450K,3463259,,,41,1.0466,1.0611,1.1687,235,reference only (replay)
 Met-A,Met-A each cell,microglia,HM450K,50bcb5a,,,18,0.9059,0.9607,1.045,98,reference only (replay)
@@ -2376,6 +2476,7 @@ Met-A,Met-A each cell,monocytes,EPIC_v1,505bea0,,,42,0.9185,0.9462,0.9855,42,ref
 Met-A,Met-A each cell,monocytes,EPIC_v1,5b01d36,,,0,,,,234,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,monocytes,EPIC_v1,801e08b,,,260,0.9392,0.9946,1.0484,481,reference only (replay)
 Met-A,Met-A each cell,monocytes,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,monocytes,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,monocytes,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,monocytes,HM450K,3463259,,,41,0.9772,1.03,1.125,236,reference only (replay)
 Met-A,Met-A each cell,monocytes,HM450K,50bcb5a,,,18,0.9001,0.944,0.9958,98,reference only (replay)
@@ -2400,6 +2501,7 @@ Met-A,Met-A each cell,naive b cells,EPIC_v1,505bea0,,,42,0.8877,0.9101,0.9547,42
 Met-A,Met-A each cell,naive b cells,EPIC_v1,5b01d36,,,0,,,,224,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,naive b cells,EPIC_v1,801e08b,,,260,0.9358,0.9904,1.0475,481,reference only (replay)
 Met-A,Met-A each cell,naive b cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,naive b cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,naive b cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,naive b cells,HM450K,3463259,,,41,0.9776,1.0114,1.1059,235,reference only (replay)
 Met-A,Met-A each cell,naive b cells,HM450K,50bcb5a,,,18,0.8945,0.9367,1.025,97,reference only (replay)
@@ -2412,6 +2514,7 @@ Met-A,Met-A each cell,naive cd4 t cells,EPIC_v1,505bea0,,,42,0.8781,0.913,0.9677
 Met-A,Met-A each cell,naive cd4 t cells,EPIC_v1,5b01d36,,,0,,,,237,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,naive cd4 t cells,EPIC_v1,801e08b,,,260,0.9101,0.973,1.0406,481,reference only (replay)
 Met-A,Met-A each cell,naive cd4 t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,naive cd4 t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,naive cd4 t cells,EPIC_v1,ca58285,,,0,,,,60,reference only (replay)
 Met-A,Met-A each cell,naive cd4 t cells,HM450K,3463259,,,41,0.9413,1.0042,1.0988,238,reference only (replay)
 Met-A,Met-A each cell,naive cd4 t cells,HM450K,50bcb5a,,,18,0.9181,0.9742,1.1091,98,reference only (replay)
@@ -2436,6 +2539,7 @@ Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,505bea0,,,42,0.8977,0.9317,0.979
 Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,5b01d36,,,0,,,,240,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,801e08b,,,260,0.9265,0.9911,1.0593,481,reference only (replay)
 Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,naive cd8 t cells,EPIC_v1,ca58285,,,0,,,,61,reference only (replay)
 Met-A,Met-A each cell,naive cd8 t cells,HM450K,3463259,,,41,0.937,0.9858,1.0964,238,reference only (replay)
 Met-A,Met-A each cell,naive cd8 t cells,HM450K,50bcb5a,,,18,0.9208,0.9675,1.0725,98,reference only (replay)
@@ -2460,6 +2564,7 @@ Met-A,Met-A each cell,neutrophils,EPIC_v1,505bea0,,,42,0.9005,0.9326,0.9867,42,r
 Met-A,Met-A each cell,neutrophils,EPIC_v1,5b01d36,,,0,,,,236,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,neutrophils,EPIC_v1,801e08b,,,260,0.9125,0.9724,1.0445,481,reference only (replay)
 Met-A,Met-A each cell,neutrophils,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,neutrophils,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,neutrophils,EPIC_v1,ca58285,,,0,,,,56,reference only (replay)
 Met-A,Met-A each cell,neutrophils,HM450K,3463259,,,41,0.9148,0.9742,1.0746,238,reference only (replay)
 Met-A,Met-A each cell,neutrophils,HM450K,50bcb5a,,,18,0.9135,0.9661,1.0928,98,reference only (replay)
@@ -2472,6 +2577,7 @@ Met-A,Met-A each cell,nk cells,EPIC_v1,505bea0,,,42,0.8939,0.9234,0.9635,42,refe
 Met-A,Met-A each cell,nk cells,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,nk cells,EPIC_v1,801e08b,,,260,0.9563,1.0157,1.0836,481,reference only (replay)
 Met-A,Met-A each cell,nk cells,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,nk cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,nk cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,nk cells,HM450K,3463259,,,41,0.9916,1.0474,1.148,238,reference only (replay)
 Met-A,Met-A each cell,nk cells,HM450K,50bcb5a,,,18,0.8679,0.9288,0.9857,98,reference only (replay)
@@ -2496,6 +2602,7 @@ Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,505bea0,,,13,0.92,0.958
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,801e08b,,,237,0.9871,1.042,1.0939,439,reference only (replay)
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,3463259,,,0,,,,251,reference only (replay)
@@ -2503,6 +2610,7 @@ Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,505bea0,,,42,0.9043,0.9293,0.963,
 Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,5b01d36,,,0,,,,209,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,801e08b,,,260,0.9356,0.982,1.0359,481,reference only (replay)
 Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,oligodendrocytes,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,oligodendrocytes,HM450K,3463259,,,41,0.9985,1.0377,1.1237,232,reference only (replay)
 Met-A,Met-A each cell,oligodendrocytes,HM450K,50bcb5a,,,18,0.9003,0.9387,1.0081,97,reference only (replay)
@@ -2527,6 +2635,7 @@ Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,505bea0,,,13,0.9544,0.9724,0.
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,801e08b,,,237,0.9644,1.0035,1.0449,439,reference only (replay)
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,pancreas endothelium,HM450K,3463259,,,0,,,,3,reference only (replay)
 Met-A,Met-A each cell,pancreas endothelium,HM450K,50bcb5a,,,4,0.9286,0.937,0.9612,33,reference only (replay)
@@ -2551,6 +2660,7 @@ Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,505bea0,,,42,0.9455,0.9656,0.987
 Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,801e08b,,,260,0.9735,1.0067,1.0369,481,reference only (replay)
 Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,pancreatic acinar,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,pancreatic acinar,HM450K,3463259,,,41,0.8232,0.8858,0.9419,238,reference only (replay)
 Met-A,Met-A each cell,pancreatic acinar,HM450K,50bcb5a,,,18,0.9477,0.9781,1.0238,98,reference only (replay)
@@ -2575,6 +2685,7 @@ Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,505bea0,,,33,0.9523,0.9722,0.9942
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,801e08b,,,252,0.9683,1.0058,1.0431,465,reference only (replay)
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,af2c330,,,0,,,,537,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,pancreatic alpha,HM450K,3463259,,,0,,,,4,reference only (replay)
 Met-A,Met-A each cell,pancreatic alpha,HM450K,50bcb5a,,,11,0.905,0.9457,0.966,53,reference only (replay)
@@ -2599,6 +2710,7 @@ Met-A,Met-A each cell,pancreatic beta,EPIC_v1,505bea0,,,42,0.9322,0.957,0.9824,4
 Met-A,Met-A each cell,pancreatic beta,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,pancreatic beta,EPIC_v1,801e08b,,,260,0.9502,1.0005,1.0512,481,reference only (replay)
 Met-A,Met-A each cell,pancreatic beta,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,pancreatic beta,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,pancreatic beta,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,pancreatic beta,HM450K,3463259,,,41,0.9115,0.9588,1.028,238,reference only (replay)
 Met-A,Met-A each cell,pancreatic beta,HM450K,50bcb5a,,,18,0.9106,0.9488,1.0094,98,reference only (replay)
@@ -2623,6 +2735,7 @@ Met-A,Met-A each cell,pancreatic delta,EPIC_v1,505bea0,,,42,0.9508,0.9794,0.9976
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,801e08b,,,259,0.9669,1.0077,1.043,480,reference only (replay)
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,af2c330,,,0,,,,556,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,pancreatic delta,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,pancreatic delta,HM450K,3463259,,,41,0.9462,0.9849,1.0254,190,reference only (replay)
 Met-A,Met-A each cell,pancreatic delta,HM450K,50bcb5a,,,15,0.9147,0.9532,0.9907,84,reference only (replay)
@@ -2647,6 +2760,7 @@ Met-A,Met-A each cell,pancreatic duct,EPIC_v1,505bea0,,,42,0.9501,0.9685,0.9931,
 Met-A,Met-A each cell,pancreatic duct,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,pancreatic duct,EPIC_v1,801e08b,,,260,0.9613,1.0014,1.0329,481,reference only (replay)
 Met-A,Met-A each cell,pancreatic duct,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,pancreatic duct,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,pancreatic duct,EPIC_v1,ca58285,,,0,,,,62,reference only (replay)
 Met-A,Met-A each cell,pancreatic duct,HM450K,3463259,,,41,0.8229,0.8925,0.9439,238,reference only (replay)
 Met-A,Met-A each cell,pancreatic duct,HM450K,50bcb5a,,,18,0.938,0.9744,1.0248,98,reference only (replay)
@@ -2671,6 +2785,7 @@ Met-A,Met-A each cell,prostate epithelium,EPIC_v1,505bea0,,,13,0.9634,0.9788,0.9
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,801e08b,,,237,0.972,1.0057,1.0345,439,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,prostate epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,HM450K,c8ff5cc,,,0,,,,12,reference only (replay)
 Met-A,Met-A each cell,prostate epithelium,sequencing,1.519e+61,,,58,0.7198,0.8843,1.0101,58,"development (outside-laboratory test, not met)"
@@ -2691,6 +2806,7 @@ Met-A,Met-A each cell,regulatory t cells,EPIC_v1,505bea0,,,42,0.9132,0.9339,0.95
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,801e08b,,,259,0.9435,0.9902,1.0268,480,reference only (replay)
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,af2c330,,,0,,,,556,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,regulatory t cells,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,regulatory t cells,HM450K,3463259,,,41,0.7914,0.849,0.8926,160,reference only (replay)
 Met-A,Met-A each cell,regulatory t cells,HM450K,50bcb5a,,,6,0.9104,0.9298,0.943,56,reference only (replay)
@@ -2703,6 +2819,7 @@ Met-A,Met-A each cell,small intestine epithelium,EPIC_v1,505bea0,,,42,0.8948,0.9
 Met-A,Met-A each cell,small intestine epithelium,EPIC_v1,5b01d36,,,0,,,,240,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,small intestine epithelium,EPIC_v1,801e08b,,,260,0.9322,0.991,1.0602,481,reference only (replay)
 Met-A,Met-A each cell,small intestine epithelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,small intestine epithelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,small intestine epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,small intestine epithelium,HM450K,3463259,,,41,0.9927,1.0538,1.1339,238,reference only (replay)
 Met-A,Met-A each cell,small intestine epithelium,HM450K,50bcb5a,,,18,0.9077,0.9547,1.0419,98,reference only (replay)
@@ -2727,6 +2844,7 @@ Met-A,Met-A each cell,smooth muscle,EPIC_v1,505bea0,,,13,0.9624,0.9791,0.9976,13
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,801e08b,,,237,0.971,1.0063,1.0405,439,reference only (replay)
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,smooth muscle,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,smooth muscle,HM450K,3463259,,,0,,,,2,reference only (replay)
 Met-A,Met-A each cell,smooth muscle,HM450K,50bcb5a,,,0,,,,11,reference only (replay)
@@ -2751,6 +2869,7 @@ Met-A,Met-A each cell,striated muscle,EPIC_v1,505bea0,,,13,0.922,0.9503,0.9744,1
 Met-A,Met-A each cell,striated muscle,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,striated muscle,EPIC_v1,801e08b,,,237,0.9596,1.0121,1.0731,439,reference only (replay)
 Met-A,Met-A each cell,striated muscle,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,striated muscle,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,striated muscle,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,striated muscle,HM450K,50bcb5a,,,0,,,,1,reference only (replay)
 Met-A,Met-A each cell,striated muscle,HM450K,c8ff5cc,,,0,,,,15,reference only (replay)
@@ -2772,6 +2891,7 @@ Met-A,Met-A each cell,t central memory cd4,EPIC_v1,505bea0,,,42,0.8809,0.9109,0.
 Met-A,Met-A each cell,t central memory cd4,EPIC_v1,5b01d36,,,0,,,,205,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,t central memory cd4,EPIC_v1,801e08b,,,260,0.9079,0.9702,1.0471,481,reference only (replay)
 Met-A,Met-A each cell,t central memory cd4,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,t central memory cd4,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,t central memory cd4,EPIC_v1,ca58285,,,0,,,,56,reference only (replay)
 Met-A,Met-A each cell,t central memory cd4,HM450K,3463259,,,41,0.9309,0.9774,1.0568,233,reference only (replay)
 Met-A,Met-A each cell,t central memory cd4,HM450K,50bcb5a,,,18,0.9474,0.9989,1.1046,98,reference only (replay)
@@ -2796,6 +2916,7 @@ Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,505bea0,,,42,0.8805,0.9113,0.9
 Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,5b01d36,,,0,,,,235,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,801e08b,,,260,0.93,0.9849,1.0495,481,reference only (replay)
 Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,t effector cell cd8,EPIC_v1,ca58285,,,0,,,,59,reference only (replay)
 Met-A,Met-A each cell,t effector cell cd8,HM450K,3463259,,,41,0.8434,0.8905,0.9558,238,reference only (replay)
 Met-A,Met-A each cell,t effector cell cd8,HM450K,50bcb5a,,,18,0.914,0.9629,1.0472,98,reference only (replay)
@@ -2820,6 +2941,7 @@ Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,505bea0,,,41,0.9237,0.9465,0
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,801e08b,,,255,0.9486,0.996,1.0506,470,reference only (replay)
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,af2c330,,,0,,,,544,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,c15538a,,,0,,,,125,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,t effector memory cd4,HM450K,3463259,,,36,0.9499,0.9772,1.0159,138,reference only (replay)
 Met-A,Met-A each cell,t effector memory cd4,HM450K,50bcb5a,,,11,0.8877,0.9331,0.9884,57,reference only (replay)
@@ -2844,6 +2966,7 @@ Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,505bea0,,,42,0.9511,0.9779,0.99
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,801e08b,,,258,0.9667,1.0045,1.0434,475,reference only (replay)
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,af2c330,,,0,,,,551,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,c15538a,,,0,,,,130,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,thyroid epithelium,HM450K,3463259,,,39,0.9407,0.991,1.0342,158,reference only (replay)
 Met-A,Met-A each cell,thyroid epithelium,HM450K,50bcb5a,,,13,0.9033,0.9518,0.9799,67,reference only (replay)
@@ -2868,6 +2991,7 @@ Met-A,Met-A each cell,tongue epithelium,EPIC_v1,505bea0,,,13,0.9624,0.9768,0.994
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,801e08b,,,237,0.9734,1.0066,1.036,439,reference only (replay)
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,tongue epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,ca58285,,,0,,,,64,reference only (replay)
 Met-A,Met-A each cell,tongue epithelium,HM450K,50bcb5a,,,0,,,,3,reference only (replay)
 Met-A,Met-A each cell,tongue epithelium,HM450K,c8ff5cc,,,0,,,,18,reference only (replay)
@@ -2889,6 +3013,7 @@ Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,505bea0,,,42,0.9531,0.9
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,801e08b,,,258,0.9718,1.0066,1.042,475,reference only (replay)
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,af2c330,,,0,,,,550,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,c15538a,,,0,,,,129,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,tonsil palatine epithelium,HM450K,3463259,,,41,0.9668,0.9986,1.041,157,reference only (replay)
 Met-A,Met-A each cell,tonsil palatine epithelium,HM450K,50bcb5a,,,15,0.9144,0.9572,0.9857,76,reference only (replay)
@@ -2913,6 +3038,7 @@ Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,505bea0,,,13,0.9336,0
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,801e08b,,,237,0.9664,1.0141,1.0644,439,reference only (replay)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,EPIC_v1,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,1.519e+61,,,58,0.6692,0.8535,1.0284,58,"development (outside-laboratory test, not met)"
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,10f1149,,,15,0.7199,0.8845,1.2039,15,development
@@ -2932,6 +3058,7 @@ Met-A,Met-A each cell,vascular endothelium,EPIC_v1,505bea0,,,42,0.9248,0.9714,1.
 Met-A,Met-A each cell,vascular endothelium,EPIC_v1,5b01d36,,,0,,,,238,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,vascular endothelium,EPIC_v1,801e08b,,,260,0.9532,1.0038,1.0449,481,reference only (replay)
 Met-A,Met-A each cell,vascular endothelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,vascular endothelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,vascular endothelium,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,vascular endothelium,HM450K,3463259,,,41,0.8836,0.9377,1.0042,238,reference only (replay)
 Met-A,Met-A each cell,vascular endothelium,HM450K,50bcb5a,,,18,0.9062,0.9623,0.9936,98,reference only (replay)
@@ -2944,6 +3071,7 @@ Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,505bea0,,,13,0.9223,
 Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,5b01d36,,,0,,,,176,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,801e08b,,,237,0.9887,1.0472,1.1006,439,reference only (replay)
 Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,3463259,,,0,,,,265,reference only (replay)
@@ -2951,6 +3079,7 @@ Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,505bea0,,,42,0.9491
 Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,5b01d36,,,0,,,,177,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,801e08b,,,260,0.9694,1.0089,1.0506,481,reference only (replay)
 Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,ca58285,,,0,,,,65,reference only (replay)
 Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,3463259,,,41,0.9898,1.0115,1.0681,219,reference only (replay)
 Met-A,Met-A each cell,vascular saphenous endothelium,HM450K,50bcb5a,,,16,0.9031,0.9499,0.9832,93,reference only (replay)
@@ -3210,6 +3339,7 @@ Met-A,Met-A whole sample,whole sample,EPIC_v1,505bea0,,,42,0.9283,0.9574,0.9861,
 Met-A,Met-A whole sample,whole sample,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,Met-A whole sample,whole sample,EPIC_v1,801e08b,,,260,0.9575,1.0111,1.0619,481,reference only (replay)
 Met-A,Met-A whole sample,whole sample,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A whole sample,whole sample,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A whole sample,whole sample,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,Met-A whole sample,whole sample,HM450K,3463259,,,41,0.9416,1.0112,1.0719,238,reference only (replay)
 Met-A,Met-A whole sample,whole sample,HM450K,50bcb5a,,,18,0.9203,0.9701,1.0158,98,reference only (replay)
@@ -3255,6 +3385,7 @@ Met-A,"Met-A whole sample, by place",domains,EPIC_v1,505bea0,,,42,0.9082,0.9466,
 Met-A,"Met-A whole sample, by place",domains,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,"Met-A whole sample, by place",domains,EPIC_v1,801e08b,,,260,0.9539,1.0144,1.0746,481,reference only (replay)
 Met-A,"Met-A whole sample, by place",domains,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,"Met-A whole sample, by place",domains,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,"Met-A whole sample, by place",domains,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,"Met-A whole sample, by place",domains,HM450K,3463259,,,41,0.9514,1.0786,1.1437,238,reference only (replay)
 Met-A,"Met-A whole sample, by place",domains,HM450K,50bcb5a,,,18,0.9336,0.9983,1.0767,98,reference only (replay)
@@ -3300,6 +3431,7 @@ Met-A,"Met-A whole sample, by place",identity sites of the cells found,EPIC_v1,5
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,EPIC_v1,801e08b,,,260,0.9416,0.9944,1.0524,481,reference only (replay)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,HM450K,3463259,,,41,0.9509,0.9881,1.0805,238,reference only (replay)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,HM450K,50bcb5a,,,18,0.8863,0.9341,1.0045,98,reference only (replay)
@@ -3345,6 +3477,7 @@ Met-A,"Met-A whole sample, by place",islands,EPIC_v1,505bea0,,,42,0.9269,0.9523,
 Met-A,"Met-A whole sample, by place",islands,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,"Met-A whole sample, by place",islands,EPIC_v1,801e08b,,,260,0.8895,0.9666,1.0527,481,reference only (replay)
 Met-A,"Met-A whole sample, by place",islands,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,"Met-A whole sample, by place",islands,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,"Met-A whole sample, by place",islands,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,"Met-A whole sample, by place",islands,HM450K,3463259,,,41,1.1062,1.1706,1.2805,238,reference only (replay)
 Met-A,"Met-A whole sample, by place",islands,HM450K,50bcb5a,,,18,0.8548,0.9102,0.9484,98,reference only (replay)
@@ -3390,6 +3523,7 @@ Met-A,"Met-A whole sample, by place",the rest,EPIC_v1,505bea0,,,42,0.9367,0.9681
 Met-A,"Met-A whole sample, by place",the rest,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Met-A,"Met-A whole sample, by place",the rest,EPIC_v1,801e08b,,,260,0.9623,1.0156,1.0624,481,reference only (replay)
 Met-A,"Met-A whole sample, by place",the rest,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,"Met-A whole sample, by place",the rest,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Met-A,"Met-A whole sample, by place",the rest,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Met-A,"Met-A whole sample, by place",the rest,HM450K,3463259,,,41,0.865,0.935,0.9868,238,reference only (replay)
 Met-A,"Met-A whole sample, by place",the rest,HM450K,50bcb5a,,,18,0.9278,0.9768,1.0119,98,reference only (replay)
@@ -3438,6 +3572,7 @@ Territories,territory,domains,EPIC_v1,505bea0,,,42,0.9209,0.954,1.0064,42,refere
 Territories,territory,domains,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Territories,territory,domains,EPIC_v1,801e08b,,,260,0.9567,1.0121,1.0662,481,reference only (replay)
 Territories,territory,domains,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Territories,territory,domains,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Territories,territory,domains,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Territories,territory,domains,HM450K,3463259,,,41,0.9405,1.055,1.1166,238,reference only (replay)
 Territories,territory,domains,HM450K,50bcb5a,,,18,0.9313,0.9956,1.0659,98,reference only (replay)
@@ -3483,6 +3618,7 @@ Territories,territory,islands,EPIC_v1,505bea0,,,42,0.925,0.9508,0.9959,42,refere
 Territories,territory,islands,EPIC_v1,5b01d36,,,0,,,,241,reference only (replay; cervical cytology not commissioned)
 Territories,territory,islands,EPIC_v1,801e08b,,,260,0.8924,0.9688,1.0542,481,reference only (replay)
 Territories,territory,islands,EPIC_v1,af2c330,,,0,,,,557,"reference only (replay, every atlas cell)"
+Territories,territory,islands,EPIC_v1,c15538a,,,0,,,,131,reference only (replay; lung tissue not commissioned)
 Territories,territory,islands,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
 Territories,territory,islands,HM450K,3463259,,,41,1.106,1.1692,1.2763,238,reference only (replay)
 Territories,territory,islands,HM450K,50bcb5a,,,18,0.8521,0.9073,0.9442,98,reference only (replay)

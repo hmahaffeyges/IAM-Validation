@@ -540,6 +540,13 @@
    "status": "reference only (replay; cervical cytology not commissioned)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
    "rows_table": true
+  },
+  {
+   "id": "R14-LUNG",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r14_full/r14_lung_full_rows.csv",
+   "status": "reference only (replay; lung tissue not commissioned)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
   }
  ],
  "lines": {
