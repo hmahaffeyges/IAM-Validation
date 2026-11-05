@@ -610,6 +610,7 @@ def main():
     ap.add_argument("--prior-geo-pat", default=None, metavar="GSM", help="the same for --prior-pat")
     ap.add_argument("--geo-dir", default=None, help="where --geo-pat files are written (default: a temporary folder)")
     ap.add_argument("--pat", default=None, help="chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table)")
+    ap.add_argument("--dev-allow-partial-genome", action="store_true", help="development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged")
     ap.add_argument("--pat-max-bytes", type=int, default=None, help="development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial")
     ap.add_argument("--alignment-qc", default=None, help="Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction")
     ap.add_argument("--iama-ref-table", default=None, help="CSV of same-run healthy references for IAM-A (column A, optional id, pipeline): same laboratory, kit and pipeline; >= 3 rows -> IAM-A median tare")
@@ -738,6 +739,14 @@ def main():
         _vb, _vc, a._seqv = _SV.values_from_pat(a.pat, a.dev_seq_values); a._seqc = _vc   # read counts per site, for Met-A's k-of-n expectation (40.3)
         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
         print(f"  {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites with a value; median {a._seqv['calls_per_site_median']:.0f} calls per site", flush=True)
+    if a._seqv is not None and not getattr(a, "dev_allow_partial_genome", False):   # 2026-11-04: the genome-coverage intake check, before any reading
+        _gc = _SV.genome_coverage(_vb); a._seqv["genome_coverage"] = _gc
+        if _gc["status"] != "OK":
+            print("  GENOME_COVERAGE_REFUSED - " + _gc["reason"], flush=True)
+            if a.bundle:
+                json.dump({"status": "GENOME_COVERAGE_REFUSED", "id": a.id, "sequencing_values": a._seqv, "reason": _gc["reason"],
+                           "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1, default=str)
+            sys.exit(3)
     if a._seqv is not None:   # 2026-11-03: the sample's own floor, before any reading, for every sequencing input (.beta, bigWig and .pat; it was
         try:                  # set for .beta and bigWig only, so plasma's molecules never took --dev-floor-equal: found in plasma_seq_03, disclosed)
             import stage_seq_atlas as _SQf0, stage_metaa_atlas as _SAf0; _lf0 = _SQf0.library_floor(_vb, _vc)

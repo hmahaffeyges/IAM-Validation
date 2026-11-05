@@ -757,6 +757,14 @@ numbering, the numbering of the frozen site key); a file of another length is re
 runs but IAM-A, which needs molecules (`run_sample.py --dev-seq-beta`, `run_draw.py --buffy-seqbeta / --plasma-seqbeta`). Checked on a
 constructed file (the example blood GSM7508429 drawn at 30 reads per site): the IAM-Deconvolver's six shares within 1.2 points of the array's.
 
+### stage_seq_values.py::genome_coverage
+The intake check every sequenced sample passes before any reading: for each autosome, the share of IAM-Atlas v2.1's sites on it that carry a
+value, against the median autosome's share; an autosome under half the median refuses the sample (GENOME_COVERAGE_REFUSED). Why it exists: a
+run stored on SRA in genome order and read from its first read pairs holds only the first chromosomes (GSE98837's first 140 million pairs were
+chromosomes 1 to 8), and the readings made from it are wrong in a way no later stage names. Comparing chromosomes with each other lets a thin
+library (plasma) pass and stops a partial one (DEV-SEQ-INTAKE-01). The rule behind it: never read the first N pairs of a run; read it whole,
+or check its order first.
+
 ### stage_seq_values.py::values_from_pat
 A value at each atlas site from sequencing molecules, for `--dev-seq-values MIN_CALLS`: every call at the exact CpG the site names is counted,
 and the value is methylated calls over calls, kept only where there are at least MIN_CALLS calls; the summary gives how many sites have a value

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1404,
+   "lines": 1413,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -305,9 +305,9 @@
      "function": "main",
      "name": "main",
      "line": 542,
-     "end": 1401,
+     "end": 1410,
      "args": [],
-     "lines": 860,
+     "lines": 869,
      "doc": "",
      "constants": [
       "BIO",
@@ -339,8 +339,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 800,
-     "end": 804,
+     "line": 809,
+     "end": 813,
      "args": [
       "r"
      ],
@@ -356,8 +356,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1035,
-     "end": 1042,
+     "line": 1044,
+     "end": 1051,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -369,8 +369,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1331,
-     "end": 1332,
+     "line": 1340,
+     "end": 1341,
      "args": [
       "b",
       "it",
@@ -5025,7 +5025,7 @@
   },
   {
    "file": "stage_seq_values.py",
-   "lines": 140,
+   "lines": 167,
    "functions": [
     {
      "file": "stage_seq_values.py",
@@ -5155,6 +5155,27 @@
      ],
      "data_files": [
       "atlas/v2.1/sites_key_hg38.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_values.py",
+     "function": "genome_coverage",
+     "name": "genome_coverage",
+     "line": 144,
+     "end": 166,
+     "args": [
+      "values",
+      "key",
+      "rule"
+     ],
+     "lines": 23,
+     "doc": "Intake check for every sequenced sample (2026-11-04, author: 'the chain ... should make sure this cant happen again'). A whole-genome library carries reads on every autosome in proportion to its CpGs. A sample read only in part (the first N read pairs of a run stored in genome order, a truncated download, a lost chunk) carries reads on some chromosomes and not others: GSE98837's first 140 million ",
+     "constants": [
+      "GENOME_COVERAGE_RULE"
+     ],
+     "data_files": [
+      "sites_sequencing_key.parquet"
      ],
      "traced_calls": {}
     }
@@ -9666,5 +9687,5 @@
   }
  ],
  "n_files": 36,
- "n_functions": 493
+ "n_functions": 494
 }

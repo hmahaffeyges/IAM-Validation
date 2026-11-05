@@ -35,11 +35,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **36 Python files** holding **493 functions** (nested ones included); 493 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **36 Python files** holding **494 functions** (nested ones included); 494 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,404 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,413 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,193 | 42 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -56,7 +56,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 54 | 4 | 0 | 0 |
-| `stage_seq_values.py` | 140 | 7 | 0 | 0 |
+| `stage_seq_values.py` | 167 | 8 | 0 | 0 |
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
@@ -305,14 +305,14 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 542 (860 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 542 (869 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1035 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1044 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -320,13 +320,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 800 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 809 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1331 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1340 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1123,6 +1123,17 @@ runs but IAM-A, which needs molecules (`run_sample.py --dev-seq-beta`, `run_draw
 constructed file (the example blood GSM7508429 drawn at 30 reads per site): the IAM-Deconvolver's six shares within 1.2 points of the array's.
 
 *Code:* `stage_seq_values.py` line 69 (14 lines) · arguments: path, min_calls · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
+
+### `stage_seq_values.py::genome_coverage`
+
+The intake check every sequenced sample passes before any reading: for each autosome, the share of IAM-Atlas v2.1's sites on it that carry a
+value, against the median autosome's share; an autosome under half the median refuses the sample (GENOME_COVERAGE_REFUSED). Why it exists: a
+run stored on SRA in genome order and read from its first read pairs holds only the first chromosomes (GSE98837's first 140 million pairs were
+chromosomes 1 to 8), and the readings made from it are wrong in a way no later stage names. Comparing chromosomes with each other lets a thin
+library (plasma) pass and stops a partial one (DEV-SEQ-INTAKE-01). The rule behind it: never read the first N pairs of a run; read it whole,
+or check its order first.
+
+*Code:* `stage_seq_values.py` line 144 (23 lines) · arguments: values, key, rule · calls: not called on the traced runs · constants read: `GENOME_COVERAGE_RULE` · files named: `sites_sequencing_key.parquet`
 
 ### `stage_seq_values.py::values_from_pat`
 
