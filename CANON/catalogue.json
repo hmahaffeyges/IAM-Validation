@@ -240,7 +240,7 @@
   {
    "name": "Met-A on sequencing",
    "what": "Met-A for a sample sequenced by whole-genome bisulfite, read against the IAM Sequencing Atlas, the ruler measured with sequencing's own chemistry. A sorted cell is read donor by donor: the sample's disorder at its cell's identity sites against that of each healthy donor of the same cell, both at the same number of reads, so counting is exact on both sides and nothing is fitted. Every healthy sequenced input reads Normal, 140 of 140, sorted-cell Met-A 1.0075; a mixed sample is read against the atlas in its own cell shares.",
-   "next": "Healthy sorted cells from laboratories the atlas has never held, each read against its own cell; the library floor carried into the expectation where a laboratory's floor differs.",
+   "next": "The same-laboratory tare: two outside laboratories' healthy libraries read own-cell Met-A at a median of 0.7134 and 0.5891, and tared on three of their own laboratory's healthy samples of the same cell they read 1.0001 and 0.9889. Next, the healthy test on a laboratory the atlas has never held (six healthy donors' CD4 T cells, each tared on the other five), then each cell from every laboratory that supplies healthy samples of its own.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
   }
  ],
