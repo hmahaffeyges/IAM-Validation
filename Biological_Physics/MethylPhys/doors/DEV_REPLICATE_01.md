@@ -340,3 +340,21 @@ v2.1. Both now compare every cell the chain read and every share, and every full
 blood panel only (R5 liver, R6 aging, R9 glioma blood; 450K stroke on none, its shares withheld). Each is read once more by the one command
 with `--full-chain --cell-panel atlas` (all 79 cells, flagged in development), written before that read; the six-cell readings stay as the
 commissioned ones. Under the full chain a whole blood is to read both panels in one call (plan: the full chain on every cell).
+
+## R13, cervical precancer and cancer in cytology on EPIC: GSE287994 (written and committed before any of these arrays is read by this replay)
+
+**Data.** GSE287994 (EPIC v1, raw IDATs per sample on GEO): 241 cervical samples, 126 CIN3 or cancer and 115 benign, with HPV status
+(`data/DEV_REPLICATE_01/r13_cervical_labels.csv`, from GEO's sample records; `r13_cervical_samples.csv`). **Prior reading:** partly spent (an
+earlier engine's test, VAL-077); its earlier result is not opened here. **The reading:** every array by the one command with the full chain
+(`--full-chain --cell-panel atlas`), pass 1, specimen not stated (no reference is claimed for this specimen; every reading is flagged).
+**Compared** by `r23_score.py r13`: CIN3 or cancer against benign, all and HPV-positive only, each reading (effect size, p). Reference only:
+nothing is scored against a bar. The readings go into the A-score database with the lesion grade.
+
+## R14, never-smoker lung adenocarcinoma tissue by stage on EPIC: GSE256092 (written and committed before any of these arrays is read by this replay)
+
+**Data.** GSE256092 (EPIC v1, raw IDATs per sample on GEO): 141 lung adenocarcinoma tissues from never-smokers, stage 1 (55), 2 (38), 3 (47)
+and 4 (1) (`data/DEV_REPLICATE_01/r14_lung_labels.csv`, `r14_lung_samples.csv`; GEO gives no slide, so pass 2 is not run). **Prior reading:**
+partly spent (an earlier engine's test, VAL-097); its earlier result is not opened here. **The reading:** every array by the one command with the
+full chain (`--full-chain --cell-panel atlas`), pass 1, specimen "tissue" (the full-atlas tissue route, flagged). **Compared** by `r23_score.py
+r14`: stage 3 or 4 against stage 1, and stage 2 against stage 1. Reference only. The readings go into the A-score database with the stage,
+which is what the A-score lines need (a reading that follows stage).

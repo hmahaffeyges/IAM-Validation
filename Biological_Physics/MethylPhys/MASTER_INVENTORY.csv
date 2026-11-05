@@ -304,7 +304,7 @@ GSE286313,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_BASE_CHAIN_01; DEV_EPIC_V2_
 GSE287137,downloads/B_cfDNA_plasma/GSE287137/,2.16,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
 GSE287261,downloads/A_blood_immune/GSE287261/,2.32,IDAT,yes,unspent,,,,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE287331,,,,,spent,,,DEV_BREACH_01; DEV_FIELD_01,,,,,,
-GSE287994,,,,,partly spent,,,,,,,,,
+GSE287994,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE288076,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE288100,,,,,partly spent (declared before reading),,,DEV_ERASE_01,,,,,,
 GSE288337,,,,,,,,DEV_IAMA_NEURON_01,,,,,,

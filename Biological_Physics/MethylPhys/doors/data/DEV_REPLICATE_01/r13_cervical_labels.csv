@@ -1,0 +1,242 @@
+gsm,case_status,hpv_status,status,hpv
+GSM8756973,0,1,benign,HPV positive
+GSM8756974,0,0,benign,HPV negative
+GSM8756975,1,1,CIN3 or cancer,HPV positive
+GSM8756976,1,1,CIN3 or cancer,HPV positive
+GSM8756977,0,0,benign,HPV negative
+GSM8756978,1,1,CIN3 or cancer,HPV positive
+GSM8756979,1,0,CIN3 or cancer,HPV negative
+GSM8756980,0,1,benign,HPV positive
+GSM8756981,0,1,benign,HPV positive
+GSM8756982,1,1,CIN3 or cancer,HPV positive
+GSM8756984,0,0,benign,HPV negative
+GSM8756985,0,1,benign,HPV positive
+GSM8756987,1,1,CIN3 or cancer,HPV positive
+GSM8756988,1,1,CIN3 or cancer,HPV positive
+GSM8756989,1,1,CIN3 or cancer,HPV positive
+GSM8756990,0,0,benign,HPV negative
+GSM8756991,0,0,benign,HPV negative
+GSM8756992,1,1,CIN3 or cancer,HPV positive
+GSM8756993,1,1,CIN3 or cancer,HPV positive
+GSM8756994,1,1,CIN3 or cancer,HPV positive
+GSM8756995,0,0,benign,HPV negative
+GSM8756996,0,0,benign,HPV negative
+GSM8756997,0,0,benign,HPV negative
+GSM8756998,0,0,benign,HPV negative
+GSM8756999,0,1,benign,HPV positive
+GSM8757000,1,1,CIN3 or cancer,HPV positive
+GSM8757001,1,1,CIN3 or cancer,HPV positive
+GSM8757002,0,0,benign,HPV negative
+GSM8757003,1,1,CIN3 or cancer,HPV positive
+GSM8757004,0,0,benign,HPV negative
+GSM8757005,0,0,benign,HPV negative
+GSM8757007,0,0,benign,HPV negative
+GSM8757008,0,1,benign,HPV positive
+GSM8757009,1,1,CIN3 or cancer,HPV positive
+GSM8757010,0,0,benign,HPV negative
+GSM8757011,0,1,benign,HPV positive
+GSM8757012,1,1,CIN3 or cancer,HPV positive
+GSM8757013,1,1,CIN3 or cancer,HPV positive
+GSM8757014,1,1,CIN3 or cancer,HPV positive
+GSM8757015,1,1,CIN3 or cancer,HPV positive
+GSM8757016,1,1,CIN3 or cancer,HPV positive
+GSM8757017,1,1,CIN3 or cancer,HPV positive
+GSM8757018,0,0,benign,HPV negative
+GSM8757019,0,1,benign,HPV positive
+GSM8757020,0,0,benign,HPV negative
+GSM8757021,0,0,benign,HPV negative
+GSM8757022,1,1,CIN3 or cancer,HPV positive
+GSM8757023,1,0,CIN3 or cancer,HPV negative
+GSM8757024,1,1,CIN3 or cancer,HPV positive
+GSM8757025,0,1,benign,HPV positive
+GSM8757026,0,0,benign,HPV negative
+GSM8757027,1,1,CIN3 or cancer,HPV positive
+GSM8757028,0,1,benign,HPV positive
+GSM8757029,1,1,CIN3 or cancer,HPV positive
+GSM8757030,1,1,CIN3 or cancer,HPV positive
+GSM8757031,1,1,CIN3 or cancer,HPV positive
+GSM8757032,1,1,CIN3 or cancer,HPV positive
+GSM8757033,1,1,CIN3 or cancer,HPV positive
+GSM8757034,1,1,CIN3 or cancer,HPV positive
+GSM8757035,1,1,CIN3 or cancer,HPV positive
+GSM8757036,0,1,benign,HPV positive
+GSM8757037,0,0,benign,HPV negative
+GSM8757038,0,0,benign,HPV negative
+GSM8757039,1,1,CIN3 or cancer,HPV positive
+GSM8757040,0,1,benign,HPV positive
+GSM8757041,0,0,benign,HPV negative
+GSM8757042,0,0,benign,HPV negative
+GSM8757043,1,1,CIN3 or cancer,HPV positive
+GSM8757044,0,0,benign,HPV negative
+GSM8757045,0,1,benign,HPV positive
+GSM8757046,1,0,CIN3 or cancer,HPV negative
+GSM8757047,0,0,benign,HPV negative
+GSM8757048,0,0,benign,HPV negative
+GSM8757049,1,1,CIN3 or cancer,HPV positive
+GSM8757050,1,1,CIN3 or cancer,HPV positive
+GSM8757051,1,1,CIN3 or cancer,HPV positive
+GSM8757052,1,1,CIN3 or cancer,HPV positive
+GSM8757053,0,0,benign,HPV negative
+GSM8757054,1,1,CIN3 or cancer,HPV positive
+GSM8757055,0,0,benign,HPV negative
+GSM8757056,0,0,benign,HPV negative
+GSM8757057,1,1,CIN3 or cancer,HPV positive
+GSM8757058,0,0,benign,HPV negative
+GSM8757059,0,0,benign,HPV negative
+GSM8757060,0,0,benign,HPV negative
+GSM8757061,0,0,benign,HPV negative
+GSM8757062,0,1,benign,HPV positive
+GSM8757063,0,0,benign,HPV negative
+GSM8757064,0,1,benign,HPV positive
+GSM8757065,1,0,CIN3 or cancer,HPV negative
+GSM8757066,1,1,CIN3 or cancer,HPV positive
+GSM8757067,1,1,CIN3 or cancer,HPV positive
+GSM8757068,0,0,benign,HPV negative
+GSM8757069,0,0,benign,HPV negative
+GSM8757070,1,1,CIN3 or cancer,HPV positive
+GSM8757071,1,1,CIN3 or cancer,HPV positive
+GSM8757073,0,0,benign,HPV negative
+GSM8757074,1,1,CIN3 or cancer,HPV positive
+GSM8757075,0,0,benign,HPV negative
+GSM8757076,1,0,CIN3 or cancer,HPV negative
+GSM8757077,0,1,benign,HPV positive
+GSM8757078,0,0,benign,HPV negative
+GSM8757079,1,1,CIN3 or cancer,HPV positive
+GSM8757080,1,1,CIN3 or cancer,HPV positive
+GSM8757081,1,1,CIN3 or cancer,HPV positive
+GSM8757082,1,1,CIN3 or cancer,HPV positive
+GSM8757083,0,1,benign,HPV positive
+GSM8757084,1,1,CIN3 or cancer,HPV positive
+GSM8757085,0,0,benign,HPV negative
+GSM8757086,0,1,benign,HPV positive
+GSM8757087,1,0,CIN3 or cancer,HPV negative
+GSM8757088,0,0,benign,HPV negative
+GSM8757089,0,0,benign,HPV negative
+GSM8757090,1,1,CIN3 or cancer,HPV positive
+GSM8757091,0,0,benign,HPV negative
+GSM8757092,1,1,CIN3 or cancer,HPV positive
+GSM8757093,1,1,CIN3 or cancer,HPV positive
+GSM8757094,0,0,benign,HPV negative
+GSM8757095,1,1,CIN3 or cancer,HPV positive
+GSM8757096,0,0,benign,HPV negative
+GSM8757097,0,1,benign,HPV positive
+GSM8757098,1,1,CIN3 or cancer,HPV positive
+GSM8757099,1,1,CIN3 or cancer,HPV positive
+GSM8757100,0,1,benign,HPV positive
+GSM8757101,1,1,CIN3 or cancer,HPV positive
+GSM8757102,1,1,CIN3 or cancer,HPV positive
+GSM8757103,0,0,benign,HPV negative
+GSM8757104,1,1,CIN3 or cancer,HPV positive
+GSM8757105,1,1,CIN3 or cancer,HPV positive
+GSM8757107,1,1,CIN3 or cancer,HPV positive
+GSM8757108,1,1,CIN3 or cancer,HPV positive
+GSM8757109,1,1,CIN3 or cancer,HPV positive
+GSM8757110,1,1,CIN3 or cancer,HPV positive
+GSM8757111,1,1,CIN3 or cancer,HPV positive
+GSM8757112,1,1,CIN3 or cancer,HPV positive
+GSM8757113,1,1,CIN3 or cancer,HPV positive
+GSM8757114,1,1,CIN3 or cancer,HPV positive
+GSM8757115,1,1,CIN3 or cancer,HPV positive
+GSM8757116,1,1,CIN3 or cancer,HPV positive
+GSM8757117,0,0,benign,HPV negative
+GSM8757118,1,1,CIN3 or cancer,HPV positive
+GSM8757119,1,1,CIN3 or cancer,HPV positive
+GSM8757120,1,1,CIN3 or cancer,HPV positive
+GSM8757121,0,0,benign,HPV negative
+GSM8757122,1,1,CIN3 or cancer,HPV positive
+GSM8757123,1,1,CIN3 or cancer,HPV positive
+GSM8757124,0,0,benign,HPV negative
+GSM8757125,0,0,benign,HPV negative
+GSM8757126,0,0,benign,HPV negative
+GSM8757127,1,1,CIN3 or cancer,HPV positive
+GSM8757128,0,0,benign,HPV negative
+GSM8757129,0,0,benign,HPV negative
+GSM8757130,0,0,benign,HPV negative
+GSM8757131,1,1,CIN3 or cancer,HPV positive
+GSM8757132,1,1,CIN3 or cancer,HPV positive
+GSM8757133,0,1,benign,HPV positive
+GSM8757134,0,0,benign,HPV negative
+GSM8757135,0,1,benign,HPV positive
+GSM8757136,1,1,CIN3 or cancer,HPV positive
+GSM8757137,0,0,benign,HPV negative
+GSM8757138,1,1,CIN3 or cancer,HPV positive
+GSM8757139,0,1,benign,HPV positive
+GSM8757140,0,0,benign,HPV negative
+GSM8757141,0,0,benign,HPV negative
+GSM8757142,1,1,CIN3 or cancer,HPV positive
+GSM8757143,0,0,benign,HPV negative
+GSM8757144,1,1,CIN3 or cancer,HPV positive
+GSM8757145,0,1,benign,HPV positive
+GSM8757146,1,1,CIN3 or cancer,HPV positive
+GSM8757147,1,1,CIN3 or cancer,HPV positive
+GSM8757148,0,0,benign,HPV negative
+GSM8757149,0,0,benign,HPV negative
+GSM8757150,1,1,CIN3 or cancer,HPV positive
+GSM8757151,1,1,CIN3 or cancer,HPV positive
+GSM8757152,1,1,CIN3 or cancer,HPV positive
+GSM8757153,0,1,benign,HPV positive
+GSM8757154,1,1,CIN3 or cancer,HPV positive
+GSM8757155,1,1,CIN3 or cancer,HPV positive
+GSM8757156,0,0,benign,HPV negative
+GSM8757157,1,1,CIN3 or cancer,HPV positive
+GSM8757158,1,1,CIN3 or cancer,HPV positive
+GSM8757159,1,1,CIN3 or cancer,HPV positive
+GSM8757160,0,0,benign,HPV negative
+GSM8757161,1,1,CIN3 or cancer,HPV positive
+GSM8757162,0,0,benign,HPV negative
+GSM8757163,0,1,benign,HPV positive
+GSM8757164,0,0,benign,HPV negative
+GSM8757165,0,0,benign,HPV negative
+GSM8757166,1,1,CIN3 or cancer,HPV positive
+GSM8757167,1,0,CIN3 or cancer,HPV negative
+GSM8757168,1,1,CIN3 or cancer,HPV positive
+GSM8757169,0,0,benign,HPV negative
+GSM8757170,0,0,benign,HPV negative
+GSM8757171,0,0,benign,HPV negative
+GSM8757172,1,1,CIN3 or cancer,HPV positive
+GSM8757173,1,1,CIN3 or cancer,HPV positive
+GSM8757174,1,1,CIN3 or cancer,HPV positive
+GSM8757175,1,1,CIN3 or cancer,HPV positive
+GSM8757176,1,1,CIN3 or cancer,HPV positive
+GSM8757177,0,0,benign,HPV negative
+GSM8757179,0,0,benign,HPV negative
+GSM8757180,0,0,benign,HPV negative
+GSM8757181,0,0,benign,HPV negative
+GSM8757182,0,0,benign,HPV negative
+GSM8757183,0,0,benign,HPV negative
+GSM8757184,1,1,CIN3 or cancer,HPV positive
+GSM8757185,1,1,CIN3 or cancer,HPV positive
+GSM8757186,0,0,benign,HPV negative
+GSM8757187,0,0,benign,HPV negative
+GSM8757188,0,0,benign,HPV negative
+GSM8757189,1,1,CIN3 or cancer,HPV positive
+GSM8757190,1,1,CIN3 or cancer,HPV positive
+GSM8757191,1,1,CIN3 or cancer,HPV positive
+GSM8757192,1,0,CIN3 or cancer,HPV negative
+GSM8757193,0,0,benign,HPV negative
+GSM8757194,1,1,CIN3 or cancer,HPV positive
+GSM8757195,0,0,benign,HPV negative
+GSM8757196,0,1,benign,HPV positive
+GSM8757197,0,1,benign,HPV positive
+GSM8757198,1,0,CIN3 or cancer,HPV negative
+GSM8757199,1,1,CIN3 or cancer,HPV positive
+GSM8757200,1,1,CIN3 or cancer,HPV positive
+GSM8757201,0,0,benign,HPV negative
+GSM8757202,0,1,benign,HPV positive
+GSM8757203,1,1,CIN3 or cancer,HPV positive
+GSM8757204,1,1,CIN3 or cancer,HPV positive
+GSM8757205,0,0,benign,HPV negative
+GSM8757206,1,1,CIN3 or cancer,HPV positive
+GSM8757207,0,0,benign,HPV negative
+GSM8757208,1,1,CIN3 or cancer,HPV positive
+GSM8757209,1,1,CIN3 or cancer,HPV positive
+GSM8757210,1,1,CIN3 or cancer,HPV positive
+GSM8757211,1,1,CIN3 or cancer,HPV positive
+GSM8757212,1,1,CIN3 or cancer,HPV positive
+GSM8757213,1,1,CIN3 or cancer,HPV positive
+GSM8757214,0,0,benign,HPV negative
+GSM8757215,1,0,CIN3 or cancer,HPV negative
+GSM8757216,0,0,benign,HPV negative
+GSM8757217,1,1,CIN3 or cancer,HPV positive
+GSM8757218,0,0,benign,HPV negative
+GSM8757219,0,0,benign,HPV negative

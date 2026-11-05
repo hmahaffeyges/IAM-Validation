@@ -31,3 +31,7 @@ r9_endothelial_full_summary.txt
 r8_tissues_full_summary.txt
 r12_every_cell.csv
 r12_every_cell.txt
+r13_cervical_labels.csv
+r13_cervical_samples.csv
+r14_lung_labels.csv
+r14_lung_samples.csv
