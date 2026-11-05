@@ -162,3 +162,4 @@ These were found while writing this outline and corrected in the Decoder from th
    development route (`--dev-epic-v2`) should be named there. The `--array-type` help text ("reads EPIC_v1 only") should say the same.
 3. **§1** lists only `.pat` and BAM for sequencing. The chain also reads per-site tables (`--build seq-table`), bigWig tracks and `.beta`
    files, and it now checks genome coverage (box C3).
+4. **§2, the specimen check** listed only blood, neutrophils, buffy coat and mixtures; it now names isolated atlas cells, plasma and tissue, as the code accepts.

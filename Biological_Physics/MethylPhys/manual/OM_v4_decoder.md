@@ -343,9 +343,10 @@ physics. Every limit lives in a named constant or in `Runtime Matrices/Intake/in
 in a gate.
 
 **The specimen check (before Stage 0).** `specimen_refusal` accepts whole blood (and the words blood, peripheral blood, venous blood),
-isolated, sorted or purified neutrophils, buffy coat (read on the whole-blood path, labeled as its own specimen, preliminary), and the
-constructed DNA mixtures used as test material. PBMC, other sorted cell fractions, bone marrow, cell lines, an unstated specimen and
-anything else are refused with the reason, and nothing is read.
+isolated, sorted or purified neutrophils, buffy coat (read on the whole-blood path, labeled as its own specimen, preliminary), the
+constructed DNA mixtures used as test material, isolated, sorted or purified cells of any IAM-Atlas v2.1 type (`atlas_cell_of`; read by
+Met-A against the atlas, flagged where not commissioned), plasma (`is_plasma`) and tissue (`is_tissue`). PBMC, bone marrow, cell lines,
+an unstated specimen and anything else are refused with the reason, and nothing is read.
 
 **The steps, in the order the run calls them.**
 
