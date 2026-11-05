@@ -35,3 +35,5 @@ S = rd("DEV_ATLAS_V21_01/seq_atlas/outside_data/lab2_cd8_samples.csv"); put("lab
 S = rd("DEV_METAA_ATLAS_CURVE_01/bt_seq_02/bt_seq2_samples.csv").drop_duplicates("gsm"); put("bt_seq2", S.assign(series=S.gse, condition="healthy", cancer_type="", stage=""))
 S = rd("DEV_REPLICATE_01/r5_liver_labels.csv"); c = S.status.astype(str).str.contains("case")
 put("r5_liver", S.assign(series="GSE281691", condition=["cancer" if x else "control" for x in c], cancer_type=["metabolic liver cancer (HCC)" if x else "" for x in c], stage="not recorded"))
+S = rd("DEV_REPLICATE_01/r13_cervical_labels.csv"); c = S.status.astype(str) != "benign"
+put("r13_cervical", S.assign(series="GSE287994", condition=["cancer or CIN3" if x else "benign" for x in c], cancer_type=["cervical CIN3 or cancer, " + h if x else "" for x, h in zip(c, S.hpv)], stage="not recorded"))

@@ -1,0 +1,242 @@
+gsm,series,condition,cancer_type,stage
+GSM8756973,GSE287994,benign,,not recorded
+GSM8756974,GSE287994,benign,,not recorded
+GSM8756975,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756976,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756977,GSE287994,benign,,not recorded
+GSM8756978,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756979,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8756980,GSE287994,benign,,not recorded
+GSM8756981,GSE287994,benign,,not recorded
+GSM8756982,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756984,GSE287994,benign,,not recorded
+GSM8756985,GSE287994,benign,,not recorded
+GSM8756987,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756988,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756989,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756990,GSE287994,benign,,not recorded
+GSM8756991,GSE287994,benign,,not recorded
+GSM8756992,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756993,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756994,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8756995,GSE287994,benign,,not recorded
+GSM8756996,GSE287994,benign,,not recorded
+GSM8756997,GSE287994,benign,,not recorded
+GSM8756998,GSE287994,benign,,not recorded
+GSM8756999,GSE287994,benign,,not recorded
+GSM8757000,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757001,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757002,GSE287994,benign,,not recorded
+GSM8757003,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757004,GSE287994,benign,,not recorded
+GSM8757005,GSE287994,benign,,not recorded
+GSM8757007,GSE287994,benign,,not recorded
+GSM8757008,GSE287994,benign,,not recorded
+GSM8757009,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757010,GSE287994,benign,,not recorded
+GSM8757011,GSE287994,benign,,not recorded
+GSM8757012,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757013,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757014,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757015,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757016,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757017,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757018,GSE287994,benign,,not recorded
+GSM8757019,GSE287994,benign,,not recorded
+GSM8757020,GSE287994,benign,,not recorded
+GSM8757021,GSE287994,benign,,not recorded
+GSM8757022,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757023,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757024,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757025,GSE287994,benign,,not recorded
+GSM8757026,GSE287994,benign,,not recorded
+GSM8757027,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757028,GSE287994,benign,,not recorded
+GSM8757029,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757030,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757031,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757032,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757033,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757034,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757035,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757036,GSE287994,benign,,not recorded
+GSM8757037,GSE287994,benign,,not recorded
+GSM8757038,GSE287994,benign,,not recorded
+GSM8757039,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757040,GSE287994,benign,,not recorded
+GSM8757041,GSE287994,benign,,not recorded
+GSM8757042,GSE287994,benign,,not recorded
+GSM8757043,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757044,GSE287994,benign,,not recorded
+GSM8757045,GSE287994,benign,,not recorded
+GSM8757046,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757047,GSE287994,benign,,not recorded
+GSM8757048,GSE287994,benign,,not recorded
+GSM8757049,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757050,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757051,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757052,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757053,GSE287994,benign,,not recorded
+GSM8757054,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757055,GSE287994,benign,,not recorded
+GSM8757056,GSE287994,benign,,not recorded
+GSM8757057,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757058,GSE287994,benign,,not recorded
+GSM8757059,GSE287994,benign,,not recorded
+GSM8757060,GSE287994,benign,,not recorded
+GSM8757061,GSE287994,benign,,not recorded
+GSM8757062,GSE287994,benign,,not recorded
+GSM8757063,GSE287994,benign,,not recorded
+GSM8757064,GSE287994,benign,,not recorded
+GSM8757065,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757066,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757067,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757068,GSE287994,benign,,not recorded
+GSM8757069,GSE287994,benign,,not recorded
+GSM8757070,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757071,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757073,GSE287994,benign,,not recorded
+GSM8757074,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757075,GSE287994,benign,,not recorded
+GSM8757076,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757077,GSE287994,benign,,not recorded
+GSM8757078,GSE287994,benign,,not recorded
+GSM8757079,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757080,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757081,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757082,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757083,GSE287994,benign,,not recorded
+GSM8757084,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757085,GSE287994,benign,,not recorded
+GSM8757086,GSE287994,benign,,not recorded
+GSM8757087,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757088,GSE287994,benign,,not recorded
+GSM8757089,GSE287994,benign,,not recorded
+GSM8757090,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757091,GSE287994,benign,,not recorded
+GSM8757092,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757093,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757094,GSE287994,benign,,not recorded
+GSM8757095,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757096,GSE287994,benign,,not recorded
+GSM8757097,GSE287994,benign,,not recorded
+GSM8757098,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757099,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757100,GSE287994,benign,,not recorded
+GSM8757101,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757102,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757103,GSE287994,benign,,not recorded
+GSM8757104,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757105,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757107,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757108,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757109,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757110,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757111,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757112,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757113,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757114,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757115,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757116,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757117,GSE287994,benign,,not recorded
+GSM8757118,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757119,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757120,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757121,GSE287994,benign,,not recorded
+GSM8757122,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757123,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757124,GSE287994,benign,,not recorded
+GSM8757125,GSE287994,benign,,not recorded
+GSM8757126,GSE287994,benign,,not recorded
+GSM8757127,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757128,GSE287994,benign,,not recorded
+GSM8757129,GSE287994,benign,,not recorded
+GSM8757130,GSE287994,benign,,not recorded
+GSM8757131,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757132,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757133,GSE287994,benign,,not recorded
+GSM8757134,GSE287994,benign,,not recorded
+GSM8757135,GSE287994,benign,,not recorded
+GSM8757136,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757137,GSE287994,benign,,not recorded
+GSM8757138,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757139,GSE287994,benign,,not recorded
+GSM8757140,GSE287994,benign,,not recorded
+GSM8757141,GSE287994,benign,,not recorded
+GSM8757142,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757143,GSE287994,benign,,not recorded
+GSM8757144,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757145,GSE287994,benign,,not recorded
+GSM8757146,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757147,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757148,GSE287994,benign,,not recorded
+GSM8757149,GSE287994,benign,,not recorded
+GSM8757150,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757151,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757152,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757153,GSE287994,benign,,not recorded
+GSM8757154,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757155,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757156,GSE287994,benign,,not recorded
+GSM8757157,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757158,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757159,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757160,GSE287994,benign,,not recorded
+GSM8757161,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757162,GSE287994,benign,,not recorded
+GSM8757163,GSE287994,benign,,not recorded
+GSM8757164,GSE287994,benign,,not recorded
+GSM8757165,GSE287994,benign,,not recorded
+GSM8757166,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757167,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757168,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757169,GSE287994,benign,,not recorded
+GSM8757170,GSE287994,benign,,not recorded
+GSM8757171,GSE287994,benign,,not recorded
+GSM8757172,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757173,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757174,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757175,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757176,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757177,GSE287994,benign,,not recorded
+GSM8757179,GSE287994,benign,,not recorded
+GSM8757180,GSE287994,benign,,not recorded
+GSM8757181,GSE287994,benign,,not recorded
+GSM8757182,GSE287994,benign,,not recorded
+GSM8757183,GSE287994,benign,,not recorded
+GSM8757184,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757185,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757186,GSE287994,benign,,not recorded
+GSM8757187,GSE287994,benign,,not recorded
+GSM8757188,GSE287994,benign,,not recorded
+GSM8757189,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757190,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757191,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757192,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757193,GSE287994,benign,,not recorded
+GSM8757194,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757195,GSE287994,benign,,not recorded
+GSM8757196,GSE287994,benign,,not recorded
+GSM8757197,GSE287994,benign,,not recorded
+GSM8757198,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757199,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757200,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757201,GSE287994,benign,,not recorded
+GSM8757202,GSE287994,benign,,not recorded
+GSM8757203,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757204,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757205,GSE287994,benign,,not recorded
+GSM8757206,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757207,GSE287994,benign,,not recorded
+GSM8757208,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757209,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757210,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757211,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757212,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757213,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757214,GSE287994,benign,,not recorded
+GSM8757215,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV negative",not recorded
+GSM8757216,GSE287994,benign,,not recorded
+GSM8757217,GSE287994,cancer or CIN3,"cervical CIN3 or cancer, HPV positive",not recorded
+GSM8757218,GSE287994,benign,,not recorded
+GSM8757219,GSE287994,benign,,not recorded

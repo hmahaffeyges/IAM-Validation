@@ -372,3 +372,11 @@ p 0.00015). With every cell now listed, the lymphocytes the first scorer could n
 (p 3.3e-08), naive CD8 T cells 0.0085 against 0.0170 (p 1.1e-07), memory CD4 T cells 0.0790 against 0.0968 (p 0.0005), CD56-bright NK
 cells 0.0225 against 0.0335 (p 0.00074). Of the 84 Met-A lines none separates below p 0.001; the islands read slightly higher in the cases
 (0.8475 against 0.8433, d +0.21, p 0.0037). Many readings are compared here, so a p near 0.003 is reported, not claimed.
+
+**R13 cervical cytology, read** (every atlas cell, scored by `r23_score.py r13`). (`data/DEV_REPLICATE_01/r13_full/r13_cervical_summary.txt`; 241 of 241 arrays, EPIC v1, pass 1, untared; series run
+41966807539.) Reference only. CIN3 or cancer (126) against benign (115): 36 of 169 readings separate below p 0.001, led by the cell mix
+(neutrophils 0.4854 against 0.2317, p 1.9e-07; CD8 TEMRA T cells 0.0084 against 0.0000, p 5e-15; CD56-bright NK cells 0.0223 against 0.0367,
+p 2.1e-11) and Met-A at several cells (vascular endothelium 1.0490 against 1.0134, p 7.9e-10; MPP 1.0516 against 1.0227, p 6.5e-08). Among
+HPV-positive women only (116 against 29), 4 readings separate below p 0.001, all cell shares. Whole-sample Met-A does not separate (0.8825
+against 0.8897, p 0.73). Cervical cytology is not a commissioned specimen; the readings in other cells' identity sites are the specimen's mix,
+not those cells. Many readings are compared here, so the list is reported, not claimed.

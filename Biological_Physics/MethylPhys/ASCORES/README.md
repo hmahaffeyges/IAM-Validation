@@ -8708,8 +8708,386 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | pancreatic beta | whole blood | cancer (metabolic liver cancer (HCC)) | 1 | 1.0519 | 1.0519 to 1.0519 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | L-MPP (bone marrow) | whole blood | cancer (metabolic liver cancer (HCC)) | 1 | 1.0161 | 1.0161 to 1.0161 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | gastric fundus epithelium | whole blood | control | 1 | 1.074 | 1.074 to 1.074 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | unknown | benign | 115 | 0.88973 | 0.81928 to 0.93995 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | unknown | benign | 115 | 0.84651 | 0.80088 to 0.88148 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | unknown | benign | 115 | 0.78262 | 0.69811 to 0.89699 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | unknown | benign | 115 | 0.91688 | 0.8493 to 0.96501 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | unknown | benign | 115 | 0.90108 | 0.82816 to 0.94936 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | unknown | benign | 115 | 1.0112 | 0.93468 to 1.0698 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | unknown | benign | 115 | 1.053 | 1.0054 to 1.1019 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | unknown | benign | 115 | 1.1549 | 1.0943 to 1.2193 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | unknown | benign | 115 | 1.0066 | 0.93154 to 1.066 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | unknown | benign | 113 | 1.0158 | 0.95962 to 1.0894 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | unknown | benign | 115 | 1.0227 | 0.94822 to 1.0857 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | unknown | benign | 115 | 1.1115 | 1.0578 to 1.1627 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | unknown | benign | 115 | 1.1567 | 1.0736 to 1.2572 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | unknown | benign | 113 | 1.1754 | 1.0779 to 1.293 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | unknown | benign | 112 | 1.1424 | 1.0712 to 1.2403 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | unknown | benign | 111 | 1.1846 | 1.0958 to 1.2954 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | unknown | benign | 114 | 1.1972 | 1.1065 to 1.3041 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | unknown | benign | 114 | 1.1413 | 1.0662 to 1.2194 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | unknown | benign | 114 | 1.209 | 1.0865 to 1.3276 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | unknown | benign | 113 | 1.1185 | 1.0311 to 1.2421 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | unknown | benign | 111 | 1.1832 | 1.0913 to 1.2646 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | unknown | benign | 112 | 1.1969 | 1.091 to 1.2997 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | unknown | benign | 112 | 1.245 | 1.1118 to 1.384 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | unknown | benign | 115 | 1.0198 | 0.95896 to 1.0632 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | unknown | benign | 115 | 1.2346 | 1.1388 to 1.3502 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | unknown | benign | 109 | 1.2419 | 1.1009 to 1.3912 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | unknown | benign | 111 | 1.0752 | 1.013 to 1.1892 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | unknown | benign | 111 | 1.1736 | 1.054 to 1.3223 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | unknown | benign | 114 | 1.1769 | 1.0705 to 1.2959 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | unknown | benign | 111 | 1.1698 | 1.0599 to 1.3235 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | unknown | benign | 115 | 1.1716 | 1.0851 to 1.2698 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | unknown | benign | 115 | 1.0261 | 0.96272 to 1.0632 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | unknown | benign | 115 | 1.1378 | 1.0605 to 1.2057 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | unknown | benign | 115 | 0.99876 | 0.92007 to 1.047 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | unknown | benign | 114 | 1.2115 | 1.1058 to 1.3108 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | unknown | benign | 111 | 1.1194 | 1.0509 to 1.189 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | unknown | benign | 113 | 1.0134 | 0.935 to 1.0726 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | unknown | benign | 115 | 0.79114 | 0.7079 to 0.9019 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | unknown | benign | 115 | 0.92994 | 0.8589 to 0.97098 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | unknown | benign | 115 | 0.001016 | 0.0003477 to 0.0027367 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | unknown | benign | 115 | 0.1153 | 0.078341 to 0.17408 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | unknown | benign | 115 | 1.0013 | 0.99347 to 1.0072 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | unknown | benign | 22 | 0.9936 | 0.91192 to 1.076 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | unknown | benign | 88 | 0.9884 | 0.91239 to 1.0932 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | unknown | benign | 113 | 1.0224 | 0.93722 to 1.141 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | unknown | benign | 113 | 1.0201 | 0.9341 to 1.1091 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | unknown | benign | 115 | 0.9903 | 0.91159 to 1.0708 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | unknown | benign | 111 | 0.9635 | 0.9023 to 1.0564 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | unknown | benign | 108 | 1.0191 | 0.94815 to 1.1073 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | unknown | benign | 111 | 0.966 | 0.8882 to 1.0538 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | unknown | benign | 111 | 0.9727 | 0.897 to 1.0715 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | unknown | benign | 93 | 1.0374 | 0.89614 to 1.1311 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | unknown | benign | 109 | 1.0026 | 0.9213 to 1.0868 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | unknown | benign | 108 | 0.9947 | 0.88306 to 1.0755 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | unknown | benign | 112 | 0.9738 | 0.88873 to 1.0508 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | unknown | benign | 107 | 0.9395 | 0.84611 to 1.0269 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | unknown | benign | 115 | 0.9874 | 0.91543 to 1.0968 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | aorta endothelium | unknown | benign | 89 | 1.1764 | 1.1158 to 1.2386 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | astrocytes | unknown | benign | 89 | 1.1524 | 1.1037 to 1.2101 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | unknown | benign | 89 | 1.1022 | 1.0404 to 1.1818 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | bladder epithelium | unknown | benign | 89 | 1.0438 | 1.0092 to 1.0724 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | unknown | benign | 89 | 1.0266 | 0.99292 to 1.0595 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | unknown | benign | 89 | 1.0852 | 1.0434 to 1.1265 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | unknown | benign | 89 | 1.0441 | 1.0147 to 1.0715 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | unknown | benign | 99 | 1.174 | 1.0852 to 1.2629 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | unknown | benign | 89 | 1.1112 | 1.0618 to 1.1552 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | unknown | benign | 89 | 1.1973 | 1.1348 to 1.2632 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | unknown | benign | 89 | 1.1434 | 1.0873 to 1.1889 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | unknown | benign | 89 | 1.0744 | 1.0346 to 1.1092 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | unknown | benign | 92 | 1.0185 | 0.97235 to 1.0797 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | unknown | benign | 93 | 1.0884 | 1.0518 to 1.1246 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | unknown | benign | 89 | 1.0512 | 1.0153 to 1.081 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | unknown | benign | 89 | 1.0518 | 1.0214 to 1.0766 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | unknown | benign | 89 | 1.0666 | 1.0334 to 1.0945 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | unknown | benign | 89 | 1.0566 | 1.0263 to 1.0834 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | unknown | benign | 89 | 1.1052 | 1.067 to 1.1407 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | unknown | benign | 89 | 1.1106 | 1.062 to 1.1486 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | unknown | benign | 89 | 1.123 | 1.0719 to 1.1785 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | unknown | benign | 89 | 1.1022 | 1.0537 to 1.1369 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | unknown | benign | 89 | 1.088 | 1.0402 to 1.1204 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | unknown | benign | 89 | 1.1213 | 1.0779 to 1.158 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | unknown | benign | 104 | 1.1172 | 1.0519 to 1.1796 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | unknown | benign | 89 | 1.1034 | 1.0498 to 1.153 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | unknown | benign | 89 | 1.0615 | 1.0226 to 1.0984 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | unknown | benign | 91 | 1.1671 | 1.068 to 1.3224 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | unknown | benign | 90 | 1.0448 | 0.98985 to 1.1086 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | unknown | benign | 106 | 1.157 | 1.0678 to 1.2701 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocyte precursors | unknown | benign | 89 | 1.1522 | 1.1058 to 1.2126 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | unknown | benign | 99 | 1.1422 | 1.0438 to 1.2745 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | unknown | benign | 89 | 1.1069 | 1.0684 to 1.1484 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | unknown | benign | 89 | 1.0866 | 1.0478 to 1.1194 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | unknown | benign | 89 | 1.094 | 1.0528 to 1.1337 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | prostate epithelium | unknown | benign | 89 | 1.0489 | 1.0131 to 1.0798 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | unknown | benign | 89 | 0.97019 | 0.88884 to 1.017 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | smooth muscle | unknown | benign | 89 | 1.084 | 1.0555 to 1.1153 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | striated muscle | unknown | benign | 89 | 1.1792 | 1.1146 to 1.2282 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | unknown | benign | 98 | 1.156 | 1.0589 to 1.2828 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | unknown | benign | 89 | 1.0929 | 1.0474 to 1.1324 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | unknown | benign | 89 | 1.0802 | 1.037 to 1.1148 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tongue epithelium | unknown | benign | 89 | 1.0253 | 0.99176 to 1.0506 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | unknown | benign | 89 | 1.0716 | 1.033 to 1.1264 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | unknown | benign | 89 | 1.1501 | 1.0885 to 1.2752 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular leptomeningeal cells | unknown | benign | 89 | 1.177 | 1.1261 to 1.2526 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | unknown | benign | 89 | 1.1159 | 1.0749 to 1.1561 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | basophils | unknown | benign | 60 | 0.9881 | 0.88606 to 1.0878 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | unknown | benign | 58 | 0.9469 | 0.87397 to 1.0243 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | unknown | benign | 59 | 0.9962 | 0.90576 to 1.0723 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | unknown | benign | 16 | 0.96965 | 0.86902 to 1.057 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | unknown | benign | 89 | 0.9862 | 0.89904 to 1.084 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | unknown | benign | 17 | 0.9754 | 0.91818 to 1.0285 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | unknown | benign | 17 | 1.0375 | 0.83642 to 1.0762 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | unknown | benign | 43 | 1.0001 | 0.91363 to 1.101 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | unknown | benign | 40 | 0.9752 | 0.92336 to 1.0512 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | unknown | benign | 55 | 0.9494 | 0.8597 to 1.0268 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.88338 | 0.82091 to 0.94978 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.84418 | 0.80712 to 0.89167 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.76401 | 0.69788 to 0.87235 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.90908 | 0.83764 to 0.9817 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.89901 | 0.82946 to 0.95534 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0307 | 0.96152 to 1.0903 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0608 | 0.9983 to 1.1109 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1495 | 1.0824 to 1.2087 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0241 | 0.95637 to 1.0809 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0346 | 0.98093 to 1.1057 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.051 | 0.97539 to 1.1215 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1278 | 1.074 to 1.1743 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | aorta endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1533 | 1.0777 to 1.23 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | astrocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1437 | 1.0556 to 1.2093 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1442 | 1.0549 to 1.2573 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 84 | 1.0911 | 1.0139 to 1.1512 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | bladder epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0456 | 1.0026 to 1.075 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0348 | 0.98449 to 1.0711 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0778 | 1.0197 to 1.1161 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0559 | 1.0181 to 1.0871 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1614 | 1.0629 to 1.2898 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 114 | 1.1573 | 1.0715 to 1.2464 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 114 | 1.174 | 1.0799 to 1.2699 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1785 | 1.0876 to 1.2899 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 102 | 1.1591 | 1.0634 to 1.2403 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1437 | 1.0548 to 1.2125 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0962 | 1.0269 to 1.1479 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1906 | 1.048 to 1.2868 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1922 | 1.112 to 1.2593 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1447 | 1.0744 to 1.1886 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 115 | 1.1197 | 1.0376 to 1.2264 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 115 | 1.1697 | 1.0527 to 1.2422 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 114 | 1.1759 | 1.0756 to 1.292 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.23 | 1.0837 to 1.3379 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0696 | 1.0172 to 1.1031 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 90 | 1.0268 | 0.9667 to 1.0929 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 89 | 1.0937 | 1.0557 to 1.1263 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0486 | 1.0046 to 1.0833 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0461 | 1.0024 to 1.0812 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0589 | 1.0105 to 1.0948 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0485 | 1.004 to 1.0847 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1018 | 1.0559 to 1.1459 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0389 | 0.99665 to 1.0783 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 84 | 1.1113 | 1.0662 to 1.1544 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1109 | 1.0412 to 1.1654 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1005 | 1.0499 to 1.1362 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 84 | 1.0859 | 1.0356 to 1.1219 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 84 | 1.1197 | 1.0702 to 1.1669 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 108 | 1.1134 | 1.0393 to 1.1748 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0954 | 1.0228 to 1.1631 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.2125 | 1.1022 to 1.2878 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0741 | 1.0101 to 1.123 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 84 | 1.1485 | 1.0541 to 1.2952 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 87 | 1.047 | 0.99618 to 1.1136 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 110 | 1.2221 | 1.0741 to 1.3516 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 113 | 1.0748 | 0.98972 to 1.1945 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 109 | 1.1523 | 1.0594 to 1.2587 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1852 | 1.0522 to 1.3176 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1777 | 1.0711 to 1.2949 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 115 | 1.1737 | 1.0476 to 1.3376 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1591 | 1.067 to 1.2576 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocyte precursors | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1446 | 1.0634 to 1.208 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 102 | 1.1383 | 1.0384 to 1.2503 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1053 | 1.0519 to 1.1476 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0372 | 0.99206 to 1.0741 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0889 | 1.0419 to 1.1209 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1453 | 1.0752 to 1.2009 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0992 | 1.0529 to 1.1386 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0126 | 0.95568 to 1.0631 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | prostate epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0437 | 1.0038 to 1.0747 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 0.98436 | 0.92692 to 1.0315 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.1985 | 1.0703 to 1.2775 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | smooth muscle | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.083 | 1.0479 to 1.1235 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | striated muscle | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1627 | 1.0844 to 1.2284 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 99 | 1.1684 | 1.0602 to 1.2727 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 114 | 1.1204 | 1.0379 to 1.1927 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0966 | 1.0524 to 1.1445 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0832 | 1.03 to 1.1161 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tongue epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0247 | 0.98245 to 1.0565 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.0611 | 1.0105 to 1.1043 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1277 | 1.0557 to 1.2024 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 115 | 1.0498 | 0.97711 to 1.1164 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular leptomeningeal cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 83 | 1.1675 | 1.0815 to 1.2306 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 84 | 1.114 | 1.0634 to 1.1552 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.77382 | 0.70351 to 0.87833 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.92301 | 0.8448 to 0.9867 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.001367 | 0.000311 to 0.013052 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.10486 | 0.07624 to 0.17217 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0011 | 0.99493 to 1.0097 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 77 | 1.0065 | 0.90486 to 1.1235 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 90 | 1.0059 | 0.90813 to 1.085 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 112 | 0.98025 | 0.88973 to 1.0495 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 113 | 0.9726 | 0.9012 to 1.055 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 68 | 0.99575 | 0.89175 to 1.0887 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 94 | 0.9755 | 0.88563 to 1.0748 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 96 | 0.96175 | 0.89335 to 1.0579 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 78 | 1.0351 | 0.91512 to 1.1168 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 96 | 1.005 | 0.91592 to 1.0803 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 16 | 0.98535 | 0.9036 to 1.0866 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0029 | 0.90833 to 1.1098 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 91 | 0.977 | 0.8887 to 1.0673 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 33 | 1.0233 | 0.94728 to 1.094 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 0.9816 | 0.84537 to 1.1088 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 30 | 0.9743 | 0.89878 to 1.1024 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 96 | 0.9615 | 0.8758 to 1.0797 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 116 | 1.0152 | 0.9459 to 1.1372 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil palatine epithelium | unknown | benign | 13 | 0.969 | 0.89666 to 1.0978 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.86173 | 0.82528 to 0.92469 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.82698 | 0.81973 to 0.86578 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.74158 | 0.72119 to 0.85748 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.88737 | 0.84687 to 0.94584 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.88355 | 0.84048 to 0.93353 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0564 | 0.99287 to 1.0724 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0737 | 1.0262 to 1.0953 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1478 | 1.0825 to 1.1859 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0511 | 0.9877 to 1.0769 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0408 | 1.007 to 1.1045 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0733 | 1.0063 to 1.0993 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.112 | 1.0712 to 1.156 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1428 | 1.0848 to 1.2255 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 5 | 1.1011 | 1.0374 to 1.1067 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1528 | 1.0934 to 1.2646 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.143 | 1.0781 to 1.2395 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1627 | 1.0919 to 1.2514 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.176 | 1.101 to 1.2516 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 8 | 1.1421 | 1.0769 to 1.2016 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1359 | 1.0681 to 1.2085 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.184 | 1.0715 to 1.2661 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1134 | 1.0635 to 1.215 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1689 | 1.0748 to 1.2322 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1661 | 1.0921 to 1.2518 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.2199 | 1.0899 to 1.3166 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 6 | 1.0412 | 1.0184 to 1.054 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 5 | 1.0879 | 1.052 to 1.1006 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0357 | 1.0132 to 1.0652 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 5 | 1.0916 | 1.0522 to 1.1224 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 5 | 1.06 | 1.0476 to 1.1005 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 5 | 1.1053 | 1.0592 to 1.1305 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 9 | 1.1092 | 1.0634 to 1.1635 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1984 | 1.0933 to 1.2556 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 5 | 1.1259 | 1.0561 to 1.1938 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 5 | 1.0436 | 1.0281 to 1.0635 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 9 | 1.191 | 1.0932 to 1.3101 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0812 | 1.0468 to 1.1974 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 9 | 1.1405 | 1.071 to 1.2407 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1743 | 1.0775 to 1.293 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1637 | 1.0859 to 1.2762 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1626 | 1.0813 to 1.3258 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1576 | 1.0808 to 1.2276 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 8 | 1.1242 | 1.058 to 1.209 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0353 | 1.0237 to 1.0601 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1328 | 1.0698 to 1.1813 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0265 | 0.99236 to 1.0461 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.19 | 1.0712 to 1.2535 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 8 | 1.1647 | 1.0633 to 1.2837 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.1106 | 1.0582 to 1.1897 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0363 | 0.99959 to 1.0833 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.75092 | 0.72881 to 0.86263 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.90273 | 0.86009 to 0.95795 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.00079 | 0.00021575 to 0.0017193 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.09113 | 0.069193 to 0.11676 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.0017 | 0.99351 to 1.0086 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 6 | 1.0526 | 1.0187 to 1.072 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 1 | 0.9595 | 0.9595 to 0.9595 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 9 | 0.995 | 0.93416 to 1.1336 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 3 | 1.0235 | 0.95762 to 1.0646 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 0.9763 | 0.95184 to 1.0185 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 8 | 1.0151 | 0.96523 to 1.0942 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.9939 | 0.89179 to 1.0188 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 9 | 0.9803 | 0.92356 to 1.0451 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 7 | 1.0378 | 0.9694 to 1.0867 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 8 | 0.97515 | 0.88377 to 1.061 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 0.96135 | 0.89016 to 1.0824 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 7 | 1.0176 | 0.94508 to 1.0398 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 8 | 1.0096 | 0.9389 to 1.0337 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 9 | 1.0302 | 0.98802 to 1.0854 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 2 | 0.97195 | 0.93401 to 1.0099 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 0.9704 | 0.94635 to 1.0361 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 6 | 0.99565 | 0.84005 to 1.0877 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0547 | 0.99928 to 1.1037 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 9 | 0.9674 | 0.88838 to 1.0556 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 3 | 1.0091 | 0.93026 to 1.0188 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 8 | 0.97875 | 0.92993 to 1.0414 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 10 | 1.025 | 0.98286 to 1.1248 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | unknown | benign | 41 | 1.039 | 0.9351 to 1.1096 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 75 | 1.0173 | 0.92545 to 1.1018 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 80 | 0.9888 | 0.90817 to 1.0987 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil palatine epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 31 | 0.9897 | 0.8799 to 1.1075 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 0.99635 | 0.94564 to 1.0108 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 2 | 0.9742 | 0.96592 to 0.98248 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 0.9788 | 0.87646 to 1.0338 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | unknown | benign | 17 | 1.0081 | 0.94602 to 1.0702 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 26 | 0.97695 | 0.89062 to 1.1086 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 36 | 1.0061 | 0.91928 to 1.1097 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 29 | 1.0264 | 0.94256 to 1.1174 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 63 | 0.9764 | 0.88922 to 1.0977 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 15 | 0.9831 | 0.91922 to 1.0758 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 18 | 0.98165 | 0.91496 to 1.0664 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 19 | 0.9756 | 0.94664 to 1.054 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | unknown | benign | 30 | 1.0108 | 0.94227 to 1.0701 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 12 | 1.0005 | 0.95425 to 1.0746 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | unknown | benign | 28 | 0.97655 | 0.92392 to 1.0515 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | unknown | benign | 2 | 0.9514 | 0.86266 to 1.0401 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | unknown | benign | 12 | 0.9814 | 0.88999 to 1.0354 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney glomerular epithelium | unknown | benign | 4 | 0.92025 | 0.89772 to 0.98018 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular epithelium | unknown | benign | 1 | 0.8716 | 0.8716 to 0.8716 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic duct | unknown | benign | 5 | 0.971 | 0.94974 to 1.0223 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 20 | 1.0145 | 0.95404 to 1.0897 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 24 | 0.98805 | 0.90065 to 1.0808 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 9 | 0.9807 | 0.9386 to 1.0165 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil pharyngeal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 7 | 0.9758 | 0.89951 to 1.0501 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 6 | 0.96785 | 0.92388 to 1.0094 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | unknown | benign | 5 | 0.9315 | 0.89664 to 1.0209 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil pharyngeal epithelium | unknown | benign | 1 | 1.0124 | 1.0124 to 1.0124 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 15 | 0.917 | 0.86914 to 0.98025 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | unknown | benign | 2 | 1.0674 | 1.0339 to 1.1008 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 2 | 0.94805 | 0.90975 to 0.98635 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 1 | 1.0312 | 1.0312 to 1.0312 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | unknown | benign | 1 | 1.0492 | 1.0492 to 1.0492 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 1 | 0.9209 | 0.9209 to 0.9209 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 5 | 0.9378 | 0.8921 to 0.95408 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic duct | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 1 | 0.9648 | 0.9648 to 0.9648 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | aorta endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1553 | 1.0707 to 1.1761 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | astrocytes | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1342 | 1.0929 to 1.176 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | bladder epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0371 | 1.0272 to 1.067 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0325 | 1.0136 to 1.06 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.069 | 1.0453 to 1.0988 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0427 | 1.0419 to 1.0686 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0942 | 1.0514 to 1.1167 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1792 | 1.0809 to 1.1964 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1226 | 1.0686 to 1.1552 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0624 | 1.038 to 1.0893 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0424 | 1.027 to 1.0727 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0414 | 1.0308 to 1.0682 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0526 | 1.0363 to 1.0788 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.045 | 1.0309 to 1.0682 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.097 | 1.0459 to 1.1109 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1019 | 1.0581 to 1.134 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0892 | 1.0474 to 1.1158 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0932 | 1.055 to 1.1305 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0572 | 1.044 to 1.0885 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocyte precursors | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1307 | 1.0855 to 1.1766 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1005 | 1.0464 to 1.1179 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0736 | 1.0465 to 1.1025 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0838 | 1.0458 to 1.1058 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | prostate epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0393 | 1.0331 to 1.0665 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 0.9886 | 0.95851 to 1.022 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | smooth muscle | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0812 | 1.0378 to 1.0936 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | striated muscle | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1569 | 1.0698 to 1.1792 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0825 | 1.0488 to 1.1045 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0628 | 1.0418 to 1.0922 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tongue epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0253 | 1.0131 to 1.0433 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.0602 | 1.0405 to 1.0806 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1253 | 1.0605 to 1.1465 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular leptomeningeal cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.162 | 1.0978 to 1.1921 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 4 | 1.1017 | 1.0541 to 1.1295 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 2 | 0.9655 | 0.95767 to 0.97333 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | unknown | benign | 1 | 1.0884 | 1.0884 to 1.0884 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV positive) | 1 | 0.9905 | 0.9905 to 0.9905 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 1 | 0.9952 | 0.9952 to 0.9952 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 1 | 0.9787 | 0.9787 to 0.9787 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic duct | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 1 | 0.8872 | 0.8872 to 0.8872 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 1 | 1.063 | 1.063 to 1.063 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | unknown | cancer or CIN3 (cervical CIN3 or cancer, HPV negative) | 1 | 1.136 | 1.136 to 1.136 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 
-247531 readings from 47 sources. Status and record for every row are in the tables.
+270330 readings from 48 sources. Status and record for every row are in the tables.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).
