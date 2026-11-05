@@ -643,3 +643,11 @@ second laboratory) both read low. The CD8 libraries carry values at only 247,141
 and its healthy libraries 383224 to 383227 and 647759 to 647762 are GSE98837's eight libraries deposited again (the same read counts). Five of
 its healthy libraries are new (2-736133 TEM, 2-736134 TCM, 2-736141 TSCM, 1237932 and 1237933 naive; 524 to 713 million read pairs). The
 earlier records naming GSE144691 as the fresh outside laboratory (DEV_ATLAS_V21_01.md; plan step 60.3) are superseded by this line.
+
+**Why the CD8 libraries carried values at so few sites (found the same evening).** GSE98837's runs on SRA are stored in genome order (the reads sorted by position), so the first 140 million read pairs are chromosomes 1 to
+8 only: the first reading's saved chunks of GSM2616068 hold chr1 (chunk 0: 1,816,784 molecule lines on chr1, about 1,000 on any other
+chromosome), chr4 (chunk 10) and chr8 (chunk 19). Chromosomes 9 to X were never read, which is why 247,141 to 457,599 of 813,951 sites carry
+values at 6 to 16 calls per site. It is not the library kit (the hexamer-trimming idea recorded on 10-29 is withdrawn) and not the laboratory.
+GSE134664's runs are not in genome order (a chunk holds every chromosome), so the B cells' cap cost depth only. **Rule from here:** no reading
+takes the first N read pairs of a run; a run is read at full depth, or its order is checked first (the chromosome mix of one chunk). The B
+and T test is read again at full depth before it is scored again; its two not-met readings stand as recorded.
