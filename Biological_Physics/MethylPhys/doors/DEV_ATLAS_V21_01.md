@@ -1225,3 +1225,29 @@ tables in a notebook, disclosed.) Inside the atlas's laboratory, sorted-cell Met
 rises with depth (rho +0.378), and its B cells and CD8 T cells, at 37 and 34 calls per site, about the atlas's own depth, read 0.591 and 0.593.
 Depth does not explain the gap. With the tracks shown to be counts and the floor only half of it, what remains is the laboratory's libraries
 holding fewer off-pattern reads at the identity sites than the atlas's donors of the same cells.
+
+## A second outside laboratory's healthy CD8 T cells (development; written and committed before any is read)
+
+**The instrument's job:** a healthy sample sequenced and processed by another laboratory reads Normal on the gauge.
+
+**Why now.** The first outside laboratory (BLUEPRINT) read low (own-cell Met-A 0.7134). Its tracks are read counts, depth does not explain it, and
+the common floor explains only part. A second laboratory tells whether that is BLUEPRINT's or every outside laboratory's. It is read as
+development, so the cleaner healthy set found (GSE144691, healthy donors' CD8 subsets) stays unread for the real test.
+
+**Data.** GSE245832 (`seq_atlas/outside_data/lab2_cd8_samples.csv`): 4 CMV-seropositive donors, each with naive CD8 T cells (read as naive CD8 T
+cells), memory CD8 T cells (CCR7-negative, CD45RA-negative: read as effector memory CD8 T cells) and CMV-specific IFN-gamma-positive CD8 T cells,
+sorted after a 4-hour peptide stimulation; whole-genome bisulfite, GRCh38 Bismark coverage files (counts). None read before.
+**Prior reading:** none; the series' sample labels and file list only.
+
+**Read by** `seq_atlas/outside_data/lab2_cd8_read.sh`: each file written as .lbeta on the hg19 numbering by the one command (`--build seq-table`,
+bismark-cov, hg38), then read by it with the first outside test's flags (`--dev-seq-values 1 --full-chain --dev-seq-ref auto --dev-seq-level donors
+--dev-terr-counted --dev-metaa-sites`, specimen "sorted CELL"). Scored by `seq_atlas/outside_data/lab2_cd8_score.py` (outputs `lab2_cd8_test.csv`,
+`lab2_cd8_test.txt`).
+
+**Bars (the first outside test's three, unchanged),** on the 8 naive and memory CD8 samples: 1. own-cell Met-A median within 0.95 to 1.05; 2. at
+least 75 % of them within 0.95 to 1.05; 3. whole-sample Met-A median within 0.95 to 1.05. Recorded, not scored: the islands, the domains, the
+C-Score, coupling-A, IAM-A is not read (no molecules), the own-cell share, each library's floor, and the 4 CMV-specific responders (cells answering
+the stimulation). The stimulation lasted 4 hours, flagged with every reading.
+
+**Synthetic test:** `DEV_ATLAS_V21_01/seq_atlas/seq_table_synthetic.py`, `DEV_ATLAS_V21_01/seq_atlas/seq_table_synthetic.txt` (the table conversion, met); the readings are the
+chain's, each with its own synthetic on record.

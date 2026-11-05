@@ -113,7 +113,7 @@ GSE142257,downloads/C_tissue_tests/GSE142257/,4.03,IDAT,yes,unspent,,,,,,,,Solid
 GSE142512,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE143209,,,,,,,,DEV_ATLAS_V21_01,not usable (not purified (mixed islet cells)),pancreatic beta | pancreatic alpha,yes,IDAT listed for 64/64 samples,Human pancreatic islets methylation array,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE143752,,,,,partly spent,,,,,,,,,
-GSE144691,,,,,,,,COMMISSIONING_NOTE_IAMA; DEV_IAMA_GRAND_01,,,,,,
+GSE144691,,,,,,,,COMMISSIONING_NOTE_IAMA; DEV_ATLAS_V21_01; DEV_IAMA_GRAND_01,,,,,,
 GSE144858,,,,,partly spent,,,,,,,,,
 GSE145745,,,,,,,,,not usable (cultured with no uncultured comparison),kidney tubular epithelium,yes,IDAT listed for 24/24 samples,Integrative omics analyses reveal epigenetic memory in diabetic cells regulating genes associated with kidney dysfunction. [microarray],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE145887,downloads/F_salmonid/GSE145887/,0.99,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
@@ -253,6 +253,7 @@ GSE237662 / PRJNA996123 (HCT116 decitabine EM-seq) - derived reads,,,,,spent,,,,
 GSE237665,,,,,,scored,DEV_LINK_IAMA_METAA_02,DEV_LINK_IAMA_METAA_02,,,,,,
 GSE239605,,,,,,,,,not usable (same group as the atlas (Glaser); reanalysis of GSE186458; reads at EGA),,no,no per-sample IDAT or SRA link (series files: GSE239605_RAW.tar),Multi-cell type deconvolution using a probabilistic model of single-molecule DNA methylation haplotypes,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE243529,,,,,partly spent,,,,,,,,,
+GSE245832,,,,,spent (development),,,DEV_ATLAS_V21_01,,,,,,
 GSE246337,,,,,,,,,not usable (not purified; no cell counts in GEO),,yes,IDAT listed for 500/500 samples,DNA methylation profiling of the Biomarkers of Aging Consortium Cohort,gold-mine map
 GSE246935,,,,,,,,,research,sperm,yes,IDAT listed for 16/16 samples,Novel Bioinformatic Analyses of Somatic Cell Contamination in Sperm Samples,gold-mine map
 GSE247193,,,,,spent,,,COMMISSIONING_NOTE_CSCORE; DEV_BASE_CHAIN_01; DEV_CHAIN_V3_RUN3; DEV_METAA_SELFLINE_01; DEV_SELFTARE_01; DEV_SELFTARE_02; PROC_NEUT_TEST_01_PREREG; PROC_NEUT_TE,,,,,,

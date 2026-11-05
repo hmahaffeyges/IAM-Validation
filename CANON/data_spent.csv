@@ -265,3 +265,4 @@ GSE281305,spent (showcase),"showcase v4 scenario 3, the nine-cell DNA mixtures r
 GSE94785,spent (test),"lung tissue test, scored (Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_01.md; MASTER_INVENTORY test_status scored)",register audit 2026-11-04
 GSE135205,spent (test),"PROC-DNMT-01 part A, Met-A and C-score on EPIC arrays of three AML lines (Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTA_OUTCOME.md)",register audit 2026-11-04
 GSE329728,spent (test),"PROC-DNMT-01 part B, IAM-A on EM-seq molecules (Biological_Physics/MethylPhys/doors/PROC_DNMT_01_PARTB_OUTCOME.md)",register audit 2026-11-04
+GSE245832,spent (development),"DEV-ATLAS-V21-01: a second outside laboratory's healthy CD8 T cells, 12 libraries (lab2_cd8_samples.csv)",GEO 2026-11-04
