@@ -175,8 +175,8 @@
      "id": "60.3",
      "date": "2026-11-04",
      "status": "open",
-     "what": "A3: a fresh outside laboratory's healthy sorted CD8 subsets on WGBS, GSE144691 (13, unread), the real outside-laboratory test for sequencing, written before reading after A1 lands",
-     "next": "after A1"
+     "what": "A3: the same-laboratory tare on sequencing: the laboratory's own healthy libraries as the tare, the others read against it. GSE144691 (St. Jude, GSE98837's laboratory; 8 of its healthy libraries are GSE98837's, spent) gives the test: tare on the 8 spent, read the 5 new healthy libraries at full depth; then a fresh laboratory. Correction 2026-11-04: GSE144691 is not a fresh laboratory (Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md)",
+     "next": "the tare in the chain, synthetic first; the depth cost of full-depth alignment"
     },
     {
      "id": "60.4",

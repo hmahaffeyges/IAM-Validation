@@ -113,7 +113,7 @@ GSE142257,downloads/C_tissue_tests/GSE142257/,4.03,IDAT,yes,unspent,,,,,,,,Solid
 GSE142512,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE143209,,,,,,,,DEV_ATLAS_V21_01,not usable (not purified (mixed islet cells)),pancreatic beta | pancreatic alpha,yes,IDAT listed for 64/64 samples,Human pancreatic islets methylation array,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE143752,,,,,partly spent,,,,,,,,,
-GSE144691,,,,,,,,COMMISSIONING_NOTE_IAMA; DEV_ATLAS_V21_01; DEV_IAMA_GRAND_01,,,,,,
+GSE144691,,,,,partly spent,,,COMMISSIONING_NOTE_IAMA; DEV_ATLAS_V21_01; DEV_IAMA_GRAND_01; DEV_METAA_ATLAS_CURVE_01,,,,,,
 GSE144858,,,,,partly spent,,,,,,,,,
 GSE145745,,,,,,,,,not usable (cultured with no uncultured comparison),kidney tubular epithelium,yes,IDAT listed for 24/24 samples,Integrative omics analyses reveal epigenetic memory in diabetic cells regulating genes associated with kidney dysfunction. [microarray],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE145887,downloads/F_salmonid/GSE145887/,0.99,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register

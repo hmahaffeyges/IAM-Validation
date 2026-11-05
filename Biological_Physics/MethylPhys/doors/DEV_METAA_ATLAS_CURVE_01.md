@@ -631,3 +631,15 @@ Met-A: B cells 1.2069 to 1.3794, CD8 T cells 0.829 to 1.345. No instrument is
 commissioned on sorted B and T cells on sequencing from this test. **Learned:** the outside B cells read own-cell Met-A high (about 1.2 to 1.4)
 where the second outside laboratory's CD8 T cells read low (about 0.57): the laboratory difference has no single direction, so it is a per-site,
 per-laboratory term, not a constant, which is what the laboratory-term work (above, in DEV_ATLAS_V21_01.md) measures. Both series are spent.
+
+**Correction to the second reading's "Learned" line (same evening, disclosed).** Both series were read from part of their depth (`bt_seq_01/bt_seq_samples.csv`: the CD8 T cells from the first 140 million of 249 to 457
+million read pairs; the B cells from 47.7 million of 177.7 million). The B cells read at 6 to 7 calls per site; inside the atlas's own
+laboratory sorted-cell Met-A falls 0.0066 per call of depth above the reference (`blueprint_depth_check.txt`), which at about 20 calls below
+the reference gives about 1.14. So much of the B cells' high reading (1.21 to 1.37) is their shallow reading, and the line above that "the
+laboratory difference has no single direction" is not supported: the two deep outside laboratories (BLUEPRINT, 44.5 calls per site; the
+second laboratory) both read low. The CD8 libraries carry values at only 247,141 to 457,599 of IAM-Atlas v2.1's 813,951 sites (the B cells
+806,605 to 809,918), which is why Met-A could not be read on them; why so few sites, at 6 to 16 calls per site, is open.
+**Also corrected: GSE144691 is not a fresh laboratory.** It is GSE98837's laboratory (St. Jude Children's Research Hospital, the same group),
+and its healthy libraries 383224 to 383227 and 647759 to 647762 are GSE98837's eight libraries deposited again (the same read counts). Five of
+its healthy libraries are new (2-736133 TEM, 2-736134 TCM, 2-736141 TSCM, 1237932 and 1237933 naive; 524 to 713 million read pairs). The
+earlier records naming GSE144691 as the fresh outside laboratory (DEV_ATLAS_V21_01.md; plan step 60.3) are superseded by this line.
