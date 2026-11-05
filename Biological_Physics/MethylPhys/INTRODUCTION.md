@@ -152,6 +152,17 @@ at the sites no healthy cell marks, and reads it as a property of the library, n
 entirely on the islands (slope 0.939), and with the sample and the reference read at a common floor the islands read 0.9272
 ([plasma_band_03_summary.txt](doors/data/DEV_ONE_DRAW_01/plasma_seq_03/plasma_band_03_summary.txt); in development).
 
+**Read against its own laboratory.** A laboratory's chemistry can also set its healthy libraries off the atlas by a factor of its own at a
+cell's identity sites. Among one laboratory's own healthy donors of a cell the spread is about the same as inside the atlas's laboratory,
+so the offset behaves as one factor for the laboratory and cell, and a tare on that laboratory's own healthy samples of the same cell
+divides it out: two outside laboratories read sorted-cell Met-A 0.7134 and 0.5891 untared, and 1.0001 and 0.9889 tared on three of
+their own healthy samples ([same_lab_tare.txt](doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/same_lab_tare.txt); in development).
+It is the rule the arrays already follow with healthy references run beside the sample.
+
+**The whole genome first.** Before any sequenced reading the chain checks that every chromosome carries its share of values. A sample read
+only in part, such as a run stored in genome order and read from its first read pairs, is refused, and the refusal names the chromosomes
+it lacks ([the record](doors/DEV_SEQ_INTAKE_01.md)).
+
 ### IAM-Deconvolver: the cell mix of a sample
 
 Whole-blood differences mostly reflect how many of each cell type a sample holds. The Deconvolver reads the mix against the atlas and
