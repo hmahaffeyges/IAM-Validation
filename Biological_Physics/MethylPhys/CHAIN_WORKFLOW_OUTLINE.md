@@ -55,7 +55,12 @@ sample is refused at intake by the genome-coverage check (box C3).
 1. **B1. Arrival, manifest and integrity** (Stage 0.1 to 0.3). Each step can quarantine, and a quarantine stops the run with exit code 2.
    Decoder: §2.
 2. **B2. Which platform?** The platform is read from the IDAT header's address count: under 800,000 is 450K, under 1,080,000 is EPIC v1,
-   otherwise EPIC v2. Each platform has its own route and its own commissioned uses. Decoder: §2, `_infer_platform`; §1 step 3.
+   otherwise EPIC v2.
+   - **EPIC v1:** the commissioned route.
+   - **450K:** read and flagged. The atlas readers read it, and the commissioned readers whose EPIC references a 450K chip only half
+     covers refuse it themselves.
+   - **EPIC v2:** refused on the main route before the quality decode, with the reason. A development route exists (`--dev-epic-v2`).
+   - Decoder: §2, `_infer_platform`; §1 step 3.
 3. **B3. The quality gates** (Stage 0.4 to 0.9): control probes, detection p-values, bead counts, call rate, sex and platform coverage,
    then the decision gate. A quarantine prints five parts: what was measured, the limit, where the limit comes from, what it means and
    what to do. Decoder: §2, §3.
@@ -145,14 +150,15 @@ These are pictures, not readings. Every number stays with its instrument.
    - 3: the machine is missing a file it needs.
    - Decoder: §1.
 
-## Decoder text to bring up to date before the document is written
+## Decoder text brought up to date while writing this outline
 
-These were found while writing this outline. The code is current; the Decoder's overview text is behind it.
+These were found while writing this outline and corrected in the Decoder from the code. The `--array-type` help text in `run_sample.py` is changed after the B and T and Johns Hopkins readings finish, so those readings stay on one chain version.
 
 1. **§1, "The order it runs", step 2** says the chain reads only whole blood, buffy coat and isolated neutrophils. The intake code
    (`stage_0_intake.specimen_refusal`) also accepts sorted, isolated and purified cells of any IAM-Atlas v2.1 type, plasma, tissue and
    constructed mixtures.
-2. **§1, steps 3 and 7** say an EPIC v2 header is refused and that EPIC is the only platform the chain reads. The intake code lists 450K,
-   EPIC v1 and EPIC v2 as valid array types, there is a 450K C-Score term, and EPIC v2 has a development route (`--dev-epic-v2`).
+2. **§1, step 7** says EPIC is the only platform the chain reads. A 450K array now advances flagged (`ADVANCE_FLAGGED_450K`): the atlas
+   readers read it, and the commissioned readers refuse it themselves. Step 3 is correct: EPIC v2 is refused on the main route, and its
+   development route (`--dev-epic-v2`) should be named there. The `--array-type` help text ("reads EPIC_v1 only") should say the same.
 3. **§1** lists only `.pat` and BAM for sequencing. The chain also reads per-site tables (`--build seq-table`), bigWig tracks and `.beta`
    files, and it now checks genome coverage (box C3).

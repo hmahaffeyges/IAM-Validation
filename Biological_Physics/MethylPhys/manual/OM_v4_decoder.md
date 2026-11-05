@@ -129,8 +129,9 @@ built from. Every reference entry names both.
 
 ## 1. The one command: `run_sample.py`
 
-**What it is for.** One sample in, one report out. A researcher runs one command on an IDAT pair (an Illumina EPIC v1 array), a
-calibrated beta table, or sequencing data (a wgbstools `.pat` file or an aligned bisulfite BAM). `run_sample.py` decides which stages
+**What it is for.** One sample in, one report out. A researcher runs one command on an IDAT pair (an Illumina EPIC v1 or 450K array), a
+calibrated beta table, or sequencing data (a wgbstools `.pat` file, an aligned bisulfite BAM, or, in development, per-CpG counts as a `.beta`
+file or a call and coverage bigWig pair, `--dev-seq-beta`; a per-site table such as Bismark coverage is first converted with `--build seq-table`). `run_sample.py` decides which stages
 run, in what order, and stops the run the moment a stage refuses the sample. It computes no reading itself.
 
 **Label: standard method** (orchestration). Nothing here is physics.
@@ -139,11 +140,13 @@ run, in what order, and stops the run the moment a stage refuses the sample. It 
 
 1. Parse the command and refuse impossible combinations (no input; two sequencing inputs; a BAM without its reference FASTA; a site
    table without its pipeline; both kinds of reference list).
-2. **Specimen check** (`stage_0_intake.specimen_refusal`). The chain reads whole blood, buffy coat (read on the whole-blood path,
-   labeled preliminary) and isolated neutrophils. Any other specimen is refused before a byte is read.
+2. **Specimen check** (`stage_0_intake.specimen_refusal`). The chain accepts whole blood, buffy coat (read on the whole-blood path,
+   labeled preliminary), isolated, sorted or purified neutrophils, isolated, sorted or purified cells of any IAM-Atlas v2.1 type (read by
+   Met-A against the atlas, flagged where not commissioned), plasma, tissue, and constructed DNA mixtures of blood cells (test material).
+   Any other specimen is refused before a byte is read.
 3. **Stage 0, intake**, for an IDAT pair: 0.1 arrival, 0.2 manifest, 0.3 integrity hash. A quarantine at any of these stops the run
    (exit code 2) before calibration. An EPIC v2 header is refused here: the chain's references are EPIC v1, and Stage 1's calibrator
-   does not read EPIC v2.
+   does not read EPIC v2. EPIC v2 has a development route only (`--dev-epic-v2`, through SeSAMe).
 4. **The QC hand-off** (`stage_0_1_qc_handoff.decode_qc_inputs`) reads the array's control probes, probe intensities, negative-control
    background, bead counts and sex probes straight from the IDAT files. If the array manifest cannot be loaded, the machine is at
    fault, not the array: exit code 3, and the array is not judged. If the decoder fails on the files, the array is quarantined as a
@@ -156,8 +159,9 @@ run, in what order, and stops the run the moment a stage refuses the sample. It 
    control medians (hybridization, negative and non-polymorphic controls, and two medians over all BS Conversion I and II probes) are
    recorded and not graded: the two bisulfite medians are of different control sets, not a conversion efficiency, which is Stage 0's.
 7. **Stage 0.7b again**, now with the calibrated values: `run_sample.py` counts the share of Met-A's 6,000 neutrophil identity sites
-   the array measured and hands it to 0.7b. On a 450K array 0.7b quarantines below 80 %; on EPIC, the only platform the chain reads,
-   it records `NA_EPIC` and passes. Met-A itself withholds its reading when fewer than 90 % of its sites were measured (Stage M).
+   the array measured and hands it to 0.7b. On EPIC it records `NA_EPIC` and passes. On a 450K array below 80 % the gate's failure stays
+   in the record, but the array advances flagged (`ADVANCE_FLAGGED_450K`): the commissioned Met-A and C-Score, whose EPIC references a 450K
+   chip only half covers, refuse it themselves, and the atlas readers read it, each with its own coverage. Met-A itself withholds its reading when fewer than 90 % of its sites were measured (Stage M).
 8. **The conductor** (`conductor_v3.run_neutrophil`): the platform check, Stage A (the cell mix), Stage M (Met-A), Stage MC (the
    C-Score) and Stage T (the same-run tare).
 9. **Chain v4 additions** when the array was read: Stage D21 (`stage_v4.stage_d21`, the IAM-Deconvolver's cell shares against
