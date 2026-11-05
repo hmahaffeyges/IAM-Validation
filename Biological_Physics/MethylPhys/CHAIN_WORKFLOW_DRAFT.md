@@ -1,4 +1,4 @@
-# The Chain Workflow (draft: Parts A to D)
+# The Chain Workflow (draft: Parts A to E)
 
 A step-by-step map of how the chain handles a sample, laid out like an emergency action plan: each box asks one question, and each
 answer says where the sample goes next. No code. Every box names the Decoder section it comes from (`manual/OM_v4_decoder.md`), so every
@@ -196,6 +196,50 @@ laboratory never read before, now running.*
 
 ---
 
-*Parts E to I (the cell mix, the instruments, the tares, the maps, two draws, the report) follow the outline and are written as
+## Part E. What cells are in it?
+
+A blood draw, a tissue or a plasma is a mixture. Disorder means something only against the healthy disorder of the same cells in the same
+proportions, so the chain finds the mixture first, and builds each person's own expected healthy self from it.
+
+### E1. Split the sample into its cells (the IAM-Deconvolver)
+
+| Step | What it does |
+|---|---|
+| Markers | for each cell, the 50 sites where it sits furthest above, and the 50 furthest below, its nearest other cell, in units of their combined healthy spread |
+| Solve | fits the shares that best rebuild the sample at those sites, each site weighted by how much healthy people vary there |
+| Range | 200 refits on resampled markers and on cells redrawn from the atlas's spread (a person's cells are not the average cell) |
+
+**Commissioned on:** the shares of neutrophils, monocytes, CD4 T and CD8 T cells on arrays, tested on 200 mixtures of purified arrays from a
+laboratory the atlas never saw: mean share error 0.016, against a bar of 0.03. Its 95 % range covered the truth 78 % of the time, so the
+range is printed as information, labeled not calibrated.
+
+| Panel | Cells | Status |
+|---|---|---|
+| `blood` (the default) | neutrophils, monocytes, B cells, CD4 T, CD8 T and NK cells | commissioned for the shares of four (neutrophils, monocytes, CD4 T, CD8 T); B cells and NK cells flagged |
+| `atlas` | every cell type of the active atlas (79 on arrays, 57 on sequencing) | read and flagged |
+
+Decoder: §7.
+
+### E2. Is a cell really there?
+
+| Question | Rule |
+|---|---|
+| Below 1 % of the sample? | that cell's own reading is printed as *not a reading of that cell*: too little of it to read |
+| On sequencing, fewer than one copy of the cell behind each site? | the share times the reads at each site; below one copy the cell's reading is flagged |
+| A cell the atlas does not hold? | it cannot be named; plasma's megakaryocyte DNA is read through a provisional column, flagged |
+
+### E3. The person's own expected healthy self
+
+Each cell's healthy level, from the atlas, mixed at the shares the Deconvolver found in **this** sample. Every whole-sample reading and the
+globe read the sample against this expectation, not against a population average. That is how composition leaves the reading: a person with
+more neutrophils is not read as abnormal at every neutrophil site.
+
+### E4. Then
+
+Each cell found goes to Part F, read on its own identity sites against its own healthy column; the whole sample goes to Part F as one.
+
+---
+
+*Parts F to I (the instruments, the tares, the maps, two draws, the report) follow the outline and are written as
 each is settled. The same-laboratory tare for sequenced samples is under test on a laboratory the atlas has never held; its box is written
 from that test's result.*
