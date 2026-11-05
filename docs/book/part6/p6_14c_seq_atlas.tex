@@ -42,6 +42,18 @@ These three choices are what took the sequencing readings from reading high on h
 
 Physics sets the cell's floor: below it, heat alone would set the error. A laboratory's chemistry adds its own small rate of false ``methylated'' calls on top of it. The atlas names 46,947 floor sites, CpGs that no healthy cell of the 57 marks, and the chain measures every sequenced library's rate there before any reading. Across its 156 inputs the median floor is 0.0062855, and its 69 unplanted inputs run 0.00469 to 0.01041. The floor is a property of the library, not of the cell, and it behaves differently by chemistry: in healthy plasma it is one rate for the whole library, which the islands take in full (1.005 of it), while inside the atlas's own laboratory the islands take only 0.291 of the floor-site rate and do not follow it. Reading a sample and its reference at a common floor is a development setting for that reason, off by default, and on in plasma.
 
+\section{Other laboratories, and the same-laboratory tare}
+
+A laboratory's libraries carry its own chemistry beyond the floor, so a healthy library from a laboratory the atlas has never held can sit
+off its own cell's healthy reading by a factor of its own: two outside laboratories' healthy blood cells read own-cell Met-A at a median of
+0.7134 and 0.5891, while their whole-sample readings stayed Normal. Among one laboratory's own healthy donors of a cell the spread is about
+the same as inside the atlas's laboratory (6.2~\% in the atlas's, 7.4~\% and 4.9~\% in the two others), so the offset behaves as one factor
+for that laboratory and cell. A tare on the same laboratory's own healthy samples of the same cell divides it out: tared on three of them,
+the two laboratories read 1.0001 and 0.9889. It is the rule the arrays already follow with references run beside the sample, and it is the
+way a laboratory's samples are read: the laboratory supplies a few healthy samples of its own, and every other sample it sends is read
+against them. Its healthy test on a laboratory the atlas has never held is under way. A single healthy sample's sorted-cell Met-A spreads 6 to 7~\% on sequencing, so a laboratory's healthy readings
+are judged on their median.
+
 \section{Methods from the sky}
 
 The atlas is drawn and tested with the tools cosmology built for a faint signal on a sphere, because a methyl mark and a fluctuation on the sky are both records held against noise, and the same statistics serve both (Chapter~\ref{ch:skytools}).
