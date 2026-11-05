@@ -18,7 +18,7 @@ Table~\ref{tab:p4_gates} lists the line each stage applies; the values and the f
 stage & line & source \\\midrule
 Stage 0 & call rate: proceed; flagged; quarantine & SOP \\
 Stage 0 & bisulfite conversion at least 0.80; hybridization spread at least 2.0; extension balance 0.2--5.0 & 337 healthy arrays, 3 laboratories \\
-platform & EPIC v1 only & SOP \\
+platform & EPIC v1 for Met-A and the C-Score; 450K on to the atlas readers, flagged; EPIC v2 refused & SOP \\
 Stage A & enough of the composition markers measured & SOP \\
 Stage M & a neutrophil share above 0; at least 90\,\% of the identity sites measured & SOP \\
 Stage MC & blocks of 10 sites; enough blocks; baseline 1.0103; band 0.877--1.152, read one-sided & SOP \\
@@ -51,8 +51,9 @@ removed before any later stage sees a $\beta$. Stage~1 returns, beside $\beta$, 
 
 \section{Platform check}
 
-The chain reads EPIC v1 only. A specimen whose array type, probe names or probe count say 450K or EPIC v2 is refused with one sentence, because no frozen
-neutrophil floor exists for that platform.
+The commissioned Met-A and C-Score read EPIC v1 only: their frozen neutrophil references are EPIC v1, and a 450K chip covers only about half of their
+sites. A 450K array is refused by these two readers with one sentence and goes on to the atlas readers, flagged, each with its own coverage.
+An EPIC v2 array is refused at intake, because the chain's calibrator does not read it; it has a development route of its own.
 
 \section{Stage A: composition (whole blood)}
 
