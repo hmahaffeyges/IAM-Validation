@@ -1,4 +1,4 @@
-# The Chain Workflow (draft: Parts A to E)
+# The Chain Workflow (draft: Parts A to F)
 
 A step-by-step map of how the chain handles a sample, laid out like an emergency action plan: each box asks one question, and each
 answer says where the sample goes next. No code. Every box names the Decoder section it comes from (`manual/OM_v4_decoder.md`), so every
@@ -240,6 +240,29 @@ Each cell found goes to Part F, read on its own identity sites against its own h
 
 ---
 
-*Parts F to I (the instruments, the tares, the maps, two draws, the report) follow the outline and are written as
+## Part F. The readings
+
+Every reading answers one question about how well the sample's cells are holding their marks, and prints on one gauge: **1 is the healthy
+self**, above 1 is more disorder than healthy, toward 0 is the most disorder the cell can reach. Each says whether it is commissioned for
+this sample's platform and cell, or read and flagged.
+
+| Reading | The question it answers | The physics behind it | Needs | Status |
+|---|---|---|---|---|
+| **Met-A** | Are this cell's identity marks wearing? | a mark held at a cost slips toward disorder when the cost is not paid; the identity sites are where a healthy cell holds firmly, so wear shows there first | arrays, or sequencing against the IAM Sequencing Atlas | commissioned: isolated neutrophils, EPIC v1; every other cell, and sequencing, flagged |
+| **C-Score** | Are the changes clumped into runs? | wear from heat is scattered; a failing program changes neighbors together. It reads the layout, not the size, so a laboratory's offset cancels | arrays | commissioned: whole blood, EPIC v1 |
+| **IAM-A** | How many tagging mistakes does each molecule carry, against what its own loose share predicts? | the held error has a floor and a ceiling set by the law; the healthy middle comes from the sample itself | molecules (sequencing that keeps reads) | commissioned: blood CD8 T cells, whole-genome bisulfite |
+| **Group-A** | Has a whole group moved? | one reading is noisy; the average of many, each tared on healthy references run the same way, is not | arrays, groups in one series | commissioned: whole blood groups, EPIC v1; on sequencing flagged |
+| **Coupling-A** | Do a molecule's mistakes fall one at a time, or together? | independent slips scatter at random; coupled slips mean the neighbors' upkeep failed together | molecules | read and flagged |
+| **The territories** | Are the sites no cell marks gaining marks (the islands), and are the large marked blocks holding (the domains)? | the islands are held unmarked at a cost, so a gained mark is disorder; the domains are held marked | arrays or sequencing | read and flagged |
+| **Distance to the ceiling** | How far is the sample from the most disordered state its own cell can reach? | the ceiling is set by the law for each cell | arrays or sequencing | read and flagged |
+| **The globe** | Where on the genome is the sample different from its own expected healthy self? | every site in its place on a sphere, read against its healthy range | arrays or sequencing | a picture with numbers, read and flagged |
+| **The information sphere** | Are the changed sites ones that behave alike across healthy cells? | sites placed by how they behave, not where they sit; distance is information distance | arrays (sequencing on v2.1's layout) | read and flagged |
+
+**A reading that cannot run** on this sample (no molecules, too few sites, a cell not present) is printed with its reason, never left out.
+Decoder: §5 (Met-A, the C-Score), §6 and §9 (IAM-A), §11 (Group-A), §14b and §17 (the globe), §15 and §16 (the development readings), §18 (the information sphere), §21 (sequencing).
+
+---
+
+*Parts G to I (the tares, the maps, two draws, the report) follow the outline and are written as
 each is settled. The same-laboratory tare for sequenced samples is under test on a laboratory the atlas has never held; its box is written
 from that test's result.*
