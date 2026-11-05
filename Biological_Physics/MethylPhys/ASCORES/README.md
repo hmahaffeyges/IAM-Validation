@@ -581,17 +581,17 @@ reading made another way (an earlier tare), so those rows show none.
 | Met-A | Met-A sorted cell (atlas) | cd4 t cells | sorted cd4 t cells | healthy | 9 | 0.88056 | 0.6771 to 1.1195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | C-Score | C-Score whole genome | whole genome | sorted cd4 t cells | healthy | 25 | 1.0026 | 0.9925 to 1.0106 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted cd4 t cells | healthy | 25 | 1.0254 | 0.91116 to 1.1085 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted cd8 t cells | healthy | 17 | 0.87344 | 0.65978 to 1.0768 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cd8 t cells | healthy | 17 | 0.77186 | 0.54474 to 1.096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted cd8 t cells | healthy | 17 | 0.38264 | 0.22203 to 1.907 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted cd8 t cells | healthy | 17 | 0.89394 | 0.61113 to 1.1501 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted cd8 t cells | healthy | 17 | 0.89822 | 0.67896 to 1.0703 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted cd8 t cells | healthy | 17 | 0.6431 | 0.23206 to 1.3617 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted cd8 t cells | healthy | 17 | 0.89027 | 0.54398 to 1.1044 | no line set for this reading | [Territories.csv](Territories.csv) |
-| IAM-A | IAM-A | cd8 t cells | sorted cd8 t cells | healthy | 6 | 0.9518 | 0.885 to 0.9781 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted cd8 t cells | healthy | 21 | 0.92843 | 0.65978 to 1.0768 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted cd8 t cells | healthy | 21 | 0.88204 | 0.54474 to 1.096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted cd8 t cells | healthy | 21 | 0.96505 | 0.22203 to 1.907 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted cd8 t cells | healthy | 21 | 0.89394 | 0.61113 to 1.1322 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted cd8 t cells | healthy | 21 | 0.93268 | 0.67896 to 1.0703 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted cd8 t cells | healthy | 21 | 0.9107 | 0.23777 to 1.2672 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted cd8 t cells | healthy | 21 | 0.89027 | 0.54398 to 1.1044 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | cd8 t cells | sorted cd8 t cells | healthy | 10 | 0.9518 | 0.885 to 1.0459 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | Met-A | Met-A sorted cell (atlas) | cd8 t cells | sorted cd8 t cells | healthy | 15 | 0.7678 | 0.57713 to 1.0883 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted cd8 t cells | healthy | 17 | 1.0009 | 0.9946 to 1.0079 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | cd8 t cells | sorted cd8 t cells | healthy | 17 | 1.0413 | 0.9545 to 1.0994 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted cd8 t cells | healthy | 21 | 1.0009 | 0.9946 to 1.0097 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | sorted cd8 t cells | healthy | 21 | 1.0413 | 0.8773 to 1.1127 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted t central memory cd4 | healthy | 13 | 0.99946 | 0.92039 to 1.0433 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted t central memory cd4 | healthy | 13 | 0.78066 | 0.68722 to 1.1097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | islands | sorted t central memory cd4 | healthy | 13 | 0.5753 | 0.22943 to 1.0665 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -628,16 +628,16 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | monocytes | sorted t effector memory cd4 | healthy | 3 | 1.0469 | 0.96464 to 1.0532 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted t effector memory cd4 | healthy | 3 | 0.9737 | 0.96272 to 0.98441 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted t effector memory cd4 | healthy | 3 | 0.9943 | 0.98449 to 1.087 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted effector memory cd8 t cells | healthy | 5 | 1.0511 | 1.0216 to 1.0578 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted effector memory cd8 t cells | healthy | 5 | 0.68119 | 0.6477 to 0.72851 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted effector memory cd8 t cells | healthy | 5 | 0.60879 | 0.34733 to 0.65881 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted effector memory cd8 t cells | healthy | 5 | 1.013 | 0.98258 to 1.2254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted effector memory cd8 t cells | healthy | 5 | 1.0702 | 1.0389 to 1.0783 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted effector memory cd8 t cells | healthy | 5 | 0.54245 | 0.29808 to 0.9445 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted effector memory cd8 t cells | healthy | 5 | 0.94322 | 0.92945 to 1.1056 | no line set for this reading | [Territories.csv](Territories.csv) |
-| IAM-A | IAM-A | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 1 | 0.9094 | 0.9094 to 0.9094 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 5 | 0.62192 | 0.58341 to 0.72175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted effector memory cd8 t cells | healthy | 5 | 1.0019 | 0.99622 to 1.0045 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted effector memory cd8 t cells | healthy | 15 | 1.0216 | 0.96882 to 1.1407 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted effector memory cd8 t cells | healthy | 15 | 0.67728 | 0.60592 to 0.85566 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted effector memory cd8 t cells | healthy | 15 | 0.86584 | 0.51074 to 2.1941 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted effector memory cd8 t cells | healthy | 15 | 0.98258 | 0.94008 to 1.169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted effector memory cd8 t cells | healthy | 15 | 1.0389 | 0.97192 to 1.1388 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted effector memory cd8 t cells | healthy | 15 | 0.82553 | 0.43224 to 1.8672 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted effector memory cd8 t cells | healthy | 15 | 0.92945 | 0.89175 to 1.0604 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 3 | 0.9094 | 0.90616 to 1.0175 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 11 | 0.62192 | 0.57566 to 0.71513 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted effector memory cd8 t cells | healthy | 15 | 1.0019 | 0.99405 to 1.0067 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted effector memory cd8 t cells | healthy | 1 | 1.0814 | 1.0814 to 1.0814 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted naive cd4 t cells | healthy | 1 | 0.61564 | 0.61564 to 0.61564 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted naive cd4 t cells | healthy | 1 | 0.43466 | 0.43466 to 0.43466 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -650,16 +650,16 @@ reading made another way (an earlier tare), so those rows show none.
 | Met-A | Met-A sorted cell (atlas) | naive cd4 t cells | sorted naive cd4 t cells | healthy | 1 | 0.67147 | 0.67147 to 0.67147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | C-Score | C-Score whole genome | whole genome | sorted naive cd4 t cells | healthy | 1 | 0.9969 | 0.9969 to 0.9969 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted naive cd4 t cells | healthy | 1 | 1.0262 | 1.0262 to 1.0262 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted naive cd8 t cells | healthy | 1 | 0.57175 | 0.57175 to 0.57175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted naive cd8 t cells | healthy | 1 | 0.40766 | 0.40766 to 0.40766 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted naive cd8 t cells | healthy | 1 | 0.21646 | 0.21646 to 0.21646 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted naive cd8 t cells | healthy | 1 | 0.5793 | 0.5793 to 0.5793 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted naive cd8 t cells | healthy | 1 | 0.59657 | 0.59657 to 0.59657 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted naive cd8 t cells | healthy | 1 | 0.1894 | 0.1894 to 0.1894 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted naive cd8 t cells | healthy | 1 | 0.52697 | 0.52697 to 0.52697 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted naive cd8 t cells | healthy | 7 | 1.0929 | 0.70766 to 1.3113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted naive cd8 t cells | healthy | 7 | 0.59778 | 0.45301 to 0.94505 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted naive cd8 t cells | healthy | 7 | 0.82722 | 0.37882 to 3.8464 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted naive cd8 t cells | healthy | 7 | 1.0848 | 0.70578 to 1.3611 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted naive cd8 t cells | healthy | 7 | 1.1007 | 0.72731 to 1.2876 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted naive cd8 t cells | healthy | 7 | 0.73626 | 0.33542 to 3.3735 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted naive cd8 t cells | healthy | 7 | 0.99494 | 0.64598 to 1.2342 | no line set for this reading | [Territories.csv](Territories.csv) |
 | IAM-A | IAM-A | naive cd8 t cells | sorted naive cd8 t cells | healthy | 1 | 0.8031 | 0.8031 to 0.8031 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | naive cd8 t cells | sorted naive cd8 t cells | healthy | 1 | 0.63896 | 0.63896 to 0.63896 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted naive cd8 t cells | healthy | 1 | 0.9964 | 0.9964 to 0.9964 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A sorted cell (atlas) | naive cd8 t cells | sorted naive cd8 t cells | healthy | 4 | 0.55126 | 0.52834 to 0.62696 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted naive cd8 t cells | healthy | 7 | 1.0023 | 0.99739 to 1.0133 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted naive cd8 t cells | healthy | 1 | 1.0111 | 1.0111 to 1.0111 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted nk cells | healthy | 17 | 0.92411 | 0.80002 to 1.1574 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted nk cells | healthy | 17 | 0.79315 | 0.70775 to 1.1557 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -729,27 +729,27 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | cd4 t cells | sorted lung interstitial macrophages | healthy | 1 | 0.9977 | 0.9977 to 0.9977 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd8 t cells | sorted lung interstitial macrophages | healthy | 1 | 1.0377 | 1.0377 to 1.0377 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | neutrophils | sorted lung interstitial macrophages | healthy | 1 | 0.9858 | 0.9858 to 0.9858 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted b cells | healthy | 24 | 0.78743 | 0.72241 to 1.1155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | healthy | 24 | 0.62354 | 0.56781 to 1.1135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted b cells | healthy | 24 | 0.31127 | 0.20926 to 1.1354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted b cells | healthy | 24 | 0.80253 | 0.70113 to 1.1784 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted b cells | healthy | 24 | 0.80281 | 0.73764 to 1.1136 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted b cells | healthy | 24 | 0.68128 | 0.20586 to 1.1417 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted b cells | healthy | 24 | 0.7554 | 0.66549 to 1.1376 | no line set for this reading | [Territories.csv](Territories.csv) |
-| IAM-A | IAM-A | b cells | sorted b cells | healthy | 7 | 0.9052 | 0.82026 to 0.9643 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | healthy | 22 | 0.70784 | 0.57076 to 1.0667 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted b cells | healthy | 24 | 1.0005 | 0.99159 to 1.0138 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| C-Score | C-Score each cell | b cells | sorted b cells | healthy | 24 | 0.9998 | 0.93724 to 1.0684 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A whole sample | whole sample | sorted memory b cells | healthy | 20 | 1.0395 | 0.94792 to 1.1888 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted memory b cells | healthy | 18 | 0.76936 | 0.61871 to 1.1173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | islands | sorted memory b cells | healthy | 20 | 0.66356 | 0.2176 to 1.7074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | domains | sorted memory b cells | healthy | 20 | 1.093 | 0.90267 to 1.2572 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A whole sample, by place | the rest | sorted memory b cells | healthy | 20 | 1.048 | 0.96554 to 1.1976 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Territories | territory | islands | sorted memory b cells | healthy | 20 | 1.0347 | 0.19986 to 1.2595 | no line set for this reading | [Territories.csv](Territories.csv) |
-| Territories | territory | domains | sorted memory b cells | healthy | 20 | 1.0324 | 0.81639 to 1.1611 | no line set for this reading | [Territories.csv](Territories.csv) |
-| IAM-A | IAM-A | memory b cells | sorted memory b cells | healthy | 6 | 0.9357 | 0.79415 to 1.0292 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Met-A | Met-A sorted cell (atlas) | memory b cells | sorted memory b cells | healthy | 12 | 0.87461 | 0.58828 to 1.9738 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| C-Score | C-Score whole genome | whole genome | sorted memory b cells | healthy | 20 | 0.9978 | 0.9912 to 1.0075 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted b cells | healthy | 26 | 0.81024 | 0.72353 to 1.1857 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted b cells | healthy | 26 | 0.64766 | 0.57004 to 1.3328 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted b cells | healthy | 26 | 0.31403 | 0.21039 to 1.1303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted b cells | healthy | 26 | 0.86318 | 0.70133 to 1.3126 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted b cells | healthy | 26 | 0.83035 | 0.73917 to 1.1746 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted b cells | healthy | 26 | 0.69297 | 0.20608 to 1.1417 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted b cells | healthy | 26 | 0.78668 | 0.66681 to 1.1746 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | b cells | sorted b cells | healthy | 9 | 0.8547 | 0.8055 to 0.9643 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | b cells | sorted b cells | healthy | 24 | 0.70937 | 0.57222 to 1.3662 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted b cells | healthy | 26 | 1.0005 | 0.99205 to 1.0132 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | sorted b cells | healthy | 26 | 1.0042 | 0.93747 to 1.0666 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | sorted memory b cells | healthy | 22 | 1.0544 | 0.94841 to 1.3242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted memory b cells | healthy | 20 | 0.79941 | 0.61871 to 1.3101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | sorted memory b cells | healthy | 22 | 0.70788 | 0.21893 to 1.6862 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | sorted memory b cells | healthy | 22 | 1.0945 | 0.90676 to 1.4002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | sorted memory b cells | healthy | 22 | 1.0504 | 0.96635 to 1.3142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | sorted memory b cells | healthy | 22 | 1.049 | 0.21073 to 1.2404 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | sorted memory b cells | healthy | 22 | 1.034 | 0.82188 to 1.2092 | no line set for this reading | [Territories.csv](Territories.csv) |
+| IAM-A | IAM-A | memory b cells | sorted memory b cells | healthy | 8 | 0.88975 | 0.7776 to 1.0292 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Met-A | Met-A sorted cell (atlas) | memory b cells | sorted memory b cells | healthy | 14 | 0.94039 | 0.59322 to 1.9731 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | sorted memory b cells | healthy | 22 | 0.9978 | 0.99125 to 1.0072 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | b cells | sorted memory b cells | healthy | 2 | 0.9713 | 0.95447 to 0.98813 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | sorted tonsil palatine epithelium | healthy | 9 | 1.0198 | 0.96514 to 1.0484 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | sorted tonsil palatine epithelium | healthy | 9 | 1.0411 | 0.99087 to 1.086 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -976,9 +976,9 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | b cells | sorted small intestine epithelium | healthy | 3 | 0.9884 | 0.96959 to 0.99623 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | cd4 t cells | sorted small intestine epithelium | healthy | 3 | 1.134 | 1.0855 to 1.1491 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | nk cells | sorted small intestine epithelium | healthy | 3 | 0.9091 | 0.90244 to 0.97048 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Coupling-A | coupling-A | b cells | sorted b cells | healthy | 4 | 1.0027 | 0.98521 to 1.1084 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
-| Coupling-A | coupling-A | memory b cells | sorted memory b cells | healthy | 4 | 1.0102 | 0.99699 to 1.0284 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
-| C-Score | C-Score each cell | memory b cells | sorted memory b cells | healthy | 18 | 1.0034 | 0.8799 to 1.1641 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Coupling-A | coupling-A | b cells | sorted b cells | healthy | 6 | 1.0379 | 0.98695 to 1.1266 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Coupling-A | coupling-A | memory b cells | sorted memory b cells | healthy | 6 | 1.0161 | 0.99785 to 1.0306 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| C-Score | C-Score each cell | memory b cells | sorted memory b cells | healthy | 20 | 1.0034 | 0.8799 to 1.1641 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Coupling-A | coupling-A, own sample left out of the reference | adipocytes | healthy | 3 | 0.99949 | 0.97219 to 1.0288 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | Coupling-A | coupling-A, own sample left out of the reference | aorta endothelium | healthy | 2 | 1.0028 | 0.93517 to 1.0705 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | Coupling-A | coupling-A, own sample left out of the reference | vascular saphenous endothelium | healthy | 3 | 1.0028 | 0.99285 to 1.0052 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
@@ -5582,65 +5582,65 @@ reading made another way (an earlier tare), so those rows show none.
 | Met-A | Met-A each cell | vascular saphenous endothelium | sorted cd4 t cells | healthy | 22 | 0.90349 | 0.769 to 1.0582 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Globe | globe changed blocks | share of blocks | sorted cd4 t cells | healthy | 22 | 0.000436 | 1.85e-06 to 0.0028653 | no line set for this reading | [Globe.csv](Globe.csv) |
 | Information sphere | information sphere | Fisher-Rao rms (rad) | sorted cd4 t cells | healthy | 22 | 0.18992 | 0.093362 to 0.27365 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
-| Met-A | Met-A each cell | adipocytes | sorted cd8 t cells | healthy | 14 | 0.92371 | 0.80268 to 1.0673 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | aorta endothelium | sorted cd8 t cells | healthy | 14 | 0.87516 | 0.80676 to 1.0878 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | b cells | sorted cd8 t cells | healthy | 14 | 0.92947 | 0.72145 to 1.1097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | bladder epithelium | sorted cd8 t cells | healthy | 14 | 0.94368 | 0.81976 to 1.0467 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast basal epithelium | sorted cd8 t cells | healthy | 14 | 0.93865 | 0.83754 to 1.0396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast luminal epithelium | sorted cd8 t cells | healthy | 14 | 0.93554 | 0.84433 to 1.0541 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cardiomyocyte | sorted cd8 t cells | healthy | 14 | 0.90557 | 0.7981 to 1.0541 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd4 t cells | sorted cd8 t cells | healthy | 14 | 0.9203 | 0.7268 to 1.115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd8 t cells | sorted cd8 t cells | healthy | 14 | 1.0055 | 0.74626 to 1.0976 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon enteroendocrine | sorted cd8 t cells | healthy | 14 | 0.88777 | 0.77651 to 1.0827 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon epithelium | sorted cd8 t cells | healthy | 14 | 0.92337 | 0.74552 to 1.0781 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon fibroblasts | sorted cd8 t cells | healthy | 14 | 0.9493 | 0.83432 to 1.1056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon macrophages | sorted cd8 t cells | healthy | 14 | 0.92692 | 0.78598 to 1.1125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cortical neurons | sorted cd8 t cells | healthy | 14 | 0.9311 | 0.76788 to 1.0544 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | effector memory cd8 t cells | sorted cd8 t cells | healthy | 14 | 1.0014 | 0.79764 to 1.1662 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | endometrium epithelium | sorted cd8 t cells | healthy | 14 | 0.94013 | 0.85949 to 1.0474 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | erythrocyte progenitors | sorted cd8 t cells | healthy | 14 | 0.94961 | 0.83615 to 1.0494 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | fallopien tubes epithelium | sorted cd8 t cells | healthy | 14 | 0.93455 | 0.82787 to 1.0451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric antrum epithelium | sorted cd8 t cells | healthy | 14 | 0.91416 | 0.81764 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric body epithelium | sorted cd8 t cells | healthy | 14 | 0.92119 | 0.80772 to 1.045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric fundus epithelium | sorted cd8 t cells | healthy | 14 | 0.9226 | 0.8331 to 1.0454 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | granulocytes | sorted cd8 t cells | healthy | 6 | 1.0556 | 0.91737 to 1.0865 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | heart fibroblasts | sorted cd8 t cells | healthy | 14 | 0.94937 | 0.82415 to 1.0472 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | hepatocyte | sorted cd8 t cells | healthy | 14 | 0.90156 | 0.81491 to 1.0481 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular endothelium | sorted cd8 t cells | healthy | 14 | 0.92383 | 0.77603 to 1.0631 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular epithelium | sorted cd8 t cells | healthy | 14 | 0.88362 | 0.77756 to 1.0901 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular endothelium | sorted cd8 t cells | healthy | 14 | 0.92549 | 0.81624 to 1.0714 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular epithelium | sorted cd8 t cells | healthy | 14 | 0.92875 | 0.81524 to 1.0585 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar endothelium | sorted cd8 t cells | healthy | 14 | 0.92773 | 0.81024 to 1.0742 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar epithelium | sorted cd8 t cells | healthy | 14 | 0.92817 | 0.74233 to 1.0403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar macrophages | sorted cd8 t cells | healthy | 14 | 0.87694 | 0.74949 to 1.1041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung bronchus epithelium | sorted cd8 t cells | healthy | 14 | 0.93983 | 0.84934 to 1.1431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung interstitial macrophages | sorted cd8 t cells | healthy | 14 | 0.90719 | 0.77829 to 1.0956 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | memory b cells | sorted cd8 t cells | healthy | 14 | 0.96051 | 0.81157 to 1.0955 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | monocytes | sorted cd8 t cells | healthy | 14 | 0.88272 | 0.71137 to 1.0785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd4 t cells | sorted cd8 t cells | healthy | 14 | 0.91167 | 0.66725 to 1.1029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd8 t cells | sorted cd8 t cells | healthy | 14 | 0.92031 | 0.63473 to 1.0969 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | nk cells | sorted cd8 t cells | healthy | 14 | 0.92046 | 0.73203 to 1.1207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | oligodendrocytes | sorted cd8 t cells | healthy | 14 | 0.93395 | 0.77444 to 1.0479 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreas endothelium | sorted cd8 t cells | healthy | 14 | 0.93433 | 0.80585 to 1.0602 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic acinar | sorted cd8 t cells | healthy | 14 | 0.90994 | 0.83713 to 1.0413 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic alpha | sorted cd8 t cells | healthy | 14 | 0.9307 | 0.81135 to 1.0628 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic beta | sorted cd8 t cells | healthy | 14 | 0.92883 | 0.79331 to 1.0755 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic delta | sorted cd8 t cells | healthy | 14 | 0.92887 | 0.82532 to 1.0657 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic duct | sorted cd8 t cells | healthy | 14 | 0.90338 | 0.82279 to 1.052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | prostate epithelium | sorted cd8 t cells | healthy | 14 | 0.91883 | 0.83476 to 1.0496 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | small intestine epithelium | sorted cd8 t cells | healthy | 14 | 0.91839 | 0.74929 to 1.1041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | smooth muscle | sorted cd8 t cells | healthy | 14 | 0.92574 | 0.83342 to 1.0449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | striated muscle | sorted cd8 t cells | healthy | 14 | 0.87914 | 0.74828 to 1.1099 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t central memory cd4 | sorted cd8 t cells | healthy | 14 | 0.92477 | 0.74037 to 1.1008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector cell cd8 | sorted cd8 t cells | healthy | 14 | 0.98728 | 0.78079 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector memory cd4 | sorted cd8 t cells | healthy | 14 | 0.96119 | 0.82673 to 1.1143 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | thyroid epithelium | sorted cd8 t cells | healthy | 14 | 0.92011 | 0.7992 to 1.0702 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tongue epithelium | sorted cd8 t cells | healthy | 14 | 0.92287 | 0.84064 to 1.0457 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil palatine epithelium | sorted cd8 t cells | healthy | 14 | 0.94111 | 0.8201 to 1.0588 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted cd8 t cells | healthy | 14 | 0.90585 | 0.80219 to 1.0867 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | vascular saphenous endothelium | sorted cd8 t cells | healthy | 14 | 0.92631 | 0.77933 to 1.0669 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Globe | globe changed blocks | share of blocks | sorted cd8 t cells | healthy | 14 | 0.00027 | 0 to 0.001369 | no line set for this reading | [Globe.csv](Globe.csv) |
-| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted cd8 t cells | healthy | 14 | 0.21087 | 0.11735 to 0.29866 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted cd8 t cells | healthy | 18 | 0.93251 | 0.80268 to 1.0673 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted cd8 t cells | healthy | 18 | 0.90431 | 0.79732 to 1.0878 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted cd8 t cells | healthy | 18 | 0.93564 | 0.72145 to 1.1097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted cd8 t cells | healthy | 18 | 0.94559 | 0.81976 to 1.0467 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted cd8 t cells | healthy | 18 | 0.94416 | 0.83754 to 1.0396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted cd8 t cells | healthy | 18 | 0.94115 | 0.84285 to 1.0541 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted cd8 t cells | healthy | 18 | 0.91201 | 0.7981 to 1.0541 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted cd8 t cells | healthy | 18 | 0.92169 | 0.71939 to 1.115 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted cd8 t cells | healthy | 18 | 0.94542 | 0.73532 to 1.0976 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted cd8 t cells | healthy | 18 | 0.90336 | 0.77651 to 1.0827 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted cd8 t cells | healthy | 18 | 0.93326 | 0.74552 to 1.0781 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted cd8 t cells | healthy | 18 | 0.9493 | 0.8062 to 1.1056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted cd8 t cells | healthy | 18 | 0.93196 | 0.77744 to 1.1125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted cd8 t cells | healthy | 18 | 0.93601 | 0.76788 to 1.0544 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted cd8 t cells | healthy | 18 | 0.96563 | 0.77259 to 1.1662 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted cd8 t cells | healthy | 18 | 0.95118 | 0.85949 to 1.0474 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted cd8 t cells | healthy | 18 | 0.94961 | 0.83615 to 1.0494 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted cd8 t cells | healthy | 18 | 0.94098 | 0.82787 to 1.0451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted cd8 t cells | healthy | 18 | 0.92785 | 0.81764 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted cd8 t cells | healthy | 18 | 0.92538 | 0.80772 to 1.045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted cd8 t cells | healthy | 18 | 0.93579 | 0.8331 to 1.0454 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted cd8 t cells | healthy | 10 | 1.0003 | 0.82592 to 1.0865 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted cd8 t cells | healthy | 18 | 0.96044 | 0.82415 to 1.0472 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted cd8 t cells | healthy | 18 | 0.9077 | 0.81491 to 1.0481 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted cd8 t cells | healthy | 18 | 0.92647 | 0.77603 to 1.0631 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted cd8 t cells | healthy | 18 | 0.899 | 0.76724 to 1.0901 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted cd8 t cells | healthy | 18 | 0.9324 | 0.81624 to 1.0714 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted cd8 t cells | healthy | 18 | 0.93334 | 0.81524 to 1.0585 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted cd8 t cells | healthy | 18 | 0.94534 | 0.81024 to 1.0742 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted cd8 t cells | healthy | 18 | 0.93056 | 0.74233 to 1.0403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted cd8 t cells | healthy | 18 | 0.8844 | 0.74855 to 1.1041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted cd8 t cells | healthy | 18 | 0.97159 | 0.84934 to 1.1431 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted cd8 t cells | healthy | 18 | 0.90719 | 0.77829 to 1.0956 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted cd8 t cells | healthy | 18 | 0.95538 | 0.80987 to 1.0955 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted cd8 t cells | healthy | 18 | 0.89433 | 0.71137 to 1.0785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted cd8 t cells | healthy | 18 | 0.91167 | 0.66725 to 1.1029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted cd8 t cells | healthy | 18 | 0.90113 | 0.63473 to 1.0969 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted cd8 t cells | healthy | 18 | 0.92046 | 0.73203 to 1.1207 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted cd8 t cells | healthy | 18 | 0.93395 | 0.77444 to 1.0479 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted cd8 t cells | healthy | 18 | 0.93619 | 0.80585 to 1.0602 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted cd8 t cells | healthy | 18 | 0.9134 | 0.83202 to 1.0413 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted cd8 t cells | healthy | 18 | 0.93579 | 0.81135 to 1.0628 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted cd8 t cells | healthy | 18 | 0.94884 | 0.79331 to 1.0755 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted cd8 t cells | healthy | 18 | 0.94165 | 0.82532 to 1.0657 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted cd8 t cells | healthy | 18 | 0.90833 | 0.82065 to 1.052 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted cd8 t cells | healthy | 18 | 0.92701 | 0.83476 to 1.0496 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted cd8 t cells | healthy | 18 | 0.94661 | 0.74929 to 1.1041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted cd8 t cells | healthy | 18 | 0.93369 | 0.83342 to 1.0449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted cd8 t cells | healthy | 18 | 0.88906 | 0.74638 to 1.1099 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted cd8 t cells | healthy | 18 | 0.92477 | 0.72589 to 1.1008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted cd8 t cells | healthy | 18 | 0.84645 | 0.74363 to 1.0446 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted cd8 t cells | healthy | 18 | 0.96119 | 0.80722 to 1.1143 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted cd8 t cells | healthy | 18 | 0.92348 | 0.7992 to 1.0702 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted cd8 t cells | healthy | 18 | 0.93305 | 0.83762 to 1.0457 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted cd8 t cells | healthy | 18 | 0.94311 | 0.81998 to 1.0587 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted cd8 t cells | healthy | 18 | 0.91209 | 0.80031 to 1.0867 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted cd8 t cells | healthy | 18 | 0.93279 | 0.77933 to 1.0669 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted cd8 t cells | healthy | 18 | 0.000321 | 0 to 0.0016625 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted cd8 t cells | healthy | 18 | 0.23001 | 0.11735 to 0.30487 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
 | Met-A | Met-A each cell | adipocytes | sorted t central memory cd4 | healthy | 10 | 0.9867 | 0.89998 to 1.038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A each cell | aorta endothelium | sorted t central memory cd4 | healthy | 10 | 0.98711 | 0.89031 to 1.0281 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A each cell | b cells | sorted t central memory cd4 | healthy | 10 | 0.98604 | 0.81853 to 1.0715 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -6128,124 +6128,124 @@ reading made another way (an earlier tare), so those rows show none.
 | Met-A | Met-A sorted cell (atlas) | granulocytes | sorted granulocytes | healthy | 6 | 0.97307 | 0.93459 to 1.0516 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | C-Score | C-Score whole genome | whole genome | sorted granulocytes | healthy | 6 | 0.9927 | 0.991 to 1.0032 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | granulocytes | sorted granulocytes | healthy | 6 | 0.9771 | 0.972 to 1.0146 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A each cell | adipocytes | sorted b cells | healthy | 20 | 0.75667 | 0.65418 to 1.0915 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | aorta endothelium | sorted b cells | healthy | 20 | 0.71037 | 0.62228 to 1.1248 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | b cells | sorted b cells | healthy | 20 | 0.58248 | 0.54614 to 1.1067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | bladder epithelium | sorted b cells | healthy | 20 | 0.78385 | 0.72054 to 1.0621 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | healthy | 20 | 0.77082 | 0.68847 to 1.0643 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | healthy | 20 | 0.75714 | 0.6828 to 1.0828 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | healthy | 20 | 0.75911 | 0.66124 to 1.0768 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd4 t cells | sorted b cells | healthy | 20 | 0.64399 | 0.57721 to 1.1104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd8 t cells | sorted b cells | healthy | 20 | 0.66583 | 0.60645 to 1.1301 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | healthy | 20 | 0.71186 | 0.63495 to 1.1121 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon epithelium | sorted b cells | healthy | 20 | 0.66867 | 0.58849 to 1.1017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | healthy | 20 | 0.77852 | 0.71572 to 1.3214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon macrophages | sorted b cells | healthy | 20 | 0.72898 | 0.65093 to 1.1837 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cortical neurons | sorted b cells | healthy | 20 | 0.69468 | 0.59926 to 1.067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | healthy | 20 | 0.72128 | 0.67442 to 1.2504 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | healthy | 20 | 0.77729 | 0.70929 to 1.0686 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | healthy | 20 | 0.77287 | 0.69916 to 1.072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | healthy | 20 | 0.7657 | 0.68413 to 1.0743 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | healthy | 20 | 0.78148 | 0.71451 to 1.0612 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | healthy | 20 | 0.77866 | 0.70973 to 1.0706 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | healthy | 20 | 0.78529 | 0.71616 to 1.0649 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | granulocytes | sorted b cells | healthy | 6 | 1.0439 | 0.9102 to 1.1149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | healthy | 20 | 0.77973 | 0.68828 to 1.0751 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | hepatocyte | sorted b cells | healthy | 20 | 0.77511 | 0.65944 to 1.0606 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | healthy | 20 | 0.7246 | 0.61754 to 1.0894 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | healthy | 20 | 0.70005 | 0.60212 to 1.1125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | healthy | 20 | 0.72313 | 0.63008 to 1.0743 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | healthy | 20 | 0.72825 | 0.64653 to 1.0834 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | healthy | 20 | 0.73871 | 0.65101 to 1.0853 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | healthy | 20 | 0.7044 | 0.5951 to 1.0752 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | healthy | 20 | 0.66757 | 0.55785 to 1.1365 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | healthy | 20 | 0.74339 | 0.67561 to 1.1845 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | healthy | 20 | 0.66468 | 0.57401 to 1.1104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | memory b cells | sorted b cells | healthy | 20 | 0.7436 | 0.71022 to 1.3452 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | monocytes | sorted b cells | healthy | 20 | 0.61668 | 0.50733 to 1.1014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | healthy | 20 | 0.62899 | 0.5506 to 1.1089 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | healthy | 20 | 0.69151 | 0.63141 to 1.0991 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | nk cells | sorted b cells | healthy | 20 | 0.64671 | 0.58851 to 1.1122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | healthy | 20 | 0.67877 | 0.58888 to 1.0775 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | healthy | 20 | 0.74739 | 0.66027 to 1.0855 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | healthy | 20 | 0.80052 | 0.72121 to 1.07 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | healthy | 20 | 0.74502 | 0.6655 to 1.0835 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic beta | sorted b cells | healthy | 20 | 0.74418 | 0.6679 to 1.0805 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic delta | sorted b cells | healthy | 20 | 0.75128 | 0.66761 to 1.0761 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic duct | sorted b cells | healthy | 20 | 0.77397 | 0.69318 to 1.0753 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | prostate epithelium | sorted b cells | healthy | 20 | 0.77632 | 0.69081 to 1.0613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | healthy | 20 | 0.66724 | 0.59304 to 1.1038 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | smooth muscle | sorted b cells | healthy | 20 | 0.79869 | 0.70053 to 1.0639 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | striated muscle | sorted b cells | healthy | 20 | 0.69879 | 0.61007 to 1.1268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | healthy | 20 | 0.6481 | 0.60043 to 1.1192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | healthy | 20 | 0.72931 | 0.68798 to 1.0723 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | healthy | 20 | 0.75867 | 0.68859 to 1.0708 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | healthy | 20 | 0.74233 | 0.64996 to 1.0737 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tongue epithelium | sorted b cells | healthy | 20 | 0.7891 | 0.72318 to 1.0638 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | healthy | 20 | 0.78219 | 0.69637 to 1.0722 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | healthy | 20 | 0.72274 | 0.63365 to 1.1004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | healthy | 20 | 0.73798 | 0.63722 to 1.0852 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Globe | globe changed blocks | share of blocks | sorted b cells | healthy | 20 | 0.0005835 | 1.2e-05 to 0.007096 | no line set for this reading | [Globe.csv](Globe.csv) |
-| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | healthy | 20 | 0.18444 | 0.09612 to 0.23073 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
-| Met-A | Met-A each cell | adipocytes | sorted memory b cells | healthy | 16 | 1.0341 | 0.93265 to 1.1966 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | aorta endothelium | sorted memory b cells | healthy | 14 | 1.0145 | 0.86195 to 1.0965 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | b cells | sorted memory b cells | healthy | 14 | 0.97693 | 0.75547 to 1.0938 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | bladder epithelium | sorted memory b cells | healthy | 14 | 1.014 | 0.92563 to 1.0679 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast basal epithelium | sorted memory b cells | healthy | 14 | 1.021 | 0.9315 to 1.0524 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast luminal epithelium | sorted memory b cells | healthy | 14 | 1.008 | 0.9163 to 1.069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cardiomyocyte | sorted memory b cells | healthy | 14 | 1.0166 | 0.9299 to 1.0785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd4 t cells | sorted memory b cells | healthy | 14 | 0.99519 | 0.81288 to 1.1261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd8 t cells | sorted memory b cells | healthy | 14 | 0.99262 | 0.80552 to 1.0978 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon enteroendocrine | sorted memory b cells | healthy | 14 | 1.0226 | 0.90381 to 1.1042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon epithelium | sorted memory b cells | healthy | 14 | 1.0166 | 0.87065 to 1.1131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon fibroblasts | sorted memory b cells | healthy | 14 | 1.0173 | 0.86683 to 1.1333 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon macrophages | sorted memory b cells | healthy | 14 | 1.0286 | 0.8673 to 1.1628 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cortical neurons | sorted memory b cells | healthy | 14 | 0.99398 | 0.88083 to 1.044 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | effector memory cd8 t cells | sorted memory b cells | healthy | 14 | 0.95109 | 0.78467 to 1.0618 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | endometrium epithelium | sorted memory b cells | healthy | 14 | 1.0148 | 0.91963 to 1.0601 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | erythrocyte progenitors | sorted memory b cells | healthy | 14 | 1.0203 | 0.91765 to 1.1165 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | fallopien tubes epithelium | sorted memory b cells | healthy | 14 | 1.0183 | 0.92341 to 1.0481 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric antrum epithelium | sorted memory b cells | healthy | 14 | 1.0167 | 0.92156 to 1.043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric body epithelium | sorted memory b cells | healthy | 14 | 1.0202 | 0.91878 to 1.0456 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric fundus epithelium | sorted memory b cells | healthy | 14 | 1.0148 | 0.9208 to 1.0591 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | granulocytes | sorted memory b cells | healthy | 4 | 1.0338 | 1.0001 to 1.0676 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | heart fibroblasts | sorted memory b cells | healthy | 14 | 1.0064 | 0.91157 to 1.0705 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | hepatocyte | sorted memory b cells | healthy | 16 | 1.0273 | 0.92947 to 1.1742 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular endothelium | sorted memory b cells | healthy | 14 | 1.021 | 0.90716 to 1.1148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular epithelium | sorted memory b cells | healthy | 14 | 1.0229 | 0.89675 to 1.1067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular endothelium | sorted memory b cells | healthy | 14 | 1.015 | 0.91627 to 1.104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular epithelium | sorted memory b cells | healthy | 14 | 1.0227 | 0.92607 to 1.1045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar endothelium | sorted memory b cells | healthy | 14 | 1.0166 | 0.90799 to 1.127 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar epithelium | sorted memory b cells | healthy | 14 | 1.0035 | 0.87438 to 1.0931 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar macrophages | sorted memory b cells | healthy | 14 | 1.0089 | 0.89191 to 1.1353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung bronchus epithelium | sorted memory b cells | healthy | 14 | 1.0115 | 0.86381 to 1.0954 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung interstitial macrophages | sorted memory b cells | healthy | 14 | 1.0154 | 0.89392 to 1.1676 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | memory b cells | sorted memory b cells | healthy | 14 | 0.74696 | 0.64493 to 1.1129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | monocytes | sorted memory b cells | healthy | 14 | 1.0117 | 0.89196 to 1.0878 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd4 t cells | sorted memory b cells | healthy | 14 | 1.0156 | 0.85592 to 1.1142 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd8 t cells | sorted memory b cells | healthy | 14 | 0.99447 | 0.80833 to 1.0887 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | nk cells | sorted memory b cells | healthy | 14 | 0.99021 | 0.82824 to 1.1327 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | oligodendrocytes | sorted memory b cells | healthy | 14 | 1.0122 | 0.88769 to 1.0561 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreas endothelium | sorted memory b cells | healthy | 14 | 1.0182 | 0.91752 to 1.0856 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic acinar | sorted memory b cells | healthy | 16 | 1.0255 | 0.92712 to 1.0656 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic alpha | sorted memory b cells | healthy | 14 | 1.0231 | 0.91646 to 1.0884 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic beta | sorted memory b cells | healthy | 14 | 1.0228 | 0.90029 to 1.116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic delta | sorted memory b cells | healthy | 14 | 1.0241 | 0.91873 to 1.0935 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic duct | sorted memory b cells | healthy | 16 | 1.0171 | 0.91909 to 1.0972 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | prostate epithelium | sorted memory b cells | healthy | 14 | 1.0164 | 0.92967 to 1.0491 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | small intestine epithelium | sorted memory b cells | healthy | 14 | 1.0093 | 0.87857 to 1.1421 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | smooth muscle | sorted memory b cells | healthy | 14 | 1.0225 | 0.92065 to 1.0382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | striated muscle | sorted memory b cells | healthy | 14 | 1.0411 | 0.89724 to 1.1403 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t central memory cd4 | sorted memory b cells | healthy | 14 | 1.0129 | 0.82703 to 1.1321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector cell cd8 | sorted memory b cells | healthy | 14 | 0.91926 | 0.81031 to 1.0441 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector memory cd4 | sorted memory b cells | healthy | 14 | 1.0117 | 0.83604 to 1.0973 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | thyroid epithelium | sorted memory b cells | healthy | 14 | 1.0178 | 0.91205 to 1.0947 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tongue epithelium | sorted memory b cells | healthy | 14 | 1.0119 | 0.92502 to 1.0502 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil palatine epithelium | sorted memory b cells | healthy | 14 | 1.017 | 0.91627 to 1.0804 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted memory b cells | healthy | 14 | 1.0185 | 0.90082 to 1.1105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | vascular saphenous endothelium | sorted memory b cells | healthy | 14 | 1.0228 | 0.9162 to 1.1125 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Globe | globe changed blocks | share of blocks | sorted memory b cells | healthy | 16 | 0.0053595 | 8.3e-05 to 0.010306 | no line set for this reading | [Globe.csv](Globe.csv) |
-| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted memory b cells | healthy | 16 | 0.15999 | 0.10319 to 0.3496 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted b cells | healthy | 22 | 0.77572 | 0.65475 to 1.09 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted b cells | healthy | 22 | 0.71057 | 0.62293 to 1.1824 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted b cells | healthy | 22 | 0.58462 | 0.54617 to 1.2756 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted b cells | healthy | 22 | 0.81096 | 0.7208 to 1.0608 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted b cells | healthy | 22 | 0.8007 | 0.69002 to 1.0621 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted b cells | healthy | 22 | 0.78351 | 0.68348 to 1.0822 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted b cells | healthy | 22 | 0.7811 | 0.66124 to 1.0741 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted b cells | healthy | 22 | 0.65576 | 0.57844 to 1.2594 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted b cells | healthy | 22 | 0.67091 | 0.60712 to 1.3463 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted b cells | healthy | 22 | 0.73223 | 0.63614 to 1.1122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted b cells | healthy | 22 | 0.70127 | 0.58966 to 1.1017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted b cells | healthy | 22 | 0.78012 | 0.71733 to 1.5123 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted b cells | healthy | 22 | 0.74141 | 0.65161 to 1.3246 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted b cells | healthy | 22 | 0.7174 | 0.5995 to 1.0655 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted b cells | healthy | 22 | 0.73391 | 0.67572 to 1.3934 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted b cells | healthy | 22 | 0.80202 | 0.70975 to 1.0686 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted b cells | healthy | 22 | 0.79766 | 0.69941 to 1.169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted b cells | healthy | 22 | 0.79171 | 0.68521 to 1.0724 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted b cells | healthy | 22 | 0.80708 | 0.71452 to 1.0606 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted b cells | healthy | 22 | 0.7994 | 0.71026 to 1.0685 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted b cells | healthy | 22 | 0.80793 | 0.71622 to 1.0639 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted b cells | healthy | 8 | 1.0617 | 0.9102 to 1.1481 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted b cells | healthy | 22 | 0.8057 | 0.68887 to 1.0751 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted b cells | healthy | 22 | 0.79919 | 0.65976 to 1.0591 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted b cells | healthy | 22 | 0.74973 | 0.61794 to 1.0878 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted b cells | healthy | 22 | 0.71955 | 0.6031 to 1.1155 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted b cells | healthy | 22 | 0.75129 | 0.63089 to 1.0742 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted b cells | healthy | 22 | 0.75628 | 0.64688 to 1.0816 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted b cells | healthy | 22 | 0.76639 | 0.65125 to 1.0851 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted b cells | healthy | 22 | 0.70874 | 0.59777 to 1.0719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted b cells | healthy | 22 | 0.70278 | 0.5592 to 1.1365 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted b cells | healthy | 22 | 0.74824 | 0.67615 to 1.2364 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted b cells | healthy | 22 | 0.69938 | 0.57544 to 1.1078 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted b cells | healthy | 22 | 0.75262 | 0.71039 to 1.4926 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted b cells | healthy | 22 | 0.65897 | 0.50753 to 1.0982 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted b cells | healthy | 22 | 0.64728 | 0.55174 to 1.1134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted b cells | healthy | 22 | 0.70042 | 0.63165 to 1.23 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted b cells | healthy | 22 | 0.66335 | 0.58911 to 1.1974 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted b cells | healthy | 22 | 0.70089 | 0.58907 to 1.0751 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted b cells | healthy | 22 | 0.77986 | 0.66077 to 1.085 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted b cells | healthy | 22 | 0.81494 | 0.72184 to 1.07 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted b cells | healthy | 22 | 0.76533 | 0.66589 to 1.0814 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted b cells | healthy | 22 | 0.76257 | 0.66802 to 1.0805 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted b cells | healthy | 22 | 0.77615 | 0.66798 to 1.0752 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted b cells | healthy | 22 | 0.79182 | 0.6936 to 1.0726 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted b cells | healthy | 22 | 0.79977 | 0.69212 to 1.0594 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted b cells | healthy | 22 | 0.68143 | 0.59371 to 1.1635 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted b cells | healthy | 22 | 0.82015 | 0.70133 to 1.0639 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted b cells | healthy | 22 | 0.71924 | 0.6102 to 1.1673 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted b cells | healthy | 22 | 0.66241 | 0.60101 to 1.1579 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted b cells | healthy | 22 | 0.73795 | 0.68824 to 1.1545 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted b cells | healthy | 22 | 0.7656 | 0.69003 to 1.193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted b cells | healthy | 22 | 0.76799 | 0.6501 to 1.0715 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted b cells | healthy | 22 | 0.8156 | 0.72332 to 1.0625 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted b cells | healthy | 22 | 0.80684 | 0.69723 to 1.0718 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted b cells | healthy | 22 | 0.73789 | 0.63528 to 1.1623 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted b cells | healthy | 22 | 0.76969 | 0.63747 to 1.0844 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted b cells | healthy | 22 | 0.000638 | 1.325e-05 to 0.0068648 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted b cells | healthy | 22 | 0.18793 | 0.097308 to 0.29659 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted memory b cells | healthy | 18 | 1.0345 | 0.93265 to 1.1985 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted memory b cells | healthy | 16 | 1.0318 | 0.86195 to 1.2671 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted memory b cells | healthy | 16 | 0.99448 | 0.75547 to 1.402 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted memory b cells | healthy | 16 | 1.0244 | 0.92563 to 1.0729 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted memory b cells | healthy | 16 | 1.0218 | 0.9315 to 1.0557 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted memory b cells | healthy | 16 | 1.0209 | 0.9163 to 1.098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted memory b cells | healthy | 16 | 1.0184 | 0.9299 to 1.0785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted memory b cells | healthy | 16 | 1.0011 | 0.81288 to 1.3202 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted memory b cells | healthy | 16 | 0.99304 | 0.80552 to 1.4007 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted memory b cells | healthy | 16 | 1.0339 | 0.90381 to 1.1868 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted memory b cells | healthy | 16 | 1.02 | 0.87065 to 1.2199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted memory b cells | healthy | 16 | 1.0395 | 0.86683 to 1.5475 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted memory b cells | healthy | 16 | 1.0496 | 0.8673 to 1.3841 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted memory b cells | healthy | 16 | 1.0005 | 0.88083 to 1.0798 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted memory b cells | healthy | 16 | 0.98573 | 0.78467 to 1.4018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted memory b cells | healthy | 16 | 1.0245 | 0.91963 to 1.0756 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted memory b cells | healthy | 16 | 1.0335 | 0.91765 to 1.2227 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted memory b cells | healthy | 16 | 1.0237 | 0.92341 to 1.0613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted memory b cells | healthy | 16 | 1.0194 | 0.92156 to 1.0627 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted memory b cells | healthy | 16 | 1.0248 | 0.91878 to 1.0668 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted memory b cells | healthy | 16 | 1.0216 | 0.9208 to 1.0764 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted memory b cells | healthy | 6 | 1.0676 | 1.0001 to 1.2324 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted memory b cells | healthy | 16 | 1.0279 | 0.91157 to 1.1268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted memory b cells | healthy | 18 | 1.0273 | 0.92947 to 1.1742 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted memory b cells | healthy | 16 | 1.0288 | 0.90716 to 1.1303 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted memory b cells | healthy | 16 | 1.0349 | 0.89675 to 1.2213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted memory b cells | healthy | 16 | 1.0277 | 0.91627 to 1.1242 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted memory b cells | healthy | 16 | 1.0283 | 0.92607 to 1.1106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted memory b cells | healthy | 16 | 1.0283 | 0.90799 to 1.1445 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted memory b cells | healthy | 16 | 1.0105 | 0.87438 to 1.098 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted memory b cells | healthy | 16 | 1.0284 | 0.89191 to 1.175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted memory b cells | healthy | 16 | 1.0189 | 0.86381 to 1.3527 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted memory b cells | healthy | 16 | 1.0326 | 0.89392 to 1.1676 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted memory b cells | healthy | 16 | 0.76331 | 0.64493 to 1.2602 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted memory b cells | healthy | 16 | 1.0207 | 0.89196 to 1.1074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted memory b cells | healthy | 16 | 1.0237 | 0.85592 to 1.1831 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted memory b cells | healthy | 16 | 0.99699 | 0.80833 to 1.2728 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted memory b cells | healthy | 16 | 1.0046 | 0.82824 to 1.2706 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted memory b cells | healthy | 16 | 1.0128 | 0.88769 to 1.0698 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted memory b cells | healthy | 16 | 1.0276 | 0.91752 to 1.1059 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted memory b cells | healthy | 18 | 1.0336 | 0.92712 to 1.0759 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted memory b cells | healthy | 16 | 1.0266 | 0.91646 to 1.0953 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted memory b cells | healthy | 16 | 1.0336 | 0.90029 to 1.1304 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted memory b cells | healthy | 16 | 1.0263 | 0.91873 to 1.1048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted memory b cells | healthy | 18 | 1.0231 | 0.91909 to 1.0972 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted memory b cells | healthy | 16 | 1.0165 | 0.92967 to 1.0578 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted memory b cells | healthy | 16 | 1.0202 | 0.87857 to 1.2694 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted memory b cells | healthy | 16 | 1.0244 | 0.92065 to 1.0778 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted memory b cells | healthy | 16 | 1.0461 | 0.89724 to 1.2218 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted memory b cells | healthy | 16 | 1.0192 | 0.82703 to 1.2337 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted memory b cells | healthy | 16 | 0.95431 | 0.81031 to 1.212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted memory b cells | healthy | 16 | 1.0128 | 0.83604 to 1.2707 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted memory b cells | healthy | 16 | 1.0244 | 0.91205 to 1.101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted memory b cells | healthy | 16 | 1.0178 | 0.92502 to 1.0719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted memory b cells | healthy | 16 | 1.0254 | 0.91627 to 1.0959 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted memory b cells | healthy | 16 | 1.0272 | 0.90082 to 1.2311 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted memory b cells | healthy | 16 | 1.0289 | 0.9162 to 1.1187 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Globe | globe changed blocks | share of blocks | sorted memory b cells | healthy | 18 | 0.004269 | 8.42e-05 to 0.010306 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted memory b cells | healthy | 18 | 0.16617 | 0.10319 to 0.3496 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
 | Met-A | Met-A each cell | adipocytes | sorted tonsil palatine epithelium | healthy | 6 | 0.98808 | 0.98085 to 1.0432 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A each cell | aorta endothelium | sorted tonsil palatine epithelium | healthy | 6 | 1.0007 | 0.97025 to 1.0353 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A each cell | b cells | sorted tonsil palatine epithelium | healthy | 6 | 0.99979 | 0.9746 to 1.0318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -7149,64 +7149,64 @@ reading made another way (an earlier tare), so those rows show none.
 | Globe | globe changed blocks | share of blocks | sorted pancreatic duct | healthy | 5 | 0.004557 | 0.003471 to 0.0048552 | no line set for this reading | [Globe.csv](Globe.csv) |
 | Information sphere | information sphere | Fisher-Rao rms (rad) | sorted pancreatic duct | healthy | 5 | 0.26477 | 0.25109 to 0.29175 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
 | C-Score | C-Score each cell | pancreatic duct | sorted pancreatic duct | healthy | 5 | 0.9651 | 0.94122 to 1.0461 | no line set for this reading | [C_Score.csv](C_Score.csv) |
-| Met-A | Met-A each cell | adipocytes | sorted effector memory cd8 t cells | healthy | 4 | 0.96141 | 0.95549 to 0.96733 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | aorta endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95046 | 0.93318 to 0.96774 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | b cells | sorted effector memory cd8 t cells | healthy | 4 | 0.87939 | 0.86912 to 0.88965 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | bladder epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95467 | 0.94372 to 0.96562 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast basal epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9645 | 0.94851 to 0.98049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | breast luminal epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9513 | 0.93877 to 0.96382 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cardiomyocyte | sorted effector memory cd8 t cells | healthy | 4 | 0.9618 | 0.95191 to 0.97169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd4 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.87167 | 0.8692 to 0.87415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.81746 | 0.80559 to 0.82933 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon enteroendocrine | sorted effector memory cd8 t cells | healthy | 4 | 0.9533 | 0.94052 to 0.96608 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.92547 | 0.92051 to 0.93043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon fibroblasts | sorted effector memory cd8 t cells | healthy | 4 | 0.92507 | 0.90563 to 0.94451 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | colon macrophages | sorted effector memory cd8 t cells | healthy | 4 | 0.93549 | 0.91767 to 0.95332 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | cortical neurons | sorted effector memory cd8 t cells | healthy | 4 | 0.926 | 0.92091 to 0.93109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.78045 | 0.7656 to 0.7953 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | endometrium epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95459 | 0.94621 to 0.96297 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | erythrocyte progenitors | sorted effector memory cd8 t cells | healthy | 4 | 0.95479 | 0.95173 to 0.95785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | fallopien tubes epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95713 | 0.94383 to 0.97042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric antrum epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95941 | 0.94781 to 0.97101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric body epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95871 | 0.9468 to 0.97063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | gastric fundus epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95371 | 0.9405 to 0.96691 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | heart fibroblasts | sorted effector memory cd8 t cells | healthy | 4 | 0.94285 | 0.93221 to 0.95349 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | hepatocyte | sorted effector memory cd8 t cells | healthy | 4 | 0.96254 | 0.96229 to 0.9628 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95773 | 0.94549 to 0.96997 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney glomerular epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.96673 | 0.94553 to 0.98792 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95654 | 0.94732 to 0.96575 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | kidney tubular epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9603 | 0.94898 to 0.97162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95331 | 0.94824 to 0.95839 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.94151 | 0.92404 to 0.95899 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung alveolar macrophages | sorted effector memory cd8 t cells | healthy | 4 | 0.95613 | 0.94686 to 0.9654 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung bronchus epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.9018 | 0.88607 to 0.91752 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | lung interstitial macrophages | sorted effector memory cd8 t cells | healthy | 4 | 0.94471 | 0.94156 to 0.94786 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | memory b cells | sorted effector memory cd8 t cells | healthy | 4 | 0.88018 | 0.86772 to 0.89263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | monocytes | sorted effector memory cd8 t cells | healthy | 4 | 0.94165 | 0.93977 to 0.94352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd4 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.91823 | 0.91017 to 0.92629 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | naive cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 0.86935 | 0.86696 to 0.87175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | nk cells | sorted effector memory cd8 t cells | healthy | 4 | 0.89037 | 0.88821 to 0.89253 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | oligodendrocytes | sorted effector memory cd8 t cells | healthy | 4 | 0.93111 | 0.92107 to 0.94114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreas endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95545 | 0.94076 to 0.97014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic acinar | sorted effector memory cd8 t cells | healthy | 4 | 0.95056 | 0.94324 to 0.95788 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic alpha | sorted effector memory cd8 t cells | healthy | 4 | 0.9546 | 0.94214 to 0.96707 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic beta | sorted effector memory cd8 t cells | healthy | 4 | 0.94477 | 0.93002 to 0.95952 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic delta | sorted effector memory cd8 t cells | healthy | 4 | 0.95819 | 0.95218 to 0.96419 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | pancreatic duct | sorted effector memory cd8 t cells | healthy | 4 | 0.95979 | 0.95449 to 0.9651 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | prostate epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95643 | 0.94152 to 0.97134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | small intestine epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.92777 | 0.92208 to 0.93346 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | smooth muscle | sorted effector memory cd8 t cells | healthy | 4 | 0.95334 | 0.93853 to 0.96814 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | striated muscle | sorted effector memory cd8 t cells | healthy | 4 | 0.95982 | 0.94589 to 0.97375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t central memory cd4 | sorted effector memory cd8 t cells | healthy | 4 | 0.8798 | 0.87718 to 0.88243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector cell cd8 | sorted effector memory cd8 t cells | healthy | 4 | 0.76565 | 0.76199 to 0.76932 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | t effector memory cd4 | sorted effector memory cd8 t cells | healthy | 4 | 0.8607 | 0.84804 to 0.87336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | thyroid epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.96074 | 0.94797 to 0.9735 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tongue epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95232 | 0.93942 to 0.96522 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil palatine epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95675 | 0.94204 to 0.97146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95039 | 0.93292 to 0.96785 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Met-A | Met-A each cell | vascular saphenous endothelium | sorted effector memory cd8 t cells | healthy | 4 | 0.95603 | 0.94964 to 0.96243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
-| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted effector memory cd8 t cells | healthy | 4 | 0.17554 | 0.16333 to 0.18775 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
-| C-Score | C-Score each cell | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 4 | 1.0313 | 0.9307 to 1.132 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted effector memory cd8 t cells | healthy | 14 | 0.96433 | 0.90598 to 1.0613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95867 | 0.89527 to 1.0368 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted effector memory cd8 t cells | healthy | 14 | 0.89038 | 0.86912 to 1.0347 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.9545 | 0.9181 to 1.0149 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.94851 | 0.88628 to 1.0064 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.96382 | 0.90788 to 1.0271 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted effector memory cd8 t cells | healthy | 14 | 0.96381 | 0.91082 to 0.99611 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted effector memory cd8 t cells | healthy | 14 | 0.8876 | 0.8692 to 1.02 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted effector memory cd8 t cells | healthy | 14 | 0.83788 | 0.78532 to 0.97415 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted effector memory cd8 t cells | healthy | 14 | 0.94595 | 0.92319 to 1.0116 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95487 | 0.91807 to 1.0493 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted effector memory cd8 t cells | healthy | 14 | 0.94436 | 0.89828 to 1.0913 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted effector memory cd8 t cells | healthy | 14 | 0.95332 | 0.8997 to 1.0722 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted effector memory cd8 t cells | healthy | 14 | 0.93109 | 0.90599 to 1.0233 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 14 | 0.7953 | 0.71345 to 0.90641 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95014 | 0.89137 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted effector memory cd8 t cells | healthy | 14 | 0.95173 | 0.88068 to 1.0486 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95227 | 0.89798 to 1.0298 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95317 | 0.89168 to 0.99925 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.94924 | 0.88945 to 1.0089 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.94096 | 0.87875 to 1.0033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted effector memory cd8 t cells | healthy | 14 | 0.94209 | 0.88857 to 1.0287 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted effector memory cd8 t cells | healthy | 14 | 0.959 | 0.88844 to 1.0063 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted effector memory cd8 t cells | healthy | 14 | 0.96362 | 0.92433 to 1.0367 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.98408 | 0.931 to 1.0182 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95744 | 0.91786 to 1.0634 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.97162 | 0.89968 to 1.0347 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95839 | 0.91308 to 1.0561 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.94268 | 0.90038 to 1.0213 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted effector memory cd8 t cells | healthy | 14 | 0.9654 | 0.90826 to 1.0514 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.91533 | 0.88607 to 1.0519 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted effector memory cd8 t cells | healthy | 14 | 0.95054 | 0.90553 to 1.0504 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted effector memory cd8 t cells | healthy | 14 | 0.86772 | 0.81841 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted effector memory cd8 t cells | healthy | 14 | 0.94667 | 0.92987 to 1.0289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted effector memory cd8 t cells | healthy | 14 | 0.9518 | 0.90501 to 1.0582 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted effector memory cd8 t cells | healthy | 14 | 0.88654 | 0.84125 to 1.034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted effector memory cd8 t cells | healthy | 14 | 0.9361 | 0.88821 to 1.0524 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted effector memory cd8 t cells | healthy | 14 | 0.94114 | 0.90208 to 1.0153 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted effector memory cd8 t cells | healthy | 14 | 0.94288 | 0.90459 to 1.0362 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted effector memory cd8 t cells | healthy | 14 | 0.94393 | 0.88684 to 0.9901 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted effector memory cd8 t cells | healthy | 14 | 0.95684 | 0.92177 to 1.025 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted effector memory cd8 t cells | healthy | 14 | 0.94941 | 0.90495 to 1.0491 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted effector memory cd8 t cells | healthy | 14 | 0.96491 | 0.92967 to 1.0343 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted effector memory cd8 t cells | healthy | 14 | 0.95415 | 0.8926 to 0.99888 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95832 | 0.90109 to 0.99845 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95664 | 0.92208 to 1.0922 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted effector memory cd8 t cells | healthy | 14 | 0.94476 | 0.87495 to 0.9978 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted effector memory cd8 t cells | healthy | 14 | 0.97017 | 0.91277 to 1.0522 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted effector memory cd8 t cells | healthy | 14 | 0.89413 | 0.86534 to 0.96366 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted effector memory cd8 t cells | healthy | 14 | 0.76442 | 0.70454 to 0.83498 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted effector memory cd8 t cells | healthy | 14 | 0.87336 | 0.80763 to 0.98943 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95259 | 0.90172 to 1.0295 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.94444 | 0.90137 to 1.004 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.95617 | 0.88576 to 1.0266 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted effector memory cd8 t cells | healthy | 14 | 0.94959 | 0.90306 to 1.0334 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted effector memory cd8 t cells | healthy | 14 | 0.96243 | 0.90072 to 1.0396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted effector memory cd8 t cells | healthy | 14 | 0.35667 | 0.16333 to 0.47261 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 14 | 0.9976 | 0.92339 to 1.1465 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | Met-A | Met-A whole sample | whole sample | plasma | healthy | 90 | 0.92051 | 0.82899 to 1.0582 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | identity sites of the cells found | plasma | healthy | 90 | 0.9918 | 0.87946 to 1.1268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
 | Met-A | Met-A whole sample, by place | islands | plasma | healthy | 90 | 2.7112 | 2.3336 to 3.1352 | no line set for this reading | [Met_A.csv](Met_A.csv) |
@@ -7867,8 +7867,8 @@ reading made another way (an earlier tare), so those rows show none.
 | Coupling-A | coupling-A | erythrocyte progenitors | sorted erythrocyte progenitors | healthy | 3 | 1 | 0.96733 to 1.01 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | IAM-A | IAM-A in the mix | whole sample | sorted cd4 t cells | healthy | 3 | 0.99114 | 0.96885 to 1.0124 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | Coupling-A | coupling-A | cd4 t cells | sorted cd4 t cells | healthy | 3 | 1 | 0.96778 to 1.0158 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
-| IAM-A | IAM-A in the mix | whole sample | sorted cd8 t cells | healthy | 2 | 0.91901 | 0.88547 to 0.95255 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| Coupling-A | coupling-A | cd8 t cells | sorted cd8 t cells | healthy | 3 | 1 | 0.93295 to 1.0091 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted cd8 t cells | healthy | 6 | 0.99998 | 0.89434 to 1.106 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Coupling-A | coupling-A | cd8 t cells | sorted cd8 t cells | healthy | 7 | 0.9255 | 0.86192 to 1.0299 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | Coupling-A | coupling-A | t central memory cd4 | sorted t central memory cd4 | healthy | 3 | 1 | 0.99271 to 1.0267 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | Coupling-A | coupling-A | t effector cell cd8 | sorted t effector cell cd8 | healthy | 3 | 1 | 0.99478 to 1.0405 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | IAM-A | IAM-A in the mix | whole sample | sorted t effector memory cd4 | healthy | 1 | 0.97299 | 0.97299 to 0.97299 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
@@ -7882,8 +7882,8 @@ reading made another way (an earlier tare), so those rows show none.
 | IAM-A | IAM-A in the mix | whole sample | sorted lung interstitial macrophages | healthy | 2 | 0.99599 | 0.97744 to 1.0145 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | Coupling-A | coupling-A | lung interstitial macrophages | sorted lung interstitial macrophages | healthy | 3 | 1 | 0.99334 to 1.0059 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | IAM-A | IAM-A in the mix | whole sample | sorted granulocytes | healthy | 1 | 0.99375 | 0.99375 to 0.99375 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| IAM-A | IAM-A in the mix | whole sample | sorted b cells | healthy | 3 | 0.99506 | 0.95569 to 1.0705 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
-| IAM-A | IAM-A in the mix | whole sample | sorted memory b cells | healthy | 2 | 0.99965 | 0.97716 to 1.0222 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted b cells | healthy | 5 | 0.95131 | 0.92668 to 1.0622 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted memory b cells | healthy | 4 | 0.99829 | 0.97662 to 1.0223 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | Coupling-A | coupling-A | tonsil palatine epithelium | sorted tonsil palatine epithelium | healthy | 3 | 1 | 0.9991 to 1.0042 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 | IAM-A | IAM-A in the mix | whole sample | sorted tonsil palatine epithelium | healthy | 1 | 0.97852 | 0.97852 to 0.97852 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | IAM-A | IAM-A in the mix | whole sample | sorted tonsil pharyngeal epithelium | healthy | 2 | 1.0019 | 0.92364 to 1.0801 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
@@ -7914,8 +7914,529 @@ reading made another way (an earlier tare), so those rows show none.
 | IAM-A | IAM-A in the mix | whole sample | sorted colon enteroendocrine | healthy | 1 | 1.0002 | 1.0002 to 1.0002 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | IAM-A | IAM-A in the mix | whole sample | sorted small intestine epithelium | healthy | 2 | 1.0174 | 1.0149 to 1.0199 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
 | Coupling-A | coupling-A | small intestine epithelium | sorted small intestine epithelium | healthy | 3 | 1 | 0.97984 to 1.01 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| Met-A | Met-A whole sample | whole sample | whole blood | cancer (glioma, new gbm) | 39 | 0.89742 | 0.88514 to 0.91519 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | whole blood | cancer (glioma, new gbm) | 39 | 0.83586 | 0.82326 to 0.84747 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | whole blood | cancer (glioma, new gbm) | 39 | 0.84656 | 0.82691 to 0.86389 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | whole blood | cancer (glioma, new gbm) | 39 | 0.89284 | 0.87394 to 0.91284 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | whole blood | cancer (glioma, new gbm) | 39 | 0.91163 | 0.89905 to 0.92818 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | whole blood | cancer (glioma, new gbm) | 39 | 0.99772 | 0.97757 to 1.0214 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | whole blood | cancer (glioma, new gbm) | 39 | 0.99069 | 0.97142 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | whole blood | cancer (glioma, new gbm) | 39 | 0.98972 | 0.96113 to 1.0408 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | whole blood | cancer (glioma, new gbm) | 39 | 0.9902 | 0.97134 to 1.016 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | whole blood | cancer (glioma, new gbm) | 39 | 0.98112 | 0.96314 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | whole blood | cancer (glioma, new gbm) | 39 | 0.97775 | 0.94296 to 1.0042 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | whole blood | cancer (glioma, new gbm) | 39 | 1.0007 | 0.97737 to 1.0344 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | whole blood | cancer (glioma, new gbm) | 28 | 0.99611 | 0.96427 to 1.0404 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | astrocytes | whole blood | cancer (glioma, new gbm) | 28 | 1.0131 | 0.99614 to 1.0618 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | whole blood | cancer (glioma, new gbm) | 39 | 0.9836 | 0.94848 to 1.0354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | basophils | whole blood | cancer (glioma, new gbm) | 39 | 0.97134 | 0.93629 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.99152 | 0.97504 to 1.0161 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.98947 | 0.97536 to 1.0118 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | whole blood | cancer (glioma, new gbm) | 39 | 0.98737 | 0.96597 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | whole blood | cancer (glioma, new gbm) | 29 | 0.99562 | 0.9801 to 1.0195 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.97934 | 0.93603 to 1.0341 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | whole blood | cancer (glioma, new gbm) | 39 | 0.96909 | 0.93527 to 1.0169 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.96437 | 0.91875 to 1.0145 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.99019 | 0.95042 to 1.0438 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.96564 | 0.92532 to 1.0191 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | whole blood | cancer (glioma, new gbm) | 39 | 0.97449 | 0.93741 to 1.0288 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | whole blood | cancer (glioma, new gbm) | 28 | 0.98735 | 0.96175 to 1.0275 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | whole blood | cancer (glioma, new gbm) | 39 | 0.97023 | 0.93857 to 1.0228 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | whole blood | cancer (glioma, new gbm) | 39 | 0.99815 | 0.96335 to 1.0397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | whole blood | cancer (glioma, new gbm) | 37 | 0.9904 | 0.95587 to 1.0362 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | whole blood | cancer (glioma, new gbm) | 39 | 0.96903 | 0.94803 to 1.0147 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | whole blood | cancer (glioma, new gbm) | 39 | 0.96963 | 0.93179 to 1.0283 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.97315 | 0.93063 to 1.0256 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | whole blood | cancer (glioma, new gbm) | 39 | 0.98003 | 0.93854 to 1.029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | whole blood | cancer (glioma, new gbm) | 37 | 0.98771 | 0.96674 to 1.0161 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | eosinophils | whole blood | cancer (glioma, new gbm) | 39 | 0.98251 | 0.95964 to 1.0173 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | whole blood | cancer (glioma, new gbm) | 39 | 0.99008 | 0.966 to 1.0245 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.98884 | 0.97121 to 1.0174 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.98901 | 0.9744 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.98974 | 0.97467 to 1.0158 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.99074 | 0.97664 to 1.0148 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | whole blood | cancer (glioma, new gbm) | 37 | 0.98897 | 0.96666 to 1.0188 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | whole blood | cancer (glioma, new gbm) | 39 | 0.99314 | 0.9775 to 1.0135 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | whole blood | cancer (glioma, new gbm) | 39 | 0.98913 | 0.96891 to 1.0201 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.99588 | 0.96748 to 1.0374 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | whole blood | cancer (glioma, new gbm) | 39 | 0.98522 | 0.96213 to 1.0198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | whole blood | cancer (glioma, new gbm) | 39 | 0.99124 | 0.97059 to 1.0192 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | whole blood | cancer (glioma, new gbm) | 39 | 0.98915 | 0.96672 to 1.022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | whole blood | cancer (glioma, new gbm) | 39 | 0.96076 | 0.92517 to 0.99113 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | whole blood | cancer (glioma, new gbm) | 28 | 0.98689 | 0.95507 to 1.0362 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | whole blood | cancer (glioma, new gbm) | 39 | 0.9845 | 0.94188 to 1.0322 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | whole blood | cancer (glioma, new gbm) | 39 | 0.97751 | 0.95093 to 1.0203 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | whole blood | cancer (glioma, new gbm) | 39 | 0.95906 | 0.91632 to 1.0114 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.96292 | 0.9309 to 1.0153 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | microglia | whole blood | cancer (glioma, new gbm) | 39 | 0.96132 | 0.9151 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | whole blood | cancer (glioma, new gbm) | 39 | 0.96203 | 0.94392 to 1.0077 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive b cells | whole blood | cancer (glioma, new gbm) | 39 | 0.96016 | 0.92376 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.95578 | 0.91019 to 1.0105 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.97062 | 0.92944 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | neutrophils | whole blood | cancer (glioma, new gbm) | 39 | 0.97517 | 0.93174 to 1.0453 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | whole blood | cancer (glioma, new gbm) | 39 | 0.98462 | 0.95009 to 1.0339 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocyte precursors | whole blood | cancer (glioma, new gbm) | 28 | 1.0115 | 0.99231 to 1.0592 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | whole blood | cancer (glioma, new gbm) | 39 | 0.967 | 0.93836 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | whole blood | cancer (glioma, new gbm) | 28 | 0.99134 | 0.96683 to 1.0212 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | whole blood | cancer (glioma, new gbm) | 39 | 0.98963 | 0.97415 to 1.009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | whole blood | cancer (glioma, new gbm) | 37 | 0.98993 | 0.96784 to 1.0194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | whole blood | cancer (glioma, new gbm) | 39 | 0.98256 | 0.95731 to 1.02 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | whole blood | cancer (glioma, new gbm) | 39 | 0.99025 | 0.97036 to 1.0232 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | whole blood | cancer (glioma, new gbm) | 39 | 0.98698 | 0.96989 to 1.0084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.9925 | 0.97888 to 1.0159 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | regulatory t cells | whole blood | cancer (glioma, new gbm) | 39 | 0.9585 | 0.93424 to 0.99357 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | whole blood | cancer (glioma, new gbm) | 39 | 0.97858 | 0.94323 to 1.0297 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | whole blood | cancer (glioma, new gbm) | 28 | 0.99355 | 0.97724 to 1.0199 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | whole blood | cancer (glioma, new gbm) | 28 | 0.9959 | 0.95755 to 1.0386 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | whole blood | cancer (glioma, new gbm) | 39 | 0.96283 | 0.91317 to 1.0209 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | whole blood | cancer (glioma, new gbm) | 39 | 0.96954 | 0.93474 to 1.0252 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | whole blood | cancer (glioma, new gbm) | 38 | 0.97616 | 0.93838 to 1.0171 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | whole blood | cancer (glioma, new gbm) | 39 | 0.98911 | 0.96977 to 1.0204 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.99091 | 0.97893 to 1.0131 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | whole blood | cancer (glioma, new gbm) | 38 | 0.99005 | 0.97125 to 1.0175 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | whole blood | cancer (glioma, new gbm) | 28 | 0.99562 | 0.96809 to 1.0372 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular endothelium | whole blood | cancer (glioma, new gbm) | 39 | 0.96746 | 0.94239 to 0.99606 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular leptomeningeal cells | whole blood | cancer (glioma, new gbm) | 28 | 1.0107 | 0.99376 to 1.0629 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | whole blood | cancer (glioma, new gbm) | 39 | 0.99226 | 0.97092 to 1.021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | whole blood | cancer (glioma, new gbm) | 39 | 0.84845 | 0.82836 to 0.86504 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | whole blood | cancer (glioma, new gbm) | 39 | 0.90875 | 0.89158 to 0.92838 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | whole blood | cancer (glioma, new gbm) | 39 | 0.002054 | 0.0011729 to 0.0040566 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | whole blood | cancer (glioma, new gbm) | 39 | 0.06342 | 0.057585 to 0.074216 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A | neutrophils | whole blood | cancer (glioma, new gbm) | 39 | 1.005 | 0.97473 to 1.0316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | whole blood | cancer (glioma, new gbm) | 39 | 1.0054 | 0.99724 to 1.0119 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | whole blood | cancer (glioma, new gbm) | 2 | 0.9541 | 0.92575 to 0.98245 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | whole blood | cancer (glioma, new gbm) | 39 | 1.007 | 0.92198 to 1.0794 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | whole blood | cancer (glioma, new gbm) | 27 | 1.0181 | 0.93963 to 1.1 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | whole blood | cancer (glioma, new gbm) | 30 | 0.9987 | 0.90059 to 1.0619 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | whole blood | cancer (glioma, new gbm) | 32 | 1.0007 | 0.94563 to 1.0743 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | whole blood | cancer (glioma, new gbm) | 34 | 1.0068 | 0.92576 to 1.0849 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | whole blood | cancer (glioma, new gbm) | 38 | 1.013 | 0.94342 to 1.1196 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | whole blood | cancer (glioma, new gbm) | 38 | 1.0432 | 0.95192 to 1.1104 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | whole blood | cancer (glioma, new gbm) | 36 | 0.97285 | 0.93607 to 1.0535 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | whole blood | cancer (glioma, new gbm) | 39 | 1.0115 | 0.94296 to 1.1145 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | whole blood | cancer (glioma, new gbm) | 37 | 0.9962 | 0.92286 to 1.0705 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | whole blood | cancer (glioma, new gbm) | 38 | 1.0092 | 0.93667 to 1.075 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.88982 | 0.87641 to 0.91746 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.83357 | 0.82083 to 0.84856 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.83921 | 0.82819 to 0.86315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.88373 | 0.86402 to 0.91279 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9065 | 0.88696 to 0.92916 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.98872 | 0.97096 to 1.0017 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.98335 | 0.95974 to 0.99829 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97001 | 0.94577 to 1.0106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.98057 | 0.96356 to 0.99368 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.96926 | 0.95273 to 0.99315 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97385 | 0.94056 to 1.0008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.98276 | 0.96309 to 1.0122 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.96286 | 0.93576 to 1.0058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | basophils | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94562 | 0.92033 to 0.99596 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9762 | 0.96072 to 0.99692 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95706 | 0.92087 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94798 | 0.92586 to 0.99885 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94131 | 0.91413 to 0.99397 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97022 | 0.94117 to 1.0168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94408 | 0.91859 to 0.99568 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94785 | 0.9228 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94712 | 0.9219 to 0.99709 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97055 | 0.95068 to 1.0156 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 0.96264 | 0.93671 to 0.99651 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95605 | 0.93221 to 0.99289 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94147 | 0.91206 to 1.0056 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95017 | 0.93002 to 1.0072 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95281 | 0.92023 to 1.0084 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 0.97143 | 0.95982 to 0.99027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | eosinophils | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.96678 | 0.94323 to 0.99889 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97392 | 0.95301 to 1.0081 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 0.97068 | 0.96091 to 0.99377 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.98183 | 0.97258 to 0.99898 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97476 | 0.95929 to 1.0015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97014 | 0.95458 to 0.99781 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97908 | 0.96415 to 1.0013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97516 | 0.95915 to 1.0054 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9558 | 0.92121 to 0.97966 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95264 | 0.92947 to 1.0138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95772 | 0.93793 to 0.99408 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.93314 | 0.91037 to 0.9893 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94277 | 0.92059 to 0.9898 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | microglia | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.93268 | 0.90381 to 0.9981 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95532 | 0.92048 to 0.9872 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive b cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.93682 | 0.91178 to 0.98456 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9286 | 0.89506 to 0.98835 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94881 | 0.92052 to 1.0037 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | neutrophils | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94836 | 0.91428 to 1.0094 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.96447 | 0.93161 to 1.0091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94989 | 0.92382 to 0.99392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97731 | 0.96319 to 0.99432 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 0.97345 | 0.962 to 0.99316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.96344 | 0.94654 to 0.99875 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97678 | 0.95979 to 1.0014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97745 | 0.95923 to 0.99247 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | regulatory t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9424 | 0.93084 to 0.97275 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.95227 | 0.92779 to 1.0055 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.92917 | 0.89816 to 0.99749 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.94273 | 0.91845 to 1.0011 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 0.9521 | 0.93653 to 0.98313 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.97259 | 0.95911 to 0.99946 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.98069 | 0.96489 to 1.0018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9564 | 0.93968 to 0.97101 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9768 | 0.96116 to 1.0049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.84107 | 0.83004 to 0.86348 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9001 | 0.87992 to 0.92737 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.001755 | 0.001174 to 0.0038126 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.06422 | 0.061356 to 0.074056 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A | neutrophils | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9843 | 0.96954 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 1.0021 | 0.99596 to 1.0086 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | whole blood | cancer (glioma, rec lgg, still lgg) | 5 | 1.1045 | 0.98278 to 1.1397 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9939 | 0.9141 to 1.0658 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9976 | 0.92184 to 1.048 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 0.99275 | 0.92212 to 1.0668 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | whole blood | cancer (glioma, rec lgg, still lgg) | 6 | 1.0469 | 0.96568 to 1.1019 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9826 | 0.90292 to 1.1017 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9871 | 0.92224 to 1.0716 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9965 | 0.89798 to 1.1183 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | whole blood | cancer (glioma, rec lgg, still lgg) | 11 | 1.0396 | 0.97135 to 1.1509 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 9 | 1.0036 | 0.95126 to 1.082 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 11 | 1.0114 | 0.9581 to 1.0519 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | whole blood | cancer (glioma, rec lgg, still lgg) | 13 | 0.9948 | 0.93356 to 1.0688 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 1.0167 | 0.89966 to 1.0872 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 12 | 1.0402 | 0.92272 to 1.1328 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.89053 | 0.88278 to 0.90133 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.8341 | 0.82362 to 0.84029 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.84768 | 0.82081 to 0.85662 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.87994 | 0.86372 to 0.89626 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.90865 | 0.89785 to 0.91822 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.99446 | 0.97443 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98998 | 0.96616 to 1.0028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98842 | 0.95236 to 1.0082 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98742 | 0.96649 to 0.99798 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9803 | 0.95623 to 0.99091 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.96125 | 0.93449 to 0.99083 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9991 | 0.97125 to 1.0179 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99101 | 0.97339 to 1.0108 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | astrocytes | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 1.0078 | 0.99814 to 1.0251 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97906 | 0.94334 to 0.99681 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | basophils | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97056 | 0.93292 to 0.99198 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.9918 | 0.98519 to 1.0015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99195 | 0.98291 to 0.99605 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98687 | 0.95985 to 0.9988 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | whole blood | cancer (glioma, rec lgg, now gbm) | 6 | 0.99229 | 0.97462 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97336 | 0.93519 to 0.99765 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97228 | 0.91644 to 0.99396 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.96164 | 0.91478 to 0.98724 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98729 | 0.94853 to 1.0085 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9618 | 0.92462 to 0.98807 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97376 | 0.93587 to 0.99855 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.98405 | 0.97082 to 0.99893 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97093 | 0.93332 to 0.99425 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.99036 | 0.9488 to 1.0138 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | whole blood | cancer (glioma, rec lgg, now gbm) | 9 | 0.98376 | 0.94322 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97411 | 0.93262 to 0.98794 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97083 | 0.92725 to 1.0001 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97827 | 0.93178 to 1.0018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98029 | 0.93462 to 1.0048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 9 | 0.98388 | 0.96374 to 0.99445 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | eosinophils | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97991 | 0.96525 to 0.99918 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.99413 | 0.9696 to 1.0117 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99003 | 0.98191 to 0.99773 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99111 | 0.98266 to 0.99689 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.991 | 0.98438 to 0.99823 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99193 | 0.98473 to 0.99879 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | whole blood | cancer (glioma, rec lgg, now gbm) | 9 | 0.98769 | 0.96322 to 1.0015 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.99245 | 0.97581 to 1.0023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9902 | 0.96586 to 1.0062 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99062 | 0.97574 to 1.0061 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98414 | 0.95822 to 1.0027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9909 | 0.97042 to 1.006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98739 | 0.96216 to 1.0058 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.94537 | 0.91017 to 0.97783 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.98268 | 0.96394 to 1.0028 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.99001 | 0.93783 to 1.0079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97683 | 0.94502 to 0.99364 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.95295 | 0.91132 to 0.98018 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.96243 | 0.93242 to 0.98787 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | microglia | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.96656 | 0.91605 to 0.99276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97064 | 0.93155 to 0.98161 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive b cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.95415 | 0.91125 to 0.97746 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.95867 | 0.90432 to 0.98085 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97614 | 0.92277 to 0.99505 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | neutrophils | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98066 | 0.92207 to 1.0041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98269 | 0.94486 to 1.003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocyte precursors | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 1.0024 | 0.99249 to 1.0243 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9682 | 0.93233 to 0.98792 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99301 | 0.97656 to 0.99855 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98675 | 0.96567 to 0.99582 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | whole blood | cancer (glioma, rec lgg, now gbm) | 9 | 0.98714 | 0.96438 to 0.99947 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98178 | 0.95125 to 0.99981 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9877 | 0.96179 to 1.0043 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98475 | 0.96042 to 0.99277 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99324 | 0.98727 to 0.99972 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | regulatory t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.95813 | 0.93278 to 0.97229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97908 | 0.93792 to 1.0041 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99424 | 0.98628 to 1.0033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.9929 | 0.96806 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.96186 | 0.90306 to 0.99271 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97225 | 0.93183 to 0.99711 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.97495 | 0.93892 to 0.99316 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98797 | 0.96592 to 1.0045 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99283 | 0.98551 to 0.99863 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.99217 | 0.97259 to 1.0068 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.99269 | 0.97541 to 1.0069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.96171 | 0.94741 to 0.98362 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular leptomeningeal cells | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 1.0016 | 0.99011 to 1.0225 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.98977 | 0.96501 to 1.0074 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.84902 | 0.82242 to 0.85819 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.89705 | 0.87985 to 0.91138 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.0018685 | 0.0012618 to 0.002635 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.062085 | 0.057774 to 0.064436 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A | neutrophils | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9816 | 0.97045 to 1.0109 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 1.0036 | 0.99687 to 1.0133 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | whole blood | cancer (glioma, rec lgg, now gbm) | 7 | 0.9625 | 0.93057 to 1.0666 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 1.0154 | 0.94311 to 1.1389 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 7 | 1.0376 | 0.95249 to 1.114 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | whole blood | cancer (glioma, rec lgg, now gbm) | 8 | 1.0113 | 0.92666 to 1.0913 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | whole blood | cancer (glioma, rec lgg, now gbm) | 9 | 0.9596 | 0.91804 to 1.0308 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9965 | 0.95866 to 1.0378 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | whole blood | cancer (glioma, rec lgg, now gbm) | 9 | 0.9931 | 0.94448 to 1.0605 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9789 | 0.91002 to 1.1284 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 1.0829 | 0.98894 to 1.1532 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 1.0054 | 0.97605 to 1.1077 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9822 | 0.89885 to 1.1002 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 0.9822 | 0.92761 to 1.0963 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | whole blood | cancer (glioma, rec lgg, now gbm) | 10 | 1.0425 | 0.94239 to 1.0994 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | whole blood | cancer (glioma, rec lgg, still lgg) | 7 | 1.0167 | 0.96082 to 1.0602 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 5 | 0.9676 | 0.91344 to 1.0331 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | whole blood | cancer (glioma, new lgg) | 14 | 0.89144 | 0.87735 to 0.89975 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | whole blood | cancer (glioma, new lgg) | 14 | 0.82906 | 0.82035 to 0.84026 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | islands | whole blood | cancer (glioma, new lgg) | 14 | 0.84266 | 0.82398 to 0.85398 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | domains | whole blood | cancer (glioma, new lgg) | 14 | 0.88256 | 0.85856 to 0.89719 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A whole sample, by place | the rest | whole blood | cancer (glioma, new lgg) | 14 | 0.90474 | 0.88733 to 0.91859 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | whole blood | cancer (glioma, new lgg) | 14 | 0.98938 | 0.9736 to 1.0027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | whole blood | cancer (glioma, new lgg) | 14 | 0.98423 | 0.96472 to 0.9995 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | whole blood | cancer (glioma, new lgg) | 14 | 0.98301 | 0.95255 to 1.006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | whole blood | cancer (glioma, new lgg) | 14 | 0.98225 | 0.96669 to 0.99558 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | whole blood | cancer (glioma, new lgg) | 14 | 0.97786 | 0.95566 to 0.98911 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | whole blood | cancer (glioma, new lgg) | 14 | 0.95996 | 0.93494 to 1.0012 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | adipocytes | whole blood | cancer (glioma, new lgg) | 14 | 0.99044 | 0.96693 to 1.0066 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98453 | 0.95712 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | astrocytes | whole blood | cancer (glioma, new lgg) | 9 | 1.0014 | 0.97664 to 1.0254 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | whole blood | cancer (glioma, new lgg) | 14 | 0.96836 | 0.94427 to 0.99698 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | basophils | whole blood | cancer (glioma, new lgg) | 14 | 0.96501 | 0.94353 to 0.98906 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.9848 | 0.97966 to 1.003 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98407 | 0.9746 to 1.0002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.97974 | 0.9655 to 0.99704 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | whole blood | cancer (glioma, new lgg) | 9 | 0.98971 | 0.97845 to 1.0019 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.96559 | 0.93165 to 0.99354 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | whole blood | cancer (glioma, new lgg) | 14 | 0.95959 | 0.9252 to 0.9964 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.95385 | 0.92259 to 0.98124 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.97779 | 0.94896 to 1.0049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.95596 | 0.92783 to 0.98326 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | whole blood | cancer (glioma, new lgg) | 14 | 0.97191 | 0.93397 to 0.99432 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | whole blood | cancer (glioma, new lgg) | 9 | 0.97647 | 0.95738 to 1.0034 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.96479 | 0.93292 to 0.9889 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | whole blood | cancer (glioma, new lgg) | 14 | 0.98259 | 0.9551 to 1.0097 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | whole blood | cancer (glioma, new lgg) | 14 | 0.97938 | 0.94694 to 1.0036 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | whole blood | cancer (glioma, new lgg) | 14 | 0.96502 | 0.93833 to 0.98384 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | whole blood | cancer (glioma, new lgg) | 14 | 0.96887 | 0.9275 to 0.99268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.96708 | 0.93703 to 0.9959 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | whole blood | cancer (glioma, new lgg) | 14 | 0.97196 | 0.93057 to 1.002 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.98024 | 0.9669 to 0.9969 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | eosinophils | whole blood | cancer (glioma, new lgg) | 14 | 0.9772 | 0.95971 to 0.99583 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | whole blood | cancer (glioma, new lgg) | 14 | 0.98569 | 0.96855 to 1.0047 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98378 | 0.97342 to 0.9996 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98362 | 0.97517 to 0.99959 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98598 | 0.97419 to 1.0021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98601 | 0.97798 to 1.0022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | whole blood | cancer (glioma, new lgg) | 14 | 0.97988 | 0.9653 to 1.0009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | whole blood | cancer (glioma, new lgg) | 14 | 0.98554 | 0.97344 to 0.99667 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | whole blood | cancer (glioma, new lgg) | 14 | 0.98019 | 0.96288 to 0.99687 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98284 | 0.95753 to 1.0088 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | whole blood | cancer (glioma, new lgg) | 14 | 0.97691 | 0.95906 to 0.99534 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.98375 | 0.96829 to 0.99847 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | whole blood | cancer (glioma, new lgg) | 14 | 0.98079 | 0.96138 to 0.99911 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.95072 | 0.91602 to 0.98193 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | whole blood | cancer (glioma, new lgg) | 9 | 0.9756 | 0.94669 to 1.0022 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.97696 | 0.93873 to 1.0067 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | whole blood | cancer (glioma, new lgg) | 14 | 0.96825 | 0.94711 to 0.99057 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | whole blood | cancer (glioma, new lgg) | 14 | 0.94817 | 0.92413 to 0.97929 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.95516 | 0.93298 to 0.97908 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | microglia | whole blood | cancer (glioma, new lgg) | 14 | 0.95342 | 0.91614 to 0.98672 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | whole blood | cancer (glioma, new lgg) | 14 | 0.95822 | 0.93771 to 0.98439 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive b cells | whole blood | cancer (glioma, new lgg) | 14 | 0.94948 | 0.92027 to 0.97835 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.94568 | 0.90615 to 0.97948 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.96252 | 0.92582 to 0.99356 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | neutrophils | whole blood | cancer (glioma, new lgg) | 14 | 0.96887 | 0.92338 to 1.0104 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | whole blood | cancer (glioma, new lgg) | 14 | 0.9733 | 0.94312 to 0.99972 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocyte precursors | whole blood | cancer (glioma, new lgg) | 9 | 0.99715 | 0.96926 to 1.0229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | whole blood | cancer (glioma, new lgg) | 14 | 0.95988 | 0.93265 to 0.98146 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98099 | 0.96805 to 1.0021 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | whole blood | cancer (glioma, new lgg) | 14 | 0.98284 | 0.96579 to 0.99384 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | whole blood | cancer (glioma, new lgg) | 14 | 0.98125 | 0.96388 to 0.99681 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | whole blood | cancer (glioma, new lgg) | 14 | 0.97216 | 0.95061 to 0.99206 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | whole blood | cancer (glioma, new lgg) | 14 | 0.98384 | 0.96394 to 0.99886 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | whole blood | cancer (glioma, new lgg) | 14 | 0.98055 | 0.96175 to 0.99336 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98641 | 0.97795 to 1.0009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | regulatory t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.95049 | 0.93663 to 0.97268 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.97086 | 0.9339 to 0.99599 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | whole blood | cancer (glioma, new lgg) | 9 | 0.98785 | 0.97694 to 1.0033 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | whole blood | cancer (glioma, new lgg) | 9 | 0.98115 | 0.95316 to 1.0079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | whole blood | cancer (glioma, new lgg) | 14 | 0.9472 | 0.90378 to 0.99292 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | whole blood | cancer (glioma, new lgg) | 14 | 0.96877 | 0.93284 to 0.99359 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | whole blood | cancer (glioma, new lgg) | 14 | 0.96449 | 0.94427 to 0.99276 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.98083 | 0.96033 to 0.99355 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.9861 | 0.97847 to 1.0023 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | whole blood | cancer (glioma, new lgg) | 14 | 0.98447 | 0.97105 to 1.0009 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | whole blood | cancer (glioma, new lgg) | 9 | 0.98296 | 0.96117 to 1.0095 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular endothelium | whole blood | cancer (glioma, new lgg) | 14 | 0.95342 | 0.93404 to 0.9695 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular leptomeningeal cells | whole blood | cancer (glioma, new lgg) | 9 | 0.99865 | 0.97015 to 1.0215 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | whole blood | cancer (glioma, new lgg) | 14 | 0.98152 | 0.96524 to 0.99815 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Territories | territory | islands | whole blood | cancer (glioma, new lgg) | 14 | 0.8442 | 0.82545 to 0.85512 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | whole blood | cancer (glioma, new lgg) | 14 | 0.89838 | 0.87627 to 0.91272 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | whole blood | cancer (glioma, new lgg) | 14 | 0.001675 | 0.00076415 to 0.0026616 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | whole blood | cancer (glioma, new lgg) | 14 | 0.061435 | 0.056767 to 0.064411 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| Met-A | Met-A | neutrophils | whole blood | cancer (glioma, new lgg) | 14 | 0.9793 | 0.95428 to 1.0079 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score whole genome | whole genome | whole blood | cancer (glioma, new lgg) | 14 | 1.0026 | 0.99313 to 1.0161 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | whole blood | cancer (glioma, new lgg) | 14 | 1.0138 | 0.97764 to 1.1074 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | whole blood | cancer (glioma, new lgg) | 9 | 0.9912 | 0.87128 to 1.0385 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | whole blood | cancer (glioma, new lgg) | 7 | 1.0559 | 0.99437 to 1.1251 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | whole blood | cancer (glioma, new lgg) | 13 | 1.0312 | 0.95666 to 1.1177 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | whole blood | cancer (glioma, new lgg) | 13 | 0.9768 | 0.94006 to 1.1061 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | whole blood | cancer (glioma, new lgg) | 13 | 0.9928 | 0.90132 to 1.0432 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | whole blood | cancer (glioma, new lgg) | 14 | 1.0415 | 0.94725 to 1.1108 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | whole blood | cancer (glioma, new lgg) | 14 | 1.0158 | 0.92002 to 1.0761 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.98915 | 0.92398 to 1.019 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | whole blood | cancer (glioma, new lgg) | 14 | 1.0104 | 0.96152 to 1.1052 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | whole blood | cancer (glioma, new lgg) | 14 | 0.9901 | 0.92196 to 1.1112 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | whole blood | cancer (glioma, new lgg) | 12 | 1.0093 | 0.94491 to 1.0708 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | whole blood | cancer (glioma, new gbm) | 34 | 0.9759 | 0.90433 to 1.0854 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | whole blood | cancer (glioma, new gbm) | 17 | 0.9846 | 0.87006 to 1.0576 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | whole blood | cancer (glioma, new gbm) | 15 | 1.0279 | 0.95147 to 1.1206 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd4 t cells | whole blood | cancer (glioma, new gbm) | 1 | 0.9033 | 0.9033 to 0.9033 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | whole blood | cancer (glioma, new gbm) | 12 | 1.0516 | 0.9631 to 1.0858 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | whole blood | cancer (glioma, new gbm) | 26 | 1.0202 | 0.9455 to 1.1077 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | whole blood | cancer (glioma, new gbm) | 21 | 1.001 | 0.9522 to 1.1126 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | whole blood | cancer (glioma, new gbm) | 23 | 0.9874 | 0.89195 to 1.0507 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | whole blood | cancer (glioma, new gbm) | 1 | 0.9675 | 0.9675 to 0.9675 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | whole blood | cancer (glioma, new lgg) | 9 | 1.0101 | 0.95582 to 1.0998 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd4 t cells | whole blood | cancer (glioma, new lgg) | 1 | 1.0784 | 1.0784 to 1.0784 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | whole blood | cancer (glioma, new lgg) | 1 | 1.0172 | 1.0172 to 1.0172 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | whole blood | cancer (glioma, rec lgg, now gbm) | 6 | 1.0351 | 0.94567 to 1.0745 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 3 | 0.9348 | 0.90411 to 1.0081 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 7 | 1.0096 | 0.95542 to 1.0717 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | whole blood | cancer (glioma, new gbm) | 3 | 0.9457 | 0.90565 to 1.0336 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | aorta endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97188 | 0.94276 to 1.0027 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | astrocytes | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.99455 | 0.95521 to 1.0172 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97644 | 0.96566 to 0.99459 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97688 | 0.9674 to 0.99194 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.98347 | 0.97585 to 0.99878 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.96605 | 0.94059 to 0.98996 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97189 | 0.96215 to 0.99321 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97458 | 0.96488 to 0.99324 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97401 | 0.96422 to 0.99246 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97818 | 0.96976 to 0.9946 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97194 | 0.94372 to 0.99948 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.96213 | 0.93025 to 0.99133 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocyte precursors | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.99353 | 0.95503 to 1.013 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.96842 | 0.95699 to 0.99261 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97806 | 0.96547 to 0.99568 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97635 | 0.96737 to 0.99682 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.9613 | 0.93888 to 0.99801 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97798 | 0.96828 to 0.99433 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.97288 | 0.94894 to 1.0006 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular leptomeningeal cells | whole blood | cancer (glioma, rec lgg, still lgg) | 10 | 0.99108 | 0.9529 to 1.0184 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| C-Score | C-Score each cell | b cells | whole blood | cancer (glioma, rec lgg, still lgg) | 5 | 1.0217 | 0.99108 to 1.0776 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 8 | 0.9962 | 0.96987 to 1.0562 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | whole blood | cancer (glioma, new gbm) | 2 | 1.02 | 0.97194 to 1.0681 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 5 | 0.9918 | 0.94214 to 1.0103 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | whole blood | cancer (glioma, rec lgg, now gbm) | 3 | 1.0429 | 1.0073 to 1.0576 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | whole blood | cancer (glioma, new lgg) | 10 | 0.94025 | 0.83693 to 1.0993 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | whole blood | cancer (glioma, new lgg) | 7 | 0.9751 | 0.91691 to 1.0514 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | whole blood | cancer (glioma, new lgg) | 12 | 0.99865 | 0.91924 to 1.0282 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | whole blood | cancer (glioma, new lgg) | 8 | 1.0213 | 0.97968 to 1.1569 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd4 t cells | whole blood | cancer (glioma, rec lgg, now gbm) | 1 | 1.0383 | 1.0383 to 1.0383 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | whole blood | cancer (glioma, rec lgg, still lgg) | 1 | 1.1375 | 1.1375 to 1.1375 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | whole blood | cancer (glioma, new gbm) | 1 | 1.0155 | 1.0155 to 1.0155 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | whole blood | cancer (glioma, new gbm) | 1 | 1.0103 | 1.0103 to 1.0103 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | whole blood | cancer (glioma, rec lgg, still lgg) | 1 | 0.8714 | 0.8714 to 0.8714 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | whole blood | cancer (glioma, rec lgg, still lgg) | 1 | 1.1054 | 1.1054 to 1.1054 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | whole blood | cancer (glioma, rec lgg, still lgg) | 1 | 0.9828 | 0.9828 to 0.9828 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | whole blood | cancer (glioma, rec lgg, still lgg) | 2 | 0.99125 | 0.98445 to 0.99805 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | whole blood | cancer (glioma, rec lgg, still lgg) | 1 | 1.1153 | 1.1153 to 1.1153 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | whole blood | cancer (glioma, new lgg) | 4 | 1.0476 | 1.0325 to 1.0826 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | whole blood | cancer (glioma, new gbm) | 3 | 1.0207 | 0.93952 to 1.0476 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | whole blood | cancer (glioma, rec lgg, now gbm) | 2 | 1.0097 | 0.97335 to 1.0462 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | whole blood | cancer (glioma, rec lgg, now gbm) | 1 | 1.0963 | 1.0963 to 1.0963 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | whole blood | cancer (glioma, new gbm) | 1 | 0.9567 | 0.9567 to 0.9567 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | whole blood | cancer (glioma, new lgg) | 2 | 0.97835 | 0.9541 to 1.0026 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 2 | 0.93555 | 0.91039 to 0.96071 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | whole blood | cancer (glioma, new gbm) | 1 | 1.0833 | 1.0833 to 1.0833 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | whole blood | cancer (glioma, rec lgg, still lgg) | 1 | 0.919 | 0.919 to 0.919 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | whole blood | cancer (glioma, new gbm) | 1 | 0.983 | 0.983 to 0.983 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | adipocytes | sorted naive cd8 t cells | healthy | 6 | 0.84215 | 0.79548 to 0.92469 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | aorta endothelium | sorted naive cd8 t cells | healthy | 6 | 0.73152 | 0.66955 to 0.92048 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | b cells | sorted naive cd8 t cells | healthy | 6 | 0.73489 | 0.69095 to 0.99777 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | bladder epithelium | sorted naive cd8 t cells | healthy | 6 | 0.83646 | 0.80225 to 0.90638 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | sorted naive cd8 t cells | healthy | 6 | 0.82555 | 0.79792 to 0.91613 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | sorted naive cd8 t cells | healthy | 6 | 0.82735 | 0.78025 to 0.91375 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | sorted naive cd8 t cells | healthy | 6 | 0.82068 | 0.80097 to 0.89468 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd4 t cells | sorted naive cd8 t cells | healthy | 6 | 0.72418 | 0.66151 to 0.98106 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cd8 t cells | sorted naive cd8 t cells | healthy | 6 | 0.72765 | 0.6463 to 1.1014 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon enteroendocrine | sorted naive cd8 t cells | healthy | 6 | 0.74351 | 0.72573 to 0.89584 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon epithelium | sorted naive cd8 t cells | healthy | 6 | 0.74486 | 0.6879 to 0.93049 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | sorted naive cd8 t cells | healthy | 6 | 0.7769 | 0.72931 to 1.04 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | colon macrophages | sorted naive cd8 t cells | healthy | 6 | 0.7448 | 0.69518 to 1.0129 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | cortical neurons | sorted naive cd8 t cells | healthy | 6 | 0.80483 | 0.71551 to 0.91167 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | sorted naive cd8 t cells | healthy | 6 | 0.81351 | 0.69444 to 1.1185 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | sorted naive cd8 t cells | healthy | 6 | 0.83008 | 0.7938 to 0.93752 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | sorted naive cd8 t cells | healthy | 6 | 0.84147 | 0.82008 to 0.99927 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | fallopien tubes epithelium | sorted naive cd8 t cells | healthy | 6 | 0.83605 | 0.8081 to 0.93655 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | sorted naive cd8 t cells | healthy | 6 | 0.83491 | 0.7975 to 0.93205 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | sorted naive cd8 t cells | healthy | 6 | 0.81431 | 0.77899 to 0.92262 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | sorted naive cd8 t cells | healthy | 6 | 0.85528 | 0.78712 to 0.91904 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted naive cd8 t cells | healthy | 6 | 0.72826 | 0.65538 to 0.88603 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | sorted naive cd8 t cells | healthy | 6 | 0.86208 | 0.79072 to 0.92954 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | hepatocyte | sorted naive cd8 t cells | healthy | 6 | 0.83935 | 0.79922 to 0.92534 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | sorted naive cd8 t cells | healthy | 6 | 0.7729 | 0.73727 to 0.91995 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney glomerular epithelium | sorted naive cd8 t cells | healthy | 6 | 0.71036 | 0.68491 to 0.86868 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | sorted naive cd8 t cells | healthy | 6 | 0.84052 | 0.74243 to 0.92912 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | sorted naive cd8 t cells | healthy | 6 | 0.83903 | 0.73805 to 0.91134 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | sorted naive cd8 t cells | healthy | 6 | 0.80419 | 0.76622 to 0.94449 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | sorted naive cd8 t cells | healthy | 6 | 0.75186 | 0.71686 to 0.9168 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung alveolar macrophages | sorted naive cd8 t cells | healthy | 6 | 0.69276 | 0.6433 to 0.86339 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | sorted naive cd8 t cells | healthy | 6 | 0.8297 | 0.68651 to 1.03 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | sorted naive cd8 t cells | healthy | 6 | 0.75465 | 0.7093 to 0.9008 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | memory b cells | sorted naive cd8 t cells | healthy | 6 | 0.84914 | 0.7595 to 1.0672 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | monocytes | sorted naive cd8 t cells | healthy | 6 | 0.72962 | 0.64501 to 0.83645 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | sorted naive cd8 t cells | healthy | 6 | 0.65377 | 0.58105 to 0.81229 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | sorted naive cd8 t cells | healthy | 6 | 0.6113 | 0.53004 to 0.83263 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | nk cells | sorted naive cd8 t cells | healthy | 6 | 0.75503 | 0.68064 to 0.98249 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | sorted naive cd8 t cells | healthy | 6 | 0.77056 | 0.73027 to 0.85475 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | sorted naive cd8 t cells | healthy | 6 | 0.81516 | 0.78874 to 0.91318 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | sorted naive cd8 t cells | healthy | 6 | 0.82157 | 0.80685 to 0.91317 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | sorted naive cd8 t cells | healthy | 6 | 0.81687 | 0.77329 to 0.90627 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic beta | sorted naive cd8 t cells | healthy | 6 | 0.81071 | 0.73299 to 0.92162 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic delta | sorted naive cd8 t cells | healthy | 6 | 0.83166 | 0.79431 to 0.92434 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | pancreatic duct | sorted naive cd8 t cells | healthy | 6 | 0.80192 | 0.75041 to 0.86471 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | prostate epithelium | sorted naive cd8 t cells | healthy | 6 | 0.81084 | 0.77669 to 0.90412 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | sorted naive cd8 t cells | healthy | 6 | 0.77547 | 0.69725 to 0.98096 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | smooth muscle | sorted naive cd8 t cells | healthy | 6 | 0.83332 | 0.79881 to 0.93224 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | striated muscle | sorted naive cd8 t cells | healthy | 6 | 0.70907 | 0.6694 to 0.88476 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | sorted naive cd8 t cells | healthy | 6 | 0.77253 | 0.68285 to 0.94876 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | sorted naive cd8 t cells | healthy | 6 | 0.77594 | 0.70445 to 0.99979 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | sorted naive cd8 t cells | healthy | 6 | 0.8245 | 0.75228 to 1.0392 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | sorted naive cd8 t cells | healthy | 6 | 0.81929 | 0.77724 to 0.89518 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tongue epithelium | sorted naive cd8 t cells | healthy | 6 | 0.81997 | 0.79392 to 0.9053 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | sorted naive cd8 t cells | healthy | 6 | 0.84064 | 0.81226 to 0.94842 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | tonsil pharyngeal epithelium | sorted naive cd8 t cells | healthy | 6 | 0.74009 | 0.66262 to 0.90875 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | sorted naive cd8 t cells | healthy | 6 | 0.83371 | 0.74877 to 0.91069 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | sorted naive cd8 t cells | healthy | 6 | 0.34723 | 0.22494 to 0.37973 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | sorted naive cd8 t cells | healthy | 6 | 1.0169 | 0.9756 to 1.0907 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | granulocytes | sorted effector memory cd8 t cells | healthy | 10 | 0.96937 | 0.9132 to 1.07 | no line set for this reading | [Met_A.csv](Met_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted naive cd8 t cells | healthy | 2 | 1.0415 | 0.93142 to 1.1517 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Coupling-A | coupling-A | naive cd8 t cells | sorted naive cd8 t cells | healthy | 2 | 0.99905 | 0.93619 to 1.0619 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
+| IAM-A | IAM-A in the mix | whole sample | sorted effector memory cd8 t cells | healthy | 2 | 1.1248 | 1.1018 to 1.1478 | no line set for this reading | [IAM_A.csv](IAM_A.csv) |
+| Coupling-A | coupling-A | effector memory cd8 t cells | sorted effector memory cd8 t cells | healthy | 2 | 1.0034 | 0.93645 to 1.0705 | no line set for this reading | [Coupling_A.csv](Coupling_A.csv) |
 
-189150 readings from 43 sources. Status and record for every row are in the tables.
+198253 readings from 46 sources. Status and record for every row are in the tables.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).

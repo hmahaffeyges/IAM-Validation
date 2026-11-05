@@ -505,6 +505,27 @@
    "status": "development (Deconvolver with megakaryocytes)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
    "rows_table": true
+  },
+  {
+   "id": "R9-GLIOMA-ALLCELLS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r9_atlas_full/r9_glioma_blood_atlas_full_rows.csv",
+   "status": "reference only (replay, every atlas cell)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "LAB2-CD8",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/lab2_cd8_rows.csv",
+   "status": "development (outside-laboratory healthy test, not met)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "BT-SEQ-02",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_ATLAS_CURVE_01/bt_seq_02/bt_seq2_rows.csv",
+   "status": "development (B and T sequencing test, second reading, not met; read in part, see record)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md",
+   "rows_table": true
   }
  ],
  "lines": {

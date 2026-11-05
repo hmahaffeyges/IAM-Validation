@@ -26,3 +26,10 @@ cy = S.gsm.map(T.cytogenetics).fillna("").replace("N/A", "")
 put("hopkins", S.assign(series=S.gse, condition=S.genotype.map(COND).fillna(S.genotype),
                        cancer_type=["pediatric pre-B acute lymphoblastic leukemia" + (f", {c}" if c else "") if g == "leukemia" else "" for g, c in zip(S.genotype, cy)],
                        stage=["not recorded" if g == "leukemia" else "" for g in S.genotype]))
+
+# 2026-11-04: R9 glioma blood on every cell (GSE180683; grade from the committed group column), the second outside laboratory's healthy CD8
+# T cells (GSE245832) and the B and T sequencing test's second reading (GSE98837, GSE134664)
+S = rd("DEV_REPLICATE_01/r9_glioma_blood_labels.csv"); g = S.group.astype(str)
+put("r9_glioma_blood", S.assign(condition="cancer", cancer_type="glioma, " + g.str.replace(r"^\d+ ", "", regex=True), stage="grade " + g.map(lambda x: "IV (glioblastoma)" if "gbm" in x.split(",")[-1] else "II-III (lower grade)")))
+S = rd("DEV_ATLAS_V21_01/seq_atlas/outside_data/lab2_cd8_samples.csv"); put("lab2_cd8", S.assign(series="GSE245832", condition="healthy", cancer_type="", stage=""))
+S = rd("DEV_METAA_ATLAS_CURVE_01/bt_seq_02/bt_seq2_samples.csv").drop_duplicates("gsm"); put("bt_seq2", S.assign(series=S.gse, condition="healthy", cancer_type="", stage=""))
