@@ -425,6 +425,7 @@ GSE85355,,,,,,,,DEV_ERASE_01,,,,,,
 GSE85566,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,lung bronchus epithelium,yes,IDAT listed for 115/115 samples,DNA methylation in lung cells is a key modulator of asthma endotypes and genetic risk [DNA methylation],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE85647,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 23/23 samples,Methylation and expression profiles of monocytes in monozygotic twins: role in Myasthenia Gravis [methylation profiling],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE85845,,,,,,,,,,,,,DNA methylation analysis of lung adenocarcinoma and adjacent non-tumor tissues,candidates DEV_FINGERPRINT_03
+GSE86340,,,,,spent (test),,,DEV_ATLAS_V21_01,,,,,,
 GSE86648,,,,,,,,,not usable (cell lines from manipulated (polar-body/spindle transfer) embryos),embryonic stem cells,yes,IDAT listed for 39/39 samples,Human polar body transfer eliminates the transmission of inherited mitochondrial DNA variants [methylation],gold-mine map
 GSE86732,,,,,,,,,not usable (ENCODE (atlas source)),breast luminal epithelium,no,SRA run links for 2/2 samples,WGBS from mammary epithelial cell (ENCSR656TQD),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE86833,,,,,,scored,DEV_FINGERPRINT_01,DEV_FINGERPRINT_01; DEV_FINGERPRINT_01_OUTCOME; DEV_SYNTH_LEVERS_01,,,,,,

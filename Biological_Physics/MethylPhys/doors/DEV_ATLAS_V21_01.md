@@ -1300,3 +1300,15 @@ change it little; one tared healthy sample falls inside 0.95 to 1.05 in 33 to 52
 sorted-cell Met-A spreads 6 to 7 % even inside the atlas's laboratory, wider than the gauge's Normal band of 5 % either side, so the real test
 on GSE144691's five new healthy libraries is judged on their tared median, as healthy pass 5 was, with the per-sample band from the atlas
 laboratory's own tared spread. Development; nothing commissioned.
+
+**The healthy test on the Johns Hopkins laboratory: CD4 T cells, tared on their own laboratory (written and committed before any is read).** The instrument's job: a healthy sample from a laboratory the IAM Sequencing Atlas has never seen, tared on that laboratory's own healthy
+samples of the same cell, reads Normal. GSE86340 (Johns Hopkins, the laboratory of the leukemia study already read) holds whole-genome
+bisulfite sequencing of CD4 T cells from six healthy donors aged 18 to 86 (`seq_atlas/outside_data/jhu_cd4_samples.csv`: 271 to 493 million
+read pairs each, two runs each). Every read pair is aligned by the committed pipeline in chunks of about 25 million pairs on Google spot
+machines (`jhu_cd4_google.sh`, the same steps as `split_align.yml`), merged and read once by the one command, after the genome-coverage
+intake check. Each donor's own-cell Met-A is tared on the other five. Bars (`jhu_cd4_score.py`, outputs `jhu_cd4_test.csv`,
+`jhu_cd4_test.txt`): 1. the tared own-cell Met-A median within 0.95 to 1.05; 2. the whole-sample Met-A median within 0.95 to 1.05. Bar 1 is
+judged on the median, as healthy pass 5 was, because one healthy sample's sorted-cell Met-A spreads 6 to 7 % on sequencing (the
+same-laboratory tare, above). If met, the same-laboratory tare is commissioned for own-cell Met-A on sequencing, for CD4 T cells.
+**Prior reading:** none of GSE86340's samples has been read; only its sample labels and read counts.
+**Synthetic test:** `DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/metaa_donors_synthetic.py`, `DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/metaa_donors_synthetic.txt` (the sorted-cell reading on sequencing, met). The tare itself was measured on the spent laboratories (`seq_atlas/outside_data/same_lab_tare.txt`, above).
