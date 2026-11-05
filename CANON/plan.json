@@ -261,6 +261,13 @@
      "status": "open",
      "what": "Phase G, last: the paper and the researcher package finished from committed outputs, and the researchers contacted with the commissioned chain and the list of data we lack (DATA_WE_NEED.md)",
      "next": "after Phases A to F"
+    },
+    {
+     "id": "60.16",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "Phase H, last: the chain workflow document (author 2026-11-04): a code-free, visual, step-by-step flowchart of the whole chain in the form of an emergency action plan: the first things the chain looks for, and 'if this, go here', from the kinds of laboratory and sample (arrays by platform, sequencing by library and file, plasma, tissue, sorted cells) through intake and its refusals, the Deconvolver, the right atlas, every instrument, the globe and the information sphere, to the report; each step with what it checks, the physics of its score and why it refuses. For a researcher to process, score and test their own samples and build their own chain; drawn from the Decoder and the commissioning records once the chain, laboratories and commissioning are settled",
+     "next": "after Phases A to G"
     }
    ]
   },
