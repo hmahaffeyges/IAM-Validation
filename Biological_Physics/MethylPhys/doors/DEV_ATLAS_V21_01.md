@@ -1205,3 +1205,10 @@ read count, which the chain takes as level x coverage from BLUEPRINT's two track
 those are not counts and the libraries would read too ordered. The check, on chromosomes 21 and 22 of the first 8 libraries of
 `blueprint_healthy_test_samples.csv` (spent): the share of CpGs whose level x coverage is a whole number, and the number of distinct levels at
 coverage 10 (at most 11 for counts). Nothing is scored; it decides whether BLUEPRINT's tracks can be read as counts at all.
+
+**BLUEPRINT's tracks, first run, and the rounding test (written before the second run).** First run, 8 libraries (`blueprint_track_counts.txt`, Toronto spot machine): coverage is a whole number at every CpG (median
+share 1.0000); at coverage 10 the levels take exactly 11 values, as counts do; but level x coverage is within 0.01 of a whole number at only
+0.6025 of CpGs (0.4867 to 0.7211), lower the deeper the library. That is what a count written as a level rounded to a fixed number of decimals
+looks like. Second run, the first 3 libraries: for 2, 3 and 4 decimals, the share of levels on that grid and the share where the nearest
+whole count gives the level back. If one precision gives the level back at nearly every CpG, the counts are recoverable and the tracks are
+counts; nothing is scored.

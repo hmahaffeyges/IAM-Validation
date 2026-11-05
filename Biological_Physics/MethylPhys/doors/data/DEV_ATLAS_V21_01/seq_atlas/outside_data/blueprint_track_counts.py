@@ -34,9 +34,17 @@ def one(call_bw, cov_bw, chroms=("chr21", "chr22")):
         if d: os.remove(f)
     lv, cv = np.array(lv), np.array(cv)
     m = lv * cv; whole = float(np.mean(np.abs(m - np.round(m)) < 0.01))
+    # added after the first run (60 % whole, falling with depth): is the level a count rounded to a fixed number of decimals? For each
+    # precision, the share of levels on that grid, and the share where the nearest whole count, divided by coverage and rounded to the
+    # same precision, gives the level back (1.0 = the count is recovered exactly from the track)
+    grid = {}
+    for dp in (2, 3, 4):
+        on = float(np.mean(np.abs(lv * 10 ** dp - np.round(lv * 10 ** dp)) < 1e-3))
+        back = float(np.mean(np.abs(np.round(np.round(m) / cv, dp) - np.round(lv, dp)) < 10 ** -(dp + 2)))
+        grid[f"on_grid_{dp}dp"] = round(on, 4); grid[f"count_recovered_{dp}dp"] = round(back, 4)
     at10 = lv[cv == 10]; distinct10 = int(len(np.unique(np.round(at10, 6))))
     return dict(cpgs=int(len(lv)), coverage_median=float(np.median(cv)), coverage_is_whole=float(np.mean(np.abs(cv - np.round(cv)) < 1e-6)),
-                level_x_coverage_whole=round(whole, 4), distinct_levels_at_coverage_10=distinct10, cpgs_at_coverage_10=int(len(at10)))
+                level_x_coverage_whole=round(whole, 4), **grid, distinct_levels_at_coverage_10=distinct10, cpgs_at_coverage_10=int(len(at10)))
 
 if __name__ == "__main__":
     S = pd.read_csv(sys.argv[1]).head(int(sys.argv[2])); rows = []
@@ -46,5 +54,6 @@ if __name__ == "__main__":
     L = [f"BLUEPRINT tracks, chromosomes 21 and 22, {len(T)} libraries (diagnostic, spent libraries, nothing scored)",
          f"level x coverage within 0.01 of a whole number: median share {T.level_x_coverage_whole.median():.4f} (range {T.level_x_coverage_whole.min():.4f} to {T.level_x_coverage_whole.max():.4f})",
          f"coverage a whole number: median share {T.coverage_is_whole.median():.4f}",
+         *[f"levels on the {dp}-decimal grid: median share {T[f'on_grid_{dp}dp'].median():.4f}; nearest whole count gives the level back: {T[f'count_recovered_{dp}dp'].median():.4f}" for dp in (2, 3, 4)],
          f"distinct levels at coverage 10: median {T.distinct_levels_at_coverage_10.median():.0f} (counts allow at most 11)"]
     open(sys.argv[4], "w").write("\n".join(L) + "\n"); print("\n".join(L))

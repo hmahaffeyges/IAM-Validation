@@ -1,0 +1,4 @@
+BLUEPRINT tracks, chromosomes 21 and 22, 8 libraries (diagnostic, spent libraries, nothing scored)
+level x coverage within 0.01 of a whole number: median share 0.6025 (range 0.4867 to 0.7211)
+coverage a whole number: median share 1.0000
+distinct levels at coverage 10: median 11 (counts allow at most 11)

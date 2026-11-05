@@ -1,0 +1,9 @@
+gsm,atlas_cell,cpgs,coverage_median,coverage_is_whole,level_x_coverage_whole,distinct_levels_at_coverage_10,cpgs_at_coverage_10
+C000S5A1bs,monocytes,902762,57.0,1.0,0.5201,11,3626
+C0010KA2bs,monocytes,902824,43.0,1.0,0.6007,11,3835
+C001UYA3bs,monocytes,903457,63.0,1.0,0.4867,11,3638
+C00256A1bs,cd8 t cells,888584,40.0,1.0,0.6412,11,7004
+C00256A3bs,effector memory cd8 t cells,864661,40.0,1.0,0.6456,11,8556
+C002CTA1bs,nk cells,887596,45.0,1.0,0.6043,11,6559
+C003JB51,memory b cells,823984,46.0,1.0,0.5921,11,9544
+C003K951,b cells,871062,34.0,1.0,0.7211,11,11048
