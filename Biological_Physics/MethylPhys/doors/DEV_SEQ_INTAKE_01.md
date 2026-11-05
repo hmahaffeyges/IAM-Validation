@@ -26,3 +26,7 @@ probability 0.05, passes; (D) chromosome 17 removed, refused. All four as stated
 (chromosomes 1 to 8 only) was refused for the wrong reason: with 14 of 22 autosomes empty the median autosome is empty, so the check said no
 autosome carries a value and named all 22. Amended (disclosed): the reference is the median share of the autosomes that carry any value, and
 a bar is added before run 2: a refused case names exactly the chromosomes it lacks (B: chr9 to chr22; D: chr17).
+
+**Synthetic run 2: met.** (`data/DEV_SEQ_INTAKE_01/genome_coverage_synthetic.txt`.) (A) whole: passes; (B) chromosomes 1 to 8 only: refused,
+naming chr9 to chr22; (C) 5 % of CpGs kept: passes (median autosome share 0.0498); (D) chr17 removed: refused, naming chr17. The check stands
+in the chain before every sequenced reading.
