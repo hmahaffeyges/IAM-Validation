@@ -622,3 +622,12 @@ because the first reading's sequencing band was never built; bars 2 and 3 unchan
 `bt_seq2_readings.csv`, `bt_seq2_summary.txt`). Each instrument that meets its bar is commissioned on healthy sorted B and T cells on
 whole-genome bisulfite sequencing. **Prior reading:** the first reading's 3 samples (above); nothing else of these 12.
 **Synthetic test:** `DEV_METAA_ATLAS_CURVE_01/bt_synthetic.py` (the B and T synthetic, met); the sequencing readings' synthetics are on record with healthy pass 5.
+
+**The B and T sequencing test, second reading: not met** (`bt_seq_02/bt_seq2_summary.txt`, `bt_seq2_readings.csv`; all 12 read by the one command.) Bar 1 (Met-A in the own cell within 0.95 to
+1.05): 0 of 12. The 8 CD8 T-cell libraries (GSE98837) cover 1,857 to 3,465 of the 6,000 identity sites, under the 90 % rule, so Met-A is not read
+on them; the 4 B-cell libraries (GSE134664) read high, 1.2106 to 1.3725. Bar 2 (coupling-A
+Normal): 3 of 12; the CD8 libraries read 0.861 to 1.078, the B cells 1.016 to 1.127. Bar 3 (IAM-A Normal): 8 of 12 (9 needed). Whole-sample
+Met-A: B cells 1.2069 to 1.3794, CD8 T cells 0.829 to 1.345. No instrument is
+commissioned on sorted B and T cells on sequencing from this test. **Learned:** the outside B cells read own-cell Met-A high (about 1.2 to 1.4)
+where the second outside laboratory's CD8 T cells read low (about 0.57): the laboratory difference has no single direction, so it is a per-site,
+per-laboratory term, not a constant, which is what the laboratory-term work (above, in DEV_ATLAS_V21_01.md) measures. Both series are spent.

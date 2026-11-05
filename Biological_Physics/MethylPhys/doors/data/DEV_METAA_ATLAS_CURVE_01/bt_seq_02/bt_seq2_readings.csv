@@ -1,0 +1,13 @@
+gsm,series,cell,Met-A own cell,Met-A reason,coupling-A,coupling state,IAM-A,IAM-A state,Met-A whole sample,islands,domains,C-Score,own-cell share,floor
+GSM2616068,GSE98837,naive cd8 t cells,,only 2976 of 6000 identity sites measured (at least 90% needed),0.9292,below Normal,,,1.3452,1.21862,1.31996,1.0165,0.576,
+GSM2616069,GSE98837,effector memory cd8 t cells,,only 2635 of 6000 identity sites measured (at least 90% needed),0.929,below Normal,1.0295,Normal,1.16198,1.20375,1.0237,0.9992,0.2146,
+GSM2616070,GSE98837,cd8 t cells,,only 2318 of 6000 identity sites measured (at least 90% needed),0.8612,below Normal,1.095,above Normal,1.05885,0.95326,1.03358,1.0097,0.1557,
+GSM2616071,GSE98837,cd8 t cells,,only 2686 of 6000 identity sites measured (at least 90% needed),0.8636,below Normal,0.9859,Normal,0.93618,0.95994,0.85347,0.9989,0.2113,
+GSM2616072,GSE98837,naive cd8 t cells,,only 3465 of 6000 identity sites measured (at least 90% needed),1.0689,above Normal,,,1.17015,1.50277,1.03395,1.0057,0.4416,
+GSM2616073,GSE98837,effector memory cd8 t cells,,only 2484 of 6000 identity sites measured (at least 90% needed),1.0779,above Normal,0.9058,Normal,1.13164,1.49111,0.99898,1.0065,0.1748,
+GSM2616074,GSE98837,cd8 t cells,,only 2623 of 6000 identity sites measured (at least 90% needed),1.0384,Normal,0.9345,Normal,1.05131,1.12188,1.02534,1.0006,0.2484,
+GSM2616075,GSE98837,cd8 t cells,,only 1857 of 6000 identity sites measured (at least 90% needed),0.9218,below Normal,0.9088,Normal,0.82927,1.16097,0.72084,1.0129,0.4517,
+GSM3963003,GSE134664,b cells,1.37248,,1.1266,above Normal,0.8055,Normal,1.3031,0.854,1.31485,0.9962,0.8949,
+GSM3963004,GSE134664,b cells,1.33044,,1.0705,above Normal,0.8492,Normal,1.2069,0.82284,1.18147,1.0047,0.8817,
+GSM3963005,GSE134664,memory b cells,1.21648,,1.0306,Normal,0.7776,below Normal,1.37939,1.14956,1.29915,0.9952,0.6642,
+GSM3963006,GSE134664,memory b cells,1.21062,,1.0161,Normal,0.8438,Normal,1.33132,1.10118,1.21177,0.9988,0.6223,
