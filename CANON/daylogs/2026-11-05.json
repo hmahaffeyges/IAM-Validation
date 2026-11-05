@@ -9,7 +9,7 @@
  "title": "The chain refuses a sample read only in part",
  "closing": "",
  "set_out": "Put the genome-coverage check in front of every sequenced reading, then read the B and T test at full depth and measure the same-laboratory tare.",
- "open_at_turnover": "The B and T third reading at full depth running, one sample at a time on GitHub.",
+ "open_at_turnover": "B and T at full depth (one sample at a time on GitHub); the Johns Hopkins CD4 test on Google, capped at $5; R14 lung on GitHub.",
  "sections": [
   {
    "kind": "ran",
@@ -24,6 +24,26 @@
       "OTH-083"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_INTAKE_01.md"
+    },
+    {
+     "title": "The same-laboratory tare on sequencing, measured on spent laboratories",
+     "status": "development",
+     "what": "Two outside laboratories' healthy libraries tared on 3, 5 and 8 of their own laboratory's healthy samples of the same cell.",
+     "outcome": "Offsets removed: BLUEPRINT 0.7134 untared, 1.0001 tared on 3; the second laboratory 0.5891, 0.9889 on 3. A single tared healthy sample spreads 6 to 10 %, so a laboratory's healthy readings are judged on their median.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "R13 cervical cytology on every atlas cell",
+     "status": "development",
+     "what": "241 EPIC v1 arrays (126 CIN3 or cancer, 115 benign) read by the full chain on every atlas cell.",
+     "outcome": "36 of 169 readings separate below p 0.001, led by the cell mix; among HPV-positive women only 4, all cell shares; whole-sample Met-A does not separate. A-score rows added.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   },
@@ -40,6 +60,79 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "The healthy test on the Johns Hopkins laboratory (GSE86340 CD4 T cells)",
+     "status": "in progress",
+     "what": "Six healthy donors' CD4 T cells, every read pair aligned on Google spot machines, each donor tared on the other five; written and committed before any is read.",
+     "outcome": "Running: chunks of donors 1 to 3 aligned or aligning; capped at $5 on Google, the rest to GitHub or to the author's go-ahead.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The website reorganized, and both atlases on the Globe Explorer",
+     "status": "done",
+     "what": "What works first, then the two atlases side by side with how they differ, the instruments with the readings in development, the researcher package, the fundraiser and the day log; the IAM Sequencing Atlas as its own globe with its information globe; every link checked.",
+     "outcome": "Live; 113 front-page links and every cell-page and explorer link answer. The website workflow had stopped publishing when a dispatched build won the queue; any build of main now publishes.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "website/build/build_home.py"
+    },
+    {
+     "title": "The chain workflow document: its outline",
+     "status": "done",
+     "what": "Every box of the chain's emergency-action-plan flowchart, from the kind of laboratory and sample to the report, each pointing to its Decoder section.",
+     "outcome": "Outline committed; three out-of-date lines of the Decoder's overview corrected from the code.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/CHAIN_WORKFLOW_OUTLINE.md"
+    },
+    {
+     "title": "Book, glossary and introduction brought up to date",
+     "status": "done",
+     "what": "Platform lines, the status table, the chain and sequencing-atlas chapters, the bridge chapter's links, the glossary (the atlas entry said Atlas v2, 74 cells) and seven new glossary entries; the introduction gains the same-laboratory tare and the genome-coverage check.",
+     "outcome": "Committed through the gate; the glossary's book checks now read IAM-Atlas v2.1's facts.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "docs/book/appendices/app_F_glossary.tex"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "A Google machine's disk sets the largest alignment chunk",
+     "what": "A 25-million-pair chunk of 2x123-base reads fills a 60 GB disk during the download; read 2 comes back short and the chain refuses the chunk. Chunks now run on 150 GB disks.",
+     "why": "Three chunks failed the same way; a small fetch of the same run was whole, and a chunk on a 150 GB disk passed 59 GB used.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "status": "recorded"
+    }
+   ]
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "A disk test machine ran a leftover job",
+     "what": "The first machine sent to test the disk ran an earlier night's job (the BLUEPRINT rounding check) because the job text was taken from a variable left over in the notebook. About 30 minutes and under a cent; the test was sent again from a file written for it.",
+     "why": "Caught by reading the machine's own log, which held the other job's output.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "status": "recorded"
+    },
+    {
+     "title": "A Google job passed the $5 promise",
+     "what": "The Johns Hopkins test was launched to read all six donors (about $11 on Google) without asking first, against the promise of nothing over $5 without asking. Caught on the first cost estimate; capped to stay under $5, and the author was told.",
+     "why": "The cost was estimated after launch instead of before.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "status": "recorded"
     }
    ]
   }
