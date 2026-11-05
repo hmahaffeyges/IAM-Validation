@@ -8,6 +8,12 @@ The Cellular Performance Gauge is a chain of stages that takes a specimen's raw 
 Chapter~\ref{ch:gauge}. Chain v4, the first commissioned chain, carries six instruments, each commissioned for its own scope: Met-A on isolated neutrophils (EPIC v1), the C-score on whole blood, IAM-Atlas v2.1 for three cell references and the colon and lung tissue tests, the IAM-Deconvolver for the shares of neutrophils, monocytes, CD4 and CD8 T cells, IAM-A on healthy CD8 T cells, read by whole-genome sequencing against each sample's own reference, and Group-A on groups of whole bloods read in one series. A reading outside an instrument's tested scope is printed with a plain note saying so. It is a research instrument, not a diagnostic test; its scope grows one cell type and one specimen at a time, each after it passes its own sealed test. The
 procedure is the SOP and the operations manual.
 The same one command reads sequenced samples (molecule files, per-CpG tables or coverage tracks) through the same instruments, against the IAM Sequencing Atlas, the ruler measured with sequencing's own chemistry, and it measures each library's own floor before any reading; those readings are in development and flagged.
+Before any sequenced reading the chain also checks that the whole genome is there: for each autosome, the share of sites carrying a value against the
+median autosome's share. An autosome under half the median refuses the sample, and the refusal names the chromosomes it lacks. A run stored in genome
+order and read only from its first read pairs holds the first chromosomes and nothing else; a thin library, such as plasma, is thin on every chromosome
+alike and passes. Its synthetic met every bar: a whole sample passes, one cut to chromosomes 1 to 8 is refused naming chr9 to chr22, one thinned to
+5~\% of its CpGs passes, and one without chromosome 17 is refused naming chr17. The rule behind it: a run is read whole, every read pair, or its order is
+checked first.
 Where a document and the code differ, the code is what runs. This chapter walks through the stages (Figure~\ref{fig:chain}).
 
 Table~\ref{tab:p4_gates} lists the line each stage applies; the values and the files they are read from are in the SOP.
@@ -101,6 +107,10 @@ Single-molecule input (a read-level \texttt{.pat} file or an aligned whole-genom
 is counted once for its held error and its loose share, passes the sample-shape check, and is read as IAM-A, Eq.~\eqref{eq:iama}, on
 band v1. Commissioned on healthy blood CD8 T cells; every other cell type is read and printed with the note that it has not yet been tested with this instrument. The earlier position
 reading (Stage Q, Eq.~\eqref{eq:iamapos}) runs only behind a development flag.
+
+A sequenced sample from a laboratory the atlas has never held is read the same way: against the same laboratory's own healthy samples of the same
+cell. Two outside laboratories' offsets on sorted-cell Met-A disappear when each is tared on three of its own healthy samples
+(Chapter~\ref{ch:seqatlas}).
 
 \section{Chain v4: the commissioned instruments in one run}
 
