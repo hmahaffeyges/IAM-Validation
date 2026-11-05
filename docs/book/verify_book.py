@@ -2009,6 +2009,7 @@ DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/records/03b_crossplatform_che
 DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/records/11c_stageA_report_NOT_CONVERGED.json'] = 'atlas v2 first joint fit (not converged): R-hat and ESS summary'   # 7 kB
 DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/records/14_stageB_timing_block.log'] = 'atlas v2 test block with fixed source terms: R-hat, ESS, time per locus'   # 0.2 kB
 DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json'] = 'atlas v2 whole-atlas gate (distinctness, no filled values, convergence flags)'   # 5 kB
+DATA_FILES['CANON/atlas_story.json'] = 'IAM-Atlas v2.1 story source: facts.cells and facts.sites read from the atlas build (2026-11-05, the glossary entry)'
 DATA_FILES['Biological_Physics/MethylPhys/doors/PROC_V5_HELDOUT_OUTCOME.md'] = 'atlas v2 held-out coverage outcome (V5)'   # 1 kB
 DATA_FILES['Biological_Physics/MethylPhys/atlas/v2/postbuild/README.md'] = 'atlas v2 post-build record: identity loci held-out transfer'   # 3 kB
 
@@ -40325,17 +40326,16 @@ def check_4784():
     value = H0p * math.sqrt(1 - Omp + beta_m * math.e)
     return locals()
 
-@check(label='app:glossary:L70:74', title='atlas v2: cell types', line=70, status='observed', kind='file', printed='74', tol=0.0, source=_B17_GATE, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L70:79', title='IAM-Atlas v2.1: cell types', line=70, status='observed', kind='file', printed='79', tol=0.0, source='CANON/atlas_story.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4785():
-    'Atlas v2 holds 74 cells: number of cell types in the measured-fraction table of the whole-atlas gate record. Book line 70, printed 74.'
-    value = len(load_json(_B17_GATE)['V3_measured_fraction_by_cell'])
+    'IAM-Atlas v2.1 holds 79 cell types: facts.cells of the atlas story source (CANON/atlas_story.json, read from the atlas build). Book line 70, printed 79. (Replaced the Atlas v2 check, 74 cells, when the entry was brought up to v2.1.)'
+    value = load_json('CANON/atlas_story.json')['facts']['cells']
     return locals()
 
-@check(label='app:glossary:L70:814', title='atlas v2: CpGs fitted, thousands', line=70, status='observed', kind='file', printed='814', tol=0.0, source=_B17_GATE, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
+@check(label='app:glossary:L70:813951', title='IAM-Atlas v2.1: sites', line=70, status='observed', kind='file', printed='813951', tol=0.0, source='CANON/atlas_story.json', chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4786():
-    'About 814,000 CpGs: measured (cell, locus) pairs of the convergence gate V4 divided by the sum over the 74 cells of the fraction of loci each cell has measured, in thousands. Book line 70, printed 814 (thousand).'
-    g = load_json(_B17_GATE)
-    value = g['V4']['measured_pairs'] / sum(g['V3_measured_fraction_by_cell'].values()) / 1000
+    'IAM-Atlas v2.1 holds 813,951 sites: facts.sites of the atlas story source (CANON/atlas_story.json). Book line 70, printed 813,951. (Replaced the Atlas v2 check, about 814,000 CpGs.)'
+    value = load_json('CANON/atlas_story.json')['facts']['sites']
     return locals()
 
 @check(label='app:glossary:L72', chapter='app:glossary', part=8, title='measured: printed value found in GLOSSARY.md, a file the chapter names',
