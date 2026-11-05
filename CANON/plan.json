@@ -160,23 +160,24 @@
     {
      "id": "60.1",
      "date": "2026-11-04",
-     "status": "running",
+     "status": "done",
      "what": "Phase A, commissioning on data already set aside. A1: a second outside laboratory's healthy CD8 T cells, GSE245832 (12 WGBS libraries, development): is BLUEPRINT's low Met-A that laboratory's or every outside laboratory's? (Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)",
-     "next": "3 Toronto machines running; score with lab2_cd8_score.py and record"
+     "next": "scored: own-cell Met-A not met, whole-sample met; the second outside laboratory also reads low, so the offset is not BLUEPRINT's alone (DEV_ATLAS_V21_01.md)",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/lab2_cd8_test.txt"
     },
     {
      "id": "60.2",
      "date": "2026-11-04",
-     "status": "open",
+     "status": "running",
      "what": "A2: the B and T sequencing commissioning test, GSE134664 and GSE98837 (12 healthy sorted B and CD8 T cells, written 2026-10-29, bt_seq_score.py): find which samples landed, finish the rest through the full working chain, score; commission IAM-A, coupling-A and Met-A on sorted B and T cells on WGBS for every bar met (Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md)",
-     "next": "check what landed; re-send the rest"
+     "next": "second reading not met (CD8 libraries were read from genome-ordered runs, so only part of the genome; B cells from a quarter of their depth); third reading at full depth running (bt_seq_03), every read pair, with the genome-coverage check now in front of every sequenced reading"
     },
     {
      "id": "60.3",
      "date": "2026-11-04",
-     "status": "open",
+     "status": "running",
      "what": "A3: the same-laboratory tare on sequencing: the laboratory's own healthy libraries as the tare, the others read against it. GSE144691 (St. Jude, GSE98837's laboratory; 8 of its healthy libraries are GSE98837's, spent) gives the test: tare on the 8 spent, read the 5 new healthy libraries at full depth; then a fresh laboratory. Correction 2026-11-04: GSE144691 is not a fresh laboratory (Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md)",
-     "next": "the tare in the chain, synthetic first; the depth cost of full-depth alignment"
+     "next": "measured on the two spent outside laboratories (same_lab_tare.txt): tared on three of their own healthy samples they read Normal; the test on a laboratory never read, the Johns Hopkins group's healthy CD4 donors (6), is running on Google; then the disease side on the same group's tumor and normal pairs (GSE86340), written before reading"
     },
     {
      "id": "60.4",
@@ -246,7 +247,7 @@
      "date": "2026-11-04",
      "status": "open",
      "what": "Phase E, every old test replayed: the 150+ VALs and the 119-test retest plan (plan 0.9) through the full working chain on all cells, compared with the earlier results, reference only (R5 liver and R9 glioma blood on all cells now running)",
-     "next": "land R5 and R9; then wave A"
+     "next": "R5, R9, R13 and R14 read on every cell and recorded (DEV_REPLICATE_01.md), A-score rows added; next: wave A of the retest plan"
     },
     {
      "id": "60.14",
@@ -351,7 +352,7 @@
      "date": "2026-11-05",
      "status": "open",
      "what": "The book and the website do the atlases justice: every atlas globe, both noise maps, the information globe and the information sphere explained where a reader meets them (what it is, the question it answers, how the chain uses it), for both atlases; from 61.3's table",
-     "next": "the sequencing-atlas chapter first: the sky sphere and Explorer, the cell pages, the cell-count floor, covariance, Minkowski, the guidebook, Group-A and the ceiling on sequencing (PLANNED_VS_BUILT.md item 5)"
+     "next": "the sequencing-atlas chapter done (Minkowski, guidebook, Explorer, Group-A, ceiling and cell-count floor added); next: the website's atlas pages and IAM-Atlas v2.1's chapter against the same questions"
     },
     {
      "id": "61.5",
