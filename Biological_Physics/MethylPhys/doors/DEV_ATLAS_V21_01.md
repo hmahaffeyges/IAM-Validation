@@ -1212,3 +1212,9 @@ share 1.0000); at coverage 10 the levels take exactly 11 values, as counts do; b
 looks like. Second run, the first 3 libraries: for 2, 3 and 4 decimals, the share of levels on that grid and the share where the nearest
 whole count gives the level back. If one precision gives the level back at nearly every CpG, the counts are recoverable and the tracks are
 counts; nothing is scored.
+
+**BLUEPRINT's tracks are read counts (second run, the rounding test).** (`blueprint_track_counts.txt`, 3 libraries; the first run is kept as `blueprint_track_counts_run1.txt`.) Every level lies on the
+3-decimal grid (median share 1.0000; 0.2634 on the 2-decimal grid), and the nearest whole count, divided by coverage and written to 3 decimals,
+gives the level back at 0.9978 of CpGs (0.9977 to 0.9995). The public levels are the methylated read count over coverage, written to 3
+decimals, so level x coverage is within 0.0005 x coverage of the count: under 0.03 reads at these libraries' depths. The low own-cell Met-A on
+BLUEPRINT's libraries is not an artifact of their tracks; the laboratory floor stays the measured cause. The chain is unchanged.

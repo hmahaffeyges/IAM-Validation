@@ -1,0 +1,4 @@
+gsm,atlas_cell,cpgs,coverage_median,coverage_is_whole,level_x_coverage_whole,on_grid_2dp,count_recovered_2dp,on_grid_3dp,count_recovered_3dp,on_grid_4dp,count_recovered_4dp,distinct_levels_at_coverage_10,cpgs_at_coverage_10
+C000S5A1bs,monocytes,902762,57.0,1.0,0.5201,0.2634,0.9687,1.0,0.9978,1.0,0.288,11,3626
+C0010KA2bs,monocytes,902824,43.0,1.0,0.6007,0.2926,0.9741,1.0,0.9995,1.0,0.3178,11,3835
+C001UYA3bs,monocytes,903457,63.0,1.0,0.4867,0.2478,0.9674,1.0,0.9977,1.0,0.2735,11,3638
