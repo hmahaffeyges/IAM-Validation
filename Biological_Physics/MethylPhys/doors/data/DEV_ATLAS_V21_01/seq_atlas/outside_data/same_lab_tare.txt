@@ -1,0 +1,14 @@
+(1) within-cell spread of own-cell Met-A (cells with at least 3 healthy donors):
+  atlas laboratory (pass 7): 42 cells, 126 samples; untared median 1.0084; within-cell spread median 0.0620
+  BLUEPRINT: 4 cells, 32 samples; untared median 0.7134; within-cell spread median 0.0744
+  second laboratory (GSE245832): 2 cells, 9 samples; untared median 0.5891; within-cell spread median 0.0492
+(2) tared on n healthy references of the same laboratory and cell (each sample left out of its own references):
+  n 3, atlas laboratory (pass 7): no cell has 4 donors
+  n 3, BLUEPRINT: tared median 1.0001, spread 0.0953, inside 0.95 to 1.05 0.469 (50004 draws)
+  n 3, second laboratory (GSE245832): tared median 0.9889, spread 0.0759, inside 0.95 to 1.05 0.383 (12000 draws)
+  n 5, atlas laboratory (pass 7): no cell has 6 donors
+  n 5, BLUEPRINT: tared median 0.9999, spread 0.0986, inside 0.95 to 1.05 0.436 (38006 draws)
+  n 5, second laboratory (GSE245832): tared median 1.0008, spread 0.0793, inside 0.95 to 1.05 0.333 (6 draws)
+  n 8, atlas laboratory (pass 7): no cell has 9 donors
+  n 8, BLUEPRINT: tared median 0.9991, spread 0.0941, inside 0.95 to 1.05 0.517 (38000 draws)
+  n 8, second laboratory (GSE245832): no cell has 9 donors

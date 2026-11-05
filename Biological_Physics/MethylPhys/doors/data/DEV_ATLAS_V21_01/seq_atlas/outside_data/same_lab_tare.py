@@ -17,7 +17,7 @@ D = pd.concat([pd.DataFrame(dict(lab="atlas laboratory (pass 7)", cell=A7.cell, 
 cv = lambda x: float(np.std(x, ddof=1) / np.mean(x))
 rows = []; L = ["(1) within-cell spread of own-cell Met-A (cells with at least 3 healthy donors):"]
 for lab, g in D.groupby("lab", sort=False):
-    c = g.groupby("cell").A.agg(["count", "median", cv]); c = c[c["count"] >= 3]
+    c = g.groupby("cell").A.agg(count="count", median="median", cv=cv); c = c[c["count"] >= 3]
     L.append(f"  {lab}: {len(c)} cells, {int(c['count'].sum())} samples; untared median {g[g.cell.isin(c.index)].A.median():.4f}; within-cell spread median {c.cv.median():.4f}")
 L.append("(2) tared on n healthy references of the same laboratory and cell (each sample left out of its own references):")
 for n in (3, 5, 8):

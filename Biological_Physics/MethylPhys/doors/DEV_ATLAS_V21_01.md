@@ -1290,3 +1290,13 @@ a bar: it sets the number of references the real test on GSE144691's five new he
 atlas laboratory's own tared reading.
 **Prior reading:** GSE144691's labels and read counts only (its eight healthy libraries shared with GSE98837 are spent); none of its five new
 healthy libraries has been read.
+
+**The same-laboratory tare, measured.** (`seq_atlas/outside_data/same_lab_tare.txt`, `same_lab_tare.csv`.) (1) The spread among one laboratory's healthy donors of a cell is about
+the same in every laboratory: the atlas's 0.0620 (42 cells, 126 samples), BLUEPRINT 0.0744 (4 cells, 32 samples), the second laboratory 0.0492
+(2 cells, 9 samples), so each laboratory's offset is close to one factor for the laboratory and cell. (2) Tared on its own laboratory's healthy
+references, the offset is gone: BLUEPRINT 0.7134 untared, tared median 1.0001 (3 references), 0.9999 (5), 0.9991 (8); the second laboratory
+0.5891 untared, 0.9889 (3), 1.0008 (5, only 6 draws). The tared spread (0.076 to 0.099) is mostly the donors' own spread, so more references
+change it little; one tared healthy sample falls inside 0.95 to 1.05 in 33 to 52 % of draws. **Learned:** on sequencing a single sample's
+sorted-cell Met-A spreads 6 to 7 % even inside the atlas's laboratory, wider than the gauge's Normal band of 5 % either side, so the real test
+on GSE144691's five new healthy libraries is judged on their tared median, as healthy pass 5 was, with the per-sample band from the atlas
+laboratory's own tared spread. Development; nothing commissioned.
