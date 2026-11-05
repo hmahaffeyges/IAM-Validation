@@ -133,6 +133,13 @@
      "why": "The cost was estimated after launch instead of before.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "status": "recorded"
+    },
+    {
+     "title": "R14's re-send used a shard count the workflow refuses",
+     "status": "recorded",
+     "what": "The 10 arrays GEO refused were re-sent on 2 shards; the workflow runs only 10 or 20 and refused it at once. The rule was already in memory from 11-04 (a known-information breach). Sent again on 10 shards, about 25 minutes lost.",
+     "why": "Caught by the run's own failure on the next machine check.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   }

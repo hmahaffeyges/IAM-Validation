@@ -664,3 +664,9 @@ in 20 chunks by the committed pipeline (`split_align.yml`, about 12 to 23 millio
 second reading's flags; the genome-coverage intake check (DEV-SEQ-INTAKE-01) now stands before every reading. Bars unchanged from the second
 reading (`bt_seq_03/bt_seq3_score.py`, outputs `bt_seq3_readings.csv`, `bt_seq3_summary.txt`). **Prior reading:** both earlier readings of
 these 12 (recorded above, not met; read in part).
+
+**The third reading's last chunks (same night, disclosed).** GitHub's 6-hour limit stopped chunk 15 of 16 of GSM2616068: the end of a run stored in genome order holds its unplaced reads,
+which downloaded in 2 h 10 min (13,991,598 pairs, against about 17 minutes for the other chunks) and were still aligning at 6 hours; the
+merge then refused the sample, correctly. Every CD8 library of GSE98837 is stored this way, so each sample's last chunk runs on a Google
+spot machine with no time limit (`DEV_ERASE_01/split_google.sh`, the same steps as `split_align.yml`), its other chunks come from GitHub, and
+the sample is merged and read once by the one command with the list's flags on the same machine. Nothing in the reading changes.
