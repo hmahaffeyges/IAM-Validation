@@ -195,9 +195,9 @@
     {
      "id": "60.6",
      "date": "2026-11-04",
-     "status": "open",
+     "status": "not pursued",
      "what": "A6: whole blood on 450K: GSE55763 (2,711 bloods, unspent, with technical replicates) as the healthy commissioning test of Met-A, the C-Score and Group-A on 450K; written before reading",
-     "next": "write the test"
+     "next": "not possible as written: GSE55763 has no raw IDATs on GEO (checked 2026-11-04), so Stage 0 cannot read it and the chain cannot commission on it. Reopens with a healthy 450K whole-blood set that has raw IDATs (data search, 61.2)"
     },
     {
      "id": "60.7",
@@ -268,6 +268,110 @@
      "status": "open",
      "what": "Phase H, last: the chain workflow document (author 2026-11-04): a code-free, visual, step-by-step flowchart of the whole chain in the form of an emergency action plan: the first things the chain looks for, and 'if this, go here', from the kinds of laboratory and sample (arrays by platform, sequencing by library and file, plasma, tissue, sorted cells) through intake and its refusals, the Deconvolver, the right atlas, every instrument, the globe and the information sphere, to the report; each step with what it checks, the physics of its score and why it refuses. For a researcher to process, score and test their own samples and build their own chain; drawn from the Decoder and the commissioning records once the chain, laboratories and commissioning are settled",
      "next": "after Phases A to G"
+    },
+    {
+     "id": "60.17",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "C (machines): the planted synthetic methylome through the IAM Sequencing Atlas's own build (build-time item M05 in 35.30's build plan): a known signal planted in donor reads, the build run through the one command, what the build does to the signal measured",
+     "next": "write it, synthetic by construction; one GitHub job"
+    },
+    {
+     "id": "60.18",
+     "date": "2026-11-05",
+     "status": "not pursued",
+     "what": "C (machines): MCMC across laboratories on the instruments' sites, with R-hat and a cross-check against the counted ranges (35.30's method)",
+     "next": "not pursued for now: each sequencing-atlas cell's donors come from one laboratory (the two recorded sources are tissue suppliers), so a joint fit has no second laboratory to separate; the counted ranges met their synthetic (D4), and the laboratory difference is handled by the same-laboratory tare (60.3). Reopens when a second laboratory's healthy libraries exist for a cell (35.30.6)"
+    },
+    {
+     "id": "60.19",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "C (machines): the held-error check on every cell column, a test of each column by IAM's law with no cohort: at firmly held sites a cell's healthy level should equal 1 minus that cell's molecule-measured held error (layer 1 found this on v2.1, 14.7). On the IAM Sequencing Atlas, from its own tables (held_reference_v1 and the pieces)",
+     "next": "write it before it runs, synthetic first; one GitHub job per batch of cells (the tables are too large for the laptop)"
+    },
+    {
+     "id": "60.20",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "C (machines): the derived floor as a bound on IAM-Atlas v2.1 (the floor-bounded prior from the author's atlas notes). Not as a refit: v2.1 is published and commissioned, and refitting would change the commissioned ruler. As a check: does every v2.1 level and its posterior range sit inside the floor's limits (epsilon_min and 1 minus epsilon_min)? Where it does not, that column is recorded",
+     "next": "write the check; one GitHub job on the published fit"
+    },
+    {
+     "id": "60.21",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "C (machines): new sequencing-atlas columns for cells it lacks, from BLUEPRINT's healthy tracks (the author's notes, read from labels: plasma cells, dendritic cells, red-cell precursors, cord-blood megakaryocytes S004AV and S004BT). BLUEPRINT's 59 outside-test libraries are spent, but spent data may build; its tracks are read counts (blueprint_track_counts.txt) and carry no read patterns, so these columns would be level-only (no IAM-A or coupling reference)",
+     "next": "read the labels and track list for these cell types only; then a build plan written before any build"
+    }
+   ]
+  },
+  {
+   "status": "open",
+   "rows": [
+    "OTH-068"
+   ],
+   "record": "CANON/todo_audit_2026-11-05.md",
+   "task": "DOWNTIME, laptop work only (author 2026-11-05: 'keep the downtime work and laptop work in its own section and the rest for machines in their appropriate sections' and 'DO NOT GET DISTRACTED FROM THE CURRENT TRAJECTORY OR TRACK'): work that needs no machine slot, done while the machines run; nothing here takes a machine from step 1",
+   "done_when": "never closed as a whole: each branch closes with its record; machine parts of any branch go to step 1's phases",
+   "branches": [
+    {
+     "id": "61.1",
+     "date": "2026-11-05",
+     "status": "running",
+     "what": "The chain workflow document (Phase H, 60.16): Parts A to C drafted from the code and the Decoder (CHAIN_WORKFLOW_DRAFT.md); Parts D to I written as each part settles; the same-laboratory box from the Johns Hopkins test's result",
+     "next": "Part D, the ruler for each platform",
+     "record": "Biological_Physics/MethylPhys/CHAIN_WORKFLOW_DRAFT.md"
+    },
+    {
+     "id": "61.2",
+     "date": "2026-11-05",
+     "status": "running",
+     "what": "Data search, continuous, for commissioning and testing every cell on every instrument (author: 'we need lots more to commission every cell for each of the instruments and the atlas's perfectly themselves'): GEO, SRA, ENA, ArrayExpress and journal papers' data sections, by cell and instrument against the table of 79 plus 57 cells (60.8); every lead into deposit/data_leads.csv with its spend status, nothing read",
+     "next": "healthy 450K whole blood with raw IDATs (60.6); second laboratories for B, T and monocytes on sequencing; healthy plasma WGBS",
+     "record": "Biological_Physics/MethylPhys/deposit/data_leads.csv"
+    },
+    {
+     "id": "61.3",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "The IAM Sequencing Atlas, planned against built (author 2026-11-05): every planned feature (the checklist's 38 rows, 35.30's build-time list, the seven sky tools on the information sphere (35.5), its five uses (35.4), the eight globes, both noise maps, masks, spectra, nulls, covariance, the bridge, the sensitivity map (35.30.7), the per-cell packages (35.30.10)) in one table with three columns: built? used by the chain to improve a reading? shown and explained on the website and in the book? Every 'no' becomes a branch",
+     "next": "write the table from CHECKLIST_STATUS.md, the code and the site"
+    },
+    {
+     "id": "61.4",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "The book and the website do the atlases justice: every atlas globe, both noise maps, the information globe and the information sphere explained where a reader meets them (what it is, the question it answers, how the chain uses it), for both atlases; from 61.3's table",
+     "next": "after 61.3"
+    },
+    {
+     "id": "61.5",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "Prior-art search before any public claim (the author's atlas and sphere notes): (a) a whole-genome healthy atlas pooling laboratories with a posterior at every site; (b) per-donor healthy disorder stored at every CpG; (c) disorder read as a ratio against a floor set by the person's own healthy cell type; (d) a methylome on the information sphere read as a masked sky with microwave-sky tools, one individual against itself. Literature only; findings committed before any wording changes",
+     "next": "search (a) to (d); write the findings with their references"
+    },
+    {
+     "id": "61.6",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "One-button intake (the author's goal, 10-23 list): (1) the input type told from the files themselves; (2) the specimen optional, the Deconvolver naming what the sample holds (today --specimen defaults to whole blood, so an unstated specimen is read as whole blood); (3) one folder-and-button researcher workflow. Code written at the laptop; its acceptance test is the readiness run (45.1) on machines",
+     "next": "design note from the code paths in run_sample.py"
+    },
+    {
+     "id": "61.7",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "The fourth C-Score (the author's sphere notes): the same clustering statistic over neighbors on the information sphere instead of along the DNA, so a cell program failing across many chromosomes reads as clustered; written into the C-Score family (38.5); synthetic first, run on machines",
+     "next": "write it into 38.5 and its synthetic"
+    },
+    {
+     "id": "61.8",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "The Decoder's open code findings (F14, F23, F36 open; F7, F15, F17, F24, F29 partly fixed, from the 10-22 list): each finding's status read from its record and closed or carried",
+     "next": "read each finding's current state"
     }
    ]
   },
@@ -1541,23 +1645,23 @@
      "status": "open",
      "what": "Sequencing atlas, part A: each donor's raw counts, measured disorder, the read patterns, laboratory offsets and recorded traits at every CpG (16-bit counts)",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
-     "next": "the source count and the timed step"
+     "next": "A1 built at the identity and island sites, not yet at every CpG; A5 (laboratory offsets) measured on BLUEPRINT only, and inside the atlas the donors' two sources are tissue suppliers, not laboratories, so offsets cannot be measured there; the laboratory difference is now handled by the same-laboratory tare (60.3)"
     },
     {
      "id": "35.30.2",
      "date": "2026-10-29",
-     "status": "open",
+     "status": "built",
      "what": "Sequencing atlas, part B: a healthy reference for every sequencing instrument (IAM-A per cell, coupling, Met-A with identity sites chosen on this atlas, territories, C-Score, Deconvolver columns, cell of origin, Group-A)",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
-     "next": "after part A is built"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/CHECKLIST_STATUS.md",
+     "next": "every part-B row built (B1 to B9 in CHECKLIST_STATUS.md); commissioning is Phase C (60.11)"
     },
     {
      "id": "35.30.3",
      "date": "2026-10-29",
-     "status": "open",
+     "status": "built",
      "what": "Sequencing atlas, part C: every CpG on the sky sphere and the information sphere, with noise maps for both; the three spheres compared",
-     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
-     "next": "after part A is built"
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/CHECKLIST_STATUS.md",
+     "next": "C1 to C4 built (C4 against v2.1; v2 is not in the repository); commissioning is Phase C (60.11)"
     },
     {
      "id": "35.30.4",
@@ -1565,7 +1669,7 @@
      "status": "open",
      "what": "Sequencing atlas, part D: the CMB tools, including two noise splits (sealed donor halves; random read halves for single-donor cells), masks, spectra, cosmic variance, covariance, transfer function, nulls, cross-calibration, sealed held-out sets",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
-     "next": "the donor-half split sealed before any build"
+     "next": "left: D11 enzymatic against bisulfite (no enzymatic inputs yet); D13 on the real maps (needs each half's reads in the noise columns); D12 not possible: the inputs hold no oxidative data (CHECKLIST_STATUS.md)"
     },
     {
      "id": "35.30.5",

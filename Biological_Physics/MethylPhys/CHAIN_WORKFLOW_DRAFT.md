@@ -38,7 +38,8 @@ The specimen is checked before a single byte is read.
 | Plasma (cell-free DNA) | accepted |
 | Tissue | accepted |
 | Constructed DNA mixtures of blood cells | accepted as test material |
-| PBMC, bone marrow, cell lines, an unstated specimen, anything else | **refused**, with the reason; nothing is read |
+| PBMC, bone marrow, cell lines, a specimen given as blank, anything else | **refused**, with the reason; nothing is read |
+| No specimen given at all | read as whole blood (the one command's default); making the specimen optional, with the Deconvolver naming what the sample holds, is plan item 61.6 |
 
 **Why:** a reading means something only against a healthy reference of the same kind of sample. A specimen with no reference is refused
 rather than read against the wrong one. Decoder: §2, the specimen check (`specimen_refusal`).
