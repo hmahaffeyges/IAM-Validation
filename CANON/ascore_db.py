@@ -79,12 +79,19 @@ def groupa(S):
     return pd.DataFrame(R, columns=["source", "comparison", "reading", "group1", "n1", "mean1", "group2", "n2", "mean2", "difference_pct", "t", "verdict", "use",
                                     "specimen", "platform", "status", "record"])
 
+PART_BYTES = 20_000_000   # 2026-11-04: an instrument table larger than this is written in parts (NAME_part1.csv, ...), same columns, rows in order
+
 def build():
     S = json.load(open(os.path.join(ROOT, "CANON", "ascore_sources.json"), encoding="utf-8")); global LINES; LINES = S.get("lines", {})
     T = pd.concat([x.astype({'line': float}) for x in ((load_rows(s) if s.get("rows_table") else load(s)) for s in S["sources"])], ignore_index=True); files = {}
     b = io.StringIO(); bands(T).to_csv(b, index=False, lineterminator="\n"); files["Bands.csv"] = b.getvalue()
     for ins, g in T.groupby("instrument", sort=False):
-        b = io.StringIO(); g.to_csv(b, index=False, lineterminator="\n"); files[re.sub(r"[^A-Za-z0-9]+", "_", ins) + ".csv"] = b.getvalue()
+        b = io.StringIO(); g.to_csv(b, index=False, lineterminator="\n"); v = b.getvalue(); nm = re.sub(r"[^A-Za-z0-9]+", "_", ins)
+        if len(v.encode()) <= PART_BYTES: files[nm + ".csv"] = v
+        else:   # 2026-11-04: GitHub refuses a single file this large through its API (Met_A.csv at 43.7 MB); the table is written in parts
+            k = int(len(v.encode()) // PART_BYTES) + 1; n = -(-len(g) // k)
+            for i in range(k):
+                b = io.StringIO(); g.iloc[i * n:(i + 1) * n].to_csv(b, index=False, lineterminator="\n"); files[f"{nm}_part{i + 1}.csv"] = b.getvalue()
     L = ["# The A-score database", "", "_Generated from `CANON/ascore_sources.json` by `CANON/ascore_db.py`; do not edit by hand._", "",
          "One table per instrument, one row per sample reading, each read from a committed file and linked to its record. It is how we learn",
          "where healthy samples and tumors sit on each instrument's gauge, and whether a line of concern shows before the tumor line",
@@ -100,6 +107,7 @@ def build():
     for (ins, rd, sp, cd, ct), g in T.groupby(["instrument", "reading", "specimen", "condition", "cancer_type"], sort=False):
         cd = cd + (f" ({ct})" if ct else "")
         v = g.value; f = re.sub(r"[^A-Za-z0-9]+", "_", ins) + ".csv"
+        if f not in files: f = re.sub(r"\.csv$", "_part1.csv", f)   # a table written in parts: the link opens its first part; the parts are listed below
         ln = S.get("lines", {}).get(rd)
         if g.line.notna().any(): k = int((v > g.line).sum()); past = f"{k} of {len(g)} ({100 * k / len(g):.0f} %) above {g.line.iloc[0]:.3f}"
         elif ln: k = int(((v < ln.get("lo", -1e9)) | (v > ln.get("hi", 1e9))).sum()); past = f"{k} of {len(g)} ({100 * k / len(g):.0f} %)"
@@ -118,12 +126,17 @@ def build():
             df = f"{r.difference_pct:+.2f} %" if pd.notna(r.difference_pct) else ""; tt = f"{r.t:.2f}" if pd.notna(r.t) else ""
             L.append(f"| {r.source} | {r.comparison} | {r.reading} | {gr} | {df} | {tt} | {r.verdict} | {r.specimen} |")
         L.append("")
+    parts = sorted(k for k in files if "_part" in k)
+    if parts: L += ["**Tables written in parts** (each over 20 MB whole; same columns, rows continue in order): " + ", ".join(f"[{k}]({k})" for k in parts) + ".", ""]
     files["README.md"] = "\n".join(L); return files
 if __name__ == "__main__":
     F = build()
     if "--check" in sys.argv:
         bad = [k for k, v in F.items() if not os.path.exists(os.path.join(OUT, k)) or open(os.path.join(OUT, k), encoding="utf-8").read() != v]
+        bad += [f"{f} (stale)" for f in os.listdir(OUT) if f.endswith(".csv") and f not in F]
         print("ascore_db: " + ("ok" if not bad else "REFUSED: differs: " + ", ".join(bad) + " (run python3 CANON/ascore_db.py)")); sys.exit(1 if bad else 0)
     os.makedirs(OUT, exist_ok=True)
+    for f in os.listdir(OUT):   # a table now written in parts (or no longer written) is removed, so no stale copy is left beside its parts
+        if f.endswith(".csv") and f not in F: os.remove(os.path.join(OUT, f))
     for k, v in F.items(): open(os.path.join(OUT, k), "w", encoding="utf-8").write(v)
     print("ascore_db: wrote", ", ".join(F))

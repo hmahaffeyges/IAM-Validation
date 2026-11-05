@@ -365,3 +365,10 @@ reading (`r9_glioma_blood_full_summary.txt`) the whole-sample readings shift (Me
 low-grade glioma, d +1.03, p 0.0049; it was 0.9158 against 0.9044, p 0.00097, on six cells), because the mix now names every atlas cell.
 Per-cell Met-A on the cells the six-cell panel did not hold is now read for every array (common myeloid progenitor 0.9977 against 0.9894, p
 0.0042). The readings go into the A-score database with the tumor grade.
+
+**R5 liver cancer in blood, every cell listed (read again on every atlas cell, scored by `r23_score.py r5` listing every cell).** (`data/DEV_REPLICATE_01/r5_atlas_full/r5_liver_atlas_full_summary.txt`; 481 of 481 arrays, EPIC v1, pass 1, untared; 221 metabolic
+liver cancer cases, 260 controls.) Reference only. The neutrophil shift is the same as the first reading (0.6272 against 0.5764, d +0.33,
+p 0.00015). With every cell now listed, the lymphocytes the first scorer could not name separate: naive CD4 T cells 0.0000 against 0.0138
+(p 3.3e-08), naive CD8 T cells 0.0085 against 0.0170 (p 1.1e-07), memory CD4 T cells 0.0790 against 0.0968 (p 0.0005), CD56-bright NK
+cells 0.0225 against 0.0335 (p 0.00074). Of the 84 Met-A lines none separates below p 0.001; the islands read slightly higher in the cases
+(0.8475 against 0.8433, d +0.21, p 0.0037). Many readings are compared here, so a p near 0.003 is reported, not claimed.

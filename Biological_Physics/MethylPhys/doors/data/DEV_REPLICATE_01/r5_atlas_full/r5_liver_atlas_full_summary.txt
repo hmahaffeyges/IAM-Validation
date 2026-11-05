@@ -1,0 +1,171 @@
+DEV-REPLICATE-01 r5: 481 of 481 arrays read (pass 1, untared)
+-- metabolic HCC case (221) against control (260), all (in each line below, 'current' is the first group and 'never' the second; the words are R2's)
+site cg05575921                            case 0.8610 control 0.8675 | d -0.17 | p 0.21
+site cg03636183                            case 0.6790 control 0.6810 | d -0.10 | p 0.22
+site cg16867657                            case 0.7160 control 0.7125 | d +0.03 | p 0.62
+share neutrophils                          case 0.6272 control 0.5764 | d +0.33 | p 0.00015
+share cd4 t cells                          case 0.0000 control 0.0000 | d -0.09 | p 0.69
+share cd8 t cells                          case 0.0000 control 0.0000 | d -0.04 | p 0.42
+share b cells                              case 0.0000 control 0.0000 | d +0.06 | p 0.3
+share nk cells                             case 0.0000 control 0.0000 | d -0.08 | p 0.91
+share monocytes                            case 0.0439 control 0.0349 | d +0.19 | p 0.0052
+Met-A whole                                case 0.9020 control 0.9010 | d +0.17 | p 0.11
+ceiling distance                           case 1.0747 control 1.0763 | d -0.26 | p 0.014
+Met-A whole, identity sites of the cells found case 0.8353 control 0.8333 | d +0.25 | p 0.0032
+Met-A whole, islands                       case 0.8453 control 0.8412 | d +0.21 | p 0.0035
+Met-A whole, domains                       case 0.8895 control 0.8876 | d +0.16 | p 0.094
+Met-A whole, the rest                      case 0.9145 control 0.9143 | d +0.14 | p 0.22
+Met-A CMP (bone marrow)                    case 1.0232 control 1.0222 | d +0.11 | p 0.26
+Met-A GMP (bone marrow)                    case 1.0263 control 1.0232 | d +0.13 | p 0.2
+Met-A HSC (bone marrow)                    case 1.0163 control 1.0114 | d +0.08 | p 0.39
+Met-A L-MPP (bone marrow)                  case 1.0132 control 1.0115 | d +0.11 | p 0.27
+Met-A MEP (bone marrow)                    case 0.9987 control 0.9965 | d +0.09 | p 0.4
+Met-A MPP (bone marrow)                    case 0.9939 control 0.9972 | d -0.00 | p 0.93
+Met-A adipocytes                           case 1.0123 control 1.0100 | d +0.08 | p 0.35
+Met-A aorta endothelium                    case 1.0208 control 1.0163 | d +0.12 | p 0.27
+Met-A astrocytes                           case 1.0496 control 1.0453 | d +0.15 | p 0.18
+Met-A b cells                              case 1.0306 control 1.0293 | d +0.02 | p 0.73
+Met-A basophils                            case 1.0032 control 1.0006 | d +0.02 | p 0.7
+Met-A bladder epithelium                   case 1.0055 control 1.0049 | d +0.07 | p 0.46
+Met-A breast basal epithelium              case 1.0022 control 1.0010 | d +0.10 | p 0.34
+Met-A breast luminal epithelium            case 1.0077 control 1.0047 | d +0.08 | p 0.33
+Met-A cardiomyocyte                        case 1.0119 control 1.0114 | d +0.12 | p 0.23
+Met-A cd4 t cells                          case 1.0139 control 1.0135 | d +0.02 | p 0.84
+Met-A cd56bright nk cells                  case 0.9911 control 0.9897 | d +0.01 | p 0.97
+Met-A cd8 central memory t cells           case 1.0073 control 1.0082 | d -0.01 | p 0.88
+Met-A cd8 t cells                          case 1.0325 control 1.0295 | d +0.02 | p 0.76
+Met-A cd8 temra t cells                    case 1.0002 control 0.9990 | d -0.00 | p 0.95
+Met-A central memory th1 cells             case 0.9994 control 0.9964 | d +0.02 | p 0.76
+Met-A colon enteroendocrine                case 1.0099 control 1.0073 | d +0.14 | p 0.2
+Met-A colon epithelium                     case 0.9906 control 0.9864 | d +0.06 | p 0.47
+Met-A colon fibroblasts                    case 1.0177 control 1.0147 | d +0.06 | p 0.48
+Met-A colon macrophages                    case 1.0189 control 1.0156 | d +0.09 | p 0.35
+Met-A cortical neurons                     case 0.9882 control 0.9886 | d -0.00 | p 0.96
+Met-A cytotoxic cd4 t cells (cd28-)        case 0.9918 control 0.9881 | d +0.02 | p 0.79
+Met-A effector memory cd8 t cells          case 0.9942 control 0.9925 | d -0.03 | p 0.83
+Met-A embryonic stem cells                 case 0.9960 control 0.9939 | d +0.05 | p 0.61
+Met-A endometrium epithelium               case 1.0021 control 1.0006 | d +0.06 | p 0.51
+Met-A eosinophils                          case 1.0082 control 1.0042 | d +0.10 | p 0.23
+Met-A erythrocyte progenitors              case 1.0060 control 1.0052 | d +0.02 | p 0.85
+Met-A fallopien tubes epithelium           case 1.0031 control 1.0013 | d +0.11 | p 0.3
+Met-A gastric antrum epithelium            case 1.0025 control 1.0012 | d +0.09 | p 0.45
+Met-A gastric body epithelium              case 1.0049 control 1.0038 | d +0.07 | p 0.52
+Met-A gastric fundus epithelium            case 1.0052 control 1.0042 | d +0.09 | p 0.4
+Met-A heart fibroblasts                    case 1.0047 control 1.0017 | d +0.08 | p 0.37
+Met-A hepatocyte                           case 1.0057 control 1.0057 | d +0.03 | p 0.8
+Met-A kidney glomerular endothelium        case 1.0105 control 1.0087 | d +0.07 | p 0.4
+Met-A kidney glomerular epithelium         case 1.0175 control 1.0135 | d +0.15 | p 0.16
+Met-A kidney tubular endothelium           case 1.0042 control 1.0010 | d +0.08 | p 0.39
+Met-A kidney tubular epithelium            case 1.0099 control 1.0089 | d +0.09 | p 0.33
+Met-A lung alveolar endothelium            case 1.0108 control 1.0081 | d +0.06 | p 0.48
+Met-A lung alveolar epithelium             case 0.9811 control 0.9815 | d -0.02 | p 0.87
+Met-A lung alveolar macrophages            case 1.0110 control 1.0068 | d +0.15 | p 0.18
+Met-A lung bronchus epithelium             case 0.9973 control 0.9940 | d +0.02 | p 0.82
+Met-A lung interstitial macrophages        case 1.0016 control 1.0003 | d +0.06 | p 0.48
+Met-A memory b cells                       case 0.9861 control 0.9853 | d -0.01 | p 0.82
+Met-A memory cd4 t cells                   case 0.9919 control 0.9889 | d +0.01 | p 0.89
+Met-A microglia                            case 0.9846 control 0.9821 | d +0.03 | p 0.76
+Met-A monocytes                            case 0.9968 control 0.9946 | d +0.02 | p 0.88
+Met-A naive b cells                        case 0.9907 control 0.9904 | d -0.00 | p 1
+Met-A naive cd4 t cells                    case 0.9732 control 0.9730 | d +0.01 | p 0.88
+Met-A naive cd8 t cells                    case 0.9914 control 0.9911 | d -0.01 | p 0.87
+Met-A neutrophils                          case 0.9766 control 0.9724 | d +0.04 | p 0.62
+Met-A nk cells                             case 1.0213 control 1.0157 | d +0.04 | p 0.63
+Met-A oligodendrocyte precursors           case 1.0472 control 1.0420 | d +0.14 | p 0.22
+Met-A oligodendrocytes                     case 0.9855 control 0.9820 | d +0.03 | p 0.69
+Met-A pancreas endothelium                 case 1.0061 control 1.0035 | d +0.11 | p 0.26
+Met-A pancreatic acinar                    case 1.0069 control 1.0067 | d +0.03 | p 0.94
+Met-A pancreatic alpha                     case 1.0082 control 1.0058 | d +0.09 | p 0.33
+Met-A pancreatic beta                      case 1.0026 control 1.0005 | d +0.04 | p 0.65
+Met-A pancreatic delta                     case 1.0078 control 1.0077 | d +0.06 | p 0.52
+Met-A pancreatic duct                      case 1.0013 control 1.0014 | d +0.03 | p 0.94
+Met-A prostate epithelium                  case 1.0071 control 1.0057 | d +0.11 | p 0.29
+Met-A regulatory t cells                   case 0.9890 control 0.9902 | d -0.05 | p 0.54
+Met-A small intestine epithelium           case 0.9958 control 0.9910 | d +0.07 | p 0.42
+Met-A smooth muscle                        case 1.0065 control 1.0063 | d +0.05 | p 0.64
+Met-A striated muscle                      case 1.0169 control 1.0121 | d +0.16 | p 0.13
+Met-A t central memory cd4                 case 0.9732 control 0.9702 | d +0.02 | p 0.82
+Met-A t effector cell cd8                  case 0.9883 control 0.9849 | d +0.01 | p 0.97
+Met-A t effector memory cd4                case 0.9997 control 0.9960 | d +0.03 | p 0.74
+Met-A thyroid epithelium                   case 1.0076 control 1.0045 | d +0.10 | p 0.25
+Met-A tongue epithelium                    case 1.0083 control 1.0066 | d +0.09 | p 0.4
+Met-A tonsil palatine epithelium           case 1.0091 control 1.0066 | d +0.08 | p 0.35
+Met-A tonsil pharyngeal epithelium         case 1.0177 control 1.0141 | d +0.14 | p 0.17
+Met-A vascular endothelium                 case 1.0053 control 1.0038 | d +0.05 | p 0.56
+Met-A vascular leptomeningeal cells        case 1.0518 control 1.0472 | d +0.15 | p 0.2
+Met-A vascular saphenous endothelium       case 1.0119 control 1.0089 | d +0.08 | p 0.41
+share CMP (bone marrow)                    case 0.0000 control 0.0000 | d -0.12 | p 0.62
+share GMP (bone marrow)                    case 0.0000 control 0.0000 | d +0.11 | p 0.54
+share HSC (bone marrow)                    case 0.0000 control 0.0000 | d -0.12 | p 0.77
+share L-MPP (bone marrow)                  case 0.0000 control 0.0000 | d +0.00 | p 0.4
+share MEP (bone marrow)                    case 0.0000 control 0.0000 | d +0.09 | p 0.47
+share MPP (bone marrow)                    case 0.0000 control 0.0000 | d +0.06 | p 0.24
+share adipocytes                           case 0.0000 control 0.0000 | d -0.10 | p 0.38
+share aorta endothelium                    case 0.0000 control 0.0000 | d +nan | p 1
+share astrocytes                           case 0.0000 control 0.0000 | d +nan | p 1
+share basophils                            case 0.0118 control 0.0119 | d -0.00 | p 0.72
+share bladder epithelium                   case 0.0000 control 0.0000 | d +0.10 | p 0.28
+share breast basal epithelium              case 0.0000 control 0.0000 | d +0.07 | p 0.84
+share breast luminal epithelium            case 0.0000 control 0.0000 | d -0.08 | p 0.36
+share cardiomyocyte                        case 0.0000 control 0.0000 | d -0.08 | p 0.36
+share cd56bright nk cells                  case 0.0225 control 0.0335 | d -0.23 | p 0.00074
+share cd8 central memory t cells           case 0.0184 control 0.0244 | d -0.16 | p 0.02
+share cd8 temra t cells                    case 0.0341 control 0.0226 | d -0.04 | p 0.17
+share central memory th1 cells             case 0.0000 control 0.0000 | d +nan | p 1
+share colon enteroendocrine                case 0.0000 control 0.0000 | d -0.08 | p 0.52
+share colon epithelium                     case 0.0000 control 0.0000 | d -0.03 | p 0.87
+share colon fibroblasts                    case 0.0000 control 0.0000 | d +nan | p 1
+share colon macrophages                    case 0.0000 control 0.0000 | d -0.08 | p 0.36
+share cortical neurons                     case 0.0021 control 0.0027 | d -0.14 | p 0.16
+share cytotoxic cd4 t cells (cd28-)        case 0.0000 control 0.0000 | d +nan | p 1
+share effector memory cd8 t cells          case 0.0000 control 0.0000 | d +nan | p 1
+share embryonic stem cells                 case 0.0000 control 0.0000 | d -0.04 | p 0.7
+share endometrium epithelium               case 0.0000 control 0.0000 | d +nan | p 1
+share eosinophils                          case 0.0305 control 0.0330 | d -0.17 | p 0.039
+share erythrocyte progenitors              case 0.0000 control 0.0000 | d +0.14 | p 0.053
+share fallopien tubes epithelium           case 0.0000 control 0.0000 | d +0.16 | p 0.06
+share gastric antrum epithelium            case 0.0000 control 0.0000 | d -0.08 | p 0.36
+share gastric body epithelium              case 0.0000 control 0.0000 | d +0.09 | p 0.91
+share gastric fundus epithelium            case 0.0000 control 0.0000 | d +0.01 | p 0.25
+share heart fibroblasts                    case 0.0000 control 0.0000 | d +nan | p 1
+share hepatocyte                           case 0.0000 control 0.0000 | d +nan | p 1
+share kidney glomerular endothelium        case 0.0000 control 0.0000 | d +nan | p 1
+share kidney glomerular epithelium         case 0.0000 control 0.0000 | d -0.08 | p 0.36
+share kidney tubular endothelium           case 0.0000 control 0.0000 | d +nan | p 1
+share kidney tubular epithelium            case 0.0000 control 0.0000 | d +nan | p 1
+share lung alveolar endothelium            case 0.0000 control 0.0000 | d +nan | p 1
+share lung alveolar epithelium             case 0.0000 control 0.0000 | d +0.05 | p 0.98
+share lung alveolar macrophages            case 0.0000 control 0.0000 | d +nan | p 1
+share lung bronchus epithelium             case 0.0000 control 0.0000 | d +0.23 | p 0.095
+share lung interstitial macrophages        case 0.0000 control 0.0000 | d +nan | p 1
+share memory b cells                       case 0.0031 control 0.0037 | d -0.01 | p 0.048
+share memory cd4 t cells                   case 0.0790 control 0.0968 | d -0.30 | p 0.0005
+share microglia                            case 0.0055 control 0.0058 | d +0.04 | p 0.79
+share naive b cells                        case 0.0307 control 0.0284 | d +0.20 | p 0.069
+share naive cd4 t cells                    case 0.0000 control 0.0138 | d -0.50 | p 3.3e-08
+share naive cd8 t cells                    case 0.0085 control 0.0170 | d -0.36 | p 1.1e-07
+share oligodendrocyte precursors           case 0.0000 control 0.0000 | d -0.08 | p 0.36
+share oligodendrocytes                     case 0.0000 control 0.0000 | d -0.03 | p 0.75
+share pancreas endothelium                 case 0.0000 control 0.0000 | d +nan | p 1
+share pancreatic acinar                    case 0.0000 control 0.0000 | d +0.05 | p 0.79
+share pancreatic alpha                     case 0.0000 control 0.0000 | d +nan | p 1
+share pancreatic beta                      case 0.0000 control 0.0000 | d +0.10 | p 0.28
+share pancreatic delta                     case 0.0000 control 0.0000 | d +nan | p 1
+share pancreatic duct                      case 0.0000 control 0.0000 | d +nan | p 1
+share prostate epithelium                  case 0.0000 control 0.0000 | d +0.05 | p 0.8
+share regulatory t cells                   case 0.0000 control 0.0000 | d -0.00 | p 0.77
+share small intestine epithelium           case 0.0000 control 0.0000 | d +0.19 | p 0.03
+share smooth muscle                        case 0.0000 control 0.0000 | d +nan | p 1
+share striated muscle                      case 0.0000 control 0.0000 | d +nan | p 1
+share t central memory cd4                 case 0.0000 control 0.0000 | d +0.02 | p 0.8
+share t effector cell cd8                  case 0.0000 control 0.0000 | d +nan | p 1
+share t effector memory cd4                case 0.0000 control 0.0000 | d +nan | p 1
+share thyroid epithelium                   case 0.0000 control 0.0000 | d +nan | p 1
+share tongue epithelium                    case 0.0000 control 0.0000 | d +0.13 | p 0.36
+share tonsil palatine epithelium           case 0.0000 control 0.0000 | d +0.10 | p 0.28
+share tonsil pharyngeal epithelium         case 0.0000 control 0.0000 | d +nan | p 1
+share vascular endothelium                 case 0.0072 control 0.0060 | d +0.20 | p 0.039
+share vascular leptomeningeal cells        case 0.0000 control 0.0000 | d +nan | p 1
+share vascular saphenous endothelium       case 0.0000 control 0.0000 | d +nan | p 1
+territory islands                          case 0.8475 control 0.8433 | d +0.21 | p 0.0037
+territory domains                          case 0.9045 control 0.9026 | d +0.14 | p 0.14
