@@ -1,0 +1,11 @@
+atlas trend (pass 4, 125 samples): Met-A = 1.0075 -0.00660 x (depth minus reference depth), r -0.762; depth difference range -28 to 20
+BLUEPRINT (38 read): depth median 44.5 calls per site; own-cell Met-A median 0.7134; Met-A against depth rho +0.378 (the atlas trend is negative)
+by cell (median depth, median own-cell Met-A):
+  b cells: 37, 0.591
+  cd8 t cells: 34, 0.593
+  effector memory cd8 t cells: 53, 0.595
+  memory b cells: 61, 0.668
+  monocytes: 46, 0.735
+  nk cells: 43, 0.764
+  t central memory cd4: 67, 0.764
+  t effector memory cd4: 58, 0.869

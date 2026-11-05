@@ -1218,3 +1218,10 @@ counts; nothing is scored.
 gives the level back at 0.9978 of CpGs (0.9977 to 0.9995). The public levels are the methylated read count over coverage, written to 3
 decimals, so level x coverage is within 0.0005 x coverage of the count: under 0.03 reads at these libraries' depths. The low own-cell Met-A on
 BLUEPRINT's libraries is not an artifact of their tracks; the laboratory floor stays the measured cause. The chain is unchanged.
+
+**BLUEPRINT's low own-cell Met-A is not the depth trend (diagnostic on committed outputs; nothing scored).** (`seq_atlas/outside_data/blueprint_depth_check.py`, output `blueprint_depth_check.txt`; written after a first look at the same committed
+tables in a notebook, disclosed.) Inside the atlas's laboratory, sorted-cell Met-A falls 0.0066 per read of depth above its reference donors
+(pass 4, 125 samples, r −0.762). BLUEPRINT's libraries are deeper (median 44.5 calls per site over the 38 read), but within BLUEPRINT Met-A
+rises with depth (rho +0.378), and its B cells and CD8 T cells, at 37 and 34 calls per site, about the atlas's own depth, read 0.591 and 0.593.
+Depth does not explain the gap. With the tracks shown to be counts and the floor only half of it, what remains is the laboratory's libraries
+holding fewer off-pattern reads at the identity sites than the atlas's donors of the same cells.
