@@ -1,4 +1,4 @@
-# The Chain Workflow (draft: Parts A to C)
+# The Chain Workflow (draft: Parts A to D)
 
 A step-by-step map of how the chain handles a sample, laid out like an emergency action plan: each box asks one question, and each
 answer says where the sample goes next. No code. Every box names the Decoder section it comes from (`manual/OM_v4_decoder.md`), so every
@@ -151,6 +151,51 @@ Go to Part D, the choice of ruler (the IAM Sequencing Atlas for sequenced sample
 
 ---
 
-*Parts D to I (the ruler, the cell mix, the instruments, the tares, the maps, two draws, the report) follow the outline and are written as
+## Part D. Which ruler?
+
+Every reading compares the sample with healthy cells of the same kind, measured the same way. The ruler is that healthy reference.
+A sample is never read against a ruler built on a different chemistry without the reading saying so.
+
+### D1. Each instrument's own ruler (the commissioned readings)
+
+| Instrument | Its ruler | Commissioned on |
+|---|---|---|
+| Met-A | healthy purified neutrophil arrays, at the 6,000 identity sites | isolated neutrophils, EPIC v1 |
+| C-Score | the same sites, read for how departures cluster | whole blood, EPIC v1 |
+| Group-A | healthy references from the same run, the same slide first | groups of whole bloods in one series, EPIC v1 |
+| IAM-Deconvolver | IAM-Atlas v2.1's columns for the six blood cells | blood-cell shares on arrays |
+| IAM-A | **the sample itself**: its own held error against the error its own loose share predicts; no other person enters | healthy blood CD8 T cells, whole-genome bisulfite |
+
+A commissioned reading outside its commissioned scope (another platform, another cell) is still read and printed, with a flag saying
+it is not commissioned there.
+
+### D2. The atlas rulers (every cell, flagged where not commissioned)
+
+| The sample is | Ruler | Why |
+|---|---|---|
+| An array (450K, EPIC v1, EPIC v2) | **IAM-Atlas v2.1**: 79 healthy cell types at 813,951 array sites, fitted once across laboratories, with a range at every value | it was measured with the array's own chemistry |
+| Sequenced, read with `--dev-seq-ref auto` | **The IAM Sequencing Atlas**: 57 healthy cell types at every CpG, counted from healthy donors' reads | it was measured with sequencing's own chemistry, so the platform offset does not enter |
+| Sequenced, without that setting | IAM-Atlas v2.1, at the sites both hold, and the reading says so | |
+
+**Today the sequencing atlas is chosen by a setting, not by the chain.** Every healthy and replay pass on sequencing gives it; choosing it from
+the input itself is part of the one-button intake (plan item 61.6).
+
+### D3. One person, one sample, every cell
+
+With `--cell-panel atlas`, the IAM-Deconvolver splits the sample across every cell type of the active atlas, not only the six blood cells,
+and every cell it finds is read against its own column (Part E). With `--full-chain`, every development reading that applies to the input
+runs beside the commissioned ones, each flagged; a reading that cannot run here is listed with its reason, never left out.
+
+### D4. A laboratory the atlas has not seen
+
+An atlas is built in a few laboratories. A sample from another laboratory can carry that laboratory's own small offset: on sequencing,
+two outside laboratories read lower than the atlas's own laboratory on the same cells. The answer under test is the **same-laboratory tare**:
+a few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against
+them. On the two outside laboratories, three of their own healthy samples brought them to Normal. *This box is completed from the test on a
+laboratory never read before, now running.*
+
+---
+
+*Parts E to I (the cell mix, the instruments, the tares, the maps, two draws, the report) follow the outline and are written as
 each is settled. The same-laboratory tare for sequenced samples is under test on a laboratory the atlas has never held; its box is written
 from that test's result.*
