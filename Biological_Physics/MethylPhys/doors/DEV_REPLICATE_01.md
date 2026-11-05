@@ -381,8 +381,9 @@ HPV-positive women only (116 against 29), 4 readings separate below p 0.001, all
 against 0.8897, p 0.73). Cervical cytology is not a commissioned specimen; the readings in other cells' identity sites are the specimen's mix,
 not those cells. Many readings are compared here, so the list is reported, not claimed.
 
-**R14 lung adenocarcinoma by stage, read** (every atlas cell, scored by `r23_score.py r14`). (`data/DEV_REPLICATE_01/r14_full/r14_lung_summary.txt`; GSE256092, never-smoker lung adenocarcinoma; 131 of 141 arrays, EPIC v1, tissue, pass 1, untared; series run
-42011098741.) Reference only. Stage 3 or 4 (43) against stage 1 (52): no reading of 169 separates below p 0.001; 5 below p 0.01, all Met-A at
-cells absent from lung tissue (astrocytes 1.0916 against 1.0514, p 0.0012), as many as chance gives among 169. Stage 2 (36) against stage 1:
-none below p 0.01. Read on every cell, tumor stage does not move the readings of the tumor tissue itself in this set. The 10 arrays not read
-failed their download from GEO (HTTP errors after retries); they are sent again (`r14_lung_samples_resend.csv`).
+**The third reading's last chunks (same night, disclosed).** (`data/DEV_REPLICATE_01/r14_full/r14_lung_summary.txt`; GSE256092, never-smoker lung adenocarcinoma; 137 of 141 arrays,
+EPIC v1, tissue, pass 1, untared; series runs 42011098741 and, for 10 arrays GEO refused the first time, 42038669438.) Reference only.
+Stage 3 or 4 against stage 1: no reading of 169 separates below p 0.001, and one below p 0.01 (Met-A at astrocytes, a cell absent
+from lung tissue, p 0.0062), fewer than chance gives among 169. Stage 2 against stage 1: none below p 0.01. Read on every cell, tumor
+stage does not move the readings of the tumor tissue itself in this set. The other 4 arrays were quarantined by the chain at intake:
+bisulfite conversion below its limit of 0.8 (GSM8085679 0.770; GSM8085719 0.756; GSM8085753 0.794; GSM8085766 0.729).
