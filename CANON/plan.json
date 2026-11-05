@@ -142,6 +142,130 @@
  "todo": [
   {
    "status": "open",
+   "rows": [
+    "OTH-068",
+    "COM-METAA-033",
+    "OTH-051"
+   ],
+   "task": "THE STEP-BY-STEP LIST (author 2026-11-04: 'a new detailed to do list or plan ... so we have a step by step list to stick to and we dont lose track again'): commission every cell on every instrument from the data set aside, then data found, while capturing A scores; then the old replays; then the researchers",
+   "done_when": "every step below closed with its record, in order; steps run in parallel when machines are free, but none is skipped",
+   "branches": [
+    {
+     "id": "60.0",
+     "date": "2026-11-04",
+     "status": "running",
+     "what": "STANDING, every hour of every day: GitHub's 20 machines and Google's 8 kept full; the watchers on every run and machine; a direct machine check every 30 minutes; the A-score database updated after every test, with cancer type and stage; data searched online while machines run (author 2026-11-04)",
+     "next": "never closed"
+    },
+    {
+     "id": "60.1",
+     "date": "2026-11-04",
+     "status": "running",
+     "what": "Phase A, commissioning on data already set aside. A1: a second outside laboratory's healthy CD8 T cells, GSE245832 (12 WGBS libraries, development): is BLUEPRINT's low Met-A that laboratory's or every outside laboratory's? (Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)",
+     "next": "3 Toronto machines running; score with lab2_cd8_score.py and record"
+    },
+    {
+     "id": "60.2",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "A2: the B and T sequencing commissioning test, GSE134664 and GSE98837 (12 healthy sorted B and CD8 T cells, written 2026-10-29, bt_seq_score.py): find which samples landed, finish the rest through the full working chain, score; commission IAM-A, coupling-A and Met-A on sorted B and T cells on WGBS for every bar met (Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md)",
+     "next": "check what landed; re-send the rest"
+    },
+    {
+     "id": "60.3",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "A3: a fresh outside laboratory's healthy sorted CD8 subsets on WGBS, GSE144691 (13, unread), the real outside-laboratory test for sequencing, written before reading after A1 lands",
+     "next": "after A1"
+    },
+    {
+     "id": "60.4",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "A4: B and T cells on arrays: the low CD4 central-memory and memory-B columns explained from the atlas's own inputs, then the held confirmation read (GSE192451, GSE146093, GSE184500: 35 arrays; GSE174666 reported apart); commission Met-A on each B and T column that meets its bars",
+     "next": "read the sequencing-array shift result; then the confirmation"
+    },
+    {
+     "id": "60.5",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "A5: monocytes on arrays: the confirmation's bar 2 not met (mono_curve_confirm_summary.txt) explained, then a further independent laboratory found and read",
+     "next": "diagnose from committed outputs"
+    },
+    {
+     "id": "60.6",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "A6: whole blood on 450K: GSE55763 (2,711 bloods, unspent, with technical replicates) as the healthy commissioning test of Met-A, the C-Score and Group-A on 450K; written before reading",
+     "next": "write the test"
+    },
+    {
+     "id": "60.7",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "A7: the reserved BLUEPRINT neutrophils (C0010K, C001UY, PB130513, PB270313; DEV_METAA_HEALTHY_01.md step 3 version 5) read as that test's confirmation once the outside-laboratory floor is understood",
+     "next": "after A1 and A3"
+    },
+    {
+     "id": "60.8",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "A8: every other cell: for each of the 79 IAM-Atlas v2.1 and 57 IAM Sequencing Atlas cells, the instruments commissioned on it, the data that could commission it (set aside or found), and the test, kept as one table (CANON/cell_coverage.csv, generated); worked cell by cell",
+     "next": "build the table"
+    },
+    {
+     "id": "60.9",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "Phase B, plasma, healthy first. B1: plasma IAM-A reads low (0.75 to 0.78 against 0.94): the next physical cause, synthetic first; B2: plasma's domains follow the erythroid share; B3: when healthy plasma reads Normal, the held healthy plasmas (PRJNA929650, 248; GSE186458, 23 cfDNA) as the commissioning test, then GSE186888's matched blood halves",
+     "next": "B1 synthetic"
+    },
+    {
+     "id": "60.10",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "B4: plasma cfDNA on EPIC arrays read and flagged, A-scores captured with cancer type and stage: GSE277078 (lung), GSE298812 (liver, HIV cohort, with fibrosis and cirrhosis groups), GSE157273 (prostate over time)",
+     "next": "after B1"
+    },
+    {
+     "id": "60.11",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "Phase C, the atlases, globes and spheres commissioned: the IAM Sequencing Atlas's commissioning bars written (as v2.1's three sealed bars) and read on outside healthy samples; its checklist's partly built rows (A1, D11) finished; the globe's change count on neurons understood; the information sphere and the distance to the ceiling each given a job, a synthetic and bars",
+     "next": "write the sequencing atlas's commissioning bars"
+    },
+    {
+     "id": "60.12",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "Phase D, a chosen test for each score, showing why it shines on its own (Met-A, the C-Score, IAM-A, coupling-A, the Deconvolver, Group-A, the territories, the globe, the information sphere, the ceiling), each written before reading on unspent data from CANON/data_spent.csv or new data",
+     "next": "pick one per score from the unspent list"
+    },
+    {
+     "id": "60.13",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "Phase E, every old test replayed: the 150+ VALs and the 119-test retest plan (plan 0.9) through the full working chain on all cells, compared with the earlier results, reference only (R5 liver and R9 glioma blood on all cells now running)",
+     "next": "land R5 and R9; then wave A"
+    },
+    {
+     "id": "60.14",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "Phase F, the A-score lines: from every reading in the A-score database, where healthy ends and each cancer type and stage begins, for each instrument, kept internal (author 2026-11-03)",
+     "next": "after Phases A to E feed it"
+    },
+    {
+     "id": "60.15",
+     "date": "2026-11-04",
+     "status": "open",
+     "what": "Phase G, last: the paper and the researcher package finished from committed outputs, and the researchers contacted with the commissioned chain and the list of data we lack (DATA_WE_NEED.md)",
+     "next": "after Phases A to F"
+    }
+   ]
+  },
+  {
+   "status": "open",
    "rows": "['GRP-019', 'COM-METAA-033', 'GRP-020']",
    "task": "The full chain working on sequencing, then the IAM Sequencing Atlas finished, then the Johns Hopkins study, then the paper (author 2026-10-30: 'EVERYTHING needs to work properly BEFORE we run their tests through and before the paper and before running the full chain on new tests')",
    "done_when": "in this order: (1) Met-A and the instruments built on it (the Deconvolver, the C-Score, the territories, IAM-A, coupling-A) read Normal on healthy sequenced samples with the IAM Sequencing Atlas as the ruler, each after its own synthetic; (2) the atlas finished with every checklist part (per-cell reference packages, the sky and information spheres, the globes, the remaining CMB tools on both noise maps, the fragment features); (3) the Johns Hopkins study read through the full working chain; (4) the full paper; (5) carefully chosen tests showing each instrument at its best. B and T commissioning, VAL replays and new tests wait until (1) to (3) are done. Always the full chain on everything; the chain decides what it can and cannot read.",
