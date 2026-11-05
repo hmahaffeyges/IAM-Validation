@@ -63,7 +63,9 @@ jobs:
           path: website/_site
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # 2026-11-05: every commit starts a push build and a dispatched build in one concurrency group, and the waiting one cancels the other;
+    # when the dispatched build won, nothing published (the live page fell behind main). Any build of main now publishes.
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-24.04
     environment:
