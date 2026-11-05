@@ -40,7 +40,7 @@ a reading input); is it on the website; is it in the book's sequencing-atlas cha
 
 ## What the table shows
 
-1. **Built:** 33 of 38 rows fully, 3 partly (A1, C2, D11), 1 not possible (D12), 1 waiting on plasma (F1).
+1. **Built:** of the checklist's 39 rows (A1 to A8, B1 to B9, C1 to C4, D1 to D17, F1; B1 to B9 share one line in the table above), 31 fully; 6 partly (A1 not yet at every CpG; A5 measured on one outside laboratory only; C2 a picture and a distance, the sample's sphere still on v2.1's layout; C4 against v2.1 only, v2 not possible; D11 no enzymatic inputs; D13 real maps not yet readable); 1 not possible (D12); 1 waiting on plasma (F1).
 2. **Used in readings:** the counts, disorder, levels, molecules, the nine instrument references, the sky sphere with its ranges, the donor halves and the cell-count floor all feed readings. The noise maps, nulls, transfer function and isotropy are checks that the atlas is right, which is their job.
 3. **Built but not yet improving any reading:** the genome-distance spectrum and the covariance (D6, D8). Their planned use is a whole-genome C-Score on sequencing, whose healthy limit needs the healthy correlation between neighboring sites: new item 60.22, synthetic first. The Minkowski functionals (D13) wait on real-map readability.
 4. **The information sphere on sequencing** still places sites by IAM-Atlas v2.1's layout. A layout from the sequencing atlas itself is open (35.30.12); its seven sky tools (35.5), five uses (35.4) and the side-by-side view with the address globe (35.8) are open.
