@@ -1256,8 +1256,8 @@ chain's, each with its own synthetic on record.
 read (donor 1's three libraries cover 5,215 to 5,367 of the 6,000 identity sites, under the 90 % rule). Own-cell Met-A median
 0.5740 over the 6 scored naive and memory CD8 libraries read (0.5257 to 0.6927; bar 1 not met; none
 within 0.95 to 1.05, bar 2 not met); whole-sample Met-A median 1.0258 over the 8 scored (bar 3 met).
-The CMV-specific responders (recorded) read 0.5754 to 0.6315. The Deconvolver gives naive CD8 libraries 0.54 to 0.63 of their own cell and
-memory CD8 libraries 0.08 to 0.20 (their sort is broader than the atlas's effector-memory column). Like BLUEPRINT (0.7134), and lower:
+The CMV-specific responders (recorded) read 0.5754 to 0.6315. The Deconvolver gives the read naive CD8 libraries 0.54 to 0.63 of their own cell and
+memory CD8 libraries 0.08 to 0.18 (the libraries read; their sort is broader than the atlas's effector-memory column). Like BLUEPRINT (0.7134), and lower:
 own-cell Met-A on sequencing reads low on both outside laboratories, while the atlas's own laboratory's healthy donors, read against each
 other, read 1.0077 (pass 5). It is not one laboratory's fault. **Next:** which side of the identity sites carries the gap (the marked sites'
 unmethylated reads, or the unmarked sites' methylated reads), from the chain's per-site tables, beside each library's own error rates at the
