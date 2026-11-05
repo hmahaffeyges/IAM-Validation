@@ -50,6 +50,8 @@ def problems():
 def write(out, art_rel, css_tag, style, back):
     I, don, sex, floor, rd = data(); C = sorted(I["cells"], key=lambda c: c["cell"].lower())
     d = os.path.join(out, "seq-atlas"); os.makedirs(d, exist_ok=True); v21 = set()
+    _ig = os.path.join(REPO, "Biological_Physics", "MethylPhys", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "globe", "seq_globe.html")   # 2026-11-05: its information globe, as the one command drew it
+    if os.path.exists(_ig): import shutil as _sh; _sh.copy(_ig, os.path.join(d, "information_globe.html"))
     v21i = os.path.join(REPO, "website", "art", "out", "cells", "index.json")
     if os.path.exists(v21i): v21 = {c["slug"] for c in json.load(open(v21i, encoding="utf-8"))["cells"]}
     nm = lambda c: c["cell"][:1].upper() + c["cell"][1:]
@@ -58,7 +60,8 @@ def write(out, art_rel, css_tag, style, back):
                       f'.cg a{{text-decoration:none;color:inherit}}.cg img{{width:100%;border-radius:4px}}.cg span{{font-size:14px}}.two{{display:grid;grid-template-columns:1fr 1fr;gap:8px}}.two img{{width:100%}}</style></head><body><section class="wrap">')
     g = [f'<a href="{c["slug"]}.html"><img loading="lazy" src="{art_rel}seq_cells/{c["slug"]}_thumb.jpg" alt="{E(nm(c))} on the sphere"><span>{E(nm(c))}</span></a>' for c in C]
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(head("The IAM Sequencing Atlas: every cell at every CpG")
-        + f'<p><a href="{back}">&larr; IAMPerformance front page</a> &middot; <a href="../atlas/index.html">IAM-Atlas v2.1 (arrays)</a></p>'
+        + f'<p><a href="{back}">&larr; IAMPerformance front page</a> &middot; <a href="../atlas/index.html">IAM-Atlas v2.1 (arrays)</a> &middot; '
+        + '<a href="../atlas/sphere.html?globe=seq-atlas">turn every cell on the globe</a>' + (' &middot; <a href="information_globe.html">its information globe</a>' if os.path.exists(_ig) else '') + '</p>'
         + f'<h1>The IAM Sequencing Atlas: {len(C)} healthy cell types at every CpG</h1><p><b>In development.</b> The ruler for sequenced samples, measured with '
         + "sequencing's own chemistry; IAM-Atlas v2.1 stays the ruler for arrays. " + E(PHYS) + '</p><p>The whole atlas, every cell at every CpG with its runtime tables and a checksum for every piece, is on Zenodo: <a href="https://doi.org/10.5281/zenodo.23934666">doi.org/10.5281/zenodo.23934666</a>.</p><p>' + E(HOW) + ' Choose a cell.</p><div class="cg">' + "".join(g) + "</div></section></body></html>")
     for k, c in enumerate(C):
@@ -77,7 +80,7 @@ def write(out, art_rel, css_tag, style, back):
             if v: rows.append(f'<tr><th>Its own healthy inputs read ({E(lab)})</th><td>median {statistics.median(v):.4f} over {len(v)} (healthy reads 1)</td></tr>')
         if not R: rows.append('<tr><th>Its own healthy inputs read</th><td>not read in the healthy pass: all its donors sit in one sealed half, so there is no other half of the same cell to read them against</td></tr>')
         body = (f'<p><a href="index.html">&larr; all {len(C)} cells</a> &middot; <a href="{back}">front page</a>'
-                + (f' &middot; <a href="../atlas/{c["slug"]}.html">this cell in IAM-Atlas v2.1</a>' if c["slug"] in v21 else '') + f'</p><h1>{E(nm(c))}</h1>'
+                + f' &middot; <a href="../atlas/sphere.html?globe=seq-atlas&amp;cell={c["slug"]}">turn it on the globe</a>' + (f' &middot; <a href="../atlas/{c["slug"]}.html">this cell in IAM-Atlas v2.1</a>' if c["slug"] in v21 else '') + f'</p><h1>{E(nm(c))}</h1>'
                 f'<p><b>In development.</b> A cell is commissioned when healthy samples from laboratories the atlas has never held read Normal against it.</p>'
                 f'<figure><div class="two"><img src="{art_rel}seq_cells/{c["slug"]}_v.jpg" alt="{E(nm(c))}: healthy level on the sphere"><img src="{art_rel}seq_cells/{c["slug"]}_u.jpg" alt="{E(nm(c))}: how sure the atlas is"></div>'
                 f'<figcaption>Left: healthy {E(c["cell"])} at every CpG in its genome place, from never tagged to always tagged. Right: how sure the atlas is of each value, '

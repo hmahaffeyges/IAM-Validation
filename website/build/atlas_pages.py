@@ -42,9 +42,23 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
                f"NSIDE {S['nside']}, {S['order']} order, sites in genome order. Its benefits as a map: every pixel the same area, no edges, and change that "
                f"runs along the genome shows as a patch while scattered noise shows as speckle. A picture of the atlas: nothing is read or scored from it."))
     specs = [atlas]
+    # 2026-11-05 (author: "make sure the atlas globes are both linked and represented for BOTH atlas's"): the IAM Sequencing Atlas, every cell on the
+    # same viewer, from the chain's own sphere build (website/art/out/seq_cells/index.json, run_sample.py --build seq-atlas-sphere); no masks are drawn
+    fs = os.path.join(ART_, "seq_cells", "index.json")
+    if os.path.exists(fs):
+        Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": c["cell"][:1].upper() + c["cell"][1:]} for c in Q["cells"]), key=lambda c: c["name"].lower())
+        specs.append(dict(id="seq-atlas", name=f"The IAM Sequencing Atlas: {len(qc)} healthy cell types at every CpG", groups=[dict(id=c["slug"], name=c["name"], layers=[
+            dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at every CpG, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
+            dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in qc],
+            about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Every CpG of the genome has one fixed place: HEALPix NSIDE "
+                   f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as IAM-Atlas v2.1's globe, so the two atlases can be compared cell for cell. "
+                   f"A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))
     for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))): specs.append(json.load(open(g)))
     intro = (f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><p>Choose a globe, then what to show. '
-             'Drag to turn it. Each globe brings its own layers and sliders. Gray or dark pixels hold no measured site.</p>')
+             'Drag to turn it. Each globe brings its own layers and sliders. Gray or dark pixels hold no measured site.</p>'
+             + ('<p>Two atlases are here: IAM-Atlas v2.1, the ruler for arrays, and the IAM Sequencing Atlas, the ruler for sequenced samples '
+                '(<a href="sphere.html?globe=seq-atlas">open it</a>; <a href="../seq-atlas/index.html">its cell pages</a>; '
+                '<a href="../seq-atlas/information_globe.html">its information globe</a>).</p>' if os.path.exists(fs) else ''))
     isp = os.path.join(ART_, "information_sphere.html")   # 2026-10-23: the information sphere, as the one command built it (run_sample.py --build info-globe)
     if os.path.exists(isp): intro += ('<p><b>New: <a href="information_sphere.html">the information sphere</a></b> (development). These globes place every site by where '
                                       'it sits on the DNA; the information sphere places it by how it behaves across the 79 cell types.</p>')

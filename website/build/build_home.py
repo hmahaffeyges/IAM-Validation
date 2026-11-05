@@ -243,11 +243,17 @@ def page(art):
                      + (f'<p>{E(_II[i["id"]][0])}</p><p><i>{E(_II[i["id"]][1])}</i></p>' if i["id"] in _II else "") +
                      f'<p class="sub">{E(i["how"])}</p><p class="sub">Reads: {E(i["reads"])}.</p><p class="sub"><b>Next:</b> {E(i["next"])}</p></article>'
                      for i in _C["instruments"])
+    _sents2 = lambda s: " ".join(re.split(r"(?<=[.])\s+", s)[:2])
+    _devcards = "".join(f'<article class="card"><span class="chip st-b">in development</span><h3>{E(x["name"])}</h3><p>{E(_sents2(x["what"]))}</p>'
+                         f'<p class="sub"><b>Next:</b> {E(x["next"])}</p><p class="sub"><a href="{rec(x["record"])}">record</a></p></article>' for x in _C["in_development"])
     catalogue = (f'<section class="wrap" id="instruments"><h2>The instruments</h2><p class="sub">Six instruments: five readings of the same sample, five different questions, and Group-A, which reads whole groups of people. '
                  f'Every status below is computed from the Master Testing Manifest.</p>'
                  f'<p><b>Why a self-reference matters.</b> {E(_C["why_self_reference"])}</p><p><b>How they work together.</b> {E(_C["together"])}</p>'
                  f'<details class="fold"><summary>Open the catalogue: what each instrument does, and what it was commissioned on</summary>'
-                 f'<div class="grid">{_cards}</div><p class="more"><a href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The catalogue as a document</a></p></details></section>')
+                 f'<div class="grid">{_cards}</div>'
+                 f'<h3>In development: read on every run and flagged, not yet commissioned</h3><p class="sub">The newer readings, including nearest-neighbor coupling '
+                 f'(Coupling-A), the territories and Met-A on sequencing. Each prints in every report with its flag until it meets its own bars.</p><div class="grid">{_devcards}</div>'
+                 f'<p class="more"><a href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The catalogue as a document</a></p></details></section>')
     _bs = importlib.util.spec_from_file_location("bits", os.path.join(REPO, "CANON", "bit_tables.py")); BT = importlib.util.module_from_spec(_bs); _bs.loader.exec_module(BT)
     _bits_rows = "".join(f'<tr><th>{E(t)}<br><span class="sub">{E(m)}</span></th>' + "".join(f'<td>{E(BT.short(BT.S[k][d].get("native") or BT.S[k][d].get("formula"), 120))} <span class="chip st-b">{E(BT.S[k][d].get("status"))}</span></td>' for d in BT.DOM) + "</tr>"
                          for t, k, m in BT.ROWS)
@@ -299,39 +305,65 @@ def page(art):
     cur = months[-1]
     _RPV = J("Biological_Physics/MethylPhys/reproduce/verified.json"); _RPTT = J("Biological_Physics/MethylPhys/reproduce/tests.json")["tests"]
     _RPN = sum(1 for t in _RPTT if (_RPV.get(t["id"]) or {}).get("verdict") == "PASS"); _RPT = len(_RPTT)
+    # 2026-11-05 (author: "make sure the atlas globes are both linked and represented for BOTH atlas's and that the sequencing atlas is showcased
+    # and explained next to the v2.1 array atlas so they see the differences"): the two rulers side by side, every number read from their files
+    _SPH = J("website/art/out/sphere/sphere.json"); _SQS = J("website/art/out/seq_cells/index.json")
+    _A1 = next(i for i in _C["instruments"] if i["id"] == "atlas"); _A2 = next(x for x in _C["in_development"] if x["name"] == "The IAM Sequencing Atlas")
+    _doi = lambda s: re.findall(r"10\.5281/zenodo\.\d+", s)
+    _d1 = _doi(_A1["next"]); _d2 = _doi(_A2["what"] + " " + _A2["next"])
+    _cpg = re.search(r"([\d.]+ million) CpGs", _A2["what"]); _cpg = _cpg.group(1) if _cpg else "every"
+    _src = re.search(r"from (\d+) public sources", _A1["how"]); _src = _src.group(1) if _src else ""
+    _root = art("")[:-4]; _dl_ = lambda ds: " &middot; ".join(f'<a href="https://doi.org/{d}">{d}</a>' for d in ds)
+    _sents = lambda s, n: " ".join(re.split(r"(?<=\.)\s+", s)[:n])
+    atlases = (f'<section class="wrap" id="atlases"><h2>Two healthy atlases, one for each way of reading DNA</h2>'
+        f'<p class="sub">Every instrument reads a sample against healthy cells of the same kind. An array and a sequencer measure the same marks through '
+        f'different chemistry, so each has its own ruler, and the chain chooses it by how the sample was measured: arrays against IAM-Atlas v2.1, '
+        f'sequenced samples against the IAM Sequencing Atlas. Both are laid on the same sphere the microwave sky is mapped on, so any cell can be turned '
+        f'on a globe and any two compared site for site.</p><div class="grid">'
+        f'<article class="card"><a href="{_root}atlas/sphere.html"><img src="{art("explorer/globe_still.jpg")}" alt="IAM-Atlas v2.1 healthy neutrophils on the globe" style="width:100%;border-radius:8px"></a>'
+        f'<span class="chip st-b">commissioned</span><h3>IAM-Atlas v2.1: the ruler for arrays</h3><p>{E(_A1["how"])}</p>'
+        f'<p class="sub">{len(_SPH["cells"])} healthy cell types &middot; {_SPH["sites"]:,} sites &middot; a best value and a 95 % range at every site &middot; DOI {_dl_(_d1)}</p>'
+        f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html">Turn it on the globe</a><a class="btn ghost" href="{_root}atlas/index.html">Every cell, page by page</a></p></article>'
+        f'<article class="card"><a href="{_root}atlas/sphere.html?globe=seq-atlas"><img src="{art("seq_cells/b-cells_v.jpg")}" alt="IAM Sequencing Atlas healthy B cells on the sphere, every CpG" style="width:100%;border-radius:8px"></a>'
+        f'<span class="chip st-b">in development</span><h3>The IAM Sequencing Atlas: the ruler for sequenced samples</h3><p>{E(_sents(_A2["what"], 3))}</p>'
+        f'<p class="sub">{len(_SQS["cells"])} healthy cell types &middot; {E(_cpg)} CpGs, every one in the genome &middot; counted from reads, donor by donor &middot; DOI {_dl_(_d2)}</p>'
+        f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html?globe=seq-atlas">Turn it on the globe</a><a class="btn ghost" href="{_root}seq-atlas/index.html">Every cell, page by page</a>'
+        f'<a class="btn ghost" href="{_root}seq-atlas/information_globe.html">Its information globe</a></p></article></div>'
+        f'<h3>How they differ</h3><div style="overflow-x:auto"><table class="tools"><thead><tr><th></th><th>IAM-Atlas v2.1</th><th>IAM Sequencing Atlas</th></tr></thead><tbody>'
+        f'<tr><td>The ruler for</td><td>methylation arrays (450K, EPIC v1, EPIC v2)</td><td>sequenced samples, read as counts of methylated and unmethylated reads</td></tr>'
+        f'<tr><td>Healthy cell types</td><td>{len(_SPH["cells"])}</td><td>{len(_SQS["cells"])}</td></tr>'
+        f'<tr><td>Sites</td><td>{_SPH["sites"]:,} array sites</td><td>{E(_cpg)} CpGs (about 32 times an array)</td></tr>'
+        f'<tr><td>Built</td><td>one hierarchical model of {_src} public sources, each source&rsquo;s offset measured and held apart</td><td>counted from the sequencing reads of healthy donors; nothing fitted</td></tr>'
+        f'<tr><td>Uncertainty</td><td>a 95 % range at every site, from the posterior draws</td><td>a 95 % range at every CpG, and two noise maps (donor halves, read halves)</td></tr>'
+        f'<tr><td>Why its own ruler</td><td colspan="2">An array reads a probe&rsquo;s light, which never quite reaches 0 or 1: a site no cell marks still reads a few percent up. '
+        f'Sequencing counts molecules, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder, '
+        f'so each kind of measurement is read against healthy cells measured the same way.</td></tr></tbody></table></div>'
+        f'<p class="more">Also on the Globe Explorer: <a href="{_root}atlas/sphere.html?globe=purified">Met-A&rsquo;s purified-cell reference</a> &middot; '
+        f'<a href="{_root}atlas/sphere.html?globe=healthy-blood">a real healthy blood against its healthy reference</a> &middot; '
+        f'<a href="{_root}atlas/sphere.html?globe=planted-blood">the same blood with a planted loss</a>.</p>'
+        f'<p class="more">Pictures, not readings: every number stays with its instrument. The globes place every site by where it sits on the DNA; the '
+        f'<a href="{_root}atlas/information_sphere.html">information sphere</a> places it by how it behaves across the cell types.</p></section>')
     body = f'''<header class="hero" style="background-image:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.85)),url({art("web_banner.jpg")})">
 <div class="wrap"><p class="kicker">IAMPerformance · An Introduction to IAM</p>
 <h1>The Physics of Methylation</h1>
 <p class="lead"><b>How our instruments work, and what makes them different.</b> A methyl mark on DNA is a record, and a cell pays to keep it against the kicks of heat: about one ATP per site. That price is set by physics, not learned from a training set. IAM's instruments read, in bits, how well a cell is holding its marks, on a gauge whose ends are derived from thermodynamics (for IAM-A, even the healthy mark comes from the sample itself), and each one was commissioned on a test written and sealed before its data was read.</p>
 <p class="lead">The goal is early cancer detection from a blood or stool sample. {_RPN} of {_RPT} headline results rebuild from public data on a fresh machine, one command each, and every result is recorded in the open: <a href="#researchers">the researcher package</a> and <a href="#daylogs">the daily log</a>.</p>
 <p class="sub">To read the genome, we use the measurement methods cosmologists built for the microwave sky: calibration against a reference, null tests, simulations with known answers, and maps with an uncertainty at every point. <a href="{PDF}#page={CH['astro'][1]}">Where these methods came from, the chapter &rarr;</a></p>
-<p class="cta"><a class="btn" href="#researchers">For researchers: the package</a><a class="btn ghost" href="{art("")[:-4]}atlas/sphere.html">Turn the genome on a globe</a><a class="btn ghost" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
+<p class="cta"><a class="btn" href="#researchers">For researchers: the package</a><a class="btn ghost" href="#atlases">The two atlases, on the globe</a><a class="btn ghost" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
-<section class="wrap" id="globes"><div class="banner" style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
-<a href="{art("")[:-4]}atlas/sphere.html"><img src="{art("explorer/globe_still.jpg")}" alt="IAM-Atlas v2.1's healthy neutrophil map on a globe" style="width:min(300px,80vw);border-radius:50%"></a>
-<div style="flex:1;min-width:280px"><p class="kicker">The IAM Globe Explorer</p><h2>See the genome the way cosmologists see the sky</h2>
-<p>Every site our instruments read has one fixed place on a sphere, laid out the way the microwave sky is mapped: every pixel the same area,
-no edges, and a change that runs along the genome shows as a patch while ordinary scattered wear shows as speckle. That is why we can use the
-sky's own methods: calibration against a reference, null tests, and a map with its uncertainty at every point. Turn the globes, switch the
-layers, and fade away everything but the differences.</p>
-<p class="cta"><a class="btn" href="{art("")[:-4]}atlas/sphere.html">Open the Globe Explorer: IAM-Atlas v2.1, 79 healthy cell types</a></p>
-<p>Or go straight to: <a href="{art("")[:-4]}atlas/sphere.html?globe=purified">Met-A's purified-cell reference</a> &middot;
-<a href="{art("")[:-4]}atlas/sphere.html?globe=healthy-blood">a real healthy blood against its healthy reference</a> &middot;
-<a href="{art("")[:-4]}atlas/sphere.html?globe=planted-blood">the same blood with a planted loss</a>. Pictures, not readings: every
-number stays with its instrument.</p></div></div></section>
-{researcher_section()}
-{campaign}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
 <p class="sub">Each card links to its record. <a href="{rec("Biological_Physics/MethylPhys/EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
 </section>
-{v21_banner}
+{atlases}
+{catalogue}
+{researcher_section()}
+{campaign}
 {last24}
 <section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
 <p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
 </section>
 <div class="wrap"><p class="continues">{("Running now: " + going + ". ") if going else ""}<a href="#road">The road ahead</a>.</p></div>
-{catalogue}
-{bits}
+{v21_banner}
 <section class="wrap pic" id="sky"><h2>IAM-Atlas v2.1 on the sky</h2>
 <p class="sub">One sky map for every cell type, all 79 of the commissioned IAM-Atlas v2.1, drawn on the same sphere. Each site's position on that sphere is fixed by where it sits in the genome, so any two cells can be compared site for site, and so can a person's sample against the healthy cell it came from.</p>
 <figure><img src="{art("sky_atlas_globes.jpg")}" alt="Two globes: the microwave sky measured by Planck, and healthy neutrophils from IAM-Atlas v2.1 drawn the same way."><figcaption>Two skies, drawn the same way. Left, the microwave sky as the Planck satellite measured it (ESA and the Planck Collaboration, 2018). Right, healthy neutrophils from IAM-Atlas v2.1: 813,950 sites, each one point on the sphere, from never tagged (blue) to always tagged (red).</figcaption></figure>
@@ -369,6 +401,7 @@ number stays with its instrument.</p></div></div></section>
 <p>All {len(BT)} cosmology tools mapped onto the cell, from the table in {ch("skytools")}, grouped by where each stands. <b>next</b> marks the chapter's order for what to employ next.</p>
 <table class="tools"><thead><tr><th>#</th><th>The cosmology tool</th><th>Its counterpart in the cell</th><th>Status</th><th>Where</th></tr></thead><tbody>{tools}</tbody></table>
 <p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
+{bits}
 <section class="wrap" id="manifest"><h2>Every test, numbered</h2>
 <p class="sub">The Master Testing Manifest is the one list of every test we have run, are running, or plan: {mf_total} tests, {mf_run} with at least one dated result, {mf_open} still open. A test is never removed; when it runs it gets a dated result, failures included. Ask for any test by its number.</p>
 <p class="cta"><a class="btn" href="{rec("MANIFEST.md")}">The Master Testing Manifest</a></p>
