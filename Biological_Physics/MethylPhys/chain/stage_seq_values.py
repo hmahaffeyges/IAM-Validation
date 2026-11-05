@@ -146,7 +146,7 @@ def genome_coverage(values, key=None, rule=GENOME_COVERAGE_RULE):
     library carries reads on every autosome in proportion to its CpGs. A sample read only in part (the first N read pairs of a run stored in
     genome order, a truncated download, a lost chunk) carries reads on some chromosomes and not others: GSE98837's first 140 million pairs held
     chromosomes 1 to 8 only (DEV_METAA_ATLAS_CURVE_01.md). For each autosome, the share of IAM-Atlas v2.1's sites on it with a value, against
-    the median autosome's share; any autosome under rule['min_ratio'] of the median refuses the sample. A uniformly thin library (plasma at one
+    the median share of the autosomes that carry any value; any autosome under rule['min_ratio'] of the median refuses the sample. A uniformly thin library (plasma at one
     read per site) passes, since the test compares chromosomes with each other, not with a depth. values: per-site levels indexed by probe
     (NaN where no value). Returns dict(status='OK' | 'REFUSED', by_chrom, short, reason)."""
     import os, pandas as pd
@@ -155,7 +155,8 @@ def genome_coverage(values, key=None, rule=GENOME_COVERAGE_RULE):
     v = pd.Series(values).dropna(); v = v[v.index.isin(K.index)]   # sites with a value (callers may drop the rest)
     auto = [f"chr{i}" for i in range(1, 23)]
     share = (K.reindex(v.index).value_counts() / K.value_counts()).reindex(auto).fillna(0.0)   # over every key site on the chromosome
-    med = float(share.median()); ratio = (share / med) if med > 0 else share * 0
+    med = float(share[share > 0].median()) if (share > 0).any() else 0.0   # run 1 (disclosed): the median over all 22 is 0 when most are empty
+    ratio = (share / med) if med > 0 else share * 0
     short = [c for c in auto if ratio[c] < rule["min_ratio"]]
     out = dict(by_chrom={c: round(float(share[c]), 4) for c in auto}, median_share=round(med, 4), min_ratio=rule["min_ratio"], short=short)
     if med == 0: out.update(status="REFUSED", reason="no autosome carries a value")

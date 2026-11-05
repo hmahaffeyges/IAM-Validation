@@ -16,6 +16,8 @@ assert i == n, i
 first8 = np.isin(ch, [f"chr{k}" for k in range(1, 9)]); c17 = ch == "chr17"
 rng = np.random.default_rng(20261104); keep5 = rng.random(n) < 0.05
 cases = dict(A=np.ones(n, bool), B=first8, C=keep5, D=~c17); want = dict(A="pass", B="refused", C="pass", D="refused"); L = []; ok = True
+# run 2 (after run 1, disclosed): a refused case must also name exactly the chromosomes it lacks
+short_want = dict(B=[f"chr{k}" for k in range(9, 23)], D=["chr17"])
 MI = os.path.join(os.path.dirname(os.path.abspath(__file__)), *[".."] * 3, "chain", "MethylPhys_Interface")
 for k, m in cases.items():
     Y = X.copy(); Y[~m] = 0; f = os.path.join(W, f"case_{k}.beta"); Y.tofile(f)
@@ -25,7 +27,7 @@ for k, m in cases.items():
     B = json.load(open(b)) if os.path.exists(b) else {}
     got = "refused" if B.get("status") == "GENOME_COVERAGE_REFUSED" else ("pass" if B else "no bundle")
     gc = B.get("sequencing_values", {}).get("genome_coverage", {}) if B.get("status") == "GENOME_COVERAGE_REFUSED" else (B.get("sequencing_values") or {}).get("genome_coverage", {})
-    ok &= got == want[k]
+    ok &= got == want[k] and (k not in short_want or gc.get('short') == short_want[k])
     L.append(f"case {k}: {want[k]} wanted, {got} | median autosome share {gc.get('median_share')} | short {gc.get('short')}")
-L.append(f"synthetic: {'met' if ok else 'not met'} (all four cases as wanted)")
+L.append(f"synthetic: {'met' if ok else 'not met'} (all four cases as wanted, the refused ones naming exactly the chromosomes they lack)")
 open(out, "w").write("\n".join(L) + "\n"); print("\n".join(L))

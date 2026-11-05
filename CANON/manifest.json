@@ -28207,7 +28207,7 @@
    "cost": "one spot machine",
    "impact": 4,
    "depends_on": [],
-   "notes": "written before its synthetic runs: Biological_Physics/MethylPhys/doors/data/DEV_SEQ_INTAKE_01/genome_coverage_synthetic.py",
+   "notes": "written before its synthetic runs: Biological_Physics/MethylPhys/doors/data/DEV_SEQ_INTAKE_01/genome_coverage_synthetic.py | 2026-11-04: synthetic run 1: bars met but case B refused for the wrong reason (median of all 22 empty); reference amended to the median of autosomes with values; bar added: refused cases name exactly the chromosomes they lack (Biological_Physics/MethylPhys/doors/data/DEV_SEQ_INTAKE_01/genome_coverage_synthetic_run1.txt)",
    "legacy_ids": [],
    "id": "OTH-083",
    "sources_of_row": [

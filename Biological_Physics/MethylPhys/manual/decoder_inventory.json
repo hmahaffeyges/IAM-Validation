@@ -5025,7 +5025,7 @@
   },
   {
    "file": "stage_seq_values.py",
-   "lines": 167,
+   "lines": 168,
    "functions": [
     {
      "file": "stage_seq_values.py",
@@ -5163,13 +5163,13 @@
      "function": "genome_coverage",
      "name": "genome_coverage",
      "line": 144,
-     "end": 166,
+     "end": 167,
      "args": [
       "values",
       "key",
       "rule"
      ],
-     "lines": 23,
+     "lines": 24,
      "doc": "Intake check for every sequenced sample (2026-11-04, author: 'the chain ... should make sure this cant happen again'). A whole-genome library carries reads on every autosome in proportion to its CpGs. A sample read only in part (the first N read pairs of a run stored in genome order, a truncated download, a lost chunk) carries reads on some chromosomes and not others: GSE98837's first 140 million ",
      "constants": [
       "GENOME_COVERAGE_RULE"

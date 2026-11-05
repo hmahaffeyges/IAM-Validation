@@ -56,7 +56,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 54 | 4 | 0 | 0 |
-| `stage_seq_values.py` | 167 | 8 | 0 | 0 |
+| `stage_seq_values.py` | 168 | 8 | 0 | 0 |
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
@@ -1133,7 +1133,7 @@ chromosomes 1 to 8), and the readings made from it are wrong in a way no later s
 library (plasma) pass and stops a partial one (DEV-SEQ-INTAKE-01). The rule behind it: never read the first N pairs of a run; read it whole,
 or check its order first.
 
-*Code:* `stage_seq_values.py` line 144 (23 lines) · arguments: values, key, rule · calls: not called on the traced runs · constants read: `GENOME_COVERAGE_RULE` · files named: `sites_sequencing_key.parquet`
+*Code:* `stage_seq_values.py` line 144 (24 lines) · arguments: values, key, rule · calls: not called on the traced runs · constants read: `GENOME_COVERAGE_RULE` · files named: `sites_sequencing_key.parquet`
 
 ### `stage_seq_values.py::values_from_pat`
 

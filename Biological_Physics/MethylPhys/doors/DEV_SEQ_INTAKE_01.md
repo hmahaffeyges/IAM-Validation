@@ -21,3 +21,8 @@ checked first.
 **Synthetic** (`data/DEV_SEQ_INTAKE_01/genome_coverage_synthetic.py`, output `genome_coverage_synthetic.txt`): one spent healthy atlas input
 written four ways and read by the one command. Bars: (A) whole, passes; (B) chromosomes 1 to 8 only, refused; (C) every CpG kept with
 probability 0.05, passes; (D) chromosome 17 removed, refused. All four as stated, or not met.
+
+**Synthetic run 1** (`data/DEV_SEQ_INTAKE_01/genome_coverage_synthetic_run1.txt`): all four cases passed or were refused as wanted, but case B
+(chromosomes 1 to 8 only) was refused for the wrong reason: with 14 of 22 autosomes empty the median autosome is empty, so the check said no
+autosome carries a value and named all 22. Amended (disclosed): the reference is the median share of the autosomes that carry any value, and
+a bar is added before run 2: a refused case names exactly the chromosomes it lacks (B: chr9 to chr22; D: chr17).
