@@ -657,3 +657,10 @@ GSM3963003, 47,700,227 + 47,699,310 + 44,600,463), not "47.7 million of 177.7 mi
 6 to 7 calls per site come from the libraries themselves, not from the cap; at full depth they would gain about a quarter. The depth reading
 above stands (shallow libraries read Met-A higher in the atlas's own laboratory, about 1.14 at their depth), with the cause being the
 libraries' depth, not the cap.
+
+**The B and T sequencing test, third reading at full depth (written and committed before it is read).** Every read pair of every run (`bt_seq_03/bt_seq3_samples.csv`, from ENA's run list: the 8 CD8 libraries 248.9 to 457.1 million pairs,
+one run each; the 4 B-cell libraries 177.7 to 191.1 million pairs, four runs each, one of which the first list left out). Each sample aligned
+in 20 chunks by the committed pipeline (`split_align.yml`, about 12 to 23 million pairs a machine) and read once by the one command with the
+second reading's flags; the genome-coverage intake check (DEV-SEQ-INTAKE-01) now stands before every reading. Bars unchanged from the second
+reading (`bt_seq_03/bt_seq3_score.py`, outputs `bt_seq3_readings.csv`, `bt_seq3_summary.txt`). **Prior reading:** both earlier readings of
+these 12 (recorded above, not met; read in part).
