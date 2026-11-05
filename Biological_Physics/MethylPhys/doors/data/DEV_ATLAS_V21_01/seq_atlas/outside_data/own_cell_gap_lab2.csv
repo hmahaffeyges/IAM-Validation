@@ -1,0 +1,37 @@
+gsm,group,cell,band,sites,mean_gap,mean_contrast,slope,x_implied,rho
+GSM7849756,naive CD8 (scored),naive cd8 t cells,0-0.1,1591,-0.0024,-0.0465,0.0067,0.0067,-0.482
+GSM7849756,naive CD8 (scored),naive cd8 t cells,0.7-0.9,155,0.084,0.0709,-0.1006,-0.1119,-0.177
+GSM7849756,naive CD8 (scored),naive cd8 t cells,0.9-0.95,931,0.0335,0.0959,-0.0514,-0.0542,-0.113
+GSM7849756,naive CD8 (scored),naive cd8 t cells,0.95-1,850,0.0104,0.1127,-0.0578,-0.0613,-0.088
+GSM7849757,memory CD8 (scored),effector memory cd8 t cells,0-0.1,1709,-0.0009,-0.0578,-0.0296,-0.0305,-0.413
+GSM7849757,memory CD8 (scored),effector memory cd8 t cells,0.7-0.9,456,0.0659,0.0142,-0.0837,-0.0913,-0.159
+GSM7849757,memory CD8 (scored),effector memory cd8 t cells,0.9-0.95,1285,0.0162,0.055,-0.1027,-0.1144,-0.203
+GSM7849757,memory CD8 (scored),effector memory cd8 t cells,0.95-1,392,0.0076,0.0826,-0.1103,-0.1239,-0.06
+GSM7849758,CMV-specific responders (recorded),effector memory cd8 t cells,0-0.1,1373,-0.0005,-0.0593,-0.013,-0.0132,-0.383
+GSM7849758,CMV-specific responders (recorded),effector memory cd8 t cells,0.7-0.9,369,0.0691,0.0127,-0.0194,-0.0198,-0.074
+GSM7849758,CMV-specific responders (recorded),effector memory cd8 t cells,0.9-0.95,1027,0.0258,0.0555,-0.108,-0.121,-0.141
+GSM7849758,CMV-specific responders (recorded),effector memory cd8 t cells,0.95-1,338,-0.0036,0.0798,-0.0348,-0.0361,0.017
+GSM7849759,naive CD8 (scored),naive cd8 t cells,0-0.1,1746,-0.0039,-0.0447,-0.0134,-0.0136,-0.519
+GSM7849759,naive CD8 (scored),naive cd8 t cells,0.7-0.9,167,0.077,0.0794,-0.0944,-0.1042,-0.212
+GSM7849759,naive CD8 (scored),naive cd8 t cells,0.9-0.95,1024,0.0306,0.0914,-0.0998,-0.1109,-0.143
+GSM7849759,naive CD8 (scored),naive cd8 t cells,0.95-1,920,0.0109,0.1135,-0.0371,-0.0385,-0.144
+GSM7849760,memory CD8 (scored),effector memory cd8 t cells,0-0.1,2781,-0.0034,-0.0491,-0.0242,-0.0248,-0.439
+GSM7849760,memory CD8 (scored),effector memory cd8 t cells,0.7-0.9,533,0.0732,0.0145,-0.0983,-0.109,-0.258
+GSM7849760,memory CD8 (scored),effector memory cd8 t cells,0.9-0.95,1530,0.0295,0.0563,-0.0446,-0.0467,-0.152
+GSM7849760,memory CD8 (scored),effector memory cd8 t cells,0.95-1,514,0.0023,0.0773,0.0115,0.0114,-0.019
+GSM7849761,CMV-specific responders (recorded),effector memory cd8 t cells,0-0.1,1643,-0.0031,-0.0614,-0.0195,-0.0199,-0.425
+GSM7849761,CMV-specific responders (recorded),effector memory cd8 t cells,0.7-0.9,446,0.0664,0.0094,-0.0953,-0.1053,-0.201
+GSM7849761,CMV-specific responders (recorded),effector memory cd8 t cells,0.9-0.95,1259,0.0256,0.0593,-0.0243,-0.0249,-0.116
+GSM7849761,CMV-specific responders (recorded),effector memory cd8 t cells,0.95-1,382,0.0062,0.0802,-0.0881,-0.0967,-0.084
+GSM7849762,naive CD8 (scored),naive cd8 t cells,0-0.1,2017,-0.0028,-0.043,-0.0059,-0.006,-0.478
+GSM7849762,naive CD8 (scored),naive cd8 t cells,0.7-0.9,182,0.0809,0.0687,-0.0787,-0.0855,-0.187
+GSM7849762,naive CD8 (scored),naive cd8 t cells,0.9-0.95,1081,0.034,0.0963,-0.0434,-0.0454,-0.099
+GSM7849762,naive CD8 (scored),naive cd8 t cells,0.95-1,981,0.0079,0.1107,-0.0432,-0.0451,-0.074
+GSM7849763,memory CD8 (scored),effector memory cd8 t cells,0-0.1,2451,-0.0015,-0.0519,-0.0469,-0.0492,-0.438
+GSM7849763,memory CD8 (scored),effector memory cd8 t cells,0.7-0.9,560,0.067,0.0134,-0.0977,-0.1083,-0.206
+GSM7849763,memory CD8 (scored),effector memory cd8 t cells,0.9-0.95,1604,0.0273,0.0547,-0.0475,-0.0498,-0.165
+GSM7849763,memory CD8 (scored),effector memory cd8 t cells,0.95-1,512,0.0089,0.077,-0.06,-0.0638,-0.047
+GSM7849764,CMV-specific responders (recorded),effector memory cd8 t cells,0-0.1,1475,-0.0017,-0.0608,-0.0198,-0.0202,-0.38
+GSM7849764,CMV-specific responders (recorded),effector memory cd8 t cells,0.7-0.9,364,0.0666,0.0135,-0.156,-0.1848,-0.26
+GSM7849764,CMV-specific responders (recorded),effector memory cd8 t cells,0.9-0.95,1014,0.019,0.0529,-0.0718,-0.0774,-0.148
+GSM7849764,CMV-specific responders (recorded),effector memory cd8 t cells,0.95-1,327,0.0068,0.0825,-0.0344,-0.0356,-0.01

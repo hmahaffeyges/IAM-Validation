@@ -1,0 +1,10 @@
+healthy CD8 T cells from a second outside laboratory: 9 of 12 read (8 adult scored)
+  CMV-specific responders (recorded) (4): Met-A own cell median 0.6245; Met-A whole sample median 0.9805; islands median 0.8555; domains median 0.9016; C-Score median 1.0012; own-cell share median 0.1920
+  memory CD8 (scored) (4): Met-A own cell median 0.5997; Met-A whole sample median 1.0164; islands median 0.7516; domains median 0.9274; C-Score median 1.0031; own-cell share median 0.1494
+  naive CD8 (scored) (4): Met-A own cell median 0.5436; Met-A whole sample median 1.0599; islands median 0.7175; domains median 0.9645; C-Score median 1.0021; own-cell share median 0.5617
+    effector memory cd8 t cells (4): Met-A own cell 0.6927, 0.5891, 0.5997
+    naive cd8 t cells (4): Met-A own cell 0.5436, 0.5256, 0.5589
+bar 1 own-cell Met-A median within 0.95 to 1.05: 0.57402: not met
+bar 2 at least 75 % within 0.95 to 1.05: 0.0: not met
+bar 3 whole-sample Met-A median within 0.95 to 1.05: 1.025835: met
+second outside laboratory's healthy CD8 T cells: not met

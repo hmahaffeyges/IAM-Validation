@@ -1251,3 +1251,27 @@ the stimulation). The stimulation lasted 4 hours, flagged with every reading.
 
 **Synthetic test:** `DEV_ATLAS_V21_01/seq_atlas/seq_table_synthetic.py`, `DEV_ATLAS_V21_01/seq_atlas/seq_table_synthetic.txt` (the table conversion, met); the readings are the
 chain's, each with its own synthetic on record.
+
+**A second outside laboratory's healthy CD8 T cells, read: not met** (`seq_atlas/outside_data/lab2_cd8_test.txt`, `lab2_cd8_test.csv`). Read on 3 Toronto spot machines, about 10 minutes a library; 9 of 12
+read (donor 1's three libraries cover 5,215 to 5,367 of the 6,000 identity sites, under the 90 % rule). Own-cell Met-A median
+0.5740 over the 6 scored naive and memory CD8 libraries read (0.5257 to 0.6927; bar 1 not met; none
+within 0.95 to 1.05, bar 2 not met); whole-sample Met-A median 1.0258 over the 8 scored (bar 3 met).
+The CMV-specific responders (recorded) read 0.5754 to 0.6315. The Deconvolver gives naive CD8 libraries 0.54 to 0.63 of their own cell and
+memory CD8 libraries 0.08 to 0.20 (their sort is broader than the atlas's effector-memory column). Like BLUEPRINT (0.7134), and lower:
+own-cell Met-A on sequencing reads low on both outside laboratories, while the atlas's own laboratory's healthy donors, read against each
+other, read 1.0077 (pass 5). It is not one laboratory's fault. **Next:** which side of the identity sites carries the gap (the marked sites'
+unmethylated reads, or the unmarked sites' methylated reads), from the chain's per-site tables, beside each library's own error rates at the
+sites every cell holds the same.
+
+**Why own-cell Met-A reads low on the outside laboratory (diagnostic; nothing scored).** (`seq_atlas/outside_data/own_cell_gap.py` on the chain's own per-site tables `lab2_sites/`, output `own_cell_gap_lab2.txt`; written
+after a first look at the same tables by band of reference level, disclosed.) At the sample's own cell's identity sites the outside libraries
+read more extreme than the atlas's level on both sides: where the atlas's donors read the cell at 0.7 to 0.9, these libraries read it 0.069
+higher; at 0.9 to 0.95, 0.027 higher; below 0.1, 0.002 lower. A share of other cells' DNA in the atlas's sorts would make the gap grow with how
+far the other cells sit from this one at each site; it does not (slopes of the gap on that contrast are negative in every band, -0.02 to -0.10,
+and at the 0.7 to 0.9 band the other cells are nearly as methylated as this one, contrast +0.014). Ruled out. What remains is a laboratory
+difference tied to the site's level: sites the atlas's laboratory reads as partly unmethylated in this cell, another laboratory reads as nearly
+fully methylated. Inside one laboratory it cancels (pass 5, 1.0077); across laboratories it does not. **What it means for commissioning:** own-cell
+Met-A on sequencing from another laboratory needs each site's laboratory term, measured from healthy cells of the same type sequenced by other
+laboratories, as IAM-Atlas v2.1 measured each source's offset in its calibration stage. The spent outside sets (BLUEPRINT, GSE245832) can
+measure it; a fresh laboratory (GSE144691) then tests it. Whole-sample Met-A, which reads the sample's own mix at every atlas site, already reads
+Normal on both outside laboratories (1.0258 here).

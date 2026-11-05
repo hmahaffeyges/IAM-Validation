@@ -1,0 +1,7 @@
+own-cell gap at the identity sites: 9 libraries (diagnostic, nothing scored)
+by band of reference level (medians over libraries): mean gap, slope of gap on contrast, implied other-cell share x, Spearman rho
+  0-0.1: gap -0.0024, contrast -0.0519, slope -0.0195, x -0.0199, rho -0.438 (9 libraries)
+  0.7-0.9: gap +0.0691, contrast +0.0142, slope -0.0953, x -0.1053, rho -0.201 (9 libraries)
+  0.9-0.95: gap +0.0273, contrast +0.0563, slope -0.0514, x -0.0542, rho -0.143 (9 libraries)
+  0.95-1: gap +0.0076, contrast +0.0825, slope -0.0432, x -0.0451, rho -0.060 (9 libraries)
+(a) predicts a positive slope in every band with one x on both sides; (b) predicts slopes near 0 within bands

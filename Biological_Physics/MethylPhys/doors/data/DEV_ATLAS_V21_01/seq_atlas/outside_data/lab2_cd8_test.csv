@@ -1,0 +1,13 @@
+gsm,cell,group,Met-A own cell,Met-A whole sample,islands,domains,C-Score,coupling-A,own-cell share,not read
+GSM7849753,naive cd8 t cells,naive CD8 (scored),,1.23231,4.17526,1.00119,0.9997,,0.4333,only 5367 of 6000 identity sites measured (at least 90% needed)
+GSM7849754,effector memory cd8 t cells,memory CD8 (scored),,1.01473,0.8545,0.9259,1.0055,,0.1991,only 5215 of 6000 identity sites measured (at least 90% needed)
+GSM7849755,effector memory cd8 t cells,CMV-specific responders (recorded),,1.00488,2.7446,0.87272,0.9923,,0.2474,only 5257 of 6000 identity sites measured (at least 90% needed)
+GSM7849756,naive cd8 t cells,naive CD8 (scored),0.54357,1.02689,0.73626,0.92368,1.0023,,0.6331,
+GSM7849757,effector memory cd8 t cells,memory CD8 (scored),0.69268,1.06746,0.76486,0.98652,1.0044,,0.18,
+GSM7849758,effector memory cd8 t cells,CMV-specific responders (recorded),0.63153,0.98781,0.82508,0.91438,1.0002,,0.1708,
+GSM7849759,naive cd8 t cells,naive CD8 (scored),0.52565,1.02478,0.67613,0.93397,1.0031,,0.5853,
+GSM7849760,effector memory cd8 t cells,memory CD8 (scored),0.5891,1.01204,0.69032,0.92898,0.9954,,0.1189,
+GSM7849761,effector memory cd8 t cells,CMV-specific responders (recorded),0.57535,0.9588,0.82553,0.89991,1.0023,,0.1975,
+GSM7849762,naive cd8 t cells,naive CD8 (scored),0.55894,1.0929,0.69877,0.99494,1.0019,,0.5381,
+GSM7849763,effector memory cd8 t cells,memory CD8 (scored),0.59967,1.01811,0.73837,0.91659,1.0018,,0.0777,
+GSM7849764,effector memory cd8 t cells,CMV-specific responders (recorded),0.62454,0.97311,0.88537,0.90336,1.0071,,0.1866,
