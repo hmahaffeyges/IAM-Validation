@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-05](2026-11-05.md) | The chain refuses a sample read only in part |
 | [2026-11-04](2026-11-04.md) | Why IAM-A reads low on plasma |
 | [2026-11-03](2026-11-03.md) | Plasma against the 57-cell sequencing atlas |
 | [2026-11-02](2026-11-02.md) | The sequencing atlas's globe, and the study by the full working chain |

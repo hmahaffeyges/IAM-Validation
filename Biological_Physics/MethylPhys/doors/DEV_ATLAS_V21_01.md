@@ -308,7 +308,7 @@ lists the sealed cancer tests used, and U2b: the same rule on v2.1; each panel c
 anchor at >= 0.90 of sites. U3: composition bars 1-2 unchanged. U4: development. Planted test of every scorer, run once: PASSED (a correct atlas reads
 0.9261 coverage; intervals too narrow 0.7336, a shifted laboratory 0.5730 and too wide 1.0000 all FAILED as planted; a disagreeing panel cell 0.7172 FAILED).
 **Original synthetic test (2026-10-14; superseded 2026-10-16 by the amended scorer's planted test below, kept as history):** DEV_ATLAS_V21_01/planted_commission_v21.py, DEV_ATLAS_V21_01/planted_commission_v21_summary.txt
-**Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened. GSE87197 (GSE87196's megakaryocytes) donors 1 and 2 are spent (the absorption test and the provisional column's test) and are read again to build the sequencing atlas's megakaryocyte column; donor 3 is unread. GSE223153 (outside healthy pancreas, sequencing) was read through the chain for the healthy test of Met-A on sequencing, before it is named here.
+**Prior reading:** the spent series named in this record (GSE103541, GSE118144, GSE122244, GSE167998, GSE226298, GSE271697) are BUILD sets of the atlas; none is a commissioning test set. The U1-U3 test sets are the plan's held-out assignments, unopened. GSE87197 (GSE87196's megakaryocytes) donors 1 and 2 are spent (the absorption test and the provisional column's test) and are read again to build the sequencing atlas's megakaryocyte column; donor 3 is unread. GSE223153 (outside healthy pancreas, sequencing) was read through the chain for the healthy test of Met-A on sequencing, before it is named here. GSE144691 (added 2026-11-05): its labels and read counts were read, and its 8 healthy libraries shared with GSE98837 are spent by the B and T test; its 5 other healthy libraries and its patients are unread.
 
 ## Amendment to the commissioning bars, sealed 2026-10-16 before the atlas exists
 
@@ -1280,3 +1280,13 @@ Normal on both outside laboratories (1.0258 here).
 BLUEPRINT read kept bundles only. The same 59 spent libraries (`blueprint_healthy_test_samples.csv`) are read again by the one command, each with
 its row's own flags plus `--dev-metaa-sites` (`seq_atlas/outside_data/blueprint_sites_read.sh`, 7 Toronto spot machines); the readings must match
 the first read exactly (a check of the chain), and the tables go to `blueprint_sites/`. Nothing is scored.
+
+**The same-laboratory tare on sequencing, measured on spent readings (written and committed before it runs; development, nothing commissioned).** Three outside laboratories shift own-cell Met-A differently (BLUEPRINT low, the second laboratory low, GSE134664 high, much of it from
+depth). A tare from the same laboratory's own healthy references (`stage_metaa_atlas.tare`, the rule the arrays already use) removes a
+laboratory's offset only if the offset is one factor for that laboratory and cell. `seq_atlas/outside_data/same_lab_tare.py` measures (1) the
+spread among one laboratory's healthy donors of a cell, in the atlas's laboratory, BLUEPRINT and the second laboratory, and (2) every sample
+tared on 3, 5 or 8 others from its own laboratory and cell: the tared median, spread and share inside 0.95 to 1.05. Nothing is scored against
+a bar: it sets the number of references the real test on GSE144691's five new healthy libraries will use, and that test's bar will be the
+atlas laboratory's own tared reading.
+**Prior reading:** GSE144691's labels and read counts only (its eight healthy libraries shared with GSE98837 are spent); none of its five new
+healthy libraries has been read.

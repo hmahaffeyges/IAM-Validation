@@ -1,0 +1,47 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "date": "2026-11-05",
+ "title": "The chain refuses a sample read only in part",
+ "closing": "",
+ "set_out": "Put the genome-coverage check in front of every sequenced reading, then read the B and T test at full depth and measure the same-laboratory tare.",
+ "open_at_turnover": "The B and T third reading at full depth running, one sample at a time on GitHub.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "The genome-coverage intake check, synthetic run 2",
+     "status": "synthetic only",
+     "what": "One spent healthy atlas input read four ways by the one command: whole, chromosomes 1 to 8 only, 5 % of CpGs kept, chr17 removed.",
+     "outcome": "Met: whole and thinned pass; chromosomes 1 to 8 refused naming chr9 to chr22; chr17 removed refused naming chr17.",
+     "rows": [
+      "OTH-083"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_INTAKE_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": [
+    {
+     "title": "The B and T test sent at full depth",
+     "status": "in progress",
+     "what": "Every run and every read pair of the 12 libraries, one sample at a time on 16 GitHub machines so 2 or more stay free for commits.",
+     "outcome": "Running.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    }
+   ]
+  }
+ ]
+}
