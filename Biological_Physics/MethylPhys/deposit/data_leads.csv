@@ -1,0 +1,7 @@
+source,id,platform,specimen,n,healthy,raw,register,use
+GEO,GSE280465,EPIC v2,"PBMC 45, dried blood spot 35, buccal 46, saliva 37",163,yes (aging-clock cohort),IDAT,unspent,EPIC v2 healthy commissioning (whole blood route and buccal/saliva) once EPIC v2 intake works (DEV_EPIC_V2_01)
+GEO,GSE312123,EPIC v2,venous and capillary blood,40,to confirm,IDAT,not in register,EPIC v2 blood; venous against capillary as a same-person self-reference
+GEO,GSE315764,EPIC v2,whole blood (prediabetes clusters),333,no (prediabetes),IDAT,not in register,EPIC v2 reference replay; A-score capture
+GEO,GSE302955,EPIC v2,PBMC (esophageal squamous cancer patients and controls),72,controls only,IDAT,not in register,chosen test candidate (cancer against controls in blood) on EPIC v2
+ENCODE,ENCSR334LSM ENCSR017BUL ENCSR663MXB ENCSR284TCU,WGBS (GRCh38 bedMethyl: coverage and percent),"NK, CD14 monocyte, T cell, B cell, one donor (male 37)",4,yes,counts,not in register,third outside laboratory on sequencing for the laboratory term (one donor, four cells)
+ENCODE,78 tissue WGBS experiments (Salk 36, HAIB 32, Broad 8),WGBS (GRCh38 bedMethyl),"stomach, adrenal, spleen, small intestine, heart, ovary, muscle, adipose, colon, lung, liver, pancreas, thyroid, others",78,yes (tissue donors),counts,not in register,tissue columns the sequencing atlas lacks (liver, colon, lung: plasma's missing tissues) and outside-laboratory tissue tests

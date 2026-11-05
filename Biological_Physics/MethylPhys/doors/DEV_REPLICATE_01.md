@@ -358,3 +358,10 @@ partly spent (an earlier engine's test, VAL-097); its earlier result is not open
 full chain (`--full-chain --cell-panel atlas`), pass 1, specimen "tissue" (the full-atlas tissue route, flagged). **Compared** by `r23_score.py
 r14`: stage 3 or 4 against stage 1, and stage 2 against stage 1. Reference only. The readings go into the A-score database with the stage,
 which is what the A-score lines need (a reading that follows stage).
+
+**R9 glioma blood on every cell of IAM-Atlas v2.1 (`--cell-panel atlas`), read.** (`data/DEV_REPLICATE_01/r9_atlas_full/r9_glioma_blood_atlas_full_summary.txt`, by `replay_score.py r9_glioma_blood`; 76 of 76 arrays
+read on 10 machines, re-sent after the first send failed at the workflow's shard check.) Reference only. Against the six-cell
+reading (`r9_glioma_blood_full_summary.txt`) the whole-sample readings shift (Met-A whole 0.8974 against 0.8914 for new glioblastoma against new
+low-grade glioma, d +1.03, p 0.0049; it was 0.9158 against 0.9044, p 0.00097, on six cells), because the mix now names every atlas cell.
+Per-cell Met-A on the cells the six-cell panel did not hold is now read for every array (common myeloid progenitor 0.9977 against 0.9894, p
+0.0042). The readings go into the A-score database with the tumor grade.
