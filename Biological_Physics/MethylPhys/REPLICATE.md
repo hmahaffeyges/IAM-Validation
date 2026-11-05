@@ -53,7 +53,7 @@ test on is held to the rule by the push gate (CANON/chain_gate.py, rule 23b).
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**74 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**75 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -111,6 +111,7 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_METAA_ATLAS_CURVE_01 | `DEV_METAA_ATLAS_CURVE_01/curve_synthetic.py` | no chain import | |
 | DEV_METAA_ATLAS_CURVE_01 | `DEV_METAA_ATLAS_CURVE_01/bt_synthetic.py` | no chain import | |
 | DEV_METAA_ATLAS_CURVE_01 | `DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/floor_synthetic.py` | no chain import | |
+| DEV_METAA_ATLAS_CURVE_01 | `DEV_METAA_ATLAS_CURVE_01/bt_synthetic.py` | no chain import | |
 | DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/synthetic_02.py` | no chain import | GRP-019 |
 | DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/gain_counter_01.py` | no chain import | GRP-019 |
 | DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/sites_synthetic_02.py` | no chain import | GRP-019 |

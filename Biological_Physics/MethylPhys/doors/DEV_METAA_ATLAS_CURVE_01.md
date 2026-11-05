@@ -611,3 +611,14 @@ disclosed; nothing scored). The atlas's noise maps showed donor halves of differ
 sorted-cell Met-A reads 1.0077 with the X chromosome's identity sites and 1.0077 without; the largest change in any sample is 0.0021. The
 reading is not moved by sex. Most cells hold few X-chromosome identity sites; lung alveolar epithelium holds the most, noted for the next
 identity-site build.
+
+**The B and T sequencing test, second reading on the full working chain (written and committed before any of its readings exists).** The first reading (`bt_seq_01/bt_seq_rows.csv`, 3 samples) was made on the converted-array ruler, whose sequencing band failed, so its bar
+1 was never scored; the author's order put the B and T test after the chain worked on sequencing, which it now does (healthy pass 5). The
+same 12 samples, the same three instruments, against the IAM Sequencing Atlas. The molecules are not aligned again: each sample's 20 chunks
+from the first reading are merged again (`bt_seq_02/bt_seq2_chunks.csv`; GSM3963004's chunk 12 is empty and is aligned again) and read once by
+the one command with the healthy passes' flags (`bt_seq_02/bt_seq2_samples.csv`; no reference half, since none is an atlas input). **Amended
+before reading (disclosed):** bar 1 is now the gauge's Normal, at least 9 of 12 Met-A readings in the sample's own cell within 0.95 to 1.05,
+because the first reading's sequencing band was never built; bars 2 and 3 unchanged. Scorer `bt_seq_02/bt_seq2_score.py` (outputs
+`bt_seq2_readings.csv`, `bt_seq2_summary.txt`). Each instrument that meets its bar is commissioned on healthy sorted B and T cells on
+whole-genome bisulfite sequencing. **Prior reading:** the first reading's 3 samples (above); nothing else of these 12.
+**Synthetic test:** `DEV_METAA_ATLAS_CURVE_01/bt_synthetic.py` (the B and T synthetic, met); the sequencing readings' synthetics are on record with healthy pass 5.

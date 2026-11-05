@@ -80,3 +80,5 @@ metaa_chrx_diag.txt
 healthy_fullchain6_summary.txt
 healthy_fullchain6_readings.csv
 pass6_floor_diag.txt
+bt_seq2_samples.csv
+bt_seq2_chunks.csv
