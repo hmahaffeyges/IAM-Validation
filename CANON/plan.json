@@ -357,9 +357,10 @@
     {
      "id": "61.5",
      "date": "2026-11-05",
-     "status": "open",
+     "status": "running",
      "what": "Prior-art search before any public claim (the author's atlas and sphere notes): (a) a whole-genome healthy atlas pooling laboratories with a posterior at every site; (b) per-donor healthy disorder stored at every CpG; (c) disorder read as a ratio against a floor set by the person's own healthy cell type; (d) a methylome on the information sphere read as a masked sky with microwave-sky tools, one individual against itself. Literature only; findings committed before any wording changes",
-     "next": "search (a) to (d); write the findings with their references"
+     "next": "first pass done: (a) and (b) found in the literature, reworded to what IAM adds; (c) and (d) not found so far; second pass on (c) and (d), then every 'first' or 'never' sentence in the book checked",
+     "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
     },
     {
      "id": "61.6",
