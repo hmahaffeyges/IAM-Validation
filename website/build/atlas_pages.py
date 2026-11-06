@@ -78,8 +78,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
         F1, F2 = "information_sphere.html", "information_sphere_sequencing.html"
         def menu(cur):
             o = "".join(f'<option value="{f}"{" selected" if f == cur else ""}>{nm}</option>' for f, nm in (
-                (F1, f"Array Information Sphere: IAM-Atlas v2.1, {A1['cell_types']} cell types, {A1['sites']:,} sites"),
-                (F2, f"Sequencing Information Sphere: IAM Sequencing Atlas, {A2['cell_types']} cell types, {A2['sites']:,} sites")))
+                (F1, "Array Information Sphere (IAM-Atlas v2.1)"), (F2, "Sequencing Information Sphere (IAM Sequencing Atlas)")))   # counts are in each page's subtitle
             return f'<label for="atlas">Atlas</label><select id="atlas" onchange="location.href=this.value">{o}</select>'
         def put_menu(h, cur, title):
             h = re.sub(r"<h1>The information sphere", "<h1>" + title, h, count=1)
