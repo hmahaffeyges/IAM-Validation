@@ -1,0 +1,39 @@
+name: globe_wg
+# 2026-11-06 (DEV-SEQ-GLOBE-WG-01, plan 60.23): the Sequencing Atlas Globe at every CpG, built from the published IAM Sequencing Atlas
+# (Zenodo 10.5281/zenodo.23934666) by Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py, one published piece set per job (12 sets),
+# each piece checked against the deposit's SHA256 manifest before it is read. At NSIDE 2048 every CpG has its own pixel, so each piece writes its
+# own stretch of the final globe; each job's slices are saved as that job's artifact the moment the job ends, and a failed set reruns alone.
+on:
+  workflow_dispatch:
+    inputs:
+      sets: {description: "set numbers, JSON list (e.g. [1,2,3])", required: true, default: "[1,2,3,4,5,6,7,8,9,10,11,12]"}
+      tag:  {description: "artifact name prefix", required: true}
+permissions: {contents: read}
+jobs:
+  slice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix: {set: "${{ fromJSON(inputs.sets) }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: install (the chain's own requirements) and preflight
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
+      - name: the published piece set from Zenodo, checked against the deposit's manifest
+        run: |
+          set -eu; S=$(printf "%02d" ${{ matrix.set }}); T=pieces57_set${S}_of_12.tar; Z=https://zenodo.org/records/23934666/files
+          for i in 1 2 3 4 5; do curl -sSfL --retry 5 -o man.txt "$Z/SHA256_MANIFEST.txt?download=1" && curl -sSfL --retry 5 -o $T "$Z/$T?download=1" && break; sleep 30; done
+          mkdir -p p && tar -xf $T -C p && rm $T
+          n=0; for f in $(find p -name "piece_*.parquet" | sort); do b=$(basename $f); want=$(grep "$T/.*$b " man.txt | awk '{print $1}'); got=$(sha256sum $f | cut -c1-64)
+            [ -n "$want" ] && [ "$want" = "$got" ] || { echo "checksum refused: $b"; exit 1; }; n=$((n+1)); done; echo "pieces checked: $n"
+      - name: slices of the globe
+        run: |
+          mkdir -p out; python3 Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py slice \
+            Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/seq_atlas_inputs.csv out $(find p -name "piece_*.parquet" | sort)
+          du -sh out
+      - uses: actions/upload-artifact@v4
+        with: {name: "${{ inputs.tag }}-set${{ matrix.set }}", path: out/, retention-days: 30, compression-level: 0}
