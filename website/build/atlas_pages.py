@@ -31,7 +31,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     if not os.path.exists(f): return 0
     _s.path.insert(0, os.path.join(H_, "..", "..", "Biological_Physics", "MethylPhys", "chain", "MethylPhys_Interface")); import globe_viewer as V
     S = json.load(open(f)); cells = sorted(({"slug": c["slug"], "name": names.get(c["slug"], c["cell"])} for c in S["cells"]), key=lambda c: c["name"].lower())
-    atlas = dict(id="atlas", name="Array Atlas Globe: IAM-Atlas v2.1, 79 healthy cell types", groups=[dict(id=c["slug"], name=c["name"], layers=[
+    atlas = dict(id="atlas", name="Array Atlas Globe (IAM-Atlas v2.1, 79 cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
         dict(name="methylation", kind="image", src=f"{art_rel}sphere/{c['slug']}_v.jpg", mask=f"{art_rel}sphere/{c['slug']}_vm.png", vscale=[0, 1], vword="at least this methylated:",
              hint="Slide right to keep only the sites at least this methylated; the rest go dark. Slide back to see every site.",
              note="The atlas's best value at every site, 0 (never tagged) to 1 (always tagged)."),
@@ -47,21 +47,26 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     fs = os.path.join(ART_, "seq_cells", "index.json")
     if os.path.exists(fs):
         Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": c["cell"][:1].upper() + c["cell"][1:]} for c in Q["cells"]), key=lambda c: c["name"].lower())
-        specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe: the IAM Sequencing Atlas, {len(qc)} healthy cell types on the array atlas's 813,951-site layout", groups=[dict(id=c["slug"], name=c["name"], layers=[
+        specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe (IAM Sequencing Atlas, {len(qc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
             dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at each of the layout's sites, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
             dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in qc],
             about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Drawn on IAM-Atlas v2.1's layout of 813,951 sites, each with one fixed place: HEALPix NSIDE "
                    f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as the Array Atlas Globe, so the two atlases can be compared cell for cell; the atlas itself holds every CpG, and a whole-genome globe is still to be built. "
                    f"A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))
-    for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))): specs.append(json.load(open(g)))
-    intro = (f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><p>Choose a globe, then what to show. '
+    SHORT = {"healthy-blood": "Healthy whole blood (GSM7508429)", "planted-blood": "Same blood, planted loss", "purified": "Met-A purified reference",
+             "noise": "Array atlas uncertainty"}   # menu names short enough for the menu box; each globe's own page text is unchanged
+    for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))):
+        sp = json.load(open(g)); sp["name"] = SHORT.get(sp.get("id"), sp.get("name")); specs.append(sp)
+    intro = (f'<p><a href="{back}">&larr; front page</a></p><p>Choose a globe, then what to show. '
              'Drag to turn it. Each globe brings its own layers and sliders. Gray or dark pixels hold no measured site.</p>'
-             + ('<p>Two atlases are here: IAM-Atlas v2.1, the ruler for arrays, and the IAM Sequencing Atlas, the ruler for sequenced samples '
-                '(<a href="sphere.html?globe=seq-atlas">the Sequencing Atlas Globe</a>; <a href="../seq-atlas/index.html">its cell pages</a>; '
-                '<a href="information_sphere_sequencing.html">the Sequencing Information Sphere</a>).</p>' if os.path.exists(fs) else ''))
-    isp = os.path.join(ART_, "information_sphere.html")   # 2026-10-23: the information sphere, as the one command built it (run_sample.py --build info-globe)
-    if os.path.exists(isp): intro += ('<p><b>New: <a href="information_sphere.html">the information sphere</a></b> (development). These globes place every site by where '
-                                      'it sits on the DNA; the information sphere places it by how it behaves across the 79 cell types.</p>')
+             + ('<p>Two atlases are here, each on two kinds of map. <b>Atlas globes</b> place every site by where it sits on the DNA: '
+                '<a href="sphere.html">the Array Atlas Globe</a> (IAM-Atlas v2.1, the ruler for arrays) and '
+                '<a href="sphere.html?globe=seq-atlas">the Sequencing Atlas Globe</a> (the IAM Sequencing Atlas, the ruler for sequenced samples, '
+                'drawn on the same 813,951-site layout so the two compare cell for cell). <b>Information spheres</b> place every site by how it behaves '
+                'across the cell types: <a href="information_sphere.html">the Array Information Sphere</a> and '
+                '<a href="information_sphere_sequencing.html">the Sequencing Information Sphere</a>. Cell pages: '
+                '<a href="index.html">IAM-Atlas v2.1</a> &middot; <a href="../seq-atlas/index.html">the IAM Sequencing Atlas</a>.</p>' if os.path.exists(fs) else ''))
+    isp = os.path.join(ART_, "information_sphere.html")   # the Array Information Sphere, as the one command built it (run_sample.py --build info-globe)
     d = os.path.join(out, "atlas"); os.makedirs(d, exist_ok=True)
     # 2026-11-05 (author: "They each should have a link to the appropriate sphere ... a dropdown option on one information sphere to toggle between
     # the two"): each atlas's sphere keeps its own file, as the one command drew it; information_sphere.html chooses between them. Counts are read
