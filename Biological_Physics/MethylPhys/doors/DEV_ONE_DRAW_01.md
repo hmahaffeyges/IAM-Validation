@@ -624,3 +624,14 @@ plasmas by type, for the A-score database (where healthy ends and cancer begins 
 **Sources:** GSE186007 (public, GEO: the 100 human plasmas' Bismark coverage files on hg19 and their labels, group, age and sex); the IAM Sequencing Atlas (public, Zenodo: the healthy reference every plasma is read against); the hg19 CpG dictionary (public, the repository's hg19-bwameth-index-v1 release).
 
 **Prior reading:** none of these 100.
+
+**Plasma from a new laboratory, second reading (written before it runs; the first reading's flags could not read whole-sample Met-A).** While the first reading ran, 9 of its first 10 healthy plasmas returned no whole-sample Met-A ("only 0 sites with an expectation";
+bundles in the run's artifacts). Cause, from the chain's code (`stage_metaa_atlas.py`, `MIX_COVER = 0.99`): whole-sample Met-A counts a site only
+when cells with an atlas value there hold at least 99 % of the sample's shares, and the first reading's flags read the shares against the
+Deconvolver's development reference with a megakaryocyte column (`--dev-deconv-ref deconv_reference_mk_dev.parquet`) that the IAM Sequencing
+Atlas does not hold; every plasma with a megakaryocyte share above 1 % (1.9 % to 5.5 % in these) then has no site to read. The one plasma read had
+0.14 %. The first reading runs to its end as written and is scored as written. This second reading changes only the flags, to the earlier plasma
+pass's committed reference (`plasma_lab3_samples_r2.csv`, the rsflags column; the list is otherwise the same), with the same job, the same bars and
+the same scorer. No whole-sample Met-A value of these plasmas decided this change; only the refusal reason and the shares were read.
+**Change for later (chain code, after the running readings finish):** a cell the Deconvolver finds but the atlas does not hold should not empty
+the whole-sample reading.
