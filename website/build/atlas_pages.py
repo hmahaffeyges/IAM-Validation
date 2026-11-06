@@ -47,11 +47,11 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     fs = os.path.join(ART_, "seq_cells", "index.json")
     if os.path.exists(fs):
         Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": c["cell"][:1].upper() + c["cell"][1:]} for c in Q["cells"]), key=lambda c: c["name"].lower())
-        specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe: the IAM Sequencing Atlas, {len(qc)} healthy cell types at every CpG", groups=[dict(id=c["slug"], name=c["name"], layers=[
-            dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at every CpG, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
+        specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe: the IAM Sequencing Atlas, {len(qc)} healthy cell types on the array atlas's 813,951-site layout", groups=[dict(id=c["slug"], name=c["name"], layers=[
+            dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at each of the layout's sites, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
             dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in qc],
-            about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Every CpG of the genome has one fixed place: HEALPix NSIDE "
-                   f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as IAM-Atlas v2.1's globe, so the two atlases can be compared cell for cell. "
+            about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Drawn on IAM-Atlas v2.1's layout of 813,951 sites, each with one fixed place: HEALPix NSIDE "
+                   f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as the Array Atlas Globe, so the two atlases can be compared cell for cell; the atlas itself holds every CpG, and a whole-genome globe is still to be built. "
                    f"A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))
     for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))): specs.append(json.load(open(g)))
     intro = (f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><p>Choose a globe, then what to show. '

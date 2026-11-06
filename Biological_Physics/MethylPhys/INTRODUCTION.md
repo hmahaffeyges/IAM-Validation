@@ -44,7 +44,7 @@ has trained anything.
 
 Cosmologists solved a problem that methylation research shares: how to read a faint signal spread across millions of positions,
 through noisy instruments that each have their own offsets, and still say how sure you are at every point. The Planck and WMAP missions
-mapped the microwave sky on a sphere divided into equal pixels (HEALPix). We place every CpG site of the genome on that same sphere,
+mapped the microwave sky on a sphere divided into equal pixels (HEALPix). We place each atlas site (813,951 of them, the array atlas's layout, used for both atlases) on that same sphere,
 at a fixed place set by where it sits in the genome, so every cell and every sample shares one map and can be compared site for site.
 The sphere is chosen for what it does: every pixel has the same area, so no part of the genome is stretched; there are no edges or seams;
 neighbors in the genome share small patches, so clustered change shows as patches and scattered noise as speckle; and the sky's masks

@@ -312,6 +312,14 @@
      "what": "C (machines): a whole-genome C-Score on sequencing, whose healthy limit comes from the IAM Sequencing Atlas's healthy covariance and genome-distance spectrum (checklist D6, D8: built, used by no reading yet; PLANNED_VS_BUILT.md). The instrument's job: a healthy sample's departures read as unclustered; a planted clustered loss reads as clustered",
      "next": "designed with its synthetic (member e); code after the current readings finish, synthetic on GitHub",
      "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_FAMILY_01.md"
+    },
+    {
+     "id": "60.23",
+     "date": "2026-11-05",
+     "status": "open",
+     "what": "The Sequencing Atlas Globe at every CpG: the 57 cells' levels and 95 % ranges for all 28,217,448 CpGs on a finer HEALPix sphere (NSIDE 2048, 50.3 million pixels), so the picture matches the atlas; the current globe uses the array atlas's 813,951-site layout. Its readers and the Sample Globe on sequencing to follow, synthetic first.",
+     "next": "design the build (memory and disk on one Google machine), then synthetic",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },

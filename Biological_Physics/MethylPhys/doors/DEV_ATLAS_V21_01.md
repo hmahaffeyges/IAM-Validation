@@ -1320,3 +1320,9 @@ panel as fixed text (`run_sample.py`, `_ISV_ABOUT`), whatever atlas it is given.
 with a choice of atlas, each box linked to its own, the counts read from each build record, and a note on the panel's wording. To do (after the B
 and T and Johns Hopkins readings, one chain version): the builder writes its panel from the atlas given, and the sphere is rebuilt with all 57
 cell types (it was drawn before the granulocytes were added).
+
+**Correction: the sequencing atlas's globe is not at every CpG (found while checking the book; disclosed).** The sky-sphere build above (`--build seq-atlas-sphere`) used IAM-Atlas v2.1's builder and layout: 813951 sites, the same places as the
+array atlas (`website/art/out/seq_cells/index.json`: sites 813951, NSIDE 256). The checklist row C1 asks for every CpG of the genome on the
+sphere at a resolution fine enough for the whole genome; that is not built. The atlas itself holds all 28,217,448 CpGs. Public text that said
+the globe or its cell pictures show every CpG is corrected; the planned-against-built table marks C1 partly built. A whole-genome globe
+(28.2 million CpGs need a finer HEALPix resolution; NSIDE 2048 has 50.3 million pixels) is plan item 60.23.

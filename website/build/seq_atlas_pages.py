@@ -84,7 +84,7 @@ def write(out, art_rel, css_tag, style, back):
                 + f' &middot; <a href="../atlas/sphere.html?globe=seq-atlas&amp;cell={c["slug"]}">this cell on the Sequencing Atlas Globe</a>' + (f' &middot; <a href="../atlas/{c["slug"]}.html">this cell in IAM-Atlas v2.1</a>' if c["slug"] in v21 else '') + f'</p><h1>{E(nm(c))}</h1>'
                 f'<p><b>In development.</b> A cell is commissioned when healthy samples from laboratories the atlas has never held read Normal against it.</p>'
                 f'<figure><div class="two"><img src="{art_rel}seq_cells/{c["slug"]}_v.jpg" alt="{E(nm(c))}: healthy level on the sphere"><img src="{art_rel}seq_cells/{c["slug"]}_u.jpg" alt="{E(nm(c))}: how sure the atlas is"></div>'
-                f'<figcaption>Left: healthy {E(c["cell"])} at every CpG in its genome place, from never tagged to always tagged. Right: how sure the atlas is of each value, '
+                f'<figcaption>Left: healthy {E(c["cell"])} at each of the 813,951 layout sites in its genome place, from never tagged to always tagged. Right: how sure the atlas is of each value, '
                 f'dark certain, brighter a wider 95&nbsp;% range of the average (0 to &plusmn;0.15, the same scale for every cell). Grey: no reads.</figcaption></figure>'
                 f'<table>{"".join(rows)}</table><p>{E(PHYS)}</p><p>{E(HOW)}</p>'
                 f'<p><a href="{p["slug"]}.html">&larr; {E(nm(p))}</a> &middot; <a href="{n["slug"]}.html">{E(nm(n))} &rarr;</a></p>')
