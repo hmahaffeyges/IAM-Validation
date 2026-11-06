@@ -365,9 +365,10 @@
     {
      "id": "61.6",
      "date": "2026-11-05",
-     "status": "open",
+     "status": "running",
      "what": "One-button intake (the author's goal, 10-23 list): (1) the input type told from the files themselves; (2) the specimen optional, the Deconvolver naming what the sample holds (today --specimen defaults to whole blood, so an unstated specimen is read as whole blood); (3) one folder-and-button researcher workflow. Code written at the laptop; its acceptance test is the readiness run (45.1) on machines",
-     "next": "design note from the code paths in run_sample.py"
+     "next": "design written with its tests; code after the B and T and Johns Hopkins readings finish (one chain version); acceptance: the readiness run (45.1)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_BUTTON_01.md"
     },
     {
      "id": "61.7",
