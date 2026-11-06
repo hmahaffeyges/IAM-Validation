@@ -53,3 +53,15 @@ preprint, bioRxiv 252106); the clinical paper's full text is still to be read.
 expected from its estimated cell proportions and the cell types' reference profiles (PMC9980651). It is the nearest published form of "the
 sample against its own healthy mix", applied to levels as a check on the deconvolution, not to disorder and not as a health reading. Met-A's
 ratio of the sample's own disorder to the disorder its healthy mix would hold at its own read depth: still not found.
+
+**The book already records claims (e) and (f) (found after the second pass; disclosed).** `docs/book/front/p0_giants.tex` ("the bridge crossed before") credits the 2016 information-thermodynamics paper and the 2019
+signal-detection method (iam.bib `Sanchez2016`, `Sanchez2019`) as the first to put Landauer's bound on methylation, says IAM read them only
+after its reference values were frozen, and states the difference: they use k_B T as the scale of a background to be filtered; IAM uses it as
+the unit of measure (one filters, the other calibrates). What it names as IAM's addition is the floor: a holding energy measured on single
+molecules of healthy cells, the floor's form from a Boltzmann factor, and each cell's held error read against it. This pass should have read
+that chapter first (the agent's error, against the known-information rule). One addition for the book: the 2023 extension to human cancer
+methylomes (doi:10.1038/s41598-023-35166-9) is not yet cited there.
+
+**The book's novelty sentences.** Every "first", "never", "no one has" and "new" in the book's sources was listed (23 lines): none claims IAM
+is first. The "never" sentences describe data an instrument has not seen (laboratories the atlas has never held); "no one has announced" is a
+prediction's wording; "not a new law" says the opposite of a claim. The book's one "first" credits other researchers.
