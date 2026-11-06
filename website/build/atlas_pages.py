@@ -66,10 +66,10 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
         _m1 = [r for r in _NN if r["map"].startswith("map1")]; _m2 = [r for r in _NN if r["map"].startswith("map2")]
         _lo, _hi = _NS["scale"]
         NZ = {1: ("noise map: donor halves", f"The cell's donors split into two sealed halves, each counted alone, and the difference drawn ({_lo:+.1f} to {_hi:+.1f}). It shows how much "
-                 f"healthy people of this cell differ from one another. In {sum(1 for r in _m1 if r['bands_above_null'])} of the {len(_m1)} cells with donors to split, it stands above "
-                 "its shuffled null at large scales: real differences between healthy people, not noise. Cells from a single donor have no such map."),
+                 f"healthy people of this cell differ from one another. In {sum(1 for r in _m1 if len(r['bands_above_null']) > 1)} of the {len(_m1)} cells with donors to split, it stands above "
+                 "its shuffled null in more than one band: real differences between healthy people, not noise. Cells from a single donor have no such map."),
               2: ("noise map: read halves", f"Each donor's reads split at random into two halves, counted alone, and the difference drawn ({_lo:+.1f} to {_hi:+.1f}). It shows the "
-                 f"counting noise alone. It sits on its shuffled null in {sum(1 for r in _m2 if not r['bands_above_null'])} of {len(_m2)} cells: what pure counting noise looks like.")}
+                 f"counting noise alone. It fits its shuffled null (at most one band above it) in {sum(1 for r in _m2 if len(r['bands_above_null']) <= 1)} of {len(_m2)} cells: what pure counting noise looks like.")}
         Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": cellname(c["cell"])} for c in Q["cells"]), key=lambda c: c["name"].lower())
         specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe (IAM Sequencing Atlas, {len(qc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
             dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at each of the layout's sites, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),

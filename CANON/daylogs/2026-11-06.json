@@ -60,6 +60,16 @@
       "OTH-068"
      ],
      "record": "Biological_Physics/MethylPhys/deposit/zenodo_repo_snapshot.py"
+    },
+    {
+     "title": "Both noise maps of the IAM Sequencing Atlas on the Globe Viewer",
+     "status": "built",
+     "what": "104 maps from the chain's seq-noise-sphere build as layers on each cell (donor halves for 48 cells, read halves for 56), with what the null test found, read from the records.",
+     "outcome": "Committed; live with the next site build.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "website/build/atlas_pages.py"
     }
    ]
   },
@@ -111,6 +121,16 @@
       "OTH-068"
      ],
      "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
+    },
+    {
+     "title": "The v2.1 chapter said both sequencing noise maps sit inside their null",
+     "status": "mistake",
+     "what": "The atlas story (CANON/atlas_story.json), which writes the v2.1 book section and the website's atlas text, said the donor-half and read-half maps each sit inside their shuffled null; the record shows the read-half map fits its null in all 56 cells and the donor-half map stands above it in all 48 cells with donors to split.",
+     "outcome": "Found while checking the chapter for plan 61.4; corrected from noise_null.json with the null test's own criterion; the chapter also gains the Array Information Sphere and the new map names.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "CANON/atlas_story.json"
     }
    ]
   }
