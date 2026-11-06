@@ -95,3 +95,16 @@ sky and sphere readings of the atlases (HEALPix maps, noise maps, spectra, Minko
 
 **Still to do before the paper:** a patent search on these; Group-A and the C-Score's clustering statistic searched by name; the full texts of
 the composition-adjusted entropy preprint and the 2019 clinical method.
+
+## Fourth pass (PubMed: Group-A, the C-Score's clustering statistic, Coupling-A, the territories)
+
+Six PubMed searches, titles and counts only (working notes `prior_art_pubmed_instruments.json`, not committed); full texts not yet read.
+
+| Instrument | What the search found | Wording from here |
+|---|---|---|
+| Group-A (a group's disorder against healthy references from the same run, after a tare) | Nothing matching (0 hits). | "Not found in our search so far." |
+| The C-Score (clustering of changed sites along the genome, against a shuffle) | Methods that use the genomic position of sites to test association with disease exist (doi:10.1002/gepi.21851); no clustering statistic against a shuffled null read as a cancer score came up. Point-process statistics (Ripley's K, pair correlation) on methylation did not come up. | Credit spatial association testing as related work; the clustering statistic itself "not found so far". |
+| Coupling-A (neighbor concordance within each molecule, against the cell's own healthy coupling) | Read-level heterogeneity in cancer is a published field: epipolymorphism, the proportion of discordant reads and methylation haplotype load appear across cancer methylome papers (e.g. doi:10.1038/s41388-024-03270-3, doi:10.1038/s41588-025-02307-x), and read-level deconvolution of plasma (doi:10.1093/bib/bbaf551). | Credit read-level heterogeneity measures as the field Coupling-A belongs to, beside the pediatric leukemia study already credited; what IAM adds is the gauge, one molecule-level reading against the same cell type's healthy coupling at the same depth. |
+| The territories (islands and domains against the cell's own healthy level) | The search returned mostly unrelated titles; disorder and genomic instability in cancer domains appear (doi:10.1080/17501911.2025.2518919). The pediatric leukemia study (already credited) is the closest. | As credited; a narrower search to follow. |
+
+Next: the full texts of the epipolymorphism and haplotype-load papers, so Coupling-A's credit names the right originals; a patent search on all four.
