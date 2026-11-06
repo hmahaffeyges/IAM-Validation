@@ -11,19 +11,19 @@
 IAM is a model of how reality begins with a bit and the cost that comes with it: how information and entropy keep their balance, the thermodynamics of informational fidelity. It is not a new theory of gravity; it reads reality, from the quantum to the classical, through the bit and its price.
 
 <p align="center">
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Follow_the_research-live-7a3ea3?style=for-the-badge&v=2" alt="Follow the research, live"></a>
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf"><img src="https://img.shields.io/badge/Download-the_PDF-2b5cad?style=for-the-badge" alt="Download the PDF"></a>
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/epub/IAMs_Law_and_Order.epub"><img src="https://img.shields.io/badge/Apple_Books-EPUB-2b5cad?style=for-the-badge" alt="Download for Apple Books (EPUB)"></a>
-  <a href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip"><img src="https://img.shields.io/badge/LaTeX_source-Overleaf-2b5cad?style=for-the-badge" alt="LaTeX source (Overleaf)"></a>
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="https://img.shields.io/badge/Run_every_check-in_your_browser-2e7d32?style=for-the-badge" alt="Run every check in your browser"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="website/static/badges/follow_the_research_live_7a3ea3_big.svg" alt="Follow the research, live"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="website/static/badges/read_the_book_online_2b5cad_big.svg" alt="Read the book online"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf"><img src="website/static/badges/download_the_pdf_2b5cad_big.svg" alt="Download the PDF"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/epub/IAMs_Law_and_Order.epub"><img src="website/static/badges/apple_books_epub_2b5cad_big.svg" alt="Download for Apple Books (EPUB)"></a>
+  <a href="https://github.com/hmahaffeyges/IAM-Validation/releases/download/v1.0.0/IAMs_Law_and_Order_LaTeX_source_v1.0.0.zip"><img src="website/static/badges/latex_source_overleaf_2b5cad_big.svg" alt="LaTeX source (Overleaf)"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="website/static/badges/run_every_check_in_your_browser_2e7d32_big.svg" alt="Run every check in your browser"></a>
 </p>
 
 Heath W. Mahaffey, IAMPerformance (independent research).
 
 **Cite the book (version 1.0, October 2026):** Mahaffey, H. W. *IAM's Law and Order: The Actualization of Reality.* Zenodo. [https://doi.org/10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)
 
-[![Book DOI](https://img.shields.io/badge/Book_DOI-10.5281%2Fzenodo.23151068-blue?v=2)](https://doi.org/10.5281/zenodo.23151068) [![IAM-Atlas v2.1 DOI](https://img.shields.io/badge/IAM--Atlas_v2.1_DOI-10.5281%2Fzenodo.23441999-blue)](https://doi.org/10.5281/zenodo.23441999) [![IAM Sequencing Atlas DOI](https://img.shields.io/badge/IAM_Sequencing_Atlas_DOI-10.5281%2Fzenodo.23934666-blue?v=2)](https://doi.org/10.5281/zenodo.23934666) [![DOI](https://img.shields.io/badge/OSF_DOI-10.17605%2FOSF.IO%2FKCZD9-blue?v=2)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Book DOI](website/static/badges/book_doi_10_5281_zenodo_23151068_blue.svg)](https://doi.org/10.5281/zenodo.23151068) [![IAM-Atlas v2.1 DOI](website/static/badges/iam_atlas_v2_1_doi_10_5281_zenodo_23441999_blue.svg)](https://doi.org/10.5281/zenodo.23441999) [![IAM Sequencing Atlas DOI](website/static/badges/iam_sequencing_atlas_doi_10_5281_zenodo_23934666_blue.svg)](https://doi.org/10.5281/zenodo.23934666) [![DOI](website/static/badges/osf_doi_10_17605_osf_io_kczd9_blue.svg)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](website/static/badges/doi_10_5281_zenodo_18702042_blue.svg)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](website/static/badges/license_mit_yellow_svg.svg)](https://opensource.org/licenses/MIT)
 
 ## Start here
 
@@ -72,7 +72,7 @@ How each one works, why it matters, and every test behind it: [Biological_Physic
 **IAM-Atlas v2.1, the ruler for arrays.** 79 purified healthy human cell types from 21 public sources, fitted as one model, every site with its
 value and its 95 % range, and drawn on the sky. Commissioned use by use; it replaces IAM-Atlas v2 (74 cell types).
 
-[![IAM-Atlas v2.1 DOI](https://img.shields.io/badge/IAM--Atlas_v2.1_DOI-10.5281%2Fzenodo.23441999-blue)](https://doi.org/10.5281/zenodo.23441999) [![Posterior draws DOI](https://img.shields.io/badge/Posterior_draws_DOI-10.5281%2Fzenodo.23422688-blue)](https://doi.org/10.5281/zenodo.23422688) [![IAM-Atlas v2 DOI](https://img.shields.io/badge/IAM--Atlas_v2_DOI-10.5281%2Fzenodo.23325865-blue)](https://doi.org/10.5281/zenodo.23325865)
+[![IAM-Atlas v2.1 DOI](website/static/badges/iam_atlas_v2_1_doi_10_5281_zenodo_23441999_blue.svg)](https://doi.org/10.5281/zenodo.23441999) [![Posterior draws DOI](website/static/badges/posterior_draws_doi_10_5281_zenodo_23422688_blue.svg)](https://doi.org/10.5281/zenodo.23422688) [![IAM-Atlas v2 DOI](website/static/badges/iam_atlas_v2_doi_10_5281_zenodo_23325865_blue.svg)](https://doi.org/10.5281/zenodo.23325865)
 
 [Every cell on its own page](https://hmahaffeyges.github.io/IAM-Validation/atlas/index.html) · [The commissioning note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) · [How it is built and tested](Biological_Physics/MethylPhys/atlas/)
 
@@ -80,7 +80,7 @@ value and its 95 % range, and drawn on the sky. Commissioned use by use; it repl
 cell types at all 28.2 million CpGs, counted from healthy donors' public reads with nothing fitted. Every healthy sequenced input reads Normal
 against it, 140 of 140.
 
-[![IAM Sequencing Atlas DOI](https://img.shields.io/badge/IAM_Sequencing_Atlas_DOI-10.5281%2Fzenodo.23934666-blue?v=2)](https://doi.org/10.5281/zenodo.23934666)
+[![IAM Sequencing Atlas DOI](website/static/badges/iam_sequencing_atlas_doi_10_5281_zenodo_23934666_blue.svg)](https://doi.org/10.5281/zenodo.23934666)
 
 [Every cell on its own page](https://hmahaffeyges.github.io/IAM-Validation/seq-atlas/index.html) · [Both atlases on the Globe Explorer](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html) · [The build record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
