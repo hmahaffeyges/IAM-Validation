@@ -196,9 +196,9 @@
     {
      "id": "60.6",
      "date": "2026-11-04",
-     "status": "not pursued",
-     "what": "A6: whole blood on 450K: GSE55763 (2,711 bloods, unspent, with technical replicates) as the healthy commissioning test of Met-A, the C-Score and Group-A on 450K; written before reading",
-     "next": "not possible as written: GSE55763 has no raw IDATs on GEO (checked 2026-11-04), so Stage 0 cannot read it and the chain cannot commission on it. Reopens with a healthy 450K whole-blood set that has raw IDATs (data search, 61.2)"
+     "status": "open",
+     "what": "A6: whole blood on 450K: GSE85210 (253 healthy volunteers, raw IDATs, unread; replaces GSE55763, which has no raw IDATs) as the healthy commissioning test of Met-A, the C-Score and Group-A on 450K; written before reading; GSE174422's 128 duplicate pairs as the reproducibility check",
+     "next": "write the test (healthy never-smokers as the scored set; the smokers held as a chosen Group-A test)"
     },
     {
      "id": "60.7",
@@ -336,7 +336,7 @@
      "date": "2026-11-05",
      "status": "running",
      "what": "Data search, continuous, for commissioning and testing every cell on every instrument (author: 'we need lots more to commission every cell for each of the instruments and the atlas's perfectly themselves'): GEO, SRA, ENA, ArrayExpress and journal papers' data sections, by cell and instrument against the table of 79 plus 57 cells (60.8); every lead into deposit/data_leads.csv with its spend status, nothing read",
-     "next": "healthy 450K whole blood with raw IDATs (60.6); second laboratories for B, T and monocytes on sequencing; healthy plasma WGBS",
+     "next": "450K whole blood found (GSE85210, GSE174422, GSE73115 two draws ten years apart, GSE105018; data_leads.csv); next: second laboratories for B, T and monocytes on sequencing; healthy plasma sequencing; repeated draws on EPIC",
      "record": "Biological_Physics/MethylPhys/deposit/data_leads.csv"
     },
     {
