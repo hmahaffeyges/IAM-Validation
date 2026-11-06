@@ -259,6 +259,36 @@ Met-A for a sample sequenced by whole-genome bisulfite, read against the IAM Seq
 
 **Next:** The same-laboratory tare: two outside laboratories' healthy libraries read own-cell Met-A at a median of 0.7134 and 0.5891, and tared on three of their own laboratory's healthy samples of the same cell they read 1.0001 and 0.9889. Next, the healthy test on a laboratory the atlas has never held (six healthy donors' CD4 T cells, each tared on the other five), then each cell from every laboratory that supplies healthy samples of its own. **Record:** [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
 
+### The genome-coverage check
+
+Before a sequenced sample is read, the chain checks that its reads cover every chromosome evenly, and refuses, naming the missing chromosomes, a sample read only in part. A thin library, thin on every chromosome alike, passes. Its synthetic met every case.
+
+**Next:** commissioned with the next fresh sequencing test **Record:** [DEV_SEQ_INTAKE_01.md](doors/DEV_SEQ_INTAKE_01.md)
+
+### The distance to the ceiling
+
+How far a sample sits from the most disordered state its own cell type can reach, the ceiling the law sets for each cell, on the same gauge as every reading. Read and flagged on every run; on sequencing its counted ceiling met its synthetic.
+
+**Next:** cancer researchers set where the lines fall on the gauge; commissioning on tumor and normal pairs from one laboratory **Record:** [DEV_CEILING_02.md](doors/DEV_CEILING_02.md)
+
+### The genome globe
+
+Every site of the sample on the sphere, against the person's own expected healthy self: a healthy sample stays nearly dark, and a change lights up where it is on the genome. Drawn on every report, with the count of changed blocks.
+
+**Next:** its commissioning plan is written: healthy samples stay dark, planted changes light where planted **Record:** [DEV_GLOBE_COMMISSION_01.md](doors/DEV_GLOBE_COMMISSION_01.md)
+
+### Two draws of one person
+
+Two or more draws of the same person, read the same way: the later against the earlier, at every site both measured, so the person is their own reference.
+
+**Next:** the tools are being moved onto the current chain's records; public data with repeated draws of the same healthy people is held for its test **Record:** [PROC_SERIAL_01_PREREG.md](doors/PROC_SERIAL_01_PREREG.md)
+
+### The same-laboratory tare on sequencing
+
+A few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against them. On two outside laboratories, three of their own healthy samples brought them to Normal.
+
+**Next:** the test on a laboratory never read before is running **Record:** [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
+
 ## Sex and the X chromosome
 
 <!-- SEX-SECTION:BEGIN -->

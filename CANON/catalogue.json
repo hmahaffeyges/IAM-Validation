@@ -118,27 +118,37 @@
   {
    "name": "Intake and calibration",
    "what": "Takes an array's raw intensities, checks every control, and turns them into tagging levels on one fixed scale, refusing what it cannot read and saying why.",
-   "chapter": "ch:instrument"
+   "chapter": "ch:instrument",
+   "status": "commissioned",
+   "record": "Biological_Physics/MethylPhys/doors/PROC_INTAKE_01_OUTCOME.md"
   },
   {
    "name": "The tare",
    "what": "Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease.",
-   "chapter": "ch:instrument"
+   "chapter": "ch:instrument",
+   "status": "commissioned (the same-run tare, whole blood, EPIC v1)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_TARE_01.md"
   },
   {
    "name": "Composition",
    "what": "For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells.",
-   "chapter": "ch:chain"
+   "chapter": "ch:chain",
+   "status": "commissioned (blood-cell shares on arrays)",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
   },
   {
    "name": "The chain and its report",
    "what": "Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit.",
-   "chapter": "ch:report"
+   "chapter": "ch:report",
+   "status": "runs on every sample",
+   "record": "Biological_Physics/MethylPhys/doors/CHAIN_SEQUENCE.md"
   },
   {
    "name": "The sky sphere and the Globe Explorer",
    "what": "Lays every site of IAM-Atlas v2.1 on one sphere in genome order, the way a microwave sky is drawn: equal area, no edges, clustered change shows as patches, and the microwave-sky toolset applies. Every report draws the sample on it against its healthy reference; the change is fixed by the measurement (blocks of 10 neighboring sites beyond the 5 % family-wise line), and a slider only fades the unchanged background. The Explorer carries the atlas's 79 cells and the example readings.",
-   "chapter": "ch:sky"
+   "chapter": "ch:sky",
+   "status": "a picture, on every report",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
   }
  ],
  "chemistry_intro": "DNA's sequence is the same in every cell; the methyl tags are not, and a sequencer cannot see a tag directly. So the DNA is first treated so that tagged and untagged spots read as different letters. **Bisulfite** (a salt solution) turns every untagged C into a U, which reads as T; a tagged C stays C. **EM-seq** does the same with enzymes instead, and damages the DNA far less. After either, a tag shows up as a C and a missing tag as a T. **Conversion failure** is an untagged C the chemistry missed: it stays C and looks tagged. The chain measures it on every sample, from the C's outside CpG pairs, which are almost never tagged in blood and most body cells, and prints it in every report. Then the treated DNA is read, either by an **array** (millions of DNA probes that light up red or green, one pair of colors per site, so each site gives one average over all the cells in the sample) or by a **sequencer** (hundreds of millions of short pieces, each one molecule from one cell).",
@@ -242,6 +252,36 @@
    "what": "Met-A for a sample sequenced by whole-genome bisulfite, read against the IAM Sequencing Atlas, the ruler measured with sequencing's own chemistry. A sorted cell is read donor by donor: the sample's disorder at its cell's identity sites against that of each healthy donor of the same cell, both at the same number of reads, so counting is exact on both sides and nothing is fitted. Every healthy sequenced input reads Normal, 140 of 140, sorted-cell Met-A 1.0075; a mixed sample is read against the atlas in its own cell shares.",
    "next": "The same-laboratory tare: two outside laboratories' healthy libraries read own-cell Met-A at a median of 0.7134 and 0.5891, and tared on three of their own laboratory's healthy samples of the same cell they read 1.0001 and 0.9889. Next, the healthy test on a laboratory the atlas has never held (six healthy donors' CD4 T cells, each tared on the other five), then each cell from every laboratory that supplies healthy samples of its own.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+  },
+  {
+   "name": "The genome-coverage check",
+   "what": "Before a sequenced sample is read, the chain checks that its reads cover every chromosome evenly, and refuses, naming the missing chromosomes, a sample read only in part. A thin library, thin on every chromosome alike, passes. Its synthetic met every case.",
+   "next": "commissioned with the next fresh sequencing test",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_INTAKE_01.md"
+  },
+  {
+   "name": "The distance to the ceiling",
+   "what": "How far a sample sits from the most disordered state its own cell type can reach, the ceiling the law sets for each cell, on the same gauge as every reading. Read and flagged on every run; on sequencing its counted ceiling met its synthetic.",
+   "next": "cancer researchers set where the lines fall on the gauge; commissioning on tumor and normal pairs from one laboratory",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_CEILING_02.md"
+  },
+  {
+   "name": "The genome globe",
+   "what": "Every site of the sample on the sphere, against the person's own expected healthy self: a healthy sample stays nearly dark, and a change lights up where it is on the genome. Drawn on every report, with the count of changed blocks.",
+   "next": "its commissioning plan is written: healthy samples stay dark, planted changes light where planted",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_GLOBE_COMMISSION_01.md"
+  },
+  {
+   "name": "Two draws of one person",
+   "what": "Two or more draws of the same person, read the same way: the later against the earlier, at every site both measured, so the person is their own reference.",
+   "next": "the tools are being moved onto the current chain's records; public data with repeated draws of the same healthy people is held for its test",
+   "record": "Biological_Physics/MethylPhys/doors/PROC_SERIAL_01_PREREG.md"
+  },
+  {
+   "name": "The same-laboratory tare on sequencing",
+   "what": "A few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against them. On two outside laboratories, three of their own healthy samples brought them to Normal.",
+   "next": "the test on a laboratory never read before is running",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
   }
  ],
  "report": {
@@ -498,5 +538,70 @@
     "covered_by": "every other reading"
    }
   ]
- }
+ },
+ "chain_order": [
+  [
+   "Before reading",
+   [
+    "support:Intake and calibration",
+    "dev:The genome-coverage check"
+   ]
+  ],
+  [
+   "The ruler",
+   [
+    "inst:atlas",
+    "dev:The IAM Sequencing Atlas"
+   ]
+  ],
+  [
+   "The cell mix",
+   [
+    "inst:deconv",
+    "dev:Every cell in a mix"
+   ]
+  ],
+  [
+   "The readings",
+   [
+    "inst:meta",
+    "dev:Met-A on sequencing",
+    "inst:cscore",
+    "dev:The C-Score family",
+    "inst:iama",
+    "dev:Nearest-neighbor coupling",
+    "dev:The territories",
+    "dev:The distance to the ceiling"
+   ]
+  ],
+  [
+   "Taring",
+   [
+    "support:The tare",
+    "dev:The same-laboratory tare on sequencing",
+    "inst:groupa"
+   ]
+  ],
+  [
+   "The pictures",
+   [
+    "dev:The genome globe",
+    "support:The sky sphere and the Globe Explorer",
+    "dev:The information sphere"
+   ]
+  ],
+  [
+   "Over time and in plasma",
+   [
+    "dev:Two draws of one person",
+    "dev:One blood draw"
+   ]
+  ],
+  [
+   "The report",
+   [
+    "support:The chain and its report"
+   ]
+  ]
+ ]
 }

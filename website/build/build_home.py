@@ -246,10 +246,24 @@ def page(art):
     _sents2 = lambda s: " ".join(re.split(r"(?<=[.])\s+", s)[:2])
     _devcards = "".join(f'<article class="card"><span class="chip st-b">in development</span><h3>{E(x["name"])}</h3><p>{E(_sents2(x["what"]))}</p>'
                          f'<p class="sub"><b>Next:</b> {E(x["next"])}</p><p class="sub"><a href="{rec(x["record"])}">record</a></p></article>' for x in _C["in_development"])
-    catalogue = (f'<section class="wrap" id="instruments"><h2>The instruments</h2><p class="sub">Six instruments: five readings of the same sample, five different questions, and Group-A, which reads whole groups of people. '
-                 f'Every status below is computed from the Master Testing Manifest.</p>'
+    # 2026-11-05 (author: "add ALL the links in the chain and the ones in development say so"): the whole chain in order, from the catalogue's
+    # chain_order; every piece linked to its record; commissioned statuses computed from the manifest as in the cards
+    _IN = {i["id"]: i for i in _C["instruments"]}; _DV = {x["name"]: x for x in _C["in_development"]}; _SP = {x["name"]: x for x in _C["support_tools"]}
+    def _piece(ref):
+        k, n = ref.split(":", 1)
+        if k == "inst": i = _IN[n]; return i["name"], i["question"], re.sub(r",? ?\d{4}-\d\d-\d\d", "", CAT.stage(i, _M)), "st-g", i["record"]   # no dates in public prose
+        if k == "dev": x = _DV[n]; return x["name"], _sents2(x["what"]).split(". ")[0].rstrip(".") + ".", "in development: read on every run and flagged", "st-b", x["record"]
+        x = _SP[n]; return x["name"], x["what"].split(". ")[0].rstrip(".") + ".", x["status"], ("st-g" if x["status"].startswith("commissioned") else "st-b"), x["record"]
+    _chain_rows = "".join(f'<tr><th colspan="3" style="text-align:left;padding-top:10px">{E(step)}</th></tr>' + "".join(
+        (lambda p: f'<tr><td><a href="{rec(p[4])}"><b>{E(p[0])}</b></a></td><td>{E(p[1])}</td><td><span class="chip {p[3]}">{E(p[2])}</span></td></tr>')(_piece(r)) for r in refs)
+        for step, refs in _C["chain_order"])
+    _nc = sum(1 for _, refs in _C["chain_order"] for r in refs); _ncm = sum(1 for _, refs in _C["chain_order"] for r in refs if r.startswith("inst:") or (r.startswith("support:") and _SP[r[8:]]["status"].startswith("commissioned")))
+    catalogue = (f'<section class="wrap" id="instruments"><h2>The chain and its instruments</h2><p class="sub">Every piece of the chain, in the order a sample meets it: '
+                 f'{_nc} pieces, {_ncm} commissioned (each on what it was tested on) and the rest read on every run and flagged as in development until each meets its own bars. '
+                 f'Every status is computed from the Master Testing Manifest; every name opens its record.</p>'
+                 f'<div style="overflow-x:auto"><table class="tools"><thead><tr><th>Piece</th><th>What it does</th><th>Status</th></tr></thead><tbody>{_chain_rows}</tbody></table></div>'
                  f'<p><b>Why a self-reference matters.</b> {E(_C["why_self_reference"])}</p><p><b>How they work together.</b> {E(_C["together"])}</p>'
-                 f'<details class="fold"><summary>Open the catalogue: what each instrument does, and what it was commissioned on</summary>'
+                 f'<details class="fold"><summary>Open the catalogue: each piece in full, what it was commissioned on and what comes next</summary>'
                  f'<div class="grid">{_cards}</div>'
                  f'<h3>In development: read on every run and flagged, not yet commissioned</h3><p class="sub">The newer readings, including nearest-neighbor coupling '
                  f'(Coupling-A), the territories and Met-A on sequencing. Each prints in every report with its flag until it meets its own bars.</p><div class="grid">{_devcards}</div>'
