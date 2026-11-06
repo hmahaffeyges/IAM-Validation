@@ -66,7 +66,7 @@ def noise_fig(c, art_rel):
     imgs = "".join(f'<img src="{art_rel}seq_noise/{c["slug"]}_n{k}.jpg" alt="{E(c["cell"])}: noise map, {cap[k].split(":")[0]}">' for k in have)
     txt = " ".join(f"{'Left' if i == 0 and len(have) == 2 else ('Right' if len(have) == 2 else 'The map')}, {cap[k]}{said(k)}" for i, k in enumerate(have))
     return (f'<figure><div class="two">{imgs}</div><figcaption>Its noise maps, on the same layout (difference from &minus;0.3 to +0.3). {E(txt)}'
-            + ("" if 1 in have else " With a single donor there is no donor-halves map.") + "</figcaption></figure>")
+            + ("" if 1 in have else " There is no donor-halves map: its donors do not fill two sealed halves, so there is no second half to compare.") + "</figcaption></figure>")
 
 def write(out, art_rel, css_tag, style, back):
     I, don, sex, floor, rd = data(); C = sorted(I["cells"], key=lambda c: c["cell"].lower())
@@ -79,6 +79,7 @@ def write(out, art_rel, css_tag, style, back):
     _UP = {"cd4": "CD4", "cd8": "CD8", "cd14": "CD14", "cd34": "CD34", "nk": "NK", "t": "T", "b": "B", "dc": "DC", "hspc": "HSPC", "mep": "MEP"}   # cell names as written in the field
     _FIX = {"fallopien tubes epithelium": "Fallopian tube epithelium"}   # display only; the atlas keeps its source's label
     nm = lambda c: _FIX.get(c["cell"].lower()) or " ".join(_UP.get(w, w) if (w in _UP and (i or w not in ("b", "t"))) or w in ("cd4", "cd8", "cd14", "cd34", "nk") else (w[:1].upper() + w[1:] if i == 0 else w) for i, w in enumerate(c["cell"].split(" ")))
+    lownm = lambda c: (lambda x: x if (x[:2].isupper() or x.split(' ')[0] in ('B', 'T', 'NK')) else x[:1].lower() + x[1:])(nm(c))   # 2026-11-06: the name inside a sentence
     head = lambda t: (f'<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
                       f'<title>{E(t)}</title>{css_tag}<style>{style}.cg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}}'
                       f'.cg a{{text-decoration:none;color:inherit}}.cg img{{width:100%;border-radius:4px}}.cg span{{font-size:14px}}.two{{display:grid;grid-template-columns:1fr 1fr;gap:8px}}.two img{{width:100%}}</style></head><body><section class="wrap">')
@@ -107,7 +108,7 @@ def write(out, art_rel, css_tag, style, back):
                 + f' &middot; <a href="../atlas/sphere.html?globe=seq-atlas&amp;cell={c["slug"]}">this cell on the Sequencing Atlas Globe</a>' + (f' &middot; <a href="../atlas/{c["slug"]}.html">this cell in IAM-Atlas v2.1</a>' if c["slug"] in v21 else '') + f'</p><h1>{E(nm(c))}</h1>'
                 f'<p><b>In development.</b> A cell is commissioned when healthy samples from laboratories the atlas has never held read Normal against it.</p>'
                 f'<figure><div class="two"><img src="{art_rel}seq_cells/{c["slug"]}_v.jpg" alt="{E(nm(c))}: healthy level on the sphere"><img src="{art_rel}seq_cells/{c["slug"]}_u.jpg" alt="{E(nm(c))}: how sure the atlas is"></div>'
-                f'<figcaption>Left: healthy {E(c["cell"])} at each of the 813,951 layout sites in its genome place, from never tagged to always tagged. Right: how sure the atlas is of each value, '
+                f'<figcaption>Left: healthy {E(lownm(c))} at each of the 813,951 layout sites in its genome place, from never tagged to always tagged. Right: how sure the atlas is of each value, '
                 f'dark certain, brighter a wider 95&nbsp;% range of the average (0 to &plusmn;0.15, the same scale for every cell). Grey: no reads.</figcaption></figure>'
                 + noise_fig(c, art_rel) +
                 f'<table>{"".join(rows)}</table><p>{E(PHYS)}</p><p>{E(HOW)}</p>'
