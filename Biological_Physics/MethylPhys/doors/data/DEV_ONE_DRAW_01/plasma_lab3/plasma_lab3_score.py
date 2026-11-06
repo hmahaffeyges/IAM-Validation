@@ -16,7 +16,7 @@ for r in S.itertuples():
         B = json.load(open(f[-1])); D = B.get("development") or {}; T = (B.get("territories") or {}).get("sets") or {}
         o.update({"status": B.get("status", "read"), "Met-A whole sample": (B.get("met_a_whole") or {}).get("A"), "islands": (T.get("islands") or {}).get("A"),
                   "domains": (T.get("domains") or {}).get("A"), "C-Score": ((B.get("cscore_each_cell") or {}).get("whole_genome") or {}).get("C"),
-                  "library floor": (D.get("library_floor") or {}).get("floor"), "not read": B.get("reason")})
+                  "library floor": (D.get("library_floor") or {}).get("floor"), "not read": B.get("reason") or (None if (B.get("met_a_whole") or {}).get("A") is not None else (B.get("met_a_whole") or {}).get("reason"))})
     else: o["not read"] = "no bundle"
     rows.append(o)
 d = pd.DataFrame(rows); hea = d.group == "HEA"

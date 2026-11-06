@@ -6,7 +6,7 @@ recorded, not scored (median by group):
   CRC (0 read): Met-A whole sample nan, Met-A whole sample, tared nan, islands, tared nan, domains, tared nan, C-Score nan, library floor nan
   HEA (9 read): Met-A whole sample 0.9855, Met-A whole sample, tared 1.0300, islands, tared 0.9039, domains, tared 0.9976, C-Score 0.9996, library floor nan
   PDAC (0 read): Met-A whole sample nan, Met-A whole sample, tared nan, islands, tared nan, domains, tared nan, C-Score nan, library floor nan
-not read: 66
+not read: 91
   GSM7426085 (CRC): no bundle
   GSM7426086 (CRC): no bundle
   GSM7426087 (CRC): no bundle

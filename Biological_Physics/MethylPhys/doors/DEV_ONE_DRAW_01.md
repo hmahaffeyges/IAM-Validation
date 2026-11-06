@@ -638,5 +638,7 @@ the whole-sample reading.
 
 **Plasma from a new laboratory, first reading: not met** (`plasma_lab3/reading_1/plasma_lab3_r1_summary.txt`, `plasma_lab3_r1_readings.csv`; the 34 healthy plasmas, each read by the one command,
 one per GitHub job.) 9 of 34 returned a whole-sample Met-A, under the 20 the bars need, so neither bar is met. The other
-0 were left unread by the cause found during the run (a megakaryocyte share above 1 % with no megakaryocyte column in the atlas, above). The
+25 returned "only 0 sites with an expectation" (counted from the bundles), each with a megakaryocyte share of 1.3 % to 8.6 %; the 9 read had 0.98 % or less: the cause found during the run (no megakaryocyte column in the atlas, above). The
 values of the 9 read are in the summary as recorded, not scored. The second reading (above) runs next.
+
+The scorer's not-read list now gives the whole-sample reason when the bundle has no top-level one (it listed none of the 25, and the record first said 0; corrected from the bundles). Bars and tare unchanged.
