@@ -249,11 +249,12 @@ def page(art):
     # 2026-11-05 (author: "add ALL the links in the chain and the ones in development say so"): the whole chain in order, from the catalogue's
     # chain_order; every piece linked to its record; commissioned statuses computed from the manifest as in the cards
     _IN = {i["id"]: i for i in _C["instruments"]}; _DV = {x["name"]: x for x in _C["in_development"]}; _SP = {x["name"]: x for x in _C["support_tools"]}
+    CAT_first = lambda s: (lambda p: (p[0] if len(p[0]) >= 40 or len(p) == 1 else p[0] + ". " + p[1]).rstrip(".") + ".")(s.split(". "))
     def _piece(ref):
         k, n = ref.split(":", 1)
         if k == "inst": i = _IN[n]; return i["name"], i["question"], re.sub(r",? ?\d{4}-\d\d-\d\d", "", CAT.stage(i, _M)), "st-g", i["record"]   # no dates in public prose
-        if k == "dev": x = _DV[n]; return x["name"], _sents2(x["what"]).split(". ")[0].rstrip(".") + ".", "in development: read on every run and flagged", "st-b", x["record"]
-        x = _SP[n]; return x["name"], x["what"].split(". ")[0].rstrip(".") + ".", x["status"], ("st-g" if x["status"].startswith("commissioned") else "st-b"), x["record"]
+        if k == "dev": x = _DV[n]; return x["name"], CAT_first(x["what"]), "in development: read on every run and flagged", "st-b", x["record"]
+        x = _SP[n]; return x["name"], CAT_first(x["what"]), x["status"], ("st-g" if x["status"].startswith("commissioned") else "st-b"), x["record"]
     _chain_rows = "".join(f'<tr><th colspan="3" style="text-align:left;padding-top:10px">{E(step)}</th></tr>' + "".join(
         (lambda p: f'<tr><td><a href="{rec(p[4])}"><b>{E(p[0])}</b></a></td><td>{E(p[1])}</td><td><span class="chip {p[3]}">{E(p[2])}</span></td></tr>')(_piece(r)) for r in refs)
         for step, refs in _C["chain_order"])

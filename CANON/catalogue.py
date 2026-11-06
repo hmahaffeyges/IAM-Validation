@@ -63,8 +63,20 @@ def markdown(C, M):
     L += ["## Candidate instruments", ""] + [("#" + x) if x.startswith("## ") else x for x in cb if not x.startswith("# ") and "do not edit by hand" not in x] + [""]
     return "\n".join(L)
 def table(C, M):
-    L = [B, "", "| Instrument | The question it answers | Where it stands |", "|---|---|---|"]
-    L += [f"| **{i['name']}** | {i['question']} | {stage(i, M)} |" for i in C["instruments"]]
+    # 2026-11-05 (author: the README's instruments section was missing most of the chain): every piece in the order a sample meets it, from
+    # chain_order, as on the website; each name links to its record
+    IN = {i["id"]: i for i in C["instruments"]}; DV = {x["name"]: x for x in C["in_development"]}; SP = {x["name"]: x for x in C["support_tools"]}
+    first = lambda s: (lambda p: (p[0] if len(p[0]) >= 40 or len(p) == 1 else p[0] + ". " + p[1]).rstrip(".") + ".")(s.split(". "))   # a short opening sentence takes the next one too
+    def piece(ref):
+        k, n = ref.split(":", 1)
+        if k == "inst": i = IN[n]; return i["name"], i["question"], stage(i, M), i["record"]
+        if k == "dev": x = DV[n]; return x["name"], first(x["what"]), "in development: read on every run and flagged", x["record"]
+        x = SP[n]; return x["name"], first(x["what"]), x["status"], x["record"]
+    L = [B, "", "Every piece of the chain, in the order a sample meets it. Commissioned pieces say what they were commissioned on; the rest are read on every run and flagged until each meets its own bars.", "",
+         "| Piece | What it does | Where it stands |", "|---|---|---|"]
+    for step, refs in C.get("chain_order", []):
+        L.append(f"| ***{step}*** | | |")
+        L += [(lambda p: f"| [**{p[0]}**]({p[3]}) | {p[1]} | {p[2]} |")(piece(r)) for r in refs]
     L += ["", "How each one works, why it matters, and every test behind it: [Biological_Physics/MethylPhys/INSTRUMENTS.md](Biological_Physics/MethylPhys/INSTRUMENTS.md).", "", E]
     return "\n".join(L)
 def problems(C, M):

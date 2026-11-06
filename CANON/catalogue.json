@@ -145,7 +145,7 @@
   },
   {
    "name": "The sky sphere and the Globe Explorer",
-   "what": "Lays every site of IAM-Atlas v2.1 on one sphere in genome order, the way a microwave sky is drawn: equal area, no edges, clustered change shows as patches, and the microwave-sky toolset applies. Every report draws the sample on it against its healthy reference; the change is fixed by the measurement (blocks of 10 neighboring sites beyond the 5 % family-wise line), and a slider only fades the unchanged background. The Explorer carries the atlas's 79 cells and the example readings.",
+   "what": "Lays every site of each atlas on one sphere in genome order (IAM-Atlas v2.1's array sites, and all 28.2 million CpGs of the IAM Sequencing Atlas), the way a microwave sky is drawn: equal area, no edges, clustered change shows as patches, and the microwave-sky toolset applies. Every report draws the sample on it against its healthy reference; the change is fixed by the measurement (blocks of 10 neighboring sites beyond the 5 % family-wise line), and a slider only fades the unchanged background. The Explorer carries both atlases, every cell of each (79 and 57), and the example readings.",
    "chapter": "ch:sky",
    "status": "a picture, on every report",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
@@ -213,7 +213,7 @@
   },
   {
    "name": "The information sphere",
-   "what": "The second sphere. The sky sphere places a site by where it sits on the genome; the information sphere places it by how it behaves across the 79 healthy cells, so sites that act alike land together wherever they are on the DNA, and the distance between two states is the Fisher-Rao distance of information geometry, the local form of relative entropy. The sky sphere says where a change is; the information sphere says what kind of change it is. Its construction takes each site's level out first, because on real cells a site's level otherwise sets its place. The synthetic tests pass; on the real atlas it met two of three checks, and the next test reads the third against level-matched groups.",
+   "what": "The second sphere. The sky sphere places a site by where it sits on the genome; the information sphere places it by how it behaves across the healthy cell types, so sites that act alike land together wherever they are on the DNA, and the distance between two states is the Fisher-Rao distance of information geometry, the local form of relative entropy. The sky sphere says where a change is; the information sphere says what kind of change it is. Its construction takes each site's level out first, because on real cells a site's level otherwise sets its place. Built for both atlases (IAM-Atlas v2.1: 191,458 sites from 79 cell types; the IAM Sequencing Atlas: 534,617 sites from 56 cell types, to be rebuilt with 57), on one page with a choice of atlas. The synthetic tests pass; on the real atlas it met two of three checks, and the next test reads the third against level-matched groups.",
    "next": "The test on the real atlas with level-matched lines; then a person's information sphere against their own healthy one.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_SPHERE_01.md"
   },
