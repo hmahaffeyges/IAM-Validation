@@ -1,0 +1,40 @@
+name: page_shots
+# 2026-11-05: screenshots of live website pages in a real browser (headless Chromium), so a page's look is checked as a reader sees it,
+# not only its code. Input: page paths on the site, separated by spaces. Output: one PNG per page (desktop width, full page) as an artifact.
+on:
+  workflow_dispatch:
+    inputs:
+      pages: {description: "page paths on the site, space-separated", required: true}
+      tag:   {description: "artifact name", required: true}
+permissions:
+  contents: read
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: browser
+        run: pip install -q playwright==1.48.0 && python -m playwright install --with-deps chromium
+      - name: shots
+        env: {PAGES: "${{ inputs.pages }}"}
+        run: |
+          mkdir -p shots
+          python - <<'PY'
+          import os, time
+          from playwright.sync_api import sync_playwright
+          base = "https://hmahaffeyges.github.io/IAM-Validation/"
+          with sync_playwright() as p:
+              b = p.chromium.launch(); pg = b.new_page(viewport={"width": 1366, "height": 900})
+              for path in os.environ["PAGES"].split():
+                  pg.goto(base + path + ("&" if "?" in path else "?") + f"v={int(time.time())}", wait_until="networkidle", timeout=120000)
+                  pg.wait_for_timeout(4000)
+                  name = path.replace("/", "_").replace("?", "_").replace("=", "_").replace("&", "_") or "index"
+                  pg.screenshot(path=f"shots/{name}.png", full_page=False)
+                  pg.screenshot(path=f"shots/{name}_full.png", full_page=True)
+                  print("shot", path)
+              b.close()
+          PY
+      - uses: actions/upload-artifact@v4
+        with: {name: "${{ inputs.tag }}", path: shots, retention-days: 14}
