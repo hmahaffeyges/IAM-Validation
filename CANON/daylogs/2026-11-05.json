@@ -180,6 +180,26 @@
       "OTH-068"
      ],
      "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
+    },
+    {
+     "title": "The front page checked link by link against what each link opens",
+     "status": "built",
+     "what": "All 198 links on the front page loaded; each target's title was then compared with its label (website/build/chapter_pages.py, the catalogue).",
+     "outcome": "Six book-chapter links opened the wrong chapter (chapters added earlier shifted the numbers); the page now reads each chapter's number and page from the compiled book by title. The cosmology-tools link opened the book's front page; fixed. The two atlases each link their own information sphere, on one page with a choice of atlas.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "website/build/chapter_pages.py"
+    },
+    {
+     "title": "The whole chain on the website and the README, and the maps' public names",
+     "status": "built",
+     "what": "The instruments section and the README table list all 23 pieces of the chain in order, each linked to its record and marked commissioned or in development, from one list (CANON/catalogue.json, chain_order). The maps are named Array and Sequencing Atlas Globes, Array and Sequencing Information Spheres, the Sample Globe and the Globe Viewer, each entry with its method, its test and what it adds.",
+     "outcome": "Committed; older records keep the names they were written with.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "CANON/catalogue.json"
     }
    ]
   },
@@ -246,6 +266,26 @@
      "status": "mistake",
      "what": "The planned-against-built summary said 38 rows and 3 partly built (39 and 6); the workflow draft's Part H presented two-draw tools that do not yet read chain v4 records.",
      "outcome": "Corrected in the committed files the same evening.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/PLANNED_VS_BUILT.md"
+    },
+    {
+     "title": "The earlier page check confirmed links loaded, not what they opened",
+     "status": "mistake",
+     "what": "The author asked for the page to be checked line by line; the check fetched every link and counted those that failed, but did not compare each target with its label.",
+     "outcome": "The author found the sequencing atlas's information sphere link opening a page that read as the array version (its caption is the array atlas's fixed text). The check now opens every target and compares its title with the label; it found six chapter links opening the wrong chapter.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "website/build/chapter_pages.py"
+    },
+    {
+     "title": "The planned-against-built table overstated a result",
+     "status": "mistake",
+     "what": "Its C3 row said the noise maps' nulls were met in 56 of 56 cells.",
+     "outcome": "That holds for the read-half map only; the donor-half map sits above its null in all 48 cells with both halves (noise_null_summary.txt). Found while writing the maps' test lines from their records; the table is corrected and says so.",
      "rows": [
       "OTH-068"
      ],
