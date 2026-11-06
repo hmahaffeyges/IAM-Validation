@@ -9,7 +9,7 @@
  "title": "The chain refuses a sample read only in part",
  "closing": "",
  "set_out": "Put the genome-coverage check in front of every sequenced reading, then read the B and T test at full depth and measure the same-laboratory tare.",
- "open_at_turnover": "B and T at full depth (samples 1 and 2 read; GitHub and Google relay for the rest); the Johns Hopkins CD4 test on Google (go given; about $11 in total); downtime list 61.x.",
+ "open_at_turnover": "B and T at full depth (samples 3 to 6 aligning or on their last chunk); the Johns Hopkins CD4 test (first donor merging); the whole-genome Sequencing Atlas Globe in the next free Google slot; the website rebuild and its screenshots.",
  "sections": [
   {
    "kind": "ran",
@@ -200,6 +200,46 @@
       "OTH-068"
      ],
      "record": "CANON/catalogue.json"
+    },
+    {
+     "title": "The information spheres and Globe Viewer, checked in a browser",
+     "status": "built",
+     "what": "Live pages photographed in headless Chromium on a GitHub machine (new workflow page_shots.yml). The atlas choice is now a menu in each sphere page's own panel; menu names shortened where they were cut off or ran past the page edge; one Globe Viewer intro naming both atlas globes and both information spheres.",
+     "outcome": "Committed; two builder fixes for the spheres (a family with no cell types listed as 0; the array sphere lacking the newer build's how-to line) wait with the caption fix for one chain version.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": ".github/workflows/page_shots.yml"
+    },
+    {
+     "title": "The whole-genome Sequencing Atlas Globe designed, top of the machine list",
+     "status": "built",
+     "what": "Design with its synthetic and three checks (DEV-SEQ-GLOBE-WG-01): every one of the 28,217,448 CpGs on the globe for each cell, with its level and range; launches in the first free Google slot (author: as important as commissioning).",
+     "outcome": "Committed; waiting for a Google slot.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_GLOBE_WG_01.md"
+    },
+    {
+     "title": "Data search: EPIC whole blood with raw IDATs",
+     "status": "built",
+     "what": "106 GEO series listed; leads held unread: GSE280206 (648 whole bloods drawn after a stroke; 83 later developed cancer within 15 years, 565 did not), GSE224624 (782), GSE176394 (three draws each), GSE182919 (the same DNA by bisulfite and oxidative bisulfite, arrays only).",
+     "outcome": "Recorded in deposit/data_leads.csv.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/deposit/data_leads.csv"
+    },
+    {
+     "title": "A stuck website build cleared",
+     "status": "built",
+     "what": "One build hung 77 minutes installing its tools and held every later build in the queue, so nothing published for over an hour.",
+     "outcome": "Cancelled; the install step now has a 20-minute limit.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": ".github/workflows/website.yml"
     }
    ]
   },
@@ -290,6 +330,16 @@
       "OTH-068"
      ],
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/PLANNED_VS_BUILT.md"
+    },
+    {
+     "title": "The sequencing atlas's globe described as every CpG",
+     "status": "mistake",
+     "what": "Asked whether the sequencing globe and sphere came from all 28 million CpGs, the agent answered yes for the globe without reading the build record; the checklist row and the planned-against-built table also marked it built.",
+     "outcome": "The build record shows the array atlas's 813,951-site layout. Found while checking the book; every public line corrected, the table marks the row partly built, and the whole-genome globe is plan 60.23.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }
