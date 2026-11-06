@@ -1,0 +1,34 @@
+cell,study,sra,runs,gbases,example,spent,lead
+CD4,PRJNA727170,SRP318399,29,1521.9,MS-1-CD4 BS-Seq,False,False
+CD4,PRJNA574550,SRP223612,72,998.4,sample_82_T_cells_CD4,False,False
+CD4,PRJNA779093,SRP345303,36,58.6,Newly diagnosed Rheumatoid Arthritis patient CD4mem 1.1,False,False
+CD4,PRJNA256916,SRP045051,16,30.0,5211_CD4_Memory_48 [Bisulfite-Seq],False,False
+CD4,PRJNA288943,SRP060353,1,3.4,CD4+ T cell,False,False
+CD4,PRJNA281124,SRP057174,3,0.1,12A-CD45,False,False
+CD4,PRJNA74841,SRP001898,17,0.0,DNA sample from CD4 T cells of a human female participant in,False,False
+CD8,PRJNA727170,SRP318399,29,1421.9,MS-4-CD8 BS-Seq,False,False
+CD8,PRJNA1313921,SRP616697,32,666.5,CD81_Rep2_Donor3,False,False
+CD8,PRJNA574550,SRP223612,16,303.9,sample_86_T_cells_CD8,False,False
+CD8,PRJNA256916,SRP045051,4,8.0,5211_CD8 [Bisulfite-Seq],False,False
+CD8,PRJNA288943,SRP060353,1,3.9,CD8+ T cell,False,False
+NK,PRJNA1280811,SRP593822,24,1051.6,"SCID NKG2Apos, rep2, WGBS",False,False
+NK,PRJNA1000485,SRP452335,6,586.2,Allo15BCAR-NKT Donor 1,False,False
+NK,PRJNA494975,SRP167041,7,301.0,WGBS of advanced unknown subtype breast cancer ctDNA: TZ17,False,False
+NK,PRJNA1387201,SRP655537,3,184.8,"NK cells, experiment 3",False,False
+NK,PRJNA1055912,SRP479666,3,175.2,MNKT_2,False,False
+NK,PRJNA1308955,SRP610863,3,136.9,PBMC15MCAR-NKT 1,False,False
+NK,PRJNA741684,SRP325722,1,90.2,StageII-JNKIN8-0127 WGBS,False,False
+NK,PRJNA758826,SRP334682,5,19.4,JAVE60-NK,False,False
+NK,PRJNA171703,SRP014634,1,1.3,NK cells - MethylC-seq,False,False
+NK,PRJNA218854,SRP029882,21,0.3,KL-1 CD 3X G4S linker 1 KLF49,False,False
+NK,PRJNA479544,SRP224957,2,0.0,"Prostatic Neoplasms, Castration-Resistant tumor DNA sample f",False,False
+NK,PRJNA934666,SRP468616,9048,0.0,Non-tumor DNA sample from NK-cell of a human female particip,False,False
+monocyte,PRJNA574550,SRP223612,51,1272.6,sample_42_monocytes,False,False
+monocyte,PRJEB5800,ERP005229,1,186.1,Whole-genome Bisulfite Sequencing for Methylation Analysis o,False,False
+monocyte,PRJEB32258,ERP114912,8,172.1,Monocytes,False,False
+monocyte,PRJNA694046,SRP302846,19,113.3,CMML patient classical monocytes [CMML_1660],False,False
+monocyte,PRJNA288943,SRP060353,1,3.0,CD14+ monocyte,False,False
+monocyte,PRJNA1114806,SRP524245,12,0.0,Non-tumor DNA/RNA sample from Monocyte of a human female par,False,False
+monocyte,PRJNA934666,SRP468616,8080,0.0,Non-tumor DNA sample from Monocyte of a human male participa,False,False
+neutrophil,PRJNA144977,SRP008144,14,52.0,human_neutrophil,False,False
+neutrophil,PRJNA288943,SRP060353,1,3.1,CD16+ neutrophil,False,False
