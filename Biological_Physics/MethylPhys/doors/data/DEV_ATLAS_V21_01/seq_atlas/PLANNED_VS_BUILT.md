@@ -17,7 +17,7 @@ a reading input); is it on the website; is it in the book's sequencing-atlas cha
 | B1–B9 | A healthy reference for every sequencing instrument | Yes, all nine | Yes: every reading on a sequenced sample (pass 5: all Normal) | Catalogue cards (in development) | Chapter |
 | C1 | Every CpG on the sky sphere | Yes (57 cells, level and 95 % range) | Yes: a sequenced sample's globe is read against it | Globe Explorer, 57 cell pages | Chapter |
 | C2 | Information sphere per cell, with its distance | Built as a picture (the information globe) and as each sample's distance from its own healthy self | Partly: a sequenced sample's information sphere still uses IAM-Atlas v2.1's layout of 191,458 sites (35.30.12 open) | Information globe page | One mention |
-| C3 | Noise maps for both spheres | Yes, on the sky sphere | As a check that the 95 % ranges are right (nulls met in 56 of 56); not an input to any reading | Explorer and cell pages | Chapter |
+| C3 | Noise maps for both spheres | Yes, on the atlas globe | As checks of the atlas, not inputs to a reading: the read-half map sits inside its shuffled null in all 56 cells; the donor-half map sits above its null in all 48 cells with both halves (healthy people differ over large stretches of the genome: the measured case for more donors per cell) | Viewer and cell pages | Chapter |
 | C4 | Three spheres compared (v2, v2.1, sequencing) | Against v2.1 (the bridge); not possible for v2 (not in the repository) | Platform offset per cell recorded | — | Chapter |
 | D1 | Sealed donor halves | Yes | Yes: self-free healthy tests read against the other half | — | Chapter |
 | D2 | Read halves | Yes | For the noise maps (a check) | — | Chapter |
@@ -46,3 +46,4 @@ a reading input); is it on the website; is it in the book's sequencing-atlas cha
 4. **The information sphere on sequencing** still places sites by IAM-Atlas v2.1's layout. A layout from the sequencing atlas itself is open (35.30.12); its seven sky tools (35.5), five uses (35.4) and the side-by-side view with the address globe (35.8) are open.
 5. **The book's chapter** carried the sphere, masks, noise maps, spectrum, transfer function, isotropy, bridge and cell pages; it now also carries the Minkowski functionals, the guidebook, the Globe Explorer, Group-A, the distance to the ceiling and the cell-count floor on sequencing (plan 61.4). The covariance appears as the spectrum's correlation by distance.
 
+*Corrected after review: the C3 row first said the nulls were met in 56 of 56; that holds for the read-half map only (noise_null_summary.txt).*

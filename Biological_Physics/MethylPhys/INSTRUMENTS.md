@@ -202,10 +202,10 @@ Single blood readings are too noisy for one person on arrays, but a group averag
 Not instruments: the steps and pictures every reading passes through.
 
 - **Intake and calibration.** Takes an array's raw intensities, checks every control, and turns them into tagging levels on one fixed scale, refusing what it cannot read and saying why.
-- **The tare.** Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease.
+- **Same-run reference correction.** Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease.
 - **Composition.** For whole blood, works out which cells are in the sample and in what shares, so a change in the mix is not mistaken for a change in the cells.
-- **The chain and its report.** Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit.
-- **The sky sphere and the Globe Explorer.** Lays every site of each atlas on one sphere in genome order (IAM-Atlas v2.1's array sites, and all 28.2 million CpGs of the IAM Sequencing Atlas), the way a microwave sky is drawn: equal area, no edges, clustered change shows as patches, and the microwave-sky toolset applies. Every report draws the sample on it against its healthy reference; the change is fixed by the measurement (blocks of 10 neighboring sites beyond the 5 % family-wise line), and a slider only fades the unchanged background. The Explorer carries both atlases, every cell of each (79 and 57), and the example readings.
+- **Pipeline run and report.** Runs every stage in a fixed order, records every input and setting, and prints one report per sample with each instrument's reading, its status and its detection limit.
+- **Array and Sequencing Atlas Globes, and the Globe Viewer.** Method: each atlas's sites placed on an equal-area HEALPix sphere (NSIDE 256, nested ordering) in genome order, each pixel holding a cell's methylation level and its 95 % range: the Array Atlas Globe (IAM-Atlas v2.1, 813,951 array sites) and the Sequencing Atlas Globe (IAM Sequencing Atlas, 28.2 million CpGs). Tested: on the Sequencing Atlas Globe the stated 95 % ranges match the true spread (stated over true variance 1.010 with two donors, 1.007 with three; coverage 0.955 and 0.948); a read-half noise map sits inside its shuffled null in all 56 cells, and a donor-half noise map shows where healthy people differ from one another. Adds: every site of every cell in one fixed place, so a cell, a sample and the uncertainty can be compared pixel for pixel, with the spectrum, mask and null methods built for all-sky maps. The Globe Viewer shows both atlases, every cell of each (79 and 57), and example readings.
 
 ## In development
 
@@ -217,37 +217,37 @@ A second atlas, for sequenced samples only, beside IAM-Atlas v2.1 (which stays t
 
 **Next:** Each cell commissioned on healthy sequenced samples from laboratories the atlas does not hold; columns for cells it lacks (megakaryocytes and later erythroid stages) as public data allows. **Record:** [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
 
-### The information sphere
+### Array and Sequencing Information Spheres
 
-The second sphere. The sky sphere places a site by where it sits on the genome; the information sphere places it by how it behaves across the healthy cell types, so sites that act alike land together wherever they are on the DNA, and the distance between two states is the Fisher-Rao distance of information geometry, the local form of relative entropy. The sky sphere says where a change is; the information sphere says what kind of change it is. Its construction takes each site's level out first, because on real cells a site's level otherwise sets its place. Built for both atlases (IAM-Atlas v2.1: 191,458 sites from 79 cell types; the IAM Sequencing Atlas: 534,617 sites from 56 cell types, to be rebuilt with 57), on one page with a choice of atlas. The synthetic tests pass; on the real atlas it met two of three checks, and the next test reads the third against level-matched groups.
+Method: each site placed on a sphere by its methylation profile across the healthy cell types, with each site's average level removed first, so sites that behave alike land together wherever they sit on the DNA; distances follow the Fisher-Rao metric of information geometry. The Array Information Sphere holds 191,458 sites from IAM-Atlas v2.1's 79 cell types; the Sequencing Information Sphere 534,617 sites from 56 of the sequencing atlas's cell types (to be rebuilt with all 57). Tested on IAM-Atlas v2.1 against 1,000 level-matched random groups: 11 of 12 cell-marker groups land together beyond what their level alone gives; 0 of 100 look-alike groups of the same levels pass, so it does not invent groups; distance agreement 0.8065. Adds: a globe shows where on the genome a change is; an information sphere shows whether the changed sites belong to one cell program spread over many chromosomes.
 
 **Next:** The test on the real atlas with level-matched lines; then a person's information sphere against their own healthy one. **Record:** [DEV_SPHERE_01.md](doors/DEV_SPHERE_01.md)
 
-### The C-Score family
+### C-Score variants
 
 The C-Score reads how a change is laid out along the genome, not how large it is, against the sample's own spread, so a laboratory's offset cancels. Three versions: the commissioned one at Met-A's neutrophil sites; the whole-genome version on the globe's change map against IAM-Atlas v2.1; and IAM-A's, the clustering of held-error departures along the genome on single molecules.
 
 **Next:** Each version read on healthy samples first, then on tumors. **Record:** [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
 
-### Every cell in a mix
+### Per-cell readings in a mixed sample
 
 One run of the one command finds every cell of IAM-Atlas v2.1 in a sample and reads Met-A for each, against its own healthy profile; each cell also gets its own change layer on the globe. Sites held by one cell alone are the next test, so a loss across a cell's whole pattern can be put on the right cell.
 
 **Next:** Each cell's healthy spread across Group-A's 278 bloods. **Record:** [DEV_EACH_CELL_01.md](doors/DEV_EACH_CELL_01.md)
 
-### One blood draw
+### Buffy coat and plasma from one draw
 
 One tube, two halves: the buffy coat (the person's own white cells, long DNA) and the plasma (cell-free DNA). The one command reads both and writes one record, including what the plasma holds that the person's own white cells do not explain, and IAM-Atlas v2.1 says which tissue it came from. Constructed draws with known answers test it; a public set of matched halves from healthy people is held unread for the test that counts. Plasma is read against the IAM Sequencing Atlas at about one read per site: Met-A at the identity sites of the cells found reads 0.9918 on healthy plasma, and the islands carry each library's floor, read 0.9272 at a common floor. Constructed healthy plasmas read Normal at 20 reads per site, so the instrument's own reach is known by depth.
 
 **Next:** What the plasma DNA the Deconvolver gives to erythroid cells is; then the held set of matched halves. **Record:** [DEV_ONE_DRAW_01.md](doors/DEV_ONE_DRAW_01.md)
 
-### The territories
+### Island and domain readings
 
 Two fixed sets of sites the identity readings do not reach, each read on the A-score gauge against the atlas of the sample's own platform (IAM-Atlas v2.1 for arrays, the IAM Sequencing Atlas for sequencing) at each site's own read count: the islands, sites every healthy cell type keeps unmarked, where a mark gained is disorder; and the domains, marked sites some healthy cell types hold loosely, where the hold is lost first. Every run of the one command reads both, on arrays and on sequencing, so a change outside a cell's identity sites is seen where it starts. The synthetic tests pass, and tumors read above their own normal tissue on the islands. On sequencing the islands' expectation is counted from the reference's own reads; healthy sequenced inputs read the islands 1.0118 and the domains 1.0014.
 
 **Next:** Tumors and blood cancers against their own healthy cells, on arrays and on sequencing. **Record:** [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 
-### Nearest-neighbor coupling
+### Nearest-neighbor coupling (Coupling-A)
 
 Whether a molecule's held errors fall one at a time or together, read on the A-score gauge as coupling-A: the sample's coupling (neighboring CpGs that lost their mark together on held molecules, over what each molecule's own length and error count give at random) over the healthy coupling of its own cell type, so a healthy cell reads 1. The gauge's ends are counted: 0 when no two errors are ever neighbors, and the sample's own most clustered arrangement, every molecule's errors in one run. Its healthy reference comes from the 153 healthy sequencing samples behind IAM-Atlas v2.1, 56 cell types: errors cluster in every healthy cell, more in some, and read against its own cell type a healthy sample sits within 0.935 to 1.062. It asks a question from the information-theory study of methylation: is a mark kept site by site, or by a stretch of DNA as a unit? Every sequencing report draws it.
 
@@ -259,31 +259,31 @@ Met-A for a sample sequenced by whole-genome bisulfite, read against the IAM Seq
 
 **Next:** The same-laboratory tare: two outside laboratories' healthy libraries read own-cell Met-A at a median of 0.7134 and 0.5891, and tared on three of their own laboratory's healthy samples of the same cell they read 1.0001 and 0.9889. Next, the healthy test on a laboratory the atlas has never held (six healthy donors' CD4 T cells, each tared on the other five), then each cell from every laboratory that supplies healthy samples of its own. **Record:** [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
 
-### The genome-coverage check
+### Genome-coverage check
 
 Before a sequenced sample is read, the chain checks that its reads cover every chromosome evenly, and refuses, naming the missing chromosomes, a sample read only in part. A thin library, thin on every chromosome alike, passes. Its synthetic met every case.
 
 **Next:** commissioned with the next fresh sequencing test **Record:** [DEV_SEQ_INTAKE_01.md](doors/DEV_SEQ_INTAKE_01.md)
 
-### The distance to the ceiling
+### Distance to maximum disorder
 
 How far a sample sits from the most disordered state its own cell type can reach, the ceiling the law sets for each cell, on the same gauge as every reading. Read and flagged on every run; on sequencing its counted ceiling met its synthetic.
 
 **Next:** cancer researchers set where the lines fall on the gauge; commissioning on tumor and normal pairs from one laboratory **Record:** [DEV_CEILING_02.md](doors/DEV_CEILING_02.md)
 
-### The genome globe
+### Sample Globe
 
-Every site of the sample on the sphere, against the person's own expected healthy self: a healthy sample stays nearly dark, and a change lights up where it is on the genome. Drawn on every report, with the count of changed blocks.
+Method: every site of the sample against the person's own expected healthy profile (each atlas cell's healthy level, mixed at the sample's own cell shares), in units of that site's healthy range; a block of 10 neighboring sites counts as changed only beyond a 5 % family-wise line, drawn on the atlas globe for its platform. Tested on sequencing: constructed healthy samples showed 2, 1 and 2 changed blocks (limit 50) and a planted change lit 231 of its 275 blocks (needed 139.5); on 35 outside healthy samples, pancreas reads level with the array version (156 against 158 changed blocks), while cortical neurons read 109 against 24, so the change count stays flagged. Adds: where on the genome a change sits, and whether it is clustered or scattered.
 
 **Next:** its commissioning plan is written: healthy samples stay dark, planted changes light where planted **Record:** [DEV_GLOBE_COMMISSION_01.md](doors/DEV_GLOBE_COMMISSION_01.md)
 
-### Two draws of one person
+### Serial samples from one person
 
 Two or more draws of the same person, read the same way: the later against the earlier, at every site both measured, so the person is their own reference.
 
 **Next:** the tools are being moved onto the current chain's records; public data with repeated draws of the same healthy people is held for its test **Record:** [PROC_SERIAL_01_PREREG.md](doors/PROC_SERIAL_01_PREREG.md)
 
-### The same-laboratory tare on sequencing
+### Same-laboratory reference correction (sequencing)
 
 A few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against them. On two outside laboratories, three of their own healthy samples brought them to Normal.
 

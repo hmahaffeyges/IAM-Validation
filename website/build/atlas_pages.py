@@ -31,7 +31,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     if not os.path.exists(f): return 0
     _s.path.insert(0, os.path.join(H_, "..", "..", "Biological_Physics", "MethylPhys", "chain", "MethylPhys_Interface")); import globe_viewer as V
     S = json.load(open(f)); cells = sorted(({"slug": c["slug"], "name": names.get(c["slug"], c["cell"])} for c in S["cells"]), key=lambda c: c["name"].lower())
-    atlas = dict(id="atlas", name="IAM-Atlas v2.1: 79 healthy cell types", groups=[dict(id=c["slug"], name=c["name"], layers=[
+    atlas = dict(id="atlas", name="Array Atlas Globe: IAM-Atlas v2.1, 79 healthy cell types", groups=[dict(id=c["slug"], name=c["name"], layers=[
         dict(name="methylation", kind="image", src=f"{art_rel}sphere/{c['slug']}_v.jpg", mask=f"{art_rel}sphere/{c['slug']}_vm.png", vscale=[0, 1], vword="at least this methylated:",
              hint="Slide right to keep only the sites at least this methylated; the rest go dark. Slide back to see every site.",
              note="The atlas's best value at every site, 0 (never tagged) to 1 (always tagged)."),
@@ -47,7 +47,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     fs = os.path.join(ART_, "seq_cells", "index.json")
     if os.path.exists(fs):
         Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": c["cell"][:1].upper() + c["cell"][1:]} for c in Q["cells"]), key=lambda c: c["name"].lower())
-        specs.append(dict(id="seq-atlas", name=f"The IAM Sequencing Atlas: {len(qc)} healthy cell types at every CpG", groups=[dict(id=c["slug"], name=c["name"], layers=[
+        specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe: the IAM Sequencing Atlas, {len(qc)} healthy cell types at every CpG", groups=[dict(id=c["slug"], name=c["name"], layers=[
             dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at every CpG, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
             dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in qc],
             about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Every CpG of the genome has one fixed place: HEALPix NSIDE "
@@ -57,8 +57,8 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     intro = (f'<p><a href="index.html">&larr; all {len(cells)} cells</a> &middot; <a href="{back}">front page</a></p><p>Choose a globe, then what to show. '
              'Drag to turn it. Each globe brings its own layers and sliders. Gray or dark pixels hold no measured site.</p>'
              + ('<p>Two atlases are here: IAM-Atlas v2.1, the ruler for arrays, and the IAM Sequencing Atlas, the ruler for sequenced samples '
-                '(<a href="sphere.html?globe=seq-atlas">open it</a>; <a href="../seq-atlas/index.html">its cell pages</a>; '
-                '<a href="information_sphere.html?atlas=seq">its information sphere</a>).</p>' if os.path.exists(fs) else ''))
+                '(<a href="sphere.html?globe=seq-atlas">the Sequencing Atlas Globe</a>; <a href="../seq-atlas/index.html">its cell pages</a>; '
+                '<a href="information_sphere.html?atlas=seq">the Sequencing Information Sphere</a>).</p>' if os.path.exists(fs) else ''))
     isp = os.path.join(ART_, "information_sphere.html")   # 2026-10-23: the information sphere, as the one command built it (run_sample.py --build info-globe)
     if os.path.exists(isp): intro += ('<p><b>New: <a href="information_sphere.html">the information sphere</a></b> (development). These globes place every site by where '
                                       'it sits on the DNA; the information sphere places it by how it behaves across the 79 cell types.</p>')
@@ -71,11 +71,11 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     SPH = []
     if os.path.exists(isp):
         _sh.copy(isp, os.path.join(d, "info_sphere_v21.html")); m = json.load(open(os.path.join(gd, "v21_globe.json")))
-        SPH.append(("v21", "IAM-Atlas v2.1 (arrays)", "info_sphere_v21.html", m))
+        SPH.append(("v21", "Array Information Sphere (IAM-Atlas v2.1)", "info_sphere_v21.html", m))
     sq = os.path.join(gd, "seq_globe.html")
     if os.path.exists(sq):
         _sh.copy(sq, os.path.join(d, "info_sphere_seq.html")); m = json.load(open(os.path.join(gd, "seq_globe.json")))
-        SPH.append(("seq", "IAM Sequencing Atlas (sequencing)", "info_sphere_seq.html", m))
+        SPH.append(("seq", "Sequencing Information Sphere (IAM Sequencing Atlas)", "info_sphere_seq.html", m))
     if SPH:
         opts = "".join(f'<option value="{k}">{nm}</option>' for k, nm, f, m in SPH)
         info = {k: dict(src=f, text=f"{nm}: {m['sites']:,} sites placed, from {m['cell_types']} healthy cell types (sites measured in every cell type that differ between them); "
@@ -85,17 +85,17 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
                 "&ldquo;What you are looking at&rdquo; panel still carries IAM-Atlas v2.1&rsquo;s wording; the points drawn are the sequencing atlas&rsquo;s. "
                 "A rebuild with all 57 and its own wording is next.</p>")
         page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-                '<title>The information sphere</title><style>body{margin:0;font-family:system-ui,sans-serif;background:#0b0e14;color:#e8e8e8}'
+                '<title>Array and Sequencing Information Spheres</title><style>body{margin:0;font-family:system-ui,sans-serif;background:#0b0e14;color:#e8e8e8}'
                 '.bar{padding:10px 16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}select{font-size:16px;padding:6px 10px;border-radius:6px}'
                 'a{color:#9cc3ff}.note{margin:0 16px 8px;font-size:13px;color:#c8b98a}#t{font-size:14px;color:#cfd6e4}iframe{border:0;width:100%;height:calc(100vh - 110px)}</style></head><body>'
-                f'<div class="bar"><b>The information sphere</b><label>Atlas: <select id="s">{opts}</select></label><span id="t"></span>'
-                '<a href="sphere.html">the Globe Explorer (every site by its place on the DNA)</a> &middot; <a href="index.html">IAM-Atlas v2.1 cells</a> &middot; '
+                f'<div class="bar"><b>Information spheres</b><label>Show: <select id="s">{opts}</select></label><span id="t"></span>'
+                '<a href="sphere.html">the Globe Viewer (the atlas globes: every site by its place on the DNA)</a> &middot; <a href="index.html">IAM-Atlas v2.1 cells</a> &middot; '
                 '<a href="../seq-atlas/index.html">IAM Sequencing Atlas cells</a></div>' + note + '<iframe id="f" title="information sphere"></iframe>'
                 '<script>const I=' + json.dumps(info) + ';const s=document.getElementById("s");'
                 'function go(k){if(!I[k])k=Object.keys(I)[0];s.value=k;document.getElementById("f").src=I[k].src;document.getElementById("t").textContent=I[k].text;'
                 'history.replaceState(null,"","?atlas="+k)}s.onchange=()=>go(s.value);go(new URLSearchParams(location.search).get("atlas")||"v21");</script></body></html>')
         open(os.path.join(d, "information_sphere.html"), "w", encoding="utf-8").write(page)
-    open(os.path.join(d, "sphere.html"), "w", encoding="utf-8").write(V.page(specs, "The IAM Globe Explorer", intro=intro))
+    open(os.path.join(d, "sphere.html"), "w", encoding="utf-8").write(V.page(specs, "The IAM Globe Viewer", intro=intro))
     return len(cells)
 
 def write(out, art_rel, css_tag, style, back):
