@@ -14,12 +14,54 @@
   {
    "kind": "ran",
    "heading": "What ran, and how each came out",
-   "entries": []
+   "entries": [
+    {
+     "title": "Prior art, second and third passes",
+     "status": "audit",
+     "what": "Web searches, two full papers and PubMed on each claim: Landauer on methylation, reading against a healthy reference, disorder against the cell mix, the sky statistics and the information sphere on methylation, nearest-neighbor coupling.",
+     "outcome": "Published: Landauer on methylation (already credited in the book), signal detection against a pooled healthy reference, the Ising-model information-theoretic epigenome, a deconvolution residual. Not found: the floor from a measured holding energy, the disorder ratio to the sample's own healthy mix at its depth, HEALPix and sky statistics on a methylome, the information sphere on methylation.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
+    }
+   ]
   },
   {
    "kind": "built",
    "heading": "What we built",
-   "entries": []
+   "entries": [
+    {
+     "title": "Credits for the Johns Hopkins leukemia study",
+     "status": "built",
+     "what": "The author: Coupling-A and the island and domain readings grew from the information-theory study of pediatric leukemia; cited in the book's toolbox chapter and the catalogue with what IAM adds, the citation checked against Crossref; the paper outline thanks the group and carries the outreach note.",
+     "outcome": "Committed.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/paper/OUTLINE.md"
+    },
+    {
+     "title": "Physics values only from the canon",
+     "status": "built",
+     "what": "CANON/canon_fill.py fills {{canon:KEY}} tokens; the physics root, the Decoder and the SOP builder now take their physics values from CANON/iam_canon.json; the workflow outline and draft carry the rule; the canon refuses the J/mol misprint anywhere in the repository.",
+     "outcome": "Built documents unchanged byte for byte.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "CANON/canon_fill.py"
+    },
+    {
+     "title": "The whole repository to Zenodo",
+     "status": "in progress",
+     "what": "A draft record (reserved DOI 10.5281/zenodo.24008693) filled from a Toronto machine: the repository at one commit, its full history, the hg19 and mm10 alignment indexes, the IAM Sequencing Atlas's healthy inputs, a SHA-256 manifest.",
+     "outcome": "Uploading; the author publishes.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/deposit/zenodo_repo_snapshot.py"
+    }
+   ]
   },
   {
    "kind": "learned",
@@ -39,6 +81,36 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "A paper's per-mole unit copied into the prior-art record",
+     "status": "mistake",
+     "what": "The record wrote the Landauer cost per mole in J where kJ is meant, copied from the paper instead of read from the canon.",
+     "outcome": "Caught by the auditor; the record now cites the canon's Landauer_floor_cell and the canon refuses the misprint.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
+    },
+    {
+     "title": "The paper folder was not in the commit tool's sent folders",
+     "status": "mistake",
+     "what": "The 11-04 data-we-need section of the paper outline, and the 11-06 acknowledgments, were written but never reached GitHub.",
+     "outcome": "Found while checking main before the Zenodo snapshot; both sent (fa0a6703).",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/paper/OUTLINE.md"
+    },
+    {
+     "title": "Prior-art search before reading the book's own credits",
+     "status": "mistake",
+     "what": "The search reported the Landauer-on-methylation work as a finding; the book's giants chapter already credits it and states the difference (known-information rule).",
+     "outcome": "Recorded in the prior-art record.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
     }
    ]
   }

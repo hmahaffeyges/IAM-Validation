@@ -3972,6 +3972,9 @@ A full book chapter on the IAM Sequencing Atlas, how it differs from IAM-Atlas v
 - The B and T test at full depth (third reading), sent from 12:02 AM one sample at a time. Sample 1's last chunk ran past GitHub's 6 hours (a genome-ordered run's last chunk holds its unplaced reads), so CD8 samples now align chunks 0 to 14 on GitHub and chunk 15 on Google, and merge on Google. Chunks 9 (sample 1) and 10 (sample 2) reported success with no molecules (their index download failed and the job did not stop); both re-sent. Sample 1 merged: every chromosome about 99 % covered, 805,223 of 813,951 sites; the coverage check let it through. By midnight samples 1 to 4 were merged and read, 5 and 6 nearly in, 7 aligning, 8 started.
 - The Johns Hopkins CD4 healthy test (6 donors, written before reading) on Google: three chunks failed overnight; a chunk rerun with disk logging peaked at 61 GB against the 60 GB disks, so machines now get 150 GB. One chunk stopped after about 4 hours without uploading (a reclaimed spot machine) and was relaunched. By midnight 28 of 85 chunks done and donor 1 merged.
 - BLUEPRINT's per-site re-read: all 59 read; the 21 without tables are below Met-A's 90 % identity-site rule.
+- The whole-genome globe's design note (DEV-SEQ-GLOBE-WG-01) with its synthetic: refused twice by the gate (numbers not traced to a committed output, then no named script) and committed once its sources were named (`c4ec9570`).
+- The cell galleries of both atlases, from screenshots: cell names miscapitalized on every atlas page and a misspelled source label (Fallopian tube epithelium) fixed in the display only, the data keeping their source labels; the sequencing gallery's paragraph no longer says its globe places every CpG (`c8f61d82`).
+- The book's cosmology-tools chapter: four of its tools left to employ are now built on the IAM Sequencing Atlas (the masks, the transfer function at the islands, the cell-count floor, the genome-distance spectrum), checked against the planned-against-built table first.
 
 **Successes:**
 - The chain now refuses a partly read sample before reading it, and names the missing chromosomes.
@@ -4020,6 +4023,7 @@ A full book chapter on the IAM Sequencing Atlas, how it differs from IAM-Atlas v
 - The whole-genome Sequencing Atlas Globe is "as important as commissioning ... dont let it sink to the bottom"; "since that is a google computer job, we just wait for those to free up".
 - "Dont sleep."
 - "so you're telling me 14 machines are free??", "You are supposed to be checking that machines are all busy every half hour AND the watchers are checking too."
+- "how much longer for the B and T and for the Johns Hopkins work? ... I feel like we have been running the same exact alignments for tests now for over a week." Answered with estimates and the cause: the first B and T alignment was wasted by the agent's depth cap on genome-ordered runs, the Johns Hopkins CD4 alignment is new work, and Google's 8-machine limit binds; the agent offered to raise the Google quota.
 
 **Path changes:**
 - CD8 last chunks and every merge on Google; a relay copies GitHub's chunks to the bucket.
