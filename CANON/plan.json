@@ -1759,7 +1759,7 @@
      "status": "open",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "The information sphere's gauge and its sequencing layout: the sphere's distance (each sample's Fisher-Rao distance from its own healthy expectation) read over the healthy distance of its cell, as coupling-A is, so a healthy sample reads 1, flagged; a sphere layout built from the sequencing atlas at the CpGs that vary between cells; for plasma, which of the sphere's regions a tissue's shed DNA lights up.",
-     "next": "after the current readings (one chain version): the sphere builder writes its title, subtitle and 'What you are looking at' panel from the atlas given; it leaves out a family with no cell types in that atlas (the sequencing sphere lists embryonic stem cells with 0); both spheres redrawn by the same builder (the array sphere lacks the 'How to use' line the newer build has); the sequencing sphere rebuilt with all 57 cells; then a sequenced sample's own sphere"
+     "next": "after the current readings (one chain version): the sphere builder writes its title, subtitle and 'What you are looking at' panel from the atlas given; it leaves out a family with no cell types in that atlas (the sequencing sphere lists embryonic stem cells with 0); both spheres redrawn by the same builder (the array sphere lacks the 'How to use' line the newer build has); the sequencing sphere rebuilt with all 57 cells; then a sequenced sample's own sphere; the sequencing cell gallery drawn as full-sky ovals with a color bar, as IAM-Atlas v2.1's gallery is (it shows the flat texture)"
     },
     {
      "id": "35.30.13",

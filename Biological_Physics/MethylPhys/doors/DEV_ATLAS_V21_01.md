@@ -1326,3 +1326,16 @@ array atlas (`website/art/out/seq_cells/index.json`: sites 813951, NSIDE 256). T
 sphere at a resolution fine enough for the whole genome; that is not built. The atlas itself holds all 28,217,448 CpGs. Public text that said
 the globe or its cell pictures show every CpG is corrected; the planned-against-built table marks C1 partly built. A whole-genome globe
 (28.2 million CpGs need a finer HEALPix resolution; NSIDE 2048 has 50.3 million pixels) is plan item 60.23.
+
+**The Johns Hopkins tumor-against-own-normal test (written and committed before any of its tissue samples is read).** The other half of the same-laboratory test. The instrument's job: a person's tumor, read against that same person's normal tissue from
+the same laboratory, reads abnormal. Samples (`seq_atlas/outside_data/jhu_tissue_samples.csv`, from GSE86340's labels and ENA's run list):
+five people with tumor and normal tissue (three liver, two lung), 165 to 299 million read pairs each, plus one lung tumor and one lung normal
+whose labels do not say they are one person (recorded, not scored); 12 samples, 114 chunks, every read pair of every run, aligned on Google
+(`DEV_ERASE_01/split_google.sh`, the same steps as `split_align.yml`), merged and read once by the one command after the genome-coverage check,
+with the flags the CD4 test uses. Self-reference: each reading of a tumor divided by the same reading of the person's own normal tissue
+(`stage_metaa_atlas.tare`'s rule with one reference). No direction is assumed. Bars (`jhu_tissue_score.py`, outputs `jhu_tissue_test.csv`,
+`jhu_tissue_test_pairs.csv`, `jhu_tissue_test.txt`): 1. whole-sample Met-A outside 0.95 to 1.05 in at least 4 of the 5 labeled pairs; 2. the
+islands outside 0.95 to 1.05 in at least 4 of the 5. Recorded, not scored: the domains, the C-Score, coupling-A and IAM-A against own normal, each
+tissue's untared readings against the IAM Sequencing Atlas (normal tissue beside a tumor may carry a field change), the cell shares and the
+unlabeled lung pair. No new chain code: every reading used here has its own synthetic on record. **Prior reading:** GSE86340's labels and run
+sizes only; none of these 12 tissue samples has been read.
