@@ -31,8 +31,9 @@ jobs:
       - name: Install LaTeXML, TeX Live and tools
         timeout-minutes: 20   # 2026-11-05: an install hung 77 minutes and held every later build in the queue; fail fast instead
         run: |
-          sudo apt-get update -q
-          sudo apt-get install -y -q --no-install-recommends latexml texlive-latex-base texlive-latex-recommended \
+          # 2026-11-06: a slow package mirror stalled a fetch until the 20-minute limit; each fetch now times out at 30 s and retries 5 times
+          sudo apt-get update -q -o Acquire::Retries=5 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30
+          sudo apt-get install -y -q -o Acquire::Retries=5 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 --no-install-recommends latexml texlive-latex-base texlive-latex-recommended \
             texlive-latex-extra texlive-fonts-recommended texlive-science poppler-utils imagemagick epubcheck
       - name: Install tectonic (the engine the book is compiled with; builds the PDFs)
         run: |
