@@ -110,6 +110,16 @@
       "OTH-068"
      ],
      "record": "website/build/seq_atlas_pages.py"
+    },
+    {
+     "title": "The website build hardened against a slow package mirror and a slow publish",
+     "status": "built",
+     "what": "Two builds failed: the tool install stalled on a slow Ubuntu mirror until its 20-minute limit, then the Pages publish sat on 'syncing files' past its 10-minute default after the site grew by the noise-map images. Each package fetch now times out at 30 seconds and retries 5 times; the publish waits up to 30 minutes.",
+     "outcome": "Both following builds succeeded; the site is current.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": ".github/workflows/website.yml"
     }
    ]
   },
