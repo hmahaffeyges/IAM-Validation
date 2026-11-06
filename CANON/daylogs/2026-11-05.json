@@ -9,7 +9,7 @@
  "title": "The chain refuses a sample read only in part",
  "closing": "",
  "set_out": "Put the genome-coverage check in front of every sequenced reading, then read the B and T test at full depth and measure the same-laboratory tare.",
- "open_at_turnover": "B and T at full depth (one sample at a time on GitHub); the Johns Hopkins CD4 test on Google, capped at $5; R14 lung on GitHub.",
+ "open_at_turnover": "B and T at full depth (samples 1 and 2 read; GitHub and Google relay for the rest); the Johns Hopkins CD4 test on Google (go given; about $11 in total); downtime list 61.x.",
  "sections": [
   {
    "kind": "ran",
@@ -44,6 +44,26 @@
       "OTH-082"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "R14 lung adenocarcinoma by stage on every atlas cell",
+     "status": "development",
+     "what": "141 EPIC v1 tumor arrays read by the full chain on every atlas cell; the arrays GEO had refused re-sent.",
+     "outcome": "137 read; stage 3 to 4 against stage 1: no reading below p 0.001, 1 of 169 below p 0.01; the chain quarantined 4 itself for bisulfite conversion 0.73 to 0.79 (limit 0.8). A-score rows added.",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "B and T at full depth: the first CD8 library read on the whole genome",
+     "status": "in progress",
+     "what": "GSM2616068 aligned in 16 chunks (GitHub chunks 0 to 14, Google the last), merged and read once on Google by the one command.",
+     "outcome": "Every chromosome about 99 % covered (it was chromosomes 1 to 8 only before), 805,223 of 813,951 sites, 17 calls per site; GSM2616069 also read. Not scored until all 12 are read.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   },
@@ -100,6 +120,66 @@
       "OTH-068"
      ],
      "record": "docs/book/appendices/app_F_glossary.tex"
+    },
+    {
+     "title": "The author's to-do lists and atlas notes checked line by line",
+     "status": "built",
+     "what": "1,053 lines of the author's two files against the plan and the records.",
+     "outcome": "301 in the plan, 81 done or replaced, 24 missing now added, 9 not pursued with the reason, 47 private; a downtime section (61.x) and machine items 60.17 to 60.22 added.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "CANON/todo_audit_2026-11-05.md"
+    },
+    {
+     "title": "The IAM Sequencing Atlas, planned against built",
+     "status": "built",
+     "what": "Every one of the checklist's 39 rows: built, used by the chain in a reading, on the website, in the book.",
+     "outcome": "31 fully built, 6 partly, 1 not possible, 1 waiting on plasma; the spectrum and covariance built but used by no reading yet (a whole-genome C-Score on sequencing added, 60.22).",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/PLANNED_VS_BUILT.md"
+    },
+    {
+     "title": "The chain workflow document: every part drafted",
+     "status": "built",
+     "what": "All nine parts from the code and the Decoder: what you have, the array path, the sequencing path, the ruler, the cell mix, the readings, the tares, two draws, the report.",
+     "outcome": "Every box traced to its Decoder section; the same-laboratory box and plasma wait on running tests; two Decoder errors found and fixed while drafting.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/CHAIN_WORKFLOW_DRAFT.md"
+    },
+    {
+     "title": "Book: the sequencing atlas chapter and the v2.1 chapter",
+     "status": "built",
+     "what": "The sequencing chapter gains Minkowski, the guidebook, the Globe Explorer, Group-A, the distance to the ceiling and the cell-count floor; the v2.1 chapter's tool lines note what is built on the sequencing atlas.",
+     "outcome": "A broken cross-reference fixed in the v2.1 chapter (it printed raw code): its generator escaped every backslash; a reference token now survives.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "CANON/atlas_story.json"
+    },
+    {
+     "title": "Designs written before code: one-button intake and two new C-Scores",
+     "status": "built",
+     "what": "The one-button intake (files found from the folder, the ruler from the platform, the specimen optional and called from the cell mix) and the C-Score on the information sphere and on sequencing, each with what its synthetic must show.",
+     "outcome": "Code waits until the B and T and Johns Hopkins readings finish, so they stay on one chain version.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_FAMILY_01.md"
+    },
+    {
+     "title": "Data search and prior art",
+     "status": "built",
+     "what": "450K whole blood with raw IDATs, healthy plasma sequencing, and the literature for four claims.",
+     "outcome": "Leads held unread: GSE85210 (healthy, replaces GSE55763), GSE174422 (duplicates), GSE73115 (two draws ten years apart), GSE105018, GSE259312 and GSE306695 (healthy plasma by EM-seq), GSE307705, GSE306917 (a real planted gain). Prior art: a whole-genome cell-type atlas and per-sample disorder are published; the other two claims not found so far.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
     }
    ]
   },
@@ -113,6 +193,16 @@
      "why": "Three chunks failed the same way; a small fetch of the same run was whole, and a chunk on a 150 GB disk passed 59 GB used.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "status": "recorded"
+    },
+    {
+     "title": "A network change hangs the laptop's loops",
+     "status": "learned",
+     "what": "Moving the laptop from home Wi-Fi to the phone's hotspot caught four loops and one commit inside network requests.",
+     "outcome": "They went silent for about 25 minutes; every 30-minute check now flags a loop whose log is older than twice its cycle.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "CANON/daylogs/2026-11-05.json"
     }
    ]
   },
@@ -140,6 +230,26 @@
      "what": "The 10 arrays GEO refused were re-sent on 2 shards; the workflow runs only 10 or 20 and refused it at once. The rule was already in memory from 11-04 (a known-information breach). Sent again on 10 shards, about 25 minutes lost.",
      "why": "Caught by the run's own failure on the next machine check.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "A hand edit to a generated book chapter",
+     "status": "mistake",
+     "what": "The v2.1 chapter is generated from CANON/atlas_story.json, already on record; the hand edit was overwritten by the gate and the commit came back empty.",
+     "outcome": "Made in the source the second time; caught by the empty commit.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "CANON/atlas_story.json"
+    },
+    {
+     "title": "Two counts and one claim corrected after review",
+     "status": "mistake",
+     "what": "The planned-against-built summary said 38 rows and 3 partly built (39 and 6); the workflow draft's Part H presented two-draw tools that do not yet read chain v4 records.",
+     "outcome": "Corrected in the committed files the same evening.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/PLANNED_VS_BUILT.md"
     }
    ]
   }
