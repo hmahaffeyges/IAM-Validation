@@ -8,9 +8,10 @@ MP=$R/Biological_Physics/MethylPhys; E=$MP/doors/data/DEV_ERASE_01; L_=$R/$LIST 
 export INDEX_TAG=hg19-bwameth-index-v1 GITHUB_REPOSITORY=hmahaffeyges/IAM-Validation MP WORK=$W/ew OUT=$W/eout NW=4 SAMPLES=$L_ MAXPAIRS=999999999
 mkdir -p $W/eout
 if [ "$MODE" = chunk ]; then
-  CHUNK=$K/$N PATONLY=1 bash $E/erase_gh.sh $GSM > $W/run.log 2>&1; rc=$?
+  # 2026-11-06: stage checkpoints (erase_gh.sh, CKPT): a reclaimed machine's relaunch resumes from the saved reads or the saved alignment
+  CKPT=$B/ckpt/${GSM}_c${K}_${N} CHUNK=$K/$N PATONLY=1 bash $E/erase_gh.sh $GSM > $W/run.log 2>&1; rc=$?
   f=$W/eout/${GSM}_c${K}_${N}.pat.gz; log "chunk $K/$N rc $rc: $(grep -E 'fetched pairs|aligned in|pat in' $W/run.log | tr '\n' ' ' | cut -c1-250)"
-  [ -s "$f" ] && gcloud storage cp -q $f $B/chunks/ > /dev/null 2>&1 && log "uploaded $(basename $f)"
+  [ -s "$f" ] && gcloud storage cp -q $f $B/chunks/ > /dev/null 2>&1 && log "uploaded $(basename $f)" && { gcloud storage rm -r -q "$B/ckpt/${GSM}_c${K}_${N}" > /dev/null 2>&1; log "checkpoints cleared"; }
   cp $W/run.log $W/${GSM}_c${K}_${N}_run.log; up $W/${GSM}_c${K}_${N}_run.log
 else
   mkdir -p $W/chunks; gcloud storage cp -q "$B/chunks/${GSM}_c*_${N}.pat.gz" $W/chunks/ > /dev/null 2>&1

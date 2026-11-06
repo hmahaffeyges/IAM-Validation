@@ -37,3 +37,4 @@ plasma_shares_diag_06.txt
 plasma_shares_diag_06.csv
 plasma_band_06_summary.txt
 plasma_seq_06_rows.csv
+plasma_lab3_samples.csv

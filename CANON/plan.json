@@ -345,7 +345,7 @@
      "date": "2026-11-05",
      "status": "running",
      "what": "Data search, continuous, for commissioning and testing every cell on every instrument (author: 'we need lots more to commission every cell for each of the instruments and the atlas's perfectly themselves'): GEO, SRA, ENA, ArrayExpress and journal papers' data sections, by cell and instrument against the table of 79 plus 57 cells (60.8); every lead into deposit/data_leads.csv with its spend status, nothing read",
-     "next": "leads held unread in deposit/data_leads.csv, each with its file layout checked: GSE186007 (healthy, colorectal and pancreatic plasma, one laboratory, hg19 counts: the plasma commissioning candidate, no alignment needed), GSE105127 (healthy hepatocytes, counts), GSE137879, GSE149612, GSE154348 (need alignment); waiting for the author's go on cost: PRJNA727170 (58 healthy sorted libraries, about 1,570 machine-hours), GSE319595 (84 healthy whole bloods by EM-seq, about 5,000 machine-hours)",
+     "next": "GSE186007 plasma test written before reading (DEV_ONE_DRAW_01.md, plasma_lab3/), runs next; PRJNA727170 (58 healthy sorted B, CD4, CD8, monocytes, one new laboratory, about $50): the only route found to commission B, CD8 and monocytes on sequencing, run only if the Johns Hopkins CD4 same-laboratory tare is met; GSE319595 (84 healthy EM-seq whole bloods, about $150): NOT PURSUED for now, because whole blood is commissioned on arrays and plasma, sequencing's use, is covered free by GSE186007",
      "record": "Biological_Physics/MethylPhys/deposit/data_leads.csv"
     },
     {

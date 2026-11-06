@@ -92,15 +92,33 @@ fetch_all(){ rm -rf $S/fq/*; i=0   # --split-3 (2026-10-25): only true pairs go 
   done
   cat $S/fq/b*/*_1.fastq > $S/fq/${GSM}_1.fq; cat $S/fq/b*/*_2.fastq > $S/fq/${GSM}_2.fq; rm -rf $S/fq/b*
   n1=$(awk 'END{print NR/4}' $S/fq/${GSM}_1.fq); n2=$(awk 'END{print NR/4}' $S/fq/${GSM}_2.fq); }
+# 2026-11-06 (author: "are you not saving the work as it goes along ... when a machine is reclaimed??"): with CKPT set (a bucket folder, Google
+# spot machines only), each stage's output is saved as it finishes and a restarted machine resumes from the last saved stage: the fetched read
+# pairs, then the aligned reads before sorting. Off when CKPT is empty (GitHub), so those runs are unchanged. The saved files are the same bytes
+# the stage made, so the molecules come out the same as an uninterrupted run.
+ck(){ [ -n "${CKPT:-}" ] && gcloud storage ls "$CKPT/$1" > /dev/null 2>&1; }
+ckput(){ [ -n "${CKPT:-}" ] && gcloud storage cp -q "$2" "$CKPT/$1" > /dev/null 2>&1 && log "checkpoint saved: $1"; }
+ckget(){ gcloud storage cp -q "$CKPT/$1" "$2" > /dev/null 2>&1; }
+RESUME=none
+if ck "${GSM}.u.bam"; then RESUME=aligned; elif ck "${GSM}_1.fq.gz" && ck "${GSM}_2.fq.gz"; then RESUME=fetched; fi
+if [ "$RESUME" = aligned ]; then mkdir -p $S/bam; ckget "${GSM}.u.bam" $S/bam/$GSM.u.bam && ckget "${GSM}_pairs.txt" $S/pairs.txt && n1=$(cat $S/pairs.txt) && n2=$n1; TF=$(date +%s); log "resumed from the saved alignment ($n1 pairs)"
+elif [ "$RESUME" = fetched ]; then mkdir -p $S/fq; ckget "${GSM}_1.fq.gz" $S/fq/${GSM}_1.fq.gz && ckget "${GSM}_2.fq.gz" $S/fq/${GSM}_2.fq.gz && gunzip -f $S/fq/${GSM}_1.fq.gz $S/fq/${GSM}_2.fq.gz
+  n1=$(awk 'END{print NR/4}' $S/fq/${GSM}_1.fq); n2=$(awk 'END{print NR/4}' $S/fq/${GSM}_2.fq); TF=$(date +%s); log "resumed from the saved reads ($n1/$n2 pairs)"
+else
 fetch_all; TF=$(date +%s); log "fetched pairs $n1/$n2 in $((TF-TI)) s"
 if [ "$n1" != "$n2" ] || [ "$n1" = 0 ]; then log "short fetch ($n1/$n2): fetching once more"; fetch_all; TF=$(date +%s); log "fetched pairs $n1/$n2 in $((TF-TI)) s"; fi   # 2026-10-25: a read file came back short with no error
 [ "$n1" = "$n2" ] && [ "$n1" -gt 0 ] || { echo "$GSM FETCH FAILED pairs $n1/$n2"; exit 30; }
+  if [ -n "${CKPT:-}" ]; then gzip -1 -c $S/fq/${GSM}_1.fq > $S/fq/c1.gz && ckput "${GSM}_1.fq.gz" $S/fq/c1.gz; gzip -1 -c $S/fq/${GSM}_2.fq > $S/fq/c2.gz && ckput "${GSM}_2.fq.gz" $S/fq/c2.gz; rm -f $S/fq/c1.gz $S/fq/c2.gz; fi
+fi
 LIB=$(python3 -c "import csv,sys; r=[x for x in csv.DictReader(open(sys.argv[1])) if x['gsm']==sys.argv[2]]; print((r[0].get('library') or '').lower() if r else '')" ${SAMPLES:-$E/erase_samples.csv} $GSM)
 # 2026-10-26: a PBAT library (post-bisulfite adaptor tagging; e.g. GSE236026's tPBAT) reads its first mate from the strand a directional
 # library reads with its second, so bwa-meth is given the mates in swapped order; directional libraries are unchanged.
 if [ "$LIB" = "pbat" ]; then R1=$S/fq/${GSM}_2.fq; R2=$S/fq/${GSM}_1.fq; log "PBAT library: mates given to the aligner in swapped order"; else R1=$S/fq/${GSM}_1.fq; R2=$S/fq/${GSM}_2.fq; fi
+if [ "$RESUME" != aligned ]; then
 bwameth.py --threads $T --reference $REF $R1 $R2 2> $S/logs/${GSM}_align.log | samtools view -b -o $S/bam/$GSM.u.bam - || exit 31
 rm -f $S/fq/${GSM}_*.fq; TA=$(date +%s); log "aligned in $((TA-TF)) s"
+  if [ -n "${CKPT:-}" ]; then echo $n1 > $S/pairs.txt; ckput "${GSM}_pairs.txt" $S/pairs.txt; ckput "${GSM}.u.bam" $S/bam/$GSM.u.bam; fi
+else TA=$(date +%s); fi
 samtools sort -@ $T -m 1G -T $S/bam/$GSM.tmp -o $S/bam/$GSM.s.bam $S/bam/$GSM.u.bam && rm -f $S/bam/$GSM.u.bam || exit 32
 sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 10000000 --tmpdir $S/bam $S/bam/$GSM.s.bam $S/bam/$GSM.bam > $S/logs/${GSM}_markdup.log 2>&1 && rm -f $S/bam/$GSM.s.bam || exit 33
 samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt

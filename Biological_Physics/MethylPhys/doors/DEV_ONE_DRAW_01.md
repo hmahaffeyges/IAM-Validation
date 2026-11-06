@@ -606,3 +606,21 @@ and the readings after it in the same step were not reached (fixed: `stage_metaa
 now name such a cell and read the rest); 2. even read, a site is kept only where
 cells holding 99 % of the shares have a value, and the sequencing atlas's site tables hold no megakaryocyte column, so a share of 0.024
 would blank every site. **Next:** the provisional megakaryocyte column at v2.1's sites, development only, so the mix has its levels.
+
+**Plasma from a laboratory the atlas has never seen, healthy and cancer (GSE186007; written and committed before any of its plasmas is read).**
+
+**The instrument's job:** a healthy plasma from a new laboratory, tared on that laboratory's other healthy plasmas, reads Normal on the gauge.
+
+One laboratory's 100 human plasmas (34 healthy, 50 colorectal cancer, 16 pancreatic cancer; GEO labels only were read), posted as
+Bismark coverage files on hg19, the atlas's own numbering, so the chain reads them with no alignment (`--build seq-table`, then the one command
+with the plasma passes' flags). Job `data/DEV_ONE_DRAW_01/plasma_lab3/plasma_lab3_read.sh`: each plasma is uploaded the moment it is read and
+one already read is skipped, so a restarted machine resumes. Sample list `plasma_lab3_samples.csv`; scorer `plasma_lab3_score.py`.
+**Bars** (healthy plasmas only, at least 20 read): 1. the tared whole-sample Met-A median within 0.95 to 1.05; 2. at least 80 % of the healthy
+plasmas' tared whole-sample Met-A within 0.95 to 1.05. Tare: each healthy plasma against the median of the laboratory's other healthy plasmas
+(leave-one-out); each cancer plasma against the median of all its healthy plasmas. **Recorded, not scored:** the untared readings (the
+laboratory's offset), the islands and domains tared the same way, the C-Score, the Deconvolver's shares, the library floor, and the cancer
+plasmas by type, for the A-score database (where healthy ends and cancer begins is for experts to set).
+
+**Sources:** GSE186007 (public, GEO: the 100 human plasmas' Bismark coverage files on hg19 and their labels, group, age and sex); the IAM Sequencing Atlas (public, Zenodo: the healthy reference every plasma is read against); the hg19 CpG dictionary (public, the repository's hg19-bwameth-index-v1 release).
+
+**Prior reading:** none of these 100.
