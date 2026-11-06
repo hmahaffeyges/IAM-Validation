@@ -76,3 +76,5 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000   # 2026-11-06: Pages sat on 'syncing files' past the 10-minute default after the site grew; 30 minutes
