@@ -310,7 +310,8 @@
      "date": "2026-11-05",
      "status": "open",
      "what": "C (machines): a whole-genome C-Score on sequencing, whose healthy limit comes from the IAM Sequencing Atlas's healthy covariance and genome-distance spectrum (checklist D6, D8: built, used by no reading yet; PLANNED_VS_BUILT.md). The instrument's job: a healthy sample's departures read as unclustered; a planted clustered loss reads as clustered",
-     "next": "write it and its synthetic before anything runs"
+     "next": "designed with its synthetic (member e); code after the current readings finish, synthetic on GitHub",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_FAMILY_01.md"
     }
    ]
   },
@@ -373,9 +374,10 @@
     {
      "id": "61.7",
      "date": "2026-11-05",
-     "status": "open",
+     "status": "running",
      "what": "The fourth C-Score (the author's sphere notes): the same clustering statistic over neighbors on the information sphere instead of along the DNA, so a cell program failing across many chromosomes reads as clustered; written into the C-Score family (38.5); synthetic first, run on machines",
-     "next": "write it into 38.5 and its synthetic"
+     "next": "designed with its synthetic (DEV_CSCORE_FAMILY_01.md, member d); code after the B and T and Johns Hopkins readings finish",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_FAMILY_01.md"
     },
     {
      "id": "61.8",
@@ -1857,7 +1859,7 @@
      "date": "2026-10-22",
      "status": "open",
      "what": "The C-Score family (author 2026-10-22: 'it might be the star of the show'): (a) the commissioned C-Score at Met-A's neutrophil sites; (b) the C-Score on the globe's whole-genome change map against the atlas (DEV-METAA-ATLAS-01 design addition 3); (c) an IAM-A version, clustering of held-error departures along the genome from the IAM-A genome globe (DEV-IAMA-GLOBE-01). What the C-Score teaches: it reads how change is laid out, not how big it is, so centering on the sample's own spread costs it nothing and cancels lab offsets",
-     "next": "write the family into the catalogue (39.13); then a synthetic test for (b) through the one command, written before it runs"
+     "next": "members (d) on the information sphere and (e) on sequencing designed (DEV_CSCORE_FAMILY_01.md); write the family into the catalogue (39.13); then the synthetic for (b) through the one command"
     },
     {
      "id": "39.13",

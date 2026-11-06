@@ -28232,7 +28232,8 @@
   "REPO_INVENTORY.md": "reference document (map, inventory, history or method note), not a test",
   "TWO_FIT_FINDING.md": "reference document (map, inventory, history or method note), not a test",
   "PRIOR_ART_01.md": "reference document (literature search before public claims, plan 61.5), not a test",
-  "DEV_ONE_BUTTON_01.md": "design note (one-folder intake, plan 61.6); its tests are written in it and run when the code exists"
+  "DEV_ONE_BUTTON_01.md": "design note (one-folder intake, plan 61.6); its tests are written in it and run when the code exists",
+  "DEV_CSCORE_FAMILY_01.md": "design note (C-Score family members d and e, plans 61.7 and 60.22); synthetics written in it run when the code exists"
  },
  "frozen": {
   "CANON/next_jobs.json": "f89949ec7890afd9c40d944098f7564eb5181247bac1ebf0e671049a4680a6ea",

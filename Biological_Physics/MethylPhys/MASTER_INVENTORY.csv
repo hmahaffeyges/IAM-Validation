@@ -322,6 +322,7 @@ GSE304107,downloads/A_blood_immune/GSE304107/,0.93,IDAT,yes,unspent,,,,,,,,Human
 GSE304513,downloads/C_tissue_tests/GSE304513/,1.12,IDAT,yes,unspent,,,,,,,,Solid-tissue arrays,S3 register
 GSE306226,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; DEV_IAMA_NEURON_01,atlas build,cortical neurons | astrocytes | microglia | oligodendrocytes,yes,IDAT listed for 80/80 samples,A Cell Type Enrichment Analysis Tool for Brain DNA  Methylation Data (CEAM) [BDR],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE306227,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
+GSE306917,,,,,,,,DEV_CSCORE_FAMILY_01,,,,,,
 GSE307447,downloads/E_dog_animal/GSE307447/,0.16,,,unspent,,,,,,,,Dog and other mammal arrays,S3 register
 GSE307998,,,,,,,,DEV_EPIC_V2_01,,,,,,
 GSE311578,downloads/B_cfDNA_plasma/GSE311578/,1.5,IDAT,yes,unspent,,,,,,,,Plasma cell-free DNA arrays,S3 register
