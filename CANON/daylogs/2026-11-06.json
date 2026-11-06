@@ -1,0 +1,46 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "date": "2026-11-06",
+ "title": "Every machine kept busy",
+ "closing": "",
+ "set_out": "Keep every machine busy: B and T at full depth, the Johns Hopkins CD4 test, then the whole-genome Sequencing Atlas Globe in the first free Google slot.",
+ "open_at_turnover": "B and T samples 5 to 12 aligning or merging; the Johns Hopkins CD4 test; the whole-genome Sequencing Atlas Globe in the next free Google slot.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": []
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": []
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": []
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "GitHub machines left idle for about an hour",
+     "status": "mistake",
+     "what": "From about 10:50 PM to 11:55 PM (11-05) GitHub's busy jobs fell from 17 to 6 of 20: the B and T dispatcher sent the next sample only when 3 or fewer jobs were busy, and the loop check looked only at whether each loop was logging. The agent's half-hour checks printed the falling count and reported the machines on track.",
+     "outcome": "Caught by the author. The dispatcher now fills every free slot up to 18 with partial sends (bt3_parts.json, read by the relay, which now also handles the B-cell samples); machines_busy.py prints IDLE when GitHub has fewer than 16 of 18 or Google fewer than 8 of 8, in every check.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    }
+   ]
+  }
+ ]
+}
