@@ -1,5 +1,7 @@
 # The Chain Workflow (draft: Parts A to I)
 
+<!-- Rule (author 2026-11-06): every physics value and every important number in this document comes only from CANON/iam_canon.json, written as a {{canon:KEY}} or {{canon:KEY:FORMAT}} token and filled by CANON/canon_fill.py when the document is built; none is typed by hand. -->
+
 A step-by-step map of how the chain handles a sample, laid out like an emergency action plan: each box asks one question, and each
 answer says where the sample goes next. No code. Every box names the Decoder section it comes from (`manual/OM_v4_decoder.md`), so every
 statement traces to the chain itself. Every part is drafted; two boxes (plasma, and G3) wait on running tests. The outline is `CHAIN_WORKFLOW_OUTLINE.md`.

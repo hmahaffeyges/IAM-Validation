@@ -1,5 +1,7 @@
 # The Chain Workflow: outline
 
+<!-- Rule (author 2026-11-06): every physics value and every important number in this document comes only from CANON/iam_canon.json, written as a {{canon:KEY}} or {{canon:KEY:FORMAT}} token and filled by CANON/canon_fill.py when the document is built; none is typed by hand. -->
+
 This is the outline for the chain workflow document: plan item 60.16, Phase H, the last step of the list. The document will be a visual,
 step-by-step flowchart of the whole chain, laid out like an emergency action plan. Each box asks what the chain checks first, and each
 answer says where the sample goes next ("if this, go here"). It starts with the kind of laboratory and sample and runs through intake, the

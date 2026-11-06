@@ -26,7 +26,7 @@ Every stage carries one of two labels, so the physics can be told apart from the
   derivation and the test that could have failed.
 
 **Names.** The gauge has three marks. The **floor** is the least entropy a held mark can carry, derived from thermal kicks against
-about one ATP per site (M = 20.94). The **ceiling** (saturation) is every identity site fully scrambled. The **middle**, healthy = 1,
+about one ATP per site (M = {{canon:M_cell:.2f}}). The **ceiling** (saturation) is every identity site fully scrambled. The **middle**, healthy = 1,
 is the healthy reference: Met-A's is measured once on purified healthy cells of the same type, and IAM-A's is computed from the
 sample's own loose share. Some file names in the chain predate these names: `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`
 holds Met-A's healthy middle reference, not the floor. The Decoder uses the canon's names and says which file holds what.
@@ -544,7 +544,7 @@ beta value is
 
 and Met-A is the mean entropy at the cell type's identity sites divided by the healthy reference:
 
-  isolated neutrophils: Met-A = mean_i H(β_i) / H_ref, with H_ref = 0.33026 bits (6 healthy neutrophil arrays);
+  isolated neutrophils: Met-A = mean_i H(β_i) / H_ref, with H_ref = {{canon:Met_A_floor_EPIC_neutrophil:.5f}} bits (6 healthy neutrophil arrays);
   whole blood: Met-A = mean_i H(β_i) / mean_i H(e_i), with e_i = Σ_g f_g μ_g,i.
 
 Here f_g is this blood's share of cell group g (Stage A), and μ_g,i is the healthy mean of group g at site i, from purified cells. In
@@ -552,7 +552,7 @@ whole blood the denominator is what a healthy blood with exactly this person's c
 Met-A; only a change in how well the cells hold their marks does.
 
 **The gauge.** Healthy is 1 (the middle mark, measured). Normal is 0.95 to 1.05. The floor (derived: thermal kicks against about one
-ATP per site, M = 20.94) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
+ATP per site, M = {{canon:M_cell:.2f}}) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
 scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy middle is measured
 once and never fitted to the sample.
 
@@ -606,7 +606,7 @@ EPIC arrays of two published purified-blood-cell studies (GSE110554 and GSE16799
 
 - **Identity sites:** 6,000 EPIC sites the healthy neutrophil holds fixed, chosen on the purified neutrophil arrays (across-array SD
   ≤ 0.05; mean β 0.75 to 0.95, or 0.05 to 0.25; up to 3,000 per state). The isolated and whole-blood paths read the same 6,000.
-- **The healthy reference (H_ref = 0.33026 bits):** the mean entropy at those sites on 6 purified healthy neutrophil arrays, each
+- **The healthy reference (H_ref = {{canon:Met_A_floor_EPIC_neutrophil:.5f}} bits):** the mean entropy at those sites on 6 purified healthy neutrophil arrays, each
   physical array counted once. The file holding it is still named `metA_floors_v1_3.json`, and its key is `floor`; it is the middle
   mark, not the floor.
 - **Held-out precision:** each of the 6 arrays read with the sites re-chosen on the other 5 (`metA_floors_v1_3_loo.csv`) gives 0.983 to
@@ -996,7 +996,7 @@ settles at the **held error**
   ε = f / (f + g),  and the holding energy is E_hold = kT ln[(1 − ε)/ε].
 
 The balance is set by the ratio, not by how often the cell divides; division only sets how fast the balance is reached. Measured this way
-on 56 healthy cell types, E_hold is 3.08 kT per interior opportunity (`holding_energy_q2.json`).
+on 56 healthy cell types, E_hold is {{canon:E_hold_meth:.2f}} kT per interior opportunity (`holding_energy_q2.json`).
 
 **What is counted (one counter, two readers of the same molecules).**
 

@@ -6,11 +6,12 @@ runs) into manual/OM_v4_decoder.md, in the order the traced run first entered ea
   python3 build_decoder.py --check    refuse when a function the chain loads has no entry, an entry names a function that does not exist,
                                       or the committed output differs from what this writes"""
 import json, os, re, sys
+import sys as _cs; _cs.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "CANON")); from canon_fill import fill as _canon_fill   # 2026-11-06: physics values only from the canon
 H = os.path.dirname(os.path.abspath(__file__)); SRC = os.path.join(H, "decoder_text.md"); INV = os.path.join(H, "decoder_inventory.json")
 OUT = os.path.join(H, "OM_v4_decoder.md")
 
 def parse():
-    t = open(SRC, encoding="utf-8").read(); t = re.sub(r"<!--.*?-->\n?", "", t, flags=re.S)
+    t = _canon_fill(open(SRC, encoding="utf-8").read()); t = re.sub(r"<!--.*?-->\n?", "", t, flags=re.S)
     head, *rest = re.split(r"(?m)^(?=## )", t); stages = []
     for block in rest:
         title = block.split("\n", 1)[0][3:].strip(); body = block.split("\n", 1)[1] if "\n" in block else ""
@@ -32,7 +33,7 @@ def build():
     key = {f"{f['file'].split('/')[-1]}::{x['function']}": x for f in inv["files"] for x in f["functions"]}
     have = {k for s in stages for k in s["entries"]}
     missing = [k for k in key if k not in have]; unknown = sorted(have - set(key))
-    out = [head, "", (lambda _p: "#" + open(_p, encoding="utf-8").read().strip())(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "CANON", "physics_root.md")), "",   # 2026-11-03: the physics every instrument rests on
+    out = [head, "", (lambda _p: "#" + _canon_fill(open(_p, encoding="utf-8").read()).strip())(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "CANON", "physics_root.md")), "",   # 2026-11-03: the physics every instrument rests on
            "## The chain in numbers", "",
            f"Read from the code at build time: the one command can load **{inv['n_files']} Python files** holding **{inv['n_functions']} functions** "
            f"(nested ones included); {len(key) - len(missing)} of them have their entry in this Decoder, and a push is refused when one does not. "
