@@ -12,19 +12,19 @@ import glob, os, re, sys, json, html, base64, datetime, importlib.util
 
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
-PDF = "pdf/IAMs_Law_and_Order.pdf"   # the live PDF; page numbers below verified against it 2026-10-13
-CH = {"astro": (48, 437, "AstroGenetics and the Cosmic Methylome: the cell read as a thermometer"), "landauer": (49, 448, "Landauer's cost at body temperature"),
-      "gauge": (53, 466, "One gauge for a cell"), "meta": (54, 472, "Met-A: the cell's own reference on arrays"),
-      "iama": (55, 476, "IAM-A: held error on single molecules"), "cscore": (56, 480, "The C-score: where the departures sit"),
-      "translation": (58, 486, "The translation principle"), "separation": (60, 494, "Component separation: finding the cells"),
-      "reference": (61, 497, "The reference: purified healthy cells"), "identity": (62, 505, "Identity sites: where a cell is read"),
-      "skytools": (63, 508, "Tools from the sky"), "sky": (64, 519, "The sky: what the reference cannot explain"),
-      "discipline": (66, 524, "Discipline: nulls, simulations, pre-registration"), "established": (71, 539, "What is established, and what is not")}
+PDF = "pdf/IAMs_Law_and_Order.pdf"   # the live PDF; numbers and pages below read from it by chapter_pages.py (title match) 2026-11-05
+CH = {"astro": (48, 438, 'AstroGenetics and the Cosmic Methylome: the cell read as a thermometer'), "landauer": (49, 450, "Landauer's cost at body temperature"),
+      "gauge": (53, 469, 'One gauge for a cell'), "meta": (55, 483, "Met-A: the cell's own reference on arrays"),
+      "iama": (56, 488, 'IAM-A: held error on single molecules'), "cscore": (57, 493, 'The C-score: where the departures sit'),
+      "translation": (60, 501, 'The translation principle'), "separation": (62, 509, 'Component separation: finding the cells'),
+      "reference": (63, 513, 'The reference: purified healthy cells'), "identity": (65, 530, 'Identity sites: where a cell is read'),
+      "skytools": (66, 533, 'Tools from the sky'), "sky": (67, 545, 'The sky: what the reference cannot explain'),
+      "discipline": (71, 557, 'Discipline: nulls, simulations, pre-registration'), "established": (78, 591, 'What is established, and what is not')}
 # Chapter pages come from the compiled book when the build passes them (--pages FILE.json, written by chapter_pages.py from the
 # PDF it just made); the numbers in CH are only the fallback for a local build without a PDF.
 if "--pages" in sys.argv:
     _pg = json.load(open(sys.argv[sys.argv.index("--pages") + 1], encoding="utf-8"))
-    CH = {k: (v[0], _pg.get(k, v[1]), v[2]) for k, v in CH.items()}
+    CH = {k: ((_pg[k][0], _pg[k][1], v[2]) if isinstance(_pg.get(k), list) else (v[0], _pg.get(k, v[1]), v[2])) for k, v in CH.items()}   # number and page from the book
     del sys.argv[sys.argv.index("--pages"):sys.argv.index("--pages") + 2]
 def ch(k, label=None):
     n, pg, t = CH[k]; return f'<a href="{PDF}#page={pg}">Chapter {n}, {html.escape(label or t)}</a>'
@@ -415,7 +415,7 @@ def page(art):
 <p>Met-A and IAM-A are the two instruments; each is commissioned once, on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands:</p>
 <p>All {len(BT)} cosmology tools mapped onto the cell, from the table in {ch("skytools")}, grouped by where each stands. <b>next</b> marks the chapter's order for what to employ next.</p>
 <table class="tools"><thead><tr><th>#</th><th>The cosmology tool</th><th>Its counterpart in the cell</th><th>Status</th><th>Where</th></tr></thead><tbody>{tools}</tbody></table>
-<p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="read/">book's sky-tools chapter</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
+<p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="book/ch_skytools.html">book's chapter on the tools from cosmology</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
 {bits}
 <section class="wrap" id="manifest"><h2>Every test, numbered</h2>
 <p class="sub">The Master Testing Manifest is the one list of every test we have run, are running, or plan: {mf_total} tests, {mf_run} with at least one dated result, {mf_open} still open. A test is never removed; when it runs it gets a dated result, failures included. Ask for any test by its number.</p>

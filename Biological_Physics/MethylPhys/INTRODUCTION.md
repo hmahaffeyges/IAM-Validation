@@ -49,7 +49,7 @@ at a fixed place set by where it sits in the genome, so every cell and every sam
 The sphere is chosen for what it does: every pixel has the same area, so no part of the genome is stretched; there are no edges or seams;
 neighbors in the genome share small patches, so clustered change shows as patches and scattered noise as speckle; and the sky's masks
 apply unchanged. That map's layout is the genome's address, so a spectrum on it measures bookkeeping, not the order a cell holds
-([turn it on the globe](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html): the Globe Explorer, where every cell of the atlas,
+([open it in the Globe Viewer](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html): the Globe Viewer, where every cell of the atlas,
 Met-A's purified-array reference and example samples can be turned, and every report carries its own sample on the same globe against
 its healthy reference). A second sphere, in development, maps the order itself: information is
 spherical in a strict sense (a site at methylation level b is the point (√b, √(1−b)) on a circle of radius 1, and the distance between two
@@ -140,7 +140,7 @@ site, and it is the reference the plasma readings are built on. Read against it,
 reading, 140 of 140: sorted-cell Met-A 1.0075, the islands 1.0118, the domains 1.0014
 ([healthy_fullchain7_summary.txt](doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt)). It carries the
 sky-survey tools a faint signal on a sphere needs (each cell on the sphere with the range of its average, two noise maps and their null
-tests, the genome-distance spectrum, masks, an information globe), because the statistics of a faint signal are the same for the sky and
+tests, the genome-distance spectrum, masks, an information sphere), because the statistics of a faint signal are the same for the sky and
 for the cell. The whole atlas is deposited on Zenodo ([DOI 10.5281/zenodo.23934666](https://doi.org/10.5281/zenodo.23934666)), every piece with its checksum. In development: each cell is commissioned when healthy sequenced
 samples it has never held read Normal against it ([the record](doors/DEV_ATLAS_V21_01.md)).
 
