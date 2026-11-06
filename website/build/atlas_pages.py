@@ -59,10 +59,22 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     # same viewer, from the chain's own sphere build (website/art/out/seq_cells/index.json, run_sample.py --build seq-atlas-sphere); no masks are drawn
     fs = os.path.join(ART_, "seq_cells", "index.json")
     if os.path.exists(fs):
+        # 2026-11-06 (plan 61.4): the two noise maps, drawn by the chain (run_sample.py --build seq-noise-sphere), with what their null test found
+        # (run_sample.py --build seq-noise-null); every number read from the committed records at build time
+        _SD = os.path.join(H_, "..", "..", "Biological_Physics", "MethylPhys", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas")
+        _NS = json.load(open(os.path.join(_SD, "noise_sphere.json"))); _NN = json.load(open(os.path.join(_SD, "noise_null.json")))["rows"]
+        _m1 = [r for r in _NN if r["map"].startswith("map1")]; _m2 = [r for r in _NN if r["map"].startswith("map2")]
+        _lo, _hi = _NS["scale"]
+        NZ = {1: ("noise map: donor halves", f"The cell's donors split into two sealed halves, each counted alone, and the difference drawn ({_lo:+.1f} to {_hi:+.1f}). It shows how much "
+                 f"healthy people of this cell differ from one another. In {sum(1 for r in _m1 if r['bands_above_null'])} of the {len(_m1)} cells with donors to split, it stands above "
+                 "its shuffled null at large scales: real differences between healthy people, not noise. Cells from a single donor have no such map."),
+              2: ("noise map: read halves", f"Each donor's reads split at random into two halves, counted alone, and the difference drawn ({_lo:+.1f} to {_hi:+.1f}). It shows the "
+                 f"counting noise alone. It sits on its shuffled null in {sum(1 for r in _m2 if not r['bands_above_null'])} of {len(_m2)} cells: what pure counting noise looks like.")}
         Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": cellname(c["cell"])} for c in Q["cells"]), key=lambda c: c["name"].lower())
         specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe (IAM Sequencing Atlas, {len(qc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
             dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at each of the layout's sites, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
-            dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in qc],
+            dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]
+            + [dict(name=NZ[k][0], kind="image", src=f"{art_rel}seq_noise/{c['slug']}_n{k}.jpg", note=NZ[k][1]) for k in (1, 2) if os.path.exists(os.path.join(ART_, "seq_noise", f"{c['slug']}_n{k}.jpg"))]) for c in qc],
             about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Drawn on IAM-Atlas v2.1's layout of 813,951 sites, each with one fixed place: HEALPix NSIDE "
                    f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as the Array Atlas Globe, so the two atlases can be compared cell for cell; the atlas itself holds every CpG, and a whole-genome globe is still to be built. "
                    f"A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))

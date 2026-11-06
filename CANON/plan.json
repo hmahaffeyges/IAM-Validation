@@ -361,7 +361,7 @@
      "date": "2026-11-05",
      "status": "open",
      "what": "The book and the website do the atlases justice: every atlas globe, both noise maps, the information globe and the information sphere explained where a reader meets them (what it is, the question it answers, how the chain uses it), for both atlases; from 61.3's table",
-     "next": "the sequencing-atlas chapter done (Minkowski, guidebook, Explorer, Group-A, ceiling and cell-count floor added); next: the website's atlas pages and IAM-Atlas v2.1's chapter against the same questions"
+     "next": "done: the sequencing-atlas chapter; the Globe Viewer now shows both noise maps for each sequencing-atlas cell (donor halves for the 48 cells with donors to split, read halves for all 56), with what their null test found, read from the records; next: IAM-Atlas v2.1's chapter and the cell pages against the same questions; the 57-cell redraw of the noise maps with 35.30.12"
     },
     {
      "id": "61.5",
