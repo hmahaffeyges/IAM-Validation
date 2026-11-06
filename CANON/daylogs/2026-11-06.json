@@ -63,9 +63,9 @@
     },
     {
      "title": "The whole repository to Zenodo",
-     "status": "in progress",
+     "status": "metadata only",
      "what": "A draft record (reserved DOI 10.5281/zenodo.24008693) filled from a Toronto machine: the repository at one commit, its full history, the hg19 and mm10 alignment indexes, the IAM Sequencing Atlas's healthy inputs, a SHA-256 manifest.",
-     "outcome": "Uploading; the author publishes.",
+     "outcome": "Published with the author's yes: 21 files, 31.3 GB, every size matching its SHA-256 manifest (commit 7b0644f1, 176 files incl. 156 packed atlas inputs); record DOI 10.5281/zenodo.24008693, concept DOI 10.5281/zenodo.24008692 (always the newest version); README badge and citation added.",
      "rows": [
       "OTH-068"
      ],

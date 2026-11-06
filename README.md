@@ -23,7 +23,7 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 
 **Cite the book (version 1.0, October 2026):** Mahaffey, H. W. *IAM's Law and Order: The Actualization of Reality.* Zenodo. [https://doi.org/10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)
 
-[![Book DOI](website/static/badges/book_doi_10_5281_zenodo_23151068_blue.svg)](https://doi.org/10.5281/zenodo.23151068) [![IAM-Atlas v2.1 DOI](website/static/badges/iam_atlas_v2_1_doi_10_5281_zenodo_23441999_blue.svg)](https://doi.org/10.5281/zenodo.23441999) [![IAM Sequencing Atlas DOI](website/static/badges/iam_sequencing_atlas_doi_10_5281_zenodo_23934666_blue.svg)](https://doi.org/10.5281/zenodo.23934666) [![DOI](website/static/badges/osf_doi_10_17605_osf_io_kczd9_blue.svg)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](website/static/badges/doi_10_5281_zenodo_18702042_blue.svg)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](website/static/badges/license_mit_yellow_svg.svg)](https://opensource.org/licenses/MIT)
+[![Book DOI](website/static/badges/book_doi_10_5281_zenodo_23151068_blue.svg)](https://doi.org/10.5281/zenodo.23151068) [![IAM-Atlas v2.1 DOI](website/static/badges/iam_atlas_v2_1_doi_10_5281_zenodo_23441999_blue.svg)](https://doi.org/10.5281/zenodo.23441999) [![IAM Sequencing Atlas DOI](website/static/badges/iam_sequencing_atlas_doi_10_5281_zenodo_23934666_blue.svg)](https://doi.org/10.5281/zenodo.23934666) [![Repository archive DOI](website/static/badges/repository_archive_doi_10_5281_zenodo_24008692_blue.svg)](https://doi.org/10.5281/zenodo.24008692) [![DOI](website/static/badges/osf_doi_10_17605_osf_io_kczd9_blue.svg)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](website/static/badges/doi_10_5281_zenodo_18702042_blue.svg)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](website/static/badges/license_mit_yellow_svg.svg)](https://opensource.org/licenses/MIT)
 
 ## Start here
 
@@ -186,6 +186,15 @@ To help: **[Help fund early cancer detection research, built in public](https://
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.23441999},
   url       = {https://doi.org/10.5281/zenodo.23441999}
+}
+
+@misc{Mahaffey2026Repository,
+  author    = {Mahaffey, Heath W.},
+  title     = {IAM-Validation: the complete repository (measurement chain, test records, canon, book and logs), with the inputs to rebuild the IAM Sequencing Atlas},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24008692},
+  url       = {https://doi.org/10.5281/zenodo.24008692}
 }
 
 @misc{Mahaffey2026SeqAtlas,
