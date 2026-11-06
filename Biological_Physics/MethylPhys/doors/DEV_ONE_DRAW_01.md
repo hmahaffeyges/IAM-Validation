@@ -635,3 +635,8 @@ pass's committed reference (`plasma_lab3_samples_r2.csv`, the rsflags column; th
 the same scorer. No whole-sample Met-A value of these plasmas decided this change; only the refusal reason and the shares were read.
 **Change for later (chain code, after the running readings finish):** a cell the Deconvolver finds but the atlas does not hold should not empty
 the whole-sample reading.
+
+**Plasma from a new laboratory, first reading: not met** (`plasma_lab3/reading_1/plasma_lab3_r1_summary.txt`, `plasma_lab3_r1_readings.csv`; the 34 healthy plasmas, each read by the one command,
+one per GitHub job.) 9 of 34 returned a whole-sample Met-A, under the 20 the bars need, so neither bar is met. The other
+0 were left unread by the cause found during the run (a megakaryocyte share above 1 % with no megakaryocyte column in the atlas, above). The
+values of the 9 read are in the summary as recorded, not scored. The second reading (above) runs next.

@@ -1,0 +1,49 @@
+healthy plasmas read: 9 of 34 (bars need at least 20)
+bar 1, tared whole-sample Met-A median: 1.0300 (not met)
+bar 2, share within 0.95 to 1.05: 0.333 (not met)
+test: not met
+recorded, not scored (median by group):
+  CRC (0 read): Met-A whole sample nan, Met-A whole sample, tared nan, islands, tared nan, domains, tared nan, C-Score nan, library floor nan
+  HEA (9 read): Met-A whole sample 0.9855, Met-A whole sample, tared 1.0300, islands, tared 0.9039, domains, tared 0.9976, C-Score 0.9996, library floor nan
+  PDAC (0 read): Met-A whole sample nan, Met-A whole sample, tared nan, islands, tared nan, domains, tared nan, C-Score nan, library floor nan
+not read: 66
+  GSM7426085 (CRC): no bundle
+  GSM7426086 (CRC): no bundle
+  GSM7426087 (CRC): no bundle
+  GSM7426088 (CRC): no bundle
+  GSM7426089 (CRC): no bundle
+  GSM7426090 (CRC): no bundle
+  GSM7426091 (CRC): no bundle
+  GSM7426092 (CRC): no bundle
+  GSM7426093 (CRC): no bundle
+  GSM7426094 (CRC): no bundle
+  GSM7426095 (CRC): no bundle
+  GSM7426096 (CRC): no bundle
+  GSM7426097 (CRC): no bundle
+  GSM7426098 (CRC): no bundle
+  GSM7426099 (CRC): no bundle
+  GSM7426100 (CRC): no bundle
+  GSM7426101 (CRC): no bundle
+  GSM7426102 (CRC): no bundle
+  GSM7426103 (CRC): no bundle
+  GSM7426104 (CRC): no bundle
+  GSM7426105 (CRC): no bundle
+  GSM7426106 (CRC): no bundle
+  GSM7426107 (CRC): no bundle
+  GSM7426108 (CRC): no bundle
+  GSM7426109 (CRC): no bundle
+  GSM7426110 (CRC): no bundle
+  GSM7426111 (CRC): no bundle
+  GSM7426112 (CRC): no bundle
+  GSM7426113 (CRC): no bundle
+  GSM7426114 (CRC): no bundle
+  GSM7426115 (CRC): no bundle
+  GSM7426116 (CRC): no bundle
+  GSM7426117 (CRC): no bundle
+  GSM7426118 (CRC): no bundle
+  GSM7426119 (CRC): no bundle
+  GSM7426120 (CRC): no bundle
+  GSM7426121 (CRC): no bundle
+  GSM7426122 (CRC): no bundle
+  GSM7426123 (CRC): no bundle
+  GSM7426124 (CRC): no bundle
