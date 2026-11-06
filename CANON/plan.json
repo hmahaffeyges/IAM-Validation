@@ -336,8 +336,8 @@
      "id": "61.1",
      "date": "2026-11-05",
      "status": "running",
-     "what": "The chain workflow document (Phase H, 60.16): Parts A to C drafted from the code and the Decoder (CHAIN_WORKFLOW_DRAFT.md); Parts D to I written as each part settles; the same-laboratory box from the Johns Hopkins test's result",
-     "next": "Part D, the ruler for each platform",
+     "what": "The chain workflow document (Phase H, 60.16): Parts A to I drafted from the code and the Decoder (CHAIN_WORKFLOW_DRAFT.md), every physics value and important number only from the canon (CANON/canon_fill.py tokens, author 2026-11-06); the same-laboratory box (D4, G3) from the Johns Hopkins test's result",
+     "next": "fill D4 and G3 from the Johns Hopkins CD4 and tissue results when scored; then the visual flowchart (60.16) drawn from the finished draft",
      "record": "Biological_Physics/MethylPhys/CHAIN_WORKFLOW_DRAFT.md"
     },
     {
