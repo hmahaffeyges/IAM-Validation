@@ -47,6 +47,27 @@ def problems():
         if rd.get(c["cell"]) and len({h for _, h in don.get(c["cell"], [])}) == 1: P.append(f"{c['cell']}: read in the healthy pass though its donors sit in one half")
     return P
 
+NZD = os.path.join(os.path.dirname(ART), "seq_noise")
+def noise_fig(c, art_rel):
+    """2026-11-06 (plan 61.4): the cell's two noise maps, drawn by the chain (run_sample.py --build seq-noise-sphere), with what their null test found
+    for this cell (noise_null.json, run_sample.py --build seq-noise-null); a map that does not exist (a cell from one donor has no donor halves) is left out."""
+    SD = os.path.join(REPO, "Biological_Physics", "MethylPhys", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas")
+    NN = {(r["cell"], r["map"][:4]): r for r in json.load(open(os.path.join(SD, "noise_null.json")))["rows"]}
+    have = [k for k in (1, 2) if os.path.exists(os.path.join(NZD, f'{c["slug"]}_n{k}.jpg'))]
+    if not have: return ""
+    def said(k):
+        r = NN.get((c["cell"], f"map{k}"))
+        if r is None: return ""
+        n = len(r["bands_above_null"])
+        return (f" Against its shuffled null: {n} of {len(r['ratio'])} bands above it" + (", where differences between healthy people show." if k == 1 and n > 1 else
+                (", as pure counting noise should." if k == 2 and n <= 1 else ".")))
+    cap = {1: "donor halves: the cell's donors split into two sealed halves, each counted alone, and the difference drawn; it shows how much healthy people of this cell differ.",
+           2: "read halves: each donor's reads split at random into two halves, counted alone, and the difference drawn; it shows the counting noise alone."}
+    imgs = "".join(f'<img src="{art_rel}seq_noise/{c["slug"]}_n{k}.jpg" alt="{E(c["cell"])}: noise map, {cap[k].split(":")[0]}">' for k in have)
+    txt = " ".join(f"{'Left' if i == 0 and len(have) == 2 else ('Right' if len(have) == 2 else 'The map')}, {cap[k]}{said(k)}" for i, k in enumerate(have))
+    return (f'<figure><div class="two">{imgs}</div><figcaption>Its noise maps, on the same layout (difference from &minus;0.3 to +0.3). {E(txt)}'
+            + ("" if 1 in have else " With a single donor there is no donor-halves map.") + "</figcaption></figure>")
+
 def write(out, art_rel, css_tag, style, back):
     I, don, sex, floor, rd = data(); C = sorted(I["cells"], key=lambda c: c["cell"].lower())
     d = os.path.join(out, "seq-atlas"); os.makedirs(d, exist_ok=True); v21 = set()
@@ -88,6 +109,7 @@ def write(out, art_rel, css_tag, style, back):
                 f'<figure><div class="two"><img src="{art_rel}seq_cells/{c["slug"]}_v.jpg" alt="{E(nm(c))}: healthy level on the sphere"><img src="{art_rel}seq_cells/{c["slug"]}_u.jpg" alt="{E(nm(c))}: how sure the atlas is"></div>'
                 f'<figcaption>Left: healthy {E(c["cell"])} at each of the 813,951 layout sites in its genome place, from never tagged to always tagged. Right: how sure the atlas is of each value, '
                 f'dark certain, brighter a wider 95&nbsp;% range of the average (0 to &plusmn;0.15, the same scale for every cell). Grey: no reads.</figcaption></figure>'
+                + noise_fig(c, art_rel) +
                 f'<table>{"".join(rows)}</table><p>{E(PHYS)}</p><p>{E(HOW)}</p>'
                 f'<p><a href="{p["slug"]}.html">&larr; {E(nm(p))}</a> &middot; <a href="{n["slug"]}.html">{E(nm(n))} &rarr;</a></p>')
         open(os.path.join(d, c["slug"] + ".html"), "w", encoding="utf-8").write(head(f'{nm(c)}: the IAM Sequencing Atlas') + body + "</section></body></html>")
