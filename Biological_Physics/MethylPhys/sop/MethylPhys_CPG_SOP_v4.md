@@ -13,7 +13,7 @@ make the instruments possible.
 
 1. **The scale is derived, not learned.** The energy a cell spends holding a mark sets the least error it can reach: the floor. A site
    whose mark is lost entirely reads as a coin flip, one bit of disorder: the ceiling. Counting single DNA molecules in 56 healthy human
-   cell types, the energy that holds a methyl mark is {{canon:E_hold_meth:.2f}} k_B T, about {{canon:phi:.3f}} of the ATP the cell pays to keep each site (M = {{canon:M_cell:.2f}} k_B T).
+   cell types, the energy that holds a methyl mark is 3.08 k_B T, about 0.147 of the ATP the cell pays to keep each site (M = 20.94 k_B T).
    A healthy cell sits at a measured place between the floor and the ceiling, so a reading in bits means the same thing in any
    laboratory, for any cell type, before anything has been trained.
 2. **Disorder is counted, and counting has exact statistics.** A sample's disorder at a site is the binary entropy of its measured level,

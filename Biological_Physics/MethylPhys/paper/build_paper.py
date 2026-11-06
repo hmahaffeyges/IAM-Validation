@@ -14,6 +14,12 @@ for k, v in V.items():
     if not os.path.exists(p): rows.append(f"| {k} | pending | {v['file']} (not yet written) |"); continue
     m = re.search(v["re"], open(p, encoding="utf-8").read(), re.M)
     got[k] = m.group(1).strip() if m else None; rows.append(f"| {k} | {got[k] if m else 'NOT FOUND'} | {v['file']} |")
+# 2026-11-04 (author: the data we need goes in the paper, kept current): the outline's closing section names the fingerprint of the list it was
+# written from; the build refuses while DATA_WE_NEED.md has changed since, so the paper cannot go out with an old list
+import hashlib, sys
+_dn = hashlib.sha256(open(os.path.join(H, "..", "DATA_WE_NEED.md"), "rb").read()).hexdigest()[:12]
+_fp = re.search(r"data-list ([0-9a-f]{12})", open(os.path.join(H, "OUTLINE.md"), encoding="utf-8").read())
+if not _fp or _fp.group(1) != _dn: sys.exit(f"build_paper: REFUSED: DATA_WE_NEED.md has changed (now {_dn}); rewrite the outline's closing section from it and set its fingerprint")
 os.makedirs(os.path.join(H, "build"), exist_ok=True); miss = set()
 for f in [os.path.join(H, "OUTLINE.md")] + sorted(glob.glob(os.path.join(H, "*_DRAFT.md"))):
     s = open(f, encoding="utf-8").read()

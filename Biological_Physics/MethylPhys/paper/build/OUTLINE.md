@@ -45,8 +45,9 @@ fidelity bound (IAM's Law) defined in the text, not in the title.
 
 1. Methylation disorder in cancer: stochasticity as a hallmark; the information-theory study of pediatric leukemia (Ising model, normalized
    methylation entropy, Jensen-Shannon distance, UHRF1) and the earlier work on epigenetic stochasticity it builds on.
-2. Two limits such measures share: the scale is set by controls (in that study, 5 normal samples), and the model is fitted inside each
-   sample, so it needs deep sequencing.
+2. What that work opens, and where this paper builds on it: its scale comes from the controls it is compared with (in that study, 5
+   normal samples), and its model is fitted inside each sample, which asks for deep sequencing. A scale whose ends come from physics would
+   let one sample be read alone, at any depth. (Tone, author 2026-11-06: building on their work, not correcting it.)
    Genome-wide scores built on cohorts share the first limit: epimutation burden (epigenetic mutation load, sites outside a healthy
    cohort's range), epigenetic clocks and methylation risk scores. Their "normal" mixes age, inherited variation, laboratory batch and each
    person's cell mix, and their unit (deviations from that cohort) changes with the cohort. Cite these by DOI, each checked.
@@ -133,6 +134,13 @@ builds each person's expected healthy self from their own cell mix); the law bou
 held error) and decides what its readings mean (floor, ceiling, entropy against the floor, sensitivity at the held level). What was taken from the published study (nearest-neighbor coupling, methylation sensitivity, the knockout as
 a test) and how it was built in; what neither method yet does; limitations, stated plainly; the next study.
 
+## Data that would extend this work (closing section; from `DATA_WE_NEED.md`, data-list 981003ba17c1)
+
+Each item of [DATA_WE_NEED.md](../DATA_WE_NEED.md), written as one sentence: the data, what it is for in the chain, and what it would let us
+build or test, with its record. Stated as an invitation to work with the data and its holders, never as a list of shortcomings. Before the
+paper goes out this section is rewritten from the list's current version; `build_paper.py` refuses to build while the list has changed
+since the fingerprint in this heading.
+
 ## Methods (subsections)
 
 Data (all public; the accession list generated from `CANON/data_spent.csv`). The bound (equations). IAM-A: molecule counting, the loose
@@ -143,8 +151,19 @@ ran. Statistics.
 
 ## Data availability and Code availability
 
-All data are public (accessions listed). The chain, the atlas and every test record are public in the IAM-Validation repository; one
-command reproduces every figure.
+All data are public (accessions listed). The chain, the atlas and every test record are public in the IAM-Validation repository and its
+Zenodo records; one command reproduces every figure. The data we could not find or reach is listed in `DATA_WE_NEED.md`.
+
+## Acknowledgments (draft)
+
+Two of this paper's readings, the nearest-neighbor coupling (Coupling-A) and the island and domain readings, grew from the information-theory
+study of pediatric leukemia (doi:10.1038/s41551-021-00703-2): its question of whether a mark is kept site by site or by a stretch of DNA, and
+its regional findings. Say so here and where each reading is introduced. Thank the authors of that study and of the earlier Ising-model study
+(doi:10.1038/ng.3811) for making their sequencing data public: the healthy CD4 T-cell test and the tumor-against-own-normal test in this
+paper are read on their data. Nothing here implies they reviewed or endorse the work, unless they have.
+
+**Outreach (author 2026-11-06; the email, not the paper):** once both tests on their data are scored, write to that group: the thanks, how
+their study sparked the two readings, both results on their own data as they came out, and the ask (review, data, collaboration).
 
 ## Author contributions (draft)
 

@@ -41,7 +41,7 @@ methylome on a HEALPix sphere with sky statistics. Each stays "not found in our 
 **Next.** Read the five full texts; a patent search on the four not-found items; every "first", "new" or "never" sentence in the book listed and
 checked against this table.
 
-**Full text read: the methylation-thermodynamics paper (doi:10.1038/s41598-023-35166-9).** Confirmed from the full text: each methylation change is priced at no less than k_B T ln 2 per bit (Landauer), about 1.8 J per mole at body temperature in the paper's own figure;
+**Full text read: the methylation-thermodynamics paper (doi:10.1038/s41598-023-35166-9).** Confirmed from the full text: each methylation change is priced at no less than k_B T ln 2 per bit (Landauer), k_B T ln 2 per bit at body temperature (IAM's value is the canon's `constants.Landauer_floor_cell` in `CANON/iam_canon.json`, read by the book's equation `eq:ebit` and recomputed by `verify_book.py`; the paper prints its per-mole figure with J where kJ is meant, and this record first copied that unit);
 a methylome's divergence is measured against a reference (the centroid of a control group, or an independent control subset); its
 Gibbs entropy rises in cancer cells against their corresponding normal tissue, all against one shared reference individual. Not in it: any
 cell-type deconvolution or purity term (no mention), any per-cell expected disorder at the sample's own mix and read depth, and any fixed
