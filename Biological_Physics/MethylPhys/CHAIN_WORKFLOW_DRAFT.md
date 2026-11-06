@@ -308,10 +308,11 @@ The strongest reference is the person themselves. Two draws of one person, read 
 | H1. Same person? | the two draws must carry the same identifier, array type and pipeline, or the comparison is refused |
 | H2. Arrays: the difference map (Stage 12b) | the later draw minus the earlier, at every site both measured; no expectation, no composition. Decoder: §13 |
 | H3. Sequencing: against an earlier reading | the genome globe shows the sample against its own prediction and against the earlier reading of the same person |
-| H4. How small a change means anything | the two arrays' own measured noise carried through to the reading: the change noise alone could make, at 99 % |
+| H4. How small a change means anything | designed: the two arrays' own measured noise carried through to the reading, the change noise alone could make, at 99 %. **Not yet working on chain v4 records** (Decoder finding F29: the tool reads an older record layout); it is fixed before Part H is commissioned |
 
-**Status:** the comparison runs and is flagged; the readings of a person over time are listed in draw order, numbers in order, no fit,
-no slope. Commissioning waits on public data with repeated draws of the same healthy people.
+**Status:** H1 to H3 run and are flagged. The list of a person's readings in draw order (numbers in order, no fit, no slope) and H4 are
+tools that do not yet read chain v4 records (F29). Commissioning needs both fixed, and public data with repeated draws of the same healthy
+people: GSE73115, the same people drawn ten years apart on 450K with raw IDATs, is held unread for it.
 
 ---
 

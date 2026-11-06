@@ -379,9 +379,9 @@
     {
      "id": "61.8",
      "date": "2026-11-05",
-     "status": "open",
+     "status": "running",
      "what": "The Decoder's open code findings (F14, F23, F36 open; F7, F15, F17, F24, F29 partly fixed, from the 10-22 list): each finding's status read from its record and closed or carried",
-     "next": "read each finding's current state"
+     "next": "read 2026-11-05: 29 of 36 fixed; F35 confirmed (the self-tare maps away a loss at every site; disclosed); open: F14 (the v2 detection and call-rate lines were measured with poobah, the gate applies a normal-tail p: re-measure on the 337 healthy panel arrays with the gate's own statistic, one GitHub job), F29 (two-draw trajectory and noise floor read a retired record layout: port to v4 before Part H is commissioned), F24 (researcher names in code and runtime files), F7, F15, F17 (labels and install advice), F36 (rename the two chain documents). Every code change waits until the B and T and Johns Hopkins readings finish, so they all run on one chain version; F36 is documentation and goes in the documentation pass"
     }
    ]
   },
