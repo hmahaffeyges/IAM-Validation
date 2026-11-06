@@ -34,6 +34,26 @@
       "OTH-082"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "title": "Data search, early morning",
+     "status": "metadata only",
+     "what": "GEO and ENA searched for sequencing from laboratories the atlas has never held (tumor with normal, healthy plasma, sorted cells); each lead's labels read and one file's column layout checked, no values read.",
+     "outcome": "Held unread: GSE137879, GSE149612, GSE200092, GSE105127, GSE186007 (34 healthy, 50 colorectal and 16 pancreatic cancer plasmas from one laboratory, counts), GSE154348; GSE233417 is reduced representation (refused by the genome-coverage check); PRJNA727170 (58 healthy sorted libraries) needs alignment, about 1,570 machine-hours, waiting for the author.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/deposit/data_leads.csv"
+    },
+    {
+     "title": "Prior art, fourth pass",
+     "status": "audit",
+     "what": "PubMed on Group-A, the C-Score's clustering statistic, Coupling-A and the territories.",
+     "outcome": "Group-A and the clustering statistic not found; Coupling-A belongs to the published field of read-level heterogeneity, now credited; the territories closest to the leukemia study already credited.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
     }
    ]
   },
@@ -80,6 +100,16 @@
       "OTH-068"
      ],
      "record": "website/build/atlas_pages.py"
+    },
+    {
+     "title": "Noise maps on every sequencing-atlas cell page",
+     "status": "built",
+     "what": "Each cell's two noise maps with its own null-test result, read from noise_null.json (56 cells; the 8 single-donor cells have no donor-halves map).",
+     "outcome": "Committed.",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "website/build/seq_atlas_pages.py"
     }
    ]
   },
@@ -141,6 +171,16 @@
       "OTH-068"
      ],
      "record": "CANON/atlas_story.json"
+    },
+    {
+     "title": "A running merge held a second Google slot",
+     "status": "mistake",
+     "what": "The B and T relay counted a sample as waiting for its merge while its merge machine was already running, so the slot it reserved sat empty (5:45 to about 6:10 AM, one of 32 machines).",
+     "outcome": "Caught by the idle check after the author's network switch; the count now leaves out a merge already running.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   }
