@@ -336,7 +336,7 @@
      "date": "2026-11-05",
      "status": "running",
      "what": "Data search, continuous, for commissioning and testing every cell on every instrument (author: 'we need lots more to commission every cell for each of the instruments and the atlas's perfectly themselves'): GEO, SRA, ENA, ArrayExpress and journal papers' data sections, by cell and instrument against the table of 79 plus 57 cells (60.8); every lead into deposit/data_leads.csv with its spend status, nothing read",
-     "next": "450K whole blood found (GSE85210, GSE174422, GSE73115 two draws ten years apart, GSE105018; data_leads.csv); next: second laboratories for B, T and monocytes on sequencing; healthy plasma sequencing; repeated draws on EPIC",
+     "next": "found 11-05: 450K whole blood (GSE85210, GSE174422, GSE73115 two draws, GSE105018); healthy plasma by EM-seq (GSE259312, GSE306695) and from two laboratories (GSE307705, method to check); a real planted gain with same-laboratory controls (GSE306917); GEO's WGBS search for second laboratories of B, T and monocytes is thin (9 hits): next, SRA and ENA by cell and assay, and journal data sections",
      "record": "Biological_Physics/MethylPhys/deposit/data_leads.csv"
     },
     {
