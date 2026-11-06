@@ -40,3 +40,16 @@ methylome on a HEALPix sphere with sky statistics. Each stays "not found in our 
 
 **Next.** Read the five full texts; a patent search on the four not-found items; every "first", "new" or "never" sentence in the book listed and
 checked against this table.
+
+**Full text read: the methylation-thermodynamics paper (doi:10.1038/s41598-023-35166-9).** Confirmed from the full text: each methylation change is priced at no less than k_B T ln 2 per bit (Landauer), about 1.8 J per mole at body temperature in the paper's own figure;
+a methylome's divergence is measured against a reference (the centroid of a control group, or an independent control subset); its
+Gibbs entropy rises in cancer cells against their corresponding normal tissue, all against one shared reference individual. Not in it: any
+cell-type deconvolution or purity term (no mention), any per-cell expected disorder at the sample's own mix and read depth, and any fixed
+ends of a reading scale; its scale is fitted (a generalized gamma model of the divergence, by maximum likelihood). The clinical
+signal-detection paper (doi:10.3390/ijms20215343): the open-access copy retrieved is a different paper by the same group (a plant methylome
+preprint, bioRxiv 252106); the clinical paper's full text is still to be read.
+
+**Expected profile from the cell mix (search 3).** A published accuracy score for reference-based deconvolution measures how far a sample's methylation levels sit from the levels
+expected from its estimated cell proportions and the cell types' reference profiles (PMC9980651). It is the nearest published form of "the
+sample against its own healthy mix", applied to levels as a check on the deconvolution, not to disorder and not as a health reading. Met-A's
+ratio of the sample's own disorder to the disorder its healthy mix would hold at its own read depth: still not found.
