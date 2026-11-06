@@ -24,6 +24,16 @@
       "OTH-068"
      ],
      "record": "Biological_Physics/MethylPhys/doors/PRIOR_ART_01.md"
+    },
+    {
+     "title": "E2 machines give the same alignment as N2",
+     "status": "audit",
+     "what": "One Johns Hopkins CD4 chunk (GSM2103003, chunk 0 of 12), already aligned on an N2 spot machine, re-aligned on an E2 spot machine into its own folder and compared after decompression.",
+     "outcome": "Identical byte for byte: 8,062,694 molecule lines on both, the same SHA-256. E2 stays open for the slots above Toronto's N2 limit (the author approved E2 at about 1.7 times N2's price).",
+     "rows": [
+      "OTH-082"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ]
   },

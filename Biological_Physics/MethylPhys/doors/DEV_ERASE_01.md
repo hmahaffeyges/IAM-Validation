@@ -326,3 +326,7 @@ states. The reserved replicates 2 and 3 stay unread.
 - GSM7516959 against GSM7516965: 579 tiles | slope 0.6254 [0.5683, 0.6770] | intercept +1.0003 [+0.8401, +1.1775] | neither
 - GSM7516977 against GSM7516983: 579 tiles | slope 0.5706 [0.5313, 0.6053] | intercept +1.0970 [+0.9908, +1.2181] | neither
 The convergence strengthens from day 2 to day 4 in both lines, and the loose share keeps rising; this does not change bar 3.
+
+**E2 machines give the same alignment as N2.** One Johns Hopkins CD4 chunk (GSM2103003, chunk 0 of 12), already aligned by `split_google.sh` on an N2 spot machine, was aligned again on an E2
+spot machine into its own bucket folder and the two molecule files compared after decompression: identical byte for byte, 8,062,694 lines each,
+the same SHA-256 (2207e6e132db...). The machine type changes only the time a job takes, so E2 is used for the Google slots above Toronto's N2 limit.
