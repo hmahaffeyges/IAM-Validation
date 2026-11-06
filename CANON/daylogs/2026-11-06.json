@@ -201,6 +201,26 @@
       "OTH-068"
      ],
      "record": "website/build/seq_atlas_pages.py"
+    },
+    {
+     "title": "A Johns Hopkins chunk stopped after three tries, one of them a refused launch",
+     "status": "mistake",
+     "what": "CD4 chunk GSM2103005 c4: its first launch was refused by the old 24-machine limit yet counted as a try, and two spot machines were reclaimed by Google partway; at three tries the dispatcher gave up, and while it showed CD4 work waiting the tissue dispatcher stood aside, so 1 to 2 Google slots sat empty from about 12:00 to 12:16 PM.",
+     "outcome": "Found at a machine check; refused launches no longer count as tries, chunks get 5 real tries, the chunk relaunched at 12:31 PM.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A merge held its Google slot for one more relay pass",
+     "status": "mistake",
+     "what": "The B and T relay counted a sample as waiting for its merge in the same pass that launched it, so its slot stayed reserved for about 15 minutes after each merge launch.",
+     "outcome": "Fixed: a launched merge is cleared from the count at once.",
+     "rows": [
+      "COM-METAA-033"
+     ],
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
     }
    ]
   }
