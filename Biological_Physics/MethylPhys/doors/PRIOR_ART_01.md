@@ -17,3 +17,26 @@ their work and DOI, not by their authors. Literature only; no data read.
 1. Second pass on (c) and (d): literature databases and patents, with the exact terms of each method.
 2. A third claim set from the book's novelty statements: every sentence that says "first", "new" or "never" listed and checked.
 3. Findings feed the paper's introduction and the book; nothing public changes until each claim's row is settled.
+
+## Second pass (web search: the physics, the self-reference, the disorder ratio, the sphere)
+
+Read from abstracts, search excerpts and the papers' own method summaries; the full texts are to be read before any public wording changes.
+References are named by their work and DOI.
+
+| Claim | What the search found | Wording from here |
+|---|---|---|
+| (e) A methyl mark read as information held against heat, with Landauer's bound (k_B T ln 2 per bit) setting the energy of a methylation change | **Published.** An information-thermodynamics model of cytosine methylation built on Landauer's principle (doi:10.1371/journal.pone.0150427), extended to a thermodynamic model of the methylation process with the fluctuation theorem, applied to plant and human cancer methylomes (doi:10.1038/s41598-023-35166-9). | IAM does not introduce Landauer's principle to methylation. What IAM adds has to be stated against this work: the same law across 37 orders of magnitude, and instruments built on it. |
+| (f) A person's methylation read against a healthy reference, with thermal background separated from signal | **Published.** A signal-detection method (an R package, Zenodo record 4041756) models the background as thermal noise, builds a reference individual from pooled healthy controls, and scores each sample by an information divergence (Hellinger) from it; used for human clinical diagnostics (doi:10.3390/ijms20215343) and on public cancer methylomes (doi:10.1038/s41598-023-30422-4). | IAM's self-reference is not new as a principle. What may be new is the form: the expected disorder of the person's own healthy cell type at the sample's own mix and read depth, from a counted atlas, with nothing fitted. Not found in this pass; needs the full texts. |
+| (g) Methylation disorder higher in tumors than in matched normal tissue | **Published, widely.** Per-read disorder and entropy measures, tumor against matched normal (e.g. a 2017 epiallele method, PMC5526259; a 2026 preprint on methylation disorder across tumor types, doi:10.64898/2026.03.12.711303; a patent family on proportion of discordant reads in leukemia against normal B cells, US10801070 and US11834718). | Never claimed as new; the books and papers cite it as known. |
+| (h) Methylation disorder adjusted for cell-type composition by deconvolution | **Published (preprint).** Shannon entropy adjusted for tissue and cell-type composition across human tissues (doi:10.64898/2026.08.19.745715). | The nearest published work to Met-A in the sample's own mix. Met-A's ratio to a counted healthy expectation per cell at the sample's own depth: not found in this pass. |
+| (i) Fisher-Rao geometry on a sphere for cell types | **Published for gene expression, not methylation.** Single-cell RNA cells as multinomials, distances as arcs on a hypersphere (doi:10.1093/bib/bbaf631.055). | The information sphere for methylation: not found in this pass. |
+| (d) A methylome on a HEALPix sphere read with microwave-sky statistics | **Not found** in two passes; HEALPix appears in astronomy, cartography and spherical neural networks only. | "Not found in our search." |
+
+**What this pass changes.** The physics root (a held mark priced by Landauer's bound) and the principle of reading a person against a healthy
+reference have published precedent. Public text must not say IAM is the first to read methylation as information under Landauer's
+principle or to read against a healthy reference. What remains not found: the law carried across scales into methylation; the counted
+expectation of disorder per cell at the sample's own mix and depth, between two derived ends; the information sphere for methylation; the
+methylome on a HEALPix sphere with sky statistics. Each stays "not found in our search" until the full texts and a patent search are read.
+
+**Next.** Read the five full texts; a patent search on the four not-found items; every "first", "new" or "never" sentence in the book listed and
+checked against this table.
