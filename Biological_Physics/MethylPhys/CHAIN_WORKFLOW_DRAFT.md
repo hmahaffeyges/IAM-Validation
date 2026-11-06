@@ -1,14 +1,13 @@
-# The Chain Workflow (draft: Parts A to F)
+# The Chain Workflow (draft: Parts A to I)
 
 A step-by-step map of how the chain handles a sample, laid out like an emergency action plan: each box asks one question, and each
 answer says where the sample goes next. No code. Every box names the Decoder section it comes from (`manual/OM_v4_decoder.md`), so every
-statement traces to the chain itself. This draft holds the parts that are settled. The rest follows the outline
-(`CHAIN_WORKFLOW_OUTLINE.md`) as the commissioning work settles them.
+statement traces to the chain itself. Every part is drafted; two boxes (plasma, and G3) wait on running tests. The outline is `CHAIN_WORKFLOW_OUTLINE.md`.
 
 **Why the chain is built this way.** A cell pays to keep each methyl mark against the kicks of heat. A mark that cost holds is a held mark;
 one that has slipped is disorder. Every instrument compares a sample's disorder with the disorder of healthy cells of the same kind,
 measured the same way. So before anything is read, the chain makes sure of three things: what the sample is, that it was measured well,
-and which healthy ruler it can fairly be read against. Parts A to C are those three things.
+and which healthy ruler it can fairly be read against. Parts A to C are those three things; Parts D to I are the ruler, the cell mix, the readings, the tares, two draws and the report.
 
 ---
 
@@ -263,6 +262,97 @@ Decoder: §5 (Met-A, the C-Score), §6 and §9 (IAM-A), §11 (Group-A), §14b an
 
 ---
 
-*Parts G to I (the tares, the maps, two draws, the report) follow the outline and are written as
-each is settled. The same-laboratory tare for sequenced samples is under test on a laboratory the atlas has never held; its box is written
-from that test's result.*
+## Part G. Taring: putting the reading on the person's own healthy level
+
+A reading is a ratio against healthy. The tare makes sure the healthy side was measured the same way as the sample, so the run, the slide
+or the laboratory drops out and only the person's own change is left. Nothing is fitted: a tare divides by a median of healthy readings.
+
+### G1. On one array: its own fixed sites (Stage T step 1, the self-tare)
+
+| Question | Answer |
+|---|---|
+| What? | every array carries sites that every healthy cell holds fully marked or fully unmarked; where this array reads them shows how its chemistry is stretched |
+| Then | the array's values are mapped onto the reference arrays' scale by those fixed sites, per probe design |
+| Why | an array that reads 0.9 where its fixed sites should read 1 has a chemistry offset, not a disease |
+
+Decoder: §5.
+
+### G2. Against healthy references run the same way (Stage T step 2, the same-run tare)
+
+| Question | Answer |
+|---|---|
+| Healthy references needed | **at least 3** of the same specimen, run the same way: the same slide first, else the same batch or series |
+| The sample is one of them? | it is left out of its own references |
+| The rule | tared reading = the sample's reading divided by the median of the references' readings |
+| Fewer than 3 references? | the reading is printed untared, with that reason |
+| Also printed | the references' spread, and the smallest loss this sample could show: 2 x the spread / the shift a 1 % loss makes |
+
+Commissioned readings use it (Met-A, Group-A); development readings on every cell use the same rule (Met-A against the atlas). Decoder: §5,
+§11, §16.
+
+### G3. A sequenced sample from a laboratory the atlas has not seen
+
+The same rule, at the laboratory's level: **at least 3 healthy samples of the same cell from the same laboratory**, and every other sample
+from that laboratory read against their median. Measured on two outside laboratories, where it brought both to Normal. *This box is
+completed from the test on a laboratory never read before (the Johns Hopkins group's healthy CD4 donors, running), and from the disease
+side: a tared cancer sample from the same laboratory must still read abnormal.*
+
+---
+
+## Part H. Two draws of the same person
+
+The strongest reference is the person themselves. Two draws of one person, read the same way, show what changed in that person.
+
+| Step | What happens |
+|---|---|
+| H1. Same person? | the two draws must carry the same identifier, array type and pipeline, or the comparison is refused |
+| H2. Arrays: the difference map (Stage 12b) | the later draw minus the earlier, at every site both measured; no expectation, no composition. Decoder: §13 |
+| H3. Sequencing: against an earlier reading | the genome globe shows the sample against its own prediction and against the earlier reading of the same person |
+| H4. How small a change means anything | the two arrays' own measured noise carried through to the reading: the change noise alone could make, at 99 % |
+
+**Status:** the comparison runs and is flagged; the readings of a person over time are listed in draw order, numbers in order, no fit,
+no slope. Commissioning waits on public data with repeated draws of the same healthy people.
+
+---
+
+## Part I. The report
+
+The report writes what the stages measured, and nothing they did not. It computes no reading of its own: every number comes from the
+run's record or from a committed reference file.
+
+| What you get | What it holds |
+|---|---|
+| One HTML page per sample | self-contained, with every picture inside it |
+| The same report as two PDFs | built from the same rows and pictures, so the formats cannot disagree |
+| The bundle (a JSON record) | every stage's record, every flag, every reading, for a machine or a reviewer |
+
+**The page, in order:**
+1. **The researcher view:** each instrument, the question it answers, its reading, its state and whether it is commissioned; the physics
+   behind each reading with this run's own numbers; the cell shares; each reading on its gauge; the globe.
+2. **The plain view:** one gauge and one sentence per reading.
+3. **The technical record:** every stage's record, the red flags, the safeguards, troubleshooting.
+
+**The gauge.** The left end is the floor (derived from the law), the Normal band sits around the healthy 1 (measured), and the right end is
+saturation, every identity site fully scrambled (derived). Every mark is read from one committed file; nothing is typed into the drawing.
+
+**Every line says whether it is commissioned.** A commissioned reading names its record. Anything else is still shown and says: "This score
+is preliminary until [instrument] is officially commissioned on [cell]."
+
+| Red flag | Meaning |
+|---|---|
+| STOP | the sample was refused, with the reason |
+| FLAG | a commissioned call, such as a clustered departure |
+| WITHHELD | a reading not given, with its reason |
+| CAUTION, NOTE | something the reader should know |
+
+**Safeguards on every run** (each PASS, FAIL or NOT_RUN): no disease, cohort or population words in the report's prose; the entropy
+formula checked against known values; the reference anchors, the Deconvolver and the atlas checked.
+
+**What the report never says:** a diagnosis. It reads how well each cell is holding its marks against its own healthy self. What a reading
+means for a patient is for the clinician and the cancer researchers who set the lines on the gauge.
+
+Decoder: §14, §14b.
+
+---
+
+*Still to come: the outline's two open branches, plasma and the same-laboratory box (G3), written from their tests' results.*
