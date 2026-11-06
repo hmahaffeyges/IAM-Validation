@@ -12,6 +12,7 @@ Usage:
   python3 seq_globe_wg.py synthetic OUT.txt                      the synthetic (constructed atlas, known truth), written before any atlas value is read
   python3 seq_globe_wg.py part NSIDE INPUTS_CSV OUTDIR PIECE...   sums and counts of these pieces (one .npz per piece)
   python3 seq_globe_wg.py join NSIDE PARTDIR OUTDIR               the full maps, uint16 x 10,000 (65535 no CpG), one .npy per cell and kind
+  python3 seq_globe_wg.py slice INPUTS_CSV OUTDIR PIECE...        NSIDE 2048: each piece's own stretch of the final globe, plus NSIDE 256 sums for the textures
 """
 import os, sys, json, glob
 import numpy as np
@@ -37,7 +38,7 @@ def piece_sums(cpg, cols, K, nside, n=HG19_CPGS):
         r = _dec(reads); m = _dec(meth); sd = _dec(spread, 1e4)
         p, lo, hi, _ = SQ.range_of_average(np.nan_to_num(m), np.nan_to_num(r), sd, int(K.get(c, 1)))
         ok = np.isfinite(p) & (np.nan_to_num(r) > 0); D = {"n": np.bincount(rel[ok], minlength=L).astype(np.uint16)}
-        for k, v in zip(KINDS, (p, lo, hi)): D[k] = np.bincount(rel[ok], v[ok], minlength=L).astype(np.float32)
+        for k, v in zip(KINDS, (p, lo, hi)): D[k] = np.bincount(rel[ok], v[ok], minlength=L)   # 2026-11-06: float64 (float32 sums tipped values on a rounding boundary; synthetic run 1)
         out[c] = D
     return p0, out
 
@@ -133,8 +134,30 @@ def join_dir(nside, partdir, outdir):
         rep["cells"][c] = dict(cpgs_in_map=int(R["n"].astype(np.int64).sum()), pixels_with_cpg=int((R["n"] > 0).sum()))
     json.dump(rep, open(os.path.join(outdir, f"globe_wg_n{nside}.json"), "w"), indent=1); return rep
 
+def slice_(inputs_csv, outdir, pieces, nside=2048, coarse=256):
+    """2026-11-06: at NSIDE 2048 every CpG has its own pixel (bar 3 of the synthetic), so each piece covers its own stretch of pixels and no
+    pixel is shared with another piece: the piece's stretch of the final globe is written directly, uint16 x 10,000 (65535 no CpG), per cell
+    mu, lo, hi; and its sums and counts at NSIDE COARSE (the Globe Viewer's size) for the textures, joined across pieces by join()."""
+    import pyarrow.parquet as pq
+    K = _cells_K(inputs_csv); os.makedirs(outdir, exist_ok=True); rep = []
+    for f in pieces:
+        T = pq.read_table(f); cells = sorted({x.split("|")[0] for x in T.column_names if "|" in x}); cpg = T.column("cpg").to_numpy()
+        cols = {c: (T.column(f"{c}|meth").to_numpy(), T.column(f"{c}|reads").to_numpy(), T.column(f"{c}|spread").to_numpy()) for c in cells}
+        p0, S = piece_sums(cpg, cols, K, nside); q0, Q = piece_sums(cpg, cols, K, coarse)
+        flat = {"p0": np.array([p0]), "q0": np.array([q0]), "cells": np.array(cells)}
+        for c in cells:
+            n = S[c]["n"]; assert int(n.max(initial=0)) <= 1, "two CpGs in one pixel"
+            for k in KINDS: flat[f"{c}|{k}"] = np.where(n > 0, np.rint(np.clip(S[c][k], 0, 1) * 1e4), BLANK).astype(np.uint16)
+            for k, v in Q[c].items(): flat[f"{c}|c_{k}"] = v
+        np.savez_compressed(os.path.join(outdir, os.path.basename(f).replace(".parquet", f"_slice_n{nside}.npz")), **flat)
+        rep.append(dict(piece=os.path.basename(f), cpgs=int(T.num_rows), cells=len(cells), first_pixel=p0, pixels=int(len(S[cells[0]]["n"])),
+                        cpgs_placed={c: int(S[c]["n"].astype(np.int64).sum()) for c in cells}, cpgs_with_reads={c: int(((cols[c][1] != BLANK) & (cols[c][1] > 0)).sum()) for c in cells}))
+        print("piece", os.path.basename(f), T.num_rows, flush=True); del T, cols, S, Q
+    json.dump(rep, open(os.path.join(outdir, "slice_report.json"), "w"), indent=1); return rep
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a[0] == "synthetic": sys.exit(0 if synthetic(a[1]) else 1)
     if a[0] == "part": part(int(a[1]), a[2], a[3], a[4:])
     if a[0] == "join": join_dir(int(a[1]), a[2], a[3])
+    if a[0] == "slice": slice_(a[1], a[2], a[3:])

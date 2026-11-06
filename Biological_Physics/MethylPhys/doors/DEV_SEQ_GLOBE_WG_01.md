@@ -42,3 +42,10 @@ CpGs changes that cell's map at exactly those CpGs' pixels and nothing else anyw
 1024 each pixel is the mean of the CpGs placed in it, within rounding. The design's third check (the new globe equals the current one at the
 813,951 array-layout sites) is made on the real build, before the globe is used. A one-million-CpG run of the same code met all three (a code
 check only, not the test); the full-size run is on GitHub (explore workflow).
+
+**The synthetic, run 1 (all 28,217,448 CpGs, GitHub): not met** (`doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_synthetic_run1.txt`). Bars 1 and 2 met: every CpG with reads landed in the map for each
+cell, and the change planted at 10 CpGs changed exactly those 10 pixels in that cell and nothing else. Bar 3 not met by a rounding margin: at
+NSIDE 2048 no pixel holds two CpGs (met), but at NSIDE 1024 the largest gap between a pixel and the mean of its CpGs printed 0.000050 against
+the 0.00005 that rounding to 0.0001 allows. **Cause (my code):** the builder kept its per-pixel sums in 32-bit numbers, whose error of about
+one part in ten million can tip a value lying on a rounding boundary to the next step. **Fix:** the sums are kept in 64-bit; the bars are
+unchanged. Run 2 is the same synthetic on the fixed builder.

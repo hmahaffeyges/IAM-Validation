@@ -1,0 +1,5 @@
+bar 1 (every CpG with reads lands): cell a 26686622 in the map, 26686622 with reads; cell b 26686632 in the map, 26686632 with reads; cell c 26685459 in the map, 26685459 with reads (met)
+bar 2 (planted change at 10 CpGs, pixels 26755598 to 26755614): cell b changed at 10 pixels, all planted: True; cell a 0, cell c 0 changed (met)
+bar 3 (one CpG, one pixel): most CpGs in one NSIDE 2048 pixel 1; at NSIDE 1024 the largest gap between a pixel and the mean of its CpGs 0.000050 (rounding to 0.0001 allows 0.00005) (not met)
+empty pixels at NSIDE 2048 (no CpG placed): 23645026 of 50331648; at NSIDE 1024: 28334 of 12582912
+test: not met
