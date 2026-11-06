@@ -177,7 +177,7 @@
      "date": "2026-11-04",
      "status": "running",
      "what": "A3: the same-laboratory tare on sequencing: the laboratory's own healthy libraries as the tare, the others read against it. GSE144691 (St. Jude, GSE98837's laboratory; 8 of its healthy libraries are GSE98837's, spent) gives the test: tare on the 8 spent, read the 5 new healthy libraries at full depth; then a fresh laboratory. Correction 2026-11-04: GSE144691 is not a fresh laboratory (Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md)",
-     "next": "measured on the two spent outside laboratories (same_lab_tare.txt): tared on three of their own healthy samples they read Normal; the test on a laboratory never read, the Johns Hopkins group's healthy CD4 donors (6), is running on Google; then the disease side on the same group's tumor and normal pairs (GSE86340), written before reading"
+     "next": "measured on the two spent outside laboratories (same_lab_tare.txt): tared on three of their own healthy samples they read Normal; the test on a laboratory never read, the Johns Hopkins group's healthy CD4 donors (6), is running on Google; then the disease side on the same group's tumor and normal pairs (GSE86340), written before reading; a fresh laboratory with all four sorted blood cells found and held unread: PRJNA727170 (58 healthy-control and 75 MS libraries, deep WGBS; deposit/PRJNA727170_labels.csv), the test after Johns Hopkins"
     },
     {
      "id": "60.4",
