@@ -1,0 +1,60 @@
+name: cov_read
+# 2026-11-06: per-CpG coverage tables (a published Bismark .cov or CpG table, no alignment) read by the one command, ONE SAMPLE PER JOB, so each
+# sample's result is saved (the job's own artifact) the moment it is read and a failed job costs only that sample. Runs a committed job script
+# (for example doors/data/DEV_ONE_DRAW_01/plasma_lab3/plasma_lab3_read.sh) on rows FIRST to LAST of its committed sample list. The hg19 CpG
+# dictionary is taken from the repository's index release once (a cached prep job) and reused by every sample job.
+on:
+  workflow_dispatch:
+    inputs:
+      script: {description: "the job script, repository path", required: true}
+      list:   {description: "its sample list, repository path", required: true}
+      first:  {description: "first row (1 = the first sample)", required: true}
+      last:   {description: "last row", required: true}
+      tag:    {description: "artifact name prefix", required: true}
+      par:    {description: "machines at once", required: true, default: "14"}
+permissions: {contents: read}
+jobs:
+  prep:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    outputs: {rows: "${{ steps.r.outputs.rows }}"}
+    steps:
+      - id: r
+        run: echo "rows=$(python3 -c "import json; print(json.dumps(list(range(${{ inputs.first }}, ${{ inputs.last }} + 1))))")" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v4
+        id: c
+        with: {path: cpg, key: hg19-cpg-bed-v1}
+      - name: the hg19 CpG dictionary from the index release (checksum verified)
+        if: steps.c.outputs.cache-hit != 'true'
+        run: |
+          set -o pipefail; sudo apt-get install -y -q zstd > /dev/null; mkdir -p cpg s
+          U=https://github.com/hmahaffeyges/IAM-Validation/releases/download/hg19-bwameth-index-v1
+          curl -fsSL --retry 5 -o s/sums $U/SHA256SUMS
+          for q in $(awk '$2=="parts"{for(i=3;i<=NF;i++) print $i}' s/sums); do curl -fsSL --retry 5 "$U/$q" || exit 1; done \
+            | tee >(sha256sum | cut -d' ' -f1 > s/got) | zstd -dc -T4 | tar -C s -xf - --wildcards '*references/hg19/CpG.bed.gz'; sleep 3
+          [ "$(cat s/got)" = "$(awk '$2=="stream"{print $1}' s/sums)" ] || { echo "index stream checksum FAILED"; exit 1; }
+          cp "$(find s -name CpG.bed.gz | head -1)" cpg/CpG.bed.gz; [ "$(zcat cpg/CpG.bed.gz | wc -l)" = 28217448 ] || exit 1
+  read:
+    needs: prep
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.par) }}
+      matrix: {row: "${{ fromJSON(needs.prep.outputs.rows) }}"}
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: Biological_Physics}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/cache/restore@v4
+        with: {path: cpg, key: hg19-cpg-bed-v1, fail-on-cache-miss: true}
+      - run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
+      - name: one sample through the one command
+        run: |
+          export W=$PWD/w R=$PWD CPG_BED=$PWD/cpg/CpG.bed.gz; mkdir -p $W/out
+          bash "$PWD/${{ inputs.script }}" "$PWD/${{ inputs.list }}" ${{ matrix.row }} ${{ matrix.row }} 2>&1 | tail -40
+          ls $W/out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: "${{ inputs.tag }}-${{ matrix.row }}", path: w/out/, retention-days: 30}
