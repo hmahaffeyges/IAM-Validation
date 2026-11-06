@@ -11,7 +11,7 @@
 IAM is a model of how reality begins with a bit and the cost that comes with it: how information and entropy keep their balance, the thermodynamics of informational fidelity. It is not a new theory of gravity; it reads reality, from the quantum to the classical, through the bit and its price.
 
 <p align="center">
-  <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Follow_the_research-live-7a3ea3?style=for-the-badge" alt="Follow the research, live"></a>
+  <a href="https://hmahaffeyges.github.io/IAM-Validation/"><img src="https://img.shields.io/badge/Follow_the_research-live-7a3ea3?style=for-the-badge&v=2" alt="Follow the research, live"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/read/"><img src="https://img.shields.io/badge/Read_the_book-online-2b5cad?style=for-the-badge" alt="Read the book online"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/pdf/IAMs_Law_and_Order.pdf"><img src="https://img.shields.io/badge/Download-the_PDF-2b5cad?style=for-the-badge" alt="Download the PDF"></a>
   <a href="https://hmahaffeyges.github.io/IAM-Validation/epub/IAMs_Law_and_Order.epub"><img src="https://img.shields.io/badge/Apple_Books-EPUB-2b5cad?style=for-the-badge" alt="Download for Apple Books (EPUB)"></a>
@@ -23,7 +23,7 @@ Heath W. Mahaffey, IAMPerformance (independent research).
 
 **Cite the book (version 1.0, October 2026):** Mahaffey, H. W. *IAM's Law and Order: The Actualization of Reality.* Zenodo. [https://doi.org/10.5281/zenodo.23151068](https://doi.org/10.5281/zenodo.23151068)
 
-[![Book DOI](https://img.shields.io/badge/Book_DOI-10.5281%2Fzenodo.23151068-blue)](https://doi.org/10.5281/zenodo.23151068) [![IAM-Atlas v2.1 DOI](https://img.shields.io/badge/IAM--Atlas_v2.1_DOI-10.5281%2Fzenodo.23441999-blue)](https://doi.org/10.5281/zenodo.23441999) [![IAM Sequencing Atlas DOI](https://img.shields.io/badge/IAM_Sequencing_Atlas_DOI-10.5281%2Fzenodo.23934666-blue)](https://doi.org/10.5281/zenodo.23934666) [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FKCZD9-blue)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Book DOI](https://img.shields.io/badge/Book_DOI-10.5281%2Fzenodo.23151068-blue?v=2)](https://doi.org/10.5281/zenodo.23151068) [![IAM-Atlas v2.1 DOI](https://img.shields.io/badge/IAM--Atlas_v2.1_DOI-10.5281%2Fzenodo.23441999-blue)](https://doi.org/10.5281/zenodo.23441999) [![IAM Sequencing Atlas DOI](https://img.shields.io/badge/IAM_Sequencing_Atlas_DOI-10.5281%2Fzenodo.23934666-blue?v=2)](https://doi.org/10.5281/zenodo.23934666) [![DOI](https://img.shields.io/badge/OSF_DOI-10.17605%2FOSF.IO%2FKCZD9-blue?v=2)](https://doi.org/10.17605/OSF.IO/KCZD9) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18702042-blue)](https://doi.org/10.5281/zenodo.18702042) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Start here
 
@@ -67,18 +67,22 @@ How each one works, why it matters, and every test behind it: [Biological_Physic
 
 <!-- CATALOGUE:END -->
 
-## The atlas
+## The atlases
 
-**IAM-Atlas v2.1**: 79 purified healthy human cell types from 21 public sources, fitted as one model, every site with its value and its 95 %
-range, and drawn on the sky: [every cell on its own page](https://hmahaffeyges.github.io/IAM-Validation/atlas/index.html). On Zenodo: the fitted atlas
-([10.5281/zenodo.23441999](https://doi.org/10.5281/zenodo.23441999)) and its posterior draws ([10.5281/zenodo.23422688](https://doi.org/10.5281/zenodo.23422688)). Commissioned use by
-use ([note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md)); it replaces IAM-Atlas v2 (74 cell types; DOI
-[10.5281/zenodo.23325865](https://doi.org/10.5281/zenodo.23325865)). The compact copy and how it is built and tested: [`Biological_Physics/MethylPhys/atlas/`](Biological_Physics/MethylPhys/atlas/).
+**IAM-Atlas v2.1, the ruler for arrays.** 79 purified healthy human cell types from 21 public sources, fitted as one model, every site with its
+value and its 95 % range, and drawn on the sky. Commissioned use by use; it replaces IAM-Atlas v2 (74 cell types).
 
-**The IAM Sequencing Atlas** (in development): the ruler for sequenced samples, measured with sequencing's own chemistry, while IAM-Atlas v2.1
-stays the ruler for arrays. 57 healthy human cell types at all 28.2 million CpGs, counted from healthy donors' public reads with nothing fitted;
-every healthy sequenced input reads Normal against it, 140 of 140. On Zenodo: [10.5281/zenodo.23934666](https://doi.org/10.5281/zenodo.23934666);
-[every cell on its own page](https://hmahaffeyges.github.io/IAM-Validation/seq-atlas/index.html); the record: [DEV_ATLAS_V21_01.md](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md).
+[![IAM-Atlas v2.1 DOI](https://img.shields.io/badge/IAM--Atlas_v2.1_DOI-10.5281%2Fzenodo.23441999-blue)](https://doi.org/10.5281/zenodo.23441999) [![Posterior draws DOI](https://img.shields.io/badge/Posterior_draws_DOI-10.5281%2Fzenodo.23422688-blue)](https://doi.org/10.5281/zenodo.23422688) [![IAM-Atlas v2 DOI](https://img.shields.io/badge/IAM--Atlas_v2_DOI-10.5281%2Fzenodo.23325865-blue)](https://doi.org/10.5281/zenodo.23325865)
+
+[Every cell on its own page](https://hmahaffeyges.github.io/IAM-Validation/atlas/index.html) · [The commissioning note](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) · [How it is built and tested](Biological_Physics/MethylPhys/atlas/)
+
+**The IAM Sequencing Atlas, the ruler for sequenced samples** (in development). Measured with sequencing's own chemistry: 57 healthy human
+cell types at all 28.2 million CpGs, counted from healthy donors' public reads with nothing fitted. Every healthy sequenced input reads Normal
+against it, 140 of 140.
+
+[![IAM Sequencing Atlas DOI](https://img.shields.io/badge/IAM_Sequencing_Atlas_DOI-10.5281%2Fzenodo.23934666-blue?v=2)](https://doi.org/10.5281/zenodo.23934666)
+
+[Every cell on its own page](https://hmahaffeyges.github.io/IAM-Validation/seq-atlas/index.html) · [Both atlases on the Globe Explorer](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html) · [The build record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
 <!-- NOW_RUNNING:BEGIN (generated by CANON/now_running.py from CANON/now_running.json; do not edit by hand) -->
 
