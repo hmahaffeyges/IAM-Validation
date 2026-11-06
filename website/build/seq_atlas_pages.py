@@ -17,7 +17,7 @@ PHYS = ("Why a map like this can be a ruler: a methyl mark is a record a cell ke
         "reading scale's ends come from physics (a mark held at the holding energy, and a mark lost entirely, one bit of disorder). This map "
         "is where healthy cells of this kind sit between those ends at every CpG, counted from healthy donors' reads with nothing fitted. A "
         "sequenced sample of this cell is read against it site by site, at the sample's own number of reads.")
-HOW = ("Every CpG of the genome keeps one place on a HEALPix sphere, the pixel grid the Planck and WMAP missions used to map the microwave sky, "
+HOW = ("The atlas holds every CpG; its globe is drawn on IAM-Atlas v2.1's layout of 813,951 sites, each keeping one place on a HEALPix sphere, the pixel grid the Planck and WMAP missions used to map the microwave sky, "
        "set by where the site sits in the genome (chromosome 1 through Y). The layout is the same for every cell, so any two cells, and a person's "
        "sample, can be compared site for site.")
 
@@ -55,7 +55,9 @@ def write(out, art_rel, css_tag, style, back):
         '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../atlas/information_sphere_sequencing.html"><a href="../atlas/information_sphere_sequencing.html">The information sphere</a>')
     v21i = os.path.join(REPO, "website", "art", "out", "cells", "index.json")
     if os.path.exists(v21i): v21 = {c["slug"] for c in json.load(open(v21i, encoding="utf-8"))["cells"]}
-    nm = lambda c: c["cell"][:1].upper() + c["cell"][1:]
+    _UP = {"cd4": "CD4", "cd8": "CD8", "cd14": "CD14", "cd34": "CD34", "nk": "NK", "t": "T", "b": "B", "dc": "DC", "hspc": "HSPC", "mep": "MEP"}   # cell names as written in the field
+    _FIX = {"fallopien tubes epithelium": "Fallopian tube epithelium"}   # display only; the atlas keeps its source's label
+    nm = lambda c: _FIX.get(c["cell"].lower()) or " ".join(_UP.get(w, w) if (w in _UP and (i or w not in ("b", "t"))) or w in ("cd4", "cd8", "cd14", "cd34", "nk") else (w[:1].upper() + w[1:] if i == 0 else w) for i, w in enumerate(c["cell"].split(" ")))
     head = lambda t: (f'<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
                       f'<title>{E(t)}</title>{css_tag}<style>{style}.cg{{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}}'
                       f'.cg a{{text-decoration:none;color:inherit}}.cg img{{width:100%;border-radius:4px}}.cg span{{font-size:14px}}.two{{display:grid;grid-template-columns:1fr 1fr;gap:8px}}.two img{{width:100%}}</style></head><body><section class="wrap">')

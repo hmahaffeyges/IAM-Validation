@@ -19,6 +19,19 @@ HOW = ("Every site of the atlas keeps one place on a HEALPix sphere, the pixel g
 
 # the globe viewer lives in chain/MethylPhys_Interface/globe_viewer.py (2026-10-21), one code for every globe
 
+# 2026-11-05: cell names as written in the field (CD4 T cells, NK cells, B cells), for every page; the atlases keep their own labels
+_UPW = {"cd4": "CD4", "cd8": "CD8", "cd14": "CD14", "cd34": "CD34", "cd56bright": "CD56bright", "cd56dim": "CD56dim", "nk": "NK", "temra": "TEMRA", "(cd28-)": "(CD28-)", "th1": "Th1", "th17": "Th17", "treg": "Treg"}
+_FIXN = {"fallopien tubes epithelium": "Fallopian tube epithelium"}
+def cellname(s):
+    if s.lower() in _FIXN: return _FIXN[s.lower()]
+    w = s.split(" "); out = []
+    for i, x in enumerate(w):
+        lx = x.lower()
+        if lx in _UPW: out.append(_UPW[lx])
+        elif lx in ("t", "b") and i + 1 < len(w) and w[i + 1].lower().startswith("cell"): out.append(lx.upper())
+        else: out.append(x[:1].upper() + x[1:] if i == 0 else x)
+    return " ".join(out)
+
 def write_sphere(out, art_rel, css_tag, style, back, names):
     """atlas/sphere.html: the Globe Explorer (2026-10-21, author: "the webpage to show ALL the versions"). Every globe is drawn by the chain's one
     viewer (chain/MethylPhys_Interface/globe_viewer.py), the same code as a report's globe; each globe's pictures load only when it is chosen.
@@ -30,7 +43,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     f = os.path.join(ART_, "sphere", "sphere.json")
     if not os.path.exists(f): return 0
     _s.path.insert(0, os.path.join(H_, "..", "..", "Biological_Physics", "MethylPhys", "chain", "MethylPhys_Interface")); import globe_viewer as V
-    S = json.load(open(f)); cells = sorted(({"slug": c["slug"], "name": names.get(c["slug"], c["cell"])} for c in S["cells"]), key=lambda c: c["name"].lower())
+    S = json.load(open(f)); cells = sorted(({"slug": c["slug"], "name": cellname(names.get(c["slug"], c["cell"]))} for c in S["cells"]), key=lambda c: c["name"].lower())
     atlas = dict(id="atlas", name="Array Atlas Globe (IAM-Atlas v2.1, 79 cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
         dict(name="methylation", kind="image", src=f"{art_rel}sphere/{c['slug']}_v.jpg", mask=f"{art_rel}sphere/{c['slug']}_vm.png", vscale=[0, 1], vword="at least this methylated:",
              hint="Slide right to keep only the sites at least this methylated; the rest go dark. Slide back to see every site.",
@@ -46,7 +59,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
     # same viewer, from the chain's own sphere build (website/art/out/seq_cells/index.json, run_sample.py --build seq-atlas-sphere); no masks are drawn
     fs = os.path.join(ART_, "seq_cells", "index.json")
     if os.path.exists(fs):
-        Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": c["cell"][:1].upper() + c["cell"][1:]} for c in Q["cells"]), key=lambda c: c["name"].lower())
+        Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": cellname(c["cell"])} for c in Q["cells"]), key=lambda c: c["name"].lower())
         specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe (IAM Sequencing Atlas, {len(qc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
             dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at each of the layout's sites, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
             dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in qc],
@@ -114,7 +127,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
 
 def write(out, art_rel, css_tag, style, back):
     I = json.load(open(os.path.join(os.path.dirname(__file__), "..", "art", "out", "cells", "index.json")))["cells"]
-    I = sorted(I, key=lambda c: c["name"].lower()); d = os.path.join(out, "atlas"); os.makedirs(d, exist_ok=True)
+    I = sorted(({**c, "name": cellname(c["name"])} for c in I), key=lambda c: c["name"].lower()); d = os.path.join(out, "atlas"); os.makedirs(d, exist_ok=True)
     BF = built_from(); missing = [c["cell"] for c in I if c["cell"].lower() not in BF]
     assert not missing, "atlas_pages: cells with no samples in the atlas sample list: " + ", ".join(missing)
     ref = next(c for c in I if c["cell"].lower() == "neutrophils"); rn, rk, _ = BF["neutrophils"]
@@ -138,7 +151,7 @@ def write(out, art_rel, css_tag, style, back):
         p, n = I[k - 1], I[(k + 1) % len(I)]
         body = (f'<p><a href="index.html">&larr; all {len(I)} cells</a> &middot; <a href="{back}">front page</a></p><h1>{E(c["name"])}</h1>'
                 f'<figure><img src="{art_rel}cells/{c["slug"]}.jpg" alt="{E(c["name"])}: value and uncertainty on the sphere" style="width:100%">'
-                f'<figcaption>Left: healthy {E(c["name"].lower())} from IAM-Atlas v2.1, every site in its genome place, from never tagged (blue) to always tagged (red). '
+                f'<figcaption>Left: healthy {E(c["name"][:1].lower() + c["name"][1:] if not c["name"][:2].isupper() else c["name"])} from IAM-Atlas v2.1, every site in its genome place, from never tagged (blue) to always tagged (red). '
                 f'Right: how sure the atlas is of each value. Dark means certain (0 would mean the value is known exactly); the brighter a point, the wider its 95&nbsp;% range. Every cell&rsquo;s map uses the same scale, 0 to &plusmn;0.15, so cells can be compared with each other.</figcaption></figure>'
                 f'<table><tr><th>Average methylation</th><td>{c["mean_methylation"]:.3f}</td></tr>'
                 f'<tr><th>How sure (half-width of the 95&nbsp;% range)</th><td>half the sites within &plusmn;{c["halfwidth_median"]:.3f}; nine in ten within &plusmn;{c["halfwidth_p90"]:.3f}</td></tr>'
