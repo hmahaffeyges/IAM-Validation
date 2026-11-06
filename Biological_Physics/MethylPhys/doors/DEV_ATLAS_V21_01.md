@@ -1312,3 +1312,11 @@ judged on the median, as healthy pass 5 was, because one healthy sample's sorted
 same-laboratory tare, above). If met, the same-laboratory tare is commissioned for own-cell Met-A on sequencing, for CD4 T cells.
 **Prior reading:** none of GSE86340's samples has been read; only its sample labels and read counts.
 **Synthetic test:** `DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/metaa_donors_synthetic.py`, `DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/metaa_donors_synthetic.txt` (the sorted-cell reading on sequencing, met). The tare itself was measured on the spent laboratories (`seq_atlas/outside_data/same_lab_tare.txt`, above).
+
+**The sequencing atlas's information sphere carries IAM-Atlas v2.1's caption (found by the author; disclosed).** The picture (`seq_atlas/globe/seq_globe.html`) draws the IAM Sequencing Atlas's 534617 sites from 56 cell types (`seq_globe.json`),
+but its "What you are looking at" panel says 191,458 sites and 79 cell types of IAM-Atlas v2.1: the one command's sphere builder writes that
+panel as fixed text (`run_sample.py`, `_ISV_ABOUT`), whatever atlas it is given. The website also linked the sequencing atlas's box to this page as
+"its information globe" without a choice of atlas, and gave IAM-Atlas v2.1's box no sphere link. Fixed on the site: one information sphere page
+with a choice of atlas, each box linked to its own, the counts read from each build record, and a note on the panel's wording. To do (after the B
+and T and Johns Hopkins readings, one chain version): the builder writes its panel from the atlas given, and the sphere is rebuilt with all 57
+cell types (it was drawn before the granulocytes were added).

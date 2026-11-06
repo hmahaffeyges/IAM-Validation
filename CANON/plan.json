@@ -1751,7 +1751,7 @@
      "status": "open",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "The information sphere's gauge and its sequencing layout: the sphere's distance (each sample's Fisher-Rao distance from its own healthy expectation) read over the healthy distance of its cell, as coupling-A is, so a healthy sample reads 1, flagged; a sphere layout built from the sequencing atlas at the CpGs that vary between cells; for plasma, which of the sphere's regions a tissue's shed DNA lights up.",
-     "next": "Build the sphere distance's healthy reference from the 153 healthy inputs, synthetic first."
+     "next": "the information sphere is built (534617 sites, 56 cells) and on the site's sphere page with a choice of atlas; next, after the current readings: the builder writes its 'What you are looking at' panel from the atlas given (it carries v2.1's fixed text), rebuild with all 57 cells, then a sequenced sample's own sphere on this layout"
     },
     {
      "id": "35.30.13",

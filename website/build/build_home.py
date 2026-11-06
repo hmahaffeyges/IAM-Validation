@@ -323,12 +323,12 @@ def page(art):
         f'<article class="card"><a href="{_root}atlas/sphere.html"><img src="{art("explorer/globe_still.jpg")}" alt="IAM-Atlas v2.1 healthy neutrophils on the globe" style="width:100%;border-radius:8px"></a>'
         f'<span class="chip st-b">commissioned</span><h3>IAM-Atlas v2.1: the ruler for arrays</h3><p>{E(_A1["how"])}</p>'
         f'<p class="sub">{len(_SPH["cells"])} healthy cell types &middot; {_SPH["sites"]:,} sites &middot; a best value and a 95 % range at every site &middot; DOI {_dl_(_d1)}</p>'
-        f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html">Turn it on the globe</a><a class="btn ghost" href="{_root}atlas/index.html">Every cell, page by page</a></p></article>'
+        f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html">Turn it on the globe</a><a class="btn ghost" href="{_root}atlas/index.html">Every cell, page by page</a><a class="btn ghost" href="{_root}atlas/information_sphere.html?atlas=v21">Its information sphere</a></p></article>'
         f'<article class="card"><a href="{_root}atlas/sphere.html?globe=seq-atlas"><img src="{art("seq_cells/b-cells_v.jpg")}" alt="IAM Sequencing Atlas healthy B cells on the sphere, every CpG" style="width:100%;border-radius:8px"></a>'
         f'<span class="chip st-b">in development</span><h3>The IAM Sequencing Atlas: the ruler for sequenced samples</h3><p>{E(_sents(_A2["what"], 3))}</p>'
         f'<p class="sub">{len(_SQS["cells"])} healthy cell types &middot; {E(_cpg)} CpGs, every one in the genome &middot; counted from reads, donor by donor &middot; DOI {_dl_(_d2)}</p>'
         f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html?globe=seq-atlas">Turn it on the globe</a><a class="btn ghost" href="{_root}seq-atlas/index.html">Every cell, page by page</a>'
-        f'<a class="btn ghost" href="{_root}seq-atlas/information_globe.html">Its information globe</a></p></article></div>'
+        f'<a class="btn ghost" href="{_root}atlas/information_sphere.html?atlas=seq">Its information sphere</a></p></article></div>'
         f'<h3>How they differ</h3><div style="overflow-x:auto"><table class="tools"><thead><tr><th></th><th>IAM-Atlas v2.1</th><th>IAM Sequencing Atlas</th></tr></thead><tbody>'
         f'<tr><td>The ruler for</td><td>methylation arrays (450K, EPIC v1, EPIC v2)</td><td>sequenced samples, read as counts of methylated and unmethylated reads</td></tr>'
         f'<tr><td>Healthy cell types</td><td>{len(_SPH["cells"])}</td><td>{len(_SQS["cells"])}</td></tr>'
@@ -342,7 +342,7 @@ def page(art):
         f'<a href="{_root}atlas/sphere.html?globe=healthy-blood">a real healthy blood against its healthy reference</a> &middot; '
         f'<a href="{_root}atlas/sphere.html?globe=planted-blood">the same blood with a planted loss</a>.</p>'
         f'<p class="more">Pictures, not readings: every number stays with its instrument. The globes place every site by where it sits on the DNA; the '
-        f'<a href="{_root}atlas/information_sphere.html">information sphere</a> places it by how it behaves across the cell types.</p></section>')
+        f'<a href="{_root}atlas/information_sphere.html">information sphere</a> places it by how it behaves across the cell types; one page, with a choice of atlas.</p></section>')
     body = f'''<header class="hero" style="background-image:linear-gradient(rgba(10,12,16,.55),rgba(10,12,16,.85)),url({art("web_banner.jpg")})">
 <div class="wrap"><p class="kicker">IAMPerformance · An Introduction to IAM</p>
 <h1>The Physics of Methylation</h1>

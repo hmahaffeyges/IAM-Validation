@@ -51,7 +51,8 @@ def write(out, art_rel, css_tag, style, back):
     I, don, sex, floor, rd = data(); C = sorted(I["cells"], key=lambda c: c["cell"].lower())
     d = os.path.join(out, "seq-atlas"); os.makedirs(d, exist_ok=True); v21 = set()
     _ig = os.path.join(REPO, "Biological_Physics", "MethylPhys", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "globe", "seq_globe.html")   # 2026-11-05: its information globe, as the one command drew it
-    if os.path.exists(_ig): import shutil as _sh; _sh.copy(_ig, os.path.join(d, "information_globe.html"))
+    if os.path.exists(_ig): open(os.path.join(d, "information_globe.html"), "w", encoding="utf-8").write(   # the old address now opens the sphere page on this atlas
+        '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../atlas/information_sphere.html?atlas=seq"><a href="../atlas/information_sphere.html?atlas=seq">The information sphere</a>')
     v21i = os.path.join(REPO, "website", "art", "out", "cells", "index.json")
     if os.path.exists(v21i): v21 = {c["slug"] for c in json.load(open(v21i, encoding="utf-8"))["cells"]}
     nm = lambda c: c["cell"][:1].upper() + c["cell"][1:]
@@ -61,7 +62,7 @@ def write(out, art_rel, css_tag, style, back):
     g = [f'<a href="{c["slug"]}.html"><img loading="lazy" src="{art_rel}seq_cells/{c["slug"]}_thumb.jpg" alt="{E(nm(c))} on the sphere"><span>{E(nm(c))}</span></a>' for c in C]
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(head("The IAM Sequencing Atlas: every cell at every CpG")
         + f'<p><a href="{back}">&larr; IAMPerformance front page</a> &middot; <a href="../atlas/index.html">IAM-Atlas v2.1 (arrays)</a> &middot; '
-        + '<a href="../atlas/sphere.html?globe=seq-atlas">turn every cell on the globe</a>' + (' &middot; <a href="information_globe.html">its information globe</a>' if os.path.exists(_ig) else '') + '</p>'
+        + '<a href="../atlas/sphere.html?globe=seq-atlas">turn every cell on the globe</a>' + (' &middot; <a href="../atlas/information_sphere.html?atlas=seq">its information sphere</a>' if os.path.exists(_ig) else '') + '</p>'
         + f'<h1>The IAM Sequencing Atlas: {len(C)} healthy cell types at every CpG</h1><p><b>In development.</b> The ruler for sequenced samples, measured with '
         + "sequencing's own chemistry; IAM-Atlas v2.1 stays the ruler for arrays. " + E(PHYS) + '</p><p>The whole atlas, every cell at every CpG with its runtime tables and a checksum for every piece, is on Zenodo: <a href="https://doi.org/10.5281/zenodo.23934666">doi.org/10.5281/zenodo.23934666</a>.</p><p>' + E(HOW) + ' Choose a cell.</p><div class="cg">' + "".join(g) + "</div></section></body></html>")
     for k, c in enumerate(C):
