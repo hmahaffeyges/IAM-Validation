@@ -31,3 +31,14 @@ kind, built cell by cell), the textures for the Globe Viewer drawn at a size a b
 atlas on Zenodo. Then the Sample Globe on sequencing is read on it, synthetic first, and the cell pages and Globe Viewer move to it.
 
 **When:** the design now; the build as soon as the B and T and Johns Hopkins machines free a slot. Status reported in every progress update.
+
+**The builder and its synthetic, written and committed before any atlas value is read.** `Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py`. It builds the globe from the published atlas (the 113 pieces of the Zenodo
+deposit), one piece at a time: each piece gives, per cell, the sums and counts of its CpGs' level and range in each pixel it touches, and these
+add exactly across pieces, so the build splits over machines and the joined map is the same as one built whole. The level and range are
+`stage_seq_atlas.range_of_average` with each cell's number of healthy inputs from `seq_atlas_inputs.csv`, the current globe's rule and counts.
+The synthetic builds a constructed three-cell atlas at all 28,217,448 CpGs in pieces of 250,000, exactly as the real build, at NSIDE 2048 and
+1024, against the design's bars: 1. every CpG with reads lands in the map, for every cell; 2. a change planted in one cell at 10 neighboring
+CpGs changes that cell's map at exactly those CpGs' pixels and nothing else anywhere; 3. at NSIDE 2048 no pixel holds two CpGs, and at NSIDE
+1024 each pixel is the mean of the CpGs placed in it, within rounding. The design's third check (the new globe equals the current one at the
+813,951 array-layout sites) is made on the real build, before the globe is used. A one-million-CpG run of the same code met all three (a code
+check only, not the test); the full-size run is on GitHub (explore workflow).
