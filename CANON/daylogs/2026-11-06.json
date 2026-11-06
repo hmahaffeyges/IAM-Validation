@@ -191,6 +191,16 @@
       "COM-METAA-033"
      ],
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "title": "A missing noise map explained with the wrong reason",
+     "status": "mistake",
+     "what": "The new cell-page caption said a cell without a donor-halves map had a single donor; the eight such cells have their donors in one sealed half (adipocytes: 3 donors, all in half B). The first caption also still wrote 'healthy b cells'.",
+     "outcome": "Caught by the browser screenshot of the live pages before reporting them; both corrected (7725ab65).",
+     "rows": [
+      "OTH-068"
+     ],
+     "record": "website/build/seq_atlas_pages.py"
     }
    ]
   }
