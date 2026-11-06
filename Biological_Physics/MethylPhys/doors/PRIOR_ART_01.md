@@ -65,3 +65,33 @@ methylomes (doi:10.1038/s41598-023-35166-9) is not yet cited there.
 **The book's novelty sentences.** Every "first", "never", "no one has" and "new" in the book's sources was listed (23 lines): none claims IAM
 is first. The "never" sentences describe data an instrument has not seen (laboratories the atlas has never held); "no one has announced" is a
 prediction's wording; "not a new law" says the opposite of a claim. The book's one "first" credits other researchers.
+
+## Third pass (PubMed; the Ising-model work; the book's own statement of what IAM adds)
+
+PubMed searches (eight claim queries plus five broader ones; titles and counts in `prior_art_pubmed.json` in the working notes, not committed)
+found nothing for: a holding-energy floor of methylation maintenance; a disorder ratio to an expected healthy cell mix; HEALPix, spherical
+harmonics or Minkowski functionals on a methylome; information geometry (Fisher-Rao) on methylation; a group shift tared within one
+laboratory. HEALPix appears in PubMed only outside biology (registration, wildfire mapping, imaging, lunar craters).
+
+**The closest neighbor, found in this pass:** an information-theoretic model of the epigenome from the laboratory whose study IAM is now
+reading (doi:10.1038/ng.3811, with its pipeline). It fits a one-dimensional Ising model (methylation means and nearest-neighbor correlations)
+to bisulfite sequencing, reads methylation entropy (normalized methylation entropy), treats maintenance as a communication channel with a
+capacity, an energy dissipated and a probability of error, and compares samples (tumor, normal, stem cells) by a Jensen-Shannon distance
+between their landscapes. GSE86340's posted tracks are this model's outputs. The book already cites it (iam.bib `Jenkinson2017`;
+`part6/p6_02_landauer.tex`, `part6/p6_00b_astrogenetics.tex`) and states that the entropy itself and the cost of a bit are not what IAM adds.
+
+**What this means for the instruments:**
+- Coupling-A (nearest-neighbor coupling) must be worded against the Ising model's nearest-neighbor correlations: the coupling as a quantity is
+  published; what may be IAM's is reading it against the person's own healthy cell type on a gauge with physics-fixed ends.
+- IAM-A's held error must be worded against the model's maintenance probability of error: the error probability of maintenance is
+  published; what IAM adds is the floor from a measured holding energy and the held error read against that floor, one sample, no cohort.
+
+**What IAM adds, in the book's own words (`part6/p6_02_landauer.tex`), and nothing in three passes contradicts it:** a candidate law of
+physics, every irreversible transition from superposition to classical record paying k_B T ln 2 per bit to the nearest encoding surface at
+the local temperature; on the cell, a gauge with a floor and a ceiling fixed by physics, the identity sites of one cell type as the place it
+is read, and that cell type's healthy reference as the fixed origin; so that a single sample is read with no cohort to compare it to (Met-A on
+arrays against its own cell type's healthy reference; IAM-A on single molecules against the line its own loose share predicts). Plus the
+sky and sphere readings of the atlases (HEALPix maps, noise maps, spectra, Minkowski functionals, the information sphere), not found.
+
+**Still to do before the paper:** a patent search on these; Group-A and the C-Score's clustering statistic searched by name; the full texts of
+the composition-adjusted entropy preprint and the 2019 clinical method.
