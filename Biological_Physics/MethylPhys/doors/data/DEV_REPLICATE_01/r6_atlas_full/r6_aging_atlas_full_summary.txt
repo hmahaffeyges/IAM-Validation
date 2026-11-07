@@ -1,0 +1,170 @@
+DEV-REPLICATE-01 r6: 42 of 42 arrays read (pass 1, untared)
+site cg05575921                            rho -0.443 | p 0.0033 | n 42
+site cg03636183                            rho -0.414 | p 0.0064 | n 42
+site cg16867657                            rho +0.931 | p 4.4e-19 | n 42
+share neutrophils                          rho +0.236 | p 0.13 | n 42
+share cd4 t cells                          rho -0.273 | p 0.08 | n 42
+share cd8 t cells                          rho -0.113 | p 0.48 | n 42
+share b cells                              rho +0.086 | p 0.59 | n 42
+share nk cells                             rho -0.335 | p 0.03 | n 42
+share monocytes                            rho -0.068 | p 0.67 | n 42
+Met-A whole                                rho +0.474 | p 0.0015 | n 42
+ceiling distance                           rho -0.380 | p 0.013 | n 42
+Met-A whole, identity sites of the cells found rho +0.401 | p 0.0084 | n 42
+Met-A whole, islands                       rho +0.324 | p 0.036 | n 42
+Met-A whole, domains                       rho +0.420 | p 0.0057 | n 42
+Met-A whole, the rest                      rho +0.395 | p 0.0096 | n 42
+Met-A CMP (bone marrow)                    rho +0.372 | p 0.015 | n 42
+Met-A GMP (bone marrow)                    rho +0.224 | p 0.15 | n 42
+Met-A HSC (bone marrow)                    rho +0.131 | p 0.41 | n 42
+Met-A L-MPP (bone marrow)                  rho +0.322 | p 0.037 | n 42
+Met-A MEP (bone marrow)                    rho +0.160 | p 0.31 | n 42
+Met-A MPP (bone marrow)                    rho +0.173 | p 0.27 | n 42
+Met-A adipocytes                           rho +0.285 | p 0.068 | n 42
+Met-A aorta endothelium                    rho -0.122 | p 0.69 | n 13
+Met-A astrocytes                           rho -0.061 | p 0.84 | n 13
+Met-A b cells                              rho -0.063 | p 0.69 | n 42
+Met-A basophils                            rho +0.002 | p 0.99 | n 42
+Met-A bladder epithelium                   rho -0.329 | p 0.27 | n 13
+Met-A breast basal epithelium              rho -0.246 | p 0.42 | n 13
+Met-A breast luminal epithelium            rho +0.117 | p 0.46 | n 42
+Met-A cardiomyocyte                        rho -0.039 | p 0.9 | n 13
+Met-A cd4 t cells                          rho -0.033 | p 0.84 | n 42
+Met-A cd56bright nk cells                  rho -0.098 | p 0.54 | n 42
+Met-A cd8 central memory t cells           rho -0.209 | p 0.19 | n 42
+Met-A cd8 t cells                          rho -0.129 | p 0.42 | n 42
+Met-A cd8 temra t cells                    rho -0.171 | p 0.28 | n 42
+Met-A central memory th1 cells             rho +0.068 | p 0.67 | n 42
+Met-A colon enteroendocrine                rho -0.138 | p 0.65 | n 13
+Met-A colon epithelium                     rho +0.163 | p 0.3 | n 42
+Met-A colon fibroblasts                    rho +0.194 | p 0.22 | n 42
+Met-A colon macrophages                    rho +0.214 | p 0.22 | n 34
+Met-A cortical neurons                     rho +0.010 | p 0.95 | n 42
+Met-A cytotoxic cd4 t cells (cd28-)        rho -0.165 | p 0.3 | n 42
+Met-A effector memory cd8 t cells          rho -0.273 | p 0.081 | n 42
+Met-A embryonic stem cells                 rho +0.096 | p 0.55 | n 42
+Met-A endometrium epithelium               rho +0.112 | p 0.53 | n 34
+Met-A eosinophils                          rho +0.177 | p 0.26 | n 42
+Met-A erythrocyte progenitors              rho +0.194 | p 0.22 | n 42
+Met-A fallopien tubes epithelium           rho -0.265 | p 0.38 | n 13
+Met-A gastric antrum epithelium            rho -0.246 | p 0.42 | n 13
+Met-A gastric body epithelium              rho -0.345 | p 0.25 | n 13
+Met-A gastric fundus epithelium            rho -0.320 | p 0.29 | n 13
+Met-A heart fibroblasts                    rho +0.117 | p 0.51 | n 34
+Met-A hepatocyte                           rho +0.351 | p 0.023 | n 42
+Met-A kidney glomerular endothelium        rho +0.298 | p 0.055 | n 42
+Met-A kidney glomerular epithelium         rho -0.127 | p 0.68 | n 13
+Met-A kidney tubular endothelium           rho +0.224 | p 0.15 | n 42
+Met-A kidney tubular epithelium            rho +0.297 | p 0.056 | n 42
+Met-A lung alveolar endothelium            rho +0.215 | p 0.17 | n 42
+Met-A lung alveolar epithelium             rho +0.081 | p 0.61 | n 42
+Met-A lung alveolar macrophages            rho -0.102 | p 0.74 | n 13
+Met-A lung bronchus epithelium             rho -0.015 | p 0.93 | n 42
+Met-A lung interstitial macrophages        rho +0.187 | p 0.24 | n 42
+Met-A memory b cells                       rho -0.158 | p 0.32 | n 42
+Met-A memory cd4 t cells                   rho +0.092 | p 0.56 | n 42
+Met-A microglia                            rho +0.008 | p 0.96 | n 42
+Met-A monocytes                            rho -0.085 | p 0.59 | n 42
+Met-A naive b cells                        rho -0.034 | p 0.83 | n 42
+Met-A naive cd4 t cells                    rho -0.078 | p 0.62 | n 42
+Met-A naive cd8 t cells                    rho -0.043 | p 0.78 | n 42
+Met-A neutrophils                          rho -0.127 | p 0.42 | n 42
+Met-A nk cells                             rho +0.001 | p 1 | n 42
+Met-A oligodendrocyte precursors           rho -0.083 | p 0.79 | n 13
+Met-A oligodendrocytes                     rho +0.095 | p 0.55 | n 42
+Met-A pancreas endothelium                 rho -0.166 | p 0.59 | n 13
+Met-A pancreatic acinar                    rho +0.225 | p 0.15 | n 42
+Met-A pancreatic alpha                     rho +0.288 | p 0.1 | n 33
+Met-A pancreatic beta                      rho +0.253 | p 0.11 | n 42
+Met-A pancreatic delta                     rho +0.216 | p 0.17 | n 42
+Met-A pancreatic duct                      rho +0.195 | p 0.21 | n 42
+Met-A prostate epithelium                  rho -0.210 | p 0.49 | n 13
+Met-A regulatory t cells                   rho -0.057 | p 0.72 | n 42
+Met-A small intestine epithelium           rho +0.153 | p 0.33 | n 42
+Met-A smooth muscle                        rho -0.166 | p 0.59 | n 13
+Met-A striated muscle                      rho +0.006 | p 0.99 | n 13
+Met-A t central memory cd4                 rho -0.057 | p 0.72 | n 42
+Met-A t effector cell cd8                  rho -0.187 | p 0.24 | n 42
+Met-A t effector memory cd4                rho +0.001 | p 1 | n 41
+Met-A thyroid epithelium                   rho +0.304 | p 0.05 | n 42
+Met-A tongue epithelium                    rho -0.301 | p 0.32 | n 13
+Met-A tonsil palatine epithelium           rho +0.142 | p 0.37 | n 42
+Met-A tonsil pharyngeal epithelium         rho -0.122 | p 0.69 | n 13
+Met-A vascular endothelium                 rho +0.383 | p 0.012 | n 42
+Met-A vascular leptomeningeal cells        rho -0.127 | p 0.68 | n 13
+Met-A vascular saphenous endothelium       rho +0.271 | p 0.083 | n 42
+share CMP (bone marrow)                    rho +nan | p nan | n 42
+share GMP (bone marrow)                    rho +nan | p nan | n 42
+share HSC (bone marrow)                    rho -0.480 | p 0.0013 | n 42
+share L-MPP (bone marrow)                  rho +nan | p nan | n 42
+share MEP (bone marrow)                    rho +nan | p nan | n 42
+share MPP (bone marrow)                    rho +nan | p nan | n 42
+share adipocytes                           rho +nan | p nan | n 42
+share aorta endothelium                    rho +nan | p nan | n 42
+share astrocytes                           rho +nan | p nan | n 42
+share basophils                            rho +0.428 | p 0.0047 | n 42
+share bladder epithelium                   rho +nan | p nan | n 42
+share breast basal epithelium              rho +0.372 | p 0.015 | n 42
+share breast luminal epithelium            rho +0.136 | p 0.39 | n 42
+share cardiomyocyte                        rho +nan | p nan | n 42
+share cd56bright nk cells                  rho -0.231 | p 0.14 | n 42
+share cd8 central memory t cells           rho -0.279 | p 0.074 | n 42
+share cd8 temra t cells                    rho +0.614 | p 1.5e-05 | n 42
+share central memory th1 cells             rho +0.279 | p 0.073 | n 42
+share colon enteroendocrine                rho +0.259 | p 0.098 | n 42
+share colon epithelium                     rho +nan | p nan | n 42
+share colon fibroblasts                    rho +nan | p nan | n 42
+share colon macrophages                    rho +0.315 | p 0.042 | n 42
+share cortical neurons                     rho -0.155 | p 0.33 | n 42
+share cytotoxic cd4 t cells (cd28-)        rho +0.301 | p 0.053 | n 42
+share effector memory cd8 t cells          rho -0.288 | p 0.064 | n 42
+share embryonic stem cells                 rho -0.265 | p 0.09 | n 42
+share endometrium epithelium               rho +0.032 | p 0.84 | n 42
+share eosinophils                          rho -0.334 | p 0.031 | n 42
+share erythrocyte progenitors              rho +0.259 | p 0.098 | n 42
+share fallopien tubes epithelium           rho +nan | p nan | n 42
+share gastric antrum epithelium            rho +nan | p nan | n 42
+share gastric body epithelium              rho +nan | p nan | n 42
+share gastric fundus epithelium            rho +nan | p nan | n 42
+share heart fibroblasts                    rho +nan | p nan | n 42
+share hepatocyte                           rho -0.084 | p 0.6 | n 42
+share kidney glomerular endothelium        rho +nan | p nan | n 42
+share kidney glomerular epithelium         rho +nan | p nan | n 42
+share kidney tubular endothelium           rho +nan | p nan | n 42
+share kidney tubular epithelium            rho +nan | p nan | n 42
+share lung alveolar endothelium            rho +nan | p nan | n 42
+share lung alveolar epithelium             rho +nan | p nan | n 42
+share lung alveolar macrophages            rho -0.163 | p 0.3 | n 42
+share lung bronchus epithelium             rho +nan | p nan | n 42
+share lung interstitial macrophages        rho -0.011 | p 0.94 | n 42
+share memory b cells                       rho +0.361 | p 0.019 | n 42
+share memory cd4 t cells                   rho +0.050 | p 0.75 | n 42
+share microglia                            rho +0.218 | p 0.17 | n 42
+share naive b cells                        rho -0.322 | p 0.038 | n 42
+share naive cd4 t cells                    rho -0.373 | p 0.015 | n 42
+share naive cd8 t cells                    rho -0.455 | p 0.0025 | n 42
+share oligodendrocyte precursors           rho +nan | p nan | n 42
+share oligodendrocytes                     rho +0.232 | p 0.14 | n 42
+share pancreas endothelium                 rho +nan | p nan | n 42
+share pancreatic acinar                    rho +nan | p nan | n 42
+share pancreatic alpha                     rho +0.032 | p 0.84 | n 42
+share pancreatic beta                      rho +nan | p nan | n 42
+share pancreatic delta                     rho +nan | p nan | n 42
+share pancreatic duct                      rho +nan | p nan | n 42
+share prostate epithelium                  rho +0.243 | p 0.12 | n 42
+share regulatory t cells                   rho +0.210 | p 0.18 | n 42
+share small intestine epithelium           rho +nan | p nan | n 42
+share smooth muscle                        rho +nan | p nan | n 42
+share striated muscle                      rho +nan | p nan | n 42
+share t central memory cd4                 rho +nan | p nan | n 42
+share t effector cell cd8                  rho +0.348 | p 0.024 | n 42
+share t effector memory cd4                rho +nan | p nan | n 42
+share thyroid epithelium                   rho +nan | p nan | n 42
+share tongue epithelium                    rho +nan | p nan | n 42
+share tonsil palatine epithelium           rho +nan | p nan | n 42
+share tonsil pharyngeal epithelium         rho +nan | p nan | n 42
+share vascular endothelium                 rho +0.399 | p 0.0088 | n 42
+share vascular leptomeningeal cells        rho +nan | p nan | n 42
+share vascular saphenous endothelium       rho +nan | p nan | n 42
+territory islands                          rho +0.322 | p 0.037 | n 42
+territory domains                          rho +0.398 | p 0.009 | n 42

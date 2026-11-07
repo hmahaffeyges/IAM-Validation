@@ -98,6 +98,14 @@
      "what": "184 whole bloods of three ischemic stroke subtypes read again on every cell of IAM-Atlas v2.1.",
      "outcome": "1 of 155 to 161 readings below p 0.001, fewer than chance; nothing separates the subtypes.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "R6 healthy aging on every atlas cell",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1 (untared readings)",
+     "what": "42 healthy whole bloods read on every cell of IAM-Atlas v2.1 (read overnight, scored in the morning), each reading against age.",
+     "outcome": "The age site ELOVL2 (rho +0.931) and the CD8 TEMRA share (+0.614) follow age; whole-sample Met-A rises with age (+0.474, p 0.0015), Met-A on neutrophils does not.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   },
@@ -237,10 +245,10 @@
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/floor_class_synthetic.sh"
     },
     {
-     "title": "Four replays sent again that were already read on every cell",
+     "title": "Five replays sent again that were already read on every cell",
      "status": "mistake",
-     "what": "R9 glioma blood, R5 liver cancer in blood, R7 prostate and R8 tissues were queued for every-cell reads although the replay record already holds each (r9_atlas_full, r5_atlas_full, and R7 and R8's full summaries, which already list every cell); the queue was chosen from the run registry, not the record.",
-     "outcome": "R5 liver cancelled within minutes; R9, R7 and R8 finished as duplicates, their outputs identical to the earlier readings and not kept. Lists are now checked against the record's summaries before queuing.",
+     "what": "R9 glioma blood, R5 liver cancer in blood, R7 prostate, R8 tissues and R9 endothelial were queued for every-cell reads although the replay record already holds each (r9_atlas_full, r5_atlas_full, and R7 and R8's full summaries, which already list every cell); the queue was chosen from the run registry, not the record.",
+     "outcome": "R5 liver cancelled within minutes; R9 glioma, R7, R8 and R9 endothelial finished as duplicates, their outputs identical to the earlier readings and not kept. Lists are now checked against the record's summaries before queuing.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]

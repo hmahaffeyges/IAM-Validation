@@ -407,3 +407,8 @@ untared; A-score rows `r6_stroke_atlas_full_rows.csv`.) The three subtypes again
 central-memory Th1 share, cardioembolic 0.0182 against small-vessel 0.0549), fewer than chance would give; nothing the chain reads separates
 the subtypes. (R7 and R8 were read again on every cell by mistake; their outputs matched the earlier full readings line for line and were not
 kept.)
+
+**R6 healthy aging on every cell of IAM-Atlas v2.1, read.** (`data/DEV_REPLICATE_01/r6_atlas_full/r6_aging_atlas_full_summary.txt`, by `r23_score.py r6`; 42 of 42 healthy whole bloods of
+GSE141682, untared, each reading against age; A-score rows `r6_aging_atlas_full_rows.csv`.) 2 of 169 readings below p 0.001, both known features
+of aging blood: the age control site cg16867657 (ELOVL2, rho +0.931) and the CD8 TEMRA share (rho +0.614). Whole-sample Met-A rises with age (rho
++0.474, p 0.0015), in each of its places (islands +0.324 to domains +0.420); Met-A on neutrophils does not (rho -0.127, p 0.42).

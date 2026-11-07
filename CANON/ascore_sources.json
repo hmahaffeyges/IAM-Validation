@@ -575,6 +575,13 @@
    "status": "development (replay on every atlas cell; spent data)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
    "rows_table": true
+  },
+  {
+   "id": "R6-AGING-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r6_atlas_full/r6_aging_atlas_full_rows.csv",
+   "status": "development (replay on every atlas cell; spent data)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
   }
  ],
  "lines": {
