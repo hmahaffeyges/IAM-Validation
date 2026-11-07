@@ -1408,3 +1408,20 @@ by person.
 (16 monocytes, 6 classical monocytes; ages 0-5 to 70-75); GSE173787 / PRJNA727170: 10 healthy CD14 monocytes (HC-1 to HC-10; also 12 from
 multiple sclerosis); PRJNA574550: 51 monocyte runs, labels to check. **Rehearsal (spent data, answer known):** BLUEPRINT's 10 spent mature
 neutrophils against the atlas's granulocyte column, with steps 1 to 5, before the test is written.
+
+**What the chain itself reported on every outside laboratory read so far (development, after the fact; nothing read again, nothing scored).** (`outside_data/crosslab_chain_table.csv`, `crosslab_chain_table.py`; 89 samples from 5 laboratories, each already read
+by the one command.) The scoring of those tests read each sample against the cell on its label; the chain's own Deconvolver reports otherwise:
+the cell it finds most of holds only 24 to 80 % of a "sorted" sample, the rest in neighboring subsets, and one Johns Hopkins "CD4" sample is mostly
+monocytes. Per laboratory (medians): BLUEPRINT false-call rate 0.0016 (0.25 times the atlas laboratory's 0.0063, `input_floors_v1.parquet`),
+41 calls a site, Met-A of the cell found 0.71; Johns Hopkins 0.0051, 17, 0.94; GSE245832 0.0059, 3, 0.73; GSE134664 0.0092, 8, 1.29; GSE98837
+0.0158, 15, 0.87. No single library term orders the laboratories (false-call rate and depth each partial). **Next (each written before it runs, synthetic first):** read each sample
+against the atlas in the shares the chain measured, with each library's own false-call rate and depth carried into its expectation, and test it
+on these 89 (spent, answer known, the per-person bar); only then a fresh laboratory, compared only with samples the Deconvolver matches.
+
+**The instrument's job:** a healthy sample from any laboratory reads Normal against the atlas in its own measured cell shares, person by person.
+
+**Sources:** the 89 bundles the one command wrote (GEO GSE98837, GSE134664, GSE245832, GSE86340 and BLUEPRINT, all public); the IAM Sequencing Atlas (public, Zenodo).
+
+**Range of the data:** real libraries: false-call rate 0.001 to 0.033, 2 to 71 calls a site, top-cell share 0.24 to 0.80 (`crosslab_chain_table.csv`);
+synthetic to try: false-call rate 0.0005 to 0.05, 1 to 100 calls a site, top-cell share 0.2 to 1.0.
+

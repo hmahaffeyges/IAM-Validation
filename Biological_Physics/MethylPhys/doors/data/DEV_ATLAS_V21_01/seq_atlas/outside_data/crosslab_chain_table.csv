@@ -1,0 +1,90 @@
+lab,sample,label,top,top_share,second,whole,id_sites,top_cell_A,depth,floor
+GSE98837 CD8,GSM2616068,sorted naive cd8 t cells,naive cd8 t cells,0.583,naive cd4 t cells 0.14,1.35234,0.96442,0.8861,17.0,0.014188
+GSE98837 CD8,GSM2616069,sorted effector memory cd8 t cells,t effector cell cd8,0.375,effector memory cd8 t cells 0.19,1.17094,0.92941,0.87309,16.0,0.01446
+GSE98837 CD8,GSM2616070,sorted cd8 t cells,t effector cell cd8,0.24,t central memory cd4 0.18,1.07078,1.06059,0.91761,15.0,0.015588
+GSE98837 CD8,GSM2616071,sorted cd8 t cells,naive cd8 t cells,0.236,t effector cell cd8 0.21,0.95181,0.90227,0.95675,12.0,0.016708
+GSE98837 CD8,GSM2616072,sorted naive cd8 t cells,naive cd8 t cells,0.469,naive cd4 t cells 0.19,1.16392,0.77879,0.71348,14.0,0.017732
+GSE98837 CD8,GSM2616073,sorted effector memory cd8 t cells,t effector cell cd8,0.385,cd8 t cells 0.33,1.13203,0.83447,0.8633,18.0,0.01571
+GSE98837 CD8,GSM2616074,sorted cd8 t cells,t effector cell cd8,0.266,cd8 t cells 0.26,1.04875,0.97267,0.86117,15.0,0.015898
+GSE98837 CD8,GSM2616075,sorted cd8 t cells,cd8 t cells,0.343,naive cd8 t cells 0.20,0.83531,0.80601,0.75363,6.0,0.021386
+GSE134664 B,GSM3963003,sorted b cells,b cells,0.897,lung interstitial macrophages 0.05,1.30809,1.44726,1.31161,8.0,0.008451
+GSE134664 B,GSM3963004,sorted b cells,b cells,0.869,naive cd4 t cells 0.04,1.22069,1.3817,1.28104,9.0,0.009057
+GSE134664 B,GSM3963005,sorted memory b cells,memory b cells,0.682,b cells 0.27,1.38239,1.32244,1.30877,8.0,0.009302
+GSE134664 B,GSM3963006,sorted memory b cells,memory b cells,0.617,b cells 0.28,1.3474,1.32332,1.26283,8.0,0.009695
+GSE245832 CD8,GSM7849753,sorted naive cd8 t cells,naive cd8 t cells,0.433,cd8 t cells 0.27,1.23231,0.92769,0.7093,3.0,0.032683
+GSE245832 CD8,GSM7849754,sorted effector memory cd8 t cells,cd8 t cells,0.336,t effector cell cd8 0.27,1.01473,0.5909,0.79645,2.0,0.006231
+GSE245832 CD8,GSM7849755,sorted effector memory cd8 t cells,t effector cell cd8,0.461,effector memory cd8 t cells 0.25,1.00488,0.83288,0.72224,2.0,0.026459
+GSE245832 CD8,GSM7849756,sorted naive cd8 t cells,naive cd8 t cells,0.633,cd4 t cells 0.18,1.02689,0.57678,0.52864,3.0,0.005549
+GSE245832 CD8,GSM7849757,sorted effector memory cd8 t cells,t effector memory cd4,0.258,cd8 t cells 0.25,1.06746,0.74262,0.91363,3.0,0.005828
+GSE245832 CD8,GSM7849758,sorted effector memory cd8 t cells,t effector cell cd8,0.415,cd8 t cells 0.35,0.98781,0.67728,0.6913,3.0,0.005976
+GSE245832 CD8,GSM7849759,sorted naive cd8 t cells,naive cd8 t cells,0.585,cd4 t cells 0.16,1.02478,0.55883,0.53422,3.0,0.005899
+GSE245832 CD8,GSM7849760,sorted effector memory cd8 t cells,t effector memory cd4,0.23,cd8 t cells 0.23,1.01204,0.6337,0.84213,5.0,0.005216
+GSE245832 CD8,GSM7849761,sorted effector memory cd8 t cells,cd8 t cells,0.299,t effector cell cd8 0.26,0.9588,0.61236,0.76466,3.0,0.006124
+GSE245832 CD8,GSM7849762,sorted naive cd8 t cells,naive cd8 t cells,0.538,cd4 t cells 0.21,1.0929,0.59778,0.57491,4.0,0.005558
+GSE245832 CD8,GSM7849763,sorted effector memory cd8 t cells,cd8 t cells,0.374,t effector cell cd8 0.19,1.01811,0.64624,0.87582,5.0,0.005388
+GSE245832 CD8,GSM7849764,sorted effector memory cd8 t cells,t effector cell cd8,0.4,cd8 t cells 0.34,0.97311,0.66782,0.73573,3.0,0.006104
+BLUEPRINT,C000S5A1bs,sorted monocytes,monocytes,0.645,lung interstitial macrophages 0.24,1.00331,0.83267,0.75701,63.0,0.001321
+BLUEPRINT,C0010KA2bs,sorted monocytes,monocytes,0.624,lung interstitial macrophages 0.22,1.07757,0.91949,0.82784,49.0,0.001308
+BLUEPRINT,C001UYA3bs,sorted monocytes,monocytes,0.64,lung interstitial macrophages 0.25,1.02147,0.85838,0.78503,71.0,0.001407
+BLUEPRINT,C00256A1bs,sorted cd8 t cells,naive cd8 t cells,0.371,nk cells 0.21,0.77813,0.59598,0.70734,45.0,0.001223
+BLUEPRINT,C00256A3bs,sorted effector memory cd8 t cells,t effector cell cd8,0.318,cd8 t cells 0.28,1.05113,0.68119,0.76932,44.0,0.001886
+BLUEPRINT,C002CTA1bs,sorted nk cells,nk cells,0.795,naive cd8 t cells 0.08,0.97444,0.79315,0.7756,50.0,0.000978
+BLUEPRINT,C003JB51,sorted memory b cells,memory b cells,0.788,b cells 0.12,1.12066,0.76936,0.74696,53.0,0.001669
+BLUEPRINT,C003K951,sorted b cells,b cells,0.813,naive cd8 t cells 0.05,0.73909,0.62328,0.57302,38.0,0.001288
+BLUEPRINT,C003N351,sorted memory b cells,memory b cells,0.607,b cells 0.35,0.97434,0.67573,0.71061,50.0,0.001273
+BLUEPRINT,C003VO55,sorted cd8 t cells,naive cd8 t cells,0.534,cd4 t cells 0.24,0.70311,0.54921,0.6624,34.0,0.001127
+BLUEPRINT,C004SQ51,sorted monocytes,monocytes,0.639,lung interstitial macrophages 0.28,1.04125,0.8427,0.79667,104.0,0.000833
+BLUEPRINT,C005PS51,sorted monocytes,monocytes,0.599,lung interstitial macrophages 0.26,1.06518,0.86552,0.78411,115.0,0.001008
+BLUEPRINT,C0066P51,sorted cd8 t cells,naive cd8 t cells,0.505,naive cd4 t cells 0.12,0.79997,0.8905,0.93348,28.0,0.020643
+BLUEPRINT,C0067N51,sorted nk cells,nk cells,0.855,naive cd8 t cells 0.07,0.9211,0.79245,0.77154,54.0,0.001285
+BLUEPRINT,C0068L51,sorted b cells,b cells,0.858,monocytes 0.05,0.74608,0.59486,0.56268,35.0,0.001239
+BLUEPRINT,C006G551,sorted nk cells,nk cells,0.925,colon macrophages 0.05,0.96525,0.82799,0.82513,36.0,0.000723
+BLUEPRINT,NBC_NC11_41,sorted b cells,b cells,0.895,lung interstitial macrophages 0.04,0.7813,0.62354,0.58462,58.0,0.00136
+BLUEPRINT,NBC_NC11_83,sorted b cells,b cells,0.883,lung interstitial macrophages 0.05,1.07802,1.09351,1.01029,23.0,0.002055
+BLUEPRINT,P580,sorted cd4 t cells,cd4 t cells,0.361,monocytes 0.11,0.9872,0.8017,0.70949,7.0,0.038184
+BLUEPRINT,P582,sorted cd4 t cells,naive cd4 t cells,0.301,cd4 t cells 0.28,0.9221,0.78095,0.76126,7.0,0.043179
+BLUEPRINT,P584,sorted cd4 t cells,t central memory cd4,0.35,cd4 t cells 0.24,1.00057,0.83799,0.69228,7.0,0.036165
+BLUEPRINT,P586,sorted cd4 t cells,cd4 t cells,0.349,naive cd4 t cells 0.27,0.8987,0.65072,0.59406,6.0,0.042324
+BLUEPRINT,S000RD54,sorted monocytes,monocytes,0.59,lung interstitial macrophages 0.27,1.08244,0.91569,0.83267,63.0,0.006816
+BLUEPRINT,S001JP51,sorted b cells,b cells,0.877,monocytes 0.05,0.72074,0.58676,0.54669,36.0,0.002063
+BLUEPRINT,S001U352,sorted t effector memory cd4,t effector memory cd4,0.326,t central memory cd4 0.31,0.95874,0.89955,0.89318,47.0,0.001812
+BLUEPRINT,S002R551,sorted erythrocyte progenitors,erythrocyte progenitors,0.383,naive cd8 t cells 0.11,0.77577,0.93829,0.72269,38.0,0.00414
+BLUEPRINT,S002S351,sorted erythrocyte progenitors,erythrocyte progenitors,0.42,lung interstitial macrophages 0.15,0.79355,0.93651,0.70768,37.0,0.00214
+BLUEPRINT,S004P151,sorted memory b cells,memory b cells,0.696,b cells 0.25,1.06107,0.71346,0.71344,44.0,0.001987
+BLUEPRINT,S006YC51,sorted t central memory cd4,t central memory cd4,0.382,cd4 t cells 0.26,1.00533,0.78066,0.77352,41.0,0.002314
+BLUEPRINT,S007DD51,sorted cd4 t cells,cd4 t cells,0.563,naive cd4 t cells 0.27,0.74985,0.55938,0.62613,38.0,0.002286
+BLUEPRINT,S007G756,sorted cd4 t cells,cd4 t cells,0.53,naive cd4 t cells 0.27,0.74661,0.54769,0.61765,40.0,0.001889
+BLUEPRINT,S008H151,sorted cd4 t cells,cd4 t cells,0.398,naive cd4 t cells 0.38,0.74949,0.55657,0.66358,37.0,0.00206
+BLUEPRINT,S009W451,sorted cd4 t cells,cd4 t cells,0.526,naive cd4 t cells 0.30,0.76269,0.57702,0.66213,39.0,0.002439
+BLUEPRINT,S00C2F51,sorted cd8 t cells,naive cd8 t cells,0.516,naive cd4 t cells 0.15,0.65978,0.54474,0.63473,38.0,0.002388
+BLUEPRINT,S00DM851,sorted b cells,b cells,0.856,lung interstitial macrophages 0.07,0.78743,0.61296,0.58033,40.0,0.002004
+BLUEPRINT,S00V2DN1,sorted monocytes,monocytes,0.587,lung interstitial macrophages 0.31,1.01661,0.82476,0.79083,39.0,0.000582
+BLUEPRINT,S014QS51,sorted t effector memory cd4,t effector memory cd4,0.467,t central memory cd4 0.34,0.9475,0.89007,0.86762,58.0,0.001707
+BLUEPRINT,S014QS55,sorted t central memory cd4,t central memory cd4,0.455,cd4 t cells 0.28,0.96935,0.77168,0.79839,67.0,0.001845
+BLUEPRINT,S014WG51,sorted effector memory cd8 t cells,t effector cell cd8,0.33,cd8 t cells 0.33,1.02159,0.6477,0.76199,62.0,0.002275
+BLUEPRINT,S017RE51,sorted memory b cells,memory b cells,0.575,b cells 0.40,0.94792,0.61871,0.64493,61.0,0.001997
+BLUEPRINT,S01B47A1,sorted monocytes,monocytes,0.571,lung interstitial macrophages 0.32,0.94843,0.75401,0.71604,62.0,0.001005
+BLUEPRINT,S01B55A1,sorted monocytes,monocytes,0.526,lung interstitial macrophages 0.37,0.92635,0.71429,0.68329,44.0,0.000911
+BLUEPRINT,S01B63A1,sorted monocytes,monocytes,0.536,lung interstitial macrophages 0.37,0.94859,0.72966,0.68578,41.0,0.001058
+BLUEPRINT,S01B71A1,sorted monocytes,monocytes,0.551,lung interstitial macrophages 0.31,0.94661,0.73139,0.68613,42.0,0.001017
+BLUEPRINT,S01B9YA1,sorted monocytes,monocytes,0.546,lung interstitial macrophages 0.35,0.93246,0.71024,0.66835,43.0,0.001226
+BLUEPRINT,S01BAWA1,sorted monocytes,monocytes,0.536,lung interstitial macrophages 0.33,1.01007,0.83818,0.79633,53.0,0.002538
+BLUEPRINT,S01BBUA1,sorted monocytes,monocytes,0.569,lung interstitial macrophages 0.32,0.92566,0.71791,0.68523,46.0,0.001171
+BLUEPRINT,S01BCSA1,sorted monocytes,monocytes,0.565,lung interstitial macrophages 0.31,0.93147,0.73067,0.69282,40.0,0.001184
+BLUEPRINT,S01BDQA1,sorted monocytes,monocytes,0.531,lung interstitial macrophages 0.32,0.9747,0.77834,0.72767,61.0,0.001428
+BLUEPRINT,S01BEOA1,sorted monocytes,monocytes,0.523,lung interstitial macrophages 0.36,0.93928,0.7545,0.71683,62.0,0.00138
+BLUEPRINT,S01BFMA1,sorted monocytes,monocytes,0.498,lung interstitial macrophages 0.36,0.88843,0.66682,0.64174,39.0,0.001496
+BLUEPRINT,S01BGKA1,sorted monocytes,monocytes,0.567,lung interstitial macrophages 0.33,0.94466,0.7382,0.69992,41.0,0.001685
+BLUEPRINT,S01BHIA1,sorted monocytes,monocytes,0.482,lung interstitial macrophages 0.38,0.93219,0.72966,0.70359,60.0,0.001051
+BLUEPRINT,S01E03A1,sorted monocytes,monocytes,0.534,lung interstitial macrophages 0.37,0.93616,0.77617,0.73986,32.0,0.001442
+BLUEPRINT,S01E8O51,sorted nk cells,nk cells,0.856,naive cd8 t cells 0.08,0.85805,0.72309,0.72025,29.0,0.001274
+BLUEPRINT,S01ECGA1,sorted b cells,b cells,0.883,lung interstitial macrophages 0.06,0.73189,0.56447,0.54614,29.0,0.001554
+BLUEPRINT,S01MAPA1,sorted monocytes,monocytes,0.551,lung interstitial macrophages 0.31,0.92035,0.75598,0.72376,31.0,0.001427
+BLUEPRINT,W653,sorted memory b cells,memory b cells,0.618,effector memory cd8 t cells 0.18,1.18647,,,4.0,0.018387
+BLUEPRINT,csMBC_NC11_41,sorted memory b cells,memory b cells,0.894,t effector cell cd8 0.07,1.18879,0.82947,0.77966,61.0,0.003021
+JHU CD4,GSM2103002,sorted cd4 t cells,cd4 t cells,0.32,t central memory cd4 0.26,1.09146,0.92662,0.9363,26.0,0.003796
+JHU CD4,GSM2103003,sorted cd4 t cells,cd4 t cells,0.371,t central memory cd4 0.23,1.10682,0.93306,0.94237,16.0,0.005529
+JHU CD4,GSM2103004,sorted cd4 t cells,monocytes,0.641,lung interstitial macrophages 0.20,1.01476,0.9817,0.9233,17.0,0.004634
+JHU CD4,GSM2103005,sorted cd4 t cells,t central memory cd4,0.398,cd4 t cells 0.30,1.23477,1.06941,0.911,15.0,0.006467
+JHU CD4,GSM2103006,sorted cd4 t cells,cd4 t cells,0.407,t central memory cd4 0.24,1.18008,1.05766,0.9724,17.0,0.006499
+JHU CD4,GSM2103007,sorted cd4 t cells,cd4 t cells,0.358,t central memory cd4 0.23,1.25124,1.09725,0.98619,21.0,0.00454
