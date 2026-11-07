@@ -1513,3 +1513,13 @@ total CD4 within 0.1. Three reads a site recorded, where it breaks.
 
 **Range of the data:** real: outside libraries 3 to 71 calls a site, the labeled cell 0.24 to 0.80 of the sample
 (`crosslab_chain_table.csv`); synthetic: 3, 15 and 40 reads a site, CD4 at 0.3 and 0.7, memory fraction 0 to 1.
+
+**The Johns Hopkins tumor-against-own-normal test: specimen corrected, all 12 merged again (disclosed; my error).** The sample list passed each sample's GEO
+title as the specimen ("liver tumor", "lung normal"). The chain's report refuses to print a status word ("tumor"), so all five tumor merges
+stopped at the report (exit 35) after their reads were counted; the dispatcher dropped each after three tries, and its log did not say so.
+Under the label rule the specimen names only the route, never the status, so every sample is now read with its organ only ("liver tissue",
+"lung tissue"), tumor and normal alike, the chain still pinned to the commit before the label change; tumor and normal stay in the list for
+the scorer only. The five normals read before with the status in the specimen are kept aside in the bucket (out_specimen_label/) and read
+again the same way as the tumors, so both arms are read identically. Each merge now saves its merged reads to the bucket the moment they
+exist and takes them back after a reclaim, and keeps the chain's own log; the dispatcher logs every job it gives up on and every sample
+stuck with all chunks aligned, and the machine check prints both as failures. First result: GSM2103009 (liver tumor) read, exit 0.
