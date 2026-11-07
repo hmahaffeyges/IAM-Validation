@@ -118,7 +118,15 @@ def seq_units(p):
     against the atlas: its unmarked sites sit near 0.055 on the array scale, where sequencing reads 0."""
     return (pd.Series(p, dtype="float64") * SEQ_TERM["b"] + SEQ_TERM["a"]).clip(0, 1) if isinstance(p, pd.Series) else np.clip(np.asarray(p, dtype="float64") * SEQ_TERM["b"] + SEQ_TERM["a"], 0, 1)
 
+COPIES = None   # 2026-11-06 (development, run_sample.py --dev-seq-copies): the sample's own copy distribution (stage_seq_copies.copy_distribution);
+                # when set, every expectation built on the sample's calls counts them as copies of fewer molecules (GSE186007: linear amplification)
+
 def expected_H_counts(p, n):
+    if COPIES is None: return _expected_H_binom(p, n)
+    import stage_seq_copies as _SC
+    return _SC.expected_H_copies(np.asarray(p, dtype="float64"), np.asarray(n, dtype="int64"), COPIES, _expected_H_binom)
+
+def _expected_H_binom(p, n):
     """The exact expected entropy of a level measured as k of n reads when the true level is p (2026-10-22, to-do 40.3; derived, nothing fitted):
     E[H(k/n)] = sum_k C(n, k) p^k (1 - p)^(n - k) H(k/n), k ~ Binomial(n, p). A level made from few reads is 0 or 1 more often than p, and H(0) =
     H(1) = 0, so the measured disorder of a healthy site at depth n is this, not H(p). p, n: arrays by site. Above N_EXACT reads, H(p)."""

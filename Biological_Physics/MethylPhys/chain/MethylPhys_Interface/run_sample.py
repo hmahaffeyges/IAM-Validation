@@ -680,6 +680,7 @@ def main():
     ap.add_argument("--dev-seq-ref-half", default=None, choices=("A", "B"), help="with --dev-seq-ref: that sealed donor half only (for a sample of the other half)")
     ap.add_argument("--build-name", default=None, help="the atlas's name on a picture built from --build-input (info-globe)")
     ap.add_argument("--dev-terr-counted", action="store_true", help="DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given")
+    ap.add_argument("--dev-seq-copies", action="store_true", help="DEVELOPMENT: on sequencing, count the sample's calls as copies of fewer molecules, by its own copy distribution measured at the library-floor sites (linear-amplification libraries; DEV-ONE-DRAW-01)")
     ap.add_argument("--dev-floor-equal", action="store_true", help="DEVELOPMENT: read a sequenced sample and its reference at a common library floor (the higher of the two)")
     ap.add_argument("--dev-input-floors", default=None, help="DEVELOPMENT: an atlas input floors file in the committed format (gsm, cell, half, floor, calls), for synthetics")
     ap.add_argument("--dev-terr-counts", default=None, help="DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics")
@@ -753,6 +754,17 @@ def main():
             _SAf0.SAMPLE_FLOOR = ((_lf0 or {}).get("unmarked") or {}).get("rate")
             if getattr(a, "dev_floor_equal", False): _SAf0.FLOOR_EQUAL = True
             if getattr(a, "dev_input_floors", None): _SQf0.FLOORS_FILE = a.dev_input_floors
+            if getattr(a, "dev_seq_copies", False):   # 2026-11-06 (DEV-ONE-DRAW-01): the sample's own copy process, before any reading
+                import stage_seq_copies as _SCc, pandas as _pdc
+                _F = _pdc.read_parquet(_SQf0.FLOOR_SITES); _u = _F[_F.side == "unmarked"].probe
+                _bb = _pdc.Series(_vb).reindex(_u); _nn = _pdc.Series(_vc).reindex(_u); _g = _bb.notna() & _nn.notna() & (_nn > 0)
+                _nk = _nn[_g].astype("int64").to_numpy(); _mk = (_bb[_g].to_numpy() * _nk).round().astype("int64")
+                _cd = _SCc.copy_distribution(_mk, _nk); a._copies = None
+                if _cd is not None:
+                    _SAf0.COPIES = _cd; a._copies = dict(flag="DEVELOPMENT - not commissioned (copies correction, DEV-ONE-DRAW-01)", mean_copies=round(_cd["mean"], 4),
+                                                        floor_sites_with_a_false_call=_cd["sites"], two_molecule_share=_cd["two_molecule_share"], false_call_rate=round(_cd["rate"], 6))
+                    print(f"  copies: the sample's calls are copies of about {_cd['mean']:.2f} each (measured at {_cd['sites']:,} floor sites); counted as molecules", flush=True)
+                else: a._copies = dict(status="NOT_RUN", reason="fewer than 30 floor sites with a false call: the copy distribution is not measured")
         except Exception as _e0: print(f"library floor not measured: {type(_e0).__name__}: {str(_e0)[:120]}", flush=True)
     if a.build: sys.exit(_build(a))
     if not (a.betas or (a.grn and a.red) or seq): ap.error("give --betas, both --grn and --red, or --pat / --bam / --site-table")
@@ -1383,6 +1395,7 @@ def main():
     print(f"\n{sid}: Met-A (neutrophils) {m.get('A')} ({m.get('state', m.get('reason', o.get('refusal')))}) | C {(o.get('met_a_cscore') or {}).get('C')} | "
           f"tare {t.get('A_rel')}" + (f" | IAM-A {q_.get('A')} ({q_.get('state', q_.get('refusal'))})" if q_ else ""))
     if a._full_chain: o["full_chain"] = a._full_chain
+    if getattr(a, "_copies", None): o.setdefault("development", {})["copies"] = a._copies
     if getattr(a, "_seqc", None) is not None and getattr(a, "betas", None):   # 2026-10-29 (plan 35.30): the library floor of every sequenced sample, flagged
         try:
             import stage_seq_atlas as _SQf, pandas as _pdf; _bf = _pdf.read_csv(a.betas, index_col=0).iloc[:, 0]; _lf = _SQf.library_floor(_bf, a._seqc)

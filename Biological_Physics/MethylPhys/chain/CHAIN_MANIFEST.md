@@ -41,6 +41,7 @@ The LIVE column is computed by walking imports from the commissioned entry point
 | `stage_q2_selfref.py` | yes | live |
 | `stage_q_iam_a.py` | yes | live |
 | `stage_seq_atlas.py` | yes | live |
+| `stage_seq_copies.py` | yes | live |
 | `stage_seq_values.py` | yes | live |
 | `stage_t_selftare.py` | yes | live |
 | `stage_temperature.py` | yes | live |

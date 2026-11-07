@@ -685,3 +685,18 @@ itself is ordinary (median 0.00586). **Next (chain code, after the running readi
 measured at the floor sites, carried into the chain so that a sample's calls are counted as molecules (calls divided by D) wherever counting
 noise enters a reading; the synthetic plants copies in a constructed plasma and must show the readings move with copies before and not after.
 The cancer plasmas stay unread.
+
+**The copies correction in the chain (development flag; written before its synthetic runs).** `run_sample.py --dev-seq-copies` (off by default; without it every reading is unchanged). Before any reading, the chain measures the
+sample's own copy distribution at the library-floor sites (`chain/stage_seq_copies.py`, `copy_distribution`): a false molecule is rare there,
+so the calls at a site with a false call are one molecule's copies, and the sites holding two false molecules are removed by deconvolution
+(their share follows from the false-call rate and each site's molecules; Poisson). Then every expectation built on the sample's own calls
+(`stage_metaa_atlas.expected_H_counts`: whole-sample Met-A, each cell's Met-A, the ceiling) is the expected disorder under that copy process
+(`expected_H_copies`: each site's molecules drawn from its calls and the measured mean copies, each copied by the measured distribution, as a
+ratio to the same simulation without copies times the exact binomial expectation). Measured from the sample; nothing fitted. Two forms were
+tried first on the expectation formula alone and not used (working notes, not committed: they call chain pieces directly): counting calls / D
+over-corrected (the dispersion index is weighted toward the most-copied molecules, so it runs above the mean copies), and calls / mean copies,
+rounded, left a staircase error at the shallowest depth. **Synthetic through the one command** (`plasma_lab3/copies_synthetic.py`): a healthy
+plasma by construction at the array-layout sites, in one GSE186007 healthy plasma's own shares (`copies_synthetic_shares.csv`), molecules
+Poisson(6), the same molecules copied 1, 4 and 12 times, each read with and without the flag. Bars: 1. copies 1: the flag moves whole-sample
+Met-A by at most 0.01; 2. copies 4 and 12 with the flag within 0.03 of copies 1 without it. **Then** one spent healthy plasma re-read without
+the flag must give its second reading's value exactly (the chain unchanged without the flag), before the 34 are read with it.

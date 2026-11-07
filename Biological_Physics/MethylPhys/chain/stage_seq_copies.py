@@ -1,4 +1,4 @@
-"""The copy process of a sequencing library, measured from the sample itself (DEV-ONE-DRAW-01, development; candidate for the chain).
+"""The copy process of a sequencing library, measured from the sample itself (DEV-ONE-DRAW-01, development; run_sample.py --dev-seq-copies).
 copy_distribution: at the library-floor sites (every healthy cell holds them unmarked) a false molecule is rare, so the calls at a site with
 a false call are mostly one molecule's copies. Sites holding two false molecules are removed by deconvolution: with p the false-call rate and
 each site's molecules n / mean copies, the share of sites with a false call that hold two is known (Poisson), and the observed counts are

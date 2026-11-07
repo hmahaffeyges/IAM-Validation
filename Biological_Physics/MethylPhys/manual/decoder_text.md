@@ -2003,7 +2003,10 @@ The cell's identity sites by the rule above (up to 3,000 per side): methylated s
 far more often than the true level p, and the disorder of 0 or 1 is zero, so a healthy site's measured disorder at depth n is not H(p) but
 E[H(k/n)] = Σₖ C(n,k) pᵏ(1−p)ⁿ⁻ᵏ H(k/n). Met-A's healthy expectation on sequencing values is this sum at each site's own read count, with the
 atlas value as p; nothing is fitted. Checked against a 200,000-draw simulation (2026-10-22). Above 400 reads H(p) is used (the bias there is
-negligible). It was added after the depth test (DEV-ONE-DRAW-01 exploration 1) found Met-A on sequencing values reading lower as depth fell.
+negligible). It was added after the depth test (DEV-ONE-DRAW-01 exploration 1) found Met-A on sequencing values reading lower as depth fell. With `run_sample.py --dev-seq-copies` (development) and the sample's copy distribution measured (`COPIES`), the expectation is taken under that copy process instead (`stage_seq_copies.expected_H_copies`): a linear-amplification library's calls are copies of fewer molecules.
+
+### stage_metaa_atlas.py::_expected_H_binom
+The exact expected entropy of k of n reads at true level p, k binomial (the expectation `expected_H_counts` returns when no copy distribution is set; above N_EXACT reads, H(p)). Derived, nothing fitted.
 
 ### stage_metaa_atlas.py::read
 Met-A against the atlas cell, untared, on the values given (the one command passes the self-tared values), with the shift a 1 % loss would
