@@ -1552,3 +1552,10 @@ change in the non-tumor tissue, not yet told apart. **Next (its design, syntheti
 against the IAM Sequencing Atlas's healthy liver and lung cells only (author: the healthy reference for every comparison comes from the
 atlases, never from a sample labeled healthy or normal); each library's own chemistry measured from its own reads at the sites read (the
 class floor), never from another laboratory's or person's samples, so the non-tumor side is tested for a change rather than assumed healthy.
+
+**The class-floor synthetic: run in 18 parts (disclosed).** Its first run went to one machine, which stopped at its first step for six hours (a variable the machine never
+defines; fixed). Relaunched the same way, the 54 runs of the one command (6 laboratory settings, 3 people, 3 floor settings) in series would take
+about as long as the machine's time limit and saved nothing until the end. They now run in 18 parts, one laboratory setting and person per Google
+machine, each part's rows saved to the bucket as it finishes (`floor_class_part.sh`, `floor_class_synthetic.py ... PART`), and the parts are
+scored together by the same bars (`floor_class_synthetic.py combine`). Each part draws its own people from its own seed (20261107 + 1000 + part);
+the bars are unchanged.

@@ -10,10 +10,28 @@ laboratory (floor 0.006, share 0.29, as the atlas inputs) within 0.03 of 1 too, 
 did. Recorded: the readings without it and with the common floor, and each floor the chain measured at the islands.
 Range of the data: real: library floors 0.0016 to 0.0158 (crosslab_chain_table.csv), share of the floor at the islands 0.29 in the atlas
 laboratory and 0.75 to 1.05 outside (crosslab_floor_by_class.txt); synthetic: floors 0.0015 to 0.016, shares 0.29 and 0.75 to 1.05.
-Usage: python3 floor_class_synthetic.py BASE.beta WORKDIR OUT.txt"""
+Usage: python3 floor_class_synthetic.py BASE.beta WORKDIR OUT.txt [PART]   (PART 0 to 17: one laboratory setting and person, its rows only,
+       written to WORKDIR/floor_class_part<PART>.csv; 2026-11-07, so 54 runs go on 18 machines, each saved as it finishes)
+       python3 floor_class_synthetic.py combine FOLDER_OF_PARTS OUT.txt   (the 18 parts scored by the same bars)"""
 import os, sys, json, subprocess, numpy as np, pandas as pd
 from scipy.special import expit, logit
-BASE, W, OUT = sys.argv[1:4]; os.makedirs(W, exist_ok=True)
+import glob as _glob
+COMBINE = sys.argv[1] == "combine"
+BASE, W, OUT = sys.argv[1:4]; PART = int(sys.argv[4]) if len(sys.argv) > 4 else None
+if not COMBINE: os.makedirs(W, exist_ok=True)
+def score(D):
+    L = ["The floor counted at the islands read: synthetic, read by run_sample.py (seed 20261107, base GSM5652316; reference floor 0.006 passing 0.29 of it to the islands; three people per laboratory)"]
+    for (lab, eq), g in D.groupby(["lab", "floor_equal"], sort=False):
+        L.append(f"{lab}, {eq}: islands median {pd.to_numeric(g.islands, errors='coerce').median():.4f}; sorted-cell Met-A median {pd.to_numeric(g.metaa, errors='coerce').median():.4f} (the cell the Deconvolver found most of, label_check: {', '.join(sorted(set(map(str, g.chain_cell))))}); islands floor {str(g.islands_floor.iloc[0])[:160]}")
+    w = D[D.floor_equal == "--dev-floor-class"]; med = {lab: pd.to_numeric(g.islands, errors="coerce").median() for lab, g in w.groupby("lab")}
+    b1 = len(med) == 6 and all(abs(v - 1) <= 0.03 for v in med.values()) and all(len(g) == 3 for _, g in w.groupby("lab"))
+    b2 = abs(med.get("atlas laboratory 0.006 x 0.29", 9) - 1) <= 0.03
+    L += [f"bar 1 (class floor: each laboratory's median islands within 0.03 of 1): {'met' if b1 else 'not met'}",
+          f"bar 2 (class floor: the atlas laboratory's own case within 0.03 of 1, no overcorrection): {'met' if b2 else 'not met'}", f"synthetic: {'met' if b1 and b2 else 'not met'}"]
+    open(OUT, "w").write("\n".join(L) + "\n"); print("\n".join(L))
+if COMBINE:
+    D = pd.concat([pd.read_csv(x) for x in sorted(_glob.glob(os.path.join(W, "**", "floor_class_part*.csv"), recursive=True))], ignore_index=True)
+    D.to_csv(os.path.join(os.path.dirname(os.path.abspath(OUT)), "floor_class_readings.csv"), index=False); score(D); sys.exit(0)
 HERE = os.path.dirname(os.path.abspath(__file__)); CH = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", "..", "chain")); sys.path.insert(0, CH)
 import stage_metaa_atlas as SA, stage_seq_atlas as Q, pyarrow.parquet as pq
 SA.SEQ_ATLAS = Q.ARRAY_COLS; SA.SEQ_LEVEL = "pooled"; rng = np.random.default_rng(20261107); HG19 = 28217448; FR = 0.006
@@ -48,8 +66,12 @@ FF = os.path.join(W, "floors.parquet"); pd.DataFrame(frows).to_parquet(FF, index
 b = np.fromfile(BASE, np.uint8).reshape(-1, 2).astype(np.uint16); assert len(b) == HG19, len(b)
 Kf = KEY.reindex(FS.probe).dropna().astype(np.int64)
 IF = os.path.join(CH, "MethylPhys_Interface"); res = []
-for lab, f, sh in (("atlas laboratory 0.006 x 0.29", 0.006, 0.29), ("0.0015 x 1.0", 0.0015, 1.0), ("0.005 x 1.05", 0.005, 1.05), ("0.006 x 1.0", 0.006, 1.0), ("0.009 x 1.05", 0.009, 1.05), ("0.016 x 0.75", 0.016, 0.75)):
+LABS = (("atlas laboratory 0.006 x 0.29", 0.006, 0.29), ("0.0015 x 1.0", 0.0015, 1.0), ("0.005 x 1.05", 0.005, 1.05), ("0.006 x 1.0", 0.006, 1.0), ("0.009 x 1.05", 0.009, 1.05), ("0.016 x 0.75", 0.016, 0.75))
+for lab, f, sh in LABS:
     for t in range(3):
+        _k = [l_ for l_, _, _ in LABS].index(lab) * 3 + t
+        if PART is not None and _k != PART: continue
+        if PART is not None: rng = np.random.default_rng(20261107 + 1000 + _k)   # 2026-11-07: one part per machine, its own seed
         a = b.copy()
         for cp, p_, ff in ((Ki.to_numpy(), person(ilev["b cells"]), f * sh), (R.cpg.to_numpy(), person(R.lv.to_numpy()), f), (Kf.to_numpy(), np.zeros(len(Kf)), f)):
             n = a[cp - 1, 1].astype(np.int64); a[cp - 1, 0] = obs(n, p_, ff)
@@ -67,13 +89,6 @@ for lab, f, sh in (("atlas laboratory 0.006 x 0.29", 0.006, 0.29), ("0.0015 x 1.
             if os.path.exists(J): os.remove(J)
             print(res[-1], flush=True)
         os.remove(fn)
+if PART is not None: pd.DataFrame(res).to_csv(os.path.join(W, f"floor_class_part{PART}.csv"), index=False); sys.exit(0)
 D = pd.DataFrame(res); D.to_csv(os.path.join(W, "floor_class_readings.csv"), index=False)
-L = ["The floor counted at the islands read: synthetic, read by run_sample.py (seed 20261107, base GSM5652316; reference floor 0.006 passing 0.29 of it to the islands; three people per laboratory)"]
-for (lab, eq), g in D.groupby(["lab", "floor_equal"], sort=False):
-    L.append(f"{lab}, {eq}: islands median {pd.to_numeric(g.islands, errors='coerce').median():.4f}; sorted-cell Met-A median {pd.to_numeric(g.metaa, errors='coerce').median():.4f} (the cell the Deconvolver found most of, label_check: {', '.join(sorted(set(map(str, g.chain_cell))))}); islands floor {g.islands_floor.iloc[0][:160]}")
-w = D[D.floor_equal == "--dev-floor-class"]; med = {lab: pd.to_numeric(g.islands, errors="coerce").median() for lab, g in w.groupby("lab")}
-b1 = len(med) == 6 and all(abs(v - 1) <= 0.03 for v in med.values()) and all(len(g) == 3 for _, g in w.groupby("lab"))
-b2 = abs(med.get("atlas laboratory 0.006 x 0.29", 9) - 1) <= 0.03
-L += [f"bar 1 (class floor: each laboratory's median islands within 0.03 of 1): {'met' if b1 else 'not met'}",
-      f"bar 2 (class floor: the atlas laboratory's own case within 0.03 of 1, no overcorrection): {'met' if b2 else 'not met'}", f"synthetic: {'met' if b1 and b2 else 'not met'}"]
-open(OUT, "w").write("\n".join(L) + "\n"); print("\n".join(L))
+score(D)
