@@ -1616,3 +1616,8 @@ five laboratories at least 75 % of its samples each do. Recorded, not scored: wh
 
 **Prior reading:** all 89 are spent (read before without the class floor); this is the rehearsal before a fresh laboratory (the BLUEPRINT
 monocytes, unread).
+
+**The cross-laboratory rehearsal: the second laboratory's first downloads failed (my error, disclosed).** The job wrapper rewrites each machine's rows with
+Python's csv module, which ends lines with a carriage return and newline; the second laboratory's reader takes its URL as the last field, so every
+URL carried a carriage return and every download failed. BLUEPRINT's reader strips the line and was not affected. The lists are now written
+with plain newlines; the three second-laboratory machines are relaunched on the fixed job. No reading was made.
