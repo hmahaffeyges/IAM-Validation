@@ -51,7 +51,9 @@ def hg19_dictionary(cpg_bed):
     if len(D) != HG19_CPGS: raise ValueError(f"{cpg_bed}: {len(D):,} CpGs, not {HG19_CPGS:,}")
     return {c: (g.pos.to_numpy(), g.idx.to_numpy()) for c, g in D.groupby("chr", sort=False)}
 
-TABLE_FORMATS = ("cpg-table", "bismark-cov")
+TABLE_FORMATS = ("cpg-table", "bismark-cov", "level-bedgraph")
+LEVEL_N = 1000   # 2026-11-06 (DEV-ATLAS-V21-01, plan 60.24; stated): a published level track with no read counts (level-bedgraph) is written as LEVEL_N
+                 # reads at every CpG it holds, so the comparison reads it as a deep sample whose own counting scatter is negligible; flagged
 
 def table_to_lbeta(src, out, cpg_bed, fmt, genome):
     """2026-10-30 (the selection-free healthy test): one published per-CpG table written as .lbeta on the hg19 numbering. fmt 'cpg-table':
@@ -63,6 +65,11 @@ def table_to_lbeta(src, out, cpg_bed, fmt, genome):
     if fmt == "cpg-table":
         T = pd.read_csv(src, sep=r"\s+", header=None, comment=None, names=["chr", "pos", "m", "n"], dtype={"chr": str}, low_memory=False)
         T = T[pd.to_numeric(T.pos, errors="coerce").notna()].astype({"pos": np.int64, "m": np.int64, "n": np.int64})
+    elif fmt == "level-bedgraph":   # 2026-11-06: chrom, 0-based start, end, level (0 to 1, or percent); no counts: LEVEL_N reads at each position
+        T = pd.read_csv(src, sep="\t", header=None, usecols=[0, 1, 2, 3], names=["chr", "start", "end", "lv"], dtype=str, low_memory=False)   # track lines dropped below
+        T = T[pd.to_numeric(T.start, errors="coerce").notna() & pd.to_numeric(T.lv, errors="coerce").notna()]
+        lv = T.lv.astype(float).to_numpy(); lv = lv / 100.0 if np.nanmax(lv) > 1.0 else lv
+        T = pd.DataFrame(dict(chr=T.chr.to_numpy(), pos=T.start.astype(np.int64).to_numpy() + 1, m=np.rint(np.clip(lv, 0, 1) * LEVEL_N).astype(np.int64), n=np.int64(LEVEL_N)))
     else:
         T = pd.read_csv(src, sep="\t", header=None, names=["chr", "pos", "end", "pct", "m", "u"], dtype={"chr": str}); T["n"] = T.m + T.u
     T["chr"] = np.where(T.chr.str.startswith("chr"), T.chr, "chr" + T.chr); T = T[T.n > 0]

@@ -1339,3 +1339,24 @@ islands outside 0.95 to 1.05 in at least 4 of the 5. Recorded, not scored: the d
 tissue's untared readings against the IAM Sequencing Atlas (normal tissue beside a tumor may carry a field change), the cell shares and the
 unlabeled lung pair. No new chain code: every reading used here has its own synthetic on record. **Prior reading:** GSE86340's labels and run
 sizes only; none of these 12 tissue samples has been read.
+
+**The megakaryocyte column tested on platelet DNA (plan 60.24; written before the platelet file is opened).** The column (built from single-cell donors 1 and 2) was not met on donor 3 by plain distance and reads donor 3 nearest
+megakaryocytes once counting noise is weighed, but donor 3 is spent, so the column needs a fresh test. GSE206818 is platelet whole-genome
+bisulfite sequencing from 3 healthy people, published only as one merged level track on hg19 (`GSE206818_platelets_merged.bedGraph.gz`; the
+series states the raw reads are not public); platelet DNA is mostly megakaryocyte DNA. Unread: only its column layout and GEO notes were read.
+
+**The instrument's job:** platelet DNA reads as megakaryocytes against the atlas.
+
+**Sources:** GSE206818 (public, GEO: the merged platelet level track, hg19); the IAM Sequencing Atlas (public, Zenodo 10.5281/zenodo.23934666);
+the megakaryocyte column (pieces built from GSE87197 donors 1 and 2, public, GEO).
+
+**Chain change (development):** the table converter takes a level-only track (`stage_seq_atlas.table_to_lbeta`, format `level-bedgraph`):
+each position is written as LEVEL_N = 1000 reads (stated), so the comparison reads it as a deep sample with negligible counting scatter of its
+own; flagged. **Synthetic first** (`seq_atlas/mk_platelet_synthetic.py`, run by `mk_platelet_synthetic.sh` on GitHub): a constructed atlas of 12
+deep cells and one shallow cell (2 donors at about 2 reads, 40 % of CpGs, the megakaryocyte column's case); a level track pooled from 3 people of
+the shallow cell, and one of a deep cell, each converted and compared by the one command (`--build seq-table`, `--build seq-compare`). Bars: each
+sample nearest its own cell by the counting-weighted score.
+
+**Bar (the test):** megakaryocytes is the platelets' nearest cell of the 57 by the counting-weighted score. Recorded: the plain-distance rank, the
+next cells and their scores. **If met:** the column joins the in-mix readings, flagged provisional; plasma's megakaryocyte DNA is then read
+against it instead of the four stand-in cells. **Replication:** the megakaryocyte pieces are deposited on Zenodo with the test.
