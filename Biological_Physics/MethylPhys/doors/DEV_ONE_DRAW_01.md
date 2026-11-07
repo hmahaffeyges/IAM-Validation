@@ -706,3 +706,5 @@ the flag must give its second reading's value exactly (the chain unchanged witho
 copies. Both bars met. **Third reading:** the same 34 healthy plasmas, the same job, bars and scorer as the second, the flags of the second plus
 `--dev-seq-copies` (`plasma_lab3_samples_r3.csv`). **Unchanged-chain check, alongside:** GSM7426135, read without the flag on the code that now holds
 it, must give the second reading's whole-sample Met-A exactly (1.18639). If it does not, the third reading is not used. The cancer plasmas stay unread.
+
+**Unchanged-chain check: met.** GSM7426135 read without the flag on chain 2c28120 (which holds it) gave whole-sample Met-A 1.18639, its second-reading value exactly (GitHub run 42337323172); the third reading is used.

@@ -83,3 +83,11 @@ and each map's sums from the pieces equal the whole map's; 2. the planted map sh
 over 3 times their mean) and along the genome (correlation above 0.05 at 1 to 10 kb and 10 to 100 kb); 3. the other three maps show none (no
 band over 1.5 times the shuffles' mean, every correlation within 0.01 of 0); 4. the pieces' spectrum within 0.01 of the whole map's. **Not yet at
 every CpG (recorded):** Minkowski functionals and the information sphere.
+
+**The noise tools' synthetic: met** (`doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_noise_synthetic.txt`, GitHub run 42338862102; all 28,217,448 constructed CpGs). All four bars met: X
+and Y left out and each map's sums from the pieces equal the whole map's; the planted donor-halves map showed structure on the sphere (bands
+above all 20 shuffles, the largest 86.6 times their mean) and along the genome (correlation 0.09 from under 1 kb to 1 to 10 Mb); the three other
+maps showed none (every band within 1.5 times the shuffles' mean, every correlation within 0.01 of 0); the pieces' spectrum within 0.00152 of
+the whole map's. **Recorded:** one pure-noise map (the planted cell's read halves) put two bands just above all 20 shuffles (ratios 1.0126 and
+1.0264): above-every-shuffle alone flags by chance, so every band is reported with its ratio to the shuffles' mean beside it. The real run is
+next (`globe_noise.yml`, one published set per machine, then the join).

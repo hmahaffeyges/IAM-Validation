@@ -1,0 +1,10 @@
+plain map1 donor halves: CpGs 27,272,914 (X and Y left out: 944,516); mean 0.0; mean square 0.010472; sums equal the whole map: True; sphere ratio by band [0.9011, 1.0653, 0.9935, 1.0216, 0.9995, 0.9968], bands above all shuffles []; spectrum by distance [4e-05, -4e-05, 3e-05, -1e-05, -0.00016, None]
+plain map2 read halves: CpGs 27,272,918 (X and Y left out: 944,516); mean -1.9e-05; mean square 0.0104735; sums equal the whole map: True; sphere ratio by band [0.8231, 1.0222, 0.999, 1.0128, 1.002, 0.9973], bands above all shuffles []; spectrum by distance [5e-05, -4e-05, -3e-05, -8e-05, -3e-05, None]
+planted map1 donor halves: whole-map spectrum [0.0906, 0.09057, 0.09024, 0.08835, 0.07987, None]; largest gap from the pieces' 0.00152
+planted map1 donor halves: CpGs 27,272,922 (X and Y left out: 944,516); mean 0.032017; mean square 0.0125612; sums equal the whole map: True; sphere ratio by band [3.6491, 86.6014, 8.5093, 1.0212, 0.2798, 0.138], bands above all shuffles [0, 1, 2]; spectrum by distance [0.0906, 0.09058, 0.09029, 0.08878, 0.08139, None]
+planted map2 read halves: CpGs 27,272,913 (X and Y left out: 944,516); mean 1.2e-05; mean square 0.0104659; sums equal the whole map: True; sphere ratio by band [0.8929, 0.9745, 0.9702, 1.0126, 1.0264, 1.008], bands above all shuffles [3, 4]; spectrum by distance [-8e-05, -7e-05, -4e-05, 5e-05, -0.00013, None]
+bar 1 (X and Y left out; the pieces' sums equal the whole map): met
+bar 2 (the planted map 1 shows structure): met
+bar 3 (the other maps show none): met
+bar 4 (the pieces' spectrum within 0.01 of the whole map's): met
+noise synthetic: met
