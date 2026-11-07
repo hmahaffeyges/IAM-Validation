@@ -648,3 +648,8 @@ Bar 1 met (all 30 inside Normal); bar 2 not met (center 0.0006 over, low tail 0.
 blood itself reads 1.00222 on every atlas cell (14 cells in its measured mix). **What it shows:** read on the full mix the Deconvolver measures,
 the prediction drifts with the array's line (flatter, noisier arrays read lower), where on six cells it did not; the rehearsal's center of 0.983
 lies in that direction. The cause is found offline before anything changes in the chain.
+
+**Test 6's drift, diagnosed offline and on three draws (development; nothing scored).** Offline, the line measure reads each planted line correctly on the 14-cell mix (low tail design II slope planted 0.9991,
+measured 0.9998) and A / A_pred is within 0.002 of 1; in the chain every condition's line came out near the same values (design II slope 1.027 to
+1.030, whatever was planted). So the line was measured against a mix other than the one built. `DEV_METAA_HEALTHY_01/synthetic_06_diag.py` reads
+test 6's arrays for three draws again, keeping each array's measured shares and prediction, on Google.
