@@ -1,0 +1,46 @@
+healthy plasmas with a bundle: 34
+calls_median: median 3 (range 1 to 20); Spearman with tared whole-sample Met-A -0.191 (p 0.28); with its distance from 1 +0.211 (p 0.23)
+sites: median 607548 (range 251945 to 805510); Spearman with tared whole-sample Met-A +0.258 (p 0.14); with its distance from 1 -0.147 (p 0.41)
+sites_used: median 607522 (range 251943 to 805446); Spearman with tared whole-sample Met-A +0.258 (p 0.14); with its distance from 1 -0.147 (p 0.41)
+shares (cells with a median share of at least 1 %, strongest first):
+  share of colon macrophages: median 0.027; Spearman with tared whole-sample Met-A +0.331 (p 0.056)
+  share of nk cells: median 0.017; Spearman with tared whole-sample Met-A +0.303 (p 0.081)
+  share of granulocytes: median 0.381; Spearman with tared whole-sample Met-A +0.301 (p 0.084)
+  share of monocytes: median 0.081; Spearman with tared whole-sample Met-A -0.077 (p 0.67)
+  raw_sum: median 0.890; Spearman with tared whole-sample Met-A -0.014 (p 0.94)
+  share of erythrocyte progenitors: median 0.075; Spearman with tared whole-sample Met-A -0.006 (p 0.97)
+rows (gsm, calls median, sites with a value, tared whole-sample Met-A):
+  GSM7426156 6.0 251945 0.2284
+  GSM7426159 5.0 447274 0.4551
+  GSM7426137 2.0 467837 1.0879
+  GSM7426155 4.0 482407 0.5678
+  GSM7426139 1.0 485181 1.3188
+  GSM7426138 2.0 486722 0.9692
+  GSM7426140 2.0 494441 1.1001
+  GSM7426135 2.0 527268 1.3111
+  GSM7426143 2.0 527300 0.8093
+  GSM7426147 2.0 528472 1.2003
+  GSM7426136 2.0 532720 1.0292
+  GSM7426151 2.0 540138 0.8216
+  GSM7426150 2.0 541187 0.9296
+  GSM7426152 2.0 549382 0.8605
+  GSM7426149 2.0 564603 0.9654
+  GSM7426164 4.0 590977 0.8339
+  GSM7426141 2.0 604346 0.9272
+  GSM7426146 3.0 610749 1.2376
+  GSM7426142 3.0 618442 1.052
+  GSM7426148 2.0 627758 1.0224
+  GSM7426145 3.0 628705 1.0914
+  GSM7426162 4.0 629177 1.0827
+  GSM7426144 2.0 640388 1.346
+  GSM7426157 3.0 647061 1.1374
+  GSM7426160 19.0 737868 0.8518
+  GSM7426166 19.0 739927 0.7935
+  GSM7426167 18.0 744888 0.8088
+  GSM7426168 17.0 754406 0.9117
+  GSM7426153 18.0 761685 0.9781
+  GSM7426154 16.0 768196 1.0917
+  GSM7426161 20.0 768264 0.9093
+  GSM7426158 15.0 796192 1.1287
+  GSM7426165 20.0 802138 1.3176
+  GSM7426163 20.0 805510 1.5148
