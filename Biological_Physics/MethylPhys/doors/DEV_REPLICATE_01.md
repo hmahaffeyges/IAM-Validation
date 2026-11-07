@@ -394,3 +394,10 @@ listed. Reference only: plasma on arrays is not a commissioned specimen; every r
 plan (plan 0.9) is then read on every cell.
 
 **Wave A on every cell: R12, R10 and R6 (written before they are read again).** Each spent series is read again by the one command with `--full-chain --cell-panel atlas` (all 79 cells of IAM-Atlas v2.1, flagged in development), pass 1, as R11 was, and scored by `r23_score.py` as before with every cell listed; reference only, nothing scored against a bar. R12 (GSE51057, `r12_italy_samples.csv`, 329 white blood cell arrays, specimen whole blood, 20 machines); R10 (GSE99511, `r10_cervical_samples.csv`, 68 self-samples, specimen unknown, no reference claimed, 10 machines); R6 aging (GSE141682, `r6_aging_samples.csv`, 42 healthy whole bloods, specimen whole blood, 10 machines). Each reading's Deconvolver shares are listed beside it, and any group comparison is made only between samples whose shares match (the rule for every comparison, DEV_ATLAS_V21_01.md).
+
+**R5 Crohn's and colitis on every cell of IAM-Atlas v2.1, read.** (`data/DEV_REPLICATE_01/r5_atlas_full/r5_ibd_blood_atlas_full_summary.txt` and `r5_ibd_sorted_atlas_full_summary.txt`, by
+`replay_score.py`; 382 of 384 whole bloods and 240 of 240 sorted arrays of GSE87650, untared; A-score rows `*_atlas_full_rows.csv`.) **Whole blood:**
+Crohn's disease against healthy, 6 of 155 readings below p 0.001, all of them the cell mix the IAM-Deconvolver measured (neutrophils 0.5651 against
+0.4175, d +1.02; B cells, naive CD4 and naive CD8 T cells and HSC lower) and the smoking control site cg05575921; no Met-A reading separates the
+groups. **Sorted cells:** within each cell type (CD4, CD8, monocytes), disease against healthy separates on no reading below p 0.001 (0 of 150 to
+153); in whole blood 3 (Crohn's) and 1 (colitis). What the chain reads in these patients' blood is their cell mix, not a change inside the cells.

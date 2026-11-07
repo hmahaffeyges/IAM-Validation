@@ -554,6 +554,20 @@
    "status": "development (tumor against own normal; liver and lung tissue not commissioned)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
    "rows_table": true
+  },
+  {
+   "id": "R5-BLOOD-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r5_atlas_full/r5_ibd_blood_atlas_full_rows.csv",
+   "status": "development (replay on every atlas cell; spent data)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "R5-SORTED-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/r5_atlas_full/r5_ibd_sorted_atlas_full_rows.csv",
+   "status": "development (replay on every atlas cell; spent data)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
   }
  ],
  "lines": {

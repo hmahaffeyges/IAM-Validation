@@ -74,6 +74,14 @@
      "outcome": "Every condition's mean within 0.0010 of 1; the rehearsal on the 100 spent bloods is next.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
      "reference": "IAM-Atlas v2.1 only"
+    },
+    {
+     "title": "R5 Crohn's and colitis on every atlas cell",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1 (untared readings)",
+     "what": "382 whole bloods and 240 sorted arrays of GSE87650 read again on every cell of IAM-Atlas v2.1.",
+     "outcome": "Whole blood: Crohn's against healthy differs in the cell mix (neutrophils 0.565 against 0.418) and a smoking site, not in Met-A; within each sorted cell type nothing separates disease from healthy.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   },
@@ -211,6 +219,13 @@
      "what": "The class-floor synthetic's job read the bucket name from a variable the machine never defines; under set -u it stopped at its first step, before the step that deletes the machine, and sat idle until its time limit. It was launched once, with no launcher watching it, and no check looked at whether a machine's log was moving.",
      "outcome": "Path fixed; machine deleted; a stall check (a running machine whose log is unchanged for 45 minutes is a failure) added to the loop check; relaunched under a launcher.",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/floor_class_synthetic.sh"
+    },
+    {
+     "title": "Two replays sent again that were already read on every cell",
+     "status": "mistake",
+     "what": "R9 glioma blood and R5 liver cancer in blood were queued for every-cell reads although the replay record already holds both (r9_atlas_full, r5_atlas_full); the queue was chosen from the run registry, not the record.",
+     "outcome": "R9 glioma finished as a duplicate (not used); R5 liver cancelled within minutes. Lists are now checked against the record's summaries before queuing.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   }
