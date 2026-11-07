@@ -13,6 +13,7 @@ Usage:
   python3 seq_globe_wg.py part NSIDE INPUTS_CSV OUTDIR PIECE...   sums and counts of these pieces (one .npz per piece)
   python3 seq_globe_wg.py join NSIDE PARTDIR OUTDIR               the full maps, uint16 x 10,000 (65535 no CpG), one .npy per cell and kind
   python3 seq_globe_wg.py slice INPUTS_CSV OUTDIR PIECE...        NSIDE 2048: each piece's own stretch of the final globe, plus NSIDE 256 sums for the textures
+  python3 seq_globe_wg.py assemble OUTDIR SETDIR...              the Globe Viewer textures (NSIDE 256) and the check against the current globe at the array sites
 """
 import os, sys, json, glob
 import numpy as np
@@ -155,9 +156,55 @@ def slice_(inputs_csv, outdir, pieces, nside=2048, coarse=256):
         print("piece", os.path.basename(f), T.num_rows, flush=True); del T, cols, S, Q
     json.dump(rep, open(os.path.join(outdir, "slice_report.json"), "w"), indent=1); return rep
 
+def assemble(set_dirs, outdir, nside=2048, coarse=256):
+    """2026-11-06: after the build. (1) The NSIDE COARSE textures for the Globe Viewer, joined from every piece's sums and counts.
+    (2) The design's check: at every IAM-Atlas v2.1 site with a sequencing CpG (sites_sequencing_key), each cell's new-globe level, low and
+    high equal the current Sequencing Atlas Globe's rule applied to the committed array-site columns (array_sites: meth, reads, donor_sd;
+    range_of_average with the same donor counts), value for value. Reads one set folder at a time."""
+    import pyarrow.parquet as pq, pandas as pd, stage_seq_atlas as SQ, stage_metaa_atlas as SA
+    os.makedirs(outdir, exist_ok=True); K = _cells_K(os.path.join(HERE, "..", "..", "doors", "data", "DEV_ATLAS_V21_01", "seq_atlas", "seq_atlas_inputs.csv"))
+    key = pq.read_table(os.path.join(SA.ATLAS, "sites_sequencing_key.parquet")).to_pandas().drop_duplicates("probe").set_index("probe")["loyfer_cpg_index"]
+    ids = pq.read_table(os.path.join(SA.ATLAS, "sites.parquet")).column("cpg").to_pylist(); cpg = pd.Series(ids).map(key).to_numpy()
+    rows = np.flatnonzero(~pd.isna(cpg)); pix_rows = pixel_of(cpg[rows].astype(np.int64) - 1, nside)
+    AC = SQ.ARRAY_COLS; dec = lambda a: np.where(a == BLANK, np.nan, a.astype("float64"))
+    def arr(stem, c):
+        for part in (1, 2, 3):
+            f = os.path.join(AC, f"{stem}_part{part}.parquet")
+            if c in pq.read_schema(f).names: return pq.read_table(f, columns=[c]).column(0).to_numpy()
+        return None
+    S = {}; C = {}; got = {}; Nc = npix(coarse)
+    for d in set_dirs:
+        for f in sorted(glob.glob(os.path.join(d, "**", "*_slice_n2048.npz"), recursive=True)):
+            Z = np.load(f); p0 = int(Z["p0"][0]); q0 = int(Z["q0"][0]); cells = [str(x) for x in Z["cells"]]
+            L = len(Z[f"{cells[0]}|mu"]); sel = (pix_rows >= p0) & (pix_rows < p0 + L)
+            for c in cells:
+                n = Z[f"{c}|c_n"].astype(np.int64); Lq = len(n); C.setdefault(c, np.zeros(Nc, np.int64))[q0:q0 + Lq] += n
+                for k in KINDS: S.setdefault((c, k), np.zeros(Nc))[q0:q0 + Lq] += Z[f"{c}|c_{k}"]
+                for k in KINDS: got.setdefault((c, k), np.full(len(rows), BLANK, np.uint16))[sel] = Z[f"{c}|{k}"][pix_rows[sel] - p0]
+            print("slice", os.path.basename(f), flush=True)
+    rep = dict(nside=nside, coarse=coarse, array_sites_with_cpg=int(len(rows)), cells={}); tex = {}
+    for c in sorted(C):
+        for k in KINDS: tex[f"{c}|{k}"] = np.where(C[c] > 0, np.rint(np.clip(S[(c, k)] / np.maximum(C[c], 1), 0, 1) * 1e4), BLANK).astype(np.uint16)
+        tex[f"{c}|n"] = np.minimum(C[c], 65534).astype(np.uint16)
+        m, r, sd = arr("meth", c), arr("reads", c), arr("donor_sd", c)
+        if m is None: rep["cells"][c] = dict(check="no array-site column"); continue
+        p, lo, hi, _ = SQ.range_of_average(dec(m)[rows], dec(r)[rows], dec(sd)[rows] / 1e4, int(K.get(c, 1)))
+        ok = np.isfinite(p) & (np.nan_to_num(dec(r)[rows]) > 0); D = {}
+        for k, v in zip(KINDS, (p, lo, hi)):
+            want = np.where(ok, np.rint(np.clip(np.nan_to_num(v), 0, 1) * 1e4), BLANK).astype(np.uint16); g = got[(c, k)]
+            both = (want != BLANK) & (g != BLANK); D[k] = dict(both=int(both.sum()), equal=int((want[both] == g[both]).sum()), only_current=int(((want != BLANK) & (g == BLANK)).sum()),
+                                                                only_new=int(((want == BLANK) & (g != BLANK)).sum()), largest_gap=float(np.abs(want[both].astype(int) - g[both].astype(int)).max(initial=0)) / 1e4)
+        rep["cells"][c] = D
+    np.savez_compressed(os.path.join(outdir, f"globe_wg_textures_n{coarse}.npz"), **tex)
+    allk = [D[k] for D in rep["cells"].values() if "mu" in D for k in KINDS]
+    rep["check"] = dict(values_compared=sum(x["both"] for x in allk), equal=sum(x["equal"] for x in allk), only_current=sum(x["only_current"] for x in allk), only_new=sum(x["only_new"] for x in allk),
+                        largest_gap=max((x["largest_gap"] for x in allk), default=None), met=all(x["equal"] == x["both"] and x["only_current"] == 0 and x["only_new"] == 0 for x in allk))
+    json.dump(rep, open(os.path.join(outdir, "globe_wg_check.json"), "w"), indent=1); print(json.dumps(rep["check"])); return rep
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a[0] == "synthetic": sys.exit(0 if synthetic(a[1]) else 1)
     if a[0] == "part": part(int(a[1]), a[2], a[3], a[4:])
     if a[0] == "join": join_dir(int(a[1]), a[2], a[3])
     if a[0] == "slice": slice_(a[1], a[2], a[3:])
+    if a[0] == "assemble": assemble(a[2:], a[1])
