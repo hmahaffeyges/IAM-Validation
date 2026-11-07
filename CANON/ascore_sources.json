@@ -582,6 +582,27 @@
    "status": "development (replay on every atlas cell; spent data)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
    "rows_table": true
+  },
+  {
+   "id": "R15-ADDNEUROMED-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_b/r15_addneuromed_atlas_full_rows.csv",
+   "status": "development (replay on every atlas cell; spent data; values route)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "R16-GIFT-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_b/r16_gift_atlas_full_rows.csv",
+   "status": "development (replay on every atlas cell; spent data; values route)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "R17-BREAST-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_b/r17_breast_atlas_full_rows.csv",
+   "status": "reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
   }
  ],
  "lines": {

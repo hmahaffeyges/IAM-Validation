@@ -1,0 +1,577 @@
+DEV-REPLICATE-01 r17_breast: 407 of 407 arrays read (pass 1, untared)
+== GSE69914: breast cancer 305, breast cancer, BRCA1 carrier 3, normal (healthy donor) 50, normal, BRCA1 carrier 7, normal-adjacent 42
+   breast cancer: largest shares breast luminal epithelium 0.26, vascular endothelium 0.17, cytotoxic cd4 t cells (cd28-) 0.06
+   breast cancer, BRCA1 carrier: largest shares vascular endothelium 0.26, breast basal epithelium 0.25, adipocytes 0.18
+   normal (healthy donor): largest shares adipocytes 0.24, vascular endothelium 0.23, breast basal epithelium 0.13
+   normal, BRCA1 carrier: largest shares vascular endothelium 0.28, adipocytes 0.24, breast basal epithelium 0.22
+   normal-adjacent: largest shares vascular endothelium 0.23, adipocytes 0.22, breast basal epithelium 0.12
+-- breast cancer (305) against normal (healthy donor) (50)
+   site cg05575921                            0.7500 against 0.8060 | d -0.66 | p 2.8e-05
+   site cg03636183                            0.5063 against 0.4982 | d +0.20 | p 0.41
+   site cg16867657                            0.5930 against 0.5578 | d +0.25 | p 0.069
+   Met-A whole                                0.9594 against 0.9396 | d +0.65 | p 4e-05
+   ceiling distance                           1.0325 against 1.0453 | d -0.55 | p 0.00041
+   Met-A whole, identity sites of the cells found 0.9506 against 0.9243 | d +0.68 | p 2.3e-06
+   Met-A whole, islands                       0.8477 against 0.8426 | d -0.03 | p 0.71
+   Met-A whole, domains                       0.9921 against 0.9607 | d +0.56 | p 0.00077
+   Met-A whole, the rest                      0.9748 against 0.9508 | d +0.73 | p 4.4e-07
+   Met-A CMP (bone marrow)                    0.9199 against 0.8830 | d +0.96 | p 6.2e-09
+   Met-A GMP (bone marrow)                    0.9033 against 0.8729 | d +0.76 | p 1.7e-06
+   Met-A HSC (bone marrow)                    0.9269 against 0.8956 | d +0.52 | p 0.00057
+   Met-A L-MPP (bone marrow)                  0.9208 against 0.8957 | d +0.60 | p 2e-05
+   Met-A MEP (bone marrow)                    0.9319 against 0.9176 | d +0.27 | p 0.01
+   Met-A MPP (bone marrow)                    0.9401 against 0.8989 | d +0.94 | p 1.1e-08
+   Met-A adipocytes                           0.9792 against 0.9240 | d +0.89 | p 4.6e-09
+   Met-A b cells                              0.8683 against 0.8347 | d +0.50 | p 0.00049
+   Met-A basophils                            0.9334 against 0.9294 | d +0.09 | p 0.35
+   Met-A cd4 t cells                          0.8996 against 0.8617 | d +0.45 | p 0.0013
+   Met-A cd56bright nk cells                  0.9960 against 0.9493 | d +0.45 | p 0.00096
+   Met-A cd8 central memory t cells           0.9117 against 0.8733 | d +0.42 | p 0.0019
+   Met-A cd8 t cells                          0.8872 against 0.8593 | d +0.36 | p 0.013
+   Met-A cd8 temra t cells                    0.9271 against 0.9307 | d -0.02 | p 0.77
+   Met-A central memory th1 cells             0.9582 against 0.9711 | d -0.11 | p 0.62
+   Met-A colon epithelium                     0.9601 against 0.9588 | d +0.08 | p 0.36
+   Met-A colon fibroblasts                    1.0458 against 1.0154 | d +0.32 | p 0.17
+   Met-A cortical neurons                     0.9107 against 0.8796 | d +0.43 | p 0.0027
+   Met-A cytotoxic cd4 t cells (cd28-)        0.9810 against 1.0096 | d -0.28 | p 0.065
+   Met-A effector memory cd8 t cells          0.9289 against 0.9112 | d +0.18 | p 0.22
+   Met-A embryonic stem cells                 0.9700 against 0.9505 | d +0.16 | p 0.14
+   Met-A eosinophils                          0.9389 against 0.9134 | d +0.58 | p 0.00011
+   Met-A erythrocyte progenitors              0.9946 against 0.9821 | d +0.21 | p 0.091
+   Met-A hepatocyte                           0.9459 against 0.9290 | d +0.28 | p 0.0075
+   Met-A kidney glomerular endothelium        0.9922 against 0.9162 | d +1.36 | p 2.9e-15
+   Met-A kidney tubular endothelium           0.9882 against 0.9430 | d +1.14 | p 3e-05
+   Met-A kidney tubular epithelium            0.9823 against 0.9247 | d +1.26 | p 1.4e-14
+   Met-A lung alveolar endothelium            0.9823 against 0.9216 | d +1.09 | p 2.3e-11
+   Met-A lung alveolar epithelium             0.9515 against 0.9033 | d +0.83 | p 3.7e-08
+   Met-A lung bronchus epithelium             1.0165 against 1.0010 | d +0.13 | p 0.35
+   Met-A lung interstitial macrophages        0.9719 against 0.9352 | d +0.88 | p 0.0068
+   Met-A memory b cells                       0.9280 against 0.8990 | d +0.27 | p 0.033
+   Met-A memory cd4 t cells                   0.9329 against 0.9288 | d +0.16 | p 0.15
+   Met-A microglia                            0.9323 against 0.9046 | d +0.27 | p 0.042
+   Met-A monocytes                            0.8939 against 0.8514 | d +0.66 | p 3.4e-06
+   Met-A naive b cells                        0.9288 against 0.8930 | d +0.44 | p 0.00083
+   Met-A naive cd4 t cells                    0.9732 against 0.9587 | d +0.10 | p 0.31
+   Met-A naive cd8 t cells                    0.9513 against 0.9365 | d +0.16 | p 0.17
+   Met-A neutrophils                          0.9357 against 0.9212 | d +0.11 | p 0.22
+   Met-A nk cells                             0.8995 against 0.8581 | d +0.52 | p 0.00025
+   Met-A oligodendrocytes                     0.9413 against 0.9039 | d +0.47 | p 0.00049
+   Met-A pancreatic acinar                    0.9704 against 0.9729 | d -0.16 | p 0.49
+   Met-A pancreatic beta                      0.9800 against 0.9560 | d +0.42 | p 0.0015
+   Met-A pancreatic delta                     0.9863 against 0.9506 | d +0.84 | p 0.0027
+   Met-A pancreatic duct                      0.9498 against 0.9399 | d +0.20 | p 0.084
+   Met-A regulatory t cells                   0.9329 against 0.9283 | d +0.16 | p 0.55
+   Met-A small intestine epithelium           0.9976 against 0.9961 | d +0.11 | p 0.27
+   Met-A t central memory cd4                 1.0219 against 0.9806 | d +0.35 | p 0.0068
+   Met-A t effector cell cd8                  0.9778 against 0.9962 | d -0.30 | p 0.058
+   Met-A vascular endothelium                 0.9672 against 0.8997 | d +1.46 | p 8e-16
+   Met-A vascular saphenous endothelium       0.9870 against 0.9314 | d +1.01 | p 2.9e-10
+   share CMP (bone marrow)                    0.0000 against 0.0000 | d +nan | p 1
+   share GMP (bone marrow)                    0.0000 against 0.0485 | d -0.96 | p 1.1e-08
+   share HSC (bone marrow)                    0.0000 against 0.0000 | d -0.04 | p 0.16
+   share L-MPP (bone marrow)                  0.0000 against 0.0048 | d -0.41 | p 0.0034
+   share MEP (bone marrow)                    0.0000 against 0.0000 | d -0.77 | p 2.9e-08
+   share MPP (bone marrow)                    0.0000 against 0.0000 | d -0.47 | p 0.00048
+   share adipocytes                           0.0385 against 0.2433 | d -2.20 | p 7.1e-18
+   share aorta endothelium                    0.0000 against 0.0000 | d -0.53 | p 1.8e-05
+   share astrocytes                           0.0000 against 0.0000 | d -0.45 | p 0.0085
+   share b cells                              0.0000 against 0.0000 | d +0.30 | p 0.0028
+   share basophils                            0.0000 against 0.0000 | d +0.11 | p 0.42
+   share bladder epithelium                   0.0000 against 0.0000 | d +0.20 | p 0.81
+   share breast basal epithelium              0.0000 against 0.1251 | d -1.95 | p 1.5e-21
+   share breast luminal epithelium            0.2614 against 0.0825 | d +1.41 | p 7.4e-18
+   share cardiomyocyte                        0.0000 against 0.0000 | d -0.38 | p 0.014
+   share cd4 t cells                          0.0000 against 0.0000 | d +0.12 | p 0.99
+   share cd56bright nk cells                  0.0000 against 0.0000 | d +nan | p 1
+   share cd8 central memory t cells           0.0000 against 0.0000 | d +nan | p 1
+   share cd8 t cells                          0.0000 against 0.0000 | d +0.12 | p 0.25
+   share cd8 temra t cells                    0.0088 against 0.0000 | d +0.77 | p 5.5e-11
+   share central memory th1 cells             0.0189 against 0.0000 | d +0.72 | p 4.3e-05
+   share colon enteroendocrine                0.0000 against 0.0000 | d +0.28 | p 0.02
+   share colon epithelium                     0.0098 against 0.0000 | d +0.61 | p 3.2e-06
+   share colon fibroblasts                    0.0000 against 0.0000 | d -0.13 | p 0.68
+   share colon macrophages                    0.0000 against 0.0000 | d +0.18 | p 0.26
+   share cortical neurons                     0.0043 against 0.0085 | d -0.11 | p 0.21
+   share cytotoxic cd4 t cells (cd28-)        0.0644 against 0.0175 | d +0.81 | p 4.7e-07
+   share effector memory cd8 t cells          0.0000 against 0.0000 | d +0.06 | p 0.69
+   share embryonic stem cells                 0.0383 against 0.0149 | d +0.99 | p 1.5e-12
+   share endometrium epithelium               0.0132 against 0.0000 | d +0.89 | p 7.6e-12
+   share eosinophils                          0.0000 against 0.0000 | d +nan | p 1
+   share erythrocyte progenitors              0.0000 against 0.0000 | d +0.20 | p 0.098
+   share fallopien tubes epithelium           0.0000 against 0.0000 | d -0.87 | p 4.8e-07
+   share gastric antrum epithelium            0.0000 against 0.0000 | d +nan | p 1
+   share gastric body epithelium              0.0000 against 0.0000 | d +nan | p 1
+   share gastric fundus epithelium            0.0000 against 0.0000 | d -0.38 | p 0.014
+   share heart fibroblasts                    0.0000 against 0.0000 | d +0.09 | p 0.51
+   share hepatocyte                           0.0000 against 0.0000 | d +0.30 | p 0.0034
+   share kidney glomerular endothelium        0.0000 against 0.0000 | d -0.43 | p 0.00048
+   share kidney glomerular epithelium         0.0000 against 0.0000 | d -0.38 | p 0.014
+   share kidney tubular endothelium           0.0000 against 0.0000 | d -0.21 | p 0.028
+   share kidney tubular epithelium            0.0000 against 0.0000 | d -0.61 | p 2e-05
+   share lung alveolar endothelium            0.0000 against 0.0000 | d -0.16 | p 0.095
+   share lung alveolar epithelium             0.0000 against 0.0000 | d -0.05 | p 0.43
+   share lung alveolar macrophages            0.0000 against 0.0000 | d -0.44 | p 0.0082
+   share lung bronchus epithelium             0.0000 against 0.0000 | d +0.32 | p 0.0016
+   share lung interstitial macrophages        0.0000 against 0.0000 | d -0.45 | p 0.005
+   share memory b cells                       0.0225 against 0.0000 | d +0.82 | p 4.1e-16
+   share memory cd4 t cells                   0.0000 against 0.0000 | d +nan | p 1
+   share microglia                            0.0000 against 0.0000 | d +0.36 | p 0.0045
+   share monocytes                            0.0000 against 0.0000 | d +0.15 | p 0.19
+   share naive b cells                        0.0000 against 0.0000 | d +nan | p 1
+   share naive cd4 t cells                    0.0000 against 0.0000 | d -0.07 | p 0.59
+   share naive cd8 t cells                    0.0000 against 0.0000 | d +0.13 | p 0.36
+   share neutrophils                          0.0000 against 0.0000 | d -0.33 | p 0.0012
+   share nk cells                             0.0000 against 0.0000 | d -0.76 | p 1.1e-09
+   share oligodendrocyte precursors           0.0000 against 0.0000 | d -0.24 | p 0.011
+   share oligodendrocytes                     0.0000 against 0.0000 | d +0.31 | p 0.0021
+   share pancreas endothelium                 0.0000 against 0.0000 | d -1.24 | p 2.7e-14
+   share pancreatic acinar                    0.0063 against 0.0000 | d +0.79 | p 2.8e-14
+   share pancreatic alpha                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic beta                      0.0000 against 0.0000 | d +0.59 | p 7.6e-09
+   share pancreatic delta                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic duct                      0.0000 against 0.0000 | d -0.39 | p 0.00048
+   share prostate epithelium                  0.0260 against 0.0000 | d +0.80 | p 1.7e-10
+   share regulatory t cells                   0.0000 against 0.0000 | d +0.34 | p 0.025
+   share small intestine epithelium           0.0000 against 0.0000 | d -0.92 | p 2.3e-07
+   share smooth muscle                        0.0000 against 0.0141 | d -0.49 | p 7.8e-05
+   share striated muscle                      0.0000 against 0.0000 | d +0.17 | p 0.28
+   share t central memory cd4                 0.0000 against 0.0000 | d +nan | p 1
+   share t effector cell cd8                  0.0299 against 0.0000 | d +0.69 | p 1.2e-05
+   share t effector memory cd4                0.0000 against 0.0000 | d -0.14 | p 9e-08
+   share thyroid epithelium                   0.0000 against 0.0000 | d -0.38 | p 0.014
+   share tongue epithelium                    0.0000 against 0.0000 | d +0.08 | p 0.57
+   share tonsil palatine epithelium           0.0000 against 0.0000 | d +0.09 | p 0.42
+   share tonsil pharyngeal epithelium         0.0000 against 0.0000 | d +0.09 | p 0.42
+   share vascular endothelium                 0.1718 against 0.2338 | d -0.66 | p 7.9e-06
+   share vascular leptomeningeal cells        0.0000 against 0.0241 | d -2.03 | p 1.1e-22
+   share vascular saphenous endothelium       0.0000 against 0.0000 | d -0.38 | p 0.014
+   territory islands                          0.8500 against 0.8444 | d -0.01 | p 0.59
+   territory domains                          0.9840 against 0.9588 | d +0.53 | p 0.0012
+   C-Score whole genome                       1.0033 against 1.0069 | d -0.51 | p 0.0013
+-- breast cancer, BRCA1 carrier (3) against normal (healthy donor) (50)
+   site cg05575921                            0.8061 against 0.8060 | d +0.05 | p 0.99
+   site cg03636183                            0.4364 against 0.4982 | d -0.97 | p 0.074
+   site cg16867657                            0.5594 against 0.5578 | d -0.15 | p 0.64
+   Met-A whole                                0.9811 against 0.9396 | d +1.41 | p 0.0057
+   ceiling distance                           1.0144 against 1.0453 | d -1.43 | p 0.0045
+   Met-A whole, identity sites of the cells found 0.9580 against 0.9243 | d +1.14 | p 0.035
+   Met-A whole, islands                       0.9031 against 0.8426 | d +1.25 | p 0.0045
+   Met-A whole, domains                       0.9787 against 0.9607 | d +0.99 | p 0.15
+   Met-A whole, the rest                      0.9866 against 0.9508 | d +1.29 | p 0.012
+   Met-A CMP (bone marrow)                    0.9097 against 0.8830 | d +0.56 | p 0.22
+   Met-A GMP (bone marrow)                    0.8959 against 0.8729 | d +0.39 | p 0.34
+   Met-A HSC (bone marrow)                    0.8850 against 0.8956 | d -0.16 | p 0.96
+   Met-A L-MPP (bone marrow)                  0.9126 against 0.8957 | d +0.17 | p 0.52
+   Met-A MEP (bone marrow)                    0.9141 against 0.9176 | d -0.27 | p 0.79
+   Met-A MPP (bone marrow)                    0.9164 against 0.8989 | d +0.08 | p 0.5
+   Met-A adipocytes                           0.8931 against 0.9240 | d -0.51 | p 0.25
+   Met-A b cells                              0.8107 against 0.8347 | d -0.42 | p 0.45
+   Met-A basophils                            0.8867 against 0.9294 | d -0.71 | p 0.12
+   Met-A cd4 t cells                          0.8235 against 0.8617 | d -0.64 | p 0.18
+   Met-A cd56bright nk cells                  0.9005 against 0.9493 | d -0.81 | p 0.097
+   Met-A cd8 central memory t cells           0.8178 against 0.8733 | d -0.74 | p 0.12
+   Met-A cd8 t cells                          0.8278 against 0.8593 | d -0.54 | p 0.3
+   Met-A cd8 temra t cells                    0.8819 against 0.9307 | d -0.72 | p 0.17
+   Met-A central memory th1 cells             0.9104 against 0.9711 | d -0.82 | p 0.074
+   Met-A colon epithelium                     0.8721 against 0.9588 | d -0.82 | p 0.055
+   Met-A colon fibroblasts                    0.9750 against 1.0154 | d -0.64 | p 0.36
+   Met-A cortical neurons                     0.8144 against 0.8796 | d -1.00 | p 0.067
+   Met-A cytotoxic cd4 t cells (cd28-)        0.9335 against 1.0096 | d -0.94 | p 0.049
+   Met-A effector memory cd8 t cells          0.8635 against 0.9112 | d -0.82 | p 0.11
+   Met-A embryonic stem cells                 0.8679 against 0.9505 | d -0.81 | p 0.055
+   Met-A eosinophils                          0.9150 against 0.9134 | d -0.12 | p 0.9
+   Met-A erythrocyte progenitors              0.9801 against 0.9821 | d -0.15 | p 0.99
+   Met-A hepatocyte                           0.9238 against 0.9290 | d -0.55 | p 0.32
+   Met-A kidney glomerular endothelium        0.9198 against 0.9162 | d -0.12 | p 0.99
+   Met-A kidney tubular endothelium           0.9183 against 0.9430 | d -0.34 | p 0.62
+   Met-A kidney tubular epithelium            0.9245 against 0.9247 | d -0.22 | p 0.81
+   Met-A lung alveolar endothelium            0.9222 against 0.9216 | d -0.17 | p 1
+   Met-A lung alveolar epithelium             0.8813 against 0.9033 | d -0.50 | p 0.24
+   Met-A lung bronchus epithelium             0.9335 against 1.0010 | d -0.80 | p 0.094
+   Met-A lung interstitial macrophages        0.9179 against 0.9352 | d -0.33 | p 0.63
+   Met-A memory b cells                       0.8386 against 0.8990 | d -0.77 | p 0.081
+   Met-A memory cd4 t cells                   0.8944 against 0.9288 | d -0.64 | p 0.2
+   Met-A microglia                            0.8193 against 0.9046 | d -0.95 | p 0.061
+   Met-A monocytes                            0.8245 against 0.8514 | d -0.66 | p 0.19
+   Met-A naive b cells                        0.8469 against 0.8930 | d -0.72 | p 0.15
+   Met-A naive cd4 t cells                    0.8764 against 0.9587 | d -0.89 | p 0.049
+   Met-A naive cd8 t cells                    0.8691 against 0.9365 | d -0.79 | p 0.089
+   Met-A neutrophils                          0.8550 against 0.9212 | d -0.79 | p 0.067
+   Met-A nk cells                             0.8384 against 0.8581 | d -0.37 | p 0.52
+   Met-A oligodendrocytes                     0.8365 against 0.9039 | d -0.92 | p 0.089
+   Met-A pancreatic acinar                    0.9433 against 0.9729 | d -0.79 | p 0.074
+   Met-A pancreatic beta                      0.8916 against 0.9560 | d -0.91 | p 0.061
+   Met-A pancreatic delta                     0.9139 against 0.9506 | d -0.66 | p 0.21
+   Met-A pancreatic duct                      0.9283 against 0.9399 | d -0.46 | p 0.45
+   Met-A small intestine epithelium           0.9103 against 0.9961 | d -0.83 | p 0.074
+   Met-A t central memory cd4                 0.9094 against 0.9806 | d -0.90 | p 0.055
+   Met-A t effector cell cd8                  0.9369 against 0.9962 | d -0.93 | p 0.055
+   Met-A vascular endothelium                 0.8967 against 0.8997 | d -0.26 | p 0.68
+   Met-A vascular saphenous endothelium       0.9276 against 0.9314 | d -0.24 | p 0.81
+   share CMP (bone marrow)                    0.0000 against 0.0000 | d +nan | p 1
+   share GMP (bone marrow)                    0.0000 against 0.0485 | d -0.80 | p 0.12
+   share HSC (bone marrow)                    0.0000 against 0.0000 | d -0.18 | p 0.77
+   share L-MPP (bone marrow)                  0.0002 against 0.0048 | d -0.60 | p 0.59
+   share MEP (bone marrow)                    0.0000 against 0.0000 | d -0.29 | p 0.6
+   share MPP (bone marrow)                    0.0000 against 0.0000 | d -0.18 | p 0.77
+   share adipocytes                           0.1781 against 0.2433 | d -0.43 | p 0.41
+   share aorta endothelium                    0.0000 against 0.0000 | d -0.20 | p 0.7
+   share astrocytes                           0.0000 against 0.0000 | d -0.17 | p 0.77
+   share b cells                              0.0000 against 0.0000 | d -0.23 | p 0.7
+   share basophils                            0.0000 against 0.0000 | d +nan | p 1
+   share bladder epithelium                   0.0000 against 0.0000 | d -0.28 | p 0.64
+   share breast basal epithelium              0.2455 against 0.1251 | d +1.18 | p 0.036
+   share breast luminal epithelium            0.1447 against 0.0825 | d +0.48 | p 0.067
+   share cardiomyocyte                        0.0000 against 0.0000 | d -0.14 | p 0.87
+   share cd4 t cells                          0.0000 against 0.0000 | d -0.19 | p 0.77
+   share cd56bright nk cells                  0.0000 against 0.0000 | d +nan | p 1
+   share cd8 central memory t cells           0.0000 against 0.0000 | d +nan | p 1
+   share cd8 t cells                          0.0000 against 0.0000 | d +nan | p 1
+   share cd8 temra t cells                    0.0000 against 0.0000 | d -0.17 | p 0.77
+   share central memory th1 cells             0.0197 against 0.0000 | d +2.26 | p 0.012
+   share colon enteroendocrine                0.0000 against 0.0000 | d -0.22 | p 0.7
+   share colon epithelium                     0.0057 against 0.0000 | d +0.54 | p 0.26
+   share colon fibroblasts                    0.0000 against 0.0000 | d -0.20 | p 0.77
+   share colon macrophages                    0.0000 against 0.0000 | d -0.24 | p 0.7
+   share cortical neurons                     0.0077 against 0.0085 | d -0.38 | p 0.64
+   share cytotoxic cd4 t cells (cd28-)        0.0635 against 0.0175 | d +1.38 | p 0.027
+   share effector memory cd8 t cells          0.0000 against 0.0000 | d +nan | p 1
+   share embryonic stem cells                 0.0062 against 0.0149 | d -0.68 | p 0.2
+   share endometrium epithelium               0.0000 against 0.0000 | d -0.48 | p 0.21
+   share eosinophils                          0.0000 against 0.0000 | d +nan | p 1
+   share erythrocyte progenitors              0.0000 against 0.0000 | d +nan | p 1
+   share fallopien tubes epithelium           0.0000 against 0.0000 | d -0.34 | p 0.55
+   share gastric antrum epithelium            0.0000 against 0.0000 | d +nan | p 1
+   share gastric body epithelium              0.0000 against 0.0000 | d +nan | p 1
+   share gastric fundus epithelium            0.0000 against 0.0000 | d -0.14 | p 0.87
+   share heart fibroblasts                    0.0000 against 0.0000 | d -0.25 | p 0.7
+   share hepatocyte                           0.0000 against 0.0000 | d +nan | p 1
+   share kidney glomerular endothelium        0.0000 against 0.0000 | d -0.16 | p 0.77
+   share kidney glomerular epithelium         0.0000 against 0.0000 | d -0.14 | p 0.87
+   share kidney tubular endothelium           0.0000 against 0.0000 | d -0.21 | p 0.7
+   share kidney tubular epithelium            0.0000 against 0.0000 | d -0.24 | p 0.64
+   share lung alveolar endothelium            0.0000 against 0.0000 | d -0.18 | p 0.77
+   share lung alveolar epithelium             0.0000 against 0.0000 | d -0.19 | p 0.7
+   share lung alveolar macrophages            0.0000 against 0.0000 | d -0.43 | p 0.29
+   share lung bronchus epithelium             0.0000 against 0.0000 | d +0.26 | p 0.16
+   share lung interstitial macrophages        0.0000 against 0.0000 | d -0.26 | p 0.6
+   share memory b cells                       0.0090 against 0.0000 | d +0.73 | p 0.025
+   share memory cd4 t cells                   0.0000 against 0.0000 | d +nan | p 1
+   share microglia                            0.0000 against 0.0000 | d -0.34 | p 0.31
+   share monocytes                            0.0000 against 0.0000 | d -0.43 | p 0.38
+   share naive b cells                        0.0000 against 0.0000 | d +nan | p 1
+   share naive cd4 t cells                    0.0000 against 0.0000 | d -0.16 | p 0.77
+   share naive cd8 t cells                    0.0000 against 0.0000 | d +nan | p 1
+   share neutrophils                          0.0000 against 0.0000 | d -0.37 | p 0.33
+   share nk cells                             0.0000 against 0.0000 | d -0.29 | p 0.55
+   share oligodendrocyte precursors           0.0000 against 0.0000 | d -0.15 | p 0.7
+   share oligodendrocytes                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreas endothelium                 0.0000 against 0.0000 | d -0.52 | p 0.33
+   share pancreatic acinar                    0.0000 against 0.0000 | d -0.14 | p 0.87
+   share pancreatic alpha                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic beta                      0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic delta                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic duct                      0.0000 against 0.0000 | d -0.15 | p 0.77
+   share prostate epithelium                  0.0000 against 0.0000 | d -0.48 | p 0.21
+   share regulatory t cells                   0.0000 against 0.0000 | d -0.16 | p 0.77
+   share small intestine epithelium           0.0000 against 0.0000 | d -0.21 | p 0.9
+   share smooth muscle                        0.0000 against 0.0141 | d -0.60 | p 0.26
+   share striated muscle                      0.0000 against 0.0000 | d -0.14 | p 0.87
+   share t central memory cd4                 0.0000 against 0.0000 | d +nan | p 1
+   share t effector cell cd8                  0.0000 against 0.0000 | d -0.23 | p 0.81
+   share t effector memory cd4                0.0000 against 0.0000 | d -0.40 | p 0.41
+   share thyroid epithelium                   0.0000 against 0.0000 | d -0.14 | p 0.87
+   share tongue epithelium                    0.0000 against 0.0000 | d +nan | p 1
+   share tonsil palatine epithelium           0.0000 against 0.0000 | d +nan | p 1
+   share tonsil pharyngeal epithelium         0.0000 against 0.0000 | d +nan | p 1
+   share vascular endothelium                 0.2638 against 0.2338 | d +0.45 | p 0.65
+   share vascular leptomeningeal cells        0.0220 against 0.0241 | d -0.37 | p 0.73
+   share vascular saphenous endothelium       0.0000 against 0.0000 | d -0.14 | p 0.87
+   territory islands                          0.9043 against 0.8444 | d +1.25 | p 0.0045
+   territory domains                          0.9775 against 0.9588 | d +1.02 | p 0.12
+   C-Score whole genome                       1.0069 against 1.0069 | d +0.29 | p 0.66
+-- normal, BRCA1 carrier (7) against normal (healthy donor) (50)
+   site cg05575921                            0.8501 against 0.8060 | d +0.65 | p 0.087
+   site cg03636183                            0.4541 against 0.4982 | d -0.79 | p 0.019
+   site cg16867657                            0.5342 against 0.5578 | d -0.53 | p 0.14
+   Met-A whole                                0.9515 against 0.9396 | d +0.47 | p 0.16
+   ceiling distance                           1.0369 against 1.0453 | d -0.52 | p 0.15
+   Met-A whole, identity sites of the cells found 0.9419 against 0.9243 | d +0.93 | p 0.019
+   Met-A whole, islands                       0.8725 against 0.8426 | d +0.30 | p 0.24
+   Met-A whole, domains                       0.9703 against 0.9607 | d +0.58 | p 0.18
+   Met-A whole, the rest                      0.9671 against 0.9508 | d +0.28 | p 0.27
+   Met-A CMP (bone marrow)                    0.9003 against 0.8830 | d +0.11 | p 0.5
+   Met-A GMP (bone marrow)                    0.8930 against 0.8729 | d +0.19 | p 0.41
+   Met-A HSC (bone marrow)                    0.9153 against 0.8956 | d +0.23 | p 0.3
+   Met-A L-MPP (bone marrow)                  0.9053 against 0.8957 | d -0.01 | p 0.47
+   Met-A MEP (bone marrow)                    0.9226 against 0.9176 | d +0.03 | p 0.54
+   Met-A MPP (bone marrow)                    0.9108 against 0.8989 | d -0.01 | p 0.64
+   Met-A adipocytes                           0.9171 against 0.9240 | d -0.08 | p 0.95
+   Met-A b cells                              0.8590 against 0.8347 | d +0.14 | p 0.41
+   Met-A basophils                            0.9232 against 0.9294 | d +0.06 | p 0.97
+   Met-A cd4 t cells                          0.8753 against 0.8617 | d +0.13 | p 0.51
+   Met-A cd56bright nk cells                  0.9487 against 0.9493 | d +0.14 | p 0.47
+   Met-A cd8 central memory t cells           0.8750 against 0.8733 | d +0.14 | p 0.59
+   Met-A cd8 t cells                          0.8743 against 0.8593 | d +0.11 | p 0.51
+   Met-A cd8 temra t cells                    0.9150 against 0.9307 | d +0.12 | p 0.88
+   Met-A central memory th1 cells             0.9563 against 0.9711 | d +0.01 | p 0.95
+   Met-A colon epithelium                     0.9410 against 0.9588 | d +0.09 | p 1
+   Met-A colon fibroblasts                    0.9872 against 1.0154 | d -0.12 | p 0.97
+   Met-A cortical neurons                     0.8682 against 0.8796 | d -0.03 | p 0.9
+   Met-A cytotoxic cd4 t cells (cd28-)        0.9878 against 1.0096 | d -0.00 | p 0.8
+   Met-A effector memory cd8 t cells          0.9017 against 0.9112 | d +0.08 | p 0.69
+   Met-A embryonic stem cells                 0.9279 against 0.9505 | d +0.06 | p 1
+   Met-A eosinophils                          0.9233 against 0.9134 | d +0.12 | p 0.48
+   Met-A erythrocyte progenitors              0.9873 against 0.9821 | d +0.03 | p 0.64
+   Met-A hepatocyte                           0.9252 against 0.9290 | d -0.29 | p 0.63
+   Met-A kidney glomerular endothelium        0.9305 against 0.9162 | d +0.01 | p 0.73
+   Met-A kidney tubular endothelium           0.9253 against 0.9430 | d -0.17 | p 0.84
+   Met-A kidney tubular epithelium            0.9310 against 0.9247 | d -0.07 | p 0.77
+   Met-A lung alveolar endothelium            0.9289 against 0.9216 | d -0.01 | p 0.66
+   Met-A lung alveolar epithelium             0.9036 against 0.9033 | d +0.10 | p 0.78
+   Met-A lung bronchus epithelium             0.9974 against 1.0010 | d +0.18 | p 0.57
+   Met-A lung interstitial macrophages        0.9210 against 0.9352 | d -0.23 | p 0.69
+   Met-A memory b cells                       0.8811 against 0.8990 | d +0.12 | p 0.8
+   Met-A memory cd4 t cells                   0.9165 against 0.9288 | d +0.02 | p 0.84
+   Met-A microglia                            0.8838 against 0.9046 | d +0.09 | p 0.9
+   Met-A monocytes                            0.8656 against 0.8514 | d +0.05 | p 0.61
+   Met-A naive b cells                        0.8818 against 0.8930 | d +0.06 | p 0.86
+   Met-A naive cd4 t cells                    0.9385 against 0.9587 | d +0.04 | p 0.95
+   Met-A naive cd8 t cells                    0.9223 against 0.9365 | d +0.07 | p 0.84
+   Met-A neutrophils                          0.9143 against 0.9212 | d +0.04 | p 0.88
+   Met-A nk cells                             0.8758 against 0.8581 | d +0.13 | p 0.33
+   Met-A oligodendrocytes                     0.8843 against 0.9039 | d +0.03 | p 0.77
+   Met-A pancreatic acinar                    0.9656 against 0.9729 | d -0.20 | p 0.64
+   Met-A pancreatic beta                      0.9303 against 0.9560 | d -0.20 | p 0.5
+   Met-A pancreatic delta                     0.9325 against 0.9506 | d -0.26 | p 0.72
+   Met-A pancreatic duct                      0.9419 against 0.9399 | d -0.08 | p 0.82
+   Met-A small intestine epithelium           0.9772 against 0.9961 | d +0.03 | p 0.91
+   Met-A t central memory cd4                 0.9651 against 0.9806 | d +0.05 | p 0.88
+   Met-A t effector cell cd8                  0.9764 against 0.9962 | d -0.03 | p 0.75
+   Met-A vascular endothelium                 0.9040 against 0.8997 | d -0.24 | p 0.56
+   Met-A vascular saphenous endothelium       0.9456 against 0.9314 | d +0.02 | p 0.71
+   share CMP (bone marrow)                    0.0000 against 0.0000 | d +nan | p 1
+   share GMP (bone marrow)                    0.0000 against 0.0485 | d -1.01 | p 0.0041
+   share HSC (bone marrow)                    0.0000 against 0.0000 | d -0.12 | p 0.3
+   share L-MPP (bone marrow)                  0.0072 against 0.0048 | d -0.11 | p 0.97
+   share MEP (bone marrow)                    0.0000 against 0.0000 | d -0.31 | p 0.4
+   share MPP (bone marrow)                    0.0000 against 0.0000 | d -0.19 | p 0.62
+   share adipocytes                           0.2413 against 0.2433 | d -0.36 | p 0.58
+   share aorta endothelium                    0.0000 against 0.0000 | d -0.21 | p 0.53
+   share astrocytes                           0.0000 against 0.0000 | d -0.18 | p 0.62
+   share b cells                              0.0000 against 0.0000 | d -0.24 | p 0.53
+   share basophils                            0.0000 against 0.0000 | d +nan | p 1
+   share bladder epithelium                   0.0000 against 0.0000 | d -0.29 | p 0.46
+   share breast basal epithelium              0.2197 against 0.1251 | d +1.20 | p 0.0062
+   share breast luminal epithelium            0.0892 against 0.0825 | d +0.30 | p 0.26
+   share cardiomyocyte                        0.0000 against 0.0000 | d -0.15 | p 0.75
+   share cd4 t cells                          0.0000 against 0.0000 | d -0.20 | p 0.62
+   share cd56bright nk cells                  0.0000 against 0.0000 | d +nan | p 1
+   share cd8 central memory t cells           0.0000 against 0.0000 | d +nan | p 1
+   share cd8 t cells                          0.0000 against 0.0000 | d +nan | p 1
+   share cd8 temra t cells                    0.0000 against 0.0000 | d -0.18 | p 0.62
+   share central memory th1 cells             0.0179 against 0.0000 | d +1.35 | p 0.03
+   share colon enteroendocrine                0.0000 against 0.0000 | d -0.22 | p 0.53
+   share colon epithelium                     0.0044 against 0.0000 | d +0.98 | p 0.12
+   share colon fibroblasts                    0.0000 against 0.0000 | d -0.21 | p 0.62
+   share colon macrophages                    0.0000 against 0.0000 | d -0.25 | p 0.53
+   share cortical neurons                     0.0049 against 0.0085 | d -0.32 | p 0.46
+   share cytotoxic cd4 t cells (cd28-)        0.0327 against 0.0175 | d +0.23 | p 0.25
+   share effector memory cd8 t cells          0.0000 against 0.0000 | d +nan | p 1
+   share embryonic stem cells                 0.0080 against 0.0149 | d -0.08 | p 0.64
+   share endometrium epithelium               0.0000 against 0.0000 | d -0.24 | p 0.65
+   share eosinophils                          0.0000 against 0.0000 | d +nan | p 1
+   share erythrocyte progenitors              0.0000 against 0.0000 | d +nan | p 1
+   share fallopien tubes epithelium           0.0000 against 0.0000 | d -0.35 | p 0.35
+   share gastric antrum epithelium            0.0000 against 0.0000 | d +nan | p 1
+   share gastric body epithelium              0.0000 against 0.0000 | d +nan | p 1
+   share gastric fundus epithelium            0.0000 against 0.0000 | d -0.15 | p 0.75
+   share heart fibroblasts                    0.0000 against 0.0000 | d -0.26 | p 0.53
+   share hepatocyte                           0.0000 against 0.0000 | d +nan | p 1
+   share kidney glomerular endothelium        0.0000 against 0.0000 | d -0.17 | p 0.62
+   share kidney glomerular epithelium         0.0000 against 0.0000 | d -0.15 | p 0.75
+   share kidney tubular endothelium           0.0000 against 0.0000 | d -0.22 | p 0.53
+   share kidney tubular epithelium            0.0000 against 0.0000 | d -0.25 | p 0.46
+   share lung alveolar endothelium            0.0000 against 0.0000 | d -0.19 | p 0.62
+   share lung alveolar epithelium             0.0000 against 0.0000 | d -0.20 | p 0.53
+   share lung alveolar macrophages            0.0000 against 0.0000 | d -0.45 | p 0.1
+   share lung bronchus epithelium             0.0003 against 0.0000 | d -0.02 | p 0.0014
+   share lung interstitial macrophages        0.0000 against 0.0000 | d -0.27 | p 0.4
+   share memory b cells                       0.0000 against 0.0000 | d -0.08 | p 0.98
+   share memory cd4 t cells                   0.0000 against 0.0000 | d +nan | p 1
+   share microglia                            0.0000 against 0.0000 | d -0.36 | p 0.12
+   share monocytes                            0.0000 against 0.0000 | d -0.44 | p 0.18
+   share naive b cells                        0.0000 against 0.0000 | d +nan | p 1
+   share naive cd4 t cells                    0.0000 against 0.0000 | d -0.17 | p 0.62
+   share naive cd8 t cells                    0.0000 against 0.0000 | d +nan | p 1
+   share neutrophils                          0.0000 against 0.0000 | d -0.38 | p 0.14
+   share nk cells                             0.0000 against 0.0000 | d -0.30 | p 0.35
+   share oligodendrocyte precursors           0.0000 against 0.0000 | d -0.16 | p 0.53
+   share oligodendrocytes                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreas endothelium                 0.0000 against 0.0000 | d -0.54 | p 0.14
+   share pancreatic acinar                    0.0000 against 0.0000 | d -0.15 | p 0.75
+   share pancreatic alpha                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic beta                      0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic delta                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic duct                      0.0000 against 0.0000 | d -0.15 | p 0.62
+   share prostate epithelium                  0.0000 against 0.0000 | d -0.49 | p 0.16
+   share regulatory t cells                   0.0000 against 0.0000 | d -0.16 | p 0.62
+   share small intestine epithelium           0.0000 against 0.0000 | d +0.03 | p 0.48
+   share smooth muscle                        0.0082 against 0.0141 | d -0.33 | p 0.51
+   share striated muscle                      0.0000 against 0.0000 | d -0.15 | p 0.75
+   share t central memory cd4                 0.0000 against 0.0000 | d +nan | p 1
+   share t effector cell cd8                  0.0000 against 0.0000 | d -0.34 | p 0.24
+   share t effector memory cd4                0.0000 against 0.0000 | d -0.41 | p 0.21
+   share thyroid epithelium                   0.0000 against 0.0000 | d -0.15 | p 0.75
+   share tongue epithelium                    0.0000 against 0.0000 | d +nan | p 1
+   share tonsil palatine epithelium           0.0000 against 0.0000 | d +nan | p 1
+   share tonsil pharyngeal epithelium         0.0000 against 0.0000 | d +nan | p 1
+   share vascular endothelium                 0.2835 against 0.2338 | d +0.82 | p 0.022
+   share vascular leptomeningeal cells        0.0235 against 0.0241 | d -0.13 | p 0.93
+   share vascular saphenous endothelium       0.0000 against 0.0000 | d -0.15 | p 0.75
+   territory islands                          0.8730 against 0.8444 | d +0.29 | p 0.25
+   territory domains                          0.9683 against 0.9588 | d +0.54 | p 0.19
+   C-Score whole genome                       1.0067 against 1.0069 | d -0.00 | p 0.97
+-- normal-adjacent (42) against normal (healthy donor) (50)
+   site cg05575921                            0.8110 against 0.8060 | d -0.16 | p 0.76
+   site cg03636183                            0.4890 against 0.4982 | d -0.13 | p 0.48
+   site cg16867657                            0.5632 against 0.5578 | d +0.14 | p 0.81
+   Met-A whole                                0.9485 against 0.9396 | d +0.12 | p 0.38
+   ceiling distance                           1.0385 against 1.0453 | d -0.10 | p 0.42
+   Met-A whole, identity sites of the cells found 0.9321 against 0.9243 | d +0.16 | p 0.6
+   Met-A whole, islands                       0.8436 against 0.8426 | d -0.15 | p 0.81
+   Met-A whole, domains                       0.9591 against 0.9607 | d +0.09 | p 0.88
+   Met-A whole, the rest                      0.9653 against 0.9508 | d +0.23 | p 0.097
+   Met-A CMP (bone marrow)                    0.9014 against 0.8830 | d +0.37 | p 0.047
+   Met-A GMP (bone marrow)                    0.8802 against 0.8729 | d +0.30 | p 0.11
+   Met-A HSC (bone marrow)                    0.8999 against 0.8956 | d +0.22 | p 0.29
+   Met-A L-MPP (bone marrow)                  0.9051 against 0.8957 | d +0.38 | p 0.052
+   Met-A MEP (bone marrow)                    0.9208 against 0.9176 | d +0.30 | p 0.25
+   Met-A MPP (bone marrow)                    0.9123 against 0.8989 | d +0.50 | p 0.016
+   Met-A adipocytes                           0.9336 against 0.9240 | d +0.31 | p 0.24
+   Met-A b cells                              0.8351 against 0.8347 | d +0.17 | p 0.53
+   Met-A basophils                            0.9240 against 0.9294 | d +0.22 | p 0.69
+   Met-A cd4 t cells                          0.8593 against 0.8617 | d +0.18 | p 0.6
+   Met-A cd56bright nk cells                  0.9588 against 0.9493 | d +0.20 | p 0.53
+   Met-A cd8 central memory t cells           0.8736 against 0.8733 | d +0.17 | p 0.69
+   Met-A cd8 t cells                          0.8579 against 0.8593 | d +0.17 | p 0.62
+   Met-A cd8 temra t cells                    0.9267 against 0.9307 | d +0.17 | p 0.7
+   Met-A central memory th1 cells             0.9647 against 0.9711 | d +0.18 | p 0.9
+   Met-A colon epithelium                     0.9434 against 0.9588 | d +0.16 | p 0.98
+   Met-A colon fibroblasts                    1.0061 against 1.0154 | d -0.01 | p 0.99
+   Met-A cortical neurons                     0.8786 against 0.8796 | d +0.19 | p 0.87
+   Met-A cytotoxic cd4 t cells (cd28-)        1.0033 against 1.0096 | d +0.14 | p 0.98
+   Met-A effector memory cd8 t cells          0.9110 against 0.9112 | d +0.17 | p 0.7
+   Met-A embryonic stem cells                 0.9452 against 0.9505 | d +0.18 | p 0.85
+   Met-A eosinophils                          0.9214 against 0.9134 | d +0.36 | p 0.12
+   Met-A erythrocyte progenitors              0.9898 against 0.9821 | d +0.33 | p 0.15
+   Met-A hepatocyte                           0.9382 against 0.9290 | d +0.33 | p 0.22
+   Met-A kidney glomerular endothelium        0.9379 against 0.9162 | d +0.47 | p 0.042
+   Met-A kidney tubular endothelium           0.9478 against 0.9430 | d +0.26 | p 0.39
+   Met-A kidney tubular epithelium            0.9347 against 0.9247 | d +0.42 | p 0.088
+   Met-A lung alveolar endothelium            0.9355 against 0.9216 | d +0.39 | p 0.096
+   Met-A lung alveolar epithelium             0.9169 against 0.9033 | d +0.42 | p 0.11
+   Met-A lung bronchus epithelium             1.0006 against 1.0010 | d +0.13 | p 0.92
+   Met-A lung interstitial macrophages        0.9409 against 0.9352 | d +0.27 | p 0.49
+   Met-A memory b cells                       0.8931 against 0.8990 | d +0.17 | p 0.79
+   Met-A memory cd4 t cells                   0.9282 against 0.9288 | d +0.31 | p 0.33
+   Met-A microglia                            0.9072 against 0.9046 | d +0.19 | p 0.79
+   Met-A monocytes                            0.8579 against 0.8514 | d +0.23 | p 0.39
+   Met-A naive b cells                        0.8904 against 0.8930 | d +0.20 | p 0.65
+   Met-A naive cd4 t cells                    0.9510 against 0.9587 | d +0.16 | p 0.97
+   Met-A naive cd8 t cells                    0.9277 against 0.9365 | d +0.17 | p 0.82
+   Met-A neutrophils                          0.9236 against 0.9212 | d +0.22 | p 0.69
+   Met-A nk cells                             0.8606 against 0.8581 | d +0.19 | p 0.43
+   Met-A oligodendrocytes                     0.9067 against 0.9039 | d +0.20 | p 0.7
+   Met-A pancreatic acinar                    0.9754 against 0.9729 | d +0.23 | p 0.7
+   Met-A pancreatic beta                      0.9537 against 0.9560 | d +0.23 | p 0.77
+   Met-A pancreatic delta                     0.9515 against 0.9506 | d +0.18 | p 0.69
+   Met-A pancreatic duct                      0.9410 against 0.9399 | d +0.29 | p 0.38
+   Met-A regulatory t cells                   0.9358 against 0.9283 | d +0.38 | p 0.38
+   Met-A small intestine epithelium           0.9821 against 0.9961 | d +0.16 | p 0.87
+   Met-A t central memory cd4                 0.9952 against 0.9806 | d +0.21 | p 0.65
+   Met-A t effector cell cd8                  0.9957 against 0.9962 | d +0.15 | p 0.91
+   Met-A vascular endothelium                 0.9154 against 0.8997 | d +0.52 | p 0.029
+   Met-A vascular saphenous endothelium       0.9431 against 0.9314 | d +0.38 | p 0.11
+   share CMP (bone marrow)                    0.0000 against 0.0000 | d +nan | p 1
+   share GMP (bone marrow)                    0.0246 against 0.0485 | d -0.07 | p 0.25
+   share HSC (bone marrow)                    0.0000 against 0.0000 | d +0.24 | p 0.047
+   share L-MPP (bone marrow)                  0.0000 against 0.0048 | d +0.16 | p 0.81
+   share MEP (bone marrow)                    0.0000 against 0.0000 | d -0.39 | p 0.13
+   share MPP (bone marrow)                    0.0000 against 0.0000 | d -0.24 | p 0.2
+   share adipocytes                           0.2183 against 0.2433 | d -0.12 | p 0.6
+   share aorta endothelium                    0.0000 against 0.0000 | d -0.27 | p 0.11
+   share astrocytes                           0.0000 against 0.0000 | d -0.15 | p 0.67
+   share b cells                              0.0000 against 0.0000 | d +0.24 | p 0.11
+   share basophils                            0.0000 against 0.0000 | d +nan | p 1
+   share bladder epithelium                   0.0000 against 0.0000 | d +0.16 | p 0.9
+   share breast basal epithelium              0.1176 against 0.1251 | d -0.10 | p 0.64
+   share breast luminal epithelium            0.1048 against 0.0825 | d +0.25 | p 0.069
+   share cardiomyocyte                        0.0000 against 0.0000 | d -0.09 | p 0.93
+   share cd4 t cells                          0.0000 against 0.0000 | d +0.14 | p 0.3
+   share cd56bright nk cells                  0.0000 against 0.0000 | d +nan | p 1
+   share cd8 central memory t cells           0.0000 against 0.0000 | d +nan | p 1
+   share cd8 t cells                          0.0000 against 0.0000 | d +nan | p 1
+   share cd8 temra t cells                    0.0000 against 0.0000 | d +0.20 | p 0.16
+   share central memory th1 cells             0.0000 against 0.0000 | d +0.03 | p 0.64
+   share colon enteroendocrine                0.0000 against 0.0000 | d +0.53 | p 0.0066
+   share colon epithelium                     0.0043 against 0.0000 | d +0.41 | p 0.0077
+   share colon fibroblasts                    0.0000 against 0.0000 | d +0.18 | p 0.028
+   share colon macrophages                    0.0000 against 0.0000 | d +0.10 | p 0.54
+   share cortical neurons                     0.0046 against 0.0085 | d -0.21 | p 0.48
+   share cytotoxic cd4 t cells (cd28-)        0.0204 against 0.0175 | d +0.13 | p 0.63
+   share effector memory cd8 t cells          0.0000 against 0.0000 | d +nan | p 1
+   share embryonic stem cells                 0.0192 against 0.0149 | d +0.38 | p 0.054
+   share endometrium epithelium               0.0033 against 0.0000 | d +0.53 | p 0.0081
+   share eosinophils                          0.0000 against 0.0000 | d +nan | p 1
+   share erythrocyte progenitors              0.0000 against 0.0000 | d +nan | p 1
+   share fallopien tubes epithelium           0.0000 against 0.0000 | d -0.26 | p 0.63
+   share gastric antrum epithelium            0.0000 against 0.0000 | d +nan | p 1
+   share gastric body epithelium              0.0000 against 0.0000 | d +nan | p 1
+   share gastric fundus epithelium            0.0000 against 0.0000 | d -0.19 | p 0.37
+   share heart fibroblasts                    0.0000 against 0.0000 | d -0.33 | p 0.11
+   share hepatocyte                           0.0000 against 0.0000 | d +nan | p 1
+   share kidney glomerular endothelium        0.0000 against 0.0000 | d -0.22 | p 0.2
+   share kidney glomerular epithelium         0.0000 against 0.0000 | d -0.19 | p 0.37
+   share kidney tubular endothelium           0.0000 against 0.0000 | d +0.18 | p 0.83
+   share kidney tubular epithelium            0.0000 against 0.0000 | d -0.32 | p 0.064
+   share lung alveolar endothelium            0.0000 against 0.0000 | d +0.10 | p 0.87
+   share lung alveolar epithelium             0.0000 against 0.0000 | d -0.25 | p 0.11
+   share lung alveolar macrophages            0.0000 against 0.0000 | d -0.12 | p 0.86
+   share lung bronchus epithelium             0.0000 against 0.0000 | d -0.21 | p 0.54
+   share lung interstitial macrophages        0.0000 against 0.0000 | d -0.28 | p 0.34
+   share memory b cells                       0.0000 against 0.0000 | d +0.20 | p 0.82
+   share memory cd4 t cells                   0.0000 against 0.0000 | d +nan | p 1
+   share microglia                            0.0000 against 0.0000 | d -0.10 | p 0.46
+   share monocytes                            0.0000 against 0.0000 | d -0.30 | p 0.19
+   share naive b cells                        0.0000 against 0.0000 | d +nan | p 1
+   share naive cd4 t cells                    0.0000 against 0.0000 | d -0.21 | p 0.2
+   share naive cd8 t cells                    0.0000 against 0.0000 | d +nan | p 1
+   share neutrophils                          0.0000 against 0.0000 | d +0.03 | p 0.94
+   share nk cells                             0.0000 against 0.0000 | d -0.29 | p 0.21
+   share oligodendrocyte precursors           0.0000 against 0.0000 | d -0.17 | p 0.41
+   share oligodendrocytes                     0.0000 against 0.0000 | d +0.23 | p 0.28
+   share pancreas endothelium                 0.0000 against 0.0000 | d +0.04 | p 0.89
+   share pancreatic acinar                    0.0000 against 0.0000 | d -0.10 | p 0.93
+   share pancreatic alpha                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic beta                      0.0000 against 0.0000 | d +0.25 | p 0.12
+   share pancreatic delta                     0.0000 against 0.0000 | d +nan | p 1
+   share pancreatic duct                      0.0000 against 0.0000 | d -0.14 | p 0.67
+   share prostate epithelium                  0.0000 against 0.0000 | d +0.08 | p 0.91
+   share regulatory t cells                   0.0000 against 0.0000 | d -0.21 | p 0.2
+   share small intestine epithelium           0.0000 against 0.0000 | d -0.54 | p 0.083
+   share smooth muscle                        0.0026 against 0.0141 | d -0.29 | p 0.23
+   share striated muscle                      0.0000 against 0.0000 | d +0.33 | p 0.22
+   share t central memory cd4                 0.0000 against 0.0000 | d +nan | p 1
+   share t effector cell cd8                  0.0000 against 0.0000 | d -0.04 | p 0.78
+   share t effector memory cd4                0.0000 against 0.0000 | d +0.30 | p 0.87
+   share thyroid epithelium                   0.0000 against 0.0000 | d +0.13 | p 0.9
+   share tongue epithelium                    0.0000 against 0.0000 | d +nan | p 1
+   share tonsil palatine epithelium           0.0000 against 0.0000 | d +nan | p 1
+   share tonsil pharyngeal epithelium         0.0000 against 0.0000 | d +nan | p 1
+   share vascular endothelium                 0.2303 against 0.2338 | d +0.04 | p 0.92
+   share vascular leptomeningeal cells        0.0170 against 0.0241 | d -0.36 | p 0.15
+   share vascular saphenous endothelium       0.0000 against 0.0000 | d -0.19 | p 0.37
+   territory islands                          0.8464 against 0.8444 | d -0.14 | p 0.79
+   territory domains                          0.9546 against 0.9588 | d +0.09 | p 0.92
+   C-Score whole genome                       1.0091 against 1.0069 | d +0.34 | p 0.13

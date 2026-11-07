@@ -429,3 +429,17 @@ values.
 reference for another array's reading. Groups are compared with each other by the scorer (medians, Cohen's d, Mann-Whitney p), as R2 to R14.
 
 **Prior reading:** all six are spent (earlier-engine VAL tests listed in `val_retest_by_dataset.csv`); this is a replay, stated as such.
+
+**Wave B, read: R15, R16 and R17 (each group against its healthy group; development, spent data).** (`wave_b/r15_addneuromed_summary.txt`, `wave_b/r16_gift_summary.txt`,
+`wave_b/r17_breast_summary.txt`; rows tables beside them; every array read by the one command on every IAM-Atlas v2.1 cell, untared.)
+- **R15 AddNeuroMed blood (GSE144858), 300 of 300 read:** neither mild cognitive impairment (111) nor Alzheimer's disease (93) separates from
+the 96 controls on any of 128 readings, below p 0.01.
+- **R16 GIFT blood (GSE53740), 379 of 379 read:** FTD (121) and FTD/MND (7) do not separate from the 193 controls below p 0.001 (2 and 1 of
+their readings below p 0.01). PSP (43) separates on 35 of 161 readings below p 0.001 and AD (15) on 20 of 155; their largest cell shares differ
+from the controls' (PSP neutrophils 0.60 against 0.54; AD a GMP share of 0.13 against 0.04), so part of each is the cell mix the Deconvolver
+found; recorded as found, the cause not assigned.
+- **R17 breast tissue (GSE69914), 407 of 407 read:** cancer (305) separates from the 50 healthy donors on 55 of 142 readings below p 0.001
+(whole-sample Met-A 0.9594 against 0.9396); the Deconvolver finds luminal epithelium the largest share of the cancers (0.26) and adipocytes of the
+healthy donors (0.24). The 42 normal-adjacent and the 7 normal BRCA1 carriers do not separate from the healthy donors below p 0.001.
+R18, R19 and R20 were refused by the series workflow (my error: sent with 4 shards, which it does not run; the same error as R14 before) and
+are re-sent with 10; the queue now refuses any other shard count before sending.

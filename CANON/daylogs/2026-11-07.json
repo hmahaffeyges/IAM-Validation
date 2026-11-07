@@ -122,6 +122,30 @@
      "what": "The floor counted only at the library-floor sites inside the islands; 54 runs of the one command in 18 parts on Google.",
      "outcome": "Met: every laboratory setting reads the islands at 0.989 to 1.004 (uncorrected 0.968 to 2.109).",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Wave B replays R15 to R17 on every atlas cell",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1",
+     "what": "AddNeuroMed blood, GIFT blood and breast tissue, 1,086 arrays through the one command, untared; groups against their healthy group.",
+     "outcome": "R15: nothing separates. R16: PSP and AD separate (with cell-mix differences), FTD does not. R17: cancer separates from healthy donors; normal-adjacent does not.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "Class floor version 2 and the cross-laboratory rehearsal",
+     "status": "in progress",
+     "reference": "IAM Sequencing Atlas",
+     "what": "The floor counted at the library-floor sites inside the islands; the 89 spent outside samples read again with it on Google.",
+     "outcome": "Synthetic met (islands 0.989 to 1.004 for every laboratory setting). Rehearsal reading.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Met-A healthy line: test 6's drift found; test 7",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1",
+     "what": "A capture of the values the line is measured on: --full-chain turns on the atlas ruler and the line was measured again on ruler values.",
+     "outcome": "--dev-pred-raw reads the prediction on the array's own values; test 7 and the 100-blood rehearsal re-read are running.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   },
@@ -273,6 +297,18 @@
      "what": "The C-Score's 450K limit term (1.00789) was calibrated on the spent healthy 450K bloods of the five-laboratory set, the same bloods the rehearsal read.",
      "outcome": "The rehearsal's C-Score count is not independent for those bloods; the term is to be replaced by one from the atlases; bundles now name any calibrated term.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "Wave B replays sent with a shard count the workflow refuses",
+     "what": "Sent R18 to R20 with 4 shards, which series.yml refuses (the R14 lesson repeated); the queue now refuses it in code.",
+     "status": "mistake",
+     "outcome": "Caught by my own check of the run logs; fixed in code."
+    },
+    {
+     "title": "Carriage returns failed the second laboratory's downloads",
+     "what": "The cross-laboratory job wrote its lists with carriage returns, failing the second laboratory's downloads; fixed, no reading made.",
+     "status": "mistake",
+     "outcome": "Caught by my own check of the run logs; fixed in code."
     }
    ]
   }
