@@ -112,9 +112,9 @@ GSE142224,,,,,,,,,not usable (cultured with no uncultured comparison),liver endo
 GSE142257,downloads/C_tissue_tests/GSE142257/,4.03,IDAT,yes,unspent,,,,,,,,Solid-tissue arrays,S3 register
 GSE142512,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE143209,,,,,,,,DEV_ATLAS_V21_01,not usable (not purified (mixed islet cells)),pancreatic beta | pancreatic alpha,yes,IDAT listed for 64/64 samples,Human pancreatic islets methylation array,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE143752,,,,,partly spent,,,,,,,,,
+GSE143752,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE144691,,,,,partly spent,,,COMMISSIONING_NOTE_IAMA; DEV_ATLAS_V21_01; DEV_IAMA_GRAND_01; DEV_METAA_ATLAS_CURVE_01,,,,,,
-GSE144858,,,,,partly spent,,,,,,,,,
+GSE144858,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE145745,,,,,,,,,not usable (cultured with no uncultured comparison),kidney tubular epithelium,yes,IDAT listed for 24/24 samples,Integrative omics analyses reveal epigenetic memory in diabetic cells regulating genes associated with kidney dysfunction. [microarray],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE145887,downloads/F_salmonid/GSE145887/,0.99,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
 GSE146093,,,,,,,,DEV_METAA_ATLAS_CURVE_01,,,,,,
@@ -348,10 +348,10 @@ GSE38266,,,,,unspent,,,,,,,,,
 GSE40279,downloads/D_ageing/GSE40279/,12.08,,,partly spent,,,DEV_REPLICATE_01; PROC_RECORD_02_OUTCOME,,,,,Ageing blood arrays,S3 register
 GSE40699,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE41826,,,,,,,,,not usable (no raw data (TXT only)),cortical neurons | oligodendrocytes,yes,no per-sample IDAT or SRA link (series files: GSE41826_FinalReport_zkaminsky_CETStrimmed.txt.gz; GSE41826_RAW.tar),A Cell Epigenotype Specific Model for the Correction of Cellular Heterogeneity in the Brain,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE42752,,,,,partly spent,,,,,,,,,
+GSE42752,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE42861,downloads/A_blood_immune/GSE42861/,29.62,IDAT,yes,partly spent,,,DEV_CSCORE_LIMIT_01; DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_MAHA_03_OUT,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE43976,,,,,,,,,not usable (not healthy (MS cohort); input 1 called it healthy),monocytes,yes,IDAT listed for 95/95 samples,An evaluation of analysis pipelines for DNA methylation profiling using the Illumina Human Methylation 450k platform,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE46306,,,,,partly spent,,,,,,,,,
+GSE46306,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE47966,,,,,,,,DEV_IAMA_NEURON_01,,,,,,
 GSE48580,,,,,,,,DEV_ERASE_01; PROC_LINES_01_BJ_OUTCOME,,,,,,
 GSE48580 IMR90 proliferating; senescent; SV40 (WGBS),,,,,spent (earlier work PROC-LINES-02; division route),,,,,,,,,
@@ -366,7 +366,7 @@ GSE51032,downloads/A_blood_immune/GSE51032/,15.15,IDAT,yes,spent,,,DEV_CSCORE_LI
 GSE51057,downloads/A_blood_immune/GSE51057/,6.13,IDAT,yes,partly spent,,,DEV_REPLICATE_01; PROC_EPIC_01_PREREG; PROC_PREDX_NEUT_01_OUTCOME; PROC_PREDX_NEUT_01_PREREG; PROC_PREDX_SEQUENCE_01_PREREG; PROC_PREDX_SLIDE_01_OUTCOME; PROC_P,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE52025,,,,,,,,,"not usable (cell lines (Coriell/McGill cell bank), cultured)",ad-dermal fibroblasts,yes,IDAT listed for 62/62 samples,"The relationship between DNA methylation, genetic and expression inter-individual variation in untransformed human fibroblasts [methylation profiling]",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE52074,,,,,,,,DEV_ATLAS_V21_01,,,,,,
-GSE53740,,,,,partly spent,,,,,,,,,
+GSE53740,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE54961,,,,,,,,,,,,,,candidates DEV_LIVER_BLOOD_01
 GSE55049,,,,,,,,DEV_ERASE_01,,,,,,
 GSE55574,,,,,,,,DEV_ERASE_01,,,,,,
@@ -379,7 +379,7 @@ GSE59163,,,,,,,,,research,neutrophils,yes,SRA run links for 13/13 samples,Genome
 GSE59250,,,,,,,,,not usable (no raw data (no per-sample IDAT; TXT only)),cd4 t cells | b cells | monocytes | naive cd4 t cells | memory cd4 t cells | regulatory t cells,yes,no per-sample IDAT or SRA link (series files: GSE59250_RAW.tar; GSE59250_average_betas.txt.gz; GSE59250_signal_intensities.txt),DNA Methylation Analysis of Systemic Lupus Erythematosus,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE60274,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE62195,downloads/F_salmonid/GSE62195/,0.01,,,unspent,,,,,,,,Steelhead and other salmonid sets,S3 register
-GSE62298,,,,,partly spent,,,,,,,,,
+GSE62298,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE63384,,,,,,,,,,,,,,candidates DEV_FINGERPRINT_03
 GSE63409,,,,,spent (IAM-Atlas v2.1 build),,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_DECONV_V21; DEV_ATLAS_V21_01; PROC_AML_PROG_01_OUTCOME; PROC_AML_PROG_01_PREREG; PROC_AML_SERIAL_01_OUTCOME; PR,,,,,,
 GSE63499,,,,,,,,,"not usable (no raw data (CSV only); women, folate supplementation)",neutrophils,yes,no per-sample IDAT or SRA link (series files: GSE63499_RAW.tar; GSE63499_unmethylated_methylated_intensities.csv.gz),DNA Methylation Changes in Whole Blood and CD16+ Neutrophils in Response to Chronic Folic Acid Supplementation in Women of Childbearing Age,gold-mine map
@@ -396,7 +396,7 @@ GSE67393 normal peripheral blood 450K (test half),,,,,spent (development),,,,,,,
 GSE68339,,,,,partly spent,,,,,,,,,
 GSE68456,,,,,,,,DEV_ATLAS_V21_01,atlas build,monocytes | b cells | cd4 t cells | granulocytes | cd8 t cells | nk cells | t cells cd3,yes,IDAT listed for 62/62 samples,Impact of red blood cells on genome-wide DNA methylation and expression analyses of cord blood hematopoietic cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE69138,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
-GSE69914,downloads/C_tissue_tests/GSE69914/,6.49,other (txt),no,partly spent,,,DEV_TISSUE_BREAST_01,,,,,Solid-tissue arrays,S3 register
+GSE69914,downloads/C_tissue_tests/GSE69914/,6.49,other (txt),no,partly spent,,,DEV_REPLICATE_01; DEV_TISSUE_BREAST_01,,,,,Solid-tissue arrays,S3 register
 GSE70090,,,,,,,,DEV_FINGERPRINT_03,,,,,,
 GSE71244,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE71378,,,,,partly spent,,,,,,,,,

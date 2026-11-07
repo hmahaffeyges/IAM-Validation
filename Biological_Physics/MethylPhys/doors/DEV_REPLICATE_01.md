@@ -412,3 +412,20 @@ kept.)
 GSE141682, untared, each reading against age; A-score rows `r6_aging_atlas_full_rows.csv`.) 2 of 169 readings below p 0.001, both known features
 of aging blood: the age control site cg16867657 (ELOVL2, rho +0.931) and the CD8 TEMRA share (rho +0.614). Whole-sample Met-A rises with age (rho
 +0.474, p 0.0015), in each of its places (islands +0.324 to domains +0.420); Met-A on neutrophils does not (rho -0.127, p 0.42).
+
+**R15 to R20: the retest plan's wave B, six series published as values only (written and committed before any of their readings exists).** Each array read by the one command on every cell of IAM-Atlas v2.1 through the values route (`run_series.py`, the series matrix;
+flagged: the chip-level intake checks need raw files), untared, then summarized by `replay_score.py` against labels taken from GEO's sample
+fields only (`r15_addneuromed`, `r16_gift`, `r17_breast`, `r18_colon`, `r19_cervix`, `r20_aml`; `*_samples.csv` and `*_labels.csv`).
+
+**The instrument's job:** each array reads against the atlas in its own measured mix, and the groups are reported as the chain reads them.
+
+**Sources:** GEO series matrices GSE144858 (AddNeuroMed: 96 control, 111 mild cognitive impairment, 93 Alzheimer's, whole blood), GSE53740 (GIFT:
+193 control, 121 FTD, 43 PSP, 15 AD, 7 FTD/MND, whole blood; 5 'Unknown' left out), GSE69914 (breast tissue: 50 healthy donors, 42 normal-adjacent,
+305 cancer, 7 and 3 BRCA1 carriers), GSE42752 (colon: 19 normal without cancer, 22 normal from cancer patients, 22 adenocarcinoma), GSE46306 (cervix:
+20 normal, 17 CIN3, 6 cancer; one unlabeled left out), GSE62298 (AML: 54 DNMT3A wild type, 14 mutant). GSE143752 is held: its matrix carries no
+values.
+
+**Reference:** IAM-Atlas v2.1 only, each array against the atlas in the mix the IAM-Deconvolver measures in it; no tare, no group used as a
+reference for another array's reading. Groups are compared with each other by the scorer (medians, Cohen's d, Mann-Whitney p), as R2 to R14.
+
+**Prior reading:** all six are spent (earlier-engine VAL tests listed in `val_retest_by_dataset.csv`); this is a replay, stated as such.
