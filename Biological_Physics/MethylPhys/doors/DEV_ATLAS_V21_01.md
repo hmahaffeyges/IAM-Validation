@@ -1362,3 +1362,11 @@ next cells and their scores. **If met:** the column joins the in-mix readings, f
 against it instead of the four stand-in cells. **Replication:** the megakaryocyte pieces are deposited on Zenodo with the test.
 
 **The platelet test's synthetic: met** (`seq_atlas/mk_platelet_synthetic.txt`, GitHub run 42334515979). The level-only track of the shallow cell came out nearest its own column by the counting-weighted score (0.8521; the next cell 17.7702), and the deep cell's track nearest its own (0.224); both also first by plain distance. The test on the platelet file runs next, on a Google machine (the megakaryocyte pieces are in the build bucket).
+
+**The megakaryocyte column on platelet DNA: met.** (`seq_atlas/mk_platelet_compare.json`; Google machine iam-mk-platelet, chain []001070a; the platelet track
+sha256 8f94ec5a6cbbd965..., 27,187,351 positions all on hg19 CpGs, 24,546,329 compared.) By the counting-weighted score the platelets are
+nearest **megakaryocytes** of all 57 cells (1.1186), then nk cells (2.9281), aorta endothelium (3.3828), lung interstitial macrophages (3.6383) and
+monocytes (3.651). Recorded: by plain distance megakaryocytes rank 34 of 57 (0.14724;
+first monocytes, 0.10462), as the synthetic showed for a shallow column: plain distance counts the column's own counting scatter
+as difference. **Next, as written:** the column joins the in-mix readings, flagged provisional, and plasma's megakaryocyte DNA is read against
+it instead of the four stand-in cells; its pieces go to Zenodo with this test.
