@@ -176,6 +176,20 @@
      "what": "The censored-line flag was set only inside run_sample.py's sequencing branches, so synthetic test 4 on arrays ran the plain line.",
      "outcome": "Found from the draws' recorded lines; the flag now set on every route; test 5's scorer refuses a draw whose line is not censored.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "Record edits erased by a commit in flight (a repeat)",
+     "status": "mistake",
+     "what": "Test 3's result and test 4's design were written into the record while a commit was in flight; it refreshed the working copy and erased them, so test 4 ran without its design on record. The rule against editing during a commit was already on file from 11-02.",
+     "outcome": "Restored and disclosed (8cc58834); before any launch, the record, scripts and flag are checked on main.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "A Google machine idle for six hours",
+     "status": "mistake",
+     "what": "The class-floor synthetic's job read the bucket name from a variable the machine never defines; under set -u it stopped at its first step, before the step that deletes the machine, and sat idle until its time limit. It was launched once, with no launcher watching it, and no check looked at whether a machine's log was moving.",
+     "outcome": "Path fixed; machine deleted; a stall check (a running machine whose log is unchanged for 45 minutes is a failure) added to the loop check; relaunched under a launcher.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/floor_class_synthetic.sh"
     }
    ]
   }
