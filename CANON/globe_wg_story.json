@@ -3,17 +3,18 @@
  "title": "The Sequencing Atlas Globe: every CpG of the human genome, read with the tools built for the cosmic microwave background",
  "opening": [
   "The cosmic microwave background and a cell's methylation are the same kind of record: a very large number of points, each held near an expected state against the noise of heat, read through instruments with their own noise. In both, the work is the same: build the expected map, measure its noise honestly, and find any real departure from it. IAM's Law is that the same physical cost of holding a record governs both, so the same statistics serve both.",
-  "The globe places every one of the 28,217,448 CpGs of the human genome on a HEALPix sphere in genome order, one CpG to a pixel, for each of the 57 healthy cell types of the IAM Sequencing Atlas, and carries with it the tools a cosmologist would bring to a sky map: a level map and its error map, two independent noise maps, a mask, a null test against noise simulations, and spectra by scale."
+  "The globe places every one of the 28,217,448 CpGs of the human genome on a HEALPix sphere in genome order, one CpG to a pixel, for each of the 58 healthy cell types (megakaryocytes provisional) of the IAM Sequencing Atlas, and carries with it the tools a cosmologist would bring to a sky map: a level map and its error map, two independent noise maps, a mask, a null test against noise simulations, and spectra by scale."
  ],
  "facts": {
   "cpgs": 28217448,
-  "cells": 57,
+  "cells": 58,
   "nside": 2048,
   "values_checked_against_array_layout_globe": 139185168,
   "values_equal": 139185168,
-  "doi": "10.5281/zenodo.24025624",
-  "atlas_doi": "10.5281/zenodo.23934666",
-  "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_synthetic_run2.txt"
+  "doi": "10.5281/zenodo.24029332",
+  "atlas_doi": "10.5281/zenodo.24029328",
+  "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_synthetic_run2.txt; Biological_Physics/MethylPhys/deposit/zenodo_mk_v11_README_globe.md",
+  "megakaryocytes": "the 58th cell, provisional (GSE87197 donors 1 and 2): 25,220,009 CpGs with reads, all placed; its texture and both noise maps in the globe's version 1.1"
  },
  "parts": [
   {
@@ -55,7 +56,7 @@
    "geneticist": "Inter-individual variability: each cell's donors split into two sealed groups, one group's level subtracted from the other's.",
    "physics": "What healthy people differ by, plus counting: the healthy reference's own spread, measured, not assumed.",
    "shows": "Whether healthy people differ from one another CpG by CpG or in whole regions.",
-   "result": "All 49 cells with two or more donors show structure on the sphere and along the genome (correlation 0.0838 between CpGs under 1 kb apart, falling with distance): healthy people differ in regions.",
+   "result": "All 49 cells with two or more donors show structure on the sphere and along the genome (correlation 0.0838 between CpGs under 1 kb apart, falling with distance): healthy people differ in regions. Megakaryocytes (donor 1 against donor 2) show it too, at the largest scales.",
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_noise_summary.txt",
    "how": "seq_globe_wg.py noise-part, noise-join; .github/workflows/globe_noise.yml",
    "status": "every_cpg"
@@ -66,7 +67,7 @@
    "geneticist": "A technical replicate by read subsampling: every donor's reads split in two at random, one half subtracted from the other; what is left is sampling noise from sequencing depth.",
    "physics": "Counting alone: with the donors taken out, nothing but the finite number of molecules read.",
    "shows": "The pure noise of the measurement, the yardstick every other map is held against.",
-   "result": "All 57 cells read as pure counting noise: no structure on the sphere in any cell, and a correlation of 0.0005 between CpGs under 1 kb apart.",
+   "result": "All 57 cells read as pure counting noise: no structure on the sphere in any cell, and a correlation of 0.0005 between CpGs under 1 kb apart. The 58th cell, megakaryocytes, likewise: nothing above the sign-flip null.",
    "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_noise_summary.txt",
    "how": "seq_globe_wg.py noise-part, noise-join",
    "status": "every_cpg"
@@ -161,12 +162,12 @@
   }
  ],
  "rebuild": [
-  "Download the IAM Sequencing Atlas (Zenodo 10.5281/zenodo.23934666) and check every piece against its SHA256 manifest.",
+  "Download the IAM Sequencing Atlas (Zenodo 10.5281/zenodo.24029328) and check every piece against its SHA256 manifest.",
   "Clone the IAM-Validation repository from GitHub and install the chain's requirements (Biological_Physics/MethylPhys/chain/requirements.txt).",
   "Run the synthetics first: python3 Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py synthetic OUT.txt, then noise-synthetic and flip-synthetic.",
   "Build the globe set by set: seq_globe_wg.py slice INPUTS.csv OUTDIR PIECES..., then assemble (or run .github/workflows/globe_wg.yml).",
   "Build the noise maps and their statistics: seq_globe_wg.py noise-part OUTDIR CpG.bed.gz PIECES..., then noise-join (or run .github/workflows/globe_noise.yml).",
-  "Compare with the published globe (Zenodo 10.5281/zenodo.24025624) file by file against its checksums."
+  "Compare with the published globe (Zenodo 10.5281/zenodo.24029332) file by file against its checksums."
  ],
  "closing": "The same statistics serve the sky and the cell because both are records held against heat. A cosmologist can read every part of this globe by its sky name, and a geneticist by theirs."
 }

@@ -506,6 +506,24 @@
     "head": "The IAM Sequencing Atlas is public",
     "sub": "{cells} healthy cell types at every CpG, counted from healthy donors' reads with nothing fitted; every piece checksummed. DOI {doi}."
    }
+  },
+  {
+   "id": "SEQ-ATLAS-V11-PUBLIC",
+   "date": "2026-11-07",
+   "kind": "milestone",
+   "instrument": "atlas",
+   "status": "published",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "compute": "seq_atlas_v11_release",
+   "title": "Megakaryocytes join the IAM Sequencing Atlas and its globe",
+   "plain": "The cells that make platelets, a large source of the DNA in blood plasma, are now in our sequencing reference and on its globe, as a provisional 58th cell type. Platelet DNA the chain had never read comes out nearest them of every cell. The 57 cells before are unchanged.",
+   "win": {
+    "rank": 13.4,
+    "stat": "DOI",
+    "head": "Megakaryocytes join the atlas",
+    "sub": "{cells} healthy cell types, the 58th provisional; platelet DNA reads nearest it. DOI {doi}."
+   }
   }
  ],
  "losses": [

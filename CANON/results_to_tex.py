@@ -96,6 +96,10 @@ def compute(e):
         T = open(os.path.join(ROOT, D + "DEV_ATLAS_V21_01/seq_atlas/zenodo_deposit_summary.txt"), encoding="utf-8").read()
         return dict(doi=re.search(r"DOI (10\.\S+)", T).group(1), files=int(re.search(r"files in the record: (\d+)", T).group(1)), gb=float(re.search(r"; ([0-9.]+) GB", T).group(1)),
                     pieces=int(re.search(r"merged 57-cell pieces: (\d+)", T).group(1)), cells=57)
+    if e["compute"] == "seq_atlas_v11_release":   # 2026-11-07: atlas and globe version 1.1 (megakaryocytes), from the Zenodo records summary
+        T = open(os.path.join(ROOT, D + "DEV_ATLAS_V21_01/seq_atlas/zenodo_v11_summary.txt"), encoding="utf-8").read()
+        a_, g_ = [re.search(r"^" + n + r": DOI (\S+); version \S+; files in the record: (\d+); ([0-9.]+) GB", T, re.M) for n in ("IAM Sequencing Atlas version 1.1", "Sequencing Atlas Globe version 1.1")]
+        return dict(doi=a_.group(1), files=int(a_.group(2)), gb=float(a_.group(3)), gdoi=g_.group(1), gfiles=int(g_.group(2)), ggb=float(g_.group(3)), cells=int(re.search(r"Cells: (\d+)", T).group(1)))
     if e["compute"] == "atlas_release":
         A = json.load(open(os.path.join(ROOT, "CANON/atlas_release.json"), encoding="utf-8"))
         return dict(doi=A["doi"], gb=round(A["total_bytes"] / 1e9, 1), files=A["files"], cells=int(re.search(r"(\d+) purified", A["title"]).group(1)))
@@ -209,6 +213,9 @@ def readme_row(e, v):
              f"already differ from the woman's other breast - was {v['f1']} ({v['f1k']} of {v['f1n']}, {v['f1crit']} needed)")
     elif e.get("compute") == "seq_atlas_release":
         h = f"**The IAM Sequencing Atlas is public.** {v['cells']} healthy human cell types at every CpG, counted from healthy donors' reads with nothing fitted, {v['gb']} GB in {v['files']} files, every one of its {v['pieces']} pieces checksummed; DOI {v['doi']}"
+    elif e.get("compute") == "seq_atlas_v11_release":
+        h = (f"**Megakaryocytes join the IAM Sequencing Atlas and its globe (version 1.1).** {v['cells']} healthy human cell types, the 58th provisional; "
+             f"platelet DNA reads nearest megakaryocytes of all of them; atlas {v['gb']} GB in {v['files']} files, DOI {v['doi']}; globe {v['ggb']} GB in {v['gfiles']} files, DOI {v['gdoi']}")
     elif e.get("compute") == "atlas_release":
         h = f"**IAM-Atlas v2 is public.** {v['cells']} healthy human cell types with full uncertainty, {v['gb']} GB in {v['files']} files, every file checked; DOI {v['doi']}"
     elif e.get("compute") == "moss":

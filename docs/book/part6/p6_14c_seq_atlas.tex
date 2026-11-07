@@ -4,7 +4,7 @@
 \paragraph{The physics behind this tool.} The atlas holds no scale of its own: the gauge's ends come from the energy with which a cell holds a mark (Chapter~\ref{ch:landauer}), and the atlas measures, by counting healthy donors' reads, where healthy cells of each kind sit between those ends, so a sequenced sample's disorder is read in bits against healthy disorder counted with the same chemistry.
 % physics-tie: end
 
-IAM has two atlases, and both are needed. IAM-Atlas v2.1 (Chapter~\ref{ch:atlas}) is the ruler for methylation arrays: 79 purified healthy cell types at 813,951 array sites, fitted as one model with a 95~\% range at every value. The IAM Sequencing Atlas is the ruler for sequenced samples: 57 healthy cell types at all 28,217,448 CpGs of the genome, counted directly from healthy donors' reads with nothing fitted. This chapter explains why a second ruler is needed, what it holds, how it is built and checked, and what it lets the instruments do. It is in development; each of its cells is commissioned when healthy samples from laboratories it has never held read Normal against it.
+IAM has two atlases, and both are needed. IAM-Atlas v2.1 (Chapter~\ref{ch:atlas}) is the ruler for methylation arrays: 79 purified healthy cell types at 813,951 array sites, fitted as one model with a 95~\% range at every value. The IAM Sequencing Atlas is the ruler for sequenced samples: 58 healthy cell types (megakaryocytes provisional) at all 28,217,448 CpGs of the genome, counted directly from healthy donors' reads with nothing fitted. This chapter explains why a second ruler is needed, what it holds, how it is built and checked, and what it lets the instruments do. It is in development; each of its cells is commissioned when healthy samples from laboratories it has never held read Normal against it.
 
 \section{Why a second ruler}
 
@@ -12,7 +12,7 @@ The physics does not change with the platform. A methyl mark is a record a cell 
 
 \section{What it holds}
 
-For each of its 57 healthy cell types, at every CpG of the hg19 numbering, the atlas holds:
+For each of its 58 healthy cell types (megakaryocytes provisional), at every CpG of the hg19 numbering, the atlas holds:
 \begin{itemize}
 \item the donors and the reads behind the value, and the methylated reads among them;
 \item the healthy level, both as the median of the cell's donors and as the pooled level (methylated reads over all reads), because the two answer different questions (Section~\ref{sec:seqatlas:levels});
@@ -98,7 +98,7 @@ how sure & a 95~\% range from the fit at every value & the donors' spread and th
 donors & from 21 public sources & one to three per cell, sealed halves \\
 noise & the fit's posterior draws & two measured noise maps \\
 status & commissioned use by use & in development \\
-on Zenodo & 10.5281/zenodo.23441999 & 10.5281/zenodo.23934666 \\
+on Zenodo & 10.5281/zenodo.23441999 & 10.5281/zenodo.24029328 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -109,4 +109,4 @@ Cells with no open bulk sequencing of healthy donors are not in it: megakaryocyt
 
 \section{Getting it and rebuilding it}
 
-The whole atlas is deposited on Zenodo (DOI 10.5281/zenodo.23934666): the 113 merged pieces in 12 sets, the runtime tables the chain reads, the input lists, and a SHA-256 manifest naming every piece. The repository holds the runtime tables and the code; its deposit manifest lists every file a test recalls at one of three places, the repository, Zenodo, or the public archive the input came from. To rebuild it from the public files, run \texttt{run\_sample.py --build seq-atlas} over the committed input list, then the table builds named above; every value should match the deposit's checksums.
+The whole atlas is deposited on Zenodo (DOI 10.5281/zenodo.24029328): the 113 merged pieces in 12 sets, the runtime tables the chain reads, the input lists, and a SHA-256 manifest naming every piece. The repository holds the runtime tables and the code; its deposit manifest lists every file a test recalls at one of three places, the repository, Zenodo, or the public archive the input came from. To rebuild it from the public files, run \texttt{run\_sample.py --build seq-atlas} over the committed input list, then the table builds named above; every value should match the deposit's checksums.

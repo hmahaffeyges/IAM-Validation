@@ -1,0 +1,6 @@
+Johns Hopkins healthy CD4 T cells (GSE86340): 6 of 6 read
+untared own-cell Met-A median 0.9782 (the laboratory's offset; recorded)
+each donor: GSM2103002 age 18: 0.90729, tared 0.8951517423734165; GSM2103003 age 25: 0.89632, tared 0.8843285054658826; GSM2103004 age 25: 0.94279, tared 0.9301768025573227; GSM2103005 age 82: 1.02543, tared 1.0876547269275236; GSM2103006 age 82: 1.01356, tared 1.0750644364068351; GSM2103007 age 86: 1.06219, tared 1.1266453823226805
+bar 1 tared own-cell Met-A median within 0.95 to 1.05: 1.0026206194820788: met
+bar 2 whole-sample Met-A median within 0.95 to 1.05: 1.14345: not met
+test: not met

@@ -4,6 +4,14 @@
 commissioned chain (CANON/chain_front.json). These results came before it: most were development tests, read before the chain that now
 runs every sample existed. Each keeps its record; none is withdrawn.*
 
+## Megakaryocytes join the atlas
+
+**2026-11-07** · published · DOI
+
+58 healthy cell types, the 58th provisional; platelet DNA reads nearest it. DOI 10.5281/zenodo.24029328.
+
+Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
+
 ## The IAM Sequencing Atlas is public
 
 **2026-11-03** · published · DOI
