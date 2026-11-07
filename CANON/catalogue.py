@@ -24,8 +24,9 @@ def row_line(r):
 def stage(inst, M):
     rows = [M[i] for i in inst["rows"] if i in M]
     if any(r["status"] == "running" for r in rows): return "running now"
-    if inst["id"] == "meta": return "commissioned (isolated neutrophils)"
-    if inst.get("commissioned"): return f"commissioned ({inst['commissioned']})"
+    _rc = " (with a same-run healthy tare; being re-commissioned with IAM-Atlas v2.1 as the only healthy reference)" if inst.get("recommission") else ""   # 2026-11-07
+    if inst["id"] == "meta": return "commissioned (isolated neutrophils)" + _rc
+    if inst.get("commissioned"): return f"commissioned ({inst['commissioned']})" + _rc
     if any((r.get("runs") or [{}])[-1].get("outcome") == "success" for r in rows): return "passing its tests"
     return "in development"
 def markdown(C, M):

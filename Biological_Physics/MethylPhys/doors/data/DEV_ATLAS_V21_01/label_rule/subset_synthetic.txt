@@ -1,0 +1,34 @@
+Naive and memory CD4 on sequencing: 30 of 30 grid rows read by the one command
+  CD4 0.3, lam 3, memory 0.0: measured memory fraction 0.000, total CD4 0.267, plain CD4 column 0.000
+  CD4 0.3, lam 3, memory 0.25: measured memory fraction 0.000, total CD4 0.255, plain CD4 column 0.025
+  CD4 0.3, lam 3, memory 0.5: measured memory fraction 0.469, total CD4 0.297, plain CD4 column 0.000
+  CD4 0.3, lam 3, memory 0.75: measured memory fraction 0.632, total CD4 0.277, plain CD4 column 0.000
+  CD4 0.3, lam 3, memory 1.0: measured memory fraction 1.000, total CD4 0.274, plain CD4 column 0.000
+  CD4 0.3, lam 15, memory 0.0: measured memory fraction 0.000, total CD4 0.310, plain CD4 column 0.000
+  CD4 0.3, lam 15, memory 0.25: measured memory fraction 0.213, total CD4 0.278, plain CD4 column 0.002
+  CD4 0.3, lam 15, memory 0.5: measured memory fraction 0.498, total CD4 0.257, plain CD4 column 0.009
+  CD4 0.3, lam 15, memory 0.75: measured memory fraction 0.682, total CD4 0.296, plain CD4 column 0.000
+  CD4 0.3, lam 15, memory 1.0: measured memory fraction 0.972, total CD4 0.305, plain CD4 column 0.000
+  CD4 0.3, lam 40, memory 0.0: measured memory fraction 0.000, total CD4 0.311, plain CD4 column 0.000
+  CD4 0.3, lam 40, memory 0.25: measured memory fraction 0.250, total CD4 0.297, plain CD4 column 0.003
+  CD4 0.3, lam 40, memory 0.5: measured memory fraction 0.538, total CD4 0.299, plain CD4 column 0.000
+  CD4 0.3, lam 40, memory 0.75: measured memory fraction 0.791, total CD4 0.304, plain CD4 column 0.012
+  CD4 0.3, lam 40, memory 1.0: measured memory fraction 1.000, total CD4 0.290, plain CD4 column 0.000
+  CD4 0.7, lam 3, memory 0.0: measured memory fraction 0.000, total CD4 0.742, plain CD4 column 0.000
+  CD4 0.7, lam 3, memory 0.25: measured memory fraction 0.227, total CD4 0.643, plain CD4 column 0.049
+  CD4 0.7, lam 3, memory 0.5: measured memory fraction 0.494, total CD4 0.746, plain CD4 column 0.017
+  CD4 0.7, lam 3, memory 0.75: measured memory fraction 0.739, total CD4 0.614, plain CD4 column 0.000
+  CD4 0.7, lam 3, memory 1.0: measured memory fraction 1.000, total CD4 0.705, plain CD4 column 0.000
+  CD4 0.7, lam 15, memory 0.0: measured memory fraction 0.000, total CD4 0.690, plain CD4 column 0.000
+  CD4 0.7, lam 15, memory 0.25: measured memory fraction 0.255, total CD4 0.662, plain CD4 column 0.000
+  CD4 0.7, lam 15, memory 0.5: measured memory fraction 0.499, total CD4 0.683, plain CD4 column 0.000
+  CD4 0.7, lam 15, memory 0.75: measured memory fraction 0.734, total CD4 0.684, plain CD4 column 0.000
+  CD4 0.7, lam 15, memory 1.0: measured memory fraction 1.000, total CD4 0.674, plain CD4 column 0.000
+  CD4 0.7, lam 40, memory 0.0: measured memory fraction 0.000, total CD4 0.695, plain CD4 column 0.015
+  CD4 0.7, lam 40, memory 0.25: measured memory fraction 0.239, total CD4 0.671, plain CD4 column 0.000
+  CD4 0.7, lam 40, memory 0.5: measured memory fraction 0.496, total CD4 0.699, plain CD4 column 0.012
+  CD4 0.7, lam 40, memory 0.75: measured memory fraction 0.724, total CD4 0.688, plain CD4 column 0.000
+  CD4 0.7, lam 40, memory 1.0: measured memory fraction 1.000, total CD4 0.697, plain CD4 column 0.000
+bar 1 (lam 15 and 40: memory fraction within 0.15): met
+bar 2 (lam 15 and 40: total CD4 within 0.1): met
+synthetic: met

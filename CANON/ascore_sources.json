@@ -547,6 +547,13 @@
    "status": "reference only (replay; lung tissue not commissioned)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
    "rows_table": true
+  },
+  {
+   "id": "JHU-TISSUE",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/jhu_tissue_rows.csv",
+   "status": "development (tumor against own normal; liver and lung tissue not commissioned)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "rows_table": true
   }
  ],
  "lines": {

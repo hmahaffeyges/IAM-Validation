@@ -58,7 +58,8 @@
    "history_rows": [
     "COM-METAA-039",
     "COM-METAA-032"
-   ]
+   ],
+   "recommission": true
   },
   {
    "id": "cscore",
@@ -74,7 +75,8 @@
    "commissioned": "tested and commissioned on whole blood, EPIC v1, 2026-10-15",
    "book_chapter": "ch:cscore",
    "specialty": "The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome.",
-   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
+   "recommission": true
   },
   {
    "id": "iama",
@@ -111,7 +113,8 @@
    "specialty": "Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series.",
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md",
    "commissioned": "groups of whole bloods run in one series, EPIC v1, 2026-10-20",
-   "chain": "Biological_Physics/MethylPhys/chain/stage_groupa.py"
+   "chain": "Biological_Physics/MethylPhys/chain/stage_groupa.py",
+   "recommission": true
   }
  ],
  "support_tools": [

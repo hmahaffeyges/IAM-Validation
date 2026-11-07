@@ -180,6 +180,22 @@
      "next": "the tare met only on the median (38 to 52 % of samples in the band); the Johns Hopkins CD4 test not met (0 of 6; one 'CD4' sample reads as monocytes); what the chain reported on all 89 outside samples tabulated (crosslab_chain_table.csv). Next, each written before it runs: (1) the label rule committed (60.25); (2) the synthetic for each sample read in its measured shares with its own library's false-call rate and depth in the expectation, over the real range; (3) the 89 spent samples scored per person; (4) the fresh monocyte test (60.26)"
     },
     {
+     "id": "60.30",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "Every sequencing comparison on the IAM Sequencing Atlas alone (same rule): the same-laboratory tare retired; the Johns Hopkins tissues (tumor and the same person's non-tumor tissue, GEO 'normal', not healthy) each read against the atlas's liver and lung cells; laboratory chemistry measured from each sample's own reads (the class floor, 60.3).",
+     "next": "the class-floor synthetic (running on Google); then the 89 spent outside samples per person; then the tissues"
+    },
+    {
+     "id": "60.29",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "THE ATLAS IS THE ONLY HEALTHY REFERENCE (author 2026-11-07: 'healthy for comparisons MUST always come from the atlas's ... never tare our instruments with anything other than what we can be certain is healthy'; 'the arrays should be the easiest to revisit and commission with the atlas as the ruler'). Array instruments re-commissioned on IAM-Atlas v2.1 alone, no same-run healthy tare: whole-blood Met-A by its healthy line (each array read against its own measured line and the atlas; bars 2 and 3 already met on 100 spent bloods from 5 laboratories), then the C-Score, then Group-A (each group read against the atlas). Order: the synthetic's weak-array miss (0.0072) found and fixed, the synthetic over the arrays' real range; a spent rehearsal per person; a fresh test on held arrays (GSE85210; B and T arrays GSE146093, GSE184500, GSE192451, GSE174666), bars written before reading; the same-run tare retired only after each passes.",
+     "next": "find the weak-array miss in synthetic_02 (the Deconvolver's share drift is ruled out as the whole cause)"
+    },
+    {
      "id": "60.23",
      "date": "2026-11-05",
      "status": "open",
@@ -245,10 +261,10 @@
     {
      "id": "60.25",
      "date": "2026-11-07",
-     "status": "open",
+     "status": "built",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "The Deconvolver decides what is in a sample (author 11-07: 'the decovolver is ALWAYS the first things we use ... the chain does the talking'): four label paths removed from run_sample.py and run_series.py, gate rule 23b-h with control cases C17 to C21, the lesson in the Decoder, stage_0_intake and the workflow",
-     "next": "commit (held behind the gate queue); the synthetic (label_rule/label_synthetic.py) on GitHub; then the unchanged-chain check on one whole blood"
+     "next": "done: committed (f77d594a), synthetic met (label_rule/label_synthetic.txt)"
     },
     {
      "id": "60.4",

@@ -55,6 +55,35 @@ were read as one cell. Days of results compared labels, not samples. The physics
 what those molecules came from. `CANON/chain_gate.py` rule 23b-h now refuses chain code that sets a cell or a mix from the specimen's words,
 and any scorer that reads the label's cell without the chain's `label_check`.
 
+## The atlases are the only healthy reference, in every instrument
+
+**The rule.** Every comparison a reading makes with healthy is made against IAM-Atlas v2.1 (arrays) or the IAM Sequencing Atlas (sequencing),
+the references this work built and checked for exactly that purpose, in the mix of cells the Deconvolver measured in the sample. Nothing else is
+a healthy reference: not a study's samples labeled healthy, normal or control, not the other arrays of the same run or slide, not the other
+samples of the same laboratory, and not a patient's own non-tumor tissue (labeled "normal" in a public series, it is tissue from an organ that
+grew a cancer). Anything that differs between laboratories, kits or runs is measured from the sample's own reads, at the sites being read (for
+example its false-call floor at the islands, `--dev-floor-class`), never borrowed from other people's samples. A person compared with their own
+earlier sample is self-reference, which is a separate question, and both readings are still read against the atlas.
+
+**Why it is written here.** A tare (a reading divided by the median of other samples) entered the chain early, for arrays, to remove a run's
+offset; Met-A on neutrophils, the C-Score and Group-A were commissioned with it. On sequencing it spread: a same-laboratory tare, a test of
+healthy CD4 T cells tared on the other donors, and a tumor read against the same person's "normal" tissue. Each looked as though it worked, because
+a sample divided by its neighbors comes out near 1 by construction: the same-laboratory tare put the medians at 1.0001 and 0.9889 while only 38 to
+52 % of the people read inside Normal. A tare against unchecked samples hides the very differences the instruments exist to see, and it imports
+whatever is wrong with those samples. The author's rule, stated when this was found: healthy for comparisons always comes from the atlases,
+because that is what they were created for, and no instrument is tared with anything that is not certainly healthy.
+
+**How the code holds it.**
+- `CANON/chain_gate.py` rule 23b-i refuses any line added to chain code or a test's code that builds a reference from other samples (a tare
+  call, a division by the median of the others or of a healthy, normal or control group, a tumor divided by a normal); its control cases C22 to
+  C26 include the real lines from the scorers where this happened.
+- `CANON/kiss_check.py` rules e and f refuse a test written before it runs that lacks a `**Reference:**` line naming an atlas, names any other
+  reference, or has no bar asked of each person or sample (a median alone can be met while most people are outside Normal).
+- `CANON/commissioning_check.py` refuses a commissioning from this date on that is not on the atlases alone; each older commissioning states its
+  reference, and those made with a same-run tare (Met-A on neutrophils, the C-Score, Group-A) carry "being re-commissioned with IAM-Atlas v2.1 as
+  the only healthy reference" in the catalogue until each passes again: its synthetic over the real data's range, a rehearsal on spent data per
+  person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30).
+
 ## Sex and the X chromosome, in every instrument
 
 <!-- SEX-SECTION:BEGIN -->

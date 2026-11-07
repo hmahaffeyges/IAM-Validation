@@ -126,7 +126,7 @@ Reads a mixed sample against IAM-Atlas v2.1 and reports each cell's share with i
 
 Reads the methylation level at each cell's identity sites, sites a healthy cell holds mostly marked or mostly unmarked, steadily from one healthy sample to the next, chosen away from the ends so that wear can show; against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4). Read and flagged development: Met-A for every cell the IAM-Deconvolver finds, each against its own profile in IAM-Atlas v2.1, on arrays and on sequencing values.
 
-**Reads:** arrays. **Where it stands:** commissioned (isolated neutrophils).
+**Reads:** arrays. **Where it stands:** commissioned (isolated neutrophils) (with a same-run healthy tare; being re-commissioned with IAM-Atlas v2.1 as the only healthy reference).
 
 **The tests behind it:**
 
@@ -147,7 +147,7 @@ Reads the methylation level at each cell's identity sites, sites a healthy cell 
 
 Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same. Reproduced through the one command from the raw arrays: the band holds again.
 
-**Reads:** arrays. **Where it stands:** commissioned (tested and commissioned on whole blood, EPIC v1).
+**Reads:** arrays. **Where it stands:** commissioned (tested and commissioned on whole blood, EPIC v1) (with a same-run healthy tare; being re-commissioned with IAM-Atlas v2.1 as the only healthy reference).
 
 **The tests behind it:**
 
@@ -187,7 +187,7 @@ Counts tagging mistakes one DNA molecule at a time, the most direct reading of i
 
 Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A reads each person with the one command, tares each reading against healthy arrays run the same way, and compares the groups. On 278 healthy people from a laboratory it had never read, women and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors.
 
-**Reads:** arrays. **Where it stands:** commissioned (groups of whole bloods run in one series, EPIC v1).
+**Reads:** arrays. **Where it stands:** commissioned (groups of whole bloods run in one series, EPIC v1) (with a same-run healthy tare; being re-commissioned with IAM-Atlas v2.1 as the only healthy reference).
 
 **The tests behind it:**
 

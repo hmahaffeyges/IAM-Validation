@@ -1,5 +1,5 @@
 {
- "_rule": "Commissioning registry (author 2026-10-15: 'The code should not allow us to commission anything without a verification that all the correct docs have been updated'). Every results-register entry of kind 'commissioning' must appear here, with every required place (kinds: note, chain, report, sop, sop_full, om, status, book, book_status, catalogue, readme, intro, qa; intro and qa added 2026-10-20 so the researcher package's INTRODUCTION.md and Q&A cannot go stale), each a file and a pattern that must be found; 'forbid' lists stale statements that must not remain. CANON/commissioning_check.py runs in checked_push.sh; a missing place or a stale statement refuses the push.",
+ "_rule": "Commissioning registry (author 2026-10-15: 'The code should not allow us to commission anything without a verification that all the correct docs have been updated'). Every results-register entry of kind 'commissioning' must appear here, with every required place (kinds: note, chain, report, sop, sop_full, om, status, book, book_status, catalogue, readme, intro, qa; intro and qa added 2026-10-20 so the researcher package's INTRODUCTION.md and Q&A cannot go stale), each a file and a pattern that must be found; 'forbid' lists stale statements that must not remain. CANON/commissioning_check.py runs in checked_push.sh; a missing place or a stale statement refuses the push. 2026-11-07 (author: 'healthy for comparisons MUST always come from the atlas's ... never tare our instruments with anything other than what we can be certain is healthy'; 'we need to make sure this doesnt happen again'): every entry names its 'reference' and 'atlas_only'. An entry dated 2026-11-07 or later must be atlas_only true and its note must carry a '**Reference:**' line naming IAM-Atlas v2.1 or the IAM Sequencing Atlas; an older entry that is not atlas_only must carry 'recommission', and the catalogue shows it.",
  "required_kinds": [
   "note",
   "chain",
@@ -99,7 +99,10 @@
    ],
    "status_line": "| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | tested and commissioned on isolated neutrophils against their own healthy profile; detection limit 2 % |",
    "summary": "Met-A on neutrophils, EPIC v1, isolated neutrophils",
-   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md"
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md",
+   "reference": "same-run healthy tare (the median tare, conductor_v3.stage_t_tare)",
+   "atlas_only": false,
+   "recommission": "awaiting atlas-only re-commissioning (plan 60.29): synthetic over the real range, spent rehearsal per person, fresh test per person, on IAM-Atlas v2.1 alone"
   },
   {
    "register_id": "COMMISSIONING-CSCORE",
@@ -240,7 +243,10 @@
    ],
    "status_line": "| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |",
    "summary": "the Met-A C-score on whole blood, EPIC v1",
-   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md"
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
+   "reference": "same-run healthy tare (at least 3 healthy arrays on its slide)",
+   "atlas_only": false,
+   "recommission": "awaiting atlas-only re-commissioning (plan 60.29): synthetic over the real range, spent rehearsal per person, fresh test per person, on IAM-Atlas v2.1 alone"
   },
   {
    "register_id": "COMMISSIONING-ATLAS-V21",
@@ -321,7 +327,9 @@
      "file": "Biological_Physics/MethylPhys/STATUS.md",
      "pattern": "IAM-Atlas v2.1\\*\\* \\| running now"
     }
-   ]
+   ],
+   "reference": "is the reference (IAM-Atlas v2.1)",
+   "atlas_only": true
   },
   {
    "register_id": "COMMISSIONING-DECONV-V21",
@@ -397,7 +405,9 @@
    "forbid": [],
    "status_line": "| **IAM-Deconvolver (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares on arrays, tested on mixtures of neutrophils, monocytes, CD4 T and CD8 T cells from a laboratory the atlas never saw: mean share error 0.016 |",
    "summary": "the Deconvolution tool for blood-cell shares on arrays",
-   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md"
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_DECONV_V21.md",
+   "reference": "IAM-Atlas v2.1 cell columns",
+   "atlas_only": true
   },
   {
    "register_id": "COMMISSIONING-IAMA",
@@ -482,7 +492,9 @@
      "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v3.py",
      "pattern": "\"IAM-A\", \"running \\(development\\)\""
     }
-   ]
+   ],
+   "reference": "each sample's own reference, on the self-reference line built from the IAM Sequencing Atlas's source (GSE186458)",
+   "atlas_only": true
   },
   {
    "register_id": "COMMISSIONING-GROUPA",
@@ -558,7 +570,10 @@
      "pattern": "for Group-A, 278 healthy\\s+people"
     }
    ],
-   "forbid": []
+   "forbid": [],
+   "reference": "same-run healthy tare (each person against same-run healthy arrays)",
+   "atlas_only": false,
+   "recommission": "awaiting atlas-only re-commissioning (plan 60.29): synthetic over the real range, spent rehearsal per person, fresh test per person, on IAM-Atlas v2.1 alone"
   }
  ]
 }

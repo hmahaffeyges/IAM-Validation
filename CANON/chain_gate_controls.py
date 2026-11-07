@@ -75,7 +75,16 @@ r = tree(); w(r, S3, "own = (B.get('development') or {}).get('metaa_atlas')\nsha
 res["C20 scorer reads the label's cell"] = CG.check([S3], {}, root=r, known={CG.chain_sha(r)})
 r = tree(); w(r, S3, "lc = B['label_check']; each = B['met_a_each_cell']['cells']\n")
 res["C21 scorer reads the cells the Deconvolver found"] = CG.check([S3], {}, root=r, known={CG.chain_sha(r)})
-want = {k: (k.startswith(("C7", "C9", "C11", "C14", "C15", "C19", "C21"))) for k in res}
+# 2026-11-07, rule 23b-i: the atlases are the only healthy reference
+def ref_case(path, lines):
+    r = tree(); os_.makedirs(os.path.dirname(os.path.join(r, path)), exist_ok=True); w(r, path, "\n".join(lines) + "\n")
+    return CG.check([path], {path: lines}, root=r, known={CG.chain_sha(r)})
+res["C22 scorer tares on the laboratory's own healthy samples"] = ref_case(S3, ["T = [a.iloc[i] / np.nanmedian(a.drop(a.index[i])) for i in range(len(a))]"])
+res["C23 chain divides by the run's healthy median"] = ref_case(CC, ["A_rel = A / d[d.status == 'healthy'].A.median()"])
+res["C24 scorer calls the tare"] = ref_case(S3, ["A_rel = SA.tare(A, refs)"])
+res["C25 scorer divides tumor by own normal"] = ref_case(S3, ["q = tumor_A / normal_A"])
+res["C26 scorer reads A against the atlas prediction"] = ref_case(S3, ["q = B['met_a_whole']['A'] / B['met_a_whole']['A_pred']", "ok = (q - 1).abs() <= 0.05"])
+want = {k: (k.startswith(("C7", "C9", "C11", "C14", "C15", "C19", "C21", "C26"))) for k in res}
 bad = [k for k, F in res.items() if (len(F) == 0) != want[k]]
 for k, F in res.items(): print(f"  {k}: {'ACCEPTED' if not F else 'REFUSED'} (want {'ACCEPT' if want[k] else 'REFUSE'})" + ("" if not F else f" - {F[0][-110:]}"))
 print("chain_gate_controls: " + (f"ok ({len(res)} of {len(res)})" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)

@@ -1,0 +1,5 @@
+Johns Hopkins tumor against own normal (GSE86340): 12 of 12 read; 5 labeled pairs
+each pair, tumor / own normal: indiv1 (liver): Met-A whole sample 0.8422, islands 1.1388, domains 0.7688, C-Score 0.9980, IAM-A 0.9284 | indiv2 (liver): Met-A whole sample 0.9983, islands 2.0477, domains 0.9133, C-Score 0.9930, IAM-A 0.8843 | indiv3 (liver): Met-A whole sample 0.9407, islands 1.1871, domains 0.8888, C-Score 0.9939, IAM-A 1.0130 | indiv5 (lung): Met-A whole sample 0.9963, islands 1.4060, domains 0.9868, C-Score 1.0013, IAM-A 0.8678 | indiv6 (lung): Met-A whole sample 1.0443, islands 1.0278, domains 1.0553, C-Score 0.9948, IAM-A 0.9001 | unlabeled (lung): Met-A whole sample 1.1268, islands 1.1747, domains 1.1864, C-Score 1.0002, IAM-A 0.8344
+bar 1 whole-sample Met-A outside 0.95 to 1.05 in at least 4 of 5: 2 of 5: not met
+bar 2 islands outside 0.95 to 1.05 in at least 4 of 5: 4 of 5: met
+test: not met

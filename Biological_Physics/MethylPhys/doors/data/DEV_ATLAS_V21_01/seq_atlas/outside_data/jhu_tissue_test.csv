@@ -1,0 +1,13 @@
+gsm,person,organ,kind,status,Met-A whole sample,islands,domains,C-Score,coupling-A,IAM-A,top cells,not read
+GSM2103008,indiv1,liver,normal,read,1.23677,0.8483,1.27817,1.0001,,1.0317,hepatocyte 0.437; colon fibroblasts 0.099; granulocytes 0.081,
+GSM2103009,indiv1,liver,tumor,read,1.0416,0.96601,0.9827,0.9981,,0.9578,hepatocyte 0.606; smooth muscle 0.183; heart fibroblasts 0.076,
+GSM2103010,indiv2,liver,normal,read,1.2235,0.72611,1.27489,0.9983,,1.0209,hepatocyte 0.562; adipocytes 0.055; pancreatic duct 0.052,
+GSM2103011,indiv2,liver,tumor,read,1.22147,1.48684,1.16431,0.9913,,0.9028,hepatocyte 0.618; smooth muscle 0.172; cd8 t cells 0.077,
+GSM2103012,indiv3,liver,normal,read,1.36049,1.29311,1.39467,1.0082,,1.0918,hepatocyte 0.598; lung alveolar macrophages 0.068; pancreas endothelium 0.058,
+GSM2103013,indiv3,liver,tumor,read,1.27975,1.5351,1.2396,1.0021,,1.106,hepatocyte 0.317; cd8 t cells 0.117; colon enteroendocrine 0.079,
+GSM2103014,indiv5,lung,normal,read,1.24611,0.32434,1.3307,1.0012,,1.0907,lung alveolar endothelium 0.259; lung alveolar epithelium 0.227; lung alveolar macrophages 0.116,
+GSM2103015,indiv5,lung,tumor,read,1.24153,0.45603,1.31313,1.0025,,0.9465,smooth muscle 0.128; memory b cells 0.092; colon fibroblasts 0.091,
+GSM2103016,indiv6,lung,normal,read,1.25146,1.096,1.28457,1.0017,,1.1796,lung alveolar epithelium 0.229; lung alveolar endothelium 0.222; granulocytes 0.044,
+GSM2103017,indiv6,lung,tumor,read,1.30691,1.12645,1.35564,0.9965,,1.0618,t effector memory cd4 0.163; granulocytes 0.139; lung alveolar epithelium 0.138,
+GSM2103018,unlabeled,lung,normal,read,1.20482,0.33564,1.2689,1.0027,,1.1075,lung alveolar endothelium 0.298; lung alveolar epithelium 0.204; pancreas endothelium 0.089,
+GSM2103019,unlabeled,lung,tumor,read,1.35758,0.39429,1.50545,1.0029,,0.9241,lung alveolar epithelium 0.264; granulocytes 0.251; memory b cells 0.098,

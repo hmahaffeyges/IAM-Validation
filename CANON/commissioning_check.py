@@ -23,5 +23,13 @@ for i in C["instruments"]:
         if os.path.isfile(f):
             m = re.search(x["pattern"], open(f, encoding="utf-8", errors="replace").read())
             if m: P.append(f"{i['register_id']}: stale statement in {x['file']}: '{m.group(0)[:70]}'")
+for i in C["instruments"]:   # 2026-11-07: the atlases are the only healthy reference
+    if "reference" not in i or "atlas_only" not in i: P.append(f"{i['register_id']}: names no 'reference' and 'atlas_only'"); continue
+    if str(i.get("date", "")) >= "2026-11-07":
+        if not i["atlas_only"]: P.append(f"{i['register_id']}: commissioned on a reference other than the atlases ({i['reference'][:60]})")
+        nf = [x["file"] for x in i.get("places", []) if x["kind"] == "note"]
+        if not nf or not re.search(r"(?m)^\*\*Reference:\*\*.*(IAM-Atlas v2\.1|IAM Sequencing Atlas)", open(os.path.join(ROOT, nf[0]), encoding="utf-8").read()):
+            P.append(f"{i['register_id']}: its note has no '**Reference:**' line naming an atlas")
+    elif not i["atlas_only"] and not i.get("recommission"): P.append(f"{i['register_id']}: not atlas-only and no 'recommission' entry")
 print("commissioning_check: " + ("ok (" + str(len(C["instruments"])) + " commissioned)" if not P else "REFUSED")); [print("  " + p) for p in P]
 sys.exit(1 if P else 0)

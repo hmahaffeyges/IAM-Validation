@@ -440,3 +440,32 @@ donors; the conclusion of step 3 stands. The BLUEPRINT neutrophil donors are now
 **The ceiling's A, captured** (`data/DEV_METAA_HEALTHY_01/bar2_01/bar2_rows.csv`, written by `CANON/bundle_rows.py` from the one command's
 bundles; values copied, nothing computed): every reading of the 100 healthy bloods with its A and the A its ceiling sits at (every site at 1 bit); the ceiling's A is listed in the
 A-score database, on the A-score scale (1 healthy; the ceiling to the right, the floor to the left).
+
+## Synthetic test 3: the real arrays' range (written and committed before it runs)
+
+**Why.** Test 2's weak array missed bar 1 by 0.0072. Checked offline (working notes, chain functions called directly, not evidence): the healthy
+line's formula is exact with the planted line and noise (all three arrays 1.0000 within 0.0003) and with the line the chain measures from each array
+(the weak array 0.9995); the miss follows the IAM-Deconvolver's mix drifting on a compressed array (adding the drift the chain reported on the mild
+array reproduces its 0.99689). But test 2's grid was set without measuring real arrays, and every real array the chain has measured is far less
+compressed than even the mild one.
+
+**The instrument's job:** a healthy blood array reads Normal against IAM-Atlas v2.1 on Met-A's gauge.
+
+**Sources:** GEO GSE235717 GSM7508429 (public: one healthy whole blood's raw IDATs, the base and the cell shares); IAM-Atlas v2.1 (public, in this
+repository and on Zenodo: each cell's healthy level at every site, and the ruler's anchor sites).
+
+**Reference:** IAM-Atlas v2.1 only, in the mix of cells the IAM-Deconvolver measures; no same-run tare, no controls.
+
+**Synthetic test:** `DEV_METAA_HEALTHY_01/synthetic_03.py` (every array through the one command, on a Google machine that saves as it goes).
+
+**Range of the data:** real arrays (the line and noise the chain measured on 331 arrays: R14 lung on EPIC and the 450K blood rehearsal) have a
+design I slope 0.993 to 1.009, offset -0.006 to 0.002, noise 0.003 to 0.015, and a design II slope 0.999 to 1.030, offset -0.018 to -0.004, noise
+0.006 to 0.024. The synthetic arrays: the real medians (center), and both tails at the real extremes with the largest real noise (design I slope
+0.9928 and 1.0085, noise 0.0148; design II slope 0.9991 and 1.0301, noise 0.0240); test 2's weak array (slope 0.88 and 0.78, noise 0.05 and 0.06),
+beyond the real range, recorded, not scored.
+
+Bars (scored on the three arrays in the real range):
+- **Bar 1:** each of the 3 healthy arrays reads A / A_pred within 0.005 of 1.
+- **Bar 2:** on each of the 3, a 5 % loss of the held pattern off the anchors raises A / A_pred by at least half as much as it raises A.
+
+**Prior reading:** GSM7508429 is spent (tests 1 and 2); nothing else is read.

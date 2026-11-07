@@ -1523,3 +1523,32 @@ the scorer only. The five normals read before with the status in the specimen ar
 again the same way as the tumors, so both arms are read identically. Each merge now saves its merged reads to the bucket the moment they
 exist and takes them back after a reclaim, and keeps the chain's own log; the dispatcher logs every job it gives up on and every sample
 stuck with all chunks aligned, and the machine check prints both as failures. First result: GSM2103009 (liver tumor) read, exit 0.
+
+**Naive and memory CD4 on sequencing: synthetic met** (`label_rule/subset_synthetic.txt`; 30 of 30 rows read by the one command on Google, one row a
+machine). At 15 and 40 reads a site the measured memory fraction is within 0.15 of the planted in every row (largest gap 0.068) and the total
+CD4 within 0.1 (largest gap 0.043); at 3 reads a site most rows still hold (largest gaps 0.25 and 0.118, recorded). So on constructed samples
+built from the atlas's own subset columns the Deconvolver separates naive from memory CD4. What it cannot settle is whether those columns,
+one donor each, stand for other people's naive and memory cells: the BLUEPRINT memory libraries read almost no memory share. That is a
+question about the columns' donors, read next on the spent outside samples before any fresh one.
+
+**The Johns Hopkins tumor-against-own-normal test, read: not met** (`seq_atlas/outside_data/jhu_tissue_test.txt`, `jhu_tissue_test.csv`, `jhu_tissue_test_pairs.csv`; all 12 read by the
+one command at full depth on Google, every sample's specimen its organ only, scored by the committed scorer.) Bar 1 not met: whole-sample Met-A,
+tumor against own normal, outside 0.95 to 1.05 in 2 of the 5 people (0.8422, 0.9983, 0.9407, 0.9963, 1.0443). Bar 2 met: the islands outside the
+band in 4 of 5 (1.1388, 2.0477, 1.1871, 1.4060; the fifth 1.0278). **Recorded, not scored:** IAM-A against own normal below 0.95 in 4 of 5
+(0.9284, 0.8843, 1.0130, 0.8678, 0.9001); the domains below 0.95 in the three liver pairs (0.7688, 0.9133, 0.8888); the C-Score within 0.99 to
+1.01 in all five; the unlabeled lung pair whole 1.1268, islands 1.1747. The tissues' untared whole-sample Met-A against the IAM Sequencing
+Atlas reads 1.20 to 1.36 in 11 of 12, normal and tumor alike; indiv1's liver tumor (GSM2103009) reads 1.0416 (recorded; see the correction below). So, read against the same
+person's own normal tissue from the same laboratory, the islands and IAM-A move in most tumors and the whole-sample Met-A does not.
+
+**Correction to the tumor-against-own-normal test: the "normal" is not healthy tissue (author; disclosed).** GSE86340 labels these samples only "normal" from the same individual as
+the tumor (for example "indiv1-liver-normal"; "cancer / normal: normal"); where in the organ they were taken is not stated, and the sample
+list's "adjacent normal" was my wording, not the series'. They are a cancer patient's non-tumor tissue, not healthy tissue, so the test above
+read each tumor against the same person's non-tumor tissue, a weaker reference than healthy: any change the non-tumor tissue already
+carries narrows the gap. Its result stands as recorded under that name. The earlier line that the atlas has no liver or lung column was wrong:
+the IAM Sequencing Atlas holds hepatocytes (3 donors), lung alveolar epithelium, bronchus epithelium and alveolar endothelium (3 each) and two
+lung macrophage types, and the chain read every tissue against them in the Deconvolver's measured mix; against that healthy reference the tumors
+and their non-tumor tissue read 1.20 to 1.36 (11 of 12; indiv1's liver tumor 1.0416), which is this laboratory's offset (its healthy CD4 donors read 1.14 whole-sample) or a
+change in the non-tumor tissue, not yet told apart. **Next (its design, synthetic and range of the data recorded first):** both tissues of each person read
+against the IAM Sequencing Atlas's healthy liver and lung cells only (author: the healthy reference for every comparison comes from the
+atlases, never from a sample labeled healthy or normal); each library's own chemistry measured from its own reads at the sites read (the
+class floor), never from another laboratory's or person's samples, so the non-tumor side is tested for a change rather than assumed healthy.

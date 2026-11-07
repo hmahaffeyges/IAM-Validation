@@ -39,6 +39,28 @@ OWN_PAT = re.compile(r"\\\.pat\\\.gz|\.pat\.gz")
 OWN_FETCH = re.compile(r"urlopen|urlretrieve|requests\.get|curl |wget ")
 LABEL_CELL = re.compile(r"\b(dev_metaa_atlas|seq_cell|_shr|_sc|cell_shares)\s*=\s*[^=\n]*atlas_cell_of\(|\{\s*[^{}\n]*atlas_cell_of\([^)]*\)[^{}\n]*:\s*1(?:\.0)?\s*\}")
 SCORER_LABEL = re.compile(r"""\.get\(\s*["']metaa_atlas["']\s*\)|\[\s*["']metaa_atlas["']\s*\]|\.get\(\s*r\.(?:cell|atlas_cell)\s*\)""")
+# 23b-i (2026-11-07, author: "healthy for comparisons MUST always come from the atlas's ... never tare our instruments with anything other than
+# what we can be certain is healthy"; "we need to make sure this doesnt happen again"): a line ADDED to chain code or to a test's code may not
+# build a healthy reference from other samples: a tare (the same-run, same-laboratory or a person's own normal), or a reading divided by the
+# median or mean of samples picked by a healthy, normal or control label. The atlases are the only healthy reference. Kept: the commissioned
+# array path already in the chain (unchanged lines are history; it awaits atlas-only re-commissioning, plan 60.29).
+OTHER_REF_CODE = re.compile(r"""(?ix)
+   \b(same_lab_tare|same_run_tare|own_normal|lab_tare|tare_on)\b                                   # tare helpers
+ | (?<![\w.])tare\s*\(                                                                           # calling a tare
+ | \.tare\s*\(
+ | /\s*[\w.\[\]'"]*\[[^\]\n]*(healthy|HEA|normal|control|ctrl)[^\]\n]*\][^\n]*\.(median|mean)\s*\(  # / x[healthy].median()
+ | (healthy|normal|control)\w*\s*\]?\s*\)?\.(median|mean)\(\)[^\n]*(/|\bratio\b|\btare\b)
+ | /\s*np\.nan(median|mean)\(\s*\w+\.drop\(                                   # / the median of the others (leave-one-out)
+ | /\s*\w*(normal|healthy|control|ctrl|others)\w*\b(?!\s*\()                         # / own_normal
+ | \b(tumou?r|case)\w*\s*/\s*\w*(normal|ctrl|control)\w*
+""")
+REF_OK = re.compile(r"(?i)RETIRED|rule 23b-i exempt|# atlas only")
+def ref_refusal(f, lines):
+    for l in lines:
+        if l.lstrip().startswith("#"): continue
+        m = OTHER_REF_CODE.search(l)
+        if m and not REF_OK.search(l): return f"{f}: builds a healthy reference from other samples ('{m.group(0).strip()[:40]}'); the atlases are the only healthy reference (rule 23b-i)"
+    return None
 def label_refusal(f, text):
     """Rule 23b-h: a cell taken from a label instead of the Deconvolver."""
     if f.startswith(CHAIN + "/") and f.endswith(".py"):
@@ -93,6 +115,9 @@ def check(changed, added, root=ROOT, known=None):
         if f.endswith(".py") and os.path.isfile(os.path.join(root, f)):   # rule 23b-h (2026-11-07)
             _lr = label_refusal(f, open(os.path.join(root, f), encoding="utf-8", errors="replace").read())
             if _lr: F.append(_lr)
+        if f.endswith((".py", ".sh")) and (f.startswith(CHAIN + "/") or f.startswith(DOORS + "data/")):   # rule 23b-i (2026-11-07)
+            _rr = ref_refusal(f, added.get(f, []))
+            if _rr: F.append(_rr)
         if f.startswith(SCOPE_F) and f.endswith((".py", ".sh")) and os.path.isfile(os.path.join(root, f)):
             _tx = open(os.path.join(root, f), encoding="utf-8", errors="replace").read()
             F += [m for m in (one_command_refusal(f, _tx), own_pat_refusal(f, _tx)) if m]
