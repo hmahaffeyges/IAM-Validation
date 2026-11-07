@@ -694,6 +694,12 @@ def main():
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
     if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc0; _SAlc0.LINE_CENSORED = True   # 2026-11-07: every route, arrays included (the first placement was inside the sequencing branches; synthetic test 4 ran without it)
+    if not getattr(a, "build", None):   # 2026-11-07, lock 1 (reference_door.py): the atlases checked against their checksums before any reading
+        import reference_door as _RD; _rdc = _RD.check()
+        if not _rdc["ok"]:
+            print("  REFERENCE_REFUSED - an atlas file does not match its published checksum: " + "; ".join(_rdc["refused"][:5]), flush=True)
+            if a.bundle: json.dump({"status": "REFERENCE_REFUSED", "id": a.id, "reference": _rdc, "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1, default=str)
+            sys.exit(7)
     a._full_chain = None
     if a.full_chain:   # 2026-10-29 (author): every development reading that applies to the input is run beside the commissioned ones, each flagged;
         # a reading that cannot run here is recorded with its reason (bundle["full_chain"]), never left out silently
@@ -1425,6 +1431,8 @@ def main():
             import stage_seq_atlas as _SQf, pandas as _pdf; _bf = _pdf.read_csv(a.betas, index_col=0).iloc[:, 0]; _lf = _SQf.library_floor(_bf, a._seqc)
             if _lf: o.setdefault("development", {})["library_floor"] = _lf
         except Exception as _e: o.setdefault("development", {})["library_floor"] = dict(status="NOT_RUN", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
+    try: import reference_door as _RD2; o["reference"] = _RD2.record(o)   # 2026-11-07, lock 1: the atlases read and every tare applied
+    except Exception as _e: o["reference"] = dict(status="NOT_RECORDED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     if not a.no_bundle:
         bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
         _json.dump(o, open(bundle_path, "w"), default=str)
