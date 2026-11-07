@@ -206,7 +206,7 @@
      "date": "2026-11-04",
      "status": "open",
      "what": "A6: whole blood on 450K: GSE85210 (253 healthy volunteers, raw IDATs, unread; replaces GSE55763, which has no raw IDATs) as the healthy commissioning test of Met-A, the C-Score and Group-A on 450K; written before reading; GSE174422's 128 duplicate pairs as the reproducibility check",
-     "next": "write the test (healthy never-smokers as the scored set; the smokers held as a chosen Group-A test)"
+     "next": "held: the rehearsal on spent GSE67393 bloods (DEV-WB450-REHEARSAL-01) reads only about 60 % of healthy bloods within 0.95 to 1.05 tared on their run; find the spread's cause on spent data first, GSE85210 stays unread"
     },
     {
      "id": "60.7",

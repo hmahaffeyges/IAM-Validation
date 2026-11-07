@@ -390,7 +390,7 @@ GSE65163,,,,,,,,,not usable (not purified (brushing)),nasal epithelium,yes,IDAT 
 GSE66351,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,cortical neurons | oligodendrocytes,yes,IDAT listed for 190/190 samples,"DNA methylation profiling of neuron and glia for the dissection of cell type, age and Alzheimer’s disease-specific changes in the human brain; DNA methylation p",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE66836,,,,,,,,,,,,,Genome-wide DNA methylation signature in lung adenocarcinomas has prognostic impact,candidates DEV_FINGERPRINT_03
 GSE67170,,,,,,,,,held-out test,t cells cd3,yes,IDAT listed for 89/89 samples,The signature of liver cancer in host peripheral blood mononuclear cells and T cells DNA methylation,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
-GSE67393,,,,,,,,DEV_CSCORE_LIMIT_01,,,,,,
+GSE67393,,,,,,,,DEV_CSCORE_LIMIT_01; DEV_WB450_REHEARSAL_01,,,,,,
 GSE67393 normal peripheral blood 450K (reserved half),,,,,spent (confirmation),,,,,,,,,
 GSE67393 normal peripheral blood 450K (test half),,,,,spent (development),,,,,,,,,
 GSE68339,,,,,partly spent,,,,,,,,,
@@ -423,6 +423,7 @@ GSE83842,,,,,,not suitable,DEV_TISSUE_LUNG_02,DEV_FINGERPRINT_03; DEV_TISSUE_LUN
 GSE83944,,,,,,,,,not usable (too few donors (one)),neutrophils,yes,IDAT listed for 48/48 samples,"Circadian oscillations of cytosine modification in humans contribute to epigenetic variability, aging, and complex disease",gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE84274,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE84395,,,,,partly spent,,,DEV_REPLICATE_01,not usable (cultured with no uncultured comparison),lung alveolar endothelium,yes,IDAT listed for 39/39 samples,Endothelial DNA methalytion signature in pulmonary arterial hypertension,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE85210,,,,,,,,DEV_WB450_REHEARSAL_01,,,,,,
 GSE85355,,,,,,,,DEV_ERASE_01,,,,,,
 GSE85566,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,lung bronchus epithelium,yes,IDAT listed for 115/115 samples,DNA methylation in lung cells is a key modulator of asthma endotypes and genetic risk [DNA methylation],gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE85647,,,,,spent (IAM-Atlas v2.1 build or held-out test),,,COMMISSIONING_NOTE_ATLAS_V21,held-out test,monocytes,yes,IDAT listed for 23/23 samples,Methylation and expression profiles of monocytes in monozygotic twins: role in Myasthenia Gravis [methylation profiling],gold-mine map; candidates DEV_ATLAS_COMMISSION_01

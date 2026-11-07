@@ -1,0 +1,4 @@
+bloods read: 57
+A: median 0.8923, standard deviation 0.0438, range 0.787 to 0.934, share within 0.95 to 1.05 of the median 0.596
+against prediction: median 0.9723, standard deviation 0.0455, range 0.863 to 1.009, share within 0.95 to 1.05 0.526
+tared on the run: median 0.9988, standard deviation 0.0499, range 0.880 to 1.047, share within 0.95 to 1.05 0.596
