@@ -387,3 +387,8 @@ Stage 3 or 4 against stage 1: no reading of 169 separates below p 0.001, and one
 from lung tissue, p 0.0062), fewer than chance gives among 169. Stage 2 against stage 1: none below p 0.01. Read on every cell, tumor
 stage does not move the readings of the tumor tissue itself in this set. The other 4 arrays were quarantined by the chain at intake:
 bisulfite conversion below its limit of 0.8 (GSM8085679 0.770; GSM8085719 0.756; GSM8085753 0.794; GSM8085766 0.729).
+
+**R11 plasma on every cell of IAM-Atlas v2.1 (written before it is read again):** the same 59 plasma arrays (GSE122126, `r11_plasma_samples.csv`), specimen plasma, read again by the one command with
+`--full-chain --cell-panel atlas` (all 79 cells, flagged in development), pass 1, and scored by `r23_score.py r11` as before, every cell
+listed. Reference only: plasma on arrays is not a commissioned specimen; every reading is flagged and none is scored. Wave A of the retest
+plan (plan 0.9) is then read on every cell.

@@ -188,6 +188,13 @@
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     },
     {
+     "id": "60.24",
+     "date": "2026-11-06",
+     "status": "open",
+     "what": "The megakaryocyte column tested on platelet DNA (author 11-06: 'I really want that added to our atlas'). The column (single-cell donors 1 and 2 of GSE87197) met nothing by plain distance on donor 3 and reads 1st of 57 once counting noise is weighed, but donor 3 is spent. Fresh test: GSE206818's platelet WGBS (3 people pooled, a level track, unread; platelet DNA is mostly megakaryocyte DNA). Synthetic first (a deep level-only sample read against a shallow column of its own cell comes out nearest it), the test written and committed before the platelet file is opened; bar: megakaryocytes the platelets' nearest cell of the 57 by the noise-weighted comparison. Met: the column joins the in-mix readings, flagged provisional, replacing the four stand-in cells for plasma.",
+     "next": "tonight on GitHub, after the plasma copies correction: the synthetic, then the sealed test, then the one read"
+    },
+    {
      "id": "60.4",
      "date": "2026-11-04",
      "status": "open",
