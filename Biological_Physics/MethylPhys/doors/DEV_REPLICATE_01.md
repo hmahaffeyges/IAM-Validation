@@ -443,3 +443,18 @@ found; recorded as found, the cause not assigned.
 healthy donors (0.24). The 42 normal-adjacent and the 7 normal BRCA1 carriers do not separate from the healthy donors below p 0.001.
 R18, R19 and R20 were refused by the series workflow (my error: sent with 4 shards, which it does not run; the same error as R14 before) and
 are re-sent with 10; the queue now refuses any other shard count before sending.
+
+**R17 breast tissue read per person (written and committed before any of its readings exists).** Group against group, the 42 normal-adjacent samples did not separate from the 50 healthy donors; a change carried by some
+people and not others would not show that way. Each of the 407 arrays is read again by the one command with `--dev-pred-raw` (series run
+`r17_raw`, GitHub) and reported person by person.
+
+**The instrument's job:** a healthy breast tissue array reads Normal on Met-A's gauge against IAM-Atlas v2.1.
+
+**Sources:** GEO GSE69914 series matrix (public; labels `r17_breast_labels.csv` from GEO's sample fields); IAM-Atlas v2.1 (public, Zenodo).
+
+**Reference:** IAM-Atlas v2.1 only, each array against the atlas in its own measured mix; no group is a reference for any other array.
+
+Bar (scorer `DEV_REPLICATE_01/r17_person_score.py`): at least 45 of the 50 healthy donors each read A / A_pred inside Normal, 0.95 to 1.05.
+Recorded, not scored: every other array person by person (normal-adjacent, BRCA1 carriers, cancer), inside, above or below Normal.
+
+**Prior reading:** GSE69914 is spent (R17 above, and earlier-engine VAL tests); this is a replay, stated as such.
