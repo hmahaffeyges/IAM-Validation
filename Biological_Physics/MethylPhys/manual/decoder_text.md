@@ -2010,6 +2010,19 @@ The healthy expectation of disorder at each site: on sequencing, the expected en
 ### stage_metaa_atlas.py::_ruler
 Loads the atlas ruler's frozen file once: every site's probe design (I or II), the anchor sites per design (held below about 0.05 or above about 0.95 in every one of the 79 cell types) and the atlas's values there.
 
+### stage_metaa_atlas.py::_line_censored
+
+Development (2026-11-07, `--dev-line-censored`, off by default). An array reports values between 0 and 1, so a site whose true reading
+lies below 0 or above 1 is reported at the bound. Taking plain means of the anchor sites then pulls the measured line inward, and the healthy
+prediction built on it misses on arrays whose line runs past a bound (Met-A synthetic test 3, the high tail). This measures the same line, x =
+a + b e with noise s, from the same anchor sites, counting each reading at 0 or 1 as known only to be at or beyond the bound (a censored-normal
+likelihood). When no anchor is at a bound it returns the plain estimate unchanged. It measures the instrument at sites where every healthy
+cell agrees; nothing is fitted to any reading of the sample.
+
+### stage_metaa_atlas.py::_line_censored.nll
+
+The negative log-likelihood the line is measured by: anchors strictly between 0 and 1 count by their normal density around a + b e; an anchor at 0 counts by the chance of a reading at or below 0, one at 1 by the chance at or above 1.
+
 ### stage_metaa_atlas.py::array_blur
 Measures the array's own blur, per probe design, at its anchor sites: the straight line x = a + b e through the means of its low and high anchors against the atlas's means there, and its noise, 1.4826 times the median absolute residual from that line. Nothing is fitted to any reading; these are measurements of the array where every healthy cell agrees (DEV-METAA-HEALTHY-01).
 

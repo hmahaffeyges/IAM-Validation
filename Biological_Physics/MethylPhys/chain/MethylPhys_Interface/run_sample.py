@@ -217,6 +217,7 @@ def _metaa_atlas(a, b):
         if getattr(a, "dev_input_floors", None): import stage_seq_atlas as _SQff; _SQff.FLOORS_FILE = a.dev_input_floors   # 2026-11-02: a constructed floors file
         if getattr(a, "dev_floor_equal", False): import stage_metaa_atlas as _SAfe; _SAfe.FLOOR_EQUAL = True   # 2026-11-02: the common library floor
         if getattr(a, "dev_floor_class", False): import stage_metaa_atlas as _SAfc; _SAfc.FLOOR_CLASS = True   # 2026-11-07: the floor counted at the islands read
+        if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc; _SAlc.LINE_CENSORED = True   # 2026-11-07
         _sr = None
         if getattr(a, "dev_seq_ref", None):   # 2026-10-29 (plan 35.30): the IAM Sequencing Atlas as the ruler for a sequenced sample
             import stage_seq_atlas as _SQr; _sr = _SQr.metaa_reference_of(a.dev_metaa_atlas, _SQr.METAA_REF if a.dev_seq_ref == "auto" else a.dev_seq_ref)
@@ -682,6 +683,7 @@ def main():
     ap.add_argument("--build-name", default=None, help="the atlas's name on a picture built from --build-input (info-globe)")
     ap.add_argument("--dev-terr-counted", action="store_true", help="DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given")
     ap.add_argument("--dev-seq-copies", action="store_true", help="DEVELOPMENT: on sequencing, count the sample's calls as copies of fewer molecules, by its own copy distribution measured at the library-floor sites (linear-amplification libraries; DEV-ONE-DRAW-01)")
+    ap.add_argument("--dev-line-censored", action="store_true", help="DEVELOPMENT (2026-11-07, DEV-METAA-HEALTHY-01): the array's line at the anchor sites measured with readings at exactly 0 or 1 counted as censored")
     ap.add_argument("--dev-floor-class", action="store_true", help="DEVELOPMENT (2026-11-07): the islands read with the sample's and the reference's floors each counted at the islands read, where the sample's own mix expects them unmarked, both at the higher (stage_metaa_atlas.FLOOR_CLASS)")
     ap.add_argument("--dev-floor-equal", action="store_true", help="DEVELOPMENT: read a sequenced sample and its reference at a common library floor (the higher of the two)")
     ap.add_argument("--dev-input-floors", default=None, help="DEVELOPMENT: an atlas input floors file in the committed format (gsm, cell, half, floor, calls), for synthetics")
@@ -761,6 +763,7 @@ def main():
             _SAf0.SAMPLE_FLOOR = ((_lf0 or {}).get("unmarked") or {}).get("rate")
             if getattr(a, "dev_floor_equal", False): _SAf0.FLOOR_EQUAL = True
             if getattr(a, "dev_floor_class", False): _SAf0.FLOOR_CLASS = True   # 2026-11-07
+            if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc; _SAlc.LINE_CENSORED = True   # 2026-11-07
             if getattr(a, "dev_input_floors", None): _SQf0.FLOORS_FILE = a.dev_input_floors
             if getattr(a, "dev_seq_copies", False):   # 2026-11-06 (DEV-ONE-DRAW-01): the sample's own copy process, before any reading
                 import stage_seq_copies as _SCc, pandas as _pdc

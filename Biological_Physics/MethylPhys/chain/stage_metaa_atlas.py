@@ -709,6 +709,23 @@ def _ruler():
         import json as _j; R = _j.load(open(RULER)); _cache["ruler"] = (pd.Series(R["design"]), {k: list(v) for k, v in R["sets"].items()}, R["ref_anchors"])
     return _cache["ruler"]
 
+LINE_CENSORED = False   # 2026-11-07 (run_sample.py --dev-line-censored; development, DEV-METAA-HEALTHY-01 synthetic test 3): the array's line measured
+                        # with readings at exactly 0 or 1 counted as censored (known only to be at or beyond the bound), not as values
+
+def _line_censored(x, e, a0, b0, s0):
+    """The line x = a + b e with noise N(0, s^2), readings clipped to [0, 1]: the maximum of the censored-normal likelihood over (a, b, s), started at
+    the plain estimate. Identical to the plain estimate when nothing is at a bound. It measures the array's response at the anchor sites, where every
+    healthy cell agrees; nothing is fitted to any reading."""
+    from scipy.optimize import minimize
+    from scipy.stats import norm
+    x = np.asarray(x, dtype="float64"); e = np.asarray(e, dtype="float64"); lo, hi = x <= 0.0, x >= 1.0; mid = ~(lo | hi)
+    if not (lo.any() or hi.any()): return a0, b0, s0
+    def nll(t):
+        a_, b_, ls = t; s_ = np.exp(ls); m = a_ + b_ * e
+        return -(norm.logpdf(x[mid], m[mid], s_).sum() + norm.logcdf((0.0 - m[lo]) / s_).sum() + norm.logsf((1.0 - m[hi]) / s_).sum())
+    r = minimize(nll, [a0, b0, np.log(max(s0, 1e-4))], method="Nelder-Mead", options=dict(xatol=1e-7, fatol=1e-7, maxiter=4000))
+    return float(r.x[0]), float(r.x[1]), float(np.exp(r.x[2]))
+
 def array_blur(xs, es):
     """The array's own straight line and noise, per probe design (development, DEV-METAA-HEALTHY-01; 2026-10-24). At the atlas ruler's anchor
     sites (held below about 0.05 or above about 0.95 in every one of the 79 cell types): the line x = a + b e through the means of the array's
@@ -721,7 +738,10 @@ def array_blur(xs, es):
         xl, xh, el, eh = xs[lo].mean(), xs[hi].mean(), es[lo].mean(), es[hi].mean()   # means: x = a + b e holds for means exactly (run 1 used medians)
         if not (eh - el) > 0.5: continue
         b_ = float((xh - xl) / (eh - el)); a_ = float(xl - b_ * el); res = pd.concat([xs[lo], xs[hi]]) - (a_ + b_ * pd.concat([es[lo], es[hi]]))
-        out[d] = dict(a=round(a_, 5), b=round(b_, 5), s=round(float(1.4826 * np.median(np.abs(res - np.median(res)))), 5), anchors=int(len(lo) + len(hi)))
+        s_ = float(1.4826 * np.median(np.abs(res - np.median(res))))
+        if LINE_CENSORED:   # 2026-11-07: readings at 0 or 1 counted as censored
+            ix = lo.append(hi); a_, b_, s_ = _line_censored(xs[ix].to_numpy(), es[ix].to_numpy(), a_, b_, s_)
+        out[d] = dict(a=round(a_, 5), b=round(b_, 5), s=round(s_, 5), anchors=int(len(lo) + len(hi))) | ({"line": "censored"} if LINE_CENSORED else {})
     return out
 
 def predicted_healthy(xs, es, w, blur=None):

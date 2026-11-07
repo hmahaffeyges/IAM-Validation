@@ -201,7 +201,7 @@
      "status": "running",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
      "what": "Met-A whole blood on arrays, atlas only: (1) synthetic test 3 over the real arrays' range (written, on Google); (2) rehearsal on the 100 spent healthy bloods of 5 laboratories, per person, bar written before scoring (read on GitHub: wb100_atlas); (3) fresh test on held healthy arrays (GSE85210 450K whole blood; EPIC held arrays from the gold-mine map), per person; then re-commission and retire the median tare for Met-A.",
-     "next": "synthetic 3 result; then write the per-person bar for step 2"
+     "next": "synthetic test 3 not met (high tail: the line measured from clipped anchors); the censored line (--dev-line-censored) and synthetic test 4 (ten draws, Google); then the 100-blood rehearsal read with that flag (held out of the GitHub queue until test 4 is met)"
     },
     {
      "id": "60.29.2",

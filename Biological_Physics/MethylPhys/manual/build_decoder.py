@@ -58,4 +58,4 @@ if __name__ == "__main__":
         if not os.path.exists(OUT) or open(OUT, encoding="utf-8").read() != txt: bad.append("manual/OM_v4_decoder.md differs (run python3 Biological_Physics/MethylPhys/manual/build_decoder.py)")
         print("build_decoder: " + ("ok (every chain function has its entry)" if not bad else "REFUSED: " + "; ".join(bad))); sys.exit(1 if bad else 0)
     open(OUT, "w", encoding="utf-8").write(txt)
-    print(f"build_decoder: wrote manual/OM_v4_decoder.md; {len(missing)} function(s) still without an entry; unknown entries: {unknown}")
+    print(f"build_decoder: wrote manual/OM_v4_decoder.md; {len(missing)} function(s) still without an entry{(' (' + ', '.join(map(str, missing[:5])) + ')') if missing else ''}; unknown entries: {unknown}")
