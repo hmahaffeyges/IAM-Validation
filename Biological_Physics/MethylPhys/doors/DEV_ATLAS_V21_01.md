@@ -1484,3 +1484,17 @@ and the class floor. Bars, class floor: 1. every laboratory's median islands wit
 labeled "sorted cd4 t cells": built as all CD4, found CD4 0.9925, read as CD4, the label agrees; 50 % CD4 and 50 % monocytes, found 0.5017 and
 0.4981, both read, the sorted-cell reading on monocytes, the label flagged; 24 % CD4, 40 % monocytes and 36 % NK cells, found 0.2338, 0.4003
 and 0.3580, all three read; all monocytes, found 0.9965, read as monocytes, the label flagged. All three bars met.
+
+**Cross-laboratory: the domains read the naive or memory state of the cells (development, diagnostic, from the chain's own readings; nothing scored).** Inside BLUEPRINT (59 libraries, one laboratory, so no laboratory
+term), the domains do not follow age (rho +0.145, p 0.27) but the cell's history: naive-type CD8 0.665, naive B 0.759 to 0.782, naive-type CD4
+0.772, central and effector memory CD4 0.955 to 0.993, effector memory CD8 0.998, memory B 0.984, class-switched memory B 1.155, classical
+monocytes 1.111; the cord-blood donors (0 to 5 years) read 0.759. Naive and memory cells are different cell states, each with its own
+healthy level in the domains, so a sample whose naive-to-memory make-up differs from its reference's reads off 1 there: a mismatch of
+cells, not of laboratories (no mechanism claimed; the held balance is independent of division, rule 25). Against
+the Deconvolver's own measured memory share (memory over memory plus naive columns, 84 samples): rho +0.254 (p 0.02) for the domains and
++0.378 (p 0.0004) for the whole sample; within the Johns Hopkins CD4 donors +0.943, within BLUEPRINT +0.260, within GSE245832 -0.717. The
+Sequencing Atlas's subset columns rest on one or two donors (naive CD4 1, naive CD8 1, effector memory CD8 1, memory B 2), and the
+Deconvolver gives most BLUEPRINT memory libraries almost no memory share, so the split of naive from memory is the open part. **Next:** the
+Deconvolver's naive and memory split tested on constructed mixes of those columns (synthetic first, over the real share range), then more
+donors for the subset columns from the held leads; until then the domains and the whole sample of lymphocytes are reported with the
+measured memory share beside them, never called a laboratory term.
