@@ -190,10 +190,74 @@
     {
      "id": "60.29",
      "date": "2026-11-07",
-     "status": "open",
+     "status": "running",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
      "what": "THE ATLAS IS THE ONLY HEALTHY REFERENCE (author 2026-11-07: 'healthy for comparisons MUST always come from the atlas's ... never tare our instruments with anything other than what we can be certain is healthy'; 'the arrays should be the easiest to revisit and commission with the atlas as the ruler'). Array instruments re-commissioned on IAM-Atlas v2.1 alone, no same-run healthy tare: whole-blood Met-A by its healthy line (each array read against its own measured line and the atlas; bars 2 and 3 already met on 100 spent bloods from 5 laboratories), then the C-Score, then Group-A (each group read against the atlas). Order: the synthetic's weak-array miss (0.0072) found and fixed, the synthetic over the arrays' real range; a spent rehearsal per person; a fresh test on held arrays (GSE85210; B and T arrays GSE146093, GSE184500, GSE192451, GSE174666), bars written before reading; the same-run tare retired only after each passes.",
-     "next": "find the weak-array miss in synthetic_02 (the Deconvolver's share drift is ruled out as the whole cause)"
+     "next": "60.29.1 step 1 (synthetic test 3 on Google), with the 100 spent bloods read on GitHub for step 2"
+    },
+    {
+     "id": "60.29.1",
+     "date": "2026-11-07",
+     "status": "running",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "Met-A whole blood on arrays, atlas only: (1) synthetic test 3 over the real arrays' range (written, on Google); (2) rehearsal on the 100 spent healthy bloods of 5 laboratories, per person, bar written before scoring (read on GitHub: wb100_atlas); (3) fresh test on held healthy arrays (GSE85210 450K whole blood; EPIC held arrays from the gold-mine map), per person; then re-commission and retire the median tare for Met-A.",
+     "next": "synthetic 3 result; then write the per-person bar for step 2"
+    },
+    {
+     "id": "60.29.2",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "C-Score on arrays, atlas only: its band read untared against IAM-Atlas v2.1 (the C reading the chain already writes beside C_rel); synthetic over the real range (written in downtime, before it runs), rehearsal on the same 100 bloods per person, fresh test; then re-commission.",
+     "next": "write the synthetic"
+    },
+    {
+     "id": "60.29.3",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "Group-A on arrays, atlas only: each person read against the atlas, the group compared by those readings, no same-run healthy group; synthetic, rehearsal (a spent case-control series), fresh test; then re-commission.",
+     "next": "after 60.29.2"
+    },
+    {
+     "id": "60.29.4",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "Optional robustness: the array put on the atlas scale (its anchor line inverted) before the Deconvolver, so a compressed array cannot move the mix; synthetic first; a chain change, after the running replays.",
+     "next": "after 60.29.1"
+    },
+    {
+     "id": "60.30.1",
+     "date": "2026-11-07",
+     "status": "running",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "Sequencing Met-A, atlas only: the class-floor synthetic (Google, running); then the 89 spent outside samples per person with --dev-floor-class, the naive and memory columns' donors checked; then a fresh laboratory (BLUEPRINT monocytes, unread).",
+     "next": "class-floor synthetic result"
+    },
+    {
+     "id": "60.30.2",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "what": "Sequencing C-Score, coupling-A, territories and IAM-A confirmed under the new locks on the IAM Sequencing Atlas, each per person; then plasma (GSE186007 with the copies correction) and the Johns Hopkins tissues against the atlas's liver and lung cells.",
+     "next": "after 60.30.1"
+    },
+    {
+     "id": "60.31",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+     "what": "Lock 1: one reference door in the chain (the published atlases only, checked by checksum; every bundle records its reference), then the daily reference audit line in the day summary. A chain change: after the running replays (R5, R9, wb100_atlas).",
+     "next": "when the replays finish"
+    },
+    {
+     "id": "60.32",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/deposit/zenodo_repo_snapshot.py",
+     "what": "After the spent-data rehearsals pass and commissioning on the atlases is done: a new version of the repository snapshot on Zenodo (chain, gates, records, Decoder), and new atlas or globe versions if their files changed; DOIs need the author's yes.",
+     "next": "after 60.29 and 60.30 commission"
     },
     {
      "id": "60.23",

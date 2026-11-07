@@ -9,7 +9,7 @@
  "title": "The Deconvolver decides what is in a sample",
  "closing": "",
  "set_out": "Settle the cross-laboratory question on the 89 outside samples already read, each read as what the Deconvolver finds in it; keep every machine busy; then the Sequencing Atlas Globe page.",
- "open_at_turnover": "The label rule's synthetic; the cross-laboratory synthetic over the 89 samples' real range, then the 89 scored per person; the Johns Hopkins tissue test finishing on Google; R12 on every cell, then R10 and R6; the Sequencing Atlas Globe page.",
+ "open_at_turnover": "Google: Met-A synthetic test 3 and the class-floor synthetic. GitHub: R5 IBD blood, then R9 glioma, R5 sorted, R5 liver, R9 endothelial and the 100 spent healthy bloods on every atlas cell. Next: the per-person bar for the 100 bloods, the C-Score's atlas-only synthetic, lock 1 after the replays, the day summary.",
  "sections": [
   {
    "kind": "ran",
@@ -32,6 +32,34 @@
      "rows": [
       "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/crosslab_chain_table.csv"
      ]
+    },
+    {
+     "title": "The Deconvolver decides: synthetic",
+     "status": "synthetic only",
+     "what": "Four arrays labeled sorted CD4, built as CD4, CD4 and monocytes, three cells, and all monocytes.",
+     "outcome": "Each read as what the Deconvolver found; the label flagged where it disagreed.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Johns Hopkins tumor against the same person's non-tumor tissue",
+     "status": "sealed",
+     "what": "Five people (three liver, two lung), all 12 tissues read at full depth on Google, each with its organ only as specimen.",
+     "outcome": "Whole-sample Met-A outside Normal in 2 of 5; the islands in 4 of 5 (met); IAM-A below Normal in 4 of 5 (recorded). The 'normal' is a cancer patient's non-tumor tissue (GEO), not healthy (author).",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Naive and memory CD4 on sequencing: synthetic",
+     "status": "synthetic only",
+     "what": "30 constructed samples from the atlas's own subset columns, one per Google machine.",
+     "outcome": "Memory share within 0.07 at 15 and 40 reads a site; whether the columns' single donors stand for other people is the open part.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Cross-laboratory floor at the islands",
+     "status": "diagnosis",
+     "what": "Each library's false-call floor read at the islands from the chain's own per-site tables.",
+     "outcome": "Outside libraries pass their whole floor to the islands, the atlas laboratory part of it; the domains read naive or memory cell state, not age.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },
@@ -47,13 +75,56 @@
      "rows": [
       "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
      ]
+    },
+    {
+     "title": "The atlases are the only healthy reference",
+     "status": "built",
+     "what": "Author: healthy for comparisons always comes from the atlases. Gate rule 23b-i, design-check rules e and f (a Reference line naming an atlas; a bar per person), the commissioning check names every commissioning's reference; Met-A on neutrophils, the C-Score and Group-A (commissioned on a same-run tare) marked for re-commissioning on the atlas; the Decoder section.",
+     "outcome": "45 control cases pass, including the real tare lines from this week's scorers.",
+     "record": "Biological_Physics/MethylPhys/manual/decoder_text.md"
+    },
+    {
+     "title": "The Sequencing Atlas Globe page",
+     "status": "built",
+     "what": "A page for each part of the globe beside its cosmology and genetics names, generated only from the story source.",
+     "outcome": "Committed; publishing waits on GitHub Pages.",
+     "record": "CANON/globe_wg_story.json"
+    },
+    {
+     "title": "Merges save as they go",
+     "status": "built",
+     "what": "Google merges save the merged molecules to the bucket the moment they exist and keep the chain's own log; dispatchers log GAVE UP and STUCK, which the loop check prints as failures.",
+     "outcome": "Found the five tumor merges' real stop: the specimen carried a status word.",
+     "record": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/split_google.sh"
     }
    ]
   },
   {
    "kind": "learned",
    "heading": "What we learned that we did not know yesterday",
-   "entries": []
+   "entries": [
+    {
+     "title": "A tare looks like it works",
+     "status": "lesson",
+     "what": "A sample divided by its neighbors comes out near 1 by construction: the same-laboratory tare put the medians at 1 while only 38 to 52 % of people read inside Normal.",
+     "outcome": "Bars are asked per person; the atlases are the only reference.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Measure the real range before a synthetic",
+     "status": "lesson",
+     "what": "Met-A's healthy-line synthetic missed on a weak array far more compressed than any of 331 real arrays the chain has measured; the formula itself is exact.",
+     "outcome": "Test 3 spans the real range; the weak array recorded, not scored.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "A patient's 'normal' tissue is not healthy",
+     "status": "lesson",
+     "what": "GEO's matched normal is a cancer patient's non-tumor tissue.",
+     "outcome": "Tumors and their non-tumor tissue are both read against the atlas's healthy cells.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
   },
   {
    "kind": "mistakes",
@@ -70,6 +141,34 @@
      "status": "mistake",
      "what": "The R12 every-cell replay was sent on 20 machines with R10 and R6 queued behind it, so the commit gate waited over 30 minutes, a lesson already given on 11-04.",
      "outcome": "R10 and R6 cancelled before they started; every dispatch now leaves 2 slots free."
+    },
+    {
+     "title": "Tares built on unchecked samples",
+     "status": "mistake",
+     "what": "The same-laboratory tare, the Johns Hopkins CD4 tare and the tumor against own normal were designed against the agreement that the atlases are the ruler, and the array commissionings' same-run tare was never flagged.",
+     "outcome": "Code locks refuse each; three instruments marked for re-commissioning.",
+     "record": "Biological_Physics/MethylPhys/manual/decoder_text.md"
+    },
+    {
+     "title": "Merges dropped without a word",
+     "status": "mistake",
+     "what": "Five tumor merges failed three times each and the dispatcher logged 'waiting 0'; the half-hourly checks read machines busy, not results.",
+     "outcome": "GAVE UP and STUCK lines, printed as failures.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A UTC time read as Pacific",
+     "status": "mistake",
+     "what": "The author was told a stall began '3 AM yesterday' from a UTC machine-log stamp.",
+     "outcome": "Machine-log times converted to Pacific before quoting.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A range stated wider than the data",
+     "status": "mistake",
+     "what": "The tissue record said every sample read 1.20 to 1.36; one tumor reads 1.0416.",
+     "outcome": "Corrected before it reached GitHub.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   }
