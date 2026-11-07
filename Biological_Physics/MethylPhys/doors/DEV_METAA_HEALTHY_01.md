@@ -469,3 +469,28 @@ Bars (scored on the three arrays in the real range):
 - **Bar 2:** on each of the 3, a 5 % loss of the held pattern off the anchors raises A / A_pred by at least half as much as it raises A.
 
 **Prior reading:** GSM7508429 is spent (tests 1 and 2); nothing else is read.
+
+## The per-person rehearsal on spent data, atlas only (written and committed before any of its readings exist)
+
+The step between the synthetic and a fresh test (plan 60.29.1): the same 100 spent healthy bloods as bars 2 and 3, read again through the one
+command on every atlas cell, now scored for each person, not each laboratory's median. Bars 2 and 3 above were medians; a median can be met while
+many people read outside Normal.
+
+**The instrument's job:** each healthy whole blood reads Normal on Met-A's gauge against IAM-Atlas v2.1.
+
+**Sources:** GEO GSE153712, GSE235717, GSE42861, GSE51032 and GSE87571 (public: each blood's raw IDATs; the 100 listed in
+`data/DEV_METAA_HEALTHY_01/bar2_labels.csv`); IAM-Atlas v2.1 (public, in this repository and on Zenodo).
+
+**Reference:** IAM-Atlas v2.1 only, in each blood's own Deconvolver mix; no same-run tare, no controls, no laboratory median.
+
+**Scorer:** `data/DEV_METAA_HEALTHY_01/wb100_score.py` (it only summarizes the one command's bundles; series run wb100_atlas).
+
+Bars (scorer): 1. at least 90 of the 100 healthy bloods each read A / A_pred inside Normal, 0.95 to 1.05; 2. in each of the five laboratories,
+at least 16 of its 20 each read inside Normal. Reported, not scored: untared A against the atlas (bar 2's earlier run: 80 of 100 inside 0.95 to
+1.05, per laboratory 9 to 20 of 20); each blood's measured line; the cell shares; the C-Score's whole-genome reading against the atlas and its
+derived limit (scored only after its own synthetic, plan 60.29.2).
+
+Scored only after synthetic test 3 is met; if it is not, these readings are recorded and not scored.
+
+**Prior reading:** all 100 are spent: bars 2 and 3 read them and looked only at each laboratory's median of A / A_pred; the earlier
+untared A per person is the line above.
