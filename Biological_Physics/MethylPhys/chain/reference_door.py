@@ -67,8 +67,12 @@ def record(o):
     for k in ("met_a_whole", "metaa_atlas"):
         x = (o or {}).get(k) or ((o or {}).get("development") or {}).get(k) or {}
         if isinstance(x, dict) and x.get("A_rel") is not None: tares.append(dict(reading=k, tare=x.get("state", "tared"), on="the healthy samples given with --refs"))
+    cal = []   # 2026-11-07: a limit term calibrated on outside healthy samples is named too (the 450K C-Score platform term)
+    for k in ("met_a_cscore", "cscore_each_cell"):
+        w = (((o or {}).get(k) or {}).get("whole_genome") or {}) if isinstance((o or {}).get(k), dict) else {}
+        if "calibrated" in str(w.get("limit_rule", "")): cal.append(dict(reading=k + " whole genome", term=w["limit_rule"], on="spent healthy 450K bloods (DEV_CSCORE_LIMIT_01); being replaced by a term from the atlases"))
     r = check()
-    return dict(healthy_reference=r["atlases"], checked=r["ok"], files_checked=r["files_checked"], refused=r["refused"], tares=tares,
+    return dict(healthy_reference=r["atlases"], checked=r["ok"], files_checked=r["files_checked"], refused=r["refused"], tares=tares, calibrated_terms=cal,
                 rule="the atlases are the only healthy reference (Decoder: 'The atlases are the only healthy reference, in every instrument')")
 
 if __name__ == "__main__":

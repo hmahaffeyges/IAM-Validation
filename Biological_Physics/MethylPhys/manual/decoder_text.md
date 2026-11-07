@@ -102,7 +102,7 @@ Lock 1 of the anti-drift locks. Before any reading, each IAM-Atlas v2.1 file is 
 
 ### reference_door.py::record
 
-The bundle's reference block: the atlases checked, whether they passed, and every tare a reading in the bundle applied. The array instruments commissioned before the atlas-only rule still carry a same-run healthy tare; it is named here until they are re-commissioned on the atlas, so no tare can sit in a reading unrecorded.
+The bundle's reference block: the atlases checked, whether they passed, and every tare a reading in the bundle applied. The array instruments commissioned before the atlas-only rule still carry a same-run healthy tare; it is named here until they are re-commissioned on the atlas, so no tare can sit in a reading unrecorded. A limit term calibrated on outside healthy samples (the 450K C-Score platform term) is named the same way, under calibrated_terms.
 
 ## Sex and the X chromosome, in every instrument
 

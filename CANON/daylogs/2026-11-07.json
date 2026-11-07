@@ -258,6 +258,13 @@
      "what": "R9 glioma blood, R5 liver cancer in blood, R7 prostate, R8 tissues and R9 endothelial were queued for every-cell reads although the replay record already holds each (r9_atlas_full, r5_atlas_full, and R7 and R8's full summaries, which already list every cell); the queue was chosen from the run registry, not the record.",
      "outcome": "R5 liver cancelled within minutes; R9 glioma, R7, R8 and R9 endothelial finished as duplicates, their outputs identical to the earlier readings and not kept. Lists are now checked against the record's summaries before queuing.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "The 450K C-Score platform term came from labeled-healthy bloods",
+     "status": "audit",
+     "what": "The C-Score's 450K limit term (1.00789) was calibrated on the spent healthy 450K bloods of the five-laboratory set, the same bloods the rehearsal read.",
+     "outcome": "The rehearsal's C-Score count is not independent for those bloods; the term is to be replaced by one from the atlases; bundles now name any calibrated term.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   }

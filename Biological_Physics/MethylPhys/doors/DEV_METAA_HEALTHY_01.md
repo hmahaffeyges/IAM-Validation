@@ -604,7 +604,11 @@ untared whole-sample A centers at 0.9005, against 0.9977 in bar 2's earlier read
 the cell panel: this one reads every atlas cell, so the Deconvolver gives these bloods small shares of bone-marrow progenitor and other columns,
 while the synthetic arrays were built from six blood cells. **Next (its design written first):** the synthetic built from the full mix the
 Deconvolver measured on real bloods, to find whether the center of 0.983 comes from that mix; then the fresh test on held arrays. The
-C-Score's whole-genome reading sat within its derived limit for 96 of 100 (recorded; its own synthetic comes first, plan 60.29.2).
+C-Score's whole-genome reading sat within its derived limit for 96 of 100 (recorded; its own synthetic comes first, plan 60.29.2). **Correction
+(disclosed):** on 450K arrays that limit carries a platform term (factor 1.00789, `Runtime Matrices/CScore_Limits/platform_term_450k.json`)
+calibrated on the spent healthy 450K bloods of this same five-laboratory set, so for the 450K bloods the 96 of 100 is not independent, and the
+term itself is taken from labeled-healthy samples, not from the atlases. It is replaced by a term from the atlases (plan 60.29.2), and from now
+on each bundle names any calibrated term it used (`reference.calibrated_terms`).
 
 ## Synthetic test 6: arrays from the real full mix (written and committed before it runs)
 

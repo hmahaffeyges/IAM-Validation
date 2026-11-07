@@ -69,7 +69,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 838 | 45 | 0 | 0 |
-| `reference_door.py` | 77 | 5 | 0 | 0 |
+| `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 181 | 10 | 0 | 0 |
@@ -183,9 +183,9 @@ Lock 1 of the anti-drift locks. Before any reading, each IAM-Atlas v2.1 file is 
 
 ### `reference_door.py::record`
 
-The bundle's reference block: the atlases checked, whether they passed, and every tare a reading in the bundle applied. The array instruments commissioned before the atlas-only rule still carry a same-run healthy tare; it is named here until they are re-commissioned on the atlas, so no tare can sit in a reading unrecorded.
+The bundle's reference block: the atlases checked, whether they passed, and every tare a reading in the bundle applied. The array instruments commissioned before the atlas-only rule still carry a same-run healthy tare; it is named here until they are re-commissioned on the atlas, so no tare can sit in a reading unrecorded. A limit term calibrated on outside healthy samples (the 450K C-Score platform term) is named the same way, under calibrated_terms.
 
-*Code:* `reference_door.py` line 61 (12 lines) · arguments: o · calls: not called on the traced runs
+*Code:* `reference_door.py` line 61 (16 lines) · arguments: o · calls: not called on the traced runs
 
 ## Sex and the X chromosome, in every instrument
 

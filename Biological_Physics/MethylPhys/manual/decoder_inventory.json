@@ -7895,7 +7895,7 @@
   },
   {
    "file": "reference_door.py",
-   "lines": 77,
+   "lines": 81,
    "functions": [
     {
      "file": "reference_door.py",
@@ -7968,11 +7968,11 @@
      "function": "record",
      "name": "record",
      "line": 61,
-     "end": 72,
+     "end": 76,
      "args": [
       "o"
      ],
-     "lines": 12,
+     "lines": 16,
      "doc": "The bundle's reference block: the atlases checked and every tare a reading in this bundle applied (a tare divides by other samples; the same-run healthy tare of the array instruments commissioned before 2026-11-07 is named as such, until their re-commissioning on the atlas).",
      "constants": [],
      "data_files": [],
