@@ -82,6 +82,14 @@
      "what": "382 whole bloods and 240 sorted arrays of GSE87650 read again on every cell of IAM-Atlas v2.1.",
      "outcome": "Whole blood: Crohn's against healthy differs in the cell mix (neutrophils 0.565 against 0.418) and a smoking site, not in Met-A; within each sorted cell type nothing separates disease from healthy.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "Met-A whole blood, the per-person rehearsal on the atlas alone",
+     "status": "sealed",
+     "reference": "IAM-Atlas v2.1 only, no tare",
+     "what": "The 100 spent healthy bloods of five laboratories read again on every atlas cell with the censored line, scored per person by the scorer sealed before the readings.",
+     "outcome": "Met: 98 of 100 inside Normal, every laboratory 18 to 20 of 20. Open: the ratio centers at 0.983 (the synthetic at 1.000), so a synthetic from the real full mix comes before the fresh test.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   },

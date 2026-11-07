@@ -201,7 +201,7 @@
      "status": "running",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
      "what": "Met-A whole blood on arrays, atlas only: (1) synthetic test 3 over the real arrays' range (written, on Google); (2) rehearsal on the 100 spent healthy bloods of 5 laboratories, per person, bar written before scoring (read on GitHub: wb100_atlas); (3) fresh test on held healthy arrays (GSE85210 450K whole blood; EPIC held arrays from the gold-mine map), per person; then re-commission and retire the median tare for Met-A.",
-     "next": "synthetic test 5 met (censored line); the 100-blood per-person rehearsal read with --dev-line-censored (GitHub, wb100_atlas); then the fresh test"
+     "next": "rehearsal met (98 of 100 inside Normal, atlas only); its ratio centers at 0.983, not 1: synthetic test 6 built from the full mix the Deconvolver measures on real bloods, then the fresh test on held arrays"
     },
     {
      "id": "60.29.2",

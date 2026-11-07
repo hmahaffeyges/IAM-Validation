@@ -592,3 +592,16 @@ list stops each run the same way.
 The clean run's bundle names IAM-Atlas v2.1 and the IAM Sequencing Atlas, checked (60 files), with no tare; one byte added to one Sequencing Atlas
 file stopped the run before any reading (exit 7, the file named); an unlisted file in Seq_Atlas stopped it the same way. Lock 1 is live in the one
 command; the daily reference line in the day summary follows.
+
+## The per-person rehearsal, read: met (`data/DEV_METAA_HEALTHY_01/wb100/wb100_summary.txt`, `wb100_readings.csv`; GitHub series run wb100_atlas, the one command on
+every atlas cell with `--dev-line-censored`; IAM-Atlas v2.1 only, no tare)
+
+98 of the 100 healthy bloods read A / A_pred inside Normal (bar 1 met); per laboratory 20, 20, 20, 18 and 20 of 20 (bar 2 met). The two outside
+are both GSE51032 (450K): 0.94451 and 0.94879.
+
+**Recorded, and open before any fresh test:** the ratio centers at 0.9834 (sd 0.0172), where synthetic test 5 centered within 0.001 of 1; the
+untared whole-sample A centers at 0.9005, against 0.9977 in bar 2's earlier reading of the same bloods. The difference between the two readings is
+the cell panel: this one reads every atlas cell, so the Deconvolver gives these bloods small shares of bone-marrow progenitor and other columns,
+while the synthetic arrays were built from six blood cells. **Next (its design written first):** the synthetic built from the full mix the
+Deconvolver measured on real bloods, to find whether the center of 0.983 comes from that mix; then the fresh test on held arrays. The
+C-Score's whole-genome reading sat within its derived limit for 96 of 100 (recorded; its own synthetic comes first, plan 60.29.2).
