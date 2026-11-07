@@ -121,3 +121,5 @@ flips at over 1.5 times their mean; 2. planted structure above all 20 flips at o
 held bar 1 to a fixed 0.85 to 1.15 and failed at the lowest band (l 2 to 8, about 60 modes) at 0.74 on even noise: a band of few modes
 scatters that widely by itself (cosmic variance, flips' own scatter 0.185), so the bar is set by the flips' scatter; the local check with it
 was met. The run on GitHub is the record.
+
+**The sign-flip null's synthetic on GitHub: met** (`doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_flip_synthetic.txt`, run 42344172326): pure noise, even, uneven or louder at the edges, within the flips' own scatter in every band and nothing flagged; the planted structure above all 20 flips (613.8 and 23.7 times their mean at the two largest scales). On the edge-loud noise the shuffles read 0.61 to 0.70, as the real read-halves maps did: the cause is reproduced. **One story source** for the page, the book, the SOP and the catalogue: `CANON/globe_wg_story.json` (13 parts, each with its CMB name, the name a geneticist uses, its physics, its result and the record behind it, and the rebuild steps from Zenodo and GitHub alone).

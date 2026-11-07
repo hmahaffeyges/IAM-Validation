@@ -1,0 +1,7 @@
+even: flips' ratio by band [0.7365, 0.9983, 0.9673, 0.9998, 0.9992, 1.0023] (flips' own scatter [0.1851, 0.0736, 0.0283, 0.0125, 0.0116, 0.0069]); bands above all flips (past the bar's ratio) []; shuffles' ratio [0.7515, 1.0441, 0.9622, 0.9948, 1.0019, 0.9985]
+uneven: flips' ratio by band [1.04, 0.9495, 1.0427, 0.9841, 0.9887, 1.0107] (flips' own scatter [0.1758, 0.0641, 0.0319, 0.0171, 0.0101, 0.0124]); bands above all flips (past the bar's ratio) []; shuffles' ratio [0.9947, 0.965, 1.0445, 0.9879, 0.9924, 1.0151]
+edges: flips' ratio by band [0.9136, 0.9704, 0.9797, 0.9833, 1.0141, 1.0156] (flips' own scatter [0.1919, 0.0584, 0.0256, 0.0206, 0.0114, 0.0124]); bands above all flips (past the bar's ratio) []; shuffles' ratio [0.6094, 0.6711, 0.675, 0.6764, 0.6978, 0.6992]
+planted: flips' ratio by band [613.8437, 23.6785, 2.16, 0.7162, 0.5777, 0.5539] (flips' own scatter [0.1744, 0.0528, 0.0374, 0.0223, 0.011, 0.008]); bands above all flips (past the bar's ratio) [0, 1]; shuffles' ratio [577.4544, 23.3651, 2.1551, 0.7177, 0.577, 0.5545]
+bar 1 (pure noise, even, uneven or noisy at the edges: every band within 3 standard deviations of the flips, nothing flagged): met
+bar 2 (planted structure found above all flips at over 3 times their mean): met
+flip synthetic: met

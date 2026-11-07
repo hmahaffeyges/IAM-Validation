@@ -1,0 +1,172 @@
+{
+ "_rule": "One source for the Sequencing Atlas Globe at every CpG (author: the showpiece; 'a geneticist translation for each piece so we call it by something they would recognize too'; and 'the decoder explains it well with the physics and the book and SOP ... has everything necessary for them to dissect it and understand it and build it again themselves'). The website page, the book section, the SOP procedure and the catalogue entry are generated from this file, never written apart from it. Every number is from the committed record named in 'record'. 'status' is one of: every_cpg (built and checked at all 28,217,448 CpGs), array_layout (built at the 813,951 array-layout sites; at every CpG in development), development. American English, no dates, no researcher names.",
+ "title": "The Sequencing Atlas Globe: every CpG of the human genome, read with the tools built for the cosmic microwave background",
+ "opening": [
+  "The cosmic microwave background and a cell's methylation are the same kind of record: a very large number of points, each held near an expected state against the noise of heat, read through instruments with their own noise. In both, the work is the same: build the expected map, measure its noise honestly, and find any real departure from it. IAM's Law is that the same physical cost of holding a record governs both, so the same statistics serve both.",
+  "The globe places every one of the 28,217,448 CpGs of the human genome on a HEALPix sphere in genome order, one CpG to a pixel, for each of the 57 healthy cell types of the IAM Sequencing Atlas, and carries with it the tools a cosmologist would bring to a sky map: a level map and its error map, two independent noise maps, a mask, a null test against noise simulations, and spectra by scale."
+ ],
+ "facts": {
+  "cpgs": 28217448,
+  "cells": 57,
+  "nside": 2048,
+  "values_checked_against_array_layout_globe": 139185168,
+  "values_equal": 139185168,
+  "doi": "10.5281/zenodo.24025624",
+  "atlas_doi": "10.5281/zenodo.23934666",
+  "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_synthetic_run2.txt"
+ },
+ "parts": [
+  {
+   "name": "Every CpG on one sphere",
+   "cmb": "The HEALPix sky map: the sky cut into equal-area pixels, each with a fixed address.",
+   "geneticist": "A genome-wide methylation track, the kind shown in a genome browser, wrapped onto a sphere in genome order.",
+   "physics": "Each CpG keeps its own pixel: at this resolution nothing is averaged, so every held mark is read where it sits.",
+   "shows": "Neighbors on the sphere are neighbors on the genome, so regions read as regions, at every scale from a single CpG to a chromosome.",
+   "result": "Built from the published atlas alone; at all 813,951 array-layout sites it equals the earlier globe exactly (139,185,168 values compared, every one equal). Its synthetic placed every CpG with reads and showed a change planted at 10 CpGs at exactly those 10 pixels.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_synthetic_run2.txt",
+   "how": "Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py (slice, assemble); .github/workflows/globe_wg.yml",
+   "status": "every_cpg"
+  },
+  {
+   "name": "The level map",
+   "cmb": "The temperature map.",
+   "geneticist": "A reference methylome for each purified cell type: the methylation level at every CpG, counted from healthy donors' reads.",
+   "physics": "Each CpG's held level: where a healthy cell sits between the floor, where heat alone would set the error, and the ceiling, where the mark is a coin flip.",
+   "shows": "For each of the 57 cells, the healthy level at every CpG, counted from reads with nothing fitted.",
+   "result": "57 cells at every CpG; equal to the earlier globe at every array-layout site.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json",
+   "how": "seq_globe_wg.py slice: the published pieces' read counts per cell; stage_seq_atlas.range_of_average",
+   "status": "every_cpg"
+  },
+  {
+   "name": "The range map",
+   "cmb": "The error (variance) map: how sure the map is at each pixel.",
+   "geneticist": "A 95 % confidence interval at every CpG, from how much healthy donors differ and how many reads each donor gives.",
+   "physics": "The ruler's own uncertainty, carried into every reading made against it.",
+   "shows": "Where the healthy reference is sharp and where it is soft, CpG by CpG.",
+   "result": "The range rule's synthetic stated variance 1.010 and 1.007 of the true scatter, with coverage 0.955 and 0.948.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/sphere_range_synthetic_v3.txt",
+   "how": "stage_seq_atlas.range_of_average; seq_globe_wg.py slice",
+   "status": "every_cpg"
+  },
+  {
+   "name": "Noise map 1: donor halves",
+   "cmb": "The half-mission difference map: the sky observed twice, one half subtracted from the other, so the sky cancels and the noise remains.",
+   "geneticist": "Inter-individual variability: each cell's donors split into two sealed groups, one group's level subtracted from the other's.",
+   "physics": "What healthy people differ by, plus counting: the healthy reference's own spread, measured, not assumed.",
+   "shows": "Whether healthy people differ from one another CpG by CpG or in whole regions.",
+   "result": "All 49 cells with two or more donors show structure on the sphere and along the genome (correlation 0.0838 between CpGs under 1 kb apart, falling with distance): healthy people differ in regions.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_noise_summary.txt",
+   "how": "seq_globe_wg.py noise-part, noise-join; .github/workflows/globe_noise.yml",
+   "status": "every_cpg"
+  },
+  {
+   "name": "Noise map 2: read halves",
+   "cmb": "The detector-split (jackknife) map: the same observation split between detectors, so only instrument noise remains.",
+   "geneticist": "A technical replicate by read subsampling: every donor's reads split in two at random, one half subtracted from the other; what is left is sampling noise from sequencing depth.",
+   "physics": "Counting alone: with the donors taken out, nothing but the finite number of molecules read.",
+   "shows": "The pure noise of the measurement, the yardstick every other map is held against.",
+   "result": "All 57 cells read as pure counting noise: no structure on the sphere in any cell, and a correlation of 0.0005 between CpGs under 1 kb apart.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_noise_summary.txt",
+   "how": "seq_globe_wg.py noise-part, noise-join",
+   "status": "every_cpg"
+  },
+  {
+   "name": "The mask",
+   "cmb": "The galactic mask: the part of the sky where a bright foreground would swamp the signal is set aside.",
+   "geneticist": "The X and Y chromosomes left out: X inactivation and sex-linked methylation are a real healthy signal that differs between donors by sex, not noise.",
+   "physics": "A known, healthy foreground, annotated and set aside, not subtracted.",
+   "shows": "Which part of the genome every statistic is computed on.",
+   "result": "The noise tools' synthetic left X and Y out in every map, and each map's sums from the pieces equaled the whole map's. A low-mappability mask (the genome's blacklist regions) is not yet applied at every CpG.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_noise_synthetic.txt",
+   "how": "seq_globe_wg.py noise_piece",
+   "status": "every_cpg"
+  },
+  {
+   "name": "The null test",
+   "cmb": "Null tests against noise simulations: the same statistic computed on many simulated noise skies, each keeping every pixel's own noise level; real structure must stand above all of them.",
+   "geneticist": "A permutation test, done the way the noise demands: each pixel's sign flipped at random, so every region keeps its own read depth.",
+   "physics": "A finding has to beat the measurement's own noise, region by region.",
+   "shows": "Which scales on the sphere hold real structure, and that a pure-noise map holds none.",
+   "result": "Pixels beside coverage gaps and the mask edge carry about three times the noise of the rest (0.0136 against 0.0048 a pixel on the B-cell read-halves map), so a plain shuffle, which moves them into quiet places, overstates the noise. The sign-flip null keeps each pixel's noise. Its synthetic: pure noise, even, uneven or louder at the edges, stayed within the flips' own scatter, and planted structure stood above every flip.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_GLOBE_WG_01.md; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_flip_synthetic.txt",
+   "how": "seq_globe_wg.py flip_null; chain/sky_statistics.py",
+   "status": "every_cpg"
+  },
+  {
+   "name": "Structure by distance along the genome",
+   "cmb": "The two-point correlation function: how alike two points are as a function of the distance between them.",
+   "geneticist": "Co-methylation decay: how the correlation between CpGs falls with genomic distance, the scale over which methylation moves together.",
+   "physics": "The size of the regions a cell holds as one.",
+   "shows": "For each noise map, the correlation of CpG pairs by genomic distance, from under 1 kb to megabases.",
+   "result": "Donor halves: 0.0838 under 1 kb, falling with distance; read halves: 0.0005 (none).",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_noise_summary.txt",
+   "how": "seq_globe_wg.py noise_piece; chain/stage_seq_atlas.py genome_spectrum",
+   "status": "every_cpg"
+  },
+  {
+   "name": "Structure by scale on the sphere",
+   "cmb": "The angular power spectrum: how much of the map's variation sits at each angular scale.",
+   "geneticist": "Genome-scale structure by size: large scales hold chromosome-wide and domain-wide patterns, such as partially methylated domains; small scales hold local regions.",
+   "physics": "Which scales of the record carry the cell's order and which carry only noise.",
+   "shows": "Band powers from the largest scales down, each against the null.",
+   "result": "Computed for every cell's two noise maps at every CpG, each band against the sign-flip null.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_noise.json",
+   "how": "chain/sky_statistics.py masked_spectrum, bandpowers",
+   "status": "every_cpg"
+  },
+  {
+   "name": "The bridge between platforms",
+   "cmb": "The instrument transfer function: how an instrument's response maps the true sky onto what it records.",
+   "geneticist": "Cross-platform calibration: how an array's beta value at a probe maps onto the sequencing level at the same CpG.",
+   "physics": "Each instrument reads the same held mark through its own chemistry; the bridge measures that chemistry so the same physics reads the same on both.",
+   "shows": "Array and sequencing readings of the same cells, site by site.",
+   "result": "Measured at the array-layout sites against IAM-Atlas v2.1.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/bridge_summary.txt",
+   "how": "doors/data/DEV_ATLAS_V21_01/seq_atlas/transfer_bounded_v21.py",
+   "status": "array_layout"
+  },
+  {
+   "name": "The shape of the map",
+   "cmb": "Minkowski functionals: the area, boundary length and connectedness of the regions above each threshold, a test of whether a map is pure random noise.",
+   "geneticist": "The size and connectivity of methylated and unmethylated blocks, as in calling partially methylated domains or clusters of differentially methylated regions.",
+   "physics": "Whether a cell's order comes in connected territories or scattered points.",
+   "shows": "Per cell, how the healthy map's regions are shaped compared with noise.",
+   "result": "Measured on the noise maps at the array-layout sites; at every CpG in development.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/noise_minkowski_summary.txt",
+   "how": "chain/stage_seq_atlas.py minkowski, noise_minkowski",
+   "status": "array_layout"
+  },
+  {
+   "name": "The Sample Globe",
+   "cmb": "The residual map: the observed sky minus the expected one, where anything real that is left over shows.",
+   "geneticist": "Differential methylation against a matched healthy reference, the reference here built from the sample's own cell mix, so no cohort of controls is needed.",
+   "physics": "Each person read against their own expected healthy self: every CpG's departure from its held level, in bits.",
+   "shows": "Where a sample departs from its own healthy expectation, region by region.",
+   "result": "Read by the chain on the array-layout sites; at every CpG, with both noise maps as its null, in development.",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_GLOBE_WG_01.md",
+   "how": "chain/MethylPhys_Interface/report_globe_v4.py",
+   "status": "array_layout"
+  },
+  {
+   "name": "The Information Sphere",
+   "cmb": "No direct counterpart: a sphere built for the genome, where CpG sites, not points of the sky, are placed by what they record.",
+   "geneticist": "An embedding of CpG sites by their methylation profile across cell types, like a UMAP of CpGs: cell-type-specific sites gather by the cell family whose identity they carry.",
+   "physics": "Sites that hold the same information sit together; where a site sits says which cells keep its mark.",
+   "shows": "534,617 sites of the IAM Sequencing Atlas, measured in every cell and varying across cells, grouped by cell family.",
+   "result": "Each cell family gathers about as tightly as on IAM-Atlas v2.1's sphere (median concentration 0.42 against 0.35). Built at the sites that pass its rule; at every CpG in development.",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/globe_compare.txt",
+   "how": "chain/MethylPhys_Interface/run_sample.py --build info-globe",
+   "status": "array_layout"
+  }
+ ],
+ "rebuild": [
+  "Download the IAM Sequencing Atlas (Zenodo 10.5281/zenodo.23934666) and check every piece against its SHA256 manifest.",
+  "Clone the IAM-Validation repository from GitHub and install the chain's requirements (Biological_Physics/MethylPhys/chain/requirements.txt).",
+  "Run the synthetics first: python3 Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py synthetic OUT.txt, then noise-synthetic and flip-synthetic.",
+  "Build the globe set by set: seq_globe_wg.py slice INPUTS.csv OUTDIR PIECES..., then assemble (or run .github/workflows/globe_wg.yml).",
+  "Build the noise maps and their statistics: seq_globe_wg.py noise-part OUTDIR CpG.bed.gz PIECES..., then noise-join (or run .github/workflows/globe_noise.yml).",
+  "Compare with the published globe (Zenodo 10.5281/zenodo.24025624) file by file against its checksums."
+ ],
+ "closing": "The same statistics serve the sky and the cell because both are records held against heat. A cosmologist can read every part of this globe by its sky name, and a geneticist by theirs."
+}
