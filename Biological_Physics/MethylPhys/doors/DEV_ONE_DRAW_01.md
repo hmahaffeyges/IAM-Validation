@@ -642,3 +642,12 @@ one per GitHub job.) 9 of 34 returned a whole-sample Met-A, under the 20 the bar
 values of the 9 read are in the summary as recorded, not scored. The second reading (above) runs next.
 
 The scorer's not-read list now gives the whole-sample reason when the bundle has no top-level one (it listed none of the 25, and the record first said 0; corrected from the bundles). Bars and tare unchanged.
+
+**Plasma from a new laboratory, second reading: not met** (`plasma_lab3/reading_2/plasma_lab3_r2_summary.txt`, `plasma_lab3_r2_readings.csv`; scored on GitHub by the committed scorer, run
+42313573989.) All 34 healthy plasmas read. Bar 1 met: the tared whole-sample Met-A median is 1.0002. Bar 2 not met: 0.147
+of them within 0.95 to 1.05 (at least 0.80 needed); the tared readings run from 0.228 to 1.515 (standard deviation 0.257).
+The islands and domains, tared the same way, scatter as widely (standard deviations 0.281 and 0.271).
+**Recorded, not scored:** the C-Score of every one of the 34 reads within 0.95 to 1.05 (median 0.9985, standard deviation 0.0053),
+on plasma from a laboratory the atlas has never seen. The cancer plasmas stay unread: the healthy plasmas have not read Normal. **Next
+(development):** why the whole-sample reading scatters on these plasmas when it held on the earlier plasma passes; these plasmas are read at 1 to 3
+calls a site, and on sequencing Met-A falls with depth (DEV_METAA_ATLAS_CURVE_01), so depth is checked first, from the bundles.
