@@ -772,7 +772,10 @@ def predicted_healthy(xs, es, w, blur=None):
     if k.sum() < 10000: return dict(reason=f"only {int(k.sum())} sites carry a recorded probe design", blur=blur)
     return dict(A_pred=round(float((w[k] * EH[k]).sum() / (w[k] * he[k]).sum()), 5), sites=int(k.sum()), blur=blur)
 
-def read_whole(beta, shares, counts=None):
+PRED_RAW = False   # 2026-11-07 (run_sample.py --dev-pred-raw; development, DEV-METAA-HEALTHY-01 test 6's capture): the healthy prediction of an
+                  # array read on the array's own values even when the whole-sample reading is on the atlas ruler (--full-chain turns the
+                  # ruler on; measuring the array's line again on ruler-mapped values handles its blur twice)
+def read_whole(beta, shares, counts=None, raw=None):
     """Met-A for the whole sample over EVERY IAM-Atlas v2.1 site (development, 2026-10-23; author: 'adjust Met-A to read from the entire
     IAM-Atlas'). One reading per sample: e = the atlas mixed in the sample's own shares (read_in_mix's rule, MIX_COVER); each site counts by how
     firmly a healthy sample of this mix holds it, w = |0.5 - e| (a site held near 0 or 1 counts most, a half-held one least; nothing chosen,
@@ -815,8 +818,15 @@ def read_whole(beta, shares, counts=None):
                by_place={"identity sites of the cells found": one(mi), "islands": one(ms), "domains": one(md), "the rest": one(~mi & ~ms & ~md)})
     if counts is None:   # 2026-10-24 (DEV-METAA-HEALTHY-01): arrays; sequencing's own blur is the read count, already in _he
         try:
-            hp = predicted_healthy(xs, es, w); out["healthy_prediction"] = hp
-            if hp.get("A_pred"): hp["A_over_pred"] = round(r["A"] / hp["A_pred"], 5)
+            if PRED_RAW and raw is not None:   # 2026-11-07: the prediction and its A both on the array's own values, the same sites and mix
+                xr = pd.Series(raw, dtype="float64").reindex(xs.index); k_ = xr.notna().to_numpy(); xr, er, wr = xr[k_], es[k_], w[k_]
+                hp = predicted_healthy(xr, er, wr); Ar = float((wr * np.asarray(_H(xr), dtype="float64")).sum() / (wr * np.asarray(_H(er), dtype="float64")).sum())
+                hp.update(values="the array's own values (the whole-sample A beside it is on the atlas ruler)", A_raw=round(Ar, 5), sites_raw=int(k_.sum()))
+                out["healthy_prediction"] = hp
+                if hp.get("A_pred"): hp["A_over_pred"] = round(Ar / hp["A_pred"], 5)
+            else:
+                hp = predicted_healthy(xs, es, w); out["healthy_prediction"] = hp
+                if hp.get("A_pred"): hp["A_over_pred"] = round(r["A"] / hp["A_pred"], 5)
         except Exception as ex: out["healthy_prediction"] = {"reason": f"{type(ex).__name__}: {ex}"[:200]}
     return out
 

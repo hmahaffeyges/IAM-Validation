@@ -1,0 +1,6 @@
+low design I: 87771 sites; the values the line was measured on = -0.0075 + 1.0158 x the array's own values
+low design II: 295360 sites; the values the line was measured on = -0.0154 + 1.0344 x the array's own values
+low: on the array's own values A / A_pred 0.99822; line design I a +0.0024 b 0.9926; design II a -0.0019 b 0.9971
+center design I: 99504 sites; the values the line was measured on = -0.0022 + 1.0062 x the array's own values
+center design II: 661758 sites; the values the line was measured on = -0.0065 + 1.0156 x the array's own values
+center: on the array's own values A / A_pred 1.00498; line design I a -0.0016 b 1.0005; design II a -0.0087 b 1.0131

@@ -660,3 +660,35 @@ memory CD4). Read offline with those measured shares, the center reproduces the 
 against 0.9808), and offline the low tail's design II line measures 0.998 where the chain measured 1.030. So inside the chain the line is
 measured on values other than the ones rebuilt offline. `DEV_METAA_HEALTHY_01/synthetic_06_capture.py` runs the one command in its own process
 on a low-tail and a center array and keeps the exact values the line is measured on (no chain code changed).
+
+## The capture: where test 6's drift comes from, and synthetic test 7 (written and committed before it runs)
+
+**Found** (`synthetic_06_capture.json`, `cap_low.parquet`, `cap_center.parquet` in the build bucket; `synthetic_06_capture.py`; read by
+`DEV_METAA_HEALTHY_01/synthetic_06_capture_read.py` into `synthetic_06_capture_read.txt`): `--full-chain`
+turns on the development atlas ruler (`--dev-ruler`), so the whole-sample reading is made on the ruler-mapped values, not the array's own. The
+values the healthy line was measured on are a stretched copy of the input (low tail, design II: 1.0344 x input - 0.0154; center 1.0156 x input
+- 0.0065) and the low tail kept 383,131 of its 770,920 sites. The healthy prediction then measures the array's line again on those values, so
+the array's blur is handled twice: on the captured values the line measures design II slope 1.0295 (planted 0.9991). Read on the array's own
+values with the chain's own mix, the low tail gives A / A_pred 0.99822 and the center 1.00498 (the remaining center offset is the Deconvolver's
+share drift between neighboring subsets). **This also applies to the per-person rehearsal:** it ran with `--full-chain`, so its whole-sample
+A and prediction were on the ruler, where test 5 (without it) was on the array's own values; its 98 of 100 is a reading of that combination.
+
+**The fix (development, off by default):** `--dev-pred-raw` (`stage_metaa_atlas.PRED_RAW`): the healthy prediction and the A it is compared
+with are read on the array's own values; the ruler's whole-sample A is kept beside it.
+
+**The instrument's job:** a healthy blood array reads Normal on Met-A's gauge against IAM-Atlas v2.1.
+
+**Sources:** GEO GSE235717 GSM7508429 (public, spent); IAM-Atlas v2.1 (public, in this repository and on Zenodo).
+
+**Reference:** IAM-Atlas v2.1 only, in the mix the IAM-Deconvolver measures; no tare.
+
+**Synthetic test:** `DEV_METAA_HEALTHY_01/synthetic_07.py` (test 6 with `--dev-pred-raw`, seed 20261137 + draw; ten draws on Google; scorer
+`DEV_METAA_HEALTHY_01/synthetic_07_score.py`, which refuses any draw whose prediction was not read on the array's own values).
+
+**Range of the data:** the real arrays' lines as the chain measured them on 331 arrays, design I slope 0.993 to 1.009 and noise 0.003 to 0.015,
+design II slope 0.999 to 1.030 and noise 0.006 to 0.024. The synthetic: test 6's center and both tails (design II slope 1.0175, 0.9991 and 1.0301, noise up to 0.024).
+
+Bars (scorer), test 6's unchanged: 1. each of the 30 arrays reads A / A_pred inside Normal, 0.95 to 1.05; 2. each condition's mean of its 10 draws
+within 0.005 of 1; 3. a 5 % loss shows on each.
+
+**Prior reading:** GSM7508429 is spent; nothing else is read.

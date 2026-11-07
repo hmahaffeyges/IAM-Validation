@@ -688,12 +688,14 @@ def main():
     ap.add_argument("--dev-floor-equal", action="store_true", help="DEVELOPMENT: read a sequenced sample and its reference at a common library floor (the higher of the two)")
     ap.add_argument("--dev-input-floors", default=None, help="DEVELOPMENT: an atlas input floors file in the committed format (gsm, cell, half, floor, calls), for synthetics")
     ap.add_argument("--dev-terr-counts", default=None, help="DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics")
+    ap.add_argument("--dev-pred-raw", action="store_true", help="development (2026-11-07): the healthy prediction of an array on its own values, not on the atlas ruler's")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
     if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc0; _SAlc0.LINE_CENSORED = True   # 2026-11-07: every route, arrays included (the first placement was inside the sequencing branches; synthetic test 4 ran without it)
+    if getattr(a, "dev_pred_raw", False): import stage_metaa_atlas as _SApr0; _SApr0.PRED_RAW = True   # 2026-11-07
     if not getattr(a, "build", None):   # 2026-11-07, lock 1 (reference_door.py): the atlases checked against their checksums before any reading
         import reference_door as _RD; _rdc = _RD.check()
         if not _rdc["ok"]:
@@ -1207,7 +1209,7 @@ def main():
                 SA.TERR_SITE_OUT = (re.sub(r"(_bundle)?\.json$", "", a.bundle) + "_terr_sites.csv.gz") if getattr(a, "dev_terr_sites", False) and a.bundle else None   # 2026-11-01
                 SA.TERR_COUNTED = bool(getattr(a, "dev_terr_counted", False)); SA.TERR_HALF = getattr(a, "dev_seq_ref_half", None)   # 2026-11-01: the islands from the reference's own reads
                 if getattr(a, "dev_terr_counts", None): import stage_seq_atlas as _SQtf; _SQtf.TERR_FILE = a.dev_terr_counts   # 2026-11-01: a constructed island counts file
-                try: o["met_a_whole"] = SA.read_whole(_vr, _shr, counts=getattr(a, "_seqc", None)); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
+                try: o["met_a_whole"] = SA.read_whole(_vr, _shr, counts=getattr(a, "_seqc", None), raw=(_vals if _rv is not None else None)); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
                 except Exception as e: o["met_a_whole"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
                 if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix
                     try: o["territories"] = SA.territory_reading(_vr, _shr, counts=getattr(a, "_seqc", None)); o["territories"]["state"] = o["met_a_whole"].get("state")
