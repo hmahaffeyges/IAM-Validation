@@ -49,3 +49,11 @@ NSIDE 2048 no pixel holds two CpGs (met), but at NSIDE 1024 the largest gap betw
 the 0.00005 that rounding to 0.0001 allows. **Cause (my code):** the builder kept its per-pixel sums in 32-bit numbers, whose error of about
 one part in ten million can tip a value lying on a rounding boundary to the next step. **Fix:** the sums are kept in 64-bit; the bars are
 unchanged. Run 2 is the same synthetic on the fixed builder.
+
+**The synthetic, run 2 (all 28,217,448 CpGs, GitHub, builder with 64-bit sums): met** (`doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_synthetic_run2.txt`). All three bars met: every CpG with reads lands; the planted change
+shows at exactly its 10 pixels in its own cell only; one CpG to a pixel at NSIDE 2048, and at NSIDE 1024 each pixel the mean of its CpGs
+within rounding. **Resolution chosen: NSIDE 2048**, where every CpG keeps its own pixel and nothing is averaged (47 % of pixels hold no CpG by
+the layout, masked). **The build:** workflow `globe_wg.yml`, one published piece set per GitHub job (12 jobs), every piece checked against the
+deposit's SHA256 manifest before it is read; each piece writes its own stretch of the globe (`seq_globe_wg.py slice`), with NSIDE 256 sums
+for the Globe Viewer's textures. Before the globe is used: the design's third check, the new globe against the current one at the 813,951
+array-layout sites.
