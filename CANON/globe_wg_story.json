@@ -33,9 +33,9 @@
    "cmb": "The temperature map.",
    "geneticist": "A reference methylome for each purified cell type: the methylation level at every CpG, counted from healthy donors' reads.",
    "physics": "Each CpG's held level: where a healthy cell sits between the floor, where heat alone would set the error, and the ceiling, where the mark is a coin flip.",
-   "shows": "For each of the 57 cells, the healthy level at every CpG, counted from reads with nothing fitted.",
-   "result": "57 cells at every CpG; equal to the earlier globe at every array-layout site.",
-   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json",
+   "shows": "For each of the 58 cells (megakaryocytes provisional), the healthy level at every CpG, counted from reads with nothing fitted.",
+   "result": "57 cells at every CpG, equal to the earlier globe at every array-layout site; megakaryocytes, the 58th, placed at all 25,220,009 CpGs with reads (globe version 1.1).",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json; Biological_Physics/MethylPhys/deposit/zenodo_mk_v11_README_globe.md",
    "how": "seq_globe_wg.py slice: the published pieces' read counts per cell; stage_seq_atlas.range_of_average",
    "status": "every_cpg"
   },

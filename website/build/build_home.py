@@ -697,4 +697,8 @@ if __name__ == "__main__":
     _sp = seq_atlas_pages.problems()
     if _sp: raise SystemExit("build_home: sequencing atlas pages: " + "; ".join(_sp[:5]))
     print("build_home:", seq_atlas_pages.write(out, pre + "../art/", f'<link rel="stylesheet" href="{pre}../static/themes.css">', CSS, "../index.html"), "sequencing atlas cell pages written")
+    import globe_wg_page   # 2026-11-07 (plan 60.23.3): the Sequencing Atlas Globe showpiece, from CANON/globe_wg_story.json only
+    _gp = globe_wg_page.problems()
+    if _gp: raise SystemExit("build_home: globe page: " + "; ".join(_gp))
+    print("build_home:", globe_wg_page.write(out, pre + "../art/", f'<link rel="stylesheet" href="{pre}../static/themes.css">', CSS, "../index.html"), "globe page parts written")
     print("build_home:", len(DOCS), "document pages written")
