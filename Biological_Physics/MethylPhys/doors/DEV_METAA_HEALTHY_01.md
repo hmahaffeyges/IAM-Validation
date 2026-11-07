@@ -605,3 +605,29 @@ the cell panel: this one reads every atlas cell, so the Deconvolver gives these 
 while the synthetic arrays were built from six blood cells. **Next (its design written first):** the synthetic built from the full mix the
 Deconvolver measured on real bloods, to find whether the center of 0.983 comes from that mix; then the fresh test on held arrays. The
 C-Score's whole-genome reading sat within its derived limit for 96 of 100 (recorded; its own synthetic comes first, plan 60.29.2).
+
+## Synthetic test 6: arrays from the real full mix (written and committed before it runs)
+
+Why: the rehearsal on every atlas cell centered at 0.983; test 5, built from six blood cells and read on the default panel, centered at 1.000.
+Test 6 asks whether the center comes from reading on every atlas cell.
+
+**The instrument's job:** a healthy blood array reads Normal on Met-A's gauge against IAM-Atlas v2.1.
+
+**Sources:** GEO GSE235717 GSM7508429 (public: one healthy whole blood's raw IDATs, its full measured mix); IAM-Atlas v2.1 (public, in this
+repository and on Zenodo).
+
+**Reference:** IAM-Atlas v2.1 only, in the mix of cells the IAM-Deconvolver measures; no same-run tare, no controls.
+
+**Synthetic test:** `DEV_METAA_HEALTHY_01/synthetic_06.py` (every array through the one command with the rehearsal's flags, `--full-chain
+--cell-panel atlas --dev-line-censored`; built from every cell in the real blood's measured mix; ten draws, one per Google machine, saved as each
+finishes; scorer `DEV_METAA_HEALTHY_01/synthetic_06_score.py`).
+
+**Range of the data:** real arrays (331 measured by the chain): design I slope 0.993 to 1.009, noise 0.003 to 0.015; design II slope 0.999 to
+1.030, noise 0.006 to 0.024; the 100 real bloods' ratio 0.944 to 1.05 around 0.983 (sd 0.017). The synthetic arrays: test 5's center and both
+tails (design II slope 1.0175 and 1.0301 and 0.9991, noise up to 0.024), ten new draws each, in the real blood's own mix on every atlas cell.
+
+Bars (scorer), test 5's unchanged: 1. each of the 30 arrays reads A / A_pred inside Normal, 0.95 to 1.05; 2. each condition's mean of its 10 draws
+within 0.005 of 1; 3. a 5 % loss shows on each. If bar 2 is met, the method reads its own construction at 1 on every atlas cell and the rehearsal's
+0.983 is a property of the real bloods, examined next; if not, the center comes from the method on every cell and is fixed before any fresh test.
+
+**Prior reading:** GSM7508429 is spent (tests 1 to 5); nothing else is read.
