@@ -130,3 +130,5 @@ xl_bp_samples.csv
 xl_lab2_samples.csv
 # 2026-11-07: who the sequencing atlas's donors were (GEO fields and the source publication's methods); metadata, not a reading
 seq_atlas_donor_sources.csv
+# 2026-11-07: who v2.1's new build sources' donors were, from the build roster; metadata, not a reading
+atlas_v21_donor_sources.csv

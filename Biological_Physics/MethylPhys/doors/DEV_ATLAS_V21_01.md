@@ -1640,3 +1640,11 @@ Karolinska collaboration (adipocytes at cosmetic surgery after weight loss; neur
 commercial primary cells. Ages 3 to 83 (median 52); 94 female, 61 male. Every cell type was purified by sorting and its purity checked. So the
 atlas's 'healthy' is normal tissue from people, chosen and verified as normal, mostly people who were having surgery for something else; it is
 not a cohort of people free of disease. IAM-Atlas v2.1's 21 sources get the same table next.
+
+**Who IAM-Atlas v2.1's new build sources' donors were (metadata only; nothing read).** `atlas_v21_donor_sources.csv`: the 15 series the v2.1 build added (472 arrays entering, firm or conditional), each with
+what its record or paper says about its donors (from the build roster, `atlas_v21_roster.csv`). 150 arrays from healthy volunteers or donors (5
+series; the brain cells from post-mortem donors described as neurologically healthy); 133 from the healthy controls of disease studies (5
+series: lupus, multiple sclerosis, Alzheimer's disease, Parkinson's disease, antiphospholipid syndrome; only their controls were used); 16 normal
+ovarian and tubal tissue from surgical patients without cancer; 16 children's normal intestinal mucosa; 9 embryonic stem cell lines (not
+donors); 148 from two series whose records do not state donor health (GSE252045, GSE103541; their papers to be read). The cells v2.1 carries
+from IAM-Atlas v2 (the sequencing atlas above and the earlier array references) are tabled next, so both atlases are covered in full.
