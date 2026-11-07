@@ -128,3 +128,5 @@ xl_jhu_samples.csv
 xl_bp_samples.csv
 # 2026-11-07: the cross-laboratory rehearsal's sample list (xl_class/), copied from the earlier reading's list with --dev-floor-class added; not a reading
 xl_lab2_samples.csv
+# 2026-11-07: who the sequencing atlas's donors were (GEO fields and the source publication's methods); metadata, not a reading
+seq_atlas_donor_sources.csv

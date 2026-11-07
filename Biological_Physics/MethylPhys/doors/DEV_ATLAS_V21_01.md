@@ -1630,3 +1630,13 @@ reading, `crosslab_chain_table.csv`) but every laboratory now reads below Normal
 Johns Hopkins) or above it (GSE134664, GSE98837). The synthetic (met) did not show this; its constructed people carried no person spread at
 the islands (version 2), which real people do. Next: the same 76 read against the synthetic's terms one at a time, written first, to find which
 real condition the synthetic left out. The class floor stays off by default.
+
+**Who the IAM Sequencing Atlas's donors were (metadata only; nothing read).** `seq_atlas/seq_atlas_donor_sources.csv`: each of the atlas's 156 donor files with its cell, provider, tissue,
+age and sex from GEO (GSE186458), and the provider's donor source from the source publication's methods (the published sequencing atlas of
+normal human cell types; GEO gives one shared protocol paragraph for every sample, so the provider is the per-sample key). 119 files (45 cells)
+are tissue remnants from clinically indicated surgery at one hospital, normal tissue distant from any known pathology, confirmed with the
+surgeons or pathologists before removal; 20 are cadaveric organ donors or islet programs (pancreas cells, hepatocytes); 9 come from a
+Karolinska collaboration (adipocytes at cosmetic surgery after weight loss; neurons and oligodendrocytes from brain autopsies); 8 are
+commercial primary cells. Ages 3 to 83 (median 52); 94 female, 61 male. Every cell type was purified by sorting and its purity checked. So the
+atlas's 'healthy' is normal tissue from people, chosen and verified as normal, mostly people who were having surgery for something else; it is
+not a cohort of people free of disease. IAM-Atlas v2.1's 21 sources get the same table next.
