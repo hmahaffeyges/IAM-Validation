@@ -169,6 +169,13 @@
      "what": "The tissue record said every sample read 1.20 to 1.36; one tumor reads 1.0416.",
      "outcome": "Corrected before it reached GitHub.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A flag that never reached arrays",
+     "status": "mistake",
+     "what": "The censored-line flag was set only inside run_sample.py's sequencing branches, so synthetic test 4 on arrays ran the plain line.",
+     "outcome": "Found from the draws' recorded lines; the flag now set on every route; test 5's scorer refuses a draw whose line is not censored.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   }

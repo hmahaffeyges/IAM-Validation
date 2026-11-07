@@ -693,6 +693,7 @@ def main():
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
     ap.add_argument("--sesame-rscript", default=os.environ.get("METHYLPHYS_SESAME_RSCRIPT"), help="Rscript of an environment with Bioconductor sesame (--dev-epic-v2)")
     a=ap.parse_args()
+    if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc0; _SAlc0.LINE_CENSORED = True   # 2026-11-07: every route, arrays included (the first placement was inside the sequencing branches; synthetic test 4 ran without it)
     a._full_chain = None
     if a.full_chain:   # 2026-10-29 (author): every development reading that applies to the input is run beside the commissioned ones, each flagged;
         # a reading that cannot run here is recorded with its reason (bundle["full_chain"]), never left out silently

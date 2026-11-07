@@ -494,3 +494,32 @@ Scored only after synthetic test 3 is met; if it is not, these readings are reco
 
 **Prior reading:** all 100 are spent: bars 2 and 3 read them and looked only at each laboratory's median of A / A_pred; the earlier
 untared A per person is the line above.
+
+## Synthetic test 4, read: not met, and it ran without its flag (disclosed; my error) (`data/DEV_METAA_HEALTHY_01/synthetic_04_summary.txt`; ten draws on Google)
+
+Bar 1 met (all 30 arrays inside Normal); bar 3 met; bar 2 not met: the means over ten draws are center 1.00065, low tail 0.99853, high tail
+0.99192 (spread 0.0010 to 0.0017). **But the censored line never ran:** no draw's recorded line carries line = censored. The flag was set in
+run_sample.py only inside the two sequencing branches, which an array never enters. So test 4 measured the plain line; what it does show is that
+the plain line's bias on the high tail is real and about 0.008 (ten draws, spread 0.0017), not noise. The flag is now set right after the command's
+arguments are read, on every route. Test 5 is test 4 again on the fixed command; its scorer refuses any draw whose recorded line is not censored.
+
+## Synthetic test 5: the censored line, ten noise draws, the flag checked (written and committed before it runs)
+
+**The instrument's job:** a healthy blood array reads Normal on Met-A's gauge against IAM-Atlas v2.1.
+
+**Sources:** GEO GSE235717 GSM7508429 (public: one healthy whole blood's raw IDATs, the base and the cell shares); IAM-Atlas v2.1 (public, in this
+repository and on Zenodo).
+
+**Reference:** IAM-Atlas v2.1 only, in the mix of cells the IAM-Deconvolver measures; no same-run tare, no controls.
+
+**Synthetic test:** `DEV_METAA_HEALTHY_01/synthetic_05.py` (the one command with `--dev-line-censored`; one noise draw per Google machine, saved as
+it finishes; scorer `DEV_METAA_HEALTHY_01/synthetic_05_score.py`, which refuses a draw whose line is not censored).
+
+**Range of the data:** real arrays (331 measured by the chain): design I slope 0.993 to 1.009, offset -0.006 to 0.002, noise 0.003 to 0.015; design
+II slope 0.999 to 1.030, offset -0.018 to -0.004, noise 0.006 to 0.024. The synthetic arrays: test 3's center and both tails at the real extremes
+with the largest real noise, ten new noise draws each; test 2's weak array once, recorded, not scored.
+
+Bars (scorer), test 4's unchanged: 1. each of the 30 healthy arrays reads A / A_pred inside Normal, 0.95 to 1.05; 2. in each of the 3 conditions the
+mean of its 10 draws is within 0.005 of 1; 3. on each of the 3, a 5 % loss raises A / A_pred by at least half as much as it raises A.
+
+**Prior reading:** GSM7508429 is spent (tests 1 to 4); nothing else is read.
