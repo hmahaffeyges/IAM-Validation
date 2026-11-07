@@ -82,7 +82,7 @@ because that is what they were created for, and no instrument is tared with anyt
 - `CANON/commissioning_check.py` refuses a commissioning from this date on that is not on the atlases alone; each older commissioning states its
   reference, and those made with a same-run tare (Met-A on neutrophils, the C-Score, Group-A) carry "being re-commissioned with IAM-Atlas v2.1 as
   the only healthy reference" in the catalogue until each passes again: its synthetic over the real data's range, a rehearsal on spent data per
-  person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30). **Lock 1, the reference door** (`reference_door.py`): every run checks the atlases against their checksums before any reading and records in its bundle the atlas it read and every tare applied.
+  person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30). **Lock 1, the reference door** (`reference_door.py`): every run checks the atlases against their checksums before any reading and records in its bundle the atlas it read and every tare applied. **The daily reference line:** from 2026-11-07 every result in a day log names its healthy reference, an atlas or "none (not a reading against healthy)"; the day-log check refuses a result that names neither.
 
 ### reference_door.py::_sha
 

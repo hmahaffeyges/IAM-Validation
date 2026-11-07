@@ -39,6 +39,12 @@ def one(d, path):
                          f"{e.get('status')!r}, not one of {sorted(STATUS)}")
             r = e.get("record")
             if r and not os.path.isfile(os.path.join(ROOT, r)): P.append(f"[daylog] {d.get('date')}: record {r} does not exist")
+            # 2026-11-07 (anti-drift, the daily reference line): from this day on every result names its healthy reference: an atlas, or
+            # "none (not a reading against healthy)" for audits, diagnostics and builds that read no sample against healthy
+            if sec.get("kind") == "ran" and str(d.get("date", "")) >= "2026-11-07":
+                rf = str(e.get("reference", ""))
+                if not (("IAM-Atlas v2.1" in rf or "IAM Sequencing Atlas" in rf) or rf.startswith("none (not a reading against healthy)")):
+                    P.append(f"[daylog] {d.get('date')}: result '{str(e.get('title'))[:40]}' names no atlas as its healthy reference")
             for t in (e.get("what", ""), e.get("why", "")):
                 m = FIRST.search(t)
                 if m: P.append(f"[daylog] {d.get('date')}: first person '{m.group(0)}' outside a quoted question")
