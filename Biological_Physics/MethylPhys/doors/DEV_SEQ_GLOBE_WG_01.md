@@ -101,3 +101,23 @@ read-halves maps every band's power is below the shuffles' mean (median of each 
 pure-noise maps sat near 1. The synthetic had even depth everywhere, the atlas does not, so the cause is likely the uneven depth along the genome
 meeting the apodised mask's weights; it is checked (a synthetic with the atlas's own depth along the genome) before this ratio is shown or used.
 The whole-sphere maps at NSIDE 256 (259 MB) go to Zenodo with the page.
+
+**The read-halves ratio below 1: the cause found, and the sign-flip null (its synthetic written before it runs on GitHub).** With the plain spectrum the B-cell read-halves map matches its shuffles from l 9 to 383 (1.021, 1.006, 0.998): pure counting noise.
+The low ratio comes from the null, not the map: the pixels the apodised mask tapers, beside the mask and the coverage gaps, carry about three
+times the noise of the rest (0.0136 against 0.0048 a pixel; CpGs beside centromeres and unmappable stretches hold fewer reads). The mask
+weighs them down in the map, but a shuffle carries their large values into full-weight places, so the shuffles hold more power than the map.
+The CMB meets the same thing (noise highest where the scan is thinnest) and answers it with noise simulations that keep each pixel's own noise.
+For a half-difference map that is exact: flipping each pixel's sign at random draws a fresh noise map with every pixel's level kept
+(`seq_globe_wg.py` `flip_null`; on the same B-cell map, apodised: 0.894 to 1.348). The join now records the flips beside the shuffles; the
+shuffles stay as a record only.
+
+**Range of the data:** real (the read-halves maps, `globe_wg_noise_maps_n256.npz`): local noise level 5.3 to 5.8 times from the 1st to the
+99th percentile of each map, 2.1 to 2.2 times from the 5th to the 95th, 94.5 % of pixels holding data, the tapered pixels about 2.8 times
+louder (0.0136 against 0.0048); synthetic (`flip-synthetic`, NSIDE 128): noise 1 to 6 times its quietest level with a long tail, 94.5 % of
+pixels holding data plus 1 % in gaps, the tapered pixels 3 times louder.
+
+Bars: 1. pure noise (even, uneven, louder at the edges): every band within 3 standard deviations of the flips' own ratios, none above all 20
+flips at over 1.5 times their mean; 2. planted structure above all 20 flips at over 3 times their mean. **Disclosed:** a first local code check
+held bar 1 to a fixed 0.85 to 1.15 and failed at the lowest band (l 2 to 8, about 60 modes) at 0.74 on even noise: a band of few modes
+scatters that widely by itself (cosmic variance, flips' own scatter 0.185), so the bar is set by the flips' scatter; the local check with it
+was met. The run on GitHub is the record.

@@ -323,11 +323,55 @@ def noise_join(part_dirs, outdir, coarse=256, n_perm=20, seed=20261113):
         r = SS.sky_spectrum_record(hp.reorder(m128, n2r=True), n_perm=n_perm, rng=rng, mask="apodised"); nb_ = r["null_bandpowers"]
         rep["cells"].setdefault(c, {})[name] = dict(cpgs=int(A["n"]), mean=round(float(mu), 6), mean_se=round(float(np.sqrt(var / A["n"])), 7), mean_square=round(float(A["ss"] / A["n"]), 7),
             spectrum=dict(bins=[(int(SQ.GD_BINS[i]), int(SQ.GD_BINS[i + 1])) for i in range(len(N))], corr=[round(float(x), 5) if np.isfinite(x) else None for x in corr], pairs=[int(x) for x in N]),
+            sphere_flip=(lambda bf: dict(ratio=[round(float(x), 4) for x in bf[0] / bf[1].mean(0)], bands_above_all_flips=[int(k) for k in np.flatnonzero(bf[0] > bf[1].max(0))]))(flip_null(hp.reorder(m128, n2r=True), n_perm, rng)),
             sphere_null=dict(bands=SS.BANDS, ratio=[round(float(b / n_), 4) for b, n_ in zip(r["bandpowers"], nb_.mean(0))], bands_above_null=[int(k) for k in np.flatnonzero(r["bandpowers"] > nb_.max(0))], f_sky=r["f_sky"]))
     for c, D in rep["cells"].items():
         if len(D) == 2: D["donor_part"] = round(D["map1 donor halves"]["mean_square"] - D["map2 read halves"]["mean_square"], 7)
     os.makedirs(outdir, exist_ok=True); json.dump(rep, open(os.path.join(outdir, "globe_wg_noise.json"), "w"), indent=1)
     np.savez_compressed(os.path.join(outdir, f"globe_wg_noise_maps_n{coarse}.npz"), **maps); return rep
+
+def flip_null(m_ring, n_perm=20, rng=None):
+    """2026-11-06: the sphere null that keeps every pixel's own noise level (the CMB's noise simulations from the noise model, here exact: a
+    half-difference map is symmetric about its mean, so flipping each pixel's sign at random draws a fresh noise map with the same level in
+    every pixel). Shuffling moves noisy pixels into quiet places and is kept only as a record. Returns (band powers of the map, the n_perm flips'
+    band powers), the apodised mask of sky_statistics, the map's mean removed first."""
+    import sky_statistics as SS
+    rng = rng or np.random.default_rng(20261113); m = np.asarray(m_ring, float); g = np.isfinite(m); x = np.where(g, m - np.nanmean(m), np.nan)
+    bp = lambda y: np.asarray(SS.bandpowers(SS.masked_spectrum(y, SS.LMAX, "apodised")[0]))
+    return bp(x), np.array([bp(np.where(g, x * rng.choice((-1.0, 1.0), len(x)), np.nan)) for _ in range(n_perm)])
+
+def flip_synthetic(out_txt, seed=20261114, nside=128):
+    """The sign-flip null's synthetic (written before it runs). Maps at NSIDE 128 (the null test's resolution), 94.5 % of pixels holding data
+    (the rest at the end of the genome, as X and Y), pure noise whose level changes along the genome in blocks of 1,024 NESTED pixels, from 1 to
+    6 times its quietest level with a long tail (the atlas's read-halves maps: local level 5.3 to 5.8 times from the 1st to the 99th percentile,
+    2.1 to 2.2 times from the 5th to the 95th), and 'edges': the uneven noise 3 times louder in the pixels the apodised mask tapers (the B-cell
+    read-halves map: 0.0136 against 0.0048 a pixel, the pixels beside coverage gaps hold fewer reads), with 1 % of pixels inside the sky
+    masked as gaps. Cases: 'even' (one level everywhere), 'uneven' (the levels above), 'edges', 'planted' (uneven noise plus
+    a smooth structure, 2 times the median noise level, over a band of genome blocks). Bars: 1. in 'even', 'uneven' and 'edges' every band's
+    ratio to the flips' mean lies within 3 standard deviations of the flips' own ratios (a band of few modes scatters widely: cosmic variance;
+    a first local check with a fixed 0.85 to 1.15 failed at the lowest band, about 60 modes, at 0.74, disclosed) and no band is above all 20
+    flips at over 1.5 times their mean; 2. in 'planted' a band is above all 20
+    flips at over 3 times their mean. Bar 1 covers 'edges' too. Recorded: the shuffles' ratio on the same maps."""
+    import healpy as hp, sky_statistics as SS
+    rng = np.random.default_rng(seed); n = 12 * nside * nside; nb = n // 1024
+    lv = np.repeat(np.clip(np.exp(rng.normal(0, 0.45, nb)), 0.5, None), 1024)[:n]; lv = 1 + 5 * (lv - lv.min()) / (lv.max() - lv.min())
+    mask = np.arange(n) < int(0.945 * n); L = []; ok1 = ok2 = True
+    smooth = np.repeat(np.sin(np.linspace(0, 6 * np.pi, nb)), 1024)[:n] * 2 * np.median(lv)
+    gaps = mask & (rng.random(n) < 0.01); gaps = np.repeat(gaps.reshape(-1, 16).any(1), 16)
+    for case in ("even", "uneven", "edges", "planted"):
+        lev = np.ones(n) if case == "even" else lv.copy(); mk = mask & ~gaps if case == "edges" else mask
+        if case == "edges":
+            w = SS._weights(hp.reorder(mk.astype(float), n2r=True) > 0, SS.APOD_DEG, SS.APOD_TAPER); lev = lev * np.where(hp.reorder(w, r2n=True) < 0.99, 3.0, 1.0)
+        m = rng.normal(0, 1, n) * lev + (smooth * (np.arange(n) // 1024 % 8 < 4) if case == "planted" else 0); m = np.where(mk, m, np.nan)
+        r = hp.reorder(m, n2r=True); b, F = flip_null(r, 20, rng); fr = b / F.mean(0); above = [k for k in range(len(b)) if b[k] > F.max(0)[k] and fr[k] > (3 if case == "planted" else 1.5)]
+        sh = SS.sky_spectrum_record(r, n_perm=20, rng=rng, mask="apodised"); srat = np.asarray(sh["bandpowers"]) / np.asarray(sh["null_bandpowers"]).mean(0)
+        sd = (F / F.mean(0)).std(0, ddof=1)
+        if case == "planted": ok2 &= len(above) > 0
+        else: ok1 &= bool(np.all(np.abs(fr - 1) <= 3 * sd)) and not above
+        L.append(f"{case}: flips' ratio by band {[round(float(v), 4) for v in fr]} (flips' own scatter {[round(float(v), 4) for v in sd]}); bands above all flips (past the bar's ratio) {above}; shuffles' ratio {[round(float(v), 4) for v in srat]}")
+    L += [f"bar 1 (pure noise, even, uneven or noisy at the edges: every band within 3 standard deviations of the flips, nothing flagged): {'met' if ok1 else 'not met'}",
+          f"bar 2 (planted structure found above all flips at over 3 times their mean): {'met' if ok2 else 'not met'}", "flip synthetic: " + ("met" if ok1 and ok2 else "not met")]
+    open(out_txt, "w").write("\n".join(L) + "\n"); print("\n".join(L)); return ok1 and ok2
 
 if __name__ == "__main__":
     a = sys.argv[1:]
@@ -339,3 +383,4 @@ if __name__ == "__main__":
     if a[0] == "noise-synthetic": sys.exit(0 if noise_synthetic(a[1]) else 1)
     if a[0] == "noise-part": noise_part(a[1], a[3:], cpg_bed=a[2])
     if a[0] == "noise-join": noise_join(a[2:], a[1])
+    if a[0] == "flip-synthetic": sys.exit(0 if flip_synthetic(a[1]) else 1)
