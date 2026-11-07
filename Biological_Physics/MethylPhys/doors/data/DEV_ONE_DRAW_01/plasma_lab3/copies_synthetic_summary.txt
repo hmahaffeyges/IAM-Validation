@@ -1,0 +1,10 @@
+constructed healthy plasma: 813,922 sites, molecules Poisson(6), shares of 11 cells from copies_synthetic_shares.csv
+copies 1, flag off: whole-sample Met-A 0.98611, domains 0.99723, copies measured None, exit 0
+copies 1, flag on: whole-sample Met-A 0.99543, domains 1.00815, copies measured 1.0267, exit 0
+copies 4, flag off: whole-sample Met-A 0.73372, domains 0.72387, copies measured None, exit 0
+copies 4, flag on: whole-sample Met-A 1.00398, domains 1.00385, copies measured 4.0988, exit 0
+copies 12, flag off: whole-sample Met-A 0.70158, domains 0.70058, copies measured None, exit 0
+copies 12, flag on: whole-sample Met-A 0.99919, domains 1.01377, copies measured 12.2511, exit 0
+bar 1 (copies 1, the flag changes whole-sample Met-A by at most 0.01): met
+bar 2 (copies 4 and 12 with the flag, within 0.03 of copies 1 without it): met
+synthetic: met

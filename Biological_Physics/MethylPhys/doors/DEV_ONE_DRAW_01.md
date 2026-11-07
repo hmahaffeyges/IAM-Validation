@@ -700,3 +700,9 @@ plasma by construction at the array-layout sites, in one GSE186007 healthy plasm
 Poisson(6), the same molecules copied 1, 4 and 12 times, each read with and without the flag. Bars: 1. copies 1: the flag moves whole-sample
 Met-A by at most 0.01; 2. copies 4 and 12 with the flag within 0.03 of copies 1 without it. **Then** one spent healthy plasma re-read without
 the flag must give its second reading's value exactly (the chain unchanged without the flag), before the 34 are read with it.
+
+**The copies synthetic: met; the third reading, written before it runs.** (`plasma_lab3/copies_synthetic_summary.txt`, GitHub run 42333729784.) Without the flag the constructed plasma read whole-sample Met-A
+0.98611 uncopied, 0.73372 at 4 copies and 0.70158 at 12; with it 0.99543, 1.00398 and 0.99919, the chain measuring 1.0267, 4.0988 and 12.2511
+copies. Both bars met. **Third reading:** the same 34 healthy plasmas, the same job, bars and scorer as the second, the flags of the second plus
+`--dev-seq-copies` (`plasma_lab3_samples_r3.csv`). **Unchanged-chain check, alongside:** GSM7426135, read without the flag on the code that now holds
+it, must give the second reading's whole-sample Met-A exactly (1.18639). If it does not, the third reading is not used. The cancer plasmas stay unread.
