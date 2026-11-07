@@ -17,7 +17,7 @@ SEAL = re.compile(r"(?i)^(\*\*Sealed\b|\*\*Step \d+: the rule|\*\*Status: rule|#
 BAR = re.compile(r"(?i)^- \*\*(S|B|Bar ?)\d+[a-z]?:\*\*")
 JOB = re.compile(r"(?m)^\*\*The instrument's job:\*\*\s*(.+)$"); SRC = re.compile(r"(?m)^\*\*Sources:\*\*\s*(.+)$")
 SYN = re.compile(r"(?i)\bsynthetic\b[^.]{0,160}\b(written before|before it runs|before (it|they) (reads?|runs?|opens?))|\b(written before|before it runs)[^.]{0,160}\bsynthetic\b")
-RANGE = re.compile(r"(?m)^\*\*Range of the data:\*\*\s*(.+)$")
+RANGE = re.compile(r"(?ms)^\*\*Range of the data:\*\*\s*(.+?)(?:\n\s*\n|\Z)")   # the whole paragraph, which may wrap
 CTRL = re.compile(r"(?i)\b(EGA|EGAS\d+|dbGaP|controlled[- ]access|controlled|on request|data access committee)\b")
 def findings(name, old, new):
     added = [l for l in new.split("\n") if l not in set(old.split("\n"))]

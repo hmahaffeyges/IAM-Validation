@@ -15,7 +15,8 @@ cases = [("C1 tonight's Hansen rule (no job, no sources)", "", HANSEN, True),
          ("C7 three bars plus reported lines", "", GOOD + "- **S2:** x\n- **S3:** y\n- **Reported, not scored:** z\n", False),
          ("C8 a synthetic with no range of the data (tonight's copies synthetic)", "", "**The copies synthetic (written before it runs).** Bars: the constructed plasma reads 1.0 at 4 and 12 copies with the flag.\n", True),
          ("C9 a range line without numbers", "", "**The copies synthetic (written before it runs).** Bars: the constructed plasma reads 1.0 at 4 and 12 copies with the flag.\n**Range of the data:** real and synthetic alike.\n", True),
-         ("C10 a synthetic with its range of the data", "", "**The copies synthetic (written before it runs).** Bars: the constructed plasma reads 1.0 at 4 and 12 copies with the flag.\n**Range of the data:** real plasmas 1 to 20 calls a site, copies 1.2 to 270; synthetic 1 to 20 molecules, copies 1 to 300.\n", False)]
+         ("C10 a synthetic with its range of the data", "", "**The copies synthetic (written before it runs).** Bars: the constructed plasma reads 1.0 at 4 and 12 copies with the flag.\n**Range of the data:** real plasmas 1 to 20 calls a site, copies 1.2 to 270; synthetic 1 to 20 molecules, copies 1 to 300.\n", False),
+         ("C11 a range paragraph that wraps", "", "**The copies synthetic (written before it runs).** Bars: x.\n**Range of the data:** real plasmas 1 to 20 calls a site;\nsynthetic 1 to 20 molecules.\n\nNext paragraph.\n", False)]
 bad = []
 for name, old, new, refuse in cases:
     F = K.findings("x.md", old, new); ok = bool(F) == refuse

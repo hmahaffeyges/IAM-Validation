@@ -719,3 +719,20 @@ range the synthetic never tried, so the bar it met did not cover the data. **Nex
 first (molecules 1 to 20 a site, copies 1 to 300 with a long tail), the correction fixed there. **These 34 healthy plasmas have now been read
 three times while the method was developed on them**, so they no longer give a fresh test: the next healthy reading of this laboratory is
 development, and the fresh test is a healthy plasma set the chain has not read. The cancer plasmas stay unread.
+
+**The copies correction over the plasmas' own range: sweep synthetic (written before it runs).** `plasma_lab3/copies_sweep.py` (one grid point per GitHub job, `copies_sweep.sh`), scored by `copies_sweep_score.py`. Same construction as
+the first copies synthetic, swept over a grid (`copies_sweep_grid.csv`, 30 points): molecules Poisson(0.1, 0.5, 1, 2, 4 and 8) a site, and
+copies per molecule with dispersion 1 (none), 2.4, 5, 20 and 270 from a long-tailed law (1 + floor(exp(N(m, 1)))). Each point read without and
+with `--dev-seq-copies`. Reference: molecules Poisson(8), no copies, read without the flag.
+
+**The instrument's job:** a healthy plasma reads the same at any depth and any number of copies per molecule.
+
+**Range of the data:** real (the 34 healthy GSE186007 plasmas, library properties only, `reading_2/plasma_lab3_r2_copies.txt` and the depth file):
+1 to 20 calls a covered site, copies (dispersion) 1.19 to 270.46, about 0.07 to 4.3 molecules a covered site (median 1.2); synthetic: 1.05 to 8
+molecules a covered site, copies 1 to 270 with a long tail, calls a covered site from about 1 to several hundred. Not covered: the real plasmas
+hold every CpG and 46,925 floor sites; the synthetic holds the array-layout sites only (the truth exists there), so the copies are measured on
+fewer floor sites than in the real plasmas.
+
+Bars: 1. uncopied plasmas: the flag changes whole-sample Met-A by at most 0.01 at every depth; 2. every grid point read with the flag within
+0.03 of the reference. Recorded: every point's gap, which shows where the correction holds and where it breaks, the readings without the flag,
+and the copies the chain measures against those planted.
