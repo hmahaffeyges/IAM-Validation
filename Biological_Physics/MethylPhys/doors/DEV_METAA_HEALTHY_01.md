@@ -550,3 +550,15 @@ Bars (scorer), test 4's unchanged: 1. each of the 30 healthy arrays reads A / A_
 mean of its 10 draws is within 0.005 of 1; 3. on each of the 3, a 5 % loss raises A / A_pred by at least half as much as it raises A.
 
 **Prior reading:** GSM7508429 is spent (tests 1 to 4); nothing else is read.
+
+## Synthetic test 5, read: met (`data/DEV_METAA_HEALTHY_01/synthetic_05_summary.txt`; ten draws on Google, every draw's line censored)
+
+| Array | inside Normal | mean of 10 draws | spread (sd) |
+|---|---|---|---|
+| center | 10 of 10 | 1.00093 | 0.00100 |
+| low tail | 10 of 10 | 0.99965 | 0.00231 |
+| high tail | 10 of 10 | 1.00069 | 0.00256 |
+
+All three bars met; test 2's weak array, beyond the real range, read 0.99685 (recorded). With the line measured from censored anchors, the high
+tail's bias under the plain line (test 4: mean 0.99192) is gone. **Next:** the per-person rehearsal on the 100 spent healthy bloods, read with
+`--dev-line-censored` (its design above); then a fresh test on held healthy arrays.
