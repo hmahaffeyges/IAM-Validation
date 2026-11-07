@@ -7,7 +7,12 @@ if have mk_platelet_compare.json; then log "already read: the comparison is in t
 # the hg19 CpG dictionary from the repository's index release (its checked size), then the platelet track from GEO
 if have platelets.lbeta; then gcloud storage cp -q $O/platelets.lbeta $W/platelets.lbeta; log "already read: platelets.lbeta taken back"
 else
-  gcloud storage cp -q $B/ref/CpG.bed.gz $W/cpg/CpG.bed.gz 2>/dev/null || { curl -sSfL --retry 5 "https://github.com/hmahaffeyges/IAM-Validation/releases/download/hg19-bwameth-index-v1/hg19-bwameth-index-v1.tar.zst" | zstd -dc -T4 | tar -C $W/cpg -xf - --wildcards '*references/hg19/CpG.bed.gz'; cp "$(find $W/cpg -name CpG.bed.gz | head -1)" $W/cpg/CpG.bed.gz; }
+  # the hg19 CpG dictionary from the repository's index release, in parts, checked against its SHA256SUMS stream line (as cov_read.yml)
+  U=https://github.com/hmahaffeyges/IAM-Validation/releases/download/hg19-bwameth-index-v1; mkdir -p $W/s; curl -fsSL --retry 5 -o $W/s/sums $U/SHA256SUMS
+  for q in $(awk '$2=="parts"{for(i=3;i<=NF;i++) print $i}' $W/s/sums); do curl -fsSL --retry 5 "$U/$q" || return 1; done \
+    | tee >(sha256sum | cut -d' ' -f1 > $W/s/got) | zstd -dc -T4 | tar -C $W/s -xf - --wildcards '*references/hg19/CpG.bed.gz'; sleep 3
+  [ "$(cat $W/s/got)" = "$(awk '$2=="stream"{print $1}' $W/s/sums)" ] || { log "index stream checksum failed"; return 1; }
+  cp "$(find $W/s -name CpG.bed.gz | head -1)" $W/cpg/CpG.bed.gz
   [ "$(zcat $W/cpg/CpG.bed.gz | wc -l)" = 28217448 ] || { log "CpG dictionary incomplete"; return 1; }
   curl -sSfL --retry 5 -o $W/platelets.bedGraph.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE206nnn/GSE206818/suppl/GSE206818_platelets_merged.bedGraph.gz"
   log "platelet track fetched: $(stat -c %s $W/platelets.bedGraph.gz) bytes, sha256 $(sha256sum $W/platelets.bedGraph.gz | cut -c1-16)"

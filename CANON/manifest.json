@@ -4556,7 +4556,7 @@
     "AT9"
    ],
    "depends_on": [],
-   "notes": "Sources identified from metadata; not downloaded unless stated. | 2026-11-06: megakaryocyte column tested on platelet DNA (GSE206818), synthetic and test written before the file is opened: Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_platelet_synthetic.py | 2026-11-06: platelet test synthetic met; the test job: Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_platelet_synthetic.txt | 2026-11-06: platelet test job sourced by the Google launcher (it was run with bash and ended at once; lesson already in memory): Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_platelet_synthetic.txt",
+   "notes": "Sources identified from metadata; not downloaded unless stated. | 2026-11-06: megakaryocyte column tested on platelet DNA (GSE206818), synthetic and test written before the file is opened: Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_platelet_synthetic.py | 2026-11-06: platelet test synthetic met; the test job: Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_platelet_synthetic.txt | 2026-11-06: platelet test job sourced by the Google launcher (it was run with bash and ended at once; lesson already in memory): Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_platelet_synthetic.txt | 2026-11-06: platelet test job fetches the CpG dictionary from the index release in parts with its checksum: Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/mk_platelet_synthetic.txt",
    "id": "ATL-025",
    "sources_of_row": [
     "Commissioning"
