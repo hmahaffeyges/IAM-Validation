@@ -91,3 +91,13 @@ maps showed none (every band within 1.5 times the shuffles' mean, every correlat
 the whole map's. **Recorded:** one pure-noise map (the planted cell's read halves) put two bands just above all 20 shuffles (ratios 1.0126 and
 1.0264): above-every-shuffle alone flags by chance, so every band is reported with its ratio to the shuffles' mean beside it. The real run is
 next (`globe_noise.yml`, one published set per machine, then the join).
+
+**The noise maps at every CpG, measured on the published atlas.** (`doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_noise_summary.txt`, `globe_wg_noise.json`; GitHub run 42339899387, all 113 pieces.) **Read halves
+(counting only):** all 57 cells; no cell shows structure, no sphere band above all 20 shuffles in any cell and a genome-distance
+correlation of 0.0005 (median, under 1 kb): what is left after the donors are taken out is counting, as the physics says.
+**Donor halves:** all 49 cells with two or more donors show structure on the sphere and along the genome (correlation 0.0838
+under 1 kb, falling with distance): healthy people differ from one another in regions, not CpG by CpG. **Open, before the page shows it:** in the
+read-halves maps every band's power is below the shuffles' mean (median of each cell's lowest band 0.5705); the synthetic's
+pure-noise maps sat near 1. The synthetic had even depth everywhere, the atlas does not, so the cause is likely the uneven depth along the genome
+meeting the apodised mask's weights; it is checked (a synthetic with the atlas's own depth along the genome) before this ratio is shown or used.
+The whole-sphere maps at NSIDE 256 (259 MB) go to Zenodo with the page.
