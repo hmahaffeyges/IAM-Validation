@@ -1,0 +1,44 @@
+name: globe_wg_check
+# 2026-11-06 (DEV-SEQ-GLOBE-WG-01): after a globe_wg build, every set's slices are taken from that run's artifacts onto the machine's second disk
+# (/mnt), and seq_globe_wg.py assemble joins the Globe Viewer's textures and checks the new globe against the current Sequencing Atlas Globe's
+# rule at every array-layout site, value for value. Output: the check report and the textures, as this run's artifact.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id: {description: "the finished globe_wg run", required: true}
+      tag:    {description: "artifact name", required: true}
+permissions: {contents: read, actions: read}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: install (the chain's own requirements) and preflight
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
+      - name: the build's slices, one set at a time, onto /mnt
+        env: {GH_TOKEN: "${{ github.token }}", RUN: "${{ inputs.run_id }}", REPO: "${{ github.repository }}"}
+        run: |
+          sudo mkdir -p /mnt/g && sudo chown $USER /mnt/g; df -h /mnt | tail -1
+          python3 - <<'EOF'
+          import os, requests, zipfile
+          H = {"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"}; R = "https://api.github.com/repos/" + os.environ["REPO"]
+          A = requests.get(f"{R}/actions/runs/{os.environ['RUN']}/artifacts", headers=H, params={"per_page": 100}, timeout=60).json()["artifacts"]
+          for a in sorted(A, key=lambda x: x["name"]):
+              z = "/mnt/g/a.zip"
+              for t in range(5):
+                  try:
+                      with requests.get(a["archive_download_url"], headers=H, stream=True, timeout=600) as r:
+                          r.raise_for_status(); open(z, "wb").writelines(r.iter_content(1 << 22))
+                      zipfile.ZipFile(z).extractall("/mnt/g/" + a["name"]); break
+                  except Exception as e: print("retry", a["name"], e)
+              os.remove(z); print(a["name"], flush=True)
+          EOF
+          du -sh /mnt/g; df -h /mnt | tail -1
+      - name: textures and the check against the current globe
+        run: mkdir -p out && python3 Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py assemble out /mnt/g/*/ 2>&1 | tail -5
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: "${{ inputs.tag }}", path: out/, retention-days: 30}
