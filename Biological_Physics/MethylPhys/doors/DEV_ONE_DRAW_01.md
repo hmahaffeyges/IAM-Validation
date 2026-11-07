@@ -661,3 +661,15 @@ built (`plasma_lab3_depth.py` version 2).
 link to the tared whole-sample Met-A is colon macrophages, Spearman +0.331 (p 0.056); granulocytes +0.301 (p 0.084); the unexplained remainder
 -0.014. Next (`plasma_lab3_depth.py` version 3): the library floor (false calls at sites every cell holds unmarked or marked), the ceiling
 statistics, the foreign fraction and the coverage by chromosome, each from the bundles.
+
+**The library method, and a measure of copies (development; synthetic met, written before any plasma is measured).** Version 3 of the check (`reading_2/plasma_lab3_r2_library.txt`) put the scatter in the genome's bulk ("the rest" of the sites, Spearman
++0.997 with the whole-sample reading) and tied it most strongly to the turnover share, the share of sites read past 0.5 to the far side of
+their healthy state (Spearman -0.475, p 0.0045; this laboratory's healthy plasmas median 0.110, up to 0.19, against 0.068 on the earlier plasma
+passes' 60 healthy plasmas, whose whole-sample Met-A spread was 0.067 against 0.26 here). Neither a per-batch tare (the two depth groups) nor
+depth removes it. GSE186007's method is linear amplification-based bisulfite sequencing (its series title). If its calls are copies of fewer
+molecules, every site reads nearer 0 or 1 than its molecules allow, and by an amount set by each library's amplification. **The measure**
+(`plasma_lab3/plasma_lab3_copies.py`): at the library-floor sites every healthy atlas cell holds unmarked, a methylated call is a false call;
+the dispersion index D of the false calls is near 1 for independent molecules and near the copies per molecule for copies. **Synthetic (met,
+`plasma_lab3_copies_synthetic.txt`):** D recovers 1, 2, 4 and 8 copies at about 2 and 15 calls a site. **On the 34 healthy plasmas (job
+`plasma_lab3_copies.sh`, one per GitHub job, cancer plasmas left unread):** D for each, and Spearman of D with the tared whole-sample Met-A
+and with its distance from 1. If D is well above 1 and tracks the scatter, the chain must count molecules, not calls, for such libraries.
