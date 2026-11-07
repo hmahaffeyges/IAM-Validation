@@ -20,8 +20,12 @@ jobs:
       - name: the hg19 CpG dictionary from the repository's index release (cached)
         if: steps.c.outputs.cache-hit != 'true'
         run: |
-          set -eu; mkdir -p s cpg
-          curl -sSfL --retry 5 "https://github.com/${{ github.repository }}/releases/download/hg19-bwameth-index-v1/hg19-bwameth-index-v1.tar.zst" | zstd -dc -T4 | tar -C s -xf - --wildcards '*references/hg19/CpG.bed.gz'
+          set -eo pipefail; sudo apt-get install -y -q zstd > /dev/null; mkdir -p cpg s
+          U=https://github.com/${{ github.repository }}/releases/download/hg19-bwameth-index-v1
+          curl -fsSL --retry 5 -o s/sums $U/SHA256SUMS
+          for q in $(awk '$2=="parts"{for(i=3;i<=NF;i++) print $i}' s/sums); do curl -fsSL --retry 5 "$U/$q" || exit 1; done \
+            | tee >(sha256sum | cut -d' ' -f1 > s/got) | zstd -dc -T4 | tar -C s -xf - --wildcards '*references/hg19/CpG.bed.gz'; sleep 3
+          [ "$(cat s/got)" = "$(awk '$2=="stream"{print $1}' s/sums)" ] || { echo "index stream checksum FAILED"; exit 1; }
           cp "$(find s -name CpG.bed.gz | head -1)" cpg/CpG.bed.gz; [ "$(zcat cpg/CpG.bed.gz | wc -l)" = 28217448 ] || exit 1
   noise:
     needs: cpg
