@@ -1559,3 +1559,14 @@ about as long as the machine's time limit and saved nothing until the end. They 
 machine, each part's rows saved to the bucket as it finishes (`floor_class_part.sh`, `floor_class_synthetic.py ... PART`), and the parts are
 scored together by the same bars (`floor_class_synthetic.py combine`). Each part draws its own people from its own seed (20261107 + 1000 + part);
 the bars are unchanged.
+
+**The class-floor synthetic, read: not met** (`seq_atlas/outside_data/floor_class/floor_class_synthetic.txt`, `floor_class_readings.csv`; 18 parts on Google, the one
+command, combined by the committed scorer). With the class floor every laboratory setting reads the islands at 0.72 to 0.85 (bar 1 not met),
+the atlas laboratory's own case at 0.74 (bar 2 not met). Without any correction the atlas laboratory's own case already reads 1.235, where the
+construction meant 1. **Cause, from the floors the chain recorded:** at the 47,789 island sites the sample's mix expects unmarked, the chain
+measured the atlas-laboratory sample at 0.0064 and the reference at 0.00014, though the construction planted only 0.006 x 0.29 = 0.0017 of
+false calls there. What the class floor counts at the islands is mostly the islands' own low methylation in the constructed people (their
+island levels are drawn with a person-to-person spread the atlas's pooled reference does not carry), not the library's false calls; the same
+mismatch puts the uncorrected reading at 1.235. So neither the construction nor the measure isolates the chemistry. **Next (its design first):**
+the false-call share that reaches the islands measured where truth is known to be unmarked for everyone (the library-floor sites that lie in
+islands), and a construction whose people carry the atlas's own island levels. The class floor stays development, off by default.

@@ -106,6 +106,14 @@
      "what": "42 healthy whole bloods read on every cell of IAM-Atlas v2.1 (read overnight, scored in the morning), each reading against age.",
      "outcome": "The age site ELOVL2 (rho +0.931) and the CD8 TEMRA share (+0.614) follow age; whole-sample Met-A rises with age (+0.474, p 0.0015), Met-A on neutrophils does not.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
+    },
+    {
+     "title": "The class-floor synthetic",
+     "status": "synthetic only",
+     "reference": "IAM Sequencing Atlas (constructed samples)",
+     "what": "54 runs of the one command in 18 parts on Google: six laboratory settings, three people, three floor settings.",
+     "outcome": "Not met: the class floor reads every setting at 0.72 to 0.85; what it counts at the islands is mostly the islands' own low methylation, not the false calls.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },

@@ -1,0 +1,55 @@
+lab,person,floor_equal,islands_floor,chain_cell,metaa,islands,measured_floor,floor_record
+atlas laboratory 0.006 x 0.29,0,none,,b cells,1.00974,1.23207,0.006034,
+atlas laboratory 0.006 x 0.29,0,--dev-floor-equal,"{""sample"": 0.006034, ""reference"": 0.006, ""common"": 0.006034}",b cells,1.00919,1.22748,0.006034,"{""sample"": 0.006034, ""donors"": [0.006, 0.006], ""common"": 0.006034, ""raise_sample"": 0.0}"
+atlas laboratory 0.006 x 0.29,0,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.006393, ""reference"": 0.000144, ""common"": 0.006393}",b cells,1.00974,0.73742,0.006034,
+atlas laboratory 0.006 x 0.29,1,none,,b cells,1.01347,1.23512,0.005965,
+atlas laboratory 0.006 x 0.29,1,--dev-floor-equal,"{""sample"": 0.005965, ""reference"": 0.006, ""common"": 0.006}",b cells,1.01403,1.23892,0.005965,"{""sample"": 0.005965, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 3.5e-05}"
+atlas laboratory 0.006 x 0.29,1,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.006263, ""reference"": 0.00013, ""common"": 0.006263}",b cells,1.01347,0.74469,0.005965,
+0.006 x 1.0,1,none,,b cells,0.99163,1.4424,0.006091,
+0.006 x 1.0,1,--dev-floor-equal,"{""sample"": 0.006091, ""reference"": 0.006, ""common"": 0.006091}",b cells,0.99019,1.4281,0.006091,"{""sample"": 0.006091, ""donors"": [0.006, 0.006], ""common"": 0.006091, ""raise_sample"": 0.0}"
+0.006 x 1.0,1,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.007743, ""reference"": 0.000133, ""common"": 0.007743}",b cells,0.99163,0.79541,0.006091,
+0.006 x 1.0,2,none,,b cells,1.00264,1.43438,0.005997,
+0.006 x 1.0,2,--dev-floor-equal,"{""sample"": 0.005997, ""reference"": 0.006, ""common"": 0.006}",b cells,1.00269,1.4347,0.005997,"{""sample"": 0.005997, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 3e-06}"
+0.006 x 1.0,2,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.007745, ""reference"": 0.000129, ""common"": 0.007745}",b cells,1.00264,0.79069,0.005997,
+0.009 x 1.05,0,none,,b cells,1.044,1.78462,0.008993,
+0.009 x 1.05,0,--dev-floor-equal,"{""sample"": 0.008993, ""reference"": 0.006, ""common"": 0.008993}",b cells,0.99699,1.34545,0.008993,"{""sample"": 0.008993, ""donors"": [0.006, 0.006], ""common"": 0.008993, ""raise_sample"": 0.0}"
+0.009 x 1.05,0,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.010762, ""reference"": 0.000135, ""common"": 0.010762}",b cells,1.044,0.83961,0.008993,
+0.009 x 1.05,1,none,,b cells,1.05816,1.78163,0.008942,
+0.009 x 1.05,1,--dev-floor-equal,"{""sample"": 0.008942, ""reference"": 0.006, ""common"": 0.008942}",b cells,1.01128,1.3488,0.008942,"{""sample"": 0.008942, ""donors"": [0.006, 0.006], ""common"": 0.008942, ""raise_sample"": 0.0}"
+0.009 x 1.05,1,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.01076, ""reference"": 0.000139, ""common"": 0.01076}",b cells,1.05816,0.83842,0.008942,
+0.009 x 1.05,2,none,,b cells,1.0596,1.78355,0.008871,
+0.009 x 1.05,2,--dev-floor-equal,"{""sample"": 0.008871, ""reference"": 0.006, ""common"": 0.008871}",b cells,1.01373,1.35814,0.008871,"{""sample"": 0.008871, ""donors"": [0.006, 0.006], ""common"": 0.008871, ""raise_sample"": 0.0}"
+0.009 x 1.05,2,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.010753, ""reference"": 0.000136, ""common"": 0.010753}",b cells,1.0596,0.83952,0.008871,
+0.016 x 0.75,0,none,,b cells,1.14413,2.28379,0.015888,
+0.016 x 0.75,0,--dev-floor-equal,"{""sample"": 0.015888, ""reference"": 0.006, ""common"": 0.015888}",b cells,0.99327,1.11099,0.015888,"{""sample"": 0.015888, ""donors"": [0.006, 0.006], ""common"": 0.015888, ""raise_sample"": 0.0}"
+0.016 x 0.75,0,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.016346, ""reference"": 0.000135, ""common"": 0.016346}",b cells,1.14413,0.84949,0.015888,
+0.016 x 0.75,1,none,,b cells,1.15048,2.26795,0.015735,
+0.016 x 0.75,1,--dev-floor-equal,"{""sample"": 0.015735, ""reference"": 0.006, ""common"": 0.015735}",b cells,1.00075,1.11185,0.015735,"{""sample"": 0.015735, ""donors"": [0.006, 0.006], ""common"": 0.015735, ""raise_sample"": 0.0}"
+0.016 x 0.75,1,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.016304, ""reference"": 0.000137, ""common"": 0.016304}",b cells,1.15048,0.84495,0.015735,
+0.016 x 0.75,2,none,,b cells,1.15466,2.30561,0.016252,
+0.016 x 0.75,2,--dev-floor-equal,"{""sample"": 0.016252, ""reference"": 0.006, ""common"": 0.016252}",b cells,0.99775,1.10142,0.016252,"{""sample"": 0.016252, ""donors"": [0.006, 0.006], ""common"": 0.016252, ""raise_sample"": 0.0}"
+0.016 x 0.75,2,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.016595, ""reference"": 0.000133, ""common"": 0.016595}",b cells,1.15466,0.84974,0.016252,
+atlas laboratory 0.006 x 0.29,2,none,,b cells,1.01024,1.24157,0.00604,
+atlas laboratory 0.006 x 0.29,2,--dev-floor-equal,"{""sample"": 0.00604, ""reference"": 0.006, ""common"": 0.00604}",b cells,1.00959,1.23612,0.00604,"{""sample"": 0.00604, ""donors"": [0.006, 0.006], ""common"": 0.00604, ""raise_sample"": 0.0}"
+atlas laboratory 0.006 x 0.29,2,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.006424, ""reference"": 0.000134, ""common"": 0.006424}",b cells,1.01024,0.7412,0.00604,
+0.0015 x 1.0,0,none,,b cells,0.92876,0.96444,0.001515,
+0.0015 x 1.0,0,--dev-floor-equal,"{""sample"": 0.001515, ""reference"": 0.006, ""common"": 0.006}",b cells,1.00126,1.4503,0.001515,"{""sample"": 0.001515, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004492}"
+0.0015 x 1.0,0,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.003205, ""reference"": 0.000125, ""common"": 0.003205}",b cells,0.92876,0.72307,0.001515,
+0.0015 x 1.0,1,none,,b cells,0.95376,0.95498,0.001518,
+0.0015 x 1.0,1,--dev-floor-equal,"{""sample"": 0.001518, ""reference"": 0.006, ""common"": 0.006}",b cells,1.02617,1.44077,0.001518,"{""sample"": 0.001518, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004489}"
+0.0015 x 1.0,1,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.003191, ""reference"": 0.000138, ""common"": 0.003191}",b cells,0.95376,0.7175,0.001518,
+0.0015 x 1.0,2,none,,b cells,0.94084,0.95783,0.001513,
+0.0015 x 1.0,2,--dev-floor-equal,"{""sample"": 0.001513, ""reference"": 0.006, ""common"": 0.006}",b cells,1.01329,1.44413,0.001513,"{""sample"": 0.001513, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004494}"
+0.0015 x 1.0,2,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.003211, ""reference"": 0.000141, ""common"": 0.003211}",b cells,0.94084,0.71866,0.001513,
+0.005 x 1.05,0,none,,b cells,0.98202,1.36472,0.004971,
+0.005 x 1.05,0,--dev-floor-equal,"{""sample"": 0.004971, ""reference"": 0.006, ""common"": 0.006}",b cells,0.9984,1.47483,0.004971,"{""sample"": 0.004971, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.001034}"
+0.005 x 1.05,0,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.006872, ""reference"": 0.000137, ""common"": 0.006872}",b cells,0.98202,0.79261,0.004971,
+0.005 x 1.05,1,none,,b cells,0.97909,1.35096,0.004978,
+0.005 x 1.05,1,--dev-floor-equal,"{""sample"": 0.004978, ""reference"": 0.006, ""common"": 0.006}",b cells,0.99546,1.46042,0.004978,"{""sample"": 0.004978, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.001027}"
+0.005 x 1.05,1,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.006709, ""reference"": 0.00014, ""common"": 0.006709}",b cells,0.97909,0.79263,0.004978,
+0.005 x 1.05,2,none,,b cells,0.99597,1.36944,0.005021,
+0.005 x 1.05,2,--dev-floor-equal,"{""sample"": 0.005021, ""reference"": 0.006, ""common"": 0.006}",b cells,1.01158,1.47419,0.005021,"{""sample"": 0.005021, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.000984}"
+0.005 x 1.05,2,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.00684, ""reference"": 0.000147, ""common"": 0.00684}",b cells,0.99597,0.79736,0.005021,
+0.006 x 1.0,0,none,,b cells,1.01165,1.44496,0.005974,
+0.006 x 1.0,0,--dev-floor-equal,"{""sample"": 0.005974, ""reference"": 0.006, ""common"": 0.006}",b cells,1.01206,1.44773,0.005974,"{""sample"": 0.005974, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 2.6e-05}"
+0.006 x 1.0,0,--dev-floor-class,"{""measured_at"": ""the islands read, where the mix expects them unmarked"", ""sites"": 47789, ""sample"": 0.007746, ""reference"": 0.000133, ""common"": 0.007746}",b cells,1.01165,0.79663,0.005974,
