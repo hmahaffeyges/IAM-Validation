@@ -670,3 +670,11 @@ which downloaded in 2 h 10 min (13,991,598 pairs, against about 17 minutes for t
 merge then refused the sample, correctly. Every CD8 library of GSE98837 is stored this way, so each sample's last chunk runs on a Google
 spot machine with no time limit (`DEV_ERASE_01/split_google.sh`, the same steps as `split_align.yml`), its other chunks come from GitHub, and
 the sample is merged and read once by the one command with the list's flags on the same machine. Nothing in the reading changes.
+
+**The B and T sequencing test, third reading (every read pair): not met** (`bt_seq_03/bt_seq3_summary.txt`, `bt_seq3_readings.csv`; all 12 read by the one command at full depth, the CD8 libraries' last chunks
+on Google.) Bar 1 (own-cell Met-A within 0.95 to 1.05): 1 of 12. Bar 2 (coupling-A Normal): 4 of 12. Bar 3 (IAM-A Normal): 7 of 12. With every
+read pair read, the B cells (GSE134664) still read own-cell Met-A high, 1.218 to 1.372, and the CD8 T cells (GSE98837) low, 0.692 to 1.001: the
+second reading's partial depth was not the cause of either laboratory's offset, and the two laboratories' offsets run in opposite directions,
+as the same-laboratory tare work found (DEV_ATLAS_V21_01.md). **Recorded, not scored:** the C-Score of all 12 within 0.9949 to 1.0085.
+The scorer's heading line says "second reading" (copied from the second reading's scorer); the readings and bars are the third reading's.
+Both series are spent. The same-laboratory tare's test on a laboratory not yet read is the Johns Hopkins CD4 test (running).

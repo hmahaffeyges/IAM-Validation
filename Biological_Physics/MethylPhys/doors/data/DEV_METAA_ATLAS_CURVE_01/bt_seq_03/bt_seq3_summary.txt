@@ -1,0 +1,16 @@
+B and T sequencing test, second reading: 12 of 12 with Met-A read
+  gsm GSM2616068 | cell naive cd8 t cells | Met-A own cell 0.86255 | coupling-A 0.9523 | coupling state Normal | Met-A whole sample 1.35234 | islands 1.24683 | domains 1.32389 | C-Score 1.0085 | own-cell share 0.5829
+  gsm GSM2616069 | cell effector memory cd8 t cells | Met-A own cell 0.83097 | coupling-A 0.9283 | coupling state below Normal | IAM-A 1.0179 | IAM-A state Normal | Met-A whole sample 1.17094 | islands 1.20682 | domains 1.03309 | C-Score 0.9987 | own-cell share 0.192
+  gsm GSM2616070 | cell cd8 t cells | Met-A own cell 1.00133 | coupling-A 0.879 | coupling state below Normal | IAM-A 1.0886 | IAM-A state above Normal | Met-A whole sample 1.07078 | islands 0.98115 | domains 1.04555 | C-Score 1.0067 | own-cell share 0.1518
+  gsm GSM2616071 | cell cd8 t cells | Met-A own cell 0.84512 | coupling-A 0.8804 | coupling state below Normal | IAM-A 0.9912 | IAM-A state Normal | Met-A whole sample 0.95181 | islands 1.00927 | domains 0.86641 | C-Score 0.9996 | own-cell share 0.2038
+  gsm GSM2616072 | cell naive cd8 t cells | Met-A own cell 0.69168 | coupling-A 1.08 | coupling state above Normal | Met-A whole sample 1.16392 | islands 1.52965 | domains 1.02618 | C-Score 1.0001 | own-cell share 0.4685
+  gsm GSM2616073 | cell effector memory cd8 t cells | Met-A own cell 0.73711 | coupling-A 1.0791 | coupling state above Normal | IAM-A 0.8976 | IAM-A state Normal | Met-A whole sample 1.13203 | islands 1.48783 | domains 1.0041 | C-Score 1.0031 | own-cell share 0.1797
+  gsm GSM2616074 | cell cd8 t cells | Met-A own cell 0.92064 | coupling-A 1.046 | coupling state Normal | Met-A whole sample 1.04875 | islands 1.13525 | domains 1.02514 | C-Score 1.0027 | own-cell share 0.2575
+  gsm GSM2616075 | cell cd8 t cells | Met-A own cell 0.74328 | coupling-A 0.9217 | coupling state below Normal | IAM-A 0.9172 | IAM-A state Normal | Met-A whole sample 0.83531 | islands 1.20937 | domains 0.72866 | C-Score 1.003 | own-cell share 0.3428
+  gsm GSM3963003 | cell b cells | Met-A own cell 1.37181 | coupling-A 1.1283 | coupling state above Normal | IAM-A 0.8094 | IAM-A state Normal | Met-A whole sample 1.30809 | islands 0.83599 | domains 1.32044 | C-Score 1.0005 | own-cell share 0.8974
+  gsm GSM3963004 | cell b cells | Met-A own cell 1.30647 | coupling-A 1.0919 | coupling state above Normal | IAM-A 0.84 | IAM-A state Normal | Met-A whole sample 1.22069 | islands 0.84753 | domains 1.20016 | C-Score 1.0057 | own-cell share 0.8685
+  gsm GSM3963005 | cell memory b cells | Met-A own cell 1.22139 | coupling-A 1.0242 | coupling state Normal | IAM-A 0.7751 | IAM-A state below Normal | Met-A whole sample 1.38239 | islands 1.14199 | domains 1.30322 | C-Score 0.9949 | own-cell share 0.6822
+  gsm GSM3963006 | cell memory b cells | Met-A own cell 1.21767 | coupling-A 1.0127 | coupling state Normal | IAM-A 0.8399 | IAM-A state Normal | Met-A whole sample 1.3474 | islands 1.12474 | domains 1.22643 | C-Score 1.0001 | own-cell share 0.6166
+bar 1 Met-A own cell within 0.95 to 1.05: 1 of 12: not met
+bar 2 coupling-A Normal: 4 of 12: not met
+bar 3 IAM-A Normal: 7 of 12: not met
