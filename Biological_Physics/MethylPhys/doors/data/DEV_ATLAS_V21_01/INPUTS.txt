@@ -120,3 +120,11 @@ jhu_tissue_samples.csv
 crosslab_chain_table.csv
 # 2026-11-07: the naive and memory CD4 synthetic's grid of constructed samples (label_rule/subset_synthetic.py), written before it runs; not a reading
 subset_grid.csv
+# 2026-11-07: the cross-laboratory rehearsal's sample list (xl_class/), copied from the earlier reading's list with --dev-floor-class added; not a reading
+xl_bt3_samples.csv
+# 2026-11-07: the cross-laboratory rehearsal's sample list (xl_class/), copied from the earlier reading's list with --dev-floor-class added; not a reading
+xl_jhu_samples.csv
+# 2026-11-07: the cross-laboratory rehearsal's sample list (xl_class/), copied from the earlier reading's list with --dev-floor-class added; not a reading
+xl_bp_samples.csv
+# 2026-11-07: the cross-laboratory rehearsal's sample list (xl_class/), copied from the earlier reading's list with --dev-floor-class added; not a reading
+xl_lab2_samples.csv

@@ -1598,3 +1598,21 @@ the one command, combined by the committed scorer). With the floor counted at th
 setting reads the islands at 0.989 to 1.004 (bar 1 met); the atlas laboratory's own case 0.9895 (bar 2 met). Uncorrected the same settings read
 0.968 to 2.109. **Next (written first):** the 89 spent outside samples read again with `--dev-floor-class`, the islands' bar per person; the
 domains, which do not follow the floor, are read against the naive and memory make-up the Deconvolver measures.
+
+**The cross-laboratory rehearsal on spent data with the class floor (written and committed before any of its readings exists).** The 89 outside healthy samples already read (BLUEPRINT 59, GSE245832 CD8 12, GSE98837 CD8 8, Johns Hopkins CD4 6,
+GSE134664 B 4) read again by the one command with `--dev-floor-class`: B, T and Johns Hopkins from their saved chunks (merge only), BLUEPRINT and
+the second laboratory from their public files (`xl_class/xl_class_job.sh`, each sample saved as it is read; Google).
+
+**The instrument's job:** a healthy sample from any laboratory reads Normal on the islands.
+
+**Sources:** the five series' public files as first read (GEO GSE86340, GSE98837, GSE134664, GSE245832; BLUEPRINT's public tracks); the IAM
+Sequencing Atlas (public, Zenodo).
+
+**Reference:** the IAM Sequencing Atlas only, each sample against the atlas in the mix the IAM-Deconvolver measures in it; each library's
+false-call rate from its own reads at the library-floor sites inside the islands; no tare.
+
+Bars (scorer `xl_class/xl_class_score.py`): 1. at least 80 of the 89 samples each read the islands inside Normal, 0.95 to 1.05; 2. in each of the
+five laboratories at least 75 % of its samples each do. Recorded, not scored: whole sample and domains, each sample's floors and main cell.
+
+**Prior reading:** all 89 are spent (read before without the class floor); this is the rehearsal before a fresh laboratory (the BLUEPRINT
+monocytes, unread).

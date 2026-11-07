@@ -1,0 +1,13 @@
+gsm,donor,atlas_cell,group,specimen,fmt,genome,url
+GSM7849753,D1,naive cd8 t cells,naive CD8 (scored),sorted naive cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849753/suppl/GSM7849753_Tn_D1.bismark.cov.gz
+GSM7849754,D1,effector memory cd8 t cells,memory CD8 (scored),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849754/suppl/GSM7849754_Tmem_D1.bismark.cov.gz
+GSM7849755,D1,effector memory cd8 t cells,CMV-specific responders (recorded),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849755/suppl/GSM7849755_TmemCMV_D1.bismark.cov.gz
+GSM7849756,D2,naive cd8 t cells,naive CD8 (scored),sorted naive cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849756/suppl/GSM7849756_Tn_D2.bismark.cov.gz
+GSM7849757,D2,effector memory cd8 t cells,memory CD8 (scored),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849757/suppl/GSM7849757_Tmem_D2.bismark.cov.gz
+GSM7849758,D2,effector memory cd8 t cells,CMV-specific responders (recorded),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849758/suppl/GSM7849758_TmemCMV_D2.bismark.cov.gz
+GSM7849759,D3,naive cd8 t cells,naive CD8 (scored),sorted naive cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849759/suppl/GSM7849759_Tn_D3.bismark.cov.gz
+GSM7849760,D3,effector memory cd8 t cells,memory CD8 (scored),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849760/suppl/GSM7849760_Tmem_D3.bismark.cov.gz
+GSM7849761,D3,effector memory cd8 t cells,CMV-specific responders (recorded),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849761/suppl/GSM7849761_TmemCMV_D3.bismark.cov.gz
+GSM7849762,D4,naive cd8 t cells,naive CD8 (scored),sorted naive cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849762/suppl/GSM7849762_Tn_D4.bismark.cov.gz
+GSM7849763,D4,effector memory cd8 t cells,memory CD8 (scored),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849763/suppl/GSM7849763_Tmem_D4.bismark.cov.gz
+GSM7849764,D4,effector memory cd8 t cells,CMV-specific responders (recorded),sorted effector memory cd8 t cells,bismark-cov,hg38,https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7849nnn/GSM7849764/suppl/GSM7849764_TmemCMV_D4.bismark.cov.gz
