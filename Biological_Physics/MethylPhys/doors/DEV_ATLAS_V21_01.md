@@ -1498,3 +1498,18 @@ Deconvolver gives most BLUEPRINT memory libraries almost no memory share, so the
 Deconvolver's naive and memory split tested on constructed mixes of those columns (synthetic first, over the real share range), then more
 donors for the subset columns from the held leads; until then the domains and the whole sample of lymphocytes are reported with the
 measured memory share beside them, never called a laboratory term.
+
+**Can the Deconvolver tell naive from memory CD4 on sequencing? (written and committed before it runs).** The open part of the domains finding above.
+
+**The instrument's job:** the Deconvolver reports the naive and memory CD4 shares a sample holds.
+
+**Synthetic test:** `DEV_ATLAS_V21_01/label_rule/subset_synthetic.py` (it runs the one command on each constructed sample; one grid row per GitHub job through cov_read.yml; 30 rows, its grid
+listed in the script's folder): constructed sequenced samples from the IAM Sequencing Atlas's own columns at IAM-Atlas v2.1's sites, CD4 at 0.3 or 0.7 of
+the sample split between naive and memory CD4 at memory fraction 0 to 1, each site varied as a person, at 3, 15 or 40 reads a site. Bars
+(`subset_synthetic_score.py`): 1. at 15 and 40 reads, the measured memory fraction within 0.15 of the planted in every row; 2. the measured
+total CD4 within 0.1. Three reads a site recorded, where it breaks.
+
+**Sources:** the IAM Sequencing Atlas (public, Zenodo 10.5281/zenodo.24029328), its columns as committed in the chain's runtime tables.
+
+**Range of the data:** real: outside libraries 3 to 71 calls a site, the labeled cell 0.24 to 0.80 of the sample
+(`crosslab_chain_table.csv`); synthetic: 3, 15 and 40 reads a site, CD4 at 0.3 and 0.7, memory fraction 0 to 1.

@@ -118,3 +118,5 @@ jhu_cd4_samples.csv
 jhu_tissue_samples.csv
 # 2026-11-07: tabulated from the chain's own bundles of 89 outside samples (seq_atlas/outside_data/crosslab_chain_table.py); the input that sets the cross-laboratory synthetic's range of the data, not a reading
 crosslab_chain_table.csv
+# 2026-11-07: the naive and memory CD4 synthetic's grid of constructed samples (label_rule/subset_synthetic.py), written before it runs; not a reading
+subset_grid.csv

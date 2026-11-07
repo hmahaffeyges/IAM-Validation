@@ -15,12 +15,21 @@ if [ "$MODE" = chunk ]; then
   [ -s "$f" ] && gcloud storage cp -q $f $B/chunks/ > /dev/null 2>&1 && log "uploaded $(basename $f)" && { gcloud storage rm -r -q "$B/ckpt/${GSM}_c${K}_${N}" > /dev/null 2>&1; log "checkpoints cleared"; }
   cp $W/run.log $W/${GSM}_c${K}_${N}_run.log; up $W/${GSM}_c${K}_${N}_run.log
 else
-  mkdir -p $W/chunks; gcloud storage cp -q "$B/chunks/${GSM}_c*_${N}.pat.gz" $W/chunks/ > /dev/null 2>&1
-  n=$(ls $W/chunks/${GSM}_c*_${N}.pat.gz | wc -l); log "chunks with molecules: $n of $N"
-  [ "$n" = "$N" ] || { log "MISSING CHUNKS: merge refused ($n of $N)"; exit 0; }
-  . $W/v/bin/activate; python3 $E/merge_pats.py $W/$GSM.pat.gz $(ls $W/chunks/${GSM}_c*_${N}.pat.gz | sort -V)
+  # 2026-11-07 (author: "make sure they save continuously to the bucket"): the merged molecules are saved to $B/merged/ the moment they exist,
+  # and a relaunch after a reclaim takes them back instead of fetching and merging the chunks again.
+  . $W/v/bin/activate
+  if gcloud storage cp -q "$B/merged/$GSM.pat.gz" $W/$GSM.pat.gz > /dev/null 2>&1 && [ -s $W/$GSM.pat.gz ]; then log "checkpoint taken back: merged molecules"
+  else
+    mkdir -p $W/chunks; gcloud storage cp -q "$B/chunks/${GSM}_c*_${N}.pat.gz" $W/chunks/ > /dev/null 2>&1
+    n=$(ls $W/chunks/${GSM}_c*_${N}.pat.gz | wc -l); log "chunks with molecules: $n of $N"
+    [ "$n" = "$N" ] || { log "MISSING CHUNKS: merge refused ($n of $N)"; exit 0; }
+    python3 $E/merge_pats.py $W/$GSM.pat.gz $(ls $W/chunks/${GSM}_c*_${N}.pat.gz | sort -V)
+    gcloud storage cp -q $W/$GSM.pat.gz "$B/merged/$GSM.pat.gz" > /dev/null 2>&1 && log "checkpoint saved: merged molecules"; rm -rf $W/chunks
+  fi
   FULL=1 PATFILE=$W/$GSM.pat.gz bash $E/erase_gh.sh $GSM > $W/run.log 2>&1; rc=$?
   log "merge rc $rc: $(tail -3 $W/run.log | tr '\n' ' ' | cut -c1-300)"
   for x in $W/eout/${GSM}_bundle.json $W/eout/${GSM}*_metaa_sites.csv.gz $W/eout/${GSM}*_whole_sites.csv.gz $W/eout/${GSM}*.html; do [ -f "$x" ] && gcloud storage cp -q $x $B/out/ > /dev/null 2>&1; done
   cp $W/run.log $W/${GSM}_merge_run.log; up $W/${GSM}_merge_run.log
+  # 2026-11-07: the chain's own log, always (five tumor merges failed at exit 35 and only the wrapper's log was kept, which stops before the error)
+  for x in $(find $W -name "${GSM}_run_sample.log" 2>/dev/null); do gcloud storage cp -q $x $B/out/ > /dev/null 2>&1; [ $rc -ne 0 ] && log "chain error: $(grep -m2 -E 'Error|refus|Traceback' $x | tr '\n' ' ' | cut -c1-250)"; done
 fi
