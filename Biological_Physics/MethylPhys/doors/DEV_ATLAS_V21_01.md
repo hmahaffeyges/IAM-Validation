@@ -1408,3 +1408,44 @@ by person.
 (16 monocytes, 6 classical monocytes; ages 0-5 to 70-75); GSE173787 / PRJNA727170: 10 healthy CD14 monocytes (HC-1 to HC-10; also 12 from
 multiple sclerosis); PRJNA574550: 51 monocyte runs, labels to check. **Rehearsal (spent data, answer known):** BLUEPRINT's 10 spent mature
 neutrophils against the atlas's granulocyte column, with steps 1 to 5, before the test is written.
+
+**What the chain itself reported on every outside laboratory read so far (development, after the fact; nothing read again, nothing scored).** (`outside_data/crosslab_chain_table.csv`, `crosslab_chain_table.py`; 89 samples from 5 laboratories, each already read
+by the one command.) The scoring of those tests read each sample against the cell on its label; the chain's own Deconvolver reports otherwise:
+the cell it finds most of holds only 24 to 80 % of a "sorted" sample, the rest in neighboring subsets, and one Johns Hopkins "CD4" sample is mostly
+monocytes. Per laboratory (medians): BLUEPRINT false-call rate 0.0016 (0.25 times the atlas laboratory's 0.0063, `input_floors_v1.parquet`),
+41 calls a site, Met-A of the cell found 0.71; Johns Hopkins 0.0051, 17, 0.94; GSE245832 0.0059, 3, 0.73; GSE134664 0.0092, 8, 1.29; GSE98837
+0.0158, 15, 0.87. No single library term orders the laboratories (false-call rate and depth each partial). **Next (each written before it runs, synthetic first):** read each sample
+against the atlas in the shares the chain measured, with each library's own false-call rate and depth carried into its expectation, and test it
+on these 89 (spent, answer known, the per-person bar); only then a fresh laboratory, compared only with samples the Deconvolver matches.
+
+**The instrument's job:** a healthy sample from any laboratory reads Normal against the atlas in its own measured cell shares, person by person.
+
+**Sources:** the 89 bundles the one command wrote (GEO GSE98837, GSE134664, GSE245832, GSE86340 and BLUEPRINT, all public); the IAM Sequencing Atlas (public, Zenodo).
+
+**Range of the data:** real libraries: false-call rate 0.001 to 0.033, 2 to 71 calls a site, top-cell share 0.24 to 0.80 (`crosslab_chain_table.csv`);
+synthetic to try: false-call rate 0.0005 to 0.05, 1 to 100 calls a site, top-cell share 0.2 to 1.0.
+
+**Where a label got into the chain, and the fix (the Deconvolver decides; author: "find where the breakdown happened and make sure it can NEVER happen again using code").** Found in the chain's own code, not only in the scorers. (1) `run_sample.py` set the
+development sorted-cell Met-A's cell from the specimen's words (from 2026-10-22); (2) Stage Q2 took IAM-A's and coupling-A's cell from the
+specimen (from 10-25); (3) a 'sorted X' sample's mix was overridden to 100 % X for the whole-sample reference, the departures and the C-Score
+(from 10-28); (4) `run_series.py` let a sample list's `atlas_cell` column set the cell (from 10-25); and the cross-laboratory scorers read
+(1) and compared samples by the sample list's label. The chain's gate checked that every reading came from the one command, but not who chose
+the cell. **The fix (chain code):** `stage_0_intake.LABEL_RULE`, `cells_found`, `chain_cell`, `label_check`; the four paths removed; the
+Deconvolver runs first on every sequencing file (its values are made first); every single-cell reading takes the cell the Deconvolver found
+most of; a label it disagrees with is written to the bundle (`label_check`), and a cell set by hand is written as the operator's
+(`operator_cell`). **So it cannot return:** `CANON/chain_gate.py` rule 23b-h refuses chain code that sets a cell or a mix from the specimen's
+words and any scorer that reads the label's cell without `label_check` (control cases C17 to C21; the old `run_sample.py` and the Johns Hopkins
+and B and T scorers are refused by it). The lesson is written in the chain itself: the Decoder's section "The Deconvolver decides what is in
+a sample, in every instrument", `stage_0_intake.py`'s header and the workflow's boxes A2 and E1.
+
+**The instrument's job:** a sample is read as what the Deconvolver finds in it, whatever its label says.
+
+**Synthetic test:** `DEV_ATLAS_V21_01/label_rule/label_synthetic.py` (four constructed arrays, each labeled "sorted cd4 t cells", through the
+one command: all CD4; 50 % CD4 and 50 % monocytes; 24 % CD4, 40 % monocytes and 36 % NK cells; all monocytes). Bars: 1. the monocyte sample is
+read as monocytes and the label's disagreement recorded; 2. the CD4 sample is read as CD4; 3. in both mixes every cell found at 1 % or more has
+its own Met-A, and the single-cell reading takes the cell found most of.
+
+**Sources:** IAM-Atlas v2.1's blood columns (public, Zenodo), through the chain's own reference (`stage_deconv_v21.reference`).
+
+**Range of the data:** real outside "sorted" libraries: the labeled cell's measured share 0.24 to 0.80, and 0.00 in the Johns Hopkins sample
+read as monocytes (`seq_atlas/outside_data/crosslab_chain_table.csv`); synthetic: the labeled cell at 1.00, 0.50, 0.24 and 0.00.

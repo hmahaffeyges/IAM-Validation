@@ -97,6 +97,46 @@ def atlas_cell_of(specimen):
         if s.startswith(w) and s[len(w):] in SEQ_ATLAS_ONLY_CELLS: return s[len(w):]   # 2026-11-02: a cell the IAM Sequencing Atlas holds and v2.1 does not
     return None
 
+# ---- 2026-11-07: THE DECONVOLVER DECIDES WHAT IS IN A SAMPLE (the lesson of 2026-11-07) ----------------------------------------------------------------
+# Author: "the decovolver is ALWAYS the first things we use to determine what is in the sample and then each one of them is scored using their
+# appropriate cell references from the atlas's ... I dont care what the label says, if we find 20 different cells in the sample ... then we score
+# all of them if they are able to be scored. We dont ever make assumptions, the chain does the talking."
+# How it broke (found 2026-11-07): from 2026-10-22 to 10-28 three paths in run_sample.py took a cell from the specimen's words: the development
+# Met-A ('sorted X' read against X), IAM-A and coupling-A (Stage Q2's cell), and an override that set a 'sorted X' sample's mix to 100 % X for the
+# whole-sample reference, the departures and the C-Score; run_series.py let a sample list's atlas_cell column do the same. Every cross-
+# laboratory test then scored samples by their labels: one Johns Hopkins 'CD4' sample the Deconvolver read as 64 % monocytes was scored as CD4,
+# and the outside 'sorted' samples, which the Deconvolver finds hold 24 to 80 % of the labeled cell, were read as one cell.
+# The rule, enforced here and by CANON/chain_gate.py rule 23b-h: a specimen's words choose the ROUTE only (array or sequencing; blood, plasma,
+# tissue, or a sorted / isolated cell); WHICH cells are in the sample, and which atlas reference each is read against, come only from the
+# IAM-Deconvolver's measured shares (Stage D21). A label the Deconvolver disagrees with is recorded (label_check), never obeyed.
+LABEL_RULE = ("A specimen's words choose the route only; which cells are in the sample, and the atlas reference each is read against, come only "
+              "from the IAM-Deconvolver's measured shares (Stage D21). A label the Deconvolver disagrees with is recorded, never obeyed.")
+CELL_FLOOR = 0.01   # a cell below 1 % of the sample is not read as present (the presence gate, SOP section 3.2)
+
+def cells_found(cell_shares, floor=CELL_FLOOR):
+    """The cells the Deconvolver found, largest share first: [(cell, share), ...] at or above the floor. cell_shares: the bundle's
+    'cell_shares' record (Stage D21). Empty when the Deconvolver did not run."""
+    rows = (cell_shares or {}).get("cells") or [] if isinstance(cell_shares, dict) else []
+    return sorted(((r["cell"], float(r["share"])) for r in rows if r.get("share") is not None and float(r["share"]) >= floor), key=lambda x: -x[1])
+
+def chain_cell(cell_shares):
+    """The cell the Deconvolver found most of, or None. The only source of a single-cell reading's cell (IAM-A, coupling-A, the sorted-cell
+    Met-A) when the operator did not set one."""
+    f = cells_found(cell_shares); return f[0][0] if f else None
+
+def label_check(specimen, cell_shares):
+    """What the specimen's words claim against what the Deconvolver found. Recorded in the bundle; nothing is read from the claim."""
+    claimed = atlas_cell_of(specimen); f = cells_found(cell_shares); sh = dict(f)
+    rec = dict(rule=LABEL_RULE, specimen=str(specimen), claimed_cell=claimed, found=[dict(cell=c, share=round(x, 4)) for c, x in f[:8]],
+               chain_cell=f[0][0] if f else None)
+    if not f: rec.update(agrees=None, note="the Deconvolver did not run; no cell is read from the label")
+    elif claimed is None: rec.update(agrees=None, note="the specimen names no single cell")
+    else:
+        rec.update(claimed_share=round(sh.get(claimed, 0.0), 4), agrees=f[0][0] == claimed,
+                   note=("the Deconvolver finds the claimed cell first" if f[0][0] == claimed else
+                         f"the Deconvolver finds {f[0][0]} first ({f[0][1]:.1%}); the claimed {claimed} is {sh.get(claimed, 0.0):.1%}: the sample is read as found"))
+    return rec
+
 SEQ_ATLAS_ONLY_CELLS = ("granulocytes",)   # 2026-11-02: read against the IAM Sequencing Atlas (Met-A at v2.1's neutrophil sites, stage_metaa_atlas.IDENTITY_OF)
 
 PLASMA_WORDS = ("plasma", "cfdna", "cell-free dna", "cell free dna", "plasma cfdna", "plasma cell-free dna", "serum cfdna")

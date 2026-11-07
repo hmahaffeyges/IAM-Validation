@@ -62,7 +62,20 @@ r = tree(); w(r, S1, "import subprocess\nsubprocess.run('curl -o g.fa.gz https:/
 res["C15 .pat made from reads, counted by the one command"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
 r = tree(); w(r, S1, "import subprocess\nsubprocess.run('curl -o g.fa.gz https://x/ && wgbstools bam2pat s.bam -o pat', shell=True)\nimport stage_q2_selfref as Q2\nQ2.count_pat(open('pat/s.pat.gz'), {})\n")
 res["C16 .pat made from reads, counted by chain pieces"] = CG.check([S1], {}, root=r, known={CG.chain_sha(r)})
-want = {k: (k.startswith(("C7", "C9", "C11", "C14", "C15"))) for k in res}
+# 2026-11-07, rule 23b-h: a cell taken from a label
+CC = CG.CHAIN + "/MethylPhys_Interface/x.py"; os_ = os
+r = tree(); os_.makedirs(os.path.join(r, CG.CHAIN, "MethylPhys_Interface"), exist_ok=True); w(r, CC, "a.seq_cell = _S0.atlas_cell_of(a.specimen) or 'neutrophils'\n")
+res["C17 chain sets IAM-A's cell from the label"] = CG.check([CC], {}, root=r, known={CG.chain_sha(r)})
+r = tree(); os_.makedirs(os.path.join(r, CG.CHAIN, "MethylPhys_Interface"), exist_ok=True); w(r, CC, "if _sc: _shr = {_sc: 1.0}\n_sc = _S0i.atlas_cell_of(str(a.specimen))\n")
+res["C18 chain overrides the mix with the declared cell"] = CG.check([CC], {}, root=r, known={CG.chain_sha(r)})
+r = tree(); os_.makedirs(os.path.join(r, CG.CHAIN, "MethylPhys_Interface"), exist_ok=True); w(r, CC, "if beta is not None and _S0spec.atlas_cell_of(a.specimen):   # the route\n    pass\n")
+res["C19 chain uses the label to choose the route"] = CG.check([CC], {}, root=r, known={CG.chain_sha(r)})
+S3 = CG.DOORS + "data/DEV_X_01/score.py"
+r = tree(); w(r, S3, "own = (B.get('development') or {}).get('metaa_atlas')\nshare = sh.get(r.cell)\n")
+res["C20 scorer reads the label's cell"] = CG.check([S3], {}, root=r, known={CG.chain_sha(r)})
+r = tree(); w(r, S3, "lc = B['label_check']; each = B['met_a_each_cell']['cells']\n")
+res["C21 scorer reads the cells the Deconvolver found"] = CG.check([S3], {}, root=r, known={CG.chain_sha(r)})
+want = {k: (k.startswith(("C7", "C9", "C11", "C14", "C15", "C19", "C21"))) for k in res}
 bad = [k for k, F in res.items() if (len(F) == 0) != want[k]]
 for k, F in res.items(): print(f"  {k}: {'ACCEPTED' if not F else 'REFUSED'} (want {'ACCEPT' if want[k] else 'REFUSE'})" + ("" if not F else f" - {F[0][-110:]}"))
 print("chain_gate_controls: " + (f"ok ({len(res)} of {len(res)})" if not bad else "FAILED: " + ", ".join(bad))); sys.exit(1 if bad else 0)

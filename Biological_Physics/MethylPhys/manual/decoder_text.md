@@ -39,6 +39,22 @@ the average entropy of its parts.
 **Built from what, tested on what.** A reviewer's first question about any reference is whether it was tested on the data it was
 built from. Every reference entry names both.
 
+## The Deconvolver decides what is in a sample, in every instrument
+
+**The rule.** A specimen's words (whole blood, plasma, tissue, "sorted CD4 T cells") choose only the route a sample takes: array or sequencing,
+and which kind of specimen. What is in the sample, and which atlas reference each part is read against, come only from the IAM-Deconvolver's
+measured shares (Stage D21), which run first on every input that has values, a sequencing file included. Every cell found at 1 % or more is
+read against its own atlas reference (Met-A for each cell). A single-cell reading (the sorted-cell Met-A, IAM-A, coupling-A) reads the cell
+the Deconvolver found most of. A label the Deconvolver disagrees with is recorded in the bundle (`label_check`), never obeyed. A cell set by
+hand (`--dev-metaa-atlas`, `--seq-cell`) is recorded as the operator's (`operator_cell`), not as a reading of the sample.
+
+**Why it is written here.** From 2026-10-22 to 10-28 three paths in `run_sample.py` took the cell from the specimen's words, and `run_series.py`
+let a sample list's `atlas_cell` column do the same. The cross-laboratory tests on sorted cells were then scored by their labels: one healthy
+"CD4" sample the Deconvolver read as 64 % monocytes was scored as CD4, and outside "sorted" samples, which hold 24 to 80 % of the labeled cell,
+were read as one cell. Days of results compared labels, not samples. The physics reads the molecules in the tube; only the Deconvolver says
+what those molecules came from. `CANON/chain_gate.py` rule 23b-h now refuses chain code that sets a cell or a mix from the specimen's words,
+and any scorer that reads the label's cell without the chain's `label_check`.
+
 ## Sex and the X chromosome, in every instrument
 
 <!-- SEX-SECTION:BEGIN -->
@@ -266,7 +282,20 @@ The 79 cell names of IAM-Atlas v2.1 (its best-value columns), read once.
 
 ### stage_0_intake.py::atlas_cell_of
 An isolated, sorted or purified cell of any IAM-Atlas v2.1 type other than neutrophils (case-insensitive): its atlas name, else nothing. Such a
-specimen is accepted at intake and read by Met-A against the atlas (development, not commissioned); the commissioned Met-A is not applied.
+specimen is accepted at intake and takes the single-cell route (development, not commissioned); the commissioned Met-A is not applied. Since
+2026-11-07 the name it returns is the specimen's claim only: it chooses the route and is checked by `label_check`; it never sets the cell a
+reading uses (rule 23b-h).
+
+### stage_0_intake.py::cells_found
+The cells the IAM-Deconvolver found in the sample, largest share first, each at or above 1 % (`CELL_FLOOR`, the presence gate).
+
+### stage_0_intake.py::chain_cell
+The cell the Deconvolver found most of, or nothing when it did not run. The only source of a single-cell reading's cell when the operator set
+none.
+
+### stage_0_intake.py::label_check
+The specimen's claimed cell against what the Deconvolver found: the claimed cell, its measured share, the cells found, the chain's cell, and
+whether they agree. Written to the bundle as `label_check`; nothing is read from the claim.
 
 **450K arrays and the atlas readers (2026-10-22).** On a 450K array the conductor refuses the commissioned Met-A and C-Score (no 450K healthy
 neutrophil reference; `conductor_v3.platform_refusal`), but `run_sample.py` still runs the atlas readers, which work by site name on IAM-Atlas

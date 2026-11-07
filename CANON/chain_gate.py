@@ -18,6 +18,13 @@ e. a line added to a commissioning note may cite only chain code (CANON/ scripts
  g. (2026-10-22, lesson C34; author: "make sure this is added to the chain ... so it doesnt happen again") No changed script under doors/data/ or
     website/art/ downloads a sequencing file (.pat) itself: the chain fetches it (run_sample.py --geo-pat, or stage_q0_intake.geo_pat), always
     on the build it reads. A script that picked GEO's first file name took the hg38 file and counted it on hg19 positions.
+ h. (2026-11-07, author: "the decovolver is ALWAYS the first things we use to determine what is in the sample ... I dont care what the label
+    says ... the chain does the talking"; "find where the breakdown happened and make sure it can NEVER happen again using code".) A label
+    picked the cell in three places of run_sample.py (the sorted-cell Met-A, IAM-A's cell, and a 'sorted X' override of the Deconvolver's mix)
+    and in run_series.py (a sample list's atlas_cell column), and the cross-laboratory scorers then compared samples by their labels. Refused
+    now: chain code that sets a reading's cell or mix from the specimen's words (atlas_cell_of assigned to dev_metaa_atlas, seq_cell, _shr,
+    _sc or cell_shares, or a one-cell mix built from it); and a changed script under doors/data/ that reads the sorted-cell Met-A
+    (development.metaa_atlas) or picks a cell from a sample list's label (sh.get(r.cell)) without the chain's label_check beside it.
 Usage: chain_gate.py register (add the working chain's sha; checkpoint.sh runs it) | check [base] (default origin/main)"""
 import os, sys, re, json, glob, hashlib, subprocess
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
@@ -30,6 +37,16 @@ ONE_COMMAND = re.compile(r"run_sample\.py")
 SCOPE_F = ("Biological_Physics/MethylPhys/doors/data/", "website/art/")
 OWN_PAT = re.compile(r"\\\.pat\\\.gz|\.pat\.gz")
 OWN_FETCH = re.compile(r"urlopen|urlretrieve|requests\.get|curl |wget ")
+LABEL_CELL = re.compile(r"\b(dev_metaa_atlas|seq_cell|_shr|_sc|cell_shares)\s*=\s*[^=\n]*atlas_cell_of\(|\{\s*[^{}\n]*atlas_cell_of\([^)]*\)[^{}\n]*:\s*1(?:\.0)?\s*\}")
+SCORER_LABEL = re.compile(r"""\.get\(\s*["']metaa_atlas["']\s*\)|\[\s*["']metaa_atlas["']\s*\]|\.get\(\s*r\.(?:cell|atlas_cell)\s*\)""")
+def label_refusal(f, text):
+    """Rule 23b-h: a cell taken from a label instead of the Deconvolver."""
+    if f.startswith(CHAIN + "/") and f.endswith(".py"):
+        bad = [l.strip()[:90] for l in text.splitlines() if LABEL_CELL.search(l) and not l.lstrip().startswith("#")]
+        if bad: return f"{f}: sets a reading's cell or mix from the specimen's words ({bad[0]}); only the Deconvolver's shares say what is in a sample (rule 23b-h)"
+    elif f.startswith(SCOPE_F) and f.endswith(".py") and SCORER_LABEL.search(text) and "label_check" not in text:
+        return f"{f}: reads the sorted-cell Met-A or picks a cell by the sample list's label without the chain's label_check; read the cells the Deconvolver found (met_a_each_cell, label_check) (rule 23b-h)"
+    return None
 def own_pat_refusal(f, text):
     """Rule 23b-g: a .pat file downloaded by the script instead of by the chain."""
     # 2026-10-22: a script that MAKES its .pat from raw reads (wgbstools bam2pat; the chain has no aligner) and then counts it with the one
@@ -73,6 +90,9 @@ def check(changed, added, root=ROOT, known=None):
     """changed: repo-relative paths changed by the push; added: {path: [added lines]}. Returns a list of refusals."""
     known = registry(root) if known is None else known; F = []
     for f in changed:
+        if f.endswith(".py") and os.path.isfile(os.path.join(root, f)):   # rule 23b-h (2026-11-07)
+            _lr = label_refusal(f, open(os.path.join(root, f), encoding="utf-8", errors="replace").read())
+            if _lr: F.append(_lr)
         if f.startswith(SCOPE_F) and f.endswith((".py", ".sh")) and os.path.isfile(os.path.join(root, f)):
             _tx = open(os.path.join(root, f), encoding="utf-8", errors="replace").read()
             F += [m for m in (one_command_refusal(f, _tx), own_pat_refusal(f, _tx)) if m]

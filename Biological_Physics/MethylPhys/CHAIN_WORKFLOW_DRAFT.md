@@ -35,7 +35,7 @@ The specimen is checked before a single byte is read.
 | Whole blood (also "blood", "peripheral blood", "venous blood") | accepted |
 | Buffy coat | accepted, read on the whole-blood path, labeled preliminary |
 | Isolated, sorted or purified neutrophils | accepted |
-| Isolated, sorted or purified cells of any IAM-Atlas v2.1 cell type | accepted; read by Met-A against the atlas, flagged where not commissioned |
+| Isolated, sorted or purified cells of any IAM-Atlas v2.1 cell type | accepted; the label is a claim only: the Deconvolver says which cells are there, and each is read against its own reference (box E1) |
 | Plasma (cell-free DNA) | accepted |
 | Tissue | accepted |
 | Constructed DNA mixtures of blood cells | accepted as test material |
@@ -44,6 +44,11 @@ The specimen is checked before a single byte is read.
 
 **Why:** a reading means something only against a healthy reference of the same kind of sample. A specimen with no reference is refused
 rather than read against the wrong one. Decoder: §2, the specimen check (`specimen_refusal`).
+
+**The specimen's words choose the route, never the cell.** Which cells are in the sample is the Deconvolver's answer (box E1), not the label's.
+A label it disagrees with is written in the report and the bundle (`label_check`), and the sample is read as found. The gate refuses any
+code or scorer that takes a cell from a label (rule 23b-h; the lesson of 2026-11-07, in the Decoder: "The Deconvolver decides what is in a
+sample, in every instrument").
 
 ### A3. Is it the whole sample?
 
@@ -203,6 +208,10 @@ A blood draw, a tissue or a plasma is a mixture. Disorder means something only a
 proportions, so the chain finds the mixture first, and builds each person's own expected healthy self from it.
 
 ### E1. Split the sample into its cells (the IAM-Deconvolver)
+
+**Always first.** The Deconvolver runs on every sample with values, before any reading picks a cell, a sequencing file included (its values
+are made first). Every cell it finds at 1 % or more is then read against its own atlas reference; a single-cell reading (IAM-A,
+coupling-A, the sorted-cell Met-A) takes the cell found most of. If 20 cells are found, 20 are read.
 
 | Step | What it does |
 |---|---|

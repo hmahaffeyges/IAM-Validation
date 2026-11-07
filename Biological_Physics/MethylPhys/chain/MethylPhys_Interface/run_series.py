@@ -101,10 +101,8 @@ def read(a, extra):
         try:
             sp = str(getattr(r, "specimen", "") or "") if "specimen" in S.columns and str(getattr(r, "specimen", "")) not in ("", "nan") else a.specimen   # a per-array specimen column, when given
             ex = list(extra)   # 2026-10-25: a per-array atlas cell (column atlas_cell) replaces --dev-metaa-atlas CELL for that array, so one run reads each
-            if "atlas_cell" in S.columns and str(getattr(r, "atlas_cell", "")) not in ("", "nan"):   # sorted subtype against its own atlas column
-                ac = str(getattr(r, "atlas_cell"))
-                if "--dev-metaa-atlas" in ex: ex[ex.index("--dev-metaa-atlas") + 1] = ac
-                else: ex += ["--dev-metaa-atlas", ac]
+            # 2026-11-07 (the Deconvolver decides; stage_0_intake.LABEL_RULE): a sample list's atlas_cell column no longer sets the cell a sample is read
+            # against (it did from 10-25); the chain reads the cells its Deconvolver finds, and the column stays in the list as the label only
             if MV is not None:
                 if r.gsm not in MV: raise RuntimeError(f"{r.gsm}: not in the series matrix")
                 base = ["--betas", MV[r.gsm], "--specimen", sp, "--id", r.gsm]

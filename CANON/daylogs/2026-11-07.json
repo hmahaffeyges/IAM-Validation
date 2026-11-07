@@ -1,0 +1,77 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "check_completeness": false,
+ "off_page_rows": 0,
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "date": "2026-11-07",
+ "title": "The Deconvolver decides what is in a sample",
+ "closing": "",
+ "set_out": "Settle the cross-laboratory question on the 89 outside samples already read, each read as what the Deconvolver finds in it; keep every machine busy; then the Sequencing Atlas Globe page.",
+ "open_at_turnover": "The label rule's synthetic; the cross-laboratory synthetic over the 89 samples' real range, then the 89 scored per person; the Johns Hopkins tissue test finishing on Google; R12 on every cell, then R10 and R6; the Sequencing Atlas Globe page.",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Megakaryocyte versions published",
+     "status": "structure",
+     "what": "IAM Sequencing Atlas version 1.1 and Sequencing Atlas Globe version 1.1 on Zenodo (the author's yes), 58 cells, the 57 unchanged.",
+     "outcome": "Live: 10.5281/zenodo.24029328 and 10.5281/zenodo.24029332; README, book, glossary, catalogue and site builders updated.",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/zenodo_v11_summary.txt"
+     ]
+    },
+    {
+     "title": "What the chain reported on 89 outside samples",
+     "status": "audit",
+     "what": "Every outside-laboratory sequencing sample already read, tabulated from its bundle: the Deconvolver's cells, the library's false-call rate and depth.",
+     "outcome": "No sorted sample is one cell (the labeled cell 24 to 80 %); false-call rate 0.0016 to 0.0158 against the atlas laboratory's 0.0063.",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/crosslab_chain_table.csv"
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": [
+    {
+     "title": "The Deconvolver decides what is in a sample",
+     "status": "built",
+     "what": "Four places where a label chose the cell removed (three in run_sample.py, one in run_series.py); the label is checked and recorded (label_check); gate rule 23b-h refuses any return; the lesson in the Decoder, the intake code and the workflow.",
+     "outcome": "Synthetic written before it runs (label_rule/label_synthetic.py).",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": []
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "A label chose the cell, inside the chain",
+     "status": "mistake",
+     "what": "From 10-22 to 10-28 the agent added code that took the cell from the specimen's words (the sorted-cell Met-A, IAM-A's cell, a 'sorted X' override of the mix, a sample list's cell column), and the cross-laboratory scorers compared samples by label, against the author's 10-22 rule that the tools decide what is in a sample.",
+     "outcome": "Caught by the author; removed and refused by the gate (rule 23b-h)."
+    },
+    {
+     "title": "GitHub filled to the last slot",
+     "status": "mistake",
+     "what": "The R12 every-cell replay was sent on 20 machines with R10 and R6 queued behind it, so the commit gate waited over 30 minutes, a lesson already given on 11-04.",
+     "outcome": "R10 and R6 cancelled before they started; every dispatch now leaves 2 slots free."
+    }
+   ]
+  }
+ ]
+}

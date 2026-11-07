@@ -714,6 +714,11 @@ def main():
             print(f"  {_r['name']} ({_r['size']:,} bytes; also on GEO: {', '.join(_r['other_files']) or 'nothing else'})", flush=True)
         a._geo_fetch = _geo
     seq = bool(a.pat or a.site_table or a.bam)
+    # 2026-11-07 (the Deconvolver decides what is in a sample; stage_0_intake.LABEL_RULE): a cell set by the operator is recorded as such, and on a
+    # sequencing file the values are always made so the Deconvolver runs first; no reading takes its cell from the specimen's words
+    a._operator_cell = {k: v for k, v in (("dev_metaa_atlas", a.dev_metaa_atlas), ("seq_cell", a.seq_cell)) if v}
+    if a.pat and a.dev_seq_values is None and not (a.betas or a.grn or a.dev_seq_beta):
+        a.dev_seq_values = 1; print("The Deconvolver runs first: values made from the sequencing file (at least 1 call a site)", flush=True)
     a._seqv = None; a._thin = None; a._seqc = None
     if a.dev_thin is not None:   # 2026-10-22 (step 40): a deep sample thinned by the chain itself
         if not a.pat: ap.error("--dev-thin needs --pat (or --geo-pat)")
@@ -1108,12 +1113,12 @@ def main():
         o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": "sequencing values (development)", "sequencing_values": a._seqv,
              "scope": "values made from sequencing molecules at IAM-Atlas v2.1's sites (development): the cell shares, Met-A for each cell and the globe read "
                       "them; the commissioned Met-A and C-Score read EPIC v1 arrays and are not applied"}
-        if _S0spec.atlas_cell_of(a.specimen) and not a.dev_metaa_atlas: a.dev_metaa_atlas = _S0spec.atlas_cell_of(a.specimen)
+        # 2026-11-07: the sorted-cell Met-A's cell is set after Stage D21 from the Deconvolver's shares, never from the specimen's words
     elif beta is not None and _S0spec.atlas_cell_of(a.specimen):   # 2026-10-22: an isolated IAM-Atlas v2.1 cell other than neutrophils
         o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": array_type, "atlas_cell": _S0spec.atlas_cell_of(a.specimen),
              "scope": "an isolated " + _S0spec.atlas_cell_of(a.specimen) + " specimen: read by Met-A against IAM-Atlas v2.1 (development.metaa_atlas, not commissioned); "
                       "the commissioned Met-A and C-Score read neutrophils and whole blood and are not applied; the cell shares cover six blood cells"}
-        if not a.dev_metaa_atlas: a.dev_metaa_atlas = o["atlas_cell"]
+        # 2026-11-07: o['atlas_cell'] is the specimen's claim only; the cell read is the Deconvolver's (set after Stage D21)
     elif beta is not None:
         o = C3.run_neutrophil(_pd.Series(beta, dtype="float64"), specimen=a.specimen, ref_A=refs, array_type=array_type, sample_id=sid)
     else:
@@ -1142,6 +1147,12 @@ def main():
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
+        import stage_0_intake as _S0L   # 2026-11-07 (the Deconvolver decides): the specimen's claim checked against what Stage D21 found, recorded
+        o["label_check"] = _S0L.label_check(a.specimen, o["cell_shares"])
+        if not a.dev_metaa_atlas and _S0spec.atlas_cell_of(a.specimen):   # a sorted / isolated route: its single-cell Met-A reads the cell found most of
+            a.dev_metaa_atlas = _S0L.chain_cell(o["cell_shares"])
+            if a.dev_metaa_atlas: print(f"Sorted-cell Met-A reads {a.dev_metaa_atlas}, the cell the Deconvolver found most of ({o['label_check'].get('note')})", flush=True)
+        if a._operator_cell: o["operator_cell"] = dict(a._operator_cell, flag="set by the operator, not by the Deconvolver: not a chain reading of what is in the sample")
         if _dsr is not None and getattr(a, "dev_deconv_drop", None) and isinstance(o["cell_shares"], dict):   # 2026-11-03: the hold-out, flagged
             o["cell_shares"]["held_out"] = dict(cells=list(_SQd.DECONV_DROP), flag="DEVELOPMENT, diagnosis only: these cells were held out of the Deconvolver's reference")
         if _dsr is not None and getattr(a, "dev_deconv_ref", None) and isinstance(o["cell_shares"], dict):   # 2026-11-04: the other reference, flagged
@@ -1171,9 +1182,8 @@ def main():
                                                       {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}, counts=getattr(a, "_seqc", None))
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
-                import stage_0_intake as _S0i   # 2026-10-28 (DEV-TERRITORIES-01): a declared sorted cell is read against its own atlas column, not the panel's nearest
-                _sc = _S0i.atlas_cell_of(str(a.specimen)) if str(a.specimen).split(" ")[0].lower() in ("sorted", "isolated", "purified") else None
-                if _sc: _shr = {_sc: 1.0}; o["whole_sample_reference"] = f"the declared sorted cell's own atlas column ({_sc})"
+                # 2026-11-07: removed the 10-28 override that set a 'sorted X' sample's mix to 100 % X; every reading here uses the Deconvolver's shares
+                if _S0spec.atlas_cell_of(a.specimen): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
                 try: o["cscore_each_cell"] = SA.cscore_limits(SA.cscore_in_mix(_vals, _shr, a._cell_dep), o.get("array_type"))   # 2026-10-23 (41.2, 41.3); 2026-10-27: each reading's healthy limit
                 except Exception as e: o["cscore_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
@@ -1245,10 +1255,17 @@ def main():
         except Exception as e: o["globe"] = {"drawn": False, "reason": f"{type(e).__name__}: {e}"[:200]}
     if seq and (a.pat or a.bam) and not a.dev_iama_position:   # chain v4 Stage Q2 - IAM-A against the sample's own reference (commissioned 2026-10-17)
         import stage_v4 as V4, stage_q2_selfref as _Q2
-        if a.seq_cell is None:   # 2026-10-25: the stated specimen's atlas cell (the cord-blood B cells were refused as "neutrophils" before)
-            import stage_0_intake as _S0; a.seq_cell = _S0.atlas_cell_of(a.specimen) or "neutrophils"; print(f"Stage Q2: the sequenced cell is {a.seq_cell} (from the specimen)", flush=True)
-        cells = set(_Q2.shape_reference()["cells"]); src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
-        if a.pat:
+        cells = set(_Q2.shape_reference()["cells"])
+        _noq2 = None
+        if a.seq_cell is None:   # 2026-11-07: the cell the Deconvolver found most of among those IAM-A holds a reference for; never the specimen's words
+            import stage_0_intake as _S0; _fq = [c for c, _ in _S0.cells_found(o.get("cell_shares"))]
+            a.seq_cell = next((c for c in _fq if c in cells), None)
+            if a.seq_cell: print(f"Stage Q2: the sequenced cell is {a.seq_cell} (the Deconvolver's; found: {', '.join(_fq[:4])})", flush=True)
+            else: _noq2 = ("the Deconvolver found no cell in this sample that IAM-A holds a reference for (found: " + (", ".join(_fq[:4]) or "none")
+                           + "); no cell is read from the specimen's words")
+        src = {"pat": os.path.abspath(a.pat)} if a.pat else {"bam": os.path.abspath(a.bam), "ref_fasta": a.ref_fasta, "assembly": a.assembly}
+        if _noq2: o["iam_a_intake"] = {"stage": "Q0", "status": "refused", "refusal_code": "NO_CHAIN_CELL", "refusal": _noq2}
+        elif a.pat:
             import stage_q0_intake as Q0
             print(f"Stage Q0: intake checks on {os.path.basename(a.pat)}", flush=True)
             o["iam_a_intake"] = Q0.intake(a.pat, specimen=a.specimen, cell=a.seq_cell, alignment_qc=a.alignment_qc, selfref_cells=cells)
