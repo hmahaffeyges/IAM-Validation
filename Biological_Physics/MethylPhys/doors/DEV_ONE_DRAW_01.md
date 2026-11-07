@@ -736,3 +736,14 @@ fewer floor sites than in the real plasmas.
 Bars: 1. uncopied plasmas: the flag changes whole-sample Met-A by at most 0.01 at every depth; 2. every grid point read with the flag within
 0.03 of the reference. Recorded: every point's gap, which shows where the correction holds and where it breaks, the readings without the flag,
 and the copies the chain measures against those planted.
+
+**The copies sweep synthetic: not met; it shows where the reading holds.** (`plasma_lab3/copies_sweep_summary.txt`, GitHub run 42341887637.) 28 of 30 grid points read; the two at 4 and 8 molecules a site with
+dispersion 270 lost their machines (runner shutdown), so both bars, which need all 30, are not met. Where read: bar 1's condition holds at every
+depth (the flag moves an uncopied plasma by at most 0.0078). **What the grid shows:** with the flag, Met-A lies within about 0.03 of the
+reference at 4 and 8 molecules a site for every copy level read (largest gap +0.0378), and at 2 molecules up to dispersion 5 (-0.0469); at 2
+molecules with dispersion 20 and 270 it falls 0.14 to 0.15 short. **At 1 molecule a site or fewer nothing holds:** even uncopied, Met-A reads
+0.8997 at 1 molecule, 0.9687 at 0.5 and 1.0932 at 0.1, and the copies the chain measures fall short of those planted (dispersion 20 measured
+about 7 to 8.5, 270 about 100). **The GSE186007 plasmas hold about 1.2 molecules a covered site (median), inside that zone:** whole-sample Met-A
+cannot be read on them by this chain, with or without the copy correction. **Next (development):** a depth floor at intake, measured molecules a
+covered site (calls divided by the measured copies) under 2, below which whole-sample Met-A is refused and the reason stated, written from
+this grid; the readings that held on these plasmas (the C-Score read all 34 healthy within 0.95 to 1.05) are examined separately.
