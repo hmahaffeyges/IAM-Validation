@@ -88,8 +88,8 @@
    "geneticist": "A permutation test, done the way the noise demands: each pixel's sign flipped at random, so every region keeps its own read depth.",
    "physics": "A finding has to beat the measurement's own noise, region by region.",
    "shows": "Which scales on the sphere hold real structure, and that a pure-noise map holds none.",
-   "result": "Pixels beside coverage gaps and the mask edge carry about three times the noise of the rest (0.0136 against 0.0048 a pixel on the B-cell read-halves map), so a plain shuffle, which moves them into quiet places, overstates the noise. The sign-flip null keeps each pixel's noise. Its synthetic: pure noise, even, uneven or louder at the edges, stayed within the flips' own scatter, and planted structure stood above every flip.",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_GLOBE_WG_01.md; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_flip_synthetic.txt",
+   "result": "Pixels beside coverage gaps and the mask edge carry about three times the noise of the rest (0.0136 against 0.0048 a pixel on the B-cell read-halves map), so a plain shuffle, which moves them into quiet places, overstates the noise. The sign-flip null keeps each pixel's noise: against it the read-halves maps of all 57 cells read as pure noise (15 cells with a band above all 20 flips, where chance alone gives 14.5), and every one of the 49 donor-halves maps shows structure (its strongest band a median 21.9 times the flips).",
+   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_flip_summary.txt; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_flip_synthetic.txt",
    "how": "seq_globe_wg.py flip_null; chain/sky_statistics.py",
    "status": "every_cpg"
   },

@@ -1,0 +1,852 @@
+Sequencing Atlas Globe at every CpG: the sphere null by sign flips (seq_globe_wg.py flip_null in noise-join; GitHub run 42344188611; 113 published pieces; 20 flips a map).
+read halves: 57 cells; flips' ratio, median of each cell's lowest and highest band 0.8788 and 1.0550; cells with a band above all 20 flips 15 (by chance alone, 6 bands a cell: 14.5); above all flips at over 1.5 times their mean: 2 (kidney glomerular endothelium 1.5796, monocytes 1.6438).
+donor halves: 49 cells; highest band's flips' ratio median 21.8856; cells with a band above all flips at over 1.5 times their mean 49.
+per cell (map, flips' ratio lowest and highest band, bands above all flips, of them over 1.5 times, shuffles' highest ratio):
+  adipocytes | <bound method Series.map of cell            adipocytes
+map            read halves
+flip_min             0.586
+flip_max            1.0036
+above                    0
+above15                  0
+shuffle_max         0.7745
+Name: 0, dtype: object> | 0.586 | 1.0036 | 0 | 0 | 0.7745
+  aorta endothelium | <bound method Series.map of cell           aorta endothelium
+map                 donor halves
+flip_min                  0.6341
+flip_max                 87.1831
+above                          5
+above15                        4
+shuffle_max              17.2499
+Name: 1, dtype: object> | 0.6341 | 87.1831 | 5 | 4 | 17.2499
+  aorta endothelium | <bound method Series.map of cell           aorta endothelium
+map                  read halves
+flip_min                  0.8454
+flip_max                  0.9945
+above                          0
+above15                        0
+shuffle_max               0.6225
+Name: 2, dtype: object> | 0.8454 | 0.9945 | 0 | 0 | 0.6225
+  b cells | <bound method Series.map of cell                b cells
+map            donor halves
+flip_min             0.9974
+flip_max             7.9085
+above                     5
+above15                   3
+shuffle_max          3.9384
+Name: 3, dtype: object> | 0.9974 | 7.9085 | 5 | 3 | 3.9384
+  b cells | <bound method Series.map of cell               b cells
+map            read halves
+flip_min            0.8731
+flip_max            1.3246
+above                    2
+above15                  0
+shuffle_max          0.792
+Name: 4, dtype: object> | 0.8731 | 1.3246 | 2 | 0 | 0.792
+  bladder epithelium | <bound method Series.map of cell           bladder epithelium
+map                  donor halves
+flip_min                   0.8821
+flip_max                  38.1714
+above                           5
+above15                         4
+shuffle_max                8.5964
+Name: 5, dtype: object> | 0.8821 | 38.1714 | 5 | 4 | 8.5964
+  bladder epithelium | <bound method Series.map of cell           bladder epithelium
+map                   read halves
+flip_min                   0.7855
+flip_max                    1.021
+above                           0
+above15                         0
+shuffle_max                0.6402
+Name: 6, dtype: object> | 0.7855 | 1.021 | 0 | 0 | 0.6402
+  breast basal epithelium | <bound method Series.map of cell           breast basal epithelium
+map                       donor halves
+flip_min                        0.9933
+flip_max                        6.7229
+above                                5
+above15                              4
+shuffle_max                     3.6895
+Name: 7, dtype: object> | 0.9933 | 6.7229 | 5 | 4 | 3.6895
+  breast basal epithelium | <bound method Series.map of cell           breast basal epithelium
+map                        read halves
+flip_min                        0.8777
+flip_max                        1.0236
+above                                0
+above15                              0
+shuffle_max                     0.6791
+Name: 8, dtype: object> | 0.8777 | 1.0236 | 0 | 0 | 0.6791
+  breast luminal epithelium | <bound method Series.map of cell           breast luminal epithelium
+map                         donor halves
+flip_min                          0.6845
+flip_max                         59.6233
+above                                  5
+above15                                4
+shuffle_max                      25.4307
+Name: 9, dtype: object> | 0.6845 | 59.6233 | 5 | 4 | 25.4307
+  breast luminal epithelium | <bound method Series.map of cell           breast luminal epithelium
+map                          read halves
+flip_min                          0.7828
+flip_max                          1.0601
+above                                  0
+above15                                0
+shuffle_max                       0.6614
+Name: 10, dtype: object> | 0.7828 | 1.0601 | 0 | 0 | 0.6614
+  cardiomyocyte | <bound method Series.map of cell           cardiomyocyte
+map             donor halves
+flip_min               1.001
+flip_max              5.0297
+above                      5
+above15                    4
+shuffle_max           2.7346
+Name: 11, dtype: object> | 1.001 | 5.0297 | 5 | 4 | 2.7346
+  cardiomyocyte | <bound method Series.map of cell           cardiomyocyte
+map              read halves
+flip_min              1.0072
+flip_max              1.1712
+above                      2
+above15                    0
+shuffle_max           0.7018
+Name: 12, dtype: object> | 1.0072 | 1.1712 | 2 | 0 | 0.7018
+  cd4 t cells | <bound method Series.map of cell            cd4 t cells
+map            donor halves
+flip_min             0.9106
+flip_max            28.6681
+above                     5
+above15                   4
+shuffle_max          4.9133
+Name: 13, dtype: object> | 0.9106 | 28.6681 | 5 | 4 | 4.9133
+  cd4 t cells | <bound method Series.map of cell           cd4 t cells
+map            read halves
+flip_min            0.9295
+flip_max            1.0458
+above                    0
+above15                  0
+shuffle_max         0.6725
+Name: 14, dtype: object> | 0.9295 | 1.0458 | 0 | 0 | 0.6725
+  cd8 t cells | <bound method Series.map of cell            cd8 t cells
+map            donor halves
+flip_min             0.8203
+flip_max            37.1712
+above                     5
+above15                   4
+shuffle_max          4.9346
+Name: 15, dtype: object> | 0.8203 | 37.1712 | 5 | 4 | 4.9346
+  cd8 t cells | <bound method Series.map of cell           cd8 t cells
+map            read halves
+flip_min            0.6977
+flip_max            1.0108
+above                    0
+above15                  0
+shuffle_max         0.6472
+Name: 16, dtype: object> | 0.6977 | 1.0108 | 0 | 0 | 0.6472
+  colon enteroendocrine | <bound method Series.map of cell           colon enteroendocrine
+map                     donor halves
+flip_min                      0.9613
+flip_max                     14.4518
+above                              5
+above15                            4
+shuffle_max                  12.2954
+Name: 17, dtype: object> | 0.9613 | 14.4518 | 5 | 4 | 12.2954
+  colon enteroendocrine | <bound method Series.map of cell           colon enteroendocrine
+map                      read halves
+flip_min                      0.9885
+flip_max                      1.2809
+above                              0
+above15                            0
+shuffle_max                   0.7085
+Name: 18, dtype: object> | 0.9885 | 1.2809 | 0 | 0 | 0.7085
+  colon epithelium | <bound method Series.map of cell           colon epithelium
+map                donor halves
+flip_min                 0.9015
+flip_max                40.1617
+above                         5
+above15                       4
+shuffle_max             17.0792
+Name: 19, dtype: object> | 0.9015 | 40.1617 | 5 | 4 | 17.0792
+  colon epithelium | <bound method Series.map of cell           colon epithelium
+map                 read halves
+flip_min                 0.9609
+flip_max                 1.1644
+above                         1
+above15                       0
+shuffle_max                0.77
+Name: 20, dtype: object> | 0.9609 | 1.1644 | 1 | 0 | 0.77
+  colon fibroblasts | <bound method Series.map of cell           colon fibroblasts
+map                 donor halves
+flip_min                   0.883
+flip_max                 50.2419
+above                          5
+above15                        4
+shuffle_max              13.2701
+Name: 21, dtype: object> | 0.883 | 50.2419 | 5 | 4 | 13.2701
+  colon fibroblasts | <bound method Series.map of cell           colon fibroblasts
+map                  read halves
+flip_min                  0.9985
+flip_max                  1.2189
+above                          2
+above15                        0
+shuffle_max                0.687
+Name: 22, dtype: object> | 0.9985 | 1.2189 | 2 | 0 | 0.687
+  colon macrophages | <bound method Series.map of cell           colon macrophages
+map                  read halves
+flip_min                  0.9713
+flip_max                  1.0418
+above                          0
+above15                        0
+shuffle_max               0.6429
+Name: 23, dtype: object> | 0.9713 | 1.0418 | 0 | 0 | 0.6429
+  cortical neurons | <bound method Series.map of cell           cortical neurons
+map                donor halves
+flip_min                   0.88
+flip_max                40.6045
+above                         5
+above15                       4
+shuffle_max             26.9537
+Name: 24, dtype: object> | 0.88 | 40.6045 | 5 | 4 | 26.9537
+  cortical neurons | <bound method Series.map of cell           cortical neurons
+map                 read halves
+flip_min                 0.7835
+flip_max                 1.0089
+above                         0
+above15                       0
+shuffle_max              0.6967
+Name: 25, dtype: object> | 0.7835 | 1.0089 | 0 | 0 | 0.6967
+  effector memory cd8 t cells | <bound method Series.map of cell           effector memory cd8 t cells
+map                            read halves
+flip_min                              0.98
+flip_max                            1.0591
+above                                    0
+above15                                  0
+shuffle_max                         0.6635
+Name: 26, dtype: object> | 0.98 | 1.0591 | 0 | 0 | 0.6635
+  endometrium epithelium | <bound method Series.map of cell           endometrium epithelium
+map                      donor halves
+flip_min                       0.9784
+flip_max                      11.3551
+above                               5
+above15                             4
+shuffle_max                    5.3464
+Name: 27, dtype: object> | 0.9784 | 11.3551 | 5 | 4 | 5.3464
+  endometrium epithelium | <bound method Series.map of cell           endometrium epithelium
+map                       read halves
+flip_min                       0.8999
+flip_max                       1.2515
+above                               0
+above15                             0
+shuffle_max                    0.7018
+Name: 28, dtype: object> | 0.8999 | 1.2515 | 0 | 0 | 0.7018
+  erythrocyte progenitors | <bound method Series.map of cell           erythrocyte progenitors
+map                       donor halves
+flip_min                        0.7768
+flip_max                       76.4281
+above                                5
+above15                              4
+shuffle_max                     4.6653
+Name: 29, dtype: object> | 0.7768 | 76.4281 | 5 | 4 | 4.6653
+  erythrocyte progenitors | <bound method Series.map of cell           erythrocyte progenitors
+map                        read halves
+flip_min                        0.9517
+flip_max                        1.0939
+above                                0
+above15                              0
+shuffle_max                     0.7937
+Name: 30, dtype: object> | 0.9517 | 1.0939 | 0 | 0 | 0.7937
+  fallopien tubes epithelium | <bound method Series.map of cell           fallopien tubes epithelium
+map                          donor halves
+flip_min                           0.7119
+flip_max                          58.0638
+above                                   5
+above15                                 4
+shuffle_max                        21.343
+Name: 31, dtype: object> | 0.7119 | 58.0638 | 5 | 4 | 21.343
+  fallopien tubes epithelium | <bound method Series.map of cell           fallopien tubes epithelium
+map                           read halves
+flip_min                           0.6473
+flip_max                            1.055
+above                                   0
+above15                                 0
+shuffle_max                        0.7002
+Name: 32, dtype: object> | 0.6473 | 1.055 | 0 | 0 | 0.7002
+  gastric antrum epithelium | <bound method Series.map of cell           gastric antrum epithelium
+map                         donor halves
+flip_min                          0.9229
+flip_max                         14.0331
+above                                  5
+above15                                4
+shuffle_max                       4.4977
+Name: 33, dtype: object> | 0.9229 | 14.0331 | 5 | 4 | 4.4977
+  gastric antrum epithelium | <bound method Series.map of cell           gastric antrum epithelium
+map                          read halves
+flip_min                          0.9665
+flip_max                          1.3242
+above                                  1
+above15                                0
+shuffle_max                       0.9274
+Name: 34, dtype: object> | 0.9665 | 1.3242 | 1 | 0 | 0.9274
+  gastric body epithelium | <bound method Series.map of cell           gastric body epithelium
+map                       donor halves
+flip_min                        0.9778
+flip_max                       17.3848
+above                                5
+above15                              4
+shuffle_max                     4.7765
+Name: 35, dtype: object> | 0.9778 | 17.3848 | 5 | 4 | 4.7765
+  gastric body epithelium | <bound method Series.map of cell           gastric body epithelium
+map                        read halves
+flip_min                           1.0
+flip_max                        1.2977
+above                                1
+above15                              0
+shuffle_max                     0.7915
+Name: 36, dtype: object> | 1.0 | 1.2977 | 1 | 0 | 0.7915
+  gastric fundus epithelium | <bound method Series.map of cell           gastric fundus epithelium
+map                         donor halves
+flip_min                          0.9346
+flip_max                         13.4779
+above                                  5
+above15                                4
+shuffle_max                       6.7731
+Name: 37, dtype: object> | 0.9346 | 13.4779 | 5 | 4 | 6.7731
+  gastric fundus epithelium | <bound method Series.map of cell           gastric fundus epithelium
+map                          read halves
+flip_min                          0.8629
+flip_max                           1.383
+above                                  0
+above15                                0
+shuffle_max                       0.8579
+Name: 38, dtype: object> | 0.8629 | 1.383 | 0 | 0 | 0.8579
+  granulocytes | <bound method Series.map of cell           granulocytes
+map            donor halves
+flip_min             0.9573
+flip_max            34.4655
+above                     5
+above15                   3
+shuffle_max          7.4642
+Name: 39, dtype: object> | 0.9573 | 34.4655 | 5 | 3 | 7.4642
+  granulocytes | <bound method Series.map of cell           granulocytes
+map             read halves
+flip_min             0.8076
+flip_max             1.0327
+above                     0
+above15                   0
+shuffle_max           0.607
+Name: 40, dtype: object> | 0.8076 | 1.0327 | 0 | 0 | 0.607
+  heart fibroblasts | <bound method Series.map of cell           heart fibroblasts
+map                 donor halves
+flip_min                  0.9166
+flip_max                 14.4136
+above                          5
+above15                        4
+shuffle_max               5.6207
+Name: 41, dtype: object> | 0.9166 | 14.4136 | 5 | 4 | 5.6207
+  heart fibroblasts | <bound method Series.map of cell           heart fibroblasts
+map                  read halves
+flip_min                  0.8799
+flip_max                  0.9882
+above                          0
+above15                        0
+shuffle_max               0.6892
+Name: 42, dtype: object> | 0.8799 | 0.9882 | 0 | 0 | 0.6892
+  hepatocyte | <bound method Series.map of cell            hepatocyte
+map            read halves
+flip_min            0.7628
+flip_max            1.0502
+above                    0
+above15                  0
+shuffle_max         0.6332
+Name: 43, dtype: object> | 0.7628 | 1.0502 | 0 | 0 | 0.6332
+  kidney glomerular endothelium | <bound method Series.map of cell           kidney glomerular endothelium
+map                             donor halves
+flip_min                              0.9378
+flip_max                             11.0173
+above                                      5
+above15                                    4
+shuffle_max                           6.8582
+Name: 44, dtype: object> | 0.9378 | 11.0173 | 5 | 4 | 6.8582
+  kidney glomerular endothelium | <bound method Series.map of cell           kidney glomerular endothelium
+map                              read halves
+flip_min                              0.9826
+flip_max                              1.5796
+above                                      2
+above15                                    1
+shuffle_max                            0.864
+Name: 45, dtype: object> | 0.9826 | 1.5796 | 2 | 1 | 0.864
+  kidney glomerular epithelium | <bound method Series.map of cell           kidney glomerular epithelium
+map                             read halves
+flip_min                             0.9304
+flip_max                             1.0502
+above                                     0
+above15                                   0
+shuffle_max                          0.6801
+Name: 46, dtype: object> | 0.9304 | 1.0502 | 0 | 0 | 0.6801
+  kidney tubular endothelium | <bound method Series.map of cell           kidney tubular endothelium
+map                          donor halves
+flip_min                           0.8379
+flip_max                          45.1369
+above                                   5
+above15                                 4
+shuffle_max                       10.9801
+Name: 47, dtype: object> | 0.8379 | 45.1369 | 5 | 4 | 10.9801
+  kidney tubular endothelium | <bound method Series.map of cell           kidney tubular endothelium
+map                           read halves
+flip_min                           0.7188
+flip_max                           1.0207
+above                                   0
+above15                                 0
+shuffle_max                        0.5868
+Name: 48, dtype: object> | 0.7188 | 1.0207 | 0 | 0 | 0.5868
+  kidney tubular epithelium | <bound method Series.map of cell           kidney tubular epithelium
+map                         donor halves
+flip_min                          0.9887
+flip_max                         11.2346
+above                                  5
+above15                                4
+shuffle_max                       4.6732
+Name: 49, dtype: object> | 0.9887 | 11.2346 | 5 | 4 | 4.6732
+  kidney tubular epithelium | <bound method Series.map of cell           kidney tubular epithelium
+map                          read halves
+flip_min                          0.9563
+flip_max                          1.2514
+above                                  0
+above15                                0
+shuffle_max                       0.8256
+Name: 50, dtype: object> | 0.9563 | 1.2514 | 0 | 0 | 0.8256
+  lung alveolar endothelium | <bound method Series.map of cell           lung alveolar endothelium
+map                         donor halves
+flip_min                          0.6405
+flip_max                        102.0442
+above                                  5
+above15                                4
+shuffle_max                      16.8311
+Name: 51, dtype: object> | 0.6405 | 102.0442 | 5 | 4 | 16.8311
+  lung alveolar endothelium | <bound method Series.map of cell           lung alveolar endothelium
+map                          read halves
+flip_min                          0.6417
+flip_max                          1.0453
+above                                  0
+above15                                0
+shuffle_max                       0.7594
+Name: 52, dtype: object> | 0.6417 | 1.0453 | 0 | 0 | 0.7594
+  lung alveolar epithelium | <bound method Series.map of cell           lung alveolar epithelium
+map                        donor halves
+flip_min                         0.9729
+flip_max                         15.946
+above                                 5
+above15                               4
+shuffle_max                      9.2453
+Name: 53, dtype: object> | 0.9729 | 15.946 | 5 | 4 | 9.2453
+  lung alveolar epithelium | <bound method Series.map of cell           lung alveolar epithelium
+map                         read halves
+flip_min                         0.9538
+flip_max                         1.1104
+above                                 0
+above15                               0
+shuffle_max                       0.811
+Name: 54, dtype: object> | 0.9538 | 1.1104 | 0 | 0 | 0.811
+  lung alveolar macrophages | <bound method Series.map of cell           lung alveolar macrophages
+map                         donor halves
+flip_min                          1.0378
+flip_max                          7.0306
+above                                  6
+above15                                4
+shuffle_max                       2.6318
+Name: 55, dtype: object> | 1.0378 | 7.0306 | 6 | 4 | 2.6318
+  lung alveolar macrophages | <bound method Series.map of cell           lung alveolar macrophages
+map                          read halves
+flip_min                          0.9381
+flip_max                          1.0944
+above                                  0
+above15                                0
+shuffle_max                       0.6992
+Name: 56, dtype: object> | 0.9381 | 1.0944 | 0 | 0 | 0.6992
+  lung bronchus epithelium | <bound method Series.map of cell           lung bronchus epithelium
+map                        donor halves
+flip_min                         0.7515
+flip_max                        67.9901
+above                                 5
+above15                               4
+shuffle_max                      9.7655
+Name: 57, dtype: object> | 0.7515 | 67.9901 | 5 | 4 | 9.7655
+  lung bronchus epithelium | <bound method Series.map of cell           lung bronchus epithelium
+map                         read halves
+flip_min                         0.7725
+flip_max                         1.0158
+above                                 0
+above15                               0
+shuffle_max                      0.7517
+Name: 58, dtype: object> | 0.7725 | 1.0158 | 0 | 0 | 0.7517
+  lung interstitial macrophages | <bound method Series.map of cell           lung interstitial macrophages
+map                             donor halves
+flip_min                              0.8846
+flip_max                             68.8648
+above                                      5
+above15                                    4
+shuffle_max                          10.0396
+Name: 59, dtype: object> | 0.8846 | 68.8648 | 5 | 4 | 10.0396
+  lung interstitial macrophages | <bound method Series.map of cell           lung interstitial macrophages
+map                              read halves
+flip_min                              0.8081
+flip_max                               1.048
+above                                      1
+above15                                    0
+shuffle_max                           0.6693
+Name: 60, dtype: object> | 0.8081 | 1.048 | 1 | 0 | 0.6693
+  memory b cells | <bound method Series.map of cell           memory b cells
+map              donor halves
+flip_min               0.9101
+flip_max              15.8847
+above                       5
+above15                     4
+shuffle_max            3.8457
+Name: 61, dtype: object> | 0.9101 | 15.8847 | 5 | 4 | 3.8457
+  memory b cells | <bound method Series.map of cell           memory b cells
+map               read halves
+flip_min               0.8362
+flip_max               1.1862
+above                       0
+above15                     0
+shuffle_max            0.7185
+Name: 62, dtype: object> | 0.8362 | 1.1862 | 0 | 0 | 0.7185
+  monocytes | <bound method Series.map of cell              monocytes
+map            donor halves
+flip_min             0.9888
+flip_max            18.0268
+above                     5
+above15                   3
+shuffle_max          8.0546
+Name: 63, dtype: object> | 0.9888 | 18.0268 | 5 | 3 | 8.0546
+  monocytes | <bound method Series.map of cell             monocytes
+map            read halves
+flip_min             1.002
+flip_max            1.6438
+above                    3
+above15                  1
+shuffle_max         0.8255
+Name: 64, dtype: object> | 1.002 | 1.6438 | 3 | 1 | 0.8255
+  naive cd4 t cells | <bound method Series.map of cell           naive cd4 t cells
+map                  read halves
+flip_min                  0.7959
+flip_max                  1.0367
+above                          0
+above15                        0
+shuffle_max               0.6266
+Name: 65, dtype: object> | 0.7959 | 1.0367 | 0 | 0 | 0.6266
+  naive cd8 t cells | <bound method Series.map of cell           naive cd8 t cells
+map                  read halves
+flip_min                  0.8907
+flip_max                  1.2934
+above                          0
+above15                        0
+shuffle_max               0.8446
+Name: 66, dtype: object> | 0.8907 | 1.2934 | 0 | 0 | 0.8446
+  nk cells | <bound method Series.map of cell               nk cells
+map            donor halves
+flip_min             0.7931
+flip_max            59.8102
+above                     5
+above15                   4
+shuffle_max          5.9925
+Name: 67, dtype: object> | 0.7931 | 59.8102 | 5 | 4 | 5.9925
+  nk cells | <bound method Series.map of cell              nk cells
+map            read halves
+flip_min            0.6905
+flip_max            1.0452
+above                    0
+above15                  0
+shuffle_max         0.6931
+Name: 68, dtype: object> | 0.6905 | 1.0452 | 0 | 0 | 0.6931
+  oligodendrocytes | <bound method Series.map of cell           oligodendrocytes
+map                donor halves
+flip_min                 0.9694
+flip_max                11.5345
+above                         5
+above15                       4
+shuffle_max              5.2579
+Name: 69, dtype: object> | 0.9694 | 11.5345 | 5 | 4 | 5.2579
+  oligodendrocytes | <bound method Series.map of cell           oligodendrocytes
+map                 read halves
+flip_min                 0.7597
+flip_max                 1.1352
+above                         1
+above15                       0
+shuffle_max              0.7582
+Name: 70, dtype: object> | 0.7597 | 1.1352 | 1 | 0 | 0.7582
+  pancreas endothelium | <bound method Series.map of cell           pancreas endothelium
+map                    donor halves
+flip_min                     0.8859
+flip_max                    47.1601
+above                             5
+above15                           4
+shuffle_max                  9.3096
+Name: 71, dtype: object> | 0.8859 | 47.1601 | 5 | 4 | 9.3096
+  pancreas endothelium | <bound method Series.map of cell           pancreas endothelium
+map                     read halves
+flip_min                      0.959
+flip_max                     1.0277
+above                             0
+above15                           0
+shuffle_max                  0.6368
+Name: 72, dtype: object> | 0.959 | 1.0277 | 0 | 0 | 0.6368
+  pancreatic acinar | <bound method Series.map of cell           pancreatic acinar
+map                 donor halves
+flip_min                  0.8379
+flip_max                  39.798
+above                          5
+above15                        4
+shuffle_max              33.7378
+Name: 73, dtype: object> | 0.8379 | 39.798 | 5 | 4 | 33.7378
+  pancreatic acinar | <bound method Series.map of cell           pancreatic acinar
+map                  read halves
+flip_min                  0.8704
+flip_max                   1.175
+above                          1
+above15                        0
+shuffle_max               0.8113
+Name: 74, dtype: object> | 0.8704 | 1.175 | 1 | 0 | 0.8113
+  pancreatic alpha | <bound method Series.map of cell           pancreatic alpha
+map                donor halves
+flip_min                 0.9844
+flip_max                21.8856
+above                         5
+above15                       4
+shuffle_max               8.489
+Name: 75, dtype: object> | 0.9844 | 21.8856 | 5 | 4 | 8.489
+  pancreatic alpha | <bound method Series.map of cell           pancreatic alpha
+map                 read halves
+flip_min                 0.8089
+flip_max                 1.0893
+above                         0
+above15                       0
+shuffle_max              0.7222
+Name: 76, dtype: object> | 0.8089 | 1.0893 | 0 | 0 | 0.7222
+  pancreatic beta | <bound method Series.map of cell           pancreatic beta
+map               donor halves
+flip_min                1.0116
+flip_max               13.6335
+above                        5
+above15                      4
+shuffle_max             5.1956
+Name: 77, dtype: object> | 1.0116 | 13.6335 | 5 | 4 | 5.1956
+  pancreatic beta | <bound method Series.map of cell           pancreatic beta
+map                read halves
+flip_min                0.9235
+flip_max                1.0887
+above                        1
+above15                      0
+shuffle_max             0.7461
+Name: 78, dtype: object> | 0.9235 | 1.0887 | 1 | 0 | 0.7461
+  pancreatic delta | <bound method Series.map of cell           pancreatic delta
+map                donor halves
+flip_min                 0.9989
+flip_max                14.4071
+above                         5
+above15                       4
+shuffle_max              4.1714
+Name: 79, dtype: object> | 0.9989 | 14.4071 | 5 | 4 | 4.1714
+  pancreatic delta | <bound method Series.map of cell           pancreatic delta
+map                 read halves
+flip_min                  0.902
+flip_max                 1.0754
+above                         1
+above15                       0
+shuffle_max              0.6973
+Name: 80, dtype: object> | 0.902 | 1.0754 | 1 | 0 | 0.6973
+  pancreatic duct | <bound method Series.map of cell           pancreatic duct
+map                read halves
+flip_min                0.3951
+flip_max                1.0154
+above                        0
+above15                      0
+shuffle_max             0.6504
+Name: 81, dtype: object> | 0.3951 | 1.0154 | 0 | 0 | 0.6504
+  prostate epithelium | <bound method Series.map of cell           prostate epithelium
+map                   donor halves
+flip_min                    0.9939
+flip_max                      9.15
+above                            5
+above15                          4
+shuffle_max                 4.4893
+Name: 82, dtype: object> | 0.9939 | 9.15 | 5 | 4 | 4.4893
+  prostate epithelium | <bound method Series.map of cell           prostate epithelium
+map                    read halves
+flip_min                    0.8546
+flip_max                    1.0145
+above                            0
+above15                          0
+shuffle_max                 0.6297
+Name: 83, dtype: object> | 0.8546 | 1.0145 | 0 | 0 | 0.6297
+  small intestine epithelium | <bound method Series.map of cell           small intestine epithelium
+map                          donor halves
+flip_min                           0.9958
+flip_max                           9.7961
+above                                   5
+above15                                 4
+shuffle_max                        5.1882
+Name: 84, dtype: object> | 0.9958 | 9.7961 | 5 | 4 | 5.1882
+  small intestine epithelium | <bound method Series.map of cell           small intestine epithelium
+map                           read halves
+flip_min                           0.8788
+flip_max                           1.0331
+above                                   0
+above15                                 0
+shuffle_max                        0.6995
+Name: 85, dtype: object> | 0.8788 | 1.0331 | 0 | 0 | 0.6995
+  smooth muscle | <bound method Series.map of cell           smooth muscle
+map             donor halves
+flip_min              0.6721
+flip_max             53.7399
+above                      5
+above15                    4
+shuffle_max           9.3372
+Name: 86, dtype: object> | 0.6721 | 53.7399 | 5 | 4 | 9.3372
+  smooth muscle | <bound method Series.map of cell           smooth muscle
+map              read halves
+flip_min              0.9387
+flip_max              1.3381
+above                      0
+above15                    0
+shuffle_max           0.9261
+Name: 87, dtype: object> | 0.9387 | 1.3381 | 0 | 0 | 0.9261
+  striated muscle | <bound method Series.map of cell           striated muscle
+map               donor halves
+flip_min                0.9652
+flip_max               17.8258
+above                        5
+above15                      4
+shuffle_max            12.3205
+Name: 88, dtype: object> | 0.9652 | 17.8258 | 5 | 4 | 12.3205
+  striated muscle | <bound method Series.map of cell           striated muscle
+map                read halves
+flip_min                0.9127
+flip_max                1.0461
+above                        0
+above15                      0
+shuffle_max             0.6556
+Name: 89, dtype: object> | 0.9127 | 1.0461 | 0 | 0 | 0.6556
+  t central memory cd4 | <bound method Series.map of cell           t central memory cd4
+map                    donor halves
+flip_min                     0.8884
+flip_max                    37.1787
+above                             5
+above15                           4
+shuffle_max                   8.067
+Name: 90, dtype: object> | 0.8884 | 37.1787 | 5 | 4 | 8.067
+  t central memory cd4 | <bound method Series.map of cell           t central memory cd4
+map                     read halves
+flip_min                     0.7768
+flip_max                     1.0522
+above                             1
+above15                           0
+shuffle_max                  0.6203
+Name: 91, dtype: object> | 0.7768 | 1.0522 | 1 | 0 | 0.6203
+  t effector cell cd8 | <bound method Series.map of cell           t effector cell cd8
+map                   donor halves
+flip_min                    0.8396
+flip_max                   58.9966
+above                            5
+above15                          4
+shuffle_max                 5.5721
+Name: 92, dtype: object> | 0.8396 | 58.9966 | 5 | 4 | 5.5721
+  t effector cell cd8 | <bound method Series.map of cell           t effector cell cd8
+map                    read halves
+flip_min                    0.8716
+flip_max                    1.0316
+above                            0
+above15                          0
+shuffle_max                 0.6121
+Name: 93, dtype: object> | 0.8716 | 1.0316 | 0 | 0 | 0.6121
+  t effector memory cd4 | <bound method Series.map of cell           t effector memory cd4
+map                     donor halves
+flip_min                      0.8432
+flip_max                      61.021
+above                              5
+above15                            4
+shuffle_max                   6.2076
+Name: 94, dtype: object> | 0.8432 | 61.021 | 5 | 4 | 6.2076
+  t effector memory cd4 | <bound method Series.map of cell           t effector memory cd4
+map                      read halves
+flip_min                      0.9331
+flip_max                      1.0269
+above                              0
+above15                            0
+shuffle_max                   0.6725
+Name: 95, dtype: object> | 0.9331 | 1.0269 | 0 | 0 | 0.6725
+  thyroid epithelium | <bound method Series.map of cell           thyroid epithelium
+map                  donor halves
+flip_min                   1.0087
+flip_max                  16.6776
+above                           5
+above15                         4
+shuffle_max                6.4064
+Name: 96, dtype: object> | 1.0087 | 16.6776 | 5 | 4 | 6.4064
+  thyroid epithelium | <bound method Series.map of cell           thyroid epithelium
+map                   read halves
+flip_min                   0.9514
+flip_max                   1.1188
+above                           0
+above15                         0
+shuffle_max                0.7357
+Name: 97, dtype: object> | 0.9514 | 1.1188 | 0 | 0 | 0.7357
+  tongue epithelium | <bound method Series.map of cell           tongue epithelium
+map                 donor halves
+flip_min                  0.8421
+flip_max                  70.959
+above                          5
+above15                        4
+shuffle_max              14.4657
+Name: 98, dtype: object> | 0.8421 | 70.959 | 5 | 4 | 14.4657
+  tongue epithelium | <bound method Series.map of cell           tongue epithelium
+map                  read halves
+flip_min                  0.7294
+flip_max                  0.9967
+above                          0
+above15                        0
+shuffle_max                0.674
+Name: 99, dtype: object> | 0.7294 | 0.9967 | 0 | 0 | 0.674
+  tonsil palatine epithelium | <bound method Series.map of cell           tonsil palatine epithelium
+map                          donor halves
+flip_min                            0.976
+flip_max                           7.6159
+above                                   5
+above15                                 4
+shuffle_max                        2.4986
+Name: 100, dtype: object> | 0.976 | 7.6159 | 5 | 4 | 2.4986
+  tonsil palatine epithelium | <bound method Series.map of cell           tonsil palatine epithelium
+map                           read halves
+flip_min                           0.7934
+flip_max                           1.0821
+above                                   0
+above15                                 0
+shuffle_max                        0.6704
+Name: 101, dtype: object> | 0.7934 | 1.0821 | 0 | 0 | 0.6704
+  tonsil pharyngeal epithelium | <bound method Series.map of cell           tonsil pharyngeal epithelium
+map                            donor halves
+flip_min                             0.6635
+flip_max                            71.7303
+above                                     5
+above15                                   4
+shuffle_max                         10.0608
+Name: 102, dtype: object> | 0.6635 | 71.7303 | 5 | 4 | 10.0608
+  tonsil pharyngeal epithelium | <bound method Series.map of cell           tonsil pharyngeal epithelium
+map                             read halves
+flip_min                              1.003
+flip_max                             1.1496
+above                                     1
+above15                                   0
+shuffle_max                          0.7604
+Name: 103, dtype: object> | 1.003 | 1.1496 | 1 | 0 | 0.7604
+  vascular saphenous endothelium | <bound method Series.map of cell           vascular saphenous endothelium
+map                              donor halves
+flip_min                               0.8848
+flip_max                               19.634
+above                                       5
+above15                                     4
+shuffle_max                            6.1772
+Name: 104, dtype: object> | 0.8848 | 19.634 | 5 | 4 | 6.1772
+  vascular saphenous endothelium | <bound method Series.map of cell           vascular saphenous endothelium
+map                               read halves
+flip_min                               0.9077
+flip_max                               1.0293
+above                                       0
+above15                                     0
+shuffle_max                            0.6421
+Name: 105, dtype: object> | 0.9077 | 1.0293 | 0 | 0 | 0.6421
