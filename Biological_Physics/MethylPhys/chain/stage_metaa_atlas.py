@@ -666,6 +666,15 @@ def expected_H_mix_counts(Mk, Nk, F, m, block=8000, u=0.0):
         out[sl] = math.exp(lg[m]) * (W[:, m, :] @ Hj)
     return out
 
+_FP = {}
+def _floor_probes():
+    """The library-floor sites (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked), by probe."""
+    if "p" not in _FP:
+        import pyarrow.parquet as _pq
+        t = _pq.read_table(os.path.join(HERE, "Runtime Matrices", "Seq_Atlas", "floor_sites_v1.parquet")).to_pandas()
+        _FP["p"] = set(t.loc[t.side == "unmarked", "probe"])
+    return _FP["p"]
+
 def islands_counted(xs, counts, F):
     """The islands read with the expectation from the reference's own reads: the sample's cells holding at least TERR_SHARE_MIN (shares
     renormalized), each cell's reads from the donor half TERR_HALF (stage_seq_atlas.terr_counts_of; every donor when no half is given), and
@@ -680,11 +689,13 @@ def islands_counted(xs, counts, F):
     us = ur = 0.0; fl = None
     if FLOOR_CLASS and ok.any():   # 2026-11-07: both floors counted at the islands read, where the mix expects them unmarked
         with np.errstate(all="ignore"): lev = (np.where(Nk > 0, Mk / np.maximum(Nk, 1), 0.0) * Fk.to_numpy()[None, :]).sum(1)
-        um = ok & (lev <= CLASS_UNMARKED)
+        # 2026-11-07 (class-floor synthetic not met: the islands the mix expects unmarked still hold real low methylation, which the first
+        # version counted as false calls): only the library-floor sites inside islands, where every healthy cell of the atlas is unmarked
+        um = ok & np.asarray(pd.Index(xs.index).isin(_floor_probes()))
         if um.sum() >= 100:
             fs = float(k[um].sum() / max(n[um].sum(), 1)); fr = float((Fk.to_numpy() * (Mk[um].sum(0) / np.maximum(Nk[um].sum(0), 1))).sum())
             Fc = max(fs, fr); us, ur = floor_raise(fs, Fc), floor_raise(fr, Fc)
-            fl = dict(measured_at="the islands read, where the mix expects them unmarked", sites=int(um.sum()), sample=round(fs, 6), reference=round(fr, 6), common=round(Fc, 6))
+            fl = dict(measured_at="the library-floor sites inside the islands read (every healthy cell unmarked)", sites=int(um.sum()), sample=round(fs, 6), reference=round(fr, 6), common=round(Fc, 6))
         else: fl = dict(measured_at="the islands read", sites=int(um.sum()), reason="under 100 unmarked islands; no class floor applied")
     elif FLOOR_EQUAL and SAMPLE_FLOOR is not None:   # 2026-11-02: the sample and the reference half's pooled reads at their common floor
         fr = _SQt.half_floor(TERR_HALF)

@@ -1570,3 +1570,25 @@ island levels are drawn with a person-to-person spread the atlas's pooled refere
 mismatch puts the uncorrected reading at 1.235. So neither the construction nor the measure isolates the chemistry. **Next (its design first):**
 the false-call share that reaches the islands measured where truth is known to be unmarked for everyone (the library-floor sites that lie in
 islands), and a construction whose people carry the atlas's own island levels. The class floor stays development, off by default.
+
+**The class floor, version 2 (written and committed before it runs).** The chain now counts the floor only at the library-floor sites that lie inside the islands read (32,570 of the 46,925
+floor sites; every healthy cell of the atlas unmarked there), so a methylated call there is a false call, never the islands' own low methylation
+(`stage_metaa_atlas._floor_probes`, behind `--dev-floor-class`, off by default).
+
+**The instrument's job:** a healthy sample from any laboratory reads Normal on the islands.
+
+**Sources:** GEO GSM5652316 (public: the base sample's reads, spent); the IAM Sequencing Atlas (public, Zenodo: island levels and floor sites).
+
+**Reference:** the IAM Sequencing Atlas only; each library's false-call rate measured from its own reads at the floor sites inside the islands.
+
+**Synthetic test:** `DEV_ATLAS_V21_01/seq_atlas/outside_data/floor_class_synthetic_v2.py` (the one command on constructed samples; 18 parts on
+Google, scored together by its combine step). Constructed people and donor halves carry the atlas's own island levels; floor sites inside islands
+take the island share of the false-call rate, as the other island sites do.
+
+**Range of the data:** the 89 outside libraries' floors 0.0015 to 0.016 and the island shares 0.29 (atlas laboratory) and 0.75 to 1.05 (outside
+laboratories), measured by `floor_by_site_class.py`; the synthetic's six settings span 0.0015 to 0.016 and shares 0.29 to 1.05.
+
+Bars (scorer), version 1's unchanged: 1. with the class floor, each laboratory setting's median islands within 0.03 of 1; 2. the atlas
+laboratory's own case within 0.03 of 1 (no overcorrection); each setting is read on three constructed people.
+
+**Prior reading:** GSM5652316 is spent (version 1 and earlier floor work); nothing else is read.

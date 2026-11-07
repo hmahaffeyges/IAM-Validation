@@ -7029,7 +7029,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 838,
+   "lines": 849,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7704,19 +7704,37 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "_floor_probes",
+     "name": "_floor_probes",
+     "line": 670,
+     "end": 676,
+     "args": [],
+     "lines": 7,
+     "doc": "The library-floor sites (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked), by probe.",
+     "constants": [
+      "HERE",
+      "_FP"
+     ],
+     "data_files": [
+      "floor_sites_v1.parquet",
+      "import pyarrow.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "islands_counted",
      "name": "islands_counted",
-     "line": 669,
-     "end": 701,
+     "line": 678,
+     "end": 712,
      "args": [
       "xs",
       "counts",
       "F"
      ],
-     "lines": 33,
+     "lines": 35,
      "doc": "The islands read with the expectation from the reference's own reads: the sample's cells holding at least TERR_SHARE_MIN (shares renormalized), each cell's reads from the donor half TERR_HALF (stage_seq_atlas.terr_counts_of; every donor when no half is given), and both sides at a common depth m = min(reads, TERR_M), the sample's own reads drawn down without replacement (thin_H). Sites where a kept",
      "constants": [
-      "CLASS_UNMARKED",
       "FLOOR_CLASS",
       "FLOOR_EQUAL",
       "SAMPLE_FLOOR",
@@ -7733,8 +7751,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 707,
-     "end": 710,
+     "line": 718,
+     "end": 721,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -7748,8 +7766,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_line_censored",
      "name": "_line_censored",
-     "line": 715,
-     "end": 727,
+     "line": 726,
+     "end": 738,
      "args": [
       "x",
       "e",
@@ -7767,8 +7785,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_line_censored.nll",
      "name": "nll",
-     "line": 723,
-     "end": 725,
+     "line": 734,
+     "end": 736,
      "args": [
       "t"
      ],
@@ -7782,8 +7800,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 729,
-     "end": 745,
+     "line": 740,
+     "end": 756,
      "args": [
       "xs",
       "es"
@@ -7800,8 +7818,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 747,
-     "end": 762,
+     "line": 758,
+     "end": 773,
      "args": [
       "xs",
       "es",
@@ -7820,8 +7838,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 764,
-     "end": 810,
+     "line": 775,
+     "end": 821,
      "args": [
       "beta",
       "shares",
@@ -7840,8 +7858,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 787,
-     "end": 792,
+     "line": 798,
+     "end": 803,
      "args": [
       "m"
      ],
@@ -7855,8 +7873,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limit",
      "name": "cscore_limit",
-     "line": 820,
-     "end": 823,
+     "line": 831,
+     "end": 834,
      "args": [
       "n_sites",
       "q",
@@ -7874,8 +7892,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limits",
      "name": "cscore_limits",
-     "line": 825,
-     "end": 837,
+     "line": 836,
+     "end": 848,
      "args": [
       "cs",
       "array_type"
@@ -9883,5 +9901,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 505
+ "n_functions": 506
 }

@@ -2531,6 +2531,10 @@ The exact expected entropy of K methylated of N reads thinned without replacemen
 The expected disorder of a healthy sample of a mix, from each cell's reference reads: every read from a cell of the mix, drawn without
 replacement from that cell's reads, so no level is treated as exact (exactly unbiased).
 
+### stage_metaa_atlas.py::_floor_probes
+
+The library-floor sites by probe (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked there). The class floor (--dev-floor-class) counts a sample's and its reference's false-call rate at those of them that lie inside the islands read, so a call there is a false call and never the islands' own low methylation.
+
 ### stage_metaa_atlas.py::islands_counted
 The islands read with that expectation, against the donor half given, both sides at a common depth of at most 20 reads.
 
