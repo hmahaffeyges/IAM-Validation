@@ -10180,8 +10180,412 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | L-MPP (bone marrow) | unknown | ulcerative colitis | 1 | 0.9841 | 0.9841 to 0.9841 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | embryonic stem cells | unknown | ulcerative colitis | 1 | 1.1396 | 1.1396 to 1.1396 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | memory b cells | unknown | ulcerative colitis | 1 | 1.0556 | 1.0556 to 1.0556 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | whole blood | ischemic stroke, cardioembolic | 109 | 0.89596 | 0.81199 to 0.92191 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | whole blood | ischemic stroke, cardioembolic | 109 | 0.86328 | 0.82578 to 0.88389 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | whole blood | ischemic stroke, cardioembolic | 109 | 0.85354 | 0.73526 to 0.88945 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | whole blood | ischemic stroke, cardioembolic | 109 | 0.89039 | 0.81348 to 0.93518 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | whole blood | ischemic stroke, cardioembolic | 109 | 0.90643 | 0.82418 to 0.94067 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 109 | 1.0036 | 0.93088 to 1.0823 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 109 | 1.0011 | 0.9092 to 1.0981 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | whole blood | ischemic stroke, cardioembolic | 109 | 1.0093 | 0.94305 to 1.1264 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 109 | 1.0038 | 0.94392 to 1.0802 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 109 | 1.0147 | 0.95502 to 1.1059 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 109 | 1.0067 | 0.9345 to 1.0983 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | whole blood | ischemic stroke, cardioembolic | 109 | 1.0087 | 0.94873 to 1.1107 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0023 | 0.91304 to 1.1744 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | whole blood | ischemic stroke, cardioembolic | 87 | 1.0022 | 0.9354 to 1.1033 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | whole blood | ischemic stroke, cardioembolic | 75 | 0.98756 | 0.90174 to 1.0611 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | whole blood | ischemic stroke, cardioembolic | 57 | 0.99008 | 0.91591 to 1.0229 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0387 | 0.95384 to 1.2368 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0652 | 0.9893 to 1.2255 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | whole blood | ischemic stroke, cardioembolic | 107 | 1.0606 | 0.96924 to 1.2258 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0207 | 0.93364 to 1.199 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | whole blood | ischemic stroke, cardioembolic | 104 | 1.0537 | 0.95193 to 1.1591 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0488 | 0.94637 to 1.1991 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | whole blood | ischemic stroke, cardioembolic | 109 | 1.0495 | 0.96325 to 1.205 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | whole blood | ischemic stroke, cardioembolic | 92 | 1.0062 | 0.91554 to 1.0959 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | whole blood | ischemic stroke, cardioembolic | 73 | 0.99651 | 0.90326 to 1.0927 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | whole blood | ischemic stroke, cardioembolic | 109 | 1.0481 | 0.97372 to 1.1798 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | whole blood | ischemic stroke, cardioembolic | 109 | 1.0588 | 0.95426 to 1.2138 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | whole blood | ischemic stroke, cardioembolic | 108 | 1.0454 | 0.94617 to 1.2098 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0544 | 0.97162 to 1.2421 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | whole blood | ischemic stroke, cardioembolic | 70 | 0.9848 | 0.90046 to 1.0478 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | whole blood | ischemic stroke, cardioembolic | 97 | 1.0162 | 0.93557 to 1.0983 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | whole blood | ischemic stroke, cardioembolic | 101 | 0.99803 | 0.92509 to 1.0801 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | whole blood | ischemic stroke, cardioembolic | 70 | 0.98698 | 0.9005 to 1.0543 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | whole blood | ischemic stroke, cardioembolic | 109 | 0.99947 | 0.95507 to 1.0632 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | whole blood | ischemic stroke, cardioembolic | 97 | 1.0051 | 0.92316 to 1.0765 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | whole blood | ischemic stroke, cardioembolic | 95 | 0.99993 | 0.91902 to 1.0716 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | whole blood | ischemic stroke, cardioembolic | 99 | 0.99384 | 0.91513 to 1.0673 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | whole blood | ischemic stroke, cardioembolic | 98 | 1.0027 | 0.92046 to 1.0744 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | whole blood | ischemic stroke, cardioembolic | 106 | 1.0142 | 0.9308 to 1.122 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | whole blood | ischemic stroke, cardioembolic | 109 | 1.0431 | 0.96848 to 1.1714 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | whole blood | ischemic stroke, cardioembolic | 95 | 1.0085 | 0.91554 to 1.0809 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | whole blood | ischemic stroke, cardioembolic | 94 | 1.0592 | 0.97523 to 1.1908 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | whole blood | ischemic stroke, cardioembolic | 94 | 1.0178 | 0.92947 to 1.115 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | whole blood | ischemic stroke, cardioembolic | 106 | 1.0639 | 0.97011 to 1.2178 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | whole blood | ischemic stroke, cardioembolic | 108 | 1.024 | 0.95345 to 1.1768 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | whole blood | ischemic stroke, cardioembolic | 104 | 1.0713 | 0.97586 to 1.1926 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0652 | 0.97528 to 1.2755 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0579 | 0.97558 to 1.2478 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | whole blood | ischemic stroke, cardioembolic | 109 | 1.036 | 0.94043 to 1.2625 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | whole blood | ischemic stroke, cardioembolic | 109 | 1.0103 | 0.93784 to 1.1846 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | whole blood | ischemic stroke, cardioembolic | 102 | 1.0314 | 0.96002 to 1.1344 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | whole blood | ischemic stroke, cardioembolic | 47 | 0.98193 | 0.89713 to 1.0144 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | whole blood | ischemic stroke, cardioembolic | 109 | 1.0075 | 0.95535 to 1.0628 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | whole blood | ischemic stroke, cardioembolic | 69 | 0.98696 | 0.90959 to 1.0585 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | whole blood | ischemic stroke, cardioembolic | 109 | 1.0328 | 0.9471 to 1.141 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | whole blood | ischemic stroke, cardioembolic | 91 | 1.0028 | 0.92777 to 1.0704 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | whole blood | ischemic stroke, cardioembolic | 109 | 1.0021 | 0.95136 to 1.0607 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | whole blood | ischemic stroke, cardioembolic | 109 | 1.047 | 0.94423 to 1.1953 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | whole blood | ischemic stroke, cardioembolic | 104 | 1.0812 | 0.98217 to 1.2823 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | whole blood | ischemic stroke, cardioembolic | 109 | 1.0354 | 0.94347 to 1.1713 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | whole blood | ischemic stroke, cardioembolic | 71 | 0.98334 | 0.89459 to 1.0715 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | whole blood | ischemic stroke, cardioembolic | 79 | 0.9962 | 0.91416 to 1.0614 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | whole blood | ischemic stroke, cardioembolic | 81 | 0.9893 | 0.90681 to 1.0579 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | whole blood | ischemic stroke, cardioembolic | 109 | 1.0216 | 0.93413 to 1.1076 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | whole blood | ischemic stroke, cardioembolic | 97 | 1.0048 | 0.9247 to 1.076 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | whole blood | ischemic stroke, cardioembolic | 109 | 0.85492 | 0.73838 to 0.89306 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | whole blood | ischemic stroke, cardioembolic | 109 | 0.90265 | 0.82299 to 0.94377 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | whole blood | ischemic stroke, cardioembolic | 109 | 0.001317 | 0.0003006 to 0.004149 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | whole blood | ischemic stroke, cardioembolic | 109 | 0.0767 | 0.064322 to 0.10782 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | whole blood | ischemic stroke, cardioembolic | 109 | 1.0052 | 0.99496 to 1.016 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 63 | 0.9887 | 0.90521 to 1.1044 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MEP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 27 | 0.9973 | 0.88873 to 1.097 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd4 t cells | whole blood | ischemic stroke, cardioembolic | 40 | 1.0519 | 0.94483 to 1.1278 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | whole blood | ischemic stroke, cardioembolic | 56 | 1.025 | 0.95242 to 1.1427 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | whole blood | ischemic stroke, cardioembolic | 36 | 1.0297 | 0.88065 to 1.1664 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | whole blood | ischemic stroke, cardioembolic | 7 | 1.0718 | 0.91326 to 1.1431 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | whole blood | ischemic stroke, cardioembolic | 33 | 1.0077 | 0.92132 to 1.1278 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | whole blood | ischemic stroke, cardioembolic | 96 | 1.0078 | 0.87282 to 1.1405 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | whole blood | ischemic stroke, cardioembolic | 109 | 1.0007 | 0.92026 to 1.0774 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | whole blood | ischemic stroke, cardioembolic | 53 | 0.9729 | 0.89146 to 1.0634 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector memory cd4 | whole blood | ischemic stroke, cardioembolic | 31 | 0.9809 | 0.8906 to 1.1191 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | regulatory t cells | whole blood | ischemic stroke, cardioembolic | 68 | 1.0128 | 0.95116 to 1.0896 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 10 | 0.99695 | 0.90831 to 1.0706 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MPP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 6 | 0.9985 | 0.92548 to 1.0624 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | whole blood | ischemic stroke, cardioembolic | 73 | 0.9901 | 0.91216 to 1.0832 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | whole blood | ischemic stroke, cardioembolic | 19 | 1.0185 | 0.90269 to 1.092 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | whole blood | ischemic stroke, cardioembolic | 32 | 0.99395 | 0.86721 to 1.0779 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | whole blood | ischemic stroke, cardioembolic | 52 | 0.99465 | 0.91801 to 1.1042 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | whole blood | ischemic stroke, cardioembolic | 46 | 1.0128 | 0.9283 to 1.0661 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | whole blood | ischemic stroke, cardioembolic | 18 | 1.0177 | 0.92952 to 1.1022 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | whole blood | ischemic stroke, cardioembolic | 9 | 1.0488 | 1.0053 to 1.1323 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | whole blood | ischemic stroke, cardioembolic | 15 | 0.9694 | 0.90535 to 1.0871 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | whole blood | ischemic stroke, cardioembolic | 13 | 1.0214 | 0.88364 to 1.0899 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | whole blood | ischemic stroke, cardioembolic | 11 | 0.9838 | 0.90775 to 1.1147 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | whole blood | ischemic stroke, cardioembolic | 80 | 0.9789 | 0.89494 to 1.0662 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | whole blood | ischemic stroke, cardioembolic | 10 | 1.0641 | 1.0138 to 1.112 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | bladder epithelium | whole blood | ischemic stroke, cardioembolic | 36 | 0.98512 | 0.90475 to 1.0066 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | whole blood | ischemic stroke, cardioembolic | 25 | 0.98537 | 0.9369 to 0.99504 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | smooth muscle | whole blood | ischemic stroke, cardioembolic | 24 | 0.98872 | 0.94505 to 0.99889 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | whole blood | ischemic stroke, cardioembolic | 73 | 0.9772 | 0.90194 to 1.0652 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | whole blood | ischemic stroke, cardioembolic | 14 | 0.9771 | 0.92649 to 1.086 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | whole blood | ischemic stroke, cardioembolic | 37 | 1.0001 | 0.92034 to 1.1249 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | whole blood | ischemic stroke, small-vessel disease | 57 | 0.89785 | 0.81929 to 0.92072 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | whole blood | ischemic stroke, small-vessel disease | 57 | 0.86373 | 0.84158 to 0.87811 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | whole blood | ischemic stroke, small-vessel disease | 57 | 0.85555 | 0.75879 to 0.8955 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | whole blood | ischemic stroke, small-vessel disease | 57 | 0.89365 | 0.82481 to 0.92628 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | whole blood | ischemic stroke, small-vessel disease | 57 | 0.91072 | 0.8292 to 0.93419 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0229 | 0.96486 to 1.0955 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0279 | 0.96291 to 1.1125 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0281 | 0.95864 to 1.1234 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 57 | 1.017 | 0.97294 to 1.0812 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0237 | 0.96521 to 1.1131 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0063 | 0.9387 to 1.0831 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0279 | 0.96433 to 1.105 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0396 | 0.93534 to 1.1507 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | whole blood | ischemic stroke, small-vessel disease | 46 | 1.0239 | 0.91484 to 1.1267 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | whole blood | ischemic stroke, small-vessel disease | 34 | 1.0028 | 0.9518 to 1.0778 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0555 | 0.9514 to 1.1927 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0759 | 0.97783 to 1.2371 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0887 | 0.96908 to 1.2482 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0527 | 0.93801 to 1.1651 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | whole blood | ischemic stroke, small-vessel disease | 55 | 1.0764 | 0.95696 to 1.2012 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0617 | 0.94017 to 1.1844 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0554 | 0.95867 to 1.2039 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | whole blood | ischemic stroke, small-vessel disease | 46 | 1.0229 | 0.95175 to 1.109 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | whole blood | ischemic stroke, small-vessel disease | 33 | 1.0056 | 0.9404 to 1.1 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0571 | 0.96944 to 1.1761 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | whole blood | ischemic stroke, small-vessel disease | 57 | 1.068 | 0.93961 to 1.2033 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0617 | 0.96063 to 1.1941 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0576 | 0.96009 to 1.2624 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | whole blood | ischemic stroke, small-vessel disease | 32 | 0.99237 | 0.94768 to 1.0602 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | whole blood | ischemic stroke, small-vessel disease | 53 | 1.04 | 0.95993 to 1.1198 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | whole blood | ischemic stroke, small-vessel disease | 53 | 1.0219 | 0.94517 to 1.0932 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | whole blood | ischemic stroke, small-vessel disease | 30 | 1 | 0.95257 to 1.0677 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0119 | 0.97208 to 1.0713 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | whole blood | ischemic stroke, small-vessel disease | 50 | 1.0278 | 0.95678 to 1.1011 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | whole blood | ischemic stroke, small-vessel disease | 47 | 1.0186 | 0.95505 to 1.0764 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | whole blood | ischemic stroke, small-vessel disease | 52 | 1.0214 | 0.95124 to 1.0866 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | whole blood | ischemic stroke, small-vessel disease | 51 | 1.0265 | 0.95687 to 1.0998 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | whole blood | ischemic stroke, small-vessel disease | 57 | 1.027 | 0.92605 to 1.1256 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0442 | 0.94269 to 1.1489 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | whole blood | ischemic stroke, small-vessel disease | 48 | 1.0288 | 0.95223 to 1.1108 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | whole blood | ischemic stroke, small-vessel disease | 52 | 1.0844 | 0.96977 to 1.2309 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | whole blood | ischemic stroke, small-vessel disease | 50 | 1.0488 | 0.94218 to 1.1545 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0797 | 0.95825 to 1.2397 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | whole blood | ischemic stroke, small-vessel disease | 57 | 1.043 | 0.95374 to 1.1572 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0884 | 0.98012 to 1.2339 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.073 | 0.96547 to 1.2891 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0746 | 0.96826 to 1.2553 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0285 | 0.926 to 1.2573 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0352 | 0.95036 to 1.1416 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | whole blood | ischemic stroke, small-vessel disease | 54 | 1.0509 | 0.96335 to 1.1736 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0201 | 0.9657 to 1.0766 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | whole blood | ischemic stroke, small-vessel disease | 31 | 1.0001 | 0.95376 to 1.0703 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0446 | 0.96471 to 1.1385 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | whole blood | ischemic stroke, small-vessel disease | 44 | 1.0216 | 0.96014 to 1.0822 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0112 | 0.96272 to 1.0711 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | whole blood | ischemic stroke, small-vessel disease | 42 | 1.0368 | 0.95626 to 1.0917 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0524 | 0.94772 to 1.1864 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | whole blood | ischemic stroke, small-vessel disease | 55 | 1.0821 | 0.9603 to 1.2734 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0509 | 0.93022 to 1.1666 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | whole blood | ischemic stroke, small-vessel disease | 33 | 0.99877 | 0.93036 to 1.0822 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | whole blood | ischemic stroke, small-vessel disease | 38 | 1.0121 | 0.96248 to 1.0761 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | whole blood | ischemic stroke, small-vessel disease | 40 | 1.0023 | 0.96055 to 1.0651 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | whole blood | ischemic stroke, small-vessel disease | 57 | 1.045 | 0.97107 to 1.1216 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | whole blood | ischemic stroke, small-vessel disease | 49 | 1.023 | 0.95675 to 1.1016 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | whole blood | ischemic stroke, small-vessel disease | 57 | 0.86072 | 0.76349 to 0.89849 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | whole blood | ischemic stroke, small-vessel disease | 57 | 0.90427 | 0.83538 to 0.93754 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | whole blood | ischemic stroke, small-vessel disease | 57 | 0.001068 | 0.0002686 to 0.0035344 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | whole blood | ischemic stroke, small-vessel disease | 57 | 0.07437 | 0.064018 to 0.09975 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0059 | 0.9963 to 1.0203 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 17 | 1.0129 | 0.93568 to 1.102 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | whole blood | ischemic stroke, small-vessel disease | 16 | 1.009 | 0.97762 to 1.1098 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | whole blood | ischemic stroke, small-vessel disease | 42 | 0.9868 | 0.90963 to 1.0577 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | whole blood | ischemic stroke, small-vessel disease | 8 | 1.0191 | 0.95181 to 1.0851 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | whole blood | ischemic stroke, small-vessel disease | 22 | 1.0008 | 0.93327 to 1.0409 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | whole blood | ischemic stroke, small-vessel disease | 39 | 1.0192 | 0.93559 to 1.1088 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | whole blood | ischemic stroke, small-vessel disease | 25 | 1.038 | 0.93506 to 1.1549 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | whole blood | ischemic stroke, small-vessel disease | 43 | 0.968 | 0.89962 to 1.068 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | whole blood | ischemic stroke, small-vessel disease | 32 | 0.97955 | 0.86685 to 1.0597 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | whole blood | ischemic stroke, small-vessel disease | 36 | 0.99765 | 0.91297 to 1.1193 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | whole blood | ischemic stroke, small-vessel disease | 20 | 0.99165 | 0.80234 to 1.0683 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | whole blood | ischemic stroke, small-vessel disease | 15 | 0.9994 | 0.92798 to 1.1275 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | whole blood | ischemic stroke, small-vessel disease | 51 | 1.0155 | 0.89375 to 1.1184 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | whole blood | ischemic stroke, small-vessel disease | 12 | 0.98695 | 0.90793 to 1.0468 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | whole blood | ischemic stroke, small-vessel disease | 57 | 1.0138 | 0.91562 to 1.1101 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | whole blood | ischemic stroke, small-vessel disease | 10 | 1.0365 | 0.90532 to 1.1277 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | whole blood | ischemic stroke, small-vessel disease | 5 | 1.0081 | 0.89618 to 1.0537 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | whole blood | ischemic stroke, small-vessel disease | 30 | 0.96745 | 0.89028 to 1.049 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | whole blood | ischemic stroke, cardioembolic | 14 | 0.9798 | 0.85342 to 1.0479 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | whole blood | ischemic stroke, cardioembolic | 3 | 1.0242 | 0.88182 to 1.1163 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | whole blood | ischemic stroke, cardioembolic | 42 | 1.0331 | 0.91361 to 1.1504 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | whole blood | ischemic stroke, cardioembolic | 26 | 0.9938 | 0.9129 to 1.0882 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | whole blood | ischemic stroke, cardioembolic | 29 | 0.9981 | 0.89 to 1.1371 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | whole blood | ischemic stroke, cardioembolic | 7 | 1.0469 | 0.89926 to 1.1271 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | bladder epithelium | whole blood | ischemic stroke, small-vessel disease | 19 | 0.99215 | 0.95455 to 1.0144 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | whole blood | ischemic stroke, small-vessel disease | 24 | 0.99447 | 0.95688 to 1.0267 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | whole blood | ischemic stroke, small-vessel disease | 20 | 0.99596 | 0.95083 to 1.0334 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | colon macrophages | whole blood | ischemic stroke, small-vessel disease | 11 | 0.9879 | 0.93045 to 1.1252 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | whole blood | ischemic stroke, small-vessel disease | 25 | 1.0023 | 0.95338 to 1.081 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | whole blood | ischemic stroke, small-vessel disease | 4 | 0.99225 | 0.91091 to 1.0121 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | whole blood | ischemic stroke, small-vessel disease | 10 | 1.0042 | 0.88433 to 1.1674 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | whole blood | ischemic stroke, small-vessel disease | 15 | 0.99244 | 0.95024 to 1.0225 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | smooth muscle | whole blood | ischemic stroke, small-vessel disease | 15 | 0.99033 | 0.95684 to 1.0248 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tongue epithelium | whole blood | ischemic stroke, small-vessel disease | 9 | 0.99363 | 0.95423 to 1.02 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | cd4 t cells | whole blood | ischemic stroke, small-vessel disease | 29 | 1.0345 | 0.92286 to 1.1566 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | whole blood | ischemic stroke, small-vessel disease | 6 | 0.97475 | 0.92245 to 0.9936 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | whole blood | ischemic stroke, small-vessel disease | 5 | 1.1009 | 0.96388 to 1.1101 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | whole blood | ischemic stroke, small-vessel disease | 13 | 1.0196 | 0.92612 to 1.0854 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 28 | 0.96725 | 0.9049 to 1.0734 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MEP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 8 | 1.0243 | 0.95644 to 1.0641 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | whole blood | ischemic stroke, small-vessel disease | 23 | 0.9841 | 0.90538 to 1.07 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector memory cd4 | whole blood | ischemic stroke, small-vessel disease | 8 | 0.8992 | 0.86559 to 1.0209 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | whole blood | ischemic stroke, small-vessel disease | 7 | 0.99328 | 0.94983 to 1.021 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | whole blood | ischemic stroke, small-vessel disease | 6 | 0.99527 | 0.94705 to 1.023 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | whole blood | ischemic stroke, small-vessel disease | 5 | 0.9969 | 0.94504 to 1.0226 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | prostate epithelium | whole blood | ischemic stroke, small-vessel disease | 5 | 0.99221 | 0.94222 to 1.0206 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | striated muscle | whole blood | ischemic stroke, small-vessel disease | 5 | 1.0073 | 0.93734 to 1.0414 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | whole blood | ischemic stroke, small-vessel disease | 3 | 1.065 | 1.0245 to 1.1101 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | whole blood | ischemic stroke, small-vessel disease | 5 | 0.9095 | 0.7896 to 1.0318 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | whole blood | ischemic stroke, small-vessel disease | 8 | 1.0098 | 0.92453 to 1.1118 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | whole blood | ischemic stroke, small-vessel disease | 8 | 1.0164 | 0.88252 to 1.1248 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | whole blood | ischemic stroke, cardioembolic | 33 | 0.9917 | 0.91268 to 1.1291 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | whole blood | ischemic stroke, cardioembolic | 8 | 1.0439 | 0.93631 to 1.0812 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | whole blood | ischemic stroke, cardioembolic | 28 | 1.0103 | 0.92483 to 1.0776 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | whole blood | ischemic stroke, cardioembolic | 18 | 1.0303 | 0.89029 to 1.1859 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | whole blood | ischemic stroke, cardioembolic | 10 | 1.0135 | 0.83124 to 1.1527 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | whole blood | ischemic stroke, atherotrombotic | 18 | 0.9003 | 0.85346 to 0.91767 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | whole blood | ischemic stroke, atherotrombotic | 18 | 0.87422 | 0.85172 to 0.88598 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | whole blood | ischemic stroke, atherotrombotic | 18 | 0.873 | 0.84233 to 0.89942 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | whole blood | ischemic stroke, atherotrombotic | 18 | 0.8918 | 0.85127 to 0.91258 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | whole blood | ischemic stroke, atherotrombotic | 18 | 0.91054 | 0.85835 to 0.93409 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0271 | 0.97402 to 1.0461 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 18 | 1.037 | 0.97337 to 1.0591 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 18 | 1.033 | 0.97477 to 1.0751 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 18 | 1.022 | 0.97625 to 1.0406 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0318 | 0.98434 to 1.0533 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0051 | 0.93794 to 1.0348 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0314 | 0.97421 to 1.0583 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0511 | 0.95721 to 1.0996 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | whole blood | ischemic stroke, atherotrombotic | 16 | 1.0523 | 0.95116 to 1.0989 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0546 | 0.97846 to 1.1228 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0707 | 0.99517 to 1.1404 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0963 | 0.99924 to 1.1509 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0528 | 0.97243 to 1.1177 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.091 | 0.99273 to 1.1515 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0695 | 0.96077 to 1.1293 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0689 | 0.9779 to 1.1258 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | whole blood | ischemic stroke, atherotrombotic | 15 | 1.0278 | 0.97003 to 1.0686 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0609 | 0.99642 to 1.1054 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0739 | 0.95984 to 1.1469 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0682 | 0.98276 to 1.1151 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0627 | 0.98146 to 1.1355 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0594 | 0.98891 to 1.0847 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0261 | 0.97245 to 1.0569 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0157 | 0.97525 to 1.0347 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0332 | 0.98331 to 1.0614 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | whole blood | ischemic stroke, atherotrombotic | 16 | 1.0218 | 0.97152 to 1.0599 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0249 | 0.96981 to 1.0483 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0334 | 0.98015 to 1.0624 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0233 | 0.94738 to 1.0568 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0474 | 0.96738 to 1.1009 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | whole blood | ischemic stroke, atherotrombotic | 16 | 1.035 | 0.97824 to 1.0677 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.1087 | 0.9958 to 1.1698 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0681 | 0.97937 to 1.1162 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0954 | 0.99084 to 1.1459 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0363 | 0.9783 to 1.0907 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.1003 | 1.0031 to 1.1467 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0767 | 0.98975 to 1.1575 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0763 | 0.98742 to 1.1348 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0316 | 0.94902 to 1.1364 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0384 | 0.96275 to 1.0814 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0686 | 0.99237 to 1.1073 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0169 | 0.98476 to 1.0382 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0492 | 0.98967 to 1.0876 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | whole blood | ischemic stroke, atherotrombotic | 15 | 1.0228 | 0.97666 to 1.0581 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0097 | 0.97741 to 1.0315 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0693 | 0.96931 to 1.119 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | whole blood | ischemic stroke, atherotrombotic | 18 | 1.084 | 0.99723 to 1.2047 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | whole blood | ischemic stroke, atherotrombotic | 18 | 1.053 | 0.94967 to 1.1111 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0474 | 0.97675 to 1.0848 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | whole blood | ischemic stroke, atherotrombotic | 17 | 1.0309 | 0.97951 to 1.0634 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | whole blood | ischemic stroke, atherotrombotic | 18 | 0.87496 | 0.84586 to 0.90436 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | whole blood | ischemic stroke, atherotrombotic | 18 | 0.90277 | 0.86202 to 0.92092 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | whole blood | ischemic stroke, atherotrombotic | 18 | 0.0014715 | 0.00065745 to 0.0034936 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | whole blood | ischemic stroke, atherotrombotic | 18 | 0.07706 | 0.064264 to 0.10663 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0089 | 1.0003 to 1.0195 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 12 | 1.0326 | 0.96594 to 1.1216 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd4 t cells | whole blood | ischemic stroke, atherotrombotic | 7 | 0.9969 | 0.93542 to 1.083 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | whole blood | ischemic stroke, atherotrombotic | 13 | 1.0255 | 0.93366 to 1.1188 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | whole blood | ischemic stroke, atherotrombotic | 10 | 0.99125 | 0.90257 to 1.1295 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | whole blood | ischemic stroke, atherotrombotic | 15 | 0.9887 | 0.91361 to 1.0827 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | whole blood | ischemic stroke, atherotrombotic | 9 | 0.9897 | 0.95172 to 1.0623 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | whole blood | ischemic stroke, atherotrombotic | 9 | 0.9823 | 0.9232 to 1.0409 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | whole blood | ischemic stroke, atherotrombotic | 5 | 1.0273 | 1.0149 to 1.1212 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | whole blood | ischemic stroke, atherotrombotic | 3 | 1.1247 | 0.97827 to 1.1415 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | whole blood | ischemic stroke, atherotrombotic | 10 | 0.9572 | 0.88359 to 1.0462 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | whole blood | ischemic stroke, atherotrombotic | 16 | 1.0514 | 0.93057 to 1.1302 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | whole blood | ischemic stroke, atherotrombotic | 18 | 1.0073 | 0.92513 to 1.0513 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | whole blood | ischemic stroke, atherotrombotic | 9 | 0.9651 | 0.91844 to 1.0284 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | whole blood | ischemic stroke, atherotrombotic | 8 | 0.9748 | 0.92023 to 1.0304 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | whole blood | ischemic stroke, atherotrombotic | 12 | 0.9919 | 0.93417 to 1.0411 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | bladder epithelium | whole blood | ischemic stroke, atherotrombotic | 6 | 0.98842 | 0.946 to 1.0153 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 0.98954 | 0.98954 to 0.98954 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | whole blood | ischemic stroke, atherotrombotic | 11 | 1.0248 | 0.95759 to 1.0476 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | whole blood | ischemic stroke, atherotrombotic | 7 | 0.99787 | 0.96146 to 1.0273 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | whole blood | ischemic stroke, atherotrombotic | 10 | 1.0233 | 0.95632 to 1.0682 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | whole blood | ischemic stroke, atherotrombotic | 10 | 1.0004 | 0.95829 to 1.0336 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 0.98351 | 0.98351 to 0.98351 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | whole blood | ischemic stroke, atherotrombotic | 5 | 0.98476 | 0.94505 to 1.0152 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 0.98563 | 0.98563 to 0.98563 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | whole blood | ischemic stroke, atherotrombotic | 10 | 1.0026 | 0.9554 to 1.0385 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | whole blood | ischemic stroke, atherotrombotic | 7 | 0.9891 | 0.94973 to 1.0299 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | whole blood | ischemic stroke, atherotrombotic | 10 | 1.0082 | 0.96279 to 1.0471 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | prostate epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 0.98336 | 0.98336 to 0.98336 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | whole blood | ischemic stroke, atherotrombotic | 13 | 1.0405 | 0.97611 to 1.0715 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | smooth muscle | whole blood | ischemic stroke, atherotrombotic | 5 | 0.9881 | 0.94937 to 1.0163 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | striated muscle | whole blood | ischemic stroke, atherotrombotic | 2 | 0.95965 | 0.94635 to 0.97296 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | whole blood | ischemic stroke, atherotrombotic | 11 | 1.0298 | 0.95723 to 1.0581 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | whole blood | ischemic stroke, atherotrombotic | 12 | 1.0157 | 0.97105 to 1.0524 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tongue epithelium | whole blood | ischemic stroke, atherotrombotic | 2 | 0.96081 | 0.94051 to 0.98112 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | whole blood | ischemic stroke, atherotrombotic | 13 | 1.016 | 0.96279 to 1.0405 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | adipocytes | whole blood | ischemic stroke, atherotrombotic | 7 | 0.9897 | 0.92961 to 1.0591 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | whole blood | ischemic stroke, atherotrombotic | 3 | 0.9466 | 0.87919 to 0.98458 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | whole blood | ischemic stroke, atherotrombotic | 2 | 1.0187 | 0.99719 to 1.0402 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | whole blood | ischemic stroke, atherotrombotic | 2 | 0.91095 | 0.8497 to 0.97219 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | whole blood | ischemic stroke, cardioembolic | 35 | 0.9668 | 0.83664 to 1.1024 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | whole blood | ischemic stroke, cardioembolic | 3 | 0.9383 | 0.91517 to 1.0802 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | whole blood | ischemic stroke, cardioembolic | 12 | 1.0357 | 0.94433 to 1.0927 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | whole blood | ischemic stroke, cardioembolic | 7 | 1.0269 | 0.95567 to 1.0784 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | whole blood | ischemic stroke, cardioembolic | 14 | 0.9412 | 0.85674 to 1.0521 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | whole blood | ischemic stroke, cardioembolic | 2 | 0.9932 | 0.93965 to 1.0468 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil pharyngeal epithelium | whole blood | ischemic stroke, cardioembolic | 3 | 1.0228 | 0.94783 to 1.0732 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | whole blood | ischemic stroke, small-vessel disease | 20 | 0.9756 | 0.89348 to 1.0349 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | whole blood | ischemic stroke, small-vessel disease | 4 | 1.0442 | 0.96758 to 1.0825 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | whole blood | ischemic stroke, cardioembolic | 8 | 0.98134 | 0.95481 to 1.001 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | whole blood | ischemic stroke, cardioembolic | 7 | 0.98553 | 0.94958 to 0.99526 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | prostate epithelium | whole blood | ischemic stroke, cardioembolic | 6 | 0.98238 | 0.94328 to 0.99477 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | striated muscle | whole blood | ischemic stroke, cardioembolic | 9 | 0.98311 | 0.95327 to 1.0191 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tongue epithelium | whole blood | ischemic stroke, cardioembolic | 10 | 0.98389 | 0.95525 to 0.99498 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | whole blood | ischemic stroke, cardioembolic | 7 | 1.0771 | 0.94783 to 1.1004 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | whole blood | ischemic stroke, cardioembolic | 11 | 0.9981 | 0.86865 to 1.0702 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | whole blood | ischemic stroke, small-vessel disease | 6 | 0.9498 | 0.9235 to 0.9859 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | hepatocyte | whole blood | ischemic stroke, cardioembolic | 2 | 1.0038 | 0.99066 to 1.0169 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | whole blood | ischemic stroke, small-vessel disease | 5 | 1.0716 | 0.8489 to 1.1002 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | regulatory t cells | whole blood | ischemic stroke, small-vessel disease | 3 | 0.9361 | 0.88129 to 0.94879 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 6 | 0.97565 | 0.92043 to 1.0486 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 4 | 1.0284 | 1.0136 to 1.0945 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MEP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 3 | 1.0017 | 0.95148 to 1.0391 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | whole blood | ischemic stroke, atherotrombotic | 13 | 1.0233 | 0.92072 to 1.106 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | whole blood | ischemic stroke, atherotrombotic | 2 | 0.9834 | 0.95406 to 1.0127 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 1.006 | 1.006 to 1.006 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 0.9995 | 0.9995 to 0.9995 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular endothelium | whole blood | ischemic stroke, atherotrombotic | 1 | 0.9041 | 0.9041 to 0.9041 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 3 | 1.0111 | 0.99544 to 1.039 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 6 | 1.0119 | 0.92495 to 1.1667 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon fibroblasts | whole blood | ischemic stroke, cardioembolic | 2 | 0.96465 | 0.88279 to 1.0465 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | whole blood | ischemic stroke, small-vessel disease | 1 | 0.9124 | 0.9124 to 0.9124 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | whole blood | ischemic stroke, small-vessel disease | 8 | 1.0343 | 0.97637 to 1.0955 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | whole blood | ischemic stroke, atherotrombotic | 6 | 1.0286 | 0.91032 to 1.1139 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | whole blood | ischemic stroke, atherotrombotic | 9 | 0.9911 | 0.8993 to 1.0631 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | whole blood | ischemic stroke, atherotrombotic | 5 | 0.9879 | 0.90238 to 1.0103 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | whole blood | ischemic stroke, atherotrombotic | 2 | 1.0875 | 1.0847 to 1.0902 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | whole blood | ischemic stroke, atherotrombotic | 7 | 0.9962 | 0.93077 to 1.0464 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | whole blood | ischemic stroke, atherotrombotic | 3 | 0.9434 | 0.91397 to 0.98543 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | whole blood | ischemic stroke, atherotrombotic | 3 | 1.0023 | 0.95784 to 1.0163 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | whole blood | ischemic stroke, atherotrombotic | 4 | 1.0243 | 0.90385 to 1.156 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | whole blood | ischemic stroke, cardioembolic | 2 | 0.9589 | 0.9562 to 0.9616 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | whole blood | ischemic stroke, cardioembolic | 2 | 1.0629 | 1.0596 to 1.0662 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory cd4 t cells | whole blood | ischemic stroke, small-vessel disease | 1 | 1.0422 | 1.0422 to 1.0422 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | whole blood | ischemic stroke, atherotrombotic | 2 | 0.94175 | 0.91597 to 0.96754 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | whole blood | ischemic stroke, cardioembolic | 1 | 0.8852 | 0.8852 to 0.8852 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MPP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 1 | 1.0401 | 1.0401 to 1.0401 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | whole blood | ischemic stroke, atherotrombotic | 1 | 0.9518 | 0.9518 to 0.9518 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t central memory cd4 | whole blood | ischemic stroke, atherotrombotic | 2 | 1.0217 | 1.0022 to 1.0413 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | whole blood | ischemic stroke, atherotrombotic | 2 | 1.0396 | 0.9289 to 1.1503 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocyte precursors | whole blood | ischemic stroke, cardioembolic | 2 | 0.9872 | 0.91286 to 1.0615 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector memory cd4 | whole blood | ischemic stroke, atherotrombotic | 2 | 1.0711 | 1.0281 to 1.114 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | whole blood | ischemic stroke, cardioembolic | 3 | 0.99081 | 0.94476 to 0.99218 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | colon epithelium | whole blood | ischemic stroke, atherotrombotic | 2 | 0.9484 | 0.91834 to 0.97846 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | whole blood | ischemic stroke, atherotrombotic | 3 | 0.9838 | 0.96823 to 0.98407 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | whole blood | ischemic stroke, cardioembolic | 1 | 1.0838 | 1.0838 to 1.0838 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | striated muscle | whole blood | ischemic stroke, cardioembolic | 1 | 1.1041 | 1.1041 to 1.1041 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | whole blood | ischemic stroke, cardioembolic | 4 | 0.9558 | 0.88955 to 1.1122 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | whole blood | ischemic stroke, small-vessel disease | 8 | 1.0537 | 0.96992 to 1.1444 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | whole blood | ischemic stroke, atherotrombotic | 2 | 1.0259 | 0.9873 to 1.0646 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | whole blood | ischemic stroke, atherotrombotic | 2 | 0.9965 | 0.99551 to 0.99749 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | whole blood | ischemic stroke, small-vessel disease | 7 | 0.974 | 0.85255 to 1.0051 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon fibroblasts | whole blood | ischemic stroke, atherotrombotic | 1 | 0.9038 | 0.9038 to 0.9038 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | hepatocyte | whole blood | ischemic stroke, small-vessel disease | 1 | 1.065 | 1.065 to 1.065 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic delta | whole blood | ischemic stroke, small-vessel disease | 1 | 0.9195 | 0.9195 to 0.9195 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreas endothelium | whole blood | ischemic stroke, atherotrombotic | 1 | 1.029 | 1.029 to 1.029 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric fundus epithelium | whole blood | ischemic stroke, cardioembolic | 1 | 0.9885 | 0.9885 to 0.9885 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular endothelium | whole blood | ischemic stroke, cardioembolic | 1 | 1.0507 | 1.0507 to 1.0507 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar endothelium | whole blood | ischemic stroke, cardioembolic | 1 | 0.9063 | 0.9063 to 0.9063 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MPP (bone marrow) | whole blood | ischemic stroke, small-vessel disease | 2 | 1.0461 | 0.99877 to 1.0935 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | effector memory cd8 t cells | whole blood | ischemic stroke, atherotrombotic | 1 | 0.9478 | 0.9478 to 0.9478 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | whole blood | ischemic stroke, small-vessel disease | 1 | 0.9272 | 0.9272 to 0.9272 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 0.975 | 0.975 to 0.975 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocyte precursors | whole blood | ischemic stroke, atherotrombotic | 1 | 0.8972 | 0.8972 to 0.8972 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric body epithelium | whole blood | ischemic stroke, small-vessel disease | 1 | 0.9418 | 0.9418 to 0.9418 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney glomerular endothelium | whole blood | ischemic stroke, small-vessel disease | 1 | 1.0066 | 1.0066 to 1.0066 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | whole blood | ischemic stroke, atherotrombotic | 1 | 0.9368 | 0.9368 to 0.9368 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | whole blood | ischemic stroke, atherotrombotic | 1 | 1.0022 | 1.0022 to 1.0022 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 
-329447 readings from 52 sources. Status and record for every row are in the tables.
+344044 readings from 53 sources. Status and record for every row are in the tables.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).
@@ -10200,4 +10604,4 @@ the difference and its standard errors).
 | GROUPA-SEQ-BAR2 | bar 2 (planted 1 against 0) | whole | 1 (68) vs 0 (69) | +1.10 % | 1.27 | no difference found | sorted cells |
 | GROUPA-SEQ-BAR2 | bar 2 (planted 1 against 0) | islands | 1 (68) vs 0 (69) | -0.22 % | -0.11 | no difference found | sorted cells |
 
-**Tables written in parts** (each over 20 MB whole; same columns, rows continue in order): [Met_A_part1.csv](Met_A_part1.csv), [Met_A_part2.csv](Met_A_part2.csv), [Met_A_part3.csv](Met_A_part3.csv).
+**Tables written in parts** (each over 20 MB whole; same columns, rows continue in order): [Met_A_part1.csv](Met_A_part1.csv), [Met_A_part2.csv](Met_A_part2.csv), [Met_A_part3.csv](Met_A_part3.csv), [Met_A_part4.csv](Met_A_part4.csv).

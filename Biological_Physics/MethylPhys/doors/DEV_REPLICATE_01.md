@@ -401,3 +401,9 @@ Crohn's disease against healthy, 6 of 155 readings below p 0.001, all of them th
 0.4175, d +1.02; B cells, naive CD4 and naive CD8 T cells and HSC lower) and the smoking control site cg05575921; no Met-A reading separates the
 groups. **Sorted cells:** within each cell type (CD4, CD8, monocytes), disease against healthy separates on no reading below p 0.001 (0 of 150 to
 153); in whole blood 3 (Crohn's) and 1 (colitis). What the chain reads in these patients' blood is their cell mix, not a change inside the cells.
+
+**R6 ischemic stroke subtypes on every cell of IAM-Atlas v2.1, read.** (`data/DEV_REPLICATE_01/r6_atlas_full/r6_stroke_atlas_full_summary.txt`, by `replay_score.py r6_stroke`; 184 of 185 arrays,
+untared; A-score rows `r6_stroke_atlas_full_rows.csv`.) The three subtypes against each other: 1 of 155 to 161 readings below p 0.001 (a
+central-memory Th1 share, cardioembolic 0.0182 against small-vessel 0.0549), fewer than chance would give; nothing the chain reads separates
+the subtypes. (R7 and R8 were read again on every cell by mistake; their outputs matched the earlier full readings line for line and were not
+kept.)

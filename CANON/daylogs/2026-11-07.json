@@ -90,6 +90,14 @@
      "what": "The 100 spent healthy bloods of five laboratories read again on every atlas cell with the censored line, scored per person by the scorer sealed before the readings.",
      "outcome": "Met: 98 of 100 inside Normal, every laboratory 18 to 20 of 20. Open: the ratio centers at 0.983 (the synthetic at 1.000), so a synthetic from the real full mix comes before the fresh test.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "R6 stroke subtypes on every atlas cell",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1 (untared readings)",
+     "what": "184 whole bloods of three ischemic stroke subtypes read again on every cell of IAM-Atlas v2.1.",
+     "outcome": "1 of 155 to 161 readings below p 0.001, fewer than chance; nothing separates the subtypes.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
   },
@@ -229,10 +237,10 @@
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/floor_class_synthetic.sh"
     },
     {
-     "title": "Two replays sent again that were already read on every cell",
+     "title": "Four replays sent again that were already read on every cell",
      "status": "mistake",
-     "what": "R9 glioma blood and R5 liver cancer in blood were queued for every-cell reads although the replay record already holds both (r9_atlas_full, r5_atlas_full); the queue was chosen from the run registry, not the record.",
-     "outcome": "R9 glioma finished as a duplicate (not used); R5 liver cancelled within minutes. Lists are now checked against the record's summaries before queuing.",
+     "what": "R9 glioma blood, R5 liver cancer in blood, R7 prostate and R8 tissues were queued for every-cell reads although the replay record already holds each (r9_atlas_full, r5_atlas_full, and R7 and R8's full summaries, which already list every cell); the queue was chosen from the run registry, not the record.",
+     "outcome": "R5 liver cancelled within minutes; R9, R7 and R8 finished as duplicates, their outputs identical to the earlier readings and not kept. Lists are now checked against the record's summaries before queuing.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md"
     }
    ]
