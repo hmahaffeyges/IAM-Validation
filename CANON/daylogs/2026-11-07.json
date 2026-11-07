@@ -114,6 +114,14 @@
      "what": "54 runs of the one command in 18 parts on Google: six laboratory settings, three people, three floor settings.",
      "outcome": "Not met: the class floor reads every setting at 0.72 to 0.85; what it counts at the islands is mostly the islands' own low methylation, not the false calls.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The class floor, version 2",
+     "status": "synthetic only",
+     "reference": "IAM Sequencing Atlas (constructed samples)",
+     "what": "The floor counted only at the library-floor sites inside the islands; 54 runs of the one command in 18 parts on Google.",
+     "outcome": "Met: every laboratory setting reads the islands at 0.989 to 1.004 (uncorrected 0.968 to 2.109).",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },

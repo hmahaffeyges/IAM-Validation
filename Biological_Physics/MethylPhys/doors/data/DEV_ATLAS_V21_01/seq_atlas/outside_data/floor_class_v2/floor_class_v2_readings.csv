@@ -1,0 +1,55 @@
+lab,person,floor_equal,islands_floor,chain_cell,metaa,islands,measured_floor,floor_record
+atlas laboratory 0.006 x 0.29,0,none,,b cells,0.97424,0.98838,0.003004,
+atlas laboratory 0.006 x 0.29,0,--dev-floor-equal,"{""sample"": 0.003004, ""reference"": 0.006, ""common"": 0.006}",b cells,1.02212,1.32362,0.003004,"{""sample"": 0.003004, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.003005}"
+atlas laboratory 0.006 x 0.29,0,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001732, ""reference"": 0.001742, ""common"": 0.001742}",b cells,0.97424,0.98947,0.003004,
+atlas laboratory 0.006 x 0.29,1,none,,b cells,0.96178,0.99678,0.003086,
+atlas laboratory 0.006 x 0.29,1,--dev-floor-equal,"{""sample"": 0.003086, ""reference"": 0.006, ""common"": 0.006}",b cells,1.00845,1.3228,0.003086,"{""sample"": 0.003086, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.002923}"
+atlas laboratory 0.006 x 0.29,1,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.00179, ""reference"": 0.001742, ""common"": 0.00179}",b cells,0.96178,0.99147,0.003086,
+0.006 x 1.0,1,none,,b cells,1.02296,1.47411,0.005928,
+0.006 x 1.0,1,--dev-floor-equal,"{""sample"": 0.005928, ""reference"": 0.006, ""common"": 0.006}",b cells,1.0241,1.48201,0.005928,"{""sample"": 0.005928, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 7.2e-05}"
+0.006 x 1.0,1,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005877, ""reference"": 0.001742, ""common"": 0.005877}",b cells,1.02296,1.00961,0.005928,
+0.006 x 1.0,2,none,,b cells,0.99238,1.46653,0.005954,
+0.006 x 1.0,2,--dev-floor-equal,"{""sample"": 0.005954, ""reference"": 0.006, ""common"": 0.006}",b cells,0.99312,1.47158,0.005954,"{""sample"": 0.005954, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 4.6e-05}"
+0.006 x 1.0,2,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005952, ""reference"": 0.001742, ""common"": 0.005952}",b cells,0.99238,0.99879,0.005954,
+0.009 x 1.05,0,none,,b cells,1.06534,1.83792,0.009315,
+0.009 x 1.05,0,--dev-floor-equal,"{""sample"": 0.009315, ""reference"": 0.006, ""common"": 0.009315}",b cells,1.0124,1.3402,0.009315,"{""sample"": 0.009315, ""donors"": [0.006, 0.006], ""common"": 0.009315, ""raise_sample"": 0.0}"
+0.009 x 1.05,0,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.009449, ""reference"": 0.001742, ""common"": 0.009449}",b cells,1.06534,0.99447,0.009315,
+0.009 x 1.05,1,none,,b cells,1.0812,1.83619,0.009287,
+0.009 x 1.05,1,--dev-floor-equal,"{""sample"": 0.009287, ""reference"": 0.006, ""common"": 0.009287}",b cells,1.0279,1.34197,0.009287,"{""sample"": 0.009287, ""donors"": [0.006, 0.006], ""common"": 0.009287, ""raise_sample"": 0.0}"
+0.009 x 1.05,1,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.009424, ""reference"": 0.001742, ""common"": 0.009424}",b cells,1.0812,0.99497,0.009287,
+0.009 x 1.05,2,none,,b cells,1.07498,1.84031,0.009349,
+0.009 x 1.05,2,--dev-floor-equal,"{""sample"": 0.009349, ""reference"": 0.006, ""common"": 0.009349}",b cells,1.02104,1.33825,0.009349,"{""sample"": 0.009349, ""donors"": [0.006, 0.006], ""common"": 0.009349, ""raise_sample"": 0.0}"
+0.009 x 1.05,2,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.009501, ""reference"": 0.001742, ""common"": 0.009501}",b cells,1.07498,0.99272,0.009349,
+0.016 x 0.75,0,none,,b cells,1.12377,2.08858,0.013066,
+0.016 x 0.75,0,--dev-floor-equal,"{""sample"": 0.013066, ""reference"": 0.006, ""common"": 0.013066}",b cells,1.01246,1.17175,0.013066,"{""sample"": 0.013066, ""donors"": [0.006, 0.006], ""common"": 0.013066, ""raise_sample"": 0.0}"
+0.016 x 0.75,0,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.011734, ""reference"": 0.001742, ""common"": 0.011734}",b cells,1.12377,0.99836,0.013066,
+0.016 x 0.75,1,none,,b cells,1.13925,2.14079,0.013357,
+0.016 x 0.75,1,--dev-floor-equal,"{""sample"": 0.013357, ""reference"": 0.006, ""common"": 0.013357}",b cells,1.02235,1.18018,0.013357,"{""sample"": 0.013357, ""donors"": [0.006, 0.006], ""common"": 0.013357, ""raise_sample"": 0.0}"
+0.016 x 0.75,1,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.012093, ""reference"": 0.001742, ""common"": 0.012093}",b cells,1.13925,1.00506,0.013357,
+0.016 x 0.75,2,none,,b cells,1.1072,2.10861,0.013131,
+0.016 x 0.75,2,--dev-floor-equal,"{""sample"": 0.013131, ""reference"": 0.006, ""common"": 0.013131}",b cells,0.99665,1.17833,0.013131,"{""sample"": 0.013131, ""donors"": [0.006, 0.006], ""common"": 0.013131, ""raise_sample"": 0.0}"
+0.016 x 0.75,2,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.011812, ""reference"": 0.001742, ""common"": 0.011812}",b cells,1.1072,1.00398,0.013131,
+atlas laboratory 0.006 x 0.29,2,none,,b cells,0.97674,0.99105,0.003097,
+atlas laboratory 0.006 x 0.29,2,--dev-floor-equal,"{""sample"": 0.003097, ""reference"": 0.006, ""common"": 0.006}",b cells,1.0233,1.31594,0.003097,"{""sample"": 0.003097, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.002912}"
+atlas laboratory 0.006 x 0.29,2,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001762, ""reference"": 0.001742, ""common"": 0.001762}",b cells,0.97674,0.9888,0.003097,
+0.0015 x 1.0,0,none,,b cells,0.93203,0.95358,0.00153,
+0.0015 x 1.0,0,--dev-floor-equal,"{""sample"": 0.00153, ""reference"": 0.006, ""common"": 0.006}",b cells,1.0046,1.45175,0.00153,"{""sample"": 0.00153, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004477}"
+0.0015 x 1.0,0,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001553, ""reference"": 0.001742, ""common"": 0.001742}",b cells,0.93203,0.97499,0.00153,
+0.0015 x 1.0,1,none,,b cells,0.93276,0.96809,0.001484,
+0.0015 x 1.0,1,--dev-floor-equal,"{""sample"": 0.001484, ""reference"": 0.006, ""common"": 0.006}",b cells,1.00594,1.47094,0.001484,"{""sample"": 0.001484, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004523}"
+0.0015 x 1.0,1,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001486, ""reference"": 0.001742, ""common"": 0.001742}",b cells,0.93276,0.99702,0.001484,
+0.0015 x 1.0,2,none,,b cells,0.95411,0.97646,0.001529,
+0.0015 x 1.0,2,--dev-floor-equal,"{""sample"": 0.001529, ""reference"": 0.006, ""common"": 0.006}",b cells,1.02667,1.47416,0.001529,"{""sample"": 0.001529, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.004478}"
+0.0015 x 1.0,2,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001518, ""reference"": 0.001742, ""common"": 0.001742}",b cells,0.95411,1.00174,0.001529,
+0.005 x 1.05,0,none,,b cells,0.99466,1.37153,0.005141,
+0.005 x 1.05,0,--dev-floor-equal,"{""sample"": 0.005141, ""reference"": 0.006, ""common"": 0.006}",b cells,1.00843,1.4661,0.005141,"{""sample"": 0.005141, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.000863}"
+0.005 x 1.05,0,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005197, ""reference"": 0.001742, ""common"": 0.005197}",b cells,0.99466,0.99007,0.005141,
+0.005 x 1.05,1,none,,b cells,0.99527,1.38882,0.005183,
+0.005 x 1.05,1,--dev-floor-equal,"{""sample"": 0.005183, ""reference"": 0.006, ""common"": 0.006}",b cells,1.00843,1.4787,0.005183,"{""sample"": 0.005183, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.000821}"
+0.005 x 1.05,1,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005342, ""reference"": 0.001742, ""common"": 0.005342}",b cells,0.99527,0.99116,0.005183,
+0.005 x 1.05,2,none,,b cells,0.99127,1.37361,0.005114,
+0.005 x 1.05,2,--dev-floor-equal,"{""sample"": 0.005114, ""reference"": 0.006, ""common"": 0.006}",b cells,1.00547,1.47114,0.005114,"{""sample"": 0.005114, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 0.000891}"
+0.005 x 1.05,2,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005144, ""reference"": 0.001742, ""common"": 0.005144}",b cells,0.99127,0.99583,0.005114,
+0.006 x 1.0,0,none,,b cells,1.01182,1.46135,0.005976,
+0.006 x 1.0,0,--dev-floor-equal,"{""sample"": 0.005976, ""reference"": 0.006, ""common"": 0.006}",b cells,1.0122,1.46398,0.005976,"{""sample"": 0.005976, ""donors"": [0.006, 0.006], ""common"": 0.006, ""raise_sample"": 2.4e-05}"
+0.006 x 1.0,0,--dev-floor-class,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005931, ""reference"": 0.001742, ""common"": 0.005931}",b cells,1.01182,0.99677,0.005976,

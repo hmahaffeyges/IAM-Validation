@@ -1592,3 +1592,9 @@ Bars (scorer), version 1's unchanged: 1. with the class floor, each laboratory s
 laboratory's own case within 0.03 of 1 (no overcorrection); each setting is read on three constructed people.
 
 **Prior reading:** GSM5652316 is spent (version 1 and earlier floor work); nothing else is read.
+
+**The class floor, version 2, read: met** (`seq_atlas/outside_data/floor_class_v2/floor_class_v2_synthetic.txt`, `floor_class_v2_readings.csv`; 18 parts on Google,
+the one command, combined by the committed scorer). With the floor counted at the library-floor sites inside the islands, every laboratory
+setting reads the islands at 0.989 to 1.004 (bar 1 met); the atlas laboratory's own case 0.9895 (bar 2 met). Uncorrected the same settings read
+0.968 to 2.109. **Next (written first):** the 89 spent outside samples read again with `--dev-floor-class`, the islands' bar per person; the
+domains, which do not follow the floor, are read against the naive and memory make-up the Deconvolver measures.

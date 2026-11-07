@@ -233,7 +233,7 @@
      "status": "running",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "Sequencing Met-A, atlas only: the class-floor synthetic (Google, running); then the 89 spent outside samples per person with --dev-floor-class, the naive and memory columns' donors checked; then a fresh laboratory (BLUEPRINT monocytes, unread).",
-     "next": "class-floor synthetic not met (it counts the islands' own low methylation, not the false calls); next: the floor share at the islands measured at the library-floor sites inside islands, and a construction carrying the atlas's island levels; then the 89 spent samples per person"
+     "next": "class floor version 2 synthetic met (floor counted at library-floor sites inside islands); next: the 89 spent outside samples with --dev-floor-class, islands per person"
     },
     {
      "id": "60.30.2",
