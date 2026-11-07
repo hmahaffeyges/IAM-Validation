@@ -653,3 +653,10 @@ lies in that direction. The cause is found offline before anything changes in th
 measured 0.9998) and A / A_pred is within 0.002 of 1; in the chain every condition's line came out near the same values (design II slope 1.027 to
 1.030, whatever was planted). So the line was measured against a mix other than the one built. `DEV_METAA_HEALTHY_01/synthetic_06_diag.py` reads
 test 6's arrays for three draws again, keeping each array's measured shares and prediction, on Google.
+
+**Test 6's diagnostic, three draws read again with their shares kept (development; nothing scored).** (`synthetic_06_diag_draw1.json` to `draw3`, in the build bucket; summarized here.) On every constructed array the
+Deconvolver moved 7 to 24 % of the mix between neighboring subsets (CD56-bright NK to NK, CD8 central memory to CD8, naive CD4 to CD4 and
+memory CD4). Read offline with those measured shares, the center reproduces the chain (1.0045 against 1.0053), the low tail does not (0.9954
+against 0.9808), and offline the low tail's design II line measures 0.998 where the chain measured 1.030. So inside the chain the line is
+measured on values other than the ones rebuilt offline. `DEV_METAA_HEALTHY_01/synthetic_06_capture.py` runs the one command in its own process
+on a low-tail and a center array and keeps the exact values the line is measured on (no chain code changed).
