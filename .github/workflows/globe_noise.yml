@@ -1,0 +1,70 @@
+name: globe_noise
+# 2026-11-06 (DEV-SEQ-GLOBE-WG-01): the Sequencing Atlas Globe's CMB tools at every CpG, from the published IAM Sequencing Atlas (Zenodo
+# 10.5281/zenodo.23934666) by Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py: each job takes one published piece set (checked against
+# the deposit's SHA256 manifest) and writes its noise sums (noise-part, saved as that job's artifact when it ends, so a failed set reruns alone);
+# the join job reads every set's sums (noise-join): both noise maps' means, the genome-distance spectrum and the sphere null test, per cell.
+on:
+  workflow_dispatch:
+    inputs:
+      sets: {description: "set numbers, JSON list", required: true, default: "[1,2,3,4,5,6,7,8,9,10,11,12]"}
+      tag:  {description: "artifact name prefix", required: true}
+permissions: {contents: read, actions: read}
+jobs:
+  cpg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/cache@v4
+        id: c
+        with: {path: cpg, key: hg19-cpg-bed-v1}
+      - name: the hg19 CpG dictionary from the repository's index release (cached)
+        if: steps.c.outputs.cache-hit != 'true'
+        run: |
+          set -eu; mkdir -p s cpg
+          curl -sSfL --retry 5 "https://github.com/${{ github.repository }}/releases/download/hg19-bwameth-index-v1/hg19-bwameth-index-v1.tar.zst" | zstd -dc -T4 | tar -C s -xf - --wildcards '*references/hg19/CpG.bed.gz'
+          cp "$(find s -name CpG.bed.gz | head -1)" cpg/CpG.bed.gz; [ "$(zcat cpg/CpG.bed.gz | wc -l)" = 28217448 ] || exit 1
+  noise:
+    needs: cpg
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix: {set: "${{ fromJSON(inputs.sets) }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/cache/restore@v4
+        with: {path: cpg, key: hg19-cpg-bed-v1, fail-on-cache-miss: true}
+      - name: install (the chain's own requirements) and preflight
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt && python3 Biological_Physics/MethylPhys/chain/preflight.py
+      - name: the published piece set from Zenodo, checked against the deposit's manifest
+        run: |
+          set -eu; S=$(printf "%02d" ${{ matrix.set }}); T=pieces57_set${S}_of_12.tar; Z=https://zenodo.org/records/23934666/files
+          for i in 1 2 3 4 5; do curl -sSfL --retry 5 -o man.txt "$Z/SHA256_MANIFEST.txt?download=1" && curl -sSfL --retry 5 -o $T "$Z/$T?download=1" && break; sleep 30; done
+          mkdir -p p && tar -xf $T -C p && rm $T
+          n=0; for f in $(find p -name "piece_*.parquet" | sort); do b=$(basename $f); want=$(grep "$T/.*$b " man.txt | awk '{print $1}'); got=$(sha256sum $f | cut -c1-64)
+            [ -n "$want" ] && [ "$want" = "$got" ] || { echo "checksum refused: $b"; exit 1; }; n=$((n+1)); done; echo "pieces checked: $n"
+      - name: noise sums of this set
+        run: mkdir -p out && python3 Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py noise-part out cpg/CpG.bed.gz $(find p -name "piece_*.parquet" | sort) | tail -3
+      - uses: actions/upload-artifact@v4
+        with: {name: "${{ inputs.tag }}-set${{ matrix.set }}", path: out/, retention-days: 30}
+  join:
+    needs: noise
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: install (the chain's own requirements)
+        run: pip install -q -r Biological_Physics/MethylPhys/chain/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: {pattern: "${{ inputs.tag }}-set*", path: parts}
+      - name: the noise maps, spectrum and sphere null test, per cell
+        run: |
+          ls parts | wc -l; mkdir -p join
+          python3 Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py noise-join join parts/*/ 2>&1 | tail -5; ls -la join
+      - uses: actions/upload-artifact@v4
+        with: {name: "${{ inputs.tag }}-join", path: join/, retention-days: 30}
