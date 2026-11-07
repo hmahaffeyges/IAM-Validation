@@ -708,3 +708,14 @@ copies. Both bars met. **Third reading:** the same 34 healthy plasmas, the same 
 it, must give the second reading's whole-sample Met-A exactly (1.18639). If it does not, the third reading is not used. The cancer plasmas stay unread.
 
 **Unchanged-chain check: met.** GSM7426135 read without the flag on chain 2c28120 (which holds it) gave whole-sample Met-A 1.18639, its second-reading value exactly (GitHub run 42337323172); the third reading is used.
+
+**Plasma from a new laboratory, third reading (copies counted): not met** (`plasma_lab3/reading_3/plasma_lab3_r3_summary.txt`, `plasma_lab3_r3_readings.csv`; GitHub runs 42337306770 and 42339323697.) All 34
+healthy plasmas read. Bar 1 met (tared median 1.0000); bar 2 not met: 17.6 % within 0.95 to 1.05 (the second reading 14.7 %). **What the
+rows show (each plasma's copies, D, from `reading_2/plasma_lab3_r2_copies.txt`):** the correction reversed the copy effect rather than removing it.
+The most copied plasmas, read low before, now read high (GSM7426156, D 22.8: 0.228 to 0.262 is the one exception; GSM7426167, D 270: 0.809 to
+1.109; GSM7426160, D 16.7: 0.852 to 1.174), and the plasmas at 2 calls a site, about one molecule, now read low (0.705 to 0.863). **Cause (my
+synthetic):** it planted 4 and 12 copies on about 6 molecules a site; these plasmas hold about one molecule a site and up to 270 copies, a
+range the synthetic never tried, so the bar it met did not cover the data. **Next (development):** the synthetic over the plasmas' own range
+first (molecules 1 to 20 a site, copies 1 to 300 with a long tail), the correction fixed there. **These 34 healthy plasmas have now been read
+three times while the method was developed on them**, so they no longer give a fresh test: the next healthy reading of this laboratory is
+development, and the fresh test is a healthy plasma set the chain has not read. The cancer plasmas stay unread.
