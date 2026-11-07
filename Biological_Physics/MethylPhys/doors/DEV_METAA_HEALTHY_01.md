@@ -495,6 +495,33 @@ Scored only after synthetic test 3 is met; if it is not, these readings are reco
 **Prior reading:** all 100 are spent: bars 2 and 3 read them and looked only at each laboratory's median of A / A_pred; the earlier
 untared A per person is the line above.
 
+## Synthetic test 3, read: not met (`data/DEV_METAA_HEALTHY_01/synthetic_03_summary.txt`; Google, the one command)
+
+| Array | A / A_pred | bar 1 (within 0.005 of 1) |
+|---|---|---|
+| center (the real medians) | 0.99987 | met |
+| low tail | 0.99913 | met |
+| high tail (design II slope 1.0301, offset -0.0183) | 0.98813 | not met |
+| test 2's weak array (beyond the real range; recorded) | 0.99791 | |
+
+Bar 2 met (a 5 % loss shows on all three). **Cause, checked offline (working notes, chain functions called directly, not evidence):** on a
+high-tail array about 1.3 % of readings fall at 0 and 1.6 % at 1, and the line is measured from plain means of the anchors, which clipping pulls
+inward. In this test the chain measured design II slope 1.0268 and offset -0.0167 (`synthetic_03_summary.txt`; planted 1.0301 and -0.0183).
+In the offline check, the same kind of array read about 1 with the planted line and about 0.989 with the line measured from it (working notes).
+The fix measures the line with readings at 0 or 1 counted as censored (`stage_metaa_atlas._line_censored`, run_sample.py `--dev-line-censored`,
+development, off by default, so no running reading changes). Offline it brought the high tail close to 1 and showed that on the noisiest real-range
+arrays one array's A / A_pred moves by up to about 0.005 from the noise draw alone, so one draw per condition cannot tell a bias from
+noise. Test 3 stands as not met under its bar.
+
+## Synthetic test 4's design (restored; disclosed)
+
+Test 4 (`DEV_METAA_HEALTHY_01/synthetic_04.py`, scorer `synthetic_04_score.py`, both committed before it ran) was test 3's three real-range
+arrays with ten noise draws each, through the one command with `--dev-line-censored`, against IAM-Atlas v2.1 only. Bars: 1. each of the 30 healthy
+arrays inside Normal, 0.95 to 1.05; 2. each condition's mean of its 10 draws within 0.005 of 1; 3. a 5 % loss shows on each. Its design text and
+test 3's result were written into this record before test 4 ran, but a commit then in flight refreshed the working copy when it finished and
+erased them, so the commit that sent test 4 carried its scripts and not this text; it was restored after test 4 had run. The bars above are the
+ones in the committed scorer. From now on the record is written only when no commit is in flight, and checked on main before a test is launched.
+
 ## Synthetic test 4, read: not met, and it ran without its flag (disclosed; my error) (`data/DEV_METAA_HEALTHY_01/synthetic_04_summary.txt`; ten draws on Google)
 
 Bar 1 met (all 30 arrays inside Normal); bar 3 met; bar 2 not met: the means over ten draws are center 1.00065, low tail 0.99853, high tail
