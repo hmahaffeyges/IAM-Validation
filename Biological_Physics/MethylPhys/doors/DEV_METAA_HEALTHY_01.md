@@ -709,3 +709,8 @@ Normal, 0.95 to 1.05; 2. in each of the five laboratories at least 16 of its 20 
 values is refused.
 
 **Prior reading:** all 100 are spent (bar 2 and the first rehearsal).
+
+**Synthetic test 7, read: not met** (`DEV_METAA_HEALTHY_01/synthetic_07_summary.txt`; all 10 draws.) Bar 1 met: all 30 arrays inside Normal. Bar 3 met: a 5 % loss
+shows on each. Bar 2 not met: the center's mean 1.00575 and the high tail's 1.01165 (the low tail 0.99769). With the prediction on each array's
+own values the low tail is corrected (test 6: 0.98081); what remains follows the IAM-Deconvolver's share drift between neighboring subsets
+(the diagnostic above), which the healthy prediction does not yet carry.

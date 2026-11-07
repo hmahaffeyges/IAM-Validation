@@ -1,0 +1,11 @@
+Cross-laboratory rehearsal with the class floor: 76 of 89 outside healthy samples read (reference the IAM Sequencing Atlas only, no tare)
+refused (class floor not counted at the floor sites inside the islands): 13: C003JB51, GSM7849753, GSM7849754, GSM7849755, GSM7849756, GSM7849757, GSM7849758, GSM7849759, GSM7849760, GSM7849761
+  BLUEPRINT: islands inside Normal 6 of 58 read (59 in the set) | islands median 0.9171, range 0.651 to 1.268
+  GSE134664 B: islands inside Normal 0 of 4 read (4 in the set) | islands median 0.8498, range 0.825 to 0.867
+  GSE98837 CD8: islands inside Normal 1 of 8 read (8 in the set) | islands median 0.8585, range 0.802 to 0.957
+  JHU CD4: islands inside Normal 1 of 6 read (6 in the set) | islands median 0.9377, range 0.876 to 0.965
+  recorded: whole median 0.9019, inside 0.95 to 1.05: 18 of 76
+  recorded: domains median nan, inside 0.95 to 1.05: 0 of 0
+bar 1 (at least 80 of the 89 inside Normal): not met (8 of 76 read)
+bar 2 (at least 75 % in each of the five laboratories): not met
+rehearsal: not met

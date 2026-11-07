@@ -1621,3 +1621,12 @@ monocytes, unread).
 Python's csv module, which ends lines with a carriage return and newline; the second laboratory's reader takes its URL as the last field, so every
 URL carried a carriage return and every download failed. BLUEPRINT's reader strips the line and was not affected. The lists are now written
 with plain newlines; the three second-laboratory machines are relaunched on the fixed job. No reading was made.
+
+**The cross-laboratory rehearsal with the class floor, read: not met** (`xl_class/xl_class_summary.txt`, `xl_class_readings.csv`; the committed scorer.) 76 of the 89 read; 13 refused because
+their islands record holds no class floor (the 12 second-laboratory samples, read at about 3 reads a site, and one BLUEPRINT sample); why is open.
+Islands inside Normal: 8 of 76. Laboratory medians, islands: BLUEPRINT 0.9171, GSE134664 B 0.8498, GSE98837 CD8 0.8585, Johns Hopkins CD4 0.9377.
+**What it shows, recorded:** the class floor pulled the laboratories together (their islands medians had spread from 0.30 to 1.37 in the first
+reading, `crosslab_chain_table.csv`) but every laboratory now reads below Normal, whether its own floor was below the reference's (BLUEPRINT,
+Johns Hopkins) or above it (GSE134664, GSE98837). The synthetic (met) did not show this; its constructed people carried no person spread at
+the islands (version 2), which real people do. Next: the same 76 read against the synthetic's terms one at a time, written first, to find which
+real condition the synthetic left out. The class floor stays off by default.
