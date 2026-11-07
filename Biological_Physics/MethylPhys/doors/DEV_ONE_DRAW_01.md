@@ -651,3 +651,8 @@ The islands and domains, tared the same way, scatter as widely (standard deviati
 on plasma from a laboratory the atlas has never seen. The cancer plasmas stay unread: the healthy plasmas have not read Normal. **Next
 (development):** why the whole-sample reading scatters on these plasmas when it held on the earlier plasma passes; these plasmas are read at 1 to 3
 calls a site, and on sequencing Met-A falls with depth (DEV_METAA_ATLAS_CURVE_01), so depth is checked first, from the bundles.
+
+**Depth does not explain the second reading's scatter** (`plasma_lab3/reading_2/plasma_lab3_r2_depth.txt`, `plasma_lab3_depth.py` on GitHub from the bundles; development). The healthy
+plasmas' median calls a site run from 1 to 20; Spearman with the tared whole-sample Met-A -0.191 (p 0.28), with its distance from 1 +0.211 (p
+0.23); the ten deepest (15 to 20 calls a site) still read 0.79 to 1.51. Next: the Deconvolver's shares, from which the reading's expectation is
+built (`plasma_lab3_depth.py` version 2).
