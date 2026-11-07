@@ -1,0 +1,6 @@
+constructed atlas: 13 cells on 2,000,000 CpGs; target column 2 donors at about 2 reads, 40 % of CpGs
+target sample: converted exit 0 h", "genome": "hg19", "positions": 2000000, "landed_on_cpg": 2000000, "cpgs_with_reads": 2000000, "output": "target.lbeta", "label": "DEVELOPMENT (plan 35.30)"}; compared exit 0; sites 543799; nearest by weighted score ['target', 'deep i', 'deep d'] (0.8521, 17.7702, 17.7989); its rank by plain distance 1 of 13
+deep b sample: converted exit 0 h", "genome": "hg19", "positions": 2000000, "landed_on_cpg": 2000000, "cpgs_with_reads": 2000000, "output": "deep_b.lbeta", "label": "DEVELOPMENT (plan 35.30)"}; compared exit 0; sites 543799; nearest by weighted score ['deep b', 'target', 'deep i'] (0.224, 3.6086, 17.7623); its rank by plain distance 1 of 13
+bar 1 (the target sample nearest its shallow column): met
+bar 2 (the deep-b sample nearest deep b): met
+synthetic: met

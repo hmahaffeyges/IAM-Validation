@@ -1360,3 +1360,5 @@ sample nearest its own cell by the counting-weighted score.
 **Bar (the test):** megakaryocytes is the platelets' nearest cell of the 57 by the counting-weighted score. Recorded: the plain-distance rank, the
 next cells and their scores. **If met:** the column joins the in-mix readings, flagged provisional; plasma's megakaryocyte DNA is then read
 against it instead of the four stand-in cells. **Replication:** the megakaryocyte pieces are deposited on Zenodo with the test.
+
+**The platelet test's synthetic: met** (`seq_atlas/mk_platelet_synthetic.txt`, GitHub run 42334515979). The level-only track of the shallow cell came out nearest its own column by the counting-weighted score (0.8521; the next cell 17.7702), and the deep cell's track nearest its own (0.224); both also first by plain distance. The test on the platelet file runs next, on a Google machine (the megakaryocyte pieces are in the build bucket).
