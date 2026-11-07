@@ -82,7 +82,27 @@ because that is what they were created for, and no instrument is tared with anyt
 - `CANON/commissioning_check.py` refuses a commissioning from this date on that is not on the atlases alone; each older commissioning states its
   reference, and those made with a same-run tare (Met-A on neutrophils, the C-Score, Group-A) carry "being re-commissioned with IAM-Atlas v2.1 as
   the only healthy reference" in the catalogue until each passes again: its synthetic over the real data's range, a rehearsal on spent data per
-  person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30).
+  person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30). **Lock 1, the reference door** (`reference_door.py`): every run checks the atlases against their checksums before any reading and records in its bundle the atlas it read and every tare applied.
+
+### reference_door.py::_sha
+
+The SHA-256 checksum of one file, read in 4 MB blocks.
+
+### reference_door.py::_seq_files
+
+Every reference file under chain/Runtime Matrices/Seq_Atlas (parquet and json), in a fixed order.
+
+### reference_door.py::build
+
+Writes reference_manifest.json: each IAM Sequencing Atlas file the chain reads, with its size and checksum. Re-run only when such a file is rebuilt, and committed with it.
+
+### reference_door.py::check
+
+Lock 1 of the anti-drift locks. Before any reading, each IAM-Atlas v2.1 file is checked against compact_manifest.json and each IAM Sequencing Atlas file against reference_manifest.json; a file that differs, or a file in Seq_Atlas the manifest does not list, stops the run (REFERENCE_REFUSED, exit 7). A reading made against an altered reference is not a reading against the atlas.
+
+### reference_door.py::record
+
+The bundle's reference block: the atlases checked, whether they passed, and every tare a reading in the bundle applied. The array instruments commissioned before the atlas-only rule still carry a same-run healthy tare; it is named here until they are re-commissioned on the atlas, so no tare can sit in a reading unrecorded.
 
 ## Sex and the X chromosome, in every instrument
 

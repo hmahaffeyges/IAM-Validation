@@ -1,0 +1,189 @@
+{
+ "_about": "checksums of the IAM Sequencing Atlas files the chain reads as its healthy reference (chain/Runtime Matrices/Seq_Atlas); built by reference_door.py build",
+ "files": {
+  "array_sites/array_sites.json": {
+   "bytes": 570,
+   "sha256": "047a9bf0c289d3e13ddd29e7a582efc8c7b16e6e7d7fc682538a193d10c6d913"
+  },
+  "array_sites/donor_sd_part1.parquet": {
+   "bytes": 22048282,
+   "sha256": "ce7876da7306d780e6f7a88e72a35c26fbfeba9413a28bfa51d11044bee16ac6"
+  },
+  "array_sites/donor_sd_part2.parquet": {
+   "bytes": 20961988,
+   "sha256": "55e33d801ac47f1a0642b9899a284e079832a0de37e6d73b03bca33ce55cb7cf"
+  },
+  "array_sites/donor_sd_part3.parquet": {
+   "bytes": 23656950,
+   "sha256": "502ea631629f3b4faaa4f1c99ddf4d78c199d0439f8633a161131b22806f9e94"
+  },
+  "array_sites/meth_part1.parquet": {
+   "bytes": 15665863,
+   "sha256": "2ac0f089e573d0d2435e70f7d591b6cd6459d1468484bac7ce62507bdbd013eb"
+  },
+  "array_sites/meth_part2.parquet": {
+   "bytes": 15385492,
+   "sha256": "85a4316dd1ed7e6fae29656f1d582416a6b072b65b3836243b6f8547db8bd243"
+  },
+  "array_sites/meth_part3.parquet": {
+   "bytes": 16141656,
+   "sha256": "a2081ffea021f8d6e91e772bdb2af01beaf63faff0b2e41d4aaabe5ac4da92b9"
+  },
+  "array_sites/mu_part1.parquet": {
+   "bytes": 20614746,
+   "sha256": "67654319806c3385c5286d9a5308ea4d326883e41bba9b6ae17842b96fa1bf8b"
+  },
+  "array_sites/mu_part2.parquet": {
+   "bytes": 20431974,
+   "sha256": "bed1be1d8564dd1c9bdbf300ad41f8579b4130d35312b0930bfba9bedabc999b"
+  },
+  "array_sites/mu_part3.parquet": {
+   "bytes": 20172011,
+   "sha256": "bd69f722e3f2590c48a076963285b9879650c5fcc2d9462b6979f64d48e3ecf7"
+  },
+  "array_sites/reads_part1.parquet": {
+   "bytes": 15586627,
+   "sha256": "a296c77b45fa0004542521b3621f314fd9b977afd8e84489100916ece96de030"
+  },
+  "array_sites/reads_part2.parquet": {
+   "bytes": 15447559,
+   "sha256": "97993d7748e3e1827b64c38e400b8bb5ea64bab3db23882849c08ca83fce0836"
+  },
+  "array_sites/reads_part3.parquet": {
+   "bytes": 15885471,
+   "sha256": "d4747eda6181d25a306a8f290f02615e4784dffcb95980e81c67f33ddbae7a88"
+  },
+  "deconv_reference_mk_dev.json": {
+   "bytes": 587,
+   "sha256": "a6d90c0067d4d59f5028b0ceddf1a6b88620d6a5fb4722248d6106be804091a8"
+  },
+  "deconv_reference_mk_dev.parquet": {
+   "bytes": 1480171,
+   "sha256": "99dc316337834dedd069633e4dd2894eaa28edc662bc22caadff56e67e220f30"
+  },
+  "deconv_reference_v1.json": {
+   "bytes": 504,
+   "sha256": "19fa391c2f1fab828ea04d5c5b9cf1d074b242b6227adfb08a10baa9d133da15"
+  },
+  "deconv_reference_v1.parquet": {
+   "bytes": 1469647,
+   "sha256": "167fd67da0641383efadfdcb0ed71a1572b1a84cd536bc6e73fd348a504a28f9"
+  },
+  "floor_sites_v1.json": {
+   "bytes": 477,
+   "sha256": "f2495f1653475f43f10ac0f8a5357bfade2a9e7f191eea4a1b3d317dc2e129f8"
+  },
+  "floor_sites_v1.parquet": {
+   "bytes": 744339,
+   "sha256": "ec4ab241a03463dfe8ced5c193b9fe9f4470f002299b1af6e11d59475fa243a8"
+  },
+  "held_reference_v1.json": {
+   "bytes": 8110,
+   "sha256": "0ada27780229572d6097d98edafedcdd483664996f3f7b1a553e43a8c2d39763"
+  },
+  "held_reference_v1.parquet": {
+   "bytes": 25370374,
+   "sha256": "e16235966f95a8a34d108de5bd79d0145d7d6dd3e543bfd65e5eab41382a384b"
+  },
+  "input_floors_v1.json": {
+   "bytes": 328,
+   "sha256": "11234269d2895f6d9215423b50c216f2cea6aa349411b1557e4e404376fc0d34"
+  },
+  "input_floors_v1.parquet": {
+   "bytes": 7853,
+   "sha256": "6a78fee8eddd61ac6d3d3a84c5098d23d3fcf7446fbe1898178650f08eca7da7"
+  },
+  "metaa_donor_counts/metaa_donor_counts_v1.parquet": {
+   "bytes": 12776758,
+   "sha256": "bf326f8664ac127f0d4423f110feaaf7ded5acc076bdd03a2cfda8584b564d3f"
+  },
+  "metaa_half_counts/metaa_half_counts_v1.parquet": {
+   "bytes": 5543063,
+   "sha256": "14b1d5097404cd2eca61932391f55efd63806af6f155e96d5da778db93a5d09c"
+  },
+  "metaa_seq_reference_v1.json": {
+   "bytes": 2207,
+   "sha256": "30666e57c383fc92b790a8758d1fccb5c17623ff8ccbcdb3e4d87ce796ec678f"
+  },
+  "metaa_seq_reference_v1.parquet": {
+   "bytes": 8345056,
+   "sha256": "85b1ed6ce0f3b7aae58cbca66c8257663ed95f1209031c1d548482808fd259a9"
+  },
+  "sphere_cols/donor_sd_part1.parquet": {
+   "bytes": 22048282,
+   "sha256": "ce7876da7306d780e6f7a88e72a35c26fbfeba9413a28bfa51d11044bee16ac6"
+  },
+  "sphere_cols/donor_sd_part2.parquet": {
+   "bytes": 20961988,
+   "sha256": "55e33d801ac47f1a0642b9899a284e079832a0de37e6d73b03bca33ce55cb7cf"
+  },
+  "sphere_cols/donor_sd_part3.parquet": {
+   "bytes": 23656950,
+   "sha256": "502ea631629f3b4faaa4f1c99ddf4d78c199d0439f8633a161131b22806f9e94"
+  },
+  "sphere_cols/mu_hi_part1.parquet": {
+   "bytes": 20386638,
+   "sha256": "c54fce68b53063d15259c351912b1ca9cb9e0e668a39f650dd74036f583264f4"
+  },
+  "sphere_cols/mu_hi_part2.parquet": {
+   "bytes": 20223719,
+   "sha256": "e2d825ebd0189fe2ca93e705ed6f58061db2438e5e4e1d77e70ffdf66eed2e1d"
+  },
+  "sphere_cols/mu_hi_part3.parquet": {
+   "bytes": 21568639,
+   "sha256": "176bdc352b16c0cb1071d0f3fbeb6932ad9030cd015840d055090510bd97eca9"
+  },
+  "sphere_cols/mu_lo_part1.parquet": {
+   "bytes": 23266379,
+   "sha256": "61309123dc0212fdbc1ed2e6cef541f22109e290ad933125bb236d530769772f"
+  },
+  "sphere_cols/mu_lo_part2.parquet": {
+   "bytes": 23294372,
+   "sha256": "78cd97b06dbd5c9c90c49fc38f7ad58affa10906ba68360b5ab4c8c3bd488326"
+  },
+  "sphere_cols/mu_lo_part3.parquet": {
+   "bytes": 24016869,
+   "sha256": "005643fe2674e7a95e06b950300e992d1810a4287873b4295a619b8eaf4db3f2"
+  },
+  "sphere_cols/mu_part1.parquet": {
+   "bytes": 24173849,
+   "sha256": "8a3c9b9484823989eb4ff124bdab97c282fce714dd0425287d038136d7ab685e"
+  },
+  "sphere_cols/mu_part2.parquet": {
+   "bytes": 23908702,
+   "sha256": "652af132a8467519a98e4525dea69f4eeb3f0197aae5117acf03aa8b19bd2d2f"
+  },
+  "sphere_cols/mu_part3.parquet": {
+   "bytes": 24591696,
+   "sha256": "23d5698c3dd2988a67153cfd9ffb2241fb441eb5f209eaafdc3ca984588a5510"
+  },
+  "sphere_cols/mu_se_part1.parquet": {
+   "bytes": 21540182,
+   "sha256": "87922bf41a5d0ecc3a7bf23911d504aa9da0483c3c381f6a036cb8b4958e4a48"
+  },
+  "sphere_cols/mu_se_part2.parquet": {
+   "bytes": 21231503,
+   "sha256": "6dde6304ec334ccfd358ba9acc940eb41380a6613e0c865986ae8e1155b7163d"
+  },
+  "sphere_cols/mu_se_part3.parquet": {
+   "bytes": 21678678,
+   "sha256": "76cb01921f4ed3143404c81c0aca69aecfe93dddf01f17080096d72bc7ac5c8c"
+  },
+  "sphere_cols/sites.parquet": {
+   "bytes": 2836049,
+   "sha256": "fb5673f981cb508ed1a96bc957020d5aa1642447ae51943a7f6960203f570d25"
+  },
+  "sphere_cols/sphere_cols.json": {
+   "bytes": 301,
+   "sha256": "e88203f71fbcd8ac35b03d55f4a8814c15c51efd46e66cc71f09becad38280d5"
+  },
+  "sphere_cols/sphere_cols_build.json": {
+   "bytes": 536,
+   "sha256": "02cedd7d395f37fa5981ef80ecaadfc7e9162d9dccb41662d0abb5c0ebb9ce47"
+  },
+  "terr_half_counts/terr_half_counts_v1.parquet": {
+   "bytes": 19400699,
+   "sha256": "5fe496614606d97629adb4f97ac1ffc760aa0f35ca03e0dbeccfe56bfe32e315"
+  }
+ }
+}

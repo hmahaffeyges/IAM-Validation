@@ -35,7 +35,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **36 Python files** holding **500 functions** (nested ones included); 500 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **505 functions** (nested ones included); 505 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -69,6 +69,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 838 | 45 | 0 | 0 |
+| `reference_door.py` | 77 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 181 | 10 | 0 | 0 |
@@ -154,7 +155,37 @@ because that is what they were created for, and no instrument is tared with anyt
 - `CANON/commissioning_check.py` refuses a commissioning from this date on that is not on the atlases alone; each older commissioning states its
   reference, and those made with a same-run tare (Met-A on neutrophils, the C-Score, Group-A) carry "being re-commissioned with IAM-Atlas v2.1 as
   the only healthy reference" in the catalogue until each passes again: its synthetic over the real data's range, a rehearsal on spent data per
-  person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30).
+  person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30). **Lock 1, the reference door** (`reference_door.py`): every run checks the atlases against their checksums before any reading and records in its bundle the atlas it read and every tare applied.
+
+### `reference_door.py::_sha`
+
+The SHA-256 checksum of one file, read in 4 MB blocks.
+
+*Code:* `reference_door.py` line 20 (5 lines) · arguments: p · calls: not called on the traced runs
+
+### `reference_door.py::_seq_files`
+
+Every reference file under chain/Runtime Matrices/Seq_Atlas (parquet and json), in a fixed order.
+
+*Code:* `reference_door.py` line 26 (6 lines) · arguments: none · calls: not called on the traced runs · constants read: `SEQ`
+
+### `reference_door.py::build`
+
+Writes reference_manifest.json: each IAM Sequencing Atlas file the chain reads, with its size and checksum. Re-run only when such a file is rebuilt, and committed with it.
+
+*Code:* `reference_door.py` line 33 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `MANIFEST`, `SEQ`
+
+### `reference_door.py::check`
+
+Lock 1 of the anti-drift locks. Before any reading, each IAM-Atlas v2.1 file is checked against compact_manifest.json and each IAM Sequencing Atlas file against reference_manifest.json; a file that differs, or a file in Seq_Atlas the manifest does not list, stops the run (REFERENCE_REFUSED, exit 7). A reading made against an altered reference is not a reading against the atlas.
+
+*Code:* `reference_door.py` line 38 (22 lines) · arguments: none · calls: not called on the traced runs · constants read: `MANIFEST`, `SEQ`, `V21` · files named: `compact_manifest.json`, `reference_manifest.json`
+
+### `reference_door.py::record`
+
+The bundle's reference block: the atlases checked, whether they passed, and every tare a reading in the bundle applied. The array instruments commissioned before the atlas-only rule still carry a same-run healthy tare; it is named here until they are re-commissioned on the atlas, so no tare can sit in a reading unrecorded.
+
+*Code:* `reference_door.py` line 61 (12 lines) · arguments: o · calls: not called on the traced runs
 
 ## Sex and the X chromosome, in every instrument
 

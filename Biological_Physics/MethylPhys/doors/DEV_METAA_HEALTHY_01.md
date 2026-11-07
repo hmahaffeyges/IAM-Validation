@@ -562,3 +562,28 @@ mean of its 10 draws is within 0.005 of 1; 3. on each of the 3, a 5 % loss raise
 All three bars met; test 2's weak array, beyond the real range, read 0.99685 (recorded). With the line measured from censored anchors, the high
 tail's bias under the plain line (test 4: mean 0.99192) is gone. **Next:** the per-person rehearsal on the 100 spent healthy bloods, read with
 `--dev-line-censored` (its design above); then a fresh test on held healthy arrays.
+
+## Lock 1, the reference door (written and committed before its synthetic runs)
+
+The first of the five anti-drift locks (the author: healthy comparisons come only from the atlases; "we need to make sure this doesnt happen
+again"). `chain/reference_door.py`: before any reading the one command checks every IAM-Atlas v2.1 file against its compact_manifest.json and every
+IAM Sequencing Atlas file the chain reads against `chain/reference_manifest.json`; a changed or unlisted file stops the run (REFERENCE_REFUSED,
+exit 7). Every bundle carries a reference block naming the atlases read and every tare applied. No reading changes.
+
+**The instrument's job:** every reading the chain makes is against the published atlases, and its bundle says so.
+
+**Sources:** IAM-Atlas v2.1 and the IAM Sequencing Atlas's files in the chain (public, in this repository and on Zenodo); no outside sample.
+
+**Reference:** IAM-Atlas v2.1 and the IAM Sequencing Atlas only, checked by checksum.
+
+**Synthetic test:** `DEV_METAA_HEALTHY_01/reference_door_synthetic.py` (the one command on a constructed healthy blood array; GitHub, on a disposable
+checkout, since it alters and restores one atlas file there).
+
+**Range of the data:** one constructed whole blood at the real arrays' median noise (design I 0.0066, design II 0.0098); the check itself does not
+depend on the sample.
+
+Bars (scorer, in the synthetic): 1. the clean run's bundle says the atlases were checked, names IAM-Atlas v2.1, and records no tare; 2. with one
+byte added to one Sequencing Atlas file each run stops before any reading, the file named; 3. a file added to Seq_Atlas that the manifest does not
+list stops each run the same way.
+
+**Prior reading:** none; nothing outside the atlases is read.

@@ -7894,6 +7894,94 @@
    "first_entered": null
   },
   {
+   "file": "reference_door.py",
+   "lines": 77,
+   "functions": [
+    {
+     "file": "reference_door.py",
+     "function": "_sha",
+     "name": "_sha",
+     "line": 20,
+     "end": 24,
+     "args": [
+      "p"
+     ],
+     "lines": 5,
+     "doc": "",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "reference_door.py",
+     "function": "_seq_files",
+     "name": "_seq_files",
+     "line": 26,
+     "end": 31,
+     "args": [],
+     "lines": 6,
+     "doc": "",
+     "constants": [
+      "SEQ"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "reference_door.py",
+     "function": "build",
+     "name": "build",
+     "line": 33,
+     "end": 36,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "MANIFEST",
+      "SEQ"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "reference_door.py",
+     "function": "check",
+     "name": "check",
+     "line": 38,
+     "end": 59,
+     "args": [],
+     "lines": 22,
+     "doc": "Each atlas file against its published checksum; cached for the process. Returns dict(ok, atlases, files, refused).",
+     "constants": [
+      "MANIFEST",
+      "SEQ",
+      "V21"
+     ],
+     "data_files": [
+      "compact_manifest.json",
+      "reference_manifest.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "reference_door.py",
+     "function": "record",
+     "name": "record",
+     "line": 61,
+     "end": 72,
+     "args": [
+      "o"
+     ],
+     "lines": 12,
+     "doc": "The bundle's reference block: the atlases checked and every tare a reading in this bundle applied (a tare divides by other samples; the same-run healthy tare of the array instruments commissioned before 2026-11-07 is named as such, until their re-commissioning on the atlas).",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    }
+   ],
+   "first_entered": null
+  },
+  {
    "file": "stage_q2_globe.py",
    "lines": 145,
    "functions": [
@@ -9794,6 +9882,6 @@
    "first_entered": null
   }
  ],
- "n_files": 36,
- "n_functions": 500
+ "n_files": 37,
+ "n_functions": 505
 }
