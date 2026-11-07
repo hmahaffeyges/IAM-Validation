@@ -64,3 +64,8 @@ and high equal the current Sequencing Atlas Globe's rule applied to the committe
 equal, none on one globe only, largest gap 0. The Sequencing Atlas Globe at every CpG (NSIDE 2048, all 28,217,448 CpGs, 57 cells) is built.
 The Globe Viewer textures (NSIDE 256) are joined from the same slices. **Next:** the full-resolution globe deposited with the atlas on Zenodo
 (GitHub keeps run artifacts 30 days), then the Globe Viewer and the website page.
+
+**Published on Zenodo: 10.5281/zenodo.24025624** (author's yes). The globe was rebuilt on a Google machine from the published atlas by the committed deposit job (`deposit/zenodo_globe_upload.py`), each piece
+checked against the atlas deposit's SHA256 manifest, one set at a time, each set deposited as it finished; the job rebuilt the textures and the check
+against the current globe there and stops before depositing them if the check is not met. The record holds the 12 set tars (the NSIDE 2048 slices,
+stored compressed), the NSIDE 256 textures, the check, the synthetic, the builder, the README and the checksums.
