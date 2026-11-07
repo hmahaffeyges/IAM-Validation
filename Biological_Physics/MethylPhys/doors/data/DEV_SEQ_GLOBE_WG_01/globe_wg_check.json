@@ -1,0 +1,1326 @@
+{
+ "nside": 2048,
+ "coarse": 256,
+ "array_sites_with_cpg": 813951,
+ "cells": {
+  "adipocytes": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "aorta endothelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "b cells": {
+   "mu": {
+    "both": 813948,
+    "equal": 813948,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813948,
+    "equal": 813948,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813948,
+    "equal": 813948,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "bladder epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "breast basal epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "breast luminal epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "cardiomyocyte": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "cd4 t cells": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "cd8 t cells": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "colon enteroendocrine": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "colon epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "colon fibroblasts": {
+   "mu": {
+    "both": 813947,
+    "equal": 813947,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813947,
+    "equal": 813947,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813947,
+    "equal": 813947,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "colon macrophages": {
+   "mu": {
+    "both": 813922,
+    "equal": 813922,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813922,
+    "equal": 813922,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813922,
+    "equal": 813922,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "cortical neurons": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "effector memory cd8 t cells": {
+   "mu": {
+    "both": 813918,
+    "equal": 813918,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813918,
+    "equal": 813918,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813918,
+    "equal": 813918,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "endometrium epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "erythrocyte progenitors": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "fallopien tubes epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "gastric antrum epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "gastric body epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "gastric fundus epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "granulocytes": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "heart fibroblasts": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "hepatocyte": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "kidney glomerular endothelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "kidney glomerular epithelium": {
+   "mu": {
+    "both": 813937,
+    "equal": 813937,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813937,
+    "equal": 813937,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813937,
+    "equal": 813937,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "kidney tubular endothelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "kidney tubular epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "lung alveolar endothelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "lung alveolar epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "lung alveolar macrophages": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "lung bronchus epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "lung interstitial macrophages": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "memory b cells": {
+   "mu": {
+    "both": 813947,
+    "equal": 813947,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813947,
+    "equal": 813947,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813947,
+    "equal": 813947,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "monocytes": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "naive cd4 t cells": {
+   "mu": {
+    "both": 813920,
+    "equal": 813920,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813920,
+    "equal": 813920,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813920,
+    "equal": 813920,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "naive cd8 t cells": {
+   "mu": {
+    "both": 813918,
+    "equal": 813918,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813918,
+    "equal": 813918,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813918,
+    "equal": 813918,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "nk cells": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "oligodendrocytes": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "pancreas endothelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "pancreatic acinar": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "pancreatic alpha": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "pancreatic beta": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "pancreatic delta": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "pancreatic duct": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "prostate epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "small intestine epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "smooth muscle": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "striated muscle": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "t central memory cd4": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "t effector cell cd8": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "t effector memory cd4": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "thyroid epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "tongue epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "tonsil palatine epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "tonsil pharyngeal epithelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  },
+  "vascular saphenous endothelium": {
+   "mu": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "lo": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   },
+   "hi": {
+    "both": 813951,
+    "equal": 813951,
+    "only_current": 0,
+    "only_new": 0,
+    "largest_gap": 0.0
+   }
+  }
+ },
+ "check": {
+  "values_compared": 139185168,
+  "equal": 139185168,
+  "only_current": 0,
+  "only_new": 0,
+  "largest_gap": 0.0,
+  "met": true
+ }
+}

@@ -57,3 +57,10 @@ the layout, masked). **The build:** workflow `globe_wg.yml`, one published piece
 deposit's SHA256 manifest before it is read; each piece writes its own stretch of the globe (`seq_globe_wg.py slice`), with NSIDE 256 sums
 for the Globe Viewer's textures. Before the globe is used: the design's third check, the new globe against the current one at the 813,951
 array-layout sites.
+
+**The build and the check against the current globe: met** (`doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json`; build run 42317003484, 12 of 12 published piece sets, every piece checked against the
+deposit's SHA256 manifest; check run 42320588128). At every one of the 813,951 array-layout sites, for all 57 cells, the new globe's level, low
+and high equal the current Sequencing Atlas Globe's rule applied to the committed array-site columns: 139,185,168 values compared, 139,185,168
+equal, none on one globe only, largest gap 0. The Sequencing Atlas Globe at every CpG (NSIDE 2048, all 28,217,448 CpGs, 57 cells) is built.
+The Globe Viewer textures (NSIDE 256) are joined from the same slices. **Next:** the full-resolution globe deposited with the atlas on Zenodo
+(GitHub keeps run artifacts 30 days), then the Globe Viewer and the website page.
