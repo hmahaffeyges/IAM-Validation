@@ -616,6 +616,11 @@ TERR_SHARE_MIN = 0.01  # stated: cells holding at least 1 % of the sample, their
 
 FLOOR_EQUAL = False   # 2026-11-02 (run_sample.py --dev-floor-equal; development): read the sample and its reference at a common library floor
 SAMPLE_FLOOR = None   # the sample's own floor (stage_seq_atlas.library_floor, unmarked side), set by the one command before the readings
+FLOOR_CLASS = False   # 2026-11-07 (run_sample.py --dev-floor-class; development): the floor of the sample and of its reference each measured at the
+                      # very islands read, where the sample's own mix expects them unmarked, then both read at the higher (as FLOOR_EQUAL). Why: the
+                      # islands take the whole floor in outside laboratories (1.001, 18 libraries) and in plasma (1.005) but 0.291 of it in the atlas's
+                      # own laboratory (floor_by_site_class, 11-03 and 11-07), so a floor measured at the floor sites is not the islands' floor.
+CLASS_UNMARKED = 0.01   # stated: an island is unmarked for this purpose when the mix's pooled reference level there is at most 1 %
 
 def _Hj(m, u=0.0):
     """2026-11-02 (the laboratory floor; derived, nothing fitted): the disorder of j methylated of m reads, j = 0..m, after each of the m - j
@@ -673,7 +678,15 @@ def islands_counted(xs, counts, F):
     Mk, Nk = got; n = pd.Series(counts).reindex(xs.index).fillna(0).astype("int64").to_numpy(); k = np.rint(xs.to_numpy() * n).astype("int64")
     ok = (Nk >= 1).all(1) & (n >= 1); m = np.minimum(n, TERR_M); hm = np.full(len(n), np.nan); he = np.full(len(n), np.nan)
     us = ur = 0.0; fl = None
-    if FLOOR_EQUAL and SAMPLE_FLOOR is not None:   # 2026-11-02: the sample and the reference half's pooled reads at their common floor
+    if FLOOR_CLASS and ok.any():   # 2026-11-07: both floors counted at the islands read, where the mix expects them unmarked
+        with np.errstate(all="ignore"): lev = (np.where(Nk > 0, Mk / np.maximum(Nk, 1), 0.0) * Fk.to_numpy()[None, :]).sum(1)
+        um = ok & (lev <= CLASS_UNMARKED)
+        if um.sum() >= 100:
+            fs = float(k[um].sum() / max(n[um].sum(), 1)); fr = float((Fk.to_numpy() * (Mk[um].sum(0) / np.maximum(Nk[um].sum(0), 1))).sum())
+            Fc = max(fs, fr); us, ur = floor_raise(fs, Fc), floor_raise(fr, Fc)
+            fl = dict(measured_at="the islands read, where the mix expects them unmarked", sites=int(um.sum()), sample=round(fs, 6), reference=round(fr, 6), common=round(Fc, 6))
+        else: fl = dict(measured_at="the islands read", sites=int(um.sum()), reason="under 100 unmarked islands; no class floor applied")
+    elif FLOOR_EQUAL and SAMPLE_FLOOR is not None:   # 2026-11-02: the sample and the reference half's pooled reads at their common floor
         fr = _SQt.half_floor(TERR_HALF)
         if fr is not None:
             Fc = max(float(SAMPLE_FLOOR), fr); us, ur = floor_raise(SAMPLE_FLOOR, Fc), floor_raise(fr, Fc)

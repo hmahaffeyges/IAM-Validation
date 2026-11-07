@@ -1449,3 +1449,33 @@ its own Met-A, and the single-cell reading takes the cell found most of.
 
 **Range of the data:** real outside "sorted" libraries: the labeled cell's measured share 0.24 to 0.80, and 0.00 in the Johns Hopkins sample
 read as monocytes (`seq_atlas/outside_data/crosslab_chain_table.csv`); synthetic: the labeled cell at 1.00, 0.50, 0.24 and 0.00.
+
+**Cross-laboratory: what separates the laboratories, from the chain's own numbers (development, diagnostic; nothing scored, nothing re-read).** Read from what the one command already wrote for the 89 outside samples
+(`seq_atlas/outside_data/crosslab_chain_table.csv`) and, for the 18 that wrote per-site tables, by the committed diagnostic
+`floor_by_site_class.py` (`crosslab_floor_by_class.txt`). **The islands follow each library's own floor:** across all 89 the islands
+reading against the library's false-call rate at the floor sites, rho +0.954 (BLUEPRINT, floor 0.0016: 0.31; GSE98837, floor 0.0158: 1.37).
+In the outside laboratories the islands take the whole floor (median share 1.001, rho +0.957, 18 libraries), as healthy plasma did (1.005);
+inside the atlas's own laboratory they take 0.291 (11-03). So an outside library's false calls reach the islands at its own measured rate,
+and the atlas's reference there holds its own laboratory's smaller share: the islands read the difference of two laboratories' chemistry,
+not of two people. This is the step written on 11-03 and never run: the floor read where a reading reads, at the unmarked sites of the
+reading's own class. **The whole sample and the domains do not follow the floor** (whole rho +0.41, domains against depth -0.09): by
+laboratory, whole-sample Met-A in the measured mix reads 0.945, 1.016, 1.101, 1.143 and 1.328, within 0.95 to 1.05 for 30 % of the 89.
+The domains are not unmarked sites; the two laboratories reading high there (Johns Hopkins CD4, whose old donors hold more memory CD4, and
+GSE134664 B) are the ones whose Deconvolver mixes differ most from the atlas's donors, so the domains are read next against age and the
+measured subsets, before anything is called a laboratory term.
+
+**The floor counted at the islands read (written and committed before it runs; plan 60.3 step 2).** The step written on 11-03. **The instrument's job:** a healthy sample from another laboratory reads
+Normal at the islands. **The physics:** a library calls an unmethylated read methylated with its own probability; at the islands a reading
+reads, the sample's rate and the reference's are each counted where the sample's own measured mix expects the islands unmarked (pooled
+reference level at most 1 %), and both are read at the higher of the two by the exact floor raise of 11-02 (`floor_raise`, `_Hj`). Nothing is
+fitted: both floors are counts at the very sites read. **The change** (`--dev-floor-class`, `stage_metaa_atlas.FLOOR_CLASS`, development, off
+by default; the Johns Hopkins tissue readings are pinned to the chain before it). **Synthetic test:**
+`seq_atlas/outside_data/floor_class_synthetic.py` (one command, Google, `floor_class_synthetic.sh`): the reference passes 0.29 of its floor
+to the islands, as the atlas laboratory does; five outside laboratories of three people at floor and share (0.0015, 1.0), (0.005, 1.05),
+(0.006, 1.0), (0.009, 1.05), (0.016, 0.75), plus the atlas laboratory's own case (0.006, 0.29); each read with no floor, the common floor
+and the class floor. Bars, class floor: 1. every laboratory's median islands within 0.03 of 1; 2. the atlas laboratory's own case within 0.03 of 1.
+
+**Sources:** the IAM Sequencing Atlas (public, Zenodo 10.5281/zenodo.24029328) and its spent healthy input GSM5652316 (public, GEO) as the base.
+
+**Range of the data:** real: library floors 0.0016 to 0.0158 and the share of the floor at the islands 0.29 (atlas laboratory) and 0.75 to
+1.05 (outside), `crosslab_chain_table.csv`, `crosslab_floor_by_class.txt`; synthetic: floors 0.0015 to 0.016, shares 0.29 and 0.75 to 1.05.

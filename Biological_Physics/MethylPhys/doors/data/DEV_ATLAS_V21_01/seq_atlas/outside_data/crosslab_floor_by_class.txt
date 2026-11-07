@@ -1,0 +1,4 @@
+18 healthy inputs; sites the sample's own mix expects at most 0.01 methylated
+domains: median sites 1; median rate 0.00000; median excess over expected +0.00000; median share of the library's floor 0.000 (25 to 75 % 0.000 to 29.462); rate against floor rho +0.188
+islands: median sites 36929; median rate 0.01024; median excess over expected +0.01004; median share of the library's floor 1.001 (25 to 75 % 0.754 to 1.052); rate against floor rho +0.957
+other unmarked: median sites 28406; median rate 0.02175; median excess over expected +0.02116; median share of the library's floor 1.796 (25 to 75 % 1.436 to 2.177); rate against floor rho +0.734

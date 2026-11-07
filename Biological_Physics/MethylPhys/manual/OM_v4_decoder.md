@@ -39,7 +39,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,443 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,446 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,233 | 45 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -68,7 +68,7 @@ Read from the code at build time: the one command can load **36 Python files** h
 | `stage_groupa.py` | 118 | 5 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 805 | 43 | 0 | 0 |
+| `stage_metaa_atlas.py` | 818 | 43 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 181 | 10 | 0 | 0 |
@@ -290,7 +290,7 @@ unless both designs were mapped, reads Met-A against CELL in IAM-Atlas v2.1 (`st
 3 healthy samples of the same cell run the same way, never this one), tares it (`stage_metaa_atlas.tare`). Written under bundle
 `development.metaa_atlas`; the reading, gauge and tare are untouched.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 210 (34 lines) · arguments: a, b · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 210 (35 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `run_sample.py::_genome_globe`
 
@@ -299,7 +299,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 475 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 476 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -307,7 +307,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 252 (221 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build-samples B and --bundle OUT.json`, `_layout.npz`, `_summary.txt`, `import pyarrow.parquet`, `sites.parquet`, `truth.json`
+*Code:* `MethylPhys_Interface/run_sample.py` line 253 (221 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build-samples B and --bundle OUT.json`, `_layout.npz`, `_summary.txt`, `import pyarrow.parquet`, `sites.parquet`, `truth.json`
 
 ### `run_sample.py::_dev_run`
 
@@ -315,7 +315,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 498 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 499 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -325,14 +325,14 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 542 (899 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 543 (901 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1061 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1064 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -340,13 +340,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 826 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 829 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1369 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1372 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3044,13 +3044,13 @@ The development flag on every atlas reading, naming the ruler used (IAM-Atlas v2
 
 The probability that raises a library's floor from f to F: (F - f) / (1 - f).
 
-*Code:* `stage_metaa_atlas.py` line 629 (3 lines) · arguments: f_low, F · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 634 (3 lines) · arguments: f_low, F · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::_Hj`
 
 The disorder of j methylated of m reads after each unmethylated read is turned methylated with probability u (a library's floor raised).
 
-*Code:* `stage_metaa_atlas.py` line 620 (8 lines) · arguments: m, u · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 625 (8 lines) · arguments: m, u · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::ceiling_counted`
 
@@ -3062,13 +3062,13 @@ The distance to the entropy ceiling on sequencing: the reading the sample would 
 
 Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 450K platform term on a 450K array (measured once on spent healthy 450K bloods and frozen, Runtime Matrices/CScore_Limits/platform_term_450k.json; calibrated).
 
-*Code:* `stage_metaa_atlas.py` line 792 (13 lines) · arguments: cs, array_type · calls: not called on the traced runs · constants read: `HERE` · files named: `platform_term_450k.json`
+*Code:* `stage_metaa_atlas.py` line 805 (13 lines) · arguments: cs, array_type · calls: not called on the traced runs · constants read: `HERE` · files named: `platform_term_450k.json`
 
 ### `stage_metaa_atlas.py::cscore_limit`
 
 The C-Score's derived healthy upper limit (development): with departures independent from site to site, C over nb = n // 10 blocks follows a scaled Beta((nb - 1) / 2, (n - nb) / 2); the limit is its 95th percentile. Nothing is measured.
 
-*Code:* `stage_metaa_atlas.py` line 787 (4 lines) · arguments: n_sites, q, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
+*Code:* `stage_metaa_atlas.py` line 800 (4 lines) · arguments: n_sites, q, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
 
 ### `stage_metaa_atlas.py::read_on_curve`
 
@@ -3086,31 +3086,31 @@ The healthy expectation of disorder at each site: on sequencing, the expected en
 
 Loads the atlas ruler's frozen file once: every site's probe design (I or II), the anchor sites per design (held below about 0.05 or above about 0.95 in every one of the 79 cell types) and the atlas's values there.
 
-*Code:* `stage_metaa_atlas.py` line 694 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `RULER`
+*Code:* `stage_metaa_atlas.py` line 707 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `RULER`
 
 ### `stage_metaa_atlas.py::array_blur`
 
 Measures the array's own blur, per probe design, at its anchor sites: the straight line x = a + b e through the means of its low and high anchors against the atlas's means there, and its noise, 1.4826 times the median absolute residual from that line. Nothing is fitted to any reading; these are measurements of the array where every healthy cell agrees (DEV-METAA-HEALTHY-01).
 
-*Code:* `stage_metaa_atlas.py` line 699 (14 lines) · arguments: xs, es · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 712 (14 lines) · arguments: xs, es · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::predicted_healthy`
 
 Met-A's healthy middle line predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
 
-*Code:* `stage_metaa_atlas.py` line 714 (16 lines) · arguments: xs, es, w, blur · calls: not called on the traced runs · constants read: `GH_NODES`
+*Code:* `stage_metaa_atlas.py` line 727 (16 lines) · arguments: xs, es, w, blur · calls: not called on the traced runs · constants read: `GH_NODES`
 
 ### `stage_metaa_atlas.py::read_whole`
 
 Met-A for the whole sample over every atlas site: the atlas mixed in the sample's own shares is the expectation, each site counts by how firmly that mix holds it (|0.5 - e|), and the reading is weighted disorder over weighted expected disorder. Reported overall and split by place (identity sites of the cells found, islands, domains, the rest), with the shift a 1 % loss would make. The per-cell readings say which cell; this one says whether the sample has departed. Development, flagged, on by default.
 
-*Code:* `stage_metaa_atlas.py` line 731 (47 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `MIX_COVER`, `WHOLE_SITE_OUT`
+*Code:* `stage_metaa_atlas.py` line 744 (47 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `MIX_COVER`, `WHOLE_SITE_OUT`
 
 ### `stage_metaa_atlas.py::read_whole.one`
 
 The weighted reading over one group of sites (all, or one place), with its standard error over sites; a group with fewer than 500 sites is not read.
 
-*Code:* `stage_metaa_atlas.py` line 754 (6 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 767 (6 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::territory_sets`
 
@@ -3430,7 +3430,7 @@ The mean jump of the mean-level map across HEALPix base-face edges over the jump
 
 With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 392 (1 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 393 (1 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::save_layout`
 
@@ -3927,19 +3927,19 @@ The exact expected entropy of K methylated of N reads thinned without replacemen
 The expected disorder of a healthy sample of a mix, from each cell's reference reads: every read from a cell of the mix, drawn without
 replacement from that cell's reads, so no level is treated as exact (exactly unbiased).
 
-*Code:* `stage_metaa_atlas.py` line 639 (24 lines) · arguments: Mk, Nk, F, m, block, u · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 644 (24 lines) · arguments: Mk, Nk, F, m, block, u · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::islands_counted`
 
 The islands read with that expectation, against the donor half given, both sides at a common depth of at most 20 reads.
 
-*Code:* `stage_metaa_atlas.py` line 664 (25 lines) · arguments: xs, counts, F · calls: not called on the traced runs · constants read: `FLOOR_EQUAL`, `SAMPLE_FLOOR`, `TERR_HALF`, `TERR_M`, `TERR_SHARE_MIN` · files named: `terr_half_counts_v1.parquet`
+*Code:* `stage_metaa_atlas.py` line 669 (33 lines) · arguments: xs, counts, F · calls: not called on the traced runs · constants read: `CLASS_UNMARKED`, `FLOOR_CLASS`, `FLOOR_EQUAL`, `SAMPLE_FLOOR`, `TERR_HALF`, `TERR_M`, `TERR_SHARE_MIN` · files named: `terr_half_counts_v1.parquet`
 
 ### `stage_metaa_atlas.py::thin_H`
 
 The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
 
-*Code:* `stage_metaa_atlas.py` line 633 (5 lines) · arguments: k, n, m, u · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 638 (5 lines) · arguments: k, n, m, u · calls: not called on the traced runs
 
 ### `report_globe_v4.py::use_atlas`
 
