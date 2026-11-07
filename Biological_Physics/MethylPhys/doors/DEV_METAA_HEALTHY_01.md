@@ -692,3 +692,20 @@ Bars (scorer), test 6's unchanged: 1. each of the 30 arrays reads A / A_pred ins
 within 0.005 of 1; 3. a 5 % loss shows on each.
 
 **Prior reading:** GSM7508429 is spent; nothing else is read.
+
+## The per-person rehearsal read again with the prediction on each array's own values (written and committed before any of its readings exists)
+
+The first rehearsal (98 of 100 inside Normal) ran with `--full-chain`, so its healthy prediction was measured on atlas-ruler values (the
+capture, above). The same 100 spent bloods are read again with `--dev-pred-raw` (series run `wb100_raw`, GitHub).
+
+**The instrument's job:** a healthy blood array reads Normal on Met-A's gauge against IAM-Atlas v2.1.
+
+**Sources:** the five spent series of bar 2 (public, GEO; `bar2_labels.csv`); IAM-Atlas v2.1 (public, Zenodo).
+
+**Reference:** IAM-Atlas v2.1 only, in each blood's own Deconvolver mix; no tare.
+
+Bars (scorer `DEV_METAA_HEALTHY_01/wb100_raw_score.py`, the first rehearsal's, unchanged): 1. at least 90 of the 100 each read A / A_pred inside
+Normal, 0.95 to 1.05; 2. in each of the five laboratories at least 16 of its 20 do. A bundle whose prediction was not read on the array's own
+values is refused.
+
+**Prior reading:** all 100 are spent (bar 2 and the first rehearsal).
