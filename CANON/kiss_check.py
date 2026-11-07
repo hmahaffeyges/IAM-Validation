@@ -6,17 +6,28 @@ Every doors record to which a push ADDS a sealed rule (a seal line or a scored b
  b. at most 3 scored bars (lines '- **S1:**', '- **B2:**', '- **Bar 3:**' ...); 'Reported, not scored' lines do not count.
  c. '**Sources:**' - every data source, said to be public, with what it provides; a source under controlled access (EGA, dbGaP, 'controlled',
     'on request') refuses the seal (lesson C19).
-Applies to rules added from 2026-10-16. CANON/kiss_check_controls.py must pass first. Usage: python3 CANON/kiss_check.py check [base]"""
+ d. (2026-11-06, author: 'How is it that your synthetics always seem to pass but we have a LOT of trouble with the real thing?') a push that
+    ADDS a synthetic written before it runs must add, with it, '**Range of the data:**' - the real data's measured conditions (depth, coverage,
+    copies, conversion, mix; never its readings) beside the range the synthetic tries, with numbers, the words 'real' and 'synthetic', and the
+    synthetic covering the real range including its tails. A synthetic that meets its bars in conditions the data never has is not evidence.
+Applies to rules added from 2026-10-16 (d: from 2026-11-06). CANON/kiss_check_controls.py must pass first. Usage: python3 CANON/kiss_check.py check [base]"""
 import os, sys, re, subprocess
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEAL = re.compile(r"(?i)^(\*\*Sealed\b|\*\*Step \d+: the rule|\*\*Status: rule|## (Rule|Bars?)\b|\*\*Bars?:?\*\*|- \*\*(S|B|Bar ?)\d+[a-z]?:\*\*)")
 BAR = re.compile(r"(?i)^- \*\*(S|B|Bar ?)\d+[a-z]?:\*\*")
 JOB = re.compile(r"(?m)^\*\*The instrument's job:\*\*\s*(.+)$"); SRC = re.compile(r"(?m)^\*\*Sources:\*\*\s*(.+)$")
+SYN = re.compile(r"(?i)\bsynthetic\b[^.]{0,160}\b(written before|before it runs|before (it|they) (reads?|runs?|opens?))|\b(written before|before it runs)[^.]{0,160}\bsynthetic\b")
+RANGE = re.compile(r"(?m)^\*\*Range of the data:\*\*\s*(.+)$")
 CTRL = re.compile(r"(?i)\b(EGA|EGAS\d+|dbGaP|controlled[- ]access|controlled|on request|data access committee)\b")
 def findings(name, old, new):
     added = [l for l in new.split("\n") if l not in set(old.split("\n"))]
-    if not any(SEAL.search(l) for l in added): return []
-    F = []; j = JOB.search(new); s = SRC.search(new)
+    F = []; addt = "\n".join(added)
+    if SYN.search(addt):   # rule d
+        rg = RANGE.search(addt)
+        if not rg or not (re.search(r"(?i)\breal\b", rg.group(1)) and re.search(r"(?i)\bsynthetic\b", rg.group(1)) and re.search(r"\d", rg.group(1))):
+            F.append(f"[d] {name}: a synthetic written before it runs needs '**Range of the data:**' with the real data's measured range beside the synthetic's, in numbers")
+    if not any(SEAL.search(l) for l in added): return F
+    j = JOB.search(new); s = SRC.search(new)
     if not j or len(j.group(1).split()) < 6: F.append(f"[a] {name}: a sealed rule needs '**The instrument's job:**' in one plain sentence (at least 6 words)")
     n = sum(bool(BAR.search(l)) for l in new.split("\n"))
     if n > 3: F.append(f"[b] {name}: {n} scored bars; KISS allows at most 3")
