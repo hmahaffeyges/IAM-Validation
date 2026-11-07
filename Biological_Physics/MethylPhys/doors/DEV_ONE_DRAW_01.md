@@ -673,3 +673,14 @@ the dispersion index D of the false calls is near 1 for independent molecules an
 `plasma_lab3_copies_synthetic.txt`):** D recovers 1, 2, 4 and 8 copies at about 2 and 15 calls a site. **On the 34 healthy plasmas (job
 `plasma_lab3_copies.sh`, one per GitHub job, cancer plasmas left unread):** D for each, and Spearman of D with the tared whole-sample Met-A
 and with its distance from 1. If D is well above 1 and tracks the scatter, the chain must count molecules, not calls, for such libraries.
+
+**The copies measure on the 34 healthy plasmas: the calls are copies, and the copies drive the scatter** (`plasma_lab3/reading_2/plasma_lab3_r2_copies.txt`; one plasma per GitHub job, run 42326420243; development). Every healthy plasma's false
+calls at the floor sites are overdispersed: D median 2.358, range 1.192 to 270.461 (independent molecules give 1). The ten deep plasmas (15 to
+20 calls a site; GSM7426153 to GSM7426168 in the depth file) are the most copied, D 4.6 to 270 in the rows: their depth is mostly copies.
+D tracks the reading: Spearman with the tared whole-sample Met-A -0.480 (p 0.004); the three lowest readings (0.228, 0.455, 0.568) have D 22.8, 11.1, 5.3.
+**What it means:** the chain counts every call as a molecule; on a linear-amplification library the molecules are fewer, by each library's
+own D, so the chain's expectation of counting noise is wrong for that library, and wrong by a different amount for each. The false-call rate
+itself is ordinary (median 0.00586). **Next (chain code, after the running readings finish; synthetic first):** each sequenced sample's own D,
+measured at the floor sites, carried into the chain so that a sample's calls are counted as molecules (calls divided by D) wherever counting
+noise enters a reading; the synthetic plants copies in a constructed plasma and must show the readings move with copies before and not after.
+The cancer plasmas stay unread.
