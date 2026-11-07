@@ -635,3 +635,16 @@ within 0.005 of 1; 3. a 5 % loss shows on each. If bar 2 is met, the method read
 0.983 is a property of the real bloods, examined next; if not, the center comes from the method on every cell and is fixed before any fresh test.
 
 **Prior reading:** GSM7508429 is spent (tests 1 to 5); nothing else is read.
+
+## Synthetic test 6, read: not met (`data/DEV_METAA_HEALTHY_01/synthetic_06_summary.txt`; ten draws on Google, the one command with the rehearsal's flags)
+
+| Array | Mean A / A_pred, 10 draws | Range | Test 5 (six cells), mean |
+|---|---|---|---|
+| center | 1.00555 | 1.00402 to 1.00754 | within 0.0010 of 1 |
+| low tail | 0.98735 | 0.98081 to 0.99367 | within 0.0010 of 1 |
+| high tail | 1.00011 | 0.99512 to 1.00604 | within 0.0010 of 1 |
+
+Bar 1 met (all 30 inside Normal); bar 2 not met (center 0.0006 over, low tail 0.0077 under); bar 3 met (a 5 % loss shows on each). The real
+blood itself reads 1.00222 on every atlas cell (14 cells in its measured mix). **What it shows:** read on the full mix the Deconvolver measures,
+the prediction drifts with the array's line (flatter, noisier arrays read lower), where on six cells it did not; the rehearsal's center of 0.983
+lies in that direction. The cause is found offline before anything changes in the chain.

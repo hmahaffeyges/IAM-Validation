@@ -1,0 +1,10 @@
+DEV-METAA-HEALTHY-01 synthetic test 6 (the real full mix): 10 of 10 draws read, every array through run_sample.py --dev-line-censored
+  center   : 10 draws | inside 0.95 to 1.05: 10 | mean 1.00555 | spread (sd) 0.00121 | range 1.00402 to 1.00754
+  low tail : 10 draws | inside 0.95 to 1.05: 10 | mean 0.98735 | spread (sd) 0.00394 | range 0.98081 to 0.99367
+  high tail: 10 draws | inside 0.95 to 1.05: 10 | mean 1.00011 | spread (sd) 0.00339 | range 0.99512 to 1.00604
+  recorded: the real blood on every atlas cell: A / A_pred 1.00222 | cells in its measured mix 14
+  recorded: test 3's weak array (beyond the real range): A / A_pred 0.83654
+bar 1 (each of the 30 inside Normal): met
+bar 2 (each condition's mean within 0.005 of 1): not met
+bar 3 (a 5 % loss shows on each of the 3): met
+synthetic: not met
