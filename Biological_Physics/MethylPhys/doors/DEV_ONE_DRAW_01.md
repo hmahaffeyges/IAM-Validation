@@ -676,7 +676,8 @@ and with its distance from 1. If D is well above 1 and tracks the scatter, the c
 
 **The copies measure on the 34 healthy plasmas: the calls are copies, and the copies drive the scatter** (`plasma_lab3/reading_2/plasma_lab3_r2_copies.txt`; one plasma per GitHub job, run 42326420243; development). Every healthy plasma's false
 calls at the floor sites are overdispersed: D median 2.358, range 1.192 to 270.461 (independent molecules give 1). The ten deep plasmas (15 to
-20 calls a site; GSM7426153 to GSM7426168 in the depth file) are the most copied, D 4.6 to 270 in the rows: their depth is mostly copies.
+20 calls a site in the depth file: 153, 154, 158, 160, 161, 163, 165, 166, 167, 168, each GSM7426 followed by these digits) are the most copied, D 4.6 to 270 in
+the rows: their depth is mostly copies.
 D tracks the reading: Spearman with the tared whole-sample Met-A -0.480 (p 0.004); the three lowest readings (0.228, 0.455, 0.568) have D 22.8, 11.1, 5.3.
 **What it means:** the chain counts every call as a molecule; on a linear-amplification library the molecules are fewer, by each library's
 own D, so the chain's expectation of counting noise is wrong for that library, and wrong by a different amount for each. The false-call rate
