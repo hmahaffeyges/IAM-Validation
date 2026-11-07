@@ -1388,3 +1388,23 @@ The Deconvolver's CD4 T-cell share of these sorted CD4 cells is 0.000 to 0.408 (
 recorded. GSE86340's healthy CD4 libraries are spent. **Not concluded:** whether age is the cause (6 donors, two age groups).
 
 **The Johns Hopkins CD4 donors' cell shares (development, after scoring; disclosed).** Read from each donor's bundle (the Deconvolver's shares, `cell_shares`). GSM2103004 (25 years), labeled CD4 T cells, reads 0.641 monocytes and 0.203 lung interstitial macrophages, with no T-cell column above 0.03: by its own methylation it is not a CD4 T-cell sample, and it is one of the three young readings. The other five read as CD4 T cells split across the atlas's CD4 columns; the three old donors hold less naive CD4 (0.000 to 0.104, against 0.179 and 0.197 in the two other young) and more effector-memory CD4 (0.109 to 0.194, against 0.031 and 0.081), the shift the immune system makes with age. So the spread the test found is at least partly what cells each sample holds, not the laboratory and not shown to be age itself. In the atlas laboratory's own healthy pass (pass 7, 123 donors of 41 cells, aged 17 to 83, `donor_traits.csv`), own-cell Met-A tared within each cell on its other donors shows no trend with age (Spearman +0.053, p 0.56); a weak check, as most donors are within 5 years of their cell's median age. **Next, each written before it runs:** GSM2103004's labels and quality; and each sample's own-cell reading against the CD4 subsets its own shares say it holds.
+
+**A cross-laboratory test on the same cell (design, author: the CD4 test 'werent even comparing apples to apples'; the test itself is written after its rehearsal, before any fresh sample is read).** The Johns Hopkins CD4 test could not tell a laboratory from a cell difference: one sample is not CD4 T cells by
+its own methylation, and the old donors hold other CD4 subsets than the young. The next test is built so it can.
+
+**The instrument's job:** a healthy sample of one cell type, from a laboratory the atlas has never read, reads Normal against the atlas, person
+by person.
+
+1. **The same cell, checked by the chain:** at intake each sample's own Deconvolver shares must show the labeled cell (the share of its cell
+   family at or above a level set on the rehearsal, before any fresh sample is read); a sample below it is refused with the reason, not read.
+2. **A cell that does not change its make-up with age:** monocytes (CD14, one lineage, sorted the same way in every laboratory), not T cells.
+3. **Age recorded beside every reading**, and each laboratory's donors compared with atlas donors of similar age.
+4. **Normal's edges measured first:** how far healthy people of one cell differ on sequencing inside the atlas's own laboratory; the bar is per
+   person, never a median.
+5. **Each library's instrument terms measured from its own data** (the false-call rate at the library-floor sites, conversion, copies, depth):
+   the laboratory is corrected from what its library shows, never by a fitted laboratory constant.
+
+**Sources (labels and file layouts only, nothing read):** BLUEPRINT (`outside_data/blueprint_healthy_candidates.csv`): 22 monocytes never read
+(16 monocytes, 6 classical monocytes; ages 0-5 to 70-75); GSE173787 / PRJNA727170: 10 healthy CD14 monocytes (HC-1 to HC-10; also 12 from
+multiple sclerosis); PRJNA574550: 51 monocyte runs, labels to check. **Rehearsal (spent data, answer known):** BLUEPRINT's 10 spent mature
+neutrophils against the atlas's granulocyte column, with steps 1 to 5, before the test is written.
