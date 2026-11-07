@@ -1,0 +1,9 @@
+The Deconvolver decides: four arrays labeled 'sorted cd4 t cells', read by the one command
+cd4: planted {'cd4 t cells': 1.0}; found [('cd4 t cells', 0.9925)]; chain cell cd4 t cells; label agrees True; sorted-cell Met-A reads cd4 t cells; Met-A for each cell found: ['cd4 t cells']; whole-sample reference: the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell
+half: planted {'cd4 t cells': 0.5, 'monocytes': 0.5}; found [('monocytes', 0.5017), ('cd4 t cells', 0.4981)]; chain cell monocytes; label agrees False; sorted-cell Met-A reads monocytes; Met-A for each cell found: ['cd4 t cells', 'monocytes']; whole-sample reference: the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell
+quarter: planted {'cd4 t cells': 0.24, 'monocytes': 0.4, 'nk cells': 0.36}; found [('monocytes', 0.4003), ('nk cells', 0.358), ('cd4 t cells', 0.2338)]; chain cell monocytes; label agrees False; sorted-cell Met-A reads monocytes; Met-A for each cell found: ['cd4 t cells', 'monocytes', 'nk cells']; whole-sample reference: the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell
+mono: planted {'monocytes': 1.0}; found [('monocytes', 0.9965)]; chain cell monocytes; label agrees False; sorted-cell Met-A reads monocytes; Met-A for each cell found: ['monocytes']; whole-sample reference: the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell
+bar 1 (the monocyte sample labeled CD4 is read as monocytes): met
+bar 2 (the CD4 sample is read as CD4): met
+bar 3 (every cell found in the mixes has its own Met-A; the sorted-cell reading takes the cell found most of): met
+synthetic: met

@@ -1479,3 +1479,8 @@ and the class floor. Bars, class floor: 1. every laboratory's median islands wit
 
 **Range of the data:** real: library floors 0.0016 to 0.0158 and the share of the floor at the islands 0.29 (atlas laboratory) and 0.75 to
 1.05 (outside), `crosslab_chain_table.csv`, `crosslab_floor_by_class.txt`; synthetic: floors 0.0015 to 0.016, shares 0.29 and 0.75 to 1.05.
+
+**The Deconvolver decides: synthetic met** (`label_rule/label_synthetic.txt`, GitHub run 42358846755, the one command on the fixed chain). Four arrays
+labeled "sorted cd4 t cells": built as all CD4, found CD4 0.9925, read as CD4, the label agrees; 50 % CD4 and 50 % monocytes, found 0.5017 and
+0.4981, both read, the sorted-cell reading on monocytes, the label flagged; 24 % CD4, 40 % monocytes and 36 % NK cells, found 0.2338, 0.4003
+and 0.3580, all three read; all monocytes, found 0.9965, read as monocytes, the label flagged. All three bars met.
