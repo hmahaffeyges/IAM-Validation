@@ -201,6 +201,134 @@ def assemble(set_dirs, outdir, nside=2048, coarse=256):
                         largest_gap=max((x["largest_gap"] for x in allk), default=None), met=all(x["equal"] == x["both"] and x["only_current"] == 0 and x["only_new"] == 0 for x in allk))
     json.dump(rep, open(os.path.join(outdir, "globe_wg_check.json"), "w"), indent=1); print(json.dumps(rep["check"])); return rep
 
+def noise_synthetic(out_txt, seed=20261107, n=HG19_CPGS, piece=250_000):
+    """The noise tools' synthetic (written before they read the atlas). A constructed atlas of two cells at all n CpGs, in pieces of 250,000,
+    on constructed chromosomes (22 autosomes, then X and Y; about 100 bases between CpGs). Each CpG's healthy level from a bimodal mix; each
+    half (donor A, donor B, read A, read B) read as Binomial(Poisson(15), level) / reads. Cell 'plain': nothing else. Cell 'planted': donor half
+    A's level raised by 0.08 in alternating blocks of 300,000 CpGs (structure in map 1 only). Bars: 1. every map leaves out X and Y, and its
+    CpG count, mean and mean square from the pieces equal the whole-array values (within 1e-9); 2. the planted map 1 shows structure: a
+    sphere band above all 20 shuffles with power more than 3 times the shuffles' mean, and a genome-distance correlation above 0.05 in the 1 to
+    10 kb and 10 to 100 kb bands; 3. the other three maps show none: no sphere band more than 1.5 times the shuffles' mean, and every band's
+    correlation within 0.01 of 0; 4. the planted map 1's spectrum from the pieces within 0.01 of stage_seq_atlas.genome_spectrum on the whole map."""
+    import tempfile, pyarrow as pa, pyarrow.parquet as pq, stage_seq_atlas as SQ
+    rng = np.random.default_rng(seed); sizes = np.r_[np.full(22, 0.042), 0.03, 0.002]; sizes = np.floor(sizes / sizes.sum() * n).astype(np.int64); sizes[0] += n - sizes.sum()
+    ch = np.repeat(np.arange(1, 25, dtype=np.int8), sizes); ps = np.zeros(n, np.int32); e = np.cumsum(sizes); b = e - sizes
+    for i in range(24): ps[b[i]:e[i]] = np.cumsum(rng.geometric(0.01, sizes[i])).astype(np.int32)
+    z = rng.random(n); lvl = np.where(z < 0.55, rng.beta(30, 2, n), np.where(z < 0.85, rng.beta(1.5, 40, n), rng.uniform(0.15, 0.85, n)))
+    blk = ((np.arange(n) // 300_000) % 2 == 1) & (ch <= 22)
+    def half(p):
+        r = rng.poisson(15, n); m = rng.binomial(r, np.clip(p, 0, 1)); return np.where(r > 0, np.rint(m / np.maximum(r, 1) * 1e4), BLANK).astype(np.uint16)
+    cols = {"plain": {k: half(lvl) for k in ("halfA", "halfB", "readA", "readB")}}
+    cols["planted"] = {"halfA": half(lvl + 0.08 * blk), "halfB": half(lvl), "readA": half(lvl), "readB": half(lvl)}
+    W = tempfile.mkdtemp(); P = os.path.join(W, "p"); os.makedirs(P); Q = os.path.join(W, "q")
+    for s0 in range(0, n, piece):
+        s1 = min(s0 + piece, n); T = {"cpg": np.arange(s0 + 1, s1 + 1, dtype=np.int32)}
+        for c in cols:
+            for k in ("halfA", "halfB", "readA", "readB"): T[f"{c}|{k}"] = cols[c][k][s0:s1]
+        pq.write_table(pa.table(T), os.path.join(P, f"piece_{s0:08d}_{s1:08d}.parquet"))
+    noise_part(Q, sorted(glob.glob(os.path.join(P, "*.parquet"))), ch_ps=(ch, ps)); R = noise_join([Q], os.path.join(W, "j"))
+    L = []; ok1 = ok2 = ok3 = ok4 = True; auto = ch <= 22
+    for c in cols:
+        for name, a, bb in MAPS:
+            v = _dec(cols[c][a], 1e4) - _dec(cols[c][bb], 1e4); v = np.where(auto, v, np.nan); g = np.isfinite(v); D = R["cells"][c][name]
+            same = D["cpgs"] == int(g.sum()) and abs(D["mean"] - v[g].mean()) < 1e-6 and abs(D["mean_square"] - (v[g] ** 2).mean()) < 1e-6; ok1 &= same
+            rat = D["sphere_null"]["ratio"]; cor = [x for x, m in zip(D["spectrum"]["corr"], D["spectrum"]["pairs"]) if m >= 100_000]
+            if c == "planted" and name.startswith("map1"):
+                hit = any(r > 3 and k in D["sphere_null"]["bands_above_null"] for k, r in enumerate(rat)); sp = D["spectrum"]["corr"][1] > 0.05 and D["spectrum"]["corr"][2] > 0.05; ok2 &= hit and sp
+                W2 = SQ.genome_spectrum(v, ch, ps); d4 = max(abs(x - y) for x, y in zip(D["spectrum"]["corr"], W2["corr"]) if x is not None and y is not None); ok4 &= d4 <= 0.01
+                L.append(f"{c} {name}: whole-map spectrum {W2['corr']}; largest gap from the pieces' {d4:.5f}")
+            else: ok3 &= max(rat) <= 1.5 and all(abs(x) <= 0.01 for x in cor)
+            L.append(f"{c} {name}: CpGs {D['cpgs']:,} (X and Y left out: {int((~auto).sum()):,}); mean {D['mean']}; mean square {D['mean_square']}; sums equal the whole map: {same}; "
+                     f"sphere ratio by band {rat}, bands above all shuffles {D['sphere_null']['bands_above_null']}; spectrum by distance {D['spectrum']['corr']}")
+    L += [f"bar 1 (X and Y left out; the pieces' sums equal the whole map): {'met' if ok1 else 'not met'}", f"bar 2 (the planted map 1 shows structure): {'met' if ok2 else 'not met'}",
+          f"bar 3 (the other maps show none): {'met' if ok3 else 'not met'}", f"bar 4 (the pieces' spectrum within 0.01 of the whole map's): {'met' if ok4 else 'not met'}",
+          "noise synthetic: " + ("met" if ok1 and ok2 and ok3 and ok4 else "not met")]
+    open(out_txt, "w").write("\n".join(L) + "\n"); print("\n".join(L)); return ok1 and ok2 and ok3 and ok4
+
+# ---- 2026-11-06 (DEV-SEQ-GLOBE-WG-01, the CMB tools at every CpG; author: the globe 'with all the bells and whistles') ----------------------
+# The atlas's two noise maps at every CpG, from the published pieces' own columns (stage_seq_atlas STATS): map 1, donor half A minus donor half B
+# (donor-to-donor difference plus counting); map 2, read half A minus read half B over every donor (counting only). Masked as on the array
+# layout: the sex chromosomes (a healthy foreground, annotated, not subtracted). Per piece: each map's sums (n, sum, sum of squares), its
+# genome-distance spectrum sums over pairs within the piece (stage_seq_atlas.genome_spectrum's pairs: each CpG with the CpGs GD_OFFSETS places
+# further along its chromosome, binned by GD_BINS), and its coarse sky map (sums and counts at NSIDE COARSE). Everything adds exactly across pieces.
+MAPS = (("map1 donor halves", "halfA", "halfB"), ("map2 read halves", "readA", "readB"))
+
+def positions(cpg_bed):
+    """Chromosome code (1..22, 23 X, 24 Y) and position of every hg19 CpG, by 0-based CpG index, from the CpG dictionary."""
+    import stage_seq_atlas as SQ
+    D = SQ.hg19_dictionary(cpg_bed); ch = np.zeros(HG19_CPGS, np.int8); ps = np.zeros(HG19_CPGS, np.int32)
+    code = {f"chr{i}": i for i in range(1, 23)}; code.update(chrX=23, chrY=24)
+    for c, (pos, ix) in D.items():
+        if c in code: ch[ix - 1] = code[c]; ps[ix - 1] = pos
+    return ch, ps
+
+def noise_piece(cpg, cols, ch, ps, coarse=256, n=HG19_CPGS):
+    """cpg: 1-based CpG index of each row; cols: {cell: {halfA, halfB, readA, readB}} (uint16 x 10,000, 65535 blank); ch, ps: positions().
+    Returns {cell: {map: dict(n, s, ss, sp_xy, sp_x, sp_y, sp_n, q0, csum, ccnt)}}."""
+    import stage_seq_atlas as SQ
+    i0 = np.asarray(cpg, np.int64) - 1; auto = (ch[i0] >= 1) & (ch[i0] <= 22); cc = ch[i0]; pp = ps[i0].astype(np.float64)
+    pix = pixel_of(i0, coarse, n); q0 = int(pix.min()); L = int(pix.max()) - q0 + 1; rel = pix - q0
+    bins = np.asarray(SQ.GD_BINS, np.float64); nb = len(bins) - 1; out = {}
+    for c, C in cols.items():
+        out[c] = {}
+        for name, a, b in MAPS:
+            v = _dec(C[a], 1e4) - _dec(C[b], 1e4); v = np.where(auto, v, np.nan); ok = np.isfinite(v)
+            Sxy, Sx, Sy, N = np.zeros(nb), np.zeros(nb), np.zeros(nb), np.zeros(nb)
+            for k in SQ.GD_OFFSETS:
+                if k >= len(v): break
+                g = ok[k:] & ok[:-k] & (cc[k:] == cc[:-k]); d = (pp[k:] - pp[:-k])[g]; bb = np.digitize(d, bins) - 1; w = (bb >= 0) & (bb < nb)
+                x2, x1 = v[k:][g][w], v[:-k][g][w]; bb = bb[w]
+                Sxy += np.bincount(bb, x1 * x2, nb); Sx += np.bincount(bb, x1, nb); Sy += np.bincount(bb, x2, nb); N += np.bincount(bb, minlength=nb)
+            out[c][name] = dict(n=int(ok.sum()), s=float(v[ok].sum()), ss=float((v[ok] ** 2).sum()), sp_xy=Sxy, sp_x=Sx, sp_y=Sy, sp_n=N, q0=q0,
+                                csum=np.bincount(rel[ok], v[ok], L), ccnt=np.bincount(rel[ok], minlength=L).astype(np.int32))
+    return out
+
+def noise_part(outdir, pieces, cpg_bed=None, ch_ps=None):
+    """The noise sums of these published pieces, one .npz per piece."""
+    import pyarrow.parquet as pq
+    ch, ps = ch_ps if ch_ps is not None else positions(cpg_bed); os.makedirs(outdir, exist_ok=True)
+    for f in pieces:
+        sch = pq.read_schema(f).names; cells = sorted({x.split("|")[0] for x in sch if x.endswith("|halfA")})
+        T = pq.read_table(f, columns=["cpg"] + [f"{c}|{k}" for c in cells for k in ("halfA", "halfB", "readA", "readB")])
+        R = noise_piece(T.column("cpg").to_numpy(), {c: {k: T.column(f"{c}|{k}").to_numpy() for k in ("halfA", "halfB", "readA", "readB")} for c in cells}, ch, ps)
+        flat = {}
+        for c, M in R.items():
+            for name, d in M.items():
+                for k, v in d.items(): flat[f"{c}|{name}|{k}"] = np.asarray(v)
+        np.savez_compressed(os.path.join(outdir, os.path.basename(f).replace(".parquet", "_noise.npz")), **flat); print("noise", os.path.basename(f), len(cells), flush=True)
+
+def noise_join(part_dirs, outdir, coarse=256, n_perm=20, seed=20261113):
+    """Joins every piece's noise sums: per cell and map, the mean and mean square (the donor part, map 1's minus map 2's), the genome-distance
+    spectrum (the mean product of the z-scored pair, by distance band; stage_seq_atlas.genome_spectrum's definition over pairs within a piece),
+    and the sphere null test: the coarse map (NSIDE COARSE means, each NSIDE 128 pixel the mean of its four, RING) read by
+    sky_statistics.sky_spectrum_record with the apodised mask; a band shows structure when its power is above all n_perm shuffles."""
+    import healpy as hp, sky_statistics as SS, stage_seq_atlas as SQ
+    files = sorted(f for d in part_dirs for f in glob.glob(os.path.join(d, "*_noise.npz"))); acc = {}
+    for f in files:
+        Z = np.load(f)
+        for key in Z.files:
+            c, name, k = key.split("|"); A = acc.setdefault((c, name), dict(n=0, s=0.0, ss=0.0, sp_xy=0, sp_x=0, sp_y=0, sp_n=0, csum=np.zeros(npix(coarse)), ccnt=np.zeros(npix(coarse), np.int64)))
+            if k in ("n", "s", "ss", "sp_xy", "sp_x", "sp_y", "sp_n"): A[k] = A[k] + Z[key]
+        for (c, name), A in acc.items():
+            if f"{c}|{name}|q0" in Z.files:
+                q0 = int(Z[f"{c}|{name}|q0"]); cs = Z[f"{c}|{name}|csum"]; cn = Z[f"{c}|{name}|ccnt"]; A["csum"][q0:q0 + len(cs)] += cs; A["ccnt"][q0:q0 + len(cn)] += cn
+    rep = dict(pieces=len(files), coarse_nside=coarse, cells={}); maps = {}; rng = np.random.default_rng(seed)
+    for (c, name), A in sorted(acc.items()):
+        if not A["n"]: continue
+        mu = A["s"] / A["n"]; var = A["ss"] / A["n"] - mu ** 2; N = np.asarray(A["sp_n"], float)
+        corr = (np.asarray(A["sp_xy"]) - mu * (np.asarray(A["sp_x"]) + np.asarray(A["sp_y"])) + N * mu ** 2) / np.where(N > 0, N * var, np.nan)
+        m = np.where(A["ccnt"] > 0, A["csum"] / np.maximum(A["ccnt"], 1), np.nan); maps[f"{c}|{name}"] = m.astype(np.float32)
+        m4 = m.reshape(-1, 4)
+        with np.errstate(all="ignore"): m128 = np.where(np.isfinite(m4).any(1), np.nanmean(m4, 1), np.nan)
+        r = SS.sky_spectrum_record(hp.reorder(m128, n2r=True), n_perm=n_perm, rng=rng, mask="apodised"); nb_ = r["null_bandpowers"]
+        rep["cells"].setdefault(c, {})[name] = dict(cpgs=int(A["n"]), mean=round(float(mu), 6), mean_se=round(float(np.sqrt(var / A["n"])), 7), mean_square=round(float(A["ss"] / A["n"]), 7),
+            spectrum=dict(bins=[(int(SQ.GD_BINS[i]), int(SQ.GD_BINS[i + 1])) for i in range(len(N))], corr=[round(float(x), 5) if np.isfinite(x) else None for x in corr], pairs=[int(x) for x in N]),
+            sphere_null=dict(bands=SS.BANDS, ratio=[round(float(b / n_), 4) for b, n_ in zip(r["bandpowers"], nb_.mean(0))], bands_above_null=[int(k) for k in np.flatnonzero(r["bandpowers"] > nb_.max(0))], f_sky=r["f_sky"]))
+    for c, D in rep["cells"].items():
+        if len(D) == 2: D["donor_part"] = round(D["map1 donor halves"]["mean_square"] - D["map2 read halves"]["mean_square"], 7)
+    os.makedirs(outdir, exist_ok=True); json.dump(rep, open(os.path.join(outdir, "globe_wg_noise.json"), "w"), indent=1)
+    np.savez_compressed(os.path.join(outdir, f"globe_wg_noise_maps_n{coarse}.npz"), **maps); return rep
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if a[0] == "synthetic": sys.exit(0 if synthetic(a[1]) else 1)
@@ -208,3 +336,6 @@ if __name__ == "__main__":
     if a[0] == "join": join_dir(int(a[1]), a[2], a[3])
     if a[0] == "slice": slice_(a[1], a[2], a[3:])
     if a[0] == "assemble": assemble(a[2:], a[1])
+    if a[0] == "noise-synthetic": sys.exit(0 if noise_synthetic(a[1]) else 1)
+    if a[0] == "noise-part": noise_part(a[1], a[3:], cpg_bed=a[2])
+    if a[0] == "noise-join": noise_join(a[2:], a[1])

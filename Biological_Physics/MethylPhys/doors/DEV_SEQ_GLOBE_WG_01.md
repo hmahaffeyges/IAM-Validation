@@ -69,3 +69,17 @@ The Globe Viewer textures (NSIDE 256) are joined from the same slices. **Next:**
 checked against the atlas deposit's SHA256 manifest, one set at a time, each set deposited as it finished; the job rebuilt the textures and the check
 against the current globe there and stops before depositing them if the check is not met. The record holds the 12 set tars (the NSIDE 2048 slices,
 stored compressed), the NSIDE 256 textures, the check, the synthetic, the builder, the README and the checksums.
+
+**The CMB tools at every CpG (written before they read the atlas).** Until now the globe's noise maps, mask, null test and spectrum were computed at the 813,951 array-layout sites only. The published pieces
+hold, at every CpG, each cell's two donor halves and two read halves, so both noise maps are made at all 28,217,448 CpGs from the Zenodo
+deposit alone (`seq_globe_wg.py`: `noise-part`, `noise-join`): map 1, donor half A minus donor half B; map 2, read half A minus read half B.
+**Mask:** the sex chromosomes, as on the array layout. The array layout's second mask, probes that cannot be placed uniquely, is a list of
+array probes; a whole-genome mappability mask is not in hand and is recorded as not yet applied. **Per cell and map:** the mean and mean
+square (the donor part, map 1's minus map 2's); the genome-distance spectrum (`stage_seq_atlas.genome_spectrum`'s pairs, taken within each
+250,000-CpG piece so the sums add across machines); the sphere null test (NSIDE 256 coarse map, each NSIDE 128 pixel the mean of its four,
+`sky_statistics.sky_spectrum_record`, apodised mask, 20 shuffles), as `stage_seq_atlas.sky_null` does on the array layout. **Synthetic first**
+(`noise-synthetic`, all 28,217,448 CpGs): two constructed cells, one with structure planted in its donor halves only. Bars: 1. X and Y left out
+and each map's sums from the pieces equal the whole map's; 2. the planted map shows structure on the sphere (a band above all shuffles, power
+over 3 times their mean) and along the genome (correlation above 0.05 at 1 to 10 kb and 10 to 100 kb); 3. the other three maps show none (no
+band over 1.5 times the shuffles' mean, every correlation within 0.01 of 0); 4. the pieces' spectrum within 0.01 of the whole map's. **Not yet at
+every CpG (recorded):** Minkowski functionals and the information sphere.
