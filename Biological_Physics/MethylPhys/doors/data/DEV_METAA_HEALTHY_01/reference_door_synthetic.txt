@@ -1,0 +1,8 @@
+The reference door: synthetic, every array through run_sample.py
+clean: exit 0 | reference {"healthy_reference": ["IAM-Atlas v2.1", "IAM Sequencing Atlas"], "checked": true, "files_checked": 60, "tares": []}
+one byte added to Seq_Atlas/floor_sites_v1.json: exit 7 | status REFERENCE_REFUSED | refused ['IAM Sequencing Atlas/floor_sites_v1.json']
+an unlisted file in Seq_Atlas: exit 7 | status REFERENCE_REFUSED | refused ['not in the reference manifest: Seq_Atlas/unlisted_reference.parquet']
+bar 1 (clean: checked, atlas named, no tare): met
+bar 2 (altered file refused before any reading): met
+bar 3 (unlisted file refused): met
+synthetic: met

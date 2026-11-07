@@ -587,3 +587,8 @@ byte added to one Sequencing Atlas file each run stops before any reading, the f
 list stops each run the same way.
 
 **Prior reading:** none; nothing outside the atlases is read.
+
+**Lock 1, the reference door: synthetic met** (`data/DEV_METAA_HEALTHY_01/reference_door_synthetic.txt`; GitHub run 42390866709, the one command on the wired chain).
+The clean run's bundle names IAM-Atlas v2.1 and the IAM Sequencing Atlas, checked (60 files), with no tare; one byte added to one Sequencing Atlas
+file stopped the run before any reading (exit 7, the file named); an unlisted file in Seq_Atlas stopped it the same way. Lock 1 is live in the one
+command; the daily reference line in the day summary follows.

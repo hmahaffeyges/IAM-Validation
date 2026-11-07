@@ -103,6 +103,13 @@
      "what": "Google merges save the merged molecules to the bucket the moment they exist and keep the chain's own log; dispatchers log GAVE UP and STUCK, which the loop check prints as failures.",
      "outcome": "Found the five tumor merges' real stop: the specimen carried a status word.",
      "record": "Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/split_google.sh"
+    },
+    {
+     "title": "Lock 1, the reference door",
+     "status": "built",
+     "what": "Every run of the one command checks IAM-Atlas v2.1 and the IAM Sequencing Atlas against their checksums before any reading, and every bundle records the atlases read and every tare applied.",
+     "outcome": "Synthetic met: a changed or unlisted atlas file stops the run before any reading; checked first on a fresh GitHub checkout.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   },

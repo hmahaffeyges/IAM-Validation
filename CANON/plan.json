@@ -246,10 +246,10 @@
     {
      "id": "60.31",
      "date": "2026-11-07",
-     "status": "open",
+     "status": "running",
      "record": "Biological_Physics/MethylPhys/manual/decoder_text.md",
      "what": "Lock 1: one reference door in the chain (the published atlases only, checked by checksum; every bundle records its reference), then the daily reference audit line in the day summary. A chain change: after the running replays (R5, R9, wb100_atlas).",
-     "next": "when the replays finish"
+     "next": "lock 1 live, synthetic met (897c9600); next the daily reference line in the day summary (from each day's records' Reference lines)"
     },
     {
      "id": "60.32",
