@@ -165,7 +165,7 @@
   "donors": [
    {
     "atlas": "IAM Sequencing Atlas",
-    "what": "156 donor files, 57 cells: 119 are normal tissue left over from clinically needed surgery for something else, taken away from any known disease and confirmed with the surgeons or pathologists; 20 come from deceased organ donors and islet programs; 9 from adipose surgery and brain autopsies; 8 are commercial primary cells. Ages 3 to 83, median 52. Every cell type was purified by sorting and its purity checked."
+    "what": "156 donor files, 57 cells: 119 are normal tissue left over from clinically needed surgery for something else, taken away from any known disease and confirmed with the surgeons or pathologists; 20 come from deceased organ donors and islet programs; 9 from adipose surgery and brain autopsies; 8 are commercial primary cells. Ages 3 to 83, median 52. Every cell type was purified by sorting and its purity checked. The 58th column, megakaryocytes, is provisional: built from single megakaryocytes of two healthy donors (33 and 19 cells), sequenced one cell at a time, because no healthy bulk megakaryocyte sequencing is open."
    },
    {
     "atlas": "IAM-Atlas v2.1, groups carried from v2",

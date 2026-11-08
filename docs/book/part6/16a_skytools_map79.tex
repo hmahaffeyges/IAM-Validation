@@ -12,7 +12,7 @@
 4 & Frequency coverage & more than one mark or assay per cell (5mC, 5hmC; arrays and single molecules) & partial & Met-A (arrays) and IAM-A (single molecules) read one cell two ways \\ \rowrule
 5 & Beam modeling & per-probe response from sequence context & not built & root fix for platform transfer \\ \rowrule
 6 & Bandpass calibration & bisulfite conversion, probe-type normalization & in use & Stages 0-1; conversion threshold still to calibrate \\ \rowrule
-7 & Gain calibration and drift & same-run tare against healthy references & in use & Stage T: median tare; noise index gates the state; slide tare from control DNA planned \\ \rowrule
+7 & Gain calibration and drift & each array's own line and noise, measured on the array & in use & the healthy prediction: the array's line and noise per probe design applied to the atlas; healthy comes only from the atlases (the same-run tare is retired) \\ \rowrule
 8 & Polarization-angle calibration & strand orientation & not built &  \\ \rowrule
 9 & Scanning strategy & sampling design of studies across many people & out & the method reads one specimen at a time \\ \rowrule
 10 & Time-ordered data & IDAT intensities and control probes & in use & Stage 1 \\ \rowrule
@@ -20,21 +20,21 @@
 12 & Correlated noise & array-position and scanner noise & partial & array noise index N; no position model \\ \rowrule
 13 & Map-making & intensity to beta & in use & Stage 1, bit-identical reruns \\ \rowrule
 14 & Transfer function & how much real signal the deconvolver absorbs & measured & Ch. separation; no module \\ \rowrule
-15 & HEALPix pixelization & genome order laid on HEALPix rings & built, not in chain & maps in this chapter; the C-score works along the genome directly \\ \rowrule
-16 & Masks and apodization & SNP, cross-reactive and undetected probes; sex chromosomes & partial & probe masks in use; whole-array maps need a sex mask (this chapter) \\ \rowrule
+15 & HEALPix pixelization & genome order laid on HEALPix rings & in use & every report draws its sample on the atlas globe; the Sequencing Atlas Globe at every CpG; the C-score works along the genome directly \\ \rowrule
+16 & Masks and apodization & SNP, cross-reactive and undetected probes; sex chromosomes; poorly mapping sites & partial & probe masks in use on arrays; sex-chromosome and poorly-mapping masks built on the IAM Sequencing Atlas \\ \rowrule
 17 & Cut-sky mode coupling & bias of genome-distance correlations from masked sites & not built &  \\ \rowrule
-18 & Galactic foregrounds & composition, sex, batch, age, smoking & partial & composition and batch (tare) in use; sex measured here; age and smoking not read \\ \rowrule
+18 & Galactic foregrounds & composition, sex, batch, age, smoking & partial & composition in use (the IAM-Deconvolver); each array calibrated on its own; sex measured here; age and smoking not read \\ \rowrule
 19 & Extragalactic foregrounds & inflammation, drugs, recent illness & not built & DNMT1 inhibitor is the first known injected foreground \\ \rowrule
 20 & Second component separation & an independent solver & built, not in chain & one solver; a second (ILC-style) was built and cut \\ \rowrule
-21 & Foreground marginalization & composition and tare uncertainty carried into A & not built & readings are point values with a detection limit \\ \rowrule
-22 & Split maps, cross-spectra & held-out reference arrays; repeat specimens & in use & each array read against the other five; repeats being measured in development \\ \rowrule
-23 & Pseudo-Cl on a masked sky & genome-distance spectrum C(d) inside one specimen & partial & measured on 6 neutrophil arrays (this chapter); masks not yet handled \\ \rowrule
+21 & Foreground marginalization & composition uncertainty carried into A & not built & readings are point values with a detection limit \\ \rowrule
+22 & Split maps, cross-spectra & donor halves and read halves; repeat specimens & built, not in chain & the IAM Sequencing Atlas's two noise maps (sealed donor halves, random read halves), each against its shuffled null; repeats being measured in development \\ \rowrule
+23 & Pseudo-Cl on a masked sky & genome-distance spectrum C(d) inside one specimen & partial & measured on 6 neutrophil arrays (this chapter); built on the IAM Sequencing Atlas with its masks \\ \rowrule
 24 & Quadratic maximum likelihood & per-arm or per-domain spectrum & not built &  \\ \rowrule
 25 & Bandpowers & log-spaced genome-distance bins & not built &  \\ \rowrule
 26 & Beam and calibration nuisances & probe response and conversion as nuisance terms & not built &  \\ \rowrule
 27 & Low-l likelihood & few-region signals & not built &  \\ \rowrule
 28 & High-l likelihood & distance of one specimen from a group of people (Mahalanobis) & out & a statistic over many people \\ \rowrule
-29 & Covariance matrices & per-site covariance for one cell & partial & per-site shrunk SD among healthy references; no off-diagonal terms \\ \rowrule
+29 & Covariance matrices & per-site covariance for one cell & partial & per-site spread between the atlas's healthy donors; no off-diagonal terms \\ \rowrule
 30 & End-to-end simulation & constructed specimens: mixtures, known damage & in use & 2 \% and 5 \% blur, DNA mixtures \\ \rowrule
 31 & Null tests & healthy-minus-healthy, same array twice, replicate pairs & in use & null map in this chapter \\ \rowrule
 32 & Goodness of fit, look-elsewhere & pre-registration and correction for every look & reserved & for commissioning and evidence runs \\ \rowrule

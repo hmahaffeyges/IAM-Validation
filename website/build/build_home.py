@@ -8,7 +8,7 @@ tool-board status. The page text is checked with the field-notes voice and hype 
 exist; --check runs those checks without writing. --standalone OUT.html writes one self-contained file (CSS and images inlined) for review.
 Usage: python3 website/build/build_home.py SITE_DIR | --check | --standalone OUT.html"""
 _NW = {1:'one',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',10:'ten',11:'eleven',12:'twelve'}   # 2026-10-22: counts on the page are counted, never typed
-import glob, os, re, sys, json, html, base64, datetime, importlib.util
+import collections, glob, os, re, sys, json, html, base64, datetime, importlib.util
 
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 GH = "https://github.com/hmahaffeyges/IAM-Validation/blob/main/"
@@ -208,7 +208,7 @@ def page(art):
     losses = "\n".join(f'<li><b>{E(x["date"])}</b> {E(x["plain"])} <a href="{rec(x["record"])}">the record</a></li>' for x in REG["losses"])
     mouse = next(e for e in REG["entries"] if e["id"] == "DEV-SAM-LEVER-01"); mv = vals(mouse)
     going = "; ".join(E(s_["headline"]) for s_ in NRJ["stories"] if s_["status"] == "running")   # only what is running now (author 2026-10-17)
-    AT = J("CANON/atlas_release.json")
+    AT = J("CANON/atlas_release_v21.json")   # 2026-11-08: the current array atlas, IAM-Atlas v2.1
     import importlib.util as _ilu
     _sp = _ilu.spec_from_file_location("v21r", os.path.join(REPO, "CANON", "v21_readiness.py")); _v21 = _ilu.module_from_spec(_sp); _sp.loader.exec_module(_v21)
     _VR = J("CANON/v21_readiness.json")
@@ -233,14 +233,14 @@ def page(art):
     def _tools(st):
         return "".join(f'<li><b>{E(t["name"])}.</b> <i>In cosmology:</i> {E(t["sky"])} <i>In the atlas:</i> {E(t["cell"])} <i>IAM-Atlas&rsquo;s unique capability:</i> {E(t["them"])}</li>'
                        for t in _ST["tools"] if t["status"] == st)
-    v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">IAM-Atlas v2.1 · 79 cells · commissioned use by use</p><h2>{E(_ST["title"])}</h2>'
+    v21_banner = (f'<div class="banner" id="v21"><p class="kicker">IAM-Atlas v2.1 · 79 cells · commissioned use by use</p><h2>{E(_ST["title"])}</h2>'
         + "".join(f"<p>{E(x)}</p>" for x in _ST["opening"]) + f'<p><b>{E(_ST["not_this"])}</b></p>'
         + "".join(f'<details><summary>{_LB[st]}</summary><ul class="road">{_tools(st)}</ul></details>' for st in ("now", "gift", "after"))
         + ((lambda R: f'<details><summary>{E(R["question"])}</summary><p>{E(R["answer"])}</p><ul class="road">'
             + "".join(f'<li><b>{E(x["name"])}.</b> {E(x["text"])}</li>' for x in R["points"]) + f'</ul><p>{E(R["other_atlases"])}</p><p>{E(R["not_the_reason"])}</p>'
             + f'<p><b>Who the donors were.</b> {E(R["donors_intro"].replace("`", ""))}</p><ul class="road">' + "".join(f'<li><b>{E(d["atlas"])}:</b> {E(d["what"])}</li>' for d in R["donors"])
             + f'</ul><p>{E(R["donors_meaning"])}</p></details>')(_ST["ruler"]) if _ST.get("ruler") else "")   # 2026-11-07 (author): what makes the atlases a ruler; who the donors were
-        + f'<p><b>What is commissioned.</b> {E(_ST["commissioned"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div></section>')
+        + f'<p><b>What is commissioned.</b> {E(_ST["commissioned"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div>')
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()
     _II = intro_instruments()
@@ -289,9 +289,10 @@ def page(art):
     _hl = "".join(f'<li><b>{E(e["title"])}</b> <span class="chip st-b">{E(e["status"])}</span> {E(e["what"])} <a href="{rec(e["record"])}">record</a></li>'
                   for e in [x for x in _lrn["entries"] if x["status"] not in ("failed", "diagnosis")] + [x for x in _ran["entries"] if x["status"] in ("sealed", "in progress")])   # wins and work under way only (author 2026-10-15: the page is for progress; exploratory misses stay in the research record)
     # author 2026-10-19: one line and a link, not the day's list (the list is the day log itself, and a copy here goes stale)
-    last24 = (f'<section class="wrap" id="today"><h2>The most recent day log</h2><p class="sub">{E(_DL["date"])}: {E(_DL["title"])}. '
+    DLBTN = f'''<p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>'''
+    last24 = (f'<section class="wrap" id="daylogs"><h2>The daily log</h2><p class="sub">{E(_DL["date"])}: {E(_DL["title"])}. '
               f'<a href="{rec("Biological_Physics/MethylPhys/daylogs/" + _DL["date"] + ".md")}">Read the day log</a>, written as the work happens; '
-              f'every line links to its record.</p></section>')
+              f'every line links to its record.</p>' + DLBTN + '</section>')
     MF = J("CANON/manifest.json"); _CLOSED = {"run", "retired"}
     mf_total = len(MF["rows"]); mf_run = sum(1 for r in MF["rows"] if r["runs"]); mf_open = sum(1 for r in MF["rows"] if r["status"] not in _CLOSED)
     mf_rows = "\n".join(
@@ -304,6 +305,10 @@ def page(art):
     names = {"machines": "rented computers", "machine disks and snapshots": "their disks", "S3 storage": "data storage", "data transfer": "data transfer", "other": "other Amazon services"}
     mlines = "; ".join([f"{names.get(k, k)} ${v:,.2f}" for k, v in A.items() if v >= 0.01] + [f"{f['item']} ${f['monthly_usd']:,.0f} a month ({f['note']})" for f in CO["fixed"]])
     mtot = sum(A.values()) + sum(f["monthly_usd"] for f in CO["fixed"])
+    # 2026-11-08: Amazon over every month it was used (the account is no longer used; its billing ends with the last snapshot), no date ranges in prose
+    _AM = collections.Counter()
+    for _m in CO["aws_by_month"].values(): _AM.update({k: v for k, v in _m.items()})
+    atot = sum(_AM.values()); alines = "; ".join(f"{names.get(k, k)} ${v:,.2f}" for k, v in _AM.most_common() if v >= 0.01)
     A = json.load(open(os.path.join(REPO, "CANON", "author.json"), encoding="utf-8"))
     apar = "\n".join(f"<p>{E(x)}</p>" for x in A["paragraphs"])
     _ap = [x for x in re.findall(r"<p[^>]*>.*?</p>", apar, re.S)] or [apar]
@@ -328,6 +333,7 @@ def page(art):
     # 2026-11-05 (author: "make sure the atlas globes are both linked and represented for BOTH atlas's and that the sequencing atlas is showcased
     # and explained next to the v2.1 array atlas so they see the differences"): the two rulers side by side, every number read from their files
     _SPH = J("website/art/out/sphere/sphere.json"); _SQS = J("website/art/out/seq_cells/index.json")
+    _NSQ = len(J("website/art/out/seq_wg/index.json")["cells"])   # 2026-11-08: the atlas at every CpG, 58 cells with the megakaryocyte column (the layout globe predates it)
     _A1 = next(i for i in _C["instruments"] if i["id"] == "atlas"); _A2 = next(x for x in _C["in_development"] if x["name"] == "The IAM Sequencing Atlas")
     _doi = lambda s: re.findall(r"10\.5281/zenodo\.\d+", s)
     _d1 = _doi(_A1["next"]); _d2 = _doi(_A2["what"] + " " + _A2["next"])
@@ -346,12 +352,12 @@ def page(art):
         f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html">Array Atlas Globe</a><a class="btn ghost" href="{_root}atlas/index.html">Every cell, page by page</a><a class="btn ghost" href="{_root}atlas/information_sphere.html">Array Information Sphere</a></p></article>'
         f'<article class="card"><a href="{_root}atlas/sphere.html?globe=seq-atlas"><img src="{art("seq_cells/b-cells_v.jpg")}" alt="IAM Sequencing Atlas healthy B cells on the sphere" style="width:100%;border-radius:8px"></a>'
         f'<span class="chip st-b">in development</span><h3>The IAM Sequencing Atlas: the ruler for sequenced samples</h3><p>{E(_sents(_A2["what"], 3))}</p>'
-        f'<p class="sub">{len(_SQS["cells"])} healthy cell types &middot; {E(_cpg)} CpGs, every one in the genome &middot; counted from reads, donor by donor &middot; DOI {_dl_(_d2)}</p>'
+        f'<p class="sub">{_NSQ} healthy cell types (megakaryocytes provisional) &middot; {E(_cpg)} CpGs, every one in the genome &middot; counted from reads, donor by donor &middot; DOI {_dl_(_d2)}</p>'
         f'<p class="cta"><a class="btn" href="{_root}seq-atlas/globe.html">The globe at every CpG, part by part</a><a class="btn ghost" href="{_root}atlas/sphere.html?globe=seq-atlas">Sequencing Atlas Globe</a><a class="btn ghost" href="{_root}seq-atlas/index.html">Every cell, page by page</a>'
         f'<a class="btn ghost" href="{_root}atlas/information_sphere_sequencing.html">Sequencing Information Sphere</a></p></article></div>'
         f'<h3>How they differ</h3><div style="overflow-x:auto"><table class="tools"><thead><tr><th></th><th>IAM-Atlas v2.1</th><th>IAM Sequencing Atlas</th></tr></thead><tbody>'
         f'<tr><td>The ruler for</td><td>methylation arrays (450K, EPIC v1, EPIC v2)</td><td>sequenced samples, read as counts of methylated and unmethylated reads</td></tr>'
-        f'<tr><td>Healthy cell types</td><td>{len(_SPH["cells"])}</td><td>{len(_SQS["cells"])}</td></tr>'
+        f'<tr><td>Healthy cell types</td><td>{len(_SPH["cells"])}</td><td>{_NSQ}</td></tr>'
         f'<tr><td>Sites</td><td>{_SPH["sites"]:,} array sites</td><td>{E(_cpg)} CpGs (about 32 times an array)</td></tr>'
         f'<tr><td>Built</td><td>one hierarchical model of {_src} public sources, each source&rsquo;s offset measured and held apart</td><td>counted from the sequencing reads of healthy donors; nothing fitted</td></tr>'
         f'<tr><td>Uncertainty</td><td>a 95 % range at every site, from the posterior draws</td><td>a 95 % range at every CpG, and two noise maps (donor halves, read halves)</td></tr>'
@@ -375,22 +381,12 @@ def page(art):
 <p class="sub">Each card links to its record. <a href="{rec("Biological_Physics/MethylPhys/EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
 </section>
 {atlases}
-{catalogue}
-{researcher_section()}
-{campaign}
-{last24}
-<section class="wrap" id="daylogs"><h2>Start here: the daily log</h2>
-<p class="cta">{"".join(f'<a class="btn" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[:1])}{"".join(f'<a class="btn ghost" href="{rec("Biological_Physics/MethylPhys/daylogs/" + d + ".md")}">{E(d)}</a>' for d, _ in _dl[1:4])}</p>
-</section>
-<div class="wrap"><p class="continues">{("Running now: " + going + ". ") if going else ""}<a href="#road">The road ahead</a>.</p></div>
+<section class="wrap pic" id="atlas-more"><details class="fold"><summary>How the atlases were built and checked, the way a sky map is: IAM-Atlas v2.1, the atlases on the sky, and the cosmology tools</summary>
 {v21_banner}
-<section class="wrap pic" id="sky"><h2>IAM-Atlas v2.1 on the sky</h2>
+<h3 id="sky">IAM-Atlas v2.1 on the sky</h3>
 <p class="sub">One sky map for every cell type, all 79 of the commissioned IAM-Atlas v2.1, drawn on the same sphere. Each site's position on that sphere is fixed by where it sits in the genome, so any two cells can be compared site for site, and so can a person's sample against the healthy cell it came from.</p>
 <figure><img src="{art("sky_atlas_globes.jpg")}" alt="Two globes: the microwave sky measured by Planck, and healthy neutrophils from IAM-Atlas v2.1 drawn the same way."><figcaption>Two skies, drawn the same way. Left, the microwave sky as the Planck satellite measured it (ESA and the Planck Collaboration, 2018). Right, healthy neutrophils from IAM-Atlas v2.1: 813,950 sites, each one point on the sphere, from never tagged (blue) to always tagged (red).</figcaption></figure>
 <figure><img src="{art("sky_v21_plate.jpg")}" alt="All 79 cell types of IAM-Atlas v2.1 on the sphere."><figcaption>The atlas of the sky: every cell type of IAM-Atlas v2.1 on the same sphere, in the same places. Blood, liver, brain, lung, gut, skin: each healthy identity leaves its own pattern on the same pixels. <a href="atlas/index.html">See every cell on its own page</a>, each with its map of how sure the atlas is.</figcaption></figure>
-<h3>The IAM Sequencing Atlas: the ruler for sequenced samples</h3>
-<p class="sub">An array reads a probe's light, which never quite reaches 0 or 1; sequencing counts molecules, so a site no healthy cell marks reads about 0. Near the floor a small offset in level is a large offset in disorder, so each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. It holds 58 healthy cell types (megakaryocytes provisional) at every CpG of the genome, counted from healthy donors' reads with nothing fitted, with two measured noise maps for every cell. In development; on Zenodo: <a href="https://doi.org/10.5281/zenodo.24029328">doi.org/10.5281/zenodo.24029328</a>; its globe at every one of the 28,217,448 CpGs: <a href="https://doi.org/10.5281/zenodo.24029332">doi.org/10.5281/zenodo.24029332</a> (<a href="{_root}seq-atlas/globe.html">how each part of it works</a>).</p>
-<figure><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><img src="{art("seq_cells/b-cells_v.jpg")}" alt="Healthy B cells from the IAM Sequencing Atlas on the sphere."><img src="{art("seq_cells/b-cells_u.jpg")}" alt="How sure the IAM Sequencing Atlas is of each B-cell value."></div><figcaption>Healthy B cells at the 813,951 layout sites, on the same sphere and in the same places (left), and how sure the atlas is of each value (right). <a href="seq-atlas/index.html">See every cell of the IAM Sequencing Atlas on its own page</a>.</figcaption></figure>
 <details class="fold"><summary>How it was built, where the reference is sure, and what a researcher sees (5 maps)</summary>
 <h3>How it was built</h3>
 <ul><li><b>One map per cell type, every site in its place.</b> The sites are laid on the sphere in genome order, chromosome 1 through Y, on HEALPix, the pixel grid the Planck and WMAP missions used to map the microwave sky: 786,432 pixels, arranged so that a stretch of the genome fills a compact patch of sky. The layout is fixed in advance and identical for every cell and every sample. Nothing is fitted to draw it.</li>
@@ -414,14 +410,20 @@ def page(art):
 <p>In a cell the record is methylation. Each site is a bit, tagged or not; that is how a neutrophil remembers it is a neutrophil and not a liver cell. The cell pays about one ATP per site to hold those marks against the kicks of heat (the M number, M = 20.94). When the holding weakens, the marks drift toward random, and that drift can be measured in bits. Met-A reads how far the level has drifted, IAM-A reads it on single molecules against the sample's own line, and the C-Score reads whether the drift is scattered or clustered.</p>
 <p>Cosmology spent decades learning to read a faint record on a sphere against noise: combining many instruments into one map, fitting each instrument's quirks, giving every pixel its error, testing with simulations of known answer, and fixing the rule before opening the data. If one law writes both records, one toolkit reads both. IAM-Atlas v2.1 and the commissioned chain are that toolkit, rebuilt for the cell: the statistics of the sky, applied to the physics of methylation.</p>
 <p class="more"><b>All of this, in full, in the book:</b> {ch("skytools")} lists every cosmology tool and what each does here; {ch("sky")} is the sky reading itself and why its statistics stay withheld; {ch("reference")} is what the atlas is and how it is built; {ch("translation")} is why the tools carry over at all; {ch("astro")} is the idea in one chapter.</p>
-</details></section>
-<section class="wrap"><h2>Our instruments are the telescopes. The atlas is the sky map.</h2>
+</details>
+<h3>Our instruments are the telescopes. The atlas is the sky map.</h3>
 <details class="fold"><summary>How it works, and all {len(BT)} cosmology tools, in use and in the pipeline</summary>
 <p>The instruments are the telescopes; each is commissioned on its own tests. The atlas, a map of what healthy human cells look like, is the sky map they read against. Like each release of the microwave-sky maps, every atlas version is refitted whole, gets its own DOI and is checked again by the same tests on data it never saw. This is not a metaphor: it is the same mathematics applied to a different signal. Each tool, with where it stands:</p>
 <p>All {len(BT)} cosmology tools mapped onto the cell, from the table in {ch("skytools")}, grouped by where each stands. <b>next</b> marks the chapter's order for what to employ next.</p>
 <table class="tools"><thead><tr><th>#</th><th>The cosmology tool</th><th>Its counterpart in the cell</th><th>Status</th><th>Where</th></tr></thead><tbody>{tools}</tbody></table>
-<p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="book/ch_skytools.html">book's chapter on the tools from cosmology</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details></section>
+<p class="more">Read it in full in the book: {ch("astro")} and {ch("landauer")} are the physics, {ch("translation")} is why cosmology's tools apply, {ch("skytools")} is the tool list. Sky data: Planck 2018 SMICA map from the Planck Legacy Archive (ESA and the Planck Collaboration, Planck 2018 results IV, A&A 641, A4, 2020), colors from the Planck Collaboration's own color scale. Every tool, built or not yet built: the <a href="book/ch_skytools.html">book's chapter on the tools from cosmology</a>. The atlas itself, free to download: <a href="https://doi.org/{E(AT["doi"])}">DOI {E(AT["doi"])}</a> ({AT["total_bytes"] / 1e9:.2f} GB in {AT["files"]} files, every file checked against its fingerprint).</p></details>
+</details></section>
 {bits}
+{catalogue}
+{researcher_section()}
+{campaign}
+{last24}
+<div class="wrap"><p class="continues">{("Running now: " + going + ". ") if going else ""}<a href="#road">The road ahead</a>.</p></div>
 <section class="wrap" id="manifest"><h2>Every test, numbered</h2>
 <p class="sub">The Master Testing Manifest is the one list of every test we have run, are running, or plan: {mf_total} tests, {mf_run} with at least one dated result, {mf_open} still open. A test is never removed; when it runs it gets a dated result, failures included. Ask for any test by its number.</p>
 <p class="cta"><a class="btn" href="{rec("MANIFEST.md")}">The Master Testing Manifest</a></p>
@@ -489,11 +491,11 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 </details>
 <!-- ASSISTANT:END -->
 </section>
-<section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage, refreshed every time the site is published. Everything is paid by us and by people who choose to help.</p>
-<details class="fold"><summary>See every cost: {E(mkey)} to {E(CO["as_of"])}, ${mtot:,.2f}</summary>
-<div class="grid costs"><div class="card"><p class="big">${mtot:,.2f}</p><p>{E(mkey)} to {E(CO["as_of"])}, all costs</p><p class="small">{E(mlines)}</p></div>
-<div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files), {E(s3c)} in {E(mkey)} to {E(CO["as_of"])}</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
-<div class="card"><p class="big">${wsum:,.2f}</p><p>rented computing, last 7 billed days ({E(week[0][0])} to {E(week[-1][0])})</p><p class="small">Every run, its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
+<section class="wrap"><h2>What it costs</h2><p class="sub">Every dollar, from Amazon's own billing and our storage. Everything is paid by us and by people who choose to help. The atlas and the first commissionings ran on rented Amazon machines; the work now runs on GitHub's free machines, with Google's low-cost machines for the large jobs.</p>
+<details class="fold"><summary>See every cost on Amazon: ${CS["billed_usd"]:,.2f}</summary>
+<div class="grid costs"><div class="card"><p class="big">${CS["billed_usd"]:,.2f}</p><p>Amazon, all computing and storage billed</p><p class="small">Through the day log that closes the campaign, the same number as above. By kind, from Amazon's monthly bill as last read (${atot:,.2f} in all): {E(alines)}</p></div>
+<div class="card"><p class="big">{CO["s3"]["bytes"] / 1e12:.2f} TB</p><p>of public data stored for our tests ({CO["s3"]["objects"]:,} files)</p><p class="small">Amazon moves files we have not touched to cheaper storage on its own.</p></div>
+<div class="card"><p class="big">Every run</p><p>its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="read/">The book, every number checked by a script</a><a class="tile" href="book/">Run every check in your browser</a>
 <a class="tile" href="{rec("FOUR_DOMAINS.md")}">One law, four applications, and IAM in bits</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md")}">Commissioning report: what is commissioned and what it passed</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The instrument catalogue</a>
