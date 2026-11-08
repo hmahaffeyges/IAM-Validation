@@ -312,8 +312,8 @@ def detail_tables(o):
               "The IAM-Deconvolver says which cells are in this sample; each one found is read by every instrument that can read it, against that cell's own healthy profile in the atlas, in this sample's own cell mix. This is the result. The whole-sample reading further down is a side line.",
               ["Cell", "Share", "Met-A", "C-Score (limit)", "IAM-A", "Note"],
               [[cellname(x["cell"]), f"{100*(x.get('share') or 0):.1f} %", _f(x.get("met_a")) or "-", (f"{_f(x.get('c_score'), 3)} ({_f(x.get('c_limit'), 3)})" if x.get("c_score") is not None else "-"),
-                _f(x.get("iam_a")) or "-", str(x.get("met_a_note") or "")[:80]] for x in cfr],
-              (DEV + ". The smallest share at which a cell's own reading reads that cell is not yet measured, so a cell with a small share is shown with its reading, not judged.") if cfr else "Not assembled: " + str(cf.get("reason") or "no cells found") + "."))
+                _f(x.get("iam_a")) or "-", str(x.get("met_a_note") or x.get("reads") or "")[:110]] for x in cfr],
+              (DEV + ". Measured: a cell's reading inside a mixed sample moves with a change in that cell and a change in the cells around it in proportion to the DNA each holds at its sites; each row says how much of a change would be the cell's own.") if cfr else "Not assembled: " + str(cf.get("reason") or "no cells found") + "."))
     T.append(("v4-atlas", "IAM-Atlas v2.1 and the ruler",
               "Every atlas reading compares this sample with IAM-Atlas v2.1: 79 healthy cell types, 813,951 sites, built once from healthy donors. The ruler puts the array on the atlas's scale first, one straight line per probe design through sites every healthy cell type holds unmarked and marked (islands and their shores are never anchors). The shift is shown, never hidden.",
               ["Probe design", "Array low anchor", "Atlas low", "Array high anchor", "Atlas high", "Slope"],

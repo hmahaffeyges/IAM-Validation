@@ -7047,7 +7047,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 881,
+   "lines": 884,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7933,11 +7933,11 @@
      "function": "cells_found",
      "name": "cells_found",
      "line": 861,
-     "end": 880,
+     "end": 883,
      "args": [
       "o"
      ],
-     "lines": 20,
+     "lines": 23,
      "doc": "2026-11-07 (author: 'we dont score bundles of cells we score individual cells that are found by the deconvolver in a sample'; 'Each cell has a score for each of the instruments that can read it'): the sample's result, one row per cell the IAM-Deconvolver found, each with every instrument's reading of that cell against its own atlas reference, from what the chain already read (met_a_each_cell, csco",
      "constants": [],
      "data_files": [],

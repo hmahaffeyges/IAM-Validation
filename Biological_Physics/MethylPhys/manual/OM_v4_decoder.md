@@ -68,7 +68,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_groupa.py` | 118 | 5 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 881 | 47 | 0 | 0 |
+| `stage_metaa_atlas.py` | 884 | 47 | 0 | 0 |
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
@@ -3186,9 +3186,9 @@ Met-A's healthy middle line predicted from the array itself: at each site, the d
 
 ### `stage_metaa_atlas.py::cells_found`
 
-The sample's result, cell by cell (the author: we score individual cells found by the IAM-Deconvolver, not bundles of cells). One row per cell the Deconvolver found (exactly the cells the chain did not mark not found; no threshold chosen), with each instrument's reading of that cell against its own atlas reference in the sample's own shares: Met-A, the C-Score with its limit, and IAM-A when IAM-A read that cell. The whole-sample reading stays a side line. Every row says that the smallest share at which a cell's own reading reads that cell is not yet measured.
+The sample's result, cell by cell (the author: we score individual cells found by the IAM-Deconvolver, not bundles of cells). One row per cell the Deconvolver found (exactly the cells the chain did not mark not found; no threshold chosen), with each instrument's reading of that cell against its own atlas reference in the sample's own shares: Met-A, the C-Score with its limit, and IAM-A when IAM-A read that cell. The whole-sample reading stays a side line. Each row states its own fraction, the cell's share: the share synthetic measured that a cell's reading in a mix moves with a change in the cell and a change around it in proportion to the DNA each holds at its identity sites, so of a change in that row, about that share would be the cell's own. Above 90 % the row reads the cell itself.
 
-*Code:* `stage_metaa_atlas.py` line 861 (20 lines) · arguments: o · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 861 (23 lines) · arguments: o · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::read_whole`
 

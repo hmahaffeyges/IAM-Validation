@@ -863,8 +863,9 @@ def cells_found(o):
     has a score for each of the instruments that can read it'): the sample's result, one row per cell the IAM-Deconvolver found, each with every
     instrument's reading of that cell against its own atlas reference, from what the chain already read (met_a_each_cell, cscore_each_cell,
     IAM-A's cell). A cell is found exactly when the chain did not mark it not found (not_found_flag); no threshold is chosen here. Whole-sample
-    Met-A stays a side line, outside this list. The share below which a cell's own reading is not about that cell is open (plan, step 3 to a
-    working chain) and is said so on every row until the chain measures it."""
+    Met-A stays a side line, outside this list. Measured (share synthetic, DEV-METAA-HEALTHY-01): a cell's Met-A in a mix moves with a change
+    in the cell and a change around it in proportion to the DNA each holds at its identity sites, so each row states its own fraction (the
+    cell's share): of a change in this reading, that share would be the cell's own. Above 90 % the row reads the cell itself."""
     M = [c for c in ((o.get("met_a_each_cell") or {}).get("cells") or []) if not c.get("not_found_flag")]
     C = {c["cell"]: c for c in ((o.get("cscore_each_cell") or {}).get("cells") or [])}
     q = o.get("iam_a") or {}
@@ -873,7 +874,9 @@ def cells_found(o):
         c = C.get(m["cell"]) or {}
         r = dict(cell=m["cell"], share=m.get("share"), met_a=m.get("A"), met_a_se=m.get("se_over_sites"), met_a_note=m.get("coverage_flag") or m.get("reason"),
                  c_score=c.get("C"), c_limit=c.get("limit"), c_within=c.get("within"),
-                 readable="open: the smallest share at which a cell's own reading reads that cell is not yet measured")
+                 own_fraction=m.get("share"),
+                 reads=("the cell itself (it is nearly all the sample)" if (m.get("share") or 0) >= 0.9 else
+                        f"the sample at this cell's identity sites: of a change here, about {100 * (m.get('share') or 0):.0f} % would be this cell's own"))
         if q.get("A") is not None and q.get("cell") == m["cell"]: r.update(iam_a=q.get("A"), iam_a_state=q.get("state"))
         rows.append(r)
     return dict(rule="each cell the IAM-Deconvolver found, each instrument against that cell's own atlas reference, in the sample's own shares",
