@@ -233,7 +233,7 @@
      "status": "running",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "what": "Sequencing Met-A, atlas only: the class-floor synthetic (Google, running); then the 89 spent outside samples per person with --dev-floor-class, the naive and memory columns' donors checked; then a fresh laboratory (BLUEPRINT monocytes, unread).",
-     "next": "class floor version 2 synthetic met (floor counted at library-floor sites inside islands); next: the 89 spent outside samples with --dev-floor-class, islands per person"
+     "next": "class floor v2 synthetic met; the 89-sample rehearsal with it not met (every laboratory pulled toward Normal but all below, by a shared 0.06 to 0.15); next: separate the two candidates (the Deconvolver's spread onto neighboring subsets; person spread at the islands), each by a synthetic over the real range, written first, then the 89 again"
     },
     {
      "id": "60.30.2",

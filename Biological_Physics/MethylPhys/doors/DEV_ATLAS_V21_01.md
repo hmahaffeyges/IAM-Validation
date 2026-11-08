@@ -1657,3 +1657,13 @@ autoimmune disease, cancer or diabetes; and 56 donors, all anonymous healthy don
 tissue from surgery, from the same hospital group as the sequencing atlas; the brain single-nucleus series is three adult male post-mortem
 brains, their health not described in the text read. With `seq_atlas_donor_sources.csv` and `atlas_v21_donor_sources.csv` this covers every
 group both atlases are built from.
+
+**After the class-floor rehearsal: what is shared by every laboratory (development; diagnostic of committed readings; nothing scored).** From `xl_class/xl_class_readings.csv` and the first reading's `crosslab_chain_table.csv`: the class floor moved every
+laboratory toward Normal from both sides (islands medians, first reading to class floor: BLUEPRINT 0.30 to 0.92, Johns Hopkins CD4 0.68 to
+0.94, GSE134664 B 1.08 to 0.85, GSE98837 CD8 1.37 to 0.86), and each stopped short by about the same amount, whether its floor at the floor sites
+inside the islands was below the atlas laboratory's (BLUEPRINT 0.0013, Johns Hopkins 0.0049, against 0.0068 to 0.0070) or above it (0.0091,
+0.0120). A deficit shared by every laboratory is a term every outside sample differs in from the reference, not the floor. Two candidates fit
+what is measured, to be separated by a test written first: (1) the cell mix: purer samples read lower (Spearman rho -0.32 with the share of
+the cell found most of, p 0.004), as they would if the Deconvolver spreads part of a sample onto neighboring subsets (it moved 7 to 24 % so on
+constructed arrays, `DEV_METAA_HEALTHY_01.md`), making the expected disorder too high; (2) person spread at the islands, which version 2's
+constructed people did not carry. The class floor stays off by default.
