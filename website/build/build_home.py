@@ -235,6 +235,10 @@ def page(art):
     v21_banner = (f'<section class="wrap" id="v21"><div class="banner"><p class="kicker">IAM-Atlas v2.1 · 79 cells · commissioned use by use</p><h2>{E(_ST["title"])}</h2>'
         + "".join(f"<p>{E(x)}</p>" for x in _ST["opening"]) + f'<p><b>{E(_ST["not_this"])}</b></p>'
         + "".join(f'<details><summary>{_LB[st]}</summary><ul class="road">{_tools(st)}</ul></details>' for st in ("now", "gift", "after"))
+        + ((lambda R: f'<details><summary>{E(R["question"])}</summary><p>{E(R["answer"])}</p><ul class="road">'
+            + "".join(f'<li><b>{E(x["name"])}.</b> {E(x["text"])}</li>' for x in R["points"]) + f'</ul><p>{E(R["other_atlases"])}</p><p>{E(R["not_the_reason"])}</p>'
+            + f'<p><b>Who the donors were.</b> {E(R["donors_intro"].replace("`", ""))}</p><ul class="road">' + "".join(f'<li><b>{E(d["atlas"])}:</b> {E(d["what"])}</li>' for d in R["donors"])
+            + f'</ul><p>{E(R["donors_meaning"])}</p></details>')(_ST["ruler"]) if _ST.get("ruler") else "")   # 2026-11-07 (author): what makes the atlases a ruler; who the donors were
         + f'<p><b>What is commissioned.</b> {E(_ST["commissioned"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div></section>')
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()
