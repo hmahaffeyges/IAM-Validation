@@ -1691,3 +1691,9 @@ Sequencing Atlas (public, Zenodo: its sealed halves' island and donor counts).
 
 **What it separates:** if the three real donors read Normal here and the 89 still do not, the shared deficit is not the floor's planting
 and not person spread at the islands (real people carry their own); the cell mix is then next.
+
+**The class floor, version 3: first launch refused by the chain (my error, disclosed; no reading made).** The script wrote each person's counts as 8-bit numbers where the chain's
+`.lbeta` input holds two 16-bit counts a CpG (as version 2 wrote them), so the chain read half the CpGs and refused every reading ("14,108,724
+CpGs, not the 28,217,448 of the hg19 numbering"). The script still exited 0, so each part marked itself read; the parts' rows and markers are
+moved aside in the bucket (`failed_8bit/`), not deleted. Fixed: 16-bit counts, and a part with any reading the chain refused or left empty now
+fails and is never marked read. Bars, people and planting unchanged.

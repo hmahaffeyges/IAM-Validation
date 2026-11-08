@@ -50,8 +50,8 @@ for k, (lab, f, s) in enumerate(LABS):
     if f is not None:
         n = a[Kf - 1, 1]; a[Kf - 1, 0] = rng.binomial(n, f)
         n = a[Ki - 1, 1]; m = a[Ki - 1, 0]; a[Ki - 1, 0] = m + rng.binomial(np.maximum(n - m, 0), max(0.0, f * s - 0.006 * 0.29))
-    assert a.max() < 256 and (a[:, 0] <= a[:, 1]).all()   # the .beta format: two 0-255 counts a CpG, methylated never above total
-    fn = os.path.join(W, "s.lbeta"); a.astype(np.uint8).tofile(fn)
+    assert (a[:, 0] <= a[:, 1]).all()   # methylated never above total
+    fn = os.path.join(W, "s.lbeta"); a.astype(np.uint16).tofile(fn)   # 2026-11-07 fix: the chain's .lbeta holds two 16-bit counts a CpG (the first launch wrote 8-bit; the chain refused every reading)
     for eq in (None, "--dev-floor-equal", "--dev-floor-class"):
         J = os.path.join(W, "s.json")
         cmd = [sys.executable, "run_sample.py", "--dev-seq-beta", fn, "--dev-seq-values", "1", "--specimen", "sorted b cells", "--id", f"{PERSON}", "--full-chain", "--dev-seq-ref", "auto",
@@ -66,3 +66,4 @@ for k, (lab, f, s) in enumerate(LABS):
         print(res[-1], flush=True)
         pd.DataFrame(res).to_csv(OUTP, index=False)   # saved after every reading
     os.remove(fn)
+if any(r_["islands"] is None for r_ in res): sys.exit(3)   # a reading the chain refused or left empty fails the part; it is never marked read
