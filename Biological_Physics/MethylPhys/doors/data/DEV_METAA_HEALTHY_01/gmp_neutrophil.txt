@@ -1,0 +1,13 @@
+GMP share and neutrophil Met-A (diagnostic, development; nothing scored)
+           gmp_per_neu  neutrophil_met_a
+GSE118144       0.0231            0.9600
+GSE124565       0.0594            0.9768
+GSE49618        0.1113            0.9707
+GSE103541       0.1148            1.0799
+GSE122244       0.1196            1.0119
+GSE224807       0.1262            1.0143
+GSE88824        0.1509            1.0230
+rank correlation across the 7 laboratories: 0.75
+the 64 sorted neutrophil donors: rank correlation of their own GMP share with their own Met-A 0.80; GMP share median 0.0169
+reporting floor checked on the 400 constructed bloods: single false cells up to 14.79 % (90th percentile 7.36 %); at a 5 % floor 116 of 631 false cells still reported
+GMP share as a percent of the neutrophil share, by laboratory: 2.31 % to 15.09 %

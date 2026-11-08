@@ -1056,3 +1056,13 @@ constructed blood (10.60 % at the 90th percentile) and 3.80 % of each synthetic 
 eosinophils and tissue macrophages. Three ways forward, each to be tested on these known mixes first: a reporting floor measured on them (a
 share below it is not reported as a cell found); identity sites that separate the precursors from the blood cells they come from; or a panel
 chosen by the route. The last needs care: the label picks only the route, never the cell (LABEL_RULE), so it is for the author and me to weigh.
+
+**One signal behind two problems: GMP share and neutrophil Met-A (diagnostic, development; nothing scored).** A reporting floor does not answer the
+false shares (`gmp_neutrophil.txt`): single false cells reach 14.79 % of a blood, and at a 5 % floor 116 of 631 are still reported.
+The largest is GMP, the bone-marrow precursor of neutrophils and monocytes, in 170 of the 200 real constructed bloods, and how much of it
+the Deconvolver reports follows which laboratory's neutrophil array is in the blood (2.31 % to 15.09 % of the neutrophil share). It follows
+the neutrophils' Met-A too: across the 7 laboratories (rank correlation 0.75) and across the 64 sorted neutrophil donors themselves (0.80).
+So the neutrophils' laboratory term and the Deconvolver's largest false share look like one signal: some neutrophil samples carry
+precursor-like DNA. Not yet known which: younger neutrophils in some samples (donor or handling), or the atlas's GMP column overlapping
+ordinary neutrophil states. Next, on spent data: the GMP and neutrophil columns at their identity sites, and whether the neutrophils' Met-A
+moves to 1 when the GMP-like part is read as neutrophil.
