@@ -27110,7 +27110,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "2026-11-07: rules e and f (a Reference line naming an atlas; a bar per person) with controls C12-C19: CANON/kiss_check_controls.py",
+   "notes": "2026-11-07: rules e and f (a Reference line naming an atlas; a bar per person) with controls C12-C19: CANON/kiss_check_controls.py | 2026-11-07: rule g (no fixed healthy band; a Normal line naming the measured width) with controls C20-C23: CANON/kiss_check_controls.py",
    "legacy_ids": [],
    "id": "OTH-065",
    "sources_of_row": [

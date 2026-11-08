@@ -188,6 +188,22 @@
      "next": "the class-floor synthetic (running on Google); then the 89 spent outside samples per person; then the tissues"
     },
     {
+     "id": "60.33",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "Normal is measured, not chosen (author 2026-11-07: 'there should be no reason for us to put a plus or minus 5 percent band on anything. We just know that 1 is in the middle'): each cell's healthy width on each instrument from the atlas's own donors read against the other sealed half; the A-score database checks it on outside healthy people; readings recorded as distance from 1 in that width; kiss_check rule g refuses a fixed band",
+     "next": "synthetic first (planted donor spread recovered); then the widths; then the chain prints its state against them (chain change, after running readings finish); then this week's per-person readings re-scored in the widths as development; then the remaining public text"
+    },
+    {
+     "id": "60.34",
+     "date": "2026-11-07",
+     "status": "open",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+     "what": "How early can cancer be seen: real tumor molecules (Johns Hopkins liver and lung tumors, spent) and, as the control, the same people's non-tumor tissue, mixed into healthy molecules at 0.1, 0.3, 1, 3 and 10 percent; read whole-sample, per cell found and per molecule against the atlas; the smallest fraction each detects with no healthy mix read positive",
+     "next": "design note written before it runs; healthy molecules from the atlas's own held-out half (GEO GSE186458 .pat files) at the cell shares the chain measured in healthy plasma; the per-molecule reading is new chain code, synthetic first"
+    },
+    {
      "id": "60.29",
      "date": "2026-11-07",
      "status": "running",

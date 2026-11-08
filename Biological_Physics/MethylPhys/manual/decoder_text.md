@@ -630,7 +630,7 @@ Here f_g is this blood's share of cell group g (Stage A), and μ_g,i is the heal
 whole blood the denominator is what a healthy blood with exactly this person's cell mix would read, so a change in the mix does not move
 Met-A; only a change in how well the cells hold their marks does.
 
-**The gauge.** Healthy is 1 (the middle mark, measured). Normal is 0.95 to 1.05. The floor (derived: thermal kicks against about one
+**The gauge.** Healthy is 1 (the middle mark, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against the atlas, confirmed by the A-score database), never a chosen band; the earlier 0.95 to 1.05 design tolerance is superseded (author), and the printed state still uses it until the measured widths replace it. The floor (derived: thermal kicks against about one
 ATP per site, M = {{canon:M_cell:.2f}}) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
 scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy middle is measured
 once and never fitted to the sample.

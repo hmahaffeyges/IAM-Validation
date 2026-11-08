@@ -6,7 +6,8 @@ HANSEN = ("**Step 2: the rule (sealed 2026-10-15 by the author, \"Seal as drafte
 JOB = "**The instrument's job:** a healthy sample from another laboratory reads Normal on IAM-A's gauge.\n"
 SRC = "**Sources:** GSE144691 and GSE98837, public on GEO and SRA: raw reads, so chemistry and sequencer error are measured.\n"
 REFL = "**Reference:** the IAM Sequencing Atlas (public, Zenodo 10.5281/zenodo.24029328), healthy cells only.\n"
-GOOD = JOB + SRC + REFL + "**Sealed 2026-10-16.**\n- **S1:** at least 80 percent of healthy samples passing the shape check read inside band v1.\n"
+NORM = "**Normal:** each cell's healthy width measured from the atlas's own donors read against the other sealed half; readings recorded as distance from 1 in that width.\n"
+GOOD = JOB + SRC + REFL + "**Sealed 2026-10-16.**\n- **S1:** at least 80 percent of healthy samples passing the shape check read inside Normal.\n" + NORM
 cases = [("C1 tonight's Hansen rule (no job, no sources)", "", HANSEN, True),
          ("C2 four scored bars", "", GOOD + "- **S2:** x\n- **S3:** y\n- **S4:** z\n", True),
          ("C3 a controlled-access source", "", JOB + "**Sources:** Loyfer 2023, public .pat files; raw reads on EGA EGAS00001006791.\n**Sealed.**\n- **S1:** x\n", True),
@@ -26,8 +27,12 @@ cases += [
  ("C15 same-run healthy arrays", "", JOB + SRC + "**Reference:** IAM-Atlas v2.1 with the same-run tare on the run's healthy arrays.\n**Sealed.**\n- **S1:** each healthy array reads within 0.95 to 1.05.\n", True),
  ("C16 the CD4 test's median-only bars", "", JOB + SRC + REFL + "**Sealed.**\n- **S1:** the tared own-cell Met-A median within 0.95 to 1.05.\n- **S2:** the whole-sample median within 0.95 to 1.05.\n", True),
  ("C17 bars in a sentence, median only, no reference", "", "**The CD4 test (written and committed before any donor is read).**\n\n" + JOB + SRC + "Bars (scorer): 1. the tared own-cell median within 0.95 to 1.05; 2. the whole-sample median within 0.95 to 1.05.\n", True),
- ("C18 bars in a sentence, per person, atlas reference", "", "**The healthy test (written and committed before any sample is read).**\n\n" + JOB + SRC + REFL + "Bars (scorer): 1. at least 90 percent of the healthy samples read within 0.95 to 1.05; 2. each laboratory's median within 0.03 of 1.\n", False),
- ("C19 atlas reference that says no tare is used", "", JOB + SRC + "**Reference:** IAM-Atlas v2.1 only; no same-run tare, no controls.\n**Sealed.**\n- **S1:** each healthy array reads within 0.95 to 1.05.\n", False),
+ ("C18 bars in a sentence, per person, atlas reference", "", "**The healthy test (written and committed before any sample is read).**\n\n" + JOB + SRC + REFL + "Bars (scorer): 1. at least 90 percent of the healthy samples read inside Normal; 2. each laboratory's median within 0.03 of 1.\n" + NORM, False),
+ ("C19 atlas reference that says no tare is used", "", JOB + SRC + "**Reference:** IAM-Atlas v2.1 only; no same-run tare, no controls.\n**Sealed.**\n- **S1:** each healthy array reads inside Normal.\n" + NORM, False),
+ ("C20 a fixed 0.95 to 1.05 band (every per-person bar written this week)", "", JOB + SRC + REFL + "**Sealed.**\n- **S1:** each healthy sample reads within 0.95 to 1.05.\n", True),
+ ("C21 Normal with no Normal line", "", JOB + SRC + REFL + "**Sealed.**\n- **S1:** each healthy sample reads inside Normal.\n", True),
+ ("C22 a Normal line that is a fixed band", "", JOB + SRC + REFL + "**Normal:** +/- 5 % around 1.\n**Sealed.**\n- **S1:** each healthy sample reads inside Normal.\n", True),
+ ("C23 a synthetic's tolerance against its planted truth", "", JOB + SRC + REFL + "**Sealed.**\n- **S1:** each planted share recovered within 0.03 of the truth.\n", False),
 ]
 bad = []
 for name, old, new, refuse in cases:

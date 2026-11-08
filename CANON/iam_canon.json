@@ -84,11 +84,11 @@
         1.05
       ],
       "units": "A",
-      "source": "healthy is A = 1 within 5 %",
+      "source": "superseded 2026-11-07: a design tolerance (A = 1 within 5 %), kept so earlier readings reproduce; Normal is now each cell's measured healthy width (atlas donors, A-score database), 1 the middle",
       "applies_to": [
         "Met-A"
       ],
-      "note": "IAM-A has no healthy band of its own yet and does not borrow this one (author 2026-10-15; manifest COM-IAMA-054). Set by hand 2026-10-01 and confirmed on healthy arrays; to be rebuilt from the measured spread (OTH-059)."
+      "note": "IAM-A has no healthy band of its own yet and does not borrow this one (author 2026-10-15; manifest COM-IAMA-054). Set by hand 2026-10-01 and confirmed on healthy arrays; to be rebuilt from the measured spread (OTH-059). SUPERSEDED 2026-11-07 as the definition of Normal (author: 'there should be no reason for us to put a plus or minus 5 percent band on anything. We just know that 1 is in the middle'): kept only so readings made against it reproduce and so the chain's printed state can be read until each cell's measured width replaces it. Normal is now each cell's healthy width, measured per instrument from the atlas's own donors read against the atlas and confirmed by the A-score database; each reading is its distance from 1 in that width; 1 is the middle."
     },
     "beta_m": {
       "value": 0.15765,
