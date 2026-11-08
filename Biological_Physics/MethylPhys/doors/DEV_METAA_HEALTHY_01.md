@@ -1011,3 +1011,7 @@ each cell's donor arrays are split at random into two halves (`blood_donors_halv
 9 and 8, CD4 T cells 6 and 6, NK cells 6 and 6, CD8 T cells 4 and 4), one building the bloods that give Normal and the other the new bloods
 scored, so no array is in both. The shares are the 100 bloods' with subtypes counted under their parent cell (`blood_shares_parent_map.csv`). Run
 on Google from the values kept by `run_series.py read --keep-values` (series bv2_donors). Scored by `blood_synthetic_score.py`, the bars above.
+
+**The constructed-blood synthetic, read again unchanged.** Its first reading (GitHub runs in `bs_runs`, 16 parts) wrote each report's side files into the
+uploaded folder (393 MB a part), too large to bring back; its results were not opened. The same seeds are read again with each blood's work
+in a temporary folder, so the readings are the same; only where the files are written changed (the builder for the real bloods likewise).

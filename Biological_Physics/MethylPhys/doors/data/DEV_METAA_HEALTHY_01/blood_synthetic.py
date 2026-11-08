@@ -7,7 +7,7 @@ in the shares the IAM-Deconvolver found in one of the spent 100 healthy bloods, 
 as whole blood (--full-chain --cell-panel atlas --dev-line-wide). MODE donors: 100 bloods that give each cell's Normal; MODE new: 100 bloods of
 new people (other seeds), scored. PART p reads bloods 13p to 13p + 12 (8 parts; blood index below 100).
 Usage: python3 blood_synthetic.py OUTDIR MODE PART"""
-import os, sys, json, subprocess
+import os, sys, json, subprocess, tempfile, shutil
 import numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); RS = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface", "run_sample.py"))
 sys.path.insert(0, os.path.join(H, "..", "..", "..", "chain")); import stage_metaa_atlas as SA
@@ -25,12 +25,11 @@ for b in range(13 * PART, min(13 * PART + 13, 100)):
         lev = np.clip(mu + sd * (np.sqrt(0.5) * g.standard_normal() + np.sqrt(0.5) * g.standard_normal(len(ids))), 0, 1); y = np.empty(len(ids))
         for k, (a, bb, s) in LINE.items(): m = d == k; y[m] = a + bb * lev[m] + s * g.standard_normal(m.sum())
         x += SH.iloc[b][c] * np.clip(y, 0, 1)
-    tag = f"bs{MODE[0]}{b}"; f = os.path.join(out, tag + "_betas.csv"); pd.DataFrame({"cpg_id": ids, "beta": x.round(4)}).to_csv(f, index=False); bf = os.path.join(out, tag + "_bundle.json")
-    r = subprocess.run([sys.executable, RS, "--betas", f, "--specimen", "whole blood", "--id", tag, "--out", os.path.join(out, tag + ".html"), "--bundle", bf, "--full-chain", "--cell-panel", "atlas", "--dev-line-wide"], capture_output=True, text=True)
+    tag = f"bs{MODE[0]}{b}"; wd = tempfile.mkdtemp(); f = os.path.join(wd, tag + "_betas.csv"); pd.DataFrame({"cpg_id": ids, "beta": x.round(4)}).to_csv(f, index=False); bf = os.path.join(wd, tag + "_bundle.json")
+    r = subprocess.run([sys.executable, RS, "--betas", f, "--specimen", "whole blood", "--id", tag, "--out", os.path.join(wd, tag + ".html"), "--bundle", bf, "--full-chain", "--cell-panel", "atlas", "--dev-line-wide"], capture_output=True, text=True)
     row = dict(blood=b, mode=MODE, rc=r.returncode, built={c: float(SH.iloc[b][c]) for c in SIX})
     if r.returncode == 0:
         B = json.load(open(bf)); row["cells"] = [{k: c.get(k) for k in ("cell", "share", "met_a")} for c in (B.get("cells_found") or {}).get("cells") or []]
     res.append(row); print(b, r.returncode, flush=True)
-    for ff in (f, bf, os.path.join(out, tag + ".html")):
-        if os.path.exists(ff): os.remove(ff)
+    shutil.rmtree(wd, ignore_errors=True)   # 2026-11-08: the report's side files stay out of the uploaded folder (393 MB a part before)
     json.dump(res, open(os.path.join(out, f"blood_synthetic_{MODE}_p{PART}.json"), "w"), indent=1)
