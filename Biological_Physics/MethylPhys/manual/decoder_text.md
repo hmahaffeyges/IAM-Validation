@@ -2054,6 +2054,10 @@ Measures the array's own blur, per probe design, at its anchor sites: the straig
 ### stage_metaa_atlas.py::predicted_healthy
 Met-A's healthy middle line predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
 
+### stage_metaa_atlas.py::cell_prediction
+
+Each cell's Met-A divided by its own healthy prediction, as the whole-sample reading already is: the array's own line and noise per probe design, measured once on the whole array, applied to the atlas in this sample's mix at that cell's identity sites (predicted_healthy). The row keeps A_raw and A_pred beside the ratio; a healthy cell reads 1. Added when the width synthetic showed each cell's reading carrying the array's line and noise (center 0.89, spread up to ten times the true person spread). Arrays only; on sequencing the expectation already counts the reads.
+
 ### stage_metaa_atlas.py::cells_found
 
 The sample's result, cell by cell (the author: we score individual cells found by the IAM-Deconvolver, not bundles of cells). One row per cell the Deconvolver found (exactly the cells the chain did not mark not found; no threshold chosen), with each instrument's reading of that cell against its own atlas reference in the sample's own shares: Met-A, the C-Score with its limit, and IAM-A when IAM-A read that cell. The whole-sample reading stays a side line. Each row states its own fraction, the cell's share: the share synthetic measured that a cell's reading in a mix moves with a change in the cell and a change around it in proportion to the DNA each holds at its identity sites, so of a change in that row, about that share would be the cell's own. Above 90 % the row reads the cell itself.

@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1467,
+   "lines": 1470,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -305,9 +305,9 @@
      "function": "main",
      "name": "main",
      "line": 544,
-     "end": 1464,
+     "end": 1467,
      "args": [],
-     "lines": 921,
+     "lines": 924,
      "doc": "",
      "constants": [
       "BIO",
@@ -369,8 +369,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1389,
-     "end": 1390,
+     "line": 1392,
+     "end": 1393,
      "args": [
       "b",
       "it",
@@ -7047,7 +7047,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 884,
+   "lines": 909,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7940,6 +7940,26 @@
      "lines": 23,
      "doc": "2026-11-07 (author: 'we dont score bundles of cells we score individual cells that are found by the deconvolver in a sample'; 'Each cell has a score for each of the instruments that can read it'): the sample's result, one row per cell the IAM-Deconvolver found, each with every instrument's reading of that cell against its own atlas reference, from what the chain already read (met_a_each_cell, csco",
      "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "cell_prediction",
+     "name": "cell_prediction",
+     "line": 886,
+     "end": 908,
+     "args": [
+      "each",
+      "beta",
+      "shares",
+      "blur"
+     ],
+     "lines": 23,
+     "doc": "2026-11-07 (the width synthetic, not met: each cell's Met-A carried the array's own line and noise, which only the whole-sample reading divided out). For each cell of met_a_each_cell with a reading, on arrays: the same healthy prediction the whole-sample reading uses (predicted_healthy, with the array's line and noise per probe design measured once on the whole array, blur), at that cell's identit",
+     "constants": [
+      "MIX_COVER"
+     ],
      "data_files": [],
      "traced_calls": {}
     }
@@ -9937,5 +9957,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 508
+ "n_functions": 509
 }

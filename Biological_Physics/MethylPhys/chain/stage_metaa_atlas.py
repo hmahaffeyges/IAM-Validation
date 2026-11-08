@@ -872,7 +872,7 @@ def cells_found(o):
     rows = []
     for m in sorted(M, key=lambda x: -(x.get("share") or 0)):
         c = C.get(m["cell"]) or {}
-        r = dict(cell=m["cell"], share=m.get("share"), met_a=m.get("A"), met_a_se=m.get("se_over_sites"), met_a_note=m.get("coverage_flag") or m.get("reason"),
+        r = dict(cell=m["cell"], share=m.get("share"), met_a=(m.get("ratio") if m.get("ratio") is not None else m.get("A")), met_a_untared=m.get("A"), met_a_pred=m.get("A_pred"), met_a_se=m.get("se_over_sites"), met_a_note=m.get("coverage_flag") or m.get("reason"),
                  c_score=c.get("C"), c_limit=c.get("limit"), c_within=c.get("within"),
                  own_fraction=m.get("share"),
                  reads=("the cell itself (it is nearly all the sample)" if (m.get("share") or 0) >= 0.9 else
@@ -881,3 +881,28 @@ def cells_found(o):
         rows.append(r)
     return dict(rule="each cell the IAM-Deconvolver found, each instrument against that cell's own atlas reference, in the sample's own shares",
                 flag="development: each row's readings carry their own status; not commissioned unless an instrument's row says so", cells=rows)
+
+
+def cell_prediction(each, beta, shares, blur):
+    """2026-11-07 (the width synthetic, not met: each cell's Met-A carried the array's own line and noise, which only the whole-sample reading
+    divided out). For each cell of met_a_each_cell with a reading, on arrays: the same healthy prediction the whole-sample reading uses
+    (predicted_healthy, with the array's line and noise per probe design measured once on the whole array, blur), at that cell's identity sites
+    in this sample's mix, every site weighted alike as A_c is. Adds A_raw (A_c on the array's own values), A_pred and ratio = A_raw / A_pred
+    (a healthy cell reads 1) to the row; nothing fitted. Rows without a reading, and sequencing (whose expectation already counts the reads), are
+    left as they were."""
+    if not isinstance(each, dict) or not each.get("cells") or not blur: return each
+    cells = [c for c, f in shares.items() if f is not None]; F = pd.Series({k: float(shares[k]) for k in cells})
+    for r in each["cells"]:
+        if r.get("A") is None: continue
+        try:
+            S = identity_sites(r["cell"]); MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1)
+            have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+            e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
+            ok = x.notna() & e.notna() & (cover >= MIX_COVER); x, e = x[ok], e[ok]; w = pd.Series(1.0, index=e.index)
+            Ar = float(np.asarray(_H(x), dtype="float64").mean() / np.asarray(_H(e), dtype="float64").mean())
+            hp = predicted_healthy(x, e, w, blur=blur)
+            r.update(A_raw=round(Ar, 5), A_pred=hp.get("A_pred"), ratio=round(Ar / hp["A_pred"], 5) if hp.get("A_pred") else None,
+                     prediction="the array's own line and noise (measured once on the whole array) applied to the atlas in this sample's mix at this cell's identity sites")
+        except Exception as ex: r["prediction"] = f"not made: {type(ex).__name__}: {str(ex)[:120]}"
+    each["prediction_rule"] = "ratio = A_raw / A_pred at each cell's identity sites (cell_prediction); a healthy cell reads 1"
+    return each

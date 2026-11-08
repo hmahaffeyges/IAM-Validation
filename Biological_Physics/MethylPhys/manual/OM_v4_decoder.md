@@ -35,11 +35,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **508 functions** (nested ones included); 508 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **509 functions** (nested ones included); 509 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,467 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,470 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -68,7 +68,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_groupa.py` | 118 | 5 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 884 | 47 | 0 | 0 |
+| `stage_metaa_atlas.py` | 909 | 48 | 0 | 0 |
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
@@ -386,7 +386,7 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 544 (921 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 544 (924 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
 
 ### `run_sample.py::main._panel`
 
@@ -407,7 +407,7 @@ mismatch was reported as a detection failure).
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1389 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1392 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3183,6 +3183,12 @@ Measures the array's own blur, per probe design, at its anchor sites: the straig
 Met-A's healthy middle line predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
 
 *Code:* `stage_metaa_atlas.py` line 758 (16 lines) · arguments: xs, es, w, blur · calls: not called on the traced runs · constants read: `GH_NODES`
+
+### `stage_metaa_atlas.py::cell_prediction`
+
+Each cell's Met-A divided by its own healthy prediction, as the whole-sample reading already is: the array's own line and noise per probe design, measured once on the whole array, applied to the atlas in this sample's mix at that cell's identity sites (predicted_healthy). The row keeps A_raw and A_pred beside the ratio; a healthy cell reads 1. Added when the width synthetic showed each cell's reading carrying the array's line and noise (center 0.89, spread up to ten times the true person spread). Arrays only; on sequencing the expectation already counts the reads.
+
+*Code:* `stage_metaa_atlas.py` line 886 (23 lines) · arguments: each, beta, shares, blur · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::cells_found`
 

@@ -821,3 +821,8 @@ median sits near 0.89 where the same people read about 0.999 on their noise-free
 array takes the array's own line and noise straight into the reading; the whole-sample reading already divides by its healthy prediction (the
 array's measured line and noise applied to the atlas, A over A_pred), and the per-cell readings do not. The next chain step gives each cell's
 reading the same healthy prediction at that cell's identity sites, synthetic first, before any width is measured from the atlas's donors.
+
+**Each cell's reading gets the array's healthy prediction (chain change; the width synthetic runs again unchanged).** `stage_metaa_atlas.cell_prediction`: at each cell's identity sites, the array's own line and noise
+(measured once on the whole array, as for the whole-sample reading) applied to the atlas in the sample's mix; the cell's reading in `cells_found`
+is A_raw / A_pred, with both kept beside it. The width synthetic's previous parts are set aside (`metaa_healthy/width_second_run/`) and it runs
+again with nothing changed in it.

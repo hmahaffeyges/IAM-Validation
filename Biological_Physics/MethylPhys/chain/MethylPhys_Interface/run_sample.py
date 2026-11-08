@@ -1216,6 +1216,9 @@ def main():
                 if getattr(a, "dev_terr_counts", None): import stage_seq_atlas as _SQtf; _SQtf.TERR_FILE = a.dev_terr_counts   # 2026-11-01: a constructed island counts file
                 try: o["met_a_whole"] = SA.read_whole(_vr, _shr, counts=getattr(a, "_seqc", None), raw=(_vals if _rv is not None else None)); o["met_a_whole"]["state"] = "on the atlas ruler" if _rv is not None else "untared"   # 2026-10-23: Met-A for the whole sample over every atlas site (development, flagged; on by default)
                 except Exception as e: o["met_a_whole"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
+                if getattr(a, "_seqc", None) is None:   # 2026-11-07: each cell's reading gets the same healthy prediction (the array's own line and noise)
+                    try: o["met_a_each_cell"] = SA.cell_prediction(o.get("met_a_each_cell"), _vals, _shr, ((o["met_a_whole"] or {}).get("healthy_prediction") or {}).get("blur"))
+                    except Exception as e: (o.get("met_a_each_cell") or {}).update(prediction_rule=f"not made: {type(e).__name__}: {str(e)[:120]}")
                 if a.dev_territories:   # 2026-10-23 (plan 48): disorder at cancer's own territories, against the atlas in this sample's mix
                     try: o["territories"] = SA.territory_reading(_vr, _shr, counts=getattr(a, "_seqc", None)); o["territories"]["state"] = o["met_a_whole"].get("state")
                     except Exception as e: o["territories"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}
