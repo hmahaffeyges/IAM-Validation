@@ -764,3 +764,33 @@ outside sorted samples, `crosslab_chain_table.csv`), and tissue cells in tissue 
 
 **Bars:** 1. for each of the nine cells, at 50 % its own loss moves its reading more than the others' loss does (the reading reads the cell at
 all). Recorded, not scored: for each cell, the smallest share at which this holds, which becomes the chain's stated share for that cell.
+
+## Each cell's healthy width on arrays, from the atlas's own donors (the fourth step to a working chain; written and committed before it runs)
+
+Normal is measured, not chosen, and 1 is the middle (the author). On arrays the width of healthy for a cell is the spread of that cell's Met-A
+across IAM-Atlas v2.1's own build donors (`atlas_donors_samples.csv`: the 456 GEO arrays that entered the build, firm or conditional; the 16
+ArrayExpress arrays follow), each read by the one command against the atlas and grouped by the cell the IAM-Deconvolver found most of in it
+(never its label; `width_score.py`). Each donor helped make the reference it is read against, so the spread is widened by sqrt(n / (n - 1)),
+exact for a reference that is the donors' mean and stated as such for the atlas's modeled levels; the held-out sets check it when instruments
+are commissioned. The median of each cell's readings is recorded beside its width, so whether 1 sits in the middle is tested, not assumed.
+
+**The instrument's job:** each cell's healthy width is measured from healthy donors read by the chain itself.
+
+**Synthetic first** (`width_synthetic.py`, written before it runs; parts by `width_synthetic.sh`; scored by `width_synthetic_score.py`): 20
+constructed people for each of neutrophils, CD8 T cells and B cells, each person the cell's atlas level at every site plus a planted person
+spread at the atlas's own measured donor spread, site by site or half shared by the whole person; through the real arrays' median line and
+noise; read by the one command. Known answer: the readings' spread gives back the truth's spread.
+
+**Sources:** the IAM-Atlas v2.1 build arrays (public, GEO: their raw arrays, listed in `atlas_donors_sources.csv`); IAM-Atlas v2.1 (public,
+Zenodo: the levels and donor spread planted from).
+
+**Prior reading:** the donor arrays are the atlas's own build inputs; none is a test sample, and none was read before as a test of an instrument.
+
+**Reference:** IAM-Atlas v2.1 only; no tare.
+
+**Range of the data:** real donor spread at the identity sites, measured from the atlas: neutrophils median 0.0043 (5 to 95 % 0.0039 to
+0.0061), CD8 T cells 0.0060, B cells 0.0053, monocytes 0.0049, hepatocytes 0.0203; real array noise 0.003 to 0.024 per design. Synthetic: the
+atlas's own spread at every site, site by site and half shared; the real median noise.
+
+**Bars** (the synthetic): 1. for each of the three cells and both forms of spread, the readings' spread within 25 % of the truth's; 2. every
+person's main cell found is the planted cell. The donors are read only after the synthetic is met.
