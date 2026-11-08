@@ -1,0 +1,11 @@
+Diagnostic of bar 3 (not scored): the new constructed bloods
+             built_med  found_in  miss_med  miss_absmax
+cell                                                   
+b cells         0.0366        78   -0.0081       0.0423
+cd4 t cells     0.1436       100   -0.0010       0.0720
+cd8 t cells     0.1074        81   -0.0228       0.1154
+monocytes       0.0390        70   -0.0163       0.0392
+neutrophils     0.6054       100   -0.0086       0.0637
+nk cells        0.0448        85    0.0090       0.0676
+not found: 86 cell readings, built share median 0.0143, max 0.0746
+share given to cells not in the blood, mean per blood: 0.0504; largest: MEP (bone marrow) 0.0127, eosinophils 0.0114, GMP (bone marrow) 0.0071, lung interstitial macrophages 0.0063

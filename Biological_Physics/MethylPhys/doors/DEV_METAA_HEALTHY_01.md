@@ -1015,3 +1015,13 @@ on Google from the values kept by `run_series.py read --keep-values` (series bv2
 **The constructed-blood synthetic, read again unchanged.** Its first reading (GitHub runs in `bs_runs`, 16 parts) wrote each report's side files into the
 uploaded folder (393 MB a part), too large to bring back; its results were not opened. The same seeds are read again with each blood's work
 in a temporary folder, so the readings are the same; only where the files are written changed (the builder for the real bloods likewise).
+
+**The constructed-blood synthetic: not met, on bar 3 only** (`blood_synthetic_summary.txt`, `blood_synthetic_diag.txt`). Bar 1 met: 472 of 514 new healthy cell readings inside the
+Normal built from the donor bloods (bar 90 %); bar 2 met: every cell 85 % or more (neutrophils 90 of 100, monocytes 61 of 70, CD4 T 88 of
+100, CD8 T 74 of 81, B 76 of 78, NK 83 of 85). Bar 3 not met: 86 of 600 cells were not found, nearly all small (built share median
+1.4 %), and the found shares missed by up to 11.5 points (CD8 T cells); the Deconvolver gave about 5 % of each blood
+to cells that are not in it (bone-marrow precursors, eosinophils, macrophages).
+
+My error in bar 3: it asked for every cell at any share, below the Deconvolver's reporting floor; a bar on the found shares should have
+named that floor. What the synthetic shows: where a cell is found in a whole blood, its Normal from the atlas's donors does its job; the
+Deconvolver's false shares are the open problem on blood arrays, the same thread as the same-DNA arrays.

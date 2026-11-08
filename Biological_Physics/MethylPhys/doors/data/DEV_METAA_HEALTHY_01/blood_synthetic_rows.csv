@@ -1,0 +1,1201 @@
+mode,blood,cell,built,found,met_a
+donors,13,neutrophils,0.5486,0.5242,0.99463
+donors,13,monocytes,0.0495,0.0285,1.00628
+donors,13,cd4 t cells,0.2386,0.2308,1.00048
+donors,13,cd8 t cells,0.1387,0.1396,1.00007
+donors,13,b cells,0.0,,
+donors,13,nk cells,0.0246,0.0235,0.9946
+donors,14,neutrophils,0.5639,0.5241,0.98257
+donors,14,monocytes,0.0222,,
+donors,14,cd4 t cells,0.2117,0.1399,0.99326
+donors,14,cd8 t cells,0.0553,0.0831,0.99573
+donors,14,b cells,0.0283,0.0374,0.99936
+donors,14,nk cells,0.1187,0.0748,0.99165
+donors,15,neutrophils,0.5247,0.5328,1.00095
+donors,15,monocytes,0.0873,0.0564,1.00439
+donors,15,cd4 t cells,0.205,0.2042,1.00125
+donors,15,cd8 t cells,0.0726,0.0499,1.00331
+donors,15,b cells,0.0,,
+donors,15,nk cells,0.1103,0.1214,1.00211
+donors,16,neutrophils,0.7691,0.7817,1.01594
+donors,16,monocytes,0.0315,0.0103,1.01075
+donors,16,cd4 t cells,0.086,0.0729,1.00286
+donors,16,cd8 t cells,0.0244,,
+donors,16,b cells,0.0447,0.0206,0.99564
+donors,16,nk cells,0.0443,0.0465,1.00274
+donors,17,neutrophils,0.597,0.5764,0.99292
+donors,17,monocytes,0.0214,,
+donors,17,cd4 t cells,0.153,0.1196,0.99958
+donors,17,cd8 t cells,0.2159,0.2224,1.00025
+donors,17,b cells,0.0126,0.0159,1.00008
+donors,17,nk cells,0.0,,
+donors,18,neutrophils,0.5749,0.586,1.00898
+donors,18,monocytes,0.0457,0.026,0.9979
+donors,18,cd4 t cells,0.1602,0.1727,1.00196
+donors,18,cd8 t cells,0.1285,0.085,1.00258
+donors,18,b cells,0.0583,0.0468,1.00209
+donors,18,nk cells,0.0323,0.0428,1.00187
+donors,19,neutrophils,0.4541,0.4353,0.99874
+donors,19,monocytes,0.0358,,
+donors,19,cd4 t cells,0.2976,0.2958,0.99841
+donors,19,cd8 t cells,0.0786,0.076,0.99876
+donors,19,b cells,0.0634,0.0613,1.00531
+donors,19,nk cells,0.0706,0.0688,0.99879
+donors,20,neutrophils,0.5371,0.509,0.99597
+donors,20,monocytes,0.0591,0.0375,1.00333
+donors,20,cd4 t cells,0.2951,0.2815,0.99652
+donors,20,cd8 t cells,0.0763,0.0679,0.99972
+donors,20,b cells,0.0323,0.033,1.002
+donors,20,nk cells,0.0,,
+donors,21,neutrophils,0.535,0.5212,0.99825
+donors,21,monocytes,0.0465,0.0324,1.00352
+donors,21,cd4 t cells,0.266,0.2665,0.99954
+donors,21,cd8 t cells,0.0924,0.0843,1.00223
+donors,21,b cells,0.0323,0.0298,1.00391
+donors,21,nk cells,0.0277,0.0278,1.00112
+donors,22,neutrophils,0.5376,0.5341,0.99635
+donors,22,monocytes,0.0488,0.0275,1.0068
+donors,22,cd4 t cells,0.1427,0.1387,1.00329
+donors,22,cd8 t cells,0.1792,0.1681,1.00195
+donors,22,b cells,0.0571,0.0486,1.00423
+donors,22,nk cells,0.0346,0.0344,0.99653
+donors,23,neutrophils,0.6179,0.6118,1.00876
+donors,23,monocytes,0.0325,0.0205,1.00529
+donors,23,cd4 t cells,0.0738,0.0749,1.00114
+donors,23,cd8 t cells,0.2115,0.1637,1.00388
+donors,23,b cells,0.0434,0.0244,1.0055
+donors,23,nk cells,0.0209,0.0414,1.00133
+donors,24,neutrophils,0.4178,0.4258,1.00265
+donors,24,monocytes,0.1173,0.0896,1.00616
+donors,24,cd4 t cells,0.2484,0.2526,1.00121
+donors,24,cd8 t cells,0.1309,0.0964,1.00361
+donors,24,b cells,0.0386,0.0313,1.00326
+donors,24,nk cells,0.047,0.0568,1.00421
+donors,25,neutrophils,0.7696,0.7577,1.00545
+donors,25,monocytes,0.0,,
+donors,25,cd4 t cells,0.1624,0.171,1.00019
+donors,25,cd8 t cells,0.0538,0.014,0.99904
+donors,25,b cells,0.0,,
+donors,25,nk cells,0.0143,0.0207,1.00275
+new,26,neutrophils,0.6962,0.6797,1.00123
+new,26,monocytes,0.0366,0.0262,1.00716
+new,26,cd4 t cells,0.1224,0.1215,0.99798
+new,26,cd8 t cells,0.1042,0.0907,0.99931
+new,26,b cells,0.0406,0.0364,1.00156
+new,26,nk cells,0.0,,
+new,27,neutrophils,0.5547,0.5315,0.9992
+new,27,monocytes,0.0,,
+new,27,cd4 t cells,0.2959,0.2973,1.00438
+new,27,cd8 t cells,0.1242,0.1142,1.00264
+new,27,b cells,0.0253,0.0206,1.00347
+new,27,nk cells,0.0,,
+new,28,neutrophils,0.6323,0.6353,1.00531
+new,28,monocytes,0.0521,0.0355,1.00792
+new,28,cd4 t cells,0.1306,0.1426,1.00261
+new,28,cd8 t cells,0.1273,0.1002,0.99878
+new,28,b cells,0.0451,0.028,1.0001
+new,28,nk cells,0.0126,,
+new,29,neutrophils,0.6472,0.6467,1.00582
+new,29,monocytes,0.0143,,
+new,29,cd4 t cells,0.1213,0.1164,1.00015
+new,29,cd8 t cells,0.1141,0.0917,0.99808
+new,29,b cells,0.0387,0.0256,1.00282
+new,29,nk cells,0.0644,0.0758,0.99852
+new,30,neutrophils,0.4144,0.4173,1.0113
+new,30,monocytes,0.0376,0.0186,1.01079
+new,30,cd4 t cells,0.3208,0.3304,1.00363
+new,30,cd8 t cells,0.1387,0.0856,1.0018
+new,30,b cells,0.0622,0.0437,1.00436
+new,30,nk cells,0.0262,0.0442,1.00543
+new,31,neutrophils,0.5557,0.5397,1.00422
+new,31,monocytes,0.0139,0.0121,1.00792
+new,31,cd4 t cells,0.2563,0.2637,0.99993
+new,31,cd8 t cells,0.0762,0.0304,1.00104
+new,31,b cells,0.0491,0.0419,1.00537
+new,31,nk cells,0.0488,0.0656,0.99871
+new,32,neutrophils,0.6861,0.6534,0.99861
+new,32,monocytes,0.0,,
+new,32,cd4 t cells,0.1716,0.1803,0.99815
+new,32,cd8 t cells,0.1109,0.0952,1.00231
+new,32,b cells,0.0314,0.03,1.00293
+new,32,nk cells,0.0,,
+new,33,neutrophils,0.5229,0.528,1.00841
+new,33,monocytes,0.0646,0.0434,1.00675
+new,33,cd4 t cells,0.2516,0.2594,1.00254
+new,33,cd8 t cells,0.0588,,
+new,33,b cells,0.0447,0.03,0.9992
+new,33,nk cells,0.0573,0.0698,1.00259
+new,34,neutrophils,0.4312,0.448,1.00893
+new,34,monocytes,0.0434,0.0174,1.01227
+new,34,cd4 t cells,0.2405,0.2486,1.00133
+new,34,cd8 t cells,0.2009,0.133,0.99918
+new,34,b cells,0.0567,0.0338,0.9992
+new,34,nk cells,0.0273,0.0569,1.00403
+new,35,neutrophils,0.4178,0.4014,0.99303
+new,35,monocytes,0.0,,
+new,35,cd4 t cells,0.206,0.1636,0.99949
+new,35,cd8 t cells,0.2643,0.2779,0.99923
+new,35,b cells,0.0595,0.0552,1.00409
+new,35,nk cells,0.0525,0.0471,0.99739
+new,36,neutrophils,0.6056,0.5962,1.00595
+new,36,monocytes,0.0,,
+new,36,cd4 t cells,0.1964,0.1958,1.00222
+new,36,cd8 t cells,0.1333,0.0972,1.0058
+new,36,b cells,0.0647,0.0495,1.00632
+new,36,nk cells,0.0,0.0136,1.00275
+new,37,neutrophils,0.6549,0.6461,1.00042
+new,37,monocytes,0.0602,0.0364,1.00394
+new,37,cd4 t cells,0.1358,0.1332,0.99594
+new,37,cd8 t cells,0.1064,0.0951,1.00003
+new,37,b cells,0.0427,0.0377,1.00404
+new,37,nk cells,0.0,,
+new,38,neutrophils,0.5775,0.579,1.00379
+new,38,monocytes,0.027,,
+new,38,cd4 t cells,0.1828,0.1935,1.0027
+new,38,cd8 t cells,0.1883,0.1546,0.99982
+new,38,b cells,0.0243,0.0103,1.00098
+new,38,nk cells,0.0,,
+new,39,neutrophils,0.656,0.6347,0.99819
+new,39,monocytes,0.0,,
+new,39,cd4 t cells,0.1645,0.1635,1.00023
+new,39,cd8 t cells,0.0731,0.0577,1.00248
+new,39,b cells,0.0492,0.0417,1.00392
+new,39,nk cells,0.0572,0.063,0.99942
+new,40,neutrophils,0.7458,0.694,0.98431
+new,40,monocytes,0.0123,,
+new,40,cd4 t cells,0.0716,0.044,0.99206
+new,40,cd8 t cells,0.0909,0.0837,0.99488
+new,40,b cells,0.0365,0.0457,0.99858
+new,40,nk cells,0.0429,,
+new,41,neutrophils,0.5368,0.525,0.99735
+new,41,monocytes,0.0871,0.0543,1.00095
+new,41,cd4 t cells,0.2298,0.1959,0.99577
+new,41,cd8 t cells,0.0584,0.0624,0.99935
+new,41,b cells,0.0133,0.0103,1.00138
+new,41,nk cells,0.0746,0.0753,0.99842
+new,42,neutrophils,0.887,0.8783,1.0066
+new,42,monocytes,0.0,,
+new,42,cd4 t cells,0.0369,0.0302,0.99873
+new,42,cd8 t cells,0.0367,0.0246,1.00292
+new,42,b cells,0.0231,0.0143,1.00584
+new,42,nk cells,0.0163,0.0162,1.00091
+new,43,neutrophils,0.5158,0.5164,1.01242
+new,43,monocytes,0.0802,0.0635,1.00945
+new,43,cd4 t cells,0.1362,0.1328,1.00115
+new,43,cd8 t cells,0.1194,0.0615,0.99868
+new,43,b cells,0.0446,0.0177,1.00178
+new,43,nk cells,0.1039,0.1391,1.00334
+new,44,neutrophils,0.5752,0.5777,1.00731
+new,44,monocytes,0.0803,0.0611,1.01048
+new,44,cd4 t cells,0.1859,0.1868,1.00041
+new,44,cd8 t cells,0.0834,0.0535,1.0024
+new,44,b cells,0.0326,0.0219,1.00433
+new,44,nk cells,0.0426,0.0561,1.00323
+new,45,neutrophils,0.4928,0.4768,1.00715
+new,45,monocytes,0.0517,0.0488,1.00013
+new,45,cd4 t cells,0.1458,0.1496,1.00029
+new,45,cd8 t cells,0.2459,0.1891,1.0035
+new,45,b cells,0.0638,0.0492,1.00676
+new,45,nk cells,0.0,0.026,1.00293
+new,46,neutrophils,0.6642,0.6836,1.01345
+new,46,monocytes,0.0299,,
+new,46,cd4 t cells,0.1057,0.1106,0.99786
+new,46,cd8 t cells,0.1276,0.0823,0.99701
+new,46,b cells,0.0273,,
+new,46,nk cells,0.0452,0.0594,1.00215
+new,47,neutrophils,0.7252,0.7125,1.0121
+new,47,monocytes,0.0301,0.0238,1.00679
+new,47,cd4 t cells,0.0327,0.0281,0.99854
+new,47,cd8 t cells,0.1929,0.1541,1.00246
+new,47,b cells,0.0192,,
+new,47,nk cells,0.0,0.016,1.00202
+new,48,neutrophils,0.4202,0.4094,1.0106
+new,48,monocytes,0.0478,0.0426,1.0061
+new,48,cd4 t cells,0.2046,0.2136,0.99662
+new,48,cd8 t cells,0.25,0.175,0.99981
+new,48,b cells,0.0575,0.0301,1.00432
+new,48,nk cells,0.02,0.051,1.00258
+new,49,neutrophils,0.6251,0.6043,0.9978
+new,49,monocytes,0.0406,0.0292,1.00434
+new,49,cd4 t cells,0.1533,0.1528,1.0005
+new,49,cd8 t cells,0.0763,0.0524,1.00006
+new,49,b cells,0.0243,0.021,1.00184
+new,49,nk cells,0.0804,0.0768,0.99777
+new,50,neutrophils,0.7401,0.7655,1.01107
+new,50,monocytes,0.0367,,
+new,50,cd4 t cells,0.0687,0.0664,0.99012
+new,50,cd8 t cells,0.1349,0.0844,0.99083
+new,50,b cells,0.0195,,
+new,50,nk cells,0.0,0.0145,0.99696
+new,51,neutrophils,0.6353,0.6283,1.00059
+new,51,monocytes,0.0,,
+new,51,cd4 t cells,0.1684,0.1661,0.99979
+new,51,cd8 t cells,0.0793,0.0673,1.00192
+new,51,b cells,0.0655,0.0542,1.00395
+new,51,nk cells,0.0516,0.0525,1.00388
+donors,0,neutrophils,0.6035,0.5911,1.00893
+donors,0,monocytes,0.0167,0.0109,1.00659
+donors,0,cd4 t cells,0.1092,0.1077,1.00104
+donors,0,cd8 t cells,0.1676,0.1217,1.00123
+donors,0,b cells,0.0437,0.0256,1.00334
+donors,0,nk cells,0.0593,0.0896,1.0018
+donors,1,neutrophils,0.7132,0.6986,1.00239
+donors,1,monocytes,0.0471,0.0291,1.00694
+donors,1,cd4 t cells,0.1447,0.1426,1.00259
+donors,1,cd8 t cells,0.0452,0.0353,1.00271
+donors,1,b cells,0.0,,
+donors,1,nk cells,0.0497,0.0492,1.00219
+donors,2,neutrophils,0.7362,0.7339,1.00169
+donors,2,monocytes,0.0249,0.0122,1.00701
+donors,2,cd4 t cells,0.0956,0.0969,1.00128
+donors,2,cd8 t cells,0.0719,0.0445,1.00194
+donors,2,b cells,0.0191,0.0113,1.00054
+donors,2,nk cells,0.0523,0.0591,0.99857
+donors,3,neutrophils,0.5493,0.5552,1.00928
+donors,3,monocytes,0.0341,0.014,1.00851
+donors,3,cd4 t cells,0.239,0.2415,0.99853
+donors,3,cd8 t cells,0.1098,0.0531,0.99963
+donors,3,b cells,0.0144,,
+donors,3,nk cells,0.0535,0.0783,1.00174
+donors,4,neutrophils,0.7469,0.7427,1.00953
+donors,4,monocytes,0.0,,
+donors,4,cd4 t cells,0.1255,0.1236,0.99886
+donors,4,cd8 t cells,0.0885,0.0492,1.00021
+donors,4,b cells,0.015,,
+donors,4,nk cells,0.0241,0.0376,1.00117
+donors,5,neutrophils,0.7011,0.7102,1.00906
+donors,5,monocytes,0.0279,,
+donors,5,cd4 t cells,0.1512,0.1433,1.00189
+donors,5,cd8 t cells,0.0178,,
+donors,5,b cells,0.0,,
+donors,5,nk cells,0.102,0.0926,1.00429
+donors,6,neutrophils,0.6393,0.6294,1.00774
+donors,6,monocytes,0.0495,0.039,1.00851
+donors,6,cd4 t cells,0.1418,0.1371,1.00182
+donors,6,cd8 t cells,0.1694,0.1428,1.00309
+donors,6,b cells,0.0,,
+donors,6,nk cells,0.0,,
+donors,7,neutrophils,0.7295,0.7327,1.01091
+donors,7,monocytes,0.0823,0.0465,1.00777
+donors,7,cd4 t cells,0.067,0.0484,0.99635
+donors,7,cd8 t cells,0.0256,,
+donors,7,b cells,0.0,,
+donors,7,nk cells,0.0955,0.1025,1.00212
+donors,8,neutrophils,0.6707,0.6586,1.00119
+donors,8,monocytes,0.0498,0.0271,1.0019
+donors,8,cd4 t cells,0.1287,0.1268,0.99553
+donors,8,cd8 t cells,0.0918,0.074,1.0037
+donors,8,b cells,0.0,,
+donors,8,nk cells,0.0591,0.0632,1.00248
+donors,9,neutrophils,0.7857,0.7792,1.00938
+donors,9,monocytes,0.0402,0.0152,1.00075
+donors,9,cd4 t cells,0.1072,0.0748,0.9986
+donors,9,cd8 t cells,0.0,,
+donors,9,b cells,0.0,,
+donors,9,nk cells,0.0669,0.0684,1.00069
+donors,10,neutrophils,0.6407,0.6315,1.00249
+donors,10,monocytes,0.0841,0.0686,1.00419
+donors,10,cd4 t cells,0.1606,0.1528,0.9976
+donors,10,cd8 t cells,0.0,,
+donors,10,b cells,0.0359,0.0289,1.00533
+donors,10,nk cells,0.0788,0.0802,1.0001
+donors,11,neutrophils,0.7198,0.7061,1.00443
+donors,11,monocytes,0.0361,0.0152,1.00635
+donors,11,cd4 t cells,0.1446,0.1464,1.00064
+donors,11,cd8 t cells,0.0199,,
+donors,11,b cells,0.0,,
+donors,11,nk cells,0.0796,0.0848,0.99974
+donors,12,neutrophils,0.7041,0.6894,1.00143
+donors,12,monocytes,0.0788,0.054,1.00667
+donors,12,cd4 t cells,0.0944,0.0919,1.0034
+donors,12,cd8 t cells,0.057,0.0481,1.0028
+donors,12,b cells,0.0,,
+donors,12,nk cells,0.0657,0.0623,1.00148
+new,52,neutrophils,0.5908,0.5944,1.00569
+new,52,monocytes,0.0756,0.0601,1.00887
+new,52,cd4 t cells,0.1628,0.1669,0.99615
+new,52,cd8 t cells,0.0981,0.0694,0.99822
+new,52,b cells,0.043,0.0309,0.99785
+new,52,nk cells,0.0297,0.0335,1.00015
+new,53,neutrophils,0.5679,0.5328,0.98499
+new,53,monocytes,0.0621,0.0368,1.00152
+new,53,cd4 t cells,0.145,0.073,0.99249
+new,53,cd8 t cells,0.1911,0.1929,0.99602
+new,53,b cells,0.0339,0.0443,0.99991
+new,53,nk cells,0.0,,
+new,54,neutrophils,0.6692,0.6699,1.01798
+new,54,monocytes,0.0531,0.0203,1.00684
+new,54,cd4 t cells,0.1019,0.0876,0.9954
+new,54,cd8 t cells,0.0746,,
+new,54,b cells,0.0177,,
+new,54,nk cells,0.0835,0.1124,0.99657
+new,55,neutrophils,0.5867,0.5788,1.00994
+new,55,monocytes,0.0716,0.0625,1.00898
+new,55,cd4 t cells,0.1929,0.2018,1.00081
+new,55,cd8 t cells,0.0846,0.0237,0.99733
+new,55,b cells,0.026,,
+new,55,nk cells,0.0382,0.0613,1.00479
+new,56,neutrophils,0.683,0.6596,0.99401
+new,56,monocytes,0.052,0.0194,1.00435
+new,56,cd4 t cells,0.0839,0.068,0.99922
+new,56,cd8 t cells,0.1455,0.1486,1.00388
+new,56,b cells,0.0356,0.037,1.00419
+new,56,nk cells,0.0,,
+new,57,neutrophils,0.4677,0.4728,1.00063
+new,57,monocytes,0.0534,0.0253,1.00174
+new,57,cd4 t cells,0.1646,0.1583,0.99864
+new,57,cd8 t cells,0.1931,0.1753,0.99843
+new,57,b cells,0.041,0.033,1.00089
+new,57,nk cells,0.0802,0.0905,1.00275
+new,58,neutrophils,0.6095,0.608,1.01047
+new,58,monocytes,0.0303,0.0203,1.00897
+new,58,cd4 t cells,0.1232,0.1313,1.00218
+new,58,cd8 t cells,0.1545,0.0996,1.00135
+new,58,b cells,0.0494,0.0306,1.00258
+new,58,nk cells,0.033,0.0483,1.00366
+new,59,neutrophils,0.6456,0.6216,0.99243
+new,59,monocytes,0.0624,0.0429,1.00422
+new,59,cd4 t cells,0.0626,0.058,1.00078
+new,59,cd8 t cells,0.1934,0.1812,1.00168
+new,59,b cells,0.036,0.0342,1.00153
+new,59,nk cells,0.0,,
+new,60,neutrophils,0.6008,0.6077,1.00799
+new,60,monocytes,0.0719,0.0496,1.00633
+new,60,cd4 t cells,0.2218,0.2336,1.00128
+new,60,cd8 t cells,0.0496,,
+new,60,b cells,0.0262,0.0149,1.00454
+new,60,nk cells,0.0298,0.042,1.0043
+new,61,neutrophils,0.7031,0.7015,1.00572
+new,61,monocytes,0.0807,0.061,1.00739
+new,61,cd4 t cells,0.0968,0.097,1.00287
+new,61,cd8 t cells,0.0154,,
+new,61,b cells,0.0302,0.0217,1.00302
+new,61,nk cells,0.0737,0.0674,1.00441
+new,62,neutrophils,0.7131,0.7004,0.99691
+new,62,monocytes,0.0258,0.0117,1.00913
+new,62,cd4 t cells,0.0809,0.0767,0.99902
+new,62,cd8 t cells,0.0963,0.0877,1.00312
+new,62,b cells,0.0341,0.0298,1.00322
+new,62,nk cells,0.0497,0.0398,1.00163
+new,63,neutrophils,0.4982,0.4898,1.00353
+new,63,monocytes,0.0702,0.0635,1.0047
+new,63,cd4 t cells,0.0949,0.0935,1.00278
+new,63,cd8 t cells,0.1921,0.1632,1.00136
+new,63,b cells,0.1119,0.1011,1.00053
+new,63,nk cells,0.0326,0.0387,1.00219
+new,64,neutrophils,0.5971,0.6019,0.99348
+new,64,monocytes,0.0579,0.0323,1.00395
+new,64,cd4 t cells,0.1409,0.1382,1.0
+new,64,cd8 t cells,0.1614,0.1411,1.00025
+new,64,b cells,0.0192,0.0221,0.99946
+new,64,nk cells,0.0235,0.0237,1.00127
+donors,91,neutrophils,0.5716,0.566,1.00221
+donors,91,monocytes,0.1346,0.1259,1.00687
+donors,91,cd4 t cells,0.0893,0.0862,0.99746
+donors,91,cd8 t cells,0.0493,0.0281,0.99588
+donors,91,b cells,0.0299,0.0251,1.00118
+donors,91,nk cells,0.1253,0.1286,0.99707
+donors,92,neutrophils,0.5161,0.4951,0.9954
+donors,92,monocytes,0.0,,
+donors,92,cd4 t cells,0.1508,0.1416,0.99813
+donors,92,cd8 t cells,0.2098,0.2146,0.99756
+donors,92,b cells,0.0802,0.0746,1.00309
+donors,92,nk cells,0.0431,0.0359,0.99763
+donors,93,neutrophils,0.5673,0.5499,1.00001
+donors,93,monocytes,0.0,,
+donors,93,cd4 t cells,0.1798,0.1896,1.00059
+donors,93,cd8 t cells,0.159,0.1242,1.0001
+donors,93,b cells,0.056,0.0434,1.00312
+donors,93,nk cells,0.0379,0.0473,0.99724
+donors,94,neutrophils,0.7015,0.6695,0.99539
+donors,94,monocytes,0.0125,,
+donors,94,cd4 t cells,0.0725,0.0769,0.9961
+donors,94,cd8 t cells,0.1169,0.1082,0.99825
+donors,94,b cells,0.0366,0.0352,1.00204
+donors,94,nk cells,0.06,0.051,0.997
+donors,95,neutrophils,0.5999,0.5811,0.99325
+donors,95,monocytes,0.0203,,
+donors,95,cd4 t cells,0.153,0.1212,0.99846
+donors,95,cd8 t cells,0.0976,0.1087,1.00068
+donors,95,b cells,0.0786,0.0782,1.00087
+donors,95,nk cells,0.0506,0.0395,0.99616
+donors,96,neutrophils,0.5888,0.5834,1.0136
+donors,96,monocytes,0.0252,0.0167,1.00644
+donors,96,cd4 t cells,0.0777,0.0768,1.00152
+donors,96,cd8 t cells,0.2096,0.1524,1.00045
+donors,96,b cells,0.0524,0.0309,1.00028
+donors,96,nk cells,0.0464,0.0658,1.00381
+donors,97,neutrophils,0.6085,0.6121,1.00767
+donors,97,monocytes,0.0544,0.0369,1.0065
+donors,97,cd4 t cells,0.1388,0.1402,0.9964
+donors,97,cd8 t cells,0.1108,0.0768,0.99884
+donors,97,b cells,0.0439,0.0237,0.99911
+donors,97,nk cells,0.0437,0.0582,1.00062
+donors,98,neutrophils,0.5465,0.5452,0.99725
+donors,98,monocytes,0.0142,,
+donors,98,cd4 t cells,0.1161,0.1133,1.00069
+donors,98,cd8 t cells,0.2025,0.1898,1.00203
+donors,98,b cells,0.048,0.0435,1.00222
+donors,98,nk cells,0.0727,0.0705,1.00044
+donors,99,neutrophils,0.6172,0.5869,1.00017
+donors,99,monocytes,0.0433,0.0381,1.00606
+donors,99,cd4 t cells,0.135,0.14,1.00253
+donors,99,cd8 t cells,0.0766,0.0673,1.00192
+donors,99,b cells,0.0467,0.0483,1.00231
+donors,99,nk cells,0.0813,0.0739,0.99914
+donors,78,neutrophils,0.7005,0.6885,1.00467
+donors,78,monocytes,0.0979,0.0942,1.00609
+donors,78,cd4 t cells,0.082,0.0802,0.99828
+donors,78,cd8 t cells,0.0685,0.0466,1.00202
+donors,78,b cells,0.0279,0.0148,0.99989
+donors,78,nk cells,0.0232,0.028,0.9996
+donors,79,neutrophils,0.7298,0.7347,1.00264
+donors,79,monocytes,0.0551,0.0409,1.00619
+donors,79,cd4 t cells,0.0793,0.0714,1.00069
+donors,79,cd8 t cells,0.0947,0.0718,1.00437
+donors,79,b cells,0.0156,0.0109,1.00341
+donors,79,nk cells,0.0255,0.036,1.00308
+donors,80,neutrophils,0.6052,0.5882,0.99878
+donors,80,monocytes,0.0292,0.012,1.00379
+donors,80,cd4 t cells,0.0661,0.0682,1.00329
+donors,80,cd8 t cells,0.189,0.1795,1.00375
+donors,80,b cells,0.0614,0.0609,1.00551
+donors,80,nk cells,0.049,0.0484,0.9982
+donors,81,neutrophils,0.5681,0.5687,1.00612
+donors,81,monocytes,0.0371,0.0188,1.00592
+donors,81,cd4 t cells,0.1891,0.1945,1.0029
+donors,81,cd8 t cells,0.1122,0.0854,1.00421
+donors,81,b cells,0.0435,0.0291,1.00068
+donors,81,nk cells,0.05,0.055,1.00225
+donors,82,neutrophils,0.7996,0.7982,1.0134
+donors,82,monocytes,0.0,,
+donors,82,cd4 t cells,0.0819,0.0802,0.99774
+donors,82,cd8 t cells,0.0466,,
+donors,82,b cells,0.0224,,
+donors,82,nk cells,0.0495,0.0681,0.99725
+donors,83,neutrophils,0.5902,0.5729,1.00216
+donors,83,monocytes,0.0,,
+donors,83,cd4 t cells,0.1717,0.1733,1.00141
+donors,83,cd8 t cells,0.1284,0.1046,0.99936
+donors,83,b cells,0.0573,0.045,1.00203
+donors,83,nk cells,0.0524,0.06,0.99901
+donors,84,neutrophils,0.4146,0.4074,1.00754
+donors,84,monocytes,0.0325,0.026,1.00474
+donors,84,cd4 t cells,0.1737,0.1795,1.00052
+donors,84,cd8 t cells,0.3321,0.2727,1.00088
+donors,84,b cells,0.047,0.0302,1.00041
+donors,84,nk cells,0.0,0.0193,1.00081
+donors,85,neutrophils,0.5939,0.6133,1.01475
+donors,85,monocytes,0.0384,,
+donors,85,cd4 t cells,0.1271,0.135,0.99811
+donors,85,cd8 t cells,0.1084,0.0539,0.99964
+donors,85,b cells,0.0367,,
+donors,85,nk cells,0.0955,0.108,1.00651
+donors,86,neutrophils,0.3919,0.3791,1.00931
+donors,86,monocytes,0.0469,0.0386,1.00869
+donors,86,cd4 t cells,0.1849,0.1975,1.00091
+donors,86,cd8 t cells,0.2122,0.1488,1.00065
+donors,86,b cells,0.0783,0.0645,1.00386
+donors,86,nk cells,0.0859,0.1098,1.00119
+donors,87,neutrophils,0.4039,0.4075,0.98936
+donors,87,monocytes,0.0378,0.0153,1.00357
+donors,87,cd4 t cells,0.1821,0.1451,1.00234
+donors,87,cd8 t cells,0.2286,0.2367,1.00171
+donors,87,b cells,0.0891,0.0898,1.00127
+donors,87,nk cells,0.0584,0.043,1.00031
+donors,88,neutrophils,0.7658,0.7638,1.00709
+donors,88,monocytes,0.0,,
+donors,88,cd4 t cells,0.0992,0.1025,1.0003
+donors,88,cd8 t cells,0.0869,0.0551,0.99509
+donors,88,b cells,0.0176,,
+donors,88,nk cells,0.0305,0.0362,1.00127
+donors,89,neutrophils,0.5834,0.5805,1.00087
+donors,89,monocytes,0.0232,,
+donors,89,cd4 t cells,0.1406,0.144,1.00166
+donors,89,cd8 t cells,0.1393,0.1198,1.00072
+donors,89,b cells,0.0746,0.0655,1.00388
+donors,89,nk cells,0.0388,0.0472,1.00144
+donors,90,neutrophils,0.5916,0.5827,0.99398
+donors,90,monocytes,0.0436,0.0229,1.00378
+donors,90,cd4 t cells,0.122,0.096,0.99729
+donors,90,cd8 t cells,0.1152,0.1121,1.00118
+donors,90,b cells,0.0558,0.0512,1.00132
+donors,90,nk cells,0.0718,0.0738,0.99692
+new,65,neutrophils,0.5866,0.5939,1.00738
+new,65,monocytes,0.0729,0.0337,1.00681
+new,65,cd4 t cells,0.1672,0.1751,0.99895
+new,65,cd8 t cells,0.0389,,
+new,65,b cells,0.0582,0.05,1.00443
+new,65,nk cells,0.0763,0.097,1.00344
+new,66,neutrophils,0.4778,0.4647,0.99469
+new,66,monocytes,0.0369,0.0264,1.00417
+new,66,cd4 t cells,0.1965,0.2005,1.00125
+new,66,cd8 t cells,0.1612,0.133,0.99998
+new,66,b cells,0.0641,0.0613,0.99917
+new,66,nk cells,0.0635,0.0721,0.99505
+new,67,neutrophils,0.6155,0.6044,1.00053
+new,67,monocytes,0.0397,0.0233,1.00672
+new,67,cd4 t cells,0.1736,0.1505,0.9982
+new,67,cd8 t cells,0.0577,0.0545,1.00067
+new,67,b cells,0.0374,0.0336,1.00296
+new,67,nk cells,0.0761,0.0815,1.00064
+new,68,neutrophils,0.5945,0.5747,0.99871
+new,68,monocytes,0.0272,0.026,0.9994
+new,68,cd4 t cells,0.1809,0.1862,0.99988
+new,68,cd8 t cells,0.1106,0.0878,1.00106
+new,68,b cells,0.0289,0.0186,1.00171
+new,68,nk cells,0.0579,0.0512,0.99665
+new,69,neutrophils,0.6704,0.6482,0.99879
+new,69,monocytes,0.0517,0.0234,1.00237
+new,69,cd4 t cells,0.1126,0.1053,0.99897
+new,69,cd8 t cells,0.0893,0.0886,1.00288
+new,69,b cells,0.0375,0.036,1.00417
+new,69,nk cells,0.0384,0.0416,1.0004
+new,70,neutrophils,0.6759,0.6749,1.00006
+new,70,monocytes,0.0313,0.013,0.99726
+new,70,cd4 t cells,0.092,0.0943,1.0002
+new,70,cd8 t cells,0.1363,0.1149,0.9977
+new,70,b cells,0.0444,0.037,0.99914
+new,70,nk cells,0.0201,0.0232,0.99774
+new,71,neutrophils,0.6607,0.6428,0.99863
+new,71,monocytes,0.067,0.0541,1.00846
+new,71,cd4 t cells,0.0857,0.0847,0.99819
+new,71,cd8 t cells,0.0936,0.0857,0.99993
+new,71,b cells,0.0332,0.0277,1.0022
+new,71,nk cells,0.0598,0.0604,0.99911
+new,72,neutrophils,0.6537,0.5919,0.97823
+new,72,monocytes,0.0531,0.026,0.99359
+new,72,cd4 t cells,0.1654,0.0946,0.9912
+new,72,cd8 t cells,0.0503,0.056,0.99607
+new,72,b cells,0.0441,0.05,0.99541
+new,72,nk cells,0.0334,,
+new,73,neutrophils,0.7518,0.7498,1.00498
+new,73,monocytes,0.0346,0.0202,1.00747
+new,73,cd4 t cells,0.078,0.0841,1.00426
+new,73,cd8 t cells,0.1034,0.0751,0.99971
+new,73,b cells,0.0187,,
+new,73,nk cells,0.0136,0.0263,1.00001
+new,74,neutrophils,0.6187,0.6285,1.00564
+new,74,monocytes,0.0885,0.0701,1.00757
+new,74,cd4 t cells,0.0613,0.068,0.99861
+new,74,cd8 t cells,0.1731,0.1342,1.00034
+new,74,b cells,0.038,0.0215,1.00013
+new,74,nk cells,0.0204,0.0277,1.00261
+new,75,neutrophils,0.7778,0.7765,1.00922
+new,75,monocytes,0.0531,0.0408,1.01119
+new,75,cd4 t cells,0.0743,0.0723,0.99946
+new,75,cd8 t cells,0.0217,,
+new,75,b cells,0.0268,,
+new,75,nk cells,0.0462,0.052,0.99888
+new,76,neutrophils,0.7484,0.7338,0.99836
+new,76,monocytes,0.0345,0.0186,1.00527
+new,76,cd4 t cells,0.1043,0.1042,0.99955
+new,76,cd8 t cells,0.0817,0.0697,0.99954
+new,76,b cells,0.0151,0.0131,1.00249
+new,76,nk cells,0.016,0.0151,0.99747
+new,77,neutrophils,0.5793,0.5726,1.00541
+new,77,monocytes,0.0492,0.0417,1.00473
+new,77,cd4 t cells,0.1906,0.1957,1.00064
+new,77,cd8 t cells,0.0419,,
+new,77,b cells,0.0711,0.0568,1.00097
+new,77,nk cells,0.0678,0.0852,1.0015
+new,78,neutrophils,0.7005,0.6601,0.99526
+new,78,monocytes,0.0979,0.0735,1.00527
+new,78,cd4 t cells,0.082,0.0723,0.99616
+new,78,cd8 t cells,0.0685,0.0539,1.00025
+new,78,b cells,0.0279,0.0288,1.00295
+new,78,nk cells,0.0232,0.0177,0.99595
+new,79,neutrophils,0.7298,0.7202,1.00185
+new,79,monocytes,0.0551,0.0389,1.0094
+new,79,cd4 t cells,0.0793,0.0747,1.00119
+new,79,cd8 t cells,0.0947,0.0896,1.00377
+new,79,b cells,0.0156,0.0123,1.00547
+new,79,nk cells,0.0255,0.0269,0.9994
+new,80,neutrophils,0.6052,0.615,1.00845
+new,80,monocytes,0.0292,,
+new,80,cd4 t cells,0.0661,0.0618,1.00013
+new,80,cd8 t cells,0.189,0.1584,1.00147
+new,80,b cells,0.0614,0.0476,1.00225
+new,80,nk cells,0.049,0.0564,1.00399
+new,81,neutrophils,0.5681,0.5524,1.00566
+new,81,monocytes,0.0371,0.039,1.00657
+new,81,cd4 t cells,0.1891,0.1883,0.99945
+new,81,cd8 t cells,0.1122,0.0829,1.00136
+new,81,b cells,0.0435,0.0318,1.00407
+new,81,nk cells,0.05,0.0674,0.9987
+new,82,neutrophils,0.7996,0.7916,1.00886
+new,82,monocytes,0.0,,
+new,82,cd4 t cells,0.0819,0.0822,0.99787
+new,82,cd8 t cells,0.0466,,
+new,82,b cells,0.0224,,
+new,82,nk cells,0.0495,0.0652,0.99934
+new,83,neutrophils,0.5902,0.5767,1.00443
+new,83,monocytes,0.0,,
+new,83,cd4 t cells,0.1717,0.1754,1.00046
+new,83,cd8 t cells,0.1284,0.0875,1.00019
+new,83,b cells,0.0573,0.0386,1.00138
+new,83,nk cells,0.0524,0.0671,1.0007
+new,84,neutrophils,0.4146,0.4003,0.99592
+new,84,monocytes,0.0325,0.0111,1.00386
+new,84,cd4 t cells,0.1737,0.1695,1.00246
+new,84,cd8 t cells,0.3321,0.3322,1.00321
+new,84,b cells,0.047,0.0388,1.00308
+new,84,nk cells,0.0,,
+new,85,neutrophils,0.5939,0.5302,0.97959
+new,85,monocytes,0.0384,0.0115,0.99211
+new,85,cd4 t cells,0.1271,0.0852,0.98906
+new,85,cd8 t cells,0.1084,0.116,0.99092
+new,85,b cells,0.0367,0.0377,0.99816
+new,85,nk cells,0.0955,0.0279,0.98887
+new,86,neutrophils,0.3919,0.3813,1.00198
+new,86,monocytes,0.0469,0.0368,1.00475
+new,86,cd4 t cells,0.1849,0.1959,1.00277
+new,86,cd8 t cells,0.2122,0.1665,1.00141
+new,86,b cells,0.0783,0.0692,1.00486
+new,86,nk cells,0.0859,0.1036,1.00079
+new,87,neutrophils,0.4039,0.3808,0.99078
+new,87,monocytes,0.0378,,
+new,87,cd4 t cells,0.1821,0.1725,0.99803
+new,87,cd8 t cells,0.2286,0.2286,0.99843
+new,87,b cells,0.0891,0.0914,1.00218
+new,87,nk cells,0.0584,0.0456,0.99608
+new,88,neutrophils,0.7658,0.7538,1.00001
+new,88,monocytes,0.0,,
+new,88,cd4 t cells,0.0992,0.1039,1.00236
+new,88,cd8 t cells,0.0869,0.0638,1.00425
+new,88,b cells,0.0176,0.0123,1.00462
+new,88,nk cells,0.0305,0.032,1.00062
+new,89,neutrophils,0.5834,0.5778,1.00807
+new,89,monocytes,0.0232,0.0123,1.00663
+new,89,cd4 t cells,0.1406,0.146,1.00275
+new,89,cd8 t cells,0.1393,0.0983,1.00078
+new,89,b cells,0.0746,0.0602,1.00263
+new,89,nk cells,0.0388,0.0518,1.00475
+new,90,neutrophils,0.5916,0.5927,1.0167
+new,90,monocytes,0.0436,0.0278,1.01321
+new,90,cd4 t cells,0.122,0.1255,1.00458
+new,90,cd8 t cells,0.1152,0.0421,0.99865
+new,90,b cells,0.0558,0.0225,1.00133
+new,90,nk cells,0.0718,0.1033,1.00245
+donors,65,neutrophils,0.5866,0.5802,1.00651
+donors,65,monocytes,0.0729,0.0626,1.01119
+donors,65,cd4 t cells,0.1672,0.1653,0.99885
+donors,65,cd8 t cells,0.0389,0.0189,0.99983
+donors,65,b cells,0.0582,0.05,1.00158
+donors,65,nk cells,0.0763,0.084,1.00563
+donors,66,neutrophils,0.4778,0.4708,0.98951
+donors,66,monocytes,0.0369,0.012,0.99949
+donors,66,cd4 t cells,0.1965,0.1474,0.9988
+donors,66,cd8 t cells,0.1612,0.1877,1.00191
+donors,66,b cells,0.0641,0.0628,1.0013
+donors,66,nk cells,0.0635,0.0464,0.99845
+donors,67,neutrophils,0.6155,0.5841,0.99204
+donors,67,monocytes,0.0397,0.0134,0.99989
+donors,67,cd4 t cells,0.1736,0.117,0.99718
+donors,67,cd8 t cells,0.0577,0.0814,0.99842
+donors,67,b cells,0.0374,0.0405,1.00216
+donors,67,nk cells,0.0761,0.0397,0.99286
+donors,68,neutrophils,0.5945,0.5931,1.00623
+donors,68,monocytes,0.0272,,
+donors,68,cd4 t cells,0.1809,0.1832,1.00387
+donors,68,cd8 t cells,0.1106,0.0913,1.00072
+donors,68,b cells,0.0289,0.0185,1.0003
+donors,68,nk cells,0.0579,0.0691,0.99992
+donors,69,neutrophils,0.6704,0.6854,1.01013
+donors,69,monocytes,0.0517,0.021,1.00527
+donors,69,cd4 t cells,0.1126,0.1199,0.99632
+donors,69,cd8 t cells,0.0893,0.038,0.99671
+donors,69,b cells,0.0375,0.0143,0.99537
+donors,69,nk cells,0.0384,0.0541,1.00128
+donors,70,neutrophils,0.6759,0.6751,1.00764
+donors,70,monocytes,0.0313,0.0159,1.00581
+donors,70,cd4 t cells,0.092,0.0955,1.00155
+donors,70,cd8 t cells,0.1363,0.1005,1.00317
+donors,70,b cells,0.0444,0.0307,1.00138
+donors,70,nk cells,0.0201,0.0317,1.00251
+donors,71,neutrophils,0.6607,0.6579,0.99855
+donors,71,monocytes,0.067,0.053,1.00592
+donors,71,cd4 t cells,0.0857,0.0855,0.99746
+donors,71,cd8 t cells,0.0936,0.0761,1.00165
+donors,71,b cells,0.0332,0.0311,1.00302
+donors,71,nk cells,0.0598,0.0558,1.00075
+donors,72,neutrophils,0.6537,0.6674,1.01686
+donors,72,monocytes,0.0531,0.0327,1.01149
+donors,72,cd4 t cells,0.1654,0.1555,0.99827
+donors,72,cd8 t cells,0.0503,,
+donors,72,b cells,0.0441,0.0147,0.9942
+donors,72,nk cells,0.0334,0.051,0.99938
+donors,73,neutrophils,0.7518,0.7687,1.02087
+donors,73,monocytes,0.0346,,
+donors,73,cd4 t cells,0.078,0.0788,0.99719
+donors,73,cd8 t cells,0.1034,0.0321,1.00174
+donors,73,b cells,0.0187,,
+donors,73,nk cells,0.0136,0.0309,0.9992
+donors,74,neutrophils,0.6187,0.5691,0.99192
+donors,74,monocytes,0.0885,0.0781,1.00288
+donors,74,cd4 t cells,0.0613,0.0453,0.99487
+donors,74,cd8 t cells,0.1731,0.1747,0.99615
+donors,74,b cells,0.038,0.0417,1.00025
+donors,74,nk cells,0.0204,0.0109,0.99267
+donors,75,neutrophils,0.7778,0.7778,1.00759
+donors,75,monocytes,0.0531,0.0355,1.00729
+donors,75,cd4 t cells,0.0743,0.0753,1.00315
+donors,75,cd8 t cells,0.0217,,
+donors,75,b cells,0.0268,0.0172,1.0016
+donors,75,nk cells,0.0462,0.048,1.0028
+donors,76,neutrophils,0.7484,0.7538,1.00826
+donors,76,monocytes,0.0345,0.011,1.00321
+donors,76,cd4 t cells,0.1043,0.0984,0.99923
+donors,76,cd8 t cells,0.0817,0.0676,1.00155
+donors,76,b cells,0.0151,,
+donors,76,nk cells,0.016,0.0234,1.00332
+donors,77,neutrophils,0.5793,0.5689,1.01113
+donors,77,monocytes,0.0492,0.0459,1.00813
+donors,77,cd4 t cells,0.1906,0.1871,0.9978
+donors,77,cd8 t cells,0.0419,,
+donors,77,b cells,0.0711,0.0515,1.00063
+donors,77,nk cells,0.0678,0.0892,1.00055
+donors,52,neutrophils,0.5908,0.5944,0.99618
+donors,52,monocytes,0.0756,0.0372,1.00691
+donors,52,cd4 t cells,0.1628,0.1649,1.00005
+donors,52,cd8 t cells,0.0981,0.08,1.00171
+donors,52,b cells,0.043,0.0437,1.00266
+donors,52,nk cells,0.0297,0.0319,1.00012
+donors,53,neutrophils,0.5679,0.5735,1.01083
+donors,53,monocytes,0.0621,0.0483,1.00912
+donors,53,cd4 t cells,0.145,0.1465,1.00084
+donors,53,cd8 t cells,0.1911,0.1534,1.0013
+donors,53,b cells,0.0339,0.013,0.99884
+donors,53,nk cells,0.0,0.0158,1.00482
+donors,54,neutrophils,0.6692,0.6605,1.00336
+donors,54,monocytes,0.0531,0.0373,1.01063
+donors,54,cd4 t cells,0.1019,0.0973,0.99933
+donors,54,cd8 t cells,0.0746,0.0529,1.00005
+donors,54,b cells,0.0177,0.0123,1.00492
+donors,54,nk cells,0.0835,0.0886,1.00348
+donors,55,neutrophils,0.5867,0.579,1.00725
+donors,55,monocytes,0.0716,0.0643,1.00892
+donors,55,cd4 t cells,0.1929,0.2036,1.00143
+donors,55,cd8 t cells,0.0846,0.042,1.00259
+donors,55,b cells,0.026,,
+donors,55,nk cells,0.0382,0.0454,1.00359
+donors,56,neutrophils,0.683,0.6851,1.00866
+donors,56,monocytes,0.052,0.0387,1.00677
+donors,56,cd4 t cells,0.0839,0.0782,0.99933
+donors,56,cd8 t cells,0.1455,0.1186,0.9993
+donors,56,b cells,0.0356,0.0176,1.00073
+donors,56,nk cells,0.0,0.0133,1.00325
+donors,57,neutrophils,0.4677,0.4803,1.00794
+donors,57,monocytes,0.0534,0.0262,1.00581
+donors,57,cd4 t cells,0.1646,0.1626,0.99913
+donors,57,cd8 t cells,0.1931,0.1414,1.00031
+donors,57,b cells,0.041,0.0254,1.00243
+donors,57,nk cells,0.0802,0.1137,1.00189
+donors,58,neutrophils,0.6095,0.6152,1.00196
+donors,58,monocytes,0.0303,0.0118,1.00578
+donors,58,cd4 t cells,0.1232,0.1248,1.00277
+donors,58,cd8 t cells,0.1545,0.1382,1.00014
+donors,58,b cells,0.0494,0.0414,1.00335
+donors,58,nk cells,0.033,0.0338,0.99949
+donors,59,neutrophils,0.6456,0.6682,1.00066
+donors,59,monocytes,0.0624,0.03,1.00343
+donors,59,cd4 t cells,0.0626,0.0607,0.99481
+donors,59,cd8 t cells,0.1934,0.1586,0.99665
+donors,59,b cells,0.036,0.0116,0.99106
+donors,59,nk cells,0.0,,
+donors,60,neutrophils,0.6008,0.6066,1.00461
+donors,60,monocytes,0.0719,0.0497,1.00587
+donors,60,cd4 t cells,0.2218,0.2157,1.00038
+donors,60,cd8 t cells,0.0496,0.0322,1.0032
+donors,60,b cells,0.0262,0.0168,1.00019
+donors,60,nk cells,0.0298,0.0382,1.00244
+donors,61,neutrophils,0.7031,0.7095,1.0091
+donors,61,monocytes,0.0807,0.0552,1.00867
+donors,61,cd4 t cells,0.0968,0.0885,0.99695
+donors,61,cd8 t cells,0.0154,,
+donors,61,b cells,0.0302,0.0139,0.99552
+donors,61,nk cells,0.0737,0.075,0.99907
+donors,62,neutrophils,0.7131,0.7057,1.00243
+donors,62,monocytes,0.0258,,
+donors,62,cd4 t cells,0.0809,0.0919,1.00305
+donors,62,cd8 t cells,0.0963,0.0638,1.00057
+donors,62,b cells,0.0341,0.0307,1.00216
+donors,62,nk cells,0.0497,0.0631,1.00124
+donors,63,neutrophils,0.4982,0.4783,0.99955
+donors,63,monocytes,0.0702,0.05,1.00362
+donors,63,cd4 t cells,0.0949,0.0968,0.99908
+donors,63,cd8 t cells,0.1921,0.1778,0.99979
+donors,63,b cells,0.1119,0.1088,1.00263
+donors,63,nk cells,0.0326,0.0355,0.99904
+donors,64,neutrophils,0.5971,0.559,0.99826
+donors,64,monocytes,0.0579,0.0354,1.00503
+donors,64,cd4 t cells,0.1409,0.1394,0.99806
+donors,64,cd8 t cells,0.1614,0.1542,1.00054
+donors,64,b cells,0.0192,0.0233,1.00418
+donors,64,nk cells,0.0235,0.0203,0.99622
+new,91,neutrophils,0.5716,0.5633,1.0089
+new,91,monocytes,0.1346,0.132,1.01007
+new,91,cd4 t cells,0.0893,0.0809,0.994
+new,91,cd8 t cells,0.0493,,
+new,91,b cells,0.0299,,
+new,91,nk cells,0.1253,0.1503,0.99784
+new,92,neutrophils,0.5161,0.4792,0.98881
+new,92,monocytes,0.0,,
+new,92,cd4 t cells,0.1508,0.0973,0.99942
+new,92,cd8 t cells,0.2098,0.2343,0.9996
+new,92,b cells,0.0802,0.0804,1.00575
+new,92,nk cells,0.0431,0.0329,0.99613
+new,93,neutrophils,0.5673,0.5443,0.98916
+new,93,monocytes,0.0,,
+new,93,cd4 t cells,0.1798,0.1738,1.00018
+new,93,cd8 t cells,0.159,0.1461,0.9989
+new,93,b cells,0.056,0.0583,1.00009
+new,93,nk cells,0.0379,0.0316,0.99765
+new,94,neutrophils,0.7015,0.685,0.99638
+new,94,monocytes,0.0125,,
+new,94,cd4 t cells,0.0725,0.0707,1.00056
+new,94,cd8 t cells,0.1169,0.0989,1.00075
+new,94,b cells,0.0366,0.0408,1.00036
+new,94,nk cells,0.06,0.0523,1.00181
+new,95,neutrophils,0.5999,0.6007,1.00316
+new,95,monocytes,0.0203,,
+new,95,cd4 t cells,0.153,0.1415,0.99733
+new,95,cd8 t cells,0.0976,0.0867,1.00066
+new,95,b cells,0.0786,0.0681,1.00365
+new,95,nk cells,0.0506,0.0611,1.00324
+new,96,neutrophils,0.5888,0.5747,0.98816
+new,96,monocytes,0.0252,0.0105,1.00189
+new,96,cd4 t cells,0.0777,0.0655,0.9993
+new,96,cd8 t cells,0.2096,0.2089,1.00159
+new,96,b cells,0.0524,0.0485,1.00091
+new,96,nk cells,0.0464,0.0409,0.9968
+new,97,neutrophils,0.6085,0.595,1.00473
+new,97,monocytes,0.0544,0.0385,1.00535
+new,97,cd4 t cells,0.1388,0.1401,1.00054
+new,97,cd8 t cells,0.1108,0.0934,1.00255
+new,97,b cells,0.0439,0.0376,1.00466
+new,97,nk cells,0.0437,0.0563,0.99968
+new,98,neutrophils,0.5465,0.5528,0.99736
+new,98,monocytes,0.0142,,
+new,98,cd4 t cells,0.1161,0.1218,1.00043
+new,98,cd8 t cells,0.2025,0.1643,1.00074
+new,98,b cells,0.048,0.0381,0.99645
+new,98,nk cells,0.0727,0.082,1.00099
+new,99,neutrophils,0.6172,0.6152,1.00715
+new,99,monocytes,0.0433,0.0307,1.00954
+new,99,cd4 t cells,0.135,0.134,0.99871
+new,99,cd8 t cells,0.0766,0.0384,1.0002
+new,99,b cells,0.0467,0.0427,1.00186
+new,99,nk cells,0.0813,0.0925,1.00414
+donors,39,neutrophils,0.656,0.6348,1.00095
+donors,39,monocytes,0.0,,
+donors,39,cd4 t cells,0.1645,0.167,0.99971
+donors,39,cd8 t cells,0.0731,0.0537,1.00137
+donors,39,b cells,0.0492,0.0443,1.00424
+donors,39,nk cells,0.0572,0.0643,1.00225
+donors,40,neutrophils,0.7458,0.7432,1.00445
+donors,40,monocytes,0.0123,,
+donors,40,cd4 t cells,0.0716,0.0737,0.99916
+donors,40,cd8 t cells,0.0909,0.0629,0.99961
+donors,40,b cells,0.0365,0.0206,0.99912
+donors,40,nk cells,0.0429,0.0535,1.0011
+donors,41,neutrophils,0.5368,0.5299,1.00657
+donors,41,monocytes,0.0871,0.0654,1.00415
+donors,41,cd4 t cells,0.2298,0.2349,1.00281
+donors,41,cd8 t cells,0.0584,0.0197,1.00284
+donors,41,b cells,0.0133,,
+donors,41,nk cells,0.0746,0.0935,1.00203
+donors,42,neutrophils,0.887,0.885,1.00839
+donors,42,monocytes,0.0,,
+donors,42,cd4 t cells,0.0369,0.027,0.99128
+donors,42,cd8 t cells,0.0367,,
+donors,42,b cells,0.0231,,
+donors,42,nk cells,0.0163,0.0229,0.99316
+donors,43,neutrophils,0.5158,0.5062,1.00252
+donors,43,monocytes,0.0802,0.0682,1.00511
+donors,43,cd4 t cells,0.1362,0.1357,1.00065
+donors,43,cd8 t cells,0.1194,0.1045,0.99885
+donors,43,b cells,0.0446,0.0359,1.00482
+donors,43,nk cells,0.1039,0.1084,0.99911
+donors,44,neutrophils,0.5752,0.5831,1.00369
+donors,44,monocytes,0.0803,0.0569,1.0032
+donors,44,cd4 t cells,0.1859,0.2062,0.99854
+donors,44,cd8 t cells,0.0834,0.0117,0.99742
+donors,44,b cells,0.0326,0.0102,0.99511
+donors,44,nk cells,0.0426,0.0575,0.99977
+donors,45,neutrophils,0.4928,0.4891,0.99935
+donors,45,monocytes,0.0517,0.0334,1.00318
+donors,45,cd4 t cells,0.1458,0.152,1.00247
+donors,45,cd8 t cells,0.2459,0.2264,1.00422
+donors,45,b cells,0.0638,0.0594,1.00559
+donors,45,nk cells,0.0,,
+donors,46,neutrophils,0.6642,0.6746,1.00732
+donors,46,monocytes,0.0299,,
+donors,46,cd4 t cells,0.1057,0.112,0.99983
+donors,46,cd8 t cells,0.1276,0.0868,0.99988
+donors,46,b cells,0.0273,0.0101,0.99957
+donors,46,nk cells,0.0452,0.0615,1.00206
+donors,47,neutrophils,0.7252,0.7157,1.00019
+donors,47,monocytes,0.0301,0.0111,1.00276
+donors,47,cd4 t cells,0.0327,0.0375,0.99875
+donors,47,cd8 t cells,0.1929,0.1732,1.0026
+donors,47,b cells,0.0192,0.012,1.0038
+donors,47,nk cells,0.0,,
+donors,48,neutrophils,0.4202,0.4181,1.00109
+donors,48,monocytes,0.0478,0.0291,1.00445
+donors,48,cd4 t cells,0.2046,0.2059,1.00212
+donors,48,cd8 t cells,0.25,0.2303,1.00384
+donors,48,b cells,0.0575,0.053,1.00392
+donors,48,nk cells,0.02,0.0265,1.00139
+donors,49,neutrophils,0.6251,0.6275,1.01004
+donors,49,monocytes,0.0406,0.0185,1.00336
+donors,49,cd4 t cells,0.1533,0.1521,0.99854
+donors,49,cd8 t cells,0.0763,0.0284,1.00022
+donors,49,b cells,0.0243,,
+donors,49,nk cells,0.0804,0.1099,1.00392
+donors,50,neutrophils,0.7401,0.7558,1.0139
+donors,50,monocytes,0.0367,,
+donors,50,cd4 t cells,0.0687,0.0753,0.99799
+donors,50,cd8 t cells,0.1349,0.0829,1.00096
+donors,50,b cells,0.0195,,
+donors,50,nk cells,0.0,0.0122,0.99469
+donors,51,neutrophils,0.6353,0.6083,0.99045
+donors,51,monocytes,0.0,,
+donors,51,cd4 t cells,0.1684,0.1132,1.00191
+donors,51,cd8 t cells,0.0793,0.0913,1.00074
+donors,51,b cells,0.0655,0.0678,1.00388
+donors,51,nk cells,0.0516,0.0411,0.99649
+new,0,neutrophils,0.6035,0.5896,1.01273
+new,0,monocytes,0.0167,,
+new,0,cd4 t cells,0.1092,0.1039,1.00073
+new,0,cd8 t cells,0.1676,0.1226,1.00091
+new,0,b cells,0.0437,0.0279,1.00242
+new,0,nk cells,0.0593,0.0784,1.00253
+new,1,neutrophils,0.7132,0.7243,1.01333
+new,1,monocytes,0.0471,0.0133,1.0003
+new,1,cd4 t cells,0.1447,0.1359,0.99891
+new,1,cd8 t cells,0.0452,,
+new,1,b cells,0.0,,
+new,1,nk cells,0.0497,0.0564,1.00022
+new,2,neutrophils,0.7362,0.7193,0.99574
+new,2,monocytes,0.0249,,
+new,2,cd4 t cells,0.0956,0.0808,1.00004
+new,2,cd8 t cells,0.0719,0.0647,1.00424
+new,2,b cells,0.0191,0.0168,1.00529
+new,2,nk cells,0.0523,0.0477,0.99689
+new,3,neutrophils,0.5493,0.5376,1.00131
+new,3,monocytes,0.0341,0.0314,1.00444
+new,3,cd4 t cells,0.239,0.2533,0.99792
+new,3,cd8 t cells,0.1098,0.0453,0.99973
+new,3,b cells,0.0144,,
+new,3,nk cells,0.0535,0.0673,0.9961
+new,4,neutrophils,0.7469,0.743,1.01303
+new,4,monocytes,0.0,,
+new,4,cd4 t cells,0.1255,0.1327,1.00053
+new,4,cd8 t cells,0.0885,0.0408,0.99789
+new,4,b cells,0.015,,
+new,4,nk cells,0.0241,0.0321,1.00005
+new,5,neutrophils,0.7011,0.7094,1.00748
+new,5,monocytes,0.0279,,
+new,5,cd4 t cells,0.1512,0.1284,0.99498
+new,5,cd8 t cells,0.0178,,
+new,5,b cells,0.0,,
+new,5,nk cells,0.102,0.1015,0.99793
+new,6,neutrophils,0.6393,0.6144,0.98415
+new,6,monocytes,0.0495,0.03,0.99771
+new,6,cd4 t cells,0.1418,0.0848,0.99285
+new,6,cd8 t cells,0.1694,0.1734,0.99749
+new,6,b cells,0.0,,
+new,6,nk cells,0.0,,
+new,7,neutrophils,0.7295,0.734,1.01012
+new,7,monocytes,0.0823,0.0516,1.0043
+new,7,cd4 t cells,0.067,0.0507,0.99966
+new,7,cd8 t cells,0.0256,,
+new,7,b cells,0.0,,
+new,7,nk cells,0.0955,0.0992,0.99984
+new,8,neutrophils,0.6707,0.6661,1.00481
+new,8,monocytes,0.0498,0.0313,1.00648
+new,8,cd4 t cells,0.1287,0.1417,1.00052
+new,8,cd8 t cells,0.0918,0.0542,1.00336
+new,8,b cells,0.0,,
+new,8,nk cells,0.0591,0.0613,1.00288
+new,9,neutrophils,0.7857,0.7797,1.00881
+new,9,monocytes,0.0402,0.0214,1.00141
+new,9,cd4 t cells,0.1072,0.0785,1.0003
+new,9,cd8 t cells,0.0,,
+new,9,b cells,0.0,,
+new,9,nk cells,0.0669,0.0605,1.00248
+new,10,neutrophils,0.6407,0.6524,1.00861
+new,10,monocytes,0.0841,0.058,1.00525
+new,10,cd4 t cells,0.1606,0.1439,1.0015
+new,10,cd8 t cells,0.0,,
+new,10,b cells,0.0359,0.0183,0.99895
+new,10,nk cells,0.0788,0.0724,1.00098
+new,11,neutrophils,0.7198,0.732,1.00947
+new,11,monocytes,0.0361,,
+new,11,cd4 t cells,0.1446,0.1275,0.9969
+new,11,cd8 t cells,0.0199,,
+new,11,b cells,0.0,,
+new,11,nk cells,0.0796,0.0834,1.00304
+new,12,neutrophils,0.7041,0.692,1.00539
+new,12,monocytes,0.0788,0.0626,1.00269
+new,12,cd4 t cells,0.0944,0.0989,1.00101
+new,12,cd8 t cells,0.057,,
+new,12,b cells,0.0,,
+new,12,nk cells,0.0657,0.0839,0.99954
+new,13,neutrophils,0.5486,0.548,1.00687
+new,13,monocytes,0.0495,0.0257,1.00737
+new,13,cd4 t cells,0.2386,0.2494,0.99705
+new,13,cd8 t cells,0.1387,0.0402,0.99776
+new,13,b cells,0.0,,
+new,13,nk cells,0.0246,0.0543,0.99902
+new,14,neutrophils,0.5639,0.5785,1.01019
+new,14,monocytes,0.0222,,
+new,14,cd4 t cells,0.2117,0.2125,0.99879
+new,14,cd8 t cells,0.0553,,
+new,14,b cells,0.0283,0.0116,0.99961
+new,14,nk cells,0.1187,0.1474,0.99698
+new,15,neutrophils,0.5247,0.5183,1.01083
+new,15,monocytes,0.0873,0.0696,1.00273
+new,15,cd4 t cells,0.205,0.2005,0.99626
+new,15,cd8 t cells,0.0726,,
+new,15,b cells,0.0,,
+new,15,nk cells,0.1103,0.1396,1.00035
+new,16,neutrophils,0.7691,0.771,1.00761
+new,16,monocytes,0.0315,0.0172,1.00533
+new,16,cd4 t cells,0.086,0.0832,0.99977
+new,16,cd8 t cells,0.0244,,
+new,16,b cells,0.0447,0.0297,0.99977
+new,16,nk cells,0.0443,0.0533,1.00343
+new,17,neutrophils,0.597,0.5826,0.9891
+new,17,monocytes,0.0214,,
+new,17,cd4 t cells,0.153,0.1133,0.99996
+new,17,cd8 t cells,0.2159,0.2172,0.99944
+new,17,b cells,0.0126,0.0146,0.99989
+new,17,nk cells,0.0,,
+new,18,neutrophils,0.5749,0.5754,1.00859
+new,18,monocytes,0.0457,0.0297,1.00718
+new,18,cd4 t cells,0.1602,0.1687,1.00129
+new,18,cd8 t cells,0.1285,0.087,1.00011
+new,18,b cells,0.0583,0.046,1.00095
+new,18,nk cells,0.0323,0.0477,1.00185
+new,19,neutrophils,0.4541,0.4495,1.00816
+new,19,monocytes,0.0358,0.0297,1.00896
+new,19,cd4 t cells,0.2976,0.3015,1.00015
+new,19,cd8 t cells,0.0786,0.0181,0.99935
+new,19,b cells,0.0634,0.041,1.00173
+new,19,nk cells,0.0706,0.0998,1.00177
+new,20,neutrophils,0.5371,0.5315,1.00194
+new,20,monocytes,0.0591,0.0388,1.00667
+new,20,cd4 t cells,0.2951,0.2941,1.00025
+new,20,cd8 t cells,0.0763,0.0624,1.00261
+new,20,b cells,0.0323,0.0304,1.00291
+new,20,nk cells,0.0,,
+new,21,neutrophils,0.535,0.5081,0.98688
+new,21,monocytes,0.0465,0.0324,0.99748
+new,21,cd4 t cells,0.266,0.1962,0.99346
+new,21,cd8 t cells,0.0924,0.1162,0.99707
+new,21,b cells,0.0323,0.0316,0.9984
+new,21,nk cells,0.0277,0.017,0.9942
+new,22,neutrophils,0.5376,0.5578,1.01835
+new,22,monocytes,0.0488,0.0198,1.00567
+new,22,cd4 t cells,0.1427,0.1496,0.98813
+new,22,cd8 t cells,0.1792,0.0638,0.9892
+new,22,b cells,0.0571,0.0148,0.98449
+new,22,nk cells,0.0346,0.084,0.99724
+new,23,neutrophils,0.6179,0.6014,1.00121
+new,23,monocytes,0.0325,0.0218,1.00671
+new,23,cd4 t cells,0.0738,0.0732,1.00064
+new,23,cd8 t cells,0.2115,0.1945,1.00276
+new,23,b cells,0.0434,0.0378,1.00368
+new,23,nk cells,0.0209,0.0277,1.00268
+new,24,neutrophils,0.4178,0.4055,1.01043
+new,24,monocytes,0.1173,0.1159,1.00163
+new,24,cd4 t cells,0.2484,0.2597,1.00101
+new,24,cd8 t cells,0.1309,0.0563,1.00071
+new,24,b cells,0.0386,0.0113,1.00106
+new,24,nk cells,0.047,0.0766,1.00204
+new,25,neutrophils,0.7696,0.7456,0.99855
+new,25,monocytes,0.0,,
+new,25,cd4 t cells,0.1624,0.1584,0.99787
+new,25,cd8 t cells,0.0538,0.0291,1.00136
+new,25,b cells,0.0,,
+new,25,nk cells,0.0143,0.0165,1.00025
+donors,26,neutrophils,0.6962,0.7002,1.00581
+donors,26,monocytes,0.0366,0.0208,1.00705
+donors,26,cd4 t cells,0.1224,0.1318,0.99939
+donors,26,cd8 t cells,0.1042,0.0621,0.99648
+donors,26,b cells,0.0406,0.0235,0.99658
+donors,26,nk cells,0.0,,
+donors,27,neutrophils,0.5547,0.5373,1.00056
+donors,27,monocytes,0.0,,
+donors,27,cd4 t cells,0.2959,0.3058,1.00223
+donors,27,cd8 t cells,0.1242,0.1043,1.00153
+donors,27,b cells,0.0253,0.021,1.00505
+donors,27,nk cells,0.0,,
+donors,28,neutrophils,0.6323,0.6359,1.00039
+donors,28,monocytes,0.0521,0.0369,1.00894
+donors,28,cd4 t cells,0.1306,0.1355,0.99894
+donors,28,cd8 t cells,0.1273,0.1067,1.00275
+donors,28,b cells,0.0451,0.0326,1.00149
+donors,28,nk cells,0.0126,0.0134,1.00241
+donors,29,neutrophils,0.6472,0.6329,1.00425
+donors,29,monocytes,0.0143,,
+donors,29,cd4 t cells,0.1213,0.1199,0.99919
+donors,29,cd8 t cells,0.1141,0.0958,1.0012
+donors,29,b cells,0.0387,0.0292,1.00312
+donors,29,nk cells,0.0644,0.0723,1.00063
+donors,30,neutrophils,0.4144,0.4118,1.00891
+donors,30,monocytes,0.0376,0.0362,1.00774
+donors,30,cd4 t cells,0.3208,0.3312,1.00043
+donors,30,cd8 t cells,0.1387,0.0793,0.99914
+donors,30,b cells,0.0622,0.0394,1.00067
+donors,30,nk cells,0.0262,0.0444,1.00363
+donors,31,neutrophils,0.5557,0.5401,0.99262
+donors,31,monocytes,0.0139,,
+donors,31,cd4 t cells,0.2563,0.2393,0.99545
+donors,31,cd8 t cells,0.0762,0.0782,0.99954
+donors,31,b cells,0.0491,0.0433,1.00136
+donors,31,nk cells,0.0488,0.0382,0.99754
+donors,32,neutrophils,0.6861,0.6458,0.99338
+donors,32,monocytes,0.0,,
+donors,32,cd4 t cells,0.1716,0.1632,0.99876
+donors,32,cd8 t cells,0.1109,0.0946,0.99616
+donors,32,b cells,0.0314,0.0341,1.00111
+donors,32,nk cells,0.0,,
+donors,33,neutrophils,0.5229,0.5297,1.00225
+donors,33,monocytes,0.0646,0.0478,1.00593
+donors,33,cd4 t cells,0.2516,0.2576,0.99754
+donors,33,cd8 t cells,0.0588,0.0266,1.0022
+donors,33,b cells,0.0447,0.0339,1.00279
+donors,33,nk cells,0.0573,0.0663,0.99988
+donors,34,neutrophils,0.4312,0.404,0.99211
+donors,34,monocytes,0.0434,0.0225,0.99831
+donors,34,cd4 t cells,0.2405,0.2437,0.99784
+donors,34,cd8 t cells,0.2009,0.1943,0.99852
+donors,34,b cells,0.0567,0.0495,0.99972
+donors,34,nk cells,0.0273,0.0277,0.99282
+donors,35,neutrophils,0.4178,0.4096,0.99964
+donors,35,monocytes,0.0,,
+donors,35,cd4 t cells,0.206,0.1667,1.00036
+donors,35,cd8 t cells,0.2643,0.262,0.99762
+donors,35,b cells,0.0595,0.0605,0.99812
+donors,35,nk cells,0.0525,0.0502,0.999
+donors,36,neutrophils,0.6056,0.5893,1.00176
+donors,36,monocytes,0.0,,
+donors,36,cd4 t cells,0.1964,0.2005,0.99952
+donors,36,cd8 t cells,0.1333,0.1003,1.00353
+donors,36,b cells,0.0647,0.0572,1.00318
+donors,36,nk cells,0.0,0.0111,1.00253
+donors,37,neutrophils,0.6549,0.6309,0.9871
+donors,37,monocytes,0.0602,0.0411,1.00091
+donors,37,cd4 t cells,0.1358,0.0792,0.99835
+donors,37,cd8 t cells,0.1064,0.1198,1.00078
+donors,37,b cells,0.0427,0.0447,0.99982
+donors,37,nk cells,0.0,,
+donors,38,neutrophils,0.5775,0.5888,1.00084
+donors,38,monocytes,0.027,,
+donors,38,cd4 t cells,0.1828,0.1891,0.99697
+donors,38,cd8 t cells,0.1883,0.1529,1.00318
+donors,38,b cells,0.0243,0.0134,1.00006
+donors,38,nk cells,0.0,,
