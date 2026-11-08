@@ -2392,6 +2392,8 @@ One bundle's numbers for the table: Met-A, its tare, the C-Score, atlas Met-A an
 One shard of a pass, as described above; with `--plant`, the constructed loss is planted in the array's own saved values and read by the one
 command with the same references (Group-A's design: the planted and unplanted halves both by the values route). A per-array atlas cell (samples column atlas_cell) replaces --dev-metaa-atlas CELL for that array, so one series run reads each sorted subtype against its own IAM-Atlas v2.1 column.
 
+`--keep-values DIR` (pass 1): each array's calibrated values (its `--save-betas` file) are also copied to DIR as GSM_betas.parquet before the work folder is removed; used to build healthy bloods from the atlas's own donors.
+
 ### run_series.py::table
 One row per bundle, for the scorer.
 
