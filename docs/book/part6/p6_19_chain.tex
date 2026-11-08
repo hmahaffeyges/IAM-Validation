@@ -83,6 +83,8 @@ divided by the healthy baseline 1.1104 (Chapter~\ref{ch:cscore}). It is printed 
 
 \section{Stage T: the tare}
 
+\textbf{Retired.} Healthy comes only from the atlases, never from other samples in the same run, laboratory or study. Stage~T stays in the code only so the first commissionings' records still rebuild; no new reading uses it. The chain now divides each reading by its own healthy prediction: the array's own line and noise, measured on the array itself, applied to the atlas. What follows records Stage~T as it was built and run.
+
 The reading is divided by the median of healthy references of the same specimen type run the same way, on the same slide, else in the same batch.
 The result is $A_{\rm rel}$, and the gauge state is printed from $A_{\rm rel}$ only: \emph{Normal} (0.95--1.05), \emph{above Normal} or \emph{below Normal}. Every
 tared reading carries its detection limit: twice the references' spread over the shift per 1~\% loss, the smallest loss of the neutrophil pattern this specimen

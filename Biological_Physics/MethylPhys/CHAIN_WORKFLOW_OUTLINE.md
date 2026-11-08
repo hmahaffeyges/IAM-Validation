@@ -46,11 +46,12 @@ read from its first read pairs holds only the first chromosomes, so the chain ne
 sample is refused at intake by the genome-coverage check (box C3).
 - Decoder: §21, `stage_seq_values.genome_coverage`.
 
-**A4. Does the laboratory have healthy samples of its own?**
-- **Yes, at least 3 of the same cell type:** a same-laboratory tare is possible (box F-tare).
-- **No:** the sample is read against the atlas alone, and the report says so.
-- Decoder: §5 (Stage T, the same-run tare); `stage_metaa_atlas.tare`.
-- On sequencing: DEV_ATLAS_V21_01.md, the same-laboratory tare.
+**A4. Where does healthy come from?** Only from the atlases: IAM-Atlas v2.1 for arrays, the IAM Sequencing Atlas for sequenced
+samples. Never from other samples in the same run, laboratory or study, and never from a fixed band. Each array's own line and noise is
+measured on the array itself and applied to the atlas (each reading's healthy prediction), and each cell's healthy width comes from the
+atlas's own donors.
+- Decoder: §16 (against the atlas), `stage_metaa_atlas.predicted_healthy`, `stage_metaa_atlas.cell_prediction`.
+- The reference door checks both atlases against their checksum manifests before any reading (`reference_door.py`).
 
 ## Part B. The array path
 
@@ -93,17 +94,27 @@ sample is refused at intake by the genome-coverage check (box C3).
    - A sequenced sample is read against the IAM Sequencing Atlas.
    - Each atlas is built from healthy cells measured with its own platform's chemistry.
    - Decoder: §8, §16, §21.
-2. **D2. A single cell type or a mix?**
-   - A declared sorted cell is read against its own cell's column.
-   - A mixed sample (blood, plasma, tissue) goes to the cell mix (Part E).
-   - Decoder: §1 (`run_sample.py::main`), `whole_sample_reference`.
+2. **D2. A single cell type or a mix?** The chain does not take it from the label. The label picks only the route (array or sequencing;
+   blood, plasma, tissue or isolated cells); it never picks the cell. Every sample, a sorted one included, goes to the cell mix (Part E),
+   and the IAM-Deconvolver says what is in it. A sample whose label disagrees with what the Deconvolver finds is read as found, and the
+   report records the disagreement.
+   - Decoder: §1 (`run_sample.py::main`), `stage_0_intake.LABEL_RULE`, `stage_0_intake.label_check`, `stage_0_intake.is_isolated`; the gate refuses a cell chosen from a
+     label (rule 23b-h).
 
 ## Part E. The cell mix: the IAM-Deconvolver
 
 1. **E1. What cells are in the sample, and in what shares?** The chain fits the sample's cell shares against the atlas's healthy cells.
    It refuses a mix it cannot trust instead of reading a change in the mix as biology. Decoder: §7.
-2. **E2. Cells the atlas does not hold** (for example megakaryocytes in plasma): the reading names the cell and reads the rest. Decoder:
-   §20, `read_in_mix`.
+2. **E2. Cells the atlas does not hold:** the reading names the cell and reads the rest. Megakaryocytes, a large source of plasma DNA,
+   have a provisional column in the IAM Sequencing Atlas (from single megakaryocytes of two healthy donors); IAM-Atlas v2.1 holds none.
+   Decoder: §20, `read_in_mix`.
+3. **E3. Each cell found is read against its own healthy profile.** The results come per cell found (`cells_found`, first in the bundle
+   and the report): each cell's share, its readings against its own column of the atlas, each divided by its own healthy prediction, and
+   how much of the reading is the cell's own. In a mix, a cell's reading moves with a change in that cell and with a change in the cells
+   around it, in proportion to the DNA each holds at the cell's identity sites. Above 90 % of the sample the row reads the cell itself;
+   below it, the sample at that cell's sites. A change is given to one cell only in an isolated sample, molecule by molecule on
+   sequencing, or in one person read against their own earlier draws with the shares measured each time.
+   Decoder: `stage_0_intake.cells_found`, `stage_metaa_atlas.cells_found`, `stage_metaa_atlas.cell_prediction`.
 
 ## Part F. The instruments
 
@@ -121,11 +132,10 @@ Each instrument box carries five things:
 5. **F5. Coupling-A:** is a mark kept site by site, or by a stretch of DNA as a unit? Decoder: §15 (`dev_stages`).
 6. **F6. Group-A:** has a whole group moved? Decoder: §11.
 7. **F7. The tumor ceiling gauge:** how far a sample is from fully scrambled. Decoder: §16, §21.
-8. **F-tare. The tares:**
-   - the same-run tare (arrays from the same slide) and the same-laboratory tare (sequencing, at least 3 healthy samples of the same cell
-     type);
-   - the tare must not erase disease: a tared cancer sample from the same laboratory still reads abnormal.
-   - Decoder: §5 (Stage T); DEV_ATLAS_V21_01.md.
+8. **The tares: retired.** The same-run tare (arrays from the same slide) and the same-laboratory tare (sequencing) took healthy from
+   other samples. They stay in the code only so the first commissionings' records still rebuild (`--ref-table`); no new reading uses them,
+   and the gate refuses a reference built from other samples. Met-A, the C-Score and Group-A were first commissioned with them and are
+   being re-commissioned against the atlas alone. Decoder: §5 (Stage T, history).
 
 ## Part G. The maps: globes and spheres
 

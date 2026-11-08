@@ -18,7 +18,7 @@ departure from the floor means loss of maintained fidelity, not of energy & \con
 Met-A $=$ mean $H(\beta)$ on the cell's identity sites over the same cell type's healthy reference & definition & Ch.~\ref{ch:meta} \\ \rowrule
 neutrophil reference on EPIC: 6 physical arrays, 6,000 identity sites, floor 0.330263 bits & \calibrated & Ch.~\ref{ch:meta} \\ \rowrule
 held-out Met-A of the six reference arrays, SD 0.020 & \measured & Ch.~\ref{ch:meta} \\ \rowrule
-Met-A commissioned on isolated neutrophils, EPIC v1 & \measured, commissioned & Ch.~\ref{ch:meta} \\ \rowrule
+Met-A commissioned on isolated neutrophils, EPIC v1, against a same-run tare; being re-commissioned against the atlas alone & \measured, commissioned & Ch.~\ref{ch:meta} \\ \rowrule
 IAM-A $=\varepsilon/\varepsilon_{\rm pred}(L)$, each sample against its own loose share; band v1 $0.779$--$1.055$ & definition; line \measured & Ch.~\ref{ch:iama} \\ \rowrule
 $E_{\rm hold}=3.08\,\kB T$, $\varepsilon_0=0.044$, $\varphi=E_{\rm hold}/M=0.147$ & \measured, \calc & Ch.~\ref{ch:iama} \\ \rowrule
 neutrophil position $P=1.149$ (3 donors, whole files, 1.140--1.155), earlier position form, now a development flag & \measured & Ch.~\ref{ch:iama} \\ \rowrule
@@ -26,8 +26,8 @@ IAM-Atlas v2.1, 79 cells: commissioned for three cell references (450K) and the 
 Deconvolution tool (atlas v2.1): commissioned for blood-cell shares (neutrophils, monocytes, CD4 T, CD8 T; arrays) & \measured & Ch.~\ref{ch:atlas} \\ \rowrule
 IAM-A (sequencing, its own reference): commissioned on healthy blood CD8 T cells & \measured & Ch.~\ref{ch:iama} \\ \rowrule
 
-Met-A C-score baseline 1.0103 (blocks of 10); healthy band 0.877--1.152, read one-sided; commissioned on whole blood & \calibrated & Ch.~\ref{ch:cscore} \\ \rowrule
-Group-A (groups of whole bloods in one series): commissioned women against men $-0.36$\,\%, a planted 1\,\% loss found at 7.253 standard errors & \measured & Ch.~\ref{ch:groupa} \\ \rowrule
+Met-A C-score baseline 1.0103 (blocks of 10); healthy band 0.877--1.152, read one-sided, set on healthy cohorts; commissioned on whole blood, being re-commissioned with its limit from the atlases alone & \calibrated & Ch.~\ref{ch:cscore} \\ \rowrule
+Group-A (groups of whole bloods in one series): commissioned women against men $-0.36$\,\%, a planted 1\,\% loss found at 7.253 standard errors, each reading centered on healthy people run the same way; being re-commissioned against the atlas alone & \measured & Ch.~\ref{ch:groupa} \\ \rowrule
 $A=1$ healthy in the middle; Normal is each cell's measured width (the design tolerance $1\pm0.05$ superseded) & the middle established; the widths being measured & Ch.~\ref{ch:gauge} \\ \rowrule
 floor $\Hmin$: Met-A $1\times10^{-7}$, IAM-A $1$--$2\times10^{-8}$ (the sample's own); surface full: Met-A 3.03, IAM-A $0.5/\varepsilon_{\rm pred}(L)$, 6.68--12.42; C-score far end 45 & \calc & Ch.~\ref{ch:gauge} \\ \rowrule
 breach and the cancer region on this gauge & \openprob{} (to be measured) & Ch.~\ref{ch:gauge} \\ \rowrule
@@ -42,8 +42,8 @@ whole-array sky (needs per-address noise and a sex mask) & \openprob & Ch.~\ref{
 serial change floor (tared, technical replicates) & \openprob{} (not yet measured) & Ch.~\ref{ch:serial} \\ \rowrule
 out-of-span map separates unknown cells & \prediction & Ch.~\ref{ch:sky} \\ \rowrule
 IAM Sequencing Atlas: 58 healthy cell types (megakaryocytes provisional) at every CpG, counted from sequencing reads; deposited (DOI 10.5281/zenodo.24029328) & \measured{} (development) & Ch.~\ref{ch:seqatlas} \\ \rowrule
-sorted-cell Met-A on sequencing: every healthy sequenced input of the atlas reads Normal (140 of 140, median 1.0075) & \measured{} (development) & Ch.~\ref{ch:seqatlas} \\ \rowrule
-same-laboratory tare on sequencing: two outside laboratories' offsets removed (tared medians 1.000 and 0.989) & \measured{} (development) & Ch.~\ref{ch:seqatlas} \\ \rowrule
+sorted-cell Met-A on sequencing, a build check on the atlas's own inputs: every healthy sequenced input reads inside 0.95--1.05 (140 of 140, median 1.0075) & \measured{} (development) & Ch.~\ref{ch:seqatlas} \\ \rowrule
+same-laboratory tare on sequencing, retired: two outside laboratories' medians brought to Normal (1.000 and 0.989), not each sample & \measured{} (retired) & Ch.~\ref{ch:seqatlas} \\ \rowrule
 genome-coverage intake check: a sequenced sample read only in part is refused, naming the missing chromosomes & synthetic met & Ch.~\ref{ch:chain} \\ \rowrule
 \multicolumn{3}{@{}l}{\emph{Readings}}\\
 senescent fibroblasts clean the unmethylated channel (0.69); immortalized cells err on the methylated one & \measured & Ch.~\ref{ch:gauge} \\

@@ -31,7 +31,7 @@ is the healthy reference: Met-A's is measured once on purified healthy cells of 
 sample's own loose share. Some file names in the chain predate these names: `Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`
 holds Met-A's healthy middle reference, not the floor. The Decoder uses the canon's names and says which file holds what.
 
-**One reference per reading.** An entropy is read only against a reference made the same way, or after a same-run tare. Met-A's healthy
+**One reference per reading.** An entropy is read only against a reference made the same way: the atlas measured with the sample's own chemistry, with the array's own line and noise measured on the array (the same-run tare that once served is retired). Met-A's healthy
 reference is purified arrays read by Stage 1; IAM-Atlas v2.1 blends 21 sources, and on Met-A's sites its neutrophil reads 1.062 against
 Met-A's reference although the values differ by 0.007 on average (`doors/data/DEV_REFERENCES_01/`): the entropy of a blend is higher than
 the average entropy of its parts.
@@ -710,6 +710,8 @@ reference arrays' range, `noise_gate_EPIC_v1.json`), the state is shown only aft
 
 ### Stage T, the tare
 
+**Retired.** Healthy comes only from the atlases; Stage T runs only when `--ref-table` or `--slide-ref-A` is given, to rebuild the first commissionings' records, and the gate refuses a reference built from other samples for any new reading. Kept below as it was built.
+
 **Label: standard method** (normalization against references run the same way).
 
 - **Step 1, self-tare II** (`dev_stages.selftare_map`, on every reading since 2026-10-04). Each probe design (type I, type II) is mapped
@@ -774,7 +776,7 @@ The C-Score's statistic on a departure map: variance of block means of 10 sites 
 blocks.
 
 ### conductor_v3.py::_state
-Normal from 0.95 to 1.05, otherwise above or below Normal.
+Normal from 0.95 to 1.05, otherwise above or below Normal: the first commissioning's band, still printed until each cell's healthy width, measured from the atlas's own donors, replaces it.
 
 ### conductor_v3.py::stage_m_blood
 Stage M in whole blood: the expectation e for this blood's mix, Met-A = mean H(β) / mean H(e) over the measured identity sites, the shift a
@@ -1967,7 +1969,7 @@ predicts there. A held site sits near 0 or 1; a loss moves it toward 0.5, where 
 **Label: standard.** The identity sites follow Met-A's own site rule, applied to the atlas: healthy width at most 0.05 (the person-to-person
 spread combined with the atlas's own uncertainty, half its 95 % range over 1.96), and a best value from 0.75 to 0.95 (methylated side) or 0.05
 to 0.25 (unmethylated side); where more than 3,000 qualify on a side, the 3,000 of smallest width. A reading needs at least 90 % of them
-measured. The tare is a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself.
+measured. The tare (a median of at least 3 same-run healthy references, as Stage T step 2; never the sample itself) is retired and runs only to rebuild earlier records; each reading is divided by its own healthy prediction instead.
 
 **The territories, read on every run.** Besides each cell's identity sites, this stage reads two fixed site sets the identity readings do not
 reach (`territory_sets`, `territory_reading`): the islands, sites every healthy cell type keeps unmarked, and the domains, marked sites some

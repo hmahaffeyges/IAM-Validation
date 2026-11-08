@@ -9,6 +9,16 @@
 
 ---
 
+> **The healthy reference, as the chain stands now.** Healthy comes only from the atlases: IAM-Atlas v2.1 for arrays, the IAM Sequencing
+> Atlas for sequenced samples, never from other samples in the same run, laboratory or study. The tares below (Stage T, the C-score tare,
+> the IAM-A tare, Group-A's same-run centering) took healthy from other samples; they stay in the code only so the first commissionings'
+> records still rebuild (`--ref-table`, `--slide-ref-A`, `--iama-ref-table`), and no new reading uses them. Met-A, the C-score and Group-A
+> were first commissioned with them and are being re-commissioned against the atlas alone. One chain reads arrays and sequencing alike;
+> the label picks only the route, the IAM-Deconvolver reads first, and every cell it finds is read against its own column of the atlas,
+> divided by its own healthy prediction (the array's own line and noise, measured on the array). The report's Met-A state still uses the
+> first commissioning's band (Normal 0.95 to 1.05) until each cell's healthy width, measured from the atlas's own donors, replaces it.
+> The sections below are the chain v3 record as it was written and run.
+
 ## 1. Physics stated once
 
 | quantity | formula | where it is computed |

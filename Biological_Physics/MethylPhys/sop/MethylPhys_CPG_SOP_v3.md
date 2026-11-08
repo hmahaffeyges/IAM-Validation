@@ -5,6 +5,16 @@
 (three tests: purified-cell Normal, replicate spread, identifiability; §2b). 450K neutrophil floor: pending.
 **Readings:** Met-A (arrays; COMMISSIONED on isolated neutrophils) and its C-score (arrays; COMMISSIONED on whole blood). IAM-A (sequencing; COMMISSIONED 2026-10-17 on healthy blood CD8 T cells, whole-genome bisulfite, Stage Q2 self-reference) runs through a separate stage; other specimens are development; it has no C-score yet.
 
+> **The healthy reference, as the chain stands now.** Healthy comes only from the atlases: IAM-Atlas v2.1 for arrays, the IAM Sequencing
+> Atlas for sequenced samples, never from other samples in the same run, laboratory or study. The tares below (Stage T, the C-score tare,
+> the IAM-A tare, Group-A's same-run centering) took healthy from other samples; they stay in the code only so the first commissionings'
+> records still rebuild (`--ref-table`, `--slide-ref-A`, `--iama-ref-table`), and no new reading uses them. Met-A, the C-score and Group-A
+> were first commissioned with them and are being re-commissioned against the atlas alone. One chain reads arrays and sequencing alike;
+> the label picks only the route, the IAM-Deconvolver reads first, and every cell it finds is read against its own column of the atlas,
+> divided by its own healthy prediction (the array's own line and noise, measured on the array). The report's Met-A state still uses the
+> first commissioning's band (Normal 0.95 to 1.05) until each cell's healthy width, measured from the atlas's own donors, replaces it.
+> The sections below are the chain v3 record as it was written and run.
+
 ## 1. Physics stated once
 
 - Per-site entropy: H(β) = −β log₂β − (1−β) log₂(1−β), in bits.
@@ -60,9 +70,9 @@ pre-registered check on v3 has passed and the result is recorded in `doors/`.
 | 3 | Atlas deconvolution | whole-tissue split into the atlas v2 cell types, each with its identifiability | development flag `--dev-atlas-e` (DEV-ATLAS-EPIC-02; DEV-COMPOSITION-TRUTH-02: within 0.03 on another laboratory's mixtures except granulocytes 0.041) |
 | 4 | NILC component separation | cell-type separation by internal linear combination, the CMB method that needs no template per component | development flag `--dev-nilc` (DEV-NILC-01, DEV-COMPOSITION-TRUTH-02: outside the truth bars) |
 | 5 | Met-A | each cell read against its healthy reference or its composition-matched healthy expectation | **running** (neutrophils); B cells behind `--dev-percell-b`; monocytes and B cells do not meet the new-cell rule (DEV-NEWCELL-01) |
-| 6 | C-score | clustering of the residual map in genomic order | **COMMISSIONED 2026-10-15 on whole blood** (one-sided band, upper 1.152; isolated neutrophils development); IAM-A C-score in Stage Q (development, DEV-IAMA-CSCORE-01) |
+| 6 | C-score | clustering of the residual map in genomic order | **COMMISSIONED 2026-10-15 on whole blood** (one-sided band, upper 1.152, set on healthy cohorts; being re-commissioned against the atlas alone; isolated neutrophils development); IAM-A C-score in Stage Q (development, DEV-IAMA-CSCORE-01) |
 | 7 | IAM-A | single-molecule reading on sequencing data | **running** (development; constructed test data 2026-10-03, DEV-BASE-CHAIN-01 e; real sequencing-atlas granulocyte files 2026-10-04, DEV-IAMA-REAL-01) |
-| 8 | Same-run tare | self-tare II on the array's own fixed sites, then A_rel = A / median of same-run healthy references | **running** (self-tare II, then the median tare); self-tare II then median tare adopted by the author as the Stage T reading on 2026-10-04 (it met every replicate and other-laboratory bar, DEV-SELFTARE-02; DEV-PAIRED-01); self-tare II wired into Stage T on 2026-10-04 (DEV-SELFTARE-03) |
+| 8 | Same-run tare | self-tare II on the array's own fixed sites, then A_rel = A / median of same-run healthy references | **retired** (healthy comes only from the atlases; kept only to rebuild the first commissionings' records). It was: self-tare II, then the median tare; self-tare II then median tare adopted by the author as the Stage T reading on 2026-10-04 (it met every replicate and other-laboratory bar, DEV-SELFTARE-02; DEV-PAIRED-01); self-tare II wired into Stage T on 2026-10-04 (DEV-SELFTARE-03) |
 | 9 | Noise gate | noise index N; gauge state withheld above N_max untared, and withheld whenever fewer than 90 % of the noise sites are measured | **running** |
 | 10 | Directional decomposition | which way a departure points (toward disorder or toward over-order), per cell | development flag `--dev-direction` (rebuilt physics-only, DEV-DIRECTION-02: known loss of methylation 12/12 toward disorder; replicates 56/63 no direction) |
 | 11 | Sky map | each site placed on the sphere (HEALPix), the residual map drawn per cell | development flag `--dev-sky` (DEV-SKY-02: against the within-chromosome block-shuffle null three of six bands inside 0.9-1.1) |
