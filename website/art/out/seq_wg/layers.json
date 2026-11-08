@@ -1,0 +1,482 @@
+{
+ "atlas": "IAM Sequencing Atlas at every CpG (the Sequencing Atlas Globe)",
+ "nside": 256,
+ "order": "NESTED",
+ "pixels": 786432,
+ "noise_scale": [
+  -0.05,
+  0.05
+ ],
+ "value_code": "one byte a pixel: 0 no measured CpG, 1 + round(value / top * 254), every other row and column",
+ "value_top": 1.0,
+ "halfwidth_top": 0.15,
+ "mask": {
+  "sex_chromosome_pixels": 40823,
+  "unmeasured_pixels": 476,
+  "used_pixels": 745133,
+  "first_sex_pixel": 745609
+ },
+ "null": {
+  "rule": "map 2's own values shuffled among the pixels the tools use (sex chromosomes and unmeasured pixels left out)",
+  "seed": 20261108
+ },
+ "source": "run_sample.py --build seq-wg-layers (chain/MethylPhys_Interface/reference_globes.py wg_layers), from the published textures and the noise tools' maps",
+ "cells": [
+  {
+   "cell": "adipocytes",
+   "slug": "adipocytes",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "aorta endothelium",
+   "slug": "aorta-endothelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "b cells",
+   "slug": "b-cells",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "bladder epithelium",
+   "slug": "bladder-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "breast basal epithelium",
+   "slug": "breast-basal-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "breast luminal epithelium",
+   "slug": "breast-luminal-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "cardiomyocyte",
+   "slug": "cardiomyocyte",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "cd4 t cells",
+   "slug": "cd4-t-cells",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "cd8 t cells",
+   "slug": "cd8-t-cells",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "colon enteroendocrine",
+   "slug": "colon-enteroendocrine",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "colon epithelium",
+   "slug": "colon-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "colon fibroblasts",
+   "slug": "colon-fibroblasts",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "colon macrophages",
+   "slug": "colon-macrophages",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "cortical neurons",
+   "slug": "cortical-neurons",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "effector memory cd8 t cells",
+   "slug": "effector-memory-cd8-t-cells",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "endometrium epithelium",
+   "slug": "endometrium-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "erythrocyte progenitors",
+   "slug": "erythrocyte-progenitors",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "fallopien tubes epithelium",
+   "slug": "fallopien-tubes-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "gastric antrum epithelium",
+   "slug": "gastric-antrum-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "gastric body epithelium",
+   "slug": "gastric-body-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "gastric fundus epithelium",
+   "slug": "gastric-fundus-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "granulocytes",
+   "slug": "granulocytes",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "heart fibroblasts",
+   "slug": "heart-fibroblasts",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "hepatocyte",
+   "slug": "hepatocyte",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "kidney glomerular endothelium",
+   "slug": "kidney-glomerular-endothelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "kidney glomerular epithelium",
+   "slug": "kidney-glomerular-epithelium",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "kidney tubular endothelium",
+   "slug": "kidney-tubular-endothelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "kidney tubular epithelium",
+   "slug": "kidney-tubular-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "lung alveolar endothelium",
+   "slug": "lung-alveolar-endothelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "lung alveolar epithelium",
+   "slug": "lung-alveolar-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "lung alveolar macrophages",
+   "slug": "lung-alveolar-macrophages",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "lung bronchus epithelium",
+   "slug": "lung-bronchus-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "lung interstitial macrophages",
+   "slug": "lung-interstitial-macrophages",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "memory b cells",
+   "slug": "memory-b-cells",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "monocytes",
+   "slug": "monocytes",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "naive cd4 t cells",
+   "slug": "naive-cd4-t-cells",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "naive cd8 t cells",
+   "slug": "naive-cd8-t-cells",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "nk cells",
+   "slug": "nk-cells",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "oligodendrocytes",
+   "slug": "oligodendrocytes",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "pancreas endothelium",
+   "slug": "pancreas-endothelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "pancreatic acinar",
+   "slug": "pancreatic-acinar",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "pancreatic alpha",
+   "slug": "pancreatic-alpha",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "pancreatic beta",
+   "slug": "pancreatic-beta",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "pancreatic delta",
+   "slug": "pancreatic-delta",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "pancreatic duct",
+   "slug": "pancreatic-duct",
+   "slider": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "prostate epithelium",
+   "slug": "prostate-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "small intestine epithelium",
+   "slug": "small-intestine-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "smooth muscle",
+   "slug": "smooth-muscle",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "striated muscle",
+   "slug": "striated-muscle",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "t central memory cd4",
+   "slug": "t-central-memory-cd4",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "t effector cell cd8",
+   "slug": "t-effector-cell-cd8",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "t effector memory cd4",
+   "slug": "t-effector-memory-cd4",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "thyroid epithelium",
+   "slug": "thyroid-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "tongue epithelium",
+   "slug": "tongue-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "tonsil palatine epithelium",
+   "slug": "tonsil-palatine-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "tonsil pharyngeal epithelium",
+   "slug": "tonsil-pharyngeal-epithelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "vascular saphenous endothelium",
+   "slug": "vascular-saphenous-endothelium",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  },
+  {
+   "cell": "megakaryocytes",
+   "slug": "megakaryocytes",
+   "slider": true,
+   "n1": true,
+   "n2": true,
+   "null": true
+  }
+ ]
+}

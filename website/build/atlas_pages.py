@@ -76,10 +76,23 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
         # stays as a second globe, beside its noise maps, for comparing the two atlases cell for cell
         _fw = os.path.join(ART_, "seq_wg", "index.json")
         if os.path.exists(_fw):
+            _flw = os.path.join(ART_, "seq_wg", "layers.json"); _LY = {x["slug"]: x for x in json.load(open(_flw))["cells"]} if os.path.exists(_flw) else {}   # 2026-11-08: the CMB-tool layers
             WG = json.load(open(_fw)); wc = sorted(({"slug": c["slug"], "name": cellname(c["cell"])} for c in WG["cells"]), key=lambda c: c["name"].lower())
             specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe, every CpG (IAM Sequencing Atlas, {len(wc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
-                dict(name="methylation", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_v.jpg", note="The healthy level, counted from the donors' reads, 0 (never tagged) to 1 (always tagged); each pixel the average of the CpGs it holds."),
-                dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in wc],
+                dict(name="methylation (the sky map)", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_v.jpg", mask=f"{art_rel}seq_wg/{c['slug']}_vm.png", vscale=[0, 1], vword="at least this methylated:",
+                     hint="Slide right to keep only the places at least this methylated; the rest go dark. Slide back to see every place.",
+                     note="The healthy level, counted from the donors' reads, 0 (never tagged) to 1 (always tagged); each pixel the average of the CpGs it holds."),
+                dict(name="how sure the atlas is (the error map)", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_u.jpg", mask=f"{art_rel}seq_wg/{c['slug']}_um.png", vscale=[0, 0.15], vword="less sure than +/-",
+                     hint="Slide right to keep only the places where the atlas is least sure; the sure ones go dark.",
+                     note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]
+                + ([dict(name="noise map 1: donor halves (half-mission difference)", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_n1.jpg",
+                     note="The cell's donors split in two halves, each half counted on its own, and the half-difference drawn: how much healthy people of this cell differ, region by region. The same test a sky survey makes by splitting its observing time. Blue below 0, red above, the scale +/-0.05 the same for every cell.")] if _LY.get(c["slug"], {}).get("n1") else [])
+                + [dict(name="noise map 2: read halves (counting noise)", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_n2.jpg",
+                     note="Each read sent at random to one of two halves, each half counted on its own, and the half-difference drawn: the counting noise alone, nothing biological. Blue below 0, red above, scale +/-0.05."),
+                   dict(name="the null (shuffled noise map 2)", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_null.jpg",
+                     note="Noise map 2's own values shuffled among the places the tools use: what the noise looks like with no position in the genome left in it. Structure in the real maps that this one lacks is what the null test measures."),
+                   dict(name="the mask", kind="image", src=f"{art_rel}seq_wg/mask.jpg",
+                     note="The places the tools leave out, as a sky survey masks its galaxy: the sex chromosomes (dark), the few places no cell measured (gray), and the places used (light).")]) for c in wc],
                 about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry, at every one of the genome's {WG['cpgs']:,} CpGs, each in one fixed place in genome order "
                        f"(HEALPix, {WG['order']} order). The globe itself is NSIDE 2048, about 2 CpGs a pixel; shown here at NSIDE {WG['nside']}, each pixel the average of the CpGs it holds "
                        f"(about 36). Published on Zenodo ({WG['doi']}); how each part of it works: seq-atlas/globe.html. A picture of the atlas: nothing is read or scored from it.")))
