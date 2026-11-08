@@ -1046,3 +1046,5 @@ left out in turn and the interval counted by donors, 923 of 958 readings inside 
 The test: 200 new constructed bloods (`blood_constructed.py` MODE all, new seeds, every donor in the pool), read on Google, scored by
 `blood_rotation_score.py`. Bars: 1. at least 90 % of all scored readings inside Normal; 2. each cell at least 85 %. Spent data (the atlas's
 donors); a pass gives the gauge its Normal on a regular blood draw for development; commissioning needs a sealed test on unseen arrays.
+
+**Correction:** the message of commit 9afcf3d6 gives the rotation diagnostic as 963 of 1000 inside; it was 923 of 958 (96.3 %), as written above and in `blood_constructed_rotation_diag_summary.csv`.
