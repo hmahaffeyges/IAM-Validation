@@ -1005,3 +1005,9 @@ and 518 have no Met-A reading at all. The 30 endothelium states carry the note t
 bloods, the gauge has no Normal yet for the cells of a mixed specimen; the rehearsal shows the chain runs end to end and says so on every row,
 and it shows the two things array commissioning needs next (above): a Normal for cells inside a mix, from the atlas alone, and the per-cell
 reading made steady against small false shares.
+
+**The constructed bloods from the atlas's donors (written and committed before they run).** `blood_constructed.py`, as the design above, with one tightening:
+each cell's donor arrays are split at random into two halves (`blood_donors_halves.csv`; neutrophils 29 and 28, monocytes 20 and 20, B cells
+9 and 8, CD4 T cells 6 and 6, NK cells 6 and 6, CD8 T cells 4 and 4), one building the bloods that give Normal and the other the new bloods
+scored, so no array is in both. The shares are the 100 bloods' with subtypes counted under their parent cell (`blood_shares_parent_map.csv`). Run
+on Google from the values kept by `run_series.py read --keep-values` (series bv2_donors). Scored by `blood_synthetic_score.py`, the bars above.

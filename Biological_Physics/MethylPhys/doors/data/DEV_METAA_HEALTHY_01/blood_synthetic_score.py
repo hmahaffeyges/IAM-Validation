@@ -1,4 +1,5 @@
-"""Scores the constructed-blood synthetic (written and committed 2026-11-08 before it runs). For each of the six cells: its Normal from the 100
+"""Scores the constructed bloods (blood_constructed.py: modes normal and new) and their synthetic (blood_synthetic.py: modes donors and new); the
+first mode gives Normal. Scores the constructed-blood synthetic (written and committed 2026-11-08 before it runs). For each of the six cells: its Normal from the 100
 donor bloods (its Met-A where the IAM-Deconvolver found it: median plus or minus t(0.975, n - 1) x sqrt(1 + 1/n) x the standard deviation; a cell
 found in fewer than 3 donor bloods has no width). Bars (false-fail rates for a 95 % Normal computed first): 1. of the new bloods, at least 90 % of
 all their cell readings with a width inside Normal (600 readings: under 0.1 %); 2. each of the six cells at least 85 % of its readings inside
@@ -7,7 +8,8 @@ Usage: python3 blood_synthetic_score.py FOLDER OUT.txt"""
 import sys, os, glob, json, numpy as np, pandas as pd
 from scipy.stats import t
 src, ot = sys.argv[1:3]; R = []
-for f in glob.glob(os.path.join(src, "**", "blood_synthetic_*.json"), recursive=True): R += json.load(open(f))
+for f in glob.glob(os.path.join(src, "**", "blood_synthetic_*.json"), recursive=True) + glob.glob(os.path.join(src, "**", "blood_constructed_*.json"), recursive=True): R += json.load(open(f))
+for r in R: r["mode"] = "donors" if r["mode"] == "normal" else r["mode"]
 SIX = ["neutrophils", "monocytes", "cd4 t cells", "cd8 t cells", "b cells", "nk cells"]; rows = []
 for r in R:
     got = {c["cell"]: c for c in r.get("cells") or []}   # the cells found by their own names; a subtype found instead of its parent counts as not found

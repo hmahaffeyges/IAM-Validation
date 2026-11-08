@@ -1,0 +1,147 @@
+gsm,cell,series,half
+GSM3319362,b cells,GSE118144,normal
+GSM3319422,b cells,GSE118144,new
+GSM7033179,b cells,GSE224807,normal
+GSM7033220,b cells,GSE224807,new
+GSM7033221,b cells,GSE224807,new
+GSM7033289,b cells,GSE224807,normal
+GSM7033325,b cells,GSE224807,normal
+GSM7033355,b cells,GSE224807,new
+GSM7033410,b cells,GSE224807,normal
+GSM7033428,b cells,GSE224807,new
+GSM2349439,b cells,GSE88824,new
+GSM2349448,b cells,GSE88824,normal
+GSM2349457,b cells,GSE88824,normal
+GSM2349466,b cells,GSE88824,normal
+GSM2349475,b cells,GSE88824,new
+GSM2349492,b cells,GSE88824,normal
+GSM2349501,b cells,GSE88824,new
+GSM7033197,cd4 t cells,GSE224807,normal
+GSM7033216,cd4 t cells,GSE224807,new
+GSM7033285,cd4 t cells,GSE224807,new
+GSM7033374,cd4 t cells,GSE224807,normal
+GSM7033406,cd4 t cells,GSE224807,normal
+GSM7033424,cd4 t cells,GSE224807,new
+GSM7033472,cd4 t cells,GSE224807,new
+GSM2349436,cd4 t cells,GSE88824,new
+GSM2349454,cd4 t cells,GSE88824,normal
+GSM2349463,cd4 t cells,GSE88824,normal
+GSM2349472,cd4 t cells,GSE88824,new
+GSM2349498,cd4 t cells,GSE88824,normal
+GSM2773240,cd8 t cells,GSE103541,normal
+GSM7033218,cd8 t cells,GSE224807,normal
+GSM7033408,cd8 t cells,GSE224807,normal
+GSM7033474,cd8 t cells,GSE224807,new
+GSM2349446,cd8 t cells,GSE88824,new
+GSM2349455,cd8 t cells,GSE88824,new
+GSM2349464,cd8 t cells,GSE88824,normal
+GSM2349473,cd8 t cells,GSE88824,new
+GSM2773232,monocytes,GSE103541,new
+GSM2773237,monocytes,GSE103541,new
+GSM2773242,monocytes,GSE103541,normal
+GSM2773247,monocytes,GSE103541,normal
+GSM2773252,monocytes,GSE103541,normal
+GSM2773262,monocytes,GSE103541,normal
+GSM2773267,monocytes,GSE103541,new
+GSM2773277,monocytes,GSE103541,normal
+GSM2773282,monocytes,GSE103541,new
+GSM2773287,monocytes,GSE103541,new
+GSM3462454,monocytes,GSE122244,normal
+GSM3462462,monocytes,GSE122244,normal
+GSM3462466,monocytes,GSE122244,normal
+GSM7033195,monocytes,GSE224807,normal
+GSM7033276,monocytes,GSE224807,new
+GSM7033283,monocytes,GSE224807,new
+GSM7033300,monocytes,GSE224807,normal
+GSM7033319,monocytes,GSE224807,new
+GSM7033349,monocytes,GSE224807,normal
+GSM7033372,monocytes,GSE224807,normal
+GSM7070890,monocytes,GSE226298,new
+GSM7070892,monocytes,GSE226298,normal
+GSM7070894,monocytes,GSE226298,new
+GSM7070895,monocytes,GSE226298,normal
+GSM7070898,monocytes,GSE226298,new
+GSM7070900,monocytes,GSE226298,new
+GSM7070901,monocytes,GSE226298,normal
+GSM7070916,monocytes,GSE226298,normal
+GSM7070922,monocytes,GSE226298,normal
+GSM7992766,monocytes,GSE252045,new
+GSM7992775,monocytes,GSE252045,new
+GSM7992791,monocytes,GSE252045,new
+GSM7992805,monocytes,GSE252045,new
+GSM7992810,monocytes,GSE252045,normal
+GSM7992825,monocytes,GSE252045,new
+GSM7992839,monocytes,GSE252045,normal
+GSM7992861,monocytes,GSE252045,normal
+GSM2349476,monocytes,GSE88824,new
+GSM2349484,monocytes,GSE88824,new
+GSM2349502,monocytes,GSE88824,new
+GSM2773231,neutrophils,GSE103541,normal
+GSM2773236,neutrophils,GSE103541,normal
+GSM2773241,neutrophils,GSE103541,normal
+GSM2773246,neutrophils,GSE103541,new
+GSM2773251,neutrophils,GSE103541,new
+GSM2773256,neutrophils,GSE103541,new
+GSM2773261,neutrophils,GSE103541,new
+GSM2773266,neutrophils,GSE103541,normal
+GSM2773271,neutrophils,GSE103541,normal
+GSM2773276,neutrophils,GSE103541,normal
+GSM2773281,neutrophils,GSE103541,new
+GSM2773286,neutrophils,GSE103541,normal
+GSM3319393,neutrophils,GSE118144,normal
+GSM3319408,neutrophils,GSE118144,new
+GSM3319420,neutrophils,GSE118144,new
+GSM3319428,neutrophils,GSE118144,new
+GSM3319440,neutrophils,GSE118144,normal
+GSM3319443,neutrophils,GSE118144,normal
+GSM3319451,neutrophils,GSE118144,normal
+GSM3319464,neutrophils,GSE118144,new
+GSM3319481,neutrophils,GSE118144,normal
+GSM3319486,neutrophils,GSE118144,new
+GSM3319491,neutrophils,GSE118144,new
+GSM3319495,neutrophils,GSE118144,normal
+GSM3462455,neutrophils,GSE122244,new
+GSM3462459,neutrophils,GSE122244,normal
+GSM3462463,neutrophils,GSE122244,normal
+GSM3462467,neutrophils,GSE122244,normal
+GSM3462471,neutrophils,GSE122244,new
+GSM3536868,neutrophils,GSE124565,new
+GSM3536869,neutrophils,GSE124565,new
+GSM3536870,neutrophils,GSE124565,normal
+GSM3536871,neutrophils,GSE124565,normal
+GSM3536872,neutrophils,GSE124565,normal
+GSM3536873,neutrophils,GSE124565,normal
+GSM3536874,neutrophils,GSE124565,new
+GSM3536875,neutrophils,GSE124565,normal
+GSM3536876,neutrophils,GSE124565,normal
+GSM3536877,neutrophils,GSE124565,new
+GSM3536878,neutrophils,GSE124565,normal
+GSM3536879,neutrophils,GSE124565,new
+GSM7033234,neutrophils,GSE224807,normal
+GSM7033274,neutrophils,GSE224807,normal
+GSM7033298,neutrophils,GSE224807,new
+GSM7033317,neutrophils,GSE224807,normal
+GSM7033347,neutrophils,GSE224807,new
+GSM7033370,neutrophils,GSE224807,new
+GSM2349435,neutrophils,GSE88824,new
+GSM2349444,neutrophils,GSE88824,new
+GSM2349453,neutrophils,GSE88824,new
+GSM2349462,neutrophils,GSE88824,new
+GSM2349471,neutrophils,GSE88824,normal
+GSM2349479,neutrophils,GSE88824,normal
+GSM2349488,neutrophils,GSE88824,new
+GSM2349497,neutrophils,GSE88824,new
+GSM7033180,nk cells,GSE224807,new
+GSM7033222,nk cells,GSE224807,new
+GSM7033291,nk cells,GSE224807,normal
+GSM7033346,nk cells,GSE224807,normal
+GSM2349438,nk cells,GSE88824,normal
+GSM2349447,nk cells,GSE88824,new
+GSM2349456,nk cells,GSE88824,normal
+GSM2349465,nk cells,GSE88824,new
+GSM2349474,nk cells,GSE88824,new
+GSM2349482,nk cells,GSE88824,normal
+GSM2349491,nk cells,GSE88824,normal
+GSM2349500,nk cells,GSE88824,new
+GSM1185594,neutrophils,GSE49618,normal
+GSM1185597,neutrophils,GSE49618,new
