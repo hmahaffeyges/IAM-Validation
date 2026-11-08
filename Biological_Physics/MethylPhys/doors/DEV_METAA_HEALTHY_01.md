@@ -1035,3 +1035,14 @@ Why NK: each cell's Normal rests on few people (distinct donor arrays per half: 
 median 0.985 to 0.997, the new half's 0.983 to 0.990. My design error: a Normal's interval counts the distinct donors behind it.
 What this shows: on arrays from the atlas alone, a per-cell Normal inside a whole blood holds 94 % of new healthy readings; what it needs is
 the interval counted by donors, more donors for the small-pool cells, and the Deconvolver's false shares solved.
+
+**The rotation test (written and committed before its readings exist).** The instrument's job: a healthy whole blood reads Normal for each cell found in it.
+Diagnostic first, on the 200 bloods already read (`blood_constructed_rotation_diag_summary.csv`, after the fact, does not count): each donor
+left out in turn and the interval counted by donors, 923 of 958 readings inside (every cell 90 % or more; neutrophils' Normal 0.93 to
+1.07, the laboratory term carried in; monocytes' middle below 1).
+
+**Normal:** the measured width of the atlas's own donors read by the one command, mixed into whole bloods, as the prediction interval for one new reading counted by donors; no fixed band.
+
+The test: 200 new constructed bloods (`blood_constructed.py` MODE all, new seeds, every donor in the pool), read on Google, scored by
+`blood_rotation_score.py`. Bars: 1. at least 90 % of all scored readings inside Normal; 2. each cell at least 85 %. Spent data (the atlas's
+donors); a pass gives the gauge its Normal on a regular blood draw for development; commissioning needs a sealed test on unseen arrays.

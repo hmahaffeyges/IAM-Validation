@@ -12,7 +12,7 @@ vd, out, MODE, PART = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4]); o
 PER = int(os.environ.get("PER", 13))   # 2026-11-08: bloods per part (7 on Google: 15 parts a mode); the bloods and their seeds do not change
 SIX = ["neutrophils", "monocytes", "cd4 t cells", "cd8 t cells", "b cells", "nk cells"]
 SH = pd.read_csv(os.path.join(H, "blood_shares_100.csv"), index_col=0)[SIX]; HV = pd.read_csv(os.path.join(H, "blood_donors_halves.csv"))
-POOL = {c: [g for g in HV[(HV.cell == c) & (HV.half == MODE)].gsm if os.path.exists(os.path.join(vd, g + "_betas.parquet"))] for c in SIX}
+POOL = {c: [g for g in HV[(HV.cell == c) & ((HV.half == MODE) | (MODE == "all"))].gsm if os.path.exists(os.path.join(vd, g + "_betas.parquet"))] for c in SIX}   # MODE all (2026-11-08, the rotation test): every donor
 print({c: len(v) for c, v in POOL.items()}, flush=True); cache = {}
 def val(g):
     if g not in cache:
@@ -20,13 +20,14 @@ def val(g):
     return cache[g]
 RF = os.path.join(out, f"blood_constructed_{MODE}_p{PART}.json")
 res = json.load(open(RF)) if os.path.exists(RF) else []; done_ = {r_["blood"] for r_ in res}   # a relaunch keeps the bloods already read
-for b in range(PER * PART, min(PER * PART + PER, 100)):
+NB = 200 if MODE == "all" else 100
+for b in range(PER * PART, min(PER * PART + PER, NB)):
     if b in done_: print(b, "already read", flush=True); continue
-    rg = np.random.default_rng(20261170 + (0 if MODE == "normal" else 5000) + b); pick = {c: POOL[c][rg.integers(len(POOL[c]))] for c in SIX}
-    M = pd.concat([val(pick[c]).rename(c) for c in SIX], axis=1).dropna(); x = (M * SH.iloc[b][SIX].values).sum(1)
+    rg = np.random.default_rng(20261170 + {"normal": 0, "new": 5000, "all": 9000}[MODE] + b); pick = {c: POOL[c][rg.integers(len(POOL[c]))] for c in SIX}
+    M = pd.concat([val(pick[c]).rename(c) for c in SIX], axis=1).dropna(); x = (M * SH.iloc[b % 100][SIX].values).sum(1)
     tag = f"bc{MODE[1]}{b}"; wd = tempfile.mkdtemp(); f = os.path.join(wd, tag + "_betas.csv"); pd.DataFrame({"cpg_id": x.index, "beta": x.round(4).values}).to_csv(f, index=False); bf = os.path.join(wd, tag + "_bundle.json")
     r = subprocess.run([sys.executable, RS, "--betas", f, "--specimen", "whole blood", "--id", tag, "--out", os.path.join(wd, tag + ".html"), "--bundle", bf, "--full-chain", "--cell-panel", "atlas", "--dev-line-wide"], capture_output=True, text=True)
-    row = dict(blood=b, mode=MODE, rc=r.returncode, sites=len(x), arrays=pick, built={c: float(SH.iloc[b][c]) for c in SIX})
+    row = dict(blood=b, mode=MODE, rc=r.returncode, sites=len(x), arrays=pick, built={c: float(SH.iloc[b % 100][c]) for c in SIX})
     if r.returncode == 0:
         B = json.load(open(bf)); row["cells"] = [{k: c.get(k) for k in ("cell", "share", "met_a")} for c in (B.get("cells_found") or {}).get("cells") or []]
     res.append(row); print(b, r.returncode, len(x), flush=True)
