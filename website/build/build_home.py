@@ -350,7 +350,7 @@ def page(art):
         f'<span class="chip st-b">commissioned</span><h3>IAM-Atlas v2.1: the ruler for arrays</h3><p>{E(_A1["how"])}</p>'
         f'<p class="sub">{len(_SPH["cells"])} healthy cell types &middot; {_SPH["sites"]:,} sites &middot; a best value and a 95 % range at every site &middot; DOI {_dl_(_d1)}</p>'
         f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html">Array Atlas Globe</a><a class="btn ghost" href="{_root}atlas/index.html">Every cell, page by page</a><a class="btn ghost" href="{_root}atlas/information_sphere.html">Array Information Sphere</a></p></article>'
-        f'<article class="card"><a href="{_root}atlas/sphere.html?globe=seq-atlas"><img src="{art("seq_cells/b-cells_v.jpg")}" alt="IAM Sequencing Atlas healthy B cells on the sphere" style="width:100%;border-radius:8px"></a>'
+        f'<article class="card"><a href="{_root}atlas/sphere.html?globe=seq-atlas&amp;cell=granulocytes"><img src="{art("explorer/seq_globe_still.jpg")}" alt="IAM Sequencing Atlas healthy granulocytes on the globe at every CpG" style="width:100%;border-radius:8px"></a>'
         f'<span class="chip st-b">in development</span><h3>The IAM Sequencing Atlas: the ruler for sequenced samples</h3><p>{E(_sents(_A2["what"], 3))}</p>'
         f'<p class="sub">{_NSQ} healthy cell types (megakaryocytes provisional) &middot; {E(_cpg)} CpGs, every one in the genome &middot; counted from reads, donor by donor &middot; DOI {_dl_(_d2)}</p>'
         f'<p class="cta"><a class="btn" href="{_root}seq-atlas/globe.html">The globe at every CpG, part by part</a><a class="btn ghost" href="{_root}atlas/sphere.html?globe=seq-atlas">Sequencing Atlas Globe</a><a class="btn ghost" href="{_root}seq-atlas/index.html">Every cell, page by page</a>'
