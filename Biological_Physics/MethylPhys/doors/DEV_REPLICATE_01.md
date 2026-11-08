@@ -472,3 +472,23 @@ p 0.01). The Deconvolver finds no cervical epithelium in the atlas and reads the
 not an atlas cell, recorded.
 - **R20 AML (GSE62298), 68 of 68 read:** DNMT3A mutant (14) and wild type (54) do not separate (1 of 152 below p 0.01). No healthy group in
 this set; A-score rows added as reference only.
+
+**Wave C begins: TCGA-COAD read per person against the atlas (written and committed before any of its readings exists).** The colon replay (R18) found normal colon from cancer patients reading the same as normal colon from people without
+cancer on the whole-sample gauge but higher at the identity sites of the cells found. TCGA-COAD holds 352 open 450K arrays (312 primary tumors,
+38 adjacent normal tissues, one metastasis, one recurrence; 38 people with both a tumor and an adjacent normal), listed by
+`DEV_REPLICATE_01/list_tcga.py` from the NCI GDC (metadata only) into `rc_coad_samples.csv` and `rc_coad_labels.csv`. Each array is read by the
+one command on every IAM-Atlas v2.1 cell with `--dev-line-censored --dev-pred-raw` (series run `rc_coad`), its two files fetched from the GDC
+by `run_series.py` with their md5 checked.
+
+**The instrument's job:** each array is read against the healthy atlas in its own measured cell mix, and the chain reports where it sits on
+Met-A's gauge.
+
+**Sources:** NCI GDC, TCGA-COAD open-access 450K IDATs (public); IAM-Atlas v2.1 (public, Zenodo).
+
+**Reference:** IAM-Atlas v2.1 only; no TCGA group, tumor or adjacent normal, is a reference for any other array.
+
+Bar: none scored; the set holds no healthy donors, so this is a replay of spent data (TCGA-COAD was read by VAL-061, VAL-062 and VAL-099),
+recorded per person by `DEV_REPLICATE_01/tcga_person_score.py`: each array's A / A_pred inside, above or below Normal, its identity-site
+reading, and for the 38 people with both, tumor against their own adjacent normal.
+
+**Prior reading:** spent (the VAL tests named above); stated as such.

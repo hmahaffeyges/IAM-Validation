@@ -73,7 +73,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 181 | 10 | 0 | 0 |
-| `MethylPhys_Interface/run_series.py` | 165 | 7 | 0 | 0 |
+| `MethylPhys_Interface/run_series.py` | 180 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 | `stage_seq_atlas.py` | 895 | 46 | 0 | 0 |
 
@@ -3656,45 +3656,45 @@ Codes a map 1 to 255 on its scale, 0 where no site.
 
 Reads a series published only as a GEO value table (no IDATs): each array's column becomes a values file (cpg, beta) read by run_sample.py with --betas, the replays' values route; nothing in the values is changed, and the chip-level intake checks, which need IDATs, do not run. Synthetic check: a matrix holding the example healthy blood gives the same Met-A (0.9845), C-Score (0.9686) and cell shares as reading the same values directly.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 36 (26 lines) · arguments: src, gsms, d · calls: not called on the traced runs · files named: `_matrix_values.csv`
+*Code:* `MethylPhys_Interface/run_series.py` line 51 (26 lines) · arguments: src, gsms, d · calls: not called on the traced runs · files named: `_matrix_values.csv`
 
 ### `run_series.py::fetch`
 
 An array's two IDATs from GEO, retried.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 24 (11 lines) · arguments: gsm, d · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_series.py` line 24 (26 lines) · arguments: gsm, d, row · calls: not called on the traced runs
 
 ### `run_series.py::run`
 
 Runs the one command with the given flags and keeps its log.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 63 (3 lines) · arguments: args, log · calls: not called on the traced runs · constants read: `PY`, `RS`
+*Code:* `MethylPhys_Interface/run_series.py` line 78 (3 lines) · arguments: args, log · calls: not called on the traced runs · constants read: `PY`, `RS`
 
 ### `run_series.py::refs_for`
 
 The pass-1 readings of the other arrays of the scope (series, slide, or slide when it holds at least 3 others, else series), as the one
 command's reference inputs; never the array itself.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 67 (8 lines) · arguments: gsm, slide, P1, scope, out · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_series.py` line 82 (8 lines) · arguments: gsm, slide, P1, scope, out · calls: not called on the traced runs
 
 ### `run_series.py::bundle_row`
 
 One bundle's numbers for the table: Met-A, its tare, the C-Score, atlas Met-A and its tare, the intake verdict, the reason when not read.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 76 (6 lines) · arguments: p · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_series.py` line 91 (6 lines) · arguments: p · calls: not called on the traced runs
 
 ### `run_series.py::read`
 
 One shard of a pass, as described above; with `--plant`, the constructed loss is planted in the array's own saved values and read by the one
 command with the same references (Group-A's design: the planted and unplanted halves both by the values route). A per-array atlas cell (samples column atlas_cell) replaces --dev-metaa-atlas CELL for that array, so one series run reads each sorted subtype against its own IAM-Atlas v2.1 column.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 83 (65 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
+*Code:* `MethylPhys_Interface/run_series.py` line 98 (65 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
 
 ### `run_series.py::table`
 
 One row per bundle, for the scorer.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 149 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
+*Code:* `MethylPhys_Interface/run_series.py` line 164 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
 
 ## 20. One blood draw: `run_draw.py` (development, to-do step 40)
 

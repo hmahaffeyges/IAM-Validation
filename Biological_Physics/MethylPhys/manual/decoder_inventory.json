@@ -8749,19 +8749,20 @@
   },
   {
    "file": "MethylPhys_Interface/run_series.py",
-   "lines": 165,
+   "lines": 180,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_series.py",
      "function": "fetch",
      "name": "fetch",
      "line": 24,
-     "end": 34,
+     "end": 49,
      "args": [
       "gsm",
-      "d"
+      "d",
+      "row"
      ],
-     "lines": 11,
+     "lines": 26,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -8771,8 +8772,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "matrix_values",
      "name": "matrix_values",
-     "line": 36,
-     "end": 61,
+     "line": 51,
+     "end": 76,
      "args": [
       "src",
       "gsms",
@@ -8790,8 +8791,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "run",
      "name": "run",
-     "line": 63,
-     "end": 65,
+     "line": 78,
+     "end": 80,
      "args": [
       "args",
       "log"
@@ -8809,8 +8810,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "refs_for",
      "name": "refs_for",
-     "line": 67,
-     "end": 74,
+     "line": 82,
+     "end": 89,
      "args": [
       "gsm",
       "slide",
@@ -8828,8 +8829,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "bundle_row",
      "name": "bundle_row",
-     "line": 76,
-     "end": 81,
+     "line": 91,
+     "end": 96,
      "args": [
       "p"
      ],
@@ -8843,8 +8844,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "read",
      "name": "read",
-     "line": 83,
-     "end": 147,
+     "line": 98,
+     "end": 162,
      "args": [
       "a",
       "extra"
@@ -8867,8 +8868,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "table",
      "name": "table",
-     "line": 149,
-     "end": 155,
+     "line": 164,
+     "end": 170,
      "args": [
       "a"
      ],

@@ -21,7 +21,22 @@ import os, sys, re, json, time, glob, argparse, subprocess, urllib.request
 import pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); RS = os.path.join(HERE, "run_sample.py"); PY = sys.executable
 
-def fetch(gsm, d):
+def fetch(gsm, d, row=None):
+    # 2026-11-07: a samples CSV may name each array's two files directly (columns grn_url and red_url), for arrays held outside GEO such as
+    # TCGA's open IDATs at the NCI GDC (https://api.gdc.cancer.gov/data/FILE_ID); each file's md5 (columns grn_md5, red_md5) is checked when given.
+    if row is not None and isinstance(getattr(row, "grn_url", None), str) and isinstance(getattr(row, "red_url", None), str):
+        import hashlib
+        got = {}
+        for k in ("grn", "red"):
+            src = getattr(row, k + "_url"); md = getattr(row, k + "_md5", None); p = os.path.join(d, f"{gsm}_{k.capitalize()}.idat")
+            for t in range(6):
+                try:
+                    urllib.request.urlretrieve(src, p)
+                    if isinstance(md, str) and hashlib.md5(open(p, "rb").read()).hexdigest() != md: raise IOError("md5 differs")
+                    got[k] = p; break
+                except Exception as e: print(gsm, k, "fetch retry", type(e).__name__, flush=True); time.sleep(20 * (t + 1))
+            else: raise RuntimeError(f"{gsm}: {k} IDAT not fetched from {src}")
+        return got
     u = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{gsm[:-3]}nnn/{gsm}/suppl/"
     for t in range(6):
         try:
@@ -107,7 +122,7 @@ def read(a, extra):
                 if r.gsm not in MV: raise RuntimeError(f"{r.gsm}: not in the series matrix")
                 base = ["--betas", MV[r.gsm], "--specimen", sp, "--id", r.gsm]
             else:
-                f = fetch(r.gsm, W); base = ["--grn", f["grn"], "--red", f["red"], "--specimen", sp, "--id", r.gsm]
+                f = fetch(r.gsm, W, r); base = ["--grn", f["grn"], "--red", f["red"], "--specimen", sp, "--id", r.gsm]
             if a.pass_ == 1:
                 bv1 = os.path.join(W, r.gsm + "_betas.parquet")
                 rc = run(base + ["--out", os.path.join(W, r.gsm + ".html"), "--bundle", os.path.join(d1, r.gsm + ".json"), "--save-betas", bv1] + ex, os.path.join(d1, r.gsm + ".log"))
