@@ -17,8 +17,10 @@ def val(g):
     if g not in cache:
         b = pd.read_parquet(os.path.join(vd, g + "_betas.parquet")).iloc[:, 0]; b.index = b.index.astype(str); cache[g] = b
     return cache[g]
-res = []
+RF = os.path.join(out, f"blood_constructed_{MODE}_p{PART}.json")
+res = json.load(open(RF)) if os.path.exists(RF) else []; done_ = {r_["blood"] for r_ in res}   # a relaunch keeps the bloods already read
 for b in range(13 * PART, min(13 * PART + 13, 100)):
+    if b in done_: print(b, "already read", flush=True); continue
     rg = np.random.default_rng(20261170 + (0 if MODE == "normal" else 5000) + b); pick = {c: POOL[c][rg.integers(len(POOL[c]))] for c in SIX}
     M = pd.concat([val(pick[c]).rename(c) for c in SIX], axis=1).dropna(); x = (M * SH.iloc[b][SIX].values).sum(1)
     tag = f"bc{MODE[1]}{b}"; wd = tempfile.mkdtemp(); f = os.path.join(wd, tag + "_betas.csv"); pd.DataFrame({"cpg_id": x.index, "beta": x.round(4).values}).to_csv(f, index=False); bf = os.path.join(wd, tag + "_bundle.json")
