@@ -1,0 +1,10 @@
+cell,n,rho
+b cells,44.0,0.35
+cd4 t cells,45.0,0.68
+cd8 t cells,35.0,0.61
+monocytes,54.0,0.69
+naive b cells,14.0,0.64
+naive cd4 t cells,13.0,0.9
+naive cd8 t cells,23.0,0.56
+neutrophils,64.0,0.83
+nk cells,18.0,-0.05
