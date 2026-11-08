@@ -151,6 +151,14 @@
    "done_when": "every step below closed with its record, in order; steps run in parallel when machines are free, but none is skipped",
    "branches": [
     {
+     "id": "60.35",
+     "date": "2026-11-07",
+     "status": "in progress",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "what": "THE ORDER OF WORK (author 2026-11-07: 'lets get this chain working properly and then work on commisioning'; 'we get all the array parts of the chain done first, then we move on to the sequencing parts and the last thing is figuring out the cross lab for seqencing finally and then commisisoning'). No new tests outside this list. A. The array chain working: (1) one default chain [done: the two met fixes in --full-chain, identity check met]; (2) the result is each cell found [done: cells_found in every bundle, the report leads with it]; (3) the share at which a cell's own reading reads it [synthetic running]; (4) each cell's healthy width from the atlas's own donors, 1 the middle [synthetic running, then the 456 donors]; (5) the printed state against the widths; (6) rehearsal on spent arrays (the 100 bloods, one cancer set). B. The sequencing chain working: the same five on the sequencing atlas. C. Sequencing across laboratories. D. Commissioning: arrays first (Met-A, C-Score, Group-A on held data), then sequencing.",
+     "next": "A3 and A4 synthetics (Google); A4 donors after its synthetic is met; A5 chain change after A3 and A4"
+    },
+    {
      "id": "60.0",
      "date": "2026-11-04",
      "status": "running",
