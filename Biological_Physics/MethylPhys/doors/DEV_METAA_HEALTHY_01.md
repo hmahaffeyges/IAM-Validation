@@ -803,3 +803,14 @@ reading: the chain sent a sample to the atlas readings only when its specimen wa
 chain (`stage_0_intake.is_isolated`): any isolated, sorted or purified sample is routed to the atlas readings, and the Deconvolver decides what
 it holds; isolated neutrophils keep the commissioned route. The atlas's own donor arrays would have met the same gap. The first run's parts are
 set aside in the build bucket (`metaa_healthy/width_first_run/`) and the synthetic runs again unchanged on the fixed chain.
+
+**When a cell's own reading reads that cell, read: not met, and what it shows** (`DEV_METAA_HEALTHY_01/share_synthetic_summary.txt`; 72 parts, every array by the one command).
+Bar 1 not met: at 50 % the cell's own loss moved its reading more than the same loss in all the other cells for 8 of the 9 cells, and the two
+moves were within about 10 % of each other for all nine (ratio 0.981 to 1.112). **What it shows, recorded:** at every share, the reading moved
+with a loss in the cell and with a loss in the others in proportion to the DNA each holds at the cell's identity sites (the ratio of the two
+moves follows share / (1 - share): about 0.11 at 10 %, 0.25 at 20 %, 1 at 50 %). So a cell's Met-A read inside a mixed sample is the
+sample's disorder at that cell's identity sites. It cannot tell, from one array, whether a change is in the cell or around it. It reads the
+cell itself where the cell is nearly all the sample (an isolated sample), and it reads the sample at the cell's sites everywhere else.
+**Consequence for the chain:** each row of `cells_found` says which it is; a change is given to one cell only where the physics can place it:
+in an isolated sample, molecule by molecule on sequencing (each molecule comes from one cell), or in one person read against their own earlier
+draws with the cell shares measured each time.
