@@ -125,3 +125,12 @@ was met. The run on GitHub is the record.
 **The sign-flip null's synthetic on GitHub: met** (`doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_flip_synthetic.txt`, run 42344172326): pure noise, even, uneven or louder at the edges, within the flips' own scatter in every band and nothing flagged; the planted structure above all 20 flips (613.8 and 23.7 times their mean at the two largest scales). On the edge-loud noise the shuffles read 0.61 to 0.70, as the real read-halves maps did: the cause is reproduced. **One story source** for the page, the book, the SOP and the catalogue: `CANON/globe_wg_story.json` (13 parts, each with its CMB name, the name a geneticist uses, its physics, its result and the record behind it, and the rebuild steps from Zenodo and GitHub alone).
 
 **The sign-flip null on the published atlas.** (`doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_flip_summary.txt`.) Read halves, 57 cells: flips' ratio near 1 (medians 0.8788 to 1.0550); 15 cells have a band above all 20 flips, where chance alone gives 14.5; 2 at over 1.5 times the flips' mean (kidney glomerular endothelium 1.5796, monocytes 1.6438), recorded. Donor halves: all 49 structured. The noise maps are what the physics says: counting in the read halves, regional differences between healthy people in the donor halves.
+
+**The noise maps on Zenodo, with the atlas: IAM Sequencing Atlas v1.2, 10.5281/zenodo.24051846** (author: everything for the atlas under the atlas's DOI). The 57 cells' noise maps at every
+CpG had been kept only as the output of GitHub run 42339899387 (deleted by GitHub on 12-07), my gap. Version 1.2 of the atlas holds the atlas's
+28 files, every file of the globe's record (25; four renamed, listed in FILES_v1.2.md) and the noise maps (SHA256 6226e6a4..., their cells and
+maps exactly those of `globe_wg_noise.json`) with the noise record, the null test's record and both synthetics; 62 files, 27.95 GB (`atlas_v12_record.json`), every file
+checked against its source by checksum before publishing (`deposit/zenodo_seq_atlas_v12.py`, run on a Google machine). The globe's own
+record (10.5281/zenodo.24029332) stays, and now says the atlas record holds it. The push check (`CANON/data_homes.py`, section D) now refuses a
+data file named in the atlases' records with no home in the repository, our published Zenodo records (`CANON/zenodo_files.json`) or a GitHub
+release.

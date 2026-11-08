@@ -84,3 +84,17 @@ Working copies and our own outputs. Nothing a researcher needs is only here; wha
 | `results/DEV_CHAIN_Q2_01/` | 2 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | `results/DEV_SECONDLAB_01/` | 1 | the committed record of each job (doors/) | full outputs and logs: deposit (step 19) |
 | exploratory runs | 13 | the development log | full outputs and logs: deposit (step 19) |
+
+## D. The atlases' data products
+
+Every data file the atlases' records name, and where a researcher gets it. A run's output or our cloud bucket is not a home; the push is refused if a name has none.
+
+| file | named in | home |
+|---|---|---|
+| `CpG.bed.gz` | globe_wg_story.json | GitHub release hg19-bwameth-index-v1 |
+| `globe_wg_noise_maps_n256.npz` | DEV_SEQ_GLOBE_WG_01.md | Zenodo 10.5281/zenodo.24051846 |
+| `deconv_reference_v1.parquet` | DEV_ATLAS_V21_01.md | inside seq_atlas_runtime_tables.tgz |
+| `held_reference_v1.parquet` | DEV_ATLAS_V21_01.md | inside seq_atlas_runtime_tables.tgz |
+| `input_floors_v1.parquet` | DEV_ATLAS_V21_01.md | inside seq_atlas_runtime_tables.tgz |
+| `noise_cols.tgz` | DEV_ATLAS_V21_01.md | inside seq_atlas_runtime_tables.tgz |
+| `pieces_megakaryocytes_29.tar` | DEV_ATLAS_V21_01.md | Zenodo 10.5281/zenodo.24051846 |

@@ -1,0 +1,320 @@
+{
+ "doi": "10.5281/zenodo.24051846",
+ "version": "1.2",
+ "title": "The IAM Sequencing Atlas: 58 healthy human cell types (megakaryocytes provisional) at every CpG, counted from whole-genome bisulfite sequencing (development)",
+ "files": 62,
+ "total_gb": 27.95,
+ "listing": [
+  {
+   "key": "CHECKSUMS_globe.txt",
+   "size": 1207,
+   "md5": "md5:9ea9c1d021a2218fb919876bc36c5610"
+  },
+  {
+   "key": "CHECKSUMS_globe_megakaryocytes.txt",
+   "size": 556,
+   "md5": "md5:1305dd9f43ae4326fadf659080dea367"
+  },
+  {
+   "key": "CHECKSUMS_v1.2.txt",
+   "size": 3242,
+   "md5": "md5:9150dae28305fb4e29bd544afb9fe599"
+  },
+  {
+   "key": "FILES_v1.2.md",
+   "size": 767,
+   "md5": "md5:39bdd603d41af2ce9ff7ebd5d6ffe387"
+  },
+  {
+   "key": "README_globe.md",
+   "size": 2871,
+   "md5": "md5:ea42c8e57d474b1d4f2356f8cf7dd4fc"
+  },
+  {
+   "key": "README_globe_megakaryocytes.md",
+   "size": 1479,
+   "md5": "md5:31e88efd525d9eeadbfef7488c87cdf0"
+  },
+  {
+   "key": "README_megakaryocytes.md",
+   "size": 2464,
+   "md5": "md5:7261aba40922287cae8ac2c260d29301"
+  },
+  {
+   "key": "README_noise.md",
+   "size": 2835,
+   "md5": "md5:df2597d2f777829603d43776c268a198"
+  },
+  {
+   "key": "SHA256_MANIFEST.txt",
+   "size": 16935,
+   "md5": "md5:d57db8043fc42203c3a3dcda121ba31a"
+  },
+  {
+   "key": "SHA256_MANIFEST_megakaryocytes.txt",
+   "size": 9619,
+   "md5": "md5:70ac7288f3da5d9171d566943a76a469"
+  },
+  {
+   "key": "atlas57_merge.json",
+   "size": 1799,
+   "md5": "md5:ad363333e9bf8ea3b0127e87d3d3a818"
+  },
+  {
+   "key": "atlas57_summary.txt",
+   "size": 367,
+   "md5": "md5:bd12854e95bc17530e9225a9fe664744"
+  },
+  {
+   "key": "donor_traits.csv",
+   "size": 15847,
+   "md5": "md5:c1dfa8c6d916f52d8679bf054461f2b6"
+  },
+  {
+   "key": "globe57_set01_of_12.tar",
+   "size": 774543360,
+   "md5": "md5:def9a431fa2db1d2eb8815b7c1a8006e"
+  },
+  {
+   "key": "globe57_set02_of_12.tar",
+   "size": 782346240,
+   "md5": "md5:cfcd7bb1a926fd360bf43acbed8e3006"
+  },
+  {
+   "key": "globe57_set03_of_12.tar",
+   "size": 794275840,
+   "md5": "md5:6362677a89c191aeb7a7bae1b8f581dc"
+  },
+  {
+   "key": "globe57_set04_of_12.tar",
+   "size": 781363200,
+   "md5": "md5:d031dd6de400e48031898cbf0b7ff975"
+  },
+  {
+   "key": "globe57_set05_of_12.tar",
+   "size": 777041920,
+   "md5": "md5:10b13443cf2b2008f722fa86f2d6d7a6"
+  },
+  {
+   "key": "globe57_set06_of_12.tar",
+   "size": 774686720,
+   "md5": "md5:4a0b5c2e2750cc2704a078c93932d04b"
+  },
+  {
+   "key": "globe57_set07_of_12.tar",
+   "size": 786022400,
+   "md5": "md5:83c7373dbf31d6707b46d2e76f7aa33b"
+  },
+  {
+   "key": "globe57_set08_of_12.tar",
+   "size": 790784000,
+   "md5": "md5:49d578db7103d07e2a04b3bbb198fb86"
+  },
+  {
+   "key": "globe57_set09_of_12.tar",
+   "size": 769996800,
+   "md5": "md5:a55bda88e6f3fd911d4ed5aa09b4c9f7"
+  },
+  {
+   "key": "globe57_set10_of_12.tar",
+   "size": 770406400,
+   "md5": "md5:c79cd9f3e160c02eb466a7d854b488cf"
+  },
+  {
+   "key": "globe57_set11_of_12.tar",
+   "size": 768686080,
+   "md5": "md5:52b23f835534d14d81c9953292eb646a"
+  },
+  {
+   "key": "globe57_set12_of_12.tar",
+   "size": 175042560,
+   "md5": "md5:b5325feb386d4bfd6c8a1020d06edf8a"
+  },
+  {
+   "key": "globe_megakaryocytes_slices.tar",
+   "size": 59801600,
+   "md5": "md5:02c8b7dc9315097d3f5f9f25e7110155"
+  },
+  {
+   "key": "globe_wg_check.json",
+   "size": 23042,
+   "md5": "md5:56bdd551f0858ddfca3c1688872ebd29"
+  },
+  {
+   "key": "globe_wg_flip_summary.txt",
+   "size": 39098,
+   "md5": "md5:a99c5058eac0aa22de1490b6078b5cc2"
+  },
+  {
+   "key": "globe_wg_noise.json",
+   "size": 144282,
+   "md5": "md5:4ae533559adc6ef2e334bac1aab91ec2"
+  },
+  {
+   "key": "globe_wg_noise_maps_megakaryocytes_n256.npz",
+   "size": 4663509,
+   "md5": "md5:4e747f6cab53e220b5112ff84980f241"
+  },
+  {
+   "key": "globe_wg_noise_maps_n256.npz",
+   "size": 258793826,
+   "md5": "md5:05fff8f8e636c29c95c37c24059ffa20"
+  },
+  {
+   "key": "globe_wg_noise_megakaryocytes.json",
+   "size": 2750,
+   "md5": "md5:f15a453530a2191a1f06189220ea0b6f"
+  },
+  {
+   "key": "globe_wg_noise_summary.txt",
+   "size": 12988,
+   "md5": "md5:8499fda1ba203d75191ccb2a9c1bb4fd"
+  },
+  {
+   "key": "globe_wg_textures_megakaryocytes_n256.npz",
+   "size": 4164416,
+   "md5": "md5:5e7dce3e51380d7360edd418a336dbd7"
+  },
+  {
+   "key": "globe_wg_textures_n256.npz",
+   "size": 231149346,
+   "md5": "md5:b31e2ca6a0d1bfd86451daa363a38674"
+  },
+  {
+   "key": "gran_inputs.csv",
+   "size": 514,
+   "md5": "md5:40dd9496933b05241319388182aa8de8"
+  },
+  {
+   "key": "mk_build_files.csv",
+   "size": 6925,
+   "md5": "md5:feffe01d4c23cf90a9d8640627ad523a"
+  },
+  {
+   "key": "mk_donor1_lift.json",
+   "size": 575,
+   "md5": "md5:ca5885a6ad39c7195bf517ae514939d2"
+  },
+  {
+   "key": "mk_donor2_lift.json",
+   "size": 575,
+   "md5": "md5:3202d309c39da2859f4c26eddcbff141"
+  },
+  {
+   "key": "mk_inputs.csv",
+   "size": 371,
+   "md5": "md5:2a57ae6dc48ad7bb45ead8a1a45c154d"
+  },
+  {
+   "key": "mk_platelet_compare.json",
+   "size": 9122,
+   "md5": "md5:29206114709a36f5a3e45a9db59677c3"
+  },
+  {
+   "key": "mk_platelet_synthetic.txt",
+   "size": 908,
+   "md5": "md5:25c1345c08a306cdbaf2280444cc9488"
+  },
+  {
+   "key": "pieces57_set01_of_12.tar",
+   "size": 1579223040,
+   "md5": "md5:0d4551fc8b1adccc98515746aaec60a9"
+  },
+  {
+   "key": "pieces57_set02_of_12.tar",
+   "size": 1598904320,
+   "md5": "md5:a5c60126ff2a1a46a7161f80d8101f63"
+  },
+  {
+   "key": "pieces57_set03_of_12.tar",
+   "size": 1620234240,
+   "md5": "md5:a20fb7c05beaa0302e8354df8275c669"
+  },
+  {
+   "key": "pieces57_set04_of_12.tar",
+   "size": 1593108480,
+   "md5": "md5:5f490e10863e5ba2d1732a29c2f23de9"
+  },
+  {
+   "key": "pieces57_set05_of_12.tar",
+   "size": 1591224320,
+   "md5": "md5:1ae4f3c497ce73bbea077cfd794e7a5a"
+  },
+  {
+   "key": "pieces57_set06_of_12.tar",
+   "size": 1586329600,
+   "md5": "md5:7b911cd6c054b6a6b29102293981d00a"
+  },
+  {
+   "key": "pieces57_set07_of_12.tar",
+   "size": 1593466880,
+   "md5": "md5:398f68fe0ec595c99229ac575a0f62b1"
+  },
+  {
+   "key": "pieces57_set08_of_12.tar",
+   "size": 1599047680,
+   "md5": "md5:e1ccb26ab4ff17e28d7676c1dd4a6848"
+  },
+  {
+   "key": "pieces57_set09_of_12.tar",
+   "size": 1580718080,
+   "md5": "md5:0f2bafdd29a53ea154b54ca459808176"
+  },
+  {
+   "key": "pieces57_set10_of_12.tar",
+   "size": 1570856960,
+   "md5": "md5:5f2543909de13ba541a347d89a7a53d1"
+  },
+  {
+   "key": "pieces57_set11_of_12.tar",
+   "size": 1558784000,
+   "md5": "md5:41152223189fd121164592ec231bd4da"
+  },
+  {
+   "key": "pieces57_set12_of_12.tar",
+   "size": 338329600,
+   "md5": "md5:c884f3f7752f885e01a02f6e62e3aab8"
+  },
+  {
+   "key": "pieces_megakaryocytes_29.tar",
+   "size": 208599040,
+   "md5": "md5:fa5323e7234acaf51498ae6c7e531eea"
+  },
+  {
+   "key": "seq_atlas_inputs.csv",
+   "size": 27853,
+   "md5": "md5:1f24d0c0d772c971999277bf4197fb3f"
+  },
+  {
+   "key": "seq_atlas_runtime_tables.tgz",
+   "size": 622941599,
+   "md5": "md5:918a73b51ed66ff6cd4f9c570efdcf1c"
+  },
+  {
+   "key": "seq_globe_wg.py",
+   "size": 34660,
+   "md5": "md5:0d1832a162f9c239917bdafbfc7a2232"
+  },
+  {
+   "key": "seq_globe_wg_flip_synthetic.txt",
+   "size": 1282,
+   "md5": "md5:4cac615b1a5b6a8f3fa628702503b2c4"
+  },
+  {
+   "key": "seq_globe_wg_noise_synthetic.txt",
+   "size": 1613,
+   "md5": "md5:434b15a09fc2c9f2eba17d4867cfe3ff"
+  },
+  {
+   "key": "seq_globe_wg_synthetic_run2.txt",
+   "size": 629,
+   "md5": "md5:2ccfeb8c0af90680b4131f8e4e40392f"
+  },
+  {
+   "key": "slice_report_megakaryocytes.json",
+   "size": 6973,
+   "md5": "md5:849f5316ea0b2630dafc13623493bddf"
+  }
+ ],
+ "source": "https://zenodo.org/api/records/24051846"
+}

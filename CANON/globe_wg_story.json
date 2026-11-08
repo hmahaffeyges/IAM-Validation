@@ -12,7 +12,7 @@
   "values_checked_against_array_layout_globe": 139185168,
   "values_equal": 139185168,
   "doi": "10.5281/zenodo.24029332",
-  "atlas_doi": "10.5281/zenodo.24029328",
+  "atlas_doi": "10.5281/zenodo.24051846",
   "record": "Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/globe_wg_check.json; Biological_Physics/MethylPhys/doors/data/DEV_SEQ_GLOBE_WG_01/seq_globe_wg_synthetic_run2.txt; Biological_Physics/MethylPhys/deposit/zenodo_mk_v11_README_globe.md",
   "megakaryocytes": "the 58th cell, provisional (GSE87197 donors 1 and 2): 25,220,009 CpGs with reads, all placed; its texture and both noise maps in the globe's version 1.1"
  },
@@ -162,7 +162,7 @@
   }
  ],
  "rebuild": [
-  "Download the IAM Sequencing Atlas (Zenodo 10.5281/zenodo.24029328) and check every piece against its SHA256 manifest.",
+  "Download the IAM Sequencing Atlas (Zenodo 10.5281/zenodo.24051846) and check every piece against its SHA256 manifest.",
   "Clone the IAM-Validation repository from GitHub and install the chain's requirements (Biological_Physics/MethylPhys/chain/requirements.txt).",
   "Run the synthetics first: python3 Biological_Physics/MethylPhys/atlas/tools/seq_globe_wg.py synthetic OUT.txt, then noise-synthetic and flip-synthetic.",
   "Build the globe set by set: seq_globe_wg.py slice INPUTS.csv OUTDIR PIECES..., then assemble (or run .github/workflows/globe_wg.yml).",

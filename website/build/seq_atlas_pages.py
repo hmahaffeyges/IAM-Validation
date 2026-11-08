@@ -88,7 +88,7 @@ def write(out, art_rel, css_tag, style, back):
         + f'<p><a href="{back}">&larr; IAMPerformance front page</a> &middot; <a href="../atlas/index.html">IAM-Atlas v2.1 (arrays)</a> &middot; '
         + '<a href="../atlas/sphere.html?globe=seq-atlas">Sequencing Atlas Globe</a> &middot; <a href="globe.html">The globe at every CpG, part by part</a>' + (' &middot; <a href="../atlas/information_sphere_sequencing.html">Sequencing Information Sphere</a>' if os.path.exists(_ig) else '') + '</p>'
         + f'<h1>The IAM Sequencing Atlas: {len(C)} healthy cell types at every CpG</h1><p><b>In development.</b> The ruler for sequenced samples, measured with '
-        + "sequencing's own chemistry; IAM-Atlas v2.1 stays the ruler for arrays. " + E(PHYS) + '</p><p>The whole atlas, every cell at every CpG with its runtime tables and a checksum for every piece, is on Zenodo: <a href="https://doi.org/10.5281/zenodo.24029328">doi.org/10.5281/zenodo.24029328</a>.</p><p>' + E(HOW) + ' Choose a cell.</p><div class="cg">' + "".join(g) + "</div></section></body></html>")
+        + "sequencing's own chemistry; IAM-Atlas v2.1 stays the ruler for arrays. " + E(PHYS) + '</p><p>The whole atlas, every cell at every CpG with its runtime tables and a checksum for every piece, is on Zenodo: <a href="https://doi.org/10.5281/zenodo.24051846">doi.org/10.5281/zenodo.24051846</a>.</p><p>' + E(HOW) + ' Choose a cell.</p><div class="cg">' + "".join(g) + "</div></section></body></html>")
     for k, c in enumerate(C):
         p, n = C[k - 1], C[(k + 1) % len(C)]; dn = don.get(c["cell"], [])
         halves = collections.Counter(h for _, h in dn); sx = collections.Counter(sex.get(g_, "") or "not recorded" for g_, _ in dn)

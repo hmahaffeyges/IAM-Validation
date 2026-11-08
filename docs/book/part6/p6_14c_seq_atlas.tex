@@ -98,7 +98,7 @@ how sure & a 95~\% range from the fit at every value & the donors' spread and th
 donors & from 21 public sources & one to three per cell, sealed halves \\
 noise & the fit's posterior draws & two measured noise maps \\
 status & commissioned use by use & in development \\
-on Zenodo & 10.5281/zenodo.23441999 & 10.5281/zenodo.24029328 \\
+on Zenodo & 10.5281/zenodo.23441999 & 10.5281/zenodo.24051846 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -109,4 +109,4 @@ Cells with no open bulk sequencing of healthy donors are not in it: megakaryocyt
 
 \section{Getting it and rebuilding it}
 
-The whole atlas is deposited on Zenodo (DOI 10.5281/zenodo.24029328): the 113 merged pieces in 12 sets, the runtime tables the chain reads, the input lists, and a SHA-256 manifest naming every piece. The repository holds the runtime tables and the code; its deposit manifest lists every file a test recalls at one of three places, the repository, Zenodo, or the public archive the input came from. To rebuild it from the public files, run \texttt{run\_sample.py --build seq-atlas} over the committed input list, then the table builds named above; every value should match the deposit's checksums.
+The whole atlas is deposited on Zenodo (DOI 10.5281/zenodo.24051846): the 113 merged pieces in 12 sets, the runtime tables the chain reads, the input lists, and a SHA-256 manifest naming every piece. The repository holds the runtime tables and the code; its deposit manifest lists every file a test recalls at one of three places, the repository, Zenodo, or the public archive the input came from. To rebuild it from the public files, run \texttt{run\_sample.py --build seq-atlas} over the committed input list, then the table builds named above; every value should match the deposit's checksums.
