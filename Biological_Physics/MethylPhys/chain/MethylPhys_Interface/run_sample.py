@@ -1134,9 +1134,9 @@ def main():
              "scope": "values made from sequencing molecules at IAM-Atlas v2.1's sites (development): the cell shares, Met-A for each cell and the globe read "
                       "them; the commissioned Met-A and C-Score read EPIC v1 arrays and are not applied"}
         # 2026-11-07: the sorted-cell Met-A's cell is set after Stage D21 from the Deconvolver's shares, never from the specimen's words
-    elif beta is not None and _S0spec.atlas_cell_of(a.specimen):   # 2026-10-22: an isolated IAM-Atlas v2.1 cell other than neutrophils
+    elif beta is not None and (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen)):   # 2026-10-22: an isolated IAM-Atlas v2.1 cell other than neutrophils; 2026-11-07: or any isolated sample ('sorted cells')
         o = {"build": C3.BUILD, "specimen": a.specimen, "array_type": array_type, "atlas_cell": _S0spec.atlas_cell_of(a.specimen),
-             "scope": "an isolated " + _S0spec.atlas_cell_of(a.specimen) + " specimen: read by Met-A against IAM-Atlas v2.1 (development.metaa_atlas, not commissioned); "
+             "scope": "an isolated " + (_S0spec.atlas_cell_of(a.specimen) or "cell") + " specimen: read by Met-A against IAM-Atlas v2.1 (development.metaa_atlas, not commissioned); "
                       "the commissioned Met-A and C-Score read neutrophils and whole blood and are not applied; the cell shares cover six blood cells"}
         # 2026-11-07: o['atlas_cell'] is the specimen's claim only; the cell read is the Deconvolver's (set after Stage D21)
     elif beta is not None:
@@ -1169,7 +1169,7 @@ def main():
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
         import stage_0_intake as _S0L   # 2026-11-07 (the Deconvolver decides): the specimen's claim checked against what Stage D21 found, recorded
         o["label_check"] = _S0L.label_check(a.specimen, o["cell_shares"])
-        if not a.dev_metaa_atlas and _S0spec.atlas_cell_of(a.specimen):   # a sorted / isolated route: its single-cell Met-A reads the cell found most of
+        if not a.dev_metaa_atlas and (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen)):   # a sorted / isolated route: its single-cell Met-A reads the cell found most of
             a.dev_metaa_atlas = _S0L.chain_cell(o["cell_shares"])
             if a.dev_metaa_atlas: print(f"Sorted-cell Met-A reads {a.dev_metaa_atlas}, the cell the Deconvolver found most of ({o['label_check'].get('note')})", flush=True)
         if a._operator_cell: o["operator_cell"] = dict(a._operator_cell, flag="set by the operator, not by the Deconvolver: not a chain reading of what is in the sample")
@@ -1190,11 +1190,11 @@ def main():
         if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
             print("Stage D21: a second deconvolution with provisional columns (" + a.dev_provisional + "), flagged", flush=True)
             o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
-        _atlas_spec = (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.atlas_cell_of(a.specimen))
+        _atlas_spec = (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen))
         if _atlas_spec and not (o["cell_shares"] or {}).get("cells"):   # 2026-10-25: say why the atlas readings did not run, instead of leaving them out
             _withheld_why = "not read: the cell shares were withheld (" + str((o["cell_shares"] or {}).get("withheld") or (o["cell_shares"] or {}).get("reason") or "no shares") + ")"
             for _k in ("met_a_each_cell", "met_a_whole", "territories", "cscore_each_cell"): o[_k] = {"flag": "development", "reason": _withheld_why}
-        if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.atlas_cell_of(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development); 2026-10-25: isolated atlas cells too (the cord-blood B cells read no Met-A)
+        if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development); 2026-10-25: isolated atlas cells too (the cord-blood B cells read no Met-A)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
                 _bs, _inf = (None, None) if a._seqv else _ST.selftare_map(_pd.Series(beta, dtype="float64"))   # the self-tare maps array designs; not sequencing
@@ -1203,7 +1203,7 @@ def main():
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 # 2026-11-07: removed the 10-28 override that set a 'sorted X' sample's mix to 100 % X; every reading here uses the Deconvolver's shares
-                if _S0spec.atlas_cell_of(a.specimen): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"
+                if (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen)): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
                 try: o["cscore_each_cell"] = SA.cscore_limits(SA.cscore_in_mix(_vals, _shr, a._cell_dep), o.get("array_type"))   # 2026-10-23 (41.2, 41.3); 2026-10-27: each reading's healthy limit
                 except Exception as e: o["cscore_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}

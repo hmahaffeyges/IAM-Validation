@@ -796,3 +796,10 @@ atlas's own spread at every site, site by site and half shared; the real median 
 person's main cell found is the planted cell. The donors are read only after the synthetic is met.
 
 **The one default chain, identity check: met** (`DEV_METAA_HEALTHY_01/synthetic_07_default_check.txt`). Test 7's draw 1 read with neither flag gives the same readings as with both, to every recorded digit: `--full-chain` now carries them.
+
+**The width synthetic's first run: no reading made (a chain gap, found and fixed).** All 120 constructed people ran through the one command, but none got a per-cell
+reading: the chain sent a sample to the atlas readings only when its specimen was whole blood, buffy coat, plasma, tissue or a named atlas cell
+('sorted CD8 T cells'), and the synthetic's arrays were labeled 'sorted cells'. The route depended on the label naming a cell. Fixed in the
+chain (`stage_0_intake.is_isolated`): any isolated, sorted or purified sample is routed to the atlas readings, and the Deconvolver decides what
+it holds; isolated neutrophils keep the commissioned route. The atlas's own donor arrays would have met the same gap. The first run's parts are
+set aside in the build bucket (`metaa_healthy/width_first_run/`) and the synthetic runs again unchanged on the fixed chain.

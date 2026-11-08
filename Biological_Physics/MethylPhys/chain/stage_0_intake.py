@@ -158,10 +158,18 @@ def is_tissue(specimen):
     if any(w in s for w in ("cell line", "cultured", "culture")): return True
     return s in TISSUE_WORDS or s.endswith(" tissue") or s.endswith(" tumor") or s.endswith(" biopsy")
 
+def is_isolated(specimen):
+    """2026-11-07 (the label picks the route, never the cell): a sample of isolated, sorted or purified cells, of any named cell or none
+    ('sorted cells'). Routed to the atlas readings like whole blood: the IAM-Deconvolver decides which cells it holds, and each cell found is
+    read against its own atlas reference. Found when the width synthetic's 'sorted cells' arrays got no atlas readings at all."""
+    s = normalise_specimen(specimen)
+    if ACCEPTED_SPECIMENS.get(s, s) == "isolated neutrophils" or s.endswith(" neutrophils"): return False   # the commissioned neutrophil route keeps its own branch
+    return any(s.startswith(w) for w in ATLAS_CELL_WORDS) or s in ("isolated cells", "sorted cells", "purified cells")
+
 def specimen_refusal(specimen):
     """None when intake accepts the specimen (ACCEPTED_SPECIMENS, or an isolated IAM-Atlas v2.1 cell); otherwise the plain refusal text naming the specimen (decision L)."""
     s = normalise_specimen(specimen)
-    if s in ACCEPTED_SPECIMENS or atlas_cell_of(specimen) or is_plasma(specimen) or is_tissue(specimen): return None
+    if s in ACCEPTED_SPECIMENS or atlas_cell_of(specimen) or is_isolated(specimen) or is_plasma(specimen) or is_tissue(specimen): return None
     why = next((r for keys, r in REFUSED_SPECIMEN_REASONS if any(k and k in s for k in keys) or (s == "" and "" in keys)), None)
     why = why or f"'{specimen}' is not a blood specimen the chain has a reference for (tissue, placenta and other specimens each need their own reference)"
     return (f"specimen '{specimen}' refused at intake: {why}. Accepted: whole blood, buffy coat, isolated / sorted / purified neutrophils, constructed DNA mixtures of blood cells (test material), and "

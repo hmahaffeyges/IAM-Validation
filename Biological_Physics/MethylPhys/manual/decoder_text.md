@@ -336,6 +336,10 @@ specimen is accepted at intake and takes the single-cell route (development, not
 2026-11-07 the name it returns is the specimen's claim only: it chooses the route and is checked by `label_check`; it never sets the cell a
 reading uses (rule 23b-h).
 
+### stage_0_intake.py::is_isolated
+
+A sample of isolated, sorted or purified cells, of a named cell or none ('sorted cells'), routed to the atlas readings like whole blood: the IAM-Deconvolver decides which cells it holds and each cell found is read against its own atlas reference. The label picks this route and never the cell. Isolated neutrophils keep the commissioned neutrophil route. Added when a constructed 'sorted cells' sample got no atlas readings at all.
+
 ### stage_0_intake.py::cells_found
 The cells the IAM-Deconvolver found in the sample, largest share first, each at or above 1 % (`CELL_FLOOR`, the presence gate).
 
