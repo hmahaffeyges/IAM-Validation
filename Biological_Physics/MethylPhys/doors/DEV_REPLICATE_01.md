@@ -502,3 +502,12 @@ Read and scored exactly as TCGA-COAD above (`tcga_person_score.py`, the same fla
 **Sources:** the NCI GDC (public, open access: TCGA 450K IDAT pairs and their sample types).
 
 **Reference:** IAM-Atlas v2.1 only; no TCGA group is used as a reference.
+
+**R17 breast tissue read per person, read: not met** (`r17_person/r17_person_summary.txt`, `r17_person_readings.csv`; series run r17_raw, all 407 arrays read
+by the one command on every IAM-Atlas v2.1 cell with the prediction on each array's own values; none refused; the committed scorer.) Bar not
+met: 38 of the 50 healthy donors' breast tissue inside Normal (12 below), median 0.9628. Recorded, not scored: normal-adjacent 35 of 42
+inside Normal (7 below), median 0.9680; cancers 258 of 305 inside (9 above, 38 below), median 0.9825; BRCA1 carriers' normal 6 of 7, cancers 3
+of 3. The healthy and the adjacent tissue read alike here, person by person as by group. The Deconvolver's three largest cells in the healthy
+donors: vascular endothelium, adipocytes and the two breast epithelia (atlas columns), with a bone-marrow progenitor (GMP) among them in 10 of
+the 50, a cell breast tissue is not expected to hold. Whole-sample Met-A on tissue is not commissioned; the healthy tissue reading below 1 is
+recorded beside the open centering of the healthy line (synthetic test 7) and the mix, not explained. Spent data.

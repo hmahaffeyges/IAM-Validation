@@ -1,0 +1,8 @@
+R17 breast tissue (GSE69914) read per person against IAM-Atlas v2.1 (prediction on each array's own values): 407 of 407 read
+refused (prediction not on the array's own values): 0
+  breast cancer (305): inside Normal 258, above 9, below 38 | median 0.9825, range 0.883 to 1.080
+  breast cancer, BRCA1 carrier (3): inside Normal 3, above 0, below 0 | median 0.9885, range 0.971 to 0.994
+  normal (healthy donor) (50): inside Normal 38, above 0, below 12 | median 0.9628, range 0.892 to 1.005
+  normal, BRCA1 carrier (7): inside Normal 6, above 0, below 1 | median 0.9676, range 0.922 to 0.989
+  normal-adjacent (42): inside Normal 35, above 0, below 7 | median 0.9680, range 0.918 to 1.012
+bar (at least 45 of the 50 healthy donors inside Normal): not met (38 of 50 read)

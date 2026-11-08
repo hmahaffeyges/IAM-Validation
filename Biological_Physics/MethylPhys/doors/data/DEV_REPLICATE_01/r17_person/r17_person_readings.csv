@@ -1,0 +1,408 @@
+gsm,group,ratio,A_raw,A_pred,top_cell,top_share,place
+GSM1712367,breast cancer,0.98287,0.99738,1.01476,breast luminal epithelium,0.363,inside Normal
+GSM1712377,breast cancer,1.05901,1.08812,1.02749,breast luminal epithelium,0.281,above Normal
+GSM1712387,breast cancer,1.01409,1.02136,1.00717,neutrophils,0.274,inside Normal
+GSM1712397,breast cancer,1.05287,1.07143,1.01763,breast luminal epithelium,0.274,above Normal
+GSM1712407,breast cancer,1.03207,1.07974,1.04619,breast luminal epithelium,0.377,inside Normal
+GSM1712417,breast cancer,0.92709,1.05605,1.1391,vascular endothelium,0.225,below Normal
+GSM1712427,"breast cancer, BRCA1 carrier",0.98849,1.03407,1.04611,vascular endothelium,0.264,inside Normal
+GSM1712437,breast cancer,0.9069,1.11796,1.23273,breast luminal epithelium,0.276,below Normal
+GSM1712447,breast cancer,0.99357,0.99975,1.00622,vascular endothelium,0.288,inside Normal
+GSM1712457,normal-adjacent,0.97563,1.00882,1.03402,vascular endothelium,0.291,inside Normal
+GSM1712467,breast cancer,1.06107,1.17458,1.10697,breast luminal epithelium,0.261,above Normal
+GSM1712477,breast cancer,0.9966,1.01825,1.02172,breast luminal epithelium,0.291,inside Normal
+GSM1712487,normal-adjacent,0.96431,1.01703,1.05467,adipocytes,0.266,inside Normal
+GSM1712497,breast cancer,0.94041,1.00474,1.0684,breast luminal epithelium,0.281,below Normal
+GSM1712507,breast cancer,0.96583,1.00109,1.03651,breast luminal epithelium,0.333,inside Normal
+GSM1712517,breast cancer,0.9764,1.02083,1.0455,breast luminal epithelium,0.254,inside Normal
+GSM1712527,breast cancer,0.97586,1.02165,1.04693,breast luminal epithelium,0.219,inside Normal
+GSM1712537,breast cancer,1.06759,1.20206,1.12596,breast luminal epithelium,0.26,above Normal
+GSM1712547,breast cancer,0.9764,0.96623,0.98958,vascular endothelium,0.183,inside Normal
+GSM1712557,breast cancer,1.04176,1.08601,1.04248,breast luminal epithelium,0.456,inside Normal
+GSM1712567,breast cancer,0.99511,1.09401,1.09939,lung bronchus epithelium,0.18,inside Normal
+GSM1712577,breast cancer,0.97953,1.01294,1.03411,breast luminal epithelium,0.299,inside Normal
+GSM1712587,breast cancer,0.97862,1.00079,1.02265,t effector cell cd8,0.218,inside Normal
+GSM1712597,normal-adjacent,0.93595,1.04281,1.11417,adipocytes,0.517,below Normal
+GSM1712607,breast cancer,1.05714,1.09365,1.03453,cytotoxic cd4 t cells (cd28-),0.138,above Normal
+GSM1712617,breast cancer,0.95581,0.93361,0.97678,breast luminal epithelium,0.257,inside Normal
+GSM1712627,breast cancer,0.95457,0.98626,1.0332,breast luminal epithelium,0.294,inside Normal
+GSM1712637,breast cancer,0.99343,1.03446,1.0413,breast luminal epithelium,0.498,inside Normal
+GSM1712647,breast cancer,0.99738,1.01034,1.013,neutrophils,0.288,inside Normal
+GSM1712657,breast cancer,0.98887,1.02175,1.03325,adipocytes,0.259,inside Normal
+GSM1712667,breast cancer,1.00947,1.07667,1.06657,breast luminal epithelium,0.396,inside Normal
+GSM1712677,breast cancer,0.98083,0.9787,0.99783,breast luminal epithelium,0.287,inside Normal
+GSM1712687,normal-adjacent,0.91814,1.15136,1.25402,adipocytes,0.395,below Normal
+GSM1712697,breast cancer,0.93854,0.99355,1.05861,breast luminal epithelium,0.299,below Normal
+GSM1712707,breast cancer,0.99133,1.00951,1.01833,vascular endothelium,0.251,inside Normal
+GSM1712717,breast cancer,1.04657,1.11556,1.06592,breast luminal epithelium,0.28,inside Normal
+GSM1712727,normal-adjacent,0.96799,0.99579,1.02871,GMP (bone marrow),0.246,inside Normal
+GSM1712737,normal-adjacent,0.95232,0.9813,1.03043,adipocytes,0.255,inside Normal
+GSM1712747,breast cancer,0.97358,1.03315,1.06119,breast luminal epithelium,0.299,inside Normal
+GSM1712758,breast cancer,1.01141,1.05403,1.04214,breast luminal epithelium,0.35,inside Normal
+GSM1712773,breast cancer,1.04019,1.12209,1.07874,breast luminal epithelium,0.394,inside Normal
+GSM1712368,normal-adjacent,0.98538,1.04595,1.06146,vascular endothelium,0.261,inside Normal
+GSM1712378,"normal, BRCA1 carrier",0.98923,1.02047,1.03158,adipocytes,0.282,inside Normal
+GSM1712388,breast cancer,1.03683,1.06898,1.03101,breast luminal epithelium,0.22,inside Normal
+GSM1712398,normal (healthy donor),0.96244,0.9938,1.03258,adipocytes,0.249,inside Normal
+GSM1712408,breast cancer,0.94033,0.99787,1.06119,vascular endothelium,0.296,below Normal
+GSM1712418,breast cancer,0.93843,1.05668,1.12601,breast luminal epithelium,0.422,below Normal
+GSM1712428,breast cancer,0.96361,1.03543,1.07453,breast luminal epithelium,0.451,inside Normal
+GSM1712438,breast cancer,1.00941,1.05685,1.047,breast luminal epithelium,0.373,inside Normal
+GSM1712448,breast cancer,0.96358,0.99945,1.03723,breast luminal epithelium,0.305,inside Normal
+GSM1712458,breast cancer,0.91577,1.02377,1.11794,breast luminal epithelium,0.217,below Normal
+GSM1712468,breast cancer,0.97712,1.01777,1.0416,breast luminal epithelium,0.255,inside Normal
+GSM1712478,breast cancer,1.0269,1.08231,1.05396,breast luminal epithelium,0.253,inside Normal
+GSM1712488,breast cancer,1.01419,1.13637,1.12047,breast luminal epithelium,0.283,inside Normal
+GSM1712498,breast cancer,0.97217,1.02184,1.05109,vascular endothelium,0.251,inside Normal
+GSM1712508,breast cancer,0.95862,0.99751,1.04057,breast luminal epithelium,0.241,inside Normal
+GSM1712518,breast cancer,0.97139,1.05277,1.08377,central memory th1 cells,0.178,inside Normal
+GSM1712528,normal-adjacent,0.97172,1.05386,1.08453,vascular endothelium,0.26,inside Normal
+GSM1712538,normal-adjacent,0.95638,1.18893,1.24315,vascular endothelium,0.323,inside Normal
+GSM1712548,normal-adjacent,0.96006,0.9806,1.0214,adipocytes,0.292,inside Normal
+GSM1712558,normal-adjacent,0.9602,0.9981,1.03947,adipocytes,0.305,inside Normal
+GSM1712568,breast cancer,1.00682,0.98087,0.97423,breast luminal epithelium,0.199,inside Normal
+GSM1712578,normal (healthy donor),0.97896,1.02069,1.04263,breast basal epithelium,0.31,inside Normal
+GSM1712588,breast cancer,0.99307,1.00639,1.01341,neutrophils,0.237,inside Normal
+GSM1712598,normal (healthy donor),0.94037,1.01063,1.07472,adipocytes,0.293,below Normal
+GSM1712608,breast cancer,1.0302,1.09702,1.06486,breast luminal epithelium,0.197,inside Normal
+GSM1712618,breast cancer,0.96298,0.96441,1.00149,vascular endothelium,0.265,inside Normal
+GSM1712628,breast cancer,0.95301,1.00827,1.05798,breast luminal epithelium,0.342,inside Normal
+GSM1712638,breast cancer,0.95939,0.92263,0.96169,t effector cell cd8,0.198,inside Normal
+GSM1712648,normal (healthy donor),0.95941,0.99453,1.0366,adipocytes,0.335,inside Normal
+GSM1712658,breast cancer,1.01607,1.0515,1.03487,breast luminal epithelium,0.3,inside Normal
+GSM1712668,breast cancer,1.04727,1.08054,1.03177,breast luminal epithelium,0.33,inside Normal
+GSM1712678,normal (healthy donor),0.98314,1.12514,1.14443,adipocytes,0.339,inside Normal
+GSM1712688,breast cancer,0.95209,1.04046,1.09281,breast luminal epithelium,0.258,inside Normal
+GSM1712698,breast cancer,1.03804,1.08209,1.04244,breast luminal epithelium,0.278,inside Normal
+GSM1712708,normal-adjacent,0.94694,0.97583,1.03051,adipocytes,0.307,below Normal
+GSM1712718,breast cancer,0.99918,1.03254,1.03339,breast luminal epithelium,0.364,inside Normal
+GSM1712728,breast cancer,0.96199,1.01013,1.05004,breast luminal epithelium,0.294,inside Normal
+GSM1712738,breast cancer,1.0472,1.09765,1.04818,breast luminal epithelium,0.231,inside Normal
+GSM1712748,breast cancer,0.94013,0.93803,0.99777,vascular endothelium,0.205,below Normal
+GSM1712760,breast cancer,1.02915,1.03188,1.00265,central memory th1 cells,0.248,inside Normal
+GSM1712774,breast cancer,0.99548,1.10667,1.11169,breast luminal epithelium,0.332,inside Normal
+GSM1712369,normal (healthy donor),0.96752,0.97391,1.0066,neutrophils,0.262,inside Normal
+GSM1712379,breast cancer,0.96435,1.13107,1.17289,breast luminal epithelium,0.549,inside Normal
+GSM1712389,breast cancer,1.04559,1.07054,1.02386,breast luminal epithelium,0.322,inside Normal
+GSM1712399,breast cancer,1.01035,1.07609,1.06507,central memory th1 cells,0.148,inside Normal
+GSM1712409,breast cancer,1.01182,1.043,1.03081,breast luminal epithelium,0.349,inside Normal
+GSM1712419,normal (healthy donor),0.8916,0.97609,1.09476,vascular endothelium,0.227,below Normal
+GSM1712429,breast cancer,0.97794,1.01191,1.03474,vascular endothelium,0.208,inside Normal
+GSM1712439,normal (healthy donor),0.98751,1.03703,1.05015,vascular endothelium,0.304,inside Normal
+GSM1712449,normal (healthy donor),0.96823,1.00576,1.03876,adipocytes,0.584,inside Normal
+GSM1712459,breast cancer,0.96969,0.9934,1.02446,cd4 t cells,0.283,inside Normal
+GSM1712469,breast cancer,0.92628,1.10102,1.18865,breast luminal epithelium,0.326,below Normal
+GSM1712479,breast cancer,0.98116,0.98394,1.00284,breast luminal epithelium,0.296,inside Normal
+GSM1712489,normal (healthy donor),0.97547,1.04806,1.07441,adipocytes,0.368,inside Normal
+GSM1712499,breast cancer,0.93854,1.0768,1.14731,breast luminal epithelium,0.5,below Normal
+GSM1712509,breast cancer,0.99764,1.06615,1.06868,breast luminal epithelium,0.372,inside Normal
+GSM1712519,breast cancer,1.01143,1.14076,1.12787,cytotoxic cd4 t cells (cd28-),0.176,inside Normal
+GSM1712529,breast cancer,0.98224,1.02645,1.045,breast luminal epithelium,0.294,inside Normal
+GSM1712539,breast cancer,0.99084,1.09109,1.10118,breast luminal epithelium,0.408,inside Normal
+GSM1712549,normal-adjacent,0.96378,0.97844,1.01521,adipocytes,0.553,inside Normal
+GSM1712559,breast cancer,0.96983,0.95756,0.98735,vascular endothelium,0.134,inside Normal
+GSM1712569,breast cancer,1.03216,1.05068,1.01794,breast luminal epithelium,0.327,inside Normal
+GSM1712579,breast cancer,0.99837,1.16753,1.16944,breast luminal epithelium,0.454,inside Normal
+GSM1712589,breast cancer,0.98132,1.03912,1.0589,breast luminal epithelium,0.309,inside Normal
+GSM1712599,breast cancer,0.95116,0.94349,0.99194,central memory th1 cells,0.205,inside Normal
+GSM1712609,normal (healthy donor),0.96602,1.03774,1.07424,vascular endothelium,0.268,inside Normal
+GSM1712619,breast cancer,0.96578,0.99587,1.03115,GMP (bone marrow),0.18,inside Normal
+GSM1712629,breast cancer,0.93733,0.96535,1.02989,breast luminal epithelium,0.166,below Normal
+GSM1712639,breast cancer,0.99072,0.95773,0.9667,central memory th1 cells,0.209,inside Normal
+GSM1712649,normal (healthy donor),0.98384,0.99983,1.01625,adipocytes,0.469,inside Normal
+GSM1712659,breast cancer,0.99033,1.01641,1.02633,vascular endothelium,0.198,inside Normal
+GSM1712669,breast cancer,0.95526,0.96378,1.00892,adipocytes,0.238,inside Normal
+GSM1712679,breast cancer,0.97554,1.01969,1.04526,breast luminal epithelium,0.264,inside Normal
+GSM1712689,breast cancer,0.98817,1.02938,1.04171,breast luminal epithelium,0.246,inside Normal
+GSM1712699,breast cancer,0.97605,1.03357,1.05893,breast luminal epithelium,0.192,inside Normal
+GSM1712709,breast cancer,0.95501,0.96775,1.01334,vascular endothelium,0.272,inside Normal
+GSM1712719,breast cancer,0.96021,1.02924,1.0719,vascular endothelium,0.167,inside Normal
+GSM1712729,breast cancer,0.98244,1.00348,1.02141,vascular endothelium,0.215,inside Normal
+GSM1712739,normal-adjacent,0.99232,1.14484,1.1537,vascular endothelium,0.272,inside Normal
+GSM1712749,breast cancer,0.94772,0.95853,1.0114,vascular endothelium,0.272,below Normal
+GSM1712763,normal (healthy donor),0.9753,1.02867,1.05472,vascular endothelium,0.282,inside Normal
+GSM1712775,breast cancer,0.98966,1.04194,1.05283,breast luminal epithelium,0.499,inside Normal
+GSM1712370,breast cancer,0.99416,1.01265,1.0186,breast luminal epithelium,0.341,inside Normal
+GSM1712380,breast cancer,0.96357,1.13381,1.17668,breast luminal epithelium,0.381,inside Normal
+GSM1712390,normal-adjacent,0.97289,1.03946,1.06842,GMP (bone marrow),0.314,inside Normal
+GSM1712400,breast cancer,1.02851,1.05777,1.02845,breast luminal epithelium,0.3,inside Normal
+GSM1712410,breast cancer,0.98961,1.02123,1.03196,breast luminal epithelium,0.316,inside Normal
+GSM1712420,"normal, BRCA1 carrier",0.92193,1.04373,1.13211,breast basal epithelium,0.309,below Normal
+GSM1712430,breast cancer,1.02015,1.04248,1.02188,vascular endothelium,0.295,inside Normal
+GSM1712440,normal (healthy donor),0.97408,1.03854,1.06617,adipocytes,0.242,inside Normal
+GSM1712450,normal-adjacent,0.97026,1.0906,1.12402,vascular endothelium,0.293,inside Normal
+GSM1712460,breast cancer,0.97825,0.9538,0.97501,central memory th1 cells,0.304,inside Normal
+GSM1712470,breast cancer,0.96151,1.00188,1.04198,breast luminal epithelium,0.296,inside Normal
+GSM1712480,breast cancer,1.02618,1.15758,1.12805,breast luminal epithelium,0.327,inside Normal
+GSM1712490,normal (healthy donor),0.98175,1.10947,1.1301,vascular endothelium,0.315,inside Normal
+GSM1712500,normal-adjacent,0.97008,0.98197,1.01226,adipocytes,0.545,inside Normal
+GSM1712510,normal-adjacent,0.97467,0.98334,1.0089,breast luminal epithelium,0.224,inside Normal
+GSM1712520,normal-adjacent,0.95862,1.01136,1.05501,breast luminal epithelium,0.216,inside Normal
+GSM1712530,breast cancer,0.98646,1.06013,1.07468,breast basal epithelium,0.324,inside Normal
+GSM1712540,breast cancer,0.99612,1.05706,1.06118,breast luminal epithelium,0.257,inside Normal
+GSM1712550,breast cancer,0.97841,0.97533,0.99685,vascular endothelium,0.177,inside Normal
+GSM1712560,"normal, BRCA1 carrier",0.96966,1.00368,1.03509,adipocytes,0.273,inside Normal
+GSM1712570,breast cancer,1.01414,1.04496,1.03039,breast luminal epithelium,0.369,inside Normal
+GSM1712580,breast cancer,1.02735,1.09694,1.06773,breast luminal epithelium,0.215,inside Normal
+GSM1712590,breast cancer,0.94762,0.93734,0.98915,t effector cell cd8,0.131,below Normal
+GSM1712600,breast cancer,0.97661,1.02267,1.04716,breast luminal epithelium,0.242,inside Normal
+GSM1712610,breast cancer,0.97221,1.02021,1.04938,breast luminal epithelium,0.169,inside Normal
+GSM1712620,normal (healthy donor),0.94021,1.12594,1.19754,vascular endothelium,0.293,below Normal
+GSM1712630,breast cancer,0.9479,1.01968,1.07573,breast luminal epithelium,0.212,below Normal
+GSM1712640,breast cancer,1.01334,1.09407,1.07967,breast luminal epithelium,0.4,inside Normal
+GSM1712650,"normal, BRCA1 carrier",0.96761,1.00125,1.03476,vascular endothelium,0.288,inside Normal
+GSM1712660,normal (healthy donor),0.98675,1.05877,1.07299,breast luminal epithelium,0.258,inside Normal
+GSM1712670,breast cancer,0.97005,1.00864,1.03978,vascular endothelium,0.224,inside Normal
+GSM1712680,breast cancer,0.99979,1.1576,1.15784,breast luminal epithelium,0.387,inside Normal
+GSM1712690,breast cancer,0.8983,0.99318,1.10562,breast luminal epithelium,0.282,below Normal
+GSM1712700,normal (healthy donor),0.94059,1.16665,1.24034,vascular endothelium,0.26,below Normal
+GSM1712710,breast cancer,0.95483,0.99457,1.04162,breast luminal epithelium,0.341,inside Normal
+GSM1712720,breast cancer,0.95809,1.07584,1.1229,breast luminal epithelium,0.295,inside Normal
+GSM1712730,breast cancer,1.0316,1.06005,1.02758,breast luminal epithelium,0.25,inside Normal
+GSM1712740,breast cancer,1.02803,1.05748,1.02865,breast luminal epithelium,0.265,inside Normal
+GSM1712750,breast cancer,0.97532,1.06532,1.09228,breast luminal epithelium,0.405,inside Normal
+GSM1712766,breast cancer,1.01428,1.06239,1.04744,breast luminal epithelium,0.186,inside Normal
+GSM1712776,normal (healthy donor),0.96469,1.10731,1.14785,vascular endothelium,0.356,inside Normal
+GSM1712371,breast cancer,0.9942,1.03095,1.03696,breast luminal epithelium,0.369,inside Normal
+GSM1712381,breast cancer,0.96201,1.04267,1.08385,vascular endothelium,0.225,inside Normal
+GSM1712391,breast cancer,1.0143,1.02836,1.01387,memory b cells,0.176,inside Normal
+GSM1712401,breast cancer,1.03041,1.0436,1.0128,breast luminal epithelium,0.349,inside Normal
+GSM1712411,"breast cancer, BRCA1 carrier",0.97088,0.98197,1.01142,vascular endothelium,0.272,inside Normal
+GSM1712421,breast cancer,0.94804,1.04612,1.10346,breast luminal epithelium,0.238,below Normal
+GSM1712431,breast cancer,0.98169,0.99779,1.0164,breast luminal epithelium,0.384,inside Normal
+GSM1712441,breast cancer,0.92747,1.03245,1.11319,breast luminal epithelium,0.218,below Normal
+GSM1712451,breast cancer,1.02873,1.07214,1.0422,breast luminal epithelium,0.41,inside Normal
+GSM1712461,breast cancer,0.98243,1.12746,1.14763,breast luminal epithelium,0.441,inside Normal
+GSM1712471,breast cancer,0.98611,1.04727,1.06203,breast luminal epithelium,0.417,inside Normal
+GSM1712481,breast cancer,0.94354,0.93301,0.98884,vascular endothelium,0.193,below Normal
+GSM1712491,breast cancer,0.96745,1.13869,1.177,breast luminal epithelium,0.61,inside Normal
+GSM1712501,breast cancer,0.99887,1.07416,1.07537,breast luminal epithelium,0.275,inside Normal
+GSM1712511,normal-adjacent,0.96694,0.97864,1.01211,adipocytes,0.512,inside Normal
+GSM1712521,breast cancer,0.9983,1.13212,1.13404,breast luminal epithelium,0.428,inside Normal
+GSM1712531,breast cancer,0.9706,1.12343,1.15745,prostate epithelium,0.267,inside Normal
+GSM1712541,normal (healthy donor),0.96258,0.99518,1.03387,adipocytes,0.337,inside Normal
+GSM1712551,normal (healthy donor),0.95356,0.96743,1.01454,vascular endothelium,0.273,inside Normal
+GSM1712561,breast cancer,0.96851,0.98622,1.01829,adipocytes,0.262,inside Normal
+GSM1712571,breast cancer,0.96946,0.95097,0.98093,central memory th1 cells,0.187,inside Normal
+GSM1712581,normal-adjacent,0.94896,1.16811,1.23094,adipocytes,0.257,below Normal
+GSM1712591,breast cancer,0.92349,1.0565,1.14402,breast luminal epithelium,0.309,below Normal
+GSM1712601,breast cancer,1.026,1.05999,1.03313,vascular endothelium,0.137,inside Normal
+GSM1712611,breast cancer,0.9585,0.99931,1.04258,breast luminal epithelium,0.307,inside Normal
+GSM1712621,breast cancer,0.96135,0.97142,1.01048,breast luminal epithelium,0.28,inside Normal
+GSM1712631,breast cancer,0.9583,1.0249,1.06949,breast luminal epithelium,0.543,inside Normal
+GSM1712641,breast cancer,0.95548,0.9568,1.00138,vascular endothelium,0.192,inside Normal
+GSM1712651,breast cancer,1.00855,1.06764,1.05859,breast luminal epithelium,0.211,inside Normal
+GSM1712661,normal (healthy donor),0.98185,1.06372,1.08339,vascular endothelium,0.27,inside Normal
+GSM1712671,breast cancer,1.0188,1.07331,1.0535,breast luminal epithelium,0.274,inside Normal
+GSM1712681,breast cancer,0.99205,0.99064,0.99858,t effector cell cd8,0.194,inside Normal
+GSM1712691,breast cancer,1.03022,1.08145,1.04973,breast luminal epithelium,0.268,inside Normal
+GSM1712701,normal-adjacent,0.98144,1.01163,1.03077,breast basal epithelium,0.301,inside Normal
+GSM1712711,breast cancer,0.97535,0.97347,0.99808,breast luminal epithelium,0.264,inside Normal
+GSM1712721,normal (healthy donor),0.95096,0.97475,1.02502,adipocytes,0.514,inside Normal
+GSM1712731,breast cancer,1.02108,1.13265,1.10926,breast luminal epithelium,0.349,inside Normal
+GSM1712741,breast cancer,1.00366,1.08593,1.08197,breast luminal epithelium,0.319,inside Normal
+GSM1712751,breast cancer,1.03396,1.08202,1.04649,breast luminal epithelium,0.223,inside Normal
+GSM1712767,breast cancer,0.98097,1.12678,1.14864,breast luminal epithelium,0.376,inside Normal
+GSM1712777,normal-adjacent,0.984,1.01622,1.03274,vascular endothelium,0.296,inside Normal
+GSM1712372,normal (healthy donor),0.95327,0.97644,1.02431,adipocytes,0.313,inside Normal
+GSM1712382,breast cancer,0.99036,1.02922,1.03923,breast luminal epithelium,0.349,inside Normal
+GSM1712392,normal (healthy donor),0.96913,1.03361,1.06653,adipocytes,0.639,inside Normal
+GSM1712402,breast cancer,1.00409,1.03211,1.02791,t effector cell cd8,0.223,inside Normal
+GSM1712412,normal (healthy donor),0.95571,0.99959,1.04591,vascular endothelium,0.283,inside Normal
+GSM1712422,breast cancer,0.90483,0.9567,1.05733,breast luminal epithelium,0.314,below Normal
+GSM1712432,breast cancer,1.02153,1.0379,1.01602,vascular endothelium,0.247,inside Normal
+GSM1712442,"normal, BRCA1 carrier",0.98272,1.03195,1.0501,vascular endothelium,0.319,inside Normal
+GSM1712452,breast cancer,1.04049,1.09218,1.04967,cytotoxic cd4 t cells (cd28-),0.18,inside Normal
+GSM1712462,breast cancer,1.00998,1.14751,1.13617,breast luminal epithelium,0.207,inside Normal
+GSM1712472,normal (healthy donor),0.93281,0.97162,1.0416,neutrophils,0.448,below Normal
+GSM1712482,breast cancer,0.94694,0.98074,1.03569,breast luminal epithelium,0.204,below Normal
+GSM1712492,breast cancer,0.975,1.03838,1.065,breast luminal epithelium,0.295,inside Normal
+GSM1712502,breast cancer,0.9575,1.20364,1.25707,breast luminal epithelium,0.216,inside Normal
+GSM1712512,breast cancer,1.04471,1.08619,1.0397,breast luminal epithelium,0.327,inside Normal
+GSM1712522,breast cancer,0.98137,1.03194,1.05153,vascular endothelium,0.238,inside Normal
+GSM1712532,breast cancer,1.00702,1.05147,1.04414,breast luminal epithelium,0.223,inside Normal
+GSM1712542,breast cancer,0.94049,1.16514,1.23887,breast luminal epithelium,0.418,below Normal
+GSM1712552,breast cancer,1.00802,1.12692,1.11795,breast luminal epithelium,0.405,inside Normal
+GSM1712562,breast cancer,0.97182,0.94837,0.97587,breast luminal epithelium,0.194,inside Normal
+GSM1712572,normal-adjacent,0.96737,1.0003,1.03404,adipocytes,0.351,inside Normal
+GSM1712582,breast cancer,1.01616,1.20602,1.18685,breast luminal epithelium,0.274,inside Normal
+GSM1712592,breast cancer,1.02923,1.08693,1.05606,breast luminal epithelium,0.279,inside Normal
+GSM1712602,breast cancer,1.00446,1.02857,1.024,breast luminal epithelium,0.305,inside Normal
+GSM1712612,breast cancer,1.03209,1.06928,1.03604,breast luminal epithelium,0.419,inside Normal
+GSM1712622,breast cancer,0.95003,0.96615,1.01697,vascular endothelium,0.214,inside Normal
+GSM1712632,normal-adjacent,0.95832,0.98557,1.02843,vascular endothelium,0.272,inside Normal
+GSM1712642,normal-adjacent,0.96549,0.95014,0.9841,adipocytes,0.434,inside Normal
+GSM1712652,breast cancer,0.96876,0.99855,1.03075,neutrophils,0.247,inside Normal
+GSM1712662,breast cancer,0.95505,1.0769,1.12759,breast luminal epithelium,0.268,inside Normal
+GSM1712672,normal-adjacent,0.98953,1.07335,1.08471,vascular endothelium,0.273,inside Normal
+GSM1712682,normal (healthy donor),1.00519,1.02007,1.01481,adipocytes,0.211,inside Normal
+GSM1712692,breast cancer,0.94471,0.97363,1.03061,central memory th1 cells,0.162,below Normal
+GSM1712702,breast cancer,0.96349,0.969,1.00572,adipocytes,0.324,inside Normal
+GSM1712712,breast cancer,0.89622,1.07184,1.19595,breast luminal epithelium,0.448,below Normal
+GSM1712722,breast cancer,0.96486,1.0421,1.08005,breast luminal epithelium,0.413,inside Normal
+GSM1712732,breast cancer,0.96173,1.02626,1.06709,vascular endothelium,0.285,inside Normal
+GSM1712742,breast cancer,1.01506,1.05137,1.03577,breast luminal epithelium,0.368,inside Normal
+GSM1712752,normal-adjacent,1.00471,1.04316,1.03827,adipocytes,0.41,inside Normal
+GSM1712768,breast cancer,1.01444,1.04205,1.02722,adipocytes,0.134,inside Normal
+GSM1712778,breast cancer,0.97085,0.98747,1.01712,adipocytes,0.356,inside Normal
+GSM1712373,breast cancer,0.96332,0.95385,0.99017,breast luminal epithelium,0.221,inside Normal
+GSM1712383,normal-adjacent,0.98024,0.99572,1.0158,adipocytes,0.573,inside Normal
+GSM1712393,breast cancer,0.9489,1.00948,1.06384,breast luminal epithelium,0.34,below Normal
+GSM1712403,breast cancer,0.9935,1.01913,1.0258,breast luminal epithelium,0.246,inside Normal
+GSM1712413,breast cancer,1.00053,1.03501,1.03447,breast luminal epithelium,0.463,inside Normal
+GSM1712423,normal (healthy donor),0.90389,0.9867,1.09161,adipocytes,0.244,below Normal
+GSM1712433,breast cancer,1.0058,1.0243,1.01839,breast luminal epithelium,0.344,inside Normal
+GSM1712443,breast cancer,1.03856,1.07295,1.03312,breast luminal epithelium,0.25,inside Normal
+GSM1712453,breast cancer,0.99526,0.98687,0.99157,neutrophils,0.462,inside Normal
+GSM1712463,breast cancer,0.9651,0.94934,0.98367,neutrophils,0.256,inside Normal
+GSM1712473,normal-adjacent,0.97079,1.00537,1.03562,vascular endothelium,0.211,inside Normal
+GSM1712483,breast cancer,0.96478,0.98065,1.01644,breast luminal epithelium,0.301,inside Normal
+GSM1712493,breast cancer,0.99743,1.10804,1.11089,breast luminal epithelium,0.352,inside Normal
+GSM1712503,normal-adjacent,1.01169,1.11137,1.09853,vascular endothelium,0.287,inside Normal
+GSM1712513,breast cancer,0.96643,0.99577,1.03036,breast luminal epithelium,0.374,inside Normal
+GSM1712523,normal-adjacent,0.99035,1.02887,1.03889,neutrophils,0.6,inside Normal
+GSM1712533,breast cancer,1.00986,1.17018,1.15876,breast luminal epithelium,0.37,inside Normal
+GSM1712543,breast cancer,0.95219,1.03685,1.08892,breast luminal epithelium,0.219,inside Normal
+GSM1712553,breast cancer,0.97476,1.00268,1.02865,neutrophils,0.574,inside Normal
+GSM1712563,breast cancer,1.02725,1.04768,1.01989,breast luminal epithelium,0.326,inside Normal
+GSM1712573,breast cancer,1.03579,1.12095,1.08222,breast luminal epithelium,0.38,inside Normal
+GSM1712583,normal (healthy donor),0.95675,1.02307,1.06931,adipocytes,0.604,inside Normal
+GSM1712593,breast cancer,1.01833,1.19238,1.17092,breast luminal epithelium,0.246,inside Normal
+GSM1712603,breast cancer,0.94137,1.12622,1.19636,breast luminal epithelium,0.441,below Normal
+GSM1712613,breast cancer,0.98111,0.99531,1.01447,breast luminal epithelium,0.353,inside Normal
+GSM1712623,breast cancer,0.96014,0.98086,1.02158,t effector cell cd8,0.155,inside Normal
+GSM1712633,normal (healthy donor),0.93837,0.979,1.0433,vascular endothelium,0.293,below Normal
+GSM1712643,breast cancer,0.93924,1.01813,1.084,breast luminal epithelium,0.204,below Normal
+GSM1712653,breast cancer,0.99935,1.01651,1.01718,neutrophils,0.56,inside Normal
+GSM1712663,breast cancer,1.00697,1.12106,1.1133,breast luminal epithelium,0.368,inside Normal
+GSM1712673,breast cancer,1.03251,1.12615,1.09069,breast luminal epithelium,0.47,inside Normal
+GSM1712683,normal (healthy donor),0.96487,0.97607,1.0116,neutrophils,0.539,inside Normal
+GSM1712693,normal (healthy donor),0.94491,0.94315,0.99813,adipocytes,0.273,below Normal
+GSM1712703,breast cancer,0.98809,1.0117,1.0239,breast luminal epithelium,0.266,inside Normal
+GSM1712713,normal (healthy donor),0.96983,0.98703,1.01773,vascular endothelium,0.249,inside Normal
+GSM1712723,normal (healthy donor),0.94591,0.99197,1.0487,vascular endothelium,0.289,below Normal
+GSM1712733,normal (healthy donor),0.96778,1.01217,1.04587,adipocytes,0.268,inside Normal
+GSM1712743,normal-adjacent,1.00062,1.05151,1.05085,vascular endothelium,0.282,inside Normal
+GSM1712753,breast cancer,0.98157,1.00689,1.02579,vascular endothelium,0.269,inside Normal
+GSM1712769,breast cancer,0.99798,1.05914,1.06128,breast luminal epithelium,0.382,inside Normal
+GSM1712779,breast cancer,0.9718,0.94753,0.97503,vascular endothelium,0.146,inside Normal
+GSM1712374,breast cancer,1.00679,0.98646,0.9798,t effector cell cd8,0.168,inside Normal
+GSM1712384,breast cancer,0.98432,0.99763,1.01352,breast luminal epithelium,0.372,inside Normal
+GSM1712394,breast cancer,0.97671,0.98884,1.01242,t effector cell cd8,0.179,inside Normal
+GSM1712404,breast cancer,1.01981,1.04803,1.02767,breast luminal epithelium,0.195,inside Normal
+GSM1712414,breast cancer,0.96305,1.04963,1.0899,breast luminal epithelium,0.334,inside Normal
+GSM1712424,breast cancer,0.93658,1.09183,1.16577,breast luminal epithelium,0.283,below Normal
+GSM1712434,breast cancer,0.97774,0.97758,0.99984,breast luminal epithelium,0.248,inside Normal
+GSM1712444,breast cancer,1.02294,1.06365,1.03979,breast luminal epithelium,0.326,inside Normal
+GSM1712454,breast cancer,0.99115,1.00759,1.01659,vascular endothelium,0.243,inside Normal
+GSM1712464,normal (healthy donor),0.9518,0.99037,1.04052,vascular endothelium,0.289,inside Normal
+GSM1712474,breast cancer,1.008,0.99572,0.98782,neutrophils,0.349,inside Normal
+GSM1712484,breast cancer,0.95921,0.94534,0.98554,breast luminal epithelium,0.2,inside Normal
+GSM1712494,breast cancer,0.97596,1.02033,1.04547,vascular endothelium,0.224,inside Normal
+GSM1712504,normal (healthy donor),0.96138,1.01366,1.05439,breast basal epithelium,0.279,inside Normal
+GSM1712514,breast cancer,0.96759,1.04083,1.0757,breast luminal epithelium,0.401,inside Normal
+GSM1712524,breast cancer,0.9638,0.9979,1.03538,adipocytes,0.435,inside Normal
+GSM1712534,breast cancer,1.04012,1.09107,1.04898,vascular endothelium,0.229,inside Normal
+GSM1712544,breast cancer,0.99559,1.01855,1.02306,breast luminal epithelium,0.234,inside Normal
+GSM1712554,breast cancer,1.03934,1.1467,1.1033,breast luminal epithelium,0.366,inside Normal
+GSM1712564,breast cancer,0.98911,1.05881,1.07046,breast luminal epithelium,0.452,inside Normal
+GSM1712574,normal (healthy donor),0.9631,1.01479,1.05367,vascular endothelium,0.274,inside Normal
+GSM1712584,breast cancer,0.95217,0.97389,1.02281,t effector cell cd8,0.161,inside Normal
+GSM1712594,breast cancer,0.96473,1.03215,1.06988,vascular endothelium,0.215,inside Normal
+GSM1712604,breast cancer,1.00807,1.09842,1.08963,breast luminal epithelium,0.384,inside Normal
+GSM1712614,breast cancer,1.03404,1.09446,1.05843,breast luminal epithelium,0.368,inside Normal
+GSM1712624,breast cancer,0.99086,0.99026,0.99939,breast luminal epithelium,0.21,inside Normal
+GSM1712634,breast cancer,0.98282,0.97362,0.99064,breast luminal epithelium,0.351,inside Normal
+GSM1712644,normal-adjacent,0.97913,1.00499,1.02641,vascular endothelium,0.283,inside Normal
+GSM1712654,breast cancer,0.99489,1.0397,1.04504,breast luminal epithelium,0.295,inside Normal
+GSM1712664,normal (healthy donor),1.00034,1.05546,1.05511,breast basal epithelium,0.333,inside Normal
+GSM1712674,breast cancer,0.9606,0.93698,0.97541,adipocytes,0.222,inside Normal
+GSM1712684,breast cancer,1.0615,1.14159,1.07545,breast luminal epithelium,0.376,above Normal
+GSM1712694,breast cancer,0.95587,1.01042,1.05707,breast luminal epithelium,0.474,inside Normal
+GSM1712704,breast cancer,0.94312,1.06201,1.12606,breast luminal epithelium,0.248,below Normal
+GSM1712714,breast cancer,0.98578,0.98783,1.00208,breast luminal epithelium,0.306,inside Normal
+GSM1712724,"normal, BRCA1 carrier",0.95955,1.06323,1.10805,vascular endothelium,0.306,inside Normal
+GSM1712734,breast cancer,0.95762,0.96514,1.00786,breast luminal epithelium,0.3,inside Normal
+GSM1712744,breast cancer,1.02247,1.10753,1.08319,t effector cell cd8,0.179,inside Normal
+GSM1712754,breast cancer,0.98458,1.0026,1.0183,vascular endothelium,0.241,inside Normal
+GSM1712770,breast cancer,0.98251,1.05636,1.07516,breast luminal epithelium,0.433,inside Normal
+GSM1712375,breast cancer,0.9479,0.96107,1.01389,breast luminal epithelium,0.201,below Normal
+GSM1712385,normal (healthy donor),0.96889,0.98294,1.01451,adipocytes,0.688,inside Normal
+GSM1712395,breast cancer,1.0747,1.15483,1.07456,breast luminal epithelium,0.265,above Normal
+GSM1712405,normal-adjacent,0.96914,1.02034,1.05283,vascular endothelium,0.28,inside Normal
+GSM1712415,breast cancer,0.9567,1.0125,1.05833,t effector cell cd8,0.219,inside Normal
+GSM1712425,breast cancer,1.04455,1.07869,1.03269,breast luminal epithelium,0.353,inside Normal
+GSM1712435,normal (healthy donor),0.94582,0.96838,1.02386,adipocytes,0.271,below Normal
+GSM1712445,breast cancer,1.02155,1.04697,1.02488,memory b cells,0.311,inside Normal
+GSM1712455,breast cancer,0.97716,0.95163,0.97387,central memory th1 cells,0.246,inside Normal
+GSM1712465,breast cancer,0.92585,1.01397,1.09517,breast luminal epithelium,0.426,below Normal
+GSM1712475,normal-adjacent,0.93272,1.12829,1.20967,adipocytes,0.415,below Normal
+GSM1712485,breast cancer,1.00179,1.14988,1.14782,breast luminal epithelium,0.362,inside Normal
+GSM1712495,breast cancer,1.00133,1.20617,1.20457,breast luminal epithelium,0.299,inside Normal
+GSM1712505,breast cancer,0.96773,1.00129,1.03468,breast luminal epithelium,0.334,inside Normal
+GSM1712515,breast cancer,0.92262,1.08204,1.1728,vascular endothelium,0.302,below Normal
+GSM1712525,breast cancer,0.98076,1.11246,1.13429,embryonic stem cells,0.166,inside Normal
+GSM1712535,normal (healthy donor),0.98877,1.07958,1.09185,vascular endothelium,0.292,inside Normal
+GSM1712545,breast cancer,1.02845,1.05208,1.02298,breast luminal epithelium,0.255,inside Normal
+GSM1712555,breast cancer,0.97224,0.97554,1.0034,breast luminal epithelium,0.203,inside Normal
+GSM1712565,normal (healthy donor),0.94587,1.02847,1.08732,adipocytes,0.42,below Normal
+GSM1712575,breast cancer,0.96867,0.96517,0.99639,breast luminal epithelium,0.202,inside Normal
+GSM1712585,breast cancer,1.01988,1.19709,1.17376,breast luminal epithelium,0.238,inside Normal
+GSM1712595,normal-adjacent,0.94101,1.00893,1.07218,adipocytes,0.315,below Normal
+GSM1712605,breast cancer,0.99416,1.00978,1.01572,vascular endothelium,0.238,inside Normal
+GSM1712615,normal (healthy donor),0.90619,1.0795,1.19125,breast luminal epithelium,0.603,below Normal
+GSM1712625,normal (healthy donor),0.95122,0.99415,1.04513,vascular endothelium,0.24,inside Normal
+GSM1712635,breast cancer,0.9919,1.10438,1.1134,breast luminal epithelium,0.433,inside Normal
+GSM1712645,breast cancer,0.95795,0.92468,0.96527,adipocytes,0.236,inside Normal
+GSM1712655,breast cancer,0.965,1.00167,1.038,breast luminal epithelium,0.282,inside Normal
+GSM1712665,breast cancer,0.98129,1.09588,1.11678,breast luminal epithelium,0.445,inside Normal
+GSM1712675,breast cancer,1.03547,1.11046,1.07242,breast luminal epithelium,0.308,inside Normal
+GSM1712685,breast cancer,0.98122,1.08291,1.10364,embryonic stem cells,0.151,inside Normal
+GSM1712695,breast cancer,1.01028,1.02879,1.01832,vascular endothelium,0.226,inside Normal
+GSM1712705,breast cancer,1.03034,1.09317,1.06098,breast luminal epithelium,0.219,inside Normal
+GSM1712715,breast cancer,0.95903,1.02935,1.07333,vascular endothelium,0.183,inside Normal
+GSM1712725,breast cancer,0.94767,0.99025,1.04493,breast luminal epithelium,0.457,below Normal
+GSM1712735,breast cancer,0.93969,0.99821,1.06228,t effector cell cd8,0.185,below Normal
+GSM1712745,normal (healthy donor),0.96871,1.02264,1.05567,adipocytes,0.325,inside Normal
+GSM1712755,normal (healthy donor),0.98933,1.04061,1.05183,breast basal epithelium,0.252,inside Normal
+GSM1712771,breast cancer,0.99183,1.07106,1.07988,breast luminal epithelium,0.476,inside Normal
+GSM1712376,breast cancer,1.06229,1.10818,1.0432,breast luminal epithelium,0.401,above Normal
+GSM1712386,breast cancer,0.99847,1.02308,1.02465,breast luminal epithelium,0.338,inside Normal
+GSM1712396,breast cancer,0.94765,0.94616,0.99842,adipocytes,0.218,below Normal
+GSM1712406,breast cancer,1.07972,1.16434,1.07837,breast luminal epithelium,0.401,above Normal
+GSM1712416,breast cancer,0.92401,1.07174,1.15988,breast luminal epithelium,0.406,below Normal
+GSM1712426,breast cancer,0.99526,1.01319,1.01802,breast luminal epithelium,0.394,inside Normal
+GSM1712436,normal-adjacent,0.95644,0.96238,1.00622,vascular endothelium,0.277,inside Normal
+GSM1712446,breast cancer,1.02759,1.11535,1.08541,breast luminal epithelium,0.407,inside Normal
+GSM1712456,breast cancer,0.99475,1.05218,1.05773,vascular endothelium,0.32,inside Normal
+GSM1712466,normal-adjacent,0.96354,0.98245,1.01963,vascular endothelium,0.23,inside Normal
+GSM1712476,"normal, BRCA1 carrier",0.95223,0.98827,1.03785,adipocytes,0.306,inside Normal
+GSM1712486,breast cancer,0.9879,1.04555,1.05836,breast luminal epithelium,0.313,inside Normal
+GSM1712496,breast cancer,1.00478,1.09378,1.08858,breast luminal epithelium,0.425,inside Normal
+GSM1712506,breast cancer,0.93564,0.9694,1.03609,t effector cell cd8,0.176,below Normal
+GSM1712516,breast cancer,0.95704,0.96808,1.01154,breast luminal epithelium,0.215,inside Normal
+GSM1712526,breast cancer,1.02611,1.07115,1.04389,breast luminal epithelium,0.271,inside Normal
+GSM1712536,breast cancer,0.96964,1.02701,1.05917,vascular endothelium,0.292,inside Normal
+GSM1712546,breast cancer,0.98314,1.11994,1.13914,breast luminal epithelium,0.328,inside Normal
+GSM1712556,breast cancer,0.95057,0.93522,0.98385,adipocytes,0.2,inside Normal
+GSM1712566,normal (healthy donor),0.96018,0.94616,0.9854,adipocytes,0.596,inside Normal
+GSM1712576,breast cancer,0.95103,0.95821,1.00755,central memory th1 cells,0.159,inside Normal
+GSM1712586,breast cancer,1.00922,1.18234,1.17154,breast luminal epithelium,0.23,inside Normal
+GSM1712596,breast cancer,0.88329,1.05062,1.18944,breast luminal epithelium,0.377,below Normal
+GSM1712606,normal-adjacent,0.99825,1.04263,1.04446,memory b cells,0.259,inside Normal
+GSM1712616,normal-adjacent,0.93664,0.99827,1.0658,vascular endothelium,0.223,below Normal
+GSM1712626,breast cancer,0.96631,0.95829,0.9917,vascular endothelium,0.193,inside Normal
+GSM1712636,"breast cancer, BRCA1 carrier",0.99418,0.97814,0.98387,breast basal epithelium,0.245,inside Normal
+GSM1712646,breast cancer,0.98809,1.02094,1.03325,breast luminal epithelium,0.35,inside Normal
+GSM1712656,breast cancer,0.96825,0.96215,0.9937,breast luminal epithelium,0.225,inside Normal
+GSM1712666,breast cancer,1.00601,1.19976,1.19259,breast luminal epithelium,0.397,inside Normal
+GSM1712676,breast cancer,0.95974,0.95975,1.00001,breast luminal epithelium,0.307,inside Normal
+GSM1712686,breast cancer,0.99894,1.09955,1.10071,embryonic stem cells,0.156,inside Normal
+GSM1712696,breast cancer,0.97728,0.99919,1.02242,vascular endothelium,0.201,inside Normal
+GSM1712706,normal-adjacent,0.96807,1.08785,1.12373,vascular endothelium,0.251,inside Normal
+GSM1712716,breast cancer,0.96738,0.9721,1.00488,t effector cell cd8,0.192,inside Normal
+GSM1712726,breast cancer,0.9756,0.99822,1.02318,breast luminal epithelium,0.283,inside Normal
+GSM1712736,breast cancer,1.03759,1.07721,1.03818,breast luminal epithelium,0.294,inside Normal
+GSM1712746,breast cancer,1.00067,1.05162,1.05092,vascular endothelium,0.211,inside Normal
+GSM1712756,breast cancer,0.95376,0.99429,1.04249,vascular endothelium,0.232,inside Normal
+GSM1712772,normal (healthy donor),0.95071,0.99494,1.04652,adipocytes,0.337,inside Normal
