@@ -1,0 +1,214 @@
+{
+ "_rule": "Each cell's healthy width on arrays, measured on IAM-Atlas v2.1's own build donors read by the one command (--full-chain --cell-panel atlas --dev-line-wide), grouped by the cell the IAM-Deconvolver found most of (doors/data/DEV_METAA_HEALTHY_01/atlas_donor_widths.csv, width_score.py). Normal for one new reading of a cell: 1 plus or minus k times its width, k = t(0.975, n - 1) x sqrt(1 + 1/n) (the prediction interval for one new reading from n donors). 1 is the middle (the author); each cell's donor median is kept beside it, and a cell whose donors read their middle more than 2 widths from 1 is flagged. A cell with fewer than 3 donor arrays has no width. The state is given only where the cell's share in the sample is at least the lowest share it held among its donors (share_min): below it, its width is not measured.",
+ "source": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_HEALTHY_01/atlas_donor_widths.csv",
+ "cells": {
+  "HSC (bone marrow)": {
+   "n": 3,
+   "median": 1.0042,
+   "width": 0.0239,
+   "k": 4.9683,
+   "middle_off": false,
+   "share_min": 0.8756
+  },
+  "astrocytes": {
+   "n": 4,
+   "median": 0.9063,
+   "width": 0.0301,
+   "k": 3.5581,
+   "middle_off": true,
+   "share_min": 0.3137
+  },
+  "b cells": {
+   "n": 44,
+   "median": 0.9833,
+   "width": 0.0148,
+   "k": 2.0395,
+   "middle_off": false,
+   "share_min": 0.4979
+  },
+  "cd4 t cells": {
+   "n": 45,
+   "median": 0.9909,
+   "width": 0.0226,
+   "k": 2.0376,
+   "middle_off": false,
+   "share_min": 0.2067
+  },
+  "cd56bright nk cells": {
+   "n": 9,
+   "median": 0.9831,
+   "width": 0.0458,
+   "k": 2.4307,
+   "middle_off": false,
+   "share_min": 0.781
+  },
+  "cd8 central memory t cells": {
+   "n": 12,
+   "median": 1.0025,
+   "width": 0.0247,
+   "k": 2.2909,
+   "middle_off": false,
+   "share_min": 0.2864
+  },
+  "cd8 t cells": {
+   "n": 35,
+   "median": 0.9828,
+   "width": 0.0177,
+   "k": 2.0611,
+   "middle_off": false,
+   "share_min": 0.4185
+  },
+  "cd8 temra t cells": {
+   "n": 9,
+   "median": 0.9926,
+   "width": 0.0199,
+   "k": 2.4307,
+   "middle_off": false,
+   "share_min": 0.4143
+  },
+  "central memory th1 cells": {
+   "n": 5,
+   "median": 0.9861,
+   "width": 0.007,
+   "k": 3.0414,
+   "middle_off": false,
+   "share_min": 0.9469
+  },
+  "cortical neurons": {
+   "n": 10,
+   "median": 0.9218,
+   "width": 0.0149,
+   "k": 2.3726,
+   "middle_off": true,
+   "share_min": 0.6849
+  },
+  "cytotoxic cd4 t cells (cd28-)": {
+   "n": 5,
+   "median": 0.9792,
+   "width": 0.0102,
+   "k": 3.0414,
+   "middle_off": true,
+   "share_min": 0.8462
+  },
+  "effector memory cd8 t cells": {
+   "n": 6,
+   "median": 0.9799,
+   "width": 0.0164,
+   "k": 2.7765,
+   "middle_off": false,
+   "share_min": 0.6275
+  },
+  "embryonic stem cells": {
+   "n": 9,
+   "median": 0.9589,
+   "width": 0.0445,
+   "k": 2.4307,
+   "middle_off": false,
+   "share_min": 0.9686
+  },
+  "lung bronchus epithelium": {
+   "n": 12,
+   "median": 0.9748,
+   "width": 0.0116,
+   "k": 2.2909,
+   "middle_off": true,
+   "share_min": 0.9943
+  },
+  "memory b cells": {
+   "n": 8,
+   "median": 0.9586,
+   "width": 0.0219,
+   "k": 2.5081,
+   "middle_off": false,
+   "share_min": 0.9074
+  },
+  "microglia": {
+   "n": 10,
+   "median": 0.9805,
+   "width": 0.0306,
+   "k": 2.3726,
+   "middle_off": false,
+   "share_min": 0.8686
+  },
+  "monocytes": {
+   "n": 54,
+   "median": 0.9969,
+   "width": 0.0228,
+   "k": 2.0242,
+   "middle_off": false,
+   "share_min": 0.7343
+  },
+  "naive b cells": {
+   "n": 14,
+   "median": 0.9839,
+   "width": 0.0251,
+   "k": 2.2362,
+   "middle_off": false,
+   "share_min": 0.5363
+  },
+  "naive cd4 t cells": {
+   "n": 13,
+   "median": 0.9854,
+   "width": 0.0198,
+   "k": 2.2611,
+   "middle_off": false,
+   "share_min": 0.7447
+  },
+  "naive cd8 t cells": {
+   "n": 23,
+   "median": 0.9896,
+   "width": 0.0299,
+   "k": 2.1185,
+   "middle_off": false,
+   "share_min": 0.4948
+  },
+  "neutrophils": {
+   "n": 64,
+   "median": 1.0084,
+   "width": 0.0515,
+   "k": 2.0139,
+   "middle_off": false,
+   "share_min": 0.6932
+  },
+  "nk cells": {
+   "n": 18,
+   "median": 0.9918,
+   "width": 0.0076,
+   "k": 2.1676,
+   "middle_off": false,
+   "share_min": 0.6553
+  },
+  "oligodendrocytes": {
+   "n": 16,
+   "median": 0.925,
+   "width": 0.0244,
+   "k": 2.197,
+   "middle_off": true,
+   "share_min": 0.3587
+  },
+  "t central memory cd4": {
+   "n": 8,
+   "median": 0.9568,
+   "width": 0.0462,
+   "k": 2.5081,
+   "middle_off": false,
+   "share_min": 0.4296
+  },
+  "t effector cell cd8": {
+   "n": 5,
+   "median": 0.919,
+   "width": 0.038,
+   "k": 3.0414,
+   "middle_off": true,
+   "share_min": 0.4894
+  },
+  "vascular endothelium": {
+   "n": 12,
+   "median": 0.8411,
+   "width": 0.0483,
+   "k": 2.2909,
+   "middle_off": true,
+   "share_min": 0.2843
+  }
+ }
+}

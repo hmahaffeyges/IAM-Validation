@@ -886,6 +886,8 @@ def cells_found(o):
                  reads=("the cell itself (it is nearly all the sample)" if (m.get("share") or 0) >= 0.9 else
                         f"the sample at this cell's identity sites: of a change here, about {100 * (m.get('share') or 0):.0f} % would be this cell's own"))
         if q.get("A") is not None and q.get("cell") == m["cell"]: r.update(iam_a=q.get("A"), iam_a_state=q.get("state"))
+        _ws = width_state(m["cell"], r.get("met_a"), r.get("share")) if not (o.get("sequencing_values") or o.get("sequencing_ruler")) else {}   # arrays: the widths are measured on arrays
+        if _ws: r.update(met_a_state=_ws.pop("state"), met_a_gauge=_ws)
         rows.append(r)
     return dict(rule="each cell the IAM-Deconvolver found, each instrument against that cell's own atlas reference, in the sample's own shares",
                 flag="development: each row's readings carry their own status; not commissioned unless an instrument's row says so", cells=rows)
@@ -915,3 +917,20 @@ def cell_prediction(each, beta, shares, blur):
         except Exception as ex: r["prediction"] = f"not made: {type(ex).__name__}: {str(ex)[:120]}"
     each["prediction_rule"] = "ratio = A_raw / A_pred at each cell's identity sites (cell_prediction); a healthy cell reads 1"
     return each
+
+WIDTHS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Met_A_Widths", "donor_widths_v1.json")
+
+def width_state(cell, a, share=None):
+    """2026-11-08 (array step 5; the author: Normal is measured, not chosen; 1 is the middle; no fixed band). The state of one cell's Met-A against
+    that cell's healthy width measured on IAM-Atlas v2.1's own donors (WIDTHS): Normal within 1 +/- k x width (k: the prediction interval for one
+    new reading from n donors), else above or below Normal, with the distance from 1 in widths. A cell without a measured width says so."""
+    k_ = ("w", ); W = _cache.get(k_)
+    if W is None: W = _cache[k_] = json.load(open(WIDTHS))["cells"] if os.path.exists(WIDTHS) else {}
+    w = W.get(IDENTITY_OF.get(cell, cell))
+    if a is None: return dict(state=None)
+    if not w: return dict(state="no healthy width measured for this cell on the atlas's donors", distance_from_1=round(a - 1, 5))
+    if share is not None and share < w.get("share_min", 0): return dict(state=f"no healthy width measured at {100 * share:.1f} % of the sample (measured where this cell held {100 * w['share_min']:.0f} % or more)", distance_from_1=round(a - 1, 5))
+    lim = w["k"] * w["width"]; z = (a - 1) / w["width"]
+    st = "Normal" if abs(a - 1) <= lim else ("above Normal" if a > 1 else "below Normal")
+    return dict(state=st, normal=(round(1 - lim, 4), round(1 + lim, 4)), widths_from_1=round(z, 2), width=w["width"], donors=w["n"],
+                **({"middle_note": f"the atlas's own donors of this cell read their middle at {w['median']:.4f}, more than 2 widths from 1: not commissioned"} if w["middle_off"] else {}))

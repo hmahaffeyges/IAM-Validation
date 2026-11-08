@@ -2085,7 +2085,7 @@
   },
   {
    "file": "MethylPhys_Interface/report_v4.py",
-   "lines": 457,
+   "lines": 460,
    "functions": [
     {
      "file": "MethylPhys_Interface/report_v4.py",
@@ -2261,11 +2261,11 @@
      "function": "glance_rows",
      "name": "glance_rows",
      "line": 63,
-     "end": 130,
+     "end": 131,
      "args": [
       "o"
      ],
-     "lines": 68,
+     "lines": 69,
      "doc": "",
      "constants": [],
      "data_files": [],
@@ -2278,8 +2278,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_shares",
      "name": "_shares",
-     "line": 132,
-     "end": 143,
+     "line": 133,
+     "end": 144,
      "args": [
       "o"
      ],
@@ -2298,8 +2298,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_meta",
      "name": "_meta",
-     "line": 145,
-     "end": 153,
+     "line": 146,
+     "end": 154,
      "args": [
       "o"
      ],
@@ -2318,8 +2318,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_cscore",
      "name": "_cscore",
-     "line": 155,
-     "end": 163,
+     "line": 156,
+     "end": 164,
      "args": [
       "o"
      ],
@@ -2338,8 +2338,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_iama",
      "name": "_iama",
-     "line": 165,
-     "end": 177,
+     "line": 166,
+     "end": 178,
      "args": [
       "o"
      ],
@@ -2358,8 +2358,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_coupling",
      "name": "_coupling",
-     "line": 180,
-     "end": 190,
+     "line": 181,
+     "end": 191,
      "args": [
       "o"
      ],
@@ -2375,8 +2375,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_figs",
      "name": "_figs",
-     "line": 192,
-     "end": 213,
+     "line": 193,
+     "end": 214,
      "args": [
       "o",
       "base"
@@ -2394,8 +2394,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_physics",
      "name": "_physics",
-     "line": 219,
-     "end": 224,
+     "line": 220,
+     "end": 225,
      "args": [
       "o"
      ],
@@ -2415,8 +2415,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "physics_rows",
      "name": "physics_rows",
-     "line": 226,
-     "end": 257,
+     "line": 227,
+     "end": 258,
      "args": [
       "o"
      ],
@@ -2435,8 +2435,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_skypair",
      "name": "_skypair",
-     "line": 263,
-     "end": 270,
+     "line": 264,
+     "end": 271,
      "args": [
       "o"
      ],
@@ -2454,8 +2454,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_plain",
      "name": "_plain",
-     "line": 272,
-     "end": 290,
+     "line": 273,
+     "end": 291,
      "args": [
       "o",
       "F"
@@ -2475,8 +2475,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_fam_of",
      "name": "_fam_of",
-     "line": 297,
-     "end": 301,
+     "line": 298,
+     "end": 302,
      "args": [],
      "lines": 5,
      "doc": "",
@@ -2488,8 +2488,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_f",
      "name": "_f",
-     "line": 302,
-     "end": 302,
+     "line": 303,
+     "end": 303,
      "args": [
       "v",
       "d"
@@ -2504,12 +2504,12 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables",
      "name": "detail_tables",
-     "line": 305,
-     "end": 395,
+     "line": 306,
+     "end": 398,
      "args": [
       "o"
      ],
-     "lines": 91,
+     "lines": 93,
      "doc": "[(id, title, intro, header, rows, note)] - plain text cells; one per instrument, in the order the chain reads them.",
      "constants": [
       "BLOOD_FAMILIES",
@@ -2522,8 +2522,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "detail_tables._cl",
      "name": "_cl",
-     "line": 352,
-     "end": 353,
+     "line": 355,
+     "end": 356,
      "args": [
       "name",
       "A",
@@ -2539,8 +2539,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "report_text",
      "name": "report_text",
-     "line": 401,
-     "end": 404,
+     "line": 404,
+     "end": 407,
      "args": [],
      "lines": 4,
      "doc": "The report's explanations, generated from CANON/catalogue.json by CANON/report_text.py (one source; never written in this file).",
@@ -2557,8 +2557,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "explain",
      "name": "explain",
-     "line": 405,
-     "end": 408,
+     "line": 408,
+     "end": 411,
      "args": [
       "sec"
      ],
@@ -2574,8 +2574,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_explain_html",
      "name": "_explain_html",
-     "line": 409,
-     "end": 411,
+     "line": 412,
+     "end": 414,
      "args": [
       "sec"
      ],
@@ -2591,8 +2591,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_intro_html",
      "name": "_intro_html",
-     "line": 412,
-     "end": 414,
+     "line": 415,
+     "end": 417,
      "args": [],
      "lines": 3,
      "doc": "",
@@ -2606,8 +2606,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "_sections_v5",
      "name": "_sections_v5",
-     "line": 416,
-     "end": 423,
+     "line": 419,
+     "end": 426,
      "args": [
       "o"
      ],
@@ -2623,8 +2623,8 @@
      "file": "MethylPhys_Interface/report_v4.py",
      "function": "build",
      "name": "build",
-     "line": 425,
-     "end": 456,
+     "line": 428,
+     "end": 459,
      "args": [
       "o",
       "out",
@@ -7050,7 +7050,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 918,
+   "lines": 937,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7940,11 +7940,11 @@
      "function": "cells_found",
      "name": "cells_found",
      "line": 869,
-     "end": 891,
+     "end": 893,
      "args": [
       "o"
      ],
-     "lines": 23,
+     "lines": 25,
      "doc": "2026-11-07 (author: 'we dont score bundles of cells we score individual cells that are found by the deconvolver in a sample'; 'Each cell has a score for each of the instruments that can read it'): the sample's result, one row per cell the IAM-Deconvolver found, each with every instrument's reading of that cell against its own atlas reference, from what the chain already read (met_a_each_cell, csco",
      "constants": [],
      "data_files": [],
@@ -7954,8 +7954,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cell_prediction",
      "name": "cell_prediction",
-     "line": 894,
-     "end": 917,
+     "line": 896,
+     "end": 919,
      "args": [
       "each",
       "beta",
@@ -7966,6 +7966,26 @@
      "doc": "2026-11-07 (the width synthetic, not met: each cell's Met-A carried the array's own line and noise, which only the whole-sample reading divided out). For each cell of met_a_each_cell with a reading, on arrays: the same healthy prediction the whole-sample reading uses (predicted_healthy, with the array's line and noise per probe design measured once on the whole array, blur), at that cell's identit",
      "constants": [
       "MIX_COVER"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
+     "function": "width_state",
+     "name": "width_state",
+     "line": 923,
+     "end": 936,
+     "args": [
+      "cell",
+      "a",
+      "share"
+     ],
+     "lines": 14,
+     "doc": "2026-11-08 (array step 5; the author: Normal is measured, not chosen; 1 is the middle; no fixed band). The state of one cell's Met-A against that cell's healthy width measured on IAM-Atlas v2.1's own donors (WIDTHS): Normal within 1 +/- k x width (k: the prediction interval for one new reading from n donors), else above or below Normal, with the distance from 1 in widths. A cell without a measured",
+     "constants": [
+      "IDENTITY_OF",
+      "WIDTHS"
      ],
      "data_files": [],
      "traced_calls": {}
@@ -10071,5 +10091,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 514
+ "n_functions": 515
 }

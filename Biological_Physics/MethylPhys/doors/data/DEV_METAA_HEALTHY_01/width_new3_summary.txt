@@ -1,0 +1,11 @@
+third new-people test (prediction interval): 120 donors, 120 new people read by the one command
+  b cells      rho 0.0 | Normal 0.9970 to 1.0117 (donors 20, spread 0.00342; truth 0.00075; sqrt(truth^2 + repeat^2) 0.00261) | new people inside 20 of 20 | main cell found 20 of 20
+  b cells      rho 0.5 | Normal 0.9939 to 1.0112 (donors 20, spread 0.00402; truth 0.00113; sqrt(truth^2 + repeat^2) 0.00245) | new people inside 17 of 20 | main cell found 20 of 20
+  cd8 t cells  rho 0.0 | Normal 0.9987 to 1.0085 (donors 20, spread 0.00230; truth 0.00088; sqrt(truth^2 + repeat^2) 0.00206) | new people inside 18 of 20 | main cell found 20 of 20
+  cd8 t cells  rho 0.5 | Normal 0.9921 to 1.0132 (donors 20, spread 0.00493; truth 0.00122; sqrt(truth^2 + repeat^2) 0.00280) | new people inside 20 of 20 | main cell found 20 of 20
+  neutrophils  rho 0.0 | Normal 1.0008 to 1.0114 (donors 20, spread 0.00246; truth 0.00075; sqrt(truth^2 + repeat^2) 0.00210) | new people inside 20 of 20 | main cell found 20 of 20
+  neutrophils  rho 0.5 | Normal 0.9858 to 1.0179 (donors 20, spread 0.00750; truth 0.00611; sqrt(truth^2 + repeat^2) 0.00648) | new people inside 17 of 20 | main cell found 20 of 20
+bar 1 (at least 108 of all 120 new healthy people inside Normal): 112 of 120, met
+bar 2 (at least 16 of 20 inside in every cell and spread): met
+bar 3 (every main cell found is the planted cell): met
+test: met

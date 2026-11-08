@@ -65,7 +65,8 @@ def glance_rows(o):
     rows = []
     cfr = (o.get("cells_found") or {}).get("cells") or []   # 2026-11-07 (author): the result is each cell found, first
     if cfr: rows.append(("Each cell found", "Each cell the IAM-Deconvolver found, read against its own healthy profile in the atlas (Met-A; the table 'Each cell found')",
-                         ", ".join(f"{cellname(x['cell'])} {x['met_a']:.3f}" for x in cfr if x.get("met_a") is not None)[:300] or "no cell readable at its identity sites", "", "development, not commissioned"))
+                         ", ".join(f"{cellname(x['cell'])} {x['met_a']:.3f}" for x in cfr if x.get("met_a") is not None)[:300] or "no cell readable at its identity sites",
+                         "; ".join(f"{cellname(x['cell'])}: {x['met_a_state']}" for x in cfr if x.get("met_a_state"))[:300], "development, not commissioned"))
     if sh.get("cells"):
         top = sorted(sh["cells"], key=lambda r: -r["share"])[:3]
         rows.append(("IAM-Deconvolver", "Which cells, in what shares", ", ".join(f"{cellname(r['cell'])} {100*r['share']:.1f} %" for r in top), "",
@@ -310,8 +311,10 @@ def detail_tables(o):
     cf = o.get("cells_found") or {}; cfr = cf.get("cells") or []   # 2026-11-07 (author): the result is each cell found, first
     T.append(("v4-cells-found", "Each cell found, read against its own healthy profile in the atlas",
               "The IAM-Deconvolver says which cells are in this sample; each one found is read by every instrument that can read it, against that cell's own healthy profile in the atlas, in this sample's own cell mix. This is the result. The whole-sample reading further down is a side line.",
-              ["Cell", "Share", "Met-A", "C-Score (limit)", "IAM-A", "Note"],
-              [[cellname(x["cell"]), f"{100*(x.get('share') or 0):.1f} %", _f(x.get("met_a")) or "-", (f"{_f(x.get('c_score'), 3)} ({_f(x.get('c_limit'), 3)})" if x.get("c_score") is not None else "-"),
+              ["Cell", "Share", "Met-A", "Met-A state (Normal from the atlas's donors)", "C-Score (limit)", "IAM-A", "Note"],
+              [[cellname(x["cell"]), f"{100*(x.get('share') or 0):.1f} %", _f(x.get("met_a")) or "-",
+                ((str(x.get("met_a_state")) + (f" ({_f((x.get('met_a_gauge') or {}).get('normal', [None, None])[0], 3)} to {_f((x.get('met_a_gauge') or {}).get('normal', [None, None])[1], 3)}; {(x.get('met_a_gauge') or {}).get('donors')} donors)" if (x.get('met_a_gauge') or {}).get('normal') else "")
+                  + (" " + (x.get("met_a_gauge") or {}).get("middle_note", "") if (x.get("met_a_gauge") or {}).get("middle_note") else "")) if x.get("met_a_state") else "-"), (f"{_f(x.get('c_score'), 3)} ({_f(x.get('c_limit'), 3)})" if x.get("c_score") is not None else "-"),
                 _f(x.get("iam_a")) or "-", str(x.get("met_a_note") or x.get("reads") or "")[:110]] for x in cfr],
               (DEV + ". Measured: a cell's reading inside a mixed sample moves with a change in that cell and a change in the cells around it in proportion to the DNA each holds at its sites; each row says how much of a change would be the cell's own.") if cfr else "Not assembled: " + str(cf.get("reason") or "no cells found") + "."))
     T.append(("v4-atlas", "IAM-Atlas v2.1 and the ruler",

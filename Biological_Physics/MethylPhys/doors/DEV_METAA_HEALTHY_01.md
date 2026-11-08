@@ -924,3 +924,32 @@ Fresh donors and fresh new people again (`width_new3.py`), built and read exactl
 **Bars** (false-fail rates for a 95 % Normal computed first): 1. at least 108 of all 120 new people inside (0.7 %); 2. at least 16 of 20 in
 every cell and spread (1.5 %); 3. every main cell found is the planted cell. Scored by `width_new3_score.py`. Read by these bars, the second
 test's people come out 114 of 120 and every condition 17 or more; that is after the fact and does not count.
+
+**The third new-people test: met** (`width_new3_summary.txt`). 112 of 120 new healthy people inside the Normal measured on their donors (bar 108);
+every cell and spread 17 or more of 20 (bar 16): neutrophils 20 and 17, CD8 T cells 18 and 20, B cells 20 and 17; main cell found 120 of 120.
+Normal as the measured width of healthy donors read by the one command does its job: a healthy person reads Normal.
+
+**Array step 5: the printed state against the measured widths (chain change; its synthetic, the third new-people test, met).** Each cell
+found now carries its Met-A state against that cell's healthy width from IAM-Atlas v2.1's own donors
+(`stage_metaa_atlas.width_state`, the table `chain/Runtime Matrices/Met_A_Widths/donor_widths_v1.json`, frozen with its checksum): Normal
+within 1 plus or minus k widths (k from the prediction interval for one new reading from that cell's n donors), else above or below Normal,
+with its distance from 1 in widths; the report's table 'Each cell found' prints it. 1 is the middle; a cell whose donors read their middle
+more than 2 widths from 1 is printed with that note and is not commissioned (7 cells: astrocytes, cortical neurons, cytotoxic CD4 T cells,
+lung bronchus epithelium, oligodendrocytes, effector CD8 T cells, vascular endothelium). A cell gets a state only at a share it held among
+its donors (share_min; neutrophils 69 %, monocytes 73 %, CD4 T cells 21 %, CD8 T cells 42 %, B cells 50 %, NK cells 66 %); below it, its width
+is not measured and the row says so.
+
+**The gap this shows, recorded for the next step:** the atlas's donors are sorted cells, so the widths cover a cell that is most of its sample.
+In a regular blood draw the neutrophils are often 50 % to 65 % and the other cells far less, so most cells of a whole blood get no state from
+these widths. A width for cells inside a whole blood, from the atlas alone, needs its own design (synthetic first), and the laboratory term
+(above) comes with it.
+
+**What the laboratory term follows on arrays: the array's own noise (development, diagnostic; nothing scored).** On the 455 donors (`atlas_donor_noise_relation.csv`),
+within each blood cell a donor's Met-A rises with its array's noise as the chain measures it (design II; rank correlation 0.83 neutrophils,
+0.69 monocytes, 0.68 CD4 T cells), not with the array type (450K or EPIC) or the line's slope. Pooled over 310 blood-cell donors, an array with
+noise 0.010 instead of 0.005 reads about 3.4 % higher, and the noise alone carries about a fifth of the spread (2.95 % to 2.29 % once it is
+taken out). The prediction already applies the measured noise, so it is under-applied. The lead, not yet tested: the chain measures the noise
+on sites held below 0.05 or above 0.95, where a probe's noise is squeezed against its bound, while a cell's identity sites sit between 0.05 and
+0.25 or 0.75 and 0.95, where it is larger. The width synthetic planted one noise at every level, which is why it could not show this. Next:
+the synthetic with level-dependent noise (the noise of a probe growing toward the middle, at the real arrays' measured sizes), then the
+noise measured by level on the array itself.
