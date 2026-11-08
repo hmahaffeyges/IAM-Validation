@@ -1,0 +1,5 @@
+The spent 100 healthy bloods read by the one command with array step 5 (series rh2_blood, GitHub run 42502108624)
+neutrophils: share median 0.554; at or above their width's share_min 0.6932: 5 of 100
+neutrophil states: {'no width at this share': 95, 'Normal': 5}
+every cell at 5 % or more: {'no width at this share': 346, 'no width for this cell': 75, 'Normal': 5}
+neutrophils with a state: Met-A median 0.9837, range 0.9664 to 0.9951

@@ -962,3 +962,19 @@ Met-A follows their arrays' measured noise. What the measured noise carries on r
 the donors' 2 to 5 % between series, which points at the samples (how each laboratory sorted and handled its cells) more than at the arrays.
 Next: the same 30 arrays read by today's one command (`epiqc_same_dna_samples.csv`, development; spent), Met-A against the measured noise on
 identical DNA.
+
+**Array step 6, the rehearsal, first half: the 100 healthy bloods read with step 5** (`rehearsal_bloods_states.txt`; spent; development). As the step-5
+record foresaw, the widths from sorted donors do not reach a whole blood: the neutrophils are a median 55.4 % of these bloods, and only
+5 of 100 reach the 69 % their width was measured at; those 5 read Normal (Met-A 0.966 to 0.995); every other cell found at 5 % or more
+carries no state (no width at its share, or none for the cell). On a regular blood draw the array gauge has no Normal yet. The breast set's
+reading is under way on Google.
+
+**The same DNA in three laboratories, on today's chain** (`epiqc_same_dna_now.txt`; GSE230132, 30 arrays of lymphoblastoid lines, cells the
+atlas does not hold, so a diagnostic only). The per-cell Met-A of one line differs between laboratories by 0.9 % to 5.5 % (the earlier
+whole-sample reading, under 1 %); it does not follow the array's noise (-0.23) but does follow the Deconvolver's share (-0.63: where a
+laboratory's array reads less of the main cell, its Met-A reads higher), which carries about a quarter of it. The same thread as the B cells
+outside Normal in the second new-people test: small false shares in the expectation move a cell's reading.
+
+**What this means for the five steps (my reading, for the author):** steps 4 and 5 are met for a cell that is most of its sample. Before the
+arrays can be commissioned on a regular blood draw, the chain needs (1) a Normal for each cell inside a whole blood, from the atlas alone, and
+(2) the per-cell reading made steady against small false shares; both synthetic first.

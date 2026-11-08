@@ -1,0 +1,31 @@
+gsm,cell,share,met_a,state,sII,whole,line,lab,rep,dev,share_dev
+GSM7187997,memory b cells,0.6483,0.96791,no healthy width measured at 64.8 % of the sample (measured where this cell held 91 % or more),0.00686,0.92932,HG007,C,1,0.04076999999999997,-0.07484999999999997
+GSM7187998,memory b cells,0.6749,0.94628,no healthy width measured at 67.5 % of the sample (measured where this cell held 91 % or more),0.00657,0.92458,HG007,C,2,0.019139999999999935,-0.048249999999999904
+GSM7187999,memory b cells,0.7095,0.92556,no healthy width measured at 71.0 % of the sample (measured where this cell held 91 % or more),0.00658,0.91941,HG007,C,3,-0.0015800000000000258,-0.01364999999999994
+GSM7187990,memory b cells,0.7368,0.92275,no healthy width measured at 73.7 % of the sample (measured where this cell held 91 % or more),0.00725,0.91641,HG007,B,1,-0.004390000000000116,0.013650000000000051
+GSM7187983,memory b cells,0.7466,0.91114,no healthy width measured at 74.7 % of the sample (measured where this cell held 91 % or more),0.00747,0.90446,HG002,A,2,0.021519999999999984,-0.00979999999999992
+GSM7187981,memory b cells,0.7555,0.92872,no healthy width measured at 75.5 % of the sample (measured where this cell held 91 % or more),0.00645,0.92899,HG007,A,2,0.0015799999999999148,0.03234999999999999
+GSM7187976,memory b cells,0.7564,0.88574,no healthy width measured at 75.6 % of the sample (measured where this cell held 91 % or more),0.00709,0.89201,HG002,A,1,-0.0038799999999999946,0.0
+GSM7187987,memory b cells,0.7694,0.88962,no healthy width measured at 76.9 % of the sample (measured where this cell held 91 % or more),0.00781,0.88163,HG002,B,1,0.0,0.013000000000000012
+GSM7187974,memory b cells,0.7765,0.91821,no healthy width measured at 77.6 % of the sample (measured where this cell held 91 % or more),0.00668,0.9297,HG007,A,1,-0.008930000000000105,0.05335000000000001
+GSM7187996,memory b cells,0.8008,0.97258,no healthy width measured at 80.1 % of the sample (measured where this cell held 91 % or more),0.00641,0.95915,HG006,C,3,0.01419999999999999,-0.033500000000000085
+GSM7187994,memory b cells,0.8082,0.98688,no healthy width measured at 80.8 % of the sample (measured where this cell held 91 % or more),0.00663,0.97123,HG006,C,2,0.02849999999999997,-0.026100000000000012
+GSM7187992,memory b cells,0.8208,0.9758,no healthy width measured at 82.1 % of the sample (measured where this cell held 91 % or more),0.00625,0.97061,HG006,C,1,0.01741999999999999,-0.013500000000000068
+GSM7187984,memory b cells,0.8344,0.98278,no healthy width measured at 83.4 % of the sample (measured where this cell held 91 % or more),0.01028,0.95071,HG001,B,1,-0.040429999999999966,-0.005099999999999993
+GSM7187977,memory b cells,0.8395,1.02321,no healthy width measured at 84.0 % of the sample (measured where this cell held 91 % or more),0.01177,0.97075,HG001,A,2,0.0,0.0
+GSM7187970,memory b cells,0.8404,1.02826,no healthy width measured at 84.0 % of the sample (measured where this cell held 91 % or more),0.01088,0.96939,HG001,A,1,0.005049999999999999,0.0009000000000000119
+GSM7187971,memory b cells,0.8419,0.99038,no healthy width measured at 84.2 % of the sample (measured where this cell held 91 % or more),0.01024,0.98423,HG003,A,1,0.0,-0.0045000000000000595
+GSM7187995,memory b cells,0.8444,1.00192,no healthy width measured at 84.4 % of the sample (measured where this cell held 91 % or more),0.00713,0.9667,HG005,C,3,0.05687999999999993,-0.037349999999999994
+GSM7187978,memory b cells,0.8464,0.99085,no healthy width measured at 84.6 % of the sample (measured where this cell held 91 % or more),0.01036,0.98473,HG003,A,2,0.00046999999999997044,0.0
+GSM7187982,memory b cells,0.8478,0.91727,no healthy width measured at 84.8 % of the sample (measured where this cell held 91 % or more),0.00718,0.98042,HG006,A,2,-0.04110999999999998,0.013499999999999956
+GSM7187986,memory b cells,0.8492,0.96618,no healthy width measured at 84.9 % of the sample (measured where this cell held 91 % or more),0.0094,0.97161,HG003,B,1,-0.0242,0.0027999999999999137
+GSM7187991,memory b cells,0.8566,0.96955,no healthy width measured at 85.7 % of the sample (measured where this cell held 91 % or more),0.00669,0.96735,HG005,C,1,0.024510000000000032,-0.025150000000000006
+GSM7187989,memory b cells,0.8566,0.94418,no healthy width measured at 85.7 % of the sample (measured where this cell held 91 % or more),0.00749,0.96425,HG006,B,1,-0.01419999999999999,0.022299999999999986
+GSM7187975,memory b cells,0.8612,0.92341,no healthy width measured at 86.1 % of the sample (measured where this cell held 91 % or more),0.00695,0.97924,HG006,A,1,-0.03497000000000006,0.026899999999999924
+GSM7187980,memory b cells,0.8814,0.9339,no healthy width measured at 88.1 % of the sample (measured where this cell held 91 % or more),0.00706,0.98208,HG005,A,2,-0.011140000000000039,-0.0003500000000000725
+GSM7187993,memory b cells,0.8821,0.94152,no healthy width measured at 88.2 % of the sample (measured where this cell held 91 % or more),0.00645,0.9654,HG005,C,2,-0.0035199999999999676,0.00034999999999996145
+GSM7187973,memory b cells,0.8884,0.93903,no healthy width measured at 88.8 % of the sample (measured where this cell held 91 % or more),0.00708,0.9821,HG005,A,1,-0.00600999999999996,0.006649999999999934
+GSM7187988,memory b cells,0.9069,0.94856,no healthy width measured at 90.7 % of the sample (measured where this cell held 91 % or more),0.00726,0.96462,HG005,B,1,0.0035199999999999676,0.025150000000000006
+GSM7187985,memory b cells,0.9091,0.95851,Normal,0.00793,0.95699,HG004,B,1,0.0046800000000000175,-0.005199999999999982
+GSM7187979,memory b cells,0.9143,0.93757,below Normal,0.00717,0.96608,HG004,A,2,-0.01625999999999994,0.0
+GSM7187972,memory b cells,0.9153,0.95383,Normal,0.00734,0.9712,HG004,A,1,0.0,0.0010000000000000009

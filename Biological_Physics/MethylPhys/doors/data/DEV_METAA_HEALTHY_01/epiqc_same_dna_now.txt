@@ -1,0 +1,14 @@
+GSE230132, 30 EPIC arrays of the GIAB lines in three laboratories, read by the one command (series epiqc_now, GitHub run 42506219323; --full-chain --cell-panel atlas --dev-line-wide)
+main cell found: memory b cells in 30 of 30, share median 0.841
+lab         A       B       C
+line                         
+HG001  1.0257  0.9828     NaN
+HG002  0.8984  0.8896     NaN
+HG003  0.9906  0.9662     NaN
+HG004  0.9457  0.9585     NaN
+HG005  0.9365  0.9486  0.9696
+HG006  0.9203  0.9442  0.9758
+HG007  0.9235  0.9228  0.9463
+per line, Met-A spread across laboratories (max - min): HG001 0.0429, HG002 0.0088, HG003 0.0244, HG004 0.0128, HG005 0.0331, HG006 0.0555, HG007 0.0235
+rank correlation of line-centered Met-A with the array's noise: -0.23; with the line-centered main share: -0.63
+spread of line-centered Met-A 0.0216; after the share term 0.0163
