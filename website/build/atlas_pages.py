@@ -71,13 +71,25 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
               2: ("noise map: read halves", f"Each donor's reads split at random into two halves, counted alone, and the difference drawn ({_lo:+.1f} to {_hi:+.1f}). It shows the "
                  f"counting noise alone. It fits its shuffled null (at most one band above it) in {sum(1 for r in _m2 if len(r['bands_above_null']) <= 1)} of {len(_m2)} cells: what pure counting noise looks like.")}
         Q = json.load(open(fs)); qc = sorted(({"slug": c["slug"], "name": cellname(c["cell"])} for c in Q["cells"]), key=lambda c: c["name"].lower())
-        specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe (IAM Sequencing Atlas, {len(qc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
+        # 2026-11-07 (author: the viewer must show the new globe, at every CpG): the Sequencing Atlas Globe is the globe at every CpG, drawn by the one
+        # command from the published textures (run_sample.py --build seq-wg-sphere; website/art/out/seq_wg/index.json); the same atlas on the array layout
+        # stays as a second globe, beside its noise maps, for comparing the two atlases cell for cell
+        _fw = os.path.join(ART_, "seq_wg", "index.json")
+        if os.path.exists(_fw):
+            WG = json.load(open(_fw)); wc = sorted(({"slug": c["slug"], "name": cellname(c["cell"])} for c in WG["cells"]), key=lambda c: c["name"].lower())
+            specs.append(dict(id="seq-atlas", name=f"Sequencing Atlas Globe, every CpG (IAM Sequencing Atlas, {len(wc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
+                dict(name="methylation", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_v.jpg", note="The healthy level, counted from the donors' reads, 0 (never tagged) to 1 (always tagged); each pixel the average of the CpGs it holds."),
+                dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_wg/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]) for c in wc],
+                about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry, at every one of the genome's {WG['cpgs']:,} CpGs, each in one fixed place in genome order "
+                       f"(HEALPix, {WG['order']} order). The globe itself is NSIDE 2048, about 2 CpGs a pixel; shown here at NSIDE {WG['nside']}, each pixel the average of the CpGs it holds "
+                       f"(about 36). Published on Zenodo ({WG['doi']}); how each part of it works: seq-atlas/globe.html. A picture of the atlas: nothing is read or scored from it.")))
+        specs.append(dict(id=("seq-atlas-layout" if os.path.exists(_fw) else "seq-atlas"), name=f"Sequencing Atlas on the array layout (813,951 sites, {len(qc)} cell types)", groups=[dict(id=c["slug"], name=c["name"], layers=[
             dict(name="methylation", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_v.jpg", note="The healthy level at each of the layout's sites, counted from the donors' reads, 0 (never tagged) to 1 (always tagged)."),
             dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]
             + [dict(name=NZ[k][0], kind="image", src=f"{art_rel}seq_noise/{c['slug']}_n{k}.jpg", note=NZ[k][1]) for k in (1, 2) if os.path.exists(os.path.join(ART_, "seq_noise", f"{c['slug']}_n{k}.jpg"))]) for c in qc],
             about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Drawn on IAM-Atlas v2.1's layout of 813,951 sites, each with one fixed place: HEALPix NSIDE "
-                   f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as the Array Atlas Globe, so the two atlases can be compared cell for cell; the atlas itself holds every CpG, and its globe at every CpG is built and published (Zenodo 10.5281/zenodo.24029332); "
-                   f"how each part of it works: seq-atlas/globe.html. A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))
+                   f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as the Array Atlas Globe, so the two atlases can be compared cell for cell, with the atlas's two "
+                   f"noise maps. The globe at every CpG is the Sequencing Atlas Globe above. A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))
     SHORT = {"healthy-blood": "Healthy whole blood (GSM7508429)", "planted-blood": "Same blood, planted loss", "purified": "Met-A purified reference",
              "noise": "Array atlas uncertainty"}   # menu names short enough for the menu box; each globe's own page text is unchanged
     for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))):
@@ -86,8 +98,8 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
              'Drag to turn it. Each globe brings its own layers and sliders. Gray or dark pixels hold no measured site.</p>'
              + ('<p>Two atlases are here, each on two kinds of map. <b>Atlas globes</b> place every site by where it sits on the DNA: '
                 '<a href="sphere.html">the Array Atlas Globe</a> (IAM-Atlas v2.1, the ruler for arrays) and '
-                '<a href="sphere.html?globe=seq-atlas">the Sequencing Atlas Globe</a> (the IAM Sequencing Atlas, the ruler for sequenced samples, '
-                'drawn on the same 813,951-site layout so the two compare cell for cell; <a href="../seq-atlas/globe.html">its globe at every CpG, part by part</a>). <b>Information spheres</b> place every site by how it behaves '
+                '<a href="sphere.html?globe=seq-atlas">the Sequencing Atlas Globe</a> (the IAM Sequencing Atlas, the ruler for sequenced samples, at every one of the genome\'s 28.2 million CpGs; '
+                '<a href="../seq-atlas/globe.html">how each part of it works</a>; the same atlas <a href="sphere.html?globe=seq-atlas-layout">on the array layout</a>, to compare the two atlases cell for cell). <b>Information spheres</b> place every site by how it behaves '
                 'across the cell types: <a href="information_sphere.html">the Array Information Sphere</a> and '
                 '<a href="information_sphere_sequencing.html">the Sequencing Information Sphere</a>. Cell pages: '
                 '<a href="index.html">IAM-Atlas v2.1</a> &middot; <a href="../seq-atlas/index.html">the IAM Sequencing Atlas</a>.</p>' if os.path.exists(fs) else ''))
