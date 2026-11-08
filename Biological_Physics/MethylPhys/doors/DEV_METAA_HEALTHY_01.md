@@ -978,3 +978,22 @@ outside Normal in the second new-people test: small false shares in the expectat
 **What this means for the five steps (my reading, for the author):** steps 4 and 5 are met for a cell that is most of its sample. Before the
 arrays can be commissioned on a regular blood draw, the chain needs (1) a Normal for each cell inside a whole blood, from the atlas alone, and
 (2) the per-cell reading made steady against small false shares; both synthetic first.
+
+## A Normal for each cell inside a whole blood, from the atlas alone (written before it runs)
+
+The instrument's job: a healthy whole blood reads Normal for each cell found in it.
+
+Healthy whole bloods are built from IAM-Atlas v2.1's own donors, the only healthy reference: the calibrated values of the 146 build arrays
+that are at least 85 % one blood cell (`blood_donors_values_samples.csv`: neutrophils 57 arrays from 7 series, monocytes 40 from 6, B cells
+17 from 3, CD4 T cells 12 from 2, NK cells 12 from 2, CD8 T cells 8 from 3), read again by the one command with their values kept (Google,
+`series_google.sh` with KEEP=1). One constructed blood: one donor array of each of the six cells drawn at random, mixed site by site in the
+shares the IAM-Deconvolver found in one of the spent 100 healthy bloods (its shares of these six, scaled to 1; a mix of values is the value of
+the mixed DNA when every cell gives the array the same amount of signal for its share, stated as the build's assumption). Each constructed blood is read by the
+one command as whole blood. 100 constructed bloods (the donors) give each cell's Normal at the shares it held there; 100 more from new draws
+(the new people) are scored. Synthetic first: the same construction from the width synthetic's planted people, known answer a Normal reading.
+
+**Normal:** the measured width of the atlas's own donors read by the one command, here mixed into whole bloods, as the prediction interval for one new reading; no fixed band.
+
+**Bars** (false-fail rates for a 95 % Normal computed first): 1. of the new constructed bloods, at least 90 % of all their cell readings
+with a width inside Normal (for 600 readings, 6 cells of 100 bloods: fails by chance under 0.1 %); 2. each of the six cells at least 85 of 100
+(under 0.1 %); 3. every constructed blood's six cells found, each within 5 points of its built share.
