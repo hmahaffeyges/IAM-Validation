@@ -1667,3 +1667,27 @@ what is measured, to be separated by a test written first: (1) the cell mix: pur
 the cell found most of, p 0.004), as they would if the Deconvolver spreads part of a sample onto neighboring subsets (it moved 7 to 24 % so on
 constructed arrays, `DEV_METAA_HEALTHY_01.md`), making the expected disorder too high; (2) person spread at the islands, which version 2's
 constructed people did not carry. The class floor stays off by default.
+
+**The class floor, version 3: real atlas donors against the other sealed half (written and committed before it runs).** Version 2 built both its reference
+and its people from the atlas's average island levels, so they agreed by construction, and planted 0.29 of the floor at the floor sites
+inside the islands, where the real outside libraries carry their whole floor (`xl_class/xl_class_readings.csv`). Version 3 constructs only
+the planted false calls: each person is a real atlas B-cell donor's own reads at every CpG, read against the sealed donor half it is not in,
+with the chain's own committed island and donor counts (`floor_class_synthetic_v3.py`, one part per machine by `floor_class_v3_part.sh`,
+each part saved after every reading).
+
+**The instrument's job:** a healthy sample from another laboratory reads Normal at the islands.
+
+**Sources:** GSE186458 (public, GEO: three B-cell donors' .beta files, GSM5652316 and GSM5652318 in half A, GSM5652317 in half B); the IAM
+Sequencing Atlas (public, Zenodo: its sealed halves' island and donor counts).
+
+**Reference:** IAM Sequencing Atlas only (the donor half the person is not in); no tare.
+
+**Range of the data:** outside library floors 0.0016 to 0.0158 and island shares 0.75 to 1.05 (`crosslab_chain_table.csv`,
+`crosslab_floor_by_class.txt`); at the floor sites inside the islands the outside floor equals the library floor. Synthetic version 3: floors
+0.0015 to 0.016, shares 0.75 to 1.05, the whole floor at every library-floor site, real donors and the real reference.
+
+**Bars,** with the class floor: 1. each laboratory's median islands reading within 0.03 of 1; 2. the atlas laboratory's own case within
+0.03 of 1. Recorded, not scored: the readings with no floor and with the common floor, and each floor the chain measured.
+
+**What it separates:** if the three real donors read Normal here and the 89 still do not, the shared deficit is not the floor's planting
+and not person spread at the islands (real people carry their own); the cell mix is then next.
