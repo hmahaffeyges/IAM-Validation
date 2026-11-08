@@ -492,3 +492,13 @@ recorded per person by `DEV_REPLICATE_01/tcga_person_score.py`: each array's A /
 reading, and for the 38 people with both, tumor against their own adjacent normal.
 
 **Prior reading:** spent (the VAL tests named above); stated as such.
+
+**Wave C continued: TCGA-BLCA, TCGA-LUAD, TCGA-LIHC and TCGA-READ read per person against the atlas (written and committed before any of their readings exists).** Lists from the NCI GDC's open 450K files (`list_tcga.py`, metadata only): bladder 440 arrays (21 people with tumor and
+adjacent normal), lung adenocarcinoma 507 (29), liver 430 (50), rectum 106 (7); `rc_blca_*`, `rc_luad_*`, `rc_lihc_*`, `rc_read_*`.
+Read and scored exactly as TCGA-COAD above (`tcga_person_score.py`, the same flags); spent data (the earlier VAL tests on these projects).
+
+**The instrument's job:** each array reads against the healthy atlas, per person; no bar is scored (no healthy donors in these sets).
+
+**Sources:** the NCI GDC (public, open access: TCGA 450K IDAT pairs and their sample types).
+
+**Reference:** IAM-Atlas v2.1 only; no TCGA group is used as a reference.
