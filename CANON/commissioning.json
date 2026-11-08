@@ -79,7 +79,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### Met-A:[^#]*?\\*\\*Commissioned\\*\\*"
+     "pattern": "### Met-A:[^#]*?\\*\\*Being re-commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -167,7 +167,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### C-Score:[^#]*?\\*\\*Commissioned\\*\\*"
+     "pattern": "### C-Score:[^#]*?\\*\\*Being re-commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -562,7 +562,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### Group-A:[^#]*?\\*\\*Commissioned\\*\\*"
+     "pattern": "### Group-A:[^#]*?\\*\\*Being re-commissioned\\*\\*"
     },
     {
      "kind": "qa",
@@ -575,5 +575,8 @@
    "atlas_only": false,
    "recommission": "awaiting atlas-only re-commissioning (plan 60.29): synthetic over the real range, spent rehearsal per person, fresh test per person, on IAM-Atlas v2.1 alone"
   }
+ ],
+ "_notes": [
+  "2026-11-07: Met-A, C-Score and Group-A were commissioned against references from other samples; their intro places now require the introduction to say they are being re-commissioned against the atlas alone."
  ]
 }

@@ -26,7 +26,7 @@ where a sample sits on that scale, in bits, and whether it has moved.
   is 3.08 k_B T, the same in every cell type to within its spread: about 0.147 of one ATP
   ([holding_energy_q2.json](doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json)). One energy, across every healthy cell type measured.
 - **The gauge.** The floor and the ceiling come from physics. The middle mark, where a healthy sample sits, is where the instruments
-  differ. For Met-A it is measured on healthy reference samples. For IAM-A it is computed from the sample itself: a cell's design holds
+  differ. For Met-A it comes from the atlas: each cell's healthy profile, in the sample's own mix of cells. For IAM-A it is computed from the sample itself: a cell's design holds
   part of its genome firmly and leaves a share L loosely held, so its expected error follows from its own L, on a line whose form comes
   from that physics and whose two constants were counted once on 56 healthy cell types. No control group sets it
   ([the gauge chapter](https://hmahaffeyges.github.io/IAM-Validation/book/ch_gauge.html)).
@@ -71,17 +71,20 @@ No other methylation method we know of reads the genome as a map with these tool
 
 ## 4. The instruments
 
-Each instrument is **commissioned**: it was tested on samples it had never seen, from other laboratories, against a rule written and
-sealed before the data was read, and it met every bar of that rule. Commissioned means its readings can be reported, in the scope it
-was tested on.
+An instrument is **commissioned** when it has been tested on samples it had never seen, from other laboratories, against a rule written
+and sealed before the data was read, and it met every bar of that rule. Commissioned means its readings can be reported, in the scope it
+was tested on. Healthy comes only from the atlases: an instrument first commissioned against references taken from other samples (a
+tare on healthy arrays run alongside, or a band set on healthy cohorts) is being re-commissioned against the atlas alone.
 
 ### Met-A: how far a cell's identity has drifted, in bits
 
 Every cell type keeps a set of identity sites: places that are firmly marked, or firmly unmarked, in that cell. Met-A reads how much
 those sites have drifted toward a coin flip, as entropy in bits, against the cell's own healthy profile, on a scale from the physics
 floor to saturation. A healthy sample reads 1.
-**Commissioned** on isolated neutrophils, EPIC v1 arrays. The six reference arrays each read Normal against the other five;
-it detects a 2 % change ([commissioning note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)).
+**Being re-commissioned** against IAM-Atlas v2.1 alone. It was first commissioned on isolated neutrophils, EPIC v1 arrays, against six
+healthy reference arrays, detecting a 2 % change ([commissioning note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)). Now each cell's
+reading is divided by its own healthy prediction from the atlas, with the array's own line and noise measured on the array itself, and
+Normal is each cell's healthy width measured from the atlas's own donors ([the record](doors/DEV_METAA_HEALTHY_01.md)).
 **Different because** it reads the state of the record itself, in physical units, instead of a difference from a control group's
 average at single sites.
 
@@ -89,10 +92,11 @@ average at single sites.
 
 Healthy aging wears marks away here and there. Tumors break whole stretches. The C-Score reads how clustered a sample's departures are
 across the genome's map.
-**Commissioned** on whole blood. Its healthy range, upper limit 1.152, was set on 617 arrays from 19 laboratories, and then
-held in two laboratories that played no part in setting it: 34 of 35 and 22 of 23 healthy people inside. The same person measured twice
-reads the same (spread 0.0379 over 13 pairs). It detects a change on only 5 % of sites when they cluster, and planted scattered losses
-never read as a departure: 0 of 120 ([commissioning note](doors/COMMISSIONING_NOTE_CSCORE.md)).
+**Being re-commissioned** against the atlases alone. It was first commissioned on whole blood with a healthy range set on healthy
+arrays from many studies ([commissioning note](doors/COMMISSIONING_NOTE_CSCORE.md)); its limit will now come from the atlases: each
+site's spread between healthy donors, how neighboring sites move together between donors, and the array's own noise. What its first
+tests showed about the instrument itself stands: the same person measured twice reads the same (spread 0.0379 over 13 pairs), a change
+on only 5 % of sites shows when the sites cluster, and planted scattered losses never read as clustered: 0 of 120.
 **Different because** arrays are usually said to see changes of about 20 to 30 % at a site. The C-Score reads the pattern across
 thousands of sites at once, so it sees far smaller changes, and it tells ordinary aging apart from the pattern tumors leave.
 
@@ -136,12 +140,12 @@ the spread between donors, each donor's own measured disorder, the reads behind 
 donors in sealed halves, one from splitting every donor's reads). Each cell has reads at 97 to 98 % of all CpGs, about 32 times the sites
 an array reads. It is counted, not fitted, and rebuilds from the public files with one command in minutes. It lets the sequencing
 instruments read a sample's disorder at every CpG against healthy disorder of its own cell type, including clusters far from any array
-site, and it is the reference the plasma readings are built on. Read against it, every healthy sequenced input reads Normal on every
-reading, 140 of 140: sorted-cell Met-A 1.0075, the islands 1.0118, the domains 1.0014
+site, and it is the reference the plasma readings are built on. The healthy inputs it was built from read sorted-cell Met-A 1.0075, the
+islands 1.0118, the domains 1.0014 against it, a check of the build rather than of new people
 ([healthy_fullchain7_summary.txt](doors/data/DEV_METAA_ATLAS_CURVE_01/seq_atlas_01/healthy_fullchain7_summary.txt)). It carries the
 sky-survey tools a faint signal on a sphere needs (each cell on the sphere with the range of its average, two noise maps and their null
 tests, the genome-distance spectrum, masks, an information sphere), because the statistics of a faint signal are the same for the sky and
-for the cell. The whole atlas is deposited on Zenodo ([DOI 10.5281/zenodo.24029328](https://doi.org/10.5281/zenodo.24029328)), every piece with its checksum. In development: each cell is commissioned when healthy sequenced
+for the cell. The whole atlas is deposited on Zenodo ([DOI 10.5281/zenodo.24029328](https://doi.org/10.5281/zenodo.24029328)), every piece with its checksum, and so is its globe at every one of the 28,217,448 CpGs ([DOI 10.5281/zenodo.24029332](https://doi.org/10.5281/zenodo.24029332); [how each part of it works](https://hmahaffeyges.github.io/IAM-Validation/seq-atlas/globe.html)). In development: each cell is commissioned when healthy sequenced
 samples it has never held read Normal against it ([the record](doors/DEV_ATLAS_V21_01.md)).
 
 **A ruler for each kind of instrument.** Each kind of instrument reads the same biology through its own chemistry. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts reads, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder; the offset also changes with each laboratory's chemistry and library. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. The physics and the instruments are the same; only the ruler changes with the platform. Read against IAM-Atlas v2.1, healthy sequenced samples showed it: at the islands every healthy cell keeps unmarked they read about 14 where healthy reads 1, and Met-A followed each sample's source.
@@ -149,15 +153,8 @@ samples it has never held read Normal against it ([the record](doors/DEV_ATLAS_V
 **Each library's own floor.** The physical floor is set by the energy that holds a mark. A laboratory's chemistry adds its own small rate
 of false "methylated" calls on top of it, and that rate differs from library to library. The chain measures it in every sequenced sample,
 at the sites no healthy cell marks, and reads it as a property of the library, not of the cell. In healthy plasma it falls almost
-entirely on the islands (slope 0.939), and with the sample and the reference read at a common floor the islands read 0.9272
-([plasma_band_03_summary.txt](doors/data/DEV_ONE_DRAW_01/plasma_seq_03/plasma_band_03_summary.txt); in development).
-
-**Read against its own laboratory.** A laboratory's chemistry can also set its healthy libraries off the atlas by a factor of its own at a
-cell's identity sites. Among one laboratory's own healthy donors of a cell the spread is about the same as inside the atlas's laboratory,
-so the offset behaves as one factor for the laboratory and cell, and a tare on that laboratory's own healthy samples of the same cell
-divides it out: two outside laboratories read sorted-cell Met-A 0.7134 and 0.5891 untared, and 1.0001 and 0.9889 tared on three of
-their own healthy samples ([same_lab_tare.txt](doors/data/DEV_ATLAS_V21_01/seq_atlas/outside_data/same_lab_tare.txt); in development).
-It is the rule the arrays already follow with healthy references run beside the sample.
+entirely on the islands (slope 0.939); measuring each library's floor at the very islands it reads is in development
+([the record](doors/DEV_ATLAS_V21_01.md)).
 
 **The whole genome first.** Before any sequenced reading the chain checks that every chromosome carries its share of values. A sample read
 only in part, such as a run stored in genome order and read from its first read pairs, is refused, and the refusal names the chromosomes
@@ -175,10 +172,10 @@ chain declines a sample whose mix it cannot trust instead of reading a cell-mix 
 ### Group-A: has a whole group moved?
 
 One person's whole-blood reading cannot show a 1 % change, but a group can. Group-A reads each person with the same command as every
-report, centers each reading on healthy people run the same way, and compares the two groups' averages.
-**Commissioned** on groups of whole bloods run in one series: on 278 healthy people from a laboratory it had never read, women
-and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors
-([commissioning note](doors/COMMISSIONING_NOTE_GROUPA.md)).
+report, each against the atlas, and compares the two groups' averages.
+**Being re-commissioned** against the atlas alone. It was first commissioned with each reading centered on healthy people run the same
+way: on 278 healthy people from a laboratory it had never read, women and men came out 0.36 % apart, and a 1 % loss planted into half of
+them was found at 7.253 standard errors ([commissioning note](doors/COMMISSIONING_NOTE_GROUPA.md)).
 **Different because** group studies usually fit a statistical model across thousands of sites between cohorts. Group-A compares one
 physical reading per person, each against its own expected value for that person's cell mix, with nothing fitted, and prints the
 smallest difference the study could have found.
@@ -193,8 +190,11 @@ flagged as in development ([the instruments](INSTRUMENTS.md)). It is drawn on th
 
 ### The chain: one command
 
-The instruments run as one chain: intake, calibration of each array on its own, the readings, and a report with a plain view and a
-researcher view. One command reads a sample. A fresh copy of the public repository on a clean machine passes every release check
+The instruments run as one chain, and one command reads a sample. The chain sees what kind of data it was given and takes its route:
+an array is calibrated on its own and read against IAM-Atlas v2.1; a sequenced sample is counted read by read and read against the IAM
+Sequencing Atlas. The physics and the instruments are the same on both routes; only the ruler changes with the chemistry. The label on a
+sample picks only the route, never the cell: the IAM-Deconvolver reads first, which cells are in the sample and in what shares, and every
+cell it finds is read against its own healthy profile in the atlas. Then a report with a plain view and a researcher view. A fresh copy of the public repository on a clean machine passes every release check
 before each release ([operating procedure](sop/MethylPhys_CPG_SOP_v4.md)).
 
 ## 5. The tests, and what each one showed
@@ -202,13 +202,11 @@ before each release ([operating procedure](sop/MethylPhys_CPG_SOP_v4.md)).
 ### Healthy reads as healthy
 
 An instrument that calls healthy people sick is useless to a cancer laboratory, so this is where every commissioning starts, and it is
-tested where it is hardest: on laboratories that did not set the range.
+tested where it is hardest: on laboratories the atlas never held. With healthy taken only from the atlases, these tests are being run
+again for Met-A, the C-Score and Group-A; what their first tests showed about each instrument's own behavior stands.
 
-- **The C-Score's range held in new laboratories** (above), and a third laboratory's healthy blood read inside it, 172 of 173.
 - **The same DNA gives the same answer in three laboratories.** Identical reference DNA on 30 arrays: Met-A's spread between repeats
-  was 0.0114, and after the same-run tare the laboratories differed by 0.006
-  ([DEV_EPIQC_ARRAY_01_OUTCOME.md](doors/DEV_EPIQC_ARRAY_01_OUTCOME.md)). The usual approach corrects batch effects after the fact; the
-  chain's design cancels them.
+  was 0.0114 ([DEV_EPIQC_ARRAY_01_OUTCOME.md](doors/DEV_EPIQC_ARRAY_01_OUTCOME.md)).
 - **No false alarms from foreign DNA.** Foreign DNA mixed into healthy blood: 9 of 9 mixtures still read healthy
   ([DEV_CSCORE_MOSS_01_OUTCOME.md](doors/DEV_CSCORE_MOSS_01_OUTCOME.md)).
 - **Healthy colon tissue reads healthy on the atlas.** Three healthy colon biopsies read 0.911, 0.941 and 0.943 on the atlas's tissue
@@ -249,7 +247,7 @@ laboratories, and the breast, colon and liver results ([reproduce](reproduce/REA
 |---|---|
 | A scale learned from a training cohort | A scale from thermodynamics: the floor and the ceiling are derived; IAM-A's healthy mark is computed from the sample itself |
 | A healthy baseline from a control group's average | IAM-A: the reference is inside the sample itself |
-| Batch effects corrected afterward | Each array calibrated on its own; the same-run tare cancels the batch |
+| Batch effects corrected afterward | Each array calibrated on its own, its own line and noise measured on the array, and read against the atlas |
 | Cell mix removed by statistics | Cell mix measured, with its uncertainty; samples it cannot trust are declined |
 | Differences at single sites, about 20 to 30 % | The pattern across thousands of sites; scattered aging told apart from clustered change |
 | Reference atlases with one number per site | An atlas fitted like a sky map, with how sure it is at every value |
@@ -271,6 +269,3 @@ find through the repository's issue form, so every result becomes part of the pu
 - [Data that would extend IAM](DATA_WE_NEED.md): the data we could not find or reach, and what each would let us build or test.
 - [The A-score database](ASCORES/README.md): every sample each instrument has read, healthy and tumor, and how many cross the healthy line.
 - [The book](https://hmahaffeyges.github.io/IAM-Validation/book/): the physics in full, from cosmology to the cell.
-
-
-**Met-A on sequenced samples.** The atlas is built on the array scale, where a site a cell keeps unmarked reads about 0.055 while sequencing counts it as 0. For a sequenced sample the chain puts each atlas column in sequencing units by the conversion the atlas's own build measured, so a healthy sequenced cell reads 1 against the same atlas. This reading is in development, flagged in every report.

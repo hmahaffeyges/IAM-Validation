@@ -9,7 +9,7 @@
   },
   {
    "q": "Why does that matter for a physics framework?",
-   "a": "Because grid operation and air traffic control are the same discipline: real-time estimation of a networked system's state, with conservation laws that must balance, reserve margins, hard limits that are not crossed, and immediate consequences for fooling yourself. That is the shape of what is built here. The gauge has a floor set by physics, a healthy band measured once, and a ceiling past which the reading stops being monotone - an operator's instrument, which tells you where a system sits relative to its limits."
+   "a": "Because grid operation and air traffic control are the same discipline: real-time estimation of a networked system's state, with conservation laws that must balance, reserve margins, hard limits that are not crossed, and immediate consequences for fooling yourself. That is the shape of what is built here. The gauge has a floor set by physics, a healthy middle taken from the atlas of healthy cells, each cell with its own measured width, and a ceiling past which the reading stops being monotone - an operator's instrument, which tells you where a system sits relative to its limits."
   },
   {
    "q": "How is that different from the methylation scores already published?",

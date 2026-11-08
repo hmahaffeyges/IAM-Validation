@@ -22,6 +22,8 @@ def text():
     for e in E:
         w, v = e["win"], vals(e); f = lambda t: t.format(**v)
         st = {"commissioned": "commissioned", "published": "published", "reproduced": "reproduced"}.get(e.get("status"), "development")
+        if e["id"] in ("COMMISSIONING-METAA-NEUTROPHILS", "COMMISSIONING-CSCORE", "COMMISSIONING-GROUPA"):   # 2026-11-07: healthy comes only from the atlases
+            st = "first commissioning, against references from other samples; being re-commissioned against IAM-Atlas v2.1 alone"
         if e.get("sealed") is False: st += ", early result (data already read)"
         L += [f"## {f(w['head'])}", "", f"**{e['date']}** · {st} · {f(w['stat'])}", "", f(w["sub"]), "", f"Record: [{os.path.basename(e['record'])}]({e['record']})", ""]
     return "\n".join(L)

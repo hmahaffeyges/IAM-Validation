@@ -1,20 +1,16 @@
 {
- "_rule": "The front of the public page (author 2026-10-17: only the commissioned chain and the tests it passed, front and center; everything else to the repository). build_home.py shows the register entries named in 'front', in this order, under 'title' and 'lead'. Every other register entry is listed in Biological_Physics/MethylPhys/EARLIER_RESULTS.md (CANON/earlier_results.py), linked from the page. A new commissioning is added here when it is written. Edit here only.",
- "title": "The first commissioned IAM chain",
+ "_rule": "The front of the public page (author 2026-10-17: only the commissioned chain and the tests it passed, front and center; everything else to the repository). build_home.py shows the register entries named in 'front', in this order, under 'title' and 'lead'. Every other register entry is listed in Biological_Physics/MethylPhys/EARLIER_RESULTS.md (CANON/earlier_results.py), linked from the page. A new commissioning is added here when it is written. Edit here only. 2026-11-07 (author: healthy comes only from the atlases): the front shows what stands; Met-A, C-Score and Group-A are being re-commissioned against the atlas alone, said in the lead, their first commissionings listed with the earlier results.",
+ "title": "The IAM chain: one command, two atlases",
  "lead": [
-  "One sample goes in. Five instruments read it, and every one of them passed a test that was written and sealed before its data was seen. A sixth, Group-A, reads whole groups of people at once, and passed its own sealed test the same way.",
-  "One of them needs no outside reference at all: it reads a person's cells against themselves. The atlas behind them was fitted the way cosmologists fit a map of the sky, and on the jobs an atlas is used for, it beat both published references in the field.",
+  "One sample goes in, and one command reads it. The chain takes arrays and sequencing alike, and reads each against the healthy atlas measured with its own chemistry: IAM-Atlas v2.1 for arrays, the IAM Sequencing Atlas for sequenced samples. Healthy comes only from the atlases, never from other samples in the same run, laboratory or study.",
+  "The IAM-Deconvolver reads first: which cells are in the sample, and in what shares. Then each cell it finds is read against its own healthy profile in the atlas. IAM-A needs no outside reference at all: it reads a person's cells against themselves.",
+  "Commissioned, each on a test written and sealed before its data was seen: IAM-Atlas v2.1 for its first uses, where on the jobs an atlas is used for it beat both published reference atlases; the IAM-Deconvolver for blood-cell shares; and IAM-A. Met-A, the C-Score and Group-A were first commissioned against references taken from other samples, and are being re-commissioned against the atlas alone.",
   "These are research instruments, not a diagnostic test. Where the lines on the gauge belong for cancer is for cancer researchers to find; these are the instruments to find it with."
  ],
  "front": [
-  "COMMISSIONING-GROUPA",
-  "COMMISSIONING-IAMA",
   "COMMISSIONING-ATLAS-V21",
-  "DEV-ATLAS-USE-02",
-  "DEV-ATLAS-USE-01",
   "COMMISSIONING-DECONV-V21",
-  "COMMISSIONING-CSCORE",
-  "COMMISSIONING-METAA-NEUTROPHILS"
+  "COMMISSIONING-IAMA"
  ],
  "earlier": "Earlier results, from before the commissioned chain"
 }

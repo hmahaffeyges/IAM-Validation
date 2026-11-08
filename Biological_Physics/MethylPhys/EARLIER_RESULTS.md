@@ -20,6 +20,30 @@ Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
 
 Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
 
+## Group-A is commissioned: reading whole groups of people
+
+**2026-10-20** · first commissioning, against references from other samples; being re-commissioned against IAM-Atlas v2.1 alone · Commissioned
+
+On 278 healthy people from a new laboratory, a 1 % change planted into half of them was found at more than seven times the noise.
+
+Record: [COMMISSIONING_NOTE_GROUPA.md](doors/COMMISSIONING_NOTE_GROUPA.md)
+
+## Our atlas beats the field's reference on its own jobs
+
+**2026-10-16** · commissioned · 3 of 3 bars
+
+On 731 held-out arrays: blood mixtures split 26 percent more accurately than the published array reference; brain cells it does not hold recovered in 87 percent of mixtures.
+
+Record: [DEV_ATLAS_USE_01.md](doors/DEV_ATLAS_USE_01.md)
+
+## IAM-Atlas v2.1 outperforms the published sequencing atlas on its own jobs
+
+**2026-10-16** · commissioned · 3 of 3 bars
+
+On 731 held-out arrays: mixtures split 19 percent more accurately than the published sequencing atlas; IAM-Atlas v2.1 now outperforms both published references on the jobs they were built for.
+
+Record: [DEV_ATLAS_USE_02.md](doors/DEV_ATLAS_USE_02.md)
+
 ## Every healthy cell follows the same simple rule
 
 **2026-10-15** · commissioned, early result (data already read) · 53 of 56 on one line
@@ -35,6 +59,14 @@ Record: [loose_end_line.py](../../development/loose_end_2026-10-15/loose_end_lin
 The same person measured twice reads the same (spread 0.038, bar 0.125); a third laboratory's healthy blood read inside its range (172 of 173). Proposed for commissioning.
 
 Record: [CSCORE_COMMISSIONING_PLAN.md](doors/CSCORE_COMMISSIONING_PLAN.md)
+
+## Our second instrument is commissioned: the clustering meter
+
+**2026-10-15** · first commissioning, against references from other samples; being re-commissioned against IAM-Atlas v2.1 alone · Commissioned
+
+It reads not how much a blood sample's DNA tags have changed, but how: scattered like ordinary wear, or packed together the way a tumor leaves them. It passed every test written for it before its data was read, in three independent laboratories.
+
+Record: [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
 
 ## Our second meter's healthy range holds in new laboratories
 
@@ -139,6 +171,14 @@ Record: [DEV_CSCORE_MOSS_01_OUTCOME.md](doors/DEV_CSCORE_MOSS_01_OUTCOME.md)
 Every number the commissioned instrument uses, rebuilt from public samples, identical.
 
 Record: [PROC_CHANNEL_01_OUTCOME.md](doors/PROC_CHANNEL_01_OUTCOME.md)
+
+## Our first instrument is commissioned
+
+**2026-10-09** · first commissioning, against references from other samples; being re-commissioned against IAM-Atlas v2.1 alone · Commissioned
+
+Met-A on white blood cells passed every test written for it before its data was read.
+
+Record: [COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)
 
 ## The book is out, with a DOI
 

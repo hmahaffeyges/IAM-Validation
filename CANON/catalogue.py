@@ -24,9 +24,11 @@ def row_line(r):
 def stage(inst, M):
     rows = [M[i] for i in inst["rows"] if i in M]
     if any(r["status"] == "running" for r in rows): return "running now"
-    _rc = " (with a same-run healthy tare; being re-commissioned with IAM-Atlas v2.1 as the only healthy reference)" if inst.get("recommission") else ""   # 2026-11-07
-    if inst["id"] == "meta": return "commissioned (isolated neutrophils)" + _rc
-    if inst.get("commissioned"): return f"commissioned ({inst['commissioned']})" + _rc
+    # 2026-11-07 (author: healthy comes only from the atlases): an instrument first commissioned against references taken from other samples (a same-run
+    # tare, or a band set on labeled-healthy cohorts) is shown as being re-commissioned, its first commissioning as history
+    if inst.get("recommission"): return "being re-commissioned against IAM-Atlas v2.1 alone (first commissioned against references from other samples: " + re.sub(r"^tested and commissioned ", "", inst.get("commissioned") or "isolated neutrophils") + ")"
+    if inst["id"] == "meta": return "commissioned (isolated neutrophils)"
+    if inst.get("commissioned"): return f"commissioned ({inst['commissioned']})"
     if any((r.get("runs") or [{}])[-1].get("outcome") == "success" for r in rows): return "passing its tests"
     return "in development"
 def markdown(C, M):

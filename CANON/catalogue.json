@@ -45,12 +45,12 @@
    "id": "meta",
    "name": "Met-A",
    "question": "How far has a tissue's tagging level drifted toward the ceiling?",
-   "how": "Reads the methylation level at each cell's identity sites, sites a healthy cell holds mostly marked or mostly unmarked, steadily from one healthy sample to the next, chosen away from the ends so that wear can show; against a healthy reference, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4). Read and flagged development: Met-A for every cell the IAM-Deconvolver finds, each against its own profile in IAM-Atlas v2.1, on arrays and on sequencing values.",
+   "how": "Reads the methylation level at each cell's identity sites, sites a healthy cell holds mostly marked or mostly unmarked, steadily from one healthy sample to the next, chosen away from the ends so that wear can show; against IAM-Atlas v2.1, on cheap and plentiful arrays. Commissioned on isolated neutrophils. Each cell is read at its own identity sites, the sites it holds (where a loss can raise disorder) and healthy people agree on; reading every site is more sensitive but cannot say which cell is losing hold (DEV-EACH-CELL-01 exploration 4). Read and flagged development: Met-A for every cell the IAM-Deconvolver finds, each against its own profile in IAM-Atlas v2.1, on arrays and on sequencing values.",
    "reads": "arrays",
    "rows": [
     "COM-METAA-003"
    ],
-   "next": "The sealed test of Met-A against the atlas with same-slide references; then every cell in a mix.",
+   "next": "Each cell's reading divided by its own healthy prediction (the array's own line and noise, measured on the array), each cell's healthy width measured from the atlas's own donors, then its sealed test against the atlas alone.",
    "book_chapter": "ch:meta",
    "specialty": "Cost and reach: a single array, the most common methylation measurement in the world, read on the gauge against the same cell type's healthy reference, with its detection limit printed.",
    "commissioned": "tested and commissioned on isolated neutrophils, EPIC v1, 2026-10-09",
@@ -65,13 +65,13 @@
    "id": "cscore",
    "name": "C-Score (the clustering meter)",
    "question": "Has the pattern started to clump?",
-   "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping against a healthy band. The band held in three laboratories that never helped set it, and one person measured twice reads the same. Reproduced through the one command from the raw arrays: the band holds again.",
+   "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping, against the sample's own scattered change. Its first healthy limit was set on healthy arrays from many studies; Healthy comes only from the atlases, so it is being re-commissioned against IAM-Atlas v2.1 alone. Its limit will come from the atlases alone: each site's spread between healthy donors, how neighboring sites move together between donors, and the array's own noise.",
    "reads": "arrays",
    "rows": [
     "COM-CSCORE-011",
     "COM-CSCORE-012"
    ],
-   "next": "Real cancers read on the gauge; then 450K, EPIC v2 and plasma; new same-person repeats from a series that did not help build the band. Its family (below, In development): the whole-genome C-Score against the atlas, and IAM-A's.",
+   "next": "The healthy limit from the atlases alone; then its sealed test on held data; then real cancers, 450K, EPIC v2 and plasma. Its family (below, In development): the whole-genome C-Score against the atlas, and IAM-A's.",
    "commissioned": "tested and commissioned on whole blood, EPIC v1, 2026-10-15",
    "book_chapter": "ch:cscore",
    "specialty": "The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome.",
@@ -103,14 +103,14 @@
    "id": "groupa",
    "name": "Group-A",
    "question": "Has a whole group moved (a trial arm, an exposure, a cohort)?",
-   "how": "Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A reads each person with the one command, tares each reading against healthy arrays run the same way, and compares the groups. On 278 healthy people from a laboratory it had never read, women and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors.",
+   "how": "Single blood readings are too noisy for one person on arrays, but a group average is not. Group-A reads each person with the one command and compares the groups. It was first commissioned with each reading tared against healthy arrays run the same way; Healthy comes only from the atlases, so it is being re-commissioned against IAM-Atlas v2.1 alone. In that first commissioning, on 278 healthy people from a laboratory it had never read, women and men came out 0.36 % apart, and a 1 % loss planted into half of them was found at 7.253 standard errors.",
    "reads": "arrays",
    "rows": [
     "GRP-004"
    ],
-   "next": "One cancer at a time, patients and healthy controls from the same series.",
+   "next": "Each person read against the atlas alone, then the groups compared; then one cancer at a time.",
    "book_chapter": "ch:groupa",
-   "specialty": "Groups: whether a whole cohort, trial arm or exposure has moved, read as one, with patients and healthy comparisons run in the same laboratory series.",
+   "specialty": "Groups: whether a whole cohort, trial arm or exposure has moved, read as one, each person against the atlas.",
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_GROUPA.md",
    "commissioned": "groups of whole bloods run in one series, EPIC v1, 2026-10-20",
    "chain": "Biological_Physics/MethylPhys/chain/stage_groupa.py",
@@ -129,7 +129,7 @@
    "name": "Same-run reference correction",
    "what": "Reads each specimen against healthy references run beside it, so a laboratory's own offset cancels instead of passing for disease.",
    "chapter": "ch:instrument",
-   "status": "commissioned (the same-run tare, whole blood, EPIC v1)",
+   "status": "retired: healthy comes only from the atlases",
    "record": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_TARE_01.md"
   },
   {
@@ -148,7 +148,7 @@
   },
   {
    "name": "Array and Sequencing Atlas Globes, and the Globe Viewer",
-   "what": "Method: each atlas's sites placed on an equal-area HEALPix sphere (NSIDE 256, nested ordering) in genome order, each pixel holding a cell's methylation level and its 95 % range: the Array Atlas Globe (IAM-Atlas v2.1, 813,951 array sites) and the Sequencing Atlas Globe (the IAM Sequencing Atlas on the same 813,951-site layout; the atlas itself holds every one of the 28.2 million CpGs, and a whole-genome globe at a finer resolution is still to be built). Tested: on the Sequencing Atlas Globe the stated 95 % ranges match the true spread (stated over true variance 1.010 with two donors, 1.007 with three; coverage 0.955 and 0.948); a read-half noise map sits inside its shuffled null in all 56 cells, and a donor-half noise map shows where healthy people differ from one another. Adds: every site of every cell in one fixed place, so a cell, a sample and the uncertainty can be compared pixel for pixel, with the spectrum, mask and null methods built for all-sky maps. The Globe Viewer shows both atlases, every cell of each (79 and 57), and example readings.",
+   "what": "Method: each atlas's sites placed on an equal-area HEALPix sphere (NSIDE 256, nested ordering) in genome order, each pixel holding a cell's methylation level and its 95 % range: the Array Atlas Globe (IAM-Atlas v2.1, 813,951 array sites) and the Sequencing Atlas Globe (the IAM Sequencing Atlas on the same 813,951-site layout; the atlas itself holds every one of the 28.2 million CpGs, and its globe at every CpG is built and published: all 28,217,448 CpGs at NSIDE 2048, Zenodo 10.5281/zenodo.24029332). Tested: on the Sequencing Atlas Globe the stated 95 % ranges match the true spread (stated over true variance 1.010 with two donors, 1.007 with three; coverage 0.955 and 0.948); a read-half noise map sits inside its shuffled null in all 56 cells, and a donor-half noise map shows where healthy people differ from one another. Adds: every site of every cell in one fixed place, so a cell, a sample and the uncertainty can be compared pixel for pixel, with the spectrum, mask and null methods built for all-sky maps. The Globe Viewer shows both atlases, every cell of each (79 and 57), and example readings.",
    "chapter": "ch:sky",
    "status": "a picture, on every report",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
@@ -210,7 +210,7 @@
  "in_development": [
   {
    "name": "The IAM Sequencing Atlas",
-   "what": "A second atlas, for sequenced samples only, beside IAM-Atlas v2.1 (which stays the reference for arrays). Measured, not fitted: for each of 58 healthy cell types (megakaryocytes provisional), at every one of the 28.2 million CpGs of the hg19 numbering, it holds the donors and reads, the methylated reads, the healthy level, the spread between donors, each donor's own measured disorder, and two noise maps (sealed donor halves, and random halves of every donor's reads, which stand in where a cell has one donor). Each cell has reads at 97 to 98 % of all CpGs, about 32 times the sites an array reads, so the sequencing instruments can read a sample's disorder at every CpG against healthy disorder of its own cell type. Built from the healthy sequencing inputs behind IAM-Atlas v2.1, with a granulocyte column added from three more donors, by the one command (run_sample.py --build seq-atlas), every step checked first on constructed data with a known answer; it rebuilds from the public files in minutes. Each kind of instrument reads the same biology through its own chemistry. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts reads, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder; the offset also changes with each laboratory's chemistry and library. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. The physics and the instruments are the same; only the ruler changes with the platform. Read against IAM-Atlas v2.1, healthy sequenced samples showed it: at the islands every healthy cell keeps unmarked they read about 14 where healthy reads 1, and Met-A followed each sample's source. Read against it, every healthy sequenced input reads Normal on every reading, 140 of 140: sorted-cell Met-A 1.0075, whole-sample Met-A 1.0059, the islands 1.0118, the domains 1.0014, the C-Score 1.0003. It carries the sky-survey tools a faint signal on a sphere needs: each cell drawn on the sphere with the range of its average, its two noise maps and their null tests, the genome-distance spectrum, masks for the sex chromosomes and poorly mapping sites, and an information sphere. Each library's floor, the rate of false \"methylated\" calls its chemistry adds, is measured at the sites no healthy cell marks. The whole atlas at every CpG, with its runtime tables and a checksum for every piece, is deposited on Zenodo (DOI 10.5281/zenodo.24029328).",
+   "what": "A second atlas, for sequenced samples only, beside IAM-Atlas v2.1 (which stays the reference for arrays). Measured, not fitted: for each of 58 healthy cell types (megakaryocytes provisional), at every one of the 28.2 million CpGs of the hg19 numbering, it holds the donors and reads, the methylated reads, the healthy level, the spread between donors, each donor's own measured disorder, and two noise maps (sealed donor halves, and random halves of every donor's reads, which stand in where a cell has one donor). Each cell has reads at 97 to 98 % of all CpGs, about 32 times the sites an array reads, so the sequencing instruments can read a sample's disorder at every CpG against healthy disorder of its own cell type. Built from the healthy sequencing inputs behind IAM-Atlas v2.1, with a granulocyte column added from three more donors, by the one command (run_sample.py --build seq-atlas), every step checked first on constructed data with a known answer; it rebuilds from the public files in minutes. Each kind of instrument reads the same biology through its own chemistry. An array reads a probe's light, which never quite reaches 0 or 1: a site no cell ever marks still reads at the array's floor, a few percent up. Sequencing counts reads, so the same site reads about 0. Healthy disorder is computed from those levels, and near the floor a small offset in level is a large offset in disorder; the offset also changes with each laboratory's chemistry and library. So each kind of instrument reads against a ruler measured with its own chemistry: arrays against IAM-Atlas v2.1, sequenced samples against the IAM Sequencing Atlas. The physics and the instruments are the same; only the ruler changes with the platform. Read against IAM-Atlas v2.1, healthy sequenced samples showed it: at the islands every healthy cell keeps unmarked they read about 14 where healthy reads 1, and Met-A followed each sample's source. Read against it, the healthy inputs it was built from read sorted-cell Met-A 1.0075, whole-sample Met-A 1.0059, the islands 1.0118, the domains 1.0014, the C-Score 1.0003 (they built it, so this checks the build, not a new person). It carries the sky-survey tools a faint signal on a sphere needs: each cell drawn on the sphere with the range of its average, its two noise maps and their null tests, the genome-distance spectrum, masks for the sex chromosomes and poorly mapping sites, and an information sphere. Each library's floor, the rate of false \"methylated\" calls its chemistry adds, is measured at the sites no healthy cell marks. The whole atlas at every CpG, with its runtime tables and a checksum for every piece, is deposited on Zenodo (DOI 10.5281/zenodo.24029328).",
    "next": "Each cell commissioned on healthy sequenced samples from laboratories the atlas does not hold; columns for cells it lacks (megakaryocytes and later erythroid stages) as public data allows.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
   },
@@ -228,8 +228,8 @@
   },
   {
    "name": "Per-cell readings in a mixed sample",
-   "what": "One run of the one command finds every cell of IAM-Atlas v2.1 in a sample and reads Met-A for each, against its own healthy profile; each cell also gets its own change layer on the globe. Sites held by one cell alone are the next test, so a loss across a cell's whole pattern can be put on the right cell.",
-   "next": "Each cell's healthy spread across Group-A's 278 bloods.",
+   "what": "One run of the one command finds every cell of IAM-Atlas v2.1 in a sample and reads Met-A for each, against its own healthy profile; each cell also gets its own change layer on the globe. Each row states how much of its reading is the cell's own: a cell's reading at its identity sites also carries the DNA of the cells around it, in proportion to the DNA each holds there. Sites held by one cell alone are the next test, so a loss across a cell's whole pattern can be put on the right cell.",
+   "next": "Each cell's reading divided by its own healthy prediction, and each cell's healthy width measured from the atlas's own donors.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_EACH_CELL_01.md"
   },
   {
@@ -247,13 +247,13 @@
   {
    "name": "Nearest-neighbor coupling (Coupling-A)",
    "what": "Whether a molecule's held errors fall one at a time or together, read on the A-score gauge as coupling-A: the sample's coupling (neighboring CpGs that lost their mark together on held molecules, over what each molecule's own length and error count give at random) over the healthy coupling of its own cell type, so a healthy cell reads 1. The gauge's ends are counted: 0 when no two errors are ever neighbors, and the sample's own most clustered arrangement, every molecule's errors in one run. Its healthy reference comes from the 153 healthy sequencing samples behind IAM-Atlas v2.1, 56 cell types: errors cluster in every healthy cell, more in some, and read against its own cell type a healthy sample sits within 0.935 to 1.062. It asks a question from the information-theory study of methylation: is a mark kept site by site, or by a stretch of DNA as a unit? Every sequencing report draws it. The idea came from the information-theory study of pediatric leukemia (Nature Biomedical Engineering, 2021, doi:10.1038/s41551-021-00703-2); IAM adds the gauge, one sample against its own cell type's healthy coupling between counted ends.",
-   "next": "Healthy sorted B and T cells from two laboratories the atlas has never held, read against the band; then the first question, written before it is read: does switching off the maintenance machinery change how the errors cluster?",
+   "next": "Healthy sorted B and T cells from laboratories the atlas has never held, read against the IAM Sequencing Atlas once the sequencing chain is working; then the first question, written before it is read: does switching off the maintenance machinery change how the errors cluster?",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ALL_INFO_01.md"
   },
   {
    "name": "Met-A on sequencing",
-   "what": "Met-A for a sample sequenced by whole-genome bisulfite, read against the IAM Sequencing Atlas, the ruler measured with sequencing's own chemistry. A sorted cell is read donor by donor: the sample's disorder at its cell's identity sites against that of each healthy donor of the same cell, both at the same number of reads, so counting is exact on both sides and nothing is fitted. Every healthy sequenced input reads Normal, 140 of 140, sorted-cell Met-A 1.0075; a mixed sample is read against the atlas in its own cell shares.",
-   "next": "The same-laboratory tare: two outside laboratories' healthy libraries read own-cell Met-A at a median of 0.7134 and 0.5891, and tared on three of their own laboratory's healthy samples of the same cell they read 1.0001 and 0.9889. Next, the healthy test on a laboratory the atlas has never held (six healthy donors' CD4 T cells, each tared on the other five), then each cell from every laboratory that supplies healthy samples of its own.",
+   "what": "Met-A for a sample sequenced by whole-genome bisulfite, read against the IAM Sequencing Atlas, the ruler measured with sequencing's own chemistry. A sorted cell is read donor by donor: the sample's disorder at its cell's identity sites against that of each healthy donor of the same cell, both at the same number of reads, so counting is exact on both sides and nothing is fitted. A mixed sample is read against the atlas in its own cell shares.",
+   "next": "After the array instruments are commissioned: the sequencing chain working (each library's own false-call floor at the islands, and copies in amplified libraries), then samples from other laboratories read against the IAM Sequencing Atlas alone.",
    "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
   },
   {
@@ -282,7 +282,7 @@
   },
   {
    "name": "Same-laboratory reference correction (sequencing)",
-   "what": "A few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against them. On two outside laboratories, three of their own healthy samples brought them to Normal.",
+   "what": "Retired: healthy comes only from the atlases. A few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against them. On two outside laboratories, three of their own healthy samples brought them to Normal.",
    "next": "the test on a laboratory never read before is running",
    "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
   }
@@ -504,7 +504,7 @@
     "name": "Group-A",
     "inst": "groupa",
     "commissioned_form": true,
-    "against": "a group against the healthy in the same series, each reading tared on its own chip",
+    "against": "each person against IAM-Atlas v2.1, groups compared (first commissioned with each reading tared on its own chip; being re-commissioned)",
     "derived": "the comparison, a difference in standard errors",
     "measured_once": "nothing",
     "blind_to": "one person: it reads groups",
@@ -578,10 +578,8 @@
    ]
   ],
   [
-   "Reference correction",
+   "Groups",
    [
-    "support:Same-run reference correction",
-    "dev:Same-laboratory reference correction (sequencing)",
     "inst:groupa"
    ]
   ],

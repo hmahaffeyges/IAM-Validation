@@ -358,10 +358,6 @@
      "p": "It is one of the tools we carried over from cosmology. Cosmologists subtract the sky they expect to see and measure how the leftover departures cluster; that measurement is how the Planck mission pinned down what the universe is made of and how old it is. We subtract a healthy cell's expected pattern from a sample and measure the same thing along the genome, in order: whether the leftovers clump. The same leftovers can be drawn on a sphere, the way a microwave sky is drawn."
     },
     {
-     "h": "Is anyone else doing this?",
-     "p": "Not as far as we can find. Other groups count how many sites in a person's blood are unusual compared with other people. That is a count. The clustering meter is a different instrument: it asks whether one sample's departures from healthy sit together along the genome, reads that on a fixed healthy band checked in independent laboratories, and prints a call and a detection limit for every sample."
-    },
-    {
      "h": "How it was tested",
      "p": "The healthy range was set on 617 healthy arrays from 19 studies, then fixed. Three laboratories that had no part in setting it read 34 of 35, 22 of 23 and 172 of 173 healthy bloods inside it. Thirteen people measured twice on different chips read the same to within 0.038, against an allowance of 0.125. Clumped damage planted into real healthy arrays was caught every time; scattered damage never set it off."
     },
