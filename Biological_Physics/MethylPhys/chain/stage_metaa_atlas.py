@@ -737,14 +737,22 @@ def _line_censored(x, e, a0, b0, s0):
     r = minimize(nll, [a0, b0, np.log(max(s0, 1e-4))], method="Nelder-Mead", options=dict(xatol=1e-7, fatol=1e-7, maxiter=4000))
     return float(r.x[0]), float(r.x[1]), float(np.exp(r.x[2]))
 
-def array_blur(xs, es):
+LINE_WIDE = False   # 2026-11-08 (run_sample.py --dev-line-wide; development, DEV-METAA-HEALTHY-01 width diagnostic): the array's line measured on every
+                    # site this sample's own mix holds firmly (below 0.05 or above 0.95), the identity sites of the cells found set aside, instead of
+                    # only the ruler's anchors (held so in all 79 cells). Offline on the width synthetic's people: the anchors' line moves from person
+                    # to person by about 0.0004 in slope (each person's own small differences at about 8,000 anchors), which moves a cell's Met-A by
+                    # about 0.25 %, three times the healthy spread between people; on about 110,000 firmly held sites the slope moves by 0.00006.
+def array_blur(xs, es, exclude=None):
     """The array's own straight line and noise, per probe design (development, DEV-METAA-HEALTHY-01; 2026-10-24). At the atlas ruler's anchor
     sites (held below about 0.05 or above about 0.95 in every one of the 79 cell types): the line x = a + b e through the means of the array's
     low and high anchors against the atlas's means there, and the noise s = 1.4826 x the median absolute residual from that line. Measured on
     the array, nothing fitted to any reading."""
     des, sets, _ = _ruler(); out = {}
+    if LINE_WIDE:
+        ix0 = xs.index.intersection(es.index); ix0 = ix0[~ix0.isin(list(exclude or ()))]; e0 = es.reindex(ix0); dd0 = des.reindex(ix0)
     for d in ("I", "II"):
-        lo, hi = [pd.Index(sets[f"{d}_{k}"]).intersection(xs.index) for k in ("low", "high")]
+        if LINE_WIDE: lo, hi = ix0[((dd0 == d) & (e0 < 0.05)).to_numpy()], ix0[((dd0 == d) & (e0 > 0.95)).to_numpy()]
+        else: lo, hi = [pd.Index(sets[f"{d}_{k}"]).intersection(xs.index) for k in ("low", "high")]
         if len(lo) < 200 or len(hi) < 200: continue
         xl, xh, el, eh = xs[lo].mean(), xs[hi].mean(), es[lo].mean(), es[hi].mean()   # means: x = a + b e holds for means exactly (run 1 used medians)
         if not (eh - el) > 0.5: continue
@@ -752,14 +760,14 @@ def array_blur(xs, es):
         s_ = float(1.4826 * np.median(np.abs(res - np.median(res))))
         if LINE_CENSORED:   # 2026-11-07: readings at 0 or 1 counted as censored
             ix = lo.append(hi); a_, b_, s_ = _line_censored(xs[ix].to_numpy(), es[ix].to_numpy(), a_, b_, s_)
-        out[d] = dict(a=round(a_, 5), b=round(b_, 5), s=round(s_, 5), anchors=int(len(lo) + len(hi))) | ({"line": "censored"} if LINE_CENSORED else {})
+        out[d] = dict(a=round(a_, 5), b=round(b_, 5), s=round(s_, 5), anchors=int(len(lo) + len(hi))) | ({"line": "censored"} if LINE_CENSORED else {}) | ({"sites": "firmly held in this mix"} if LINE_WIDE else {})
     return out
 
-def predicted_healthy(xs, es, w, blur=None, min_sites=10000):   # 2026-11-07: min_sites (a cell's identity sites are at most 6,000; cell_prediction passes 500, the by-place readings' floor)
+def predicted_healthy(xs, es, w, blur=None, min_sites=10000, exclude=None):   # 2026-11-07: min_sites (a cell's identity sites are at most 6,000; cell_prediction passes 500, the by-place readings' floor)
     """Met-A's healthy middle line predicted from the array itself (development, DEV-METAA-HEALTHY-01). At each site, the disorder this array
     would show if the sample were exactly the atlas in its own mix: E[H(clip(a_d + b_d e + noise, 0, 1))] over noise N(0, s_d^2), by
     Gauss-Hermite quadrature, with d the site's probe design; A_pred = sum w E[H] / sum w H(e). A healthy sample should read A / A_pred = 1."""
-    blur = blur if blur is not None else array_blur(xs, es)
+    blur = blur if blur is not None else array_blur(xs, es, exclude=exclude)
     if not blur: return dict(reason="too few anchor sites on this array for its own line and noise")
     des, _, _ = _ruler(); dd = des.reindex(xs.index).to_numpy(); e = es.to_numpy(); EH = np.full(len(e), np.nan)
     z, wz = np.polynomial.hermite_e.hermegauss(GH_NODES); wz = wz / wz.sum()
@@ -820,12 +828,12 @@ def read_whole(beta, shares, counts=None, raw=None):
         try:
             if PRED_RAW and raw is not None:   # 2026-11-07: the prediction and its A both on the array's own values, the same sites and mix
                 xr = pd.Series(raw, dtype="float64").reindex(xs.index); k_ = xr.notna().to_numpy(); xr, er, wr = xr[k_], es[k_], w[k_]
-                hp = predicted_healthy(xr, er, wr); Ar = float((wr * np.asarray(_H(xr), dtype="float64")).sum() / (wr * np.asarray(_H(er), dtype="float64")).sum())
+                hp = predicted_healthy(xr, er, wr, exclude=ident); Ar = float((wr * np.asarray(_H(xr), dtype="float64")).sum() / (wr * np.asarray(_H(er), dtype="float64")).sum())
                 hp.update(values="the array's own values (the whole-sample A beside it is on the atlas ruler)", A_raw=round(Ar, 5), sites_raw=int(k_.sum()))
                 out["healthy_prediction"] = hp
                 if hp.get("A_pred"): hp["A_over_pred"] = round(Ar / hp["A_pred"], 5)
             else:
-                hp = predicted_healthy(xs, es, w); out["healthy_prediction"] = hp
+                hp = predicted_healthy(xs, es, w, exclude=ident); out["healthy_prediction"] = hp
                 if hp.get("A_pred"): hp["A_over_pred"] = round(r["A"] / hp["A_pred"], 5)
         except Exception as ex: out["healthy_prediction"] = {"reason": f"{type(ex).__name__}: {ex}"[:200]}
     return out

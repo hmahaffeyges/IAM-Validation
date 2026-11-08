@@ -850,3 +850,16 @@ truth rises (rank correlation -0.98), so a person-wide shift is partly taken out
 the excess follows neither the truth nor the Deconvolver's share, and a sorted CD8 sample was read as low as 58 % CD8. A second diagnostic
 (`width_diag2.py`) reads the no-noise arm again keeping each person's raw and predicted Met-A, the line the chain measured, the planted
 line and the five largest shares. The width synthetic's bar is not changed.
+
+**The second width diagnostic: the extra spread is the array's line, measured on too few sites (development; nothing scored).** The no-noise arm read again (all 24 parts),
+keeping each person's raw and predicted Met-A and the line the chain measured. Each cell's prediction follows the measured line's slope
+(rank correlation 0.89 to 0.98 at site-by-site spread), and the slope moves from person to person by about 0.0004 with no array noise at all: each
+person's own small differences at the ruler's anchors (about 8,000 sites, held below 0.05 or above 0.95 in all 79 cells). Near a level of 0.9 a
+slope error of 0.0004 moves the entropy by about 0.25 %, three times the healthy spread between people (0.1 %). Offline, on the same 120 people
+built the same way: with the planted line the readings spread 1.05 to 1.6 times the truth; with the line as the chain measures it, 2.6 to 3.7
+times (the chain's own 2.5 to 4.1); with the line measured on every site the sample's own mix holds firmly (about 110,000 to 131,000 sites, the
+identity sites of the cells found set aside), 1.0 to 1.5 times at site-by-site spread, the slope moving by 0.00006. Where half the spread is shared
+by the whole person, the chain also reads the cell's share lower (a sorted CD8 sample as low as 58 % CD8), which doubles the spread again; and a
+shift shared by every site cannot be told apart from the array's own offset by any line, so the wide line takes part of it out (neutrophils 0.0025
+against a truth of 0.0062). The chain change: `--dev-line-wide` (stage_metaa_atlas.LINE_WIDE, development). The width synthetic runs again,
+unchanged but for that flag (`width_synthetic_wide.py`).
