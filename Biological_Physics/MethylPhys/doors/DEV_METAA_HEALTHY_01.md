@@ -841,3 +841,12 @@ the array's noise together; the bar asked for the person spread alone. Whether t
 or something the chain adds, is tested next by a diagnostic through the one command (`width_diag.py`, development, nothing scored): the same
 people with the array's line but no random noise (if the chain is right their spread equals the truth's), and one person read 20 times with
 fresh noise draws (the array's noise alone). The bar is not changed.
+
+**The width diagnostic, read on 34 of its 48 parts: the excess spread comes from the chain, not from the array's noise (development; nothing scored).** With the array's random noise taken out (its line kept), the readings of the same people still spread 2.3 to 8.9
+times the planted truth (B cells 4.1 and 8.9, CD8 T cells 3.0 and 6.7, neutrophils 2.5 and 2.3, for site-by-site and half-shared person spread).
+One person read 20 times with fresh noise spreads 0.003 to 0.005: the array's own noise alone. So most of the excess is added by a step of
+the chain. Two signs of which step: in neutrophils with half the spread shared by the whole person, the reading over the truth falls as the
+truth rises (rank correlation -0.98), so a person-wide shift is partly taken out as if it were the array's own line; in B and CD8 T cells
+the excess follows neither the truth nor the Deconvolver's share, and a sorted CD8 sample was read as low as 58 % CD8. A second diagnostic
+(`width_diag2.py`) reads the no-noise arm again keeping each person's raw and predicted Met-A, the line the chain measured, the planted
+line and the five largest shares. The width synthetic's bar is not changed.
