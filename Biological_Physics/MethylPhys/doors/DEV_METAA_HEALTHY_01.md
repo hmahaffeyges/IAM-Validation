@@ -794,3 +794,5 @@ atlas's own spread at every site, site by site and half shared; the real median 
 
 **Bars** (the synthetic): 1. for each of the three cells and both forms of spread, the readings' spread within 25 % of the truth's; 2. every
 person's main cell found is the planted cell. The donors are read only after the synthetic is met.
+
+**The one default chain, identity check: met** (`DEV_METAA_HEALTHY_01/synthetic_07_default_check.txt`). Test 7's draw 1 read with neither flag gives the same readings as with both, to every recorded digit: `--full-chain` now carries them.

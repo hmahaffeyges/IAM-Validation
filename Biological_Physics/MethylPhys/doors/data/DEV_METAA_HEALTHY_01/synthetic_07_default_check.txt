@@ -1,0 +1,6 @@
+Identity check: synthetic test 7, draw 1, read again with --dev-line-censored and --dev-pred-raw removed (now part of --full-chain)
+real GSM7508429: before {'A': 0.90858, 'A_pred': 1.07675, 'ratio': 1.00209} | now {'A': 0.90858, 'A_pred': 1.07675, 'ratio': 1.00209}
+center: ratio before 1.00525 | now 1.00525
+low tail: ratio before 1.00046 | now 1.00046
+high tail: ratio before 1.00776 | now 1.00776
+identical: True
