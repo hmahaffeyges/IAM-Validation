@@ -897,7 +897,7 @@ Fresh donors and fresh new people (new seeds for both, `width_new2.py`), built a
 `width_new2_score.py`. If met, Normal on real samples is each cell's prediction interval from the atlas's own donors (read on Google now).
 
 **Each cell's healthy width on arrays, from IAM-Atlas v2.1's own donors: measured** (`atlas_donor_widths_summary.txt`, `atlas_donor_widths.csv`; 455 of the 456 build arrays read by the one command with `--dev-line-wide` on Google, `donors_wide.sh`; one array had no file). Grouped by the cell the Deconvolver found most
-of (never the label); 26 cells with 3 or more arrays. Widths 0.7 % (NK cells) to 5.2 % (neutrophils); blood cells' medians 0.98 to 1.01, so 1
+of (never the label); 26 cells with 3 or more arrays. Widths 0.70 % (central memory Th1 cells, 0.0070; NK cells 0.0076) to 5.2 % (neutrophils, 0.0515); blood cells' medians 0.98 to 1.01, so 1
 sits in the middle for them, within one width. Five cells' medians sit 2 to 5 widths below 1: cortical neurons 0.922, oligodendrocytes 0.925,
 astrocytes 0.906, effector CD8 T cells 0.919, vascular endothelium 0.841 (its arrays only 37 % endothelium by the Deconvolver); each comes from
 one series, so the cell and its laboratory cannot be told apart.
