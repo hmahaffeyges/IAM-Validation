@@ -1,0 +1,21 @@
+parent,cell
+b cells,b cells
+b cells,memory b cells
+b cells,naive b cells
+cd4 t cells,cd4 t cells
+cd4 t cells,central memory th1 cells
+cd4 t cells,cytotoxic cd4 t cells (cd28-)
+cd4 t cells,memory cd4 t cells
+cd4 t cells,naive cd4 t cells
+cd4 t cells,regulatory t cells
+cd4 t cells,t effector memory cd4
+cd8 t cells,cd8 central memory t cells
+cd8 t cells,cd8 t cells
+cd8 t cells,cd8 temra t cells
+cd8 t cells,effector memory cd8 t cells
+cd8 t cells,naive cd8 t cells
+cd8 t cells,t effector cell cd8
+monocytes,monocytes
+neutrophils,neutrophils
+nk cells,cd56bright nk cells
+nk cells,nk cells
