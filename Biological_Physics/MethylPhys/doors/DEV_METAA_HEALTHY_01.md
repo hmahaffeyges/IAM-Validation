@@ -734,3 +734,33 @@ atlas reference in the sample's own shares (`stage_metaa_atlas.cells_found`). Th
 whole-sample reading follows as a side line. Seen while checking it on a spent 450K breast array: a cell can be found and still have no Met-A
 on that platform (breast luminal epithelium, 2,998 of its 6,000 identity sites on the 450K array, under the half the reading needs); the row
 says so.
+
+## When a cell's own reading reads that cell (the third step to a working chain; written and committed before it runs)
+
+A cell's Met-A is read at its identity sites in the whole sample, so when the cell is a small share of the sample, those sites carry mostly
+other cells' DNA and the reading is no longer about that cell. The chain will state, for each cell, the smallest share at which its reading
+reads it; this synthetic measures it, with no number chosen. A cell's reading reads that cell at a share where a loss of held pattern planted
+in that cell moves the cell's reading more than the same loss planted in every other cell of the sample at the same sites.
+
+**The instrument's job:** each cell's own reading moves with that cell, not with the cells around it.
+
+**Design** (`share_synthetic.py`, one share and cell per Google machine by `share_synthetic.sh`): IAM-Atlas v2.1 mixed in the shares the
+chain found for the spent healthy blood GSM7508429 (`gsm7508429_shares.csv`), through the real arrays' median line and noise per probe design;
+the target cell set to 0.2, 0.5, 1, 2, 5, 10, 20 or 50 % and the others scaled to the rest; three arrays each: healthy; a 10 % loss (each level
+moved 10 % toward 0.5) in the target at its own identity sites; the same loss in every other cell at those sites. Nine cells: neutrophils,
+monocytes, naive CD4 T cells, CD8 central memory T cells, naive B cells, CD56bright NK cells, and hepatocytes, colon epithelium and vascular
+endothelium. Every array read by `run_sample.py --betas --full-chain --cell-panel atlas`.
+
+**Sources:** GSE235717 (public, GEO: GSM7508429's raw arrays, the base mix's shares, read earlier); IAM-Atlas v2.1 (public, Zenodo: the cell
+levels mixed).
+
+**Prior reading:** GSE235717's GSM7508429 is spent (synthetic tests 3 to 7); here only its measured cell shares are used.
+
+**Reference:** IAM-Atlas v2.1 only; no tare.
+
+**Range of the data:** real cell shares the IAM-Deconvolver reports run from 0.4 % (monocytes in GSM7508429) to 80 % (the main cell of the 89
+outside sorted samples, `crosslab_chain_table.csv`), and tissue cells in tissue from 1 to 47 % (the spent breast arrays); real array noise
+0.003 to 0.024 per design (331 arrays). Synthetic: shares 0.2 to 50 %, the real median noise (0.0066 and 0.0098).
+
+**Bars:** 1. for each of the nine cells, at 50 % its own loss moves its reading more than the others' loss does (the reading reads the cell at
+all). Recorded, not scored: for each cell, the smallest share at which this holds, which becomes the chain's stated share for that cell.

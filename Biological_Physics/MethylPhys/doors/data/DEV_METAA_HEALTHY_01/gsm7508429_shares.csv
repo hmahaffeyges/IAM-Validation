@@ -1,0 +1,15 @@
+cell,share
+basophils,0.0152
+cd56bright nk cells,0.0475
+cd8 central memory t cells,0.0884
+cortical neurons,0.0056
+embryonic stem cells,0.005
+eosinophils,0.042
+microglia,0.0155
+monocytes,0.0036
+naive b cells,0.0519
+naive cd4 t cells,0.1192
+naive cd8 t cells,0.0279
+neutrophils,0.5345
+regulatory t cells,0.0363
+vascular endothelium,0.0075

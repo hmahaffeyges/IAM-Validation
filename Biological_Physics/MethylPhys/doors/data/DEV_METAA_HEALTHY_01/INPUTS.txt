@@ -5,3 +5,5 @@ step3_samples.csv
 v4_samples.csv
 v5_samples.csv
 v4_offsets.csv
+# 2026-11-07: the cell shares the chain's Deconvolver found for the spent healthy blood GSM7508429 (synthetic test 7, draw 1, synthetic_07_draw1.json in the build bucket); the base mix of share_synthetic.py, not a reading
+gsm7508429_shares.csv
