@@ -747,3 +747,50 @@ about 7 to 8.5, 270 about 100). **The GSE186007 plasmas hold about 1.2 molecules
 cannot be read on them by this chain, with or without the copy correction. **Next (development):** a depth floor at intake, measured molecules a
 covered site (calls divided by the measured copies) under 2, below which whole-sample Met-A is refused and the reason stated, written from
 this grid; the readings that held on these plasmas (the C-Score read all 34 healthy within 0.95 to 1.05) are examined separately.
+
+## How early can cancer be seen: tumor molecules spiked into healthy, read three ways (in the plan; written and committed before it runs)
+
+The question (author, the goal): how small a share of a person's cell-free DNA can come from a cancer and still be seen, and by which reading. In
+early cancer the tumor's share of plasma DNA is small, so a reading that averages over a cell's sites dilutes it; a reading of each molecule
+against the atlas may not. This test measures, for each reading, the smallest share it sees.
+
+**The instrument's job:** a mix holding a tumor's DNA reads outside healthy, while every healthy mix reads healthy.
+
+**Design.** Healthy plasma is built from the IAM Sequencing Atlas's own donors, never from a study's "healthy": real molecules (each donor's
+GEO `.pat` file) of the sealed half A donors of the blood and vessel cells (granulocytes, monocytes, NK cells, B cells, CD4 and CD8 T cells,
+erythrocyte progenitors, vascular endothelium), mixed at the cell shares the chain measured in real healthy plasma (`plasma_seq_06`, renormalized
+over these cells), and read against half B (`--dev-seq-ref-half B`), so no donor is read against itself. Each cell has two half-A donors:
+the first donor of each cell makes 20 defining mixes (different molecules drawn, shares drawn across the measured spread), on which Normal and the
+per-molecule reading's levels are measured; the second donor of each cell makes 20 healthy test mixes the same way, and the mixes the tumors are
+spiked into. Nothing is tested on the mixes it was defined on. Spikes: each of the five Johns Hopkins
+tumors (liver and lung, spent) at 0.1, 0.3, 1, 3 and 10 % of the molecules; control: the same people's non-tumor tissue at the same shares
+(a reading that flags normal tissue DNA is seeing tissue, not cancer). Each mix read by the one command three ways: (1) whole-sample Met-A; (2)
+each cell the IAM-Deconvolver finds, against its own atlas reference; (3) per molecule: each molecule's best explanation by any healthy cell
+of half B, and the share of molecules less explained than all but 1 in 10^3, 10^4 and 10^5 of the defining mixes' molecules, over that share
+(healthy reads 1; all three levels reported, none chosen). The per-molecule reading is new chain code (development), synthetic first.
+
+**Sources:** GSE186458 (public, GEO: the atlas donors' `.pat` files, half A); GSE86340 (public, GEO and SRA: the Johns Hopkins tissues, already
+aligned by the chain's pipeline, molecules in the build bucket and rebuildable from SRA); the IAM Sequencing Atlas (public, Zenodo).
+
+**Reference:** IAM Sequencing Atlas only (half B for every reading; half A's donors are the healthy people); no tare.
+
+**Prior reading:** GSE86340's tumor and non-tumor tissues were read this week by the one command (the Johns Hopkins tissue test,
+`DEV_ATLAS_V21_01.md`); here they are only the source of spiked molecules. The atlas donors of half A are atlas inputs; none is a test sample.
+
+**Normal:** for each reading, the range spanned by the 20 defining mixes of the atlas's own donors (half A, first donor of each cell), read
+against half B: the atlas donors' measured width, not a chosen band.
+
+**Bars:** 1. at least 18 of the 20 healthy test mixes (the second donors, never used to define Normal) read inside Normal on each reading; 2. at least 4 of the 5 tumors at 10 % read outside Normal on at least one reading
+(the instrument sees a tumor at all). Recorded, not scored: for each reading, the smallest share at which each tumor reads outside Normal,
+and the same for each non-tumor tissue control.
+
+**Range of the data:** real early cancers' tumor share of plasma DNA runs from under 0.1 % to a few percent (source publications to be named
+in the record before reading); real plasma depth in the chain's earlier plasma tests 0.58 times (PRJNA929650) to about 20 calls a site
+(GSE186007). Synthetic and real spikes 0.1 to 10 %; synthetic depths 1 to 20 molecules a site.
+
+**The synthetic (written before it runs):** molecules drawn from half A's levels for the healthy mixes and from a planted pattern (islands
+fully methylated, 5 % of island blocks) for the tumor; known answer: the per-molecule reading finds the planted share, and the whole-sample
+reading moves by the planted share times the planted change.
+
+**Order:** the synthetic of the per-molecule reading; the donors' `.pat` files fetched to the build bucket (saved as they arrive); the
+mixes; the readings on Google, each mix saved as it is read; the scorer committed before any real mix is read.

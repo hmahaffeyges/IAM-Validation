@@ -709,6 +709,11 @@ def main():
         for f in ("direction", "trace", "foreign", "brightness"): setattr(a, "dev_" + f, True); on.append(f)
         for f in ("nilc", "atlas_e", "percell_b", "sky"): setattr(a, "dev_" + f, True); on.append(f)   # 2026-10-30: on the active atlas (v2.1, or the sequencing atlas)
         a.dev_ruler = True; on.append("ruler")
+        # 2026-11-07 (author: one working chain): the two fixes whose synthetics were met are part of the full chain, not flags to remember:
+        # the healthy line measured with censored anchors (DEV-METAA-HEALTHY-01 test 5) and the whole-sample prediction on the array's own values,
+        # not the ruler's (the capture after test 6; test 7)
+        a.dev_line_censored = True; a.dev_pred_raw = True; on += ["line_censored", "pred_raw"]
+        import stage_metaa_atlas as _SAfc1; _SAfc1.LINE_CENSORED = True; _SAfc1.PRED_RAW = True   # the module values are read before this block, so set here too
         a.dev_territories = a.dev_info_sphere = True; on += ["territories", "info_sphere"]
         if not a.dev_provisional: a.dev_provisional = "megakaryocytes"
         on.append("provisional megakaryocytes" + ("" if (a.cell_panel or "blood") != "blood" else " (runs with --cell-panel atlas; not with the six-cell blood panel)"))

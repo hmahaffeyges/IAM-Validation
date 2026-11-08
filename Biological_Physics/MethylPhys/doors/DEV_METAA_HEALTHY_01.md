@@ -721,3 +721,8 @@ the atlas ruler's values: 98 of 100). Recorded: the center is 0.9869 (laboratory
 centering bar, not met, also shows; the C-Score within its derived limit 96 of 100 (that limit's term was calibrated on labeled-healthy bloods,
 disclosed above, so it is not independent). Met-A on whole blood arrays against the atlas alone is not commissioned from this: these bloods
 are spent, and test 7's centering is open.
+
+**One default chain (the plan's first step to a working chain): the two fixes that were met are part of the full chain.** The author: get the chain working, then commission. `--full-chain` now turns on the healthy line
+with censored anchors (test 5, met) and the prediction on each array's own values (the capture after test 6, test 7's low tail corrected),
+so no reader has to remember their flags; the class floor (version 3 not met) stays off. Identity check: test 7's draw 1 again with both flags
+removed from its commands (`synthetic_07_default.py`), same seed; its output must equal `synthetic_07_draw1.json` exactly.

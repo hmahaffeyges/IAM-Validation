@@ -152,8 +152,9 @@ def prior_by_other(f, a):
     rec = SPENT[spent_of(a)][1]; ids = {i for i in IDRX.findall(rec) if not i.startswith(("GSE", "PRJ", "TCGA", "SRR", "GSM"))}
     return (not ids) or bool(ids - {own})       # a reading by any other record (or an unnamed one) counts
 def rule8(f, txt):
-    hits = sorted({a for a in ACC8.findall(txt) if spent_of(a) and prior_by_other(f, a)}); m = re.search(r"^\*\*Prior reading:\*\*(.+(?:\n(?!\*\*|#).+)*)", txt, re.M)
-    return [a for a in hits if not (m and a in m.group(1))]
+    # 2026-11-07: every disclosure in the record, not only the first (a record holding several tests has one Prior reading line per test)
+    hits = sorted({a for a in ACC8.findall(txt) if spent_of(a) and prior_by_other(f, a)}); ms = [m.group(1) for m in re.finditer(r"^\*\*Prior reading:\*\*(.+(?:\n(?!\*\*|#).+)*)", txt, re.M)]
+    return [a for a in hits if not any(a in m for m in ms)]
 for f in changed:
     try: txt = open(f, encoding="utf-8").read()
     except FileNotFoundError: continue
