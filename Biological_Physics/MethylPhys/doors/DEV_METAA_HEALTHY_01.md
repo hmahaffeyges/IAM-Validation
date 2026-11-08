@@ -907,3 +907,20 @@ series (7 series), and within a series their spread is 2.5 %, half the whole; mo
 0.952 to 1.044 (within 1.1 % of 2.2 %). The width across laboratories is the honest Normal for a sample from a laboratory the atlas never
 held, and it is wide; the laboratory term on arrays, after each array's own line and noise, is the next thing to measure (what in an
 array's chemistry it follows), before any instrument is commissioned on it. No healthy reference from other samples is used for it.
+
+**The second new-people test: not met, 5 of 6** (`width_new2_summary.txt`). New healthy people inside the prediction interval: B cells 20 and 17 of 20,
+CD8 T cells 19 and 20, neutrophils 19 and 19; main cell found 120 of 120. The three B cells outside read 1.018 to 1.029 where their truth is
+0.995 to 0.998; they are the people with the largest shift shared by every site (-3.0, -2.0 and -1.6 standard deviations), the limit already
+recorded (a shift shared by every site partly looks like the array's own line), and the Deconvolver read 2 to 4 % of other cells in them.
+
+My error in the bars: with a Normal that holds 95 % of healthy people, 18 of 20 in each of 6 conditions fails a perfect instrument 37.6 % of
+the time by chance; the first and second tests used it. The false-fail rate of a bar is computed before it is sealed from now on.
+
+**The third new-people test (written and committed before it runs).** The instrument's job: a healthy person reads Normal on the gauge.
+Fresh donors and fresh new people again (`width_new3.py`), built and read exactly as before.
+
+**Normal:** the measured width of the atlas's own donors read by the one command (here 20 constructed donors stand in), as the prediction interval for one new reading; no fixed band.
+
+**Bars** (false-fail rates for a 95 % Normal computed first): 1. at least 108 of all 120 new people inside (0.7 %); 2. at least 16 of 20 in
+every cell and spread (1.5 %); 3. every main cell found is the planted cell. Scored by `width_new3_score.py`. Read by these bars, the second
+test's people come out 114 of 120 and every condition 17 or more; that is after the fact and does not count.
