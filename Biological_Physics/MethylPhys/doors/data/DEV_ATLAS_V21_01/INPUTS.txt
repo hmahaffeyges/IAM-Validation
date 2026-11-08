@@ -132,3 +132,5 @@ xl_lab2_samples.csv
 seq_atlas_donor_sources.csv
 # 2026-11-07: who v2.1's new build sources' donors were, from the build roster; metadata, not a reading
 atlas_v21_donor_sources.csv
+# 2026-11-07: who the v2 groups' donors were, from their papers; metadata, not a reading
+atlas_v2_groups_donor_sources.csv

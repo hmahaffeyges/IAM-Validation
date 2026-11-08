@@ -1650,3 +1650,10 @@ donors); 148 from two series whose GEO records do not state donor health, now re
 birth cohort, all aged 19, not selected for disease; GSE252045 (88) blood from leukapheresis chambers of CMV-positive donors, their health not
 otherwise described. The cells v2.1 carries
 from IAM-Atlas v2 (the sequencing atlas above and the earlier array references) are tabled next, so both atlases are covered in full.
+
+**Who the donors of the groups IAM-Atlas v2.1 carries from v2 were (metadata only).** `atlas_v2_groups_donor_sources.csv`, from each source's paper: the two sorted blood reference libraries are healthy
+volunteers through commercial suppliers (37 donors, screened for no history of heart, lung or kidney disease, asthma, blood disorders,
+autoimmune disease, cancer or diabetes; and 56 donors, all anonymous healthy donors); the array cell reference for plasma DNA is mostly normal
+tissue from surgery, from the same hospital group as the sequencing atlas; the brain single-nucleus series is three adult male post-mortem
+brains, their health not described in the text read. With `seq_atlas_donor_sources.csv` and `atlas_v21_donor_sources.csv` this covers every
+group both atlases are built from.
