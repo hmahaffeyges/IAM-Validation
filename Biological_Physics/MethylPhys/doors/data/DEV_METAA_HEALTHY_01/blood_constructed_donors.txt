@@ -1,0 +1,12 @@
+Distinct donor arrays behind the constructed bloods (diagnostic, not scored)
+{"normal": {"neutrophils": 28, "monocytes": 19, "cd4 t cells": 6, "cd8 t cells": 4, "b cells": 9, "nk cells": 6}, "new": {"neutrophils": 28, "monocytes": 20, "cd4 t cells": 6, "cd8 t cells": 4, "b cells": 8, "nk cells": 6}}
+NK cells, new bloods by their NK donor array (inside the NK Normal / bloods):
+             n  inside   met_a
+array                         
+GSM2349447  12      10  0.9860
+GSM2349465  12      11  0.9896
+GSM2349474  14      13  0.9840
+GSM2349500   7       5  0.9878
+GSM7033180  17      15  0.9855
+GSM7033222  10       7  0.9829
+NK cells, Normal-half donor arrays, median Met-A: {"GSM2349438": 0.9951, "GSM2349456": 0.9972, "GSM2349482": 0.9968, "GSM2349491": 0.9951, "GSM7033291": 0.9853, "GSM7033346": 0.9886}

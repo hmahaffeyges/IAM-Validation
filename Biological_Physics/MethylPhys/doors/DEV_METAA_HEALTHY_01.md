@@ -1025,3 +1025,13 @@ to cells that are not in it (bone-marrow precursors, eosinophils, macrophages).
 My error in bar 3: it asked for every cell at any share, below the Deconvolver's reporting floor; a bar on the found shares should have
 named that floor. What the synthetic shows: where a cell is found in a whole blood, its Normal from the atlas's donors does its job; the
 Deconvolver's false shares are the open problem on blood arrays, the same thread as the same-DNA arrays.
+
+**The constructed bloods from the atlas's donors: not met** (`blood_constructed_summary.txt`, `blood_constructed_donors.txt`). Bar 1 met: 456 of 483 new cell readings inside Normal (94 %).
+Bar 2 not met, by NK cells (61 of 72, 84.7 %; neutrophils 94 of 100, monocytes 49 of 52, CD4 T 99 of 99, CD8 T 87 of 88, B 66 of 72). Bar 3 not
+met (the Deconvolver's shares, as in the synthetic; largest miss 11.2 points).
+
+Why NK: each cell's Normal rests on few people (distinct donor arrays per half: neutrophils 28, monocytes 19 and 20, B 9 and 8, CD4 T 6, NK
+6, CD8 T 4). The 100 donor bloods reuse them, and the interval counted bloods (65 to 100) instead of donors; the NK Normal half's donors read a
+median 0.985 to 0.997, the new half's 0.983 to 0.990. My design error: a Normal's interval counts the distinct donors behind it.
+What this shows: on arrays from the atlas alone, a per-cell Normal inside a whole blood holds 94 % of new healthy readings; what it needs is
+the interval counted by donors, more donors for the small-pool cells, and the Deconvolver's false shares solved.

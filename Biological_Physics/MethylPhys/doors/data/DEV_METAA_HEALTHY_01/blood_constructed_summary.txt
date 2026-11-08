@@ -1,0 +1,11 @@
+constructed bloods read: donors 100, new 100
+  neutrophils  Normal 0.9398 to 1.0698 (donor bloods 100, median 1.0048) | new inside 94 of 100
+  monocytes    Normal 0.9741 to 1.0026 (donor bloods 62, median 0.9884) | new inside 49 of 52
+  cd4 t cells  Normal 0.9713 to 1.0200 (donor bloods 89, median 0.9957) | new inside 99 of 99
+  cd8 t cells  Normal 0.9641 to 1.0165 (donor bloods 85, median 0.9903) | new inside 87 of 88
+  b cells      Normal 0.9664 to 1.0184 (donor bloods 74, median 0.9924) | new inside 66 of 72
+  nk cells     Normal 0.9716 to 1.0166 (donor bloods 65, median 0.9941) | new inside 61 of 72
+bar 1 (at least 90 % of the new bloods' cell readings inside Normal): 456 of 483, met
+bar 2 (each cell at least 85 %): not met
+bar 3 (every new blood's six cells found within 5 points of the built share): not met (largest miss 0.1117)
+test: not met
