@@ -1,10 +1,10 @@
 width synthetic: 120 constructed people read by the one command
-  b cells      rho 0.0 | people 20 | truth spread 0.00087 | reading spread 0.00189 (ratio 2.171) | truth median 0.9990 | reading median 0.8926 | main cell found 20 of 20
-  b cells      rho 0.5 | people 20 | truth spread 0.00128 | reading spread 0.01132 (ratio 8.825) | truth median 0.9990 | reading median 0.8879 | main cell found 20 of 20
-  cd8 t cells  rho 0.0 | people 20 | truth spread 0.00106 | reading spread 0.00254 (ratio 2.399) | truth median 0.9981 | reading median 0.8917 | main cell found 20 of 20
-  cd8 t cells  rho 0.5 | people 20 | truth spread 0.00149 | reading spread 0.01437 (ratio 9.626) | truth median 0.9985 | reading median 0.8924 | main cell found 20 of 20
-  neutrophils  rho 0.0 | people 20 | truth spread 0.00086 | reading spread 0.00241 (ratio 2.785) | truth median 0.9992 | reading median 0.8929 | main cell found 20 of 20
-  neutrophils  rho 0.5 | people 20 | truth spread 0.00623 | reading spread 0.00507 (ratio 0.814) | truth median 1.0004 | reading median 0.8900 | main cell found 20 of 20
+  b cells      rho 0.0 | people 20 | truth spread 0.00087 | reading spread 0.00478 (ratio 5.483) | truth median 0.9990 | reading median 1.0078 | main cell found 20 of 20
+  b cells      rho 0.5 | people 20 | truth spread 0.00128 | reading spread 0.01190 (ratio 9.275) | truth median 0.9990 | reading median 1.0033 | main cell found 20 of 20
+  cd8 t cells  rho 0.0 | people 20 | truth spread 0.00106 | reading spread 0.00489 (ratio 4.624) | truth median 0.9981 | reading median 1.0039 | main cell found 20 of 20
+  cd8 t cells  rho 0.5 | people 20 | truth spread 0.00149 | reading spread 0.01124 (ratio 7.529) | truth median 0.9985 | reading median 0.9999 | main cell found 20 of 20
+  neutrophils  rho 0.0 | people 20 | truth spread 0.00086 | reading spread 0.00362 (ratio 4.185) | truth median 0.9992 | reading median 1.0054 | main cell found 20 of 20
+  neutrophils  rho 0.5 | people 20 | truth spread 0.00623 | reading spread 0.01619 (ratio 2.599) | truth median 1.0004 | reading median 1.0002 | main cell found 20 of 20
 bar 1 (each cell and rho: reading spread within 25 % of the truth's): not met
 bar 2 (every main cell found is the planted cell): met
 synthetic: not met

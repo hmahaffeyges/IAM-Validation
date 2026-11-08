@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-08](2026-11-08.md) | The website brought to the atlas-only rule |
 | [2026-11-07](2026-11-07.md) | The Deconvolver decides what is in a sample |
 | [2026-11-06](2026-11-06.md) | Every machine kept busy |
 | [2026-11-05](2026-11-05.md) | The chain refuses a sample read only in part |

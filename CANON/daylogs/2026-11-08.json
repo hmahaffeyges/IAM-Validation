@@ -1,0 +1,99 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-08",
+ "title": "The website brought to the atlas-only rule",
+ "set_out": "Bring the website, then the book, SOP, Decoder and flowchart, to the atlas-only rule; put the globe at every CpG in the Globe Viewer; finish step 1 of the array chain (each cell's healthy width).",
+ "open_at_turnover": "Google: the width diagnostic (no-noise and repeat arms). GitHub: the TCGA replays in the filler queue. Website pass 2 (one atlases section, the tool table, costs, one day-log section), then the book, SOP, Decoder and flowchart.",
+ "check_completeness": false,
+ "off_page_rows": 0,
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Width synthetic with each cell's healthy prediction",
+     "status": "synthetic only",
+     "what": "120 constructed sorted-cell arrays (neutrophils, CD8 T and B cells, two kinds of person spread), every one by the one command, each cell's reading divided by its own healthy prediction.",
+     "outcome": "Not met. Center met: medians 0.9999 to 1.0078 (0.89 before). Spread 2.6 to 9.3 times the planted truth; a diagnostic separates the array's noise from the chain next.",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_METAA_HEALTHY_01/width_synthetic_summary.txt"
+     ],
+     "reference": "IAM-Atlas v2.1 (the planted people are built from it; the reading is against it)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": [
+    {
+     "title": "The Globe Viewer's Sequencing Atlas Globe at every CpG",
+     "status": "built",
+     "what": "run_sample.py --build seq-wg-sphere draws the viewer's pictures of all 58 cells from the published textures, each checked against the Zenodo record's checksums; the globe at every CpG is now the viewer's Sequencing Atlas Globe, and the same atlas on the array layout stays beside it.",
+     "outcome": "58 cells, each measured at 99 % or more of the 786,432 sphere pixels; the showpiece page linked from the front page.",
+     "rows": [
+      "website/art/out/seq_wg/index.json"
+     ],
+     "reference": "none (a picture of the atlas)",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_SEQ_GLOBE_WG_01.md"
+    },
+    {
+     "title": "Website pass 1: the atlas-only rule",
+     "status": "structure",
+     "what": "Met-A, C-Score and Group-A shown as being re-commissioned against IAM-Atlas v2.1 alone (status generated from the catalogue); the front section shows what stands; the same-run and same-laboratory tares retired from the chain list; the introduction, catalogue, method and origin text rewritten to the atlas-only rule; the one chain with two routes; the citation DOIs; two sentences broken by removed dates fixed; a 'nobody else' claim removed; the commissioning check now requires the introduction to say the three are being re-commissioned.",
+     "outcome": "Committed; the gate met.",
+     "rows": [
+      "CANON/catalogue.json",
+      "CANON/chain_front.json",
+      "Biological_Physics/MethylPhys/INTRODUCTION.md"
+     ],
+     "reference": "none (documents)",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "Each cell's healthy prediction centers the per-cell readings",
+     "status": "development",
+     "what": "Dividing each cell's reading by the array's own line and noise applied to the atlas at that cell's identity sites moved the readings' center from 0.89 to within 0.008 of the truth.",
+     "outcome": "The spread between people still reads well above the planted truth; its cause is tested next.",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_METAA_HEALTHY_01/width_synthetic_summary.txt"
+     ],
+     "reference": "IAM-Atlas v2.1",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "The per-cell prediction refused every cell, silently",
+     "status": "mistake",
+     "what": "The agent reused the whole-sample prediction, which refuses fewer than 10,000 sites, for cells that hold at most 6,000 identity sites; the third run came back identical to the second.",
+     "outcome": "Caught by the identical result; the per-cell call now uses the chain's 500-site floor and writes a refused prediction on the row.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "A page address given as a bare path",
+     "status": "mistake",
+     "what": "The agent told the author it had given him the showpiece page's link when it had written only a path, and the page was linked only from the sequencing cell gallery.",
+     "outcome": "Caught by the author; the full address given, the page linked from the front page and the viewer.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  }
+ ]
+}

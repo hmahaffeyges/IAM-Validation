@@ -832,3 +832,12 @@ than 10,000 sites (written for the whole sample), and a cell has at most 6,000 i
 its reading stayed uncorrected, silently. Fixed: `predicted_healthy` takes a site floor, the per-cell call uses 500 (the floor the chain's
 by-place readings already use), and a refused prediction is now written on the row. The third run's parts are set aside
 (`metaa_healthy/width_third_run/`) and the synthetic runs again unchanged.
+
+**The width synthetic, read with each cell's healthy prediction: center met, spread not met.** (`DEV_METAA_HEALTHY_01/width_synthetic_summary.txt`; 120 constructed people, every array by the
+one command). Bar 2 met (main cell found 120 of 120). The readings now center where the truth does: median 0.9999 to 1.0078 against the
+truth's 0.998 to 1.000 (0.89 before the prediction). Bar 1 not met: the spread between people reads 2.6 to 9.3 times the truth's (0.0036 to
+0.0162 against 0.0009 to 0.0062). Each person carries a fresh draw of the array's own noise, so a reading's spread is the person spread and
+the array's noise together; the bar asked for the person spread alone. Whether the excess is the array's noise, which every real array has,
+or something the chain adds, is tested next by a diagnostic through the one command (`width_diag.py`, development, nothing scored): the same
+people with the array's line but no random noise (if the chain is right their spread equals the truth's), and one person read 20 times with
+fresh noise draws (the array's noise alone). The bar is not changed.
