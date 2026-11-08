@@ -895,3 +895,15 @@ Fresh donors and fresh new people (new seeds for both, `width_new2.py`), built a
 
 **Bars:** 1. at least 18 of each 20 new people inside Normal, every cell and spread; 2. every main cell found is the planted cell. Scored by
 `width_new2_score.py`. If met, Normal on real samples is each cell's prediction interval from the atlas's own donors (read on Google now).
+
+**Each cell's healthy width on arrays, from IAM-Atlas v2.1's own donors: measured** (`atlas_donor_widths_summary.txt`, `atlas_donor_widths.csv`; 455 of the 456 build arrays read by the one command with `--dev-line-wide` on Google, `donors_wide.sh`; one array had no file). Grouped by the cell the Deconvolver found most
+of (never the label); 26 cells with 3 or more arrays. Widths 0.7 % (NK cells) to 5.2 % (neutrophils); blood cells' medians 0.98 to 1.01, so 1
+sits in the middle for them, within one width. Five cells' medians sit 2 to 5 widths below 1: cortical neurons 0.922, oligodendrocytes 0.925,
+astrocytes 0.906, effector CD8 T cells 0.919, vascular endothelium 0.841 (its arrays only 37 % endothelium by the Deconvolver); each comes from
+one series, so the cell and its laboratory cannot be told apart.
+
+What makes the width (`atlas_donor_widths_by_series.csv`, diagnostic, nothing scored): the laboratories. Neutrophils read 0.960 to 1.080 by
+series (7 series), and within a series their spread is 2.5 %, half the whole; monocytes 0.965 to 1.016 (within 1.1 % of 2.3 %); CD4 T cells
+0.952 to 1.044 (within 1.1 % of 2.2 %). The width across laboratories is the honest Normal for a sample from a laboratory the atlas never
+held, and it is wide; the laboratory term on arrays, after each array's own line and noise, is the next thing to measure (what in an
+array's chemistry it follows), before any instrument is commissioned on it. No healthy reference from other samples is used for it.

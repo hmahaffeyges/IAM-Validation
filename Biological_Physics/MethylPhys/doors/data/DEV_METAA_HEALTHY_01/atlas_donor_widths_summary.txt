@@ -1,0 +1,28 @@
+IAM-Atlas v2.1's build donors read against the atlas: 455 arrays; grouped by the cell the Deconvolver found most of
+  HSC (bone marrow)                  arrays   3 | median Met-A 1.0042 | width 0.0239 | main share median 0.899
+  astrocytes                         arrays   4 | median Met-A 0.9063 | width 0.0301 | main share median 0.433
+  b cells                            arrays  44 | median Met-A 0.9833 | width 0.0148 | main share median 0.792
+  cd4 t cells                        arrays  45 | median Met-A 0.9909 | width 0.0226 | main share median 0.679
+  cd56bright nk cells                arrays   9 | median Met-A 0.9831 | width 0.0458 | main share median 0.978
+  cd8 central memory t cells         arrays  12 | median Met-A 1.0025 | width 0.0247 | main share median 0.880
+  cd8 t cells                        arrays  35 | median Met-A 0.9829 | width 0.0177 | main share median 0.735
+  cd8 temra t cells                  arrays   9 | median Met-A 0.9926 | width 0.0199 | main share median 0.932
+  central memory th1 cells           arrays   5 | median Met-A 0.9861 | width 0.0070 | main share median 0.963
+  cortical neurons                   arrays  10 | median Met-A 0.9218 | width 0.0149 | main share median 1.000
+  cytotoxic cd4 t cells (cd28-)      arrays   5 | median Met-A 0.9791 | width 0.0102 | main share median 0.943
+  effector memory cd8 t cells        arrays   6 | median Met-A 0.9799 | width 0.0164 | main share median 0.705
+  embryonic stem cells               arrays   9 | median Met-A 0.9589 | width 0.0445 | main share median 0.997
+  lung bronchus epithelium           arrays  12 | median Met-A 0.9748 | width 0.0116 | main share median 1.000
+  memory b cells                     arrays   8 | median Met-A 0.9586 | width 0.0219 | main share median 0.985
+  microglia                          arrays  10 | median Met-A 0.9805 | width 0.0306 | main share median 0.976
+  monocytes                          arrays  54 | median Met-A 0.9969 | width 0.0228 | main share median 0.940
+  naive b cells                      arrays  14 | median Met-A 0.9839 | width 0.0251 | main share median 0.983
+  naive cd4 t cells                  arrays  13 | median Met-A 0.9853 | width 0.0198 | main share median 0.975
+  naive cd8 t cells                  arrays  23 | median Met-A 0.9896 | width 0.0299 | main share median 0.893
+  neutrophils                        arrays  64 | median Met-A 1.0084 | width 0.0515 | main share median 0.938
+  nk cells                           arrays  18 | median Met-A 0.9918 | width 0.0076 | main share median 0.895
+  oligodendrocytes                   arrays  16 | median Met-A 0.9250 | width 0.0244 | main share median 0.972
+  t central memory cd4               arrays   8 | median Met-A 0.9568 | width 0.0462 | main share median 0.770
+  t effector cell cd8                arrays   5 | median Met-A 0.9190 | width 0.0380 | main share median 0.858
+  vascular endothelium               arrays  12 | median Met-A 0.8411 | width 0.0483 | main share median 0.366
+arrays with no Met-A for their main cell: 2
