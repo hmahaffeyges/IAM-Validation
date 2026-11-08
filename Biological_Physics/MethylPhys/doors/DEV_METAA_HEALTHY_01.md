@@ -881,3 +881,17 @@ the wide line (`width_diag3.py`). Scored by `width_new_score.py`. If met, the sa
 is the width of its healthy donors read by the one command.
 
 **Normal:** the measured width of the atlas's own donors read by the one command (in this synthetic, its 20 constructed donors stand in for them); no fixed band.
+
+**The new-people test of the measured width: not met, 5 of 6** (`DEV_METAA_HEALTHY_01/width_new_summary.txt`). New healthy people inside the Normal
+measured on the donors: neutrophils 19 and 19 of 20, CD8 T cells 18 and 19, B cells 18 where half the spread is shared and 14 of 20 where it is
+site by site; main cell found 120 of 120. The B cells' 20 donors read narrower (spread 0.00196) than one person read 20 times (0.00251, the
+array's noise alone), a narrow draw for 20 donors; the new people spread 0.00357. A width measured on a finite set of donors carries that
+sampling error, and median plus or minus 1.96 spreads does not allow for it.
+
+**The second new-people test (written and committed before it runs).** The instrument's job: a healthy person reads Normal on the gauge.
+Fresh donors and fresh new people (new seeds for both, `width_new2.py`), built and read exactly as before.
+
+**Normal:** the measured width of the atlas's own donors read by the one command (here 20 constructed donors stand in), as the prediction interval for one new reading: median plus or minus t(0.975, n - 1) times the donors' spread times sqrt(1 + 1/n); no fixed band.
+
+**Bars:** 1. at least 18 of each 20 new people inside Normal, every cell and spread; 2. every main cell found is the planted cell. Scored by
+`width_new2_score.py`. If met, Normal on real samples is each cell's prediction interval from the atlas's own donors (read on Google now).
