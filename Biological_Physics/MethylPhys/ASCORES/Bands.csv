@@ -1,4 +1,6 @@
 instrument,reading,cell,platform,chain_commit,gauge_band_lo,gauge_band_hi,healthy_samples,healthy_lo,healthy_median,healthy_hi,all_samples,status
+C-Score,C-Score each cell,CMP (bone marrow),,3b41f95,,1.095,0,,,,6,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,CMP (bone marrow),,839fcce,,1.0928,0,,,,31,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,CMP (bone marrow),450K,b9b13e9,,1.0901,0,,,,32,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,CMP (bone marrow),EPIC_v1,3463259,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,CMP (bone marrow),EPIC_v1,5b01d36,,1.0957,0,,,,2,reference only (replay; cervical cytology not commissioned)
@@ -9,6 +11,9 @@ C-Score,C-Score each cell,CMP (bone marrow),HM450K,3463259,,,0,,,,6,reference on
 C-Score,C-Score each cell,CMP (bone marrow),HM450K,50bcb5a,,,0,,,,3,reference only (replay)
 C-Score,C-Score each cell,CMP (bone marrow),HM450K,c8ff5cc,,,0,,,,21,reference only (replay)
 C-Score,C-Score each cell,CMP (bone marrow),HM450K,ca58285,,,0,,,,5,reference only (replay)
+C-Score,C-Score each cell,GMP (bone marrow),,3b41f95,,1.0946,0,,,,31,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,GMP (bone marrow),,484ce00,,1.0928,0,,,,4,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,GMP (bone marrow),,839fcce,,1.0927,0,,,,21,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,GMP (bone marrow),,b9b13e9,,1.0928,0,,,,186,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,GMP (bone marrow),450K,b9b13e9,,1.0901,0,,,,200,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,GMP (bone marrow),EPIC_v1,5b01d36,,1.0943,0,,,,57,reference only (replay; cervical cytology not commissioned)
@@ -21,6 +26,7 @@ C-Score,C-Score each cell,GMP (bone marrow),HM450K,c8ff5cc,,,56,0.8936,1.0078,1.
 C-Score,C-Score each cell,GMP (bone marrow),HM450K,ca58285,,,0,,,,6,reference only (replay)
 C-Score,C-Score each cell,GMP (bone marrow),HM450K,e98b90f,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,GMP (bone marrow),HM450K,f9958e6,,1.0903,72,0.8939,0.9996,1.1097,200,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,HSC (bone marrow),,839fcce,,1.0928,0,,,,22,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,HSC (bone marrow),,b9b13e9,,1.093,0,,,,43,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,HSC (bone marrow),450K,b9b13e9,,1.0928,0,,,,236,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,HSC (bone marrow),EPIC_v1,07638a9,,,0,,,,6,reference only (replay)
@@ -36,6 +42,9 @@ C-Score,C-Score each cell,HSC (bone marrow),HM450K,c8ff5cc,,,20,0.9482,1.0467,1.
 C-Score,C-Score each cell,HSC (bone marrow),HM450K,ca58285,,,0,,,,14,reference only (replay)
 C-Score,C-Score each cell,HSC (bone marrow),HM450K,e98b90f,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,HSC (bone marrow),HM450K,f9958e6,,1.0929,27,0.9571,1.0598,1.1561,80,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,L-MPP (bone marrow),,3b41f95,,1.0945,0,,,,11,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,L-MPP (bone marrow),,484ce00,,1.0927,0,,,,24,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,L-MPP (bone marrow),,839fcce,,1.0924,0,,,,20,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,L-MPP (bone marrow),,b9b13e9,,1.0926,0,,,,158,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,L-MPP (bone marrow),450K,8e9fe16,,1.0963,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,L-MPP (bone marrow),450K,b9b13e9,,1.0901,0,,,,144,development (replay on every atlas cell; spent data; values route)
@@ -50,6 +59,8 @@ C-Score,C-Score each cell,L-MPP (bone marrow),HM450K,c8ff5cc,,,2,,1.0674,,19,ref
 C-Score,C-Score each cell,L-MPP (bone marrow),HM450K,ca58285,,,0,,,,2,reference only (replay)
 C-Score,C-Score each cell,L-MPP (bone marrow),HM450K,e98b90f,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,L-MPP (bone marrow),HM450K,f9958e6,,1.0911,2,,1.0674,,10,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,MEP (bone marrow),,3b41f95,,1.0953,0,,,,11,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,MEP (bone marrow),,839fcce,,1.0927,0,,,,1,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,MEP (bone marrow),,b9b13e9,,1.0933,0,,,,6,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,MEP (bone marrow),450K,b9b13e9,,1.0901,0,,,,70,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,MEP (bone marrow),EPIC_v1,801e08b,,1.093,1,,1.0467,,3,reference only (replay)
@@ -60,6 +71,8 @@ C-Score,C-Score each cell,MEP (bone marrow),HM450K,50bcb5a,,,6,0.9773,1.0126,1.1
 C-Score,C-Score each cell,MEP (bone marrow),HM450K,c8ff5cc,,,19,0.9054,0.9928,1.0501,93,reference only (replay)
 C-Score,C-Score each cell,MEP (bone marrow),HM450K,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,MEP (bone marrow),HM450K,f9958e6,,1.091,25,0.9062,1.0048,1.0771,88,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,MPP (bone marrow),,3b41f95,,1.095,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,MPP (bone marrow),,839fcce,,1.0926,0,,,,2,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,MPP (bone marrow),,b9b13e9,,1.0944,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,MPP (bone marrow),450K,b9b13e9,,1.0901,0,,,,2,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,MPP (bone marrow),EPIC_v1,801e08b,,1.0928,4,1.0191,1.0482,1.08,11,reference only (replay)
@@ -69,6 +82,9 @@ C-Score,C-Score each cell,MPP (bone marrow),HM450K,3463259,,,6,1.0076,1.03,1.052
 C-Score,C-Score each cell,MPP (bone marrow),HM450K,50bcb5a,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,MPP (bone marrow),HM450K,c8ff5cc,,,0,,,,6,reference only (replay)
 C-Score,C-Score each cell,MPP (bone marrow),HM450K,f9958e6,,1.0928,0,,,,1,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,adipocytes,,3b41f95,,1.095,0,,,,31,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,adipocytes,,484ce00,,1.0928,0,,,,32,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,adipocytes,,839fcce,,1.0927,0,,,,25,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,adipocytes,,b9b13e9,,1.093,0,,,,319,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,adipocytes,450K,b9b13e9,,1.0926,0,,,,53,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,adipocytes,EPIC_v1,2c2d6f2,,1.0931,0,,,,3,reference only (replay; lung tissue not commissioned)
@@ -101,6 +117,9 @@ C-Score,C-Score each cell,astrocytes,HM450K,289bfd8,,1.1957,0,,,,1,development (
 C-Score,C-Score each cell,astrocytes,HM450K,3463259,,,0,,,,32,reference only (replay)
 C-Score,C-Score each cell,astrocytes,HM450K,ca58285,,,0,,,,23,reference only (replay)
 C-Score,C-Score each cell,astrocytes,HM450K,e98b90f,,,0,,,,2,reference only (replay)
+C-Score,C-Score each cell,b cells,,3b41f95,,1.1094,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,b cells,,484ce00,,1.1079,0,,,,4,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,b cells,,839fcce,,1.1079,0,,,,26,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,b cells,,b9b13e9,,1.1079,0,,,,88,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,b cells,450K,b9b13e9,,1.1079,0,,,,280,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,b cells,EPIC_v1,07638a9,,,0,,,,3,reference only (replay)
@@ -148,6 +167,8 @@ C-Score,C-Score each cell,b cells,sequencing,b91a18a,,1.1264,4,0.8604,0.9487,0.9
 C-Score,C-Score each cell,b cells,sequencing,c464b26,,,0,,,,5,development
 C-Score,C-Score each cell,b cells,sequencing,c543f9e,,,0,,,,1,development
 C-Score,C-Score each cell,b cells,sequencing,e87632c,,,0,,,,2,development
+C-Score,C-Score each cell,basophils,,3b41f95,,1.1276,0,,,,3,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,basophils,,839fcce,,1.1239,0,,,,23,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,basophils,,b9b13e9,,1.1241,0,,,,4,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,basophils,450K,b9b13e9,,1.1239,0,,,,56,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,basophils,EPIC_v1,07638a9,,,0,,,,12,reference only (replay)
@@ -164,6 +185,8 @@ C-Score,C-Score each cell,basophils,HM450K,3463259,,,0,,,,5,reference only (repl
 C-Score,C-Score each cell,basophils,HM450K,50bcb5a,,,0,,,,7,reference only (replay)
 C-Score,C-Score each cell,basophils,HM450K,c8ff5cc,,,0,,,,21,reference only (replay)
 C-Score,C-Score each cell,basophils,HM450K,ca58285,,,0,,,,2,reference only (replay)
+C-Score,C-Score each cell,bladder epithelium,,3b41f95,,1.1331,0,,,,37,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,bladder epithelium,,484ce00,,1.13,0,,,,11,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
 C-Score,C-Score each cell,bladder epithelium,,b9b13e9,,1.13,0,,,,27,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,bladder epithelium,450K,b9b13e9,,1.1264,0,,,,1,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,bladder epithelium,EPIC_v1,5b01d36,,1.0989,0,,,,155,reference only (replay; cervical cytology not commissioned)
@@ -180,6 +203,8 @@ C-Score,C-Score each cell,bladder epithelium,sequencing,7e26d9f,,1.1212,12,0.885
 C-Score,C-Score each cell,bladder epithelium,sequencing,9900040,,1.0905,0,,,,4,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,bladder epithelium,sequencing,9d8ea3d,,1.09,3,1.0514,1.108,1.1149,3,development
 C-Score,C-Score each cell,bladder epithelium,sequencing,b91a18a,,1.1266,3,0.9356,0.9659,0.9693,3,development
+C-Score,C-Score each cell,breast basal epithelium,,3b41f95,,1.1344,0,,,,2,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,breast basal epithelium,,839fcce,,1.1321,0,,,,17,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,breast basal epithelium,,b9b13e9,,1.1338,0,,,,191,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,breast basal epithelium,450K,b9b13e9,,1.13,0,,,,148,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,breast basal epithelium,EPIC_v1,3463259,,,0,,,,4,reference only (replay)
@@ -201,6 +226,8 @@ C-Score,C-Score each cell,breast basal epithelium,sequencing,7e26d9f,,1.1036,6,0
 C-Score,C-Score each cell,breast basal epithelium,sequencing,9900040,,1.0903,0,,,,6,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,breast basal epithelium,sequencing,9d8ea3d,,1.09,3,0.9227,0.9545,0.983,3,development
 C-Score,C-Score each cell,breast basal epithelium,sequencing,b91a18a,,1.1318,2,,1.0568,,2,development
+C-Score,C-Score each cell,breast luminal epithelium,,3b41f95,,1.1303,0,,,,9,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,breast luminal epithelium,,839fcce,,1.127,0,,,,16,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,breast luminal epithelium,,b9b13e9,,1.1276,0,,,,400,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,breast luminal epithelium,450K,b9b13e9,,1.1243,0,,,,9,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,breast luminal epithelium,EPIC_v1,2c2d6f2,,1.0933,0,,,,6,reference only (replay; lung tissue not commissioned)
@@ -239,6 +266,7 @@ C-Score,C-Score each cell,cardiomyocyte,sequencing,9900040,,1.0905,0,,,,2,develo
 C-Score,C-Score each cell,cardiomyocyte,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,cardiomyocyte,sequencing,9d8ea3d,,1.09,3,0.9573,0.9578,1.0366,3,development
 C-Score,C-Score each cell,cardiomyocyte,sequencing,b91a18a,,1.1253,5,0.9937,1.0524,1.1209,5,development
+C-Score,C-Score each cell,cd4 t cells,,484ce00,,1.1112,0,,,,1,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
 C-Score,C-Score each cell,cd4 t cells,,b9b13e9,,1.1128,0,,,,18,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,cd4 t cells,450K,b9b13e9,,1.111,0,,,,231,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,cd4 t cells,EPIC_v1,07638a9,,,0,,,,1,reference only (replay)
@@ -260,6 +288,8 @@ C-Score,C-Score each cell,cd4 t cells,sequencing,7e26d9f,,1.09,5,0.9543,1.0191,1
 C-Score,C-Score each cell,cd4 t cells,sequencing,8db1559,,1.1153,8,0.9105,1.0348,1.109,8,development (common floor)
 C-Score,C-Score each cell,cd4 t cells,sequencing,9900040,,1.0902,0,,,,1,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,cd4 t cells,sequencing,9d8ea3d,,1.09,3,0.9511,1.0122,1.0554,3,development
+C-Score,C-Score each cell,cd56bright nk cells,,3b41f95,,1.1204,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,cd56bright nk cells,,839fcce,,1.1163,0,,,,10,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,cd56bright nk cells,450K,8e9fe16,,1.122,0,,,,64,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,cd56bright nk cells,450K,b9b13e9,,1.1163,0,,,,6,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,cd56bright nk cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -276,6 +306,7 @@ C-Score,C-Score each cell,cd56bright nk cells,HM450K,3463259,,,0,,,,6,reference 
 C-Score,C-Score each cell,cd56bright nk cells,HM450K,50bcb5a,,,0,,,,7,reference only (replay)
 C-Score,C-Score each cell,cd56bright nk cells,HM450K,c8ff5cc,,,0,,,,40,reference only (replay)
 C-Score,C-Score each cell,cd56bright nk cells,HM450K,ca58285,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,cd8 central memory t cells,,839fcce,,1.1193,0,,,,3,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,07638a9,,,0,,,,7,reference only (replay)
 C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,3463259,,,0,,,,55,reference only (replay)
 C-Score,C-Score each cell,cd8 central memory t cells,EPIC_v1,3647b49,,1.0901,7,0.8885,0.9191,1.041,7,development (replay on every atlas cell; spent data)
@@ -292,6 +323,7 @@ C-Score,C-Score each cell,cd8 central memory t cells,HM450K,c8ff5cc,,,0,,,,8,ref
 C-Score,C-Score each cell,cd8 central memory t cells,HM450K,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,cd8 central memory t cells,HM450K,e98b90f,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,cd8 central memory t cells,HM450K,f9958e6,,1.1191,0,,,,1,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,cd8 t cells,,839fcce,,1.1106,0,,,,1,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,cd8 t cells,,b9b13e9,,1.1112,0,,,,8,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,cd8 t cells,450K,b9b13e9,,1.1106,0,,,,206,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,cd8 t cells,EPIC_v1,07638a9,,,0,,,,1,reference only (replay)
@@ -316,6 +348,9 @@ C-Score,C-Score each cell,cd8 t cells,sequencing,7e26d9f,,1.1008,6,0.886,0.9876,
 C-Score,C-Score each cell,cd8 t cells,sequencing,8db1559,,1.0935,4,0.9639,1.0813,1.0867,4,development (common floor)
 C-Score,C-Score each cell,cd8 t cells,sequencing,9900040,,1.0902,0,,,,9,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,cd8 t cells,sequencing,9d8ea3d,,1.09,3,0.9841,0.9915,1.0388,3,development
+C-Score,C-Score each cell,cd8 temra t cells,,3b41f95,,1.1215,0,,,,5,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,cd8 temra t cells,,484ce00,,1.1183,0,,,,54,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,cd8 temra t cells,,839fcce,,1.1186,0,,,,49,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,cd8 temra t cells,,b9b13e9,,1.1183,0,,,,180,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,cd8 temra t cells,450K,8e9fe16,,1.1247,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,cd8 temra t cells,450K,b9b13e9,,1.118,0,,,,24,development (replay on every atlas cell; spent data; values route)
@@ -337,6 +372,9 @@ C-Score,C-Score each cell,cd8 temra t cells,HM450K,ca58285,,,0,,,,68,reference o
 C-Score,C-Score each cell,cd8 temra t cells,HM450K,e98b90f,,,0,,,,9,reference only (replay)
 C-Score,C-Score each cell,cd8 temra t cells,HM450K,f9958e6,,1.119,3,0.9725,0.9785,1.0801,13,development (replay on every atlas cell; spent data)
 C-Score,C-Score each cell,cd8 temra t cells,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,central memory th1 cells,,3b41f95,,1.0956,0,,,,22,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,central memory th1 cells,,484ce00,,1.0928,0,,,,42,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,central memory th1 cells,,839fcce,,1.0922,0,,,,15,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,central memory th1 cells,,b9b13e9,,1.0931,0,,,,224,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,central memory th1 cells,450K,b9b13e9,,1.092,0,,,,331,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,central memory th1 cells,EPIC_v1,2c2d6f2,,1.0927,0,,,,1,reference only (replay; lung tissue not commissioned)
@@ -350,6 +388,9 @@ C-Score,C-Score each cell,central memory th1 cells,HM450K,c8ff5cc,,,23,0.9184,1.
 C-Score,C-Score each cell,central memory th1 cells,HM450K,ca58285,,,0,,,,36,reference only (replay)
 C-Score,C-Score each cell,central memory th1 cells,HM450K,e98b90f,,,0,,,,6,reference only (replay)
 C-Score,C-Score each cell,central memory th1 cells,HM450K,f9958e6,,1.0923,27,0.9147,1.0106,1.0626,80,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,colon enteroendocrine,,3b41f95,,1.1654,0,,,,6,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,colon enteroendocrine,,484ce00,,1.1596,0,,,,9,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,colon enteroendocrine,,839fcce,,1.1596,0,,,,21,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,colon enteroendocrine,,b9b13e9,,1.1635,0,,,,72,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,colon enteroendocrine,450K,b9b13e9,,1.1592,0,,,,34,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,colon enteroendocrine,EPIC_v1,2c2d6f2,,1.1104,0,,,,4,reference only (replay; lung tissue not commissioned)
@@ -372,6 +413,9 @@ C-Score,C-Score each cell,colon enteroendocrine,sequencing,7e26d9f,,1.141,11,0.8
 C-Score,C-Score each cell,colon enteroendocrine,sequencing,9900040,,1.1072,0,,,,6,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,colon enteroendocrine,sequencing,9d8ea3d,,1.1067,2,,0.9813,,2,development
 C-Score,C-Score each cell,colon enteroendocrine,sequencing,b91a18a,,1.147,4,0.931,1.026,1.0999,4,development
+C-Score,C-Score each cell,colon epithelium,,3b41f95,,1.0932,0,,,,31,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,colon epithelium,,484ce00,,1.0908,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,colon epithelium,,839fcce,,1.0909,0,,,,3,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,colon epithelium,,b9b13e9,,1.0909,0,,,,252,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,colon epithelium,450K,8e9fe16,,1.0948,0,,,,1,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,colon epithelium,450K,b9b13e9,,1.0904,0,,,,67,development (replay on every atlas cell; spent data; values route)
@@ -392,6 +436,7 @@ C-Score,C-Score each cell,colon epithelium,sequencing,5ce8a0b,,1.1153,1,,0.9849,
 C-Score,C-Score each cell,colon epithelium,sequencing,721daf8,,1.1153,1,,0.9849,,1,development (common floor)
 C-Score,C-Score each cell,colon epithelium,sequencing,7e26d9f,,1.0901,4,0.9835,1.0039,1.0556,4,development
 C-Score,C-Score each cell,colon epithelium,sequencing,9d8ea3d,,1.09,3,0.9854,1.023,1.0564,3,development
+C-Score,C-Score each cell,colon fibroblasts,,484ce00,,1.1481,0,,,,53,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
 C-Score,C-Score each cell,colon fibroblasts,,b9b13e9,,1.1515,0,,,,19,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,colon fibroblasts,EPIC_v1,c15538a,,1.1098,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,colon fibroblasts,HM450K,289bfd8,,1.1505,0,,,,3,development (replay on every atlas cell; spent data)
@@ -411,6 +456,8 @@ C-Score,C-Score each cell,colon fibroblasts,sequencing,9900040,,1.1072,0,,,,9,de
 C-Score,C-Score each cell,colon fibroblasts,sequencing,9d8ea3d,,1.1069,2,,0.9541,,2,development
 C-Score,C-Score each cell,colon fibroblasts,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,colon fibroblasts,sequencing,c464b26,,,0,,,,1,development
+C-Score,C-Score each cell,colon macrophages,,3b41f95,,1.1484,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,colon macrophages,,839fcce,,1.1501,0,,,,39,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,colon macrophages,,b9b13e9,,1.1526,0,,,,41,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,colon macrophages,450K,b9b13e9,,1.1481,0,,,,258,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,colon macrophages,EPIC_v1,3463259,,,0,,,,4,reference only (replay)
@@ -446,6 +493,9 @@ C-Score,C-Score each cell,colon macrophages,sequencing,b91a18a,,1.1458,4,0.8688,
 C-Score,C-Score each cell,colon macrophages,sequencing,c464b26,,,0,,,,5,development
 C-Score,C-Score each cell,colon macrophages,sequencing,c543f9e,,,0,,,,1,development
 C-Score,C-Score each cell,colon macrophages,sequencing,e87632c,,,0,,,,2,development
+C-Score,C-Score each cell,cortical neurons,,3b41f95,,1.1141,0,,,,2,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,cortical neurons,,484ce00,,1.112,0,,,,39,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,cortical neurons,,839fcce,,1.1122,0,,,,32,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,cortical neurons,,b9b13e9,,1.1122,0,,,,241,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,cortical neurons,450K,8e9fe16,,1.1163,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,cortical neurons,450K,b9b13e9,,1.1122,0,,,,33,development (replay on every atlas cell; spent data; values route)
@@ -473,6 +523,9 @@ C-Score,C-Score each cell,cortical neurons,sequencing,7e26d9f,,1.1218,17,0.8541,
 C-Score,C-Score each cell,cortical neurons,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,cortical neurons,sequencing,9d8ea3d,,1.09,3,0.9876,0.988,1.0328,3,development
 C-Score,C-Score each cell,cortical neurons,sequencing,b91a18a,,1.1283,3,0.856,1.0501,1.0608,3,development
+C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),,3b41f95,,1.0956,0,,,,22,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),,484ce00,,1.0928,0,,,,42,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),,839fcce,,1.0921,0,,,,35,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),,b9b13e9,,1.0934,0,,,,323,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),450K,b9b13e9,,1.0912,0,,,,118,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,cytotoxic cd4 t cells (cd28-),EPIC_v1,2c2d6f2,,1.0933,0,,,,2,reference only (replay; lung tissue not commissioned)
@@ -509,6 +562,9 @@ C-Score,C-Score each cell,effector memory cd8 t cells,sequencing,8db1559,,1.0922
 C-Score,C-Score each cell,effector memory cd8 t cells,sequencing,9900040,,1.0902,0,,,,11,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,effector memory cd8 t cells,sequencing,af2c330,,1.0933,8,0.9509,0.9976,1.0659,8,"development (outside-laboratory healthy test, not met)"
 C-Score,C-Score each cell,effector memory cd8 t cells,sequencing,b91a18a,,1.1346,2,,1.0246,,2,development
+C-Score,C-Score each cell,embryonic stem cells,,3b41f95,,1.0959,0,,,,35,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,embryonic stem cells,,484ce00,,1.0933,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,embryonic stem cells,,839fcce,,1.093,0,,,,31,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,embryonic stem cells,,b9b13e9,,1.0933,0,,,,386,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,embryonic stem cells,450K,8e9fe16,,1.0975,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,embryonic stem cells,450K,b9b13e9,,1.0902,0,,,,74,development (replay on every atlas cell; spent data; values route)
@@ -529,6 +585,9 @@ C-Score,C-Score each cell,embryonic stem cells,HM450K,ca58285,,,0,,,,103,referen
 C-Score,C-Score each cell,embryonic stem cells,HM450K,e98b90f,,,0,,,,13,reference only (replay)
 C-Score,C-Score each cell,embryonic stem cells,HM450K,f9958e6,,1.0972,0,,,,2,development (replay on every atlas cell; spent data)
 C-Score,C-Score each cell,embryonic stem cells,sequencing,9a552a2,,,0,,,,1,development
+C-Score,C-Score each cell,endometrium epithelium,,3b41f95,,1.1316,0,,,,37,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,endometrium epithelium,,484ce00,,1.1274,0,,,,20,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,endometrium epithelium,,839fcce,,1.1268,0,,,,2,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,endometrium epithelium,,b9b13e9,,1.1286,0,,,,298,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,endometrium epithelium,450K,b9b13e9,,1.1245,0,,,,11,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,endometrium epithelium,EPIC_v1,2c2d6f2,,1.094,0,,,,5,reference only (replay; lung tissue not commissioned)
@@ -550,6 +609,8 @@ C-Score,C-Score each cell,endometrium epithelium,sequencing,9900040,,1.0903,0,,,
 C-Score,C-Score each cell,endometrium epithelium,sequencing,9d8ea3d,,1.09,3,0.926,0.9517,1.0005,3,development
 C-Score,C-Score each cell,endometrium epithelium,sequencing,b91a18a,,1.1225,2,,0.9095,,2,development
 C-Score,C-Score each cell,endometrium epithelium,sequencing,c464b26,,,0,,,,1,development
+C-Score,C-Score each cell,eosinophils,,3b41f95,,1.1247,0,,,,10,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,eosinophils,,839fcce,,1.1211,0,,,,16,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,eosinophils,450K,b9b13e9,,1.1211,0,,,,221,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,eosinophils,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
 C-Score,C-Score each cell,eosinophils,EPIC_v1,3463259,,,0,,,,82,reference only (replay)
@@ -564,6 +625,9 @@ C-Score,C-Score each cell,eosinophils,HM450K,50bcb5a,,,3,0.9968,1.056,1.1575,13,
 C-Score,C-Score each cell,eosinophils,HM450K,c8ff5cc,,,10,0.9493,1.0061,1.1626,34,reference only (replay)
 C-Score,C-Score each cell,eosinophils,HM450K,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,eosinophils,HM450K,f9958e6,,1.1222,13,0.9494,1.0097,1.173,33,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,erythrocyte progenitors,,3b41f95,,1.1206,0,,,,5,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,erythrocyte progenitors,,484ce00,,1.122,0,,,,18,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,erythrocyte progenitors,,839fcce,,1.1206,0,,,,26,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,erythrocyte progenitors,,b9b13e9,,1.122,0,,,,16,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,erythrocyte progenitors,450K,b9b13e9,,1.1191,0,,,,22,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,erythrocyte progenitors,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
@@ -599,6 +663,7 @@ C-Score,C-Score each cell,erythrocyte progenitors,sequencing,b91a18a,,1.1222,7,0
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,c464b26,,,0,,,,4,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,c543f9e,,,0,,,,1,development
 C-Score,C-Score each cell,erythrocyte progenitors,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,fallopien tubes epithelium,,3b41f95,,1.139,0,,,,29,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
 C-Score,C-Score each cell,fallopien tubes epithelium,,b9b13e9,,1.1371,0,,,,12,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,fallopien tubes epithelium,450K,b9b13e9,,1.1326,0,,,,2,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,fallopien tubes epithelium,EPIC_v1,5b01d36,,1.0994,0,,,,14,reference only (replay; cervical cytology not commissioned)
@@ -614,6 +679,8 @@ C-Score,C-Score each cell,fallopien tubes epithelium,sequencing,7e26d9f,,1.1152,
 C-Score,C-Score each cell,fallopien tubes epithelium,sequencing,9900040,,1.0904,0,,,,4,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,fallopien tubes epithelium,sequencing,9d8ea3d,,1.09,3,0.9757,1.012,1.0868,3,development
 C-Score,C-Score each cell,fallopien tubes epithelium,sequencing,b91a18a,,1.1208,4,0.9855,0.9897,1.0125,4,development
+C-Score,C-Score each cell,gastric antrum epithelium,,3b41f95,,1.1368,0,,,,9,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,gastric antrum epithelium,,484ce00,,1.1302,0,,,,2,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
 C-Score,C-Score each cell,gastric antrum epithelium,EPIC_v1,2c2d6f2,,1.0942,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,gastric antrum epithelium,EPIC_v1,801e08b,,1.1307,1,,0.9827,,1,reference only (replay)
 C-Score,C-Score each cell,gastric antrum epithelium,EPIC_v1,af2c330,,1.1307,0,,,,1,"reference only (replay, every atlas cell)"
@@ -661,6 +728,8 @@ C-Score,C-Score each cell,granulocytes,sequencing,7e26d9f,,1.1228,33,0.8276,0.96
 C-Score,C-Score each cell,granulocytes,sequencing,9900040,,1.0902,0,,,,6,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,granulocytes,sequencing,9d8ea3d,,1.09,3,0.9723,0.9771,1.0127,3,development
 C-Score,C-Score each cell,granulocytes,sequencing,b91a18a,,1.1283,9,0.8877,0.9655,1.1054,9,development
+C-Score,C-Score each cell,heart fibroblasts,,484ce00,,1.1256,0,,,,2,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,heart fibroblasts,,839fcce,,1.1257,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,heart fibroblasts,,b9b13e9,,1.1272,0,,,,30,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,heart fibroblasts,450K,b9b13e9,,1.122,0,,,,6,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,heart fibroblasts,EPIC_v1,2c2d6f2,,1.128,0,,,,1,reference only (replay; lung tissue not commissioned)
@@ -680,6 +749,8 @@ C-Score,C-Score each cell,heart fibroblasts,sequencing,9900040,,1.0904,0,,,,11,d
 C-Score,C-Score each cell,heart fibroblasts,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,heart fibroblasts,sequencing,9d8ea3d,,1.09,3,0.9749,1.0106,1.0584,3,development
 C-Score,C-Score each cell,heart fibroblasts,sequencing,b91a18a,,1.1104,2,,0.9947,,2,development
+C-Score,C-Score each cell,hepatocyte,,484ce00,,1.0928,0,,,,6,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,hepatocyte,,839fcce,,1.093,0,,,,12,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,hepatocyte,,b9b13e9,,1.0928,0,,,,46,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,hepatocyte,450K,b9b13e9,,1.0932,0,,,,3,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,hepatocyte,EPIC_v1,2c2d6f2,,1.0929,0,,,,1,reference only (replay; lung tissue not commissioned)
@@ -712,6 +783,7 @@ C-Score,C-Score each cell,kidney glomerular endothelium,sequencing,9900040,,1.09
 C-Score,C-Score each cell,kidney glomerular endothelium,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,kidney glomerular endothelium,sequencing,9d8ea3d,,1.09,3,0.9565,0.9579,1.0168,3,development
 C-Score,C-Score each cell,kidney glomerular endothelium,sequencing,b91a18a,,1.1241,3,0.8966,0.9358,0.9824,3,development
+C-Score,C-Score each cell,kidney glomerular epithelium,,3b41f95,,1.1784,0,,,,29,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
 C-Score,C-Score each cell,kidney glomerular epithelium,,b9b13e9,,1.1744,0,,,,1,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,kidney glomerular epithelium,450K,b9b13e9,,1.171,0,,,,8,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,kidney glomerular epithelium,EPIC_v1,5b01d36,,1.1498,0,,,,4,reference only (replay; cervical cytology not commissioned)
@@ -723,6 +795,7 @@ C-Score,C-Score each cell,kidney glomerular epithelium,sequencing,5ce8a0b,,1.146
 C-Score,C-Score each cell,kidney glomerular epithelium,sequencing,721daf8,,1.1401,3,0.8992,1.026,1.0556,3,development (common floor)
 C-Score,C-Score each cell,kidney glomerular epithelium,sequencing,7e26d9f,,1.1401,3,0.8992,1.026,1.0556,3,development
 C-Score,C-Score each cell,kidney glomerular epithelium,sequencing,9900040,,1.1132,0,,,,3,development (tumor against own normal; liver and lung tissue not commissioned)
+C-Score,C-Score each cell,kidney tubular endothelium,,839fcce,,1.1243,0,,,,5,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,kidney tubular endothelium,,b9b13e9,,1.1257,0,,,,10,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,kidney tubular endothelium,450K,b9b13e9,,1.1224,0,,,,12,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,kidney tubular endothelium,HM450K,289bfd8,,1.1251,0,,,,3,development (replay on every atlas cell; spent data)
@@ -739,6 +812,7 @@ C-Score,C-Score each cell,kidney tubular endothelium,sequencing,9d8ea3d,,1.09,3,
 C-Score,C-Score each cell,kidney tubular endothelium,sequencing,b00c2ab,,,0,,,,1,development
 C-Score,C-Score each cell,kidney tubular endothelium,sequencing,b91a18a,,1.1251,3,0.9474,0.9943,1.0121,3,development
 C-Score,C-Score each cell,kidney tubular endothelium,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,kidney tubular epithelium,,3b41f95,,1.127,0,,,,12,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
 C-Score,C-Score each cell,kidney tubular epithelium,,b9b13e9,,1.1257,0,,,,5,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,kidney tubular epithelium,450K,b9b13e9,,1.1204,0,,,,2,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,kidney tubular epithelium,EPIC_v1,5b01d36,,1.128,0,,,,1,reference only (replay; cervical cytology not commissioned)
@@ -748,6 +822,7 @@ C-Score,C-Score each cell,kidney tubular epithelium,sequencing,721daf8,,1.1136,2
 C-Score,C-Score each cell,kidney tubular epithelium,sequencing,7e26d9f,,1.09,5,0.9779,1.0031,1.1389,5,development
 C-Score,C-Score each cell,kidney tubular epithelium,sequencing,9900040,,1.0905,0,,,,2,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,kidney tubular epithelium,sequencing,9d8ea3d,,1.09,3,0.9772,1.0029,1.0343,3,development
+C-Score,C-Score each cell,lung alveolar endothelium,,839fcce,,1.1222,0,,,,2,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,lung alveolar endothelium,,b9b13e9,,1.1245,0,,,,7,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar endothelium,450K,b9b13e9,,1.1206,0,,,,5,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,lung alveolar endothelium,EPIC_v1,c15538a,,1.0934,0,,,,29,reference only (replay; lung tissue not commissioned)
@@ -762,6 +837,8 @@ C-Score,C-Score each cell,lung alveolar endothelium,sequencing,7e26d9f,,1.1133,1
 C-Score,C-Score each cell,lung alveolar endothelium,sequencing,9900040,,1.0902,0,,,,8,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar endothelium,sequencing,9d8ea3d,,1.09,3,0.9945,1.003,1.0212,3,development
 C-Score,C-Score each cell,lung alveolar endothelium,sequencing,b91a18a,,1.1231,4,0.9406,1.0177,1.0988,4,development
+C-Score,C-Score each cell,lung alveolar epithelium,,3b41f95,,1.1218,0,,,,4,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,lung alveolar epithelium,,484ce00,,1.1189,0,,,,2,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar epithelium,,b9b13e9,,1.119,0,,,,14,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar epithelium,450K,b9b13e9,,1.119,0,,,,1,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,lung alveolar epithelium,EPIC_v1,2c2d6f2,,1.0902,0,,,,6,reference only (replay; lung tissue not commissioned)
@@ -781,6 +858,8 @@ C-Score,C-Score each cell,lung alveolar epithelium,sequencing,721daf8,,1.1098,1,
 C-Score,C-Score each cell,lung alveolar epithelium,sequencing,7e26d9f,,1.09,4,0.9136,0.9619,0.9956,4,development
 C-Score,C-Score each cell,lung alveolar epithelium,sequencing,9900040,,1.0902,0,,,,6,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar epithelium,sequencing,9d8ea3d,,1.09,3,0.9132,0.9288,0.9917,3,development
+C-Score,C-Score each cell,lung alveolar macrophages,,3b41f95,,1.1635,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,lung alveolar macrophages,,839fcce,,1.164,0,,,,9,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,lung alveolar macrophages,,b9b13e9,,1.1697,0,,,,73,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar macrophages,450K,b9b13e9,,1.1622,0,,,,123,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,lung alveolar macrophages,EPIC_v1,3647b49,,1.1649,3,0.8829,0.9396,0.9606,3,development (replay on every atlas cell; spent data)
@@ -799,6 +878,9 @@ C-Score,C-Score each cell,lung alveolar macrophages,sequencing,7e26d9f,,1.1488,1
 C-Score,C-Score each cell,lung alveolar macrophages,sequencing,9900040,,1.1104,0,,,,8,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,lung alveolar macrophages,sequencing,9d8ea3d,,1.1099,2,,0.945,,2,development
 C-Score,C-Score each cell,lung alveolar macrophages,sequencing,b91a18a,,1.1523,5,0.9986,1.0765,1.1846,5,development
+C-Score,C-Score each cell,lung bronchus epithelium,,3b41f95,,1.0973,0,,,,41,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,lung bronchus epithelium,,484ce00,,1.0935,0,,,,17,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,lung bronchus epithelium,,839fcce,,1.0928,0,,,,11,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,lung bronchus epithelium,,b9b13e9,,1.0935,0,,,,100,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,lung bronchus epithelium,450K,b9b13e9,,1.0928,0,,,,9,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,lung bronchus epithelium,EPIC_v1,07638a9,,,0,,,,1,reference only (replay)
@@ -821,6 +903,8 @@ C-Score,C-Score each cell,lung bronchus epithelium,sequencing,721daf8,,1.1253,3,
 C-Score,C-Score each cell,lung bronchus epithelium,sequencing,7e26d9f,,1.1056,6,0.9626,1.0748,1.1344,6,development
 C-Score,C-Score each cell,lung bronchus epithelium,sequencing,9900040,,1.0903,0,,,,3,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,lung bronchus epithelium,sequencing,9d8ea3d,,1.09,3,0.9585,1.0691,1.0817,3,development
+C-Score,C-Score each cell,lung interstitial macrophages,,3b41f95,,1.1249,0,,,,2,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,lung interstitial macrophages,,839fcce,,1.1241,0,,,,7,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,lung interstitial macrophages,,b9b13e9,,1.1274,0,,,,14,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,lung interstitial macrophages,450K,b9b13e9,,1.1239,0,,,,252,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,lung interstitial macrophages,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
@@ -853,6 +937,9 @@ C-Score,C-Score each cell,lung interstitial macrophages,sequencing,b91a18a,,1.11
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,c464b26,,,0,,,,5,development
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,c543f9e,,,0,,,,1,development
 C-Score,C-Score each cell,lung interstitial macrophages,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,memory b cells,,3b41f95,,1.1268,0,,,,17,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,memory b cells,,484ce00,,1.1235,0,,,,61,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,memory b cells,,839fcce,,1.1234,0,,,,54,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,memory b cells,,b9b13e9,,1.1237,0,,,,266,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,memory b cells,450K,8e9fe16,,1.1276,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,memory b cells,450K,b9b13e9,,1.1232,0,,,,37,development (replay on every atlas cell; spent data; values route)
@@ -909,6 +996,9 @@ C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,c15538a,,1.0909,0,,,,32,ref
 C-Score,C-Score each cell,memory cd4 t cells,EPIC_v1,ca58285,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,memory cd4 t cells,HM450K,289bfd8,,1.1211,0,,,,1,development (replay on every atlas cell; spent data)
 C-Score,C-Score each cell,memory cd4 t cells,HM450K,c8ff5cc,,,0,,,,1,reference only (replay)
+C-Score,C-Score each cell,microglia,,3b41f95,,1.1222,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,microglia,,484ce00,,1.1195,0,,,,11,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,microglia,,839fcce,,1.1193,0,,,,59,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,microglia,,b9b13e9,,1.1193,0,,,,165,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,microglia,450K,8e9fe16,,1.1234,0,,,,259,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,microglia,450K,b9b13e9,,1.1193,0,,,,19,development (replay on every atlas cell; spent data; values route)
@@ -929,6 +1019,9 @@ C-Score,C-Score each cell,microglia,HM450K,c8ff5cc,,,1,,0.9565,,32,reference onl
 C-Score,C-Score each cell,microglia,HM450K,ca58285,,,0,,,,59,reference only (replay)
 C-Score,C-Score each cell,microglia,HM450K,e98b90f,,,0,,,,12,reference only (replay)
 C-Score,C-Score each cell,microglia,HM450K,f9958e6,,1.1198,1,,0.9565,,4,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,monocytes,,3b41f95,,1.1272,0,,,,18,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,monocytes,,484ce00,,1.1249,0,,,,3,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,monocytes,,839fcce,,1.1249,0,,,,59,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,monocytes,,b9b13e9,,1.1249,0,,,,113,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,monocytes,450K,8e9fe16,,1.1294,0,,,,167,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,monocytes,450K,b9b13e9,,1.1188,0,,,,162,development (replay on every atlas cell; spent data; values route)
@@ -958,6 +1051,8 @@ C-Score,C-Score each cell,monocytes,sequencing,8db1559,,1.0928,22,0.884,1.0073,1
 C-Score,C-Score each cell,monocytes,sequencing,9900040,,1.0904,0,,,,4,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,monocytes,sequencing,9d8ea3d,,1.09,3,0.9565,0.9773,0.9846,3,development
 C-Score,C-Score each cell,monocytes,sequencing,b91a18a,,1.1291,7,0.8531,1.0011,1.0424,7,development
+C-Score,C-Score each cell,naive b cells,,484ce00,,1.1206,0,,,,2,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,naive b cells,,839fcce,,1.1204,0,,,,41,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,naive b cells,450K,8e9fe16,,1.1261,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,naive b cells,450K,b9b13e9,,1.1204,0,,,,16,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,naive b cells,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
@@ -982,6 +1077,7 @@ C-Score,C-Score each cell,naive b cells,sequencing,3ab30ad,,,0,,,,1,development
 C-Score,C-Score each cell,naive b cells,sequencing,3cfd195,,,0,,,,2,development
 C-Score,C-Score each cell,naive b cells,sequencing,4545ab1,,,0,,,,1,development
 C-Score,C-Score each cell,naive b cells,sequencing,9a552a2,,,0,,,,3,development
+C-Score,C-Score each cell,naive cd4 t cells,,839fcce,,1.0911,0,,,,31,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,naive cd4 t cells,,b9b13e9,,1.0912,0,,,,10,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,naive cd4 t cells,450K,8e9fe16,,1.0945,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,naive cd4 t cells,450K,b9b13e9,,1.0911,0,,,,161,development (replay on every atlas cell; spent data; values route)
@@ -1006,6 +1102,7 @@ C-Score,C-Score each cell,naive cd4 t cells,sequencing,721daf8,,1.1272,13,0.806,
 C-Score,C-Score each cell,naive cd4 t cells,sequencing,7e26d9f,,1.1272,13,0.806,0.9691,1.0947,13,development
 C-Score,C-Score each cell,naive cd4 t cells,sequencing,925d3ce,,,0,,,,1,development
 C-Score,C-Score each cell,naive cd4 t cells,sequencing,b91a18a,,1.1312,5,0.7741,0.9691,1.024,5,development
+C-Score,C-Score each cell,naive cd8 t cells,,839fcce,,1.0934,0,,,,35,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,naive cd8 t cells,,b9b13e9,,1.0946,0,,,,5,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,naive cd8 t cells,450K,b9b13e9,,1.0934,0,,,,120,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,naive cd8 t cells,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
@@ -1032,6 +1129,9 @@ C-Score,C-Score each cell,naive cd8 t cells,sequencing,7e26d9f,,1.1312,9,0.7994,
 C-Score,C-Score each cell,naive cd8 t cells,sequencing,9900040,,1.0902,0,,,,1,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,naive cd8 t cells,sequencing,af2c330,,1.093,4,0.9716,0.9943,1.0608,4,"development (outside-laboratory healthy test, not met)"
 C-Score,C-Score each cell,naive cd8 t cells,sequencing,b91a18a,,1.1209,2,,0.9096,,2,development
+C-Score,C-Score each cell,neutrophils,,3b41f95,,1.0955,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,neutrophils,,484ce00,,1.0937,0,,,,15,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,neutrophils,,839fcce,,1.0936,0,,,,62,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,neutrophils,,b9b13e9,,1.0937,0,,,,53,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,neutrophils,450K,8e9fe16,,1.0979,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,neutrophils,450K,b9b13e9,,1.0936,0,,,,373,development (replay on every atlas cell; spent data; values route)
@@ -1053,6 +1153,8 @@ C-Score,C-Score each cell,neutrophils,HM450K,e98b90f,,,0,,,,6,reference only (re
 C-Score,C-Score each cell,neutrophils,HM450K,f9958e6,,1.0936,36,0.9359,1.0219,1.1084,118,development (replay on every atlas cell; spent data)
 C-Score,C-Score each cell,neutrophils,sequencing,1dcb6df,,1.09,124,0.8644,0.9485,1.0483,124,development
 C-Score,C-Score each cell,neutrophils,sequencing,c543f9e,,,0,,,,1,development
+C-Score,C-Score each cell,nk cells,,3b41f95,,1.0933,0,,,,14,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,nk cells,,839fcce,,1.0917,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,nk cells,,b9b13e9,,1.0922,0,,,,8,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,nk cells,450K,b9b13e9,,1.0917,0,,,,341,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,nk cells,EPIC_v1,3647b49,,1.0917,4,0.9967,1.0346,1.063,4,development (replay on every atlas cell; spent data)
@@ -1075,6 +1177,7 @@ C-Score,C-Score each cell,nk cells,sequencing,8db1559,,1.0938,4,0.9219,0.9686,0.
 C-Score,C-Score each cell,nk cells,sequencing,9900040,,1.0903,0,,,,4,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,nk cells,sequencing,9d8ea3d,,1.09,3,0.8921,0.9105,0.9688,3,development
 C-Score,C-Score each cell,nk cells,sequencing,b91a18a,,1.1237,7,0.887,0.9692,1.0339,7,development
+C-Score,C-Score each cell,oligodendrocyte precursors,,839fcce,,1.1892,0,,,,6,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,oligodendrocyte precursors,,b9b13e9,,1.1913,0,,,,7,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,oligodendrocyte precursors,450K,b9b13e9,,1.1851,0,,,,12,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,oligodendrocyte precursors,EPIC_v1,801e08b,,1.1296,1,,0.8474,,1,reference only (replay)
@@ -1086,6 +1189,9 @@ C-Score,C-Score each cell,oligodendrocyte precursors,HM450K,c8ff5cc,,,0,,,,2,ref
 C-Score,C-Score each cell,oligodendrocyte precursors,HM450K,ca58285,,,0,,,,30,reference only (replay)
 C-Score,C-Score each cell,oligodendrocyte precursors,HM450K,e98b90f,,,0,,,,4,reference only (replay)
 C-Score,C-Score each cell,oligodendrocyte precursors,sequencing,3ab30ad,,,0,,,,1,development
+C-Score,C-Score each cell,oligodendrocytes,,3b41f95,,1.1232,0,,,,3,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,oligodendrocytes,,484ce00,,1.1202,0,,,,52,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,oligodendrocytes,,839fcce,,1.1202,0,,,,25,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,oligodendrocytes,,b9b13e9,,1.12,0,,,,51,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,oligodendrocytes,450K,8e9fe16,,1.1243,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,oligodendrocytes,450K,b9b13e9,,1.1206,0,,,,1,development (replay on every atlas cell; spent data; values route)
@@ -1113,6 +1219,7 @@ C-Score,C-Score each cell,oligodendrocytes,sequencing,9900040,,1.0903,0,,,,3,dev
 C-Score,C-Score each cell,oligodendrocytes,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,oligodendrocytes,sequencing,9d8ea3d,,1.09,3,0.9812,1.0006,1.0606,3,development
 C-Score,C-Score each cell,oligodendrocytes,sequencing,b91a18a,,1.127,7,0.9513,1.0086,1.046,7,development
+C-Score,C-Score each cell,pancreas endothelium,,484ce00,,1.1294,0,,,,4,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
 C-Score,C-Score each cell,pancreas endothelium,,b9b13e9,,1.1316,0,,,,29,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,pancreas endothelium,EPIC_v1,c15538a,,1.1289,0,,,,13,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,pancreas endothelium,HM450K,289bfd8,,1.1278,0,,,,1,development (replay on every atlas cell; spent data)
@@ -1136,6 +1243,9 @@ C-Score,C-Score each cell,pancreas endothelium,sequencing,b91a18a,,1.1204,4,0.93
 C-Score,C-Score each cell,pancreas endothelium,sequencing,c464b26,,,0,,,,2,development
 C-Score,C-Score each cell,pancreas endothelium,sequencing,c543f9e,,,0,,,,1,development
 C-Score,C-Score each cell,pancreas endothelium,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,pancreatic acinar,,3b41f95,,1.0928,0,,,,6,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,pancreatic acinar,,484ce00,,1.0904,0,,,,59,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,pancreatic acinar,,839fcce,,1.0902,0,,,,11,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,pancreatic acinar,,b9b13e9,,1.0903,0,,,,203,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,pancreatic acinar,450K,8e9fe16,,1.0957,0,,,,13,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,pancreatic acinar,EPIC_v1,2c2d6f2,,1.0905,0,,,,2,reference only (replay; lung tissue not commissioned)
@@ -1168,6 +1278,9 @@ C-Score,C-Score each cell,pancreatic alpha,sequencing,721daf8,,1.1134,6,0.9985,1
 C-Score,C-Score each cell,pancreatic alpha,sequencing,7e26d9f,,1.1094,9,0.9202,1.0094,1.0571,9,development
 C-Score,C-Score each cell,pancreatic alpha,sequencing,9900040,,1.0903,0,,,,3,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,pancreatic alpha,sequencing,9d8ea3d,,1.09,3,0.9121,0.9643,0.965,3,development
+C-Score,C-Score each cell,pancreatic beta,,3b41f95,,1.0926,0,,,,32,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,pancreatic beta,,484ce00,,1.0902,0,,,,62,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,pancreatic beta,,839fcce,,1.0902,0,,,,11,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,pancreatic beta,,b9b13e9,,1.0902,0,,,,138,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,pancreatic beta,450K,8e9fe16,,1.095,0,,,,204,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,pancreatic beta,450K,b9b13e9,,1.0901,0,,,,1,development (replay on every atlas cell; spent data; values route)
@@ -1199,6 +1312,7 @@ C-Score,C-Score each cell,pancreatic delta,sequencing,7e26d9f,,1.1117,8,0.9075,0
 C-Score,C-Score each cell,pancreatic delta,sequencing,9900040,,1.0903,0,,,,2,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,pancreatic delta,sequencing,9d8ea3d,,1.09,3,0.9114,0.9362,0.9524,3,development
 C-Score,C-Score each cell,pancreatic delta,sequencing,b91a18a,,1.1147,1,,0.9069,,1,development
+C-Score,C-Score each cell,pancreatic duct,,3b41f95,,1.0927,0,,,,12,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
 C-Score,C-Score each cell,pancreatic duct,,b9b13e9,,1.092,0,,,,3,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,pancreatic duct,450K,b9b13e9,,1.0905,0,,,,1,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,pancreatic duct,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
@@ -1212,6 +1326,9 @@ C-Score,C-Score each cell,pancreatic duct,sequencing,721daf8,,1.1181,11,0.829,0.
 C-Score,C-Score each cell,pancreatic duct,sequencing,7e26d9f,,1.1181,11,0.829,0.9875,1.0972,11,development
 C-Score,C-Score each cell,pancreatic duct,sequencing,9900040,,1.0902,0,,,,4,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,pancreatic duct,sequencing,b91a18a,,1.1264,5,0.8182,0.9758,1.0708,5,development
+C-Score,C-Score each cell,prostate epithelium,,3b41f95,,1.1353,0,,,,19,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,prostate epithelium,,484ce00,,1.1323,0,,,,45,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,prostate epithelium,,839fcce,,1.1323,0,,,,26,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,prostate epithelium,,b9b13e9,,1.1333,0,,,,275,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,prostate epithelium,450K,8e9fe16,,1.1421,0,,,,124,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,prostate epithelium,450K,b9b13e9,,1.1306,0,,,,2,development (replay on every atlas cell; spent data; values route)
@@ -1259,6 +1376,9 @@ C-Score,C-Score each cell,regulatory t cells,HM450K,3463259,,,0,,,,4,reference o
 C-Score,C-Score each cell,regulatory t cells,HM450K,50bcb5a,,,5,0.9314,1.0329,1.0808,32,reference only (replay)
 C-Score,C-Score each cell,regulatory t cells,HM450K,c8ff5cc,,,27,0.8775,0.9586,1.0817,81,reference only (replay)
 C-Score,C-Score each cell,regulatory t cells,HM450K,f9958e6,,1.1274,32,0.8788,0.9722,1.0866,99,development (replay on every atlas cell; spent data)
+C-Score,C-Score each cell,small intestine epithelium,,3b41f95,,1.0952,0,,,,36,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,small intestine epithelium,,484ce00,,1.0929,0,,,,16,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,small intestine epithelium,,839fcce,,1.0928,0,,,,1,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,small intestine epithelium,,b9b13e9,,1.0932,0,,,,34,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,small intestine epithelium,450K,b9b13e9,,1.0904,0,,,,37,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,small intestine epithelium,EPIC_v1,3463259,,,0,,,,5,reference only (replay)
@@ -1281,6 +1401,9 @@ C-Score,C-Score each cell,small intestine epithelium,sequencing,7e26d9f,,1.1108,
 C-Score,C-Score each cell,small intestine epithelium,sequencing,9900040,,1.0903,0,,,,5,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,small intestine epithelium,sequencing,9d8ea3d,,1.09,3,0.9942,1.0176,1.08,3,development
 C-Score,C-Score each cell,small intestine epithelium,sequencing,b91a18a,,1.1353,1,,0.83,,1,development
+C-Score,C-Score each cell,smooth muscle,,3b41f95,,1.1345,0,,,,6,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,smooth muscle,,484ce00,,1.1303,0,,,,32,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,smooth muscle,,839fcce,,1.1276,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,smooth muscle,,b9b13e9,,1.1316,0,,,,175,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,smooth muscle,450K,b9b13e9,,1.1253,0,,,,5,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,smooth muscle,EPIC_v1,2c2d6f2,,1.1307,0,,,,1,reference only (replay; lung tissue not commissioned)
@@ -1300,6 +1423,8 @@ C-Score,C-Score each cell,smooth muscle,sequencing,9900040,,1.0903,0,,,,7,develo
 C-Score,C-Score each cell,smooth muscle,sequencing,9a552a2,,,0,,,,1,development
 C-Score,C-Score each cell,smooth muscle,sequencing,9d8ea3d,,1.09,3,0.9332,0.9381,0.977,3,development
 C-Score,C-Score each cell,smooth muscle,sequencing,c464b26,,,0,,,,1,development
+C-Score,C-Score each cell,striated muscle,,3b41f95,,1.1592,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,striated muscle,,839fcce,,1.1566,0,,,,2,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,striated muscle,,b9b13e9,,1.1601,0,,,,21,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,striated muscle,450K,b9b13e9,,1.1549,0,,,,1,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,striated muscle,EPIC_v1,c15538a,,1.1124,0,,,,4,reference only (replay; lung tissue not commissioned)
@@ -1334,6 +1459,9 @@ C-Score,C-Score each cell,t central memory cd4,sequencing,7e26d9f,,1.1048,6,0.90
 C-Score,C-Score each cell,t central memory cd4,sequencing,8db1559,,1.095,2,,0.9564,,2,development (common floor)
 C-Score,C-Score each cell,t central memory cd4,sequencing,9900040,,1.0902,0,,,,4,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,t central memory cd4,sequencing,9d8ea3d,,1.09,3,0.9747,0.9894,1.0352,3,development
+C-Score,C-Score each cell,t effector cell cd8,,3b41f95,,1.0944,0,,,,7,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,t effector cell cd8,,484ce00,,1.0936,0,,,,60,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,t effector cell cd8,,839fcce,,1.0938,0,,,,49,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,t effector cell cd8,,b9b13e9,,1.0946,0,,,,231,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,t effector cell cd8,450K,8e9fe16,,1.0983,0,,,,296,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,t effector cell cd8,450K,b9b13e9,,1.092,0,,,,233,development (replay on every atlas cell; spent data; values route)
@@ -1361,6 +1489,7 @@ C-Score,C-Score each cell,t effector cell cd8,sequencing,9d8ea3d,,1.09,3,0.9894,
 C-Score,C-Score each cell,t effector cell cd8,sequencing,a04bf22,,,0,,,,1,development
 C-Score,C-Score each cell,t effector cell cd8,sequencing,b91a18a,,1.1293,4,0.9367,1.0198,1.1171,4,development
 C-Score,C-Score each cell,t effector cell cd8,sequencing,e87632c,,,0,,,,1,development
+C-Score,C-Score each cell,t effector memory cd4,,484ce00,,1.1262,0,,,,2,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
 C-Score,C-Score each cell,t effector memory cd4,,b9b13e9,,1.1292,0,,,,24,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,t effector memory cd4,450K,b9b13e9,,1.1249,0,,,,51,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,t effector memory cd4,HM450K,289bfd8,,1.127,0,,,,42,development (replay on every atlas cell; spent data)
@@ -1397,6 +1526,7 @@ C-Score,C-Score each cell,thyroid epithelium,sequencing,7e26d9f,,1.1128,14,0.911
 C-Score,C-Score each cell,thyroid epithelium,sequencing,9900040,,1.0906,0,,,,3,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,thyroid epithelium,sequencing,9d8ea3d,,1.09,3,0.9116,0.94,1.048,3,development
 C-Score,C-Score each cell,thyroid epithelium,sequencing,b91a18a,,1.1214,2,,0.9844,,2,development
+C-Score,C-Score each cell,tongue epithelium,,3b41f95,,1.1343,0,,,,18,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
 C-Score,C-Score each cell,tongue epithelium,,b9b13e9,,1.1318,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,tongue epithelium,EPIC_v1,3463259,,,0,,,,1,reference only (replay)
 C-Score,C-Score each cell,tongue epithelium,EPIC_v1,5b01d36,,1.0986,0,,,,211,reference only (replay; cervical cytology not commissioned)
@@ -1410,6 +1540,7 @@ C-Score,C-Score each cell,tongue epithelium,sequencing,7e26d9f,,1.09,5,0.9136,0.
 C-Score,C-Score each cell,tongue epithelium,sequencing,9900040,,1.0902,0,,,,1,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,tongue epithelium,sequencing,9d8ea3d,,1.09,3,0.9365,0.964,0.9734,3,development
 C-Score,C-Score each cell,tongue epithelium,sequencing,b91a18a,,1.1353,1,,0.9111,,1,development
+C-Score,C-Score each cell,tonsil palatine epithelium,,3b41f95,,1.1303,0,,,,9,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
 C-Score,C-Score each cell,tonsil palatine epithelium,,b9b13e9,,1.1272,0,,,,4,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,tonsil palatine epithelium,450K,b9b13e9,,1.1224,0,,,,1,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,tonsil palatine epithelium,EPIC_v1,5b01d36,,1.099,0,,,,44,reference only (replay; cervical cytology not commissioned)
@@ -1419,6 +1550,7 @@ C-Score,C-Score each cell,tonsil palatine epithelium,HM450K,289bfd8,,1.1294,1,,1
 C-Score,C-Score each cell,tonsil palatine epithelium,sequencing,7e26d9f,,1.09,3,0.9184,0.93,0.9762,3,development
 C-Score,C-Score each cell,tonsil palatine epithelium,sequencing,9900040,,1.0903,0,,,,2,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,tonsil palatine epithelium,sequencing,9d8ea3d,,1.09,3,0.9183,0.9304,0.9759,3,development
+C-Score,C-Score each cell,tonsil pharyngeal epithelium,,3b41f95,,1.1618,0,,,,4,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,,b9b13e9,,1.1592,0,,,,4,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,EPIC_v1,2c2d6f2,,1.1123,0,,,,1,reference only (replay; lung tissue not commissioned)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,EPIC_v1,5b01d36,,1.1169,0,,,,8,reference only (replay; cervical cytology not commissioned)
@@ -1434,6 +1566,9 @@ C-Score,C-Score each cell,tonsil pharyngeal epithelium,sequencing,721daf8,,1.135
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,sequencing,7e26d9f,,1.1345,5,0.9548,1.084,1.1682,5,development
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,sequencing,9900040,,1.1097,0,,,,6,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,tonsil pharyngeal epithelium,sequencing,9d8ea3d,,1.1092,2,,0.9656,,2,development
+C-Score,C-Score each cell,vascular endothelium,,3b41f95,,1.1206,0,,,,37,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,vascular endothelium,,484ce00,,1.1176,0,,,,57,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,vascular endothelium,,839fcce,,1.1175,0,,,,10,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,vascular endothelium,,b9b13e9,,1.1176,0,,,,403,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,vascular endothelium,450K,8e9fe16,,1.1226,0,,,,20,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,vascular endothelium,450K,b9b13e9,,1.1176,0,,,,32,development (replay on every atlas cell; spent data; values route)
@@ -1453,6 +1588,9 @@ C-Score,C-Score each cell,vascular endothelium,HM450K,50bcb5a,,,0,,,,5,reference
 C-Score,C-Score each cell,vascular endothelium,HM450K,c8ff5cc,,,0,,,,11,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,HM450K,ca58285,,,0,,,,122,reference only (replay)
 C-Score,C-Score each cell,vascular endothelium,HM450K,e98b90f,,,0,,,,14,reference only (replay)
+C-Score,C-Score each cell,vascular leptomeningeal cells,,3b41f95,,1.1997,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score each cell,vascular leptomeningeal cells,,484ce00,,1.1957,0,,,,1,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score each cell,vascular leptomeningeal cells,,839fcce,,1.1942,0,,,,7,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score each cell,vascular leptomeningeal cells,,b9b13e9,,1.1957,0,,,,167,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score each cell,vascular leptomeningeal cells,450K,b9b13e9,,1.1878,0,,,,1,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score each cell,vascular leptomeningeal cells,EPIC_v1,2c2d6f2,,1.1296,0,,,,1,reference only (replay; lung tissue not commissioned)
@@ -1472,6 +1610,9 @@ C-Score,C-Score each cell,vascular saphenous endothelium,sequencing,7e26d9f,,1.1
 C-Score,C-Score each cell,vascular saphenous endothelium,sequencing,9900040,,1.0902,0,,,,3,development (tumor against own normal; liver and lung tissue not commissioned)
 C-Score,C-Score each cell,vascular saphenous endothelium,sequencing,9d8ea3d,,1.09,3,0.9503,0.9608,0.9637,3,development
 C-Score,C-Score each cell,vascular saphenous endothelium,sequencing,b91a18a,,1.1141,1,,1.1077,,1,development
+C-Score,C-Score whole genome,whole genome,,3b41f95,,1.0117,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+C-Score,C-Score whole genome,whole genome,,484ce00,,1.0113,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+C-Score,C-Score whole genome,whole genome,,839fcce,,1.0113,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 C-Score,C-Score whole genome,whole genome,,b9b13e9,,1.0114,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 C-Score,C-Score whole genome,whole genome,450K,8e9fe16,,1.0123,0,,,,300,development (replay on every atlas cell; spent data; values route)
 C-Score,C-Score whole genome,whole genome,450K,b9b13e9,,1.011,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1649,6 +1790,9 @@ Coupling-A,"coupling-A, own sample left out of the reference",tongue epithelium,
 Coupling-A,"coupling-A, own sample left out of the reference",tonsil palatine epithelium,sequencing,,,,3,0.9967,0.9982,1.0049,3,development
 Coupling-A,"coupling-A, own sample left out of the reference",tonsil pharyngeal epithelium,sequencing,,,,2,,1.0016,,2,development
 Coupling-A,"coupling-A, own sample left out of the reference",vascular saphenous endothelium,sequencing,,,,3,0.9923,1.0028,1.0053,3,development
+Globe,globe changed blocks,share of blocks,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Globe,globe changed blocks,share of blocks,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Globe,globe changed blocks,share of blocks,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Globe,globe changed blocks,share of blocks,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Globe,globe changed blocks,share of blocks,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Globe,globe changed blocks,share of blocks,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1823,6 +1967,9 @@ IAM-A,"held error eps, earlier counter (end CpGs counted), conversion-corrected"
 IAM-A,"held error eps, earlier counter (end CpGs counted), conversion-corrected",oral tissue,oxWGBS,,,,0,,,,8,development
 IAM-A,"held error eps, per interior opportunity (commissioned counter)",cell types (56),WGBS,,,,56,0.0341,0.0447,0.0533,56,commissioned counter (chain Stage Q2)
 IAM-A,island gain error (PROC-CHANNEL-01 rule),colon tissue,WGBS,,,,0,,,,12,development
+Information sphere,information sphere,Fisher-Rao rms (rad),,3b41f95,,,0,,,,43,development (flagged in the bundle)
+Information sphere,information sphere,Fisher-Rao rms (rad),,484ce00,,,0,,,,63,development (flagged in the bundle)
+Information sphere,information sphere,Fisher-Rao rms (rad),,839fcce,,,0,,,,68,development (flagged in the bundle)
 Information sphere,information sphere,Fisher-Rao rms (rad),,b9b13e9,,,0,,,,407,development (flagged in the bundle)
 Information sphere,information sphere,Fisher-Rao rms (rad),450K,8e9fe16,,,0,,,,300,development (flagged in the bundle)
 Information sphere,information sphere,Fisher-Rao rms (rad),450K,b9b13e9,,,0,,,,379,development (flagged in the bundle)
@@ -1856,6 +2003,9 @@ Met-A,Met-A,neutrophils,EPIC_v1,3647b49,0.95,1.05,42,0.952,0.9966,1.0612,42,deve
 Met-A,Met-A,neutrophils,EPIC_v1,505bea0,0.95,1.05,42,0.952,0.9966,1.0612,42,reference only (replay)
 Met-A,Met-A,neutrophils,EPIC_v1,801e08b,0.95,1.05,260,0.9557,0.9975,1.0509,481,reference only (replay)
 Met-A,Met-A,neutrophils,EPIC_v1,af2c330,0.95,1.05,0,,,,557,"reference only (replay, every atlas cell)"
+Met-A,Met-A each cell,CMP (bone marrow),,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,CMP (bone marrow),,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,CMP (bone marrow),,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,CMP (bone marrow),,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,CMP (bone marrow),450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,CMP (bone marrow),450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1876,6 +2026,9 @@ Met-A,Met-A each cell,CMP (bone marrow),HM450K,c8ff5cc,,,66,0.906,0.9405,0.9752,
 Met-A,Met-A each cell,CMP (bone marrow),HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,CMP (bone marrow),HM450K,f9958e6,,,84,0.902,0.9418,0.9735,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,GMP (bone marrow),,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,GMP (bone marrow),,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,GMP (bone marrow),,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,GMP (bone marrow),,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,GMP (bone marrow),450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,GMP (bone marrow),450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1896,6 +2049,9 @@ Met-A,Met-A each cell,GMP (bone marrow),HM450K,c8ff5cc,,,66,0.8941,0.9244,0.9655
 Met-A,Met-A each cell,GMP (bone marrow),HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,GMP (bone marrow),HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,GMP (bone marrow),HM450K,f9958e6,,,84,0.8912,0.9255,0.9642,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,HSC (bone marrow),,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,HSC (bone marrow),,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,HSC (bone marrow),,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,HSC (bone marrow),,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,HSC (bone marrow),450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,HSC (bone marrow),450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1916,6 +2072,9 @@ Met-A,Met-A each cell,HSC (bone marrow),HM450K,c8ff5cc,,,66,0.9081,0.9467,1.0013
 Met-A,Met-A each cell,HSC (bone marrow),HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,HSC (bone marrow),HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,HSC (bone marrow),HM450K,f9958e6,,,84,0.9061,0.9459,1.0009,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,L-MPP (bone marrow),,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,L-MPP (bone marrow),,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,L-MPP (bone marrow),,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,L-MPP (bone marrow),,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,L-MPP (bone marrow),450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,L-MPP (bone marrow),450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1936,6 +2095,9 @@ Met-A,Met-A each cell,L-MPP (bone marrow),HM450K,c8ff5cc,,,66,0.9134,0.9455,0.99
 Met-A,Met-A each cell,L-MPP (bone marrow),HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,L-MPP (bone marrow),HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,L-MPP (bone marrow),HM450K,f9958e6,,,84,0.9082,0.9464,0.9911,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,MEP (bone marrow),,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,MEP (bone marrow),,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,MEP (bone marrow),,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,MEP (bone marrow),,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,MEP (bone marrow),450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,MEP (bone marrow),450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1956,6 +2118,9 @@ Met-A,Met-A each cell,MEP (bone marrow),HM450K,c8ff5cc,,,66,0.9181,0.9491,1.0217
 Met-A,Met-A each cell,MEP (bone marrow),HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,MEP (bone marrow),HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,MEP (bone marrow),HM450K,f9958e6,,,84,0.9166,0.9491,1.0258,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,MPP (bone marrow),,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,MPP (bone marrow),,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,MPP (bone marrow),,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,MPP (bone marrow),,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,MPP (bone marrow),450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,MPP (bone marrow),450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -1976,6 +2141,9 @@ Met-A,Met-A each cell,MPP (bone marrow),HM450K,c8ff5cc,,,66,0.8995,0.9347,1.0169
 Met-A,Met-A each cell,MPP (bone marrow),HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,MPP (bone marrow),HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,MPP (bone marrow),HM450K,f9958e6,,,84,0.8896,0.9329,1.0185,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,adipocytes,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,adipocytes,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,adipocytes,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,adipocytes,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,adipocytes,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,adipocytes,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2042,6 +2210,9 @@ Met-A,Met-A each cell,astrocytes,EPIC_v1,801e08b,,,237,0.9879,1.0453,1.0975,439,
 Met-A,Met-A each cell,astrocytes,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
 Met-A,Met-A each cell,astrocytes,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,astrocytes,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
+Met-A,Met-A each cell,b cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,b cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,b cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,b cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,b cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,b cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2075,6 +2246,9 @@ Met-A,Met-A each cell,b cells,sequencing,9900040,,,0,,,,12,development (tumor ag
 Met-A,Met-A each cell,b cells,sequencing,9d8ea3d,,,140,0.9178,0.9999,1.0771,140,development
 Met-A,Met-A each cell,b cells,sequencing,af2c330,,,12,0.6914,0.8879,0.9706,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,b cells,sequencing,b91a18a,,,9,0.8751,1.0432,1.2936,9,development
+Met-A,Met-A each cell,basophils,,3b41f95,,,0,,,,16,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,basophils,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,basophils,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,basophils,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,basophils,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,basophils,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -2094,6 +2268,9 @@ Met-A,Met-A each cell,basophils,HM450K,c8ff5cc,,,55,0.9025,0.9522,1.0106,266,ref
 Met-A,Met-A each cell,basophils,HM450K,ca58285,,,0,,,,125,reference only (replay)
 Met-A,Met-A each cell,basophils,HM450K,e98b90f,,,0,,,,14,reference only (replay)
 Met-A,Met-A each cell,basophils,HM450K,f9958e6,,,69,0.8998,0.9515,1.0094,198,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,bladder epithelium,,3b41f95,,,0,,,,1,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,bladder epithelium,,484ce00,,,0,,,,1,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,bladder epithelium,,839fcce,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,bladder epithelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,bladder epithelium,450K,b9b13e9,,,0,,,,191,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,bladder epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -2126,6 +2303,7 @@ Met-A,Met-A each cell,bladder epithelium,sequencing,9900040,,,0,,,,12,developmen
 Met-A,Met-A each cell,bladder epithelium,sequencing,9d8ea3d,,,140,0.9035,0.9962,1.0725,140,development
 Met-A,Met-A each cell,bladder epithelium,sequencing,af2c330,,,12,0.8028,0.9305,0.9736,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,bladder epithelium,sequencing,b91a18a,,,9,0.8714,0.9524,1.2445,9,development
+Met-A,Met-A each cell,breast basal epithelium,,839fcce,,,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,breast basal epithelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,breast basal epithelium,450K,b9b13e9,,,0,,,,48,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,breast basal epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -2154,6 +2332,9 @@ Met-A,Met-A each cell,breast basal epithelium,sequencing,9900040,,,0,,,,12,devel
 Met-A,Met-A each cell,breast basal epithelium,sequencing,9d8ea3d,,,140,0.8961,0.9972,1.0628,140,development
 Met-A,Met-A each cell,breast basal epithelium,sequencing,af2c330,,,12,0.798,0.9084,0.9516,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,breast basal epithelium,sequencing,b91a18a,,,9,0.8636,0.9476,1.1592,9,development
+Met-A,Met-A each cell,breast luminal epithelium,,3b41f95,,,0,,,,9,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,breast luminal epithelium,,484ce00,,,0,,,,41,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,breast luminal epithelium,,839fcce,,,0,,,,51,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,breast luminal epithelium,,b9b13e9,,,0,,,,148,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,breast luminal epithelium,450K,b9b13e9,,,0,,,,345,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,breast luminal epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -2186,6 +2367,9 @@ Met-A,Met-A each cell,breast luminal epithelium,sequencing,9900040,,,0,,,,12,dev
 Met-A,Met-A each cell,breast luminal epithelium,sequencing,9d8ea3d,,,140,0.9186,0.9992,1.0804,140,development
 Met-A,Met-A each cell,breast luminal epithelium,sequencing,af2c330,,,12,0.7814,0.9242,0.9818,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,breast luminal epithelium,sequencing,b91a18a,,,9,0.9677,1.0287,1.1083,9,development
+Met-A,Met-A each cell,cardiomyocyte,,3b41f95,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cardiomyocyte,,484ce00,,,0,,,,6,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cardiomyocyte,,839fcce,,,0,,,,25,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cardiomyocyte,,b9b13e9,,,0,,,,4,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cardiomyocyte,450K,b9b13e9,,,0,,,,316,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cardiomyocyte,EPIC_v1,07638a9,,,0,,,,11,reference only (replay)
@@ -2218,6 +2402,9 @@ Met-A,Met-A each cell,cardiomyocyte,sequencing,9900040,,,0,,,,12,development (tu
 Met-A,Met-A each cell,cardiomyocyte,sequencing,9d8ea3d,,,140,0.91,0.9953,1.0678,140,development
 Met-A,Met-A each cell,cardiomyocyte,sequencing,af2c330,,,12,0.8012,0.9308,0.9857,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,cardiomyocyte,sequencing,b91a18a,,,9,0.8559,1.0041,1.1775,9,development
+Met-A,Met-A each cell,cd4 t cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cd4 t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cd4 t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cd4 t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cd4 t cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cd4 t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2251,6 +2438,9 @@ Met-A,Met-A each cell,cd4 t cells,sequencing,9900040,,,0,,,,12,development (tumo
 Met-A,Met-A each cell,cd4 t cells,sequencing,9d8ea3d,,,140,0.9184,1.0014,1.0941,140,development
 Met-A,Met-A each cell,cd4 t cells,sequencing,af2c330,,,12,0.6625,0.8833,0.9742,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,cd4 t cells,sequencing,b91a18a,,,9,0.8326,1.0101,1.3307,9,development
+Met-A,Met-A each cell,cd56bright nk cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cd56bright nk cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cd56bright nk cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cd56bright nk cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cd56bright nk cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cd56bright nk cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2271,6 +2461,9 @@ Met-A,Met-A each cell,cd56bright nk cells,HM450K,c8ff5cc,,,66,0.9451,0.9901,1.05
 Met-A,Met-A each cell,cd56bright nk cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,cd56bright nk cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,cd56bright nk cells,HM450K,f9958e6,,,84,0.9439,0.9893,1.0502,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,cd8 central memory t cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cd8 central memory t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cd8 central memory t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cd8 central memory t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cd8 central memory t cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cd8 central memory t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2291,6 +2484,9 @@ Met-A,Met-A each cell,cd8 central memory t cells,HM450K,c8ff5cc,,,66,0.8908,0.94
 Met-A,Met-A each cell,cd8 central memory t cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,cd8 central memory t cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,cd8 central memory t cells,HM450K,f9958e6,,,84,0.8893,0.9427,1.0099,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,cd8 t cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cd8 t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cd8 t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cd8 t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cd8 t cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cd8 t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2324,6 +2520,9 @@ Met-A,Met-A each cell,cd8 t cells,sequencing,9900040,,,0,,,,12,development (tumo
 Met-A,Met-A each cell,cd8 t cells,sequencing,9d8ea3d,,,140,0.9242,1.0018,1.0789,140,development
 Met-A,Met-A each cell,cd8 t cells,sequencing,af2c330,,,12,0.6473,0.8379,0.9154,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,cd8 t cells,sequencing,b91a18a,,,9,0.9216,1.0376,1.4285,9,development
+Met-A,Met-A each cell,cd8 temra t cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cd8 temra t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cd8 temra t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cd8 temra t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cd8 temra t cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cd8 temra t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2344,6 +2543,9 @@ Met-A,Met-A each cell,cd8 temra t cells,HM450K,c8ff5cc,,,66,0.8772,0.9481,1.0138
 Met-A,Met-A each cell,cd8 temra t cells,HM450K,ca58285,,,0,,,,130,reference only (replay)
 Met-A,Met-A each cell,cd8 temra t cells,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,cd8 temra t cells,HM450K,f9958e6,,,84,0.8728,0.947,1.0121,239,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,central memory th1 cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,central memory th1 cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,central memory th1 cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,central memory th1 cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,central memory th1 cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,central memory th1 cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2387,6 +2589,9 @@ Met-A,Met-A each cell,colon enteroendocrine,sequencing,9900040,,,0,,,,12,develop
 Met-A,Met-A each cell,colon enteroendocrine,sequencing,9d8ea3d,,,140,0.9038,0.9956,1.0925,140,development
 Met-A,Met-A each cell,colon enteroendocrine,sequencing,af2c330,,,12,0.7259,0.9241,0.9954,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,colon enteroendocrine,sequencing,b91a18a,,,9,0.8953,0.9635,1.2499,9,development
+Met-A,Met-A each cell,colon epithelium,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,colon epithelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,colon epithelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,colon epithelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,colon epithelium,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,colon epithelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2420,6 +2625,9 @@ Met-A,Met-A each cell,colon epithelium,sequencing,9900040,,,0,,,,12,development 
 Met-A,Met-A each cell,colon epithelium,sequencing,9d8ea3d,,,140,0.9192,1.0049,1.0864,140,development
 Met-A,Met-A each cell,colon epithelium,sequencing,af2c330,,,12,0.6882,0.9385,1.0042,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,colon epithelium,sequencing,b91a18a,,,9,0.9619,1.0166,1.417,9,development
+Met-A,Met-A each cell,colon fibroblasts,,3b41f95,,,0,,,,12,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,colon fibroblasts,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,colon fibroblasts,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,colon fibroblasts,,b9b13e9,,,0,,,,313,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,colon fibroblasts,450K,b9b13e9,,,0,,,,378,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,colon fibroblasts,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -2452,6 +2660,9 @@ Met-A,Met-A each cell,colon fibroblasts,sequencing,9900040,,,0,,,,12,development
 Met-A,Met-A each cell,colon fibroblasts,sequencing,9d8ea3d,,,140,0.9259,1.0027,1.0658,140,development
 Met-A,Met-A each cell,colon fibroblasts,sequencing,af2c330,,,12,0.7298,0.9207,0.97,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,colon fibroblasts,sequencing,b91a18a,,,9,0.8851,0.9492,1.4181,9,development
+Met-A,Met-A each cell,colon macrophages,,3b41f95,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,colon macrophages,,484ce00,,,0,,,,38,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,colon macrophages,,839fcce,,,0,,,,36,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,colon macrophages,,b9b13e9,,,0,,,,147,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,colon macrophages,450K,b9b13e9,,,0,,,,317,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,colon macrophages,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
@@ -2484,6 +2695,9 @@ Met-A,Met-A each cell,colon macrophages,sequencing,9900040,,,0,,,,12,development
 Met-A,Met-A each cell,colon macrophages,sequencing,9d8ea3d,,,140,0.9109,0.9974,1.0786,140,development
 Met-A,Met-A each cell,colon macrophages,sequencing,af2c330,,,12,0.6958,0.9081,0.9842,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,colon macrophages,sequencing,b91a18a,,,9,0.7833,1.0008,1.088,9,development
+Met-A,Met-A each cell,cortical neurons,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cortical neurons,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cortical neurons,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cortical neurons,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cortical neurons,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cortical neurons,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2517,6 +2731,9 @@ Met-A,Met-A each cell,cortical neurons,sequencing,9900040,,,0,,,,12,development 
 Met-A,Met-A each cell,cortical neurons,sequencing,9d8ea3d,,,140,0.9188,1.0006,1.0646,140,development
 Met-A,Met-A each cell,cortical neurons,sequencing,af2c330,,,12,0.7169,0.9179,0.9691,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,cortical neurons,sequencing,b91a18a,,,9,0.9322,1.0779,1.2315,9,development
+Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2537,6 +2754,9 @@ Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),HM450K,c8ff5cc,,,66,0.9027,0
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,cytotoxic cd4 t cells (cd28-),HM450K,f9958e6,,,84,0.9036,0.9834,1.0653,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,effector memory cd8 t cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,effector memory cd8 t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,effector memory cd8 t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,effector memory cd8 t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,effector memory cd8 t cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,effector memory cd8 t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2570,6 +2790,9 @@ Met-A,Met-A each cell,effector memory cd8 t cells,sequencing,9900040,,,0,,,,12,d
 Met-A,Met-A each cell,effector memory cd8 t cells,sequencing,9d8ea3d,,,140,0.9138,1.002,1.0596,140,development
 Met-A,Met-A each cell,effector memory cd8 t cells,sequencing,af2c330,,,12,0.6929,0.7739,0.9027,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,effector memory cd8 t cells,sequencing,b91a18a,,,9,0.9764,1.037,1.2124,9,development
+Met-A,Met-A each cell,embryonic stem cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,embryonic stem cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,embryonic stem cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,embryonic stem cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,embryonic stem cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,embryonic stem cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2590,6 +2813,9 @@ Met-A,Met-A each cell,embryonic stem cells,HM450K,c8ff5cc,,,66,0.8968,0.9656,1.0
 Met-A,Met-A each cell,embryonic stem cells,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,embryonic stem cells,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,embryonic stem cells,HM450K,f9958e6,,,84,0.8986,0.9638,1.0637,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,endometrium epithelium,,3b41f95,,,0,,,,10,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,endometrium epithelium,,484ce00,,,0,,,,6,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,endometrium epithelium,,839fcce,,,0,,,,32,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,endometrium epithelium,,b9b13e9,,,0,,,,23,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,endometrium epithelium,450K,b9b13e9,,,0,,,,317,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,endometrium epithelium,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
@@ -2622,6 +2848,9 @@ Met-A,Met-A each cell,endometrium epithelium,sequencing,9900040,,,0,,,,12,develo
 Met-A,Met-A each cell,endometrium epithelium,sequencing,9d8ea3d,,,140,0.9075,0.9979,1.0652,140,development
 Met-A,Met-A each cell,endometrium epithelium,sequencing,af2c330,,,12,0.7941,0.9066,0.9932,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,endometrium epithelium,sequencing,b91a18a,,,9,0.8808,1.0176,1.1673,9,development
+Met-A,Met-A each cell,eosinophils,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,eosinophils,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,eosinophils,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,eosinophils,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,eosinophils,450K,8e9fe16,,,0,,,,2,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,eosinophils,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2642,6 +2871,9 @@ Met-A,Met-A each cell,eosinophils,HM450K,c8ff5cc,,,66,0.905,0.9433,1.002,311,ref
 Met-A,Met-A each cell,eosinophils,HM450K,ca58285,,,0,,,,130,reference only (replay)
 Met-A,Met-A each cell,eosinophils,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,eosinophils,HM450K,f9958e6,,,83,0.8998,0.94,1.0008,237,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,erythrocyte progenitors,,3b41f95,,,0,,,,42,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,erythrocyte progenitors,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,erythrocyte progenitors,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,erythrocyte progenitors,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,erythrocyte progenitors,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,erythrocyte progenitors,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -2697,6 +2929,7 @@ Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,9900040,,,0,,,,12,de
 Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,9d8ea3d,,,140,0.9036,0.9954,1.0786,140,development
 Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,af2c330,,,12,0.8082,0.9179,0.973,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,fallopien tubes epithelium,sequencing,b91a18a,,,9,0.8671,0.985,1.1302,9,development
+Met-A,Met-A each cell,gastric antrum epithelium,,839fcce,,,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,gastric antrum epithelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,gastric antrum epithelium,450K,b9b13e9,,,0,,,,48,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,gastric antrum epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -2724,6 +2957,7 @@ Met-A,Met-A each cell,gastric antrum epithelium,sequencing,9900040,,,0,,,,12,dev
 Met-A,Met-A each cell,gastric antrum epithelium,sequencing,9d8ea3d,,,140,0.9052,0.9956,1.0648,140,development
 Met-A,Met-A each cell,gastric antrum epithelium,sequencing,af2c330,,,12,0.7982,0.9101,0.9742,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,gastric antrum epithelium,sequencing,b91a18a,,,9,0.8437,0.9982,1.2328,9,development
+Met-A,Met-A each cell,gastric body epithelium,,839fcce,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,gastric body epithelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,gastric body epithelium,450K,b9b13e9,,,0,,,,151,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,gastric body epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -2756,6 +2990,7 @@ Met-A,Met-A each cell,gastric body epithelium,sequencing,9900040,,,0,,,,12,devel
 Met-A,Met-A each cell,gastric body epithelium,sequencing,9d8ea3d,,,140,0.9029,0.9946,1.0761,140,development
 Met-A,Met-A each cell,gastric body epithelium,sequencing,af2c330,,,12,0.779,0.9038,0.981,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,gastric body epithelium,sequencing,b91a18a,,,9,0.8591,0.9832,1.3166,9,development
+Met-A,Met-A each cell,gastric fundus epithelium,,839fcce,,,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,gastric fundus epithelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,gastric fundus epithelium,450K,b9b13e9,,,0,,,,47,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,gastric fundus epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -2794,6 +3029,9 @@ Met-A,Met-A each cell,granulocytes,sequencing,9900040,,,0,,,,12,development (tum
 Met-A,Met-A each cell,granulocytes,sequencing,9d8ea3d,,,140,0.9079,1.0004,1.0835,140,development
 Met-A,Met-A each cell,granulocytes,sequencing,af2c330,,,12,0.6556,0.9407,1.0115,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,granulocytes,sequencing,b91a18a,,,9,0.7998,1.019,1.2478,9,development
+Met-A,Met-A each cell,heart fibroblasts,,3b41f95,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,heart fibroblasts,,484ce00,,,0,,,,26,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,heart fibroblasts,,839fcce,,,0,,,,36,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,heart fibroblasts,,b9b13e9,,,0,,,,147,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,heart fibroblasts,450K,b9b13e9,,,0,,,,317,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,heart fibroblasts,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
@@ -2826,6 +3064,9 @@ Met-A,Met-A each cell,heart fibroblasts,sequencing,9900040,,,0,,,,12,development
 Met-A,Met-A each cell,heart fibroblasts,sequencing,9d8ea3d,,,140,0.9106,0.9961,1.0632,140,development
 Met-A,Met-A each cell,heart fibroblasts,sequencing,af2c330,,,12,0.7918,0.9162,0.967,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,heart fibroblasts,sequencing,b91a18a,,,9,0.8537,0.9647,1.1756,9,development
+Met-A,Met-A each cell,hepatocyte,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,hepatocyte,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,hepatocyte,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,hepatocyte,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,hepatocyte,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,hepatocyte,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -2859,6 +3100,9 @@ Met-A,Met-A each cell,hepatocyte,sequencing,9900040,,,0,,,,12,development (tumor
 Met-A,Met-A each cell,hepatocyte,sequencing,9d8ea3d,,,140,0.9109,0.9979,1.0557,140,development
 Met-A,Met-A each cell,hepatocyte,sequencing,af2c330,,,12,0.7993,0.9062,0.9656,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,hepatocyte,sequencing,b91a18a,,,9,0.9147,0.9609,1.1064,9,development
+Met-A,Met-A each cell,kidney glomerular endothelium,,3b41f95,,,0,,,,22,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,kidney glomerular endothelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,kidney glomerular endothelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,kidney glomerular endothelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,kidney glomerular endothelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,kidney glomerular endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -2914,6 +3158,9 @@ Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,9900040,,,0,,,,12,
 Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,9d8ea3d,,,140,0.9108,0.9995,1.0873,140,development
 Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,af2c330,,,12,0.6881,0.9451,1.0121,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,kidney glomerular epithelium,sequencing,b91a18a,,,9,0.8027,0.9419,1.2242,9,development
+Met-A,Met-A each cell,kidney tubular endothelium,,3b41f95,,,0,,,,12,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,kidney tubular endothelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,kidney tubular endothelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,kidney tubular endothelium,,b9b13e9,,,0,,,,325,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,kidney tubular endothelium,450K,b9b13e9,,,0,,,,378,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,kidney tubular endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -2946,6 +3193,9 @@ Met-A,Met-A each cell,kidney tubular endothelium,sequencing,9900040,,,0,,,,12,de
 Met-A,Met-A each cell,kidney tubular endothelium,sequencing,9d8ea3d,,,140,0.8964,0.9973,1.0771,140,development
 Met-A,Met-A each cell,kidney tubular endothelium,sequencing,af2c330,,,12,0.7436,0.9391,0.996,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,kidney tubular endothelium,sequencing,b91a18a,,,9,0.9541,1.0632,1.2777,9,development
+Met-A,Met-A each cell,kidney tubular epithelium,,3b41f95,,,0,,,,42,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,kidney tubular epithelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,kidney tubular epithelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,kidney tubular epithelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,kidney tubular epithelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,kidney tubular epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -2978,6 +3228,9 @@ Met-A,Met-A each cell,kidney tubular epithelium,sequencing,9900040,,,0,,,,12,dev
 Met-A,Met-A each cell,kidney tubular epithelium,sequencing,9d8ea3d,,,140,0.908,0.9984,1.0661,140,development
 Met-A,Met-A each cell,kidney tubular epithelium,sequencing,af2c330,,,12,0.7381,0.9213,0.9965,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,kidney tubular epithelium,sequencing,b91a18a,,,9,0.8843,1.0471,1.2546,9,development
+Met-A,Met-A each cell,lung alveolar endothelium,,3b41f95,,,0,,,,22,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,lung alveolar endothelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,lung alveolar endothelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,lung alveolar endothelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,lung alveolar endothelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,lung alveolar endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3010,6 +3263,9 @@ Met-A,Met-A each cell,lung alveolar endothelium,sequencing,9900040,,,0,,,,12,dev
 Met-A,Met-A each cell,lung alveolar endothelium,sequencing,9d8ea3d,,,140,0.9071,1.0035,1.0801,140,development
 Met-A,Met-A each cell,lung alveolar endothelium,sequencing,af2c330,,,12,0.7667,0.9252,0.9894,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,lung alveolar endothelium,sequencing,b91a18a,,,9,0.8627,0.9925,1.1605,9,development
+Met-A,Met-A each cell,lung alveolar epithelium,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,lung alveolar epithelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,lung alveolar epithelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,lung alveolar epithelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,lung alveolar epithelium,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,lung alveolar epithelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3066,6 +3322,9 @@ Met-A,Met-A each cell,lung alveolar macrophages,sequencing,9900040,,,0,,,,12,dev
 Met-A,Met-A each cell,lung alveolar macrophages,sequencing,9d8ea3d,,,140,0.8849,0.9969,1.1178,140,development
 Met-A,Met-A each cell,lung alveolar macrophages,sequencing,af2c330,,,12,0.6443,0.9226,1.0166,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,lung alveolar macrophages,sequencing,b91a18a,,,9,0.7441,0.9157,1.1772,9,development
+Met-A,Met-A each cell,lung bronchus epithelium,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,lung bronchus epithelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,lung bronchus epithelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,lung bronchus epithelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,lung bronchus epithelium,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,lung bronchus epithelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3099,6 +3358,9 @@ Met-A,Met-A each cell,lung bronchus epithelium,sequencing,9900040,,,0,,,,12,deve
 Met-A,Met-A each cell,lung bronchus epithelium,sequencing,9d8ea3d,,,140,0.9301,1.0081,1.0777,140,development
 Met-A,Met-A each cell,lung bronchus epithelium,sequencing,af2c330,,,12,0.6887,0.911,0.9616,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,lung bronchus epithelium,sequencing,b91a18a,,,9,0.8986,1.0404,1.255,9,development
+Met-A,Met-A each cell,lung interstitial macrophages,,3b41f95,,,0,,,,10,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,lung interstitial macrophages,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,lung interstitial macrophages,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,lung interstitial macrophages,,b9b13e9,,,0,,,,314,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,lung interstitial macrophages,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,lung interstitial macrophages,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3131,6 +3393,9 @@ Met-A,Met-A each cell,lung interstitial macrophages,sequencing,9900040,,,0,,,,12
 Met-A,Met-A each cell,lung interstitial macrophages,sequencing,9d8ea3d,,,140,0.9034,0.9956,1.0868,140,development
 Met-A,Met-A each cell,lung interstitial macrophages,sequencing,af2c330,,,12,0.7103,0.9272,1.009,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,lung interstitial macrophages,sequencing,b91a18a,,,9,0.8682,1.0248,1.259,9,development
+Met-A,Met-A each cell,memory b cells,,3b41f95,,,0,,,,42,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,memory b cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,memory b cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,memory b cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,memory b cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,memory b cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3163,6 +3428,9 @@ Met-A,Met-A each cell,memory b cells,sequencing,9900040,,,0,,,,12,development (t
 Met-A,Met-A each cell,memory b cells,sequencing,9d8ea3d,,,140,0.9128,0.9991,1.0621,140,development
 Met-A,Met-A each cell,memory b cells,sequencing,af2c330,,,12,0.7596,0.854,0.8926,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,memory b cells,sequencing,b91a18a,,,9,0.8816,1.0012,1.0964,9,development
+Met-A,Met-A each cell,memory cd4 t cells,,3b41f95,,,0,,,,42,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,memory cd4 t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,memory cd4 t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,memory cd4 t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,memory cd4 t cells,450K,8e9fe16,,,0,,,,294,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,memory cd4 t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3183,6 +3451,9 @@ Met-A,Met-A each cell,memory cd4 t cells,HM450K,c8ff5cc,,,66,0.8949,0.9582,1.023
 Met-A,Met-A each cell,memory cd4 t cells,HM450K,ca58285,,,0,,,,127,reference only (replay)
 Met-A,Met-A each cell,memory cd4 t cells,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,memory cd4 t cells,HM450K,f9958e6,,,83,0.8918,0.9559,1.0226,235,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,microglia,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,microglia,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,microglia,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,microglia,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,microglia,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,microglia,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3203,6 +3474,9 @@ Met-A,Met-A each cell,microglia,HM450K,c8ff5cc,,,66,0.9053,0.9723,1.0535,322,ref
 Met-A,Met-A each cell,microglia,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,microglia,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,microglia,HM450K,f9958e6,,,84,0.9019,0.9698,1.0579,239,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,monocytes,,3b41f95,,,0,,,,42,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,monocytes,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,monocytes,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,monocytes,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,monocytes,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,monocytes,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3235,6 +3509,9 @@ Met-A,Met-A each cell,monocytes,sequencing,9900040,,,0,,,,12,development (tumor 
 Met-A,Met-A each cell,monocytes,sequencing,9d8ea3d,,,140,0.8904,0.9963,1.093,140,development
 Met-A,Met-A each cell,monocytes,sequencing,af2c330,,,12,0.6461,0.9418,0.9988,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,monocytes,sequencing,b91a18a,,,9,0.7939,0.9222,1.1335,9,development
+Met-A,Met-A each cell,naive b cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,naive b cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,naive b cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,naive b cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,naive b cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,naive b cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3255,6 +3532,9 @@ Met-A,Met-A each cell,naive b cells,HM450K,c8ff5cc,,,66,0.897,0.9531,1.0258,321,
 Met-A,Met-A each cell,naive b cells,HM450K,ca58285,,,0,,,,130,reference only (replay)
 Met-A,Met-A each cell,naive b cells,HM450K,e98b90f,,,0,,,,15,reference only (replay)
 Met-A,Met-A each cell,naive b cells,HM450K,f9958e6,,,84,0.8967,0.9524,1.0315,239,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,naive cd4 t cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,naive cd4 t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,naive cd4 t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,naive cd4 t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,naive cd4 t cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,naive cd4 t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3288,6 +3568,9 @@ Met-A,Met-A each cell,naive cd4 t cells,sequencing,9900040,,,0,,,,12,development
 Met-A,Met-A each cell,naive cd4 t cells,sequencing,9d8ea3d,,,140,0.913,1.0017,1.0904,140,development
 Met-A,Met-A each cell,naive cd4 t cells,sequencing,af2c330,,,12,0.5812,0.9459,0.9848,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,naive cd4 t cells,sequencing,b91a18a,,,9,0.8577,0.9899,1.2982,9,development
+Met-A,Met-A each cell,naive cd8 t cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,naive cd8 t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,naive cd8 t cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,naive cd8 t cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,naive cd8 t cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,naive cd8 t cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3321,6 +3604,9 @@ Met-A,Met-A each cell,naive cd8 t cells,sequencing,9900040,,,0,,,,12,development
 Met-A,Met-A each cell,naive cd8 t cells,sequencing,9d8ea3d,,,140,0.9137,0.9997,1.0735,140,development
 Met-A,Met-A each cell,naive cd8 t cells,sequencing,af2c330,,,12,0.5302,0.8575,0.9517,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,naive cd8 t cells,sequencing,b91a18a,,,9,0.932,1.0031,1.2421,9,development
+Met-A,Met-A each cell,neutrophils,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,neutrophils,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,neutrophils,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,neutrophils,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,neutrophils,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,neutrophils,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3341,6 +3627,9 @@ Met-A,Met-A each cell,neutrophils,HM450K,c8ff5cc,,,66,0.9015,0.9711,1.0637,326,r
 Met-A,Met-A each cell,neutrophils,HM450K,ca58285,,,0,,,,131,reference only (replay)
 Met-A,Met-A each cell,neutrophils,HM450K,e98b90f,,,0,,,,16,reference only (replay)
 Met-A,Met-A each cell,neutrophils,HM450K,f9958e6,,,84,0.9025,0.9711,1.0696,240,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,nk cells,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,nk cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,nk cells,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,nk cells,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,nk cells,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,nk cells,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3384,6 +3673,9 @@ Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,801e08b,,,237,0.9871,1.
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,oligodendrocyte precursors,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
+Met-A,Met-A each cell,oligodendrocytes,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,oligodendrocytes,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,oligodendrocytes,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,oligodendrocytes,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,oligodendrocytes,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,oligodendrocytes,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3417,6 +3709,9 @@ Met-A,Met-A each cell,oligodendrocytes,sequencing,9900040,,,0,,,,12,development 
 Met-A,Met-A each cell,oligodendrocytes,sequencing,9d8ea3d,,,140,0.9116,0.9998,1.0689,140,development
 Met-A,Met-A each cell,oligodendrocytes,sequencing,af2c330,,,12,0.7307,0.9158,0.9684,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,oligodendrocytes,sequencing,b91a18a,,,9,0.9284,1.0397,1.1978,9,development
+Met-A,Met-A each cell,pancreas endothelium,,3b41f95,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,pancreas endothelium,,484ce00,,,0,,,,6,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,pancreas endothelium,,839fcce,,,0,,,,17,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,pancreas endothelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,pancreas endothelium,450K,b9b13e9,,,0,,,,210,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,pancreas endothelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -3449,6 +3744,9 @@ Met-A,Met-A each cell,pancreas endothelium,sequencing,9900040,,,0,,,,12,developm
 Met-A,Met-A each cell,pancreas endothelium,sequencing,9d8ea3d,,,140,0.9026,0.9986,1.0894,140,development
 Met-A,Met-A each cell,pancreas endothelium,sequencing,af2c330,,,12,0.7892,0.9238,0.9797,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,pancreas endothelium,sequencing,b91a18a,,,9,0.9172,1.0356,1.2101,9,development
+Met-A,Met-A each cell,pancreatic acinar,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,pancreatic acinar,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,pancreatic acinar,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,pancreatic acinar,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,pancreatic acinar,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,pancreatic acinar,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3482,6 +3780,9 @@ Met-A,Met-A each cell,pancreatic acinar,sequencing,9900040,,,0,,,,12,development
 Met-A,Met-A each cell,pancreatic acinar,sequencing,9d8ea3d,,,140,0.905,0.994,1.0705,140,development
 Met-A,Met-A each cell,pancreatic acinar,sequencing,af2c330,,,12,0.8093,0.9013,0.9524,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,pancreatic acinar,sequencing,b91a18a,,,9,0.8478,0.9265,1.0399,9,development
+Met-A,Met-A each cell,pancreatic alpha,,3b41f95,,,0,,,,10,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,pancreatic alpha,,484ce00,,,0,,,,9,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,pancreatic alpha,,839fcce,,,0,,,,32,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,pancreatic alpha,,b9b13e9,,,0,,,,92,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,pancreatic alpha,450K,b9b13e9,,,0,,,,317,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,pancreatic alpha,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
@@ -3514,6 +3815,9 @@ Met-A,Met-A each cell,pancreatic alpha,sequencing,9900040,,,0,,,,12,development 
 Met-A,Met-A each cell,pancreatic alpha,sequencing,9d8ea3d,,,140,0.9129,0.9964,1.0695,140,development
 Met-A,Met-A each cell,pancreatic alpha,sequencing,af2c330,,,12,0.7743,0.9398,0.9965,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,pancreatic alpha,sequencing,b91a18a,,,9,0.8418,0.9827,1.2146,9,development
+Met-A,Met-A each cell,pancreatic beta,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,pancreatic beta,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,pancreatic beta,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,pancreatic beta,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,pancreatic beta,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,pancreatic beta,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3547,6 +3851,9 @@ Met-A,Met-A each cell,pancreatic beta,sequencing,9900040,,,0,,,,12,development (
 Met-A,Met-A each cell,pancreatic beta,sequencing,9d8ea3d,,,140,0.9125,1.0013,1.0735,140,development
 Met-A,Met-A each cell,pancreatic beta,sequencing,af2c330,,,12,0.7334,0.9151,1.0119,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,pancreatic beta,sequencing,b91a18a,,,9,0.9456,1.0714,1.2156,9,development
+Met-A,Met-A each cell,pancreatic delta,,3b41f95,,,0,,,,12,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,pancreatic delta,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,pancreatic delta,,839fcce,,,0,,,,65,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,pancreatic delta,,b9b13e9,,,0,,,,313,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,pancreatic delta,450K,b9b13e9,,,0,,,,378,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,pancreatic delta,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3579,6 +3886,9 @@ Met-A,Met-A each cell,pancreatic delta,sequencing,9900040,,,0,,,,12,development 
 Met-A,Met-A each cell,pancreatic delta,sequencing,9d8ea3d,,,140,0.9062,0.9964,1.0815,140,development
 Met-A,Met-A each cell,pancreatic delta,sequencing,af2c330,,,12,0.7945,0.9468,0.9804,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,pancreatic delta,sequencing,b91a18a,,,9,0.884,1.0436,1.2806,9,development
+Met-A,Met-A each cell,pancreatic duct,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,pancreatic duct,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,pancreatic duct,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,pancreatic duct,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,pancreatic duct,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,pancreatic duct,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3612,6 +3922,7 @@ Met-A,Met-A each cell,pancreatic duct,sequencing,9900040,,,0,,,,12,development (
 Met-A,Met-A each cell,pancreatic duct,sequencing,9d8ea3d,,,140,0.8962,0.9918,1.063,140,development
 Met-A,Met-A each cell,pancreatic duct,sequencing,af2c330,,,12,0.7512,0.9055,0.9774,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,pancreatic duct,sequencing,b91a18a,,,9,0.8261,0.9001,1.0217,9,development
+Met-A,Met-A each cell,prostate epithelium,,839fcce,,,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,prostate epithelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,prostate epithelium,450K,b9b13e9,,,0,,,,50,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,prostate epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -3639,6 +3950,8 @@ Met-A,Met-A each cell,prostate epithelium,sequencing,9900040,,,0,,,,12,developme
 Met-A,Met-A each cell,prostate epithelium,sequencing,9d8ea3d,,,140,0.8953,0.9965,1.0622,140,development
 Met-A,Met-A each cell,prostate epithelium,sequencing,af2c330,,,12,0.7768,0.906,0.9756,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,prostate epithelium,sequencing,b91a18a,,,9,0.8232,1.0283,1.079,9,development
+Met-A,Met-A each cell,regulatory t cells,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,regulatory t cells,,839fcce,,,0,,,,65,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,regulatory t cells,,b9b13e9,,,0,,,,288,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,regulatory t cells,450K,b9b13e9,,,0,,,,378,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,regulatory t cells,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3658,6 +3971,9 @@ Met-A,Met-A each cell,regulatory t cells,HM450K,c8ff5cc,,,20,0.9095,0.9308,0.970
 Met-A,Met-A each cell,regulatory t cells,HM450K,ca58285,,,0,,,,66,reference only (replay)
 Met-A,Met-A each cell,regulatory t cells,HM450K,e98b90f,,,0,,,,7,reference only (replay)
 Met-A,Met-A each cell,regulatory t cells,HM450K,f9958e6,,,26,0.9083,0.9308,0.969,99,development (replay on every atlas cell; spent data)
+Met-A,Met-A each cell,small intestine epithelium,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,small intestine epithelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,small intestine epithelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,small intestine epithelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,small intestine epithelium,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,small intestine epithelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3691,6 +4007,7 @@ Met-A,Met-A each cell,small intestine epithelium,sequencing,9900040,,,0,,,,12,de
 Met-A,Met-A each cell,small intestine epithelium,sequencing,9d8ea3d,,,140,0.9074,1.0034,1.104,140,development
 Met-A,Met-A each cell,small intestine epithelium,sequencing,af2c330,,,12,0.698,0.9475,1.0082,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,small intestine epithelium,sequencing,b91a18a,,,9,0.9112,1.1049,1.5752,9,development
+Met-A,Met-A each cell,smooth muscle,,839fcce,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,smooth muscle,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,smooth muscle,450K,b9b13e9,,,0,,,,133,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,smooth muscle,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -3723,6 +4040,7 @@ Met-A,Met-A each cell,smooth muscle,sequencing,9900040,,,0,,,,12,development (tu
 Met-A,Met-A each cell,smooth muscle,sequencing,9d8ea3d,,,140,0.9182,0.9947,1.0725,140,development
 Met-A,Met-A each cell,smooth muscle,sequencing,af2c330,,,12,0.7989,0.8911,0.9684,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,smooth muscle,sequencing,b91a18a,,,9,0.8811,0.9543,1.0459,9,development
+Met-A,Met-A each cell,striated muscle,,839fcce,,,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,striated muscle,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,striated muscle,450K,b9b13e9,,,0,,,,50,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,striated muscle,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -3751,6 +4069,9 @@ Met-A,Met-A each cell,striated muscle,sequencing,9900040,,,0,,,,12,development (
 Met-A,Met-A each cell,striated muscle,sequencing,9d8ea3d,,,140,0.8844,0.9978,1.0987,140,development
 Met-A,Met-A each cell,striated muscle,sequencing,af2c330,,,12,0.6698,0.9256,1.0134,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,striated muscle,sequencing,b91a18a,,,9,0.7761,1.0032,1.2518,9,development
+Met-A,Met-A each cell,t central memory cd4,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,t central memory cd4,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,t central memory cd4,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,t central memory cd4,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,t central memory cd4,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,t central memory cd4,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3784,6 +4105,9 @@ Met-A,Met-A each cell,t central memory cd4,sequencing,9900040,,,0,,,,12,developm
 Met-A,Met-A each cell,t central memory cd4,sequencing,9d8ea3d,,,140,0.9135,1.0001,1.0874,140,development
 Met-A,Met-A each cell,t central memory cd4,sequencing,af2c330,,,12,0.6832,0.8741,0.9315,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,t central memory cd4,sequencing,b91a18a,,,9,0.8204,1.0269,1.1481,9,development
+Met-A,Met-A each cell,t effector cell cd8,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,t effector cell cd8,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,t effector cell cd8,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,t effector cell cd8,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,t effector cell cd8,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,t effector cell cd8,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3817,6 +4141,9 @@ Met-A,Met-A each cell,t effector cell cd8,sequencing,9900040,,,0,,,,12,developme
 Met-A,Met-A each cell,t effector cell cd8,sequencing,9d8ea3d,,,140,0.9099,0.9964,1.0563,140,development
 Met-A,Met-A each cell,t effector cell cd8,sequencing,af2c330,,,12,0.691,0.7437,0.8789,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,t effector cell cd8,sequencing,b91a18a,,,9,0.7507,0.9278,1.0796,9,development
+Met-A,Met-A each cell,t effector memory cd4,,3b41f95,,,0,,,,7,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,t effector memory cd4,,484ce00,,,0,,,,40,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,t effector memory cd4,,839fcce,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,t effector memory cd4,,b9b13e9,,,0,,,,147,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,t effector memory cd4,450K,b9b13e9,,,0,,,,338,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,t effector memory cd4,EPIC_v1,07638a9,,,0,,,,14,reference only (replay)
@@ -3849,6 +4176,9 @@ Met-A,Met-A each cell,t effector memory cd4,sequencing,9900040,,,0,,,,12,develop
 Met-A,Met-A each cell,t effector memory cd4,sequencing,9d8ea3d,,,140,0.9022,0.9978,1.0702,140,development
 Met-A,Met-A each cell,t effector memory cd4,sequencing,af2c330,,,12,0.7509,0.8494,0.9095,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,t effector memory cd4,sequencing,b91a18a,,,9,0.9196,1.0267,1.1975,9,development
+Met-A,Met-A each cell,thyroid epithelium,,3b41f95,,,0,,,,10,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,thyroid epithelium,,484ce00,,,0,,,,41,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,thyroid epithelium,,839fcce,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,thyroid epithelium,,b9b13e9,,,0,,,,150,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,thyroid epithelium,450K,b9b13e9,,,0,,,,377,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,thyroid epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3881,6 +4211,7 @@ Met-A,Met-A each cell,thyroid epithelium,sequencing,9900040,,,0,,,,12,developmen
 Met-A,Met-A each cell,thyroid epithelium,sequencing,9d8ea3d,,,140,0.908,0.9964,1.0721,140,development
 Met-A,Met-A each cell,thyroid epithelium,sequencing,af2c330,,,12,0.7773,0.9176,1.0032,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,thyroid epithelium,sequencing,b91a18a,,,9,0.9011,0.9974,1.1265,9,development
+Met-A,Met-A each cell,tongue epithelium,,839fcce,,,0,,,,4,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,tongue epithelium,,b9b13e9,,,0,,,,2,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,tongue epithelium,450K,b9b13e9,,,0,,,,50,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,tongue epithelium,EPIC_v1,07638a9,,,0,,,,10,reference only (replay)
@@ -3909,6 +4240,9 @@ Met-A,Met-A each cell,tongue epithelium,sequencing,9900040,,,0,,,,12,development
 Met-A,Met-A each cell,tongue epithelium,sequencing,9d8ea3d,,,140,0.8916,0.9954,1.0656,140,development
 Met-A,Met-A each cell,tongue epithelium,sequencing,af2c330,,,12,0.7945,0.9173,0.9809,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,tongue epithelium,sequencing,b91a18a,,,9,0.8694,0.9342,1.068,9,development
+Met-A,Met-A each cell,tonsil palatine epithelium,,3b41f95,,,0,,,,5,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,tonsil palatine epithelium,,484ce00,,,0,,,,41,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,tonsil palatine epithelium,,839fcce,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,tonsil palatine epithelium,,b9b13e9,,,0,,,,149,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,tonsil palatine epithelium,450K,b9b13e9,,,0,,,,377,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,tonsil palatine epithelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -3964,6 +4298,9 @@ Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,9900040,,,0,,,,12,
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,9d8ea3d,,,140,0.9055,1.0021,1.0918,140,development
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,af2c330,,,12,0.6631,0.9174,0.9866,12,"development (outside-laboratory healthy test, not met)"
 Met-A,Met-A each cell,tonsil pharyngeal epithelium,sequencing,b91a18a,,,9,0.8888,0.9771,1.1841,9,development
+Met-A,Met-A each cell,vascular endothelium,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,vascular endothelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,vascular endothelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,vascular endothelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,vascular endothelium,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,vascular endothelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -3994,6 +4331,9 @@ Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,801e08b,,,237,0.9887
 Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,af2c330,,,0,,,,491,"reference only (replay, every atlas cell)"
 Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,c15538a,,,0,,,,97,reference only (replay; lung tissue not commissioned)
 Met-A,Met-A each cell,vascular leptomeningeal cells,EPIC_v1,ca58285,,,0,,,,67,reference only (replay)
+Met-A,Met-A each cell,vascular saphenous endothelium,,3b41f95,,,0,,,,22,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A each cell,vascular saphenous endothelium,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A each cell,vascular saphenous endothelium,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A each cell,vascular saphenous endothelium,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A each cell,vascular saphenous endothelium,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A each cell,vascular saphenous endothelium,EPIC_v1,07638a9,,,0,,,,15,reference only (replay)
@@ -4261,6 +4601,9 @@ Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",tongue epithe
 Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",tonsil palatine epithelium,sequencing,,,,3,1.5367,1.5496,1.5972,3,development (band not met)
 Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",tonsil pharyngeal epithelium,sequencing,,,,2,,1.4003,,2,development (band not met)
 Met-A,"Met-A sorted cell (atlas), sequencing units (band not met)",vascular saphenous endothelium,sequencing,,,,3,1.5721,1.5923,1.6637,3,development (band not met)
+Met-A,Met-A whole sample,whole sample,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,Met-A whole sample,whole sample,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,Met-A whole sample,whole sample,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,Met-A whole sample,whole sample,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,Met-A whole sample,whole sample,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,Met-A whole sample,whole sample,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -4315,6 +4658,9 @@ Met-A,Met-A whole sample,whole sample,sequencing,b91a18a,,,9,0.8598,0.942,1.1108
 Met-A,Met-A whole sample,whole sample,sequencing,c464b26,,,0,,,,5,development
 Met-A,Met-A whole sample,whole sample,sequencing,c543f9e,,,0,,,,1,development
 Met-A,Met-A whole sample,whole sample,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",domains,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,"Met-A whole sample, by place",domains,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,"Met-A whole sample, by place",domains,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,"Met-A whole sample, by place",domains,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,"Met-A whole sample, by place",domains,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,"Met-A whole sample, by place",domains,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -4369,6 +4715,9 @@ Met-A,"Met-A whole sample, by place",domains,sequencing,b91a18a,,,9,0.7406,0.868
 Met-A,"Met-A whole sample, by place",domains,sequencing,c464b26,,,0,,,,5,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,c543f9e,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",domains,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,"Met-A whole sample, by place",identity sites of the cells found,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -4423,6 +4772,9 @@ Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencin
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,c464b26,,,0,,,,5,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,c543f9e,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",identity sites of the cells found,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",islands,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,"Met-A whole sample, by place",islands,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,"Met-A whole sample, by place",islands,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,"Met-A whole sample, by place",islands,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,"Met-A whole sample, by place",islands,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,"Met-A whole sample, by place",islands,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -4477,6 +4829,9 @@ Met-A,"Met-A whole sample, by place",islands,sequencing,b91a18a,,,9,2.1724,2.835
 Met-A,"Met-A whole sample, by place",islands,sequencing,c464b26,,,0,,,,5,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,c543f9e,,,0,,,,1,development
 Met-A,"Met-A whole sample, by place",islands,sequencing,e87632c,,,0,,,,2,development
+Met-A,"Met-A whole sample, by place",the rest,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Met-A,"Met-A whole sample, by place",the rest,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Met-A,"Met-A whole sample, by place",the rest,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Met-A,"Met-A whole sample, by place",the rest,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Met-A,"Met-A whole sample, by place",the rest,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Met-A,"Met-A whole sample, by place",the rest,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -4534,6 +4889,9 @@ Met-A,"Met-A whole sample, by place",the rest,sequencing,e87632c,,,0,,,,2,develo
 Met-A,"R, tumor over the same patient's normal tissue",breast tissue,450K,,,,0,,,,53,development (sealed test met)
 Met-A,"R, tumor over the same patient's normal tissue",colon tissue,450K,,,,0,,,,88,development (sealed test met)
 Met-A,"R, tumor over the same patient's normal tissue",liver tissue,450K,,,,0,,,,50,development
+Territories,territory,domains,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Territories,territory,domains,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Territories,territory,domains,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Territories,territory,domains,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Territories,territory,domains,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Territories,territory,domains,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)
@@ -4588,6 +4946,9 @@ Territories,territory,domains,sequencing,b91a18a,,,9,0.7496,0.8684,1.069,9,devel
 Territories,territory,domains,sequencing,c464b26,,,0,,,,5,development
 Territories,territory,domains,sequencing,c543f9e,,,0,,,,1,development
 Territories,territory,domains,sequencing,e87632c,,,0,,,,2,development
+Territories,territory,islands,,3b41f95,,,0,,,,43,reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)
+Territories,territory,islands,,484ce00,,,0,,,,63,reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)
+Territories,territory,islands,,839fcce,,,0,,,,68,reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)
 Territories,territory,islands,,b9b13e9,,,0,,,,407,reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)
 Territories,territory,islands,450K,8e9fe16,,,0,,,,300,development (replay on every atlas cell; spent data; values route)
 Territories,territory,islands,450K,b9b13e9,,,0,,,,379,development (replay on every atlas cell; spent data; values route)

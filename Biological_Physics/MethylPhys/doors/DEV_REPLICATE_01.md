@@ -458,3 +458,17 @@ Bar (scorer `DEV_REPLICATE_01/r17_person_score.py`): at least 45 of the 50 healt
 Recorded, not scored: every other array person by person (normal-adjacent, BRCA1 carriers, cancer), inside, above or below Normal.
 
 **Prior reading:** GSE69914 is spent (R17 above, and earlier-engine VAL tests); this is a replay, stated as such.
+
+**Wave B, read: R18, R19 and R20 (development, spent data).** (`wave_b/r18_colon_summary.txt`, `wave_b/r19_cervix_summary.txt`, `wave_b/r20_aml_summary.txt`; rows tables beside them;
+every array read by the one command on every IAM-Atlas v2.1 cell, untared; re-sent at 10 shards.)
+- **R18 colon (GSE42752), 63 of 63 read:** adenocarcinoma (22) separates from normal colon of people without cancer (19) on 58 of 148 readings
+below p 0.001 (whole-sample Met-A 1.0296 against 0.9921). **Normal colon from cancer patients (22) against normal colon from people without
+cancer (19): whole-sample Met-A the same (0.9928 against 0.9921, p 0.95), but 13 readings separate below p 0.001**, the largest Met-A at the
+identity sites of the cells found (1.0030 against 0.9587, d +1.52, p 2.4e-05) and colon epithelium (1.3632 against 1.3085); the Deconvolver also
+finds a different make-up (CD8 TEMRA share 0.056 against 0.002). Recorded as found: 41 people, one study, spent data, untared; whether it is
+the tissue or how the two groups' samples were collected and run is not separable here. A prediction for an unread set, written first.
+- **R19 cervix (GSE46306), 43 of 43 read:** cancer (6) separates from normal (20) on 17 of 145 readings below p 0.001; CIN3 (17) does not (2 below
+p 0.01). The Deconvolver finds no cervical epithelium in the atlas and reads these samples largely as neutrophils and other epithelia; cervix is
+not an atlas cell, recorded.
+- **R20 AML (GSE62298), 68 of 68 read:** DNMT3A mutant (14) and wild type (54) do not separate (1 of 152 below p 0.01). No healthy group in
+this set; A-score rows added as reference only.

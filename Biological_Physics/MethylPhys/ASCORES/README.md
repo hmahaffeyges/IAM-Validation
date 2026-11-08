@@ -11869,8 +11869,869 @@ reading made another way (an earlier tare), so those rows show none.
 | C-Score | C-Score each cell | oligodendrocytes | tissue | normal-adjacent | 1 | 1.1184 | 1.1184 to 1.1184 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | kidney tubular epithelium | tissue | breast cancer (breast carcinoma) | 1 | 0.9991 | 0.9991 to 0.9991 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 | C-Score | C-Score each cell | t effector cell cd8 | tissue | breast cancer, BRCA1 carrier (breast carcinoma) | 1 | 1.0566 | 1.0566 to 1.0566 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | tissue | normal colon, no cancer | 19 | 0.99209 | 0.91919 to 1.0373 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | tissue | normal colon, no cancer | 19 | 0.95868 | 0.92418 to 1.01 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | tissue | normal colon, no cancer | 19 | 0.82699 | 0.68053 to 0.89757 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | tissue | normal colon, no cancer | 19 | 1.0517 | 0.99591 to 1.0937 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | tissue | normal colon, no cancer | 19 | 1.0036 | 0.93315 to 1.0414 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | tissue | normal colon, no cancer | 19 | 1.1106 | 1.032 to 1.1489 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | tissue | normal colon, no cancer | 19 | 1.1279 | 1.0407 to 1.1687 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | tissue | normal colon, no cancer | 19 | 1.233 | 1.1386 to 1.2842 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | tissue | normal colon, no cancer | 19 | 1.1065 | 1.0477 to 1.1433 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | tissue | normal colon, no cancer | 19 | 1.1178 | 1.1001 to 1.1501 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | tissue | normal colon, no cancer | 19 | 1.1365 | 1.056 to 1.1708 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | tissue | normal colon, no cancer | 19 | 1.2276 | 1.1464 to 1.2741 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | tissue | normal colon, no cancer | 19 | 1.2631 | 1.1315 to 1.3276 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | tissue | normal colon, no cancer | 19 | 1.1926 | 1.148 to 1.2472 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | tissue | normal colon, no cancer | 16 | 1.1693 | 1.1062 to 1.2156 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | tissue | normal colon, no cancer | 19 | 1.2946 | 1.199 to 1.3752 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | tissue | normal colon, no cancer | 19 | 1.3196 | 1.2558 to 1.4017 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | tissue | normal colon, no cancer | 19 | 1.3118 | 1.2501 to 1.3994 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | tissue | normal colon, no cancer | 19 | 1.2974 | 1.1722 to 1.3732 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | tissue | normal colon, no cancer | 19 | 1.2563 | 1.1925 to 1.3334 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | tissue | normal colon, no cancer | 19 | 1.2547 | 1.1931 to 1.3198 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | tissue | normal colon, no cancer | 19 | 1.3085 | 1.2401 to 1.3803 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | tissue | normal colon, no cancer | 19 | 1.3233 | 1.2479 to 1.3831 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | tissue | normal colon, no cancer | 14 | 1.2659 | 1.2063 to 1.3221 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | tissue | normal colon, no cancer | 19 | 1.2357 | 1.1737 to 1.3121 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | tissue | normal colon, no cancer | 19 | 1.2822 | 1.2174 to 1.3529 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | tissue | normal colon, no cancer | 19 | 1.3201 | 1.2601 to 1.4013 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | tissue | normal colon, no cancer | 19 | 1.3139 | 1.2526 to 1.3988 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | tissue | normal colon, no cancer | 19 | 1.1226 | 1.0696 to 1.158 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | tissue | normal colon, no cancer | 19 | 1.1947 | 1.1169 to 1.2319 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | tissue | normal colon, no cancer | 19 | 1.1364 | 1.0824 to 1.1715 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | tissue | normal colon, no cancer | 19 | 1.1744 | 1.0826 to 1.2197 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | tissue | normal colon, no cancer | 19 | 1.1699 | 1.0876 to 1.2189 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | tissue | normal colon, no cancer | 19 | 1.1585 | 1.0807 to 1.2012 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | tissue | normal colon, no cancer | 19 | 1.1854 | 1.0985 to 1.2334 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | tissue | normal colon, no cancer | 19 | 1.1805 | 1.1194 to 1.2508 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | tissue | normal colon, no cancer | 19 | 1.3678 | 1.2964 to 1.4443 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | tissue | normal colon, no cancer | 19 | 1.1565 | 1.0855 to 1.2004 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | tissue | normal colon, no cancer | 19 | 1.2953 | 1.2148 to 1.3667 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | tissue | normal colon, no cancer | 19 | 1.1661 | 1.1302 to 1.2161 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | tissue | normal colon, no cancer | 19 | 1.3 | 1.2289 to 1.3917 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | tissue | normal colon, no cancer | 19 | 1.2132 | 1.1492 to 1.2708 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | tissue | normal colon, no cancer | 19 | 1.2624 | 1.2054 to 1.3314 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | tissue | normal colon, no cancer | 19 | 1.3277 | 1.2594 to 1.4103 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | tissue | normal colon, no cancer | 19 | 1.359 | 1.2858 to 1.4335 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | tissue | normal colon, no cancer | 19 | 1.2968 | 1.2447 to 1.3675 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | tissue | normal colon, no cancer | 19 | 1.288 | 1.1876 to 1.3557 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | tissue | normal colon, no cancer | 19 | 1.2251 | 1.177 to 1.3018 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | tissue | normal colon, no cancer | 19 | 1.1682 | 1.1274 to 1.2047 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | tissue | normal colon, no cancer | 19 | 1.247 | 1.1707 to 1.3136 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | tissue | normal colon, no cancer | 19 | 1.1727 | 1.096 to 1.229 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | tissue | normal colon, no cancer | 19 | 1.1469 | 1.1099 to 1.1773 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | tissue | normal colon, no cancer | 19 | 1.122 | 1.063 to 1.1588 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | tissue | normal colon, no cancer | 19 | 1.3194 | 1.2378 to 1.4037 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | tissue | normal colon, no cancer | 19 | 1.3172 | 1.2491 to 1.4194 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | tissue | normal colon, no cancer | 19 | 1.2433 | 1.1893 to 1.2999 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | tissue | normal colon, no cancer | 15 | 1.1981 | 1.1613 to 1.2516 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | tissue | normal colon, no cancer | 16 | 1.1645 | 1.1116 to 1.2127 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | tissue | normal colon, no cancer | 16 | 1.1665 | 1.1068 to 1.2045 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | tissue | normal colon, no cancer | 19 | 1.1741 | 1.0612 to 1.2148 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | tissue | normal colon, no cancer | 19 | 1.1812 | 1.0956 to 1.2279 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | tissue | normal colon, no cancer | 19 | 0.83338 | 0.6848 to 0.90125 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | tissue | normal colon, no cancer | 19 | 1.0545 | 0.99482 to 1.0924 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | tissue | normal colon, no cancer | 19 | 5.3e-05 | 0 to 0.0003626 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | tissue | normal colon, no cancer | 19 | 0.10157 | 0.087984 to 0.11495 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | tissue | normal colon, no cancer | 19 | 1.0009 | 0.98839 to 1.0106 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | tissue | normal colon, no cancer | 11 | 1.0951 | 0.98815 to 1.1662 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | tissue | normal colon, no cancer | 16 | 1.0126 | 0.93827 to 1.0649 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | tissue | normal colon, no cancer | 19 | 0.9543 | 0.88247 to 1.0153 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon fibroblasts | tissue | normal colon, no cancer | 19 | 0.885 | 0.80154 to 0.9605 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | tissue | normal colon, no cancer | 15 | 0.9945 | 0.91345 to 1.0312 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | tissue | normal colon, no cancer | 17 | 0.9842 | 0.93626 to 1.0573 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | tissue | normal colon, no cancer | 19 | 1.025 | 0.93419 to 1.0942 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | tissue | normal colon, no cancer | 19 | 0.979 | 0.90452 to 1.0593 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | tissue | normal colon, no cancer | 17 | 0.901 | 0.86162 to 1.0243 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | tissue | normal colon, no cancer | 18 | 1.0635 | 0.95086 to 1.1365 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | tissue | normal colon, no cancer | 19 | 0.9956 | 0.9518 to 1.0543 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | tissue | normal colon, no cancer | 5 | 0.9696 | 0.90578 to 1.0919 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | tissue | normal colon, no cancer | 7 | 1.0783 | 1.0517 to 1.102 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | tissue | normal colon, no cancer | 19 | 1.0197 | 0.96894 to 1.0748 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | tissue | normal colon, no cancer | 18 | 1.0018 | 0.96842 to 1.097 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | tissue | normal colon, no cancer | 2 | 0.9651 | 0.92244 to 1.0078 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | tissue | normal colon, no cancer | 5 | 1.0031 | 0.95412 to 1.0725 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | tissue | normal colon, no cancer | 3 | 1.0163 | 0.94223 to 1.0419 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | tissue | normal colon, no cancer | 4 | 0.92385 | 0.85999 to 1.0664 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | tissue | normal colon, no cancer | 8 | 0.97305 | 0.90609 to 1.0379 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | tissue | normal colon, cancer patient | 22 | 0.9928 | 0.95757 to 1.0216 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | tissue | normal colon, cancer patient | 22 | 1.003 | 0.97219 to 1.0568 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | tissue | normal colon, cancer patient | 22 | 0.81536 | 0.74345 to 0.86945 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | tissue | normal colon, cancer patient | 22 | 1.0431 | 1.0102 to 1.0894 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | tissue | normal colon, cancer patient | 22 | 1.0056 | 0.95941 to 1.0408 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | tissue | normal colon, cancer patient | 22 | 1.1205 | 1.1004 to 1.1444 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | tissue | normal colon, cancer patient | 22 | 1.1418 | 1.1211 to 1.169 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | tissue | normal colon, cancer patient | 22 | 1.2534 | 1.2146 to 1.2917 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | tissue | normal colon, cancer patient | 22 | 1.122 | 1.1029 to 1.1485 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | tissue | normal colon, cancer patient | 22 | 1.1437 | 1.1204 to 1.1819 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | tissue | normal colon, cancer patient | 22 | 1.1566 | 1.1226 to 1.1899 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | tissue | normal colon, cancer patient | 22 | 1.2646 | 1.2155 to 1.3124 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | tissue | normal colon, cancer patient | 22 | 1.2902 | 1.2512 to 1.3409 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | tissue | normal colon, cancer patient | 22 | 1.234 | 1.1892 to 1.2939 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | tissue | normal colon, cancer patient | 22 | 1.335 | 1.2842 to 1.3989 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | tissue | normal colon, cancer patient | 22 | 1.3525 | 1.2955 to 1.4359 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | tissue | normal colon, cancer patient | 22 | 1.3601 | 1.3036 to 1.4587 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | tissue | normal colon, cancer patient | 22 | 1.3279 | 1.2806 to 1.381 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | tissue | normal colon, cancer patient | 22 | 1.2983 | 1.2469 to 1.3834 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | tissue | normal colon, cancer patient | 22 | 1.3041 | 1.2562 to 1.3932 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | tissue | normal colon, cancer patient | 22 | 1.3632 | 1.2963 to 1.4668 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | tissue | normal colon, cancer patient | 22 | 1.3567 | 1.294 to 1.4258 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | tissue | normal colon, cancer patient | 22 | 1.2777 | 1.2203 to 1.3457 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | tissue | normal colon, cancer patient | 22 | 1.3346 | 1.2682 to 1.4454 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | tissue | normal colon, cancer patient | 22 | 1.3583 | 1.3013 to 1.4558 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | tissue | normal colon, cancer patient | 22 | 1.3784 | 1.311 to 1.4947 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | tissue | normal colon, cancer patient | 22 | 1.1547 | 1.1251 to 1.1864 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | tissue | normal colon, cancer patient | 22 | 1.2157 | 1.1813 to 1.2523 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | tissue | normal colon, cancer patient | 22 | 1.1643 | 1.1426 to 1.1961 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | tissue | normal colon, cancer patient | 22 | 1.2044 | 1.1615 to 1.2397 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | tissue | normal colon, cancer patient | 22 | 1.1992 | 1.1593 to 1.2375 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | tissue | normal colon, cancer patient | 22 | 1.1853 | 1.1477 to 1.2159 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | tissue | normal colon, cancer patient | 22 | 1.2099 | 1.1671 to 1.2471 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | tissue | normal colon, cancer patient | 22 | 1.2338 | 1.1631 to 1.2864 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | tissue | normal colon, cancer patient | 22 | 1.4143 | 1.3543 to 1.502 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | tissue | normal colon, cancer patient | 22 | 1.1864 | 1.1505 to 1.221 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | tissue | normal colon, cancer patient | 22 | 1.3385 | 1.2753 to 1.4568 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | tissue | normal colon, cancer patient | 22 | 1.2064 | 1.1686 to 1.2611 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | tissue | normal colon, cancer patient | 22 | 1.3588 | 1.2832 to 1.4629 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | tissue | normal colon, cancer patient | 22 | 1.2453 | 1.2036 to 1.2877 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | tissue | normal colon, cancer patient | 22 | 1.3071 | 1.2563 to 1.3868 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | tissue | normal colon, cancer patient | 22 | 1.3756 | 1.3153 to 1.4729 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | tissue | normal colon, cancer patient | 22 | 1.4038 | 1.3441 to 1.5092 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | tissue | normal colon, cancer patient | 22 | 1.3386 | 1.2827 to 1.4234 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | tissue | normal colon, cancer patient | 22 | 1.3175 | 1.2757 to 1.3715 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | tissue | normal colon, cancer patient | 22 | 1.2807 | 1.2205 to 1.3564 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | tissue | normal colon, cancer patient | 22 | 1.1939 | 1.171 to 1.2363 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | tissue | normal colon, cancer patient | 22 | 1.291 | 1.238 to 1.3551 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | tissue | normal colon, cancer patient | 22 | 1.2074 | 1.1686 to 1.2503 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | tissue | normal colon, cancer patient | 22 | 1.1691 | 1.1425 to 1.2033 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | tissue | normal colon, cancer patient | 22 | 1.1442 | 1.1148 to 1.1785 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | tissue | normal colon, cancer patient | 22 | 1.3869 | 1.3153 to 1.4813 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | tissue | normal colon, cancer patient | 22 | 1.3615 | 1.2996 to 1.4784 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | tissue | normal colon, cancer patient | 22 | 1.2883 | 1.232 to 1.3707 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | tissue | normal colon, cancer patient | 22 | 1.1993 | 1.1639 to 1.2339 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | tissue | normal colon, cancer patient | 22 | 1.209 | 1.1653 to 1.2437 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | tissue | normal colon, cancer patient | 22 | 0.82342 | 0.75177 to 0.87495 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | tissue | normal colon, cancer patient | 22 | 1.0409 | 1.0114 to 1.0795 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | tissue | normal colon, cancer patient | 22 | 5.3e-05 | 1.3e-06 to 0.0002125 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | tissue | normal colon, cancer patient | 22 | 0.10383 | 0.096114 to 0.12089 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | tissue | normal colon, cancer patient | 22 | 1.0057 | 0.99949 to 1.0163 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | tissue | normal colon, cancer patient | 16 | 1.0406 | 0.98018 to 1.0759 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | tissue | normal colon, cancer patient | 21 | 0.9617 | 0.8828 to 1.1072 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | tissue | normal colon, cancer patient | 17 | 0.9951 | 0.96422 to 1.0642 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | tissue | normal colon, cancer patient | 22 | 0.9616 | 0.91264 to 1.0067 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon fibroblasts | tissue | normal colon, cancer patient | 22 | 0.91175 | 0.82371 to 0.98554 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | tissue | normal colon, cancer patient | 20 | 1.0265 | 0.92617 to 1.0727 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | tissue | normal colon, cancer patient | 22 | 1.0255 | 0.95232 to 1.0756 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | tissue | normal colon, cancer patient | 20 | 0.9761 | 0.91495 to 1.0532 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | tissue | normal colon, cancer patient | 22 | 0.9558 | 0.89775 to 1.0123 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | tissue | normal colon, cancer patient | 19 | 1.1248 | 1.087 to 1.1788 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | tissue | normal colon, cancer patient | 22 | 1.015 | 0.94169 to 1.0941 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | tissue | normal colon, cancer patient | 19 | 0.9534 | 0.87658 to 1.0295 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | tissue | normal colon, cancer patient | 20 | 1.0332 | 0.96159 to 1.0834 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | tissue | normal colon, cancer patient | 22 | 1.0346 | 0.97369 to 1.1092 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | tissue | normal colon, cancer patient | 9 | 1.0124 | 0.96518 to 1.0475 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | tissue | normal colon, cancer patient | 10 | 0.9618 | 0.92675 to 1.0334 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | tissue | normal colon, cancer patient | 7 | 1.1981 | 1.1829 to 1.2312 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | tissue | normal colon, cancer patient | 7 | 1.2765 | 1.2587 to 1.3287 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | tissue | normal colon, cancer patient | 5 | 1.2215 | 1.2058 to 1.2633 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | tissue | normal colon, cancer patient | 7 | 1.2181 | 1.2062 to 1.2667 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | tissue | normal colon, cancer patient | 7 | 1.1984 | 1.1851 to 1.2335 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | tissue | normal colon, cancer patient | 7 | 1.1877 | 1.1782 to 1.2226 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | tissue | normal colon, cancer patient | 2 | 1.0101 | 0.948 to 1.0723 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | tissue | normal colon, cancer patient | 6 | 1.0514 | 1.0171 to 1.1827 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.0296 | 0.98309 to 1.0603 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.0477 | 1.0078 to 1.0919 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.86089 | 0.80529 to 0.89844 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1145 | 1.0497 to 1.1496 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.0321 | 0.96237 to 1.0617 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1238 | 1.0415 to 1.1513 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1503 | 1.1007 to 1.1777 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2808 | 1.2441 to 1.3218 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1236 | 1.0471 to 1.1517 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.144 | 1.0899 to 1.175 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1606 | 1.0824 to 1.1939 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2693 | 1.2482 to 1.3051 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.324 | 1.2494 to 1.3678 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2397 | 1.2132 to 1.281 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 18 | 1.2185 | 1.1897 to 1.2557 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | tissue | colon adenocarcinoma (colon adenocarcinoma) | 5 | 1.1465 | 1.1211 to 1.1883 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3659 | 1.3159 to 1.4206 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3981 | 1.336 to 1.4396 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3892 | 1.3356 to 1.4546 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3569 | 1.3027 to 1.4191 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3205 | 1.2771 to 1.3765 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3185 | 1.2825 to 1.367 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3927 | 1.3242 to 1.4644 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3885 | 1.3265 to 1.4576 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | tissue | colon adenocarcinoma (colon adenocarcinoma) | 17 | 1.3251 | 1.2919 to 1.3821 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2964 | 1.2552 to 1.3542 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3405 | 1.2983 to 1.4051 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3906 | 1.3362 to 1.4646 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.4233 | 1.3475 to 1.4957 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 5 | 1.1949 | 1.1798 to 1.2322 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1533 | 1.1006 to 1.1859 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2136 | 1.1954 to 1.2538 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | tissue | colon adenocarcinoma (colon adenocarcinoma) | 13 | 1.2286 | 1.196 to 1.2698 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1654 | 1.1123 to 1.198 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2176 | 1.1949 to 1.25 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2141 | 1.1938 to 1.2471 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2025 | 1.1815 to 1.2354 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2351 | 1.2049 to 1.267 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.251 | 1.2037 to 1.2814 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.4592 | 1.3861 to 1.5171 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1934 | 1.1651 to 1.2297 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3734 | 1.3139 to 1.4261 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2091 | 1.1855 to 1.2535 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.389 | 1.3364 to 1.462 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2616 | 1.2199 to 1.29 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3252 | 1.2904 to 1.3795 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3917 | 1.3553 to 1.4478 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.424 | 1.3743 to 1.4842 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3521 | 1.3192 to 1.4028 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3476 | 1.3002 to 1.3961 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3088 | 1.2727 to 1.3784 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 5 | 1.2091 | 1.1893 to 1.2385 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1939 | 1.144 to 1.2276 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | tissue | colon adenocarcinoma (colon adenocarcinoma) | 7 | 1.2108 | 1.2039 to 1.2468 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.3114 | 1.2798 to 1.3556 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2235 | 1.2081 to 1.259 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1635 | 1.0945 to 1.1931 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1412 | 1.0618 to 1.1798 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.4156 | 1.352 to 1.504 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.4074 | 1.3361 to 1.4629 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2898 | 1.2548 to 1.335 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | tissue | colon adenocarcinoma (colon adenocarcinoma) | 18 | 1.2524 | 1.2228 to 1.294 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 18 | 1.2095 | 1.1852 to 1.2403 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 18 | 1.2051 | 1.1817 to 1.2434 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2006 | 1.1177 to 1.2316 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.2216 | 1.1973 to 1.2531 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.86961 | 0.81358 to 0.90842 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.1021 | 1.0453 to 1.1388 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.005178 | 0.0003264 to 0.023479 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.15726 | 0.10623 to 0.24607 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.0023 | 0.99416 to 1.0114 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.9972 | 0.90375 to 1.0842 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | tissue | colon adenocarcinoma (colon adenocarcinoma) | 9 | 0.9245 | 0.86554 to 1.0503 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.97515 | 0.91926 to 1.0412 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.9952 | 0.94239 to 1.0309 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 17 | 1.0971 | 0.97074 to 1.2392 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 2 | 1.0246 | 1.0213 to 1.0279 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 12 | 0.9684 | 0.91468 to 1.0222 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 0.99755 | 0.94254 to 1.0528 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | tissue | colon adenocarcinoma (colon adenocarcinoma) | 13 | 0.9558 | 0.89682 to 1.0537 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | tissue | colon adenocarcinoma (colon adenocarcinoma) | 22 | 1.0774 | 1.0273 to 1.1253 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | tissue | colon adenocarcinoma (colon adenocarcinoma) | 21 | 1.0176 | 0.9702 to 1.0796 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 21 | 0.9975 | 0.9244 to 1.1389 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | tissue | colon adenocarcinoma (colon adenocarcinoma) | 21 | 1.0114 | 0.9527 to 1.11 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | tissue | colon adenocarcinoma (colon adenocarcinoma) | 9 | 0.9537 | 0.92102 to 1.0424 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | tissue | colon adenocarcinoma (colon adenocarcinoma) | 9 | 0.961 | 0.90476 to 1.0514 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon fibroblasts | tissue | colon adenocarcinoma (colon adenocarcinoma) | 12 | 0.99325 | 0.95491 to 1.0641 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | tissue | colon adenocarcinoma (colon adenocarcinoma) | 4 | 1.0177 | 0.96894 to 1.0753 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 15 | 0.9955 | 0.9249 to 1.0699 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | tissue | colon adenocarcinoma (colon adenocarcinoma) | 1 | 0.8762 | 0.8762 to 0.8762 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | tissue | colon adenocarcinoma (colon adenocarcinoma) | 6 | 1.0706 | 1.041 to 1.1321 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | tissue | colon adenocarcinoma (colon adenocarcinoma) | 19 | 1.0367 | 0.9848 to 1.1643 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 17 | 1.024 | 0.9359 to 1.1394 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | tissue | normal colon, no cancer | 14 | 0.97915 | 0.92984 to 1.0488 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | tissue | normal colon, no cancer | 2 | 1.0199 | 1.0138 to 1.026 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | tissue | normal colon, no cancer | 5 | 0.9696 | 0.89134 to 0.98326 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | tissue | normal colon, no cancer | 5 | 1.0576 | 0.97368 to 1.0821 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | tissue | colon adenocarcinoma (colon adenocarcinoma) | 13 | 1.0434 | 0.98374 to 1.0923 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 8 | 1.0144 | 0.9885 to 1.0814 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 11 | 0.9332 | 0.82395 to 1.0421 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | hepatocyte | tissue | colon adenocarcinoma (colon adenocarcinoma) | 5 | 0.9896 | 0.94354 to 1.0028 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | tissue | normal colon, no cancer | 8 | 1.1793 | 1.1244 to 1.2296 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | tissue | normal colon, no cancer | 2 | 1.1587 | 1.0957 to 1.2217 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | tissue | normal colon, no cancer | 5 | 0.9351 | 0.90198 to 0.95606 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | hepatocyte | tissue | normal colon, cancer patient | 1 | 0.9376 | 0.9376 to 0.9376 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | tissue | colon adenocarcinoma (colon adenocarcinoma) | 2 | 0.99615 | 0.98584 to 1.0065 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | tissue | normal colon, no cancer | 1 | 1.1001 | 1.1001 to 1.1001 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector memory cd4 | tissue | normal colon, no cancer | 2 | 0.9179 | 0.91196 to 0.92384 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreas endothelium | tissue | normal colon, cancer patient | 4 | 1.0034 | 0.87413 to 1.0246 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | tissue | normal colon, no cancer | 1 | 0.8102 | 0.8102 to 0.8102 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 3 | 0.9672 | 0.9591 to 1.1035 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | tissue | colon adenocarcinoma (colon adenocarcinoma) | 2 | 0.8805 | 0.87996 to 0.88104 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | bladder epithelium | tissue | normal colon, no cancer | 1 | 1.0804 | 1.0804 to 1.0804 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | tissue | normal colon, no cancer | 1 | 1.0627 | 1.0627 to 1.0627 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | tissue | normal colon, no cancer | 1 | 1.1021 | 1.1021 to 1.1021 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | tissue | normal colon, no cancer | 1 | 1.0904 | 1.0904 to 1.0904 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | cd4 t cells | tissue | normal colon, no cancer | 1 | 1.0806 | 1.0806 to 1.0806 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | tissue | normal colon, cancer patient | 4 | 0.9222 | 0.90106 to 0.95481 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | tissue | normal colon, cancer patient | 4 | 1.0539 | 0.9918 to 1.0674 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | tissue | normal colon, cancer patient | 1 | 0.8662 | 0.8662 to 0.8662 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | tissue | colon adenocarcinoma (colon adenocarcinoma) | 1 | 1.0917 | 1.0917 to 1.0917 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | tissue | normal colon, cancer patient | 1 | 0.9436 | 0.9436 to 0.9436 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | tissue | normal colon, cancer patient | 1 | 1.0779 | 1.0779 to 1.0779 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | tissue | normal colon, cancer patient | 1 | 0.9811 | 0.9811 to 0.9811 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | tissue | colon adenocarcinoma (colon adenocarcinoma) | 2 | 0.84655 | 0.834 to 0.85911 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular leptomeningeal cells | tissue | normal colon, cancer patient | 1 | 0.9784 | 0.9784 to 0.9784 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | tissue | normal | 20 | 0.9381 | 0.9006 to 0.966 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | tissue | normal | 20 | 0.91041 | 0.87045 to 0.94321 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | tissue | normal | 20 | 0.87987 | 0.78582 to 0.92466 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | tissue | normal | 20 | 0.95843 | 0.94236 to 1.0074 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | tissue | normal | 20 | 0.94344 | 0.90727 to 0.9654 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | tissue | normal | 20 | 0.9741 | 0.9105 to 1.0646 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | tissue | normal | 20 | 1.0009 | 0.93976 to 1.084 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | tissue | normal | 20 | 1.0792 | 0.96887 to 1.1413 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | tissue | normal | 20 | 0.97787 | 0.9151 to 1.0639 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | tissue | normal | 20 | 0.9906 | 0.94666 to 1.0772 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | tissue | normal | 20 | 0.98561 | 0.91366 to 1.0922 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | tissue | normal | 20 | 1.0515 | 0.95659 to 1.0933 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | tissue | normal | 20 | 1.0795 | 0.94055 to 1.1302 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | tissue | normal | 4 | 1.0771 | 1.0408 to 1.0959 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | tissue | normal | 4 | 0.98257 | 0.84665 to 1.0534 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | tissue | normal | 2 | 1.0376 | 1.0301 to 1.0452 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | tissue | normal | 20 | 1.0924 | 0.95402 to 1.1502 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | tissue | normal | 20 | 1.0617 | 0.94837 to 1.1214 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | tissue | normal | 20 | 1.0771 | 0.95513 to 1.1422 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | tissue | normal | 20 | 1.0987 | 0.95108 to 1.163 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | tissue | normal | 20 | 1.0587 | 0.95965 to 1.1235 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | tissue | normal | 20 | 1.0517 | 0.96777 to 1.1113 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | tissue | normal | 20 | 1.0843 | 0.98959 to 1.1688 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | tissue | normal | 4 | 1.0754 | 0.91543 to 1.1717 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | tissue | normal | 2 | 1.1419 | 1.1217 to 1.1622 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | tissue | normal | 20 | 1.0159 | 0.91797 to 1.0754 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | tissue | normal | 20 | 1.0721 | 0.98847 to 1.1519 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | tissue | normal | 20 | 1.0832 | 0.95679 to 1.1512 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | tissue | normal | 20 | 1.0945 | 1.0105 to 1.1585 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | tissue | normal | 4 | 0.99496 | 0.86307 to 1.0631 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | tissue | normal | 20 | 0.98378 | 0.93839 to 1.0559 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | tissue | normal | 19 | 1.0358 | 0.94507 to 1.0943 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | tissue | normal | 2 | 1.0622 | 1.0513 to 1.0732 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | tissue | normal | 20 | 0.99158 | 0.93137 to 1.0519 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | tissue | normal | 6 | 1.0271 | 0.85671 to 1.0617 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | tissue | normal | 4 | 0.9844 | 0.85537 to 1.0511 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | tissue | normal | 19 | 1.0004 | 0.91816 to 1.0402 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | tissue | normal | 6 | 1.0308 | 0.85816 to 1.0842 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | tissue | normal | 20 | 1.0274 | 0.94421 to 1.0748 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | tissue | normal | 20 | 1.1493 | 1.045 to 1.2408 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | tissue | normal | 4 | 0.9896 | 0.85111 to 1.0703 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | tissue | normal | 19 | 1.0579 | 0.964 to 1.127 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | tissue | normal | 19 | 0.99234 | 0.92219 to 1.0592 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | tissue | normal | 20 | 1.0546 | 0.94422 to 1.1223 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | tissue | normal | 19 | 1.0406 | 0.91518 to 1.0866 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | tissue | normal | 20 | 1.0652 | 0.97374 to 1.144 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | tissue | normal | 20 | 1.0932 | 0.99153 to 1.1688 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | tissue | normal | 20 | 1.1095 | 0.9919 to 1.1914 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | tissue | normal | 20 | 1.0837 | 0.97349 to 1.181 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | tissue | normal | 20 | 1.102 | 0.97712 to 1.1667 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | tissue | normal | 20 | 1.018 | 0.93885 to 1.0877 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | tissue | normal | 2 | 1.0447 | 1.0369 to 1.0524 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | tissue | normal | 20 | 1.0363 | 0.97499 to 1.1101 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | tissue | normal | 4 | 0.98046 | 0.84782 to 1.0488 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | tissue | normal | 20 | 1.0476 | 0.94774 to 1.0943 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | tissue | normal | 4 | 0.99098 | 0.85677 to 1.0619 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | tissue | normal | 20 | 1.0053 | 0.94252 to 1.096 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | tissue | normal | 20 | 1.0998 | 0.98963 to 1.1847 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | tissue | normal | 20 | 1.0318 | 0.92981 to 1.1123 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | tissue | normal | 20 | 1.0475 | 0.97252 to 1.0996 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | tissue | normal | 2 | 1.0686 | 1.058 to 1.0791 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | tissue | normal | 4 | 0.98442 | 0.84945 to 1.0533 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | tissue | normal | 2 | 1.0489 | 1.041 to 1.0569 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | tissue | normal | 20 | 0.9534 | 0.86092 to 1.0683 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | tissue | normal | 6 | 1.0268 | 0.85853 to 1.0782 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | tissue | normal | 20 | 0.88411 | 0.79163 to 0.92753 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | tissue | normal | 20 | 0.96111 | 0.94689 to 1.0076 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | tissue | normal | 20 | 0.002685 | 0.0008676 to 0.004429 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | tissue | normal | 20 | 0.11292 | 0.089119 to 0.13279 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | tissue | normal | 20 | 0.9954 | 0.9852 to 1.0049 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | tissue | normal | 18 | 1.0461 | 0.99827 to 1.0805 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | tissue | normal | 17 | 0.9829 | 0.86048 to 1.0426 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | tissue | normal | 15 | 1.0134 | 0.92961 to 1.1013 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | tissue | normal | 10 | 1.06 | 0.96846 to 1.0957 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | tissue | normal | 16 | 1.0202 | 0.90355 to 1.0699 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | tissue | normal | 3 | 1.0462 | 0.97141 to 1.109 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | tissue | normal | 19 | 1.0078 | 0.90587 to 1.0815 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | tissue | normal | 7 | 1.0194 | 0.98459 to 1.0824 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | tissue | normal | 20 | 0.96365 | 0.89188 to 1.0522 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | tissue | normal | 20 | 0.9847 | 0.92537 to 1.0242 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil palatine epithelium | tissue | normal | 4 | 1.0074 | 0.98181 to 1.0957 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MEP (bone marrow) | tissue | normal | 7 | 0.9951 | 0.90645 to 1.094 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | tissue | normal | 18 | 0.942 | 0.87631 to 1.0309 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | tissue | normal | 18 | 1.0427 | 0.93889 to 1.1215 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | tissue | normal | 17 | 0.9409 | 0.83044 to 1.0905 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney glomerular epithelium | tissue | normal | 17 | 1.0379 | 0.9346 to 1.2136 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic duct | tissue | normal | 8 | 1.0509 | 0.96135 to 1.1028 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | tissue | normal | 5 | 0.889 | 0.85534 to 1.0687 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | tissue | normal | 5 | 1.0222 | 0.9632 to 1.0369 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | tissue | normal | 5 | 1.0016 | 0.96926 to 1.0366 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | tissue | normal | 18 | 1.0394 | 0.93605 to 1.0644 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | tissue | normal | 16 | 0.98065 | 0.92722 to 1.0416 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | tissue | normal | 7 | 1.0305 | 0.97137 to 1.051 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | tissue | normal | 2 | 1.0186 | 1.01 to 1.0271 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | tissue | normal | 10 | 1.0299 | 0.98838 to 1.0656 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | tissue | normal | 16 | 0.99715 | 0.95047 to 1.05 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.94944 | 0.93008 to 0.97876 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.90388 | 0.88381 to 0.93258 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.86351 | 0.83488 to 0.94191 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.97967 | 0.93345 to 1.0089 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.96613 | 0.93186 to 0.99475 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0481 | 0.91878 to 1.0744 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0712 | 0.9487 to 1.0951 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1333 | 0.96858 to 1.157 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0448 | 0.91874 to 1.0705 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0385 | 0.93666 to 1.0693 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0667 | 0.92329 to 1.1072 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0967 | 0.96426 to 1.1417 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1065 | 0.9214 to 1.1351 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1116 | 0.93758 to 1.1457 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0993 | 0.95368 to 1.1467 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0919 | 0.94106 to 1.121 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1184 | 0.93664 to 1.1471 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0795 | 0.95039 to 1.0977 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0802 | 0.9596 to 1.1093 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1139 | 0.97536 to 1.1428 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0455 | 0.89554 to 1.0833 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0863 | 0.97252 to 1.1154 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0981 | 0.93303 to 1.1264 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1035 | 0.98658 to 1.1376 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0228 | 0.93997 to 1.055 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0722 | 0.96782 to 1.1188 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0333 | 0.93969 to 1.0658 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0319 | 0.93788 to 1.0865 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0643 | 0.95056 to 1.1108 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1635 | 1.018 to 1.1958 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0682 | 0.94099 to 1.0879 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0245 | 0.91554 to 1.062 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0689 | 0.91514 to 1.1137 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0735 | 0.91237 to 1.1031 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0822 | 0.95356 to 1.1266 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1253 | 0.96818 to 1.1556 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1407 | 0.97466 to 1.1713 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1318 | 0.96757 to 1.1606 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1394 | 0.9614 to 1.1699 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.05 | 0.92187 to 1.091 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0813 | 0.97243 to 1.1044 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0945 | 0.95186 to 1.1287 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0662 | 0.92839 to 1.096 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.1284 | 0.98017 to 1.1652 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.063 | 0.9309 to 1.1239 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0737 | 0.96509 to 1.0944 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 1.0495 | 0.88456 to 1.1391 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.8649 | 0.83886 to 0.94511 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.99018 | 0.93503 to 1.0169 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.002109 | 0.0007752 to 0.010922 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.09541 | 0.086236 to 0.12913 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.9958 | 0.9886 to 1.0118 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 10 | 1.0246 | 0.9968 to 1.0892 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MEP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 4 | 0.97055 | 0.85896 to 1.0653 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | tissue | cin3 (cervical intraepithelial neoplasia 3) | 15 | 1.0225 | 0.94085 to 1.0737 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 16 | 0.97665 | 0.82798 to 1.04 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 11 | 0.9653 | 0.8607 to 1 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 9 | 1.0254 | 0.93468 to 1.0872 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 16 | 1.0564 | 0.87595 to 1.171 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | tissue | cin3 (cervical intraepithelial neoplasia 3) | 6 | 1.0471 | 1.0185 to 1.0896 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | fallopien tubes epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 12 | 0.89575 | 0.83226 to 1.018 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | gastric antrum epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 0.91865 | 0.84732 to 0.98998 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney glomerular epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 12 | 1.0209 | 0.87657 to 1.0789 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 3 | 0.9916 | 0.95587 to 1.0196 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.9989 | 0.92212 to 1.0286 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | tissue | cin3 (cervical intraepithelial neoplasia 3) | 9 | 0.9706 | 0.91282 to 1.038 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | tissue | cin3 (cervical intraepithelial neoplasia 3) | 17 | 0.9792 | 0.87904 to 1.0602 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 15 | 0.9836 | 0.93414 to 1.0248 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 11 | 0.9981 | 0.90665 to 1.0968 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil palatine epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 3 | 0.9542 | 0.92495 to 1.0623 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 15 | 1.1123 | 0.97557 to 1.1846 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | tissue | cancer (cervical carcinoma) | 6 | 0.93415 | 0.92244 to 0.96679 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | tissue | cancer (cervical carcinoma) | 6 | 0.91861 | 0.86872 to 0.93644 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | tissue | cancer (cervical carcinoma) | 6 | 0.78941 | 0.76458 to 0.85783 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | tissue | cancer (cervical carcinoma) | 6 | 0.95917 | 0.93525 to 0.99883 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | tissue | cancer (cervical carcinoma) | 6 | 0.96149 | 0.9426 to 0.9949 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | tissue | cancer (cervical carcinoma) | 6 | 1.0286 | 1.0064 to 1.1113 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | tissue | cancer (cervical carcinoma) | 6 | 1.0511 | 1.0096 to 1.1182 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | tissue | cancer (cervical carcinoma) | 6 | 1.1318 | 1.0854 to 1.1837 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | tissue | cancer (cervical carcinoma) | 6 | 1.0305 | 1.0044 to 1.1123 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | tissue | cancer (cervical carcinoma) | 6 | 1.051 | 1.0175 to 1.1176 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | tissue | cancer (cervical carcinoma) | 6 | 1.0602 | 1.0413 to 1.138 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | tissue | cancer (cervical carcinoma) | 6 | 1.1321 | 1.1091 to 1.144 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | tissue | cancer (cervical carcinoma) | 6 | 1.1162 | 1.0573 to 1.1578 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | tissue | cancer (cervical carcinoma) | 4 | 1.0834 | 1.0495 to 1.1287 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | tissue | cancer (cervical carcinoma) | 3 | 1.0529 | 1.029 to 1.0728 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | tissue | cancer (cervical carcinoma) | 1 | 1.066 | 1.066 to 1.066 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | tissue | cancer (cervical carcinoma) | 6 | 1.1339 | 1.0928 to 1.1902 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | tissue | cancer (cervical carcinoma) | 6 | 1.1518 | 1.1279 to 1.1916 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | tissue | cancer (cervical carcinoma) | 6 | 1.127 | 1.0926 to 1.1634 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | tissue | cancer (cervical carcinoma) | 6 | 1.1366 | 1.0828 to 1.1816 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | tissue | cancer (cervical carcinoma) | 6 | 1.1019 | 1.0684 to 1.132 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | tissue | cancer (cervical carcinoma) | 6 | 1.1205 | 1.0904 to 1.16 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | tissue | cancer (cervical carcinoma) | 6 | 1.1424 | 1.107 to 1.1777 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | tissue | cancer (cervical carcinoma) | 3 | 1.1613 | 1.1591 to 1.1743 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | tissue | cancer (cervical carcinoma) | 1 | 1.1721 | 1.1721 to 1.1721 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | tissue | cancer (cervical carcinoma) | 6 | 1.0825 | 1.0445 to 1.1274 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | tissue | cancer (cervical carcinoma) | 6 | 1.1274 | 1.0974 to 1.1649 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | tissue | cancer (cervical carcinoma) | 6 | 1.1377 | 1.1029 to 1.1809 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | tissue | cancer (cervical carcinoma) | 6 | 1.1642 | 1.1163 to 1.1679 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | tissue | cancer (cervical carcinoma) | 3 | 1.0522 | 1.0403 to 1.0804 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | tissue | cancer (cervical carcinoma) | 6 | 1.046 | 1.0214 to 1.0875 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | tissue | cancer (cervical carcinoma) | 6 | 1.1211 | 1.0704 to 1.1398 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | tissue | cancer (cervical carcinoma) | 1 | 1.0791 | 1.0791 to 1.0791 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | tissue | cancer (cervical carcinoma) | 6 | 1.0562 | 1.0367 to 1.0777 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | tissue | cancer (cervical carcinoma) | 6 | 1.0809 | 1.0662 to 1.1372 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | tissue | cancer (cervical carcinoma) | 3 | 1.0664 | 1.0537 to 1.0759 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | tissue | cancer (cervical carcinoma) | 6 | 1.0649 | 1.0415 to 1.1201 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | tissue | cancer (cervical carcinoma) | 6 | 1.093 | 1.0622 to 1.1454 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | tissue | cancer (cervical carcinoma) | 6 | 1.1111 | 1.0855 to 1.126 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | tissue | cancer (cervical carcinoma) | 6 | 1.1816 | 1.1543 to 1.2174 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | tissue | cancer (cervical carcinoma) | 3 | 1.0686 | 1.0555 to 1.096 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | tissue | cancer (cervical carcinoma) | 6 | 1.1009 | 1.0745 to 1.1378 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | tissue | cancer (cervical carcinoma) | 6 | 1.0651 | 1.0388 to 1.1122 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | tissue | cancer (cervical carcinoma) | 6 | 1.1254 | 1.0792 to 1.1618 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | tissue | cancer (cervical carcinoma) | 6 | 1.0826 | 1.0375 to 1.1435 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | tissue | cancer (cervical carcinoma) | 6 | 1.1313 | 1.0967 to 1.164 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | tissue | cancer (cervical carcinoma) | 6 | 1.156 | 1.1061 to 1.2217 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | tissue | cancer (cervical carcinoma) | 6 | 1.1779 | 1.1468 to 1.2242 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | tissue | cancer (cervical carcinoma) | 6 | 1.147 | 1.0869 to 1.2321 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | tissue | cancer (cervical carcinoma) | 6 | 1.1489 | 1.1021 to 1.2015 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | tissue | cancer (cervical carcinoma) | 6 | 1.0984 | 1.0569 to 1.1432 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | tissue | cancer (cervical carcinoma) | 1 | 1.0739 | 1.0739 to 1.0739 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | tissue | cancer (cervical carcinoma) | 6 | 1.0822 | 1.052 to 1.1285 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | tissue | cancer (cervical carcinoma) | 3 | 1.0724 | 1.0457 to 1.0736 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | tissue | cancer (cervical carcinoma) | 6 | 1.1266 | 1.0941 to 1.141 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | tissue | cancer (cervical carcinoma) | 3 | 1.0783 | 1.0605 to 1.0818 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | tissue | cancer (cervical carcinoma) | 6 | 1.0519 | 1.0189 to 1.1329 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | tissue | cancer (cervical carcinoma) | 6 | 1.1738 | 1.1292 to 1.1891 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | tissue | cancer (cervical carcinoma) | 6 | 1.162 | 1.1148 to 1.1936 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | tissue | cancer (cervical carcinoma) | 6 | 1.0988 | 1.065 to 1.1435 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | tissue | cancer (cervical carcinoma) | 3 | 1.0765 | 1.0655 to 1.1002 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | tissue | cancer (cervical carcinoma) | 3 | 1.0685 | 1.0499 to 1.0807 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | tissue | cancer (cervical carcinoma) | 1 | 1.0742 | 1.0742 to 1.0742 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | tissue | cancer (cervical carcinoma) | 6 | 1.1041 | 1.0621 to 1.1227 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | tissue | cancer (cervical carcinoma) | 6 | 1.0817 | 1.0633 to 1.1382 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | tissue | cancer (cervical carcinoma) | 6 | 0.79403 | 0.77358 to 0.86401 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | tissue | cancer (cervical carcinoma) | 6 | 0.96683 | 0.93524 to 1.0017 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | tissue | cancer (cervical carcinoma) | 6 | 0.014383 | 0.002143 to 0.042163 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | tissue | cancer (cervical carcinoma) | 6 | 0.115 | 0.096155 to 0.1715 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | tissue | cancer (cervical carcinoma) | 6 | 0.99905 | 0.99398 to 1.0052 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | tissue | cancer (cervical carcinoma) | 3 | 0.9238 | 0.91741 to 0.94657 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | tissue | cancer (cervical carcinoma) | 3 | 1.0024 | 0.97675 to 1.0683 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | tissue | cancer (cervical carcinoma) | 6 | 1.0135 | 0.98275 to 1.0676 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | tissue | cancer (cervical carcinoma) | 1 | 0.9091 | 0.9091 to 0.9091 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | tissue | cancer (cervical carcinoma) | 1 | 1.0574 | 1.0574 to 1.0574 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | tissue | cancer (cervical carcinoma) | 1 | 1.1068 | 1.1068 to 1.1068 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | tissue | cancer (cervical carcinoma) | 2 | 0.97315 | 0.91244 to 1.0339 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | tissue | cancer (cervical carcinoma) | 6 | 1.0378 | 0.98487 to 1.1219 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | tissue | cancer (cervical carcinoma) | 1 | 1.0568 | 1.0568 to 1.0568 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | tissue | normal | 8 | 0.99805 | 0.88792 to 1.0714 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 0.9871 | 0.9835 to 0.9907 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 6 | 1.0039 | 0.96072 to 1.0798 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 13 | 1.0094 | 0.95596 to 1.0837 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.0593 | 1.0182 to 1.1004 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 4 | 1.0551 | 1.0153 to 1.1003 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | tissue | cin3 (cervical intraepithelial neoplasia 3) | 13 | 1.0315 | 0.95926 to 1.0634 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic duct | tissue | cin3 (cervical intraepithelial neoplasia 3) | 4 | 0.9898 | 0.98003 to 1.0532 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular epithelium | tissue | normal | 9 | 0.9578 | 0.8933 to 1.0629 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | basophils | tissue | cin3 (cervical intraepithelial neoplasia 3) | 8 | 1.0726 | 1.0545 to 1.0934 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 10 | 1.0563 | 0.96802 to 1.1169 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 10 | 1.0639 | 0.98117 to 1.1279 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 10 | 1.0593 | 0.97174 to 1.1214 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | prostate epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 9 | 0.9192 | 0.80026 to 0.98608 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | tissue | cancer (cervical carcinoma) | 1 | 0.971 | 0.971 to 0.971 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | bladder epithelium | tissue | cancer (cervical carcinoma) | 4 | 1.028 | 0.96961 to 1.0673 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | tissue | cancer (cervical carcinoma) | 5 | 1.0087 | 0.9687 to 1.0617 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | tissue | cancer (cervical carcinoma) | 4 | 0.969 | 0.84891 to 1.0213 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | tissue | cancer (cervical carcinoma) | 3 | 1.0528 | 1.0482 to 1.0983 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | tissue | cancer (cervical carcinoma) | 5 | 1.0172 | 0.99242 to 1.0257 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | tissue | cancer (cervical carcinoma) | 5 | 0.9835 | 0.94432 to 1.1245 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | tissue | cancer (cervical carcinoma) | 5 | 0.9893 | 0.8919 to 1.0755 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | tissue | cancer (cervical carcinoma) | 4 | 0.9941 | 0.91241 to 1.0443 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil palatine epithelium | tissue | cancer (cervical carcinoma) | 2 | 1.0087 | 1.0046 to 1.0128 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tonsil pharyngeal epithelium | tissue | cancer (cervical carcinoma) | 3 | 1.1795 | 1.1084 to 1.246 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | tissue | normal | 1 | 0.8736 | 0.8736 to 0.8736 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | tissue | normal | 5 | 0.9397 | 0.8927 to 0.95702 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | tissue | normal | 2 | 0.93225 | 0.92527 to 0.93922 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | tissue | normal | 4 | 1.0747 | 0.97987 to 1.1251 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | tissue | normal | 1 | 1.022 | 1.022 to 1.022 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 7 | 0.9222 | 0.85786 to 1.0062 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | tissue | cancer (cervical carcinoma) | 4 | 0.99765 | 0.96142 to 1.0671 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | tissue | cancer (cervical carcinoma) | 2 | 1.038 | 1.03 to 1.0461 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | striated muscle | tissue | cancer (cervical carcinoma) | 1 | 1.0476 | 1.0476 to 1.0476 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | tissue | cancer (cervical carcinoma) | 4 | 1.0569 | 0.99156 to 1.0883 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | tissue | normal | 1 | 1.116 | 1.116 to 1.116 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | tissue | normal | 1 | 1.0404 | 1.0404 to 1.0404 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | tissue | normal | 1 | 1.0581 | 1.0581 to 1.0581 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | tissue | normal | 4 | 0.9191 | 0.86968 to 0.94837 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MPP (bone marrow) | tissue | normal | 1 | 0.956 | 0.956 to 0.956 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 4 | 1.0005 | 0.94655 to 1.0131 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 1.0908 | 1.0908 to 1.0908 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.002 | 0.97338 to 1.0306 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | tissue | cin3 (cervical intraepithelial neoplasia 3) | 3 | 1.0159 | 1.0003 to 1.0298 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 0.96635 | 0.93976 to 0.99294 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 1.0681 | 1.0681 to 1.0681 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 0.9218 | 0.91226 to 0.93134 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 1.011 | 1.011 to 1.011 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | tissue | cin3 (cervical intraepithelial neoplasia 3) | 5 | 1.149 | 1.0469 to 1.1919 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 5 | 1.0497 | 0.96748 to 1.0758 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | tissue | cin3 (cervical intraepithelial neoplasia 3) | 5 | 1.0555 | 0.96724 to 1.0917 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 3 | 1.0561 | 0.96309 to 1.0685 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | tissue | cin3 (cervical intraepithelial neoplasia 3) | 3 | 1.0465 | 0.94649 to 1.0729 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | tissue | cin3 (cervical intraepithelial neoplasia 3) | 3 | 1.0466 | 0.95753 to 1.0757 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 3 | 1.045 | 0.9529 to 1.0802 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | vascular leptomeningeal cells | tissue | normal | 1 | 0.9472 | 0.9472 to 0.9472 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | tissue | cancer (cervical carcinoma) | 2 | 1.0924 | 1.0877 to 1.0971 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | tissue | cancer (cervical carcinoma) | 1 | 1.0219 | 1.0219 to 1.0219 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | tissue | cancer (cervical carcinoma) | 2 | 0.9888 | 0.97476 to 1.0028 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | tissue | cancer (cervical carcinoma) | 3 | 1.0463 | 0.90914 to 1.0753 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | tongue epithelium | tissue | cancer (cervical carcinoma) | 2 | 1.0789 | 1.0644 to 1.0933 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | bladder epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 1.0555 | 1.0555 to 1.0555 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.0551 | 1.0487 to 1.0614 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.0548 | 1.0411 to 1.0686 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.1544 | 1.1352 to 1.1736 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.0745 | 1.0602 to 1.0888 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.0595 | 1.0493 to 1.0698 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.0669 | 1.0548 to 1.0791 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 2 | 1.0557 | 1.0508 to 1.0607 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | tonsil pharyngeal epithelium | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 1.1649 | 1.1649 to 1.1649 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | tissue | cancer (cervical carcinoma) | 1 | 0.9819 | 0.9819 to 0.9819 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | tissue | cancer (cervical carcinoma) | 2 | 0.9711 | 0.95409 to 0.98811 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 0.9037 | 0.9037 to 0.9037 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 1.0938 | 1.0938 to 1.0938 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | tissue | normal | 1 | 0.9618 | 0.9618 to 0.9618 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 0.9514 | 0.9514 to 0.9514 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | tissue | cin3 (cervical intraepithelial neoplasia 3) | 1 | 0.9645 | 0.9645 to 0.9645 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.85291 | 0.77796 to 0.91926 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.79768 | 0.72196 to 0.8551 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.86081 | 0.8142 to 0.91544 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.8477 | 0.72472 to 0.94432 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.85038 | 0.7934 to 0.92864 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0319 | 0.92254 to 1.0897 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0528 | 0.94558 to 1.107 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.1294 | 1.0369 to 1.2102 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0144 | 0.89718 to 1.0713 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.99828 | 0.88512 to 1.0577 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0406 | 0.93415 to 1.1119 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0684 | 0.9634 to 1.1284 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.1283 | 0.99403 to 1.3251 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.027 | 0.91694 to 1.1288 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 11 | 0.99854 | 0.90552 to 1.0564 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | unknown | DNMT3A mutant (acute myeloid leukemia) | 8 | 0.99206 | 0.91198 to 1.0193 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.1355 | 1.0068 to 1.3564 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0829 | 0.98007 to 1.1681 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0856 | 0.95621 to 1.2978 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.1392 | 1.0008 to 1.3437 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0457 | 0.92819 to 1.2461 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0564 | 0.95189 to 1.1581 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0626 | 0.95498 to 1.157 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.111 | 1.0427 to 1.1994 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | unknown | DNMT3A mutant (acute myeloid leukemia) | 9 | 1.1045 | 1.0193 to 1.1378 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0488 | 0.91726 to 1.2621 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0435 | 0.94866 to 1.1431 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0956 | 0.94874 to 1.2756 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0555 | 0.95593 to 1.1458 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 9 | 0.97708 | 0.89301 to 1.0282 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.99166 | 0.89516 to 1.0809 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0526 | 0.96712 to 1.1099 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | unknown | DNMT3A mutant (acute myeloid leukemia) | 9 | 1.0046 | 0.92771 to 1.0518 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.99728 | 0.91878 to 1.0658 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0211 | 0.92048 to 1.0943 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.019 | 0.91779 to 1.0916 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0171 | 0.91748 to 1.0752 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0225 | 0.93424 to 1.1002 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0156 | 0.93066 to 1.1407 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0974 | 1.0059 to 1.2064 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0148 | 0.92228 to 1.1158 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0184 | 0.90197 to 1.1957 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0089 | 0.90945 to 1.1483 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0518 | 0.90405 to 1.2633 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0807 | 0.95961 to 1.2636 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0623 | 0.95131 to 1.2264 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.1016 | 0.9976 to 1.2043 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.1487 | 1.0387 to 1.2689 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0985 | 0.98773 to 1.1801 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.1589 | 1.0451 to 1.2771 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0182 | 0.89346 to 1.1838 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 6 | 0.97854 | 0.89995 to 1.0474 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0073 | 0.93366 to 1.1016 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | unknown | DNMT3A mutant (acute myeloid leukemia) | 9 | 0.99758 | 0.91175 to 1.0621 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.045 | 0.952 to 1.1475 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0196 | 0.92588 to 1.0958 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.99784 | 0.90392 to 1.0932 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.99771 | 0.89612 to 1.105 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0829 | 0.97498 to 1.1724 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0282 | 0.9346 to 1.1433 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0129 | 0.91646 to 1.1048 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | unknown | DNMT3A mutant (acute myeloid leukemia) | 9 | 1.0169 | 0.92895 to 1.1217 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0121 | 0.92005 to 1.0958 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0138 | 0.91017 to 1.0667 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0563 | 0.93475 to 1.1162 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.0207 | 0.92416 to 1.091 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.86079 | 0.81349 to 0.91568 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.85818 | 0.73519 to 0.95328 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.008564 | 0.0034891 to 0.035377 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 0.16677 | 0.14887 to 0.23195 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | unknown | DNMT3A mutant (acute myeloid leukemia) | 14 | 1.003 | 0.99677 to 1.0126 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | unknown | DNMT3A mutant (acute myeloid leukemia) | 5 | 1.0586 | 0.95338 to 1.1093 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | unknown | DNMT3A mutant (acute myeloid leukemia) | 6 | 0.96485 | 0.92038 to 1.0381 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | unknown | DNMT3A mutant (acute myeloid leukemia) | 10 | 1.0191 | 0.92734 to 1.1503 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | unknown | DNMT3A mutant (acute myeloid leukemia) | 7 | 1.024 | 0.96654 to 1.0877 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | unknown | DNMT3A mutant (acute myeloid leukemia) | 4 | 1.1174 | 0.97608 to 1.1447 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | unknown | DNMT3A mutant (acute myeloid leukemia) | 6 | 1.0022 | 0.91923 to 1.0766 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 5 | 0.9977 | 0.96762 to 1.0414 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | unknown | DNMT3A mutant (acute myeloid leukemia) | 2 | 0.92585 | 0.87874 to 0.97296 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 11 | 1.0014 | 0.93525 to 1.0454 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | unknown | DNMT3A mutant (acute myeloid leukemia) | 10 | 0.8813 | 0.83622 to 0.95825 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | unknown | DNMT3A mutant (acute myeloid leukemia) | 12 | 1.0044 | 0.84312 to 1.1407 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 7 | 0.9837 | 0.9302 to 1.035 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | unknown | DNMT3A mutant (acute myeloid leukemia) | 13 | 1.0028 | 0.9582 to 1.0443 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 2 | 0.9788 | 0.95855 to 0.99905 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 1 | 0.9209 | 0.9209 to 0.9209 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 8 | 1.0013 | 0.95841 to 1.0845 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | unknown | DNMT3A mutant (acute myeloid leukemia) | 5 | 0.978 | 0.89868 to 0.9963 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 6 | 1.003 | 0.9583 to 1.1067 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 6 | 0.9622 | 0.93795 to 0.9922 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | unknown | DNMT3A mutant (acute myeloid leukemia) | 4 | 1.0162 | 0.97027 to 1.063 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | unknown | DNMT3A mutant (acute myeloid leukemia) | 3 | 0.9972 | 0.95895 to 1.0197 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | unknown | DNMT3A mutant (acute myeloid leukemia) | 4 | 1.008 | 0.9941 to 1.0179 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | striated muscle | unknown | DNMT3A mutant (acute myeloid leukemia) | 1 | 0.9804 | 0.9804 to 0.9804 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A whole sample | whole sample | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.85078 | 0.77543 to 0.9091 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | identity sites of the cells found | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.79146 | 0.72633 to 0.86159 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | islands | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.86546 | 0.80018 to 0.91818 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | domains | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.82139 | 0.72551 to 0.9531 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A whole sample, by place | the rest | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.85937 | 0.78292 to 0.9274 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | CMP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0292 | 0.93043 to 1.118 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | GMP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0356 | 0.94201 to 1.1256 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | HSC (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1385 | 1.0424 to 1.229 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | L-MPP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.006 | 0.91559 to 1.1032 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MEP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0006 | 0.9111 to 1.0804 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | MPP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0334 | 0.94295 to 1.1126 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | adipocytes | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.083 | 1.0092 to 1.1521 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | b cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1397 | 1.0482 to 1.3432 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | basophils | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0427 | 0.94197 to 1.1797 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd4 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.154 | 1.0578 to 1.3832 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd56bright nk cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0842 | 0.99609 to 1.2045 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 central memory t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1014 | 1.0095 to 1.35 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1592 | 1.0618 to 1.3776 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cd8 temra t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0571 | 0.97451 to 1.2929 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | central memory th1 cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0699 | 0.97152 to 1.1938 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.068 | 0.94742 to 1.1872 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon fibroblasts | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1277 | 1.0564 to 1.1861 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cortical neurons | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0556 | 0.94339 to 1.3027 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cytotoxic cd4 t cells (cd28-) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0623 | 0.96908 to 1.1923 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | effector memory cd8 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1174 | 1.0375 to 1.3252 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | embryonic stem cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0674 | 0.96242 to 1.1884 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | eosinophils | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0055 | 0.91581 to 1.1087 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | erythrocyte progenitors | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0644 | 0.99682 to 1.133 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | hepatocyte | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0037 | 0.93685 to 1.079 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney glomerular endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.042 | 0.96142 to 1.1338 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0364 | 0.96153 to 1.1306 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | kidney tubular epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.032 | 0.94568 to 1.1136 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0447 | 0.96609 to 1.1422 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung alveolar epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0371 | 0.95728 to 1.1619 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung bronchus epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1051 | 1.0272 to 1.2463 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | lung interstitial macrophages | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0343 | 0.94529 to 1.1408 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory b cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0435 | 0.94597 to 1.2589 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | memory cd4 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0305 | 0.93898 to 1.1823 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | microglia | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0674 | 0.94773 to 1.3077 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | monocytes | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0838 | 0.96508 to 1.2947 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive b cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0613 | 0.96108 to 1.2612 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd4 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1046 | 0.97561 to 1.2483 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | naive cd8 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1543 | 1.0511 to 1.3049 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | neutrophils | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0962 | 0.97725 to 1.2137 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | nk cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1659 | 1.0657 to 1.3121 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | oligodendrocytes | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0289 | 0.93691 to 1.2483 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic acinar | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0204 | 0.94807 to 1.1154 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic beta | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0669 | 0.96836 to 1.1793 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic delta | unknown | DNMT3A wildtype (acute myeloid leukemia) | 51 | 1.04 | 0.95167 to 1.1303 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic duct | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0069 | 0.93021 to 1.1106 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | regulatory t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 51 | 1.0184 | 0.92434 to 1.1373 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | small intestine epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.1007 | 0.97784 to 1.1956 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t central memory cd4 | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.046 | 0.94003 to 1.1843 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector cell cd8 | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0286 | 0.92773 to 1.1409 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | thyroid epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 49 | 1.0208 | 0.94651 to 1.1205 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tonsil palatine epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 49 | 1.0235 | 0.93479 to 1.0918 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0755 | 0.96778 to 1.1557 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | vascular saphenous endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0358 | 0.95867 to 1.1333 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Territories | territory | islands | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.86827 | 0.80006 to 0.91868 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Territories | territory | domains | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.83567 | 0.73898 to 0.95942 | no line set for this reading | [Territories.csv](Territories.csv) |
+| Globe | globe changed blocks | share of blocks | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.011201 | 0.0003978 to 0.021368 | no line set for this reading | [Globe.csv](Globe.csv) |
+| Information sphere | information sphere | Fisher-Rao rms (rad) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 0.17128 | 0.083881 to 0.20083 | no line set for this reading | [Information_sphere.csv](Information_sphere.csv) |
+| C-Score | C-Score whole genome | whole genome | unknown | DNMT3A wildtype (acute myeloid leukemia) | 54 | 1.0039 | 0.98955 to 1.0118 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 18 | 0.9641 | 0.92856 to 1.0388 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 18 | 1.0166 | 0.96998 to 1.065 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 15 | 1.0109 | 0.95004 to 1.0533 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 23 | 0.9192 | 0.83082 to 1.0234 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 temra t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 41 | 0.9955 | 0.8759 to 1.0905 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cortical neurons | unknown | DNMT3A wildtype (acute myeloid leukemia) | 27 | 0.9724 | 0.92028 to 1.0646 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 25 | 1.002 | 0.94128 to 1.0756 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | memory b cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 43 | 0.9824 | 0.90312 to 1.1121 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | microglia | unknown | DNMT3A wildtype (acute myeloid leukemia) | 49 | 0.9028 | 0.82558 to 1.0078 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | monocytes | unknown | DNMT3A wildtype (acute myeloid leukemia) | 47 | 0.9903 | 0.8684 to 1.1066 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive b cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 35 | 1.0178 | 0.95485 to 1.1407 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd4 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 25 | 0.968 | 0.90708 to 1.07 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | naive cd8 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 28 | 0.98125 | 0.88658 to 1.0602 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | neutrophils | unknown | DNMT3A wildtype (acute myeloid leukemia) | 49 | 1.0017 | 0.94326 to 1.0903 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocytes | unknown | DNMT3A wildtype (acute myeloid leukemia) | 21 | 1.0001 | 0.9247 to 1.1217 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 22 | 1.0063 | 0.89667 to 1.0933 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | unknown | DNMT3A wildtype (acute myeloid leukemia) | 41 | 0.97 | 0.8953 to 1.0507 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 10 | 0.98095 | 0.89517 to 1.0714 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | breast luminal epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 40 | 1.0255 | 0.96712 to 1.1154 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | cardiomyocyte | unknown | DNMT3A wildtype (acute myeloid leukemia) | 17 | 1.0202 | 0.96859 to 1.0668 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | colon macrophages | unknown | DNMT3A wildtype (acute myeloid leukemia) | 27 | 1.1235 | 1.0542 to 1.1809 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | endometrium epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 23 | 1.02 | 0.97427 to 1.0672 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | heart fibroblasts | unknown | DNMT3A wildtype (acute myeloid leukemia) | 27 | 1.0453 | 0.98914 to 1.1149 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreatic alpha | unknown | DNMT3A wildtype (acute myeloid leukemia) | 23 | 1.0348 | 0.98801 to 1.087 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | t effector memory cd4 | unknown | DNMT3A wildtype (acute myeloid leukemia) | 34 | 1.0491 | 0.97859 to 1.1791 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | MEP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 1 | 1.0797 | 1.0797 to 1.0797 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | unknown | DNMT3A wildtype (acute myeloid leukemia) | 22 | 0.9783 | 0.86924 to 1.0663 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | basophils | unknown | DNMT3A wildtype (acute myeloid leukemia) | 18 | 1.0537 | 0.97386 to 1.1352 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 1 | 1.0361 | 1.0361 to 1.0361 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 10 | 1.017 | 0.95109 to 1.0595 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon enteroendocrine | unknown | DNMT3A wildtype (acute myeloid leukemia) | 15 | 0.9726 | 0.8327 to 1.0656 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cytotoxic cd4 t cells (cd28-) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 28 | 1.0118 | 0.95619 to 1.1229 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | eosinophils | unknown | DNMT3A wildtype (acute myeloid leukemia) | 12 | 1.0211 | 0.89938 to 1.1175 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | erythrocyte progenitors | unknown | DNMT3A wildtype (acute myeloid leukemia) | 20 | 0.9833 | 0.90361 to 1.1343 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung bronchus epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 6 | 0.99715 | 0.97737 to 1.0459 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | nk cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.0055 | 0.93232 to 1.0492 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 5 | 0.9724 | 0.9102 to 1.1192 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | GMP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 3 | 0.9958 | 0.92587 to 1.0698 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | HSC (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 4 | 1.0086 | 0.97467 to 1.0169 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | L-MPP (bone marrow) | unknown | DNMT3A mutant (acute myeloid leukemia) | 5 | 0.9804 | 0.91308 to 0.994 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 2 | 1.0839 | 1.0537 to 1.114 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | central memory th1 cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 5 | 1.0474 | 0.93744 to 1.0588 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | embryonic stem cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 6 | 1.0314 | 0.98413 to 1.0692 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | hepatocyte | unknown | DNMT3A mutant (acute myeloid leukemia) | 3 | 0.9508 | 0.93271 to 1.0356 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | unknown | DNMT3A mutant (acute myeloid leukemia) | 2 | 1.0662 | 0.92247 to 1.21 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | CMP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 26 | 1.0132 | 0.9119 to 1.1084 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 15 | 1.0375 | 0.8405 to 1.1704 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast luminal epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 14 | 0.9998 | 0.90335 to 1.1429 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon macrophages | unknown | DNMT3A wildtype (acute myeloid leukemia) | 29 | 1.0526 | 0.94368 to 1.1964 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic acinar | unknown | DNMT3A wildtype (acute myeloid leukemia) | 8 | 0.9762 | 0.88885 to 1.0233 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | pancreatic beta | unknown | DNMT3A wildtype (acute myeloid leukemia) | 7 | 0.9959 | 0.94173 to 1.055 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | kidney tubular endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 5 | 1.0445 | 0.94322 to 1.1201 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | b cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 3 | 0.9071 | 0.83375 to 0.91007 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | breast basal epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 2 | 1.0204 | 0.93534 to 1.1054 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | prostate epithelium | unknown | DNMT3A mutant (acute myeloid leukemia) | 4 | 0.9845 | 0.93654 to 1.0909 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | t effector cell cd8 | unknown | DNMT3A mutant (acute myeloid leukemia) | 8 | 0.97275 | 0.91448 to 1.021 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular leptomeningeal cells | unknown | DNMT3A mutant (acute myeloid leukemia) | 2 | 0.94195 | 0.86999 to 1.0139 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| Met-A | Met-A each cell | bladder epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 5 | 1.0085 | 0.91991 to 1.0353 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | breast basal epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.0011 | 0.91092 to 1.0284 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric antrum epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.0064 | 0.91827 to 1.0441 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric body epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 5 | 1.0061 | 0.9319 to 1.0439 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | gastric fundus epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.0094 | 0.93108 to 1.0404 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | pancreas endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 11 | 1.0115 | 0.93873 to 1.0489 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | prostate epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.0051 | 0.92048 to 1.0377 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | smooth muscle | unknown | DNMT3A wildtype (acute myeloid leukemia) | 5 | 1.0182 | 0.95062 to 1.0423 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | striated muscle | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.1195 | 1.0288 to 1.1491 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| Met-A | Met-A each cell | tongue epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.0098 | 0.92313 to 1.0438 | no line set for this reading | [Met_A_part1.csv](Met_A_part1.csv) |
+| C-Score | C-Score each cell | lung alveolar macrophages | unknown | DNMT3A wildtype (acute myeloid leukemia) | 7 | 1.0777 | 0.90702 to 1.1646 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | smooth muscle | unknown | DNMT3A wildtype (acute myeloid leukemia) | 4 | 1.0251 | 0.97664 to 1.0833 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | oligodendrocyte precursors | unknown | DNMT3A wildtype (acute myeloid leukemia) | 6 | 0.8784 | 0.82905 to 0.98392 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | adipocytes | unknown | DNMT3A mutant (acute myeloid leukemia) | 3 | 1.0016 | 0.92897 to 1.0081 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd56bright nk cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 8 | 1.045 | 0.92252 to 1.0774 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | vascular leptomeningeal cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 5 | 0.8555 | 0.7677 to 1.0123 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | unknown | DNMT3A mutant (acute myeloid leukemia) | 1 | 1.1056 | 1.1056 to 1.1056 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | colon epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 3 | 0.9529 | 0.92644 to 1.072 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | heart fibroblasts | unknown | DNMT3A wildtype (acute myeloid leukemia) | 3 | 0.9891 | 0.94041 to 1.0224 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung interstitial macrophages | unknown | DNMT3A wildtype (acute myeloid leukemia) | 5 | 0.9934 | 0.96738 to 1.0464 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | lung alveolar endothelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 2 | 0.9632 | 0.92153 to 1.0049 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | endometrium epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 2 | 1.0411 | 1.0066 to 1.0756 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | striated muscle | unknown | DNMT3A wildtype (acute myeloid leukemia) | 1 | 0.8979 | 0.8979 to 0.8979 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | hepatocyte | unknown | DNMT3A wildtype (acute myeloid leukemia) | 9 | 0.9893 | 0.92908 to 1.043 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | cd8 central memory t cells | unknown | DNMT3A wildtype (acute myeloid leukemia) | 2 | 0.96875 | 0.94504 to 0.99246 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | MPP (bone marrow) | unknown | DNMT3A wildtype (acute myeloid leukemia) | 2 | 1.0932 | 1.0118 to 1.1746 | no line set for this reading | [C_Score.csv](C_Score.csv) |
+| C-Score | C-Score each cell | small intestine epithelium | unknown | DNMT3A wildtype (acute myeloid leukemia) | 1 | 0.9229 | 0.9229 to 0.9229 | no line set for this reading | [C_Score.csv](C_Score.csv) |
 
-429861 readings from 57 sources. Status and record for every row are in the tables.
+443724 readings from 60 sources. Status and record for every row are in the tables.
 
 **Where Normal begins and ends:** [Bands.csv](Bands.csv) lists, for each instrument, reading, cell and platform, the band the gauge drew
 (copied from the bundles) beside the spread of the healthy readings themselves (2.5th to 97.5th percentile, with how many healthy samples).
@@ -11889,4 +12750,4 @@ the difference and its standard errors).
 | GROUPA-SEQ-BAR2 | bar 2 (planted 1 against 0) | whole | 1 (68) vs 0 (69) | +1.10 % | 1.27 | no difference found | sorted cells |
 | GROUPA-SEQ-BAR2 | bar 2 (planted 1 against 0) | islands | 1 (68) vs 0 (69) | -0.22 % | -0.11 | no difference found | sorted cells |
 
-**Tables written in parts** (each over 20 MB whole; same columns, rows continue in order): [Met_A_part1.csv](Met_A_part1.csv), [Met_A_part2.csv](Met_A_part2.csv), [Met_A_part3.csv](Met_A_part3.csv), [Met_A_part4.csv](Met_A_part4.csv).
+**Tables written in parts** (each over 20 MB whole; same columns, rows continue in order): [Met_A_part1.csv](Met_A_part1.csv), [Met_A_part2.csv](Met_A_part2.csv), [Met_A_part3.csv](Met_A_part3.csv), [Met_A_part4.csv](Met_A_part4.csv), [Met_A_part5.csv](Met_A_part5.csv).

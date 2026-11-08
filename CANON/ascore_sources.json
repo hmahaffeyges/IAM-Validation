@@ -603,6 +603,27 @@
    "status": "reference only (replay on every atlas cell; spent data; values route; breast tissue not commissioned)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
    "rows_table": true
+  },
+  {
+   "id": "R18-COLON-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_b/r18_colon_atlas_full_rows.csv",
+   "status": "reference only (replay on every atlas cell; spent data; values route; colon tissue not commissioned)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "R19-CERVIX-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_b/r19_cervix_atlas_full_rows.csv",
+   "status": "reference only (replay on every atlas cell; spent data; values route; cervical tissue not commissioned)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "R20-AML-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_b/r20_aml_atlas_full_rows.csv",
+   "status": "reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
   }
  ],
  "lines": {
