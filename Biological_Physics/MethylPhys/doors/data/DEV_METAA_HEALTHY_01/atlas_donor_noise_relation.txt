@@ -1,0 +1,13 @@
+Met-A of each blood-cell donor against its array's measured noise (design II), from atlas_donor_readings.csv and the donors' bundles
+pooled blood-cell donors: 310 | slope of Met-A (about each cell's median) on measured noise: 6.89 | rank correlation 0.60
+spread about each cell's median 0.0295; after the noise term 0.0229
+b cells: n 44, rank correlation 0.35
+cd4 t cells: n 45, rank correlation 0.68
+cd8 t cells: n 35, rank correlation 0.61
+monocytes: n 54, rank correlation 0.69
+naive b cells: n 14, rank correlation 0.64
+naive cd4 t cells: n 13, rank correlation 0.90
+naive cd8 t cells: n 23, rank correlation 0.56
+neutrophils: n 64, rank correlation 0.83
+nk cells: n 18, rank correlation -0.05
+level-noise diagnostic, slope of reading error on measured noise: level -0.46

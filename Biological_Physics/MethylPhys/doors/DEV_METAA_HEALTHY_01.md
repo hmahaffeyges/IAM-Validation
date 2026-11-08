@@ -953,3 +953,12 @@ on sites held below 0.05 or above 0.95, where a probe's noise is squeezed agains
 0.25 or 0.75 and 0.95, where it is larger. The width synthetic planted one noise at every level, which is why it could not show this. Next:
 the synthetic with level-dependent noise (the noise of a probe growing toward the middle, at the real arrays' measured sizes), then the
 noise measured by level on the array itself.
+
+**The noise lead: not supported** (`noise_level_diag_rows.csv`; GitHub runs 42499303814, 42499319952, 42499335955; the run at 0.004 still running). With a noise growing toward the middle levels the readings do not rise
+with the noise the chain measures (slope -0.46 per unit; the donors' 6.89): error 0.0040, 0.0027 and 0.0000 at a planted noise of 0.007,
+0.010 and 0.014; with one flat noise, 0.006 at every size. So the squeezed noise at the firmly held sites does not explain why the donors'
+Met-A follows their arrays' measured noise. What the measured noise carries on real arrays is open: the same DNA read in three laboratories
+(GSE230132, 30 EPIC arrays of the GIAB lines, DEV_EPIQC_ARRAY_01) differed by only 0.4 to 0.8 % in Met-A on the earlier chain, far less than
+the donors' 2 to 5 % between series, which points at the samples (how each laboratory sorted and handled its cells) more than at the arrays.
+Next: the same 30 arrays read by today's one command (`epiqc_same_dna_samples.csv`, development; spent), Met-A against the measured noise on
+identical DNA.
