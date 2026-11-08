@@ -726,3 +726,11 @@ are spent, and test 7's centering is open.
 with censored anchors (test 5, met) and the prediction on each array's own values (the capture after test 6, test 7's low tail corrected),
 so no reader has to remember their flags; the class floor (version 3 not met) stays off. Identity check: test 7's draw 1 again with both flags
 removed from its commands (`synthetic_07_default.py`), same seed; its output must equal `synthetic_07_draw1.json` exactly.
+
+**The result is each cell found (the second step to a working chain).** The author: "we dont score bundles of cells we score individual cells that are found by the
+deconvolver in a sample". Every bundle now carries `cells_found`: one row per cell the IAM-Deconvolver found (the cells the chain did not mark
+not found; no threshold chosen), each with Met-A, the C-Score and its limit, and IAM-A where IAM-A read that cell, each against that cell's own
+atlas reference in the sample's own shares (`stage_metaa_atlas.cells_found`). The report's first table and first glance row are this list; the
+whole-sample reading follows as a side line. Seen while checking it on a spent 450K breast array: a cell can be found and still have no Met-A
+on that platform (breast luminal epithelium, 2,998 of its 6,000 identity sites on the 450K array, under the half the reading needs); the row
+says so.

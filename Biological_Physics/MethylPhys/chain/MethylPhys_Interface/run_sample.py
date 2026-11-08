@@ -1438,6 +1438,8 @@ def main():
             import stage_seq_atlas as _SQf, pandas as _pdf; _bf = _pdf.read_csv(a.betas, index_col=0).iloc[:, 0]; _lf = _SQf.library_floor(_bf, a._seqc)
             if _lf: o.setdefault("development", {})["library_floor"] = _lf
         except Exception as _e: o.setdefault("development", {})["library_floor"] = dict(status="NOT_RUN", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
+    try: import stage_metaa_atlas as _SAcf; o["cells_found"] = _SAcf.cells_found(o)   # 2026-11-07: the result, cell by cell (author)
+    except Exception as _e: o["cells_found"] = dict(status="NOT_ASSEMBLED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     try: import reference_door as _RD2; o["reference"] = _RD2.record(o)   # 2026-11-07, lock 1: the atlases read and every tare applied
     except Exception as _e: o["reference"] = dict(status="NOT_RECORDED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     if not a.no_bundle:

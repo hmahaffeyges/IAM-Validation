@@ -856,3 +856,25 @@ def cscore_limits(cs, array_type):
             t = json.load(open(os.path.join(HERE, "Runtime Matrices", "CScore_Limits", "platform_term_450k.json"))); l *= t["factor"]; rule = "derived x the 450K platform term (calibrated)"
         w.update(limit=None if l is None else round(l, 4), within=None if l is None else bool(w["C"] <= l), limit_rule=rule)
     return cs
+
+
+def cells_found(o):
+    """2026-11-07 (author: 'we dont score bundles of cells we score individual cells that are found by the deconvolver in a sample'; 'Each cell
+    has a score for each of the instruments that can read it'): the sample's result, one row per cell the IAM-Deconvolver found, each with every
+    instrument's reading of that cell against its own atlas reference, from what the chain already read (met_a_each_cell, cscore_each_cell,
+    IAM-A's cell). A cell is found exactly when the chain did not mark it not found (not_found_flag); no threshold is chosen here. Whole-sample
+    Met-A stays a side line, outside this list. The share below which a cell's own reading is not about that cell is open (plan, step 3 to a
+    working chain) and is said so on every row until the chain measures it."""
+    M = [c for c in ((o.get("met_a_each_cell") or {}).get("cells") or []) if not c.get("not_found_flag")]
+    C = {c["cell"]: c for c in ((o.get("cscore_each_cell") or {}).get("cells") or [])}
+    q = o.get("iam_a") or {}
+    rows = []
+    for m in sorted(M, key=lambda x: -(x.get("share") or 0)):
+        c = C.get(m["cell"]) or {}
+        r = dict(cell=m["cell"], share=m.get("share"), met_a=m.get("A"), met_a_se=m.get("se_over_sites"), met_a_note=m.get("coverage_flag") or m.get("reason"),
+                 c_score=c.get("C"), c_limit=c.get("limit"), c_within=c.get("within"),
+                 readable="open: the smallest share at which a cell's own reading reads that cell is not yet measured")
+        if q.get("A") is not None and q.get("cell") == m["cell"]: r.update(iam_a=q.get("A"), iam_a_state=q.get("state"))
+        rows.append(r)
+    return dict(rule="each cell the IAM-Deconvolver found, each instrument against that cell's own atlas reference, in the sample's own shares",
+                flag="development: each row's readings carry their own status; not commissioned unless an instrument's row says so", cells=rows)
