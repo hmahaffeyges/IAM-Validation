@@ -1,0 +1,391 @@
+gsm,case,group,ratio,identity_sites_A,top_cell,top_share,place
+TCGA-2F-A9KO-01A,TCGA-2F-A9KO,Primary Tumor,1.02787,0.98274,cd8 temra t cells,0.185,inside Normal
+TCGA-2F-A9KP-01A,TCGA-2F-A9KP,Primary Tumor,1.02581,1.02494,bladder epithelium,0.276,inside Normal
+TCGA-2F-A9KQ-01A,TCGA-2F-A9KQ,Primary Tumor,0.96582,1.00447,bladder epithelium,0.472,inside Normal
+TCGA-2F-A9KR-01A,TCGA-2F-A9KR,Primary Tumor,1.00655,1.02207,bladder epithelium,0.208,inside Normal
+TCGA-2F-A9KT-01A,TCGA-2F-A9KT,Primary Tumor,1.01813,0.97154,bladder epithelium,0.229,inside Normal
+TCGA-2F-A9KW-01A,TCGA-2F-A9KW,Primary Tumor,0.98485,0.95765,adipocytes,0.195,inside Normal
+TCGA-4Z-AA7M-01A,TCGA-4Z-AA7M,Primary Tumor,0.98059,0.92777,adipocytes,0.247,inside Normal
+TCGA-4Z-AA7N-01A,TCGA-4Z-AA7N,Primary Tumor,0.99089,0.89529,central memory th1 cells,0.187,inside Normal
+TCGA-4Z-AA7O-01A,TCGA-4Z-AA7O,Primary Tumor,1.02375,1.01686,bladder epithelium,0.325,inside Normal
+TCGA-4Z-AA7Q-01A,TCGA-4Z-AA7Q,Primary Tumor,1.01592,0.9258,cd8 temra t cells,0.153,inside Normal
+TCGA-4Z-AA7R-01A,TCGA-4Z-AA7R,Primary Tumor,0.88923,0.87595,bladder epithelium,0.291,below Normal
+TCGA-4Z-AA7S-01A,TCGA-4Z-AA7S,Primary Tumor,0.99148,1.02896,bladder epithelium,0.316,inside Normal
+TCGA-4Z-AA7W-01A,TCGA-4Z-AA7W,Primary Tumor,0.98915,0.91309,cd8 temra t cells,0.224,inside Normal
+TCGA-4Z-AA7Y-01A,TCGA-4Z-AA7Y,Primary Tumor,0.98471,1.01025,bladder epithelium,0.434,inside Normal
+TCGA-4Z-AA80-01A,TCGA-4Z-AA80,Primary Tumor,1.02426,0.98062,bladder epithelium,0.207,inside Normal
+TCGA-4Z-AA81-01A,TCGA-4Z-AA81,Primary Tumor,1.05751,1.03759,cd8 temra t cells,0.181,above Normal
+TCGA-4Z-AA82-01A,TCGA-4Z-AA82,Primary Tumor,0.94248,0.90067,lung bronchus epithelium,0.164,below Normal
+TCGA-4Z-AA83-01A,TCGA-4Z-AA83,Primary Tumor,1.02822,1.03666,bladder epithelium,0.36,inside Normal
+TCGA-4Z-AA84-01A,TCGA-4Z-AA84,Primary Tumor,0.9884,0.94683,bladder epithelium,0.177,inside Normal
+TCGA-4Z-AA86-01A,TCGA-4Z-AA86,Primary Tumor,0.99781,0.92732,cd8 temra t cells,0.179,inside Normal
+TCGA-4Z-AA87-01A,TCGA-4Z-AA87,Primary Tumor,1.01263,0.96941,bladder epithelium,0.208,inside Normal
+TCGA-4Z-AA89-01A,TCGA-4Z-AA89,Primary Tumor,1.011,1.01812,bladder epithelium,0.413,inside Normal
+TCGA-5N-A9KI-01A,TCGA-5N-A9KI,Primary Tumor,1.01701,1.01517,bladder epithelium,0.184,inside Normal
+TCGA-5N-A9KM-01A,TCGA-5N-A9KM,Primary Tumor,1.01122,1.00719,bladder epithelium,0.291,inside Normal
+TCGA-BL-A0C8-01A_823b2318,TCGA-BL-A0C8,Primary Tumor,1.05111,1.05354,cd8 temra t cells,0.194,above Normal
+TCGA-BL-A0C8-01B,TCGA-BL-A0C8,Primary Tumor,1.03226,1.04622,cd8 temra t cells,0.192,inside Normal
+TCGA-BL-A13I-01A_be572d4b,TCGA-BL-A13I,Primary Tumor,1.01788,0.93515,adipocytes,0.159,inside Normal
+TCGA-BL-A13I-01B,TCGA-BL-A13I,Primary Tumor,1.01685,0.95373,adipocytes,0.143,inside Normal
+TCGA-BL-A13J-01A_27bed046,TCGA-BL-A13J,Primary Tumor,0.98942,0.96483,bladder epithelium,0.176,inside Normal
+TCGA-BL-A5ZZ-01A,TCGA-BL-A5ZZ,Primary Tumor,1.02285,0.97622,adipocytes,0.165,inside Normal
+TCGA-BT-A20J-01A,TCGA-BT-A20J,Primary Tumor,1.0208,0.91281,adipocytes,0.154,inside Normal
+TCGA-BT-A20J-11A,TCGA-BT-A20J,Solid Tissue Normal,0.96149,0.87364,vascular endothelium,0.273,inside Normal
+TCGA-BT-A20N-01A,TCGA-BT-A20N,Primary Tumor,1.02782,0.99208,bladder epithelium,0.229,inside Normal
+TCGA-BT-A20N-11A,TCGA-BT-A20N,Solid Tissue Normal,0.95055,0.85577,vascular endothelium,0.295,inside Normal
+TCGA-BT-A20O-01A,TCGA-BT-A20O,Primary Tumor,1.02385,0.90743,central memory th1 cells,0.217,inside Normal
+TCGA-BT-A20P-01A,TCGA-BT-A20P,Primary Tumor,0.93043,0.92957,bladder epithelium,0.28,below Normal
+TCGA-BT-A20Q-01A,TCGA-BT-A20Q,Primary Tumor,0.99064,0.95236,bladder epithelium,0.23,inside Normal
+TCGA-BT-A20T-01A,TCGA-BT-A20T,Primary Tumor,1.01492,0.95964,bladder epithelium,0.211,inside Normal
+TCGA-BT-A20U-01A,TCGA-BT-A20U,Primary Tumor,1.05521,0.98171,vascular endothelium,0.16,above Normal
+TCGA-BT-A20U-11A,TCGA-BT-A20U,Solid Tissue Normal,1.03604,0.94471,memory b cells,0.179,inside Normal
+TCGA-BT-A20V-01A,TCGA-BT-A20V,Primary Tumor,0.99518,0.9607,prostate epithelium,0.213,inside Normal
+TCGA-BT-A20V-11A,TCGA-BT-A20V,Solid Tissue Normal,0.97321,0.88617,vascular endothelium,0.271,inside Normal
+TCGA-BT-A20W-11A,TCGA-BT-A20W,Solid Tissue Normal,0.99752,0.90784,vascular endothelium,0.209,inside Normal
+TCGA-BT-A2LA-01A,TCGA-BT-A2LA,Primary Tumor,0.94939,0.93602,prostate epithelium,0.294,below Normal
+TCGA-BT-A2LA-11A,TCGA-BT-A2LA,Solid Tissue Normal,0.95331,0.92727,bladder epithelium,0.439,inside Normal
+TCGA-BT-A2LB-01A,TCGA-BT-A2LB,Primary Tumor,1.04719,0.9987,bladder epithelium,0.256,inside Normal
+TCGA-BT-A3PH-01A,TCGA-BT-A3PH,Primary Tumor,0.97709,0.99108,bladder epithelium,0.194,inside Normal
+TCGA-BT-A3PJ-01A,TCGA-BT-A3PJ,Primary Tumor,1.03471,0.96974,lung bronchus epithelium,0.2,inside Normal
+TCGA-BT-A3PK-01A,TCGA-BT-A3PK,Primary Tumor,1.03816,0.96622,neutrophils,0.34,inside Normal
+TCGA-BT-A42B-01A,TCGA-BT-A42B,Primary Tumor,1.00273,1.02162,prostate epithelium,0.228,inside Normal
+TCGA-BT-A42C-01A,TCGA-BT-A42C,Primary Tumor,1.02554,1.0377,bladder epithelium,0.303,inside Normal
+TCGA-BT-A42E-01A,TCGA-BT-A42E,Primary Tumor,1.00204,0.95257,cd8 temra t cells,0.162,inside Normal
+TCGA-BT-A42F-01A,TCGA-BT-A42F,Primary Tumor,1.06329,0.96607,memory b cells,0.151,above Normal
+TCGA-CF-A1HS-01A,TCGA-CF-A1HS,Primary Tumor,0.99328,0.9229,vascular endothelium,0.175,inside Normal
+TCGA-CF-A3MG-01A,TCGA-CF-A3MG,Primary Tumor,1.00998,1.07007,bladder epithelium,0.589,inside Normal
+TCGA-CF-A3MH-01A,TCGA-CF-A3MH,Primary Tumor,0.98612,1.02947,bladder epithelium,0.585,inside Normal
+TCGA-CF-A3MI-01A,TCGA-CF-A3MI,Primary Tumor,1.00716,1.0179,bladder epithelium,0.409,inside Normal
+TCGA-CF-A47S-01A,TCGA-CF-A47S,Primary Tumor,0.95475,0.98559,bladder epithelium,0.573,inside Normal
+TCGA-CF-A47T-01A,TCGA-CF-A47T,Primary Tumor,1.01754,1.01517,bladder epithelium,0.455,inside Normal
+TCGA-CF-A47V-01A,TCGA-CF-A47V,Primary Tumor,0.92531,0.97062,bladder epithelium,0.482,below Normal
+TCGA-CF-A47W-01A,TCGA-CF-A47W,Primary Tumor,0.91899,0.90559,bladder epithelium,0.504,below Normal
+TCGA-CF-A47X-01A,TCGA-CF-A47X,Primary Tumor,1.01465,1.02691,bladder epithelium,0.387,inside Normal
+TCGA-CF-A47Y-01A,TCGA-CF-A47Y,Primary Tumor,0.93838,0.91123,bladder epithelium,0.485,below Normal
+TCGA-CF-A5U8-01A,TCGA-CF-A5U8,Primary Tumor,0.96387,0.97605,bladder epithelium,0.532,inside Normal
+TCGA-CF-A5UA-01A,TCGA-CF-A5UA,Primary Tumor,0.87839,0.87294,bladder epithelium,0.338,below Normal
+TCGA-CF-A7I0-01A,TCGA-CF-A7I0,Primary Tumor,1.02342,1.00128,bladder epithelium,0.329,inside Normal
+TCGA-CF-A8HX-01A,TCGA-CF-A8HX,Primary Tumor,1.00151,1.05823,bladder epithelium,0.487,inside Normal
+TCGA-CF-A8HY-01A,TCGA-CF-A8HY,Primary Tumor,0.9718,0.99142,bladder epithelium,0.422,inside Normal
+TCGA-CF-A9FF-01A,TCGA-CF-A9FF,Primary Tumor,1.04585,1.06544,bladder epithelium,0.367,inside Normal
+TCGA-CF-A9FH-01A,TCGA-CF-A9FH,Primary Tumor,0.92805,0.97585,bladder epithelium,0.545,below Normal
+TCGA-CF-A9FL-01A,TCGA-CF-A9FL,Primary Tumor,0.99914,1.01382,bladder epithelium,0.336,inside Normal
+TCGA-CF-A9FM-01A,TCGA-CF-A9FM,Primary Tumor,0.87766,0.91747,bladder epithelium,0.626,below Normal
+TCGA-CU-A0YO-01A,TCGA-CU-A0YO,Primary Tumor,1.00237,0.91563,bladder epithelium,0.212,inside Normal
+TCGA-CU-A3KJ-01A,TCGA-CU-A3KJ,Primary Tumor,0.9452,0.89113,lung bronchus epithelium,0.209,below Normal
+TCGA-CU-A3QU-01A,TCGA-CU-A3QU,Primary Tumor,0.93536,0.9335,bladder epithelium,0.259,below Normal
+TCGA-CU-A3YL-01A,TCGA-CU-A3YL,Primary Tumor,1.00004,0.99574,bladder epithelium,0.231,inside Normal
+TCGA-CU-A5W6-01A,TCGA-CU-A5W6,Primary Tumor,0.99178,0.92675,bladder epithelium,0.223,inside Normal
+TCGA-CU-A72E-01A,TCGA-CU-A72E,Primary Tumor,1.05953,1.05147,lung bronchus epithelium,0.213,above Normal
+TCGA-DK-A1A3-01A,TCGA-DK-A1A3,Primary Tumor,1.00035,0.92452,vascular endothelium,0.172,inside Normal
+TCGA-DK-A1A6-01A,TCGA-DK-A1A6,Primary Tumor,1.01162,0.9457,cd8 temra t cells,0.3,inside Normal
+TCGA-DK-A1A6-06A,TCGA-DK-A1A6,Metastatic,0.99345,0.95739,bladder epithelium,0.237,inside Normal
+TCGA-DK-A1AA-01A,TCGA-DK-A1AA,Primary Tumor,1.01362,1.01496,bladder epithelium,0.411,inside Normal
+TCGA-DK-A1AB-01A,TCGA-DK-A1AB,Primary Tumor,0.93558,0.82636,vascular endothelium,0.275,below Normal
+TCGA-DK-A1AD-01A,TCGA-DK-A1AD,Primary Tumor,0.98536,0.96836,bladder epithelium,0.205,inside Normal
+TCGA-DK-A1AE-01A,TCGA-DK-A1AE,Primary Tumor,1.006,0.95651,lung bronchus epithelium,0.31,inside Normal
+TCGA-DK-A2HX-01A,TCGA-DK-A2HX,Primary Tumor,0.98818,0.96159,bladder epithelium,0.193,inside Normal
+TCGA-DK-A2I1-01A,TCGA-DK-A2I1,Primary Tumor,1.0168,0.9864,bladder epithelium,0.246,inside Normal
+TCGA-DK-A2I6-01A,TCGA-DK-A2I6,Primary Tumor,0.93511,0.90178,bladder epithelium,0.181,below Normal
+TCGA-DK-A3IL-01A,TCGA-DK-A3IL,Primary Tumor,1.00973,1.00666,bladder epithelium,0.257,inside Normal
+TCGA-DK-A3IM-01A,TCGA-DK-A3IM,Primary Tumor,0.91478,0.88151,lung bronchus epithelium,0.245,below Normal
+TCGA-DK-A3IN-01A,TCGA-DK-A3IN,Primary Tumor,0.99986,0.93421,adipocytes,0.191,inside Normal
+TCGA-DK-A3IQ-01A,TCGA-DK-A3IQ,Primary Tumor,0.99506,0.95512,adipocytes,0.162,inside Normal
+TCGA-DK-A3IT-01A,TCGA-DK-A3IT,Primary Tumor,1.01292,0.98932,bladder epithelium,0.23,inside Normal
+TCGA-DK-A3IU-01A,TCGA-DK-A3IU,Primary Tumor,1.01996,0.94055,memory b cells,0.174,inside Normal
+TCGA-DK-A3IV-01A,TCGA-DK-A3IV,Primary Tumor,1.01799,0.98748,bladder epithelium,0.249,inside Normal
+TCGA-DK-A3WW-01A,TCGA-DK-A3WW,Primary Tumor,1.01239,0.96554,cd8 temra t cells,0.195,inside Normal
+TCGA-DK-A3WX-01A,TCGA-DK-A3WX,Primary Tumor,1.03822,0.94883,neutrophils,0.379,inside Normal
+TCGA-DK-A3WY-01A,TCGA-DK-A3WY,Primary Tumor,0.96706,0.8599,b cells,0.454,inside Normal
+TCGA-DK-A3X1-01A,TCGA-DK-A3X1,Primary Tumor,1.03598,0.98884,bladder epithelium,0.244,inside Normal
+TCGA-DK-A3X2-01A,TCGA-DK-A3X2,Primary Tumor,0.92742,0.89706,bladder epithelium,0.28,below Normal
+TCGA-DK-A6AV-01A,TCGA-DK-A6AV,Primary Tumor,1.0191,0.98982,bladder epithelium,0.298,inside Normal
+TCGA-DK-A6AW-01A,TCGA-DK-A6AW,Primary Tumor,0.92921,0.95016,cd8 temra t cells,0.196,below Normal
+TCGA-DK-A6B0-01A,TCGA-DK-A6B0,Primary Tumor,0.90602,0.93551,bladder epithelium,0.571,below Normal
+TCGA-DK-A6B1-01A,TCGA-DK-A6B1,Primary Tumor,0.9861,1.01769,bladder epithelium,0.292,inside Normal
+TCGA-DK-A6B2-01A,TCGA-DK-A6B2,Primary Tumor,1.01116,0.99726,bladder epithelium,0.234,inside Normal
+TCGA-DK-A6B5-01A,TCGA-DK-A6B5,Primary Tumor,0.97842,0.94941,lung bronchus epithelium,0.156,inside Normal
+TCGA-DK-A6B6-01A,TCGA-DK-A6B6,Primary Tumor,0.97329,0.95861,bladder epithelium,0.228,inside Normal
+TCGA-DK-AA6L-01A,TCGA-DK-AA6L,Primary Tumor,1.006,0.9834,bladder epithelium,0.264,inside Normal
+TCGA-DK-AA6M-01A,TCGA-DK-AA6M,Primary Tumor,0.96728,0.94736,bladder epithelium,0.163,inside Normal
+TCGA-DK-AA6P-01A,TCGA-DK-AA6P,Primary Tumor,0.93747,0.87697,bladder epithelium,0.346,below Normal
+TCGA-DK-AA6Q-01A,TCGA-DK-AA6Q,Primary Tumor,0.97912,0.93572,cd8 temra t cells,0.222,inside Normal
+TCGA-DK-AA6R-01A,TCGA-DK-AA6R,Primary Tumor,0.96103,0.91697,lung bronchus epithelium,0.191,inside Normal
+TCGA-DK-AA6S-01A,TCGA-DK-AA6S,Primary Tumor,1.01031,0.96745,vascular endothelium,0.203,inside Normal
+TCGA-DK-AA6T-01A,TCGA-DK-AA6T,Primary Tumor,0.90888,0.81194,memory b cells,0.704,below Normal
+TCGA-DK-AA6U-01A,TCGA-DK-AA6U,Primary Tumor,1.00333,0.96039,bladder epithelium,0.25,inside Normal
+TCGA-DK-AA6W-01A,TCGA-DK-AA6W,Primary Tumor,1.01426,0.97399,cd8 temra t cells,0.161,inside Normal
+TCGA-DK-AA6X-01A,TCGA-DK-AA6X,Primary Tumor,0.99699,0.98222,bladder epithelium,0.152,inside Normal
+TCGA-DK-AA71-01A,TCGA-DK-AA71,Primary Tumor,0.95527,0.94327,bladder epithelium,0.222,inside Normal
+TCGA-DK-AA74-01A,TCGA-DK-AA74,Primary Tumor,0.98658,0.91276,adipocytes,0.16,inside Normal
+TCGA-DK-AA75-01A,TCGA-DK-AA75,Primary Tumor,0.93198,0.90283,bladder epithelium,0.278,below Normal
+TCGA-DK-AA76-01A,TCGA-DK-AA76,Primary Tumor,1.00746,1.01186,bladder epithelium,0.389,inside Normal
+TCGA-DK-AA77-01A,TCGA-DK-AA77,Primary Tumor,1.0125,1.01248,bladder epithelium,0.381,inside Normal
+TCGA-E5-A4TZ-01A,TCGA-E5-A4TZ,Primary Tumor,0.97327,0.96175,bladder epithelium,0.235,inside Normal
+TCGA-E5-A4U1-01A,TCGA-E5-A4U1,Primary Tumor,0.95833,0.98199,bladder epithelium,0.394,inside Normal
+TCGA-E7-A3X6-01A,TCGA-E7-A3X6,Primary Tumor,1.03085,0.99337,bladder epithelium,0.268,inside Normal
+TCGA-E7-A3Y1-01A,TCGA-E7-A3Y1,Primary Tumor,1.04063,1.06039,bladder epithelium,0.398,inside Normal
+TCGA-E7-A4IJ-01A,TCGA-E7-A4IJ,Primary Tumor,1.00032,0.9743,bladder epithelium,0.256,inside Normal
+TCGA-E7-A4XJ-01A,TCGA-E7-A4XJ,Primary Tumor,0.98649,1.01477,bladder epithelium,0.217,inside Normal
+TCGA-E7-A519-01A,TCGA-E7-A519,Primary Tumor,0.91019,0.89348,bladder epithelium,0.463,below Normal
+TCGA-E7-A541-01A,TCGA-E7-A541,Primary Tumor,1.05002,1.03008,cd8 temra t cells,0.318,above Normal
+TCGA-E7-A5KE-01A,TCGA-E7-A5KE,Primary Tumor,0.93704,0.9533,bladder epithelium,0.421,below Normal
+TCGA-E7-A5KF-01A,TCGA-E7-A5KF,Primary Tumor,0.91471,0.94199,bladder epithelium,0.558,below Normal
+TCGA-E7-A677-01A,TCGA-E7-A677,Primary Tumor,0.98624,1.02006,bladder epithelium,0.3,inside Normal
+TCGA-E7-A678-01A,TCGA-E7-A678,Primary Tumor,0.96978,1.01075,bladder epithelium,0.524,inside Normal
+TCGA-E7-A6MD-01A,TCGA-E7-A6MD,Primary Tumor,1.01492,0.97695,bladder epithelium,0.23,inside Normal
+TCGA-E7-A6ME-01A,TCGA-E7-A6ME,Primary Tumor,0.99221,0.97909,adipocytes,0.165,inside Normal
+TCGA-E7-A6MF-01A,TCGA-E7-A6MF,Primary Tumor,0.87826,0.90441,bladder epithelium,0.405,below Normal
+TCGA-E7-A7DU-01A,TCGA-E7-A7DU,Primary Tumor,0.96814,1.01018,bladder epithelium,0.457,inside Normal
+TCGA-E7-A7DV-01A,TCGA-E7-A7DV,Primary Tumor,1.03243,0.94709,microglia,0.143,inside Normal
+TCGA-E7-A7PW-01A,TCGA-E7-A7PW,Primary Tumor,0.9693,0.99097,bladder epithelium,0.323,inside Normal
+TCGA-E7-A7XN-01A,TCGA-E7-A7XN,Primary Tumor,1.04704,0.97903,cd8 temra t cells,0.189,inside Normal
+TCGA-E7-A85H-01A,TCGA-E7-A85H,Primary Tumor,0.86852,0.8033,bladder epithelium,0.169,below Normal
+TCGA-E7-A8O7-01A,TCGA-E7-A8O7,Primary Tumor,0.95482,0.9659,bladder epithelium,0.512,inside Normal
+TCGA-E7-A8O8-01A,TCGA-E7-A8O8,Primary Tumor,0.95791,0.97815,bladder epithelium,0.249,inside Normal
+TCGA-E7-A97P-01A,TCGA-E7-A97P,Primary Tumor,1.01566,0.97106,cd8 temra t cells,0.199,inside Normal
+TCGA-E7-A97Q-01A,TCGA-E7-A97Q,Primary Tumor,0.99523,0.97636,bladder epithelium,0.26,inside Normal
+TCGA-FD-A3B4-01A,TCGA-FD-A3B4,Primary Tumor,0.95539,0.92578,prostate epithelium,0.158,inside Normal
+TCGA-FD-A3B5-01A,TCGA-FD-A3B5,Primary Tumor,1.00371,0.97696,lung bronchus epithelium,0.238,inside Normal
+TCGA-FD-A3B6-01A,TCGA-FD-A3B6,Primary Tumor,1.03336,0.9576,cd8 temra t cells,0.197,inside Normal
+TCGA-FD-A3B7-01A,TCGA-FD-A3B7,Primary Tumor,1.00917,0.92364,adipocytes,0.172,inside Normal
+TCGA-FD-A3B8-01A,TCGA-FD-A3B8,Primary Tumor,0.97897,0.89597,central memory th1 cells,0.187,inside Normal
+TCGA-FD-A3SJ-01A,TCGA-FD-A3SJ,Primary Tumor,0.99558,0.92521,adipocytes,0.213,inside Normal
+TCGA-FD-A3SL-01A,TCGA-FD-A3SL,Primary Tumor,0.99581,0.98255,bladder epithelium,0.188,inside Normal
+TCGA-FD-A3SM-01A,TCGA-FD-A3SM,Primary Tumor,1.03005,0.98777,lung bronchus epithelium,0.223,inside Normal
+TCGA-FD-A3SN-01A,TCGA-FD-A3SN,Primary Tumor,1.00339,0.97882,memory b cells,0.146,inside Normal
+TCGA-FD-A3SO-01A,TCGA-FD-A3SO,Primary Tumor,0.96628,0.91967,cd8 temra t cells,0.124,inside Normal
+TCGA-FD-A3SP-01A,TCGA-FD-A3SP,Primary Tumor,1.02425,0.95235,cd8 temra t cells,0.136,inside Normal
+TCGA-FD-A3SQ-01A,TCGA-FD-A3SQ,Primary Tumor,1.03145,1.01926,bladder epithelium,0.23,inside Normal
+TCGA-FD-A3SR-01A,TCGA-FD-A3SR,Primary Tumor,1.00406,0.95989,cd8 temra t cells,0.143,inside Normal
+TCGA-FD-A3SS-01A,TCGA-FD-A3SS,Primary Tumor,1.0103,0.98288,cd8 temra t cells,0.183,inside Normal
+TCGA-FD-A43N-01A,TCGA-FD-A43N,Primary Tumor,1.06248,1.03892,bladder epithelium,0.206,above Normal
+TCGA-FD-A43P-01A,TCGA-FD-A43P,Primary Tumor,0.98541,0.91684,bladder epithelium,0.15,inside Normal
+TCGA-FD-A43S-01A,TCGA-FD-A43S,Primary Tumor,0.97825,0.87774,central memory th1 cells,0.241,inside Normal
+TCGA-FD-A43U-01A,TCGA-FD-A43U,Primary Tumor,1.05509,0.97157,cytotoxic cd4 t cells (cd28-),0.179,above Normal
+TCGA-FD-A43X-01A,TCGA-FD-A43X,Primary Tumor,0.97928,1.00486,bladder epithelium,0.469,inside Normal
+TCGA-FD-A43Y-01A,TCGA-FD-A43Y,Primary Tumor,1.0152,0.95477,lung bronchus epithelium,0.177,inside Normal
+TCGA-FD-A5BR-01A,TCGA-FD-A5BR,Primary Tumor,1.05413,1.0363,bladder epithelium,0.282,above Normal
+TCGA-FD-A5BS-01A,TCGA-FD-A5BS,Primary Tumor,1.01805,0.91082,memory b cells,0.203,inside Normal
+TCGA-FD-A5BT-01A,TCGA-FD-A5BT,Primary Tumor,0.96,0.89477,adipocytes,0.167,inside Normal
+TCGA-FD-A5BU-01A,TCGA-FD-A5BU,Primary Tumor,1.02794,0.95054,lung bronchus epithelium,0.122,inside Normal
+TCGA-FD-A5BV-01A,TCGA-FD-A5BV,Primary Tumor,1.0047,0.99842,bladder epithelium,0.342,inside Normal
+TCGA-FD-A5BX-01A,TCGA-FD-A5BX,Primary Tumor,1.00996,0.95531,adipocytes,0.204,inside Normal
+TCGA-FD-A5BY-01A,TCGA-FD-A5BY,Primary Tumor,1.01257,1.0135,prostate epithelium,0.177,inside Normal
+TCGA-FD-A5BZ-01A,TCGA-FD-A5BZ,Primary Tumor,1.04885,1.02898,bladder epithelium,0.202,inside Normal
+TCGA-FD-A5C0-01A,TCGA-FD-A5C0,Primary Tumor,0.97652,0.93688,bladder epithelium,0.209,inside Normal
+TCGA-FD-A5C1-01A,TCGA-FD-A5C1,Primary Tumor,1.05695,0.99349,vascular endothelium,0.129,above Normal
+TCGA-FD-A62N-01A,TCGA-FD-A62N,Primary Tumor,0.97333,0.92547,cd8 temra t cells,0.222,inside Normal
+TCGA-FD-A62O-01A,TCGA-FD-A62O,Primary Tumor,0.99492,1.04278,bladder epithelium,0.352,inside Normal
+TCGA-FD-A62P-01A,TCGA-FD-A62P,Primary Tumor,0.98499,0.94985,adipocytes,0.141,inside Normal
+TCGA-FD-A62S-01A,TCGA-FD-A62S,Primary Tumor,1.02752,0.98425,cd8 temra t cells,0.143,inside Normal
+TCGA-FD-A6TA-01A,TCGA-FD-A6TA,Primary Tumor,1.06918,1.05225,bladder epithelium,0.213,above Normal
+TCGA-FD-A6TB-01A,TCGA-FD-A6TB,Primary Tumor,1.0361,0.94032,cd8 temra t cells,0.144,inside Normal
+TCGA-FD-A6TC-01A,TCGA-FD-A6TC,Primary Tumor,1.05219,1.0031,bladder epithelium,0.224,above Normal
+TCGA-FD-A6TD-01A,TCGA-FD-A6TD,Primary Tumor,1.0405,0.98418,bladder epithelium,0.157,inside Normal
+TCGA-FD-A6TE-01A,TCGA-FD-A6TE,Primary Tumor,0.96561,0.95492,bladder epithelium,0.254,inside Normal
+TCGA-FD-A6TF-01A,TCGA-FD-A6TF,Primary Tumor,0.97772,0.94271,adipocytes,0.163,inside Normal
+TCGA-FD-A6TG-01A,TCGA-FD-A6TG,Primary Tumor,1.01878,0.99544,adipocytes,0.208,inside Normal
+TCGA-FD-A6TH-01A,TCGA-FD-A6TH,Primary Tumor,0.98555,0.9959,bladder epithelium,0.149,inside Normal
+TCGA-FD-A6TI-01A,TCGA-FD-A6TI,Primary Tumor,1.05361,1.08074,bladder epithelium,0.224,above Normal
+TCGA-FD-A6TK-01A,TCGA-FD-A6TK,Primary Tumor,1.05305,0.98334,cd8 temra t cells,0.162,above Normal
+TCGA-FJ-A3Z7-01A,TCGA-FJ-A3Z7,Primary Tumor,0.9726,0.95351,bladder epithelium,0.203,inside Normal
+TCGA-FJ-A3Z9-01A,TCGA-FJ-A3Z9,Primary Tumor,1.03581,1.05047,bladder epithelium,0.349,inside Normal
+TCGA-FJ-A3ZE-01A,TCGA-FJ-A3ZE,Primary Tumor,0.96606,1.02183,bladder epithelium,0.383,inside Normal
+TCGA-FJ-A3ZF-01A,TCGA-FJ-A3ZF,Primary Tumor,0.93065,0.94954,bladder epithelium,0.309,below Normal
+TCGA-FJ-A871-01A,TCGA-FJ-A871,Primary Tumor,0.8741,0.83791,vascular endothelium,0.129,below Normal
+TCGA-FT-A61P-01A,TCGA-FT-A61P,Primary Tumor,1.00881,0.98547,cd8 temra t cells,0.164,inside Normal
+TCGA-G2-A2EF-01A,TCGA-G2-A2EF,Primary Tumor,0.97126,0.91505,cd8 temra t cells,0.213,inside Normal
+TCGA-G2-A2EJ-01A,TCGA-G2-A2EJ,Primary Tumor,1.02111,0.96934,lung bronchus epithelium,0.171,inside Normal
+TCGA-G2-A2EK-01A,TCGA-G2-A2EK,Primary Tumor,1.03039,0.99584,bladder epithelium,0.238,inside Normal
+TCGA-G2-A2EL-01A,TCGA-G2-A2EL,Primary Tumor,0.88256,0.82766,lung bronchus epithelium,0.302,below Normal
+TCGA-G2-A2EO-01A,TCGA-G2-A2EO,Primary Tumor,1.03226,1.00763,bladder epithelium,0.179,inside Normal
+TCGA-G2-A2ES-01A,TCGA-G2-A2ES,Primary Tumor,1.01573,0.99283,lung bronchus epithelium,0.154,inside Normal
+TCGA-G2-A3IB-01A,TCGA-G2-A3IB,Primary Tumor,0.98183,0.93749,lung bronchus epithelium,0.365,inside Normal
+TCGA-G2-A3VY-01A,TCGA-G2-A3VY,Primary Tumor,0.89943,0.88541,bladder epithelium,0.323,below Normal
+TCGA-G2-AA3B-01A,TCGA-G2-AA3B,Primary Tumor,1.02199,0.99896,bladder epithelium,0.253,inside Normal
+TCGA-G2-AA3C-01A,TCGA-G2-AA3C,Primary Tumor,1.00446,0.91754,monocytes,0.189,inside Normal
+TCGA-G2-AA3D-01A,TCGA-G2-AA3D,Primary Tumor,0.92229,0.8667,bladder epithelium,0.22,below Normal
+TCGA-G2-AA3F-01A,TCGA-G2-AA3F,Primary Tumor,0.98777,1.02188,bladder epithelium,0.221,inside Normal
+TCGA-GC-A3BM-01A,TCGA-GC-A3BM,Primary Tumor,0.98619,1.00797,bladder epithelium,0.341,inside Normal
+TCGA-GC-A3BM-11A,TCGA-GC-A3BM,Solid Tissue Normal,0.96516,0.93257,bladder epithelium,0.303,inside Normal
+TCGA-GC-A3I6-01A,TCGA-GC-A3I6,Primary Tumor,0.941,0.92537,bladder epithelium,0.196,below Normal
+TCGA-GC-A3OO-01A,TCGA-GC-A3OO,Primary Tumor,1.03746,0.99706,adipocytes,0.208,inside Normal
+TCGA-GC-A3RB-01A,TCGA-GC-A3RB,Primary Tumor,1.00221,1.0179,bladder epithelium,0.311,inside Normal
+TCGA-GC-A3RC-01A,TCGA-GC-A3RC,Primary Tumor,0.96475,0.93912,cd8 temra t cells,0.27,inside Normal
+TCGA-GC-A3RD-01A,TCGA-GC-A3RD,Primary Tumor,1.01873,1.01331,bladder epithelium,0.364,inside Normal
+TCGA-GC-A3WC-01A,TCGA-GC-A3WC,Primary Tumor,1.04166,0.94186,central memory th1 cells,0.126,inside Normal
+TCGA-GC-A3WC-11A,TCGA-GC-A3WC,Solid Tissue Normal,0.96421,0.89207,vascular endothelium,0.182,inside Normal
+TCGA-GC-A3YS-01A,TCGA-GC-A3YS,Primary Tumor,1.01694,0.99314,lung bronchus epithelium,0.184,inside Normal
+TCGA-GC-A4ZW-01A,TCGA-GC-A4ZW,Primary Tumor,0.90559,0.86977,breast luminal epithelium,0.186,below Normal
+TCGA-GC-A6I1-01A,TCGA-GC-A6I1,Primary Tumor,1.04192,0.95668,memory b cells,0.196,inside Normal
+TCGA-GC-A6I3-01A,TCGA-GC-A6I3,Primary Tumor,1.05269,1.0033,bladder epithelium,0.178,above Normal
+TCGA-GC-A6I3-11A,TCGA-GC-A6I3,Solid Tissue Normal,0.98275,0.90917,memory b cells,0.189,inside Normal
+TCGA-GD-A3OP-01A,TCGA-GD-A3OP,Primary Tumor,1.05433,1.0246,bladder epithelium,0.305,above Normal
+TCGA-GD-A3OP-11A,TCGA-GD-A3OP,Solid Tissue Normal,0.98409,0.93577,adipocytes,0.206,inside Normal
+TCGA-GD-A3OQ-01A,TCGA-GD-A3OQ,Primary Tumor,1.02044,1.01777,bladder epithelium,0.333,inside Normal
+TCGA-GD-A3OQ-11A,TCGA-GD-A3OQ,Solid Tissue Normal,0.9422,0.90849,bladder epithelium,0.269,below Normal
+TCGA-GD-A3OS-01A,TCGA-GD-A3OS,Primary Tumor,0.93446,0.89135,prostate epithelium,0.193,below Normal
+TCGA-GD-A6C6-01A,TCGA-GD-A6C6,Primary Tumor,0.96127,0.97504,bladder epithelium,0.262,inside Normal
+TCGA-GD-A76B-01A,TCGA-GD-A76B,Primary Tumor,1.05121,1.02647,bladder epithelium,0.184,above Normal
+TCGA-GU-A42P-01A,TCGA-GU-A42P,Primary Tumor,0.96322,0.95219,bladder epithelium,0.265,inside Normal
+TCGA-GU-A42Q-01A,TCGA-GU-A42Q,Primary Tumor,1.00732,0.91213,neutrophils,0.177,inside Normal
+TCGA-GU-A42R-01A,TCGA-GU-A42R,Primary Tumor,0.92828,0.91766,bladder epithelium,0.237,below Normal
+TCGA-GU-A762-01A,TCGA-GU-A762,Primary Tumor,0.98663,0.9169,cd8 temra t cells,0.191,inside Normal
+TCGA-GU-A763-01A,TCGA-GU-A763,Primary Tumor,0.93519,0.96016,bladder epithelium,0.405,below Normal
+TCGA-GU-A764-01A,TCGA-GU-A764,Primary Tumor,1.05806,0.98542,memory b cells,0.172,above Normal
+TCGA-GU-A766-01A,TCGA-GU-A766,Primary Tumor,0.95863,0.90564,monocytes,0.169,inside Normal
+TCGA-GU-A767-01A,TCGA-GU-A767,Primary Tumor,0.97015,0.95111,adipocytes,0.186,inside Normal
+TCGA-GU-AATO-01A,TCGA-GU-AATO,Primary Tumor,0.97518,0.9375,cd8 temra t cells,0.175,inside Normal
+TCGA-GU-AATP-01A,TCGA-GU-AATP,Primary Tumor,0.94467,0.91332,bladder epithelium,0.217,below Normal
+TCGA-GU-AATQ-01A,TCGA-GU-AATQ,Primary Tumor,1.01708,0.99188,lung bronchus epithelium,0.303,inside Normal
+TCGA-GV-A3JV-01A,TCGA-GV-A3JV,Primary Tumor,1.01267,1.01682,bladder epithelium,0.242,inside Normal
+TCGA-GV-A3JW-01A,TCGA-GV-A3JW,Primary Tumor,0.92295,0.93534,bladder epithelium,0.403,below Normal
+TCGA-GV-A3JX-01A,TCGA-GV-A3JX,Primary Tumor,1.01723,1.01138,prostate epithelium,0.193,inside Normal
+TCGA-GV-A3QF-01A,TCGA-GV-A3QF,Primary Tumor,1.0275,0.9888,bladder epithelium,0.182,inside Normal
+TCGA-GV-A3QG-01A,TCGA-GV-A3QG,Primary Tumor,1.05088,0.98795,cd8 temra t cells,0.184,above Normal
+TCGA-GV-A3QH-01A,TCGA-GV-A3QH,Primary Tumor,0.97818,0.94035,bladder epithelium,0.21,inside Normal
+TCGA-GV-A3QI-01A,TCGA-GV-A3QI,Primary Tumor,0.92041,0.92088,prostate epithelium,0.322,below Normal
+TCGA-GV-A3QK-01B,TCGA-GV-A3QK,Primary Tumor,1.01887,1.02493,bladder epithelium,0.301,inside Normal
+TCGA-GV-A40E-01A,TCGA-GV-A40E,Primary Tumor,1.03069,0.98432,lung bronchus epithelium,0.176,inside Normal
+TCGA-GV-A40G-01A,TCGA-GV-A40G,Primary Tumor,0.95577,0.98649,bladder epithelium,0.244,inside Normal
+TCGA-GV-A6ZA-01A,TCGA-GV-A6ZA,Primary Tumor,1.0307,1.01845,bladder epithelium,0.297,inside Normal
+TCGA-H4-A2HO-01A,TCGA-H4-A2HO,Primary Tumor,1.02406,1.02342,bladder epithelium,0.253,inside Normal
+TCGA-HQ-A2OF-01A,TCGA-HQ-A2OF,Primary Tumor,0.89799,0.87868,colon epithelium,0.259,below Normal
+TCGA-HQ-A5ND-01A,TCGA-HQ-A5ND,Primary Tumor,1.02148,0.97466,lung bronchus epithelium,0.268,inside Normal
+TCGA-HQ-A5NE-01A,TCGA-HQ-A5NE,Primary Tumor,1.07603,1.04013,bladder epithelium,0.251,above Normal
+TCGA-K4-A3WS-01A,TCGA-K4-A3WS,Primary Tumor,1.01325,0.97744,bladder epithelium,0.19,inside Normal
+TCGA-K4-A3WU-01B,TCGA-K4-A3WU,Primary Tumor,1.04158,1.00004,prostate epithelium,0.159,inside Normal
+TCGA-K4-A3WV-01A,TCGA-K4-A3WV,Primary Tumor,0.98818,0.97726,prostate epithelium,0.274,inside Normal
+TCGA-K4-A3WV-11A,TCGA-K4-A3WV,Solid Tissue Normal,0.92936,0.888,vascular endothelium,0.259,below Normal
+TCGA-K4-A4AB-01B,TCGA-K4-A4AB,Primary Tumor,1.02642,1.00026,lung bronchus epithelium,0.304,inside Normal
+TCGA-K4-A4AC-01A,TCGA-K4-A4AC,Primary Tumor,1.01919,0.93994,cd8 temra t cells,0.16,inside Normal
+TCGA-K4-A54R-01A,TCGA-K4-A54R,Primary Tumor,0.98213,0.97251,bladder epithelium,0.205,inside Normal
+TCGA-K4-A54R-11A,TCGA-K4-A54R,Solid Tissue Normal,0.94452,0.90869,bladder epithelium,0.331,below Normal
+TCGA-K4-A5RH-01A,TCGA-K4-A5RH,Primary Tumor,0.94724,0.90858,cd8 temra t cells,0.201,below Normal
+TCGA-K4-A5RI-01A,TCGA-K4-A5RI,Primary Tumor,1.0309,0.99621,lung bronchus epithelium,0.223,inside Normal
+TCGA-K4-A5RI-11A,TCGA-K4-A5RI,Solid Tissue Normal,0.98369,0.90148,central memory th1 cells,0.159,inside Normal
+TCGA-K4-A5RJ-01A,TCGA-K4-A5RJ,Primary Tumor,0.97165,0.89416,cd8 temra t cells,0.154,inside Normal
+TCGA-K4-A6FZ-01A,TCGA-K4-A6FZ,Primary Tumor,1.01397,0.98004,bladder epithelium,0.212,inside Normal
+TCGA-K4-A6MB-01A,TCGA-K4-A6MB,Primary Tumor,0.97545,1.0004,bladder epithelium,0.354,inside Normal
+TCGA-K4-A83P-01A,TCGA-K4-A83P,Primary Tumor,1.00706,0.92103,memory b cells,0.276,inside Normal
+TCGA-KQ-A41N-01A,TCGA-KQ-A41N,Primary Tumor,0.99427,0.97232,bladder epithelium,0.205,inside Normal
+TCGA-KQ-A41O-01A,TCGA-KQ-A41O,Primary Tumor,0.8762,0.89445,bladder epithelium,0.435,below Normal
+TCGA-KQ-A41P-01A,TCGA-KQ-A41P,Primary Tumor,1.0019,0.98216,bladder epithelium,0.216,inside Normal
+TCGA-KQ-A41Q-01A,TCGA-KQ-A41Q,Primary Tumor,1.05328,1.02976,bladder epithelium,0.239,above Normal
+TCGA-KQ-A41R-01A,TCGA-KQ-A41R,Primary Tumor,1.04151,1.0977,bladder epithelium,0.394,inside Normal
+TCGA-KQ-A41S-01A,TCGA-KQ-A41S,Primary Tumor,1.03247,1.01337,bladder epithelium,0.213,inside Normal
+TCGA-LC-A66R-01A,TCGA-LC-A66R,Primary Tumor,1.02254,0.96741,memory b cells,0.146,inside Normal
+TCGA-LT-A5Z6-01A,TCGA-LT-A5Z6,Primary Tumor,0.97218,0.94806,bladder epithelium,0.344,inside Normal
+TCGA-LT-A8JT-01A,TCGA-LT-A8JT,Primary Tumor,1.05822,1.08052,bladder epithelium,0.415,above Normal
+TCGA-MV-A51V-01A,TCGA-MV-A51V,Primary Tumor,0.96061,0.96493,bladder epithelium,0.319,inside Normal
+TCGA-PQ-A6FI-01A,TCGA-PQ-A6FI,Primary Tumor,0.98716,0.94517,lung bronchus epithelium,0.31,inside Normal
+TCGA-PQ-A6FN-01A,TCGA-PQ-A6FN,Primary Tumor,1.02342,0.9718,adipocytes,0.194,inside Normal
+TCGA-R3-A69X-01A,TCGA-R3-A69X,Primary Tumor,1.00856,0.9726,adipocytes,0.177,inside Normal
+TCGA-S5-A6DX-01A,TCGA-S5-A6DX,Primary Tumor,1.0149,0.98197,bladder epithelium,0.204,inside Normal
+TCGA-S5-AA26-01A,TCGA-S5-AA26,Primary Tumor,1.0101,1.06988,bladder epithelium,0.427,inside Normal
+TCGA-SY-A9G0-01A,TCGA-SY-A9G0,Primary Tumor,1.02708,1.01397,adipocytes,0.264,inside Normal
+TCGA-SY-A9G5-01A,TCGA-SY-A9G5,Primary Tumor,1.03277,1.00808,cd8 temra t cells,0.173,inside Normal
+TCGA-UY-A78K-01A,TCGA-UY-A78K,Primary Tumor,1.02917,0.96081,central memory th1 cells,0.184,inside Normal
+TCGA-UY-A78L-01A,TCGA-UY-A78L,Primary Tumor,1.04258,0.99654,cd8 temra t cells,0.157,inside Normal
+TCGA-UY-A78M-01A,TCGA-UY-A78M,Primary Tumor,1.03593,1.0138,bladder epithelium,0.22,inside Normal
+TCGA-UY-A78N-01A,TCGA-UY-A78N,Primary Tumor,0.96189,0.92935,cd8 temra t cells,0.228,inside Normal
+TCGA-UY-A78O-01A,TCGA-UY-A78O,Primary Tumor,1.04278,1.04695,bladder epithelium,0.32,inside Normal
+TCGA-UY-A78P-01A,TCGA-UY-A78P,Primary Tumor,1.04111,0.9538,adipocytes,0.131,inside Normal
+TCGA-UY-A8OB-01A,TCGA-UY-A8OB,Primary Tumor,0.99208,0.97382,cd8 temra t cells,0.204,inside Normal
+TCGA-UY-A8OC-01A,TCGA-UY-A8OC,Primary Tumor,1.07118,1.07134,lung bronchus epithelium,0.257,above Normal
+TCGA-UY-A8OD-01A,TCGA-UY-A8OD,Primary Tumor,1.02324,1.01451,cd8 temra t cells,0.189,inside Normal
+TCGA-UY-A9PA-01A,TCGA-UY-A9PA,Primary Tumor,1.01327,1.00533,bladder epithelium,0.443,inside Normal
+TCGA-UY-A9PB-01A,TCGA-UY-A9PB,Primary Tumor,1.01065,0.94531,cd8 temra t cells,0.164,inside Normal
+TCGA-UY-A9PD-01A,TCGA-UY-A9PD,Primary Tumor,0.96423,0.96155,bladder epithelium,0.209,inside Normal
+TCGA-UY-A9PE-01A,TCGA-UY-A9PE,Primary Tumor,1.0341,1.02875,bladder epithelium,0.243,inside Normal
+TCGA-UY-A9PF-01A,TCGA-UY-A9PF,Primary Tumor,1.00728,0.96739,bladder epithelium,0.22,inside Normal
+TCGA-UY-A9PH-01A,TCGA-UY-A9PH,Primary Tumor,0.99718,0.95394,bladder epithelium,0.239,inside Normal
+TCGA-XF-A8HB-01A,TCGA-XF-A8HB,Primary Tumor,0.89213,0.86679,prostate epithelium,0.273,below Normal
+TCGA-XF-A8HC-01A,TCGA-XF-A8HC,Primary Tumor,0.93965,0.96658,bladder epithelium,0.429,below Normal
+TCGA-XF-A8HD-01A,TCGA-XF-A8HD,Primary Tumor,0.99476,0.95009,cd8 temra t cells,0.248,inside Normal
+TCGA-XF-A8HE-01A,TCGA-XF-A8HE,Primary Tumor,1.06028,0.98275,neutrophils,0.297,above Normal
+TCGA-XF-A8HF-01A,TCGA-XF-A8HF,Primary Tumor,0.99008,0.99094,bladder epithelium,0.29,inside Normal
+TCGA-XF-A8HG-01A,TCGA-XF-A8HG,Primary Tumor,0.98211,1.00855,bladder epithelium,0.328,inside Normal
+TCGA-XF-A8HH-01A,TCGA-XF-A8HH,Primary Tumor,1.03722,1.01718,bladder epithelium,0.229,inside Normal
+TCGA-XF-A8HI-01A,TCGA-XF-A8HI,Primary Tumor,1.01948,1.03713,bladder epithelium,0.459,inside Normal
+TCGA-XF-A9SG-01A,TCGA-XF-A9SG,Primary Tumor,0.97937,0.90799,cd8 temra t cells,0.218,inside Normal
+TCGA-XF-A9SH-01A,TCGA-XF-A9SH,Primary Tumor,1.00865,0.99962,bladder epithelium,0.374,inside Normal
+TCGA-XF-A9SI-01A,TCGA-XF-A9SI,Primary Tumor,0.9832,0.88982,central memory th1 cells,0.154,inside Normal
+TCGA-XF-A9SJ-01A,TCGA-XF-A9SJ,Primary Tumor,1.02005,0.9607,cd8 temra t cells,0.186,inside Normal
+TCGA-XF-A9SK-01A,TCGA-XF-A9SK,Primary Tumor,0.99877,0.98358,bladder epithelium,0.201,inside Normal
+TCGA-XF-A9SL-01A,TCGA-XF-A9SL,Primary Tumor,0.9725,0.88713,adipocytes,0.159,inside Normal
+TCGA-XF-A9SM-01A,TCGA-XF-A9SM,Primary Tumor,0.98489,0.89283,central memory th1 cells,0.192,inside Normal
+TCGA-XF-A9SP-01A,TCGA-XF-A9SP,Primary Tumor,1.02027,0.95721,adipocytes,0.17,inside Normal
+TCGA-XF-A9ST-01A,TCGA-XF-A9ST,Primary Tumor,0.88626,0.77745,embryonic stem cells,0.262,below Normal
+TCGA-XF-A9SU-01A,TCGA-XF-A9SU,Primary Tumor,1.02199,0.95435,bladder epithelium,0.196,inside Normal
+TCGA-XF-A9SV-01A,TCGA-XF-A9SV,Primary Tumor,1.02003,1.07342,bladder epithelium,0.351,inside Normal
+TCGA-XF-A9SW-01A,TCGA-XF-A9SW,Primary Tumor,0.95183,0.90387,vascular endothelium,0.18,inside Normal
+TCGA-XF-A9SX-01A,TCGA-XF-A9SX,Primary Tumor,0.9779,0.93655,cd8 temra t cells,0.152,inside Normal
+TCGA-XF-A9SY-01A,TCGA-XF-A9SY,Primary Tumor,1.0113,0.92501,neutrophils,0.164,inside Normal
+TCGA-XF-A9SZ-01A,TCGA-XF-A9SZ,Primary Tumor,0.98804,0.91621,adipocytes,0.172,inside Normal
+TCGA-XF-A9T0-01A,TCGA-XF-A9T0,Primary Tumor,0.96917,0.95818,bladder epithelium,0.285,inside Normal
+TCGA-XF-A9T2-01A,TCGA-XF-A9T2,Primary Tumor,0.91941,0.90233,lung bronchus epithelium,0.238,below Normal
+TCGA-XF-A9T3-01A,TCGA-XF-A9T3,Primary Tumor,0.99823,0.94105,cd8 temra t cells,0.156,inside Normal
+TCGA-XF-A9T4-01A,TCGA-XF-A9T4,Primary Tumor,0.98812,0.98858,bladder epithelium,0.228,inside Normal
+TCGA-XF-A9T5-01A,TCGA-XF-A9T5,Primary Tumor,0.97014,0.91034,cd8 temra t cells,0.215,inside Normal
+TCGA-XF-A9T6-01A,TCGA-XF-A9T6,Primary Tumor,0.96436,0.94306,bladder epithelium,0.242,inside Normal
+TCGA-XF-A9T8-01A,TCGA-XF-A9T8,Primary Tumor,1.0735,1.00373,neutrophils,0.176,above Normal
+TCGA-XF-AAME-01A,TCGA-XF-AAME,Primary Tumor,0.97101,0.90706,adipocytes,0.161,inside Normal
+TCGA-XF-AAMF-01A,TCGA-XF-AAMF,Primary Tumor,0.97648,0.98942,bladder epithelium,0.2,inside Normal
+TCGA-XF-AAMG-01A,TCGA-XF-AAMG,Primary Tumor,0.90468,0.88669,bladder epithelium,0.196,below Normal
+TCGA-XF-AAMH-01A,TCGA-XF-AAMH,Primary Tumor,0.9448,0.93238,lung bronchus epithelium,0.149,below Normal
+TCGA-XF-AAMJ-01A,TCGA-XF-AAMJ,Primary Tumor,1.03323,1.02648,adipocytes,0.223,inside Normal
+TCGA-XF-AAML-01A,TCGA-XF-AAML,Primary Tumor,0.96811,0.9715,bladder epithelium,0.296,inside Normal
+TCGA-XF-AAMQ-01A,TCGA-XF-AAMQ,Primary Tumor,1.00263,1.00692,bladder epithelium,0.305,inside Normal
+TCGA-XF-AAMR-01A,TCGA-XF-AAMR,Primary Tumor,0.97623,0.95071,vascular endothelium,0.185,inside Normal
+TCGA-XF-AAMT-01A,TCGA-XF-AAMT,Primary Tumor,1.01107,0.94585,lung bronchus epithelium,0.162,inside Normal
+TCGA-XF-AAMW-01A,TCGA-XF-AAMW,Primary Tumor,1.00017,0.98042,lung bronchus epithelium,0.27,inside Normal
+TCGA-XF-AAMX-01A,TCGA-XF-AAMX,Primary Tumor,0.92488,0.90407,bladder epithelium,0.297,below Normal
+TCGA-XF-AAMY-01A,TCGA-XF-AAMY,Primary Tumor,0.95171,0.92348,bladder epithelium,0.226,inside Normal
+TCGA-XF-AAMZ-01A,TCGA-XF-AAMZ,Primary Tumor,0.98712,0.97,bladder epithelium,0.24,inside Normal
+TCGA-XF-AAN0-01A,TCGA-XF-AAN0,Primary Tumor,0.96815,0.92719,cd8 temra t cells,0.154,inside Normal
+TCGA-XF-AAN1-01A,TCGA-XF-AAN1,Primary Tumor,0.96704,1.01303,bladder epithelium,0.374,inside Normal
+TCGA-XF-AAN2-01A,TCGA-XF-AAN2,Primary Tumor,0.9506,0.9363,cd8 temra t cells,0.197,inside Normal
+TCGA-XF-AAN3-01A,TCGA-XF-AAN3,Primary Tumor,1.02348,1.01098,lung bronchus epithelium,0.183,inside Normal
+TCGA-XF-AAN4-01A,TCGA-XF-AAN4,Primary Tumor,0.95444,0.89076,vascular endothelium,0.15,inside Normal
+TCGA-XF-AAN5-01A,TCGA-XF-AAN5,Primary Tumor,0.92722,0.87845,cd8 temra t cells,0.2,below Normal
+TCGA-XF-AAN7-01A,TCGA-XF-AAN7,Primary Tumor,0.93163,0.93495,prostate epithelium,0.209,below Normal
+TCGA-XF-AAN8-01A,TCGA-XF-AAN8,Primary Tumor,0.93947,0.84403,neutrophils,0.436,below Normal
+TCGA-YC-A89H-01A,TCGA-YC-A89H,Primary Tumor,1.06558,1.05839,cd8 temra t cells,0.232,above Normal
+TCGA-YC-A8S6-01A,TCGA-YC-A8S6,Primary Tumor,1.03556,1.01103,adipocytes,0.232,inside Normal
+TCGA-YC-A9TC-01A,TCGA-YC-A9TC,Primary Tumor,0.97919,0.92977,lung bronchus epithelium,0.226,inside Normal
+TCGA-YF-AA3L-01A,TCGA-YF-AA3L,Primary Tumor,0.97901,0.99266,bladder epithelium,0.372,inside Normal
+TCGA-YF-AA3M-01A,TCGA-YF-AA3M,Primary Tumor,0.9805,0.97368,bladder epithelium,0.264,inside Normal
+TCGA-ZF-A9R0-01A,TCGA-ZF-A9R0,Primary Tumor,1.02091,1.02773,bladder epithelium,0.302,inside Normal
+TCGA-ZF-A9R1-01A,TCGA-ZF-A9R1,Primary Tumor,1.00848,0.9833,bladder epithelium,0.294,inside Normal
+TCGA-ZF-A9R2-01A,TCGA-ZF-A9R2,Primary Tumor,1.04918,1.07667,bladder epithelium,0.327,inside Normal
+TCGA-ZF-A9R3-01A,TCGA-ZF-A9R3,Primary Tumor,1.01531,1.0177,bladder epithelium,0.389,inside Normal
+TCGA-ZF-A9R4-01A,TCGA-ZF-A9R4,Primary Tumor,0.97028,1.00865,bladder epithelium,0.31,inside Normal
+TCGA-ZF-A9R5-01A,TCGA-ZF-A9R5,Primary Tumor,0.93063,0.95213,bladder epithelium,0.359,below Normal
+TCGA-ZF-A9R7-01A,TCGA-ZF-A9R7,Primary Tumor,1.05247,1.0448,bladder epithelium,0.228,above Normal
+TCGA-ZF-A9R9-01A,TCGA-ZF-A9R9,Primary Tumor,0.95552,0.99626,bladder epithelium,0.265,inside Normal
+TCGA-ZF-A9RC-01A,TCGA-ZF-A9RC,Primary Tumor,0.9857,0.96437,adipocytes,0.233,inside Normal
+TCGA-ZF-A9RD-01A,TCGA-ZF-A9RD,Primary Tumor,0.96464,0.92015,memory b cells,0.194,inside Normal
+TCGA-ZF-A9RE-01A,TCGA-ZF-A9RE,Primary Tumor,1.04229,1.04107,lung bronchus epithelium,0.237,inside Normal
+TCGA-ZF-A9RF-01A,TCGA-ZF-A9RF,Primary Tumor,0.99606,0.93302,cd8 temra t cells,0.233,inside Normal
+TCGA-ZF-A9RG-01A,TCGA-ZF-A9RG,Primary Tumor,0.96349,0.89422,cd8 temra t cells,0.187,inside Normal
+TCGA-ZF-A9RL-01A,TCGA-ZF-A9RL,Primary Tumor,0.98476,1.04041,bladder epithelium,0.411,inside Normal
+TCGA-ZF-A9RM-01A,TCGA-ZF-A9RM,Primary Tumor,0.89319,0.92379,bladder epithelium,0.493,below Normal
+TCGA-ZF-A9RN-01A,TCGA-ZF-A9RN,Primary Tumor,0.97094,0.96749,endometrium epithelium,0.141,inside Normal
+TCGA-ZF-AA4N-01A,TCGA-ZF-AA4N,Primary Tumor,0.97853,0.94899,cd8 temra t cells,0.165,inside Normal
+TCGA-ZF-AA4R-01A,TCGA-ZF-AA4R,Primary Tumor,0.97194,0.95746,prostate epithelium,0.217,inside Normal
+TCGA-ZF-AA4T-01A,TCGA-ZF-AA4T,Primary Tumor,0.98932,0.9268,bladder epithelium,0.237,inside Normal
+TCGA-ZF-AA4U-01A,TCGA-ZF-AA4U,Primary Tumor,0.99902,1.04358,bladder epithelium,0.414,inside Normal
+TCGA-ZF-AA4V-01A,TCGA-ZF-AA4V,Primary Tumor,0.96366,0.96064,cd8 temra t cells,0.185,inside Normal
+TCGA-ZF-AA4W-01A,TCGA-ZF-AA4W,Primary Tumor,0.99706,0.94261,neutrophils,0.418,inside Normal
+TCGA-ZF-AA4X-01A,TCGA-ZF-AA4X,Primary Tumor,1.02728,1.04828,bladder epithelium,0.286,inside Normal
+TCGA-ZF-AA51-01A,TCGA-ZF-AA51,Primary Tumor,0.99792,0.96321,cd8 temra t cells,0.221,inside Normal
+TCGA-ZF-AA52-01A,TCGA-ZF-AA52,Primary Tumor,1.04091,0.99489,bladder epithelium,0.154,inside Normal
+TCGA-ZF-AA53-01A,TCGA-ZF-AA53,Primary Tumor,1.01703,0.92827,neutrophils,0.234,inside Normal
+TCGA-ZF-AA54-01A,TCGA-ZF-AA54,Primary Tumor,0.9956,0.92489,cd8 temra t cells,0.136,inside Normal
+TCGA-ZF-AA56-01A,TCGA-ZF-AA56,Primary Tumor,1.05341,0.98381,bladder epithelium,0.172,above Normal
+TCGA-ZF-AA58-01A,TCGA-ZF-AA58,Primary Tumor,0.95497,0.90951,neutrophils,0.165,inside Normal
+TCGA-ZF-AA5H-01A,TCGA-ZF-AA5H,Primary Tumor,1.02855,0.96648,cd8 temra t cells,0.17,inside Normal
+TCGA-ZF-AA5N-01A,TCGA-ZF-AA5N,Primary Tumor,1.01927,1.02464,cd8 temra t cells,0.177,inside Normal
+TCGA-ZF-AA5P-01A,TCGA-ZF-AA5P,Primary Tumor,1.02708,0.93563,adipocytes,0.153,inside Normal

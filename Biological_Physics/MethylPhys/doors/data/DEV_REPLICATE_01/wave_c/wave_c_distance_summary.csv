@@ -1,0 +1,6 @@
+project,tumors,normals,dist_tumor,dist_normal,auc_distance,auc_identity_low,pairs,pairs_tumor_farther,auc_identity_tumor_higher,chain_commit
+COAD,265,31,0.0206,0.0127,0.6662,0.1946,30,22,0.8054,8f2bfee
+LIHC,362,44,0.0374,0.0313,0.5898,0.4321,41,28,0.5679,27cf179
+LUAD,438,26,0.0224,0.0275,0.4217,0.307,26,11,0.693,2ccd849
+BLCA,375,14,0.0267,0.0359,0.4078,0.1328,13,6,0.8672,0edd093
+READ,93,5,0.0193,0.0093,0.7,0.071,5,3,0.929,9a0a7bc

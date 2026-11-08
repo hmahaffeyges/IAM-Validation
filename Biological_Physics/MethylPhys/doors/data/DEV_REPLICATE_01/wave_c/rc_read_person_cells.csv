@@ -1,0 +1,1245 @@
+gsm,case,group,cell,share,met_a,met_a_se,c_score,c_limit,c_within
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,adipocytes,0.0803,1.06127,0.005357,0.9293,1.0944,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,bladder epithelium,0.0468,,,0.9593,1.1323,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,cd8 temra t cells,0.1096,1.04336,0.006436,1.0466,1.1202,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,colon epithelium,0.1806,1.05488,0.005313,1.0033,1.0926,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0141,1.03148,0.005086,0.9347,1.0955,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,embryonic stem cells,0.0321,1.07097,0.005821,0.9483,1.0938,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,erythrocyte progenitors,0.0446,1.02587,0.006282,1.0724,1.1235,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,heart fibroblasts,0.0223,,,0.9709,1.13,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,hepatocyte,0.0341,0.98193,0.003974,0.9557,1.0944,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,lung bronchus epithelium,0.0486,1.07334,0.005871,0.9689,1.0964,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,memory b cells,0.0521,1.07825,0.007252,1.0204,1.1245,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,neutrophils,0.0291,1.00111,0.005451,0.9657,1.0944,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,pancreatic acinar,0.0705,1.00693,0.003867,1.0609,1.0924,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,pancreatic beta,0.0323,1.06234,0.005439,1.1019,1.0917,False
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,small intestine epithelium,0.0541,1.07794,0.005566,0.9453,1.0949,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,smooth muscle,0.0989,,,0.953,1.1323,True
+TCGA-AF-2687-01A,TCGA-AF-2687,Primary Tumor,vascular endothelium,0.0412,1.00209,0.007268,1.1538,1.1178,False
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,adipocytes,0.0793,1.02594,0.004459,0.9142,1.0943,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,cd8 temra t cells,0.096,0.99955,0.005469,1.0068,1.1207,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,colon enteroendocrine,0.0912,,,1.0182,1.1668,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,colon epithelium,0.2901,1.02023,0.004075,1.0986,1.0922,False
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0632,1.01298,0.004373,0.9542,1.0959,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,embryonic stem cells,0.012,1.03324,0.004589,0.9988,1.0939,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,endometrium epithelium,0.0193,,,1.0661,1.1305,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,lung bronchus epithelium,0.0352,1.05858,0.004961,0.9971,1.0967,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,memory b cells,0.0888,1.05121,0.005885,0.9881,1.1257,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,monocytes,0.0191,0.96159,0.005396,0.9434,1.1251,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,pancreatic acinar,0.0223,1.00511,0.003308,0.9933,1.0927,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,prostate epithelium,0.0735,,,0.9071,1.1355,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,small intestine epithelium,0.0111,1.05076,0.00451,0.9919,1.094,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,striated muscle,0.0128,,,1.0155,1.1627,True
+TCGA-AF-2690-01A,TCGA-AF-2690,Primary Tumor,vascular endothelium,0.0768,1.00801,0.006489,1.1573,1.1181,False
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,adipocytes,0.0373,1.01507,0.004774,0.9209,1.093,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,cd8 temra t cells,0.0446,0.95853,0.005371,1.0466,1.1185,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,colon enteroendocrine,0.06,,,1.0646,1.1609,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,colon epithelium,0.475,0.99812,0.005173,0.9163,1.0909,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0625,0.96609,0.004229,0.8914,1.0926,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,gastric antrum epithelium,0.0171,,,1.1423,1.1309,False
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,lung bronchus epithelium,0.0205,1.02811,0.005113,0.9497,1.0938,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,memory b cells,0.1023,0.98878,0.005903,0.9374,1.1237,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,neutrophils,0.0184,0.95433,0.005056,0.8986,1.0937,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,pancreatic acinar,0.035,0.99074,0.003607,1.041,1.0906,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,prostate epithelium,0.0516,,,0.9462,1.1314,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,small intestine epithelium,0.014,1.02541,0.005328,0.9933,1.0928,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,smooth muscle,0.0256,,,0.8632,1.1294,True
+TCGA-AF-2693-01A,TCGA-AF-2693,Primary Tumor,tonsil pharyngeal epithelium,0.0202,,,0.8164,1.1584,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,cd8 temra t cells,0.0571,0.98876,0.006705,0.9029,1.12,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,colon enteroendocrine,0.1173,,,1.0731,1.1649,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,colon epithelium,0.3116,1.05665,0.005874,0.982,1.0924,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0195,0.97286,0.005194,0.9695,1.0948,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,endometrium epithelium,0.0246,,,0.9997,1.1291,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,erythrocyte progenitors,0.0154,0.97388,0.006905,0.9392,1.1228,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,heart fibroblasts,0.0237,,,1.0208,1.1291,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,lung bronchus epithelium,0.1145,1.06568,0.006394,1.014,1.0959,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,memory b cells,0.0366,1.03326,0.007622,0.8929,1.1253,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,pancreatic acinar,0.0787,0.94725,0.004588,1.0198,1.0921,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,small intestine epithelium,0.1147,1.08736,0.006264,0.9522,1.0944,True
+TCGA-AF-3911-01A,TCGA-AF-3911,Primary Tumor,smooth muscle,0.0823,,,1.0257,1.1319,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,adipocytes,0.0574,1.03723,0.004271,0.9568,1.0932,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,bladder epithelium,0.0141,,,0.9311,1.1298,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,cd8 temra t cells,0.0576,0.99078,0.00508,0.961,1.119,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,colon enteroendocrine,0.0822,,,1.0968,1.1622,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,colon epithelium,0.3302,1.01322,0.004262,1.0169,1.0911,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0687,0.99398,0.003954,0.8945,1.0933,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,lung bronchus epithelium,0.0109,1.04243,0.004836,1.0036,1.0945,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,memory b cells,0.1105,1.02063,0.005482,1.044,1.1239,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,neutrophils,0.0195,0.96759,0.004615,0.987,1.0938,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,pancreatic acinar,0.052,1.01576,0.003327,0.9807,1.0909,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,pancreatic beta,0.0202,1.03238,0.004522,1.0113,1.0905,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,prostate epithelium,0.0563,,,1.0105,1.1319,True
+TCGA-AF-4110-01A,TCGA-AF-4110,Primary Tumor,small intestine epithelium,0.1155,1.0418,0.004505,1.0744,1.0929,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,adipocytes,0.0421,1.10597,0.005671,0.9524,1.0929,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,cd8 temra t cells,0.027,1.08701,0.007013,0.8826,1.1183,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,colon enteroendocrine,0.19,,,1.0961,1.1609,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,colon epithelium,0.2506,1.15688,0.006205,0.9968,1.0909,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0793,1.06379,0.005411,0.978,1.0926,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,gastric antrum epithelium,0.0117,,,1.0848,1.1312,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,lung bronchus epithelium,0.07,1.1626,0.006472,1.0209,1.0937,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,memory b cells,0.0647,1.09972,0.007756,1.0055,1.1234,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,pancreatic acinar,0.0441,1.03231,0.004583,1.0052,1.0908,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,prostate epithelium,0.0876,,,0.8991,1.1312,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,small intestine epithelium,0.073,1.17693,0.006547,0.9627,1.0928,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,smooth muscle,0.0266,,,1.1114,1.1294,True
+TCGA-AF-6136-01A,TCGA-AF-6136,Primary Tumor,t effector cell cd8,0.0274,1.02767,0.005121,1.0729,1.0933,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,adipocytes,0.0671,1.05545,0.005161,0.9385,1.093,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,bladder epithelium,0.0205,,,0.93,1.1298,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,cd8 temra t cells,0.0187,1.03483,0.005545,0.9716,1.1186,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,colon enteroendocrine,0.0634,,,1.0745,1.1613,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,colon epithelium,0.3294,1.05266,0.005036,1.0245,1.0909,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0287,1.01825,0.004343,0.9868,1.093,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,erythrocyte progenitors,0.014,1.0391,0.006342,1.0677,1.1215,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,lung bronchus epithelium,0.0598,1.0809,0.0053,0.9576,1.0939,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,memory b cells,0.0508,1.03412,0.006203,0.9753,1.1235,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,neutrophils,0.1099,0.99874,0.005184,0.9694,1.0936,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,pancreatic acinar,0.06,1.00895,0.003739,0.945,1.0907,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,prostate epithelium,0.0155,,,1.0234,1.1314,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,small intestine epithelium,0.0766,1.07942,0.005302,0.8588,1.093,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,smooth muscle,0.0671,,,1.0018,1.1298,True
+TCGA-AF-6655-01A,TCGA-AF-6655,Primary Tumor,t effector cell cd8,0.0184,0.98404,0.004152,0.9846,1.0937,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,bladder epithelium,0.031,1.0118,0.006976,0.9988,1.1253,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,colon enteroendocrine,0.2045,,,0.9878,1.1568,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,colon epithelium,0.2507,1.15363,0.006279,1.031,1.0902,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1117,1.04672,0.005238,1.0273,1.0905,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,gastric antrum epithelium,0.0125,,,1.104,1.1274,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,gastric fundus epithelium,0.0362,,,1.1292,1.1276,False
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,heart fibroblasts,0.0167,1.04173,0.007179,0.9922,1.1228,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,lung bronchus epithelium,0.1304,1.13042,0.006116,0.9499,1.0909,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,memory b cells,0.0216,1.1038,0.007936,1.0754,1.1235,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,pancreatic acinar,0.0547,1.00681,0.004587,0.9866,1.0905,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,pancreatic beta,0.0236,1.09011,0.006026,0.9044,1.0902,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,small intestine epithelium,0.0416,1.15668,0.006323,0.9953,1.0902,True
+TCGA-AF-6672-01A,TCGA-AF-6672,Primary Tumor,smooth muscle,0.0534,1.02097,0.007035,0.9695,1.1259,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,adipocytes,0.0968,1.05711,0.004785,0.9179,1.0939,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,bladder epithelium,0.0311,,,1.0474,1.1312,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,cd8 temra t cells,0.0567,1.02196,0.005655,1.0413,1.1202,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,colon enteroendocrine,0.0474,,,1.18,1.1644,False
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,colon epithelium,0.2761,1.0552,0.004749,0.9698,1.0921,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0742,1.0209,0.0046,1.0751,1.0951,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,endometrium epithelium,0.0212,,,1.0167,1.1287,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,hepatocyte,0.0309,0.99469,0.003921,1.0312,1.0939,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,lung bronchus epithelium,0.0678,1.07926,0.005214,1.0069,1.0954,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,memory b cells,0.061,1.02486,0.006094,0.9464,1.1243,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,pancreatic acinar,0.0415,1.00794,0.0037,1.0714,1.092,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,pancreatic beta,0.0148,1.05689,0.004855,0.9642,1.0916,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,small intestine epithelium,0.1135,1.0801,0.00501,0.9507,1.0943,True
+TCGA-AF-A56K-01A,TCGA-AF-A56K,Primary Tumor,smooth muscle,0.0541,,,1.0222,1.1316,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,adipocytes,0.0832,1.0541,0.004962,1.0301,1.0933,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,cd8 temra t cells,0.0918,1.01382,0.006032,1.0009,1.1195,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,colon enteroendocrine,0.0795,,,1.1355,1.1644,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,colon epithelium,0.2198,1.01268,0.005137,0.9286,1.0913,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.033,1.00601,0.004589,1.0319,1.0941,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,embryonic stem cells,0.0154,1.03374,0.00535,1.0647,1.0934,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,endometrium epithelium,0.0147,,,0.9658,1.1285,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,lung bronchus epithelium,0.0431,1.0744,0.005585,1.0074,1.0948,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,memory b cells,0.0556,1.02016,0.006398,1.0244,1.1241,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,pancreatic acinar,0.0617,0.99738,0.00368,0.9791,1.0911,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,pancreatic beta,0.0209,1.04467,0.005175,1.0598,1.0908,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,prostate epithelium,0.1061,,,1.1108,1.1338,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,small intestine epithelium,0.0494,1.04363,0.005319,1.0283,1.0935,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,smooth muscle,0.0427,,,1.0225,1.1316,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,striated muscle,0.015,,,1.232,1.1596,False
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,t effector cell cd8,0.0361,0.97625,0.00427,0.9432,1.0952,True
+TCGA-AF-A56L-01A,TCGA-AF-A56L,Primary Tumor,vascular endothelium,0.0308,1.06285,0.007057,1.2082,1.1178,False
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,adipocytes,0.0637,1.05292,0.005313,0.9849,1.0913,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,colon enteroendocrine,0.1088,,,1.0711,1.1609,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,colon epithelium,0.3122,1.06694,0.005433,0.9532,1.0917,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0452,1.03305,0.005095,1.0016,1.0933,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,endometrium epithelium,0.0366,1.01443,0.006818,0.8584,1.1251,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,heart fibroblasts,0.0175,1.04373,0.007128,0.828,1.1259,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,hepatocyte,0.0246,0.98031,0.004605,0.9887,1.0941,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,lung bronchus epithelium,0.0902,1.11877,0.005851,1.0314,1.0931,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,memory b cells,0.0564,1.03624,0.006956,0.9845,1.1249,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,pancreatic acinar,0.0198,0.98061,0.004253,0.9937,1.092,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,prostate epithelium,0.0238,,,1.0041,1.13,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,small intestine epithelium,0.0893,1.0964,0.00565,1.0579,1.0917,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,smooth muscle,0.0584,,,1.0714,1.1287,True
+TCGA-AF-A56N-01A,TCGA-AF-A56N,Primary Tumor,t effector cell cd8,0.047,0.9885,0.004762,1.0364,1.0942,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,colon enteroendocrine,0.3658,,,1.0615,1.1592,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,colon epithelium,0.0618,1.20952,0.007037,0.997,1.0913,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1177,1.07084,0.006862,0.9567,1.0918,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,gastric antrum epithelium,0.0398,,,1.0117,1.1287,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,heart fibroblasts,0.0243,1.05261,0.008874,0.9896,1.1243,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,lung bronchus epithelium,0.1709,1.19112,0.008051,0.9347,1.0925,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,memory b cells,0.0346,1.14219,0.00971,0.9927,1.1241,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,pancreatic acinar,0.0862,0.98132,0.005742,1.0491,1.0916,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,prostate epithelium,0.0615,,,0.9126,1.1285,True
+TCGA-AG-3591-01A,TCGA-AG-3591,Primary Tumor,smooth muscle,0.0242,1.01187,0.008646,0.9809,1.127,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,colon enteroendocrine,0.1617,,,0.9745,1.1584,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,colon epithelium,0.3112,1.04743,0.005955,0.955,1.091,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,lung bronchus epithelium,0.0905,1.09592,0.006563,1.0338,1.0924,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,memory b cells,0.1077,1.01246,0.007352,1.0892,1.1241,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,pancreatic acinar,0.0641,0.96347,0.004599,1.033,1.0914,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,prostate epithelium,0.0382,,,1.0943,1.1285,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,small intestine epithelium,0.0188,1.08858,0.006185,0.9694,1.0907,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,smooth muscle,0.0814,0.99832,0.007267,1.0392,1.1272,True
+TCGA-AG-3592-01A,TCGA-AG-3592,Primary Tumor,t effector cell cd8,0.1131,0.94622,0.004932,1.0476,1.0924,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,colon enteroendocrine,0.2708,,,0.9831,1.1588,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,colon epithelium,0.2109,1.11853,0.006621,0.9717,1.0911,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.064,0.98184,0.005844,0.8968,1.0916,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,gastric antrum epithelium,0.0463,,,1.0594,1.1287,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,lung bronchus epithelium,0.1266,1.11661,0.007298,0.9157,1.0924,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,memory b cells,0.0623,1.03915,0.008681,1.0304,1.1245,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,pancreatic acinar,0.0158,0.93754,0.005328,0.9153,1.0914,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,small intestine epithelium,0.0322,1.15019,0.006902,1.0137,1.0908,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,smooth muscle,0.123,,,0.9,1.1274,True
+TCGA-AG-3725-01A,TCGA-AG-3725,Primary Tumor,t effector cell cd8,0.0416,0.9597,0.005837,1.0259,1.0923,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,HSC (bone marrow),0.0256,1.00253,0.002991,0.9568,1.093,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,adipocytes,0.0506,1.018,0.003016,1.0335,1.0929,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,cd8 temra t cells,0.0104,0.96864,0.003836,0.9709,1.1186,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,colon epithelium,0.6712,0.94793,0.002602,0.9515,1.0909,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,colon fibroblasts,0.0396,1.00967,0.005641,1.0342,1.1488,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,cytotoxic cd4 t cells (cd28-),0.0238,0.97903,0.00283,0.9935,1.0933,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,memory b cells,0.0441,0.97052,0.003637,1.0052,1.1239,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,pancreatic beta,0.0213,0.99201,0.003093,1.0177,1.0902,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,prostate epithelium,0.0299,,,0.9758,1.1328,True
+TCGA-AG-3725-11A,TCGA-AG-3725,Solid Tissue Normal,vascular endothelium,0.0625,1.04223,0.004422,1.0824,1.1176,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,adipocytes,0.0791,1.1054,0.005039,0.9163,1.093,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,cd8 temra t cells,0.0379,1.00616,0.006226,0.9998,1.1185,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,colon enteroendocrine,0.0615,,,0.9651,1.1609,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,colon epithelium,0.1879,1.07113,0.005362,1.0438,1.0909,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0826,1.0045,0.004576,1.0731,1.0927,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,embryonic stem cells,0.0234,1.06573,0.005566,0.9713,1.093,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,endometrium epithelium,0.0267,1.03614,0.006597,1.1478,1.1266,False
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,erythrocyte progenitors,0.0335,1.04707,0.006323,1.0793,1.1211,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,lung bronchus epithelium,0.0643,1.08773,0.005755,1.0972,1.0938,False
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,memory b cells,0.1518,1.03947,0.006632,1.0373,1.1235,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,pancreatic acinar,0.0624,1.04712,0.003648,1.0997,1.0907,False
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,prostate epithelium,0.0515,,,1.035,1.1312,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,smooth muscle,0.0722,,,0.8965,1.1296,True
+TCGA-AG-3731-01A,TCGA-AG-3731,Primary Tumor,t effector cell cd8,0.0651,1.00784,0.004411,0.9506,1.0933,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,HSC (bone marrow),0.0484,0.98403,0.002905,0.9627,1.093,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,adipocytes,0.0612,0.98685,0.002756,0.9467,1.093,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,cd8 t cells,0.0218,0.949,0.003327,0.9167,1.1106,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,colon epithelium,0.5381,0.94189,0.002523,0.9329,1.0909,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,colon fibroblasts,0.0431,0.97799,0.00542,1.0288,1.1488,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,cytotoxic cd4 t cells (cd28-),0.0358,0.96832,0.002856,0.9426,1.0933,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,eosinophils,0.0105,0.9899,0.00301,0.9783,1.1222,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,memory b cells,0.0824,0.9663,0.003631,1.045,1.1239,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,monocytes,0.0242,0.95439,0.003516,0.9901,1.1249,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,pancreatic beta,0.0224,0.96243,0.002891,1.0235,1.0902,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,prostate epithelium,0.039,,,0.9685,1.1328,True
+TCGA-AG-3731-11A,TCGA-AG-3731,Solid Tissue Normal,vascular endothelium,0.0438,0.98875,0.003893,1.0955,1.1176,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,adipocytes,0.0792,1.13137,0.005954,1.0398,1.0907,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,bladder epithelium,0.035,1.06564,0.00694,0.9093,1.1261,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,colon enteroendocrine,0.2273,,,0.837,1.1584,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1842,1.13989,0.006283,0.9411,1.0916,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,gastric fundus epithelium,0.0868,,,0.9571,1.1287,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,lung bronchus epithelium,0.0966,1.20826,0.006705,0.9203,1.0921,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,memory b cells,0.1479,1.17521,0.008953,0.9817,1.1239,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,prostate epithelium,0.0128,,,0.9141,1.1285,True
+TCGA-AG-3732-01A,TCGA-AG-3732,Primary Tumor,small intestine epithelium,0.1274,1.25462,0.006891,1.0418,1.0907,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,cd8 temra t cells,0.0339,0.99735,0.007549,1.0045,1.1181,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,colon enteroendocrine,0.2139,,,1.0129,1.1605,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,colon epithelium,0.1692,1.04586,0.006944,0.9632,1.0907,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,endometrium epithelium,0.0368,0.97784,0.007694,1.0648,1.1261,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,heart fibroblasts,0.0331,0.99544,0.008024,0.829,1.1259,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,lung bronchus epithelium,0.0957,1.05582,0.006903,1.0117,1.0933,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,memory b cells,0.089,1.02514,0.008855,0.9093,1.1235,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,pancreatic acinar,0.0779,0.93473,0.004688,1.0219,1.0904,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,prostate epithelium,0.0362,,,0.9868,1.1307,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,smooth muscle,0.1055,,,0.9688,1.1289,True
+TCGA-AG-3742-01A,TCGA-AG-3742,Primary Tumor,t effector cell cd8,0.1088,0.92017,0.005446,1.0236,1.0928,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,adipocytes,0.0223,1.06131,0.006465,1.0752,1.0937,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,cd8 temra t cells,0.0539,1.01691,0.007783,0.98,1.1195,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,colon enteroendocrine,0.1983,,,0.9229,1.1631,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,colon epithelium,0.1736,1.08311,0.006666,0.9856,1.0917,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0456,1.00608,0.006196,1.0277,1.0938,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,endometrium epithelium,0.034,,,1.0026,1.1276,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,heart fibroblasts,0.045,,,1.0275,1.1278,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,lung bronchus epithelium,0.144,1.11675,0.007454,0.9673,1.0951,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,memory b cells,0.0795,1.07361,0.009132,0.9172,1.1241,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,pancreatic acinar,0.0805,0.96564,0.005129,1.0341,1.0916,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,smooth muscle,0.0768,,,0.9085,1.1303,True
+TCGA-AG-4021-01A,TCGA-AG-4021,Primary Tumor,t effector cell cd8,0.0261,0.97208,0.005967,1.0601,1.0949,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,adipocytes,0.0657,1.05037,0.005555,0.9486,1.0942,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,cd8 temra t cells,0.1066,1.00931,0.006493,0.9734,1.1204,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,colon enteroendocrine,0.1289,,,1.0212,1.1649,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,colon epithelium,0.2055,1.07108,0.005829,1.1261,1.0924,False
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0228,1.02001,0.005071,1.0082,1.0951,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,endometrium epithelium,0.0238,,,1.0656,1.1291,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,hepatocyte,0.0125,0.98543,0.004522,0.9188,1.0944,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,lung bronchus epithelium,0.0837,1.08987,0.006185,0.9783,1.0962,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,memory b cells,0.0563,1.06092,0.007122,1.1197,1.1251,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,pancreatic acinar,0.0644,0.9975,0.004217,1.0181,1.0924,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,prostate epithelium,0.048,,,1.0876,1.1338,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,small intestine epithelium,0.1371,1.09192,0.006171,0.9627,1.0942,True
+TCGA-AG-4022-01A,TCGA-AG-4022,Primary Tumor,smooth muscle,0.0445,,,0.9528,1.1319,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,cd8 temra t cells,0.02,1.01118,0.006408,0.905,1.1186,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,colon enteroendocrine,0.1367,,,1.0015,1.1627,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,colon epithelium,0.2962,1.06478,0.005737,1.0722,1.0916,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1411,0.99592,0.004831,0.9665,1.0931,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,embryonic stem cells,0.0264,1.06392,0.005917,0.9896,1.0933,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,endometrium epithelium,0.0294,,,1.016,1.1276,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,gastric antrum epithelium,0.0117,,,1.1065,1.1323,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,heart fibroblasts,0.0256,,,0.9905,1.1276,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,lung bronchus epithelium,0.0687,1.08819,0.005726,1.0859,1.0941,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,memory b cells,0.0838,1.04208,0.006879,1.106,1.1237,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,pancreatic acinar,0.0329,0.98573,0.004082,1.0034,1.091,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,small intestine epithelium,0.0267,1.11619,0.006198,0.9871,1.0934,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,smooth muscle,0.0399,,,1.0639,1.1305,True
+TCGA-AG-A01W-01A,TCGA-AG-A01W,Primary Tumor,t effector cell cd8,0.0336,0.97576,0.004907,1.0797,1.094,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,colon enteroendocrine,0.0521,,,1.1397,1.1658,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,colon epithelium,0.3339,1.08849,0.005261,0.9636,1.0925,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1358,1.04189,0.00518,0.8597,1.0953,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,embryonic stem cells,0.038,1.09431,0.005805,0.9988,1.094,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,endometrium epithelium,0.0139,,,1.0011,1.1307,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,lung bronchus epithelium,0.13,1.12043,0.005542,0.9911,1.0956,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,memory b cells,0.0409,1.0828,0.007129,1.1617,1.1249,False
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,pancreatic acinar,0.0356,0.98444,0.004093,1.0545,1.092,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,pancreatic beta,0.0623,1.08357,0.005337,1.0064,1.0916,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,prostate epithelium,0.0489,,,1.0933,1.1355,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,tonsil pharyngeal epithelium,0.0295,,,0.9657,1.1631,True
+TCGA-AG-A01Y-01A,TCGA-AG-A01Y,Primary Tumor,vascular endothelium,0.0648,0.9703,0.006754,1.0688,1.1181,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,colon enteroendocrine,0.1577,,,1.0673,1.1596,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,colon epithelium,0.3752,1.11433,0.005677,0.9964,1.0917,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0691,1.0511,0.005389,0.9755,1.0922,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,gastric antrum epithelium,0.0134,,,0.988,1.1303,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,heart fibroblasts,0.0432,1.07381,0.006995,1.1032,1.1251,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,lung bronchus epithelium,0.1094,1.14573,0.006015,0.952,1.0926,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,memory b cells,0.0344,1.09772,0.007773,1.0125,1.1247,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,pancreatic acinar,0.0496,0.96393,0.004405,0.9897,1.0917,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,pancreatic beta,0.0292,1.07696,0.00583,0.9835,1.0915,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,smooth muscle,0.0371,,,0.9755,1.128,True
+TCGA-AG-A020-01A,TCGA-AG-A020,Primary Tumor,t effector cell cd8,0.0639,0.99705,0.005143,1.0083,1.0932,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,HSC (bone marrow),0.0373,1.02903,0.002528,0.8383,1.093,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,adipocytes,0.0208,1.03387,0.002462,0.9553,1.093,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,central memory th1 cells,0.0312,1.01428,0.002481,1.0851,1.0929,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,colon epithelium,0.609,0.999,0.0024,1.0227,1.0908,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,cytotoxic cd4 t cells (cd28-),0.0278,1.01663,0.002569,0.9432,1.0932,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,embryonic stem cells,0.0152,0.99842,0.002639,1.0139,1.0933,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,memory b cells,0.0344,1.03224,0.003481,1.0703,1.1237,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,naive b cells,0.0171,1.04456,0.003477,0.941,1.1206,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,oligodendrocytes,0.0129,0.99556,0.003072,0.953,1.1202,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,pancreatic beta,0.0182,1.0244,0.002561,0.9656,1.0902,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,t effector cell cd8,0.0113,1.00283,0.002372,1.0481,1.0942,True
+TCGA-AG-A020-11A,TCGA-AG-A020,Solid Tissue Normal,vascular endothelium,0.1131,1.03904,0.003455,1.0095,1.1176,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,cd8 temra t cells,0.0319,1.06645,0.008537,1.0053,1.1202,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,colon enteroendocrine,0.1149,,,1.0209,1.164,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,colon epithelium,0.2652,1.09699,0.006393,1.0116,1.0924,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,endometrium epithelium,0.0424,,,1.051,1.1291,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,hepatocyte,0.039,0.90523,0.005219,1.003,1.0942,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,lung bronchus epithelium,0.0491,1.1453,0.007345,1.0246,1.0955,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,memory b cells,0.0536,1.0888,0.009163,1.0451,1.1249,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,pancreatic acinar,0.1298,0.90959,0.005088,0.975,1.0917,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,prostate epithelium,0.0883,,,1.0241,1.1338,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,t effector cell cd8,0.1135,0.96244,0.005963,0.9264,1.0953,True
+TCGA-AG-A026-01A,TCGA-AG-A026,Primary Tumor,tonsil pharyngeal epithelium,0.0464,,,1.0295,1.1613,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,colon enteroendocrine,0.1688,,,0.9841,1.1576,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,colon epithelium,0.2517,1.12477,0.006029,1.047,1.0911,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1287,1.0328,0.005575,0.9401,1.0912,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,gastric antrum epithelium,0.0329,,,1.009,1.1285,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,lung bronchus epithelium,0.1676,1.13226,0.006095,0.9494,1.0916,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,memory b cells,0.0796,1.08942,0.008258,1.001,1.1237,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,pancreatic acinar,0.0899,0.98171,0.004668,1.0911,1.091,False
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,smooth muscle,0.0206,1.0359,0.006917,0.9552,1.1272,True
+TCGA-AG-A02N-01A,TCGA-AG-A02N,Primary Tumor,t effector cell cd8,0.0546,0.99369,0.005456,1.0343,1.092,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,HSC (bone marrow),0.026,1.02991,0.002467,0.8932,1.093,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,adipocytes,0.017,1.03195,0.002472,0.909,1.093,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,central memory th1 cells,0.0207,1.00627,0.002382,1.0188,1.0928,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,colon epithelium,0.6474,0.993,0.002367,0.9364,1.0908,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,cytotoxic cd4 t cells (cd28-),0.0363,1.00616,0.002468,0.978,1.093,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,embryonic stem cells,0.0129,0.99154,0.002648,0.9736,1.0933,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,memory b cells,0.0637,1.01239,0.003388,1.0709,1.1235,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,microglia,0.0122,1.00682,0.003329,1.0289,1.1193,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,oligodendrocytes,0.0126,0.99361,0.00313,1.0693,1.1202,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,pancreatic beta,0.0145,1.02317,0.002553,0.9804,1.0902,True
+TCGA-AG-A02N-11A,TCGA-AG-A02N,Solid Tissue Normal,vascular endothelium,0.1016,1.04453,0.003403,0.9963,1.1176,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,adipocytes,0.0646,1.08609,0.005211,0.9903,1.0931,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,colon enteroendocrine,0.0765,,,1.0543,1.1618,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,colon epithelium,0.2732,1.07917,0.005683,0.9475,1.091,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0651,1.01589,0.004917,0.9831,1.0928,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,endometrium epithelium,0.0313,1.05459,0.006593,1.1081,1.1272,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,hepatocyte,0.0142,0.99533,0.004478,0.9218,1.0929,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,lung bronchus epithelium,0.0714,1.11409,0.005747,1.0787,1.0937,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,memory b cells,0.0596,1.07021,0.007061,1.0973,1.1235,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,pancreatic acinar,0.0857,1.00152,0.004052,1.1218,1.0905,False
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,prostate epithelium,0.0347,,,0.9497,1.1319,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,small intestine epithelium,0.0815,1.12013,0.005942,1.004,1.0929,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,smooth muscle,0.0406,,,0.96,1.13,True
+TCGA-AG-A036-01A,TCGA-AG-A036,Primary Tumor,t effector cell cd8,0.0878,0.98893,0.00487,1.0539,1.0933,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,adipocytes,0.0125,1.06935,0.002859,0.9483,1.0931,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,colon epithelium,0.6982,1.01466,0.002461,1.0526,1.0908,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,cortical neurons,0.0111,1.03372,0.003293,1.038,1.1122,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,cytotoxic cd4 t cells (cd28-),0.0411,1.03134,0.002689,1.0582,1.0933,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,embryonic stem cells,0.0119,1.02578,0.002963,0.9714,1.0933,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,memory b cells,0.0441,1.0374,0.003579,1.1155,1.1235,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,neutrophils,0.02,0.99281,0.002833,0.9677,1.0938,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,oligodendrocytes,0.012,1.03435,0.003695,0.9899,1.1202,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,pancreatic beta,0.0174,1.06198,0.00297,1.0801,1.0904,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,t effector cell cd8,0.0144,1.01619,0.002482,1.0299,1.0941,True
+TCGA-AG-A036-11A,TCGA-AG-A036,Solid Tissue Normal,vascular endothelium,0.0844,1.08648,0.004178,0.9773,1.1176,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,adipocytes,0.0246,1.05048,0.004833,0.9517,1.0931,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,bladder epithelium,0.0245,,,0.9458,1.1305,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,breast luminal epithelium,0.0145,,,0.9438,1.1274,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,cd8 temra t cells,0.0761,1.00136,0.005352,0.9681,1.1188,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,colon enteroendocrine,0.0336,,,1.1575,1.1631,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,colon epithelium,0.4433,0.99839,0.00469,0.974,1.0909,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0156,0.99031,0.004145,0.9629,1.0935,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,embryonic stem cells,0.0268,1.01115,0.004931,1.0389,1.0934,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,hepatocyte,0.021,1.00669,0.004181,0.9255,1.0932,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,lung bronchus epithelium,0.0306,1.05511,0.005113,0.9707,1.0943,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,memory b cells,0.0693,1.01342,0.005872,1.0919,1.1237,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,neutrophils,0.0222,0.95743,0.004906,1.0279,1.0937,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,pancreatic acinar,0.0224,1.00301,0.003647,1.1088,1.0908,False
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,pancreatic beta,0.0366,1.03898,0.005028,0.9896,1.0904,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,prostate epithelium,0.056,,,1.0829,1.1328,True
+TCGA-AH-6544-01A,TCGA-AH-6544,Primary Tumor,vascular endothelium,0.0514,1.0729,0.00706,1.0783,1.1176,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,adipocytes,0.084,1.07995,0.003343,0.9752,1.0928,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,cd8 temra t cells,0.0607,0.99817,0.004446,1.0632,1.118,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,colon enteroendocrine,0.0161,,,1.0176,1.1601,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,colon epithelium,0.3631,1.01522,0.003394,0.9923,1.0907,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,colon fibroblasts,0.0116,1.05694,0.006746,1.0972,1.1471,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0827,0.98646,0.003188,1.0157,1.0922,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,memory b cells,0.1702,1.00967,0.004572,1.0516,1.1234,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,neutrophils,0.0158,1.00517,0.003654,0.9931,1.0936,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,pancreatic acinar,0.0313,1.0535,0.00244,1.052,1.0904,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,pancreatic beta,0.0145,1.05838,0.003412,1.0839,1.0902,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,prostate epithelium,0.0525,,,0.9861,1.1307,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,smooth muscle,0.0243,,,1.0985,1.1289,True
+TCGA-AH-6547-01A,TCGA-AH-6547,Primary Tumor,t effector cell cd8,0.0553,0.98463,0.002978,1.1689,1.0926,False
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,adipocytes,0.0329,1.06917,0.005785,0.9423,1.0931,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,cd8 temra t cells,0.1284,1.06857,0.007344,0.9505,1.1185,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,colon enteroendocrine,0.1681,,,0.9321,1.1613,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,colon epithelium,0.0869,1.09955,0.0062,0.9447,1.091,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0369,1.03822,0.005541,0.9008,1.0926,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,lung bronchus epithelium,0.1043,1.13137,0.006648,0.9675,1.0938,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,memory b cells,0.0652,1.09958,0.008013,1.0752,1.1235,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,pancreatic acinar,0.1047,0.99715,0.004488,1.0632,1.0906,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,prostate epithelium,0.0873,,,0.9199,1.1314,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,small intestine epithelium,0.0852,1.1246,0.006486,1.0275,1.0931,True
+TCGA-AH-6549-01A,TCGA-AH-6549,Primary Tumor,smooth muscle,0.0896,,,0.9919,1.1294,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,adipocytes,0.0215,1.01666,0.005741,0.9888,1.0931,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,cd8 temra t cells,0.0645,1.00041,0.007069,0.9651,1.1186,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,colon enteroendocrine,0.2429,,,0.8919,1.1618,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,colon epithelium,0.1986,1.07548,0.006259,1.1151,1.091,False
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0612,0.9883,0.005625,0.8625,1.0929,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,gastric antrum epithelium,0.0388,,,0.9782,1.1316,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,heart fibroblasts,0.0112,0.98355,0.007525,1.0471,1.127,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,lung bronchus epithelium,0.1099,1.09267,0.006744,1.0164,1.0941,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,memory b cells,0.0623,1.03895,0.007807,1.1414,1.1237,False
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,pancreatic acinar,0.0429,0.95944,0.004665,0.8979,1.0909,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,prostate epithelium,0.0785,,,1.1188,1.1316,True
+TCGA-AH-6643-01A,TCGA-AH-6643,Primary Tumor,t effector cell cd8,0.0349,0.94886,0.005342,1.0524,1.0938,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,adipocytes,0.0751,1.06287,0.005696,0.9713,1.093,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,cd8 temra t cells,0.0494,1.05081,0.006674,0.9117,1.1183,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,colon enteroendocrine,0.1672,,,1.0169,1.1609,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,colon epithelium,0.1832,1.07732,0.006185,1.047,1.0909,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0533,1.02399,0.005064,0.9649,1.0927,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,endometrium epithelium,0.0216,1.01901,0.007272,1.1687,1.1268,False
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,lung bronchus epithelium,0.1202,1.11593,0.00636,0.9621,1.0936,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,memory b cells,0.084,1.07006,0.007491,1.198,1.1235,False
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,pancreatic acinar,0.0357,1.00089,0.004269,1.0788,1.0906,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,prostate epithelium,0.0739,,,1.0933,1.1312,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,small intestine epithelium,0.0389,1.10996,0.006582,1.0504,1.0928,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,smooth muscle,0.0618,,,0.9177,1.1294,True
+TCGA-AH-6644-01A,TCGA-AH-6644,Primary Tumor,t effector cell cd8,0.0294,0.99801,0.005002,1.0434,1.0933,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,cd8 temra t cells,0.0287,1.02682,0.008368,0.9928,1.1183,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,colon enteroendocrine,0.206,,,0.9903,1.1609,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,colon epithelium,0.1593,1.08485,0.006765,1.0001,1.0911,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,endometrium epithelium,0.0374,1.00004,0.0084,0.9903,1.1266,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,heart fibroblasts,0.0435,1.01678,0.008494,1.0592,1.1264,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,lung bronchus epithelium,0.1829,1.13516,0.007948,1.0608,1.0939,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,memory b cells,0.0677,1.07433,0.009462,1.101,1.1235,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,pancreatic acinar,0.0934,0.93442,0.005528,1.0698,1.0907,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,smooth muscle,0.0969,,,0.9425,1.1291,True
+TCGA-AH-6897-01A,TCGA-AH-6897,Primary Tumor,t effector cell cd8,0.0841,0.96782,0.006128,0.9528,1.0934,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,adipocytes,0.0291,1.06999,0.00486,0.9094,1.0928,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,cd8 temra t cells,0.0186,1.04188,0.005676,0.9931,1.1181,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,colon enteroendocrine,0.1928,,,1.0471,1.1601,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,colon epithelium,0.3816,1.08085,0.005454,1.0106,1.0907,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0433,1.0305,0.004397,0.943,1.0924,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,endometrium epithelium,0.015,1.04186,0.006493,1.0707,1.1264,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,lung bronchus epithelium,0.0735,1.11927,0.005527,1.0378,1.0933,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,memory b cells,0.0672,1.06438,0.006141,1.1924,1.1234,False
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,pancreatic acinar,0.0153,1.01174,0.003924,1.0355,1.0904,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,prostate epithelium,0.0393,,,1.134,1.1309,False
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,small intestine epithelium,0.0222,1.11236,0.005687,0.9963,1.0928,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,smooth muscle,0.0332,,,1.0711,1.1291,True
+TCGA-AH-6903-01A,TCGA-AH-6903,Primary Tumor,t effector cell cd8,0.0509,1.0043,0.004133,0.9601,1.0928,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,adipocytes,0.085,1.01378,0.004892,1.0213,1.0931,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,bladder epithelium,0.0168,,,0.9696,1.1294,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,cd8 temra t cells,0.057,0.96427,0.005815,0.9285,1.1186,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,colon enteroendocrine,0.1333,,,0.935,1.1613,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,colon epithelium,0.2051,0.9995,0.004849,0.9823,1.0909,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0964,0.97455,0.004551,0.8862,1.0928,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,gastric antrum epithelium,0.0221,,,0.8964,1.1312,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,lung bronchus epithelium,0.0346,1.03574,0.005178,0.9951,1.0939,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,memory b cells,0.0679,1.00093,0.006439,1.0007,1.1239,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,neutrophils,0.1396,0.96742,0.0051,0.9946,1.0936,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,pancreatic acinar,0.0114,0.99849,0.003534,1.0285,1.0908,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,prostate epithelium,0.09,,,1.0336,1.1314,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,small intestine epithelium,0.0269,1.01678,0.00502,0.9843,1.0928,True
+TCGA-BM-6198-01A,TCGA-BM-6198,Primary Tumor,smooth muscle,0.0139,,,1.0284,1.13,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,adipocytes,0.0542,1.0998,0.004957,0.9822,1.0928,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,cd8 temra t cells,0.1291,1.02969,0.006088,1.0322,1.1181,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,colon epithelium,0.2281,1.06998,0.005467,1.0001,1.0908,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0348,1.00993,0.004697,0.9553,1.0924,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,embryonic stem cells,0.0235,1.04593,0.005475,0.977,1.0929,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,erythrocyte progenitors,0.0509,1.04815,0.005936,0.9654,1.1209,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,heart fibroblasts,0.0274,1.05182,0.006465,0.9716,1.1264,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,hepatocyte,0.0381,1.01933,0.003841,0.9745,1.0926,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,lung bronchus epithelium,0.0544,1.0755,0.00553,1.0392,1.0934,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,memory b cells,0.0727,1.06809,0.006876,0.9658,1.1235,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,pancreatic acinar,0.0624,1.03936,0.003728,1.0111,1.0905,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,pancreatic beta,0.0605,1.08991,0.00513,1.0097,1.0902,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,prostate epithelium,0.0605,,,1.0602,1.1312,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,small intestine epithelium,0.0485,1.10456,0.005775,0.9883,1.0928,True
+TCGA-CI-6619-01B,TCGA-CI-6619,Primary Tumor,smooth muscle,0.0548,,,1.0215,1.1291,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,adipocytes,0.0348,1.12817,0.005408,1.0412,1.093,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,cd8 temra t cells,0.043,1.07899,0.006678,1.0085,1.1186,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,colon enteroendocrine,0.1549,,,0.8533,1.1613,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,colon epithelium,0.1717,1.14712,0.005768,1.035,1.091,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.109,1.05134,0.004966,0.9548,1.0928,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,endometrium epithelium,0.0163,1.05908,0.006853,1.0774,1.127,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,erythrocyte progenitors,0.039,1.0692,0.006722,1.15,1.1209,False
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,heart fibroblasts,0.0257,1.07759,0.007216,0.9625,1.1268,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,lung bronchus epithelium,0.1431,1.13808,0.006246,1.1208,1.0939,False
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,memory b cells,0.097,1.11296,0.007468,1.032,1.1235,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,pancreatic acinar,0.0607,1.05703,0.004172,1.0692,1.0907,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,smooth muscle,0.0908,,,1.1013,1.1296,True
+TCGA-CI-6620-01A,TCGA-CI-6620,Primary Tumor,t effector cell cd8,0.0138,1.04315,0.004893,1.0727,1.0935,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,adipocytes,0.0818,1.04066,0.004193,0.9726,1.0928,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,bladder epithelium,0.0141,,,1.0748,1.1289,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,cd8 temra t cells,0.0576,1.00792,0.00493,0.9458,1.1183,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,colon enteroendocrine,0.063,,,0.9669,1.1605,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,colon epithelium,0.3718,0.99038,0.003958,1.002,1.0907,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.057,0.98857,0.003811,0.9838,1.0924,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,embryonic stem cells,0.0246,1.00397,0.004261,1.0509,1.093,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,hepatocyte,0.0167,0.9999,0.003595,0.8612,1.0926,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,lung bronchus epithelium,0.0188,1.05577,0.004619,1.0017,1.0933,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,memory b cells,0.0257,1.02376,0.005451,0.9258,1.1237,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,neutrophils,0.1007,0.9649,0.004227,0.9911,1.0936,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,pancreatic acinar,0.0406,1.01257,0.003132,1.0497,1.0905,True
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,pancreatic beta,0.0492,1.02645,0.004242,1.1143,1.0902,False
+TCGA-CI-6621-01A,TCGA-CI-6621,Primary Tumor,prostate epithelium,0.0726,,,1.0943,1.1309,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,adipocytes,0.0159,1.06741,0.00553,0.983,1.0928,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,cd8 temra t cells,0.0635,1.01639,0.0061,1.0173,1.1183,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,colon enteroendocrine,0.1705,,,1.2126,1.1601,False
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,colon epithelium,0.3767,1.06546,0.006298,0.8865,1.0907,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,endometrium epithelium,0.0185,1.01471,0.007207,1.0256,1.1261,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,lung bronchus epithelium,0.0766,1.08918,0.006127,0.9835,1.0933,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,memory b cells,0.0686,1.0348,0.007005,0.9616,1.1235,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,pancreatic acinar,0.0674,1.00459,0.004338,1.0744,1.0904,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,prostate epithelium,0.0532,,,1.0417,1.1305,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,small intestine epithelium,0.0376,1.08629,0.006446,1.0342,1.0928,True
+TCGA-CI-6622-01A,TCGA-CI-6622,Primary Tumor,smooth muscle,0.0377,,,1.0564,1.1289,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,adipocytes,0.0686,1.05538,0.005078,0.9449,1.093,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,bladder epithelium,0.0146,,,1.092,1.1291,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,cd8 temra t cells,0.0168,1.01688,0.005589,0.917,1.1183,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,colon enteroendocrine,0.0655,,,1.1672,1.1609,False
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,colon epithelium,0.2577,1.05384,0.005254,0.9843,1.0909,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0951,0.98681,0.004381,0.9205,1.0925,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,erythrocyte progenitors,0.0475,1.01797,0.006397,1.0367,1.1211,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,lung bronchus epithelium,0.0654,1.06591,0.005179,1.0138,1.0936,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,memory b cells,0.0666,1.03212,0.006402,1.0803,1.1237,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,neutrophils,0.0776,1.00935,0.005249,0.92,1.0936,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,pancreatic acinar,0.0411,1.00359,0.003817,0.9143,1.0906,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,small intestine epithelium,0.1042,1.06892,0.005375,1.0184,1.0928,True
+TCGA-CI-6623-01B,TCGA-CI-6623,Primary Tumor,smooth muscle,0.0659,,,0.9496,1.1294,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,adipocytes,0.0473,1.09743,0.004719,0.9801,1.0928,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,bladder epithelium,0.0248,,,1.0953,1.1289,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,cd8 temra t cells,0.0644,1.05907,0.005547,1.0876,1.1181,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,central memory th1 cells,0.0369,1.04155,0.00437,0.9395,1.0924,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,colon enteroendocrine,0.0127,,,0.9878,1.1605,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,colon epithelium,0.3637,1.08707,0.005136,1.0515,1.0907,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0688,1.03103,0.004307,1.017,1.0923,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,endometrium epithelium,0.0103,1.04327,0.005789,1.0019,1.1266,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,erythrocyte progenitors,0.0567,1.05177,0.0055,0.9557,1.1209,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,heart fibroblasts,0.0514,1.04924,0.0059,1.0185,1.1261,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,hepatocyte,0.0148,1.03003,0.003485,1.0877,1.0926,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,lung bronchus epithelium,0.0458,1.08368,0.005089,1.0381,1.0933,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,memory b cells,0.0487,1.09093,0.006518,0.9717,1.1234,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,neutrophils,0.0149,1.04115,0.005032,1.0216,1.0936,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,pancreatic acinar,0.0783,1.04451,0.003447,0.9596,1.0904,True
+TCGA-CI-6624-01C,TCGA-CI-6624,Primary Tumor,smooth muscle,0.0532,,,0.9771,1.1291,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,adipocytes,0.0469,1.06833,0.005425,0.9128,1.0938,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,bladder epithelium,0.0287,,,0.9922,1.1309,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,cd8 temra t cells,0.0276,0.99509,0.006292,0.9013,1.1198,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,colon enteroendocrine,0.1679,,,0.9969,1.1635,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,colon epithelium,0.2748,1.06822,0.005394,0.9705,1.0919,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0361,1.00949,0.004827,0.987,1.0942,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,heart fibroblasts,0.0209,,,0.8526,1.1283,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,lung bronchus epithelium,0.0819,1.09025,0.005993,1.0121,1.0954,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,memory b cells,0.0659,1.03903,0.006686,0.9905,1.1245,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,pancreatic acinar,0.0672,1.00105,0.004123,1.0125,1.0918,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,prostate epithelium,0.016,,,0.9021,1.1326,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,small intestine epithelium,0.0977,1.08879,0.005634,1.0372,1.0937,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,smooth muscle,0.0368,,,1.0483,1.1307,True
+TCGA-CL-4957-01A,TCGA-CL-4957,Primary Tumor,t effector cell cd8,0.0202,0.98367,0.004624,1.0067,1.0954,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,adipocytes,0.0367,1.0196,0.005813,0.9603,1.0931,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,breast luminal epithelium,0.0124,1.00175,0.007367,1.1146,1.1264,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,cd8 temra t cells,0.0836,1.01859,0.007029,0.9575,1.1186,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,colon enteroendocrine,0.2435,,,1.1298,1.1618,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,colon epithelium,0.2087,1.04396,0.005971,1.0074,1.091,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,hepatocyte,0.0284,0.92763,0.004559,0.9702,1.0928,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,lung bronchus epithelium,0.0966,1.09155,0.006668,0.9957,1.0941,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,memory b cells,0.0196,1.03707,0.007838,1.0114,1.1243,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,pancreatic acinar,0.0358,0.96158,0.004626,1.0412,1.0909,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,pancreatic beta,0.0357,1.0161,0.00597,1.0664,1.0903,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,prostate epithelium,0.1201,,,1.0111,1.1312,True
+TCGA-CL-5917-01A,TCGA-CL-5917,Primary Tumor,small intestine epithelium,0.0715,1.07053,0.006329,1.0787,1.093,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,adipocytes,0.0163,1.06416,0.005916,0.9139,1.0929,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,cd8 temra t cells,0.0925,1.04004,0.007368,0.9174,1.1183,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,colon enteroendocrine,0.2257,,,1.0029,1.1605,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,colon epithelium,0.1535,1.09591,0.006611,0.9531,1.0908,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0261,1.00193,0.005614,1.0222,1.0924,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,endometrium epithelium,0.0285,1.02047,0.007756,1.0367,1.1264,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,heart fibroblasts,0.023,1.02915,0.00788,1.0303,1.1264,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,lung bronchus epithelium,0.0708,1.11498,0.00688,1.031,1.0937,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,memory b cells,0.054,1.06188,0.008296,0.9676,1.1235,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,pancreatic acinar,0.097,0.98432,0.004736,1.0324,1.0905,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,prostate epithelium,0.0584,,,1.0682,1.1312,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,small intestine epithelium,0.0379,1.12906,0.006911,0.9134,1.0928,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,smooth muscle,0.067,,,0.9282,1.1291,True
+TCGA-CL-5918-01A,TCGA-CL-5918,Primary Tumor,t effector cell cd8,0.0493,0.97796,0.00554,0.9855,1.0931,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,adipocytes,0.0142,1.01079,0.005427,1.0061,1.0939,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,cd8 temra t cells,0.0429,0.98103,0.006626,0.853,1.1202,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,colon enteroendocrine,0.1324,,,0.9583,1.1635,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,colon epithelium,0.5348,1.05086,0.005126,1.0361,1.0919,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.018,1.00766,0.005279,0.8941,1.0945,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,endometrium epithelium,0.0215,,,1.0373,1.1285,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,memory b cells,0.0414,1.03084,0.007152,0.9968,1.1251,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,pancreatic acinar,0.0104,0.96374,0.004459,0.9676,1.0919,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,prostate epithelium,0.082,,,0.9539,1.1335,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,small intestine epithelium,0.0248,1.08469,0.005482,1.0982,1.0937,False
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,smooth muscle,0.0298,,,1.0178,1.1312,True
+TCGA-DC-4745-01A,TCGA-DC-4745,Primary Tumor,t effector cell cd8,0.0132,0.97031,0.004988,0.9749,1.0957,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,colon enteroendocrine,0.196,,,0.9,1.1576,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,colon epithelium,0.3093,1.00422,0.005389,1.0294,1.0905,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0553,0.95774,0.004716,1.042,1.0914,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,endometrium epithelium,0.0154,0.94217,0.006738,0.9744,1.1232,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,heart fibroblasts,0.019,0.96167,0.006882,0.9492,1.1237,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,lung bronchus epithelium,0.0899,1.03986,0.005579,1.0171,1.092,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,memory b cells,0.0826,0.99326,0.006822,1.0803,1.1243,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,pancreatic acinar,0.0808,0.95763,0.004254,0.9876,1.0911,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,small intestine epithelium,0.1043,1.01921,0.005392,1.0457,1.0904,True
+TCGA-DC-4749-01A,TCGA-DC-4749,Primary Tumor,smooth muscle,0.0399,0.96213,0.006703,0.8529,1.127,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,adipocytes,0.0433,1.09307,0.005677,1.0571,1.0928,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,cd8 temra t cells,0.1037,1.04753,0.006858,0.9478,1.1183,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,colon enteroendocrine,0.2072,,,0.9317,1.1605,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,colon epithelium,0.1519,1.09951,0.006334,0.9384,1.0908,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1017,1.01859,0.005342,1.0545,1.0924,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,heart fibroblasts,0.04,1.02841,0.007277,0.9264,1.1261,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,lung bronchus epithelium,0.0953,1.12167,0.006512,0.9943,1.0933,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,memory b cells,0.063,1.09311,0.008265,0.969,1.1237,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,pancreatic acinar,0.0924,1.02159,0.004346,1.088,1.0905,True
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,prostate epithelium,0.0238,,,1.2125,1.1309,False
+TCGA-DC-5337-01A,TCGA-DC-5337,Primary Tumor,smooth muscle,0.0769,,,0.9601,1.1291,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,adipocytes,0.0203,1.09352,0.005487,0.8709,1.093,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,bladder epithelium,0.0336,,,0.875,1.1291,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,cd8 temra t cells,0.0888,1.05364,0.006852,0.927,1.1183,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,colon enteroendocrine,0.1173,,,0.9395,1.1609,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,colon epithelium,0.1981,1.105,0.005981,1.035,1.0909,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0397,1.0231,0.005194,0.9857,1.0926,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,endometrium epithelium,0.0254,1.05411,0.007145,1.1869,1.1268,False
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,heart fibroblasts,0.0215,1.0597,0.007426,1.0072,1.1266,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,hepatocyte,0.0126,1.0095,0.004509,0.9514,1.0928,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,lung bronchus epithelium,0.0764,1.12977,0.006481,1.0172,1.0938,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,memory b cells,0.0708,1.08122,0.007581,0.9246,1.1237,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,pancreatic acinar,0.0934,1.01831,0.004285,1.0845,1.0906,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,small intestine epithelium,0.0494,1.14018,0.006319,1.0598,1.0929,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,smooth muscle,0.1159,,,0.9596,1.1294,True
+TCGA-DC-5869-01A,TCGA-DC-5869,Primary Tumor,t effector cell cd8,0.0368,1.00238,0.004969,1.0105,1.0932,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,cd8 temra t cells,0.0393,1.06982,0.00788,0.9845,1.1185,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,colon enteroendocrine,0.2215,,,0.9607,1.1613,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,colon epithelium,0.1594,1.15803,0.006462,1.0153,1.0912,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0725,1.0356,0.006036,0.9915,1.0928,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,heart fibroblasts,0.0571,1.05381,0.008152,0.9809,1.1268,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,hepatocyte,0.0129,0.96703,0.00513,0.8384,1.093,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,lung bronchus epithelium,0.1192,1.16566,0.007277,1.055,1.0941,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,memory b cells,0.0532,1.10081,0.008838,0.9858,1.1235,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,pancreatic acinar,0.0937,0.97839,0.005266,1.0753,1.0907,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,small intestine epithelium,0.086,1.18814,0.006783,1.0811,1.0932,True
+TCGA-DC-6154-01A,TCGA-DC-6154,Primary Tumor,smooth muscle,0.0852,,,0.995,1.1296,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,adipocytes,0.0983,1.07571,0.00511,1.0821,1.0928,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,bladder epithelium,0.0235,,,0.9875,1.1289,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,cd8 temra t cells,0.0609,1.03286,0.005933,0.9387,1.1183,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,colon enteroendocrine,0.1746,,,0.8693,1.1609,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,colon epithelium,0.2431,1.05489,0.005271,0.9274,1.0908,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0705,1.00044,0.004653,0.9513,1.0924,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,lung bronchus epithelium,0.1074,1.08259,0.005521,0.9809,1.0936,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,memory b cells,0.0855,1.05468,0.006744,1.0489,1.1237,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,pancreatic acinar,0.0251,1.00434,0.003772,1.0398,1.0905,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,prostate epithelium,0.0225,,,1.1044,1.1312,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,small intestine epithelium,0.0235,1.08594,0.005577,1.0585,1.0928,True
+TCGA-DC-6155-01A,TCGA-DC-6155,Primary Tumor,smooth muscle,0.0509,,,0.9321,1.1294,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,adipocytes,0.0943,1.07379,0.005051,1.0162,1.0929,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,cd8 temra t cells,0.1628,1.03289,0.006123,1.0446,1.1185,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,colon enteroendocrine,0.0809,,,1.0075,1.1609,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,colon epithelium,0.1904,1.0629,0.005448,1.1164,1.0909,False
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0572,1.00517,0.004666,0.9436,1.0927,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,endometrium epithelium,0.0186,1.02808,0.006427,1.1435,1.1268,False
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,heart fibroblasts,0.0275,1.03291,0.00671,1.0316,1.1266,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,lung bronchus epithelium,0.0753,1.07601,0.005764,1.0403,1.0938,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,memory b cells,0.0549,1.05598,0.006993,1.1007,1.1237,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,pancreatic acinar,0.0307,1.0177,0.003761,1.0469,1.0907,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,pancreatic beta,0.0155,1.06348,0.00518,1.0613,1.0903,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,prostate epithelium,0.0443,,,1.0022,1.1312,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,small intestine epithelium,0.0451,1.08579,0.005746,1.0591,1.0929,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,smooth muscle,0.0602,,,0.9935,1.1296,True
+TCGA-DC-6156-01A,TCGA-DC-6156,Primary Tumor,t effector cell cd8,0.0422,0.99431,0.004651,1.0063,1.0933,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,cd8 temra t cells,0.0143,0.97703,0.005997,0.9161,1.1185,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,colon enteroendocrine,0.1366,,,1.0752,1.1609,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,colon epithelium,0.2999,1.0232,0.005632,0.9184,1.091,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0969,0.95357,0.004718,0.9581,1.0928,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,endometrium epithelium,0.0274,0.98283,0.006611,1.0039,1.1268,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,erythrocyte progenitors,0.0212,0.97212,0.006313,0.9911,1.1211,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,heart fibroblasts,0.0125,0.97533,0.006663,1.0195,1.1268,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,hepatocyte,0.023,0.94233,0.00443,0.9558,1.0928,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,lung bronchus epithelium,0.0858,1.04275,0.005548,0.9823,1.0939,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,memory b cells,0.049,1.00275,0.007052,0.9646,1.1237,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,pancreatic acinar,0.0223,0.94319,0.004144,0.9427,1.0907,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,small intestine epithelium,0.1381,1.04178,0.005845,1.0792,1.0929,True
+TCGA-DC-6157-01A,TCGA-DC-6157,Primary Tumor,smooth muscle,0.073,,,0.9974,1.1296,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,adipocytes,0.0435,1.08098,0.005309,1.0327,1.0931,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,bladder epithelium,0.0108,,,1.0579,1.1294,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,cd8 temra t cells,0.0693,1.04862,0.006544,0.9402,1.1185,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,colon enteroendocrine,0.0519,,,0.8545,1.1618,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,colon epithelium,0.1964,1.0889,0.00576,1.0288,1.0911,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0903,1.01334,0.005073,0.9606,1.0928,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,endometrium epithelium,0.0214,1.03324,0.006675,1.1076,1.127,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,erythrocyte progenitors,0.0407,1.04151,0.006459,1.1127,1.1209,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,heart fibroblasts,0.0525,1.05242,0.007176,0.939,1.1266,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,hepatocyte,0.0227,0.99919,0.004239,1.0193,1.0929,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,lung bronchus epithelium,0.1106,1.09857,0.005954,1.074,1.094,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,memory b cells,0.0552,1.07523,0.007561,1.0414,1.1235,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,pancreatic acinar,0.059,1.00648,0.004013,0.9803,1.0908,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,small intestine epithelium,0.0499,1.12081,0.006006,1.0051,1.0931,True
+TCGA-DC-6158-01A,TCGA-DC-6158,Primary Tumor,smooth muscle,0.1256,,,0.9529,1.1296,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,adipocytes,0.0437,1.04575,0.004727,0.9692,1.0929,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,bladder epithelium,0.0213,,,0.9837,1.1291,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,cd8 temra t cells,0.0726,0.99866,0.005302,1.0129,1.1183,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,colon enteroendocrine,0.1283,,,1.0281,1.1605,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,colon epithelium,0.3306,1.04325,0.005302,1.0319,1.0908,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0812,0.9917,0.004304,0.9001,1.0924,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,erythrocyte progenitors,0.0181,1.00345,0.005801,0.9572,1.1209,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,lung bronchus epithelium,0.056,1.05376,0.005133,1.0267,1.0934,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,memory b cells,0.1053,1.0372,0.006397,1.0914,1.1237,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,pancreatic acinar,0.0208,1.00812,0.003573,0.9591,1.0905,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,prostate epithelium,0.0108,,,0.9359,1.1312,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,small intestine epithelium,0.0627,1.05892,0.00547,1.0276,1.0928,True
+TCGA-DC-6160-01A,TCGA-DC-6160,Primary Tumor,smooth muscle,0.0245,,,0.9525,1.1294,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,adipocytes,0.096,1.06675,0.004856,0.9961,1.093,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,cd8 temra t cells,0.0325,1.02629,0.005443,0.9552,1.1186,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,colon enteroendocrine,0.041,,,1.0858,1.1622,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,colon epithelium,0.3449,1.00473,0.004729,1.0571,1.0908,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0197,1.0081,0.00412,0.9015,1.0932,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,lung bronchus epithelium,0.0446,1.079,0.00528,0.979,1.0941,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,memory b cells,0.0649,1.02455,0.005764,1.1158,1.1237,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,pancreatic acinar,0.0541,1.02142,0.003478,1.1017,1.0906,False
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,prostate epithelium,0.1048,,,0.997,1.1328,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,smooth muscle,0.0545,,,1.0668,1.1307,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,t effector cell cd8,0.0675,0.98019,0.003799,1.0381,1.0942,True
+TCGA-DC-6681-01A,TCGA-DC-6681,Primary Tumor,vascular endothelium,0.0516,1.08195,0.006988,1.1047,1.1176,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,adipocytes,0.0786,1.03302,0.004898,0.9047,1.0931,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,cd8 temra t cells,0.0662,0.97586,0.005479,0.9528,1.1188,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,colon enteroendocrine,0.0529,,,1.1588,1.1627,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,colon epithelium,0.2716,0.9642,0.004833,1.0001,1.0909,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0129,0.96697,0.004394,0.9465,1.0933,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,embryonic stem cells,0.029,0.99086,0.005292,0.9842,1.0933,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,endometrium epithelium,0.011,,,0.9698,1.1278,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,lung bronchus epithelium,0.0388,1.02583,0.005316,1.0502,1.0943,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,memory b cells,0.0757,0.99088,0.006094,1.0377,1.1239,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,neutrophils,0.0167,0.92906,0.005214,0.8811,1.0937,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,pancreatic acinar,0.0643,0.97708,0.003564,1.0181,1.0907,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,pancreatic beta,0.0256,1.02517,0.005163,1.0042,1.0904,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,prostate epithelium,0.0898,,,0.9972,1.1328,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,striated muscle,0.0222,,,0.9977,1.1584,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,t effector cell cd8,0.0876,0.93809,0.00411,0.9041,1.0944,True
+TCGA-DC-6682-01A,TCGA-DC-6682,Primary Tumor,vascular endothelium,0.0458,1.03995,0.007075,1.1037,1.1176,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,adipocytes,0.0417,1.06363,0.005424,0.9728,1.0928,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,cd8 temra t cells,0.0692,1.0195,0.006179,0.9187,1.1181,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,colon enteroendocrine,0.1369,,,1.0465,1.1601,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,colon epithelium,0.1932,1.08129,0.005899,0.9628,1.0907,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0727,0.98791,0.004801,0.9465,1.0923,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,heart fibroblasts,0.0358,1.02594,0.007001,1.069,1.1261,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,lung bronchus epithelium,0.101,1.07632,0.005912,0.9605,1.0933,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,memory b cells,0.0875,1.04813,0.007052,0.9577,1.1234,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,pancreatic acinar,0.0534,1.00344,0.004096,0.9853,1.0905,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,small intestine epithelium,0.1037,1.0966,0.006089,1.0146,1.0928,True
+TCGA-DC-6683-01A,TCGA-DC-6683,Primary Tumor,smooth muscle,0.0956,,,1.002,1.1291,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,adipocytes,0.0682,1.06879,0.005728,0.9768,1.093,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,bladder epithelium,0.0332,,,1.0049,1.1303,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,cd8 temra t cells,0.1013,1.03229,0.007034,1.0027,1.1185,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,colon enteroendocrine,0.045,,,1.0898,1.1622,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,colon epithelium,0.1556,1.03801,0.006158,0.9351,1.0908,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,embryonic stem cells,0.0266,1.05893,0.0063,1.0386,1.0933,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,endometrium epithelium,0.0155,,,0.9013,1.1276,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,lung bronchus epithelium,0.0578,1.09396,0.006635,1.0226,1.0939,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,memory b cells,0.1021,1.03841,0.007278,1.058,1.1237,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,pancreatic acinar,0.0465,1.00294,0.004102,1.045,1.0905,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,pancreatic beta,0.0394,1.06051,0.005996,0.9433,1.0902,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,prostate epithelium,0.1567,,,0.9476,1.1326,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,t effector cell cd8,0.0799,0.97252,0.004907,0.9511,1.094,True
+TCGA-DT-5265-01A,TCGA-DT-5265,Primary Tumor,vascular endothelium,0.0594,1.08953,0.007794,1.1121,1.1176,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,adipocytes,0.031,1.00734,0.005252,1.0194,1.0933,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,bladder epithelium,0.0373,,,0.9471,1.1296,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,cd8 temra t cells,0.0755,1.00097,0.0065,1.094,1.1186,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,colon enteroendocrine,0.0988,,,1.0913,1.1613,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,colon epithelium,0.3545,1.03939,0.005729,1.0428,1.0911,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0591,0.98718,0.005006,1.0365,1.0929,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,endometrium epithelium,0.0162,0.98677,0.00681,1.033,1.1272,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,hepatocyte,0.0231,0.94118,0.00446,1.0921,1.0932,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,lung bronchus epithelium,0.0545,1.06947,0.005871,1.0601,1.0939,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,memory b cells,0.0384,1.02467,0.00724,0.9648,1.1235,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,pancreatic acinar,0.101,0.96467,0.00425,0.991,1.0906,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,prostate epithelium,0.0522,,,0.9856,1.1316,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,smooth muscle,0.0188,,,0.9772,1.1298,True
+TCGA-DY-A0XA-01A,TCGA-DY-A0XA,Primary Tumor,tonsil pharyngeal epithelium,0.0178,,,0.8507,1.1592,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,adipocytes,0.0639,1.0194,0.005027,0.8945,1.0931,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,cd8 temra t cells,0.0442,1.00209,0.00593,0.9301,1.1185,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,colon enteroendocrine,0.0913,,,0.9493,1.1609,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,colon epithelium,0.4007,1.00505,0.005047,1.0005,1.0909,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0226,0.98966,0.004605,0.8999,1.0928,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,endometrium epithelium,0.0152,1.00367,0.006535,1.0312,1.1268,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,lung alveolar epithelium,0.0389,1.02333,0.006688,0.9532,1.1191,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,lung bronchus epithelium,0.0715,1.06104,0.005512,1.0304,1.0939,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,memory b cells,0.0616,1.00843,0.006452,1.115,1.1237,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,pancreatic acinar,0.0351,0.97296,0.003887,0.9608,1.0905,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,prostate epithelium,0.0736,,,1.1789,1.1316,False
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,smooth muscle,0.0221,,,0.9867,1.1296,True
+TCGA-DY-A1DC-01A,TCGA-DY-A1DC,Primary Tumor,t effector cell cd8,0.0356,0.94966,0.004414,0.9854,1.0935,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,cd8 temra t cells,0.0583,0.97731,0.007316,1.0104,1.1188,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,colon enteroendocrine,0.1382,,,0.8503,1.1618,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,colon epithelium,0.2175,1.02314,0.006262,0.9897,1.0913,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,endometrium epithelium,0.0333,0.97077,0.007456,0.9807,1.127,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,hepatocyte,0.0354,0.89794,0.005067,1.0569,1.0932,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,lung bronchus epithelium,0.0935,1.05101,0.006556,0.9964,1.0943,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,memory b cells,0.059,0.98715,0.008097,0.9813,1.1235,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,pancreatic acinar,0.1077,0.90766,0.00484,0.9167,1.0909,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,prostate epithelium,0.0482,,,1.018,1.1321,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,small intestine epithelium,0.096,1.05475,0.006564,1.0102,1.0934,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,smooth muscle,0.0625,,,0.9666,1.1303,True
+TCGA-DY-A1DD-01A,TCGA-DY-A1DD,Primary Tumor,t effector cell cd8,0.0367,0.91005,0.005449,1.0126,1.0938,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,cd8 temra t cells,0.0443,1.01828,0.007281,1.1673,1.1193,False
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,colon enteroendocrine,0.0935,,,0.8501,1.1631,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,colon epithelium,0.2294,1.08546,0.005901,1.0593,1.092,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0848,0.99256,0.005512,1.0292,1.0934,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,erythrocyte progenitors,0.1004,0.99548,0.007276,1.1216,1.1215,False
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,heart fibroblasts,0.0343,,,1.0584,1.1276,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,lung bronchus epithelium,0.1264,1.08495,0.006494,0.969,1.095,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,memory b cells,0.031,1.06184,0.008476,0.9755,1.1237,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,pancreatic acinar,0.1017,0.95621,0.004596,1.0541,1.0912,True
+TCGA-DY-A1DE-01A,TCGA-DY-A1DE,Primary Tumor,smooth muscle,0.1542,,,0.9393,1.1305,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,cd8 temra t cells,0.04,1.02846,0.008712,1.0625,1.1195,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,colon enteroendocrine,0.2694,,,1.0738,1.164,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,colon epithelium,0.0363,1.11233,0.006927,0.9796,1.0921,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1171,1.00666,0.006765,0.9878,1.0937,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,heart fibroblasts,0.0266,,,0.8669,1.1283,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,lung bronchus epithelium,0.1694,1.14192,0.008309,1.0496,1.0953,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,memory b cells,0.0134,1.09013,0.01011,0.9432,1.1243,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,pancreatic acinar,0.1407,0.90677,0.005897,1.023,1.0914,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,small intestine epithelium,0.08,1.14932,0.007226,0.9271,1.0941,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,smooth muscle,0.0901,,,1.0895,1.1307,True
+TCGA-DY-A1DF-01A,TCGA-DY-A1DF,Primary Tumor,t effector cell cd8,0.0171,0.97315,0.006708,1.1023,1.0952,False
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,colon enteroendocrine,0.1096,,,1.1316,1.1588,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,colon epithelium,0.3875,1.07125,0.006053,0.9793,1.0914,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,endometrium epithelium,0.0398,0.98016,0.007489,0.8739,1.1241,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,hepatocyte,0.0259,0.88991,0.005129,0.87,1.0935,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,lung bronchus epithelium,0.1289,1.08345,0.006504,0.959,1.0924,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,memory b cells,0.0516,1.01145,0.00811,1.011,1.1243,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,pancreatic acinar,0.0241,0.88891,0.005172,1.0035,1.0914,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,small intestine epithelium,0.1088,1.11441,0.00622,1.0244,1.0913,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,smooth muscle,0.0457,,,1.0282,1.1278,True
+TCGA-DY-A1DG-01A,TCGA-DY-A1DG,Primary Tumor,t effector cell cd8,0.0569,0.92748,0.00543,1.0116,1.0924,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,colon enteroendocrine,0.1664,,,0.9858,1.1564,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,colon epithelium,0.3976,1.0079,0.005828,1.0694,1.0903,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.02,0.94506,0.004988,0.8428,1.0905,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,endometrium epithelium,0.0133,0.96782,0.007088,0.8863,1.1228,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,heart fibroblasts,0.0165,0.97464,0.006844,0.9391,1.123,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,lung bronchus epithelium,0.0757,1.05236,0.005842,1.0492,1.0908,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,memory b cells,0.0274,0.98218,0.007294,1.0965,1.1235,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,pancreatic acinar,0.0303,0.90141,0.004482,1.0734,1.0904,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,prostate epithelium,0.0849,,,0.8439,1.1274,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,small intestine epithelium,0.0479,1.04613,0.006038,1.0228,1.0902,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,smooth muscle,0.0342,0.95772,0.006908,0.8818,1.1264,True
+TCGA-DY-A1H8-01A,TCGA-DY-A1H8,Primary Tumor,t effector cell cd8,0.0812,0.91481,0.004802,0.9371,1.0909,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,cd8 temra t cells,0.1163,1.0538,0.008224,1.0914,1.119,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,colon enteroendocrine,0.1783,,,0.7961,1.1618,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,colon epithelium,0.1191,1.08163,0.006285,0.9505,1.0912,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0235,1.00274,0.006102,1.0078,1.093,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,endometrium epithelium,0.0239,1.00145,0.007716,1.0124,1.127,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,erythrocyte progenitors,0.0498,0.99697,0.007649,1.031,1.1213,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,heart fibroblasts,0.0711,1.02229,0.008161,1.0356,1.1268,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,lung bronchus epithelium,0.1277,1.11692,0.007223,1.0061,1.0945,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,memory b cells,0.0359,1.10021,0.009201,0.9117,1.1239,True
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,pancreatic acinar,0.1467,0.95379,0.005014,1.1553,1.0909,False
+TCGA-EF-5830-01A,TCGA-EF-5830,Primary Tumor,smooth muscle,0.0929,,,1.1306,1.1296,False
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,adipocytes,0.0245,1.01813,0.005358,0.9799,1.0933,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,cd8 temra t cells,0.0972,0.99768,0.006545,1.112,1.1188,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,colon enteroendocrine,0.106,,,0.988,1.1613,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,colon epithelium,0.3233,1.00643,0.005763,0.9167,1.091,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,endometrium epithelium,0.029,0.98049,0.006828,1.1977,1.127,False
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,lung bronchus epithelium,0.0401,1.04847,0.005941,0.9806,1.0944,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,memory b cells,0.0839,1.00541,0.007025,0.9534,1.1241,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,pancreatic acinar,0.058,0.95163,0.004068,1.0129,1.0909,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,pancreatic beta,0.0168,1.00883,0.005558,1.0081,1.0904,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,prostate epithelium,0.0572,,,0.9687,1.1314,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,smooth muscle,0.0778,,,1.0446,1.13,True
+TCGA-EF-5831-01A,TCGA-EF-5831,Primary Tumor,t effector cell cd8,0.0763,0.93405,0.00469,0.9537,1.0936,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,adipocytes,0.0334,1.04368,0.004688,0.9239,1.0933,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,bladder epithelium,0.0164,,,0.9566,1.13,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,cd8 temra t cells,0.0223,0.97289,0.005253,0.9694,1.119,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,colon enteroendocrine,0.119,,,1.0275,1.1622,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,colon epithelium,0.5344,1.00373,0.004748,1.0152,1.091,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0333,0.98752,0.004029,0.9936,1.0932,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,lung bronchus epithelium,0.031,1.05235,0.005148,0.9787,1.0944,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,memory b cells,0.0565,0.99643,0.005492,1.0083,1.1241,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,pancreatic acinar,0.0395,1.00752,0.003578,1.007,1.091,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,pancreatic beta,0.017,1.02795,0.004943,0.9764,1.0905,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,prostate epithelium,0.0488,,,0.9282,1.1321,True
+TCGA-EI-6506-01A,TCGA-EI-6506,Primary Tumor,t effector cell cd8,0.0418,0.96566,0.003833,0.9643,1.094,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,cd8 temra t cells,0.117,0.94103,0.005848,1.0389,1.1185,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,colon enteroendocrine,0.0666,,,1.1002,1.1622,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,colon epithelium,0.1351,0.92827,0.004858,0.944,1.0908,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,embryonic stem cells,0.0617,0.94681,0.005528,1.0604,1.0933,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,memory b cells,0.0755,0.94794,0.006555,0.9752,1.1237,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,neutrophils,0.2209,0.88949,0.005721,0.9913,1.0937,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,oligodendrocytes,0.0122,0.98258,0.007581,0.9931,1.1202,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,pancreatic acinar,0.0511,0.95141,0.003914,1.0032,1.0905,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,pancreatic beta,0.0322,0.97482,0.005542,1.0464,1.0902,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,prostate epithelium,0.0961,,,0.9929,1.1326,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,t effector cell cd8,0.0322,0.90482,0.004383,1.023,1.094,True
+TCGA-EI-6507-01A,TCGA-EI-6507,Primary Tumor,vascular endothelium,0.0721,1.03897,0.008038,1.0548,1.1176,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,colon enteroendocrine,0.1387,,,1.2152,1.1576,False
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,colon epithelium,0.3139,1.02776,0.00636,1.0127,1.0908,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0705,0.9416,0.005286,0.9447,1.0909,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,erythrocyte progenitors,0.0199,0.97918,0.007178,1.0034,1.1185,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,heart fibroblasts,0.0543,0.99474,0.007662,1.041,1.1235,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,lung bronchus epithelium,0.0807,1.05821,0.006644,0.9794,1.0916,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,memory b cells,0.0739,1.00457,0.008511,1.0029,1.1241,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,pancreatic acinar,0.1054,0.94036,0.004859,1.061,1.091,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,smooth muscle,0.1074,0.9894,0.007509,0.9207,1.1268,True
+TCGA-EI-6508-01A,TCGA-EI-6508,Primary Tumor,t effector cell cd8,0.0269,0.92474,0.005169,0.9046,1.0916,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,adipocytes,0.0316,0.96343,0.005675,0.9572,1.0905,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,bladder epithelium,0.0161,0.92804,0.007312,0.8335,1.1259,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,colon enteroendocrine,0.2189,,,1.0776,1.1576,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,colon epithelium,0.1158,0.98934,0.005558,1.1014,1.0905,False
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0408,0.94484,0.004926,0.9107,1.091,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,heart fibroblasts,0.0106,0.94633,0.007564,1.0424,1.1235,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,lung bronchus epithelium,0.159,1.02339,0.005947,1.0466,1.0916,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,memory b cells,0.0231,0.96275,0.006946,0.9644,1.1241,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,pancreatic acinar,0.062,0.93727,0.004612,1.0143,1.0909,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,prostate epithelium,0.0181,,,0.9548,1.1276,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,small intestine epithelium,0.2656,1.00151,0.00564,0.9531,1.0903,True
+TCGA-EI-6509-01A,TCGA-EI-6509,Primary Tumor,smooth muscle,0.0247,0.94821,0.007481,1.0432,1.1268,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,cd8 temra t cells,0.0581,0.96877,0.006665,0.9003,1.1191,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,colon enteroendocrine,0.2465,,,0.812,1.1618,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,colon epithelium,0.2666,1.06048,0.005993,1.078,1.0914,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0489,0.9705,0.005103,1.0013,1.0934,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,heart fibroblasts,0.0488,0.99511,0.007215,1.0853,1.1272,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,lung bronchus epithelium,0.0883,1.05675,0.006095,0.9246,1.0947,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,memory b cells,0.1187,1.01283,0.007139,1.1556,1.1241,False
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,pancreatic acinar,0.0347,0.95456,0.004331,1.057,1.0912,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,smooth muscle,0.0221,,,1.0601,1.13,True
+TCGA-EI-6510-01A,TCGA-EI-6510,Primary Tumor,t effector cell cd8,0.0564,0.94533,0.005128,0.9458,1.0944,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,adipocytes,0.0153,1.00978,0.005064,0.9616,1.0932,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,bladder epithelium,0.035,,,0.8414,1.1298,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,cd8 temra t cells,0.0721,0.95837,0.006131,0.9703,1.1186,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,colon enteroendocrine,0.1165,,,0.9367,1.1613,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,colon epithelium,0.2694,1.00849,0.005303,1.0442,1.091,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1004,0.96315,0.004872,0.9446,1.093,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,endometrium epithelium,0.0297,0.96894,0.006577,1.0903,1.127,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,heart fibroblasts,0.0124,0.97495,0.00669,0.9506,1.127,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,hepatocyte,0.0237,0.95885,0.004152,0.9654,1.093,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,memory b cells,0.1235,0.99638,0.00712,1.0281,1.1239,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,neutrophils,0.0467,0.96339,0.005672,1.0372,1.0937,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,pancreatic acinar,0.0535,0.98153,0.003917,1.0964,1.0909,False
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,prostate epithelium,0.0243,,,1.1561,1.1314,False
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,small intestine epithelium,0.0334,1.03605,0.005659,1.0629,1.0929,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,smooth muscle,0.023,,,0.9499,1.1298,True
+TCGA-EI-6511-01A,TCGA-EI-6511,Primary Tumor,t effector cell cd8,0.0121,0.94501,0.004834,0.9771,1.0938,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,cd8 temra t cells,0.0689,0.99854,0.007013,0.9343,1.119,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,colon enteroendocrine,0.1528,,,0.9905,1.1618,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,colon epithelium,0.2239,1.04924,0.006124,1.0301,1.0914,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0187,1.00303,0.005367,0.9451,1.0935,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,endometrium epithelium,0.026,,,0.96,1.1276,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,lung bronchus epithelium,0.0531,1.0876,0.006564,0.9256,1.0946,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,memory b cells,0.0902,1.03199,0.007607,1.0573,1.1241,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,prostate epithelium,0.1601,,,1.0137,1.1319,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,small intestine epithelium,0.1299,1.08084,0.00659,1.0711,1.0931,True
+TCGA-EI-6512-01A,TCGA-EI-6512,Primary Tumor,t effector cell cd8,0.0526,0.96,0.005157,0.9535,1.0944,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,cd8 temra t cells,0.0113,1.03247,0.007718,1.0805,1.119,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,colon enteroendocrine,0.1294,,,0.911,1.1627,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,colon epithelium,0.104,1.1208,0.005673,0.978,1.0917,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.1124,1.01764,0.00596,0.9521,1.0935,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,erythrocyte progenitors,0.1216,1.00026,0.008344,0.9374,1.1215,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,heart fibroblasts,0.0578,1.01087,0.00799,0.8917,1.1272,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,lung bronchus epithelium,0.1746,1.12698,0.006895,1.0319,1.0948,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,pancreatic acinar,0.1348,0.98231,0.004879,0.9729,1.0913,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,small intestine epithelium,0.0501,1.13443,0.005935,0.9851,1.0937,True
+TCGA-EI-6513-01A,TCGA-EI-6513,Primary Tumor,smooth muscle,0.104,,,0.874,1.13,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,adipocytes,0.0147,1.03186,0.005794,0.9482,1.0908,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,bladder epithelium,0.0419,0.97731,0.007449,0.9219,1.1261,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,colon enteroendocrine,0.1893,,,0.9858,1.1576,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,colon epithelium,0.2915,1.03122,0.00596,0.9259,1.0907,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,endometrium epithelium,0.0223,0.98375,0.007648,1.0303,1.1232,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,lung bronchus epithelium,0.0711,1.08123,0.006595,0.9888,1.0919,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,memory b cells,0.0507,0.99399,0.007361,1.0057,1.1241,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,pancreatic acinar,0.0766,0.94836,0.00464,0.9531,1.0911,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,small intestine epithelium,0.0494,1.07558,0.006288,1.0592,1.0906,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,smooth muscle,0.0937,0.9782,0.007549,1.0333,1.127,True
+TCGA-EI-6514-01A,TCGA-EI-6514,Primary Tumor,t effector cell cd8,0.0789,0.93593,0.004829,0.9801,1.0919,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,colon enteroendocrine,0.2151,,,0.9816,1.1576,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,colon epithelium,0.1839,1.12509,0.006515,0.9253,1.0906,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0619,1.02901,0.005957,1.0522,1.0908,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,heart fibroblasts,0.0355,1.03917,0.00775,0.9001,1.1232,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,lung bronchus epithelium,0.1014,1.14728,0.007062,1.1257,1.0913,False
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,memory b cells,0.096,1.09692,0.008986,1.0032,1.1235,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,pancreatic acinar,0.1024,0.97406,0.004959,1.0242,1.0907,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,prostate epithelium,0.0312,,,1.0693,1.1276,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,smooth muscle,0.059,1.02953,0.007601,1.067,1.1264,True
+TCGA-EI-6882-01A,TCGA-EI-6882,Primary Tumor,t effector cell cd8,0.1086,0.99261,0.005651,0.9917,1.0914,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,adipocytes,0.0394,1.06897,0.004584,0.9262,1.0928,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,cd8 temra t cells,0.0327,1.00425,0.005353,1.014,1.1181,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,colon enteroendocrine,0.0671,,,0.977,1.1605,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,colon epithelium,0.4693,1.02258,0.004794,1.0713,1.0907,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0223,1.01044,0.004111,1.0474,1.0924,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,gastric antrum epithelium,0.0171,,,1.0598,1.1309,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,lung bronchus epithelium,0.0623,1.08819,0.005299,0.9905,1.0933,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,memory b cells,0.1017,1.02853,0.005654,1.0755,1.1234,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,prostate epithelium,0.0584,,,1.0677,1.1312,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,smooth muscle,0.0305,,,1.0041,1.1291,True
+TCGA-EI-6884-01A,TCGA-EI-6884,Primary Tumor,t effector cell cd8,0.0843,0.98853,0.003875,1.0194,1.0929,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,adipocytes,0.0391,1.03287,0.005462,0.9237,1.0929,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,bladder epithelium,0.0496,,,1.0098,1.1291,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,cd8 temra t cells,0.1026,1.01559,0.006723,0.9277,1.1183,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,colon enteroendocrine,0.0561,,,0.8989,1.1609,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,colon epithelium,0.2237,1.04331,0.00598,0.9943,1.0909,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0542,1.00634,0.00516,0.9688,1.0925,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,endometrium epithelium,0.0437,1.00695,0.006932,1.1308,1.1266,False
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,erythrocyte progenitors,0.0263,1.00837,0.006841,0.983,1.1209,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,heart fibroblasts,0.0297,1.00542,0.00694,1.0089,1.1264,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,hepatocyte,0.0318,0.96902,0.004323,0.9529,1.0927,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,lung alveolar epithelium,0.0372,1.02437,0.006844,0.9834,1.119,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,lung bronchus epithelium,0.0236,1.07502,0.006053,1.018,1.0935,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,memory b cells,0.0165,1.04672,0.007458,0.9857,1.1234,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,pancreatic acinar,0.0894,0.99113,0.004255,1.099,1.0905,False
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,pancreatic beta,0.0432,1.04119,0.00558,1.1889,1.0903,False
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,prostate epithelium,0.055,,,1.0734,1.1309,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,small intestine epithelium,0.0495,1.077,0.006132,1.0366,1.0928,True
+TCGA-EI-6885-01A,TCGA-EI-6885,Primary Tumor,smooth muscle,0.0229,,,0.9518,1.1291,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,bladder epithelium,0.0126,,,0.9741,1.1289,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,cd8 temra t cells,0.0702,1.04391,0.007079,1.0271,1.1183,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,colon enteroendocrine,0.1879,,,0.9777,1.1605,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,colon epithelium,0.3055,1.09607,0.006326,1.0257,1.0909,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0264,1.01462,0.005624,0.9253,1.0925,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,endometrium epithelium,0.0285,1.01447,0.007643,0.9412,1.1266,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,lung bronchus epithelium,0.0498,1.13231,0.006718,0.9811,1.0933,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,memory b cells,0.0266,1.06251,0.007993,1.0156,1.1234,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,pancreatic acinar,0.0459,0.96973,0.004742,1.0643,1.0905,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,prostate epithelium,0.086,,,1.0901,1.1309,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,small intestine epithelium,0.0919,1.1158,0.006631,1.0607,1.0928,True
+TCGA-EI-7002-01A,TCGA-EI-7002,Primary Tumor,smooth muscle,0.0687,,,0.9486,1.1291,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,adipocytes,0.1444,1.13896,0.005613,0.8982,1.0929,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,cd8 temra t cells,0.095,1.09005,0.006348,0.9776,1.1185,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,colon enteroendocrine,0.0758,,,1.048,1.1627,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,colon epithelium,0.1743,1.13174,0.00587,1.0439,1.0909,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.045,1.08145,0.004974,1.0742,1.0931,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,embryonic stem cells,0.0189,1.14059,0.006169,0.9422,1.0933,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,heart fibroblasts,0.0154,,,1.0273,1.1276,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,lung bronchus epithelium,0.09,1.16076,0.006344,1.0799,1.0941,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,memory b cells,0.0961,1.11387,0.007148,1.1125,1.1235,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,pancreatic acinar,0.0457,1.06069,0.004073,1.0767,1.0906,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,pancreatic beta,0.0211,1.11871,0.005629,1.0227,1.0903,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,prostate epithelium,0.0458,,,1.0379,1.1326,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,smooth muscle,0.0987,,,0.9167,1.1305,True
+TCGA-EI-7004-01A,TCGA-EI-7004,Primary Tumor,vascular endothelium,0.0247,1.10646,0.007614,1.1537,1.1176,False
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,adipocytes,0.11,1.04358,0.004913,0.9376,1.093,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,cd8 temra t cells,0.0931,0.9655,0.005588,0.9161,1.1185,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,colon enteroendocrine,0.0627,,,1.0546,1.1613,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,colon epithelium,0.0922,1.01391,0.005001,0.9777,1.091,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0915,0.9778,0.004325,0.9846,1.0928,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,lung bronchus epithelium,0.06,1.03059,0.005305,1.0329,1.094,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,memory b cells,0.1003,0.99965,0.006276,1.1397,1.1239,False
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,pancreatic acinar,0.0549,1.01791,0.00356,1.0316,1.0909,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,pancreatic beta,0.0342,1.02689,0.005019,0.9927,1.0903,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,prostate epithelium,0.0701,,,0.9412,1.1316,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,small intestine epithelium,0.1517,1.03131,0.005145,0.9981,1.0928,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,smooth muscle,0.0545,,,0.8296,1.1298,True
+TCGA-F5-6464-01A,TCGA-F5-6464,Primary Tumor,t effector cell cd8,0.0215,0.96601,0.004083,1.0,1.0935,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,adipocytes,0.0559,1.03492,0.005113,1.0128,1.0933,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,bladder epithelium,0.0383,,,0.9289,1.1303,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,cd8 temra t cells,0.055,0.98477,0.005783,1.1549,1.1191,False
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,colon enteroendocrine,0.0625,,,1.1095,1.1622,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,colon epithelium,0.2878,1.03654,0.005358,0.9573,1.0914,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.099,0.98353,0.004514,0.9218,1.0933,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,endometrium epithelium,0.0245,,,0.9974,1.1274,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,erythrocyte progenitors,0.0392,1.00015,0.006432,1.0086,1.1215,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,hepatocyte,0.0258,0.99122,0.004104,1.0601,1.0933,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,lung bronchus epithelium,0.0469,1.03715,0.005371,0.9736,1.0946,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,memory b cells,0.0828,1.01394,0.006606,0.9011,1.1241,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,neutrophils,0.0385,0.98698,0.005465,1.0167,1.0938,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,pancreatic acinar,0.0356,0.99531,0.003793,1.0203,1.0912,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,small intestine epithelium,0.0444,1.06027,0.005623,1.0041,1.0933,True
+TCGA-F5-6465-01A,TCGA-F5-6465,Primary Tumor,smooth muscle,0.0621,,,0.9844,1.13,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,adipocytes,0.0476,1.0594,0.005226,0.9221,1.0929,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,cd8 temra t cells,0.0534,1.0489,0.006298,0.9301,1.1183,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,colon enteroendocrine,0.2025,,,1.1942,1.1605,False
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,colon epithelium,0.1858,1.07609,0.005741,1.0788,1.0908,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0536,1.03171,0.005016,1.007,1.0925,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,lung bronchus epithelium,0.0885,1.11455,0.006119,0.9604,1.0936,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,memory b cells,0.0727,1.0658,0.007103,0.956,1.1235,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,pancreatic acinar,0.0376,1.00338,0.004092,0.9956,1.0905,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,prostate epithelium,0.055,,,0.9547,1.1312,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,small intestine epithelium,0.1137,1.10123,0.005978,0.9846,1.0928,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,smooth muscle,0.0407,,,1.0098,1.1294,True
+TCGA-F5-6571-01A,TCGA-F5-6571,Primary Tumor,t effector cell cd8,0.0489,0.99289,0.004748,1.0913,1.093,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,adipocytes,0.1123,1.09468,0.004819,0.977,1.0933,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,bladder epithelium,0.0306,,,0.9857,1.1298,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,cd8 temra t cells,0.0571,1.09267,0.006433,1.0175,1.1188,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,colon enteroendocrine,0.0251,,,1.1727,1.1622,False
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,colon epithelium,0.1948,1.11309,0.005004,1.0335,1.0912,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0574,1.07944,0.004837,0.9906,1.0931,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,erythrocyte progenitors,0.0609,1.05739,0.006212,1.1002,1.1215,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,heart fibroblasts,0.063,1.07289,0.00678,1.0664,1.127,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,lung bronchus epithelium,0.0826,1.16564,0.005794,1.131,1.0944,False
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,memory b cells,0.0552,1.13399,0.007209,0.9455,1.1241,True
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,pancreatic acinar,0.0359,1.04678,0.003631,1.0924,1.091,False
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,small intestine epithelium,0.0699,1.13801,0.005234,1.1947,1.0932,False
+TCGA-F5-6702-01A,TCGA-F5-6702,Primary Tumor,smooth muscle,0.145,,,0.9709,1.1303,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,cd8 temra t cells,0.0621,1.09424,0.007557,1.1064,1.1183,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,colon epithelium,0.259,1.12988,0.005828,0.9919,1.0909,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0412,1.04792,0.005845,0.9441,1.0924,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,erythrocyte progenitors,0.1356,1.05254,0.007565,0.9655,1.1209,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,heart fibroblasts,0.0618,1.06252,0.007803,0.9419,1.1264,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,hepatocyte,0.0188,0.98588,0.004516,1.0056,1.0927,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,lung bronchus epithelium,0.0972,1.13639,0.006719,1.1463,1.0937,False
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,memory b cells,0.014,1.13878,0.008577,0.9735,1.1235,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,pancreatic acinar,0.1178,1.00347,0.004568,1.0457,1.0905,True
+TCGA-F5-6810-01A,TCGA-F5-6810,Primary Tumor,smooth muscle,0.1854,,,0.8635,1.1291,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,adipocytes,0.0107,1.08255,0.00542,0.9671,1.0929,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,cd8 temra t cells,0.0507,1.0517,0.006576,0.9,1.1183,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,colon enteroendocrine,0.1272,,,1.036,1.1609,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,colon epithelium,0.2452,1.07776,0.005716,1.0388,1.0909,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0271,1.00865,0.004998,0.99,1.0925,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,erythrocyte progenitors,0.0181,1.0454,0.006678,0.8284,1.1207,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,heart fibroblasts,0.0489,1.06304,0.00739,0.9309,1.1264,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,lung bronchus epithelium,0.0941,1.10061,0.006105,1.0007,1.0935,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,memory b cells,0.1004,1.05567,0.007207,1.0738,1.1235,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,pancreatic acinar,0.0668,1.01004,0.004117,1.0682,1.0905,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,small intestine epithelium,0.015,1.1231,0.006026,1.058,1.0928,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,smooth muscle,0.1324,,,1.0166,1.1294,True
+TCGA-F5-6811-01A,TCGA-F5-6811,Primary Tumor,t effector cell cd8,0.0574,0.98134,0.00473,1.0041,1.093,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,adipocytes,0.0876,1.02102,0.00439,0.9555,1.0929,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,bladder epithelium,0.0228,,,0.8347,1.1303,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,cd8 temra t cells,0.0382,0.98359,0.004912,0.9912,1.1185,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,central memory th1 cells,0.0163,0.97831,0.004149,1.0384,1.0928,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,colon epithelium,0.4152,0.97929,0.004244,0.952,1.0908,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0915,0.97443,0.003804,0.93,1.0932,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,hepatocyte,0.0109,0.99148,0.003572,0.9387,1.093,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,memory b cells,0.0834,0.99498,0.0054,1.013,1.1237,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,neutrophils,0.016,0.9501,0.004605,0.9412,1.0937,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,pancreatic acinar,0.0355,0.99638,0.003058,1.0157,1.0906,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,pancreatic beta,0.0138,1.01357,0.004413,1.0774,1.0903,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,prostate epithelium,0.0526,,,1.1195,1.1326,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,small intestine epithelium,0.0178,1.00489,0.004523,1.0295,1.0929,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,smooth muscle,0.0375,,,0.8281,1.1309,True
+TCGA-F5-6812-01A,TCGA-F5-6812,Primary Tumor,vascular endothelium,0.0436,1.03522,0.006344,1.0606,1.1176,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,adipocytes,0.058,1.00957,0.004612,0.9602,1.0945,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,breast luminal epithelium,0.0174,,,1.024,1.1291,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,cd8 temra t cells,0.095,0.97313,0.005507,0.9356,1.1198,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,colon enteroendocrine,0.0554,,,1.0603,1.1649,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,colon epithelium,0.3941,0.97537,0.004584,1.0469,1.092,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0734,0.97395,0.004516,0.9447,1.0942,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,embryonic stem cells,0.012,0.98397,0.004972,1.1153,1.0945,False
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,memory b cells,0.0742,0.99585,0.006255,0.939,1.1251,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,pancreatic acinar,0.0382,0.98277,0.003616,1.0557,1.0917,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,pancreatic beta,0.0353,0.99822,0.004855,1.0495,1.0916,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,prostate epithelium,0.0842,,,0.9457,1.1348,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,t effector cell cd8,0.0122,0.95022,0.004277,0.9838,1.0953,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,vascular endothelium,0.0229,1.00322,0.006596,0.9923,1.1191,True
+TCGA-F5-6813-01A,TCGA-F5-6813,Primary Tumor,vascular leptomeningeal cells,0.018,,,1.1994,1.195,False
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,adipocytes,0.1047,1.0686,0.004581,0.9073,1.0929,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,bladder epithelium,0.0126,,,1.1182,1.1303,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,cd8 temra t cells,0.0879,1.03376,0.0053,0.9234,1.1185,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,colon enteroendocrine,0.0784,,,1.0587,1.1622,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,colon epithelium,0.3301,1.03156,0.004556,1.096,1.0908,False
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0731,1.03518,0.004218,0.9674,1.093,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,lung bronchus epithelium,0.0357,1.09776,0.004968,1.0263,1.0939,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,memory b cells,0.0848,1.05685,0.005945,1.0393,1.1235,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,pancreatic acinar,0.0224,1.03974,0.00333,1.0484,1.0906,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,prostate epithelium,0.0439,,,0.9782,1.1326,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,smooth muscle,0.0467,,,0.9452,1.1307,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,t effector cell cd8,0.0252,1.01404,0.003977,0.993,1.094,True
+TCGA-F5-6861-01A,TCGA-F5-6861,Primary Tumor,vascular endothelium,0.0219,1.07569,0.006399,1.1624,1.1176,False
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,adipocytes,0.0511,1.02515,0.005277,1.0434,1.093,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,bladder epithelium,0.0352,,,0.9308,1.1303,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,breast luminal epithelium,0.0198,1.02604,0.006953,0.9261,1.127,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,cd8 temra t cells,0.0458,0.99931,0.005779,0.8637,1.1185,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,colon enteroendocrine,0.0914,,,1.0682,1.1622,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,colon epithelium,0.427,1.01569,0.005416,0.9434,1.0908,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0387,0.98798,0.004634,0.962,1.0929,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,endometrium epithelium,0.0284,,,1.0956,1.1276,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,hepatocyte,0.0153,0.96955,0.004337,1.0516,1.0929,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,lung bronchus epithelium,0.0559,1.07916,0.00577,1.038,1.0938,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,memory b cells,0.0177,1.01076,0.00629,1.0401,1.1235,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,pancreatic acinar,0.0291,0.97699,0.004031,1.0086,1.0905,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,pancreatic beta,0.0196,1.0211,0.005328,1.0246,1.0903,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,prostate epithelium,0.0643,,,0.9926,1.1326,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,small intestine epithelium,0.0369,1.05003,0.005681,0.9885,1.0929,True
+TCGA-F5-6863-01A,TCGA-F5-6863,Primary Tumor,vascular endothelium,0.0101,0.99648,0.007146,1.0819,1.1176,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,adipocytes,0.0141,1.08257,0.005394,0.933,1.0929,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,cd8 temra t cells,0.0624,0.98221,0.006396,0.953,1.1185,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,colon enteroendocrine,0.0504,,,0.9301,1.1605,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,colon epithelium,0.2804,1.0461,0.005708,1.0249,1.0908,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,embryonic stem cells,0.0234,1.02183,0.00581,0.9892,1.093,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,lung bronchus epithelium,0.0685,1.07106,0.006275,0.9774,1.0936,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,memory b cells,0.1207,1.01207,0.00687,1.0531,1.1237,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,pancreatic acinar,0.0571,1.00732,0.004167,1.031,1.0906,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,pancreatic beta,0.0115,1.06552,0.005812,0.9229,1.0902,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,prostate epithelium,0.1493,,,0.8939,1.1309,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,small intestine epithelium,0.0706,1.08707,0.006175,0.9786,1.0928,True
+TCGA-G5-6233-01A,TCGA-G5-6233,Primary Tumor,t effector cell cd8,0.0858,0.96572,0.004603,0.9884,1.0933,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,adipocytes,0.0392,1.06093,0.004666,0.9666,1.0933,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,cd8 temra t cells,0.0344,0.96257,0.005158,0.951,1.119,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,colon enteroendocrine,0.0625,,,1.0881,1.1622,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,colon epithelium,0.5566,1.02851,0.004762,1.0466,1.0909,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0405,0.98551,0.003763,1.0537,1.0932,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,endometrium epithelium,0.0164,,,1.1727,1.1274,False
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,gastric antrum epithelium,0.0103,,,0.9908,1.1319,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,lung bronchus epithelium,0.0588,1.05054,0.005007,0.9347,1.0944,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,memory b cells,0.0579,1.00528,0.005265,0.9714,1.1241,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,pancreatic acinar,0.0133,1.02024,0.00351,1.0017,1.091,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,prostate epithelium,0.0269,,,1.0427,1.1321,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,small intestine epithelium,0.0365,1.0619,0.005083,0.9769,1.0929,True
+TCGA-G5-6235-01A,TCGA-G5-6235,Primary Tumor,smooth muscle,0.0195,,,1.1307,1.1303,False
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,adipocytes,0.0881,1.00277,0.005357,0.9276,1.0945,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,cd8 temra t cells,0.0668,1.0128,0.006253,1.0736,1.1198,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,colon enteroendocrine,0.132,,,1.0172,1.1649,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,colon epithelium,0.3371,0.97875,0.005049,0.9494,1.092,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,lung bronchus epithelium,0.0143,1.03542,0.005572,1.1449,1.0953,False
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,memory b cells,0.0328,1.00477,0.006723,0.9065,1.1251,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,pancreatic acinar,0.0197,0.94731,0.004008,1.0962,1.0916,False
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,pancreatic beta,0.0477,0.9928,0.005395,1.0557,1.0916,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,prostate epithelium,0.1375,,,0.9139,1.1345,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,small intestine epithelium,0.0197,1.01469,0.005245,1.0602,1.094,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,vascular endothelium,0.0849,0.99571,0.007611,0.999,1.1191,True
+TCGA-G5-6572-01A,TCGA-G5-6572,Primary Tumor,vascular leptomeningeal cells,0.018,,,0.9393,1.1942,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,adipocytes,0.0778,1.03552,0.00369,0.9023,1.0929,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,cd8 temra t cells,0.1379,1.03982,0.004546,0.9762,1.1183,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,colon enteroendocrine,0.0575,,,1.0527,1.1622,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,colon epithelium,0.1313,0.98243,0.003529,1.0267,1.0908,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,cytotoxic cd4 t cells (cd28-),0.0395,1.01299,0.003446,1.0227,1.0929,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,hepatocyte,0.2743,1.00367,0.003288,1.0531,1.0928,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,memory b cells,0.0543,1.04838,0.00488,1.1107,1.1237,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,microglia,0.0152,1.01598,0.004965,0.8944,1.1193,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,monocytes,0.0197,1.02195,0.004538,0.9872,1.1249,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,neutrophils,0.0118,0.96488,0.003815,0.9881,1.0937,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,pancreatic beta,0.0352,1.01456,0.003814,1.08,1.0902,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,prostate epithelium,0.07,,,0.9159,1.1326,True
+TCGA-G5-6572-02A,TCGA-G5-6572,Recurrent Tumor,vascular endothelium,0.053,1.0687,0.005289,1.0943,1.1176,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,adipocytes,0.0327,1.13345,0.005475,1.0736,1.0928,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,cd8 temra t cells,0.1188,1.08678,0.006757,1.0471,1.1181,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,colon enteroendocrine,0.1393,,,1.0418,1.1605,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,colon epithelium,0.2107,1.15338,0.006197,1.0198,1.0908,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,cytotoxic cd4 t cells (cd28-),0.0531,1.05795,0.00524,0.9789,1.0924,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,heart fibroblasts,0.0425,1.07812,0.007052,0.9889,1.1261,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,lung bronchus epithelium,0.0894,1.15652,0.006524,1.0899,1.0934,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,memory b cells,0.0469,1.13392,0.008031,1.0404,1.1235,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,pancreatic acinar,0.1116,1.05292,0.004412,1.0071,1.0905,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,pancreatic beta,0.0218,1.14445,0.005946,1.1033,1.0902,False
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,prostate epithelium,0.0788,,,1.0732,1.1309,True
+TCGA-G5-6641-01A,TCGA-G5-6641,Primary Tumor,smooth muscle,0.0543,,,0.8449,1.1291,True

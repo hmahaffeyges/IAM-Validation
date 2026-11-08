@@ -1,0 +1,409 @@
+gsm,case,group,ratio,identity_sites_A,top_cell,top_share,place
+TCGA-2V-A95S-01A,TCGA-2V-A95S,Primary Tumor,1.03513,0.97166,hepatocyte,0.278,inside Normal
+TCGA-2Y-A9GS-01A,TCGA-2Y-A9GS,Primary Tumor,0.99501,0.94124,hepatocyte,0.45,inside Normal
+TCGA-2Y-A9GT-01A,TCGA-2Y-A9GT,Primary Tumor,1.06141,1.01455,hepatocyte,0.455,above Normal
+TCGA-2Y-A9GU-01A,TCGA-2Y-A9GU,Primary Tumor,0.94042,0.88438,hepatocyte,0.425,below Normal
+TCGA-2Y-A9GV-01A,TCGA-2Y-A9GV,Primary Tumor,1.03863,0.98216,hepatocyte,0.527,inside Normal
+TCGA-2Y-A9GW-01A,TCGA-2Y-A9GW,Primary Tumor,1.0468,0.99343,hepatocyte,0.375,inside Normal
+TCGA-2Y-A9GX-01A,TCGA-2Y-A9GX,Primary Tumor,1.04913,0.96818,hepatocyte,0.304,inside Normal
+TCGA-2Y-A9GY-01A,TCGA-2Y-A9GY,Primary Tumor,1.00298,0.9371,hepatocyte,0.266,inside Normal
+TCGA-2Y-A9GZ-01A,TCGA-2Y-A9GZ,Primary Tumor,0.90587,0.85292,hepatocyte,0.59,below Normal
+TCGA-2Y-A9H0-01A,TCGA-2Y-A9H0,Primary Tumor,0.95067,0.90483,hepatocyte,0.544,inside Normal
+TCGA-2Y-A9H1-01A,TCGA-2Y-A9H1,Primary Tumor,1.0225,0.96234,hepatocyte,0.508,inside Normal
+TCGA-2Y-A9H2-01A,TCGA-2Y-A9H2,Primary Tumor,0.95119,0.86932,hepatocyte,0.175,inside Normal
+TCGA-2Y-A9H3-01A,TCGA-2Y-A9H3,Primary Tumor,0.99461,0.91598,hepatocyte,0.247,inside Normal
+TCGA-2Y-A9H4-01A,TCGA-2Y-A9H4,Primary Tumor,0.99725,0.94914,hepatocyte,0.55,inside Normal
+TCGA-2Y-A9H5-01A,TCGA-2Y-A9H5,Primary Tumor,1.0483,1.03606,hepatocyte,0.457,inside Normal
+TCGA-2Y-A9H6-01A,TCGA-2Y-A9H6,Primary Tumor,0.92005,0.88284,hepatocyte,0.35,below Normal
+TCGA-2Y-A9H7-01A,TCGA-2Y-A9H7,Primary Tumor,0.93132,0.85769,hepatocyte,0.476,below Normal
+TCGA-2Y-A9H8-01A,TCGA-2Y-A9H8,Primary Tumor,0.94592,0.88841,hepatocyte,0.43,below Normal
+TCGA-2Y-A9H9-01A,TCGA-2Y-A9H9,Primary Tumor,0.96634,0.92157,hepatocyte,0.708,inside Normal
+TCGA-2Y-A9HA-01A,TCGA-2Y-A9HA,Primary Tumor,0.98236,0.96092,hepatocyte,0.422,inside Normal
+TCGA-2Y-A9HB-01A,TCGA-2Y-A9HB,Primary Tumor,1.01708,0.9798,hepatocyte,0.524,inside Normal
+TCGA-3K-AAZ8-01A,TCGA-3K-AAZ8,Primary Tumor,0.96595,0.93674,hepatocyte,0.654,inside Normal
+TCGA-4R-AA8I-01A,TCGA-4R-AA8I,Primary Tumor,0.99294,0.96122,hepatocyte,0.612,inside Normal
+TCGA-5C-A9VG-01A,TCGA-5C-A9VG,Primary Tumor,0.96931,0.92948,hepatocyte,0.289,inside Normal
+TCGA-5C-A9VH-01A,TCGA-5C-A9VH,Primary Tumor,0.94659,0.95001,hepatocyte,0.565,below Normal
+TCGA-5C-AAPD-01A,TCGA-5C-AAPD,Primary Tumor,1.02287,0.97407,hepatocyte,0.325,inside Normal
+TCGA-5R-AA1C-01A,TCGA-5R-AA1C,Primary Tumor,0.96275,0.9317,hepatocyte,0.604,inside Normal
+TCGA-5R-AA1D-01A,TCGA-5R-AA1D,Primary Tumor,0.9644,0.89268,hepatocyte,0.292,inside Normal
+TCGA-5R-AAAM-01A,TCGA-5R-AAAM,Primary Tumor,1.03047,1.00605,hepatocyte,0.519,inside Normal
+TCGA-BC-4072-01B,TCGA-BC-4072,Primary Tumor,1.00578,0.96066,hepatocyte,0.261,inside Normal
+TCGA-BC-4073-01B,TCGA-BC-4073,Primary Tumor,1.02849,0.97542,hepatocyte,0.245,inside Normal
+TCGA-BC-A10Q-11A,TCGA-BC-A10Q,Solid Tissue Normal,0.95705,0.93323,hepatocyte,0.66,inside Normal
+TCGA-BC-A10R-01A,TCGA-BC-A10R,Primary Tumor,0.99109,0.98326,hepatocyte,0.462,inside Normal
+TCGA-BC-A10R-11A,TCGA-BC-A10R,Solid Tissue Normal,0.96522,0.93098,hepatocyte,0.577,inside Normal
+TCGA-BC-A10S-01A,TCGA-BC-A10S,Primary Tumor,1.01445,0.98994,hepatocyte,0.633,inside Normal
+TCGA-BC-A10T-01A,TCGA-BC-A10T,Primary Tumor,0.97815,0.92873,hepatocyte,0.509,inside Normal
+TCGA-BC-A10T-11A,TCGA-BC-A10T,Solid Tissue Normal,0.9539,0.90899,hepatocyte,0.607,inside Normal
+TCGA-BC-A10U-01A,TCGA-BC-A10U,Primary Tumor,0.92522,0.85876,hepatocyte,0.615,below Normal
+TCGA-BC-A10U-11A,TCGA-BC-A10U,Solid Tissue Normal,0.96157,0.91755,hepatocyte,0.543,inside Normal
+TCGA-BC-A10W-01A,TCGA-BC-A10W,Primary Tumor,0.94393,0.90889,hepatocyte,0.297,below Normal
+TCGA-BC-A10W-11A,TCGA-BC-A10W,Solid Tissue Normal,1.00786,0.95871,hepatocyte,0.537,inside Normal
+TCGA-BC-A10X-01A,TCGA-BC-A10X,Primary Tumor,0.97916,0.92434,hepatocyte,0.506,inside Normal
+TCGA-BC-A10X-11A,TCGA-BC-A10X,Solid Tissue Normal,0.97039,0.9328,hepatocyte,0.576,inside Normal
+TCGA-BC-A10Y-01A,TCGA-BC-A10Y,Primary Tumor,0.90898,0.90435,hepatocyte,0.603,below Normal
+TCGA-BC-A10Y-11A,TCGA-BC-A10Y,Solid Tissue Normal,0.9601,0.92345,hepatocyte,0.606,inside Normal
+TCGA-BC-A10Z-01A,TCGA-BC-A10Z,Primary Tumor,0.85666,0.84681,hepatocyte,0.668,below Normal
+TCGA-BC-A10Z-11A,TCGA-BC-A10Z,Solid Tissue Normal,0.97911,0.93593,hepatocyte,0.589,inside Normal
+TCGA-BC-A110-01A,TCGA-BC-A110,Primary Tumor,1.01825,0.98244,hepatocyte,0.493,inside Normal
+TCGA-BC-A110-11A,TCGA-BC-A110,Solid Tissue Normal,0.99527,0.94521,hepatocyte,0.634,inside Normal
+TCGA-BC-A112-01A,TCGA-BC-A112,Primary Tumor,0.9341,0.91921,hepatocyte,0.22,below Normal
+TCGA-BC-A112-11A,TCGA-BC-A112,Solid Tissue Normal,0.95489,0.889,hepatocyte,0.514,inside Normal
+TCGA-BC-A216-01A,TCGA-BC-A216,Primary Tumor,1.01635,1.03763,hepatocyte,0.491,inside Normal
+TCGA-BC-A216-11A,TCGA-BC-A216,Solid Tissue Normal,0.97997,0.93589,hepatocyte,0.576,inside Normal
+TCGA-BC-A217-01A,TCGA-BC-A217,Primary Tumor,0.9253,0.91652,hepatocyte,0.571,below Normal
+TCGA-BC-A3KG-01A,TCGA-BC-A3KG,Primary Tumor,0.93972,0.90854,hepatocyte,0.608,below Normal
+TCGA-BC-A5W4-01A,TCGA-BC-A5W4,Primary Tumor,0.90365,0.82878,hepatocyte,0.58,below Normal
+TCGA-BC-A69H-01A,TCGA-BC-A69H,Primary Tumor,0.95422,0.91359,hepatocyte,0.385,inside Normal
+TCGA-BC-A69I-01A,TCGA-BC-A69I,Primary Tumor,0.98939,0.96167,hepatocyte,0.578,inside Normal
+TCGA-BC-A8YO-01A,TCGA-BC-A8YO,Primary Tumor,0.92182,0.88508,hepatocyte,0.544,below Normal
+TCGA-BD-A2L6-01A,TCGA-BD-A2L6,Primary Tumor,0.94377,0.9069,hepatocyte,0.664,below Normal
+TCGA-BD-A3EP-01A,TCGA-BD-A3EP,Primary Tumor,1.0379,0.97281,hepatocyte,0.323,inside Normal
+TCGA-BD-A3EP-11A,TCGA-BD-A3EP,Solid Tissue Normal,0.96978,0.91817,hepatocyte,0.533,inside Normal
+TCGA-BD-A3ER-01A,TCGA-BD-A3ER,Primary Tumor,1.0164,0.99132,hepatocyte,0.499,inside Normal
+TCGA-BW-A5NO-01A,TCGA-BW-A5NO,Primary Tumor,0.97807,0.95884,hepatocyte,0.569,inside Normal
+TCGA-BW-A5NP-01A,TCGA-BW-A5NP,Primary Tumor,0.8936,0.86356,hepatocyte,0.438,below Normal
+TCGA-BW-A5NQ-01A,TCGA-BW-A5NQ,Primary Tumor,1.02296,0.96945,hepatocyte,0.304,inside Normal
+TCGA-CC-5258-01A,TCGA-CC-5258,Primary Tumor,0.917,0.83335,hepatocyte,0.324,below Normal
+TCGA-CC-5259-01A,TCGA-CC-5259,Primary Tumor,1.01831,0.99617,hepatocyte,0.353,inside Normal
+TCGA-CC-5262-01A,TCGA-CC-5262,Primary Tumor,1.04758,0.98615,hepatocyte,0.287,inside Normal
+TCGA-CC-A123-01A,TCGA-CC-A123,Primary Tumor,0.98681,0.97587,hepatocyte,0.542,inside Normal
+TCGA-CC-A1HT-01A,TCGA-CC-A1HT,Primary Tumor,1.02365,0.93569,neutrophils,0.224,inside Normal
+TCGA-CC-A3MB-01A,TCGA-CC-A3MB,Primary Tumor,1.02437,1.00731,hepatocyte,0.557,inside Normal
+TCGA-CC-A3MC-01A,TCGA-CC-A3MC,Primary Tumor,0.93123,0.89595,hepatocyte,0.329,below Normal
+TCGA-CC-A5UC-01A,TCGA-CC-A5UC,Primary Tumor,0.98274,0.92724,hepatocyte,0.355,inside Normal
+TCGA-CC-A5UD-01A,TCGA-CC-A5UD,Primary Tumor,0.92418,0.88898,hepatocyte,0.422,below Normal
+TCGA-CC-A5UE-01A,TCGA-CC-A5UE,Primary Tumor,0.97051,0.92489,hepatocyte,0.504,inside Normal
+TCGA-CC-A7IE-01A,TCGA-CC-A7IE,Primary Tumor,0.99187,0.9166,hepatocyte,0.247,inside Normal
+TCGA-CC-A7IF-01A,TCGA-CC-A7IF,Primary Tumor,0.91054,0.8946,hepatocyte,0.595,below Normal
+TCGA-CC-A7IG-01A,TCGA-CC-A7IG,Primary Tumor,0.98195,0.95854,hepatocyte,0.436,inside Normal
+TCGA-CC-A7IH-01A,TCGA-CC-A7IH,Primary Tumor,0.96266,0.94041,hepatocyte,0.658,inside Normal
+TCGA-CC-A7II-01A,TCGA-CC-A7II,Primary Tumor,0.96721,0.90497,hepatocyte,0.167,inside Normal
+TCGA-CC-A7IJ-01A,TCGA-CC-A7IJ,Primary Tumor,0.96033,0.92279,cd8 temra t cells,0.16,inside Normal
+TCGA-CC-A7IK-01A,TCGA-CC-A7IK,Primary Tumor,0.88523,0.8714,hepatocyte,0.452,below Normal
+TCGA-CC-A7IL-01A,TCGA-CC-A7IL,Primary Tumor,0.80091,0.80945,hepatocyte,0.365,below Normal
+TCGA-CC-A8HS-01A,TCGA-CC-A8HS,Primary Tumor,0.88328,0.83669,hepatocyte,0.4,below Normal
+TCGA-CC-A8HT-01A,TCGA-CC-A8HT,Primary Tumor,1.02333,0.93831,hepatocyte,0.282,inside Normal
+TCGA-CC-A8HU-01A,TCGA-CC-A8HU,Primary Tumor,0.9428,0.94807,hepatocyte,0.686,below Normal
+TCGA-CC-A8HV-01A,TCGA-CC-A8HV,Primary Tumor,0.93824,0.9005,hepatocyte,0.383,below Normal
+TCGA-CC-A9FS-01A,TCGA-CC-A9FS,Primary Tumor,0.88314,0.81969,hepatocyte,0.395,below Normal
+TCGA-CC-A9FU-01A,TCGA-CC-A9FU,Primary Tumor,0.88938,0.86795,hepatocyte,0.597,below Normal
+TCGA-CC-A9FV-01A,TCGA-CC-A9FV,Primary Tumor,0.94304,0.85576,microglia,0.17,below Normal
+TCGA-CC-A9FW-01A,TCGA-CC-A9FW,Primary Tumor,1.00038,0.98287,hepatocyte,0.478,inside Normal
+TCGA-DD-A113-01A,TCGA-DD-A113,Primary Tumor,0.97892,0.97077,hepatocyte,0.372,inside Normal
+TCGA-DD-A113-11A,TCGA-DD-A113,Solid Tissue Normal,0.97157,0.94087,hepatocyte,0.672,inside Normal
+TCGA-DD-A114-01A,TCGA-DD-A114,Primary Tumor,1.00429,0.94351,hepatocyte,0.222,inside Normal
+TCGA-DD-A114-11A,TCGA-DD-A114,Solid Tissue Normal,0.97124,0.89589,hepatocyte,0.299,inside Normal
+TCGA-DD-A115-01A,TCGA-DD-A115,Primary Tumor,0.94941,0.91089,hepatocyte,0.488,below Normal
+TCGA-DD-A115-11A,TCGA-DD-A115,Solid Tissue Normal,0.97494,0.94698,hepatocyte,0.617,inside Normal
+TCGA-DD-A116-01A,TCGA-DD-A116,Primary Tumor,0.91064,0.87375,hepatocyte,0.432,below Normal
+TCGA-DD-A116-11A,TCGA-DD-A116,Solid Tissue Normal,0.9894,0.924,hepatocyte,0.455,inside Normal
+TCGA-DD-A118-01A,TCGA-DD-A118,Primary Tumor,0.97111,0.92418,hepatocyte,0.308,inside Normal
+TCGA-DD-A118-11A,TCGA-DD-A118,Solid Tissue Normal,0.99618,0.95365,hepatocyte,0.64,inside Normal
+TCGA-DD-A119-01A,TCGA-DD-A119,Primary Tumor,0.94592,0.9128,hepatocyte,0.466,below Normal
+TCGA-DD-A119-11A,TCGA-DD-A119,Solid Tissue Normal,0.991,0.94893,hepatocyte,0.596,inside Normal
+TCGA-DD-A11A-01A,TCGA-DD-A11A,Primary Tumor,0.9958,0.96982,hepatocyte,0.47,inside Normal
+TCGA-DD-A11A-11A,TCGA-DD-A11A,Solid Tissue Normal,0.92195,0.83728,hepatocyte,0.447,below Normal
+TCGA-DD-A11B-01A,TCGA-DD-A11B,Primary Tumor,0.98531,0.98084,hepatocyte,0.619,inside Normal
+TCGA-DD-A11B-11A,TCGA-DD-A11B,Solid Tissue Normal,0.94207,0.90332,hepatocyte,0.498,below Normal
+TCGA-DD-A11C-01A,TCGA-DD-A11C,Primary Tumor,0.9245,0.87255,hepatocyte,0.635,below Normal
+TCGA-DD-A11C-11A,TCGA-DD-A11C,Solid Tissue Normal,0.97903,0.91778,hepatocyte,0.555,inside Normal
+TCGA-DD-A11D-01A,TCGA-DD-A11D,Primary Tumor,0.96183,0.89587,hepatocyte,0.567,inside Normal
+TCGA-DD-A11D-11A,TCGA-DD-A11D,Solid Tissue Normal,0.96909,0.90639,hepatocyte,0.451,inside Normal
+TCGA-DD-A1E9-01A,TCGA-DD-A1E9,Primary Tumor,1.03838,1.00095,hepatocyte,0.345,inside Normal
+TCGA-DD-A1E9-11A,TCGA-DD-A1E9,Solid Tissue Normal,0.96316,0.92638,hepatocyte,0.517,inside Normal
+TCGA-DD-A1EA-01A,TCGA-DD-A1EA,Primary Tumor,1.00724,0.98046,hepatocyte,0.548,inside Normal
+TCGA-DD-A1EB-01A,TCGA-DD-A1EB,Primary Tumor,0.94386,0.90545,hepatocyte,0.573,below Normal
+TCGA-DD-A1EB-11A,TCGA-DD-A1EB,Solid Tissue Normal,0.97764,0.94377,hepatocyte,0.59,inside Normal
+TCGA-DD-A1EC-01A,TCGA-DD-A1EC,Primary Tumor,0.90604,0.79143,cd8 temra t cells,0.317,below Normal
+TCGA-DD-A1EC-11A,TCGA-DD-A1EC,Solid Tissue Normal,0.93618,0.88015,hepatocyte,0.576,below Normal
+TCGA-DD-A1ED-01A,TCGA-DD-A1ED,Primary Tumor,0.96594,0.93651,hepatocyte,0.472,inside Normal
+TCGA-DD-A1ED-11A,TCGA-DD-A1ED,Solid Tissue Normal,0.97953,0.94987,hepatocyte,0.616,inside Normal
+TCGA-DD-A1EE-01A,TCGA-DD-A1EE,Primary Tumor,0.97563,0.95076,hepatocyte,0.646,inside Normal
+TCGA-DD-A1EE-11A,TCGA-DD-A1EE,Solid Tissue Normal,0.9915,0.92764,hepatocyte,0.462,inside Normal
+TCGA-DD-A1EF-01A,TCGA-DD-A1EF,Primary Tumor,0.93609,0.89437,hepatocyte,0.363,below Normal
+TCGA-DD-A1EF-11A,TCGA-DD-A1EF,Solid Tissue Normal,0.98085,0.92306,hepatocyte,0.42,inside Normal
+TCGA-DD-A1EG-01A,TCGA-DD-A1EG,Primary Tumor,1.01307,0.95639,hepatocyte,0.411,inside Normal
+TCGA-DD-A1EH-01A,TCGA-DD-A1EH,Primary Tumor,0.88546,0.86954,hepatocyte,0.382,below Normal
+TCGA-DD-A1EH-11A,TCGA-DD-A1EH,Solid Tissue Normal,0.96337,0.93155,hepatocyte,0.581,inside Normal
+TCGA-DD-A1EI-01A,TCGA-DD-A1EI,Primary Tumor,1.00526,0.95968,hepatocyte,0.39,inside Normal
+TCGA-DD-A1EI-11A,TCGA-DD-A1EI,Solid Tissue Normal,0.97117,0.91868,hepatocyte,0.588,inside Normal
+TCGA-DD-A1EJ-01A,TCGA-DD-A1EJ,Primary Tumor,0.92645,0.91566,hepatocyte,0.559,below Normal
+TCGA-DD-A1EJ-11A,TCGA-DD-A1EJ,Solid Tissue Normal,0.986,0.95067,hepatocyte,0.6,inside Normal
+TCGA-DD-A1EL-01A,TCGA-DD-A1EL,Primary Tumor,0.9711,0.95284,hepatocyte,0.361,inside Normal
+TCGA-DD-A1EL-11A,TCGA-DD-A1EL,Solid Tissue Normal,0.9823,0.95729,hepatocyte,0.528,inside Normal
+TCGA-DD-A39V-01A,TCGA-DD-A39V,Primary Tumor,1.02514,0.99008,hepatocyte,0.451,inside Normal
+TCGA-DD-A39V-11A,TCGA-DD-A39V,Solid Tissue Normal,0.94235,0.8835,hepatocyte,0.538,below Normal
+TCGA-DD-A39W-01A,TCGA-DD-A39W,Primary Tumor,1.00258,0.9919,hepatocyte,0.471,inside Normal
+TCGA-DD-A39X-01A,TCGA-DD-A39X,Primary Tumor,0.92173,0.86987,hepatocyte,0.301,below Normal
+TCGA-DD-A39X-11A,TCGA-DD-A39X,Solid Tissue Normal,0.95801,0.9144,hepatocyte,0.691,inside Normal
+TCGA-DD-A39Y-01A,TCGA-DD-A39Y,Primary Tumor,0.97453,0.91513,hepatocyte,0.313,inside Normal
+TCGA-DD-A39Z-01A,TCGA-DD-A39Z,Primary Tumor,0.96313,0.92458,hepatocyte,0.632,inside Normal
+TCGA-DD-A39Z-11A,TCGA-DD-A39Z,Solid Tissue Normal,0.96834,0.92628,hepatocyte,0.619,inside Normal
+TCGA-DD-A3A0-01A,TCGA-DD-A3A0,Primary Tumor,0.99471,0.98464,hepatocyte,0.575,inside Normal
+TCGA-DD-A3A2-01A,TCGA-DD-A3A2,Primary Tumor,0.99008,0.94796,hepatocyte,0.615,inside Normal
+TCGA-DD-A3A3-01A,TCGA-DD-A3A3,Primary Tumor,0.83956,0.8093,hepatocyte,0.4,below Normal
+TCGA-DD-A3A3-11A,TCGA-DD-A3A3,Solid Tissue Normal,0.96235,0.93331,hepatocyte,0.583,inside Normal
+TCGA-DD-A3A4-01A,TCGA-DD-A3A4,Primary Tumor,0.96292,0.97774,hepatocyte,0.558,inside Normal
+TCGA-DD-A3A5-01A,TCGA-DD-A3A5,Primary Tumor,0.96231,0.90807,hepatocyte,0.658,inside Normal
+TCGA-DD-A3A6-01A,TCGA-DD-A3A6,Primary Tumor,0.95398,0.88515,monocytes,0.154,inside Normal
+TCGA-DD-A3A7-01A,TCGA-DD-A3A7,Primary Tumor,0.94995,0.92441,hepatocyte,0.407,below Normal
+TCGA-DD-A3A8-01A,TCGA-DD-A3A8,Primary Tumor,0.97341,0.9513,hepatocyte,0.584,inside Normal
+TCGA-DD-A3A9-01A,TCGA-DD-A3A9,Primary Tumor,0.94223,0.92148,hepatocyte,0.293,below Normal
+TCGA-DD-A4NA-01A,TCGA-DD-A4NA,Primary Tumor,0.94703,0.88461,cd8 temra t cells,0.24,below Normal
+TCGA-DD-A4NB-01A,TCGA-DD-A4NB,Primary Tumor,1.00773,0.972,hepatocyte,0.301,inside Normal
+TCGA-DD-A4ND-01A,TCGA-DD-A4ND,Primary Tumor,1.02932,0.97065,hepatocyte,0.429,inside Normal
+TCGA-DD-A4NE-01A,TCGA-DD-A4NE,Primary Tumor,0.89757,0.88794,hepatocyte,0.449,below Normal
+TCGA-DD-A4NF-01A,TCGA-DD-A4NF,Primary Tumor,0.96523,0.92951,hepatocyte,0.584,inside Normal
+TCGA-DD-A4NG-01A,TCGA-DD-A4NG,Primary Tumor,0.9836,0.94274,hepatocyte,0.529,inside Normal
+TCGA-DD-A4NH-01A,TCGA-DD-A4NH,Primary Tumor,0.92315,0.87432,neutrophils,0.438,below Normal
+TCGA-DD-A4NI-01A,TCGA-DD-A4NI,Primary Tumor,1.04546,1.00641,hepatocyte,0.53,inside Normal
+TCGA-DD-A4NJ-01A,TCGA-DD-A4NJ,Primary Tumor,1.00657,0.97008,hepatocyte,0.501,inside Normal
+TCGA-DD-A4NK-01A,TCGA-DD-A4NK,Primary Tumor,1.00725,0.97455,hepatocyte,0.691,inside Normal
+TCGA-DD-A4NL-01A,TCGA-DD-A4NL,Primary Tumor,0.96678,0.93712,hepatocyte,0.492,inside Normal
+TCGA-DD-A4NN-01A,TCGA-DD-A4NN,Primary Tumor,0.93164,0.90414,hepatocyte,0.518,below Normal
+TCGA-DD-A4NO-01A,TCGA-DD-A4NO,Primary Tumor,1.02008,1.00619,hepatocyte,0.526,inside Normal
+TCGA-DD-A4NP-01A,TCGA-DD-A4NP,Primary Tumor,0.96503,0.94074,hepatocyte,0.613,inside Normal
+TCGA-DD-A4NQ-01A,TCGA-DD-A4NQ,Primary Tumor,1.03225,0.9352,neutrophils,0.327,inside Normal
+TCGA-DD-A4NR-01A,TCGA-DD-A4NR,Primary Tumor,1.02686,0.94924,hepatocyte,0.256,inside Normal
+TCGA-DD-A4NS-01A,TCGA-DD-A4NS,Primary Tumor,1.0245,0.96839,hepatocyte,0.398,inside Normal
+TCGA-DD-A4NV-01A,TCGA-DD-A4NV,Primary Tumor,1.04209,1.01202,hepatocyte,0.515,inside Normal
+TCGA-DD-A73A-01A,TCGA-DD-A73A,Primary Tumor,1.01327,0.97541,hepatocyte,0.544,inside Normal
+TCGA-DD-A73B-01A,TCGA-DD-A73B,Primary Tumor,0.93907,0.89977,hepatocyte,0.723,below Normal
+TCGA-DD-A73C-01A,TCGA-DD-A73C,Primary Tumor,1.00969,0.98212,hepatocyte,0.571,inside Normal
+TCGA-DD-A73D-01A,TCGA-DD-A73D,Primary Tumor,0.90503,0.85475,hepatocyte,0.718,below Normal
+TCGA-DD-A73E-01A,TCGA-DD-A73E,Primary Tumor,0.92284,0.85719,hepatocyte,0.69,below Normal
+TCGA-DD-A73F-01A,TCGA-DD-A73F,Primary Tumor,1.03085,0.9781,hepatocyte,0.467,inside Normal
+TCGA-DD-A73G-01A,TCGA-DD-A73G,Primary Tumor,0.94596,0.90159,hepatocyte,0.343,below Normal
+TCGA-DD-AA3A-01A,TCGA-DD-AA3A,Primary Tumor,0.876,0.84182,prostate epithelium,0.161,below Normal
+TCGA-DD-AAC8-01A,TCGA-DD-AAC8,Primary Tumor,0.94683,0.91231,hepatocyte,0.547,below Normal
+TCGA-DD-AAC9-01A,TCGA-DD-AAC9,Primary Tumor,1.0055,0.98914,hepatocyte,0.443,inside Normal
+TCGA-DD-AACA-01A,TCGA-DD-AACA,Primary Tumor,0.9372,0.90318,hepatocyte,0.68,below Normal
+TCGA-DD-AACA-02A,TCGA-DD-AACA,Recurrent Tumor,0.92193,0.87355,hepatocyte,0.601,below Normal
+TCGA-DD-AACA-02B,TCGA-DD-AACA,Recurrent Tumor,0.87133,0.82219,hepatocyte,0.537,below Normal
+TCGA-DD-AACB-01A,TCGA-DD-AACB,Primary Tumor,0.95297,0.91559,hepatocyte,0.532,inside Normal
+TCGA-DD-AACC-01A,TCGA-DD-AACC,Primary Tumor,0.97816,0.92027,hepatocyte,0.273,inside Normal
+TCGA-DD-AACD-01A,TCGA-DD-AACD,Primary Tumor,0.89205,0.84299,hepatocyte,0.434,below Normal
+TCGA-DD-AACE-01A,TCGA-DD-AACE,Primary Tumor,0.90863,0.86684,hepatocyte,0.575,below Normal
+TCGA-DD-AACF-01A,TCGA-DD-AACF,Primary Tumor,0.95333,0.89813,hepatocyte,0.59,inside Normal
+TCGA-DD-AACG-01A,TCGA-DD-AACG,Primary Tumor,0.93739,0.91024,hepatocyte,0.498,below Normal
+TCGA-DD-AACH-01A,TCGA-DD-AACH,Primary Tumor,0.92202,0.86037,hepatocyte,0.393,below Normal
+TCGA-DD-AACI-01A,TCGA-DD-AACI,Primary Tumor,1.02086,0.99624,hepatocyte,0.41,inside Normal
+TCGA-DD-AACJ-01A,TCGA-DD-AACJ,Primary Tumor,0.94381,0.91909,hepatocyte,0.593,below Normal
+TCGA-DD-AACK-01A,TCGA-DD-AACK,Primary Tumor,0.95681,0.91179,hepatocyte,0.542,inside Normal
+TCGA-DD-AACL-01A,TCGA-DD-AACL,Primary Tumor,1.00841,0.90991,hepatocyte,0.255,inside Normal
+TCGA-DD-AACM-01A,TCGA-DD-AACM,Primary Tumor,0.97871,0.94343,hepatocyte,0.459,inside Normal
+TCGA-DD-AACN-01A,TCGA-DD-AACN,Primary Tumor,0.87832,0.86592,hepatocyte,0.475,below Normal
+TCGA-DD-AACO-01A,TCGA-DD-AACO,Primary Tumor,0.92942,0.91861,hepatocyte,0.609,below Normal
+TCGA-DD-AACP-01A,TCGA-DD-AACP,Primary Tumor,0.97916,0.95685,hepatocyte,0.435,inside Normal
+TCGA-DD-AACQ-01A,TCGA-DD-AACQ,Primary Tumor,0.96793,0.96347,hepatocyte,0.709,inside Normal
+TCGA-DD-AACS-01A,TCGA-DD-AACS,Primary Tumor,0.88954,0.86396,hepatocyte,0.678,below Normal
+TCGA-DD-AACT-01A,TCGA-DD-AACT,Primary Tumor,0.98529,0.96004,hepatocyte,0.492,inside Normal
+TCGA-DD-AACU-01A,TCGA-DD-AACU,Primary Tumor,0.98439,0.94876,hepatocyte,0.578,inside Normal
+TCGA-DD-AACV-01A,TCGA-DD-AACV,Primary Tumor,0.81179,0.7723,hepatocyte,0.748,below Normal
+TCGA-DD-AACW-01A,TCGA-DD-AACW,Primary Tumor,0.90932,0.89671,hepatocyte,0.636,below Normal
+TCGA-DD-AACX-01A,TCGA-DD-AACX,Primary Tumor,0.92143,0.87807,hepatocyte,0.638,below Normal
+TCGA-DD-AACY-01A,TCGA-DD-AACY,Primary Tumor,0.94997,0.92063,hepatocyte,0.624,below Normal
+TCGA-DD-AACZ-01A,TCGA-DD-AACZ,Primary Tumor,0.99889,0.90131,hepatocyte,0.244,inside Normal
+TCGA-DD-AAD0-01A,TCGA-DD-AAD0,Primary Tumor,0.89206,0.84105,hepatocyte,0.752,below Normal
+TCGA-DD-AAD1-01A,TCGA-DD-AAD1,Primary Tumor,0.92869,0.88245,hepatocyte,0.262,below Normal
+TCGA-DD-AAD2-01A,TCGA-DD-AAD2,Primary Tumor,0.92678,0.88181,hepatocyte,0.319,below Normal
+TCGA-DD-AAD3-01A,TCGA-DD-AAD3,Primary Tumor,0.99371,0.96294,hepatocyte,0.529,inside Normal
+TCGA-DD-AAD5-01A,TCGA-DD-AAD5,Primary Tumor,0.98737,0.92973,hepatocyte,0.225,inside Normal
+TCGA-DD-AAD6-01A,TCGA-DD-AAD6,Primary Tumor,0.94577,0.92201,hepatocyte,0.627,below Normal
+TCGA-DD-AAD8-01A,TCGA-DD-AAD8,Primary Tumor,0.839,0.75492,hepatocyte,0.676,below Normal
+TCGA-DD-AADA-01A,TCGA-DD-AADA,Primary Tumor,0.93692,0.9235,hepatocyte,0.387,below Normal
+TCGA-DD-AADB-01A,TCGA-DD-AADB,Primary Tumor,0.99552,0.93829,hepatocyte,0.389,inside Normal
+TCGA-DD-AADC-01A,TCGA-DD-AADC,Primary Tumor,1.01822,1.00196,hepatocyte,0.316,inside Normal
+TCGA-DD-AADD-01A,TCGA-DD-AADD,Primary Tumor,0.85952,0.83858,hepatocyte,0.55,below Normal
+TCGA-DD-AADE-01A,TCGA-DD-AADE,Primary Tumor,0.9413,0.92442,hepatocyte,0.545,below Normal
+TCGA-DD-AADF-01A,TCGA-DD-AADF,Primary Tumor,0.90599,0.87132,hepatocyte,0.64,below Normal
+TCGA-DD-AADG-01A,TCGA-DD-AADG,Primary Tumor,0.90293,0.84897,hepatocyte,0.565,below Normal
+TCGA-DD-AADI-01A,TCGA-DD-AADI,Primary Tumor,0.93255,0.89809,hepatocyte,0.424,below Normal
+TCGA-DD-AADJ-01A,TCGA-DD-AADJ,Primary Tumor,0.91647,0.8835,hepatocyte,0.603,below Normal
+TCGA-DD-AADK-01A,TCGA-DD-AADK,Primary Tumor,0.94605,0.89533,hepatocyte,0.267,below Normal
+TCGA-DD-AADL-01A,TCGA-DD-AADL,Primary Tumor,0.91724,0.85055,hepatocyte,0.669,below Normal
+TCGA-DD-AADM-01A,TCGA-DD-AADM,Primary Tumor,0.98557,0.93612,hepatocyte,0.565,inside Normal
+TCGA-DD-AADN-01A,TCGA-DD-AADN,Primary Tumor,1.00741,0.96723,hepatocyte,0.38,inside Normal
+TCGA-DD-AADO-01A,TCGA-DD-AADO,Primary Tumor,0.93963,0.91129,hepatocyte,0.431,below Normal
+TCGA-DD-AADP-01A,TCGA-DD-AADP,Primary Tumor,0.98482,0.93376,hepatocyte,0.618,inside Normal
+TCGA-DD-AADQ-01A,TCGA-DD-AADQ,Primary Tumor,0.98096,0.94642,hepatocyte,0.593,inside Normal
+TCGA-DD-AADR-01A,TCGA-DD-AADR,Primary Tumor,0.97644,0.92051,hepatocyte,0.507,inside Normal
+TCGA-DD-AADS-01A,TCGA-DD-AADS,Primary Tumor,0.9807,0.94528,hepatocyte,0.597,inside Normal
+TCGA-DD-AADU-01A,TCGA-DD-AADU,Primary Tumor,0.96265,0.91839,hepatocyte,0.605,inside Normal
+TCGA-DD-AADV-01A,TCGA-DD-AADV,Primary Tumor,0.93434,0.8984,hepatocyte,0.663,below Normal
+TCGA-DD-AADW-01A,TCGA-DD-AADW,Primary Tumor,0.88854,0.87391,hepatocyte,0.389,below Normal
+TCGA-DD-AADY-01A,TCGA-DD-AADY,Primary Tumor,0.85152,0.81717,hepatocyte,0.497,below Normal
+TCGA-DD-AAE0-01A,TCGA-DD-AAE0,Primary Tumor,0.93232,0.91046,hepatocyte,0.28,below Normal
+TCGA-DD-AAE1-01A,TCGA-DD-AAE1,Primary Tumor,0.93735,0.89359,hepatocyte,0.624,below Normal
+TCGA-DD-AAE2-01A,TCGA-DD-AAE2,Primary Tumor,0.92434,0.87084,hepatocyte,0.567,below Normal
+TCGA-DD-AAE3-01A,TCGA-DD-AAE3,Primary Tumor,0.94234,0.90215,hepatocyte,0.615,below Normal
+TCGA-DD-AAE4-01A,TCGA-DD-AAE4,Primary Tumor,0.95405,0.90402,hepatocyte,0.591,inside Normal
+TCGA-DD-AAE6-01A,TCGA-DD-AAE6,Primary Tumor,0.92117,0.89912,hepatocyte,0.711,below Normal
+TCGA-DD-AAE7-01A,TCGA-DD-AAE7,Primary Tumor,1.03383,1.00383,hepatocyte,0.517,inside Normal
+TCGA-DD-AAE8-01A,TCGA-DD-AAE8,Primary Tumor,0.99115,0.93441,hepatocyte,0.441,inside Normal
+TCGA-DD-AAE9-01A,TCGA-DD-AAE9,Primary Tumor,0.92903,0.88112,hepatocyte,0.568,below Normal
+TCGA-DD-AAEA-01A,TCGA-DD-AAEA,Primary Tumor,1.00159,0.97701,hepatocyte,0.536,inside Normal
+TCGA-DD-AAEB-01A,TCGA-DD-AAEB,Primary Tumor,0.89704,0.83029,hepatocyte,0.685,below Normal
+TCGA-DD-AAED-01A,TCGA-DD-AAED,Primary Tumor,0.95366,0.96456,hepatocyte,0.684,inside Normal
+TCGA-DD-AAEE-01A,TCGA-DD-AAEE,Primary Tumor,0.9786,0.98391,hepatocyte,0.622,inside Normal
+TCGA-DD-AAEG-01A,TCGA-DD-AAEG,Primary Tumor,0.89825,0.85662,hepatocyte,0.385,below Normal
+TCGA-DD-AAEH-01A,TCGA-DD-AAEH,Primary Tumor,1.0039,0.97423,hepatocyte,0.577,inside Normal
+TCGA-DD-AAEI-01A,TCGA-DD-AAEI,Primary Tumor,0.96284,0.91279,hepatocyte,0.515,inside Normal
+TCGA-DD-AAEK-01A,TCGA-DD-AAEK,Primary Tumor,0.99339,0.94594,hepatocyte,0.431,inside Normal
+TCGA-DD-AAVP-01A,TCGA-DD-AAVP,Primary Tumor,0.91993,0.90861,hepatocyte,0.583,below Normal
+TCGA-DD-AAVQ-01A,TCGA-DD-AAVQ,Primary Tumor,0.91611,0.87317,hepatocyte,0.318,below Normal
+TCGA-DD-AAVR-01A,TCGA-DD-AAVR,Primary Tumor,0.90979,0.86857,hepatocyte,0.302,below Normal
+TCGA-DD-AAVS-01A,TCGA-DD-AAVS,Primary Tumor,0.91698,0.9103,hepatocyte,0.546,below Normal
+TCGA-DD-AAVU-01A,TCGA-DD-AAVU,Primary Tumor,0.94781,0.92204,hepatocyte,0.641,below Normal
+TCGA-DD-AAVV-01A,TCGA-DD-AAVV,Primary Tumor,0.98189,0.93317,hepatocyte,0.289,inside Normal
+TCGA-DD-AAVW-01A,TCGA-DD-AAVW,Primary Tumor,0.97398,0.94806,hepatocyte,0.388,inside Normal
+TCGA-DD-AAVX-01A,TCGA-DD-AAVX,Primary Tumor,0.95396,0.91779,hepatocyte,0.535,inside Normal
+TCGA-DD-AAVY-01A,TCGA-DD-AAVY,Primary Tumor,0.93676,0.91607,hepatocyte,0.855,below Normal
+TCGA-DD-AAVZ-01A,TCGA-DD-AAVZ,Primary Tumor,0.91208,0.89524,hepatocyte,0.507,below Normal
+TCGA-DD-AAW0-01A,TCGA-DD-AAW0,Primary Tumor,0.95002,0.91003,hepatocyte,0.374,inside Normal
+TCGA-DD-AAW1-01A,TCGA-DD-AAW1,Primary Tumor,0.94896,0.9197,hepatocyte,0.631,below Normal
+TCGA-DD-AAW2-01A,TCGA-DD-AAW2,Primary Tumor,0.94666,0.90341,hepatocyte,0.769,below Normal
+TCGA-DD-AAW3-01A,TCGA-DD-AAW3,Primary Tumor,0.90804,0.83592,hepatocyte,0.715,below Normal
+TCGA-ED-A459-01A,TCGA-ED-A459,Primary Tumor,0.99092,0.96826,hepatocyte,0.455,inside Normal
+TCGA-ED-A4XI-01A,TCGA-ED-A4XI,Primary Tumor,0.9622,0.91678,hepatocyte,0.431,inside Normal
+TCGA-ED-A5KG-01A,TCGA-ED-A5KG,Primary Tumor,0.99071,0.88916,central memory th1 cells,0.356,inside Normal
+TCGA-ED-A627-01A,TCGA-ED-A627,Primary Tumor,0.9669,0.90137,hepatocyte,0.337,inside Normal
+TCGA-ED-A66X-01A,TCGA-ED-A66X,Primary Tumor,0.9671,0.91491,hepatocyte,0.273,inside Normal
+TCGA-ED-A66Y-01A,TCGA-ED-A66Y,Primary Tumor,0.86669,0.82951,hepatocyte,0.465,below Normal
+TCGA-ED-A7PX-01A,TCGA-ED-A7PX,Primary Tumor,0.93466,0.89675,hepatocyte,0.215,below Normal
+TCGA-ED-A7PY-01A,TCGA-ED-A7PY,Primary Tumor,0.90277,0.87491,hepatocyte,0.544,below Normal
+TCGA-ED-A7PZ-01A,TCGA-ED-A7PZ,Primary Tumor,0.91066,0.94904,hepatocyte,0.349,below Normal
+TCGA-ED-A7XO-01A,TCGA-ED-A7XO,Primary Tumor,1.02139,0.98956,hepatocyte,0.555,inside Normal
+TCGA-ED-A7XP-01A,TCGA-ED-A7XP,Primary Tumor,0.92486,0.87244,hepatocyte,0.453,below Normal
+TCGA-ED-A82E-01A,TCGA-ED-A82E,Primary Tumor,0.83385,0.80251,cd8 temra t cells,0.196,below Normal
+TCGA-ED-A8O5-01A,TCGA-ED-A8O5,Primary Tumor,0.89552,0.85766,hepatocyte,0.414,below Normal
+TCGA-ED-A8O6-01A,TCGA-ED-A8O6,Primary Tumor,0.93824,0.91761,hepatocyte,0.386,below Normal
+TCGA-ED-A97K-01A,TCGA-ED-A97K,Primary Tumor,0.9817,0.90111,vascular endothelium,0.174,inside Normal
+TCGA-EP-A12J-01A,TCGA-EP-A12J,Primary Tumor,0.92622,0.89968,hepatocyte,0.653,below Normal
+TCGA-EP-A12J-11A,TCGA-EP-A12J,Solid Tissue Normal,0.96772,0.91263,hepatocyte,0.367,inside Normal
+TCGA-EP-A26S-11A,TCGA-EP-A26S,Solid Tissue Normal,0.94284,0.88804,hepatocyte,0.5,below Normal
+TCGA-EP-A2KA-01A,TCGA-EP-A2KA,Primary Tumor,1.01175,0.9829,hepatocyte,0.348,inside Normal
+TCGA-EP-A2KB-01A,TCGA-EP-A2KB,Primary Tumor,0.94172,0.93615,hepatocyte,0.607,below Normal
+TCGA-EP-A3JL-01A,TCGA-EP-A3JL,Primary Tumor,1.01538,0.97513,hepatocyte,0.47,inside Normal
+TCGA-EP-A3RK-01A,TCGA-EP-A3RK,Primary Tumor,1.05827,0.99247,hepatocyte,0.289,above Normal
+TCGA-ES-A2HS-01A,TCGA-ES-A2HS,Primary Tumor,0.99642,1.00963,hepatocyte,0.651,inside Normal
+TCGA-ES-A2HS-11A,TCGA-ES-A2HS,Solid Tissue Normal,0.94108,0.90489,hepatocyte,0.528,below Normal
+TCGA-ES-A2HT-01A,TCGA-ES-A2HT,Primary Tumor,0.9826,0.94199,hepatocyte,0.461,inside Normal
+TCGA-ES-A2HT-11A,TCGA-ES-A2HT,Solid Tissue Normal,0.95405,0.90208,hepatocyte,0.356,inside Normal
+TCGA-FV-A23B-01A,TCGA-FV-A23B,Primary Tumor,0.99053,0.95003,hepatocyte,0.53,inside Normal
+TCGA-FV-A23B-11A,TCGA-FV-A23B,Solid Tissue Normal,0.96418,0.89937,hepatocyte,0.344,inside Normal
+TCGA-FV-A2QQ-01A,TCGA-FV-A2QQ,Primary Tumor,1.03005,1.00171,hepatocyte,0.455,inside Normal
+TCGA-FV-A2QR-01A,TCGA-FV-A2QR,Primary Tumor,0.93428,0.88348,hepatocyte,0.575,below Normal
+TCGA-FV-A2QR-11A,TCGA-FV-A2QR,Solid Tissue Normal,0.95934,0.91124,hepatocyte,0.479,inside Normal
+TCGA-FV-A3I0-01A,TCGA-FV-A3I0,Primary Tumor,0.88226,0.86307,hepatocyte,0.184,below Normal
+TCGA-FV-A3I1-01A,TCGA-FV-A3I1,Primary Tumor,1.00591,0.95683,hepatocyte,0.482,inside Normal
+TCGA-FV-A3R2-01A,TCGA-FV-A3R2,Primary Tumor,0.97004,0.95691,hepatocyte,0.594,inside Normal
+TCGA-FV-A3R3-01A,TCGA-FV-A3R3,Primary Tumor,0.93285,0.88527,hepatocyte,0.32,below Normal
+TCGA-FV-A495-01A,TCGA-FV-A495,Primary Tumor,1.03356,0.99981,hepatocyte,0.524,inside Normal
+TCGA-FV-A496-01A,TCGA-FV-A496,Primary Tumor,0.97025,0.95924,hepatocyte,0.558,inside Normal
+TCGA-FV-A4ZP-01A,TCGA-FV-A4ZP,Primary Tumor,1.00032,0.96836,hepatocyte,0.292,inside Normal
+TCGA-FV-A4ZQ-01A,TCGA-FV-A4ZQ,Primary Tumor,0.99876,0.9713,hepatocyte,0.488,inside Normal
+TCGA-G3-A25S-01A,TCGA-G3-A25S,Primary Tumor,0.92568,0.95122,hepatocyte,0.417,below Normal
+TCGA-G3-A25T-01A,TCGA-G3-A25T,Primary Tumor,0.89065,0.83033,cd8 temra t cells,0.254,below Normal
+TCGA-G3-A25U-01A,TCGA-G3-A25U,Primary Tumor,0.91336,0.86437,hepatocyte,0.735,below Normal
+TCGA-G3-A25V-01A,TCGA-G3-A25V,Primary Tumor,1.03581,0.9725,hepatocyte,0.288,inside Normal
+TCGA-G3-A25W-01A,TCGA-G3-A25W,Primary Tumor,1.03116,0.95526,hepatocyte,0.308,inside Normal
+TCGA-G3-A25W-11A,TCGA-G3-A25W,Solid Tissue Normal,0.98611,0.95019,hepatocyte,0.604,inside Normal
+TCGA-G3-A25X-11A,TCGA-G3-A25X,Solid Tissue Normal,0.94922,0.89349,hepatocyte,0.501,below Normal
+TCGA-G3-A25Y-01A,TCGA-G3-A25Y,Primary Tumor,0.92946,0.87515,hepatocyte,0.329,below Normal
+TCGA-G3-A25Z-01A,TCGA-G3-A25Z,Primary Tumor,0.98288,0.95212,hepatocyte,0.579,inside Normal
+TCGA-G3-A3CG-01A,TCGA-G3-A3CG,Primary Tumor,1.01675,1.00538,hepatocyte,0.476,inside Normal
+TCGA-G3-A3CH-01A,TCGA-G3-A3CH,Primary Tumor,0.89315,0.87397,hepatocyte,0.446,below Normal
+TCGA-G3-A3CJ-01A,TCGA-G3-A3CJ,Primary Tumor,0.97888,0.9454,hepatocyte,0.617,inside Normal
+TCGA-G3-A5SI-01A,TCGA-G3-A5SI,Primary Tumor,0.90836,0.9182,hepatocyte,0.576,below Normal
+TCGA-G3-A5SJ-01A,TCGA-G3-A5SJ,Primary Tumor,0.98724,0.92266,hepatocyte,0.394,inside Normal
+TCGA-G3-A5SK-01A,TCGA-G3-A5SK,Primary Tumor,1.03139,1.00319,hepatocyte,0.565,inside Normal
+TCGA-G3-A5SL-01A,TCGA-G3-A5SL,Primary Tumor,1.00256,1.00464,hepatocyte,0.658,inside Normal
+TCGA-G3-A5SM-01A,TCGA-G3-A5SM,Primary Tumor,1.0713,1.04859,hepatocyte,0.409,above Normal
+TCGA-G3-A6UC-01A,TCGA-G3-A6UC,Primary Tumor,0.87837,0.81162,hepatocyte,0.727,below Normal
+TCGA-G3-A7M5-01A,TCGA-G3-A7M5,Primary Tumor,0.96705,0.96051,hepatocyte,0.509,inside Normal
+TCGA-G3-A7M6-01A,TCGA-G3-A7M6,Primary Tumor,0.95845,0.93151,hepatocyte,0.272,inside Normal
+TCGA-G3-A7M7-01A,TCGA-G3-A7M7,Primary Tumor,0.98354,0.95696,hepatocyte,0.44,inside Normal
+TCGA-G3-A7M8-01A,TCGA-G3-A7M8,Primary Tumor,0.98056,0.95863,hepatocyte,0.536,inside Normal
+TCGA-G3-A7M9-01A,TCGA-G3-A7M9,Primary Tumor,0.99569,0.92869,hepatocyte,0.237,inside Normal
+TCGA-G3-AAUZ-01A,TCGA-G3-AAUZ,Primary Tumor,1.01757,0.99262,hepatocyte,0.532,inside Normal
+TCGA-G3-AAV0-01A,TCGA-G3-AAV0,Primary Tumor,0.98436,0.94242,hepatocyte,0.641,inside Normal
+TCGA-G3-AAV1-01A,TCGA-G3-AAV1,Primary Tumor,1.03847,1.01616,hepatocyte,0.534,inside Normal
+TCGA-G3-AAV2-01A,TCGA-G3-AAV2,Primary Tumor,0.986,0.94802,hepatocyte,0.627,inside Normal
+TCGA-G3-AAV3-01A,TCGA-G3-AAV3,Primary Tumor,1.03621,0.97949,hepatocyte,0.363,inside Normal
+TCGA-G3-AAV4-01A,TCGA-G3-AAV4,Primary Tumor,0.91916,0.82992,hepatocyte,0.548,below Normal
+TCGA-G3-AAV5-01A,TCGA-G3-AAV5,Primary Tumor,0.98228,0.94587,hepatocyte,0.534,inside Normal
+TCGA-G3-AAV6-01A,TCGA-G3-AAV6,Primary Tumor,0.97901,0.96331,hepatocyte,0.408,inside Normal
+TCGA-G3-AAV7-01A,TCGA-G3-AAV7,Primary Tumor,0.99002,0.91492,hepatocyte,0.315,inside Normal
+TCGA-GJ-A3OU-01A,TCGA-GJ-A3OU,Primary Tumor,1.02548,0.94325,hepatocyte,0.208,inside Normal
+TCGA-GJ-A6C0-01A,TCGA-GJ-A6C0,Primary Tumor,0.96578,0.91283,hepatocyte,0.542,inside Normal
+TCGA-GJ-A9DB-01A,TCGA-GJ-A9DB,Primary Tumor,0.96903,0.93774,hepatocyte,0.483,inside Normal
+TCGA-HP-A5MZ-01A,TCGA-HP-A5MZ,Primary Tumor,1.01449,0.95635,hepatocyte,0.285,inside Normal
+TCGA-HP-A5N0-01A,TCGA-HP-A5N0,Primary Tumor,1.01772,0.99352,hepatocyte,0.459,inside Normal
+TCGA-K7-A5RF-01A,TCGA-K7-A5RF,Primary Tumor,1.01932,0.95802,hepatocyte,0.433,inside Normal
+TCGA-K7-A5RG-01A,TCGA-K7-A5RG,Primary Tumor,1.05583,0.95874,hepatocyte,0.217,above Normal
+TCGA-K7-A6G5-01A,TCGA-K7-A6G5,Primary Tumor,0.9927,0.95569,hepatocyte,0.527,inside Normal
+TCGA-K7-AAU7-01A,TCGA-K7-AAU7,Primary Tumor,1.01418,0.95185,hepatocyte,0.35,inside Normal
+TCGA-KR-A7K0-01A,TCGA-KR-A7K0,Primary Tumor,1.04137,1.02193,hepatocyte,0.528,inside Normal
+TCGA-KR-A7K2-01A,TCGA-KR-A7K2,Primary Tumor,0.96256,0.93628,hepatocyte,0.623,inside Normal
+TCGA-KR-A7K7-01A,TCGA-KR-A7K7,Primary Tumor,1.04015,1.02643,hepatocyte,0.451,inside Normal
+TCGA-KR-A7K8-01A,TCGA-KR-A7K8,Primary Tumor,1.02895,0.9569,hepatocyte,0.242,inside Normal
+TCGA-LG-A6GG-01A,TCGA-LG-A6GG,Primary Tumor,0.95202,0.90683,hepatocyte,0.533,inside Normal
+TCGA-LG-A9QC-01A,TCGA-LG-A9QC,Primary Tumor,0.94623,0.91871,hepatocyte,0.536,below Normal
+TCGA-LG-A9QD-01A,TCGA-LG-A9QD,Primary Tumor,0.9947,0.92994,hepatocyte,0.45,inside Normal
+TCGA-MI-A75C-01A,TCGA-MI-A75C,Primary Tumor,0.9735,0.92749,hepatocyte,0.517,inside Normal
+TCGA-MI-A75E-01A,TCGA-MI-A75E,Primary Tumor,1.06501,1.0296,hepatocyte,0.435,above Normal
+TCGA-MI-A75G-01A,TCGA-MI-A75G,Primary Tumor,1.01369,1.00036,hepatocyte,0.652,inside Normal
+TCGA-MI-A75H-01A,TCGA-MI-A75H,Primary Tumor,1.00936,0.97097,hepatocyte,0.551,inside Normal
+TCGA-MI-A75I-01A,TCGA-MI-A75I,Primary Tumor,1.00563,0.96229,hepatocyte,0.402,inside Normal
+TCGA-MR-A520-01A,TCGA-MR-A520,Primary Tumor,0.97535,0.94241,hepatocyte,0.496,inside Normal
+TCGA-MR-A8JO-01A,TCGA-MR-A8JO,Primary Tumor,0.99122,0.9415,hepatocyte,0.207,inside Normal
+TCGA-NI-A4U2-01A,TCGA-NI-A4U2,Primary Tumor,1.01248,0.98345,hepatocyte,0.497,inside Normal
+TCGA-NI-A8LF-01A,TCGA-NI-A8LF,Primary Tumor,1.00199,0.98488,hepatocyte,0.499,inside Normal
+TCGA-O8-A75V-01A,TCGA-O8-A75V,Primary Tumor,1.01565,0.97374,hepatocyte,0.413,inside Normal
+TCGA-PD-A5DF-01A,TCGA-PD-A5DF,Primary Tumor,0.9999,0.96678,hepatocyte,0.481,inside Normal
+TCGA-QA-A7B7-01A,TCGA-QA-A7B7,Primary Tumor,0.95347,0.92421,hepatocyte,0.598,inside Normal
+TCGA-RC-A6M3-01A,TCGA-RC-A6M3,Primary Tumor,0.95815,0.92018,hepatocyte,0.311,inside Normal
+TCGA-RC-A6M4-01A,TCGA-RC-A6M4,Primary Tumor,0.92441,0.87477,hepatocyte,0.724,below Normal
+TCGA-RC-A6M5-01A,TCGA-RC-A6M5,Primary Tumor,0.98666,0.95319,hepatocyte,0.302,inside Normal
+TCGA-RC-A6M6-01A,TCGA-RC-A6M6,Primary Tumor,1.00448,0.94111,hepatocyte,0.258,inside Normal
+TCGA-RC-A7S9-01A,TCGA-RC-A7S9,Primary Tumor,0.94698,0.9238,hepatocyte,0.561,below Normal
+TCGA-RC-A7SB-01A,TCGA-RC-A7SB,Primary Tumor,0.94052,0.89549,hepatocyte,0.56,below Normal
+TCGA-RC-A7SF-01A,TCGA-RC-A7SF,Primary Tumor,0.98013,0.96147,hepatocyte,0.584,inside Normal
+TCGA-RC-A7SH-01A,TCGA-RC-A7SH,Primary Tumor,0.92875,0.88641,hepatocyte,0.52,below Normal
+TCGA-RC-A7SK-01A,TCGA-RC-A7SK,Primary Tumor,0.93516,0.89329,hepatocyte,0.564,below Normal
+TCGA-RG-A7D4-01A,TCGA-RG-A7D4,Primary Tumor,1.05588,1.01901,hepatocyte,0.35,above Normal
+TCGA-T1-A6J8-01A,TCGA-T1-A6J8,Primary Tumor,0.99152,0.94919,hepatocyte,0.539,inside Normal
+TCGA-UB-A7MA-01A,TCGA-UB-A7MA,Primary Tumor,0.91974,0.89436,hepatocyte,0.234,below Normal
+TCGA-UB-A7MB-01A,TCGA-UB-A7MB,Primary Tumor,0.99019,0.99938,hepatocyte,0.725,inside Normal
+TCGA-UB-A7MC-01A,TCGA-UB-A7MC,Primary Tumor,0.96067,0.96719,hepatocyte,0.592,inside Normal
+TCGA-UB-A7MD-01A,TCGA-UB-A7MD,Primary Tumor,1.01536,0.97611,hepatocyte,0.412,inside Normal
+TCGA-UB-A7ME-01A,TCGA-UB-A7ME,Primary Tumor,0.98467,0.97111,hepatocyte,0.378,inside Normal
+TCGA-UB-A7MF-01A,TCGA-UB-A7MF,Primary Tumor,0.9552,0.93878,hepatocyte,0.374,inside Normal
+TCGA-UB-AA0U-01A,TCGA-UB-AA0U,Primary Tumor,1.03692,0.99098,hepatocyte,0.513,inside Normal
+TCGA-UB-AA0V-01A,TCGA-UB-AA0V,Primary Tumor,0.96578,0.89378,hepatocyte,0.478,inside Normal
+TCGA-WJ-A86L-01A,TCGA-WJ-A86L,Primary Tumor,0.90232,0.86654,hepatocyte,0.6,below Normal
+TCGA-WQ-A9G7-01A,TCGA-WQ-A9G7,Primary Tumor,0.95859,0.90528,hepatocyte,0.359,inside Normal
+TCGA-WQ-AB4B-01A,TCGA-WQ-AB4B,Primary Tumor,1.00232,0.95839,hepatocyte,0.525,inside Normal
+TCGA-WX-AA44-01A,TCGA-WX-AA44,Primary Tumor,0.93847,0.89952,hepatocyte,0.368,below Normal
+TCGA-WX-AA46-01A,TCGA-WX-AA46,Primary Tumor,0.98165,0.95871,hepatocyte,0.737,inside Normal
+TCGA-WX-AA47-01A,TCGA-WX-AA47,Primary Tumor,0.92355,0.91378,hepatocyte,0.606,below Normal
+TCGA-XR-A8TC-01A,TCGA-XR-A8TC,Primary Tumor,0.93331,0.9204,hepatocyte,0.573,below Normal
+TCGA-XR-A8TD-01A,TCGA-XR-A8TD,Primary Tumor,1.03434,0.97451,hepatocyte,0.345,inside Normal
+TCGA-XR-A8TE-01A,TCGA-XR-A8TE,Primary Tumor,0.97142,0.94707,hepatocyte,0.52,inside Normal
+TCGA-XR-A8TF-01A,TCGA-XR-A8TF,Primary Tumor,0.89497,0.86769,hepatocyte,0.634,below Normal
+TCGA-XR-A8TG-01A,TCGA-XR-A8TG,Primary Tumor,0.96707,0.93575,hepatocyte,0.62,inside Normal
+TCGA-YA-A8S7-01A,TCGA-YA-A8S7,Primary Tumor,1.04694,0.99494,hepatocyte,0.228,inside Normal
+TCGA-ZP-A9CV-01A,TCGA-ZP-A9CV,Primary Tumor,1.03446,0.97458,hepatocyte,0.5,inside Normal
+TCGA-ZP-A9CY-01A,TCGA-ZP-A9CY,Primary Tumor,1.05136,1.01052,hepatocyte,0.592,above Normal
+TCGA-ZP-A9CZ-01A,TCGA-ZP-A9CZ,Primary Tumor,0.99453,0.94811,hepatocyte,0.397,inside Normal
+TCGA-ZP-A9D0-01A,TCGA-ZP-A9D0,Primary Tumor,0.92182,0.87676,hepatocyte,0.489,below Normal
+TCGA-ZP-A9D1-01A,TCGA-ZP-A9D1,Primary Tumor,1.04473,0.99389,hepatocyte,0.421,inside Normal
+TCGA-ZP-A9D2-01A,TCGA-ZP-A9D2,Primary Tumor,1.02915,0.9998,hepatocyte,0.257,inside Normal
+TCGA-ZP-A9D4-01A,TCGA-ZP-A9D4,Primary Tumor,0.96431,0.9514,hepatocyte,0.731,inside Normal
+TCGA-ZS-A9CD-01A,TCGA-ZS-A9CD,Primary Tumor,1.01728,0.98543,hepatocyte,0.469,inside Normal
+TCGA-ZS-A9CE-01A,TCGA-ZS-A9CE,Primary Tumor,0.9594,0.95156,hepatocyte,0.686,inside Normal
+TCGA-ZS-A9CF-01A,TCGA-ZS-A9CF,Primary Tumor,0.94941,0.9215,hepatocyte,0.684,below Normal
+TCGA-ZS-A9CG-01A,TCGA-ZS-A9CG,Primary Tumor,0.978,0.9441,hepatocyte,0.583,inside Normal

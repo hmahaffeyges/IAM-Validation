@@ -1,0 +1,66 @@
+rc_luad read per person against IAM-Atlas v2.1 (prediction on each array's own values): 464 of 507 read
+refused (prediction not on the array's own values): 0
+  Primary Tumor (438): inside Normal 353, above 5, below 80 | A / A_pred median 0.9866 | identity sites A median 0.9233 | most often largest cell lung alveolar epithelium
+  Solid Tissue Normal (26): inside Normal 26, above 0, below 0 | A / A_pred median 0.9725 | identity sites A median 0.9067 | most often largest cell lung alveolar epithelium
+  same person, tumor against adjacent normal (26 people): A / A_pred higher in the tumor for 18
+each cell the Deconvolver found, read against its IAM-Atlas v2.1 reference in the sample's own shares (median Met-A; C-Score within its limit):
+  Primary Tumor            GMP (bone marrow)                  people    7 | median share 0.034 | Met-A 0.9926 | C within limit 6 of 7
+  Primary Tumor            HSC (bone marrow)                  people   22 | median share 0.041 | Met-A 1.0047 | C within limit 21 of 22
+  Primary Tumor            adipocytes                         people  398 | median share 0.073 | Met-A 1.0447 | C within limit 349 of 398
+  Primary Tumor            b cells                            people   10 | median share 0.027 | Met-A 0.9778 | C within limit 10 of 10
+  Primary Tumor            bladder epithelium                 people   69 | median share 0.022 | Met-A 0.9813 | C within limit 67 of 69
+  Primary Tumor            breast basal epithelium            people   17 | median share 0.018 | Met-A 0.9637 | C within limit 15 of 17
+  Primary Tumor            breast luminal epithelium          people  364 | median share 0.046 | Met-A 1.0203 | C within limit 360 of 364
+  Primary Tumor            cd8 t cells                        people    4 | median share 0.029 | Met-A 1.0204 | C within limit 4 of 4
+  Primary Tumor            cd8 temra t cells                  people  354 | median share 0.082 | Met-A 1.0254 | C within limit 346 of 354
+  Primary Tumor            central memory th1 cells           people  143 | median share 0.069 | Met-A 1.0059 | C within limit 139 of 143
+  Primary Tumor            colon enteroendocrine              people  280 | median share 0.037 | Met-A nan | C within limit 257 of 280
+  Primary Tumor            colon epithelium                   people  102 | median share 0.019 | Met-A 1.0088 | C within limit 99 of 102
+  Primary Tumor            colon macrophages                  people   30 | median share 0.016 | Met-A 1.0554 | C within limit 29 of 30
+  Primary Tumor            cortical neurons                   people   54 | median share 0.017 | Met-A 1.0077 | C within limit 51 of 54
+  Primary Tumor            cytotoxic cd4 t cells (cd28-)      people  360 | median share 0.075 | Met-A 1.0100 | C within limit 349 of 360
+  Primary Tumor            embryonic stem cells               people  247 | median share 0.029 | Met-A 1.0424 | C within limit 225 of 247
+  Primary Tumor            endometrium epithelium             people  253 | median share 0.023 | Met-A 1.0118 | C within limit 234 of 253
+  Primary Tumor            erythrocyte progenitors            people   44 | median share 0.034 | Met-A 1.0102 | C within limit 41 of 44
+  Primary Tumor            gastric antrum epithelium          people   16 | median share 0.027 | Met-A nan | C within limit 14 of 16
+  Primary Tumor            gastric fundus epithelium          people   15 | median share 0.030 | Met-A 0.9534 | C within limit 15 of 15
+  Primary Tumor            heart fibroblasts                  people  157 | median share 0.028 | Met-A 1.0290 | C within limit 150 of 157
+  Primary Tumor            hepatocyte                         people   59 | median share 0.020 | Met-A 0.9749 | C within limit 57 of 59
+  Primary Tumor            lung alveolar endothelium          people   82 | median share 0.033 | Met-A 1.0314 | C within limit 80 of 82
+  Primary Tumor            lung alveolar epithelium           people  431 | median share 0.221 | Met-A 1.0034 | C within limit 419 of 431
+  Primary Tumor            lung alveolar macrophages          people   33 | median share 0.019 | Met-A nan | C within limit 33 of 33
+  Primary Tumor            lung bronchus epithelium           people  279 | median share 0.051 | Met-A 1.0836 | C within limit 245 of 279
+  Primary Tumor            memory b cells                     people  431 | median share 0.101 | Met-A 1.0462 | C within limit 390 of 431
+  Primary Tumor            microglia                          people   58 | median share 0.019 | Met-A 1.0263 | C within limit 56 of 58
+  Primary Tumor            monocytes                          people   83 | median share 0.034 | Met-A 1.0145 | C within limit 83 of 83
+  Primary Tumor            neutrophils                        people  122 | median share 0.029 | Met-A 0.9899 | C within limit 100 of 122
+  Primary Tumor            oligodendrocytes                   people   67 | median share 0.015 | Met-A 1.0160 | C within limit 61 of 67
+  Primary Tumor            pancreatic acinar                  people  309 | median share 0.038 | Met-A 1.0131 | C within limit 262 of 309
+  Primary Tumor            pancreatic beta                    people  150 | median share 0.023 | Met-A 1.0391 | C within limit 140 of 150
+  Primary Tumor            prostate epithelium                people  338 | median share 0.065 | Met-A 1.0135 | C within limit 313 of 338
+  Primary Tumor            small intestine epithelium         people   25 | median share 0.022 | Met-A 1.0390 | C within limit 23 of 25
+  Primary Tumor            smooth muscle                      people  177 | median share 0.034 | Met-A 1.0365 | C within limit 160 of 177
+  Primary Tumor            striated muscle                    people   21 | median share 0.017 | Met-A nan | C within limit 18 of 21
+  Primary Tumor            t effector cell cd8                people  321 | median share 0.074 | Met-A 0.9852 | C within limit 308 of 321
+  Primary Tumor            tonsil palatine epithelium         people    4 | median share 0.024 | Met-A 1.0024 | C within limit 2 of 4
+  Primary Tumor            tonsil pharyngeal epithelium       people   13 | median share 0.021 | Met-A nan | C within limit 13 of 13
+  Primary Tumor            vascular endothelium               people  157 | median share 0.040 | Met-A 1.0317 | C within limit 116 of 157
+  Primary Tumor            vascular leptomeningeal cells      people   38 | median share 0.015 | Met-A nan | C within limit 37 of 38
+  Solid Tissue Normal      HSC (bone marrow)                  people   26 | median share 0.103 | Met-A 1.0676 | C within limit 22 of 26
+  Solid Tissue Normal      adipocytes                         people   26 | median share 0.090 | Met-A 1.0322 | C within limit 20 of 26
+  Solid Tissue Normal      cd8 central memory t cells         people    5 | median share 0.012 | Met-A 1.0843 | C within limit 5 of 5
+  Solid Tissue Normal      cd8 t cells                        people    5 | median share 0.019 | Met-A 1.0504 | C within limit 5 of 5
+  Solid Tissue Normal      cd8 temra t cells                  people   10 | median share 0.037 | Met-A 1.0594 | C within limit 10 of 10
+  Solid Tissue Normal      central memory th1 cells           people   26 | median share 0.041 | Met-A 1.0324 | C within limit 24 of 26
+  Solid Tissue Normal      cytotoxic cd4 t cells (cd28-)      people   23 | median share 0.035 | Met-A 1.0514 | C within limit 22 of 23
+  Solid Tissue Normal      embryonic stem cells               people   21 | median share 0.021 | Met-A 1.0527 | C within limit 13 of 21
+  Solid Tissue Normal      lung alveolar endothelium          people   26 | median share 0.216 | Met-A 1.0195 | C within limit 25 of 26
+  Solid Tissue Normal      lung alveolar epithelium           people   26 | median share 0.322 | Met-A 0.9909 | C within limit 24 of 26
+  Solid Tissue Normal      microglia                          people    7 | median share 0.013 | Met-A 1.0423 | C within limit 7 of 7
+  Solid Tissue Normal      monocytes                          people    5 | median share 0.029 | Met-A 1.0541 | C within limit 5 of 5
+  Solid Tissue Normal      neutrophils                        people   22 | median share 0.039 | Met-A 0.9937 | C within limit 15 of 22
+  Solid Tissue Normal      nk cells                           people    4 | median share 0.021 | Met-A 1.0453 | C within limit 4 of 4
+  Solid Tissue Normal      pancreatic beta                    people   20 | median share 0.018 | Met-A 1.0098 | C within limit 19 of 20
+  Solid Tissue Normal      small intestine epithelium         people    7 | median share 0.012 | Met-A 1.0472 | C within limit 4 of 7
+  Solid Tissue Normal      vascular endothelium               people   16 | median share 0.040 | Met-A 0.9936 | C within limit 16 of 16
+no bar scored (no healthy donors in this set); a replay of spent data, recorded

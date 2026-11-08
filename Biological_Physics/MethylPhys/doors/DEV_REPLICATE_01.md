@@ -511,3 +511,13 @@ of 3. The healthy and the adjacent tissue read alike here, person by person as b
 donors: vascular endothelium, adipocytes and the two breast epithelia (atlas columns), with a bone-marrow progenitor (GMP) among them in 10 of
 the 50, a cell breast tissue is not expected to hold. Whole-sample Met-A on tissue is not commissioned; the healthy tissue reading below 1 is
 recorded beside the open centering of the healthy line (synthetic test 7) and the mix, not explained. Spent data.
+
+**Wave C read: TCGA-COAD, LIHC, LUAD, BLCA and READ, per person against IAM-Atlas v2.1** (`wave_c/*_person.txt`, `wave_c/wave_c_distance_summary.csv`; replay of spent data, no bar). Read with the scorer committed before the readings (1,659 arrays). Its 'inside Normal'
+column uses the 0.95 to 1.05 band, written before that band was retired, so it is kept as written and not read as Normal; distances from 1
+are read instead. Each project was read by the one command as it stood when its run was sent (the commit is on every row).
+
+Whole-sample Met-A over its healthy prediction barely separates tumor from adjacent normal (AUC of the distance from 1: COAD 0.6662, LIHC
+0.5898, LUAD 0.4217, BLCA 0.4078, READ 0.7). Met-A at the identity sites of the cells found reads higher in the tumors than in the adjacent
+normal tissue of the same projects: COAD 265 tumors and 31 adjacent normals, AUC 0.8054; LIHC 362 tumors and 44 adjacent normals, AUC 0.5679; LUAD 438 tumors and 26 adjacent normals, AUC 0.6930; BLCA 375 tumors and 14 adjacent normals, AUC 0.8672; READ 93 tumors and 5 adjacent normals, AUC 0.9290. Adjacent normal tissue is from people with cancer, not healthy (the R18 finding), and these are
+tissue arrays, where the array widths from sorted donors do not apply; so this places the readings on the gauge and commissions nothing.
+A-score rows: sources WAVE-C-COAD-ATLAS to WAVE-C-READ-ATLAS (`wave_c/rc_*_rows.csv`).

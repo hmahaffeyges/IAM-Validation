@@ -1,0 +1,465 @@
+gsm,case,group,ratio,identity_sites_A,top_cell,top_share,place
+TCGA-05-4384-01A,TCGA-05-4384,Primary Tumor,0.99118,0.95591,lung alveolar epithelium,0.475,inside Normal
+TCGA-05-4390-01A,TCGA-05-4390,Primary Tumor,1.01262,0.96913,lung alveolar epithelium,0.253,inside Normal
+TCGA-05-4396-01A,TCGA-05-4396,Primary Tumor,1.00909,0.98001,lung alveolar epithelium,0.22,inside Normal
+TCGA-05-4405-01A,TCGA-05-4405,Primary Tumor,0.99705,0.94853,lung alveolar epithelium,0.244,inside Normal
+TCGA-05-4410-01A,TCGA-05-4410,Primary Tumor,1.03665,0.96715,memory b cells,0.233,inside Normal
+TCGA-05-4415-01A,TCGA-05-4415,Primary Tumor,0.93716,0.84166,lung alveolar epithelium,0.122,below Normal
+TCGA-05-4417-01A,TCGA-05-4417,Primary Tumor,1.00583,0.94383,lung alveolar epithelium,0.245,inside Normal
+TCGA-05-4424-01A,TCGA-05-4424,Primary Tumor,0.98235,0.91721,lung alveolar epithelium,0.226,inside Normal
+TCGA-05-4425-01A,TCGA-05-4425,Primary Tumor,0.94938,0.89438,lung alveolar epithelium,0.239,below Normal
+TCGA-05-4427-01A,TCGA-05-4427,Primary Tumor,1.02863,0.9646,lung alveolar epithelium,0.239,inside Normal
+TCGA-05-4433-01A,TCGA-05-4433,Primary Tumor,1.02683,0.98963,cytotoxic cd4 t cells (cd28-),0.13,inside Normal
+TCGA-05-5420-01A,TCGA-05-5420,Primary Tumor,1.01337,0.93,memory b cells,0.192,inside Normal
+TCGA-05-5420-11A,TCGA-05-5420,Solid Tissue Normal,0.95352,0.90427,lung alveolar epithelium,0.401,inside Normal
+TCGA-05-5423-01A,TCGA-05-5423,Primary Tumor,0.93146,0.90295,lung alveolar epithelium,0.493,below Normal
+TCGA-05-5425-01A,TCGA-05-5425,Primary Tumor,1.007,0.94167,lung alveolar epithelium,0.171,inside Normal
+TCGA-05-5428-01A,TCGA-05-5428,Primary Tumor,0.9976,0.95454,lung alveolar epithelium,0.29,inside Normal
+TCGA-05-5429-01A,TCGA-05-5429,Primary Tumor,1.00072,0.98254,lung bronchus epithelium,0.149,inside Normal
+TCGA-05-5715-01A,TCGA-05-5715,Primary Tumor,0.90539,0.85974,lung alveolar epithelium,0.283,below Normal
+TCGA-35-5375-01A,TCGA-35-5375,Primary Tumor,0.98342,0.97588,cd8 temra t cells,0.22,inside Normal
+TCGA-38-4631-01A,TCGA-38-4631,Primary Tumor,0.89832,0.70662,neutrophils,0.124,below Normal
+TCGA-38-4631-11A,TCGA-38-4631,Solid Tissue Normal,0.9541,0.89221,lung alveolar epithelium,0.275,inside Normal
+TCGA-38-4632-01A,TCGA-38-4632,Primary Tumor,0.99408,0.94044,lung alveolar epithelium,0.205,inside Normal
+TCGA-38-4632-11A,TCGA-38-4632,Solid Tissue Normal,0.96665,0.89969,lung alveolar epithelium,0.332,inside Normal
+TCGA-38-6178-01A,TCGA-38-6178,Primary Tumor,0.98301,0.92923,lung alveolar epithelium,0.279,inside Normal
+TCGA-38-7271-01A,TCGA-38-7271,Primary Tumor,0.98379,0.90075,memory b cells,0.273,inside Normal
+TCGA-38-A44F-01A,TCGA-38-A44F,Primary Tumor,0.97996,0.92298,lung alveolar epithelium,0.203,inside Normal
+TCGA-44-2656-01A,TCGA-44-2656,Primary Tumor,1.02131,0.97798,t effector cell cd8,0.187,inside Normal
+TCGA-44-2656-01B,TCGA-44-2656,Primary Tumor,1.00742,0.94708,cd8 temra t cells,0.159,inside Normal
+TCGA-44-2665-01A,TCGA-44-2665,Primary Tumor,0.95875,0.90299,lung alveolar epithelium,0.204,inside Normal
+TCGA-44-2665-01B,TCGA-44-2665,Primary Tumor,0.92844,0.84955,lung alveolar epithelium,0.189,below Normal
+TCGA-44-2666-01A,TCGA-44-2666,Primary Tumor,0.93884,0.89464,lung alveolar epithelium,0.309,below Normal
+TCGA-44-2666-01B,TCGA-44-2666,Primary Tumor,0.94909,0.90596,lung alveolar epithelium,0.258,below Normal
+TCGA-44-2668-01A,TCGA-44-2668,Primary Tumor,0.99134,0.91512,neutrophils,0.143,inside Normal
+TCGA-44-3917-01A,TCGA-44-3917,Primary Tumor,1.02886,0.95678,memory b cells,0.187,inside Normal
+TCGA-44-3917-01B,TCGA-44-3917,Primary Tumor,1.01389,0.94903,lung alveolar epithelium,0.207,inside Normal
+TCGA-44-3918-01A,TCGA-44-3918,Primary Tumor,1.0172,0.9566,lung alveolar epithelium,0.181,inside Normal
+TCGA-44-3918-01B,TCGA-44-3918,Primary Tumor,0.99589,0.94634,lung alveolar epithelium,0.211,inside Normal
+TCGA-44-4112-01A,TCGA-44-4112,Primary Tumor,1.02246,0.97757,lung alveolar epithelium,0.248,inside Normal
+TCGA-44-4112-01B,TCGA-44-4112,Primary Tumor,1.03552,0.97852,lung alveolar epithelium,0.194,inside Normal
+TCGA-44-5643-01A,TCGA-44-5643,Primary Tumor,0.98025,0.91367,central memory th1 cells,0.144,inside Normal
+TCGA-44-5643-11A,TCGA-44-5643,Solid Tissue Normal,0.95743,0.89799,lung alveolar epithelium,0.379,inside Normal
+TCGA-44-5644-01A,TCGA-44-5644,Primary Tumor,0.91975,0.87234,colon enteroendocrine,0.164,below Normal
+TCGA-44-5645-01A_5181ca17,TCGA-44-5645,Primary Tumor,0.96529,0.88963,lung alveolar epithelium,0.441,inside Normal
+TCGA-44-5645-01A_e28db848,TCGA-44-5645,Primary Tumor,0.9302,0.88636,lung alveolar epithelium,0.501,below Normal
+TCGA-44-5645-01B,TCGA-44-5645,Primary Tumor,0.96468,0.89393,lung alveolar epithelium,0.332,inside Normal
+TCGA-44-5645-11A,TCGA-44-5645,Solid Tissue Normal,0.96187,0.9142,lung alveolar epithelium,0.351,inside Normal
+TCGA-44-6144-01A,TCGA-44-6144,Primary Tumor,1.00409,0.92906,lung alveolar epithelium,0.221,inside Normal
+TCGA-44-6144-11A,TCGA-44-6144,Solid Tissue Normal,0.98051,0.9222,lung alveolar epithelium,0.426,inside Normal
+TCGA-44-6145-01A,TCGA-44-6145,Primary Tumor,0.99794,0.92153,lung alveolar epithelium,0.153,inside Normal
+TCGA-44-6145-11A,TCGA-44-6145,Solid Tissue Normal,0.98686,0.91852,lung alveolar epithelium,0.352,inside Normal
+TCGA-44-6146-01A_2e83e728,TCGA-44-6146,Primary Tumor,0.98154,0.94954,lung alveolar epithelium,0.299,inside Normal
+TCGA-44-6146-01A_f92c3a00,TCGA-44-6146,Primary Tumor,0.97067,0.93765,lung alveolar epithelium,0.275,inside Normal
+TCGA-44-6146-01B,TCGA-44-6146,Primary Tumor,1.00088,0.97063,lung alveolar epithelium,0.236,inside Normal
+TCGA-44-6146-11A,TCGA-44-6146,Solid Tissue Normal,0.97248,0.91227,lung alveolar epithelium,0.419,inside Normal
+TCGA-44-6147-01A_79b49b4f,TCGA-44-6147,Primary Tumor,1.04344,0.99134,lung alveolar epithelium,0.217,inside Normal
+TCGA-44-6147-01A_91ba118d,TCGA-44-6147,Primary Tumor,1.02622,0.98031,lung alveolar epithelium,0.221,inside Normal
+TCGA-44-6147-01B,TCGA-44-6147,Primary Tumor,1.00588,0.93344,memory b cells,0.189,inside Normal
+TCGA-44-6147-11A,TCGA-44-6147,Solid Tissue Normal,0.97914,0.91889,lung alveolar epithelium,0.302,inside Normal
+TCGA-44-6148-01A,TCGA-44-6148,Primary Tumor,0.95375,0.90804,lung alveolar epithelium,0.434,inside Normal
+TCGA-44-6148-11A,TCGA-44-6148,Solid Tissue Normal,0.95902,0.89312,lung alveolar epithelium,0.41,inside Normal
+TCGA-44-6774-01A,TCGA-44-6774,Primary Tumor,1.02732,0.95256,lung alveolar epithelium,0.213,inside Normal
+TCGA-44-6775-01A_29c1c650,TCGA-44-6775,Primary Tumor,1.00361,0.93825,lung alveolar epithelium,0.195,inside Normal
+TCGA-44-6775-01A_f2c561fe,TCGA-44-6775,Primary Tumor,0.99704,0.9113,lung alveolar epithelium,0.201,inside Normal
+TCGA-44-6775-01C,TCGA-44-6775,Primary Tumor,1.03397,0.9605,lung alveolar epithelium,0.172,inside Normal
+TCGA-44-6776-01A,TCGA-44-6776,Primary Tumor,0.99496,0.93536,lung alveolar epithelium,0.563,inside Normal
+TCGA-44-6777-01A,TCGA-44-6777,Primary Tumor,1.01136,0.95344,lung alveolar epithelium,0.169,inside Normal
+TCGA-44-6778-01A,TCGA-44-6778,Primary Tumor,1.02421,0.90616,central memory th1 cells,0.172,inside Normal
+TCGA-44-6778-11A,TCGA-44-6778,Solid Tissue Normal,0.96643,0.90676,lung alveolar epithelium,0.295,inside Normal
+TCGA-44-6779-01A,TCGA-44-6779,Primary Tumor,0.97385,0.8956,cd8 temra t cells,0.198,inside Normal
+TCGA-44-7659-01A,TCGA-44-7659,Primary Tumor,0.95003,0.89353,lung alveolar epithelium,0.298,inside Normal
+TCGA-44-7660-01A,TCGA-44-7660,Primary Tumor,1.00272,0.93987,lung bronchus epithelium,0.318,inside Normal
+TCGA-44-7661-01A,TCGA-44-7661,Primary Tumor,1.03504,0.95635,lung alveolar epithelium,0.174,inside Normal
+TCGA-44-7662-01A,TCGA-44-7662,Primary Tumor,1.02226,0.96142,lung alveolar epithelium,0.168,inside Normal
+TCGA-44-7667-01A,TCGA-44-7667,Primary Tumor,0.99763,0.90939,lung alveolar epithelium,0.163,inside Normal
+TCGA-44-7669-01A,TCGA-44-7669,Primary Tumor,0.97786,0.88534,lung alveolar epithelium,0.2,inside Normal
+TCGA-44-7670-01A,TCGA-44-7670,Primary Tumor,0.95745,0.92019,prostate epithelium,0.228,inside Normal
+TCGA-44-7671-01A,TCGA-44-7671,Primary Tumor,0.98799,0.95039,lung alveolar epithelium,0.494,inside Normal
+TCGA-44-7672-01A,TCGA-44-7672,Primary Tumor,1.03891,0.9736,memory b cells,0.231,inside Normal
+TCGA-44-8117-01A,TCGA-44-8117,Primary Tumor,0.93478,0.89253,lung alveolar epithelium,0.233,below Normal
+TCGA-44-8119-01A,TCGA-44-8119,Primary Tumor,0.94294,0.85561,lung alveolar epithelium,0.164,below Normal
+TCGA-44-8120-01A,TCGA-44-8120,Primary Tumor,0.9972,0.95232,lung alveolar epithelium,0.265,inside Normal
+TCGA-44-A479-01A,TCGA-44-A479,Primary Tumor,1.02956,0.93605,memory b cells,0.208,inside Normal
+TCGA-44-A47A-01A,TCGA-44-A47A,Primary Tumor,0.95215,0.91693,lung alveolar epithelium,0.288,inside Normal
+TCGA-44-A47B-01A,TCGA-44-A47B,Primary Tumor,0.97899,0.9649,lung alveolar epithelium,0.345,inside Normal
+TCGA-44-A47F-01A,TCGA-44-A47F,Primary Tumor,0.92486,0.87208,lung alveolar epithelium,0.248,below Normal
+TCGA-44-A47G-01A,TCGA-44-A47G,Primary Tumor,1.02726,0.95852,memory b cells,0.186,inside Normal
+TCGA-44-A4SS-01A,TCGA-44-A4SS,Primary Tumor,1.00069,0.93383,central memory th1 cells,0.198,inside Normal
+TCGA-44-A4SU-01A,TCGA-44-A4SU,Primary Tumor,1.01574,0.95559,lung alveolar epithelium,0.264,inside Normal
+TCGA-49-4487-01A,TCGA-49-4487,Primary Tumor,1.01154,0.91873,memory b cells,0.198,inside Normal
+TCGA-49-4488-01A,TCGA-49-4488,Primary Tumor,1.01039,0.9667,lung alveolar epithelium,0.256,inside Normal
+TCGA-49-4488-11A,TCGA-49-4488,Solid Tissue Normal,0.98241,0.90471,lung alveolar epithelium,0.251,inside Normal
+TCGA-49-4490-01A,TCGA-49-4490,Primary Tumor,1.01402,0.94141,lung alveolar epithelium,0.183,inside Normal
+TCGA-49-4512-01A,TCGA-49-4512,Primary Tumor,0.94763,0.88769,lung alveolar epithelium,0.289,below Normal
+TCGA-49-4514-01A,TCGA-49-4514,Primary Tumor,1.03327,0.94985,memory b cells,0.154,inside Normal
+TCGA-49-6742-01A,TCGA-49-6742,Primary Tumor,0.9943,0.93607,pancreatic acinar,0.126,inside Normal
+TCGA-49-6743-01A,TCGA-49-6743,Primary Tumor,1.01988,0.93972,neutrophils,0.184,inside Normal
+TCGA-49-6744-01A,TCGA-49-6744,Primary Tumor,1.01354,0.93651,lung alveolar epithelium,0.188,inside Normal
+TCGA-49-6745-01A,TCGA-49-6745,Primary Tumor,0.96232,0.89115,lung alveolar epithelium,0.154,inside Normal
+TCGA-49-6745-11A,TCGA-49-6745,Solid Tissue Normal,0.97699,0.90912,lung alveolar epithelium,0.443,inside Normal
+TCGA-49-6761-01A,TCGA-49-6761,Primary Tumor,0.97743,0.90571,lung alveolar epithelium,0.211,inside Normal
+TCGA-49-6767-01A,TCGA-49-6767,Primary Tumor,0.98271,0.91735,cd8 temra t cells,0.17,inside Normal
+TCGA-49-AAQV-01A,TCGA-49-AAQV,Primary Tumor,0.97405,0.8871,central memory th1 cells,0.212,inside Normal
+TCGA-49-AAR0-01A,TCGA-49-AAR0,Primary Tumor,1.01023,0.93054,lung alveolar epithelium,0.366,inside Normal
+TCGA-49-AAR2-01A,TCGA-49-AAR2,Primary Tumor,0.96042,0.87849,lung alveolar epithelium,0.211,inside Normal
+TCGA-49-AAR3-01A,TCGA-49-AAR3,Primary Tumor,0.98898,0.92973,memory b cells,0.177,inside Normal
+TCGA-49-AAR4-01A,TCGA-49-AAR4,Primary Tumor,0.98699,0.92183,cd8 temra t cells,0.214,inside Normal
+TCGA-49-AAR9-01A,TCGA-49-AAR9,Primary Tumor,0.91516,0.86353,lung bronchus epithelium,0.163,below Normal
+TCGA-49-AARE-01A,TCGA-49-AARE,Primary Tumor,0.92808,0.87212,memory b cells,0.137,below Normal
+TCGA-49-AARN-01A,TCGA-49-AARN,Primary Tumor,0.96667,0.93822,memory b cells,0.217,inside Normal
+TCGA-49-AARO-01A,TCGA-49-AARO,Primary Tumor,0.97941,0.93445,cd8 temra t cells,0.126,inside Normal
+TCGA-49-AARQ-01A,TCGA-49-AARQ,Primary Tumor,0.89433,0.85983,lung alveolar epithelium,0.178,below Normal
+TCGA-49-AARR-01A,TCGA-49-AARR,Primary Tumor,0.94643,0.8946,lung alveolar epithelium,0.196,below Normal
+TCGA-4B-A93V-01A,TCGA-4B-A93V,Primary Tumor,0.95901,0.87721,lung alveolar epithelium,0.382,inside Normal
+TCGA-50-5044-01A,TCGA-50-5044,Primary Tumor,1.02102,0.93703,lung alveolar epithelium,0.154,inside Normal
+TCGA-50-5045-01A,TCGA-50-5045,Primary Tumor,0.99677,0.92429,lung alveolar epithelium,0.17,inside Normal
+TCGA-50-5049-01A,TCGA-50-5049,Primary Tumor,1.01438,0.93806,memory b cells,0.194,inside Normal
+TCGA-50-5051-01A,TCGA-50-5051,Primary Tumor,0.99369,0.929,lung alveolar epithelium,0.247,inside Normal
+TCGA-50-5055-01A,TCGA-50-5055,Primary Tumor,0.9914,0.90195,memory b cells,0.243,inside Normal
+TCGA-50-5066-01A,TCGA-50-5066,Primary Tumor,0.99874,0.92,memory b cells,0.175,inside Normal
+TCGA-50-5068-01A,TCGA-50-5068,Primary Tumor,0.99347,0.91991,lung alveolar epithelium,0.226,inside Normal
+TCGA-50-5072-01A,TCGA-50-5072,Primary Tumor,1.01303,0.94449,adipocytes,0.181,inside Normal
+TCGA-50-5930-01A,TCGA-50-5930,Primary Tumor,0.9954,0.9131,memory b cells,0.14,inside Normal
+TCGA-50-5930-11A,TCGA-50-5930,Solid Tissue Normal,0.96949,0.89545,lung alveolar epithelium,0.302,inside Normal
+TCGA-50-5931-01A,TCGA-50-5931,Primary Tumor,0.98381,0.94178,lung bronchus epithelium,0.241,inside Normal
+TCGA-50-5931-11A,TCGA-50-5931,Solid Tissue Normal,0.95287,0.90832,lung alveolar endothelium,0.297,inside Normal
+TCGA-50-5932-01A,TCGA-50-5932,Primary Tumor,0.94882,0.89608,lung alveolar epithelium,0.483,below Normal
+TCGA-50-5932-11A,TCGA-50-5932,Solid Tissue Normal,0.98767,0.92239,lung alveolar epithelium,0.351,inside Normal
+TCGA-50-5933-01A,TCGA-50-5933,Primary Tumor,1.02319,0.98499,cd8 temra t cells,0.134,inside Normal
+TCGA-50-5933-11A,TCGA-50-5933,Solid Tissue Normal,0.9796,0.88091,lung alveolar epithelium,0.477,inside Normal
+TCGA-50-5935-01A,TCGA-50-5935,Primary Tumor,0.92368,0.87925,lung alveolar epithelium,0.325,below Normal
+TCGA-50-5935-11A,TCGA-50-5935,Solid Tissue Normal,0.97553,0.90963,lung alveolar endothelium,0.245,inside Normal
+TCGA-50-5936-01A,TCGA-50-5936,Primary Tumor,0.96667,0.90294,lung alveolar epithelium,0.161,inside Normal
+TCGA-50-5936-11A,TCGA-50-5936,Solid Tissue Normal,0.97658,0.91859,lung alveolar epithelium,0.362,inside Normal
+TCGA-50-5939-01A,TCGA-50-5939,Primary Tumor,1.00147,0.93956,neutrophils,0.182,inside Normal
+TCGA-50-5939-11A,TCGA-50-5939,Solid Tissue Normal,0.95431,0.91179,lung alveolar epithelium,0.335,inside Normal
+TCGA-50-5941-01A,TCGA-50-5941,Primary Tumor,0.9996,0.92308,lung alveolar epithelium,0.258,inside Normal
+TCGA-50-5942-01A,TCGA-50-5942,Primary Tumor,0.94166,0.87192,lung alveolar epithelium,0.454,below Normal
+TCGA-50-5944-01A,TCGA-50-5944,Primary Tumor,0.98052,0.92839,lung alveolar epithelium,0.525,inside Normal
+TCGA-50-5946-01A,TCGA-50-5946,Primary Tumor,0.992,0.93239,lung alveolar epithelium,0.171,inside Normal
+TCGA-50-6590-01A,TCGA-50-6590,Primary Tumor,1.00835,0.9331,memory b cells,0.239,inside Normal
+TCGA-50-6591-01A,TCGA-50-6591,Primary Tumor,0.94666,0.8842,adipocytes,0.285,below Normal
+TCGA-50-6591-11A,TCGA-50-6591,Solid Tissue Normal,0.97254,0.90525,lung alveolar epithelium,0.311,inside Normal
+TCGA-50-6592-01A,TCGA-50-6592,Primary Tumor,1.00285,0.91851,neutrophils,0.231,inside Normal
+TCGA-50-6592-11A,TCGA-50-6592,Solid Tissue Normal,0.95385,0.8949,lung alveolar epithelium,0.285,inside Normal
+TCGA-50-6593-01A,TCGA-50-6593,Primary Tumor,0.97033,0.93207,lung alveolar epithelium,0.279,inside Normal
+TCGA-50-6593-11A,TCGA-50-6593,Solid Tissue Normal,0.95632,0.87671,lung alveolar epithelium,0.257,inside Normal
+TCGA-50-6594-01A,TCGA-50-6594,Primary Tumor,0.92178,0.85013,lung alveolar epithelium,0.28,below Normal
+TCGA-50-6594-11A,TCGA-50-6594,Solid Tissue Normal,0.97761,0.91385,lung alveolar epithelium,0.248,inside Normal
+TCGA-50-6595-01A,TCGA-50-6595,Primary Tumor,1.00473,0.93669,neutrophils,0.208,inside Normal
+TCGA-50-6597-01A,TCGA-50-6597,Primary Tumor,0.9451,0.89519,lung alveolar epithelium,0.28,below Normal
+TCGA-50-6673-01A,TCGA-50-6673,Primary Tumor,1.03546,0.97799,lung alveolar epithelium,0.22,inside Normal
+TCGA-50-7109-01A,TCGA-50-7109,Primary Tumor,1.00061,0.94418,lung alveolar epithelium,0.239,inside Normal
+TCGA-50-8457-01A,TCGA-50-8457,Primary Tumor,0.96015,0.8977,lung alveolar epithelium,0.317,inside Normal
+TCGA-50-8459-01A,TCGA-50-8459,Primary Tumor,1.00093,0.9495,memory b cells,0.151,inside Normal
+TCGA-50-8460-01A,TCGA-50-8460,Primary Tumor,0.94615,0.88625,lung alveolar epithelium,0.353,below Normal
+TCGA-53-7624-01A,TCGA-53-7624,Primary Tumor,0.93308,0.84902,embryonic stem cells,0.167,below Normal
+TCGA-53-7626-01A,TCGA-53-7626,Primary Tumor,1.01743,0.95614,lung alveolar epithelium,0.295,inside Normal
+TCGA-53-A4EZ-01A,TCGA-53-A4EZ,Primary Tumor,0.95033,0.89195,lung alveolar epithelium,0.191,inside Normal
+TCGA-55-5899-01A,TCGA-55-5899,Primary Tumor,0.99157,0.93594,cd8 temra t cells,0.198,inside Normal
+TCGA-55-6543-01A,TCGA-55-6543,Primary Tumor,0.91714,0.88695,lung alveolar epithelium,0.45,below Normal
+TCGA-55-6642-01A,TCGA-55-6642,Primary Tumor,1.05794,0.9948,memory b cells,0.231,above Normal
+TCGA-55-6712-01A,TCGA-55-6712,Primary Tumor,1.02525,0.95883,lung alveolar epithelium,0.171,inside Normal
+TCGA-55-6968-01A,TCGA-55-6968,Primary Tumor,1.02107,0.93105,memory b cells,0.161,inside Normal
+TCGA-55-6969-01A,TCGA-55-6969,Primary Tumor,1.01361,0.90849,memory b cells,0.199,inside Normal
+TCGA-55-6970-01A,TCGA-55-6970,Primary Tumor,1.00183,0.93067,lung alveolar epithelium,0.218,inside Normal
+TCGA-55-6971-01A,TCGA-55-6971,Primary Tumor,1.00238,0.90989,lung alveolar epithelium,0.269,inside Normal
+TCGA-55-6972-01A,TCGA-55-6972,Primary Tumor,0.97245,0.90798,lung alveolar epithelium,0.758,inside Normal
+TCGA-55-6975-01A,TCGA-55-6975,Primary Tumor,1.00669,0.92321,cd8 temra t cells,0.183,inside Normal
+TCGA-55-6978-01A,TCGA-55-6978,Primary Tumor,0.9878,0.9002,cd8 temra t cells,0.199,inside Normal
+TCGA-55-6979-01A,TCGA-55-6979,Primary Tumor,0.98675,0.91767,central memory th1 cells,0.181,inside Normal
+TCGA-55-6980-01A,TCGA-55-6980,Primary Tumor,0.98463,0.92329,lung alveolar epithelium,0.237,inside Normal
+TCGA-55-6981-01A,TCGA-55-6981,Primary Tumor,1.02023,0.97233,lung alveolar epithelium,0.225,inside Normal
+TCGA-55-6982-01A,TCGA-55-6982,Primary Tumor,0.98726,0.93049,lung alveolar epithelium,0.177,inside Normal
+TCGA-55-6983-01A,TCGA-55-6983,Primary Tumor,0.98498,0.90458,lung alveolar epithelium,0.27,inside Normal
+TCGA-55-6984-01A,TCGA-55-6984,Primary Tumor,0.98138,0.90876,memory b cells,0.135,inside Normal
+TCGA-55-6986-01A,TCGA-55-6986,Primary Tumor,0.96364,0.90461,lung alveolar epithelium,0.26,inside Normal
+TCGA-55-6987-01A,TCGA-55-6987,Primary Tumor,1.03322,0.9407,memory b cells,0.213,inside Normal
+TCGA-55-7227-01A,TCGA-55-7227,Primary Tumor,0.93411,0.8856,lung alveolar epithelium,0.322,below Normal
+TCGA-55-7284-01B,TCGA-55-7284,Primary Tumor,1.05805,1.0282,lung alveolar epithelium,0.189,above Normal
+TCGA-55-7576-01A,TCGA-55-7576,Primary Tumor,0.97852,0.93629,lung alveolar epithelium,0.24,inside Normal
+TCGA-55-7725-01A,TCGA-55-7725,Primary Tumor,0.90018,0.85144,lung alveolar epithelium,0.347,below Normal
+TCGA-55-7728-01A,TCGA-55-7728,Primary Tumor,0.98538,0.91626,cytotoxic cd4 t cells (cd28-),0.168,inside Normal
+TCGA-55-7815-01A,TCGA-55-7815,Primary Tumor,1.0088,0.93952,lung alveolar epithelium,0.197,inside Normal
+TCGA-55-7913-01B,TCGA-55-7913,Primary Tumor,1.00802,0.91356,neutrophils,0.406,inside Normal
+TCGA-55-7994-01A,TCGA-55-7994,Primary Tumor,1.00859,0.95964,cd8 temra t cells,0.261,inside Normal
+TCGA-55-7995-01A,TCGA-55-7995,Primary Tumor,0.96041,0.89723,memory b cells,0.114,inside Normal
+TCGA-55-8085-01A,TCGA-55-8085,Primary Tumor,0.98945,0.91787,lung alveolar epithelium,0.362,inside Normal
+TCGA-55-8087-01A,TCGA-55-8087,Primary Tumor,0.91341,0.86571,lung alveolar epithelium,0.619,below Normal
+TCGA-55-8089-01A,TCGA-55-8089,Primary Tumor,1.02112,0.92903,cd8 temra t cells,0.136,inside Normal
+TCGA-55-8090-01A,TCGA-55-8090,Primary Tumor,0.94256,0.8984,lung alveolar epithelium,0.318,below Normal
+TCGA-55-8091-01A,TCGA-55-8091,Primary Tumor,0.93566,0.89176,lung alveolar epithelium,0.312,below Normal
+TCGA-55-8092-01A,TCGA-55-8092,Primary Tumor,1.04754,0.97195,memory b cells,0.247,inside Normal
+TCGA-55-8094-01A,TCGA-55-8094,Primary Tumor,0.92369,0.87198,lung bronchus epithelium,0.154,below Normal
+TCGA-55-8096-01A,TCGA-55-8096,Primary Tumor,1.00103,0.94244,lung alveolar epithelium,0.15,inside Normal
+TCGA-55-8097-01A,TCGA-55-8097,Primary Tumor,0.93929,0.89054,lung alveolar epithelium,0.477,below Normal
+TCGA-55-8203-01A,TCGA-55-8203,Primary Tumor,1.04184,0.97367,lung alveolar epithelium,0.257,inside Normal
+TCGA-55-8204-01A,TCGA-55-8204,Primary Tumor,1.04295,0.99121,lung bronchus epithelium,0.21,inside Normal
+TCGA-55-8205-01A,TCGA-55-8205,Primary Tumor,1.04522,0.98657,cd8 temra t cells,0.162,inside Normal
+TCGA-55-8206-01A,TCGA-55-8206,Primary Tumor,0.93105,0.86765,lung alveolar epithelium,0.469,below Normal
+TCGA-55-8207-01A,TCGA-55-8207,Primary Tumor,0.91926,0.88239,lung alveolar epithelium,0.342,below Normal
+TCGA-55-8208-01A,TCGA-55-8208,Primary Tumor,1.00964,0.92013,memory b cells,0.187,inside Normal
+TCGA-55-8299-01A,TCGA-55-8299,Primary Tumor,0.9943,0.89424,lung alveolar epithelium,0.183,inside Normal
+TCGA-55-8301-01A,TCGA-55-8301,Primary Tumor,1.02649,0.93939,memory b cells,0.185,inside Normal
+TCGA-55-8302-01A,TCGA-55-8302,Primary Tumor,0.95097,0.88787,lung alveolar epithelium,0.184,inside Normal
+TCGA-55-8505-01A,TCGA-55-8505,Primary Tumor,1.02767,0.95729,adipocytes,0.121,inside Normal
+TCGA-55-8506-01A,TCGA-55-8506,Primary Tumor,1.03229,1.00669,lung alveolar epithelium,0.217,inside Normal
+TCGA-55-8507-01A,TCGA-55-8507,Primary Tumor,1.00315,0.93832,lung alveolar epithelium,0.364,inside Normal
+TCGA-55-8508-01A,TCGA-55-8508,Primary Tumor,1.05208,0.96613,lung alveolar epithelium,0.174,above Normal
+TCGA-55-8510-01A,TCGA-55-8510,Primary Tumor,1.01919,0.9596,lung alveolar epithelium,0.238,inside Normal
+TCGA-55-8511-01A,TCGA-55-8511,Primary Tumor,1.01423,0.93317,memory b cells,0.207,inside Normal
+TCGA-55-8512-01A,TCGA-55-8512,Primary Tumor,0.96673,0.90393,lung alveolar epithelium,0.433,inside Normal
+TCGA-55-8513-01A,TCGA-55-8513,Primary Tumor,0.97213,0.89073,lung alveolar epithelium,0.331,inside Normal
+TCGA-55-8514-01A,TCGA-55-8514,Primary Tumor,1.02168,0.958,lung alveolar epithelium,0.329,inside Normal
+TCGA-55-8614-01A,TCGA-55-8614,Primary Tumor,1.04427,1.0143,lung bronchus epithelium,0.191,inside Normal
+TCGA-55-8615-01A,TCGA-55-8615,Primary Tumor,0.99382,0.93746,lung alveolar epithelium,0.296,inside Normal
+TCGA-55-8616-01A,TCGA-55-8616,Primary Tumor,1.0272,0.98106,lung alveolar epithelium,0.237,inside Normal
+TCGA-55-8619-01A,TCGA-55-8619,Primary Tumor,0.98321,0.90435,lung alveolar epithelium,0.138,inside Normal
+TCGA-55-8620-01A,TCGA-55-8620,Primary Tumor,1.00406,0.93115,cd8 temra t cells,0.214,inside Normal
+TCGA-55-8621-01A,TCGA-55-8621,Primary Tumor,0.99399,0.91508,lung alveolar epithelium,0.212,inside Normal
+TCGA-55-A48X-01A,TCGA-55-A48X,Primary Tumor,1.00304,0.92636,memory b cells,0.251,inside Normal
+TCGA-55-A48Y-01A,TCGA-55-A48Y,Primary Tumor,1.01327,0.95883,lung alveolar epithelium,0.155,inside Normal
+TCGA-55-A48Z-01A,TCGA-55-A48Z,Primary Tumor,0.96703,0.89967,lung alveolar epithelium,0.194,inside Normal
+TCGA-55-A490-01A,TCGA-55-A490,Primary Tumor,0.97867,0.92527,lung alveolar epithelium,0.237,inside Normal
+TCGA-55-A491-01A,TCGA-55-A491,Primary Tumor,0.95265,0.9097,memory b cells,0.171,inside Normal
+TCGA-55-A492-01A,TCGA-55-A492,Primary Tumor,0.9669,0.92663,lung alveolar epithelium,0.426,inside Normal
+TCGA-55-A493-01A,TCGA-55-A493,Primary Tumor,1.00806,0.93964,cd8 temra t cells,0.142,inside Normal
+TCGA-55-A494-01A,TCGA-55-A494,Primary Tumor,0.88727,0.87244,lung alveolar epithelium,0.267,below Normal
+TCGA-55-A4DF-01A,TCGA-55-A4DF,Primary Tumor,0.97417,0.90525,cd8 temra t cells,0.119,inside Normal
+TCGA-55-A4DG-01A,TCGA-55-A4DG,Primary Tumor,1.01149,0.98562,lung alveolar epithelium,0.236,inside Normal
+TCGA-55-A57B-01A,TCGA-55-A57B,Primary Tumor,1.03463,0.98639,cd8 temra t cells,0.157,inside Normal
+TCGA-62-8394-01A,TCGA-62-8394,Primary Tumor,0.95579,0.91732,lung alveolar epithelium,0.248,inside Normal
+TCGA-62-8395-01A,TCGA-62-8395,Primary Tumor,0.91623,0.88554,lung alveolar epithelium,0.301,below Normal
+TCGA-62-8397-01A,TCGA-62-8397,Primary Tumor,0.89255,0.85528,lung alveolar epithelium,0.531,below Normal
+TCGA-62-8398-01A,TCGA-62-8398,Primary Tumor,0.97157,0.90536,lung alveolar epithelium,0.271,inside Normal
+TCGA-62-8399-01A,TCGA-62-8399,Primary Tumor,0.97122,0.88952,lung alveolar epithelium,0.233,inside Normal
+TCGA-62-8402-01A,TCGA-62-8402,Primary Tumor,0.96494,0.88229,lung alveolar epithelium,0.236,inside Normal
+TCGA-62-A46O-01A,TCGA-62-A46O,Primary Tumor,0.94642,0.87914,pancreatic acinar,0.133,below Normal
+TCGA-62-A46P-01A,TCGA-62-A46P,Primary Tumor,0.89321,0.87323,lung alveolar epithelium,0.266,below Normal
+TCGA-62-A46R-01A,TCGA-62-A46R,Primary Tumor,1.00688,0.97272,lung alveolar epithelium,0.181,inside Normal
+TCGA-62-A46S-01A,TCGA-62-A46S,Primary Tumor,1.0052,0.96358,lung alveolar epithelium,0.326,inside Normal
+TCGA-62-A46U-01A,TCGA-62-A46U,Primary Tumor,0.92031,0.85837,cd8 temra t cells,0.156,below Normal
+TCGA-62-A46V-01A,TCGA-62-A46V,Primary Tumor,0.91934,0.89471,lung alveolar epithelium,0.149,below Normal
+TCGA-62-A46Y-01A,TCGA-62-A46Y,Primary Tumor,0.96438,0.91691,lung alveolar epithelium,0.302,inside Normal
+TCGA-62-A470-01A,TCGA-62-A470,Primary Tumor,0.98912,0.92408,lung alveolar epithelium,0.341,inside Normal
+TCGA-62-A471-01A,TCGA-62-A471,Primary Tumor,1.01703,0.97437,cd8 temra t cells,0.174,inside Normal
+TCGA-62-A472-01A,TCGA-62-A472,Primary Tumor,0.93907,0.89648,lung alveolar epithelium,0.253,below Normal
+TCGA-64-1679-01A,TCGA-64-1679,Primary Tumor,1.01467,0.95123,lung alveolar epithelium,0.148,inside Normal
+TCGA-64-1681-01A,TCGA-64-1681,Primary Tumor,1.01594,0.96092,lung alveolar epithelium,0.392,inside Normal
+TCGA-64-5774-01A,TCGA-64-5774,Primary Tumor,0.97038,0.92089,lung alveolar epithelium,0.263,inside Normal
+TCGA-64-5775-01A,TCGA-64-5775,Primary Tumor,0.98753,0.94685,smooth muscle,0.264,inside Normal
+TCGA-64-5778-01A,TCGA-64-5778,Primary Tumor,0.96625,0.90671,lung alveolar epithelium,0.358,inside Normal
+TCGA-64-5779-01A,TCGA-64-5779,Primary Tumor,0.98382,0.9043,lung alveolar epithelium,0.24,inside Normal
+TCGA-64-5781-01A,TCGA-64-5781,Primary Tumor,0.9994,0.93691,cd8 temra t cells,0.236,inside Normal
+TCGA-64-5815-01A,TCGA-64-5815,Primary Tumor,0.96973,0.91354,lung alveolar epithelium,0.178,inside Normal
+TCGA-67-4679-01B,TCGA-67-4679,Primary Tumor,0.95628,0.93158,lung alveolar epithelium,0.505,inside Normal
+TCGA-67-6215-01A,TCGA-67-6215,Primary Tumor,0.95648,0.91223,lung alveolar epithelium,0.474,inside Normal
+TCGA-67-6216-01A,TCGA-67-6216,Primary Tumor,0.95838,0.88965,lung alveolar epithelium,0.279,inside Normal
+TCGA-67-6217-01A,TCGA-67-6217,Primary Tumor,1.01082,0.94019,lung alveolar epithelium,0.383,inside Normal
+TCGA-69-7760-01A,TCGA-69-7760,Primary Tumor,0.91267,0.87246,lung alveolar epithelium,0.314,below Normal
+TCGA-69-7763-01A,TCGA-69-7763,Primary Tumor,0.98102,0.93454,lung alveolar epithelium,0.339,inside Normal
+TCGA-69-7973-01A,TCGA-69-7973,Primary Tumor,0.95494,0.89641,lung alveolar epithelium,0.354,inside Normal
+TCGA-69-7974-01A,TCGA-69-7974,Primary Tumor,0.96286,0.90369,lung alveolar epithelium,0.229,inside Normal
+TCGA-69-7978-01A,TCGA-69-7978,Primary Tumor,1.01075,0.94727,cd8 temra t cells,0.145,inside Normal
+TCGA-69-7979-01A,TCGA-69-7979,Primary Tumor,0.94562,0.92596,lung alveolar epithelium,0.223,below Normal
+TCGA-69-7980-01A,TCGA-69-7980,Primary Tumor,0.91899,0.86913,lung alveolar epithelium,0.198,below Normal
+TCGA-69-8253-01A,TCGA-69-8253,Primary Tumor,0.97961,0.90959,lung alveolar epithelium,0.383,inside Normal
+TCGA-69-8254-01A,TCGA-69-8254,Primary Tumor,0.96328,0.90411,lung alveolar epithelium,0.281,inside Normal
+TCGA-69-8255-01A,TCGA-69-8255,Primary Tumor,1.03252,0.93699,central memory th1 cells,0.183,inside Normal
+TCGA-69-8453-01A,TCGA-69-8453,Primary Tumor,0.98508,0.9356,lung alveolar epithelium,0.188,inside Normal
+TCGA-69-A59K-01A,TCGA-69-A59K,Primary Tumor,0.95592,0.87172,cd8 temra t cells,0.225,inside Normal
+TCGA-71-6725-01A,TCGA-71-6725,Primary Tumor,1.02148,0.96002,lung alveolar epithelium,0.317,inside Normal
+TCGA-71-8520-01A,TCGA-71-8520,Primary Tumor,0.94142,0.93815,lung alveolar epithelium,0.316,below Normal
+TCGA-73-4658-01A,TCGA-73-4658,Primary Tumor,1.01235,0.95764,cd8 temra t cells,0.151,inside Normal
+TCGA-73-4658-11A,TCGA-73-4658,Solid Tissue Normal,0.99051,0.90674,lung alveolar endothelium,0.213,inside Normal
+TCGA-73-4676-01A,TCGA-73-4676,Primary Tumor,0.981,0.93081,lung alveolar epithelium,0.266,inside Normal
+TCGA-73-4676-11A,TCGA-73-4676,Solid Tissue Normal,0.97476,0.89279,lung alveolar epithelium,0.29,inside Normal
+TCGA-73-7498-01A,TCGA-73-7498,Primary Tumor,0.99238,0.93951,lung alveolar epithelium,0.481,inside Normal
+TCGA-73-7499-01A,TCGA-73-7499,Primary Tumor,0.96908,0.90704,lung alveolar epithelium,0.178,inside Normal
+TCGA-73-A9RS-01A,TCGA-73-A9RS,Primary Tumor,0.93085,0.91233,breast luminal epithelium,0.16,below Normal
+TCGA-75-5122-01A,TCGA-75-5122,Primary Tumor,0.9965,0.93552,cd8 temra t cells,0.243,inside Normal
+TCGA-75-5125-01A,TCGA-75-5125,Primary Tumor,0.9618,0.91179,lung alveolar epithelium,0.185,inside Normal
+TCGA-75-5126-01A,TCGA-75-5126,Primary Tumor,0.96406,0.88023,neutrophils,0.167,inside Normal
+TCGA-75-5146-01A,TCGA-75-5146,Primary Tumor,0.99265,0.9365,lung alveolar epithelium,0.39,inside Normal
+TCGA-75-5147-01A,TCGA-75-5147,Primary Tumor,1.00623,0.94349,lung alveolar epithelium,0.183,inside Normal
+TCGA-75-6203-01A,TCGA-75-6203,Primary Tumor,0.96705,0.90033,lung alveolar epithelium,0.425,inside Normal
+TCGA-75-6205-01A,TCGA-75-6205,Primary Tumor,1.01836,0.94508,memory b cells,0.137,inside Normal
+TCGA-75-6206-01A,TCGA-75-6206,Primary Tumor,0.95518,0.91081,lung alveolar epithelium,0.616,inside Normal
+TCGA-75-6207-01A,TCGA-75-6207,Primary Tumor,1.00576,0.96155,cd8 temra t cells,0.244,inside Normal
+TCGA-75-6211-01A,TCGA-75-6211,Primary Tumor,1.07195,1.00481,memory b cells,0.209,above Normal
+TCGA-75-6212-01A,TCGA-75-6212,Primary Tumor,0.95524,0.869,lung alveolar epithelium,0.429,inside Normal
+TCGA-75-6214-01A,TCGA-75-6214,Primary Tumor,1.01571,0.94677,lung bronchus epithelium,0.222,inside Normal
+TCGA-75-7025-01A,TCGA-75-7025,Primary Tumor,0.95767,0.8964,lung alveolar epithelium,0.343,inside Normal
+TCGA-75-7027-01A,TCGA-75-7027,Primary Tumor,0.96004,0.89414,lung bronchus epithelium,0.18,inside Normal
+TCGA-75-7030-01A,TCGA-75-7030,Primary Tumor,0.98487,0.91466,lung alveolar epithelium,0.189,inside Normal
+TCGA-75-7031-01A,TCGA-75-7031,Primary Tumor,1.00246,0.90848,lung alveolar epithelium,0.307,inside Normal
+TCGA-78-7145-01A,TCGA-78-7145,Primary Tumor,0.93827,0.9232,lung alveolar epithelium,0.416,below Normal
+TCGA-78-7146-01A,TCGA-78-7146,Primary Tumor,0.88846,0.83391,cd8 temra t cells,0.141,below Normal
+TCGA-78-7148-01A,TCGA-78-7148,Primary Tumor,1.01313,0.95504,lung alveolar epithelium,0.486,inside Normal
+TCGA-78-7149-01A,TCGA-78-7149,Primary Tumor,0.99561,0.94392,lung alveolar epithelium,0.443,inside Normal
+TCGA-78-7150-01A,TCGA-78-7150,Primary Tumor,0.95606,0.88493,vascular endothelium,0.135,inside Normal
+TCGA-78-7152-01A,TCGA-78-7152,Primary Tumor,0.99402,0.93356,lung alveolar epithelium,0.343,inside Normal
+TCGA-78-7154-01A,TCGA-78-7154,Primary Tumor,0.90326,0.85585,prostate epithelium,0.118,below Normal
+TCGA-78-7155-01A,TCGA-78-7155,Primary Tumor,0.87422,0.75082,lung alveolar epithelium,0.271,below Normal
+TCGA-78-7156-01A,TCGA-78-7156,Primary Tumor,0.9443,0.89491,lung alveolar epithelium,0.653,below Normal
+TCGA-78-7162-01A,TCGA-78-7162,Primary Tumor,1.00802,0.93538,lung alveolar epithelium,0.47,inside Normal
+TCGA-78-7163-01A,TCGA-78-7163,Primary Tumor,0.95887,0.9071,lung alveolar epithelium,0.48,inside Normal
+TCGA-78-7166-01A,TCGA-78-7166,Primary Tumor,1.01512,0.95391,lung alveolar epithelium,0.272,inside Normal
+TCGA-78-7167-01A,TCGA-78-7167,Primary Tumor,0.97599,0.91057,lung alveolar epithelium,0.503,inside Normal
+TCGA-78-7535-01A,TCGA-78-7535,Primary Tumor,0.93519,0.89678,lung alveolar epithelium,0.368,below Normal
+TCGA-78-7536-01A,TCGA-78-7536,Primary Tumor,0.93246,0.87508,lung alveolar epithelium,0.21,below Normal
+TCGA-78-7537-01A,TCGA-78-7537,Primary Tumor,0.94266,0.91522,lung alveolar epithelium,0.523,below Normal
+TCGA-78-7539-01A,TCGA-78-7539,Primary Tumor,1.0025,0.9475,lung alveolar epithelium,0.342,inside Normal
+TCGA-78-7540-01A,TCGA-78-7540,Primary Tumor,1.02141,1.00808,lung alveolar epithelium,0.196,inside Normal
+TCGA-78-7542-01A,TCGA-78-7542,Primary Tumor,1.02703,0.9431,lung bronchus epithelium,0.174,inside Normal
+TCGA-78-7633-01A,TCGA-78-7633,Primary Tumor,0.97749,0.93068,lung alveolar epithelium,0.609,inside Normal
+TCGA-78-8640-01A,TCGA-78-8640,Primary Tumor,0.99377,0.90733,lung alveolar epithelium,0.125,inside Normal
+TCGA-78-8648-01A,TCGA-78-8648,Primary Tumor,1.00144,0.91235,memory b cells,0.145,inside Normal
+TCGA-78-8655-01A,TCGA-78-8655,Primary Tumor,0.93462,0.89539,lung alveolar epithelium,0.281,below Normal
+TCGA-78-8660-01A,TCGA-78-8660,Primary Tumor,1.02982,0.96614,lung alveolar epithelium,0.213,inside Normal
+TCGA-78-8662-01A,TCGA-78-8662,Primary Tumor,0.97937,0.94446,lung alveolar epithelium,0.258,inside Normal
+TCGA-80-5607-01A,TCGA-80-5607,Primary Tumor,0.95075,0.8825,lung alveolar epithelium,0.259,inside Normal
+TCGA-80-5608-01A,TCGA-80-5608,Primary Tumor,1.02099,0.97234,lung alveolar epithelium,0.332,inside Normal
+TCGA-80-5611-01A,TCGA-80-5611,Primary Tumor,0.96846,0.89768,breast luminal epithelium,0.15,inside Normal
+TCGA-83-5908-01A,TCGA-83-5908,Primary Tumor,0.96851,0.90206,t effector cell cd8,0.166,inside Normal
+TCGA-86-6562-01A,TCGA-86-6562,Primary Tumor,0.9879,0.96125,lung alveolar epithelium,0.318,inside Normal
+TCGA-86-6851-01A,TCGA-86-6851,Primary Tumor,1.02885,0.96139,lung alveolar epithelium,0.176,inside Normal
+TCGA-86-7701-01A,TCGA-86-7701,Primary Tumor,1.01504,0.94609,memory b cells,0.188,inside Normal
+TCGA-86-7711-01A,TCGA-86-7711,Primary Tumor,1.01571,0.93569,neutrophils,0.315,inside Normal
+TCGA-86-7713-01A,TCGA-86-7713,Primary Tumor,0.96608,0.92138,lung alveolar epithelium,0.374,inside Normal
+TCGA-86-7953-01A,TCGA-86-7953,Primary Tumor,0.98626,0.90141,lung alveolar epithelium,0.227,inside Normal
+TCGA-86-7954-01A,TCGA-86-7954,Primary Tumor,0.96412,0.88785,lung alveolar epithelium,0.21,inside Normal
+TCGA-86-7955-01A,TCGA-86-7955,Primary Tumor,0.95122,0.91113,cd8 temra t cells,0.155,inside Normal
+TCGA-86-8054-01A,TCGA-86-8054,Primary Tumor,0.95246,0.89933,lung alveolar epithelium,0.273,inside Normal
+TCGA-86-8055-01A,TCGA-86-8055,Primary Tumor,1.02117,0.95379,lung alveolar epithelium,0.146,inside Normal
+TCGA-86-8056-01A,TCGA-86-8056,Primary Tumor,0.97777,0.93703,lung alveolar epithelium,0.335,inside Normal
+TCGA-86-8073-01A,TCGA-86-8073,Primary Tumor,0.99409,0.91821,lung alveolar epithelium,0.277,inside Normal
+TCGA-86-8074-01A,TCGA-86-8074,Primary Tumor,0.96677,0.93443,lung alveolar epithelium,0.258,inside Normal
+TCGA-86-8075-01A,TCGA-86-8075,Primary Tumor,0.97708,0.8991,lung alveolar epithelium,0.244,inside Normal
+TCGA-86-8076-01A,TCGA-86-8076,Primary Tumor,0.99426,0.90817,lung alveolar epithelium,0.279,inside Normal
+TCGA-86-8278-01A,TCGA-86-8278,Primary Tumor,1.01117,0.9675,lung alveolar epithelium,0.195,inside Normal
+TCGA-86-8279-01A,TCGA-86-8279,Primary Tumor,1.00666,0.97171,lung alveolar epithelium,0.426,inside Normal
+TCGA-86-8280-01A,TCGA-86-8280,Primary Tumor,0.99458,0.92595,lung alveolar epithelium,0.376,inside Normal
+TCGA-86-8281-01A,TCGA-86-8281,Primary Tumor,1.00201,0.9492,lung alveolar epithelium,0.403,inside Normal
+TCGA-86-8358-01A,TCGA-86-8358,Primary Tumor,0.93856,0.8688,pancreatic beta,0.185,below Normal
+TCGA-86-8359-01A,TCGA-86-8359,Primary Tumor,0.96435,0.91781,lung alveolar epithelium,0.197,inside Normal
+TCGA-86-8585-01A,TCGA-86-8585,Primary Tumor,1.01372,0.92242,central memory th1 cells,0.204,inside Normal
+TCGA-86-8668-01A,TCGA-86-8668,Primary Tumor,0.99397,0.94678,lung alveolar epithelium,0.394,inside Normal
+TCGA-86-8669-01A,TCGA-86-8669,Primary Tumor,0.97547,0.90061,lung alveolar epithelium,0.361,inside Normal
+TCGA-86-8671-01A,TCGA-86-8671,Primary Tumor,0.98581,0.90198,central memory th1 cells,0.212,inside Normal
+TCGA-86-8672-01A,TCGA-86-8672,Primary Tumor,1.02144,0.9597,memory b cells,0.159,inside Normal
+TCGA-86-8673-01A,TCGA-86-8673,Primary Tumor,0.94561,0.90126,lung alveolar epithelium,0.168,below Normal
+TCGA-86-8674-01A,TCGA-86-8674,Primary Tumor,1.00042,0.90923,lung alveolar epithelium,0.326,inside Normal
+TCGA-86-A456-01A,TCGA-86-A456,Primary Tumor,0.97933,0.93167,lung alveolar epithelium,0.227,inside Normal
+TCGA-86-A4D0-01A,TCGA-86-A4D0,Primary Tumor,0.93113,0.87697,lung alveolar epithelium,0.219,below Normal
+TCGA-86-A4JF-01A,TCGA-86-A4JF,Primary Tumor,1.00099,0.95641,lung alveolar epithelium,0.245,inside Normal
+TCGA-86-A4P7-01A,TCGA-86-A4P7,Primary Tumor,1.01565,0.94191,lung alveolar epithelium,0.214,inside Normal
+TCGA-86-A4P8-01A,TCGA-86-A4P8,Primary Tumor,0.97169,0.90016,lung alveolar epithelium,0.261,inside Normal
+TCGA-91-6828-01A,TCGA-91-6828,Primary Tumor,1.02767,0.96923,lung alveolar epithelium,0.256,inside Normal
+TCGA-91-6829-01A,TCGA-91-6829,Primary Tumor,0.99814,0.95686,lung alveolar epithelium,0.22,inside Normal
+TCGA-91-6830-01A,TCGA-91-6830,Primary Tumor,1.01403,0.95801,lung alveolar epithelium,0.277,inside Normal
+TCGA-91-6831-01A,TCGA-91-6831,Primary Tumor,1.00111,0.93692,lung alveolar epithelium,0.148,inside Normal
+TCGA-91-6835-01A,TCGA-91-6835,Primary Tumor,1.00724,0.91624,central memory th1 cells,0.19,inside Normal
+TCGA-91-6836-01A,TCGA-91-6836,Primary Tumor,0.896,0.82454,lung alveolar epithelium,0.23,below Normal
+TCGA-91-6840-01A,TCGA-91-6840,Primary Tumor,0.96783,0.9344,lung alveolar epithelium,0.282,inside Normal
+TCGA-91-6848-01A,TCGA-91-6848,Primary Tumor,0.98338,0.89334,cd8 temra t cells,0.177,inside Normal
+TCGA-91-6849-01A,TCGA-91-6849,Primary Tumor,0.95451,0.88703,lung alveolar epithelium,0.352,inside Normal
+TCGA-91-7771-01A,TCGA-91-7771,Primary Tumor,0.94984,0.89745,lung alveolar epithelium,0.236,below Normal
+TCGA-91-8496-01A,TCGA-91-8496,Primary Tumor,0.91948,0.86469,lung alveolar epithelium,0.559,below Normal
+TCGA-91-8497-01A,TCGA-91-8497,Primary Tumor,0.9913,0.92327,lung alveolar epithelium,0.392,inside Normal
+TCGA-91-8499-01A,TCGA-91-8499,Primary Tumor,0.97175,0.92461,prostate epithelium,0.19,inside Normal
+TCGA-91-A4BC-01A,TCGA-91-A4BC,Primary Tumor,1.01408,0.94414,memory b cells,0.154,inside Normal
+TCGA-91-A4BD-01A,TCGA-91-A4BD,Primary Tumor,0.92295,0.85779,lung alveolar epithelium,0.444,below Normal
+TCGA-93-7347-01A,TCGA-93-7347,Primary Tumor,0.9504,0.87354,lung alveolar epithelium,0.229,inside Normal
+TCGA-93-8067-01A,TCGA-93-8067,Primary Tumor,0.96513,0.92162,lung alveolar epithelium,0.175,inside Normal
+TCGA-93-A4JN-01A,TCGA-93-A4JN,Primary Tumor,0.99264,0.95085,lung alveolar epithelium,0.268,inside Normal
+TCGA-93-A4JO-01A,TCGA-93-A4JO,Primary Tumor,1.01653,0.94393,lung alveolar epithelium,0.172,inside Normal
+TCGA-93-A4JP-01A,TCGA-93-A4JP,Primary Tumor,0.97704,0.92286,lung alveolar epithelium,0.321,inside Normal
+TCGA-93-A4JQ-01A,TCGA-93-A4JQ,Primary Tumor,0.97797,0.9091,central memory th1 cells,0.152,inside Normal
+TCGA-95-7039-01A,TCGA-95-7039,Primary Tumor,1.01377,0.96876,lung alveolar epithelium,0.238,inside Normal
+TCGA-95-7043-01A,TCGA-95-7043,Primary Tumor,0.93387,0.85742,lung alveolar epithelium,0.235,below Normal
+TCGA-95-7562-01A,TCGA-95-7562,Primary Tumor,0.96043,0.92444,lung alveolar epithelium,0.258,inside Normal
+TCGA-95-7567-01A,TCGA-95-7567,Primary Tumor,0.98412,0.94013,lung alveolar epithelium,0.222,inside Normal
+TCGA-95-7944-01A,TCGA-95-7944,Primary Tumor,0.97124,0.89571,central memory th1 cells,0.219,inside Normal
+TCGA-95-7947-01A,TCGA-95-7947,Primary Tumor,0.93085,0.88686,cd8 temra t cells,0.192,below Normal
+TCGA-95-7948-01A,TCGA-95-7948,Primary Tumor,0.92296,0.89459,lung alveolar epithelium,0.366,below Normal
+TCGA-95-8039-01A,TCGA-95-8039,Primary Tumor,1.00189,0.96947,lung alveolar epithelium,0.31,inside Normal
+TCGA-95-8494-01A,TCGA-95-8494,Primary Tumor,0.97317,0.95435,lung alveolar epithelium,0.233,inside Normal
+TCGA-95-A4VK-01A,TCGA-95-A4VK,Primary Tumor,0.97844,0.92926,lung alveolar epithelium,0.215,inside Normal
+TCGA-95-A4VN-01A,TCGA-95-A4VN,Primary Tumor,1.01635,0.96885,lung alveolar epithelium,0.229,inside Normal
+TCGA-95-A4VP-01A,TCGA-95-A4VP,Primary Tumor,1.00297,0.93905,lung alveolar epithelium,0.227,inside Normal
+TCGA-97-7552-01A,TCGA-97-7552,Primary Tumor,0.98495,0.91438,memory b cells,0.202,inside Normal
+TCGA-97-7553-01A,TCGA-97-7553,Primary Tumor,1.00463,0.91276,lung alveolar epithelium,0.308,inside Normal
+TCGA-97-7554-01A,TCGA-97-7554,Primary Tumor,1.03214,0.98905,cd8 temra t cells,0.178,inside Normal
+TCGA-97-7938-01A,TCGA-97-7938,Primary Tumor,0.94081,0.90139,lung alveolar epithelium,0.457,below Normal
+TCGA-97-7941-01A,TCGA-97-7941,Primary Tumor,0.96292,0.89824,lung alveolar epithelium,0.282,inside Normal
+TCGA-97-8171-01A,TCGA-97-8171,Primary Tumor,0.86904,0.84407,lung alveolar epithelium,0.488,below Normal
+TCGA-97-8172-01A,TCGA-97-8172,Primary Tumor,0.96756,0.90771,lung alveolar epithelium,0.301,inside Normal
+TCGA-97-8174-01A,TCGA-97-8174,Primary Tumor,0.97524,0.92322,lung alveolar epithelium,0.43,inside Normal
+TCGA-97-8175-01A,TCGA-97-8175,Primary Tumor,0.9838,0.92286,lung alveolar epithelium,0.241,inside Normal
+TCGA-97-8176-01A,TCGA-97-8176,Primary Tumor,0.9749,0.90118,lung alveolar epithelium,0.258,inside Normal
+TCGA-97-8177-01A,TCGA-97-8177,Primary Tumor,0.99929,0.91901,lung alveolar epithelium,0.247,inside Normal
+TCGA-97-8179-01A,TCGA-97-8179,Primary Tumor,1.00409,0.97593,lung alveolar epithelium,0.395,inside Normal
+TCGA-97-8547-01A,TCGA-97-8547,Primary Tumor,0.96091,0.9197,lung alveolar epithelium,0.237,inside Normal
+TCGA-97-8552-01A,TCGA-97-8552,Primary Tumor,0.93837,0.87585,lung alveolar epithelium,0.489,below Normal
+TCGA-97-A4LX-01A,TCGA-97-A4LX,Primary Tumor,0.98763,0.91269,central memory th1 cells,0.275,inside Normal
+TCGA-97-A4M0-01A,TCGA-97-A4M0,Primary Tumor,0.91087,0.87112,lung alveolar epithelium,0.305,below Normal
+TCGA-97-A4M1-01A,TCGA-97-A4M1,Primary Tumor,0.99563,0.93312,lung alveolar epithelium,0.488,inside Normal
+TCGA-97-A4M2-01A,TCGA-97-A4M2,Primary Tumor,0.96995,0.90232,lung alveolar epithelium,0.329,inside Normal
+TCGA-97-A4M3-01A,TCGA-97-A4M3,Primary Tumor,0.98671,0.94591,lung alveolar epithelium,0.392,inside Normal
+TCGA-97-A4M5-01A,TCGA-97-A4M5,Primary Tumor,0.96981,0.90609,lung alveolar epithelium,0.223,inside Normal
+TCGA-97-A4M6-01A,TCGA-97-A4M6,Primary Tumor,0.93979,0.87273,lung alveolar epithelium,0.26,below Normal
+TCGA-97-A4M7-01A,TCGA-97-A4M7,Primary Tumor,1.00828,0.95262,lung alveolar epithelium,0.27,inside Normal
+TCGA-99-8025-01A,TCGA-99-8025,Primary Tumor,0.9984,0.95915,lung alveolar epithelium,0.221,inside Normal
+TCGA-99-8028-01A,TCGA-99-8028,Primary Tumor,1.01284,0.92254,memory b cells,0.183,inside Normal
+TCGA-99-8032-01A,TCGA-99-8032,Primary Tumor,1.01049,0.94665,lung alveolar epithelium,0.213,inside Normal
+TCGA-99-8033-01A,TCGA-99-8033,Primary Tumor,1.00323,0.92429,lung alveolar epithelium,0.161,inside Normal
+TCGA-99-AA5R-01A,TCGA-99-AA5R,Primary Tumor,0.97398,0.89733,lung alveolar epithelium,0.278,inside Normal
+TCGA-J2-8192-01A,TCGA-J2-8192,Primary Tumor,1.00048,0.93679,lung alveolar epithelium,0.289,inside Normal
+TCGA-J2-8194-01A,TCGA-J2-8194,Primary Tumor,1.0132,0.9616,lung alveolar epithelium,0.361,inside Normal
+TCGA-J2-A4AD-01A,TCGA-J2-A4AD,Primary Tumor,1.01548,0.96225,lung alveolar epithelium,0.13,inside Normal
+TCGA-J2-A4AE-01A,TCGA-J2-A4AE,Primary Tumor,0.95649,0.91299,lung alveolar epithelium,0.336,inside Normal
+TCGA-J2-A4AG-01A,TCGA-J2-A4AG,Primary Tumor,1.01844,0.95524,lung alveolar epithelium,0.22,inside Normal
+TCGA-L4-A4E5-01A,TCGA-L4-A4E5,Primary Tumor,0.95705,0.91775,lung alveolar epithelium,0.215,inside Normal
+TCGA-L4-A4E6-01A,TCGA-L4-A4E6,Primary Tumor,0.97718,0.90467,lung alveolar epithelium,0.259,inside Normal
+TCGA-L9-A443-01A,TCGA-L9-A443,Primary Tumor,0.90117,0.86014,lung alveolar epithelium,0.249,below Normal
+TCGA-L9-A444-01A,TCGA-L9-A444,Primary Tumor,0.99059,0.93388,cd8 temra t cells,0.163,inside Normal
+TCGA-L9-A50W-01A,TCGA-L9-A50W,Primary Tumor,0.88546,0.85151,lung alveolar epithelium,0.414,below Normal
+TCGA-L9-A5IP-01A,TCGA-L9-A5IP,Primary Tumor,0.99693,0.93108,lung bronchus epithelium,0.189,inside Normal
+TCGA-L9-A743-01A,TCGA-L9-A743,Primary Tumor,0.99979,0.92409,lung alveolar epithelium,0.189,inside Normal
+TCGA-L9-A7SV-01A,TCGA-L9-A7SV,Primary Tumor,0.91904,0.86737,lung alveolar epithelium,0.328,below Normal
+TCGA-L9-A8F4-01A,TCGA-L9-A8F4,Primary Tumor,0.98007,0.88544,central memory th1 cells,0.168,inside Normal
+TCGA-MN-A4N1-01A,TCGA-MN-A4N1,Primary Tumor,0.98165,0.95823,lung alveolar epithelium,0.274,inside Normal
+TCGA-MN-A4N4-01A,TCGA-MN-A4N4,Primary Tumor,1.009,0.93118,adipocytes,0.148,inside Normal
+TCGA-MN-A4N5-01A,TCGA-MN-A4N5,Primary Tumor,0.95072,0.90896,lung alveolar epithelium,0.277,inside Normal
+TCGA-MP-A4SV-01A,TCGA-MP-A4SV,Primary Tumor,1.08266,1.01193,lung alveolar epithelium,0.225,above Normal
+TCGA-MP-A4SW-01A,TCGA-MP-A4SW,Primary Tumor,1.01963,0.95682,lung alveolar epithelium,0.277,inside Normal
+TCGA-MP-A4SY-01A,TCGA-MP-A4SY,Primary Tumor,0.97572,0.93258,lung alveolar epithelium,0.142,inside Normal
+TCGA-MP-A4T2-01A,TCGA-MP-A4T2,Primary Tumor,0.91563,0.8667,lung alveolar epithelium,0.357,below Normal
+TCGA-MP-A4T4-01A,TCGA-MP-A4T4,Primary Tumor,1.00424,0.94863,memory b cells,0.161,inside Normal
+TCGA-MP-A4T6-01A,TCGA-MP-A4T6,Primary Tumor,0.93815,0.92626,lung alveolar epithelium,0.404,below Normal
+TCGA-MP-A4T7-01A,TCGA-MP-A4T7,Primary Tumor,0.9902,0.92225,lung alveolar epithelium,0.29,inside Normal
+TCGA-MP-A4T8-01A,TCGA-MP-A4T8,Primary Tumor,0.98804,0.94378,lung alveolar epithelium,0.24,inside Normal
+TCGA-MP-A4T9-01A,TCGA-MP-A4T9,Primary Tumor,0.96881,0.89952,lung alveolar epithelium,0.253,inside Normal
+TCGA-MP-A4TA-01A,TCGA-MP-A4TA,Primary Tumor,1.01453,0.9171,neutrophils,0.265,inside Normal
+TCGA-MP-A4TC-01A,TCGA-MP-A4TC,Primary Tumor,0.9734,0.91599,lung alveolar epithelium,0.173,inside Normal
+TCGA-MP-A4TD-01A,TCGA-MP-A4TD,Primary Tumor,0.98642,0.95671,memory b cells,0.183,inside Normal
+TCGA-MP-A4TE-01A,TCGA-MP-A4TE,Primary Tumor,0.97839,0.94168,lung alveolar epithelium,0.227,inside Normal
+TCGA-MP-A4TF-01A,TCGA-MP-A4TF,Primary Tumor,1.01981,0.97002,cd8 temra t cells,0.197,inside Normal
+TCGA-MP-A4TH-01A,TCGA-MP-A4TH,Primary Tumor,0.98732,0.93064,lung alveolar epithelium,0.347,inside Normal
+TCGA-MP-A4TI-01A,TCGA-MP-A4TI,Primary Tumor,0.99627,0.92324,cd8 temra t cells,0.129,inside Normal
+TCGA-MP-A4TJ-01A,TCGA-MP-A4TJ,Primary Tumor,0.99466,0.92536,lung alveolar epithelium,0.179,inside Normal
+TCGA-MP-A4TK-01A,TCGA-MP-A4TK,Primary Tumor,1.00076,0.94573,lung alveolar epithelium,0.146,inside Normal
+TCGA-MP-A5C7-01A,TCGA-MP-A5C7,Primary Tumor,0.96833,0.91495,lung alveolar epithelium,0.506,inside Normal
+TCGA-NJ-A4YF-01A,TCGA-NJ-A4YF,Primary Tumor,0.97092,0.93616,lung alveolar epithelium,0.28,inside Normal
+TCGA-NJ-A4YG-01A,TCGA-NJ-A4YG,Primary Tumor,0.97387,0.92107,lung alveolar epithelium,0.289,inside Normal
+TCGA-NJ-A4YI-01A,TCGA-NJ-A4YI,Primary Tumor,0.9493,0.91382,lung alveolar epithelium,0.288,below Normal
+TCGA-NJ-A4YP-01A,TCGA-NJ-A4YP,Primary Tumor,0.99478,0.96713,lung alveolar epithelium,0.198,inside Normal
+TCGA-NJ-A4YQ-01A,TCGA-NJ-A4YQ,Primary Tumor,1.00399,0.94073,memory b cells,0.237,inside Normal
+TCGA-NJ-A55A-01A,TCGA-NJ-A55A,Primary Tumor,0.98303,0.9209,lung alveolar epithelium,0.176,inside Normal
+TCGA-NJ-A55O-01A,TCGA-NJ-A55O,Primary Tumor,0.97401,0.92778,lung alveolar epithelium,0.377,inside Normal
+TCGA-NJ-A55R-01A,TCGA-NJ-A55R,Primary Tumor,1.02363,0.94981,memory b cells,0.201,inside Normal
+TCGA-NJ-A7XG-01A,TCGA-NJ-A7XG,Primary Tumor,0.93699,0.90949,lung alveolar epithelium,0.469,below Normal
+TCGA-O1-A52J-01A,TCGA-O1-A52J,Primary Tumor,0.98874,0.93631,lung alveolar epithelium,0.456,inside Normal
+TCGA-S2-AA1A-01A,TCGA-S2-AA1A,Primary Tumor,0.96414,0.89683,lung alveolar epithelium,0.211,inside Normal

@@ -1,0 +1,299 @@
+gsm,case,group,ratio,identity_sites_A,top_cell,top_share,place
+TCGA-4N-A93T-01A,TCGA-4N-A93T,Primary Tumor,0.94281,0.89702,colon epithelium,0.32,below Normal
+TCGA-4T-AA8H-01A,TCGA-4T-AA8H,Primary Tumor,1.03561,1.02294,colon enteroendocrine,0.293,inside Normal
+TCGA-5M-AAT4-01A,TCGA-5M-AAT4,Primary Tumor,0.99307,0.96941,colon epithelium,0.272,inside Normal
+TCGA-5M-AAT5-01A,TCGA-5M-AAT5,Primary Tumor,0.99935,0.96487,colon enteroendocrine,0.266,inside Normal
+TCGA-5M-AAT6-01A,TCGA-5M-AAT6,Primary Tumor,1.01785,0.92783,adipocytes,0.151,inside Normal
+TCGA-5M-AATA-01A,TCGA-5M-AATA,Primary Tumor,0.9926,0.94553,colon epithelium,0.282,inside Normal
+TCGA-5M-AATE-01A,TCGA-5M-AATE,Primary Tumor,0.97911,0.95967,colon enteroendocrine,0.368,inside Normal
+TCGA-A6-2671-01A,TCGA-A6-2671,Primary Tumor,0.96415,0.92158,colon epithelium,0.41,inside Normal
+TCGA-A6-2671-11A,TCGA-A6-2671,Solid Tissue Normal,1.0147,0.90488,colon epithelium,0.714,inside Normal
+TCGA-A6-2672-01B,TCGA-A6-2672,Primary Tumor,1.01505,0.95463,t effector cell cd8,0.178,inside Normal
+TCGA-A6-2675-01A,TCGA-A6-2675,Primary Tumor,1.00434,0.94406,colon epithelium,0.406,inside Normal
+TCGA-A6-2677-01A,TCGA-A6-2677,Primary Tumor,0.9866,0.95231,colon epithelium,0.281,inside Normal
+TCGA-A6-2677-01B,TCGA-A6-2677,Primary Tumor,1.00691,0.95867,colon epithelium,0.246,inside Normal
+TCGA-A6-2679-01A,TCGA-A6-2679,Primary Tumor,1.03138,0.98753,colon enteroendocrine,0.223,inside Normal
+TCGA-A6-2679-11A,TCGA-A6-2679,Solid Tissue Normal,1.02814,0.92766,colon epithelium,0.435,inside Normal
+TCGA-A6-2680-01A,TCGA-A6-2680,Primary Tumor,1.01666,0.98355,colon enteroendocrine,0.23,inside Normal
+TCGA-A6-2680-11A,TCGA-A6-2680,Solid Tissue Normal,1.00782,0.91283,small intestine epithelium,0.702,inside Normal
+TCGA-A6-2681-01A,TCGA-A6-2681,Primary Tumor,1.00942,0.963,colon epithelium,0.244,inside Normal
+TCGA-A6-2681-11A,TCGA-A6-2681,Solid Tissue Normal,1.0265,0.91841,colon epithelium,0.63,inside Normal
+TCGA-A6-2682-01A,TCGA-A6-2682,Primary Tumor,1.0273,0.97901,colon epithelium,0.208,inside Normal
+TCGA-A6-2682-11A,TCGA-A6-2682,Solid Tissue Normal,1.01433,0.90099,colon epithelium,0.664,inside Normal
+TCGA-A6-2684-01A_63792c44,TCGA-A6-2684,Primary Tumor,0.98026,0.93628,colon epithelium,0.201,inside Normal
+TCGA-A6-2684-01A_7e5869ae,TCGA-A6-2684,Primary Tumor,0.98712,0.93881,colon epithelium,0.199,inside Normal
+TCGA-A6-2684-01C,TCGA-A6-2684,Primary Tumor,0.9678,0.89993,colon epithelium,0.24,inside Normal
+TCGA-A6-2684-11A,TCGA-A6-2684,Solid Tissue Normal,1.02173,0.91694,colon epithelium,0.681,inside Normal
+TCGA-A6-2685-01A,TCGA-A6-2685,Primary Tumor,1.01247,0.93081,colon epithelium,0.271,inside Normal
+TCGA-A6-2685-11A,TCGA-A6-2685,Solid Tissue Normal,1.00578,0.88409,colon epithelium,0.737,inside Normal
+TCGA-A6-2686-01A,TCGA-A6-2686,Primary Tumor,0.99663,0.92708,colon epithelium,0.174,inside Normal
+TCGA-A6-2686-11A,TCGA-A6-2686,Solid Tissue Normal,1.02073,0.93137,colon epithelium,0.513,inside Normal
+TCGA-A6-3809-01A,TCGA-A6-3809,Primary Tumor,1.05119,1.00512,t effector cell cd8,0.193,above Normal
+TCGA-A6-3809-01B,TCGA-A6-3809,Primary Tumor,1.00441,0.95379,t effector cell cd8,0.185,inside Normal
+TCGA-A6-3810-01A,TCGA-A6-3810,Primary Tumor,0.99695,0.922,colon epithelium,0.293,inside Normal
+TCGA-A6-3810-01B,TCGA-A6-3810,Primary Tumor,0.99342,0.91096,colon epithelium,0.295,inside Normal
+TCGA-A6-4107-01A,TCGA-A6-4107,Primary Tumor,0.98824,0.96006,colon epithelium,0.233,inside Normal
+TCGA-A6-4107-11A,TCGA-A6-4107,Solid Tissue Normal,1.00507,0.90505,colon epithelium,0.443,inside Normal
+TCGA-A6-5656-01A_269cacaf,TCGA-A6-5656,Primary Tumor,0.98568,0.93281,colon epithelium,0.241,inside Normal
+TCGA-A6-5656-01A_627864c5,TCGA-A6-5656,Primary Tumor,0.97909,0.94602,colon epithelium,0.238,inside Normal
+TCGA-A6-5656-01B,TCGA-A6-5656,Primary Tumor,0.9844,0.92246,colon epithelium,0.22,inside Normal
+TCGA-A6-5657-01A,TCGA-A6-5657,Primary Tumor,1.03169,0.96481,memory b cells,0.168,inside Normal
+TCGA-A6-5659-01A_54386354,TCGA-A6-5659,Primary Tumor,0.98994,0.93788,colon enteroendocrine,0.215,inside Normal
+TCGA-A6-5659-01A_89209ee7,TCGA-A6-5659,Primary Tumor,0.98366,0.92782,colon epithelium,0.174,inside Normal
+TCGA-A6-5659-01B,TCGA-A6-5659,Primary Tumor,0.92011,0.82205,colon epithelium,0.215,below Normal
+TCGA-A6-5660-01A,TCGA-A6-5660,Primary Tumor,0.97948,0.92639,colon epithelium,0.223,inside Normal
+TCGA-A6-5661-01B,TCGA-A6-5661,Primary Tumor,0.95049,0.91008,colon epithelium,0.194,inside Normal
+TCGA-A6-5662-01A,TCGA-A6-5662,Primary Tumor,0.92485,0.87733,colon epithelium,0.29,below Normal
+TCGA-A6-5664-01A,TCGA-A6-5664,Primary Tumor,1.01451,0.94653,colon epithelium,0.154,inside Normal
+TCGA-A6-5665-01A,TCGA-A6-5665,Primary Tumor,0.97967,0.92325,colon epithelium,0.194,inside Normal
+TCGA-A6-5665-01B,TCGA-A6-5665,Primary Tumor,0.96531,0.91586,prostate epithelium,0.193,inside Normal
+TCGA-A6-5666-01A,TCGA-A6-5666,Primary Tumor,0.93423,0.84425,colon enteroendocrine,0.196,below Normal
+TCGA-A6-5667-01A,TCGA-A6-5667,Primary Tumor,0.97517,0.92565,colon epithelium,0.367,inside Normal
+TCGA-A6-5667-11A,TCGA-A6-5667,Solid Tissue Normal,1.00764,0.88942,colon epithelium,0.825,inside Normal
+TCGA-A6-6137-01A,TCGA-A6-6137,Primary Tumor,1.03699,0.97881,colon epithelium,0.302,inside Normal
+TCGA-A6-6138-01A,TCGA-A6-6138,Primary Tumor,0.96193,0.91399,colon epithelium,0.265,inside Normal
+TCGA-A6-6140-01A,TCGA-A6-6140,Primary Tumor,0.94583,0.87851,colon epithelium,0.385,below Normal
+TCGA-A6-6141-01A,TCGA-A6-6141,Primary Tumor,1.0073,0.94936,colon epithelium,0.232,inside Normal
+TCGA-A6-6142-01A,TCGA-A6-6142,Primary Tumor,1.0281,0.96094,colon epithelium,0.207,inside Normal
+TCGA-A6-6650-01A_d927d3d5,TCGA-A6-6650,Primary Tumor,0.98165,0.94482,colon enteroendocrine,0.326,inside Normal
+TCGA-A6-6650-01A_df9d30ce,TCGA-A6-6650,Primary Tumor,0.96434,0.93787,colon enteroendocrine,0.383,inside Normal
+TCGA-A6-6650-01B,TCGA-A6-6650,Primary Tumor,1.01228,0.97903,colon epithelium,0.303,inside Normal
+TCGA-A6-6651-01A,TCGA-A6-6651,Primary Tumor,1.01523,0.93973,adipocytes,0.172,inside Normal
+TCGA-A6-6654-01A,TCGA-A6-6654,Primary Tumor,1.02314,0.94575,colon epithelium,0.176,inside Normal
+TCGA-A6-6780-01A_da67e5b7,TCGA-A6-6780,Primary Tumor,0.98884,0.93242,colon epithelium,0.208,inside Normal
+TCGA-A6-6780-01A_f67cf187,TCGA-A6-6780,Primary Tumor,0.98666,0.93609,colon epithelium,0.222,inside Normal
+TCGA-A6-6780-01B,TCGA-A6-6780,Primary Tumor,0.97325,0.9067,colon epithelium,0.207,inside Normal
+TCGA-A6-6781-01A_355e359b,TCGA-A6-6781,Primary Tumor,0.97129,0.89892,vascular endothelium,0.14,inside Normal
+TCGA-A6-6781-01B,TCGA-A6-6781,Primary Tumor,0.95394,0.87334,vascular endothelium,0.168,inside Normal
+TCGA-A6-6782-01A,TCGA-A6-6782,Primary Tumor,1.00808,0.95335,colon epithelium,0.248,inside Normal
+TCGA-A6-A565-01A,TCGA-A6-A565,Primary Tumor,1.01193,0.91761,colon epithelium,0.344,inside Normal
+TCGA-A6-A566-01A,TCGA-A6-A566,Primary Tumor,1.06723,1.0075,t effector cell cd8,0.138,above Normal
+TCGA-A6-A567-01A,TCGA-A6-A567,Primary Tumor,1.02884,0.96661,colon epithelium,0.352,inside Normal
+TCGA-A6-A56B-01A,TCGA-A6-A56B,Primary Tumor,0.94641,0.91197,colon epithelium,0.284,below Normal
+TCGA-A6-A5ZU-01A,TCGA-A6-A5ZU,Primary Tumor,0.96399,0.84753,small intestine epithelium,0.21,inside Normal
+TCGA-AA-3488-01A,TCGA-AA-3488,Primary Tumor,0.9568,0.92416,colon epithelium,0.427,inside Normal
+TCGA-AA-3488-11A,TCGA-AA-3488,Solid Tissue Normal,1.00162,0.89739,colon epithelium,0.562,inside Normal
+TCGA-AA-3489-01A,TCGA-AA-3489,Primary Tumor,1.00667,0.92317,memory b cells,0.258,inside Normal
+TCGA-AA-3492-01A,TCGA-AA-3492,Primary Tumor,0.92248,0.88803,prostate epithelium,0.196,below Normal
+TCGA-AA-3492-11A,TCGA-AA-3492,Solid Tissue Normal,1.0176,0.92594,colon epithelium,0.593,inside Normal
+TCGA-AA-3494-01A,TCGA-AA-3494,Primary Tumor,0.97214,0.90777,colon epithelium,0.37,inside Normal
+TCGA-AA-3494-11A,TCGA-AA-3494,Solid Tissue Normal,0.99577,0.88902,colon epithelium,0.547,inside Normal
+TCGA-AA-3495-01A,TCGA-AA-3495,Primary Tumor,1.01594,0.95256,colon epithelium,0.323,inside Normal
+TCGA-AA-3495-11A,TCGA-AA-3495,Solid Tissue Normal,1.01492,0.9127,colon epithelium,0.587,inside Normal
+TCGA-AA-3496-01A,TCGA-AA-3496,Primary Tumor,1.02302,0.97485,colon enteroendocrine,0.228,inside Normal
+TCGA-AA-3502-01A,TCGA-AA-3502,Primary Tumor,0.97956,0.96535,colon enteroendocrine,0.22,inside Normal
+TCGA-AA-3502-11A,TCGA-AA-3502,Solid Tissue Normal,1.00335,0.9159,colon epithelium,0.368,inside Normal
+TCGA-AA-3506-01A,TCGA-AA-3506,Primary Tumor,1.03969,0.99965,small intestine epithelium,0.162,inside Normal
+TCGA-AA-3506-11A,TCGA-AA-3506,Solid Tissue Normal,1.00553,0.91116,colon epithelium,0.441,inside Normal
+TCGA-AA-3509-01A,TCGA-AA-3509,Primary Tumor,0.97249,0.92916,colon epithelium,0.282,inside Normal
+TCGA-AA-3509-11A,TCGA-AA-3509,Solid Tissue Normal,0.98019,0.88654,colon epithelium,0.488,inside Normal
+TCGA-AA-3510-01A,TCGA-AA-3510,Primary Tumor,0.97896,0.91502,colon epithelium,0.483,inside Normal
+TCGA-AA-3510-11A,TCGA-AA-3510,Solid Tissue Normal,1.00963,0.91995,colon epithelium,0.47,inside Normal
+TCGA-AA-3511-01A,TCGA-AA-3511,Primary Tumor,0.99467,0.94762,colon epithelium,0.38,inside Normal
+TCGA-AA-3655-01A,TCGA-AA-3655,Primary Tumor,0.93509,0.89742,colon epithelium,0.433,below Normal
+TCGA-AA-3655-11A,TCGA-AA-3655,Solid Tissue Normal,0.99717,0.91043,colon epithelium,0.581,inside Normal
+TCGA-AA-3660-01A,TCGA-AA-3660,Primary Tumor,0.98781,0.95656,colon epithelium,0.286,inside Normal
+TCGA-AA-3660-11A,TCGA-AA-3660,Solid Tissue Normal,1.02158,0.90983,colon epithelium,0.715,inside Normal
+TCGA-AA-3662-01A,TCGA-AA-3662,Primary Tumor,1.03271,0.99465,colon enteroendocrine,0.181,inside Normal
+TCGA-AA-3663-01A,TCGA-AA-3663,Primary Tumor,0.96747,0.93572,colon epithelium,0.188,inside Normal
+TCGA-AA-3663-11A,TCGA-AA-3663,Solid Tissue Normal,0.98265,0.89399,colon epithelium,0.484,inside Normal
+TCGA-AA-3697-11A,TCGA-AA-3697,Solid Tissue Normal,1.00697,0.9031,colon epithelium,0.491,inside Normal
+TCGA-AA-3712-01A,TCGA-AA-3712,Primary Tumor,0.97127,0.92992,colon epithelium,0.262,inside Normal
+TCGA-AA-3712-11A,TCGA-AA-3712,Solid Tissue Normal,1.00925,0.90575,colon epithelium,0.65,inside Normal
+TCGA-AA-3713-01A,TCGA-AA-3713,Primary Tumor,1.0376,0.98975,cd8 temra t cells,0.196,inside Normal
+TCGA-AA-3713-11A,TCGA-AA-3713,Solid Tissue Normal,1.00116,0.90734,colon epithelium,0.363,inside Normal
+TCGA-AD-5900-01A,TCGA-AD-5900,Primary Tumor,0.95869,0.86801,cd8 temra t cells,0.264,inside Normal
+TCGA-AD-6548-01A,TCGA-AD-6548,Primary Tumor,1.04939,0.97731,colon epithelium,0.251,inside Normal
+TCGA-AD-6901-01A,TCGA-AD-6901,Primary Tumor,0.98716,0.93656,colon epithelium,0.233,inside Normal
+TCGA-AD-A5EJ-01A,TCGA-AD-A5EJ,Primary Tumor,0.94872,0.89884,prostate epithelium,0.176,below Normal
+TCGA-AD-A5EK-01A,TCGA-AD-A5EK,Primary Tumor,0.89356,0.84765,colon epithelium,0.295,below Normal
+TCGA-AM-5820-01A,TCGA-AM-5820,Primary Tumor,1.00492,0.95545,colon epithelium,0.33,inside Normal
+TCGA-AM-5821-01A,TCGA-AM-5821,Primary Tumor,1.06168,1.01263,t effector cell cd8,0.169,above Normal
+TCGA-AU-3779-01A,TCGA-AU-3779,Primary Tumor,0.98106,0.94025,colon epithelium,0.242,inside Normal
+TCGA-AU-6004-01A,TCGA-AU-6004,Primary Tumor,1.01519,0.96353,memory b cells,0.126,inside Normal
+TCGA-AY-5543-01A,TCGA-AY-5543,Primary Tumor,1.01901,0.98883,colon enteroendocrine,0.35,inside Normal
+TCGA-AY-6196-01A,TCGA-AY-6196,Primary Tumor,0.99908,0.93007,colon enteroendocrine,0.17,inside Normal
+TCGA-AY-6197-01A,TCGA-AY-6197,Primary Tumor,0.92377,0.8714,cd8 temra t cells,0.229,below Normal
+TCGA-AY-6386-01A,TCGA-AY-6386,Primary Tumor,1.01074,0.96319,colon epithelium,0.226,inside Normal
+TCGA-AY-A54L-01A,TCGA-AY-A54L,Primary Tumor,1.04944,1.01932,colon enteroendocrine,0.214,inside Normal
+TCGA-AY-A69D-01A,TCGA-AY-A69D,Primary Tumor,0.96174,0.84928,colon epithelium,0.274,inside Normal
+TCGA-AY-A71X-01A,TCGA-AY-A71X,Primary Tumor,0.9776,0.93662,colon epithelium,0.236,inside Normal
+TCGA-AY-A8YK-01A,TCGA-AY-A8YK,Primary Tumor,0.98351,0.92761,colon epithelium,0.298,inside Normal
+TCGA-AZ-4308-01A,TCGA-AZ-4308,Primary Tumor,0.99086,0.94476,colon epithelium,0.206,inside Normal
+TCGA-AZ-4313-01A,TCGA-AZ-4313,Primary Tumor,1.03566,0.97717,neutrophils,0.263,inside Normal
+TCGA-AZ-4315-01A,TCGA-AZ-4315,Primary Tumor,0.97391,0.93265,colon epithelium,0.222,inside Normal
+TCGA-AZ-4323-01A,TCGA-AZ-4323,Primary Tumor,1.03968,0.94477,central memory th1 cells,0.165,inside Normal
+TCGA-AZ-4614-01A,TCGA-AZ-4614,Primary Tumor,0.98465,0.97603,colon enteroendocrine,0.213,inside Normal
+TCGA-AZ-4615-01A,TCGA-AZ-4615,Primary Tumor,0.98066,0.93396,colon epithelium,0.155,inside Normal
+TCGA-AZ-4616-01A,TCGA-AZ-4616,Primary Tumor,1.03355,0.96898,colon enteroendocrine,0.146,inside Normal
+TCGA-AZ-4681-01A,TCGA-AZ-4681,Primary Tumor,0.97334,0.92084,colon epithelium,0.463,inside Normal
+TCGA-AZ-4682-01B,TCGA-AZ-4682,Primary Tumor,0.96083,0.9326,colon epithelium,0.281,inside Normal
+TCGA-AZ-4684-01A,TCGA-AZ-4684,Primary Tumor,1.02836,0.9697,colon epithelium,0.315,inside Normal
+TCGA-AZ-5403-01A,TCGA-AZ-5403,Primary Tumor,1.01334,0.94589,colon epithelium,0.298,inside Normal
+TCGA-AZ-5407-01A,TCGA-AZ-5407,Primary Tumor,1.02056,0.99289,colon epithelium,0.21,inside Normal
+TCGA-AZ-6598-01A,TCGA-AZ-6598,Primary Tumor,0.89407,0.84208,prostate epithelium,0.232,below Normal
+TCGA-AZ-6599-01A,TCGA-AZ-6599,Primary Tumor,1.00643,1.00461,colon enteroendocrine,0.375,inside Normal
+TCGA-AZ-6603-01A,TCGA-AZ-6603,Primary Tumor,1.01514,0.97232,colon enteroendocrine,0.208,inside Normal
+TCGA-AZ-6605-01A,TCGA-AZ-6605,Primary Tumor,1.02966,0.95774,colon epithelium,0.205,inside Normal
+TCGA-AZ-6606-01A,TCGA-AZ-6606,Primary Tumor,0.94023,0.89618,colon epithelium,0.194,below Normal
+TCGA-AZ-6607-01A,TCGA-AZ-6607,Primary Tumor,0.98389,0.94751,prostate epithelium,0.155,inside Normal
+TCGA-AZ-6608-01A,TCGA-AZ-6608,Primary Tumor,0.95932,0.93093,colon epithelium,0.303,inside Normal
+TCGA-CA-5254-01A,TCGA-CA-5254,Primary Tumor,0.98431,0.99026,colon enteroendocrine,0.237,inside Normal
+TCGA-CA-5255-01A,TCGA-CA-5255,Primary Tumor,0.99168,0.92576,colon epithelium,0.188,inside Normal
+TCGA-CA-5256-01A,TCGA-CA-5256,Primary Tumor,0.99881,0.96934,colon epithelium,0.315,inside Normal
+TCGA-CA-5796-01A,TCGA-CA-5796,Primary Tumor,1.00238,0.95536,colon epithelium,0.251,inside Normal
+TCGA-CA-5797-01A,TCGA-CA-5797,Primary Tumor,1.01637,0.97716,colon epithelium,0.202,inside Normal
+TCGA-CA-6715-01A,TCGA-CA-6715,Primary Tumor,0.95285,0.9189,colon epithelium,0.228,inside Normal
+TCGA-CA-6716-01A,TCGA-CA-6716,Primary Tumor,0.94226,0.90425,colon epithelium,0.301,below Normal
+TCGA-CA-6717-01A,TCGA-CA-6717,Primary Tumor,1.0102,0.94099,colon epithelium,0.171,inside Normal
+TCGA-CA-6718-01A,TCGA-CA-6718,Primary Tumor,0.96838,0.90766,cd8 temra t cells,0.184,inside Normal
+TCGA-CA-6719-01A,TCGA-CA-6719,Primary Tumor,1.02388,0.98524,colon epithelium,0.251,inside Normal
+TCGA-CK-4947-01B,TCGA-CK-4947,Primary Tumor,1.05241,0.99355,colon epithelium,0.178,above Normal
+TCGA-CK-4948-01B,TCGA-CK-4948,Primary Tumor,1.05632,1.00973,colon epithelium,0.137,above Normal
+TCGA-CK-4951-01A,TCGA-CK-4951,Primary Tumor,0.98842,0.94852,t effector cell cd8,0.139,inside Normal
+TCGA-CK-4952-01A,TCGA-CK-4952,Primary Tumor,1.00095,0.9785,colon enteroendocrine,0.202,inside Normal
+TCGA-CK-5912-01A,TCGA-CK-5912,Primary Tumor,0.97941,0.9379,colon enteroendocrine,0.344,inside Normal
+TCGA-CK-5913-01A,TCGA-CK-5913,Primary Tumor,1.03671,1.01012,t effector cell cd8,0.17,inside Normal
+TCGA-CK-5914-01A,TCGA-CK-5914,Primary Tumor,0.95016,0.8907,colon epithelium,0.277,inside Normal
+TCGA-CK-5915-01A,TCGA-CK-5915,Primary Tumor,0.92421,0.88543,colon epithelium,0.387,below Normal
+TCGA-CK-5916-01A,TCGA-CK-5916,Primary Tumor,0.98335,0.91415,cd8 temra t cells,0.166,inside Normal
+TCGA-CK-6746-01A,TCGA-CK-6746,Primary Tumor,0.9905,0.97061,cd8 temra t cells,0.187,inside Normal
+TCGA-CK-6747-01A,TCGA-CK-6747,Primary Tumor,0.99309,0.95971,colon enteroendocrine,0.28,inside Normal
+TCGA-CK-6751-01A,TCGA-CK-6751,Primary Tumor,1.02618,1.00742,colon enteroendocrine,0.144,inside Normal
+TCGA-CM-4743-01A,TCGA-CM-4743,Primary Tumor,1.0013,0.9387,neutrophils,0.24,inside Normal
+TCGA-CM-4744-01A,TCGA-CM-4744,Primary Tumor,1.05612,1.03445,cd8 temra t cells,0.146,above Normal
+TCGA-CM-4746-01A,TCGA-CM-4746,Primary Tumor,0.98512,0.93758,colon epithelium,0.247,inside Normal
+TCGA-CM-4747-01A,TCGA-CM-4747,Primary Tumor,0.99434,0.95459,colon epithelium,0.284,inside Normal
+TCGA-CM-4748-01A,TCGA-CM-4748,Primary Tumor,1.00386,0.962,colon epithelium,0.315,inside Normal
+TCGA-CM-4750-01A,TCGA-CM-4750,Primary Tumor,1.00541,0.95736,colon epithelium,0.219,inside Normal
+TCGA-CM-4751-01A,TCGA-CM-4751,Primary Tumor,1.06025,1.00736,colon epithelium,0.178,above Normal
+TCGA-CM-4752-01A,TCGA-CM-4752,Primary Tumor,1.03766,0.96855,colon epithelium,0.204,inside Normal
+TCGA-CM-5341-01A,TCGA-CM-5341,Primary Tumor,0.97859,0.92088,colon epithelium,0.34,inside Normal
+TCGA-CM-5344-01A,TCGA-CM-5344,Primary Tumor,1.02201,0.96543,colon epithelium,0.328,inside Normal
+TCGA-CM-5348-01A,TCGA-CM-5348,Primary Tumor,1.02743,0.97713,cd8 temra t cells,0.148,inside Normal
+TCGA-CM-5349-01A,TCGA-CM-5349,Primary Tumor,1.0065,0.95694,colon epithelium,0.209,inside Normal
+TCGA-CM-5860-01A,TCGA-CM-5860,Primary Tumor,1.03747,1.01732,colon enteroendocrine,0.174,inside Normal
+TCGA-CM-5861-01A,TCGA-CM-5861,Primary Tumor,0.96167,0.89536,prostate epithelium,0.151,inside Normal
+TCGA-CM-5862-01A,TCGA-CM-5862,Primary Tumor,0.99594,0.95663,colon enteroendocrine,0.221,inside Normal
+TCGA-CM-5863-01A,TCGA-CM-5863,Primary Tumor,1.05828,1.00519,colon epithelium,0.141,above Normal
+TCGA-CM-5864-01A,TCGA-CM-5864,Primary Tumor,0.98684,0.95645,colon enteroendocrine,0.242,inside Normal
+TCGA-CM-5868-01A,TCGA-CM-5868,Primary Tumor,1.00247,0.94076,colon epithelium,0.304,inside Normal
+TCGA-CM-6161-01A,TCGA-CM-6161,Primary Tumor,1.03081,0.99509,colon epithelium,0.269,inside Normal
+TCGA-CM-6162-01A,TCGA-CM-6162,Primary Tumor,1.00448,0.92157,colon epithelium,0.158,inside Normal
+TCGA-CM-6163-01A,TCGA-CM-6163,Primary Tumor,0.99805,0.92997,colon epithelium,0.398,inside Normal
+TCGA-CM-6164-01A,TCGA-CM-6164,Primary Tumor,1.03507,0.9674,colon epithelium,0.199,inside Normal
+TCGA-CM-6165-01A,TCGA-CM-6165,Primary Tumor,0.9925,0.94922,colon epithelium,0.517,inside Normal
+TCGA-CM-6166-01A,TCGA-CM-6166,Primary Tumor,1.00172,0.96638,colon enteroendocrine,0.217,inside Normal
+TCGA-CM-6167-01A,TCGA-CM-6167,Primary Tumor,1.01472,0.93657,adipocytes,0.189,inside Normal
+TCGA-CM-6168-01A,TCGA-CM-6168,Primary Tumor,1.02056,0.9472,colon epithelium,0.144,inside Normal
+TCGA-CM-6169-01A,TCGA-CM-6169,Primary Tumor,1.01439,0.97056,cd8 temra t cells,0.153,inside Normal
+TCGA-CM-6170-01A,TCGA-CM-6170,Primary Tumor,0.98861,0.92947,colon epithelium,0.299,inside Normal
+TCGA-CM-6171-01A,TCGA-CM-6171,Primary Tumor,0.96987,0.87114,prostate epithelium,0.196,inside Normal
+TCGA-CM-6172-01A,TCGA-CM-6172,Primary Tumor,0.97408,0.90189,colon epithelium,0.281,inside Normal
+TCGA-CM-6674-01A,TCGA-CM-6674,Primary Tumor,0.99304,0.92453,colon epithelium,0.158,inside Normal
+TCGA-CM-6675-01A,TCGA-CM-6675,Primary Tumor,0.98402,0.99731,colon enteroendocrine,0.191,inside Normal
+TCGA-CM-6676-01A,TCGA-CM-6676,Primary Tumor,1.0107,0.9642,colon epithelium,0.328,inside Normal
+TCGA-CM-6677-01A,TCGA-CM-6677,Primary Tumor,1.04878,1.02535,colon enteroendocrine,0.172,inside Normal
+TCGA-CM-6678-01A,TCGA-CM-6678,Primary Tumor,1.02011,0.96658,colon epithelium,0.251,inside Normal
+TCGA-CM-6679-01A,TCGA-CM-6679,Primary Tumor,1.0169,0.95022,colon epithelium,0.255,inside Normal
+TCGA-CM-6680-01A,TCGA-CM-6680,Primary Tumor,1.0124,0.9893,colon enteroendocrine,0.308,inside Normal
+TCGA-D5-5537-01A,TCGA-D5-5537,Primary Tumor,0.98389,0.92339,colon epithelium,0.22,inside Normal
+TCGA-D5-5538-01A,TCGA-D5-5538,Primary Tumor,1.04385,1.01184,colon enteroendocrine,0.217,inside Normal
+TCGA-D5-5539-01A,TCGA-D5-5539,Primary Tumor,1.02168,0.99548,colon enteroendocrine,0.302,inside Normal
+TCGA-D5-5540-01A,TCGA-D5-5540,Primary Tumor,0.89188,0.81083,colon epithelium,0.269,below Normal
+TCGA-D5-5541-01A,TCGA-D5-5541,Primary Tumor,0.99014,0.94323,colon epithelium,0.248,inside Normal
+TCGA-D5-6529-01A,TCGA-D5-6529,Primary Tumor,1.01601,0.95083,colon epithelium,0.157,inside Normal
+TCGA-D5-6530-01A,TCGA-D5-6530,Primary Tumor,0.99361,0.9629,colon epithelium,0.215,inside Normal
+TCGA-D5-6531-01A,TCGA-D5-6531,Primary Tumor,0.97283,0.95803,cd8 temra t cells,0.189,inside Normal
+TCGA-D5-6532-01A,TCGA-D5-6532,Primary Tumor,0.9903,0.95361,colon enteroendocrine,0.227,inside Normal
+TCGA-D5-6533-01A,TCGA-D5-6533,Primary Tumor,0.97454,0.90439,colon epithelium,0.359,inside Normal
+TCGA-D5-6535-01A,TCGA-D5-6535,Primary Tumor,0.9986,0.96619,colon enteroendocrine,0.215,inside Normal
+TCGA-D5-6537-01A,TCGA-D5-6537,Primary Tumor,0.97976,0.93849,colon epithelium,0.327,inside Normal
+TCGA-D5-6538-01A,TCGA-D5-6538,Primary Tumor,0.94227,0.94159,colon enteroendocrine,0.331,below Normal
+TCGA-D5-6539-01A,TCGA-D5-6539,Primary Tumor,1.02455,0.95878,colon epithelium,0.545,inside Normal
+TCGA-D5-6540-01A,TCGA-D5-6540,Primary Tumor,0.96465,0.92689,colon epithelium,0.198,inside Normal
+TCGA-D5-6541-01A,TCGA-D5-6541,Primary Tumor,1.0152,0.97399,colon enteroendocrine,0.184,inside Normal
+TCGA-D5-6926-01A,TCGA-D5-6926,Primary Tumor,1.00411,0.9214,colon epithelium,0.309,inside Normal
+TCGA-DM-A0X9-01A,TCGA-DM-A0X9,Primary Tumor,0.99823,0.96151,colon enteroendocrine,0.315,inside Normal
+TCGA-DM-A0XD-01A,TCGA-DM-A0XD,Primary Tumor,1.0001,0.98447,memory b cells,0.132,inside Normal
+TCGA-DM-A0XF-01A,TCGA-DM-A0XF,Primary Tumor,1.00624,0.94412,colon epithelium,0.239,inside Normal
+TCGA-DM-A1D0-01A,TCGA-DM-A1D0,Primary Tumor,0.95462,0.90995,colon epithelium,0.301,inside Normal
+TCGA-DM-A1D4-01A,TCGA-DM-A1D4,Primary Tumor,0.91919,0.93504,colon epithelium,0.29,below Normal
+TCGA-DM-A1D6-01A,TCGA-DM-A1D6,Primary Tumor,0.92346,0.89526,colon epithelium,0.376,below Normal
+TCGA-DM-A1D7-01A,TCGA-DM-A1D7,Primary Tumor,0.98656,0.95206,colon epithelium,0.307,inside Normal
+TCGA-DM-A1D8-01A,TCGA-DM-A1D8,Primary Tumor,0.97813,0.96304,colon epithelium,0.232,inside Normal
+TCGA-DM-A1D9-01A,TCGA-DM-A1D9,Primary Tumor,0.98205,0.96418,colon enteroendocrine,0.325,inside Normal
+TCGA-DM-A1DA-01A,TCGA-DM-A1DA,Primary Tumor,0.93343,0.93814,colon enteroendocrine,0.271,below Normal
+TCGA-DM-A1DB-01A,TCGA-DM-A1DB,Primary Tumor,0.89402,0.87822,colon epithelium,0.309,below Normal
+TCGA-DM-A1HA-01A,TCGA-DM-A1HA,Primary Tumor,0.83687,0.82298,colon enteroendocrine,0.249,below Normal
+TCGA-DM-A1HB-01A,TCGA-DM-A1HB,Primary Tumor,1.00246,0.95525,prostate epithelium,0.141,inside Normal
+TCGA-DM-A280-01A,TCGA-DM-A280,Primary Tumor,1.03951,0.97519,neutrophils,0.252,inside Normal
+TCGA-DM-A282-01A,TCGA-DM-A282,Primary Tumor,0.98238,0.93944,colon epithelium,0.288,inside Normal
+TCGA-DM-A285-01A,TCGA-DM-A285,Primary Tumor,1.09429,1.06257,lung bronchus epithelium,0.137,above Normal
+TCGA-DM-A288-01A,TCGA-DM-A288,Primary Tumor,0.97799,0.97376,colon enteroendocrine,0.297,inside Normal
+TCGA-DM-A28A-01A,TCGA-DM-A28A,Primary Tumor,0.91935,0.87538,colon epithelium,0.274,below Normal
+TCGA-DM-A28C-01A,TCGA-DM-A28C,Primary Tumor,0.92131,0.87518,colon epithelium,0.439,below Normal
+TCGA-DM-A28E-01A,TCGA-DM-A28E,Primary Tumor,0.95791,0.9169,colon epithelium,0.32,inside Normal
+TCGA-DM-A28F-01A,TCGA-DM-A28F,Primary Tumor,1.00441,0.96478,colon enteroendocrine,0.198,inside Normal
+TCGA-DM-A28H-01A,TCGA-DM-A28H,Primary Tumor,0.95827,0.93054,colon epithelium,0.254,inside Normal
+TCGA-DM-A28K-01A,TCGA-DM-A28K,Primary Tumor,0.98128,0.94716,colon enteroendocrine,0.377,inside Normal
+TCGA-DM-A28M-01A,TCGA-DM-A28M,Primary Tumor,0.95738,0.91729,colon enteroendocrine,0.261,inside Normal
+TCGA-F4-6459-01A,TCGA-F4-6459,Primary Tumor,0.96247,0.8966,colon epithelium,0.381,inside Normal
+TCGA-F4-6463-01A,TCGA-F4-6463,Primary Tumor,1.03773,0.99561,colon epithelium,0.25,inside Normal
+TCGA-F4-6569-01A,TCGA-F4-6569,Primary Tumor,1.00438,0.9419,colon epithelium,0.14,inside Normal
+TCGA-F4-6570-01A,TCGA-F4-6570,Primary Tumor,1.01035,0.96649,cd8 temra t cells,0.166,inside Normal
+TCGA-F4-6703-01A,TCGA-F4-6703,Primary Tumor,1.00587,0.9135,adipocytes,0.201,inside Normal
+TCGA-F4-6704-01A,TCGA-F4-6704,Primary Tumor,1.02681,0.97123,colon epithelium,0.218,inside Normal
+TCGA-F4-6805-01A,TCGA-F4-6805,Primary Tumor,1.0051,0.94185,colon epithelium,0.296,inside Normal
+TCGA-F4-6806-01A,TCGA-F4-6806,Primary Tumor,1.04884,1.01475,colon epithelium,0.201,inside Normal
+TCGA-F4-6807-01A,TCGA-F4-6807,Primary Tumor,1.0266,0.96215,colon epithelium,0.177,inside Normal
+TCGA-F4-6808-01A,TCGA-F4-6808,Primary Tumor,1.01014,0.96711,colon enteroendocrine,0.153,inside Normal
+TCGA-F4-6809-01A,TCGA-F4-6809,Primary Tumor,0.99326,0.92164,colon epithelium,0.289,inside Normal
+TCGA-G4-6293-01A,TCGA-G4-6293,Primary Tumor,1.02963,0.97771,colon epithelium,0.219,inside Normal
+TCGA-G4-6294-01A,TCGA-G4-6294,Primary Tumor,0.92416,0.88284,colon enteroendocrine,0.303,below Normal
+TCGA-G4-6295-01A,TCGA-G4-6295,Primary Tumor,1.00175,0.94848,colon enteroendocrine,0.177,inside Normal
+TCGA-G4-6295-11A,TCGA-G4-6295,Solid Tissue Normal,1.05413,0.96105,colon epithelium,0.473,above Normal
+TCGA-G4-6297-01A,TCGA-G4-6297,Primary Tumor,1.0259,0.98649,colon enteroendocrine,0.198,inside Normal
+TCGA-G4-6297-11A,TCGA-G4-6297,Solid Tissue Normal,1.01273,0.90825,colon epithelium,0.52,inside Normal
+TCGA-G4-6298-01A,TCGA-G4-6298,Primary Tumor,0.99209,0.94233,colon epithelium,0.388,inside Normal
+TCGA-G4-6298-11A,TCGA-G4-6298,Solid Tissue Normal,1.02827,0.9473,colon epithelium,0.639,inside Normal
+TCGA-G4-6302-01A,TCGA-G4-6302,Primary Tumor,1.00729,0.9217,vascular endothelium,0.153,inside Normal
+TCGA-G4-6303-01A,TCGA-G4-6303,Primary Tumor,0.97997,0.93422,colon epithelium,0.297,inside Normal
+TCGA-G4-6307-01A,TCGA-G4-6307,Primary Tumor,0.95992,0.90718,colon epithelium,0.53,inside Normal
+TCGA-G4-6309-01A,TCGA-G4-6309,Primary Tumor,0.95019,0.90741,colon epithelium,0.284,inside Normal
+TCGA-G4-6310-01A,TCGA-G4-6310,Primary Tumor,0.99962,0.96182,colon epithelium,0.196,inside Normal
+TCGA-G4-6311-01A,TCGA-G4-6311,Primary Tumor,1.0276,0.9768,colon epithelium,0.235,inside Normal
+TCGA-G4-6311-11A,TCGA-G4-6311,Solid Tissue Normal,1.02393,0.92671,colon epithelium,0.557,inside Normal
+TCGA-G4-6314-01A,TCGA-G4-6314,Primary Tumor,1.02189,0.98181,colon epithelium,0.24,inside Normal
+TCGA-G4-6314-11A,TCGA-G4-6314,Solid Tissue Normal,1.02214,0.92486,colon epithelium,0.583,inside Normal
+TCGA-G4-6315-01A,TCGA-G4-6315,Primary Tumor,1.012,0.95529,colon epithelium,0.468,inside Normal
+TCGA-G4-6317-01A,TCGA-G4-6317,Primary Tumor,0.9659,0.91097,colon epithelium,0.355,inside Normal
+TCGA-G4-6317-02A,TCGA-G4-6317,Recurrent Tumor,0.94222,0.91575,colon enteroendocrine,0.301,below Normal
+TCGA-G4-6320-01A,TCGA-G4-6320,Primary Tumor,0.99991,0.95553,colon epithelium,0.17,inside Normal
+TCGA-G4-6320-11A,TCGA-G4-6320,Solid Tissue Normal,1.01265,0.90926,colon epithelium,0.651,inside Normal
+TCGA-G4-6321-01A,TCGA-G4-6321,Primary Tumor,1.03056,0.97492,colon epithelium,0.2,inside Normal
+TCGA-G4-6322-01A,TCGA-G4-6322,Primary Tumor,0.97321,0.91345,cd8 temra t cells,0.179,inside Normal
+TCGA-G4-6322-11A,TCGA-G4-6322,Solid Tissue Normal,1.00805,0.91087,colon epithelium,0.787,inside Normal
+TCGA-G4-6323-01A,TCGA-G4-6323,Primary Tumor,1.04762,0.99759,colon epithelium,0.199,inside Normal
+TCGA-G4-6588-01A,TCGA-G4-6588,Primary Tumor,0.99701,0.95675,prostate epithelium,0.16,inside Normal
+TCGA-G4-6625-01A,TCGA-G4-6625,Primary Tumor,1.00433,0.92525,colon epithelium,0.319,inside Normal
+TCGA-G4-6627-01A,TCGA-G4-6627,Primary Tumor,1.0233,0.95006,colon epithelium,0.241,inside Normal
+TCGA-G4-6628-01A,TCGA-G4-6628,Primary Tumor,1.02551,0.97661,cd8 temra t cells,0.257,inside Normal
+TCGA-NH-A50T-01A,TCGA-NH-A50T,Primary Tumor,0.98319,0.935,colon epithelium,0.3,inside Normal
+TCGA-NH-A50U-01A,TCGA-NH-A50U,Primary Tumor,1.00172,0.96462,colon enteroendocrine,0.246,inside Normal
+TCGA-NH-A50V-01A,TCGA-NH-A50V,Primary Tumor,0.98027,0.94064,colon epithelium,0.2,inside Normal
+TCGA-NH-A5IV-01A,TCGA-NH-A5IV,Primary Tumor,1.0105,0.95691,colon enteroendocrine,0.229,inside Normal
+TCGA-NH-A6GA-01A,TCGA-NH-A6GA,Primary Tumor,0.96668,0.90272,colon epithelium,0.22,inside Normal
+TCGA-NH-A6GC-01A,TCGA-NH-A6GC,Primary Tumor,0.95934,0.93834,colon epithelium,0.319,inside Normal
+TCGA-NH-A8F7-01A,TCGA-NH-A8F7,Primary Tumor,0.96233,0.91895,colon epithelium,0.291,inside Normal
+TCGA-NH-A8F7-06A,TCGA-NH-A8F7,Metastatic,0.98454,0.9736,colon enteroendocrine,0.285,inside Normal
+TCGA-NH-A8F8-01A,TCGA-NH-A8F8,Primary Tumor,0.99999,0.95228,colon epithelium,0.169,inside Normal
+TCGA-QG-A5YV-01A,TCGA-QG-A5YV,Primary Tumor,0.96785,0.91749,colon epithelium,0.385,inside Normal
+TCGA-QG-A5YW-01A,TCGA-QG-A5YW,Primary Tumor,1.01568,0.95483,colon epithelium,0.21,inside Normal
+TCGA-QG-A5YX-01A,TCGA-QG-A5YX,Primary Tumor,1.00741,0.96725,colon epithelium,0.289,inside Normal
+TCGA-QG-A5Z1-01A,TCGA-QG-A5Z1,Primary Tumor,0.97551,0.9469,colon epithelium,0.455,inside Normal
+TCGA-QG-A5Z2-01A,TCGA-QG-A5Z2,Primary Tumor,0.99819,0.9436,colon epithelium,0.204,inside Normal
+TCGA-QL-A97D-01A,TCGA-QL-A97D,Primary Tumor,0.99857,0.96268,colon enteroendocrine,0.237,inside Normal
+TCGA-RU-A8FL-01A,TCGA-RU-A8FL,Primary Tumor,0.99555,0.92739,colon epithelium,0.267,inside Normal
+TCGA-T9-A92H-01A,TCGA-T9-A92H,Primary Tumor,0.96781,0.90822,colon epithelium,0.364,inside Normal
+TCGA-WS-AB45-01A,TCGA-WS-AB45,Primary Tumor,0.99009,0.90558,vascular endothelium,0.159,inside Normal

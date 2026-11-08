@@ -624,6 +624,41 @@
    "status": "reference only (replay on every atlas cell; spent data; values route; AML has no healthy group in this set)",
    "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
    "rows_table": true
+  },
+  {
+   "id": "WAVE-C-COAD-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_c/rc_coad_rows.csv",
+   "status": "reference only (replay of spent TCGA-COAD data on every atlas cell; no healthy donors in this set)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "WAVE-C-LIHC-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_c/rc_lihc_rows.csv",
+   "status": "reference only (replay of spent TCGA-LIHC data on every atlas cell; no healthy donors in this set)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "WAVE-C-LUAD-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_c/rc_luad_rows.csv",
+   "status": "reference only (replay of spent TCGA-LUAD data on every atlas cell; no healthy donors in this set)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "WAVE-C-BLCA-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_c/rc_blca_rows.csv",
+   "status": "reference only (replay of spent TCGA-BLCA data on every atlas cell; no healthy donors in this set)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
+  },
+  {
+   "id": "WAVE-C-READ-ATLAS",
+   "file": "Biological_Physics/MethylPhys/doors/data/DEV_REPLICATE_01/wave_c/rc_read_rows.csv",
+   "status": "reference only (replay of spent TCGA-READ data on every atlas cell; no healthy donors in this set)",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+   "rows_table": true
   }
  ],
  "lines": {
