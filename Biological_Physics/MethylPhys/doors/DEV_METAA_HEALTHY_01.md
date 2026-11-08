@@ -863,3 +863,21 @@ by the whole person, the chain also reads the cell's share lower (a sorted CD8 s
 shift shared by every site cannot be told apart from the array's own offset by any line, so the wide line takes part of it out (neutrophils 0.0025
 against a truth of 0.0062). The chain change: `--dev-line-wide` (stage_metaa_atlas.LINE_WIDE, development). The width synthetic runs again,
 unchanged but for that flag (`width_synthetic_wide.py`).
+
+**The width synthetic with the wide line: not met, closer** (`DEV_METAA_HEALTHY_01/width_synthetic_wide_summary.txt`; 120 people, the one command with `--dev-line-wide`). The readings now spread
+1.6 to 4.1 times the truth (2.2 to 2.7 at site-by-site spread, was 2.5 to 4.1 with the anchors' line); centers 1.0018 to 1.0061; main cell found
+120 of 120. What remains is the array's own noise: at site-by-site spread the healthy people differ by only 0.09 % to 0.11 % in a cell's Met-A,
+and one array reads that Met-A with about 0.2 % uncertainty of its own (the repeat arm, one person read 20 times, gave 0.29 % to 0.54 % on the
+anchors' line), so no single array can give back a spread that small. That bar asked the chain to recover the true spread between people; the
+gauge's job is smaller: a healthy person reads Normal, where Normal is the width of healthy people read the same way, the array's own noise
+included, as a new person's reading includes it.
+
+**The new-people test of the measured width (written and committed before it runs).** The instrument's job: a healthy person reads Normal on
+the gauge. Normal for each cell and spread: the 20 people just read (the donors), median plus or minus 1.96 times their spread. Twenty new
+healthy people per cell and spread, built the same way from a new seed (`width_new.py`), read by the one command with `--dev-line-wide`.
+Bars: 1. at least 18 of each 20 new people inside Normal, every cell and spread; 2. every main cell found is the planted cell. Reported beside
+it, not scored: the donors' spread against sqrt(truth squared plus the instrument's own repeat spread squared), the repeat arm read again on
+the wide line (`width_diag3.py`). Scored by `width_new_score.py`. If met, the same rule is applied to the atlas's own donors: each cell's Normal
+is the width of its healthy donors read by the one command.
+
+**Normal:** the measured width of the atlas's own donors read by the one command (in this synthetic, its 20 constructed donors stand in for them); no fixed band.
