@@ -4133,3 +4133,78 @@ A full book chapter on the IAM Sequencing Atlas, how it differs from IAM-Atlas v
 - GitHub: full through the day on B and T, plasma and globe jobs; idle from about 5 PM to 11:51 PM (the agent's error), then the R12, R10 and R6 every-cell replays queued.
 
 **Open at turnover:** The Johns Hopkins tissue test (89 of 114 chunks); the R12, R10 and R6 replays; the cross-laboratory reading in measured shares with each library's own terms (synthetic first, then the 89 spent samples); megakaryocytes into the chain's reference after the tissue readings; the Sequencing Atlas Globe page; the GitHub filler queue and its idle alarm.
+
+### 2026-11-07 · Day summary
+**Set out:** After the author's correction late on 11-06 (run the full chain always and let the chain decide), read every outside sample by what the IAM-Deconvolver finds in it, not its label, and settle the cross-laboratory problem on the 89 spent outside samples. Keep every machine busy, finish the Johns Hopkins tissue merges, put the Sequencing Atlas Globe page live, and line the night's work up while the author slept.
+
+**Ran, and how each came out:**
+- The chain's own reports on the 89 outside samples, tabulated: the cell the Deconvolver finds most of is 24 to 80 % of each "sorted" sample (one Johns Hopkins "CD4" mostly monocytes); false-call rates 0.0016 to 0.0158, depth 3 to 71 reads a site (reference: IAM Sequencing Atlas).
+- The Deconvolver-decides synthetic: met, four arrays labeled sorted CD4 each read as what the Deconvolver found (`2c6dab8d`).
+- The islands follow each library's own floor (rho +0.954, 89 samples); outside libraries pass their whole floor to the islands, the atlas laboratory 0.29 (`3647b491`). The domains read the naive or memory state of the cells inside BLUEPRINT, not age (`8771a652`).
+- Naive and memory CD4 synthetic: met; the Deconvolver recovers the planted memory share within 0.15 at 15 and 40 reads a site.
+- Johns Hopkins tumor against the same person's non-tumor tissue (GEO's "normal", not healthy): not met, whole sample moved in 2 of 5 people, islands in 4 of 5.
+- Met-A healthy line, arrays, IAM-Atlas v2.1: synthetic test 3 not met (clipping at the high tail); test 4 not met and ran without its flag; test 5 met (`92368bdb`); test 6 not met on centering (`dd79adb1`); test 7 not met on centering, all 30 arrays inside Normal, center and high tail 1.00575 and 1.01165 (`839fcce6`).
+- The 100 spent healthy bloods, per person, atlas only: 98 of 100 inside Normal on the atlas ruler's values (`1df2d27e`); read again with the prediction on each array's own values, 100 of 100, 20 of 20 in each of five laboratories, center 0.987 (`4633ac82`). Not commissioned: spent data, centering open.
+- Class floor: version 1 synthetic not met (counted the islands' own low methylation, `9916a14f`); version 2, counted at the 32,570 library-floor sites inside the islands, met, every laboratory setting 0.989 to 1.004 (`26ce89e0`); the cross-laboratory rehearsal with it on the 89: not met, 8 of 76 inside Normal, laboratories pulled together (islands medians 0.30-1.37 became 0.85-0.94) but all below Normal, 13 refused (`839fcce6`).
+- Lock 1, the reference door: synthetic met; a changed or unlisted atlas file stops the run before any reading (`6086806c`).
+- Replays on every IAM-Atlas v2.1 cell (spent data): R5 IBD, blood differs in cell mix and a smoking site, not Met-A; sorted cells nothing separates (`8a412d58`). R6 stroke subtypes nothing separates (`ed710e35`). R6 aging: the age site rho +0.931, CD8 TEMRA share +0.614, whole-sample Met-A +0.474 (`c41e156b`). R15 AddNeuroMed nothing separates; R16 GIFT, PSP and AD separate with cell-mix differences, FTD does not; R17 breast, cancer separates from healthy donors, normal-adjacent does not (`47e32054`). R18 colon, cancer separates; normal colon of cancer patients reads the same on the whole-sample gauge as normal colon of people without cancer (0.9928 against 0.9921) but higher at the identity sites of the cells found (1.0030 against 0.9587, p 2.4e-05); R19 cervix, cancer separates, CIN3 does not; R20 AML, DNMT3A status does not separate (`7d90f243`). A-score rows for each.
+- Donor sources of both atlases, from each source's record and paper (metadata only): `9533d083`, `3b41f959`, `4e2a4411`, `b587324f`.
+
+**Successes:**
+- The label rule is in the chain: the Deconvolver decides what is in every sample; four label paths removed; gate rule 23b-h refuses any return (`f77d594a`).
+- The five anti-drift locks are live: the atlases are the only healthy reference, checked by checksum on every run and named in every bundle and every day-log result (`1912d48e`, `897c9600`, `cfb2a423`).
+- 100 of 100 spent healthy bloods inside Normal against the atlas alone, per person.
+- The Sequencing Atlas Globe showpiece page live and checked by browser screenshots (`289bfd8b`).
+- What makes IAM's atlases a ruler, and who their donors were, written once (CANON/atlas_story.json) into the atlas README, the book's atlas chapter, the researcher Q&A and the site (`ff5288a8`), and into both atlases' Zenodo descriptions (metadata only, DOIs unchanged).
+
+**Learned:**
+- A same-group tare reads Normal at the median by construction and hides each person; bars are per person from now on (kiss_check rule f).
+- `--full-chain` turns on the atlas ruler, and the healthy line was being measured again on ruler-mapped values; `--dev-pred-raw` reads it on the array's own values (`0725abd9`).
+- The Deconvolver moves 7 to 24 % of a constructed array's mix between neighboring subsets (`c83f3df4`); what is left of test 7's centering follows that.
+- The atlases' healthy is healthy or verified-normal donors purified to single cell types: 119 of the sequencing atlas's 156 files are normal tissue from surgery for something else; v2.1's new sources mix healthy volunteers, disease studies' controls, a population cohort and donors whose health is not described. It is not a cohort free of disease, and the tables say where a source says less.
+- An outside laboratory's library chemistry reaches every reading; the class floor fixes the islands' level but a term the synthetic left out (most likely person-to-person spread at the islands) keeps every laboratory low.
+
+**Errors (the agent's own), and what caught each:**
+- The label chose the cell inside the chain (code added 10-22 to 10-28) and in the scorers; caught by the author.
+- R12 sent on 20 machines filled GitHub; the commit gate waited 30+ minutes (the 11-04 lesson); caught by my check of the gate run.
+- I misread UTC machine logs as Pacific ("3 AM yesterday") and tied the dropped merges to idle machines; caught by the author, twice.
+- Five tumor merges dropped after three tries each: my sample list put GEO's status word in the specimen; caught by the author's question; watchers now print GAVE UP and STUCK.
+- The same-lab tare, the CD4 tare and tumor against "own normal" built references outside the atlas; caught by the author.
+- The tissue record said every sample read 1.20 to 1.36 (one tumor reads 1.0416); caught by the reviewer, fixed before push.
+- I said "18 running and 8 queued" against a tool output of 26-27 counted with the queue and 4 left; caught by the reviewer.
+- Test 3's record quoted the offline line where the chain's was meant; caught by the reviewer. Test 3's result and test 4's design were erased from main by a commit in flight (a 5-day-old lesson); caught by my check.
+- Test 4's flag set only on sequencing branches, so test 4 ran without it; caught by my check of the bundles.
+- The class-floor machine sat idle about 6 hours on an undefined variable; caught by my check; a stall check now flags any log unchanged 45 minutes.
+- Five replays queued from the run registry that the record already held (R9 glioma, R5 liver, R7, R8, R9 endothelial); caught by my check against the record.
+- The filler's overflow let a commit gate wait 75 minutes while Google sat idle; caught by my check.
+- Line endings in the cross-laboratory job failed every second-laboratory download; caught by the run logs; no reading made.
+- R18, R19 and R20 sent at 4 shards, which the series workflow refuses (the R14 lesson); caught by the failed runs; the filler now refuses it in code.
+
+**The author's instructions and corrections:**
+- "The chain itself was supposed to prevent you from using anyting outside of the chain ... the decovolver is ALWAYS the first things we use ... I dont care what the label says ... the chain does the talking."
+- "make sure they save continuously to the bucket so we dont lose hours of work if they are recalled. Also, keep all the github machines running too."
+- "healthy for comparisons MUST always come from the atlas's because that is what we created them for"; "I thought we had already agreed that the atlas's was our reference and our ruler?"; "the arrays should be the easiest to revisit and commission with the atlas as the ruler".
+- "we need to make sure this doesnt happen again ... This is the sort of thing that cost me months of work before"; "make sure the decoder is updated with all this info".
+- Before sleep: twelve hours lined out, watchers watching, everything saving to the bucket, a new Zenodo version once commissioning on the atlases is done, "no downtime please".
+- On adjacent tissue: add it to the predictions before those tests run, "we shouldnt throw the baby out with the bathwater"; one atlas for every patient rather than "normal always changing the goal posts".
+- The "what makes our atlases different" explanation into the summary, website, book and Q&A; the donor table into the atlas chapters, the Zenodo records and anywhere the atlases' building is described.
+
+**Path changes:**
+- The atlases are the only healthy reference: Met-A on neutrophils, the C-Score and Group-A, commissioned on a same-run tare, are being re-commissioned on IAM-Atlas v2.1 (plan 60.29); sequencing after (60.30); IAM-A, the atlas and the Deconvolver stand.
+- The same-laboratory tare is withdrawn as a reference.
+- The 450K C-Score platform term was calibrated on labeled-healthy bloods (disclosed, `53ec910b`); to be replaced from the atlases (60.29.2).
+- Wave C begins: TCGA-COAD read per person against the atlas (`5eac30bd`); the series runner fetches arrays by URL from the NCI GDC with md5 checked.
+
+**Data:**
+- Spent today: none new; every reading was a replay or a rehearsal on spent data, stated as such.
+- Read from public metadata only: the donor sources of both atlases (GEO fields and source papers); TCGA-COAD's file list (352 arrays).
+- Held unread: the fresh tests for Met-A on arrays and for the monocytes.
+
+**Machines:**
+- GitHub: R12, R6, R7, R8, R5, R9, wave B, the 100-blood rehearsal twice, the per-person breast reading; the filler (gh_filler.py) keeps 2 machines free and holds sends while a gate run waits.
+- Google: the Johns Hopkins tissue merges (now saving as they go), the class-floor synthetics (18 parts), the healthy-line tests 4 to 7, the capture, the cross-laboratory rehearsal (31 jobs); idle in the evening until the next laboratory test is written.
+- Pages publishing stalled three times with no incident posted; a fresh build each time.
+
+**Open at turnover:**
+- Running: R17 breast read per person (`r17_raw`, GitHub); queued: TCGA-COAD (`rc_coad`).
+- Next: why every laboratory's islands read low after the class floor (the main cell's share fits best, rho -0.32, p 0.004), synthetic first with person spread at the islands; test 7's centering; the C-Score's limit from the atlases; then the fresh test on held arrays; the donor tables into the next Zenodo version of each atlas after commissioning.

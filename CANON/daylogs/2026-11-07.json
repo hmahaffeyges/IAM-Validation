@@ -146,6 +146,61 @@
      "what": "A capture of the values the line is measured on: --full-chain turns on the atlas ruler and the line was measured again on ruler values.",
      "outcome": "--dev-pred-raw reads the prediction on the array's own values; test 7 and the 100-blood rehearsal re-read are running.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "The 100 spent healthy bloods read again, prediction on each array's own values",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1",
+     "what": "Per person, atlas only, --dev-pred-raw.",
+     "outcome": "Met: 100 of 100 inside Normal, 20 of 20 in each laboratory; center 0.987 recorded; not commissioned.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/zenodo_v11_summary.txt"
+     ]
+    },
+    {
+     "title": "Cross-laboratory rehearsal with the class floor and synthetic test 7",
+     "status": "failed",
+     "reference": "IAM Sequencing Atlas",
+     "what": "The 89 spent outside samples re-read with the class floor; test 7 with the prediction on each array's own values (IAM-Atlas v2.1).",
+     "outcome": "Both not met: laboratories pulled together but all below Normal (8 of 76); test 7 off on centering.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/zenodo_v11_summary.txt"
+     ]
+    },
+    {
+     "title": "Wave B replays R18 to R20 on every atlas cell",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1",
+     "what": "Colon, cervix and AML, values route, untared.",
+     "outcome": "Colon: normal colon of cancer patients higher at the identity sites than normal colon of people without cancer, whole-sample the same; cervix cancer separates, CIN3 does not; AML nothing.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/zenodo_v11_summary.txt"
+     ]
+    },
+    {
+     "title": "Who both atlases' donors were",
+     "status": "metadata only",
+     "reference": "none (not a reading against healthy): an audit of the atlases' donor sources",
+     "what": "Every group of both atlases tabled from its record and paper; written into the atlas README, book, Q&A, site and both Zenodo descriptions.",
+     "outcome": "Healthy or verified-normal donors purified to single cell types; where a source says less, the tables say so.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/zenodo_v11_summary.txt"
+     ]
+    },
+    {
+     "title": "Wave C written: TCGA-COAD read per person",
+     "status": "sealed",
+     "reference": "IAM-Atlas v2.1",
+     "what": "352 arrays, 38 people with tumor and adjacent normal; written before any reading.",
+     "outcome": "Queued on GitHub.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+     "rows": [
+      "Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/zenodo_v11_summary.txt"
+     ]
     }
    ]
   },
