@@ -1,0 +1,9 @@
+The IAM-Deconvolver on constructed bloods of known shares (diagnostic, development; nothing scored): medians per blood
+stray = share given to cells not in the blood; sub_share = share given to subtypes of the six cells; err_* = found (subtypes under their parent) minus built
+            stray  sub_share  err_neutrophils  err_monocytes  err_cd4  err_cd8   err_b  err_nk
+src                                                                                           
+real       0.0639     0.0416          -0.0242        -0.0208   0.0018  -0.0154 -0.0107  0.0003
+synthetic  0.0380     0.0000          -0.0070        -0.0166   0.0014  -0.0221 -0.0080  0.0056
+stray, 90th percentile: {"real": 0.106, "synthetic": 0.0537}
+in percent, real: stray 6.39 % (90th percentile 10.60 %) | neutrophils -2.41 | monocytes -2.08 | cd8 -1.53 points
+in percent, synthetic: stray 3.79 % (90th percentile 5.37 %) | neutrophils -0.70 | monocytes -1.66 | cd8 -2.21 points

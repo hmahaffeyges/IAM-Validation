@@ -1048,3 +1048,11 @@ The test: 200 new constructed bloods (`blood_constructed.py` MODE all, new seeds
 donors); a pass gives the gauge its Normal on a regular blood draw for development; commissioning needs a sealed test on unseen arrays.
 
 **Correction:** the message of commit 9afcf3d6 gives the rotation diagnostic as 963 of 1000 inside; it was 923 of 958 (96.3 %), as written above and in `blood_constructed_rotation_diag_summary.csv`.
+
+**The Deconvolver's false shares on known mixes (diagnostic, development; nothing scored).** On the 400 constructed bloods already read, whose
+shares are known (`deconv_false_shares.txt`): the share given to cells that are not in the blood is a median 6.39 % of each real
+constructed blood (10.60 % at the 90th percentile) and 3.80 % of each synthetic one, taken mostly from neutrophils (median
+-2.42 points), monocytes (-2.08) and CD8 T cells (-1.54); the cells it goes to are bone-marrow precursors,
+eosinophils and tissue macrophages. Three ways forward, each to be tested on these known mixes first: a reporting floor measured on them (a
+share below it is not reported as a cell found); identity sites that separate the precursors from the blood cells they come from; or a panel
+chosen by the route. The last needs care: the label picks only the route, never the cell (LABEL_RULE), so it is for the author and me to weigh.
