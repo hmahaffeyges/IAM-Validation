@@ -37,7 +37,7 @@ jobs:
             texlive-latex-extra texlive-fonts-recommended texlive-science poppler-utils imagemagick epubcheck
       - name: Install tectonic (the engine the book is compiled with; builds the PDFs)
         run: |
-          curl -fsSL -o /tmp/tectonic.tgz \
+          curl -fsSL --retry 6 --retry-delay 20 --retry-all-errors -o /tmp/tectonic.tgz \
             "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.15.0/tectonic-0.15.0-x86_64-unknown-linux-musl.tar.gz"
           sudo tar -xzf /tmp/tectonic.tgz -C /usr/local/bin tectonic
           tectonic --version
