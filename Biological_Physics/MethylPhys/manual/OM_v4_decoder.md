@@ -149,7 +149,8 @@ because that is what they were created for, and no instrument is tared with anyt
 **How the code holds it.**
 - `CANON/chain_gate.py` rule 23b-i refuses any line added to chain code or a test's code that builds a reference from other samples (a tare
   call, a division by the median of the others or of a healthy, normal or control group, a tumor divided by a normal); its control cases C22 to
-  C26 include the real lines from the scorers where this happened.
+  C25 are lines written in the form the scorers used where this happened (not copies of those lines), each refused; C26, a reading
+  against the atlas's own prediction, must be accepted.
 - `CANON/kiss_check.py` rules e and f refuse a test written before it runs that lacks a `**Reference:**` line naming an atlas, names any other
   reference, or has no bar asked of each person or sample (a median alone can be met while most people are outside Normal).
 - `CANON/commissioning_check.py` refuses a commissioning from this date on that is not on the atlases alone; each older commissioning states its

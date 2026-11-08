@@ -559,7 +559,7 @@ mean of its 10 draws is within 0.005 of 1; 3. on each of the 3, a 5 % loss raise
 | low tail | 10 of 10 | 0.99965 | 0.00231 |
 | high tail | 10 of 10 | 1.00069 | 0.00256 |
 
-All three bars met; test 2's weak array, beyond the real range, read 0.99685 (recorded). With the line measured from censored anchors, the high
+All three bars met; test 3's weak array (as the scorer names it: test 2's weak condition carried into test 3), beyond the real range, read 0.99685 (recorded). With the line measured from censored anchors, the high
 tail's bias under the plain line (test 4: mean 0.99192) is gone. **Next:** the per-person rehearsal on the 100 spent healthy bloods, read with
 `--dev-line-censored` (its design above); then a fresh test on held healthy arrays.
 
