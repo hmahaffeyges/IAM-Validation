@@ -714,3 +714,10 @@ values is refused.
 shows on each. Bar 2 not met: the center's mean 1.00575 and the high tail's 1.01165 (the low tail 0.99769). With the prediction on each array's
 own values the low tail is corrected (test 6: 0.98081); what remains follows the IAM-Deconvolver's share drift between neighboring subsets
 (the diagnostic above), which the healthy prediction does not yet carry.
+
+**The per-person rehearsal read again with the prediction on each array's own values: met** (`DEV_METAA_HEALTHY_01/wb100_raw/wb100_raw_summary.txt`, `wb100_raw_readings.csv`; series run wb100_raw, the committed
+scorer; none refused.) All 100 healthy bloods read A / A_pred inside Normal, 20 of 20 in each of the five laboratories (the first rehearsal, on
+the atlas ruler's values: 98 of 100). Recorded: the center is 0.9869 (laboratory medians 0.9720 to 1.0022), below 1 as synthetic test 7's
+centering bar, not met, also shows; the C-Score within its derived limit 96 of 100 (that limit's term was calibrated on labeled-healthy bloods,
+disclosed above, so it is not independent). Met-A on whole blood arrays against the atlas alone is not commissioned from this: these bloods
+are spent, and test 7's centering is open.

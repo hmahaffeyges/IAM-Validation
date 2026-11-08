@@ -1,0 +1,13 @@
+DEV-METAA-HEALTHY-01 per-person rehearsal: 100 of 100 healthy bloods read (reference IAM-Atlas v2.1 only)
+refused (prediction not on the array's own values): 0
+Met-A A / A_pred inside 0.95 to 1.05: 100 of 100
+  GSE153712: 20 of 20
+  GSE235717: 20 of 20
+  GSE42861: 20 of 20
+  GSE51032: 20 of 20
+  GSE87571: 20 of 20
+recorded: untared A inside 0.95 to 1.05: 0 of 100
+recorded: C-Score whole genome within its derived limit: 96 of 100
+bar 1 (at least 90 of 100 inside Normal): met
+bar 2 (at least 16 of 20 in each laboratory): met
+rehearsal: met
