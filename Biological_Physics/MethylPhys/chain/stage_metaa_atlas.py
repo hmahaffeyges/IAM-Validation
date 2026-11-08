@@ -755,7 +755,7 @@ def array_blur(xs, es):
         out[d] = dict(a=round(a_, 5), b=round(b_, 5), s=round(s_, 5), anchors=int(len(lo) + len(hi))) | ({"line": "censored"} if LINE_CENSORED else {})
     return out
 
-def predicted_healthy(xs, es, w, blur=None):
+def predicted_healthy(xs, es, w, blur=None, min_sites=10000):   # 2026-11-07: min_sites (a cell's identity sites are at most 6,000; cell_prediction passes 500, the by-place readings' floor)
     """Met-A's healthy middle line predicted from the array itself (development, DEV-METAA-HEALTHY-01). At each site, the disorder this array
     would show if the sample were exactly the atlas in its own mix: E[H(clip(a_d + b_d e + noise, 0, 1))] over noise N(0, s_d^2), by
     Gauss-Hermite quadrature, with d the site's probe design; A_pred = sum w E[H] / sum w H(e). A healthy sample should read A / A_pred = 1."""
@@ -769,7 +769,7 @@ def predicted_healthy(xs, es, w, blur=None):
         mu = q["a"] + q["b"] * e[m]; v = np.clip(mu[:, None] + q["s"] * z[None, :], 1e-6, 1 - 1e-6)
         EH[m] = (-(v * np.log2(v) + (1 - v) * np.log2(1 - v)) * wz[None, :]).sum(1)
     k = np.isfinite(EH); he = np.asarray(_H(es), dtype="float64")
-    if k.sum() < 10000: return dict(reason=f"only {int(k.sum())} sites carry a recorded probe design", blur=blur)
+    if k.sum() < min_sites: return dict(reason=f"only {int(k.sum())} sites carry a recorded probe design", blur=blur)
     return dict(A_pred=round(float((w[k] * EH[k]).sum() / (w[k] * he[k]).sum()), 5), sites=int(k.sum()), blur=blur)
 
 PRED_RAW = False   # 2026-11-07 (run_sample.py --dev-pred-raw; development, DEV-METAA-HEALTHY-01 test 6's capture): the healthy prediction of an
@@ -900,7 +900,8 @@ def cell_prediction(each, beta, shares, blur):
             e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
             ok = x.notna() & e.notna() & (cover >= MIX_COVER); x, e = x[ok], e[ok]; w = pd.Series(1.0, index=e.index)
             Ar = float(np.asarray(_H(x), dtype="float64").mean() / np.asarray(_H(e), dtype="float64").mean())
-            hp = predicted_healthy(x, e, w, blur=blur)
+            hp = predicted_healthy(x, e, w, blur=blur, min_sites=500)
+            if not hp.get("A_pred"): r["prediction"] = "not made: " + str(hp.get("reason")); continue
             r.update(A_raw=round(Ar, 5), A_pred=hp.get("A_pred"), ratio=round(Ar / hp["A_pred"], 5) if hp.get("A_pred") else None,
                      prediction="the array's own line and noise (measured once on the whole array) applied to the atlas in this sample's mix at this cell's identity sites")
         except Exception as ex: r["prediction"] = f"not made: {type(ex).__name__}: {str(ex)[:120]}"

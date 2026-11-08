@@ -826,3 +826,9 @@ reading the same healthy prediction at that cell's identity sites, synthetic fir
 (measured once on the whole array, as for the whole-sample reading) applied to the atlas in the sample's mix; the cell's reading in `cells_found`
 is A_raw / A_pred, with both kept beside it. The width synthetic's previous parts are set aside (`metaa_healthy/width_second_run/`) and it runs
 again with nothing changed in it.
+
+**The width synthetic's third run: the per-cell prediction never ran (my error, disclosed; no new reading).** It came back identical to the second run, digit for digit. Cause: the healthy prediction refuses fewer
+than 10,000 sites (written for the whole sample), and a cell has at most 6,000 identity sites, so every cell's prediction was refused and
+its reading stayed uncorrected, silently. Fixed: `predicted_healthy` takes a site floor, the per-cell call uses 500 (the floor the chain's
+by-place readings already use), and a refused prediction is now written on the row. The third run's parts are set aside
+(`metaa_healthy/width_third_run/`) and the synthetic runs again unchanged.

@@ -35,11 +35,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **509 functions** (nested ones included); 509 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **511 functions** (nested ones included); 511 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,470 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,474 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -68,11 +68,11 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_groupa.py` | 118 | 5 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 909 | 48 | 0 | 0 |
+| `stage_metaa_atlas.py` | 910 | 48 | 0 | 0 |
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
-| `MethylPhys_Interface/reference_globes.py` | 181 | 10 | 0 | 0 |
+| `MethylPhys_Interface/reference_globes.py` | 218 | 12 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 180 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 | `stage_seq_atlas.py` | 895 | 46 | 0 | 0 |
@@ -360,7 +360,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 477 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 481 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -368,7 +368,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 254 (221 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build-samples B and --bundle OUT.json`, `_layout.npz`, `_summary.txt`, `import pyarrow.parquet`, `sites.parquet`, `truth.json`
+*Code:* `MethylPhys_Interface/run_sample.py` line 254 (225 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build seq-wg-sphere needs --build-input TEXTURES.npz`, `--build-samples B and --bundle OUT.json`, `MORE.npz`, `_layout.npz`, `_summary.txt`, `import pyarrow.parquet`, `sites.parquet`, `truth.json`
 
 ### `run_sample.py::_dev_run`
 
@@ -376,7 +376,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 500 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 504 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -386,14 +386,14 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 544 (924 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 548 (924 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`, `sites.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1081 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1085 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -401,13 +401,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 846 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 850 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1392 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1396 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3182,13 +3182,13 @@ Measures the array's own blur, per probe design, at its anchor sites: the straig
 
 Met-A's healthy middle line predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
 
-*Code:* `stage_metaa_atlas.py` line 758 (16 lines) · arguments: xs, es, w, blur · calls: not called on the traced runs · constants read: `GH_NODES`
+*Code:* `stage_metaa_atlas.py` line 758 (16 lines) · arguments: xs, es, w, blur, min_sites · calls: not called on the traced runs · constants read: `GH_NODES`
 
 ### `stage_metaa_atlas.py::cell_prediction`
 
 Each cell's Met-A divided by its own healthy prediction, as the whole-sample reading already is: the array's own line and noise per probe design, measured once on the whole array, applied to the atlas in this sample's mix at that cell's identity sites (predicted_healthy). The row keeps A_raw and A_pred beside the ratio; a healthy cell reads 1. Added when the width synthetic showed each cell's reading carrying the array's line and noise (center 0.89, spread up to ten times the true person spread). Arrays only; on sequencing the expectation already counts the reads.
 
-*Code:* `stage_metaa_atlas.py` line 886 (23 lines) · arguments: each, beta, shares, blur · calls: not called on the traced runs · constants read: `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 886 (24 lines) · arguments: each, beta, shares, blur · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::cells_found`
 
@@ -3621,6 +3621,18 @@ purified-array reference, the atlas's noise, the 79 atlas cells' textures and th
 `explorer-noise`, `atlas-sphere`, `atlas-masks`). `run_series.py` runs the one command over a series of arrays on GitHub (`series.yml`):
 pass 1 reads each array without references; pass 2 reads it again with run_sample.py's own tare against the other healthy arrays of the series
 or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles.
+
+### `reference_globes.py::wg_sphere`
+
+The Globe Viewer's pictures of the Sequencing Atlas Globe at every CpG, drawn from the published browser-sized textures (NSIDE 256, every pixel the average of the CpGs it holds, about 36 of the 28,217,448) by the same drawing rule as the other atlas globes: the level 0 to 1 and the half-width of the 95 % range 0 to 0.15. A picture of the atlas; nothing is read or scored from it. Run by `run_sample.py --build seq-wg-sphere`.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 183 (35 lines) · arguments: out, tex_files · calls: not called on the traced runs · constants read: `GREY`, `HERE`, `HW_MAX` · files named: `Planck_Parchment_RGB.txt`, `globe_wg_textures_n256.npz`, `index.json`
+
+### `reference_globes.py::wg_sphere.tex`
+
+Draws one map as a picture: each picture pixel takes the value of the nearest sphere pixel, colored on the given scale; pixels with no measured CpG are gray. The same rule atlas_sphere uses for the other atlas globes.
+
+*Code:* `MethylPhys_Interface/reference_globes.py` line 199 (3 lines) · arguments: m, cmap, lo, hi, path · calls: not called on the traced runs · constants read: `GREY`
 
 ### `reference_globes.py::slug`
 

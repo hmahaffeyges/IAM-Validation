@@ -76,8 +76,8 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
             dict(name="how sure the atlas is", kind="image", src=f"{art_rel}seq_cells/{c['slug']}_u.jpg", note="Half-width of the 95 % range of the level: dark is certain, bright is +/-0.15 or wider.")]
             + [dict(name=NZ[k][0], kind="image", src=f"{art_rel}seq_noise/{c['slug']}_n{k}.jpg", note=NZ[k][1]) for k in (1, 2) if os.path.exists(os.path.join(ART_, "seq_noise", f"{c['slug']}_n{k}.jpg"))]) for c in qc],
             about=(f"The ruler for sequenced samples, measured with sequencing's own chemistry. Drawn on IAM-Atlas v2.1's layout of 813,951 sites, each with one fixed place: HEALPix NSIDE "
-                   f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as the Array Atlas Globe, so the two atlases can be compared cell for cell; the atlas itself holds every CpG, and a whole-genome globe is still to be built. "
-                   f"A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))
+                   f"{Q['nside']}, {Q['order']} order, in genome order, the same grid as the Array Atlas Globe, so the two atlases can be compared cell for cell; the atlas itself holds every CpG, and its globe at every CpG is built and published (Zenodo 10.5281/zenodo.24029332); "
+                   f"how each part of it works: seq-atlas/globe.html. A picture of the atlas: nothing is read or scored from it. Every cell's page: seq-atlas/index.html.")))
     SHORT = {"healthy-blood": "Healthy whole blood (GSM7508429)", "planted-blood": "Same blood, planted loss", "purified": "Met-A purified reference",
              "noise": "Array atlas uncertainty"}   # menu names short enough for the menu box; each globe's own page text is unchanged
     for g in sorted(glob.glob(os.path.join(ART_, "explorer", "*.json"))):
@@ -87,7 +87,7 @@ def write_sphere(out, art_rel, css_tag, style, back, names):
              + ('<p>Two atlases are here, each on two kinds of map. <b>Atlas globes</b> place every site by where it sits on the DNA: '
                 '<a href="sphere.html">the Array Atlas Globe</a> (IAM-Atlas v2.1, the ruler for arrays) and '
                 '<a href="sphere.html?globe=seq-atlas">the Sequencing Atlas Globe</a> (the IAM Sequencing Atlas, the ruler for sequenced samples, '
-                'drawn on the same 813,951-site layout so the two compare cell for cell). <b>Information spheres</b> place every site by how it behaves '
+                'drawn on the same 813,951-site layout so the two compare cell for cell; <a href="../seq-atlas/globe.html">its globe at every CpG, part by part</a>). <b>Information spheres</b> place every site by how it behaves '
                 'across the cell types: <a href="information_sphere.html">the Array Information Sphere</a> and '
                 '<a href="information_sphere_sequencing.html">the Sequencing Information Sphere</a>. Cell pages: '
                 '<a href="index.html">IAM-Atlas v2.1</a> &middot; <a href="../seq-atlas/index.html">the IAM Sequencing Atlas</a>.</p>' if os.path.exists(fs) else ''))

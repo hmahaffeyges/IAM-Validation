@@ -178,3 +178,40 @@ def atlas_masks(OUT, A=None):
             Image.fromarray(code(vm, 1.0)).save(os.path.join(OUT, s + "_vm.png"), optimize=True); Image.fromarray(code(um, HW_MAX)).save(os.path.join(OUT, s + "_um.png"), optimize=True); n += 1
     print(f"masks: {n} cells written" + (f"; LAYOUT DIFFERS for {len(bad)}: {bad[:4]}" if bad else ""))
     return n, bad
+
+
+def wg_sphere(out, tex_files):
+    """2026-11-07 (author: the Sequencing Atlas Globe on the website must be the new one, at every CpG): the Globe Viewer's pictures of the
+    Sequencing Atlas Globe at every CpG, drawn from the published textures (Zenodo 10.5281/zenodo.24029332: globe_wg_textures_n256.npz and the
+    megakaryocyte column's), by the same drawing rule as atlas_sphere: NSIDE 256, NESTED, every pixel the average of the CpGs it holds (about 36
+    of the 28,217,448 a pixel), the level 0 to 1 and the half-width of the 95 % range 0 to 0.15. A picture of the atlas: nothing is read or scored
+    from it. Writes <slug>_v.jpg, <slug>_u.jpg and index.json (each cell's measured pixels and CpGs, the source files)."""
+    from stage_v4 import nest_pix2ang
+    from scipy.spatial import cKDTree
+    from matplotlib.colors import ListedColormap
+    import matplotlib.pyplot as plt
+    from PIL import Image
+    os.makedirs(out, exist_ok=True); NS = 256; NP = 12 * NS * NS; BL = 65535
+    th, ph = nest_pix2ang(NS, np.arange(NP)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
+    tt = np.pi * (np.arange(HT) + 0.5) / HT; pp = 2 * np.pi * (np.arange(W) + 0.5) / W; T, P = np.meshgrid(tt, pp, indexing="ij")
+    look = cKDTree(xyz).query(np.c_[(np.sin(T) * np.cos(P)).ravel(), (np.sin(T) * np.sin(P)).ravel(), np.cos(T).ravel()])[1]
+    CM = ListedColormap(np.loadtxt(os.path.join(HERE, "data", "Planck_Parchment_RGB.txt")) / 255.0); UC = plt.get_cmap("magma")
+    def tex(m, cmap, lo, hi, path):
+        v = m[look].reshape(HT, W); rgb = (cmap(np.clip((np.nan_to_num(v, nan=lo) - lo) / (hi - lo), 0, 1))[..., :3] * 255).astype(np.uint8)
+        rgb[~np.isfinite(v)] = GREY; Image.fromarray(rgb).save(path, quality=86, optimize=True)
+    dec = lambda a: np.where(a == BL, np.nan, a.astype("float64") / 1e4); cells = []
+    for f in tex_files:
+        Z = np.load(f); names = sorted({k.split("|")[0] for k in Z.files if k.endswith("|mu")})
+        for c in names:
+            mu, lo, hi = dec(Z[f"{c}|mu"]), dec(Z[f"{c}|lo"]), dec(Z[f"{c}|hi"]); n = Z[f"{c}|n"].astype(np.int64)
+            assert len(mu) == NP, (c, len(mu)); hw = (hi - lo) / 2; s = slug(c)
+            tex(mu, CM, 0.0, 1.0, os.path.join(out, s + "_v.jpg")); tex(hw, UC, 0.0, HW_MAX, os.path.join(out, s + "_u.jpg"))
+            _f = np.isfinite(mu); _h = hw[np.isfinite(hw)]
+            cells.append(dict(cell=c, slug=s, pixels_measured=int(_f.sum()), pixels=NP, cpgs_with_reads=int(n.sum()), mean_methylation=round(float(np.nanmean(mu)), 3) if _f.any() else None,
+                              halfwidth_median=round(float(np.median(_h)), 4) if len(_h) else None, source=os.path.basename(f))); print(c, cells[-1]["pixels_measured"], flush=True)
+    cells.sort(key=lambda x: x["cell"].lower())
+    json.dump(dict(atlas="IAM Sequencing Atlas at every CpG (the Sequencing Atlas Globe)", nside=NS, order="NESTED", pixels=NP, cpgs=28217448, texture=[W, HT],
+                   value_scale=[0, 1], uncertainty_scale=[0, HW_MAX], doi="10.5281/zenodo.24029332",
+                   source="run_sample.py --build seq-wg-sphere (chain/MethylPhys_Interface/reference_globes.py wg_sphere), from the published textures", cells=cells),
+              open(os.path.join(out, "index.json"), "w"), indent=1)
+    print(f"whole-genome sphere: {len(cells)} cells written to {out}"); return len(cells)

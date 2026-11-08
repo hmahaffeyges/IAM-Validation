@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1470,
+   "lines": 1474,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 254,
-     "end": 474,
+     "end": 478,
      "args": [
       "a"
      ],
-     "lines": 221,
+     "lines": 225,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -238,7 +238,9 @@
       "--build seq-metaa-counts needs --build-samples INPUTS.csv",
       "--build seq-metaa-donors needs --build-samples INPUTS.csv",
       "--build seq-terr-halves needs --build-samples INPUTS.csv",
+      "--build seq-wg-sphere needs --build-input TEXTURES.npz",
       "--build-samples B and --bundle OUT.json",
+      "MORE.npz",
       "_layout.npz",
       "_summary.txt",
       "import pyarrow.parquet",
@@ -266,8 +268,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 477,
-     "end": 497,
+     "line": 481,
+     "end": 501,
      "args": [
       "a",
       "cnt",
@@ -283,8 +285,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 500,
-     "end": 541,
+     "line": 504,
+     "end": 545,
      "args": [
       "a",
       "o",
@@ -304,8 +306,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 544,
-     "end": 1467,
+     "line": 548,
+     "end": 1471,
      "args": [],
      "lines": 924,
      "doc": "",
@@ -339,8 +341,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 846,
-     "end": 850,
+     "line": 850,
+     "end": 854,
      "args": [
       "r"
      ],
@@ -356,8 +358,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1081,
-     "end": 1088,
+     "line": 1085,
+     "end": 1092,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -369,8 +371,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1392,
-     "end": 1393,
+     "line": 1396,
+     "end": 1397,
      "args": [
       "b",
       "it",
@@ -7047,7 +7049,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 909,
+   "lines": 910,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7842,7 +7844,8 @@
       "xs",
       "es",
       "w",
-      "blur"
+      "blur",
+      "min_sites"
      ],
      "lines": 16,
      "doc": "Met-A's healthy middle line predicted from the array itself (development, DEV-METAA-HEALTHY-01). At each site, the disorder this array would show if the sample were exactly the atlas in its own mix: E[H(clip(a_d + b_d e + noise, 0, 1))] over noise N(0, s_d^2), by Gauss-Hermite quadrature, with d the site's probe design; A_pred = sum w E[H] / sum w H(e). A healthy sample should read A / A_pred = 1.",
@@ -7948,14 +7951,14 @@
      "function": "cell_prediction",
      "name": "cell_prediction",
      "line": 886,
-     "end": 908,
+     "end": 909,
      "args": [
       "each",
       "beta",
       "shares",
       "blur"
      ],
-     "lines": 23,
+     "lines": 24,
      "doc": "2026-11-07 (the width synthetic, not met: each cell's Met-A carried the array's own line and noise, which only the whole-sample reading divided out). For each cell of met_a_each_cell with a reading, on arrays: the same healthy prediction the whole-sample reading uses (predicted_healthy, with the array's line and noise per probe design measured once on the whole array, blur), at that cell's identit",
      "constants": [
       "MIX_COVER"
@@ -8593,7 +8596,7 @@
   },
   {
    "file": "MethylPhys_Interface/reference_globes.py",
-   "lines": 181,
+   "lines": 218,
    "functions": [
     {
      "file": "MethylPhys_Interface/reference_globes.py",
@@ -8794,6 +8797,51 @@
      "lines": 2,
      "doc": "",
      "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "wg_sphere",
+     "name": "wg_sphere",
+     "line": 183,
+     "end": 217,
+     "args": [
+      "out",
+      "tex_files"
+     ],
+     "lines": 35,
+     "doc": "2026-11-07 (author: the Sequencing Atlas Globe on the website must be the new one, at every CpG): the Globe Viewer's pictures of the Sequencing Atlas Globe at every CpG, drawn from the published textures (Zenodo 10.5281/zenodo.24029332: globe_wg_textures_n256.npz and the megakaryocyte column's), by the same drawing rule as atlas_sphere: NSIDE 256, NESTED, every pixel the average of the CpGs it hol",
+     "constants": [
+      "GREY",
+      "HERE",
+      "HW_MAX"
+     ],
+     "data_files": [
+      "Planck_Parchment_RGB.txt",
+      "globe_wg_textures_n256.npz",
+      "index.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "MethylPhys_Interface/reference_globes.py",
+     "function": "wg_sphere.tex",
+     "name": "tex",
+     "line": 199,
+     "end": 201,
+     "args": [
+      "m",
+      "cmap",
+      "lo",
+      "hi",
+      "path"
+     ],
+     "lines": 3,
+     "doc": "",
+     "constants": [
+      "GREY"
+     ],
      "data_files": [],
      "traced_calls": {}
     }
@@ -9957,5 +10005,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 509
+ "n_functions": 511
 }

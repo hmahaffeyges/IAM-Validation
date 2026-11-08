@@ -2319,6 +2319,14 @@ purified-array reference, the atlas's noise, the 79 atlas cells' textures and th
 pass 1 reads each array without references; pass 2 reads it again with run_sample.py's own tare against the other healthy arrays of the series
 or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles.
 
+### reference_globes.py::wg_sphere
+
+The Globe Viewer's pictures of the Sequencing Atlas Globe at every CpG, drawn from the published browser-sized textures (NSIDE 256, every pixel the average of the CpGs it holds, about 36 of the 28,217,448) by the same drawing rule as the other atlas globes: the level 0 to 1 and the half-width of the 95 % range 0 to 0.15. A picture of the atlas; nothing is read or scored from it. Run by `run_sample.py --build seq-wg-sphere`.
+
+### reference_globes.py::wg_sphere.tex
+
+Draws one map as a picture: each picture pixel takes the value of the nearest sphere pixel, colored on the given scale; pixels with no measured CpG are gray. The same rule atlas_sphere uses for the other atlas globes.
+
 ### reference_globes.py::slug
 A cell name as a file name.
 

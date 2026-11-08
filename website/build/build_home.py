@@ -346,7 +346,7 @@ def page(art):
         f'<article class="card"><a href="{_root}atlas/sphere.html?globe=seq-atlas"><img src="{art("seq_cells/b-cells_v.jpg")}" alt="IAM Sequencing Atlas healthy B cells on the sphere" style="width:100%;border-radius:8px"></a>'
         f'<span class="chip st-b">in development</span><h3>The IAM Sequencing Atlas: the ruler for sequenced samples</h3><p>{E(_sents(_A2["what"], 3))}</p>'
         f'<p class="sub">{len(_SQS["cells"])} healthy cell types &middot; {E(_cpg)} CpGs, every one in the genome &middot; counted from reads, donor by donor &middot; DOI {_dl_(_d2)}</p>'
-        f'<p class="cta"><a class="btn" href="{_root}atlas/sphere.html?globe=seq-atlas">Sequencing Atlas Globe</a><a class="btn ghost" href="{_root}seq-atlas/index.html">Every cell, page by page</a>'
+        f'<p class="cta"><a class="btn" href="{_root}seq-atlas/globe.html">The globe at every CpG, part by part</a><a class="btn ghost" href="{_root}atlas/sphere.html?globe=seq-atlas">Sequencing Atlas Globe</a><a class="btn ghost" href="{_root}seq-atlas/index.html">Every cell, page by page</a>'
         f'<a class="btn ghost" href="{_root}atlas/information_sphere_sequencing.html">Sequencing Information Sphere</a></p></article></div>'
         f'<h3>How they differ</h3><div style="overflow-x:auto"><table class="tools"><thead><tr><th></th><th>IAM-Atlas v2.1</th><th>IAM Sequencing Atlas</th></tr></thead><tbody>'
         f'<tr><td>The ruler for</td><td>methylation arrays (450K, EPIC v1, EPIC v2)</td><td>sequenced samples, read as counts of methylated and unmethylated reads</td></tr>'
