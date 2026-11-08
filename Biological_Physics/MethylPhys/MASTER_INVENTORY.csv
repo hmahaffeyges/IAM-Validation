@@ -396,7 +396,7 @@ GSE67393 normal peripheral blood 450K (test half),,,,,spent (development),,,,,,,
 GSE68339,,,,,partly spent,,,,,,,,,
 GSE68456,,,,,,,,DEV_ATLAS_V21_01,atlas build,monocytes | b cells | cd4 t cells | granulocytes | cd8 t cells | nk cells | t cells cd3,yes,IDAT listed for 62/62 samples,Impact of red blood cells on genome-wide DNA methylation and expression analyses of cord blood hematopoietic cells,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE69138,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
-GSE69914,downloads/C_tissue_tests/GSE69914/,6.49,other (txt),no,partly spent,,,DEV_REPLICATE_01; DEV_TISSUE_BREAST_01,,,,,Solid-tissue arrays,S3 register
+GSE69914,downloads/C_tissue_tests/GSE69914/,6.49,other (txt),no,partly spent,,,DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; DEV_TISSUE_BREAST_01,,,,,Solid-tissue arrays,S3 register
 GSE70090,,,,,,,,DEV_FINGERPRINT_03,,,,,,
 GSE71244,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE71378,,,,,partly spent,,,,,,,,,

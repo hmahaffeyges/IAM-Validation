@@ -1,0 +1,4 @@
+The spent breast set GSE69914 (407 arrays) read by the one command with array step 5 (Google, series_google.sh, tag rh2_breast)
+cells found at 5 % or more: 2282; states: {'no width at this share': 1163, 'no width for this cell': 570, 'none': 518, 'Normal': 31}
+those with a state, by cell: {'vascular endothelium': 30, 'cd4 t cells': 1}
+cells found most often at 5 % or more: {'vascular endothelium': 386, 'breast luminal epithelium': 370, 'adipocytes': 220, 'cytotoxic cd4 t cells (cd28-)': 204, 't effector cell cd8': 137, 'breast basal epithelium': 122}

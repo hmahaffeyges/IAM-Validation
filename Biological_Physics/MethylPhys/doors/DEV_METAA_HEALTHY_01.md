@@ -997,3 +997,11 @@ one command as whole blood. 100 constructed bloods (the donors) give each cell's
 **Bars** (false-fail rates for a 95 % Normal computed first): 1. of the new constructed bloods, at least 90 % of all their cell readings
 with a width inside Normal (for 600 readings, 6 cells of 100 bloods: fails by chance under 0.1 %); 2. each of the six cells at least 85 of 100
 (under 0.1 %); 3. every constructed blood's six cells found, each within 5 points of its built share.
+
+**Array step 6, the rehearsal, second half: the spent breast set (GSE69914, 407 arrays) read with step 5** (`rehearsal_breast_states.txt`; development).
+**Prior reading:** GSE69914 was read before (R17, the breast replay, and the earlier VAL tests listed in `CANON/data_spent.csv`); this reading scores nothing. Of 2282 cells found at
+5 % or more, 31 get a state (all Normal; vascular endothelium 30, cd4 t cells 1); the rest have no width at their share or none for the cell,
+and 518 have no Met-A reading at all. The 30 endothelium states carry the note that the atlas's own endothelium donors read their middle at 0.8411, so they are not commissioned. Breast luminal and basal epithelium and adipocytes have no donor width on arrays. As for the
+bloods, the gauge has no Normal yet for the cells of a mixed specimen; the rehearsal shows the chain runs end to end and says so on every row,
+and it shows the two things array commissioning needs next (above): a Normal for cells inside a mix, from the atlas alone, and the per-cell
+reading made steady against small false shares.
