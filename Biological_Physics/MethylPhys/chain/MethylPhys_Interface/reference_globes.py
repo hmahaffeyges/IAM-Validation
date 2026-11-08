@@ -215,3 +215,64 @@ def wg_sphere(out, tex_files):
                    source="run_sample.py --build seq-wg-sphere (chain/MethylPhys_Interface/reference_globes.py wg_sphere), from the published textures", cells=cells),
               open(os.path.join(out, "index.json"), "w"), indent=1)
     print(f"whole-genome sphere: {len(cells)} cells written to {out}"); return len(cells)
+
+
+NZ_LIM = 0.05   # display scale of the whole-genome noise maps, the same for every cell and both maps so they compare: each NSIDE 256 pixel averages
+                # about 36 CpGs, so its half-difference is near 0.03 at the 1st and 99th percentiles (globe_wg_noise_maps_n256.npz); a picture's scale only
+
+
+def wg_layers(out, tex_files, noise_files, seed=20261108):
+    """2026-11-08 (author: 'I want to see a layer that we can toggle between for each of the different tools we use with it ... Imagine its the CMB').
+    The Globe Viewer's layers of the Sequencing Atlas Globe beyond the level and range pictures (wg_sphere), each the picture of a tool already
+    measured at every CpG; nothing new is read or scored here. For each cell: the value codes the viewer's slider reads (<slug>_vm.png, level 0 to 1;
+    <slug>_um.png, half-width 0 to HW_MAX; one byte a pixel, 0 = no measured CpG, 1 to 255 the value, every other row and column, as atlas_masks);
+    noise map 1, donor halves (<slug>_n1.jpg) and noise map 2, read halves (<slug>_n2.jpg), from the noise tools' maps (stage seq_globe_wg.noise_join,
+    globe_wg_noise_maps_n256.npz), on a fixed scale of +/-NZ_LIM; and the null (<slug>_null.jpg): map 2's own values shuffled among the pixels the
+    tools use, seeded, one of the shuffles the null test compares against. One mask for the globe (mask.jpg): the sex chromosomes the tools leave out
+    (the pixels after the last pixel any map holds; genome order puts X and Y last), the pixels no cell measured, and the pixels used.
+    Writes layers.json (what each layer is, its scale, its source)."""
+    from stage_v4 import nest_pix2ang
+    from scipy.spatial import cKDTree
+    import matplotlib.pyplot as plt
+    from PIL import Image
+    os.makedirs(out, exist_ok=True); NS = 256; NP = 12 * NS * NS; BL = 65535
+    th, ph = nest_pix2ang(NS, np.arange(NP)); xyz = np.c_[np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th)]
+    tt = np.pi * (np.arange(HT) + 0.5) / HT; pp = 2 * np.pi * (np.arange(W) + 0.5) / W; T, P = np.meshgrid(tt, pp, indexing="ij")
+    look = cKDTree(xyz).query(np.c_[(np.sin(T) * np.cos(P)).ravel(), (np.sin(T) * np.sin(P)).ravel(), np.cos(T).ravel()])[1]
+    NC = plt.get_cmap("RdBu_r")
+    def tex(m, path):
+        v = m[look].reshape(HT, W); rgb = (NC(np.clip((np.nan_to_num(v, nan=0) + NZ_LIM) / (2 * NZ_LIM), 0, 1))[..., :3] * 255).astype(np.uint8)
+        rgb[~np.isfinite(v)] = GREY; Image.fromarray(rgb).save(path, quality=86, optimize=True)
+    def code(m, hi, path):
+        v = m[look].reshape(HT, W); c = np.where(np.isfinite(v), 1 + np.round(np.clip(v / hi, 0, 1) * 254), 0).astype(np.uint8)
+        Image.fromarray(c[::2, ::2]).save(path, optimize=True)
+    dec = lambda a: np.where(a == BL, np.nan, a.astype("float64") / 1e4)
+    N = {}
+    for f in noise_files:
+        Z = np.load(f); N.update({k: f for k in Z.files})
+    have = np.zeros(NP, bool)
+    for k, f in N.items(): have |= np.isfinite(np.load(f)[k])
+    last = int(np.flatnonzero(have).max()); sex = np.zeros(NP, bool); sex[last + 1:] = True
+    rng = np.random.default_rng(seed); cells = []
+    for f in tex_files:
+        Z = np.load(f)
+        for c in sorted({k.split("|")[0] for k in Z.files if k.endswith("|mu")}):
+            s = slug(c); mu, lo, hi = dec(Z[f"{c}|mu"]), dec(Z[f"{c}|lo"]), dec(Z[f"{c}|hi"]); assert len(mu) == NP, (c, len(mu))
+            code(mu, 1.0, os.path.join(out, s + "_vm.png")); code((hi - lo) / 2, HW_MAX, os.path.join(out, s + "_um.png")); row = dict(cell=c, slug=s, slider=True)
+            for k, name in ((1, "map1 donor halves"), (2, "map2 read halves")):
+                key = f"{c}|{name}"
+                if key not in N: continue
+                m = np.load(N[key])[key].astype("float64"); tex(m, os.path.join(out, f"{s}_n{k}.jpg")); row[f"n{k}"] = True
+                if k == 2:
+                    g = np.isfinite(m) & ~sex; sh = np.full(NP, np.nan); sh[g] = rng.permutation(m[g]); tex(sh, os.path.join(out, s + "_null.jpg")); row["null"] = True
+            cells.append(row); print(c, {k: v for k, v in row.items() if k not in ("cell", "slug")}, flush=True)
+    MK = np.full(NP, 0.5); MK[~have] = 0.0; MK[sex] = 1.0
+    v = MK[look].reshape(HT, W); rgb = np.zeros((HT, W, 3), np.uint8); rgb[v == 0.5] = (70, 92, 120); rgb[v == 0.0] = GREY; rgb[v == 1.0] = (235, 170, 60)
+    Image.fromarray(rgb).save(os.path.join(out, "mask.jpg"), quality=90, optimize=True)
+    rep = dict(atlas="IAM Sequencing Atlas at every CpG (the Sequencing Atlas Globe)", nside=NS, order="NESTED", pixels=NP, noise_scale=[-NZ_LIM, NZ_LIM],
+               value_code="one byte a pixel: 0 no measured CpG, 1 + round(value / top * 254), every other row and column", value_top=1.0, halfwidth_top=HW_MAX,
+               mask=dict(sex_chromosome_pixels=int(sex.sum()), unmeasured_pixels=int((~have & ~sex).sum()), used_pixels=int((have & ~sex).sum()), first_sex_pixel=last + 1),
+               null=dict(rule="map 2's own values shuffled among the pixels the tools use (sex chromosomes and unmeasured pixels left out)", seed=seed),
+               source="run_sample.py --build seq-wg-layers (chain/MethylPhys_Interface/reference_globes.py wg_layers), from the published textures and the noise tools' maps",
+               cells=cells)
+    json.dump(rep, open(os.path.join(out, "layers.json"), "w"), indent=1); print("whole-genome layers:", len(cells), "cells; mask", rep["mask"]); return rep

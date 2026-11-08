@@ -422,6 +422,10 @@ def _build(a):
     if a.build == "seq-atlas-sphere":   # 2026-11-01 (plan 35.30, checklist C1, development): the IAM Sequencing Atlas on the sky sphere
         import stage_seq_atlas as _SQs; import reference_globes as RG
         RG.atlas_sphere(a.build_out, a.build_input or _SQs.SPHERE_DIR, RG.manifests(), name="IAM Sequencing Atlas (development)", pages=False); return 0
+    if a.build == "seq-wg-layers":   # 2026-11-08: the Globe Viewer layers of the Sequencing Atlas Globe: slider codes, noise maps, the null, the mask
+        import reference_globes as RG
+        if not (a.build_input and a.build_samples and a.build_out): print("--build seq-wg-layers needs --build-input TEXTURES.npz[,MORE], --build-samples NOISE_MAPS.npz[,MORE] and --build-out DIR"); return 2
+        RG.wg_layers(a.build_out, [x for x in a.build_input.split(",") if x], [x for x in a.build_samples.split(",") if x]); return 0
     if a.build == "seq-wg-sphere":   # 2026-11-07: the Globe Viewer pictures of the Sequencing Atlas Globe at every CpG, from the published textures
         import reference_globes as RG
         if not (a.build_input and a.build_out): print("--build seq-wg-sphere needs --build-input TEXTURES.npz[,MORE.npz] and --build-out DIR"); return 2
@@ -635,7 +639,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "

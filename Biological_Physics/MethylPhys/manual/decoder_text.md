@@ -2321,6 +2321,18 @@ purified-array reference, the atlas's noise, the 79 atlas cells' textures and th
 pass 1 reads each array without references; pass 2 reads it again with run_sample.py's own tare against the other healthy arrays of the series
 or slide. It reads, tares and scores nothing itself; a scorer reads only the bundles.
 
+### reference_globes.py::wg_layers
+
+The Globe Viewer's layers of the Sequencing Atlas Globe beyond the level and range pictures, each the picture of a tool already measured at every CpG; nothing is read or scored. Per cell: the slider codes for the level and the range; noise map 1 (donor halves) and noise map 2 (read halves) from the noise tools' maps, on one fixed scale (+/-0.05, NZ_LIM) so cells and maps compare; the null, map 2's own values shuffled among the pixels the tools use, one of the shuffles the null test compares against. One mask for the globe: the sex chromosomes the tools leave out, the pixels no cell measured, the pixels used. Run by `run_sample.py --build seq-wg-layers`.
+
+### reference_globes.py::wg_layers.tex
+
+Draws a noise map as a picture on the fixed scale, blue below zero and red above; pixels with no value are gray.
+
+### reference_globes.py::wg_layers.code
+
+Writes the one-byte code the viewer's slider reads: 0 for no measured CpG, else 1 plus the value over its top times 254, every other row and column, the rule atlas_masks uses for the other atlas globes.
+
 ### reference_globes.py::wg_sphere
 
 The Globe Viewer's pictures of the Sequencing Atlas Globe at every CpG, drawn from the published browser-sized textures (NSIDE 256, every pixel the average of the CpGs it holds, about 36 of the 28,217,448) by the same drawing rule as the other atlas globes: the level 0 to 1 and the half-width of the 95 % range 0 to 0.15. A picture of the atlas; nothing is read or scored from it. Run by `run_sample.py --build seq-wg-sphere`.
