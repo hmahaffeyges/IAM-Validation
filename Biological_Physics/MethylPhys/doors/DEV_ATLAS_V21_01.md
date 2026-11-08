@@ -1646,5 +1646,7 @@ what its record or paper says about its donors (from the build roster, `atlas_v2
 series; the brain cells from post-mortem donors described as neurologically healthy); 133 from the healthy controls of disease studies (5
 series: lupus, multiple sclerosis, Alzheimer's disease, Parkinson's disease, antiphospholipid syndrome; only their controls were used); 16 normal
 ovarian and tubal tissue from surgical patients without cancer; 16 children's normal intestinal mucosa; 9 embryonic stem cell lines (not
-donors); 148 from two series whose records do not state donor health (GSE252045, GSE103541; their papers to be read). The cells v2.1 carries
+donors); 148 from two series whose GEO records do not state donor health, now read from their papers: GSE103541 (60) a population twin
+birth cohort, all aged 19, not selected for disease; GSE252045 (88) blood from leukapheresis chambers of CMV-positive donors, their health not
+otherwise described. The cells v2.1 carries
 from IAM-Atlas v2 (the sequencing atlas above and the earlier array references) are tabled next, so both atlases are covered in full.
