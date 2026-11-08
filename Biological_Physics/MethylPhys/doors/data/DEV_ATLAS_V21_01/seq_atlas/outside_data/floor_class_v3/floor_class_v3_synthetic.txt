@@ -1,0 +1,22 @@
+The floor counted at the islands read: synthetic version 3 (real atlas donors against the other sealed half; seed 20261109)
+  atlas laboratory 0.006 x 0.29    none                 islands median 1.0249 | each [0.8222, 1.1429, 1.0249]
+  atlas laboratory 0.006 x 0.29    --dev-floor-equal    islands median 0.8334 | each [0.8142, 0.9085, 0.8334]
+  atlas laboratory 0.006 x 0.29    --dev-floor-class    islands median 1.0507 | each [1.0545, 1.0213, 1.0507]
+  0.0015 x 1.0                     none                 islands median 0.7028 | each [0.6121, 0.7809, 0.7028]
+  0.0015 x 1.0                     --dev-floor-equal    islands median 1.1203 | each [1.02, 1.2347, 1.1203]
+  0.0015 x 1.0                     --dev-floor-class    islands median 1.3605 | each [1.2553, 1.3605, 1.3641]
+  0.009 x 1.05                     none                 islands median 1.3385 | each [1.3385, 1.4447, 1.2318]
+  0.009 x 1.05                     --dev-floor-equal    islands median 1.1063 | each [1.1063, 1.1952, 1.026]
+  0.009 x 1.05                     --dev-floor-class    islands median 1.3358 | each [1.3739, 1.3358, 1.2646]
+  0.016 x 0.75                     none                 islands median 1.7227 | each [1.7227, 1.8538, 1.6041]
+  0.016 x 0.75                     --dev-floor-equal    islands median 0.9748 | each [0.9748, 1.034, 0.9128]
+  0.016 x 0.75                     --dev-floor-class    islands median 1.1061 | each [1.1284, 1.1061, 1.047]
+  0.005 x 1.05                     none                 islands median 0.9983 | each [1.0938, 0.9011, 0.9983]
+  0.005 x 1.05                     --dev-floor-equal    islands median 1.1231 | each [1.2403, 1.0173, 1.1231]
+  0.005 x 1.05                     --dev-floor-class    islands median 1.3633 | each [1.3633, 1.2543, 1.3641]
+  0.006 x 1.0                      none                 islands median 1.0766 | each [1.1701, 0.9645, 1.0766]
+  0.006 x 1.0                      --dev-floor-equal    islands median 1.1118 | each [1.2237, 1.0119, 1.1118]
+  0.006 x 1.0                      --dev-floor-class    islands median 1.3451 | each [1.3451, 1.2488, 1.3514]
+bar 1 (class floor: each laboratory's median islands within 0.03 of 1): not met
+bar 2 (class floor: the atlas laboratory's own case within 0.03 of 1): not met
+synthetic: not met

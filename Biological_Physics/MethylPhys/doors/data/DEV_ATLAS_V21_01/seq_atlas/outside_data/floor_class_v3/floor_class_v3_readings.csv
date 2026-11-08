@@ -1,0 +1,55 @@
+lab,person,half,floor_equal,islands,islands_floor,chain_cell,cells,rc
+atlas laboratory 0.006 x 0.29,GSM5652316,B,none,0.82221,,b cells,"[[""b cells"", 0.9778], [""memory b cells"", 0.0222]]",0
+atlas laboratory 0.006 x 0.29,GSM5652316,B,--dev-floor-equal,0.81421,"{""sample"": 0.006607, ""reference"": 0.006486, ""common"": 0.006607}",b cells,"[[""b cells"", 0.9778], [""memory b cells"", 0.0222]]",0
+atlas laboratory 0.006 x 0.29,GSM5652316,B,--dev-floor-class,1.05446,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.006557, ""reference"": 0.009393, ""common"": 0.009393}",b cells,"[[""b cells"", 0.9778], [""memory b cells"", 0.0222]]",0
+0.0015 x 1.0,GSM5652316,B,none,0.61213,,b cells,"[[""b cells"", 0.9774], [""memory b cells"", 0.0226]]",0
+0.0015 x 1.0,GSM5652316,B,--dev-floor-equal,1.02001,"{""sample"": 0.001543, ""reference"": 0.006486, ""common"": 0.006486}",b cells,"[[""b cells"", 0.9774], [""memory b cells"", 0.0226]]",0
+0.0015 x 1.0,GSM5652316,B,--dev-floor-class,1.25528,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001526, ""reference"": 0.009392, ""common"": 0.009392}",b cells,"[[""b cells"", 0.9774], [""memory b cells"", 0.0226]]",0
+0.009 x 1.05,GSM5652318,B,none,1.33855,,b cells,"[[""b cells"", 1.0]]",0
+0.009 x 1.05,GSM5652318,B,--dev-floor-equal,1.1063,"{""sample"": 0.009019, ""reference"": 0.006486, ""common"": 0.009019}",b cells,"[[""b cells"", 1.0]]",0
+0.009 x 1.05,GSM5652318,B,--dev-floor-class,1.3739,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.009032, ""reference"": 0.00947, ""common"": 0.00947}",b cells,"[[""b cells"", 1.0]]",0
+0.016 x 0.75,GSM5652318,B,none,1.72267,,b cells,"[[""b cells"", 1.0]]",0
+0.016 x 0.75,GSM5652318,B,--dev-floor-equal,0.97475,"{""sample"": 0.015953, ""reference"": 0.006486, ""common"": 0.015953}",b cells,"[[""b cells"", 1.0]]",0
+0.016 x 0.75,GSM5652318,B,--dev-floor-class,1.12843,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.015885, ""reference"": 0.00947, ""common"": 0.015885}",b cells,"[[""b cells"", 1.0]]",0
+atlas laboratory 0.006 x 0.29,GSM5652317,A,none,1.14293,,b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+atlas laboratory 0.006 x 0.29,GSM5652317,A,--dev-floor-equal,0.90854,"{""sample"": 0.009638, ""reference"": 0.006673, ""common"": 0.009638}",b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+atlas laboratory 0.006 x 0.29,GSM5652317,A,--dev-floor-class,1.02127,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.00947, ""reference"": 0.008109, ""common"": 0.00947}",b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+0.0015 x 1.0,GSM5652317,A,none,0.78086,,b cells,"[[""b cells"", 0.987], [""memory b cells"", 0.013]]",0
+0.0015 x 1.0,GSM5652317,A,--dev-floor-equal,1.23469,"{""sample"": 0.001496, ""reference"": 0.006673, ""common"": 0.006673}",b cells,"[[""b cells"", 0.987], [""memory b cells"", 0.013]]",0
+0.0015 x 1.0,GSM5652317,A,--dev-floor-class,1.36047,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001468, ""reference"": 0.008109, ""common"": 0.008109}",b cells,"[[""b cells"", 0.987], [""memory b cells"", 0.013]]",0
+0.005 x 1.05,GSM5652317,A,none,1.09385,,b cells,"[[""b cells"", 0.985], [""memory b cells"", 0.015]]",0
+0.005 x 1.05,GSM5652317,A,--dev-floor-equal,1.24033,"{""sample"": 0.004984, ""reference"": 0.006673, ""common"": 0.006673}",b cells,"[[""b cells"", 0.985], [""memory b cells"", 0.015]]",0
+0.005 x 1.05,GSM5652317,A,--dev-floor-class,1.36328,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.004984, ""reference"": 0.008104, ""common"": 0.008104}",b cells,"[[""b cells"", 0.985], [""memory b cells"", 0.015]]",0
+0.006 x 1.0,GSM5652317,A,none,1.17014,,b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+0.006 x 1.0,GSM5652317,A,--dev-floor-equal,1.2237,"{""sample"": 0.006054, ""reference"": 0.006673, ""common"": 0.006673}",b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+0.006 x 1.0,GSM5652317,A,--dev-floor-class,1.34514,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.006078, ""reference"": 0.008109, ""common"": 0.008109}",b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+0.009 x 1.05,GSM5652317,A,none,1.44474,,b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+0.009 x 1.05,GSM5652317,A,--dev-floor-equal,1.19523,"{""sample"": 0.009068, ""reference"": 0.006673, ""common"": 0.009068}",b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+0.009 x 1.05,GSM5652317,A,--dev-floor-class,1.33579,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.00904, ""reference"": 0.008109, ""common"": 0.00904}",b cells,"[[""b cells"", 0.9873], [""memory b cells"", 0.0127]]",0
+0.016 x 0.75,GSM5652317,A,none,1.85381,,b cells,"[[""b cells"", 0.9871], [""memory b cells"", 0.0129]]",0
+0.016 x 0.75,GSM5652317,A,--dev-floor-equal,1.03405,"{""sample"": 0.015956, ""reference"": 0.006673, ""common"": 0.015956}",b cells,"[[""b cells"", 0.9871], [""memory b cells"", 0.0129]]",0
+0.016 x 0.75,GSM5652317,A,--dev-floor-class,1.10614,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.01598, ""reference"": 0.008109, ""common"": 0.01598}",b cells,"[[""b cells"", 0.9871], [""memory b cells"", 0.0129]]",0
+0.005 x 1.05,GSM5652316,B,none,0.90106,,b cells,"[[""b cells"", 0.9773], [""memory b cells"", 0.0227]]",0
+0.005 x 1.05,GSM5652316,B,--dev-floor-equal,1.01731,"{""sample"": 0.005062, ""reference"": 0.006486, ""common"": 0.006486}",b cells,"[[""b cells"", 0.9773], [""memory b cells"", 0.0227]]",0
+0.005 x 1.05,GSM5652316,B,--dev-floor-class,1.25433,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005023, ""reference"": 0.009392, ""common"": 0.009392}",b cells,"[[""b cells"", 0.9773], [""memory b cells"", 0.0227]]",0
+0.006 x 1.0,GSM5652316,B,none,0.96448,,b cells,"[[""b cells"", 0.9774], [""memory b cells"", 0.0226]]",0
+0.006 x 1.0,GSM5652316,B,--dev-floor-equal,1.01191,"{""sample"": 0.005904, ""reference"": 0.006486, ""common"": 0.006486}",b cells,"[[""b cells"", 0.9774], [""memory b cells"", 0.0226]]",0
+0.006 x 1.0,GSM5652316,B,--dev-floor-class,1.24877,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005869, ""reference"": 0.009392, ""common"": 0.009392}",b cells,"[[""b cells"", 0.9774], [""memory b cells"", 0.0226]]",0
+0.009 x 1.05,GSM5652316,B,none,1.23183,,b cells,"[[""b cells"", 0.9769], [""memory b cells"", 0.0231]]",0
+0.009 x 1.05,GSM5652316,B,--dev-floor-equal,1.02603,"{""sample"": 0.008966, ""reference"": 0.006486, ""common"": 0.008966}",b cells,"[[""b cells"", 0.9769], [""memory b cells"", 0.0231]]",0
+0.009 x 1.05,GSM5652316,B,--dev-floor-class,1.26462,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.008979, ""reference"": 0.00939, ""common"": 0.00939}",b cells,"[[""b cells"", 0.9769], [""memory b cells"", 0.0231]]",0
+0.016 x 0.75,GSM5652316,B,none,1.6041,,b cells,"[[""b cells"", 0.9765], [""memory b cells"", 0.0235]]",0
+0.016 x 0.75,GSM5652316,B,--dev-floor-equal,0.91282,"{""sample"": 0.016053, ""reference"": 0.006486, ""common"": 0.016053}",b cells,"[[""b cells"", 0.9765], [""memory b cells"", 0.0235]]",0
+0.016 x 0.75,GSM5652316,B,--dev-floor-class,1.04701,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.016032, ""reference"": 0.009389, ""common"": 0.016032}",b cells,"[[""b cells"", 0.9765], [""memory b cells"", 0.0235]]",0
+atlas laboratory 0.006 x 0.29,GSM5652318,B,none,1.02489,,b cells,"[[""b cells"", 1.0]]",0
+atlas laboratory 0.006 x 0.29,GSM5652318,B,--dev-floor-equal,0.83343,"{""sample"": 0.00926, ""reference"": 0.006486, ""common"": 0.00926}",b cells,"[[""b cells"", 1.0]]",0
+atlas laboratory 0.006 x 0.29,GSM5652318,B,--dev-floor-class,1.05067,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.00916, ""reference"": 0.00947, ""common"": 0.00947}",b cells,"[[""b cells"", 1.0]]",0
+0.0015 x 1.0,GSM5652318,B,none,0.7028,,b cells,"[[""b cells"", 1.0]]",0
+0.0015 x 1.0,GSM5652318,B,--dev-floor-equal,1.12033,"{""sample"": 0.001499, ""reference"": 0.006486, ""common"": 0.006486}",b cells,"[[""b cells"", 1.0]]",0
+0.0015 x 1.0,GSM5652318,B,--dev-floor-class,1.36408,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.001494, ""reference"": 0.00947, ""common"": 0.00947}",b cells,"[[""b cells"", 1.0]]",0
+0.005 x 1.05,GSM5652318,B,none,0.99834,,b cells,"[[""b cells"", 1.0]]",0
+0.005 x 1.05,GSM5652318,B,--dev-floor-equal,1.12306,"{""sample"": 0.004979, ""reference"": 0.006486, ""common"": 0.006486}",b cells,"[[""b cells"", 1.0]]",0
+0.005 x 1.05,GSM5652318,B,--dev-floor-class,1.36407,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.005007, ""reference"": 0.00947, ""common"": 0.00947}",b cells,"[[""b cells"", 1.0]]",0
+0.006 x 1.0,GSM5652318,B,none,1.07657,,b cells,"[[""b cells"", 1.0]]",0
+0.006 x 1.0,GSM5652318,B,--dev-floor-equal,1.11176,"{""sample"": 0.00606, ""reference"": 0.006486, ""common"": 0.006486}",b cells,"[[""b cells"", 1.0]]",0
+0.006 x 1.0,GSM5652318,B,--dev-floor-class,1.35138,"{""measured_at"": ""the library-floor sites inside the islands read (every healthy cell unmarked)"", ""sites"": 32570, ""sample"": 0.006108, ""reference"": 0.00947, ""common"": 0.00947}",b cells,"[[""b cells"", 1.0]]",0

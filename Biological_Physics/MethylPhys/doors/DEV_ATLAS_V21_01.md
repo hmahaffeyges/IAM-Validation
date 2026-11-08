@@ -1697,3 +1697,15 @@ and not person spread at the islands (real people carry their own); the cell mix
 CpGs, not the 28,217,448 of the hg19 numbering"). The script still exited 0, so each part marked itself read; the parts' rows and markers are
 moved aside in the bucket (`failed_8bit/`), not deleted. Fixed: 16-bit counts, and a part with any reading the chain refused or left empty now
 fails and is never marked read. Bars, people and planting unchanged.
+
+**The class floor, version 3, read: not met** (`seq_atlas/outside_data/floor_class_v3/floor_class_v3_synthetic.txt`, `floor_class_v3_readings.csv`; 18 parts
+on Google, the one command, all 54 readings made.) Bar 1 not met: with the class floor every planted laboratory read high, 1.05 to 1.37 (the
+four at an island share near 1, 1.25 to 1.37). Bar 2 not met by 0.021: the atlas laboratory's own case, nothing planted, median 1.0507 (each
+1.0545, 1.0213, 1.0507). **What it shows, recorded, not scored:** (1) with the class floor the reading no longer follows the planted floor
+(floors 0.0015 to 0.009 all read 1.25 to 1.37), so the floor itself is counted; (2) the planted laboratories read high where the real outside
+libraries read low with the same correction (`xl_class_readings.csv`: 0.85 to 0.94), so this planting does not reproduce the real libraries:
+the share of the floor placed at every island site (0.75 to 1.05 of the floor, from `crosslab_floor_by_class.txt`) is more than the real
+outside libraries carry there, and that share measure is not confirmed; (3) real healthy donors of the atlas's own laboratory, read with no
+floor against the other sealed half, spread 0.82 to 1.14 at the islands, wider than a 0.95 to 1.05 band. The class floor stays off by
+default. Next, before anything new is planted: the real outside libraries' false-call rate at the island sites outside the floor sites,
+measured from the per-site tables already saved (18 samples), and the cell-mix candidate, each by a test written first.
