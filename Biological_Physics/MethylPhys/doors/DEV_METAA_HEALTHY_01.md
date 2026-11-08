@@ -814,3 +814,10 @@ cell itself where the cell is nearly all the sample (an isolated sample), and it
 **Consequence for the chain:** each row of `cells_found` says which it is; a change is given to one cell only where the physics can place it:
 in an isolated sample, molecule by molecule on sequencing (each molecule comes from one cell), or in one person read against their own earlier
 draws with the cell shares measured each time.
+
+**The width synthetic, read on the fixed chain: not met** (`DEV_METAA_HEALTHY_01/width_synthetic_summary.txt`; 120 constructed people, every array by the one command).
+Bar 2 met: every person's main cell found is the planted cell. Bar 1 not met: the readings' spread is 0.81 to 9.6 times the truth's, and their
+median sits near 0.89 where the same people read about 0.999 on their noise-free levels. **What it shows, recorded:** a cell's Met-A read on an
+array takes the array's own line and noise straight into the reading; the whole-sample reading already divides by its healthy prediction (the
+array's measured line and noise applied to the atlas, A over A_pred), and the per-cell readings do not. The next chain step gives each cell's
+reading the same healthy prediction at that cell's identity sites, synthetic first, before any width is measured from the atlas's donors.
