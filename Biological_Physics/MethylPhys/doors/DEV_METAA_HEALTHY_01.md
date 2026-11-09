@@ -1161,3 +1161,9 @@ beside the atlas's own shares (`--dev-provisional`, Stage D21), as the megakaryo
    the lead is right: the GMP share falls, and the laboratories' medians and the within-laboratory spread both shrink.
 
 Two donors are few: the column is provisional and flagged, as the megakaryocyte column was, until more healthy donors are found.
+
+**Step 1 of the column plan, first as a diagnostic: where the Deconvolver puts each maturation stage (written before it runs).** The eight tracks
+(`bm_neutrophil_stages_samples.csv`) are read by the one command as sequenced samples whose cells are found against IAM-Atlas v2.1 (no
+sequencing-atlas flag; specimen unknown), one GitHub machine each (`bm_neutrophil_stages_read.py`). Nothing is scored. What it shows if the
+lead is right: segmented neutrophils found mostly as neutrophils, and the younger stages (myelocyte, metamyelocyte) put largely on GMP. If
+the segmented cells are not found as neutrophils, the scale between the two platforms comes first (`sequencing_term_v1.json`).
