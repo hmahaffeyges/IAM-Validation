@@ -707,6 +707,7 @@ def main():
     ap.add_argument("--dev-curve-cal", action="store_true", help="DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal)")
     ap.add_argument("--commissioned-only", action="store_true", help="read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off)")
     ap.add_argument("--dev-seq-trim-ends", type=int, default=None, metavar="N", help="DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat)")
+    ap.add_argument("--dev-one-scale", action="store_true", help="DEVELOPMENT (2026-11-09): arrays; the per-cell readings (Met-A, C-Score, departures) on Stage 1's values, one scale with the array's own measured line (the self-tare map rescales only its 6,963 anchor probes and leaves the rest raw, so 3 to 7 percent of identity sites were corrected twice); the self-tare path's per-cell Met-A kept beside it as met_a_each_cell_selftare")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
@@ -1242,9 +1243,13 @@ def main():
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
                 _bs, _inf = (None, None) if a._seqv else _ST.selftare_map(_pd.Series(beta, dtype="float64"))   # the self-tare maps array designs; not sequencing
+                if getattr(a, "dev_one_scale", False) and _bs is not None:   # 2026-11-09 (development): one scale; the old path's reading kept beside it
+                    try: o["met_a_each_cell_selftare"] = SA.read_in_mix(_bs, {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}); o["met_a_each_cell_selftare"]["flag"] = "the self-tare path, for comparison (development)"
+                    except Exception as e: o["met_a_each_cell_selftare"] = {"reason": f"{type(e).__name__}: {str(e)[:160]}"}
+                    _bs = None
                 o["met_a_each_cell"] = SA.read_in_mix(_bs if _bs is not None else _pd.Series(beta, dtype="float64"),
                                                       {r["cell"]: r["share"] for r in o["cell_shares"]["cells"]}, counts=getattr(a, "_seqc", None))
-                o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else "Stage 1 (Stage T step 1 could not run)"
+                o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else ("Stage 1, one scale with the array's own line (--dev-one-scale, development)" if getattr(a, "dev_one_scale", False) else "Stage 1 (Stage T step 1 could not run)")
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 # 2026-11-07: removed the 10-28 override that set a 'sorted X' sample's mix to 100 % X; every reading here uses the Deconvolver's shares
                 if (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen)): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"

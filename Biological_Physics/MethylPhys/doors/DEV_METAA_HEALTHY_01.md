@@ -1276,3 +1276,16 @@ none: `run_sample.py` passed `curve_cal` the self-tare's design table, which hol
 design table. Fixed (`stage_metaa_atlas._ruler`'s design); the same cells offline now give 20 levels on both designs. This also voids the
 real-donor reading above (same table). Both run again unchanged otherwise. Seen on the way: laboratory A's small bend alone (largest change
 0.0195) moved the cell shares by 0.10 to 0.14, so the Deconvolver is very sensitive to a design-dependent bend.
+
+**One scale for the per-cell readings (chain option, development; its synthetic written before it runs).** The self-tare map (Stage T
+step 1) rescales only the probes in its own table, 6,963 anchors, and leaves every other site at Stage 1's value; per-cell Met-A, C-Score and
+the departures read those values, and the array's line their prediction divides out is measured on the firmly held sites, 99.9 % of which
+are outside that table. So 3 to 7 % of each cell's identity sites (neutrophils 417 of 6,000, monocytes 190) are corrected twice. The
+whole-sample reading uses the ruler's full design table and the Deconvolver Stage 1's values, so neither is touched. `--dev-one-scale`:
+the per-cell readings on Stage 1's values with the same line, the old path's per-cell Met-A kept beside it in the bundle.
+**Synthetic** (`one_scale_synthetic.py`, `one_scale_synthetic_score.py`): six constructed healthy bloods through no line, the donors'
+typical line and their worst, and a 3 % neutrophil loss; bars: under the worst line each cell's reading within 0.005 of no line (median);
+the loss within 0.005 in 5 of 6.
+**Range of the data:** the real lines, measured on the 455 atlas donors (910, both designs): slope 0.9301 to 1.0324,
+offset -0.0236 to 0.0361 (5 % to 95 %: slope 0.9780 to 1.0138, offset -0.0103 to 0.0137); the synthetic plants the 5 %/95 % line and the
+extremes. Then the four laboratories' healthy bloods, read once from their kept values with both paths side by side.
