@@ -1,0 +1,12 @@
+The departure in GMP's direction on the 57 atlas neutrophil donors' kept values, with and without the published probe masks (public Infinium annotation, EPIC and HM450 hg38 mask files); laboratory medians
+           chain_gmp   all_I   gen_I   snp_I  all_II  gen_II  snp_II
+series                                                              
+GSE118144     0.0000 -0.0966 -0.0991 -0.1051 -0.0278 -0.0257 -0.0281
+GSE124565     0.0000  0.0961  0.0980  0.1132  0.0049  0.0048  0.0078
+GSE49618      0.0000  0.2088  0.1941  0.2052  0.0607  0.0588  0.0592
+GSE122244     0.0289 -0.0308 -0.0224 -0.0313  0.0124  0.0039  0.0024
+GSE224807     0.0395  0.1874  0.1744  0.2064 -0.0103 -0.0232 -0.0217
+GSE88824      0.0651  0.1705  0.1541  0.1759  0.0020  0.0037  0.0033
+GSE103541     0.0678 -0.1206 -0.1268 -0.1351  0.0621  0.0543  0.0494
+spread of laboratory medians: all_I 0.3294, gen_I 0.3209, snp_I 0.3415, all_II 0.0899, gen_II 0.0845, snp_II 0.0873
+marker sites 7892; in the general mask 502; with any variant flag 703

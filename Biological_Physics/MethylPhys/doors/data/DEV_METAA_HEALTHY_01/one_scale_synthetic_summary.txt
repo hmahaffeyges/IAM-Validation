@@ -1,0 +1,7 @@
+36 readings
+one_scale_cells ratio: typical line moves a cell by median 0.0012 (max 0.0090); worst line median 0.0121 (max 0.0307); planted loss changed by the worst line, median 0.0639
+one_scale_cells A: typical line moves a cell by median 0.0774 (max 0.0917); worst line median 0.2901 (max 0.3376); planted loss changed by the worst line, median 0.0357
+selftare_cells A: typical line moves a cell by median 0.0732 (max 0.0876); worst line median 0.2740 (max 0.3257); planted loss changed by the worst line, median 0.0340
+bar 1 (one scale, worst line, median within 0.005): not met
+bar 2 (planted loss within 0.005, 5 of 6): 0 of 6: not met
+NOT MET
