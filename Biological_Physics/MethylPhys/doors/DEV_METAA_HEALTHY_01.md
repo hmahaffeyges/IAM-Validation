@@ -1299,14 +1299,14 @@ the calibration takes out a large smooth bend and adds error of its own on small
 design II departures spread more (0.0899 to 0.1264), Met-A's spread between laboratory medians is unchanged (0.1199 to 0.1171). The
 laboratories' distortion is not a smooth curve; `--dev-curve-cal` stays built and off.
 
-**One scale, the published probe masks and the four laboratories' lines (development; nothing scored).** One-scale synthetic
+**One scale, the published probe masks and three of the four laboratories' lines (development; nothing scored; GSE235717's bundles were not read for its lines).** One-scale synthetic
 (`one_scale_synthetic_summary.txt`, 36 readings): not met. The double correction is not what moves the readings: the uncorrected Met-A moves
 alike on both paths (median 0.0774 one scale, 0.0732 old path under the typical line; 0.2901 and 0.2740 under the worst). The prediction then
 takes out nearly all of a typical line (each cell within 0.0012, median) but not the worst (0.0121), and the worst line changes a planted
 3 % loss by 0.0639. Published probe masks (the public Infinium annotation's mask file, the same annotation the atlas's genome positions come
 from; `gmp_probe_mask_summary.txt`, `gmp_probe_mask_rows.csv`): 502 of the Deconvolver's 7,892 marker sites are in the general mask and 703 carry a variant flag; leaving
 them out moves the seven laboratories' medians of the departure in GMP's direction by little (spread 0.0899 to 0.0845 on design II, 0.3294
-to 0.3209 on design I), so masked probes are not the laboratories' distortion. The four laboratories' measured array lines are all ordinary
+to 0.3209 on design I), so masked probes are not the laboratories' distortion. The measured array lines of three of the four laboratories (Oslo, Uppsala and Tokushima; GSE235717 not read) are all ordinary
 (Oslo, Uppsala and Tokushima medians within the atlas donors' 5 % to 95 %), so the line is not what separated the laboratory that passed.
 
 **What the field does for laboratory differences, tried inside the atlas rule (development, a diagnostic outside the one command; nothing scored).** The usual tools correct
