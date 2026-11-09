@@ -821,7 +821,7 @@ A constructed 1 % loss for tests, Group-A's sealed rule: at the neutrophil sites
 neutrophil fraction. Used by the series runner's `--plant neutrophil`; never by a reading.
 
 ### conductor_v3.py::run_neutrophil
-The whole conductor, in the order above. Returns the array reading's records (mix, Met-A, tare, C-Score) and the departure map for the sky.
+The whole conductor, in the order above. Returns the array reading's records (mix, Met-A, tare, C-Score) and the departure map for the sky. Since the healthy reference comes only from the atlases, this first-commissioning path runs on every array, flagged: its neutrophil Met-A and whole-blood C-Score carry their first commissioning as `commissioning_first` with the status 'being re-commissioned against IAM-Atlas v2.1 alone', never as a current commissioning; the chain's reading of each cell is `cells_found` and `met_a_each_cell`. Group-A still reads this path's whole-blood Met-A (to be moved to the per-cell readings).
 
 ### dev_stages.py::_json
 Loads a file from `Runtime Matrices/Development` once and keeps it; the self-tare matrix's old name reads the moved file

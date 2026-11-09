@@ -1545,7 +1545,7 @@
   },
   {
    "file": "conductor_v3.py",
-   "lines": 317,
+   "lines": 321,
    "functions": [
     {
      "file": "conductor_v3.py",
@@ -1898,7 +1898,7 @@
      "function": "run_neutrophil",
      "name": "run_neutrophil",
      "line": 259,
-     "end": 308,
+     "end": 312,
      "args": [
       "beta",
       "specimen",
@@ -1906,7 +1906,7 @@
       "array_type",
       "sample_id"
      ],
-     "lines": 50,
+     "lines": 54,
      "doc": "beta: pd.Series from Stage 1 (EPIC v1). ref_A: same-run healthy references - their Met-A before the median tare (met_a.A, which carries Stage T step 1, self-tare II, since 2026-10-04), or records {A, f_neu, N[, id]} (Stage T; plain A values or records with A). array_type: Stage 0's array type (header, else declared), or None for a beta table. sample_id: excluded from the references if a record car",
      "constants": [
       "BUILD",
@@ -1923,8 +1923,8 @@
      "file": "conductor_v3.py",
      "function": "plant_neutrophil_loss",
      "name": "plant_neutrophil_loss",
-     "line": 311,
-     "end": 316,
+     "line": 315,
+     "end": 320,
      "args": [
       "beta",
       "f_neu",

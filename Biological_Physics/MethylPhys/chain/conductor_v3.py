@@ -295,16 +295,20 @@ def run_neutrophil(beta, specimen="whole blood", ref_A=None, array_type=None, sa
         m["state"] = f"withheld: noise index {N} > {g['N_max']} and no same-run tare; A printed as a number only"
     _sp = S0.ACCEPTED_SPECIMENS.get(S0.normalise_specimen(specimen))
     if _sp == "buffy coat": m["specimen"] = "buffy coat"   # 2026-10-18: whole-blood path, its own name, so no commissioned label attaches to it
-    if m.get("A") is not None and _sp == "isolated neutrophils": m["commissioning"] = METAA_COMMISSIONING   # isolated neutrophils only (2026-10-11; explicit 2026-10-18)
+    if m.get("A") is not None and _sp == "isolated neutrophils":   # 2026-11-09: healthy only from the atlases; this first commissioning used references from other samples
+        m["commissioning_first"] = METAA_COMMISSIONING; m["development"] = ("being re-commissioned against IAM-Atlas v2.1 alone (first commissioned against reference "
+                                                                            "arrays from other samples, Stage T); the per-cell readings (cells_found, met_a_each_cell) are the chain's reading")
     elif m.get("A") is not None and _sp == "buffy coat": m["development"] = "DEVELOPMENT - not commissioned: buffy coat (read on the whole-blood path; Met-A is commissioned on isolated neutrophils, the C-Score on whole blood)"
     elif m.get("A") is not None: m["development"] = ("DEVELOPMENT - not commissioned: whole blood (composition, bar 7, met only on the reference laboratory's own truth sets; commissioned when met on whole bloods of known composition from an independent laboratory). This person's detection limit at their own neutrophil share is printed with the tare (Stage T).")
     _mc = stage_mc_cscore(z)
     if z is None and _mc.get("C") is None: _mc["reason"] = f"not computed: the C-Score reads Met-A's departure map, and Met-A gave none on this array ({m.get('reason') or m.get('state') or 'no reason recorded'})"
     out["met_a"] = m; out["met_a_cscore"] = stage_t_cscore(_mc, ref_A, sample_id); out["_cscore_z"] = z   # v4 sky; popped before the bundle
-    if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in CSCORE_COMMISSIONING["specimens"]: out["met_a_cscore"]["commissioning"] = CSCORE_COMMISSIONING
+    if out["met_a_cscore"].get("C_rel") is not None and m.get("specimen") in CSCORE_COMMISSIONING["specimens"]:   # 2026-11-09: tared only with a retired same-run reference
+        out["met_a_cscore"]["commissioning_first"] = CSCORE_COMMISSIONING; out["met_a_cscore"]["status"] = "being re-commissioned against IAM-Atlas v2.1 alone (first commissioned with a same-run tare)"
     elif out["met_a_cscore"].get("C_rel") is not None: out["met_a_cscore"]["status"] = "development: specimen outside the commissioned C-score scope"
     out["tare"] = t   # every specimen (2026-10-17): from 2026-10-15 this sat inside the elif above, so in-scope (whole blood) runs lost their tare record (LESSONS C21)
-    out["withheld"] = ["tier lines beyond Normal (not yet measured on this scale)", "Met-A of blood cells other than neutrophils (not yet read by this chain)"]
+    out["withheld"] = ["this whole-blood Met-A, C-Score and tare are the first commissioning's path, kept running and flagged (2026-11-09); each cell found is read in "
+                       "cells_found and met_a_each_cell against IAM-Atlas v2.1, and its state against its own measured width"]
     return out
 
 

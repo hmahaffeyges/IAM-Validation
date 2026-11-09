@@ -43,7 +43,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
-| `conductor_v3.py` | 317 | 20 | 18 | 0 |
+| `conductor_v3.py` | 321 | 20 | 18 | 0 |
 | `stage_m_met_a.py` | 102 | 7 | 3 | 0 |
 | `MethylPhys_Interface/report_v4.py` | 460 | 30 | 17 | 17 |
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
@@ -1306,13 +1306,13 @@ Nothing for an EPIC v1 array; otherwise the refusal: another array type from Sta
 A constructed 1 % loss for tests, Group-A's sealed rule: at the neutrophil sites, beta + f_neu x 1 % x (0.5 - mu_NEU), f_neu the array's own
 neutrophil fraction. Used by the series runner's `--plant neutrophil`; never by a reading.
 
-*Code:* `conductor_v3.py` line 311 (6 lines) · arguments: beta, f_neu, loss · calls: not called on the traced runs
+*Code:* `conductor_v3.py` line 315 (6 lines) · arguments: beta, f_neu, loss · calls: not called on the traced runs
 
 ### `conductor_v3.py::run_neutrophil`
 
-The whole conductor, in the order above. Returns the array reading's records (mix, Met-A, tare, C-Score) and the departure map for the sky.
+The whole conductor, in the order above. Returns the array reading's records (mix, Met-A, tare, C-Score) and the departure map for the sky. Since the healthy reference comes only from the atlases, this first-commissioning path runs on every array, flagged: its neutrophil Met-A and whole-blood C-Score carry their first commissioning as `commissioning_first` with the status 'being re-commissioned against IAM-Atlas v2.1 alone', never as a current commissioning; the chain's reading of each cell is `cells_found` and `met_a_each_cell`. Group-A still reads this path's whole-blood Met-A (to be moved to the per-cell readings).
 
-*Code:* `conductor_v3.py` line 259 (50 lines) · arguments: beta, specimen, ref_A, array_type, sample_id · calls: array run 1 · constants read: `BUILD`, `CSCORE_COMMISSIONING`, `METAA_COMMISSIONING`, `MIN_NOISE_FRACTION`
+*Code:* `conductor_v3.py` line 259 (54 lines) · arguments: beta, specimen, ref_A, array_type, sample_id · calls: array run 1 · constants read: `BUILD`, `CSCORE_COMMISSIONING`, `METAA_COMMISSIONING`, `MIN_NOISE_FRACTION`
 
 ### `dev_stages.py::_json`
 
