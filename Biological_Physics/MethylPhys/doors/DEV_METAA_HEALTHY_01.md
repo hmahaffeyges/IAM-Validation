@@ -1202,3 +1202,11 @@ sites; that projection again on design I and design II probes separately (a null
 again with the 5 % of probes carrying most of it left out. Real GMP-like cells: the same projection on both designs, kept when the few
 largest probes are left out, and larger in the laboratories with more GMP. A probe-tied error: one design only, or lost with the few
 probes. Each donor is read by the one command first, so its GMP share is the chain's own. Spent values, nothing scored.
+
+**Cells or a probe-tied error: read** (`gmp_source_diag_summary.txt`). Over the 57 sorted neutrophil donors (each read by the one command),
+the chain's GMP share follows how closely the array's departure from the atlas's neutrophil column takes GMP's direction (+0.87 by site
+correlation), and the projection holds when the 5 % of probes carrying most of it are left out (+0.82): many sites, not a few probes. Split
+by probe design (the null test by detector): it follows the design II projection (+0.48) and not the design I one (+0.01), and the two do
+not agree donor by donor (-0.01). GMP-like cells would show on both designs. So the GMP share most likely comes from a laboratory-dependent
+distortion of design II probes, spread over many sites, which the Deconvolver reads as GMP. **Caveat before it is called:** design I holds
+fewer marker sites, so its projection is noisier; its site count and error are measured next, on the same donors.

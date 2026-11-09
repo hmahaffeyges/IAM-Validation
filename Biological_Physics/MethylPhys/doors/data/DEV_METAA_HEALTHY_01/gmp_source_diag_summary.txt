@@ -1,0 +1,16 @@
+Cells or a probe-tied error (gmp_source_diag.py; the atlas's 57 sorted neutrophil donors, each read by the one command; development, nothing scored)
+           chain_gmp       f     f_I    f_II  f_trim     rho  resid_sd  chain_met_a
+series                                                                             
+GSE118144     0.0000 -0.0397 -0.0966 -0.0278 -0.0205 -0.0594    0.0521       0.9600
+GSE124565     0.0000  0.0187  0.0961  0.0049 -0.0084 -0.0199    0.0526       0.9768
+GSE49618      0.0000  0.0845  0.2088  0.0607  0.0503  0.1565    0.0561       0.9689
+GSE122244     0.0289  0.0030 -0.0308  0.0124  0.0252  0.1202    0.0551       1.0119
+GSE224807     0.0395  0.0188  0.1874 -0.0103  0.0845  0.2133    0.0572       1.0023
+GSE88824      0.0651  0.0382  0.1705  0.0020  0.0955  0.2892    0.0541       1.0230
+GSE103541     0.0678  0.0285 -0.1206  0.0621  0.0529  0.2207    0.0609       1.0799
+rank correlation of the chain's GMP share with f: +0.48
+rank correlation of the chain's GMP share with f_I: +0.01
+rank correlation of the chain's GMP share with f_II: +0.48
+rank correlation of the chain's GMP share with f_trim: +0.82
+rank correlation of the chain's GMP share with rho: +0.87
+rank correlation of f on design I with f on design II, across donors: -0.01
