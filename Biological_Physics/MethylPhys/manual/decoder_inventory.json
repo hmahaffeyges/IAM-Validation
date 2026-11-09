@@ -5857,7 +5857,7 @@
   },
   {
    "file": "stage_q0_intake.py",
-   "lines": 177,
+   "lines": 180,
    "functions": [
     {
      "file": "stage_q0_intake.py",
@@ -5932,14 +5932,14 @@
      "function": "geo_pat",
      "name": "geo_pat",
      "line": 87,
-     "end": 116,
+     "end": 119,
      "args": [
       "gsm",
       "dest",
       "build",
       "retries"
      ],
-     "lines": 30,
+     "lines": 33,
      "doc": "A sequencing sample's .pat file from GEO, on the build the chain reads (2026-10-22, lesson C34: a download that took the first file name in alphabetical order got the hg38 file, which sorts before hg19). Lists the sample's supplementary files and keeps the .pat.gz names that declare no other build; if more than one remain, the one naming hg19. Refuses, with what GEO holds, when none or several rem",
      "constants": [
       "GEO_BUILD"
@@ -5951,8 +5951,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake",
      "name": "intake",
-     "line": 118,
-     "end": 176,
+     "line": 121,
+     "end": 179,
      "args": [
       "path",
       "specimen",
@@ -5976,8 +5976,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake.chk",
      "name": "chk",
-     "line": 132,
-     "end": 141,
+     "line": 135,
+     "end": 144,
      "args": [
       "step",
       "ok",

@@ -92,7 +92,10 @@ def geo_pat(gsm, dest, build=GEO_BUILD, retries=5):
     import re, time, hashlib, urllib.request
     base = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{gsm[:-3]}nnn/{gsm}/suppl/"
     for t in range(retries):
-        try: names = sorted(set(re.findall(rf"{gsm}_[^\"<>/]*\.pat\.gz", urllib.request.urlopen(base, timeout=120).read().decode()))); break
+        try:
+            names = sorted(set(re.findall(rf"{gsm}_[^\"<>/]*\.pat\.gz", urllib.request.urlopen(base, timeout=120).read().decode())))
+            if names or t == retries - 1: break   # 2026-11-09: GEO sometimes sends an empty folder page; it is fetched again before 'no files' is believed
+            time.sleep(30 * (t + 1))
         except Exception:
             if t == retries - 1: raise
             time.sleep(30 * (t + 1))

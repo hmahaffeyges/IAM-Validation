@@ -1370,7 +1370,7 @@ errors. Commissioned 2026-10-20 for groups of whole bloods run in one series, EP
 printed digit from the committed rows. Groups in any other specimen are read and labeled preliminary.
 
 **Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
-their laboratories. The download is checked against the size GEO states: an empty or short body (GEO sometimes sends one with no error) is fetched again, up to the retries, and never read.
+their laboratories. The download is checked against the size GEO states: an empty or short body (GEO sometimes sends one with no error) is fetched again, up to the retries, and never read. An empty folder page from GEO is fetched again before the sample is taken to hold no molecule files.
 
 ### stage_groupa.py::_find
 A person's bundle in the bundles folder, or in any folder below it (sequencing runs land each bundle in its own folder).

@@ -60,7 +60,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
-| `stage_q0_intake.py` | 177 | 7 | 0 | 0 |
+| `stage_q0_intake.py` | 180 | 7 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
@@ -2059,13 +2059,13 @@ Parses and counts one line.
 Runs the checks in the table and returns the record with each check's value, rule and result, and the decision: stop at the first
 refusal, or proceed.
 
-*Code:* `stage_q0_intake.py` line 118 (59 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `GEO_BUILD`, `MIN_CALLS`, `Q0_LIMITS`
+*Code:* `stage_q0_intake.py` line 121 (59 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `GEO_BUILD`, `MIN_CALLS`, `Q0_LIMITS`
 
 ### `stage_q0_intake.py::intake.chk`
 
 Records one check and, when it stops the file, the first refusal's code and reason, with its five-part explanation.
 
-*Code:* `stage_q0_intake.py` line 132 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
+*Code:* `stage_q0_intake.py` line 135 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
 
 ## 10b. Genome builds: which genome each reading counts on, and how the chain keeps them apart (2026-10-22, lesson C34)
 
@@ -2103,7 +2103,7 @@ The build a file's name declares when it is not hg19 (hg38, GRCh38, hg18, mm9, m
 A GEO sample's .pat file on the build the chain reads, as described above, with its name, address, the other files GEO holds, its size
 and checksum; stops, with what GEO holds, when it cannot pick exactly one.
 
-*Code:* `stage_q0_intake.py` line 87 (30 lines) · arguments: gsm, dest, build, retries · calls: not called on the traced runs · constants read: `GEO_BUILD`
+*Code:* `stage_q0_intake.py` line 87 (33 lines) · arguments: gsm, dest, build, retries · calls: not called on the traced runs · constants read: `GEO_BUILD`
 
 ## 11. Group-A, has a whole group moved: `stage_groupa.py`
 
@@ -2128,7 +2128,7 @@ errors. Commissioned 2026-10-20 for groups of whole bloods run in one series, EP
 printed digit from the committed rows. Groups in any other specimen are read and labeled preliminary.
 
 **Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
-their laboratories. The download is checked against the size GEO states: an empty or short body (GEO sometimes sends one with no error) is fetched again, up to the retries, and never read.
+their laboratories. The download is checked against the size GEO states: an empty or short body (GEO sometimes sends one with no error) is fetched again, up to the retries, and never read. An empty folder page from GEO is fetched again before the sample is taken to hold no molecule files.
 
 ### `stage_groupa.py::_find`
 
