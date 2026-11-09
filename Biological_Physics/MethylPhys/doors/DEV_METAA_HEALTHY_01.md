@@ -1176,3 +1176,12 @@ onto it whatever its stage. Step 1 of the plan is not met as written: the segmen
 not told apart, so a column from these tracks cannot join the array atlas this way. The question moves to the array route: GSE42118's one
 healthy promyelocyte array and one healthy CD34 array (450K, processed values only), read by the one command (`promyelocyte_read.py`,
 written before it runs). If the promyelocyte is found largely as GMP, the lead holds on arrays.
+
+**A healthy promyelocyte is not found as GMP; the GMP share follows the array's noise (diagnostics; nothing scored).** GSE42118's
+healthy promyelocyte array is found as L-MPP 0.551 and CMP 0.177, no GMP and no neutrophils; its healthy CD34 array as L-MPP, MPP and CMP
+(`promyelocyte_read.json`). One array, one laboratory, processed values: it does not support maturing-neutrophil DNA landing on GMP.
+Among the atlas's 64 sorted neutrophil donors the GMP share follows the array's measured noise (design II, +0.78) and none of its line
+(`gmp_noise_relation.txt`); the three quietest laboratories carry no GMP. The same-DNA cell lines (GSE230132) carry no GMP, so they cannot
+answer it. Next, written before it runs (`gmp_noise_diag.py`): 12 neutrophil donors from the quiet laboratories read again with noise added
+at the noisy laboratories' level. If GMP appears and the neutrophils' Met-A rises, the GMP share is made by the measurement, the fix is in the
+chain, and the in-between column is set aside.

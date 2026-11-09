@@ -1,0 +1,37 @@
+{
+ "GSM1032772": {
+  "cell": "promyelocyte",
+  "sites": 485330,
+  "rc": 0,
+  "cells": {
+   "L-MPP (bone marrow)": 0.5509,
+   "CMP (bone marrow)": 0.1773,
+   "t effector cell cd8": 0.0705,
+   "embryonic stem cells": 0.0457,
+   "monocytes": 0.0446,
+   "naive b cells": 0.0431,
+   "cortical neurons": 0.0163,
+   "oligodendrocytes": 0.0134,
+   "neutrophils": 0.0108
+  }
+ },
+ "GSM1032771": {
+  "cell": "CD34",
+  "sites": 485265,
+  "rc": 0,
+  "cells": {
+   "L-MPP (bone marrow)": 0.2923,
+   "MPP (bone marrow)": 0.1975,
+   "CMP (bone marrow)": 0.1428,
+   "monocytes": 0.0661,
+   "t effector cell cd8": 0.0629,
+   "neutrophils": 0.0582,
+   "naive b cells": 0.0454,
+   "naive cd4 t cells": 0.0394,
+   "embryonic stem cells": 0.0303,
+   "HSC (bone marrow)": 0.0208,
+   "cortical neurons": 0.0171,
+   "colon macrophages": 0.013
+  }
+ }
+}
