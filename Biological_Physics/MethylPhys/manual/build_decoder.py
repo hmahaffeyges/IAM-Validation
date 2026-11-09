@@ -28,6 +28,26 @@ def facts(x):
     if x["data_files"]: L.append("files named: " + ", ".join(f"`{d}`" for d in x["data_files"]))
     return "*Code:* " + " · ".join(L)
 
+RS = os.path.join(H, "..", "chain", "MethylPhys_Interface", "run_sample.py")
+
+def options():
+    """2026-11-09 (author: 'any and all changes we make to the chain is also updated in the decoder'): every option of the one command, read
+    from run_sample.py's own definitions at build time (its help text, its default), and whether the default chain turns it on (the block
+    under 'if a.full_chain:'), so an option, a help text or a default cannot change without the Decoder changing with it."""
+    import ast
+    src = open(RS, encoding="utf-8").read(); tree = ast.parse(src); rows = []
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Call) and getattr(n.func, "attr", "") == "add_argument" and n.args and isinstance(n.args[0], ast.Constant) and str(n.args[0].value).startswith("--"):
+            kw = {k.arg: k.value for k in n.keywords}; h = kw.get("help")
+            try: h = ast.literal_eval(h) if h is not None else ""
+            except Exception: h = ast.unparse(h)
+            d = kw.get("default"); act = kw.get("action")
+            d = ("off" if act is not None and ast.unparse(act) == "'store_true'" else (ast.unparse(d) if d is not None else "none"))
+            rows.append((n.args[0].value, " ".join(str(h).split()), d))
+    i = src.find("    if a.full_chain:"); j = src.find("\n    if ", i + 10) if i >= 0 else -1
+    blk = src[i:j] if i >= 0 else ""; on = set(re.findall(r"a\.([a-z_]+)\s*=", blk))
+    return sorted(rows), on
+
 def build():
     head, stages = parse(); inv = json.load(open(INV, encoding="utf-8"))
     key = {f"{f['file'].split('/')[-1]}::{x['function']}": x for f in inv["files"] for x in f["functions"]}
@@ -43,17 +63,25 @@ def build():
     for f in inv["files"]:
         fn = f["functions"]; out.append(f"| `{f['file']}` | {f['lines']:,} | {len(fn)} | {sum(1 for x in fn if x['traced_calls'].get('array'))} | {sum(1 for x in fn if x['traced_calls'].get('bam'))} |")
     out.append("")
+    rows, on = options(); undoc = [r[0] for r in rows if not r[1]]
+    out += ["## The one command's options", "", f"Read from `run_sample.py`'s own option definitions at build time: **{len(rows)} options**. Without `--commissioned-only` "
+            "the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. "
+            "A push is refused when an option has no description.", "", "| option | default | on in the default chain | what it does |", "|---|---|---|---|"]
+    for o, h, d in rows:
+        out.append(f"| `{o}` | {d} | {'yes' if o[2:].replace('-', '_') in on else ''} | {h.replace('|', '/')} |")
+    out.append("")
     for s in stages:
         out += ["## " + s["title"], "", s["prose"], ""]
         for k, txt in s["entries"].items():
             if k in key: out += [f"### `{k}`", "", txt, "", facts(key[k]), ""]
-    return "\n".join(out).rstrip() + "\n", missing, unknown
+    return "\n".join(out).rstrip() + "\n", missing, unknown, undoc
 
 if __name__ == "__main__":
-    txt, missing, unknown = build()
+    txt, missing, unknown, undoc = build()
     if "--check" in sys.argv:
         bad = []
         if missing: bad.append(f"{len(missing)} chain function(s) have no Decoder entry, e.g. {missing[:4]}")
+        if undoc: bad.append(f"{len(undoc)} option(s) of the one command have no description (help text): {undoc[:6]}")
         if unknown: bad.append(f"entries name functions the chain does not have: {unknown[:4]}")
         if not os.path.exists(OUT) or open(OUT, encoding="utf-8").read() != txt: bad.append("manual/OM_v4_decoder.md differs (run python3 Biological_Physics/MethylPhys/manual/build_decoder.py)")
         print("build_decoder: " + ("ok (every chain function has its entry)" if not bad else "REFUSED: " + "; ".join(bad))); sys.exit(1 if bad else 0)

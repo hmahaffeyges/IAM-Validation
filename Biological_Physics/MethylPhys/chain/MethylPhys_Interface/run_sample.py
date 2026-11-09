@@ -557,9 +557,9 @@ def _dev_run(a, o, beta, intake):
 
 def main():
     ap=argparse.ArgumentParser(description="IDAT pair or beta table -> MethylPhys report")
-    ap.add_argument("--grn"); ap.add_argument("--red"); ap.add_argument("--betas")
+    ap.add_argument("--grn", help="the array's green-channel raw file (IDAT, .gz allowed), with --red; Stage 1 calibrates it"); ap.add_argument("--red", help="the array's red-channel raw file (IDAT, .gz allowed), with --grn"); ap.add_argument("--betas", help="a per-site table of values (CSV: site id, value) read as an array; the Deconvolver and every reading run on it")
     ap.add_argument("--age", type=float, help="declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72")
-    ap.add_argument("--specimen", default="whole blood")
+    ap.add_argument("--specimen", default="whole blood", help="what the sample is (whole blood, plasma, tissue, sorted cells, ...); picks the route only, never the cell: the Deconvolver decides what is in it")
     ap.add_argument("--dev-seq-values", default=None, type=int, metavar="MIN_CALLS",
                     help="DEVELOPMENT (to-do step 40): with --pat, also make a value at each IAM-Atlas v2.1 site from the molecules (methylated calls over "
                          "calls, sites with at least MIN_CALLS calls; chain/stage_seq_values.py), so the IAM-Deconvolver, Met-A for each cell, Met-A against "
@@ -599,7 +599,7 @@ def main():
                          "array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the "
                          "IAM-Deconvolver reads it on the unplanted values. Every report and bundle says PLANTED; the bundle records the plant (key 'planted')")
     ap.add_argument("--banner", default=None, help="a statement printed at the top of the report and both PDFs, e.g. that a known change was planted into a real array for an example (2026-10-18)")
-    ap.add_argument("--out", default="methylphys_report.html"); ap.add_argument("--id", default=None)
+    ap.add_argument("--out", default="methylphys_report.html", help="the report (HTML) to write"); ap.add_argument("--id", default=None, help="the sample's name in the report and bundle")
     ap.add_argument("--bundle", help="also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report")
     ap.add_argument("--covariate", action="append", default=[], metavar="KEY=VALUE",
                     help="a phenotype or covariate to record with this run, repeatable - e.g. --covariate diagnosis=case --covariate stage=II --covariate cohort=EPIC_Italy. Kept in the custody record and the bundle; never printed in report prose")

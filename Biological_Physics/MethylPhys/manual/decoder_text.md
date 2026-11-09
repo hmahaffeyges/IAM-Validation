@@ -262,6 +262,10 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
+**The default chain (2026-11-08, author: nothing built sits switched off).** Without `--commissioned-only`, every built development reading runs on every sample, each flagged, including on arrays the wide line, and on sequencing input the IAM Sequencing Atlas as ruler, the donors' levels, the counted island expectation, the copy correction and the megakaryocyte column. Off: the two library floors (failed their own tests), the measured middle (held), `--dev-curve-cal` and `--dev-one-scale` (until their synthetics). The table of options above says which are on.
+
+**One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`).
+
 ### run_sample.py::main._panel
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.

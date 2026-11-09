@@ -77,6 +77,125 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 | `stage_seq_atlas.py` | 937 | 48 | 0 | 0 |
 
+## The one command's options
+
+Read from `run_sample.py`'s own option definitions at build time: **112 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+
+| option | default | on in the default chain | what it does |
+|---|---|---|---|
+| `--age` | none |  | declared age in years (optional; recorded when given, read by no stage). Float: records carry 72.0 and 54.5 as readily as 72 |
+| `--alignment-qc` | None |  | Stage Q0: JSON from the alignment step with conversion_rate and/or duplicate_fraction |
+| `--array-type` | None |  | declared array type; omit to take it from the IDAT header (Stage 0.1). The chain reads EPIC_v1 only |
+| `--assembly` | 'hg19' |  | assembly of --bam |
+| `--atlas-v2` | os.environ.get('CPG_ATLAS_V2_PARQUET') |  | atlas v2 parquet for the atlas-based development flags (not stored in the repository) |
+| `--bam` | None |  | chain v4 Stage Q2: an aligned whole-genome bisulfite BAM (bwa-meth or Bismark), counted by the chain (needs --ref-fasta) |
+| `--banner` | None |  | a statement printed at the top of the report and both PDFs, e.g. that a known change was planted into a real array for an example (2026-10-18) |
+| `--betas` | none |  | a per-site table of values (CSV: site id, value) read as an array; the Deconvolver and every reading run on it |
+| `--build` | None |  | build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the atlas globe's textures and slider pictures (reference_globes.py) |
+| `--build-about` | None |  | with --build info-globe: the explanation beside the picture (default: the one in run_sample.py) |
+| `--build-block` | None |  | --build seq-atlas (2026-10-29, development): the block of hg19 CpGs, 0-based, end excluded |
+| `--build-cell` | None |  | --build provisional: the cell's name |
+| `--build-construction` | None |  | --build info-sphere: v1 (default) or v5, the level taken out (DEV-SPHERE-01, development) |
+| `--build-depth` | None |  | --build constructed-draw: reads per site in each half (default 30,15) |
+| `--build-groups` | None |  | with --build info-sphere: JSON {name: [site ids]} of site groups to test for landing together ('pool': the sites random groups are drawn from) |
+| `--build-input` | None |  | with --build info-sphere: a matrix of methylation levels, sites x cell types (.parquet or .csv, site id first) |
+| `--build-mix` | None |  | --build constructed-draw: atlas tissues added to the plasma half and their shares (tests only) |
+| `--build-name` | None |  | the atlas's name on a picture built from --build-input (info-globe) |
+| `--build-out` | None |  | with --build: where the built reference is written (.npz) |
+| `--build-random` | 500 |  | with --build info-sphere: random groups per named group for its line (default 500) |
+| `--build-samples` | None |  | --build provisional: the samples CSV (gsm, file) of per-CpG read files to pool |
+| `--build-with-mk` | off |  | DEVELOPMENT: --build seq-deconv-ref keeps the provisional megakaryocyte column |
+| `--bundle` | none |  | also write the full bundle as JSON - every stage's output, for a test harness or an integration that needs more than the report |
+| `--cell-panel` | 'blood' |  | the cells the IAM-Deconvolver splits the sample into: 'blood' (the six blood cells it is commissioned on, the default), 'atlas' (all of IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for each cell reads every cell the panel finds (2026-10-22) |
+| `--commissioned-only` | off |  | read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off) |
+| `--covariate` | [] |  | a phenotype or covariate to record with this run, repeatable - e.g. --covariate diagnosis=case --covariate stage=II --covariate cohort=EPIC_Italy. Kept in the custody record and the bundle; never printed in report prose |
+| `--covariates` | none |  | a JSON object of covariates, merged with any --covariate flags |
+| `--dev-allow-partial` | off |  | development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1) |
+| `--dev-allow-partial-genome` | off |  | development: skip the genome-coverage intake check (a synthetic that reads part of a genome on purpose); every reading is flagged |
+| `--dev-count-genome` | 'hg19' |  | --dev-count-only: the genome the .pat was made on (recorded) |
+| `--dev-count-only` | off |  | DEVELOPMENT (to-do 14): with --pat, record Stage Q2's count (held error and opportunities) even where Stage Q0 refuses an IAM-A reading, flagged; for tests on samples without a healthy reference (cell lines, mouse) |
+| `--dev-count-sites` | None |  | DEVELOPMENT (DEV-METAA-HEALTHY-01 step 3 version 2): with --dev-count-only, also count the held error only at Met-A's commissioned identity sites of CELL (e.g. neutrophils), by Stage Q2's own rules (stage_q2_selfref.count_pat_sites) |
+| `--dev-count-tiles` | None |  | DEVELOPMENT (DEV-ERASE-01 graded maintenance test, 2026-10-25): with --dev-count-only, also write the held error tile by tile (2,000 consecutive CpGs per tile, two independent halves of the molecules) |
+| `--dev-curve-cal` | off |  | DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal) |
+| `--dev-deconv-drop` | None |  | DEVELOPMENT, diagnosis only: hold these cells out of the Deconvolver's sequencing reference (the IAM Sequencing Atlas), so their share goes to the cells that remain; flagged in the bundle |
+| `--dev-deconv-ref` | None | yes | DEVELOPMENT, diagnosis only: read a sequenced sample's cell shares against this Deconvolver reference instead of the committed one (e.g. one built with --build-with-mk); flagged in the bundle |
+| `--dev-floor-class` | off |  | DEVELOPMENT (2026-11-07): the islands read with the sample's and the reference's floors each counted at the islands read, where the sample's own mix expects them unmarked, both at the higher (stage_metaa_atlas.FLOOR_CLASS) |
+| `--dev-floor-equal` | off |  | DEVELOPMENT: read a sequenced sample and its reference at a common library floor (the higher of the two) |
+| `--dev-genome-globe` | off | yes | DEVELOPMENT - not commissioned (DEV-IAMA-GLOBE-01): with --pat, the whole-genome globe (methylation level, held error and the change against the sample's own prediction; with --prior-pat, against an earlier reading too) |
+| `--dev-globe-v21` | off |  | DEVELOPMENT (plan 35.30): draw a sequenced sample's globe and information sphere against IAM-Atlas v2.1 instead of the IAM Sequencing Atlas (for comparison) |
+| `--dev-iama-position` | off |  | development: read --pat with the retired position reading (Stage Q) instead of the commissioned self-reference (Stage Q2) |
+| `--dev-info-sphere` | off | yes | DEVELOPMENT - not commissioned (DEV-SPHERE-01): the sample's change on the information sphere (page OUT_info_sphere.html; needs the layout from --build info-globe). On by default since 2026-10-23 (author: 'it still gets created by the chain and we learn each time it does') |
+| `--dev-input-floors` | None |  | DEVELOPMENT: an atlas input floors file in the committed format (gsm, cell, half, floor, calls), for synthetics |
+| `--dev-line-censored` | off | yes | DEVELOPMENT (2026-11-07, DEV-METAA-HEALTHY-01): the array's line at the anchor sites measured with readings at exactly 0 or 1 counted as censored |
+| `--dev-line-wide` | off | yes | DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): the array's line measured on every site this sample's own mix holds firmly (below 0.05 or above 0.95), the identity sites of the cells found set aside, instead of only the ruler's anchors |
+| `--dev-metaa-allsites` | off |  | DEVELOPMENT (2026-10-22): also read Met-A for each cell over every atlas site, each weighted by the shift a loss of that cell would make (stage_metaa_atlas.read_in_mix_allsites), recorded beside the identity-site reading |
+| `--dev-metaa-atlas` | None |  | DEVELOPMENT - not commissioned (DEV-METAA-ATLAS-01, 2026-10-22): Met-A of an isolated CELL (an IAM-Atlas v2.1 cell name, e.g. monocytes) against that cell in IAM-Atlas v2.1, read on the self-tared values (Stage T step 1, the same map the commissioned Met-A reads); written under bundle['development']['metaa_atlas'], not part of the reading |
+| `--dev-metaa-curve` | off |  | DEVELOPMENT (plan 14.14, 2026-10-25): with --dev-metaa-atlas CELL, read Met-A with the atlas as the ruler on the array's own response curve (stage_metaa_atlas.read_on_curve) instead of the same-run tare |
+| `--dev-metaa-sites` | off |  | DEVELOPMENT: with Met-A on sequencing, write every identity site's reads, levels and measured and expected disorder beside the bundle (NAME_metaa_sites.csv.gz), for site-by-site diagnosis |
+| `--dev-metaa-specific` | None |  | DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel |
+| `--dev-one-scale` | off |  | DEVELOPMENT (2026-11-09): arrays; the per-cell readings (Met-A, C-Score, departures) on Stage 1's values, one scale with the array's own measured line (the self-tare map rescales only its 6,963 anchor probes and leaves the rest raw, so 3 to 7 percent of identity sites were corrected twice); the self-tare path's per-cell Met-A kept beside it as met_a_each_cell_selftare |
+| `--dev-plant` | None |  | TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the IAM-Deconvolver reads it on the unplanted values. Every report and bundle says PLANTED; the bundle records the plant (key 'planted') |
+| `--dev-plant-territory` | None |  | TESTS ONLY: a constructed gain at islands or loss in domains, planted by the chain |
+| `--dev-pred-raw` | off | yes | development (2026-11-07): the healthy prediction of an array on its own values, not on the atlas ruler's |
+| `--dev-provisional` | None | yes | DEVELOPMENT (plan 40.18): with the full atlas panel, a second deconvolution with provisional columns (stage_provisional) beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged |
+| `--dev-ruler` | off | yes | DEVELOPMENT (plan 0.2): put the array on IAM-Atlas v2.1's scale (stage_t_selftare.ruler_map) before the whole-sample Met-A and the territories. Off until the many-level ruler passes (the two-anchor line overcorrects: healthy 1.113 untared, 0.938 on it) |
+| `--dev-selftare-ii` | off |  | no-op alias, kept so recorded commands still run: self-tare II (DEV-SELFTARE-02) is Stage T step 1 since 2026-10-04 and always runs (bundle tare.selftare_ii); the flag only copies that record to bundle['development']['selftare_ii'] and changes nothing else |
+| `--dev-seq-beta` | None |  | DEVELOPMENT (40.10): read a .beta file of per-CpG counts (hg19 CpG numbering) as values at IAM-Atlas v2.1's sites; every reader but IAM-A (no molecules); with --dev-seq-values N, sites with fewer than N reads have no value; or CALL.bw,COV.bw, a GRCh38 bigWig pair of per-CpG levels and coverage (2026-10-24) |
+| `--dev-seq-copies` | off | yes | DEVELOPMENT: on sequencing, count the sample's calls as copies of fewer molecules, by its own copy distribution measured at the library-floor sites (linear-amplification libraries; DEV-ONE-DRAW-01) |
+| `--dev-seq-donors` | None |  | DEVELOPMENT: a per-donor counts file in the committed format (cell, probe, cpg, gsm, half, m, n), for synthetics |
+| `--dev-seq-level` | None | yes | DEVELOPMENT: on sequencing, the healthy level the expectation uses: pooled (methylated over all reads of the cell's donors; the default) or median (of the donors' own levels; the earlier rule) |
+| `--dev-seq-ref` | None | yes | DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1 |
+| `--dev-seq-ref-half` | None |  | with --dev-seq-ref: that sealed donor half only (for a sample of the other half) |
+| `--dev-seq-trim-ends` | None |  | DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat) |
+| `--dev-seq-values` | None |  | DEVELOPMENT (to-do step 40): with --pat, also make a value at each IAM-Atlas v2.1 site from the molecules (methylated calls over calls, sites with at least MIN_CALLS calls; chain/stage_seq_values.py), so the IAM-Deconvolver, Met-A for each cell, Met-A against the atlas and the globe read the same sequencing run IAM-A reads. The commissioned array readings (Met-A on neutrophils, the C-Score) are not applied to sequencing values; every reading is flagged |
+| `--dev-shares` | None |  | DEVELOPMENT, diagnosis only: read every share-based reading against these declared shares instead of the Deconvolver's (which are kept under cell_shares_read) |
+| `--dev-terr-counted` | off | yes | DEVELOPMENT: on sequencing, the islands' expectation from the reference's own reads in the sample's mix (expected_H_mix_counts), against --dev-seq-ref-half's donors when given |
+| `--dev-terr-counts` | None |  | DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics |
+| `--dev-terr-sites` | off |  | DEVELOPMENT: write each territory set's per-site table beside the bundle (NAME_terr_sites_islands.csv.gz, NAME_terr_sites_domains.csv.gz) |
+| `--dev-territories` | off | yes | DEVELOPMENT (plan 48): disorder at cancer's own territories (islands unmarked in every cell type; loosely held domains), against the atlas in the sample's mix. On by default since 2026-10-23 (author: 'wire in the territories score') |
+| `--dev-thin` | None |  | TESTS ONLY (step 40): read a seeded thinned copy of --pat, each molecule kept with this probability (stage_seq_values.thin_pat), so a deep sample stands in for a shallow one; IAM-A and the sequencing values both read the thinned copy; recorded and bannered |
+| `--dev-tiles` | 'table' |  | DEVELOPMENT (plan 14.9): Stage Q2's tiles from the commissioned table (default) or from the genome dictionary's chromosome ranges |
+| `--dev-whole-sites` | off |  | DEVELOPMENT: write Met-A for the whole sample's per-site table (level, expectation, reads, weight, disorder, territory) beside the bundle (NAME_whole_sites.csv.gz) |
+| `--engine` | 'v3' |  | kept so recorded commands still run: v3 names the conductor (conductor_v3.py), which chain v4 runs; the class-floor engine was retired 2026-10-03 |
+| `--explorer-spec` | None |  | also write the report globe's layers as a Globe Explorer spec (JSON) to this path, for the site's Globe Explorer (website/art/make_explorer.py sample), so every sample globe on the site is the one this command drew |
+| `--full-chain` | off |  | every development reading that applies to the input, beside the commissioned ones, each flagged; a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it) |
+| `--genome-region` | 1000 |  | with --dev-genome-globe: CpGs per region (default 1000) |
+| `--geo-dir` | None |  | where --geo-pat files are written (default: a temporary folder) |
+| `--geo-pat` | None |  | fetch this GEO sample's .pat file and read it as --pat; the chain takes the file on the build it reads (hg19), never another build (stage_q0_intake.geo_pat; Decoder: genome builds) |
+| `--grn` | none |  | the array's green-channel raw file (IDAT, .gz allowed), with --red; Stage 1 calibrates it |
+| `--iama-ref-table` | None |  | CSV of same-run healthy references for IAM-A (column A, optional id, pipeline): same laboratory, kit and pipeline; >= 3 rows -> IAM-A median tare |
+| `--id` | None |  | the sample's name in the report and bundle |
+| `--intake-log` | None |  | append intake and integrity records here |
+| `--ledger` | None |  | append one flat row per run to this JSONL evidence ledger; defaults to evidence_ledger.jsonl beside the report |
+| `--manifest-dir` | None |  | write the immutable per-sample manifest here |
+| `--metaa-atlas-ref-A` | None |  | with --dev-metaa-atlas: comma-separated development.metaa_atlas.A of >= 3 healthy samples of the same cell run the same way (never this sample); gives A_rel and its state (stage_metaa_atlas.tare) |
+| `--no-bundle` | off |  | do not write the machine-readable bundle beside the report (it is written by default: a run that leaves only HTML cannot be pooled later) |
+| `--no-info-sphere` | none |  | skip the information sphere reading |
+| `--no-intake` | off |  | skip Stage 0 (recorded in the report as skipped) |
+| `--no-territories` | none |  | skip the territory readings |
+| `--out` | 'methylphys_report.html' |  | the report (HTML) to write |
+| `--pat` | None |  | chain v4 Stage Q2 (IAM-A against the sample's own reference); with --dev-iama-position the retired v3 Stage Q: a wgbstools .pat / .pat.gz file; read with the loyfer_pat_v1 extractor (stage_q_iam_a.pat_site_table) |
+| `--pat-max-bytes` | None |  | development: read only the first N bytes of --pat; IAM-A is then refused (P is measured on whole files) unless --dev-allow-partial |
+| `--patient-id` | None |  | already-hashed identifier; a cleartext one is hashed here |
+| `--prior-betas` | None |  | stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle |
+| `--prior-bundle` | None |  | stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline |
+| `--prior-geo-pat` | None |  | the same for --prior-pat |
+| `--prior-name` | 'the earlier reading' |  | with --prior-pat: what the other file is, as the globe names it |
+| `--prior-pat` | None |  | with --dev-genome-globe: a .pat file of an earlier reading of the same person or specimen |
+| `--red` | none |  | the array's red-channel raw file (IDAT, .gz allowed), with --grn |
+| `--ref-fasta` | None |  | the reference FASTA the --bam was aligned to (indexed) |
+| `--save-betas` | None |  | also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle |
+| `--seq-cell` | None |  | cell type of the sequenced specimen (Stage Q); default: the stated specimen's IAM-Atlas v2.1 cell when it names one (2026-10-25: 'sorted b cells' was read as neutrophils and refused), else neutrophils |
+| `--seq-chemistry` | 'whole-genome bisulfite' |  | chemistry of the sequencing input (IAM-A is commissioned on whole-genome bisulfite) |
+| `--seq-pipeline` | None |  | the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it |
+| `--sesame-rscript` | os.environ.get('METHYLPHYS_SESAME_RSCRIPT') |  | Rscript of an environment with Bioconductor sesame (--dev-epic-v2) |
+| `--sex` | None |  | declared sex (F/M), optional; when given Stage 0.8 compares it with the array, otherwise the array's sex is recorded |
+| `--site-table` | None |  | v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline |
+| `--slide-ref-A` | None |  | comma-separated Met-A before the median tare (met_a.A, self-tared since 2026-10-04) of >= 3 same-run healthy reference arrays (same slide, else same batch) - v3 Stage T median tare, whole blood and isolated neutrophils |
+| `--slide-ref-table` | None |  | CSV of same-run healthy references with columns A and C (optional id): Met-A and the C-score from pass 1 (met_a.A, self-tared since 2026-10-04; before the median tare). >= 3 rows -> median tare (nothing is fitted) |
+| `--specimen` | 'whole blood' |  | what the sample is (whole blood, plasma, tissue, sorted cells, ...); picks the route only, never the cell: the Deconvolver decides what is in it |
+| `--workers` | 4 |  | processes for counting --bam |
+
 ## How to read the Decoder
 
 The chain is the code that turns one sample into one report. This part of the manual takes it apart in the order a real run
@@ -386,7 +505,11 @@ hands everything to the report.
 
 For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified ..." naming an atlas cell), the whole-sample readings (Met-A whole sample, the territories, the C-Score) are read against that cell's own atlas column instead of the blood panel's mixed shares; the bundle records it as `whole_sample_reference`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 558 (959 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `deconv_reference_mk_dev.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`, `sequencing_values.csv`
+**The default chain (2026-11-08, author: nothing built sits switched off).** Without `--commissioned-only`, every built development reading runs on every sample, each flagged, including on arrays the wide line, and on sequencing input the IAM Sequencing Atlas as ruler, the donors' levels, the counted island expectation, the copy correction and the megakaryocyte column. Off: the two library floors (failed their own tests), the measured middle (held), `--dev-curve-cal` and `--dev-one-scale` (until their synthetics). The table of options above says which are on.
+
+**One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`).
+
+*Code:* `MethylPhys_Interface/run_sample.py` line 558 (959 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `deconv_reference_mk_dev.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`
 
 ### `run_sample.py::main._panel`
 

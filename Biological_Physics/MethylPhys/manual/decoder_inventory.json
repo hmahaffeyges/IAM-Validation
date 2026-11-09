@@ -320,6 +320,7 @@
       "_ISV_ABOUT"
      ],
      "data_files": [
+      ".gz",
       "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
       "OUT.csv",
       "Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet",
@@ -330,8 +331,7 @@
       "mu_part1.parquet",
       "pip install -r Biological_Physics/MethylPhys/chain/requirements.txt",
       "pyarrow.parquet",
-      "seq_atlas_inputs.csv",
-      "sequencing_values.csv"
+      "seq_atlas_inputs.csv"
      ],
      "traced_calls": {
       "array": 1,
