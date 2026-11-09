@@ -30,7 +30,7 @@ def atlas_panel():
     import pyarrow.parquet as pq
     return [n for k in (1, 2, 3) for n in pq.ParquetFile(os.path.join(D21.ATLAS, f"mu_part{k}.parquet")).schema_arrow.names if n not in ("cpg", "__index_level_0__")]
 
-def stage_d21(beta, panel=None, sequencing=False, seqref=None):
+def stage_d21(beta, panel=None, sequencing=False, seqref=None, counts=None):
     if seqref is not None:   # 2026-10-30 (plan 35.30, development): a sequenced sample split on the IAM Sequencing Atlas (stage_seq_atlas.deconv_reference_of)
         R, M = seqref; panel = list(R["cells"]); ref = "IAM Sequencing Atlas (development)"
     else:
@@ -51,7 +51,8 @@ def stage_d21(beta, panel=None, sequencing=False, seqref=None):
                                "stage_v4.MIN_MARKER_SHARE (operational, not measured)", "too few of the sites that tell the six blood cells apart were measured to solve the shares",
                                "check Stage 1 detection (probes at background are removed); a complete EPIC v1 array measures nearly all of them", provisional=True)
         return rec
-    d = D21.deconvolve(b, R, M); com = set(D21.DECONV_V21_COMMISSIONING["cells"]) if list(panel) == list(D21.BLOOD6) else set()   # commissioned on the six-cell panel only
+    d = D21.deconvolve(b, R, M, counts=counts); com = set(D21.DECONV_V21_COMMISSIONING["cells"]) if list(panel) == list(D21.BLOOD6) else set()   # commissioned on the six-cell panel only
+    if counts is not None: rec["noise_weighting"] = "each site weighted by its read count's counting noise, from the model (development, --dev-seq-noise-weight)"
     rec["cells"] = [{"cell": c, "share": round(d["shares"][c], 4), "interval_95": [round(x, 4) for x in d["interval_95"][c]],
                      "resampled_median": round((d.get("resampled_median") or {}).get(c, float("nan")), 4),
                      "status": "commissioned" if c in com else "development"} for c in panel]

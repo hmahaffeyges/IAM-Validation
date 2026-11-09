@@ -1766,3 +1766,16 @@ CD4, is read at monocytes, where its Deconvolver put it). Checked offline on con
 Run over the 18 sorted libraries' already-aligned pieces on 12 machines (`floor_position_identity.sh`). If the end calls carry the libraries'
 extra off-pattern reads at the identity sites, each library can be calibrated on its own molecules, with nothing from other samples.
 **Prior reading:** all 18 were read before (`CANON/data_spent.csv`).
+
+**The IAM-Deconvolver weighted by each site's read count on sequencing (chain option, development; its synthetic written before it runs).**
+Auditing what was built alongside the IAM Sequencing Atlas against what reading a sample uses: on sequencing the Deconvolver received each
+site's methylation fraction but not the read count it rests on, so a site seen in 2 molecules counted as much as one seen in 60. A CMB fit
+weights each pixel by its own noise; `--dev-seq-noise-weight` does the same (`stage_deconv_v21._solve`: the counting noise p(1-p)/n from the
+model's prediction joins each site's weight). Offline on constructed mixes from the atlas's marker levels, with depth varying site to site:
+share error 0.164 to 0.103 and false cells 0.103 to 0.056 at 2 reads, 0.064 to 0.038 and 0.048 to 0.020 at 40, better at every depth.
+**Synthetic** (`seq_noise_weight_synthetic.py`, `seq_noise_weight_synthetic_score.py`): six constructed samples (three blood-like, three
+plasma-like) from the atlas's levels at IAM-Atlas v2.1's sites, read as counts by the one command with and without the option; bars: closer
+to the truth in 5 of 6, the share on cells not in the sample no larger in 5 of 6, at depth 20 no worse by more than 0.01.
+**Range of the data:** the real libraries read at a median 6 to 26 calls per site (the 18 sorted libraries) and the real healthy plasmas at
+a median 6 with 251,945 of 813,951 sites read (GSM7426156); the synthetic reads depth 6 and 20 with site-to-site variation and, for plasma,
+a third of the sites read.

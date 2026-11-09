@@ -950,7 +950,7 @@ Deconvolver and labels each cell's share commissioned or development.
 
 Each share whose best fit lies outside its own 95 % range is marked `resolved: false` ("not resolved from its close relatives in the atlas").
 On the six-cell panel this does not happen; on the full panel close relatives (neutrophils, eosinophils and basophils; monocytes, macrophages
-and microglia; T-cell subsets) can trade a share between them, so the resampled range and the single best fit disagree (development).
+and microglia; T-cell subsets) can trade a share between them, so the resampled range and the single best fit disagree (development). `counts` (development): passed to the Deconvolver when `--dev-seq-noise-weight` is given on a sequenced sample; the record then says `noise_weighting`.
 
 ### stage_v4.py::count_sequencing
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
@@ -1033,13 +1033,13 @@ The sites are kept in a cache on each machine under a key made from the referenc
 The marker sites themselves, as `markers` computed them before the cache: for each cell, the sites that separate it most from its nearest other cell in the panel, in both directions.
 
 ### stage_deconv_v21.py::_solve
-The three-pass weighted non-negative least squares.
+The three-pass weighted non-negative least squares. On sequencing with `--dev-seq-noise-weight` (development), each site's own counting noise p(1-p)/n joins its weight, n the site's read count and p the model's prediction from the current shares, not the site's own noisy value (the way each sky pixel is weighted by its noise in a CMB fit); one more pass is made.
 
 ### stage_deconv_v21.py::deconvolve
 The shares, raw sum, 95 % intervals and sites used for one sample.
 
 Since 2026-10-22 it also records each cell's `resampled_median`, the middle of the resampled shares, beside the best fit, so a wide panel's two
-estimates can be compared against known mixtures (development; the commissioned six-cell shares are the best fit, unchanged).
+estimates can be compared against known mixtures (development; the commissioned six-cell shares are the best fit, unchanged). `counts` (development): each site's read count on sequencing, passed to `_solve` for the counting noise, and resampled with the sites.
 
 ### stage_deconv_v21.py::sample
 Inside the planted test only: builds a planted array, each cell's DNA drawn from the atlas's donor spread, mixed in known shares, plus a

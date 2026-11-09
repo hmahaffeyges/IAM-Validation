@@ -39,7 +39,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,523 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,524 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -49,8 +49,8 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/report_v3.py` | 297 | 9 | 9 | 9 |
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
 | `dev_stages.py` | 391 | 29 | 1 | 0 |
-| `stage_v4.py` | 187 | 11 | 4 | 2 |
-| `stage_deconv_v21.py` | 213 | 7 | 4 | 0 |
+| `stage_v4.py` | 188 | 11 | 4 | 2 |
+| `stage_deconv_v21.py` | 221 | 7 | 4 | 0 |
 | `stage_q2_selfref.py` | 400 | 36 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
@@ -79,7 +79,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **112 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **113 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -144,6 +144,7 @@ Read from `run_sample.py`'s own option definitions at build time: **112 options*
 | `--dev-seq-copies` | off | yes | DEVELOPMENT: on sequencing, count the sample's calls as copies of fewer molecules, by its own copy distribution measured at the library-floor sites (linear-amplification libraries; DEV-ONE-DRAW-01) |
 | `--dev-seq-donors` | None |  | DEVELOPMENT: a per-donor counts file in the committed format (cell, probe, cpg, gsm, half, m, n), for synthetics |
 | `--dev-seq-level` | None | yes | DEVELOPMENT: on sequencing, the healthy level the expectation uses: pooled (methylated over all reads of the cell's donors; the default) or median (of the donors' own levels; the earlier rule) |
+| `--dev-seq-noise-weight` | off |  | DEVELOPMENT (2026-11-09): on sequencing, the IAM-Deconvolver weights each site by its own read count's counting noise (from the model's prediction, as each sky pixel by its noise); off until its synthetic is met |
 | `--dev-seq-ref` | None | yes | DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1 |
 | `--dev-seq-ref-half` | None |  | with --dev-seq-ref: that sealed donor half only (for a sample of the other half) |
 | `--dev-seq-trim-ends` | None |  | DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat) |
@@ -511,14 +512,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 562 (959 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `deconv_reference_mk_dev.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`
+*Code:* `MethylPhys_Interface/run_sample.py` line 562 (960 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `deconv_reference_mk_dev.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`, `pip install -r Biological_Physics/MethylPhys/chain/requirements.txt`, `pyarrow.parquet`, `seq_atlas_inputs.csv`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1121 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1122 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -526,13 +527,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 886 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 887 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1445 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1446 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1508,15 +1509,15 @@ Deconvolver and labels each cell's share commissioned or development.
 
 Each share whose best fit lies outside its own 95 % range is marked `resolved: false` ("not resolved from its close relatives in the atlas").
 On the six-cell panel this does not happen; on the full panel close relatives (neutrophils, eosinophils and basophils; monocytes, macrophages
-and microglia; T-cell subsets) can trade a share between them, so the resampled range and the single best fit disagree (development).
+and microglia; T-cell subsets) can trade a share between them, so the resampled range and the single best fit disagree (development). `counts` (development): passed to the Deconvolver when `--dev-seq-noise-weight` is given on a sequenced sample; the record then says `noise_weighting`.
 
-*Code:* `stage_v4.py` line 33 (30 lines) · arguments: beta, panel, sequencing, seqref · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `SEQ_READ_MARKERS`, `_REF`
+*Code:* `stage_v4.py` line 33 (31 lines) · arguments: beta, panel, sequencing, seqref, counts · calls: array run 1 · constants read: `MIN_MARKER_SHARE`, `SEQ_READ_MARKERS`, `_REF`
 
 ### `stage_v4.py::count_sequencing`
 
 Counts a `.pat` file (gzipped or plain) on the hg19 tiles, or an aligned BAM against its reference FASTA, with Stage Q2's one counter.
 
-*Code:* `stage_v4.py` line 79 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
+*Code:* `stage_v4.py` line 80 (5 lines) · arguments: pat, bam, ref_fasta, workers, assembly · calls: bam run 1
 
 ### `stage_v4.py::counting_error`
 
@@ -1527,7 +1528,7 @@ changes A or its state, so a shallow sample, plasma included, is read and says i
 instrument tell us...not our assumptions"). For example, at a held error of 0.02: ten million chances use 3 % of the band's width, one million
 9 %, a hundred thousand 30 %, ten thousand 94 % (`stage_v4.counting_error` on those counts).
 
-*Code:* `stage_v4.py` line 85 (12 lines) · arguments: rec, A, B · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 86 (12 lines) · arguments: rec, A, B · calls: not called on the traced runs
 
 ### `stage_v4.py::stage_q2`
 
@@ -1536,32 +1537,32 @@ Stage Q2 as above: the refusals, the shape check, the reading A with its predict
 The reading's `count` also carries the nearest-neighbor coupling (`coupling`, `coupling_err_share`, `coupling_pairs`), recorded beside
 the held error, never used in A.
 
-*Code:* `stage_v4.py` line 98 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
+*Code:* `stage_v4.py` line 99 (27 lines) · arguments: rec, cell, chemistry, source · calls: bam run 1 · constants read: `CD8_TYPES` · files named: `Runtime Matrices/IAM_A_SelfRef/shape_reference_v1.json`
 
 ### `stage_v4.py::_compress`
 
 Takes every other bit of an integer: the step of the HEALPix algorithm that splits a NESTED pixel index into its x and y coordinates.
 
-*Code:* `stage_v4.py` line 132 (3 lines) · arguments: v · calls: array run 6
+*Code:* `stage_v4.py` line 133 (3 lines) · arguments: v · calls: array run 6
 
 ### `stage_v4.py::nest_pix2ang`
 
 HEALPix NESTED pixel centers to colatitude and longitude.
 
-*Code:* `stage_v4.py` line 135 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
+*Code:* `stage_v4.py` line 136 (10 lines) · arguments: nside, ipix · calls: array run 3 · constants read: `JPLL`, `JRLL`
 
 ### `stage_v4.py::cscore_sky`
 
 Draws the C-Score's departures on the sphere in a Mollweide view and returns a summary (NSIDE, sites, pixels drawn, the share of
 departures beyond 3). Without a departure map it draws nothing and says why.
 
-*Code:* `stage_v4.py` line 146 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
+*Code:* `stage_v4.py` line 147 (38 lines) · arguments: z, out_png, title, vlim, readings · calls: array run 1
 
 ### `stage_v4.py::png_data_uri`
 
 Embeds a figure in the HTML report as a data URI.
 
-*Code:* `stage_v4.py` line 185 (2 lines) · arguments: path · calls: not called on the traced runs
+*Code:* `stage_v4.py` line 186 (2 lines) · arguments: path · calls: not called on the traced runs
 
 ## 7. The IAM-Deconvolver: `stage_deconv_v21.py`
 
@@ -1623,31 +1624,31 @@ The marker sites themselves, as `markers` computed them before the cache: for ea
 
 ### `stage_deconv_v21.py::_solve`
 
-The three-pass weighted non-negative least squares.
+The three-pass weighted non-negative least squares. On sequencing with `--dev-seq-noise-weight` (development), each site's own counting noise p(1-p)/n joins its weight, n the site's read count and p the model's prediction from the current shares, not the site's own noisy value (the way each sky pixel is weighted by its noise in a CMB fit); one more pass is made.
 
-*Code:* `stage_deconv_v21.py` line 70 (5 lines) · arguments: y, A, S, lab_sd, passes · calls: array run 201
+*Code:* `stage_deconv_v21.py` line 70 (11 lines) · arguments: y, A, S, lab_sd, passes, n · calls: array run 201
 
 ### `stage_deconv_v21.py::deconvolve`
 
 The shares, raw sum, 95 % intervals and sites used for one sample.
 
 Since 2026-10-22 it also records each cell's `resampled_median`, the middle of the resampled shares, beside the best fit, so a wide panel's two
-estimates can be compared against known mixtures (development; the commissioned six-cell shares are the best fit, unchanged).
+estimates can be compared against known mixtures (development; the commissioned six-cell shares are the best fit, unchanged). `counts` (development): each site's read count on sequencing, passed to `_solve` for the counting noise, and resampled with the sites.
 
-*Code:* `stage_deconv_v21.py` line 75 (16 lines) · arguments: beta, R, M, lab_sd, boot, seed · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`
+*Code:* `stage_deconv_v21.py` line 81 (18 lines) · arguments: beta, R, M, lab_sd, boot, seed, counts · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`
 
 ### `stage_deconv_v21.py::sample`
 
 Inside the planted test only: builds a planted array, each cell's DNA drawn from the atlas's donor spread, mixed in known shares, plus a
 laboratory shift and array noise.
 
-*Code:* `stage_deconv_v21.py` line 108 (2 lines) · arguments: f, lab · calls: not called on the traced runs
+*Code:* `stage_deconv_v21.py` line 116 (2 lines) · arguments: f, lab · calls: not called on the traced runs
 
 ### `stage_deconv_v21.py::sample_check`
 
 For the second sealed test: a pure array passes when it reads at least 0.80 of its own cell. Failing arrays are listed and not mixed.
 
-*Code:* `stage_deconv_v21.py` line 185 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`
+*Code:* `stage_deconv_v21.py` line 193 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`
 
 ## 8. IAM-Atlas v2.1's commissioning rules: `stage_atlas_commission.py`
 
@@ -3994,7 +3995,7 @@ The atlas reference with provisional columns added, as a copy; IAM-Atlas v2.1 it
 
 A second deconvolution with provisional columns beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged (development, plan 40.18).
 
-*Code:* `stage_v4.py` line 64 (13 lines) · arguments: beta, panel, cells, sequencing · calls: not called on the traced runs · constants read: `_REF`
+*Code:* `stage_v4.py` line 65 (13 lines) · arguments: beta, panel, cells, sequencing · calls: not called on the traced runs · constants read: `_REF`
 
 ### `stage_provisional.py::column_v2`
 

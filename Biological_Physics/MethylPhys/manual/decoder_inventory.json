@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1523,
+   "lines": 1524,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,9 +308,9 @@
      "function": "main",
      "name": "main",
      "line": 562,
-     "end": 1520,
+     "end": 1521,
      "args": [],
-     "lines": 959,
+     "lines": 960,
      "doc": "",
      "constants": [
       "BIO",
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 886,
-     "end": 890,
+     "line": 887,
+     "end": 891,
      "args": [
       "r"
      ],
@@ -359,8 +359,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1121,
-     "end": 1128,
+     "line": 1122,
+     "end": 1129,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1445,
-     "end": 1446,
+     "line": 1446,
+     "end": 1447,
      "args": [
       "b",
       "it",
@@ -3587,7 +3587,7 @@
   },
   {
    "file": "stage_v4.py",
-   "lines": 187,
+   "lines": 188,
    "functions": [
     {
      "file": "stage_v4.py",
@@ -3631,14 +3631,15 @@
      "function": "stage_d21",
      "name": "stage_d21",
      "line": 33,
-     "end": 62,
+     "end": 63,
      "args": [
       "beta",
       "panel",
       "sequencing",
-      "seqref"
+      "seqref",
+      "counts"
      ],
-     "lines": 30,
+     "lines": 31,
      "doc": "",
      "constants": [
       "MIN_MARKER_SHARE",
@@ -3654,8 +3655,8 @@
      "file": "stage_v4.py",
      "function": "stage_d21_provisional",
      "name": "stage_d21_provisional",
-     "line": 64,
-     "end": 76,
+     "line": 65,
+     "end": 77,
      "args": [
       "beta",
       "panel",
@@ -3674,8 +3675,8 @@
      "file": "stage_v4.py",
      "function": "count_sequencing",
      "name": "count_sequencing",
-     "line": 79,
-     "end": 83,
+     "line": 80,
+     "end": 84,
      "args": [
       "pat",
       "bam",
@@ -3695,8 +3696,8 @@
      "file": "stage_v4.py",
      "function": "counting_error",
      "name": "counting_error",
-     "line": 85,
-     "end": 96,
+     "line": 86,
+     "end": 97,
      "args": [
       "rec",
       "A",
@@ -3712,8 +3713,8 @@
      "file": "stage_v4.py",
      "function": "stage_q2",
      "name": "stage_q2",
-     "line": 98,
-     "end": 124,
+     "line": 99,
+     "end": 125,
      "args": [
       "rec",
       "cell",
@@ -3736,8 +3737,8 @@
      "file": "stage_v4.py",
      "function": "_compress",
      "name": "_compress",
-     "line": 132,
-     "end": 134,
+     "line": 133,
+     "end": 135,
      "args": [
       "v"
      ],
@@ -3753,8 +3754,8 @@
      "file": "stage_v4.py",
      "function": "nest_pix2ang",
      "name": "nest_pix2ang",
-     "line": 135,
-     "end": 144,
+     "line": 136,
+     "end": 145,
      "args": [
       "nside",
       "ipix"
@@ -3774,8 +3775,8 @@
      "file": "stage_v4.py",
      "function": "cscore_sky",
      "name": "cscore_sky",
-     "line": 146,
-     "end": 183,
+     "line": 147,
+     "end": 184,
      "args": [
       "z",
       "out_png",
@@ -3795,8 +3796,8 @@
      "file": "stage_v4.py",
      "function": "png_data_uri",
      "name": "png_data_uri",
-     "line": 185,
-     "end": 186,
+     "line": 186,
+     "end": 187,
      "args": [
       "path"
      ],
@@ -3814,7 +3815,7 @@
   },
   {
    "file": "stage_deconv_v21.py",
-   "lines": 213,
+   "lines": 221,
    "functions": [
     {
      "file": "stage_deconv_v21.py",
@@ -3884,16 +3885,17 @@
      "function": "_solve",
      "name": "_solve",
      "line": 70,
-     "end": 74,
+     "end": 80,
      "args": [
       "y",
       "A",
       "S",
       "lab_sd",
-      "passes"
+      "passes",
+      "n"
      ],
-     "lines": 5,
-     "doc": "",
+     "lines": 11,
+     "doc": "n (2026-11-09, development, --dev-seq-noise-weight): each site's read count on sequencing; the site's counting noise p(1-p)/n, p the model's own prediction from the current shares (as each sky pixel is weighted by its noise, from the model, not the noisy data), joins the atlas's spread and the laboratory term in each site's weight. One more pass when n is given.",
      "constants": [],
      "data_files": [],
      "traced_calls": {
@@ -3904,18 +3906,19 @@
      "file": "stage_deconv_v21.py",
      "function": "deconvolve",
      "name": "deconvolve",
-     "line": 75,
-     "end": 90,
+     "line": 81,
+     "end": 98,
      "args": [
       "beta",
       "R",
       "M",
       "lab_sd",
       "boot",
-      "seed"
+      "seed",
+      "counts"
      ],
-     "lines": 16,
-     "doc": "beta: pd.Series of readings by site id. Returns shares (normalized), raw sum, 95 % intervals, sites used.",
+     "lines": 18,
+     "doc": "beta: pd.Series of readings by site id. Returns shares (normalized), raw sum, 95 % intervals, sites used. counts (development, 2026-11-09): each site's read count on sequencing, for _solve's counting noise.",
      "constants": [
       "BOOT",
       "LAB_SD",
@@ -3930,8 +3933,8 @@
      "file": "stage_deconv_v21.py",
      "function": "sample",
      "name": "sample",
-     "line": 108,
-     "end": 109,
+     "line": 116,
+     "end": 117,
      "args": [
       "f",
       "lab"
@@ -3946,8 +3949,8 @@
      "file": "stage_deconv_v21.py",
      "function": "sample_check",
      "name": "sample_check",
-     "line": 185,
-     "end": 186,
+     "line": 193,
+     "end": 194,
      "args": [
       "x",
       "cell",

@@ -67,21 +67,29 @@ def markers_compute(R, per_cell=PER_CELL):
         hi = (-d / s).min(1); lo = (d / s).min(1)   # c above every other cell / below every other cell, by its nearest one
         pick |= set(hi.nlargest(per_cell).index) | set(lo.nlargest(per_cell).index)
     return sorted(pick)
-def _solve(y, A, S, lab_sd, passes=3):
+def _solve(y, A, S, lab_sd, passes=3, n=None):
+    """n (2026-11-09, development, --dev-seq-noise-weight): each site's read count on sequencing; the site's counting noise p(1-p)/n, p the
+    model's own prediction from the current shares (as each sky pixel is weighted by its noise, from the model, not the noisy data), joins the
+    atlas's spread and the laboratory term in each site's weight. One more pass when n is given."""
     K = A.shape[1]; f = np.full(K, 1.0 / K)
-    for _ in range(passes):
-        w = 1.0 / np.sqrt((S ** 2 * f[None, :] ** 2).sum(1) + lab_sd ** 2); f, _ = nnls(A * w[:, None], y * w)
+    for _ in range(passes + (1 if n is not None else 0)):
+        v = (S ** 2 * f[None, :] ** 2).sum(1) + lab_sd ** 2
+        if n is not None:
+            ph = np.clip(A @ f / max(float(f.sum()), 1e-9), 0.01, 0.99); v = v + ph * (1 - ph) / np.maximum(n, 1)
+        w = 1.0 / np.sqrt(v); f, _ = nnls(A * w[:, None], y * w)
     return f
-def deconvolve(beta, R, M, lab_sd=LAB_SD, boot=BOOT, seed=SEED):
-    """beta: pd.Series of readings by site id. Returns shares (normalized), raw sum, 95 % intervals, sites used."""
+def deconvolve(beta, R, M, lab_sd=LAB_SD, boot=BOOT, seed=SEED, counts=None):
+    """beta: pd.Series of readings by site id. Returns shares (normalized), raw sum, 95 % intervals, sites used. counts (development,
+    2026-11-09): each site's read count on sequencing, for _solve's counting noise."""
     y = pd.Series(beta).reindex(M).astype(float); m = y.notna().values; sites = np.array(M)[m]
+    nn = None if counts is None else pd.Series(counts).reindex(M).astype(float).values[m]
     A = R["mu"].loc[sites].values.astype(float); S = R["sd"].loc[sites].values.astype(float); yy = y.values[m]
     full = R.get("spread", "mean_only") == "full"; lab_w = 0.0 if full else lab_sd   # v2: the laboratory term is already inside S
-    f = _solve(yy, A, S, lab_w); tot = f.sum(); rng = np.random.default_rng(seed); B = [f / tot if tot > 0 else f]
+    f = _solve(yy, A, S, lab_w, n=nn); tot = f.sum(); rng = np.random.default_rng(seed); B = [f / tot if tot > 0 else f]
     for _ in range(boot):
         i = rng.integers(0, len(yy), len(yy)); Ai = A[i]
         if full: Ai = np.clip(Ai + rng.normal(0, 1, Ai.shape) * S[i], 0, 1)   # this person's cells, drawn from the atlas's spread
-        g = _solve(yy[i], Ai, S[i], lab_w); B.append(g / g.sum() if g.sum() > 0 else g)
+        g = _solve(yy[i], Ai, S[i], lab_w, n=None if nn is None else nn[i]); B.append(g / g.sum() if g.sum() > 0 else g)
     B = np.array(B); lo, hi = np.percentile(B, 2.5, 0), np.percentile(B, 97.5, 0)   # boot=0: the point estimate only
     sh = f / tot if tot > 0 else f
     return dict(shares={c: float(v) for c, v in zip(R["cells"], sh)}, raw_sum=float(tot),

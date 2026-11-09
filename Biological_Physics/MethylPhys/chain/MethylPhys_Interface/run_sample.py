@@ -711,6 +711,7 @@ def main():
     ap.add_argument("--dev-curve-cal", action="store_true", help="DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal)")
     ap.add_argument("--commissioned-only", action="store_true", help="read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off)")
     ap.add_argument("--dev-seq-trim-ends", type=int, default=None, metavar="N", help="DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat)")
+    ap.add_argument("--dev-seq-noise-weight", action="store_true", help="DEVELOPMENT (2026-11-09): on sequencing, the IAM-Deconvolver weights each site by its own read count's counting noise (from the model's prediction, as each sky pixel by its noise); off until its synthetic is met")
     ap.add_argument("--dev-one-scale", action="store_true", help="DEVELOPMENT (2026-11-09): arrays; the per-cell readings (Met-A, C-Score, departures) on Stage 1's values, one scale with the array's own measured line (the self-tare map rescales only its 6,963 anchor probes and leaves the rest raw, so 3 to 7 percent of identity sites were corrected twice); the self-tare path's per-cell Met-A kept beside it as met_a_each_cell_selftare")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
@@ -1215,7 +1216,7 @@ def main():
                 print("Stage C: each design's response on its own calibrators: " + "; ".join(f"{k} {v.get('levels', 0)} levels, largest {v.get('largest_correction')}" if v.get("mapped") else f"{k} not mapped" for k, v in o["curve_cal"]["designs"].items()), flush=True)
             except Exception as e: o["curve_cal"] = {"mapped": False, "reason": f"{type(e).__name__}: {str(e)[:160]}"}
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
-        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
+        o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr, counts=(a._seqc if (a._seqv and getattr(a, "dev_seq_noise_weight", False) and a._seqc is not None) else None))
         import stage_0_intake as _S0L   # 2026-11-07 (the Deconvolver decides): the specimen's claim checked against what Stage D21 found, recorded
         o["label_check"] = _S0L.label_check(a.specimen, o["cell_shares"])
         if not a.dev_metaa_atlas and (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen)):   # a sorted / isolated route: its single-cell Met-A reads the cell found most of
