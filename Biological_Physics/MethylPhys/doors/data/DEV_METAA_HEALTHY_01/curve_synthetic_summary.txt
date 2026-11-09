@@ -1,23 +1,23 @@
 48 readings, 48 read
-blood 0 lab A: share distance from unbent, raw 0.1250, calibrated 0.1258; GMP raw 0.0000, calibrated 0.0000
-blood 1 lab A: share distance from unbent, raw 0.1356, calibrated 0.1353; GMP raw 0.0179, calibrated 0.0172
-blood 2 lab A: share distance from unbent, raw 0.1214, calibrated 0.1234; GMP raw 0.0000, calibrated 0.0000
-blood 3 lab A: share distance from unbent, raw 0.1309, calibrated 0.1320; GMP raw 0.0000, calibrated 0.0000
-blood 4 lab A: share distance from unbent, raw 0.1006, calibrated 0.1051; GMP raw 0.0000, calibrated 0.0000
-blood 5 lab A: share distance from unbent, raw 0.1402, calibrated 0.1399; GMP raw 0.0167, calibrated 0.0164
-blood 0 lab C: share distance from unbent, raw 0.6029, calibrated 0.5963; GMP raw 0.0000, calibrated 0.0000
-blood 1 lab C: share distance from unbent, raw 0.5379, calibrated 0.5366; GMP raw 0.0000, calibrated 0.0000
-blood 2 lab C: share distance from unbent, raw 0.5429, calibrated 0.5360; GMP raw 0.0000, calibrated 0.0000
-blood 3 lab C: share distance from unbent, raw 0.6403, calibrated 0.6392; GMP raw 0.0000, calibrated 0.0000
-blood 4 lab C: share distance from unbent, raw 0.5483, calibrated 0.5447; GMP raw 0.0000, calibrated 0.0000
-blood 5 lab C: share distance from unbent, raw 0.5669, calibrated 0.5617; GMP raw 0.0000, calibrated 0.0000
-blood 0: planted loss read unbent +0.1127, bent and calibrated +0.0853
-blood 1: planted loss read unbent +0.1359, bent and calibrated +0.1026
-blood 2: planted loss read unbent +0.1427, bent and calibrated +0.1072
-blood 3: planted loss read unbent +0.1009, bent and calibrated +0.0755
-blood 4: planted loss read unbent +0.1429, bent and calibrated +0.1083
-blood 5: planted loss read unbent +0.1335, bent and calibrated +0.1009
-bar 1 (shares): 0 of 12: not met
-bar 2 (Met-A): median 0.0084: not met
+blood 0 lab A: share distance from unbent, raw 0.1250, calibrated 0.2562; GMP raw 0.0000, calibrated 0.0000
+blood 1 lab A: share distance from unbent, raw 0.1356, calibrated 0.1703; GMP raw 0.0179, calibrated 0.0000
+blood 2 lab A: share distance from unbent, raw 0.1214, calibrated 0.2360; GMP raw 0.0000, calibrated 0.0000
+blood 3 lab A: share distance from unbent, raw 0.1309, calibrated 0.1676; GMP raw 0.0000, calibrated 0.0122
+blood 4 lab A: share distance from unbent, raw 0.1006, calibrated 0.2644; GMP raw 0.0000, calibrated 0.0000
+blood 5 lab A: share distance from unbent, raw 0.1402, calibrated 0.1256; GMP raw 0.0167, calibrated 0.0000
+blood 0 lab C: share distance from unbent, raw 0.6029, calibrated 0.3893; GMP raw 0.0000, calibrated 0.0000
+blood 1 lab C: share distance from unbent, raw 0.5379, calibrated 0.2203; GMP raw 0.0000, calibrated 0.0000
+blood 2 lab C: share distance from unbent, raw 0.5428, calibrated 0.2588; GMP raw 0.0000, calibrated 0.0000
+blood 3 lab C: share distance from unbent, raw 0.6402, calibrated 0.3484; GMP raw 0.0000, calibrated 0.0000
+blood 4 lab C: share distance from unbent, raw 0.5483, calibrated 0.2564; GMP raw 0.0000, calibrated 0.0000
+blood 5 lab C: share distance from unbent, raw 0.5670, calibrated 0.2564; GMP raw 0.0000, calibrated 0.0000
+blood 0: planted loss read unbent +0.1127, bent and calibrated +0.0976
+blood 1: planted loss read unbent +0.1359, bent and calibrated +0.1111
+blood 2: planted loss read unbent +0.1427, bent and calibrated +0.1163
+blood 3: planted loss read unbent +0.1009, bent and calibrated +0.0872
+blood 4: planted loss read unbent +0.1429, bent and calibrated +0.1263
+blood 5: planted loss read unbent +0.1335, bent and calibrated +0.1093
+bar 1 (shares): 4 of 12: not met
+bar 2 (Met-A): median 0.0102: not met
 bar 3 (planted loss survives): 0 of 6: not met
 NOT MET

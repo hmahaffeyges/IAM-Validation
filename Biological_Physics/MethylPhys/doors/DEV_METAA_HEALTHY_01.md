@@ -1289,3 +1289,12 @@ the loss within 0.005 in 5 of 6.
 **Range of the data:** the real lines, measured on the 455 atlas donors (910, both designs): slope 0.9301 to 1.0324,
 offset -0.0236 to 0.0361 (5 % to 95 %: slope 0.9780 to 1.0138, offset -0.0103 to 0.0137); the synthetic plants the 5 %/95 % line and the
 extremes. Then the four laboratories' healthy bloods, read once from their kept values with both paths side by side.
+
+**The curve calibration with the full design table: not met, on the synthetic and on the real donors.** Synthetic (`curve_synthetic_summary.txt`,
+48 readings): bars 1 to 3 not met (4 of 12; median 0.0102; 0 of 6). By parent cell (subtypes summed), the large bend's distance from the
+unbent reading fell from 0.34 to 0.40 to 0.05 to 0.16 and its false cells from 0.08 to 0.11 to none, but the small bend's rose (0.04 to 0.07
+raw, 0.04 to 0.15 calibrated) and the calibration moved a clean array by 0.01 to 0.11, and it shrank a planted 3 % loss by about a fifth. So
+the calibration takes out a large smooth bend and adds error of its own on small ones. Real donors (43 of 57 read again so far,
+`gmp_curve_diag2_rows.csv`): the GMP share does not fall (20 donors above 0.01 before, 21 after), the laboratories'
+design II departures spread more (0.0899 to 0.1264), Met-A's spread between laboratory medians is unchanged (0.1199 to 0.1171). The
+laboratories' distortion is not a smooth curve; `--dev-curve-cal` stays built and off.
