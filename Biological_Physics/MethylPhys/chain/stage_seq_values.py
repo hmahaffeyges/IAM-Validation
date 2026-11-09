@@ -80,6 +80,31 @@ def trim_pat(path, n, dest):
             if left: f[2] = "".join(p); o.write("\t".join(f) + "\n"); cout += w * left; kept += w
     return dest, dict(trim_each_end=int(n), molecules_in=mol, molecules_kept=kept, calls_in=cin, calls_kept=cout)
 
+
+def pat_to_lbeta(path, out, n=0):
+    """DEVELOPMENT (2026-11-09, DEV-ATLAS-V21-01): a molecule file (.pat(.gz), hg19 CpG numbering) counted into a per-CpG count file (.lbeta:
+    uint16 methylated and all calls at every hg19 CpG, the layout stage_seq_atlas.read_block reads), with the n outermost calls at each end
+    of every molecule left out, exactly as trim_pat leaves them out, in one pass. With n = 0 it is the plain count (a check: it must equal the
+    published .beta of the same molecules, below that file's cap of 255). Used to count the IAM Sequencing Atlas's own donors the same way a
+    trimmed sample is read, so sample and reference take the same path. Returns the path and counts."""
+    M = np.zeros(HG19_CPGS, np.uint32); C = np.zeros(HG19_CPGS, np.uint32); op = gzip.open if str(path).endswith(".gz") else open
+    bp, bm, bw = [], [], []; mol = cin = cout = 0
+    def flush():
+        if not bp: return
+        p = np.array(bp, np.int64) - 1; m = np.array(bm, bool); w = np.array(bw, np.uint32); ok = (p >= 0) & (p < HG19_CPGS)
+        np.add.at(C, p[ok], w[ok]); np.add.at(M, p[ok & m], w[ok & m]); bp.clear(); bm.clear(); bw.clear()
+    with op(path, "rt") as fh:
+        for line in fh:
+            f = line.rstrip("\n").split("\t")
+            if len(f) < 4: continue
+            i, s, w = int(f[1]), f[2], int(f[3]); idx = [j for j, x in enumerate(s) if x in "CT"]; mol += w; cin += w * len(idx)
+            keep = idx[n:len(idx) - n] if n > 0 else idx
+            for j in keep: bp.append(i + j); bm.append(s[j] == "C"); bw.append(w)
+            cout += w * len(keep)
+            if len(bp) > 5_000_000: flush()
+    flush(); a = np.empty(2 * HG19_CPGS, np.uint16); a[0::2] = np.minimum(M, 65535); a[1::2] = np.minimum(C, 65535); a.tofile(out)
+    return out, dict(trim_each_end=int(n), molecules=mol, calls_in=cin, calls_kept=cout, cpgs_with_calls=int((C > 0).sum()), source=os.path.basename(str(path)), flag=FLAG)
+
 HG19_CPGS = 28217448   # CpGs in the hg19 reference numbering the .pat and .beta files share (stated; a file of another length is refused)
 def values_from_beta(path, min_calls=1):
     """A value at each atlas site from a .beta file (2026-10-22, to-do 40.10): the standard binary per-CpG count file (two numbers per CpG in the

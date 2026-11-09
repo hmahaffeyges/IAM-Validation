@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1533,
+   "lines": 1538,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 254,
-     "end": 492,
+     "end": 497,
      "args": [
       "a"
      ],
-     "lines": 239,
+     "lines": 244,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -254,8 +254,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 404,
-     "end": 404,
+     "line": 409,
+     "end": 409,
      "args": [
       "m"
      ],
@@ -269,8 +269,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 495,
-     "end": 515,
+     "line": 500,
+     "end": 520,
      "args": [
       "a",
       "cnt",
@@ -286,8 +286,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 518,
-     "end": 559,
+     "line": 523,
+     "end": 564,
      "args": [
       "a",
       "o",
@@ -307,8 +307,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 562,
-     "end": 1530,
+     "line": 567,
+     "end": 1535,
      "args": [],
      "lines": 969,
      "doc": "",
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 889,
-     "end": 893,
+     "line": 894,
+     "end": 898,
      "args": [
       "r"
      ],
@@ -359,8 +359,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1124,
-     "end": 1131,
+     "line": 1129,
+     "end": 1136,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1455,
-     "end": 1456,
+     "line": 1460,
+     "end": 1461,
      "args": [
       "b",
       "it",
@@ -5139,7 +5139,7 @@
   },
   {
    "file": "stage_seq_values.py",
-   "lines": 183,
+   "lines": 208,
    "functions": [
     {
      "file": "stage_seq_values.py",
@@ -5225,10 +5225,45 @@
     },
     {
      "file": "stage_seq_values.py",
+     "function": "pat_to_lbeta",
+     "name": "pat_to_lbeta",
+     "line": 84,
+     "end": 106,
+     "args": [
+      "path",
+      "out",
+      "n"
+     ],
+     "lines": 23,
+     "doc": "DEVELOPMENT (2026-11-09, DEV-ATLAS-V21-01): a molecule file (.pat(.gz), hg19 CpG numbering) counted into a per-CpG count file (.lbeta: uint16 methylated and all calls at every hg19 CpG, the layout stage_seq_atlas.read_block reads), with the n outermost calls at each end of every molecule left out, exactly as trim_pat leaves them out, in one pass. With n = 0 it is the plain count (a check: it must ",
+     "constants": [
+      "FLAG",
+      "HG19_CPGS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_values.py",
+     "function": "pat_to_lbeta.flush",
+     "name": "flush",
+     "line": 92,
+     "end": 95,
+     "args": [],
+     "lines": 4,
+     "doc": "",
+     "constants": [
+      "HG19_CPGS"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_values.py",
      "function": "values_from_beta",
      "name": "values_from_beta",
-     "line": 84,
-     "end": 97,
+     "line": 109,
+     "end": 122,
      "args": [
       "path",
       "min_calls"
@@ -5246,8 +5281,8 @@
      "file": "stage_seq_values.py",
      "function": "construct_draw",
      "name": "construct_draw",
-     "line": 100,
-     "end": 128,
+     "line": 125,
+     "end": 153,
      "args": [
       "blood",
       "add",
@@ -5272,8 +5307,8 @@
      "file": "stage_seq_values.py",
      "function": "values_from_bigwig",
      "name": "values_from_bigwig",
-     "line": 133,
-     "end": 154,
+     "line": 158,
+     "end": 179,
      "args": [
       "call_bw",
       "cov_bw",
@@ -5293,8 +5328,8 @@
      "file": "stage_seq_values.py",
      "function": "genome_coverage",
      "name": "genome_coverage",
-     "line": 159,
-     "end": 182,
+     "line": 184,
+     "end": 207,
      "args": [
       "values",
       "key",
@@ -10260,5 +10295,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 524
+ "n_functions": 526
 }

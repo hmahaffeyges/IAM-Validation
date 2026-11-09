@@ -333,6 +333,11 @@ def _build(a):
         rep.update(command=[os.path.basename(sys.argv[0])] + sys.argv[1:], label="DEVELOPMENT - not commissioned (library floor, plan 35.30)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps(dict(sites=rep["sites"], by_side=rep["by_side"]))); return 0
+    if a.build == "seq-pat-lbeta":   # 2026-11-09 (development): a molecule file counted into a per-CpG count file, with --dev-seq-trim-ends N calls left out at each end
+        if not (a.pat and a.build_out): print("--build seq-pat-lbeta needs --pat FILE and --build-out OUT.lbeta"); return 2
+        import stage_seq_values as _SVl; _, rep = _SVl.pat_to_lbeta(a.pat, a.build_out, 0); rep.update(trim_each_end=int(getattr(a, "dev_seq_trim_ends", None) or 0), trimmed=getattr(a, "_trim", None), command=["run_sample.py"] + sys.argv[1:])   # a.pat is already trimmed by then (one trim, trim_pat)
+        if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
+        print(json.dumps({k: rep[k] for k in ("trim_each_end", "molecules", "calls_kept", "cpgs_with_calls")})); return 0
     if a.build == "seq-floor-position":   # 2026-11-09 (development): the library floor split by where each call sits on its molecule
         if not a.build_input: print("--build seq-floor-position needs --build-input PAT and --bundle OUT.json"); return 2
         import stage_seq_atlas as _SQfp
@@ -650,7 +655,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pat-lbeta", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -771,7 +776,7 @@ def main():
     # 2026-11-07 (the Deconvolver decides what is in a sample; stage_0_intake.LABEL_RULE): a cell set by the operator is recorded as such, and on a
     # sequencing file the values are always made so the Deconvolver runs first; no reading takes its cell from the specimen's words
     a._operator_cell = {k: v for k, v in (("dev_metaa_atlas", a.dev_metaa_atlas), ("seq_cell", a.seq_cell)) if v}
-    if a.pat and a.dev_seq_values is None and not (a.betas or a.grn or a.dev_seq_beta):
+    if a.pat and a.dev_seq_values is None and not (a.betas or a.grn or a.dev_seq_beta) and a.build != "seq-pat-lbeta":   # 2026-11-09: the counter route reads no sample values
         a.dev_seq_values = 1; print("The Deconvolver runs first: values made from the sequencing file (at least 1 call a site)", flush=True)
     a._seqv = None; a._thin = None; a._seqc = None
     a._trim = None

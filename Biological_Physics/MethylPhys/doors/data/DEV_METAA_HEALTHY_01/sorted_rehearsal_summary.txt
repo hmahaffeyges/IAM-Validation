@@ -1,0 +1,41 @@
+GSM2998021 sorted neutrophils: top neutrophils (0.9764) Met-A 1.007 state Normal
+GSM2998022 sorted nk cells: top nk cells (0.6345) Met-A 0.9718 state no healthy width measured at 63.4 % of the sample (measured where this cell held 66 % or more)
+GSM2998023 sorted neutrophils: top neutrophils (0.9542) Met-A 1.00631 state Normal
+GSM2998024 sorted b cells: top naive b cells (0.4849) Met-A 0.98711 state no healthy width measured at 48.5 % of the sample (measured where this cell held 54 % or more)
+GSM2998025 sorted nk cells: top nk cells (0.8544) Met-A 0.97831 state below Normal
+GSM2998027 sorted nk cells: top nk cells (0.6522) Met-A 0.97104 state no healthy width measured at 65.2 % of the sample (measured where this cell held 66 % or more)
+GSM2998028 sorted cd4 t cells: top naive cd4 t cells (0.4117) Met-A 0.9296 state no healthy width measured at 41.2 % of the sample (measured where this cell held 74 % or more)
+GSM2998029 sorted b cells: top naive b cells (0.5398) Met-A 0.94021 state below Normal
+GSM2998030 sorted neutrophils: top neutrophils (0.9858) Met-A 0.99913 state Normal
+GSM2998032 sorted cd8 t cells: top naive cd8 t cells (0.4515) Met-A 0.96141 state no healthy width measured at 45.1 % of the sample (measured where this cell held 49 % or more)
+GSM2998035 sorted cd8 t cells: top naive cd8 t cells (0.4714) Met-A 0.95473 state no healthy width measured at 47.1 % of the sample (measured where this cell held 49 % or more)
+GSM2998039 sorted monocytes: top monocytes (0.9483) Met-A 1.01835 state Normal
+GSM2998042 sorted cd4 t cells: top cd4 t cells (0.4856) Met-A 0.97086 state Normal
+GSM2998048 sorted cd4 t cells: top None (None) Met-A None state no bundle
+GSM2998051 sorted monocytes: top None (None) Met-A None state no bundle
+GSM2998054 sorted cd8 t cells: top None (None) Met-A None state no bundle
+GSM2998057 sorted neutrophils: top neutrophils (0.9615) Met-A 1.00982 state Normal
+GSM2998060 sorted monocytes: top monocytes (0.9872) Met-A 1.01523 state Normal
+GSM2998069 sorted cd8 t cells: top cd8 t cells (0.6881) Met-A 0.99428 state Normal
+GSM2998072 sorted monocytes: top monocytes (0.9188) Met-A 1.01713 state Normal
+GSM2998075 sorted cd8 t cells: top cd8 t cells (0.6837) Met-A 0.96586 state Normal
+GSM2998087 sorted b cells: top b cells (0.6149) Met-A 0.98686 state Normal
+GSM2998090 sorted monocytes: top monocytes (0.9474) Met-A 1.00196 state Normal
+GSM2998094 sorted cd8 t cells: top effector memory cd8 t cells (0.4614) Met-A 0.93538 state no healthy width measured at 46.1 % of the sample (measured where this cell held 63 % or more)
+GSM2998097 sorted cd4 t cells: top cd4 t cells (0.3588) Met-A 0.95495 state Normal
+GSM2998100 sorted b cells: top b cells (0.4255) Met-A 0.97714 state no healthy width measured at 42.5 % of the sample (measured where this cell held 50 % or more)
+GSM2998106 sorted cd4 t cells: top cd4 t cells (0.3772) Met-A 0.95032 state below Normal
+GSM2998116 sorted neutrophils: top neutrophils (0.9169) Met-A 1.00309 state Normal
+GSM2998122 sorted b cells: top b cells (0.6659) Met-A 0.9821 state Normal
+GSM2998126 sorted nk cells: top nk cells (0.9366) Met-A 0.99588 state Normal
+GSM2998128 sorted monocytes: top monocytes (0.9824) Met-A 1.01141 state Normal
+GSM2998131 sorted nk cells: top nk cells (0.8211) Met-A 0.97625 state below Normal
+GSM2998134 sorted b cells: top b cells (0.7446) Met-A 0.99257 state Normal
+GSM2998140 sorted cd4 t cells: top memory cd4 t cells (0.6426) Met-A 0.93122 state no healthy width measured for this cell on the atlas's donors
+GSM2998143 sorted neutrophils: top neutrophils (0.9381) Met-A 0.99201 state Normal
+GSM2998146 sorted cd4 t cells: top memory cd4 t cells (0.5248) Met-A 0.93855 state no healthy width measured for this cell on the atlas's donors
+GSM2998149 sorted nk cells: top nk cells (0.8178) Met-A 0.99394 state Normal
+bar 1 (top cell is the sorted kind, 90 %): 34 of 37: met
+bar 2 (Normal, 85 % of arrays with a state): 20 of 24: not met
+bar 3 (each kind with 5+ arrays, 70 % Normal): b cells 3 of 4, cd4 t cells 2 of 3, cd8 t cells 2 of 2, monocytes 5 of 5, neutrophils 6 of 6, nk cells 2 of 4: met
+NOT MET

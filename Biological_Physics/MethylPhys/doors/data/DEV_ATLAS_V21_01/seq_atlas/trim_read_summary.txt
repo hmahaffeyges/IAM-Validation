@@ -1,0 +1,22 @@
+The 18 sorted libraries with 0, 1 and 2 calls left out at each molecule end (trim_read.sh); medians by laboratory
+met_a
+trim               0       1       2
+lab                                 
+GSE134664 B   1.2451  0.7512  0.5897
+GSE98837 CD8  0.9622  0.8390  0.8441
+JHU CD4       0.9305  0.8031  0.6758
+whole
+trim               0       1       2
+lab                                 
+GSE134664 B   1.2634  0.9532  0.8202
+GSE98837 CD8  1.0521  0.9739  1.0089
+JHU CD4       1.0229  0.9401  0.9006
+islands
+trim               0       1       2
+lab                                 
+GSE134664 B   0.9823  0.7228  0.6839
+GSE98837 CD8  1.3009  0.6990  0.6303
+JHU CD4       0.7466  0.7904  0.8344
+spread of the laboratories' median whole-sample Met-A by trim: {"0": 0.2404, "1": 0.0338, "2": 0.1887}
+of the per-cell Met-A: {"0": 0.3147, "1": 0.0877, "2": 0.2544}
+coverage: 50 of 54 readings with Met-A at the time of this summary (GSM2103003 with 1 and 2 calls out and GSM2103007 with 1 and 2 calls out still being read again); it is updated when they land

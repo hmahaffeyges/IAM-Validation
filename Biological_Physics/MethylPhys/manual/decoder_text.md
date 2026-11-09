@@ -874,6 +874,14 @@ and the calls per site, so a reading can say what depth it needed. Every line co
 Adds the buffered calls to their sites in one step, matching each call's CpG index to the key exactly; calls at CpGs that are not atlas sites
 are dropped.
 
+### stage_seq_values.py::pat_to_lbeta
+
+A molecule file counted into a per-CpG count file (`.lbeta`, uint16 methylated and all calls at every hg19 CpG, the layout the atlas build reads). Run as `run_sample.py --build seq-pat-lbeta --pat FILE [--dev-seq-trim-ends N] --build-out OUT.lbeta`; with a trim, the file is trimmed once by `trim_pat` and then counted. Untrimmed it equals the published `.beta` of the same molecules below that file's cap of 255. Used to count the IAM Sequencing Atlas's own donors with the trim a sample is read with, so sample and reference take the same path (the CMB rule: the theory goes through the instrument's processing, not the data cleaned toward the theory).
+
+### stage_seq_values.py::pat_to_lbeta.flush
+
+Inside `pat_to_lbeta`: adds the buffered calls (CpG position, methylated or not, molecule count) into the two per-CpG totals in one vectorized step every five million calls. Counts only.
+
 ### stage_seq_values.py::trim_pat
 
 A copy of a molecule file with the N outermost CpG calls at each end of every molecule left out, for `run_sample.py --dev-seq-trim-ends N` (development): the calls where library chemistry at the read ends lands, found by the floor by molecule position (one outside laboratory's end calls read 9 times its interior floor, reaching about 4 CpGs in). Geneticists call this trimming for M-bias. The bundle records what was kept.

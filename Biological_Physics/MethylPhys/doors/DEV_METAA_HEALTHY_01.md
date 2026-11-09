@@ -1358,3 +1358,12 @@ commissioning's path (now the atlas readings too); a cell with no column at the 
 and the territories carried no healthy prediction, so a healthy sorted neutrophil read its islands at 0.84 (with `territory_prediction`,
 1.0005; domains 1.023). Healthy whole bloods from the laboratories with a large GMP share still read low (Tokushima islands 0.903): the
 laboratory distortion under work. **Prior reading:** all four were read before (`CANON/data_spent.csv`).
+
+**The sorted-cell rehearsal, read: not met (20 of 24 Normal, the bar 85 %).** (`sorted_rehearsal_summary.txt`; 34 of GSE110554's 37 sorted
+cells read, 3 from one slide gave no bundle and are not assessed.) Bar 1 met: the top cell found is the sorted kind in 34 of 37. Bar 2 not
+met: of the 24 arrays with a state, 20 read Normal (83 %). Every neutrophil (6 of 6) and monocyte (5 of 5) reads Normal, Met-A 0.999 to 1.018.
+The four below Normal are lymphocytes (NK twice, B, CD4; Met-A 0.940 to 0.978), and 10 more lymphocytes have no state because the
+IAM-Deconvolver splits a sorted lymphocyte across its subtypes (naive, memory, effector), so the top cell holds less of the sample than its
+width was measured at. Bar 3 is met only in the two kinds with 5 or more states (neutrophils, monocytes); the four lymphocyte kinds have 2 to 4
+states each and are not assessed at this size. So the arrays read the two myeloid cells Normal from a laboratory the atlas never held; the
+lymphocytes read slightly below 1, as they do inside whole blood, and how a lymphocyte's subtypes are joined comes before the sealed test.

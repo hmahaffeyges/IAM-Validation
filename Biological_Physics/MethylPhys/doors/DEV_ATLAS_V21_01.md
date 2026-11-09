@@ -1795,3 +1795,14 @@ two bloods (0.0448 to 0.0515 at depth 20, 0.0555 to 0.0721 at depth 6) and one p
 bar 2 on the plasmas: two of their planted tissues (liver hepatocytes, vascular endothelial cells) are not cell types of the IAM Sequencing
 Atlas, so their DNA must be read as other cells; the bloods' rises are not explained by it. Weighting brings the shares closer overall and
 spreads small shares over more cells at moderate depth. `--dev-seq-noise-weight` stays built and off.
+
+**The trim reading, read: one end call out cuts the laboratories' spread sevenfold; the reference must take the same path.** The 18 sorted libraries through the one
+command with 0, 1 and 2 calls left out at each molecule end (`trim_read.sh`, `seq_atlas/trim_read_summary.txt`, 50 of 54 readings at the time of writing; 27 bundles first read with no Met-A, a chain bug fixed in
+`_cover_den`, were set aside and read again). Spread of the laboratories' median whole-sample Met-A: 0.2404 untrimmed, 0.0338 with one call
+out, 0.1887 with two; of the per-cell Met-A: 0.3147, 0.0877, 0.2544. With one call out every laboratory reads a little below 1 (0.94 to
+0.97), as it should when the sample is trimmed and the atlas it is read against is not: the reference must be processed as the sample is.
+The atlas was built from per-CpG count files, which hold no molecules, so its 156 donors are counted again from their published molecule
+files with the same trim (`stage_seq_values.pat_to_lbeta`, `run_sample.py --build seq-pat-lbeta`; offline synthetic: the count file equals
+trim_pat then values_from_pat at every site, for 0, 1 and 2 calls out), and the atlas's own build then runs unchanged on those counts
+(`atlas_trim_donors.sh`; one donor first, its untrimmed count checked against the published .beta). **Prior reading:** all 18 libraries
+were read before (`CANON/data_spent.csv`).
