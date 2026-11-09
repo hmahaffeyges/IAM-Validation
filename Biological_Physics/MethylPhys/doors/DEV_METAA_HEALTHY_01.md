@@ -1308,3 +1308,13 @@ from; `gmp_probe_mask_summary.txt`, `gmp_probe_mask_rows.csv`): 502 of the Decon
 them out moves the seven laboratories' medians of the departure in GMP's direction by little (spread 0.0899 to 0.0845 on design II, 0.3294
 to 0.3209 on design I), so masked probes are not the laboratories' distortion. The four laboratories' measured array lines are all ordinary
 (Oslo, Uppsala and Tokushima medians within the atlas donors' 5 % to 95 %), so the line is not what separated the laboratory that passed.
+
+**What the field does for laboratory differences, tried inside the atlas rule (development, a diagnostic outside the one command; nothing scored).** The usual tools correct
+a sample against others run beside it, which the atlas rule forbids; two learn the laboratory effect once, from healthy references, and
+were tried with the atlas's own 146 donors (6 cell types, 9 laboratories), each laboratory held out of what was learned
+(`gmp_lab_directions_summary.txt`). Keeping only the marker sites that vary least between laboratories (as deconvolution libraries
+chosen for stability do) made the GMP share larger, not smaller (donors above 0.01: 29 to 31). Taking out the directions in which the same
+cell type differs between laboratories, with every healthy-mixture direction removed from them first (as a foreground template is fitted
+out of a sky map), lowered it in two laboratories (GSE122244 0.0289 to 0.0073, GSE103541 0.0677 to 0.0295 with six directions) and not in
+two others (GSE88824, GSE224807); donors above 0.01: 29 to 25. A partial answer: part of the laboratories' distortion has a shape the
+atlas's donors share, part does not. Run offline on the kept values for speed; anything carried into the chain is read by the one command.

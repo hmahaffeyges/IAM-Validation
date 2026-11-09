@@ -177,6 +177,10 @@
    }
   ],
   "donors_meaning": "No source is a study's comparison group taken on its label, and none is tissue beside a tumor. The accurate description is healthy or verified-normal donors, purified to single cell types, not a cohort of people free of disease: most sequencing-atlas donors were having surgery for something else. Where a source says less about its donors, the tables say so.",
-  "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+  "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+  "why_only": {
+   "question": "Why is the atlas the only healthy reference, and not healthy samples run beside the sample?",
+   "answer": "Two questions are kept apart. What does healthy look like? That comes only from the atlases, built from cells of healthy donors so that healthy is certain; never from other samples in the same run, laboratory or study, which are only labeled healthy and can carry the very signal being looked for. What did the instrument do to this measurement? That is calibration, a different job, answered by calibrators whose answer is already known, never by the sample's neighbors. Clinical laboratories calibrate this way: reference DNA of known methylation (fully methylated, unmethylated and mixes of the two) is run beside each sample, and it tells what the instrument did without saying what healthy is. Cosmology keeps the same separation: the sky model comes from the theory, and each detector is calibrated on sources whose answer is already known, never on the signal being measured. For public data, the atlas's donors play the calibrators' part: the same healthy cell types, measured in many laboratories, show what laboratories do to a measurement, and each cell's Normal width is measured from them. And because nothing is borrowed from the sample's neighbors, nothing the instrument does can cancel unseen: every reading compares like with like, against a reference that is certainly healthy."
+  }
  }
 }

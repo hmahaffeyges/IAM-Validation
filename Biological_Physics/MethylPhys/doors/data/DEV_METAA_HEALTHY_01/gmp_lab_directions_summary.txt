@@ -1,0 +1,11 @@
+The IAM-Deconvolver's GMP share on the 57 atlas neutrophil donors' kept values (stage_deconv_v21.deconvolve, IAM-Atlas v2.1 panel, its markers, no resampling), each laboratory held out of what is learned: base; stable50 = only the half of the marker sites that vary least between laboratories among the other laboratories' atlas donors (146 donors, 6 cell types); dir3/dir6 = the 3 or 6 strongest directions in which the same cell type differs between the other laboratories, with every direction a healthy mixture can take removed from them, taken out of the sample first. Laboratory medians:
+             base  stable50    dir3    dir6
+series                                     
+GSE118144  0.0000    0.0000  0.0000  0.0000
+GSE124565  0.0000    0.0000  0.0000  0.0000
+GSE49618   0.0035    0.0000  0.0000  0.0000
+GSE122244  0.0289    0.0640  0.0149  0.0073
+GSE224807  0.0395    0.0688  0.0380  0.0331
+GSE88824   0.0651    0.1196  0.0668  0.0625
+GSE103541  0.0677    0.0937  0.0312  0.0295
+donors with GMP above 0.01: base 29, stable50 31, dir3 27, dir6 25
