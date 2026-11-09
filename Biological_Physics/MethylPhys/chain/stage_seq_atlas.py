@@ -414,11 +414,11 @@ def floor_by_position(pat, path=FLOOR_SITES, max_d=4):
     where each call sits on its molecule. At the floor sites (every healthy cell agrees completely), each call is opposite or not (methylated at
     an unmarked site, unmethylated at a marked one), counted by the call's distance in CpGs from the nearer outer end of its molecule (0 = the
     first or last CpG read, up to max_d and beyond) and, apart, beside a gap inside the molecule ('.' between the two reads of a pair, the
-    reads' inner ends). Biology does not depend on where a CpG sits on a molecule; library chemistry at the read ends does (the M-bias of
+    reads' inner ends), and site-matched (end calls against inner calls at the same sites, Mantel-Haenszel, each side). Biology does not depend on where a CpG sits on a molecule; library chemistry at the read ends does (the M-bias of
     end repair). Counts only; nothing fitted. pat: a wgbstools .pat(.gz) file (chr, first CpG index, pattern, count)."""
     import pandas as pd, gzip
     D = pd.read_parquet(path); side = dict(zip(D.cpg.astype(np.int64), D.side)); B = {k: [0, 0] for k in list(range(max_d + 1)) + ["gap", "interior"]}
-    op = gzip.open if str(pat).endswith(".gz") else open; mol = 0
+    op = gzip.open if str(pat).endswith(".gz") else open; mol = 0; SM = {}   # 2026-11-09: per site, [end opposite, end calls, inner opposite, inner calls]
     with op(pat, "rt") as f:
         for line in f:
             p = line.rstrip("\n").split("\t")
@@ -435,9 +435,20 @@ def floor_by_position(pat, path=FLOOR_SITES, max_d=4):
                 d = min(j - lo, hi - j); k = d if d <= max_d else "interior"
                 if 0 < j < L - 1 and (pt[j - 1] == "." or pt[j + 1] == ".") and k == "interior": k = "gap"
                 B[k][0] += n * opp; B[k][1] += n
+                q = SM.setdefault((s0 + j, sd), [0, 0, 0, 0]); e = 0 if d == 0 else 2; q[e] += n * opp; q[e + 1] += n
     rows = {str(k): dict(calls=v[1], opposite=v[0], rate=round(v[0] / v[1], 6) if v[1] else None) for k, v in B.items()}
     end = B[0]; inn = B["interior"]
-    return dict(flag="DEVELOPMENT - not commissioned (floor by molecule position)", molecules=mol, by_distance_from_end=rows,
+    # site-matched (Mantel-Haenszel over sites holding both end and inner calls): the end calls against the inner calls at the same sites, so the
+    # mix of sites (inner calls only exist on long, CpG-dense molecules) cancels; and per side
+    def mh(items):
+        num = den = 0.0; ns = 0
+        for eo, en, io, inn_ in items:
+            if en and inn_: N = en + inn_; num += eo * inn_ / N; den += io * en / N; ns += 1
+        return (round(num / den, 4) if den else None), ns
+    sm = {}
+    for sd in ("unmarked", "marked", "both"):
+        r_, ns = mh([v for (c, s_), v in SM.items() if sd == "both" or s_ == sd]); sm[sd] = dict(end_over_inner=r_, sites=ns)
+    return dict(flag="DEVELOPMENT - not commissioned (floor by molecule position)", molecules=mol, by_distance_from_end=rows, site_matched=sm,
                 end_over_interior=round((end[0] / end[1]) / (inn[0] / inn[1]), 4) if end[1] and inn[1] and inn[0] else None)
 
 METAA_COUNTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_half_counts")   # metaa_half_counts_v1.parquet, built by --build seq-metaa-counts

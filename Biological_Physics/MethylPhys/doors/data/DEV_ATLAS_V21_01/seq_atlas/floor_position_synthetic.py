@@ -4,7 +4,8 @@ floor_sites_v1.parquet), 6 to 14 consecutive CpGs each, a third of them pairs wi
 interior CpGs with rate F_INT, at the first and last CpG read with rate F_END. Libraries: (a) F_INT 0.005, F_END 0.005 (no end effect);
 (b) F_INT 0.005, F_END 0.05 (ten times at the ends); (c) F_INT 0.03, F_END 0.06 (a plasma-level floor, twice at the ends). 400,000
 molecules each, seeded. Each read by the one command's build route. Bars: 1. (a) reads end over interior within 0.8 to 1.25; 2. (b) and (c)
-read it within 10 % of the planted 10 and 2; 3. every distance from 1 CpG on reads the interior rate within 15 % in all three.
+read it within 10 % of the planted 10 and 2; 3. every distance from 1 CpG on reads the interior rate within 15 % in all three; 4 (added 2026-11-09 with the site-matched measure, before
+its run). the site-matched end over inner reads (a) 0.8 to 1.25 and (b), (c) within 15 % of the planted 10 and 2 (inner calls include distances 1 to 4).
 Usage: floor_position_synthetic.py OUTDIR"""
 import os, sys, json, gzip, subprocess
 import numpy as np, pandas as pd
@@ -37,6 +38,9 @@ for name, (fi, fe) in LIBS.items():
     else: ok.append(eo is not None and abs(eo / (fe / fi) - 1) <= 0.10)
     ok.append(ir is not None and all(v is not None and abs(v / ir - 1) <= 0.15 for _, v in mids))
 m1 = ok[0]; m2 = ok[2] and ok[4]; m3 = ok[1] and ok[3] and ok[5]
+sm_ = {nm: ((res[nm].get("site_matched") or {}).get("both") or {}).get("end_over_inner") for nm in LIBS}
+m4 = sm_["a"] is not None and 0.8 <= sm_["a"] <= 1.25 and all(sm_[nm] is not None and abs(sm_[nm] / (LIBS[nm][1] / LIBS[nm][0]) - 1) <= 0.15 for nm in ("b", "c"))
+L_.append(f"site-matched end over inner: {sm_}")
 L_ += [f"bar 1 (no end effect reads none): {'met' if m1 else 'not met'}", f"bar 2 (planted end effects recovered within 10 %): {'met' if m2 else 'not met'}",
-       f"bar 3 (inner distances read the interior rate): {'met' if m3 else 'not met'}", "MET" if (m1 and m2 and m3) else "NOT MET"]
+       f"bar 3 (inner distances read the interior rate): {'met' if m3 else 'not met'}", f"bar 4 (site-matched): {'met' if m4 else 'not met'}", "MET" if (m1 and m2 and m3 and m4) else "NOT MET"]
 open(os.path.join(out, "floor_position_synthetic.txt"), "w").write("\n".join(L_) + "\n"); print("\n".join(L_))

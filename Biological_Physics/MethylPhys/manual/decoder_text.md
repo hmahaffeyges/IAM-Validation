@@ -868,6 +868,10 @@ and the calls per site, so a reading can say what depth it needed. Every line co
 Adds the buffered calls to their sites in one step, matching each call's CpG index to the key exactly; calls at CpGs that are not atlas sites
 are dropped.
 
+### stage_seq_values.py::trim_pat
+
+A copy of a molecule file with the N outermost CpG calls at each end of every molecule left out, for `run_sample.py --dev-seq-trim-ends N` (development): the calls where library chemistry at the read ends lands, found by the floor by molecule position (one outside laboratory's end calls read 9 times its interior floor, reaching about 4 CpGs in). Geneticists call this trimming for M-bias. The bundle records what was kept.
+
 ### stage_seq_values.py::thin_pat
 Tests only, for `--dev-thin FRACTION`: a seeded thinned copy of a .pat file, each molecule kept with probability FRACTION (a line counting w
 molecules keeps a binomial draw from w), so a deep sample stands in for a shallower one; it returns the molecules before and after.
@@ -2681,6 +2685,10 @@ recorded on every sequenced sample as `development.library_floor`, flagged.
 ### stage_seq_atlas.py::floor_by_position
 
 The library floor counted from the molecules themselves, split by where each call sits on its molecule: at the floor sites (every healthy cell agrees completely), the share of opposite calls by the call's distance in CpGs from the nearer end of its molecule, and apart, beside a gap between the two reads of a pair. Biology does not depend on where a CpG sits on a molecule; library chemistry at the read ends does (the M-bias of end repair, as geneticists call it). It is the detector-split null test of the CMB missions on sequencing: split the data by a property the sky cannot depend on, and whatever differs is the instrument. Run alone by `run_sample.py --build seq-floor-position --build-input PAT`.
+
+### stage_seq_atlas.py::floor_by_position.mh
+
+The site-matched ratio inside `floor_by_position`: over the floor sites holding both end calls and inner calls, the end calls' opposite rate against the inner calls' at the same sites (a Mantel-Haenszel ratio, each site weighted by its calls), so the mix of sites cancels. Counts only.
 
 ### stage_seq_atlas.py::metaa_reference_of
 One cell's rows of that reference, indexed by probe, levels 0 to 1 (blank as missing); nothing when the file or the cell is absent, and the

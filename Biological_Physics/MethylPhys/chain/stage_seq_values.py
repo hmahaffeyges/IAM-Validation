@@ -65,6 +65,21 @@ def thin_pat(path, frac, dest, seed=20261022):
     return dest, dict(fraction=frac, seed=seed, molecules_in=kin, molecules_kept=kout)
 
 
+def trim_pat(path, n, dest):
+    """DEVELOPMENT (2026-11-09, DEV-ATLAS-V21-01): a copy of a .pat(.gz) file with the n outermost CpG calls at each end of every molecule
+    left out ('.'), the calls where library chemistry at the read ends lands (the floor by molecule position: GSE98837's end calls read 9
+    times its interior floor, and the effect reaches about 4 CpGs in). A molecule left with no call is dropped. Returns the path and counts."""
+    op = gzip.open if str(path).endswith(".gz") else open; cin = cout = mol = kept = 0
+    with op(path, "rt") as fh, gzip.open(dest, "wt") as o:
+        for line in fh:
+            f = line.rstrip("\n").split("\t")
+            if len(f) < 4: continue
+            w = int(f[3]); p = list(f[2]); idx = [j for j, x in enumerate(p) if x in "CT"]; cin += w * len(idx); mol += w
+            for j in idx[:n] + idx[-n:] if n > 0 else []: p[j] = "."
+            left = sum(1 for x in p if x in "CT")
+            if left: f[2] = "".join(p); o.write("\t".join(f) + "\n"); cout += w * left; kept += w
+    return dest, dict(trim_each_end=int(n), molecules_in=mol, molecules_kept=kept, calls_in=cin, calls_kept=cout)
+
 HG19_CPGS = 28217448   # CpGs in the hg19 reference numbering the .pat and .beta files share (stated; a file of another length is refused)
 def values_from_beta(path, min_calls=1):
     """A value at each atlas site from a .beta file (2026-10-22, to-do 40.10): the standard binary per-CpG count file (two numbers per CpG in the

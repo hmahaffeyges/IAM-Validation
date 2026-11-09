@@ -2,7 +2,7 @@
 # The library floor by molecule position on the already-aligned molecule files in the build bucket (no alignment; spent data): every .pat
 # piece under seq_atlas/jhu_cd4, seq_atlas/bt3 and seq_atlas/jhu_tissue, shard SHARD of NSH, four pieces at a time (one per core), each read
 # by run_sample.py --build seq-floor-position; each piece's bundle is put in the bucket as it finishes and skipped on a relaunch.
-set -u; IF=$R/Biological_Physics/MethylPhys/chain/MethylPhys_Interface; BR=${B%/*}; O=$B/floor_position; mkdir -p $W/fp
+set -u; IF=$R/Biological_Physics/MethylPhys/chain/MethylPhys_Interface; BR=${B%/*}; O=$B/${OUTD:-floor_position}; mkdir -p $W/fp
 for P in jhu_cd4 bt3 jhu_tissue; do gcloud storage ls "$BR/$P/**.pat.gz" 2>/dev/null; done | sort > $W/all.txt
 awk -v s=$SHARD -v n=$NSH '(NR-1)%n==s' $W/all.txt > $W/mine.txt; log "pieces: $(wc -l < $W/mine.txt) of $(wc -l < $W/all.txt)"
 gcloud storage ls "$O/" 2>/dev/null | sed 's#.*/##' > $W/done.txt

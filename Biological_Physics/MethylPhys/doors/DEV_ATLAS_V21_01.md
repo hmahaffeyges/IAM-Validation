@@ -1737,3 +1737,15 @@ differs between these laboratories' floors is library chemistry at the read ends
 bundle, the end rate alone does not track whole-sample Met-A (rank correlation -0.27), so the next
 test removes the end calls from the reading itself (each molecule's outer CpGs left out, as end trimming does) and reads the same spent
 libraries again, from these molecule files. Development; nothing scored.
+
+**The floor by molecule position: a confound in the first measure, and what trimming would cost (disclosed before the next run).** Real molecules hold few
+CpG calls (median 2 to 3 in GSE98837, Johns Hopkins and GSE134664 files), so the 'interior' calls (5 or more CpGs from either end) come
+only from long, CpG-dense molecules, while end calls come from everywhere: part of each end-over-interior ratio above can be the mix of
+sites, not chemistry (the differences between libraries over the same genome, Johns Hopkins 0.9 to 21, stand). The measure now also
+compares end calls with inner calls at the same sites (Mantel-Haenszel over sites holding both, each side; offline, a planted 10 read
+10.19), and the synthetic gains that bar, written before its run.
+**Range of the data:** the first measure read 0.89 to 20.97 across the 30 real libraries (`floor_position_real.csv`), interior floors 0.0013
+to 0.0067 and end floors 0.0019 to 0.0415; the synthetic plants end-over-inner 1, 10 and 2 with floors 0.005 to 0.06, spanning them. Trimming by CpG count costs too much: leaving out 1, 2 or 4 calls at each
+end keeps 38 to 49 %, 17 to 23 % and 5 to 6 % of the calls, and read-end chemistry is set in bases, which the molecule files no longer
+hold. `--dev-seq-trim-ends N` (`stage_seq_values.trim_pat`) is built for testing and stays off; the next step is decided by the
+site-matched result.

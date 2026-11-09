@@ -706,6 +706,7 @@ def main():
     ap.add_argument("--dev-pred-raw", action="store_true", help="development (2026-11-07): the healthy prediction of an array on its own values, not on the atlas ruler's")
     ap.add_argument("--dev-curve-cal", action="store_true", help="DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal)")
     ap.add_argument("--commissioned-only", action="store_true", help="read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off)")
+    ap.add_argument("--dev-seq-trim-ends", type=int, default=None, metavar="N", help="DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat)")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
@@ -765,6 +766,13 @@ def main():
     if a.pat and a.dev_seq_values is None and not (a.betas or a.grn or a.dev_seq_beta):
         a.dev_seq_values = 1; print("The Deconvolver runs first: values made from the sequencing file (at least 1 call a site)", flush=True)
     a._seqv = None; a._thin = None; a._seqc = None
+    a._trim = None
+    if getattr(a, "dev_seq_trim_ends", None):   # 2026-11-09 (development): the molecules' outer calls left out (the floor by molecule position)
+        if not a.pat: ap.error("--dev-seq-trim-ends needs --pat")
+        import stage_seq_values as _SVtr, tempfile as _tftr
+        _tp2, a._trim = _SVtr.trim_pat(a.pat, a.dev_seq_trim_ends, os.path.join(_tftr.mkdtemp(), "trimmed_" + os.path.basename(a.pat).replace(".gz", "") + ".gz"))
+        a._trim["source"] = os.path.basename(a.pat); a._trim["flag"] = "DEVELOPMENT (DEV-ATLAS-V21-01)"; a.pat = _tp2
+        print(f"The molecules' {a.dev_seq_trim_ends} outer calls at each end left out: {a._trim['calls_kept']} of {a._trim['calls_in']} calls kept", flush=True)
     if a.dev_thin is not None:   # 2026-10-22 (step 40): a deep sample thinned by the chain itself
         if not a.pat: ap.error("--dev-thin needs --pat (or --geo-pat)")
         import stage_seq_values as _SVt, tempfile as _tft
@@ -1172,6 +1180,7 @@ def main():
         o = {"build": C3.BUILD, "specimen": a.specimen, "scope": "Met-A and the C-Score read the neutrophils; the cell shares cover six blood cells", "note": "sequencing input only: no array reading"}
     _z = o.pop("_cscore_z", None)
     if getattr(a, "_thin", None): o["thinned"] = a._thin; o["banner"] = a.banner   # 2026-10-22: a thinned test copy is always recorded
+    if getattr(a, "_trim", None): o["trimmed"] = a._trim   # 2026-11-09: the molecules' outer calls left out (development)
     _450 = (beta is not None and o.get("refusal_code") == "PLATFORM_REFUSED" and (o.get("platform") == "450K" or str(array_type) == "HM450K"))
     if _450:   # 2026-10-22 (step 27; author: read it and flag it): no 450K neutrophil reference, so the commissioned Met-A and C-Score stay refused,
         # but the atlas readers work by site name and 450K's sites are on IAM-Atlas v2.1, so they read, flagged, with their own coverage
