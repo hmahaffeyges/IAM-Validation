@@ -5,7 +5,7 @@ with person spread and the array's line and noise, mixed in the shares of spent 
 three ways: no bend; laboratory A (design II squeezed toward the middle with a bow, design I a smaller opposite bow); laboratory C (A's
 bend times 7.5, sized to the real laboratories' top). Read by the one command (--full-chain --cell-panel atlas --dev-line-wide), with and without --dev-curve-cal; and with a 3 % loss
 planted at the neutrophils' identity sites (each level moved 3 % of the way to 0.5), read unbent without the calibration and bent (A) with it.
-PART p (0 to 11): blood p // 2, four of its eight readings, three at a time. Usage: curve_synthetic.py OUTDIR PART"""
+PART p (0 to 11): blood p // 2, four of its eight readings, one at a time (three at once ran out of memory). Usage: curve_synthetic.py OUTDIR PART"""
 import os, sys, json, subprocess, tempfile, shutil
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np, pandas as pd
@@ -45,5 +45,5 @@ def read(cond):
     if r.returncode == 0:
         B = json.load(open(bf)); row["cells"] = [{k: c.get(k) for k in ("cell", "share", "met_a")} for c in (B.get("cells_found") or {}).get("cells") or []]; row["curve_cal"] = B.get("curve_cal")
     shutil.rmtree(wd, ignore_errors=True); print(tag, r.returncode, flush=True); return row
-with ThreadPoolExecutor(3) as ex: res = list(ex.map(read, mine))
+with ThreadPoolExecutor(int(os.environ.get("PAR", 1))) as ex: res = list(ex.map(read, mine))   # one at a time: three full-chain readings ran a 16 GB machine out of memory
 json.dump(res, open(os.path.join(out, f"curve_synthetic_p{PART}.json"), "w"), indent=1)
