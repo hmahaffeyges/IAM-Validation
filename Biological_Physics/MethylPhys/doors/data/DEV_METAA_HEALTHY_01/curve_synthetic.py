@@ -30,7 +30,8 @@ def blood(plant):
     return x
 def bend(v, lab):
     if lab == "none": return v
-    s = {"A": 1, "B": -1, "C": 7.5}[lab]; y = v.copy()   # C: laboratory A's bend times 7.5, its design II projection on GMP's direction at the real laboratories' top (0.0621); m2 = d == "II"; m1 = d == "I"
+    # laboratory C: A's bend times 7.5, its design II projection on GMP's direction at the real laboratories' top (0.0621)
+    s = {"A": 1, "B": -1, "C": 7.5}[lab]; y = v.copy(); m2 = d == "II"; m1 = d == "I"
     y[m2] = v[m2] + s * (-0.03 * (v[m2] - 0.5) * 2 * 0.5 + 0.10 * v[m2] * (1 - v[m2]) * (1 - 2 * v[m2]))
     y[m1] = v[m1] - s * 0.06 * v[m1] * (1 - v[m1]) * (1 - 2 * v[m1]); return np.clip(y, 0, 1)
 COND = [("none", False, False), ("none", True, False), ("A", False, False), ("A", True, False), ("C", False, False), ("C", True, False), ("none", False, True), ("A", True, True)]
