@@ -1311,10 +1311,18 @@ to 0.3209 on design I), so masked probes are not the laboratories' distortion. T
 
 **What the field does for laboratory differences, tried inside the atlas rule (development, a diagnostic outside the one command; nothing scored).** The usual tools correct
 a sample against others run beside it, which the atlas rule forbids; two learn the laboratory effect once, from healthy references, and
-were tried with the atlas's own 146 donors (6 cell types, 9 laboratories), each laboratory held out of what was learned
+were tried with the atlas's own 146 donors (6 cell types, 9 laboratories), each laboratory left out of what was learned
 (`gmp_lab_directions_summary.txt`). Keeping only the marker sites that vary least between laboratories (as deconvolution libraries
 chosen for stability do) made the GMP share larger, not smaller (donors above 0.01: 29 to 31). Taking out the directions in which the same
 cell type differs between laboratories, with every healthy-mixture direction removed from them first (as a foreground template is fitted
 out of a sky map), lowered it in two laboratories (GSE122244 0.0289 to 0.0073, GSE103541 0.0677 to 0.0295 with six directions) and not in
 two others (GSE88824, GSE224807); donors above 0.01: 29 to 25. A partial answer: part of the laboratories' distortion has a shape the
 atlas's donors share, part does not. Run offline on the kept values for speed; anything carried into the chain is read by the one command.
+
+**Laboratory directions by chip, and whether a real loss survives them.** The two laboratories the pooled directions helped are EPIC v1; the two it barely moved
+are 450K. Learning the directions only from same-chip laboratories did not help the 450K pair (GSE224807 0.0395 to 0.0287, GSE88824
+0.0651 to 0.0552) and helped GSE103541 less than the pooled directions (0.0531 against 0.0295): with each laboratory left out of its own correction, too few
+same-chip laboratories are left to learn from (3 directions for the 450K pair). Pooled directions keep a planted 3 % neutrophil loss
+(99.8 % kept for every laboratory, each left out of its own correction), so they do not erase real signal at the markers (`gmp_lab_directions_summary.txt`).
+**Prior reading:** the 57 atlas donors are IAM-Atlas v2.1's own build arrays, read many times before (`CANON/data_spent.csv`); each laboratory is
+left out of its own correction, nothing more. Nothing is scored.
