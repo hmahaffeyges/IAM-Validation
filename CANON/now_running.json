@@ -56,6 +56,21 @@
    ]
   },
   {
+   "id": "blood_normal",
+   "status": "running",
+   "headline": "A healthy middle for every cell in a regular blood draw",
+   "why": "A blood draw is a mix of cells. We read each cell the chain finds in it, and each needs its own healthy range, taken only from the atlas's healthy donors, never from other patients.",
+   "hope": "Every main blood cell gets a healthy range that holds on blood the chain has never seen, so a cell outside it means that person's cell has changed.",
+   "risk": "Healthy blood from new laboratories may read differently from the atlas's donors, and the chain sometimes credits part of a sample to bone-marrow cells that are not there.",
+   "updates": [
+    {
+     "date": "2026-11-08",
+     "text": "We built 200 healthy test bloods from the atlas's own donor cells and read them with the chain. 913 of 939 cell readings landed inside the healthy range measured on the other donors, and every cell type passed. Next: a sealed test on healthy blood from laboratories the atlas has never seen.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
+  },
+  {
    "id": "iama_commission",
    "status": "on hold",
    "headline": "Does our second instrument read the same DNA the same way everywhere?",
@@ -100,6 +115,11 @@
      "date": "2026-11-01",
      "text": "Still paused, and still unread. The chain's readings for sequenced cells come first: healthy sequenced cells now read close to 1 on each of them, including the CpG islands, which read slightly high until we counted their healthy reference from its own reads.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "date": "2026-11-08",
+     "text": "Still paused. We are finishing the chain on arrays first, the cheapest and most common test; this instrument's turn comes after the array instruments are commissioned.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   },
@@ -136,6 +156,11 @@
      "date": "2026-11-01",
      "text": "Still paused and still blind. Meanwhile neurons from an outside laboratory, read against the new sequencing atlas, read slightly low; the reading follows each library's own disorder, and the atlas holds only three neuron donors, so more donors come first.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md"
+    },
+    {
+     "date": "2026-11-08",
+     "text": "Still paused and still blind. The chain on arrays comes first, then the sequencing steps these neurons need.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   },
@@ -172,6 +197,11 @@
      "date": "2026-11-01",
      "text": "Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
+    },
+    {
+     "date": "2026-11-08",
+     "text": "Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md"
     }
    ]
   },
@@ -201,6 +231,11 @@
      "date": "2026-11-01",
      "text": "Still paused while the chain is finished for sequenced samples. The CpG island reading now reads healthy sequenced cells close to 1, after we counted its healthy reference from its own reads.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md"
+    },
+    {
+     "date": "2026-11-08",
+     "text": "Still paused. This instrument will be tested again with its healthy reference taken only from the atlases, after the per-cell blood readings being finished now.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ],
    "why": "Reading cancer from one person's blood on these arrays is out of reach: healthy people differ from each other by more than a tumor-sized signal. But comparing GROUPS is a different question, and that is within reach today."
@@ -237,12 +272,17 @@
      "date": "2026-11-01",
      "text": "Waiting its turn behind the chain's readings for sequenced cells, which come first.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
+    },
+    {
+     "date": "2026-11-08",
+     "text": "Still waiting its turn behind the chain.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md"
     }
    ],
    "why": "A lever is a handle that moves one term in the law. If the law is real, turning a handle moves the reading by the amount the equation says - and if it does not, the law is wrong. Every lever carries, in writing and before any data is opened, the reading that would break it."
   }
  ],
- "as_of": "2026-10-25",
+ "as_of": "2026-11-08",
  "off_board": [
   {
    "id": "temperature_law",

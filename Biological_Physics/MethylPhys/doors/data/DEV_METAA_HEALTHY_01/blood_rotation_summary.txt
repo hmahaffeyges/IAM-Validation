@@ -1,0 +1,10 @@
+rotation test: 200 constructed bloods read
+  neutrophils  donors  55 | readings 200 | inside 190 (95.0 %) | median 1.0060
+  monocytes    donors  38 | readings 118 | inside 109 (92.4 %) | median 0.9896
+  cd4 t cells  donors  12 | readings 186 | inside 181 (97.3 %) | median 0.9945
+  cd8 t cells  donors   8 | readings 168 | inside 168 (100.0 %) | median 0.9909
+  b cells      donors  17 | readings 146 | inside 145 (99.3 %) | median 0.9874
+  nk cells     donors  12 | readings 121 | inside 120 (99.2 %) | median 0.9908
+bar 1 (at least 90 % inside): 913 of 939, met
+bar 2 (each cell at least 85 %): met
+test: met

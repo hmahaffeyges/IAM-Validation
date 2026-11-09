@@ -48,6 +48,15 @@ Record: [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
 
 Record: [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
+<a id="blood-normal"></a>
+## A healthy middle for every cell in a regular blood draw
+
+*Running now.* A blood draw is a mix of cells. We read each cell the chain finds in it, and each needs its own healthy range, taken only from the atlas's healthy donors, never from other patients.
+
+### · We built 200 healthy test bloods from the atlas's own donor cells and read them with the chain. 913 of 939 cell readings landed inside the healthy range measured on the other donors, and every cell type passed. Next: a sealed test on healthy blood from laboratories the atlas has never seen.
+
+Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
+
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 
@@ -87,6 +96,10 @@ Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.m
 
 Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
 
+### · Still paused. We are finishing the chain on arrays first, the cheapest and most common test; this instrument's turn comes after the array instruments are commissioned.
+
+Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
+
 <a id="neurons"></a>
 ## Brain cells: does healthy order hold in cells that never divide?
 
@@ -113,6 +126,10 @@ Record: [DEV_IAMA_NEURON_01.md](doors/DEV_IAMA_NEURON_01.md)
 ### · Still paused and still blind. Meanwhile neurons from an outside laboratory, read against the new sequencing atlas, read slightly low; the reading follows each library's own disorder, and the atlas holds only three neuron donors, so more donors come first.
 
 Record: [DEV_METAA_ATLAS_CURVE_01.md](doors/DEV_METAA_ATLAS_CURVE_01.md)
+
+### · Still paused and still blind. The chain on arrays comes first, then the sequencing steps these neurons need.
+
+Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
 <a id="lung"></a>
 ## Lung cancer: waiting for a better map of the lung
@@ -141,6 +158,10 @@ Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
 
 Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
 
+### · Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread.
+
+Record: [DEV_TISSUE_LUNG_03.md](doors/DEV_TISSUE_LUNG_03.md)
+
 <a id="blood-group"></a>
 ## Can a tube of blood tell us about a GROUP of people?
 
@@ -161,6 +182,10 @@ Record: [DEV_REPLICATE_01.md](doors/DEV_REPLICATE_01.md)
 ### · Still paused while the chain is finished for sequenced samples. The CpG island reading now reads healthy sequenced cells close to 1, after we counted its healthy reference from its own reads.
 
 Record: [DEV_TERRITORIES_01.md](doors/DEV_TERRITORIES_01.md)
+
+### · Still paused. This instrument will be tested again with its healthy reference taken only from the atlases, after the per-cell blood readings being finished now.
+
+Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
 <a id="levers"></a>
 ## Testing the physics itself: the levers
@@ -186,5 +211,9 @@ Record: [LIMITS_STUDY_2026-10-17.md](../../development/LIMITS_STUDY_2026-10-17.m
 Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
 
 ### · Waiting its turn behind the chain's readings for sequenced cells, which come first.
+
+Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)
+
+### · Still waiting its turn behind the chain.
 
 Record: [DEV_ERASE_01.md](doors/DEV_ERASE_01.md)

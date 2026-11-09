@@ -1066,3 +1066,9 @@ So the neutrophils' laboratory term and the Deconvolver's largest false share lo
 precursor-like DNA. Not yet known which: younger neutrophils in some samples (donor or handling), or the atlas's GMP column overlapping
 ordinary neutrophil states. Next, on spent data: the GMP and neutrophil columns at their identity sites, and whether the neutrophils' Met-A
 moves to 1 when the GMP-like part is read as neutrophil.
+
+**The rotation test: met** (`blood_rotation_summary.txt`). 913 of 939 new healthy cell readings inside the Normal measured on the
+atlas's own donors with each donor left out in turn (bar 90 %); every cell 85 % or more (neutrophils 190 of 200, monocytes 109 of 118, CD4 T
+181 of 186, CD8 T 168 of 168, B 145 of 146, NK 120 of 121). On arrays, a whole blood's cells found now have a Normal from the atlas alone,
+for development. Spent data: commissioning needs the sealed test on unseen healthy blood arrays. The Deconvolver's false shares (GMP above)
+stay open; this Normal holds with them in place.

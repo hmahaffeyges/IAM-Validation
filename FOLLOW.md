@@ -26,6 +26,19 @@ built in public*. Each line links to the record it comes from.
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#atlas-v21).*
 
+### A healthy middle for every cell in a regular blood draw
+
+**Running now.** A blood draw is a mix of cells. We read each cell the chain finds in it, and each needs its own healthy range, taken only from the atlas's healthy donors, never from other patients.
+
+- **What we hope:** Every main blood cell gets a healthy range that holds on blood the chain has never seen, so a cell outside it means that person's cell has changed.
+- **What could go wrong:** Healthy blood from new laboratories may read differently from the atlas's donors, and the chain sometimes credits part of a sample to bone-marrow cells that are not there.
+
+| date | update |
+|---|---|
+| | We built 200 healthy test bloods from the atlas's own donor cells and read them with the chain. 913 of 939 cell readings landed inside the healthy range measured on the other donors, and every cell type passed. Next: a sealed test on healthy blood from laboratories the atlas has never seen. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
+
+*The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#blood-normal).*
+
 ### Does our second instrument read the same DNA the same way everywhere?
 
 **On hold.** Before anyone trusts an instrument, it has to give the same answer on the same sample. We read identical reference DNA prepared with five different kits in two laboratories.
@@ -35,9 +48,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still paused. We are finishing the chain on arrays first, the cheapest and most common test; this instrument's turn comes after the array instruments are commissioned. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
 | | Still paused, and still unread. The chain's readings for sequenced cells come first: healthy sequenced cells now read close to 1 on each of them, including the CpG islands, which read slightly high until we counted their healthy reference from its own reads. [record](Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md) |
 | | Still paused while we finish the chain researchers will receive first. Nothing in this test has been read since it was paused, so it resumes exactly where it stopped. [record](development/LIMITS_STUDY_2026-10-17.md) |
-| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#iama-commission).*
 
@@ -50,9 +63,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still paused and still blind. The chain on arrays comes first, then the sequencing steps these neurons need. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
 | | Still paused and still blind. Meanwhile neurons from an outside laboratory, read against the new sequencing atlas, read slightly low; the reading follows each library's own disorder, and the atlas holds only three neuron donors, so more donors come first. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_ATLAS_CURVE_01.md) |
 | | Still paused. Neither independent laboratory's neurons has been opened, so the test is still blind when it resumes. [record](Biological_Physics/MethylPhys/doors/DEV_IAMA_NEURON_01.md) |
-| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#neurons).*
 
@@ -66,8 +79,8 @@ built in public*. Each line links to the record it comes from.
 | date | update |
 |---|---|
 | | Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
+| | Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
 | | Still on hold for the same reason: the map needs measured lung support cells first. The tumors stay unread until then. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |
-| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#lung).*
 
@@ -80,9 +93,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still paused. This instrument will be tested again with its healthy reference taken only from the atlases, after the per-cell blood readings being finished now. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
 | | Still paused while the chain is finished for sequenced samples. The CpG island reading now reads healthy sequenced cells close to 1, after we counted its healthy reference from its own reads. [record](Biological_Physics/MethylPhys/doors/DEV_TERRITORIES_01.md) |
 | | Still paused. Meanwhile the same chain read whole series of tissues: in prostate tumors the CpG islands read higher than in the neighboring normal tissue, across 237 samples, the early change this reading was built to catch. [record](Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md) |
-| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#blood-group).*
 
@@ -95,9 +108,9 @@ built in public*. Each line links to the record it comes from.
 
 | date | update |
 |---|---|
+| | Still waiting its turn behind the chain. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
 | | Waiting its turn behind the chain's readings for sequenced cells, which come first. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
 | | Two new tests of where a cell's tagging mistakes come from. When we knocked out a protein that keeps the tags in repair, mistakes in the molecules that are still held nearly tripled. When we compared dividing and resting cells of one kind, dividing added only about a twentieth. Most of the mistakes come from the upkeep itself, not from copying the DNA. [record](Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md) |
-| | Paused so the commissioned chain reaches researchers first; this picks up after that. [record](development/LIMITS_STUDY_2026-10-17.md) |
 
 *The full story so far, every update in plain words: [field notes](Biological_Physics/MethylPhys/FIELD_NOTES.md#levers).*
 
