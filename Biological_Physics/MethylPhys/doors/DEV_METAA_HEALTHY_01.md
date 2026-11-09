@@ -1217,3 +1217,15 @@ marker sites recomputed on every array 77.862 s, repeated table-index comparison
 `stage_deconv_v21.markers` now keeps them in a cache on each machine under a key made from the reference's own numbers (`markers_compute`
 computes them as before). Check (`marker_cache_identity.py`): the same array read twice, computing then from the cache; met if the bundles
 are identical apart from timestamps and paths and the second is faster. Machines will also read three shards side by side.
+
+**Design I's projection measured against its own error: both probe designs depart by laboratory, and they disagree.**
+**Prior reading:** the atlas's neutrophil donors (GSE103541, GSE118144, GSE124565, GSE88824, GSE224807, GSE122244, GSE49618) were read before (the atlas build, the donor widths, `CANON/data_spent.csv`); nothing here is scored. (`gmp_source_diag_summary.txt`,
+second pass, no re-read). Design I holds 1822 of the marker sites and design II 6040; the projection's
+bootstrap error is 0.0446 on design I and 0.0110 on design II. Design I's laboratory medians range from
+-0.1206 to 0.2088, many times its error, and differ between laboratories (p = 7.5e-09; design II p = 2.9e-05). So the line above that
+called it "design II only" is corrected: each probe design carries its own laboratory-dependent departure in GMP's direction, and the two
+designs do not agree (GSE103541: design I -0.1206, design II 0.0621; GSE88824: 0.1705 and 0.0020). GMP-like cells in the samples would move
+both designs alike; this is a distortion of each design, laboratory by laboratory. The chain's GMP share follows design II because design II
+carries about three quarters of the marker sites. What it points to: each array's response, per design, measured on its own calibrators
+(the sites the sample's own cells hold firmly at known levels across the range, not only at the two extremes the self-tare uses) before
+the Deconvolver; synthetic first, then the EpiQC same-DNA arrays across laboratories.

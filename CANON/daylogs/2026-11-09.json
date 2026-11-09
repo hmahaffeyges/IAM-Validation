@@ -1,0 +1,68 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-09",
+ "title": "Where the GMP share comes from, and a faster chain",
+ "set_out": "Find whether the IAM-Deconvolver's GMP share in healthy blood is cells or the measurement, and make each test take minutes, not hours.",
+ "open_at_turnover": "Written through the day; the hand-written day summary at the end of the day.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Both probe designs measured against their own error",
+     "status": "diagnosis",
+     "what": "The atlas's 57 sorted neutrophil donors (spent), each read by the one command; the departure from IAM-Atlas v2.1's neutrophil column (the healthy reference) projected on GMP's direction, per probe design, with a bootstrap error.",
+     "outcome": "Each probe design departs by laboratory in GMP's direction, far above its own error, and the two designs disagree laboratory by laboratory. Cells would move both alike, so the GMP share is a per-design laboratory distortion of the measurement.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+     "reference": "IAM-Atlas v2.1"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": [
+    {
+     "title": "The one command timed; the Deconvolver's marker sites cached",
+     "status": "development",
+     "what": "One array took 364 s; 77.862 s of it was recomputing marker sites that depend only on the reference. They are now kept per machine under a key made from the reference's own numbers.",
+     "outcome": "Identity check running: the same array read twice must give identical bundles.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "The GMP share is not cells and not random noise",
+     "status": "diagnosis",
+     "what": "Random noise added past the noisiest laboratory made no GMP; the departure sits on both probe designs, differently in each laboratory.",
+     "outcome": "The correction has to come from each array's own response per design, measured on its own calibrators across the whole range.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "\"Design II only\" stated before design I's error was measured",
+     "status": "diagnosis",
+     "what": "The first reading called the departure design II only; design I's projection had not yet been judged against its own error.",
+     "outcome": "Corrected in the record once measured: design I also departs by laboratory.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
+  }
+ ]
+}
