@@ -1384,3 +1384,11 @@ their kept values with today's default chain; `values_read_three_labs_summary.tx
 earlier reading (laboratory spread 0.020 to 0.034 per cell, earlier 0.014 to 0.036): today's fixes (every atlas cell in the panel, the
 territories' prediction) were not the cross-laboratory fix for the per-cell readings, which still sit 1 to 5 % below 1 and still carry the
 GMP share in Oslo and Tokushima (median 0.041 and 0.042, Uppsala 0). **Prior reading:** all were read before (`CANON/data_spent.csv`).
+
+**Arrays: do the atlas's donors and a sample go through the same processing? Yes (a check, from the records).** The rule found on sequencing (the
+reference processed as the sample is) was checked for arrays. IAM-Atlas v2.1's donor arrays were calibrated from their raw IDAT files by the
+chain's own Stage 1 (`stage_1_idat_calibration.py`; v2 and v2.1 one Stage 1, by the reproduction gate recorded above), with each source's
+scale and offset measured and taken out; since then Stage 1 changed only in its comment text (GitHub, commit d2af6eab), and the calibration
+library is pinned (methylprep 1.7.1, `chain/requirements.txt`). So on arrays the atlas and a sample already share one processing, and the
+laboratory distortion still seen in two laboratories' bloods (the GMP share) is in those laboratories' own chemistry on the chip, which each
+array's measured line and noise catch only in part; it is not a processing mismatch.

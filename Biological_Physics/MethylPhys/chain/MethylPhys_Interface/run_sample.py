@@ -760,7 +760,7 @@ def main():
         if not a.dev_seq_ref: a.dev_seq_ref = "auto"
         if not a.dev_seq_level: a.dev_seq_level = "donors"
         a.dev_terr_counted = True; a.dev_seq_copies = True
-        if not a.dev_deconv_ref: a.dev_deconv_ref = "deconv_reference_mk_dev.parquet"   # the megakaryocyte column in the sequencing Deconvolver (platelet test met; healthy plasmas 25 of 34)
+        if not a.dev_deconv_ref and not getattr(a, "dev_seq_atlas_dir", None): a.dev_deconv_ref = "deconv_reference_mk_dev.parquet"   # 2026-11-09: a rebuilt atlas (--dev-seq-atlas-dir) holds no megakaryocyte column; read without it, as the bundle says   # the megakaryocyte column in the sequencing Deconvolver (platelet test met; healthy plasmas 25 of 34)
         on += ["sequencing: the IAM Sequencing Atlas as ruler (seq_ref auto), the donors' levels, the counted island expectation, the copy correction, the megakaryocyte column (each on sequencing input only)"]
         # stay off: the common and class library floors (failed their own tests), the measured middle (held until its spent test), --dev-curve-cal (until its synthetic)
         if not a.dev_provisional: a.dev_provisional = "megakaryocytes"
@@ -1521,7 +1521,7 @@ def main():
     try: import reference_door as _RD2; o["reference"] = _RD2.record(o)   # 2026-11-07, lock 1: the atlases read and every tare applied
     except Exception as _e: o["reference"] = dict(status="NOT_RECORDED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     if getattr(a, "dev_seq_atlas_dir", None) and isinstance(o.get("reference"), dict):   # 2026-11-09: the rebuilt atlas named, and not door-checked
-        o["reference"]["development_atlas"] = dict(folder=os.path.basename(os.path.normpath(a.dev_seq_atlas_dir)), files=["array_sites/", "deconv_reference_v1.parquet"], checked=False,
+        o["reference"]["development_atlas"] = dict(folder=os.path.basename(os.path.normpath(a.dev_seq_atlas_dir)), files=["array_sites/", "deconv_reference_v1.parquet"], checked=False, megakaryocyte_column="left out (not in the rebuilt atlas)",
                                                    about="a development rebuild of the IAM Sequencing Atlas read in place of the committed one (--dev-seq-atlas-dir); not in the reference manifest")
     if not a.no_bundle:
         bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")

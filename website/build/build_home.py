@@ -239,7 +239,7 @@ def page(art):
         + ((lambda R: f'<details><summary>{E(R["question"])}</summary><p>{E(R["answer"])}</p><ul class="road">'
             + "".join(f'<li><b>{E(x["name"])}.</b> {E(x["text"])}</li>' for x in R["points"]) + f'</ul><p>{E(R["other_atlases"])}</p><p>{E(R["not_the_reason"])}</p>'
             + f'<p><b>Who the donors were.</b> {E(R["donors_intro"].replace("`", ""))}</p><ul class="road">' + "".join(f'<li><b>{E(d["atlas"])}:</b> {E(d["what"])}</li>' for d in R["donors"])
-            + f'</ul><p>{E(R["donors_meaning"])}</p>' + (f'<p><b>{E(R["why_only"]["question"])}</b> {E(R["why_only"]["answer"])}</p>' if R.get("why_only") else "") + '</details>')(_ST["ruler"]) if _ST.get("ruler") else "")   # 2026-11-07 (author): what makes the atlases a ruler; who the donors were
+            + f'</ul><p>{E(R["donors_meaning"])}</p>' + (f'<p><b>{E(R["why_only"]["question"])}</b> {E(R["why_only"]["answer"])}</p>' if R.get("why_only") else "") + (f'<p><b>{E(R["same_processing"]["question"])}</b> {E(R["same_processing"]["answer"])}</p>' if R.get("same_processing") else "") + '</details>')(_ST["ruler"]) if _ST.get("ruler") else "")   # 2026-11-07 (author): what makes the atlases a ruler; who the donors were
         + f'<p><b>What is commissioned.</b> {E(_ST["commissioned"])}</p><p class="sub"><i>{E(_ST["closing"])}</i></p></div>')
     _cs = importlib.util.spec_from_file_location("cat", os.path.join(REPO, "CANON", "catalogue.py")); CAT = importlib.util.module_from_spec(_cs); _cs.loader.exec_module(CAT)
     _C, _M = CAT.load()

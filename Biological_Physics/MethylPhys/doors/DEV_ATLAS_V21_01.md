@@ -1838,3 +1838,16 @@ reads at those sites are 0.537 to 0.592 of the published depth, and the level mo
 The other 112 pieces were then built. A first launch of all 12 build machines before this check refused to build on a donor count I had
 written wrong (above), and the launcher left those machines idle instead of deleting them; the launcher now deletes a machine however its
 job ends.
+
+**The first trimmed library against the trimmed atlas: refused before reading (the megakaryocyte column).** The one-library canary stopped because the default
+chain reads sequencing with the provisional megakaryocyte column, a separate Deconvolver reference not in the rebuilt atlas. With
+`--dev-seq-atlas-dir` the chain now reads without that column and the bundle's reference block says so; the comparison readings (trimmed
+against the published atlas) carried it, so each library's megakaryocyte share there is checked before the two are compared.
+
+**Was the atlas source's end bias already trimmed? No (a check, before reading anything into the trimmed atlas).** The end bias of
+bisulfite reads is well known in sequencing work (often called M-bias), and pipelines can trim it before publishing; if the atlas source had,
+trimming its donors again would cut twice. On the first 600,000 molecule lines of donor GSM5652176, at the floor sites (unmarked in every
+cell), a molecule's end calls read marked 2.33 times as often as its inner calls (0.00619 against 0.00266; 3,713 and 5,265 calls at 115
+floor sites, so indicative only). The source's files keep an end effect, smaller than most of the sample laboratories' (0.86 to 12.4 times),
+so the atlas is trimmed as the samples are, not twice. In public text the end bias is credited as known; what this work adds is putting the
+atlas through the same processing as the sample.
