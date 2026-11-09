@@ -572,8 +572,9 @@ def main():
     ap.add_argument("--dev-thin", default=None, type=float, metavar="FRACTION",
                     help="TESTS ONLY (step 40): read a seeded thinned copy of --pat, each molecule kept with this probability (stage_seq_values.thin_pat), "
                          "so a deep sample stands in for a shallow one; IAM-A and the sequencing values both read the thinned copy; recorded and bannered")
-    ap.add_argument("--cell-panel", default="blood", metavar="PANEL",
-                    help="the cells the IAM-Deconvolver splits the sample into: 'blood' (the six blood cells it is commissioned on, the default), 'atlas' (all of "
+    ap.add_argument("--cell-panel", default=None, metavar="PANEL",   # 2026-11-09: None = the default chain's choice (every atlas cell; with --commissioned-only, the six blood cells)
+                    help="the cells the IAM-Deconvolver splits the sample into: 'atlas' (all of IAM-Atlas v2.1's cell types; the default chain's choice, with the six-cell commissioned reading written beside it as cell_shares_blood6), 'blood' (the six blood cells it is commissioned on; the choice with --commissioned-only), "
+                         "or as before 'atlas' (all of "
                          "IAM-Atlas v2.1's cell types, development: every share flagged), or a comma-separated list of atlas cell names (development); Met-A for "
                          "each cell reads every cell the panel finds (2026-10-22)")
     ap.add_argument("--build-construction", default=None, choices=("v1", "v5"), help="--build info-sphere: v1 (default) or v5, the level taken out (DEV-SPHERE-01, development)")
@@ -732,6 +733,7 @@ def main():
     if a.full_chain:   # 2026-10-29 (author): every development reading that applies to the input is run beside the commissioned ones, each flagged;
         # a reading that cannot run here is recorded with its reason (bundle["full_chain"]), never left out silently
         on, skip = [], {}
+        if a.cell_panel is None: a.cell_panel = "atlas"; on.append("atlas panel")   # 2026-11-09 (author: the Deconvolver decides what is in a sample, every cell found is scored)
         for f in ("direction", "trace", "foreign", "brightness"): setattr(a, "dev_" + f, True); on.append(f)
         for f in ("nilc", "atlas_e", "percell_b", "sky"): setattr(a, "dev_" + f, True); on.append(f)   # 2026-10-30: on the active atlas (v2.1, or the sequencing atlas)
         a.dev_ruler = True; on.append("ruler")
@@ -1217,6 +1219,9 @@ def main():
             except Exception as e: o["curve_cal"] = {"mapped": False, "reason": f"{type(e).__name__}: {str(e)[:160]}"}
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr, counts=(a._seqc if (a._seqv and getattr(a, "dev_seq_noise_weight", False) and a._seqc is not None) else None))
+        if not a._seqv and (a.cell_panel or "blood") != "blood":   # 2026-11-09: the commissioned six-cell reading beside the atlas panel's
+            try: o["cell_shares_blood6"] = dict(V4.stage_d21(_pd.Series(beta, dtype="float64"), None), note="the six blood cells the IAM-Deconvolver is commissioned on, beside the atlas panel the chain reads with")
+            except Exception as e: o["cell_shares_blood6"] = {"reason": f"{type(e).__name__}: {str(e)[:160]}"}
         import stage_0_intake as _S0L   # 2026-11-07 (the Deconvolver decides): the specimen's claim checked against what Stage D21 found, recorded
         o["label_check"] = _S0L.label_check(a.specimen, o["cell_shares"])
         if not a.dev_metaa_atlas and (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen)):   # a sorted / isolated route: its single-cell Met-A reads the cell found most of
@@ -1240,11 +1245,12 @@ def main():
         if a.dev_provisional and _panel():   # 2026-10-24 (plan 40.18): read and flag, beside the atlas's own shares
             print("Stage D21: a second deconvolution with provisional columns (" + a.dev_provisional + "), flagged", flush=True)
             o["cell_shares_provisional"] = V4.stage_d21_provisional(_pd.Series(beta, dtype="float64"), _panel(), [c.strip() for c in a.dev_provisional.split(",") if c.strip()], sequencing=bool(a._seqv))
-        _atlas_spec = (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen))
+        _neu_iso = _S0spec.ACCEPTED_SPECIMENS.get(_S0spec.normalise_specimen(a.specimen)) == "isolated neutrophils"   # 2026-11-09: sorted neutrophils get the atlas readings too (the first commissioning's branch still runs)
+        _atlas_spec = (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen) or _neu_iso)
         if _atlas_spec and not (o["cell_shares"] or {}).get("cells"):   # 2026-10-25: say why the atlas readings did not run, instead of leaving them out
             _withheld_why = "not read: the cell shares were withheld (" + str((o["cell_shares"] or {}).get("withheld") or (o["cell_shares"] or {}).get("reason") or "no shares") + ")"
             for _k in ("met_a_each_cell", "met_a_whole", "territories", "cscore_each_cell"): o[_k] = {"flag": "development", "reason": _withheld_why}
-        if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen)):   # 2026-10-22: Met-A for each cell, read and flagged (development); 2026-10-25: isolated atlas cells too (the cord-blood B cells read no Met-A)
+        if (o["cell_shares"] or {}).get("cells") and (str(a.specimen).lower() in ("whole blood", "buffy coat") or _S0spec.is_plasma(a.specimen) or _S0spec.is_tissue(a.specimen) or _S0spec.is_isolated(a.specimen) or _S0spec.atlas_cell_of(a.specimen) or _neu_iso):   # 2026-10-22: Met-A for each cell, read and flagged (development); 2026-10-25: isolated atlas cells too (the cord-blood B cells read no Met-A)
             try:
                 import stage_metaa_atlas as SA, stage_t_selftare as _ST
                 _bs, _inf = (None, None) if a._seqv else _ST.selftare_map(_pd.Series(beta, dtype="float64"))   # the self-tare maps array designs; not sequencing
@@ -1257,7 +1263,7 @@ def main():
                 o["met_a_each_cell"]["values"] = "Stage 1, then Stage T step 1 (self-tare II)" if _bs is not None else ("Stage 1, one scale with the array's own line (--dev-one-scale, development)" if getattr(a, "dev_one_scale", False) else "Stage 1 (Stage T step 1 could not run)")
                 _vals = _bs if _bs is not None else _pd.Series(beta, dtype="float64"); _shr = {r["cell"]: r["share"] for r in (o.get("cell_shares") or {}).get("cells") or [] if r.get("share")}
                 # 2026-11-07: removed the 10-28 override that set a 'sorted X' sample's mix to 100 % X; every reading here uses the Deconvolver's shares
-                if (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen)): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"
+                if (_S0spec.atlas_cell_of(a.specimen) or _S0spec.is_isolated(a.specimen) or _neu_iso): o["whole_sample_reference"] = "the atlas in the cell shares the Deconvolver measured in this sample, not the declared cell"
                 a._cell_dep = {r["cell"]: SA.departure_in_mix(_vals, _shr, r["cell"]) for r in o["met_a_each_cell"].get("cells", []) if r.get("A") is not None}   # for the globe (2026-10-22)
                 try: o["cscore_each_cell"] = SA.cscore_limits(SA.cscore_in_mix(_vals, _shr, a._cell_dep), o.get("array_type"))   # 2026-10-23 (41.2, 41.3); 2026-10-27: each reading's healthy limit
                 except Exception as e: o["cscore_each_cell"] = {"flag": "development", "reason": f"{type(e).__name__}: {e}"[:200]}

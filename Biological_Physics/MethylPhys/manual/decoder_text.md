@@ -266,7 +266,7 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **The default chain (2026-11-08, author: nothing built sits switched off).** Without `--commissioned-only`, every built development reading runs on every sample, each flagged, including on arrays the wide line, and on sequencing input the IAM Sequencing Atlas as ruler, the donors' levels, the counted island expectation, the copy correction and the megakaryocyte column. Off: the two library floors (failed their own tests), the measured middle (held), `--dev-curve-cal` and `--dev-one-scale` (until their synthetics). The table of options above says which are on.
 
-**One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`).
+**One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
 ### run_sample.py::main._panel
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
@@ -2109,6 +2109,14 @@ The sample's disorder at each set against the atlas mixed in its own shares: mea
 
 ### stage_metaa_atlas.py::plant_territory
 Tests only: a constructed gain at a seeded fraction of the islands, or loss at the domains, so a test of the territory readings runs through the one command.
+
+### stage_metaa_atlas.py::absent_cells
+
+The cells among a sample's shares whose column holds no value at any site of the ruler in use (cached per ruler). On sequencing the provisional megakaryocyte column, built on the whole genome, has none at IAM-Atlas v2.1's sites. Used by `_cover_den`.
+
+### stage_metaa_atlas.py::_cover_den
+
+The share a site's cover is measured against (MIX_COVER, 0.99): the sample's shares less those of cells with no column at any site (`absent_cells`). Gaps inside a column still count against the cover. Added when every sequenced library with megakaryocytes found at 1 % or more lost every site of every reading (27 of 49 trim-reading bundles). `read_whole` names the cells set aside and their share (`absent_from_ruler`); the per-cell row of such a cell says it is not a cell of IAM-Atlas v2.1.
 
 ### stage_metaa_atlas.py::read_in_mix_allsites
 Met-A for each cell over every IAM-Atlas v2.1 site (development; `run_sample.py --dev-metaa-allsites`): each site counts by the shift a loss

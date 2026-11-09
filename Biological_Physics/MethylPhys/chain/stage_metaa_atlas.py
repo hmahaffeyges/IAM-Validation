@@ -348,6 +348,26 @@ def plant(beta, cell, loss=0.01):
 READ_COVER_MIN_SEQ = 0.10   # 2026-10-23: on sequencing (read counts given), each cell is read with a tenth of its identity sites measured, flagged (stated)
 READ_COVER_MIN = 0.50   # 2026-10-23: each cell is read when at least half its identity sites are measured, flagged below RULE coverage_min (stated)
 MIX_COVER = 0.99   # read_in_mix: a site counts when the cells with an atlas value there hold at least this share of the sample (operational, stated)
+_ABSENT = {}
+
+def absent_cells(cells):
+    """2026-11-09: the cells among these whose column holds no value at any site of the active ruler (for example the provisional megakaryocyte
+    column, built on the whole genome, has none at IAM-Atlas v2.1's sites in the IAM Sequencing Atlas's array_sites tables). Cached per ruler."""
+    out = []
+    for k in cells:
+        key = (k, SEQ_ATLAS, SEQ_LEVEL if SEQ_ATLAS else None)
+        if key not in _ABSENT:
+            try: _ABSENT[key] = not bool(_col("mu", k).notna().any())
+            except Exception: _ABSENT[key] = True
+        if _ABSENT[key]: out.append(k)
+    return out
+
+def _cover_den(F):
+    """2026-11-09 (found on the trim reading: every sequenced library with megakaryocytes at 1 % or more lost every site, because that column has
+    no value at these sites and MIX_COVER is 0.99): the share the cover is measured against leaves out cells whose column is absent at every site
+    (absent_cells); MIX_COVER still applies to gaps inside a column. The expectation is mixed over the cells with a value, as before; the
+    readings name the absent cells and their share (absent_from_ruler)."""
+    ab = absent_cells(list(F.index)); return max(float(F.sum()) - float(F.reindex(ab).sum()), 1e-12)
 NOT_FOUND_SHARE = 0.01   # 2026-10-24: below 1 % of the sample a cell is reported as not found; its Met-A is flagged, not withheld (stated)
 COPY_FLOOR = 1.0   # 2026-11-02 (D7, stated): below one copy of a cell per site (its share times the site's reads) a cell's reading is flagged
 
@@ -378,7 +398,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         # 2026-10-22: the expectation is mixed over the cells with an atlas value at each site, renormalized, and a site is kept when those cells
         # hold at least MIX_COVER of the shares (on the full 79-cell panel a single small cell without a value had dropped about half the sites)
         MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
-        have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+        have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
         e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S); mu = _col("mu", c).reindex(S)
         if counts is not None and not SEQ_ATLAS: e = seq_units(e).where(e.notna())   # 2026-10-28: the mixed expectation in sequencing units on sequencing
         ok = x.notna() & e.notna() & mu.notna() & (cover >= MIX_COVER)
@@ -413,7 +433,7 @@ def departure_in_mix(beta, shares, cell):
     if not S: return None
     cells = [c for c, f in shares.items() if f is not None]
     MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
-    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
     e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
     ok = x.notna() & e.notna() & (cover >= MIX_COVER)
     return pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)   # site ids kept
@@ -432,7 +452,7 @@ def read_in_mix_allsites(beta, shares):
     if not cells: out["reason"] = "no cell shares"; return out
     x = pd.Series(beta, dtype="float64"); idx = x.dropna().index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
-    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
     e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
     ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
     Hx = np.asarray(_H(xs), dtype="float64"); He = np.asarray(_H(es), dtype="float64")
@@ -491,7 +511,7 @@ def cscore_in_mix(beta, shares, deps=None):
         C = _clustering(d.reindex(_genome_order(d.index)).to_numpy()); r.update(C=None if C is None else round(C, 4), n_sites=int(len(d))); out["cells"].append(r)
     x = pd.Series(beta, dtype="float64").dropna(); idx = x.index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); F = pd.Series({k: float(shares[k]) for k in cells})
-    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+    have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
     e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); ok = e.notna() & (cover >= MIX_COVER)
     dw = pd.Series(np.asarray(_H(x[ok]), dtype="float64") - np.asarray(_H(e[ok]), dtype="float64"), index=x[ok].index)
     C = _clustering(dw.reindex(_genome_order(dw.index)).to_numpy()) if len(dw) >= 10 * CS_BLOCK else None
@@ -572,7 +592,7 @@ def territory_reading(beta, shares, counts=None):
     for name, S in territory_sets().items():
         idx = pd.Index(S).intersection(x.dropna().index)
         MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
-        cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+        cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
         if counts is not None and not SEQ_ATLAS: e = seq_units(e).where(e.notna())   # 2026-10-28: the expectation in sequencing units on sequencing
         ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]; r = dict(set_size=len(S), measured=int(ok.sum()), A=None)
         if ok.sum() < 500: r["reason"] = f"only {int(ok.sum())} of {len(S)} sites measured"; out["sets"][name] = r; continue
@@ -797,8 +817,10 @@ def read_whole(beta, shares, counts=None, raw=None):
     if not cells: out["reason"] = "no cell shares"; return out
     idx = x.dropna().index
     MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
-    cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+    cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
     ok = e.notna() & (cover >= MIX_COVER); xs, es = x.reindex(idx)[ok], e[ok]
+    _ab = absent_cells(cells)
+    if _ab: out["absent_from_ruler"] = {k: round(float(F[k]), 4) for k in _ab}   # 2026-11-09: cells with no column at these sites, set aside from the cover
     if ok.sum() < 10000: out["reason"] = f"only {int(ok.sum())} sites with an expectation"; return out
     w = np.abs(0.5 - es.to_numpy()); hx = np.asarray(_H(xs), dtype="float64"); he = _he(es, counts)
     if WHOLE_SITE_OUT:   # 2026-10-31 (development, run_sample.py --dev-whole-sites): every site's level, expectation, reads, weight and disorder
@@ -906,7 +928,7 @@ def cell_prediction(each, beta, shares, blur):
         if r.get("A") is None: continue
         try:
             S = identity_sites(r["cell"]); MU = pd.concat([_col("mu", k).reindex(S).rename(k) for k in cells], axis=1)
-            have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / max(F.sum(), 1e-12)
+            have = MU.notna(); cover = have.mul(F, axis=1).sum(1) / _cover_den(F)
             e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0); x = beta.reindex(S)
             ok = x.notna() & e.notna() & (cover >= MIX_COVER); x, e = x[ok], e[ok]; w = pd.Series(1.0, index=e.index)
             Ar = float(np.asarray(_H(x), dtype="float64").mean() / np.asarray(_H(e), dtype="float64").mean())
