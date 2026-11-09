@@ -1150,6 +1150,9 @@ beside the atlas's own shares (`--dev-provisional`, Stage D21), as the megakaryo
 1. **Platform bridge:** the two donors' segmented bone-marrow neutrophils, read at IAM-Atlas v2.1's sites, against the atlas's neutrophil
    column (arrays). If they do not read as neutrophils within the neutrophil donors' width, sequencing-made columns cannot join the array
    atlas this way, and the plan stops there.
+   Known before it runs: IAM-Atlas v2.1 is on the array scale (its unmarked sites near 0.055, sequencing near 0), so sequencing levels are
+   first put on the atlas's scale by the atlas build's own measured term (`Runtime Matrices/Atlas_V21/sequencing_term_v1.json`, the
+   inverse of `stage_metaa_atlas.seq_units`); read raw, healthy whole-genome samples read 0.6 to 0.8 against it.
 2. **Which stages make the column:** the stages' identity sites against GMP and mature neutrophils; a stage joins the column only if its
    sites separate it from both.
 3. **Synthetic:** healthy bloods built from the atlas's columns plus the new column at known shares (0 to 15 %); bars: the new column's
