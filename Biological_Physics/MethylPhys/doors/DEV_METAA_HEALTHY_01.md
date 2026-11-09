@@ -1257,3 +1257,14 @@ development reading runs on every sample, each flagged, unless `--commissioned-o
 on sequencing input the IAM Sequencing Atlas as ruler, the donors' levels, the counted island expectation, the copy correction and the
 megakaryocyte column. Off: the two library floors (failed their own tests), the measured middle (held), the curve calibration (until its
 synthetic).
+
+**Each array's response curve on its own calibrators, on the 57 real donors: not met.** (`gmp_curve_diag_summary.txt`). Every donor
+read by the one command with `--dev-curve-cal`: design II was mapped on all 57 (largest correction 0.010 to 0.026), design I on none (a
+sorted neutrophil array holds fewer than 3 levels with 20 calibrators on design I). The GMP share did not move (median 0.0107 to
+0.0114; 29 donors above 0.01 before and after), nor the laboratories' departures in GMP's direction (spread of laboratory
+medians on design II 0.0899 before and after) or the neutrophils' Met-A. So the laboratories' departure is not a smooth function of
+level on each design: it sits at particular sites, which a curve through the calibrators cannot reach. All 57 came from raw array files
+through the same pipeline, so it is not the depositors' processing. The array's own control probes (read at intake) separate the seven
+laboratories (negative-control level +0.50 and conversion efficiency +0.57 with the GMP share; signal to background +0.73 with design I's
+departure) but not the donors within a laboratory (-0.25 to +0.26), so with seven laboratories they do not establish a cause.
+`--dev-curve-cal` stays built and off (it failed its own test on real donors); its synthetic's result is recorded when it lands.
