@@ -1375,3 +1375,12 @@ reading against the blend of cells the IAM-Deconvolver found is lower than again
 a blend of columns holds more disorder than one column, so a split across similar cells lowers the reading slightly. It is in neutrophils
 too, and it is small beside the donor-to-donor spread of the raw readings (0.86 to 1.15), so it is not the main reason lymphocytes from
 another laboratory read below 1. **Prior reading:** these donors were read before (`CANON/data_spent.csv`).
+
+**The three laboratories' healthy bloods on the fixed chain: the territories now read 1; the per-cell readings are unchanged (development; nothing scored).** (276 of 282 bloods, read from
+their kept values with today's default chain; `values_read_three_labs_summary.txt`.) With the territories' healthy prediction the islands read
+0.978 to 1.008 by laboratory (raw 0.83 to 0.85) and the domains
+0.955 to 0.979; whole-sample Met-A over its prediction
+0.969 to 0.987. Each cell's Met-A inside the blood is close to the
+earlier reading (laboratory spread 0.020 to 0.034 per cell, earlier 0.014 to 0.036): today's fixes (every atlas cell in the panel, the
+territories' prediction) were not the cross-laboratory fix for the per-cell readings, which still sit 1 to 5 % below 1 and still carry the
+GMP share in Oslo and Tokushima (median 0.044 and 0.041, Uppsala 0). **Prior reading:** all were read before (`CANON/data_spent.csv`).
