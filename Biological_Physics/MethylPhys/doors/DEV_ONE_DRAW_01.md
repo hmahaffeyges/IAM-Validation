@@ -794,3 +794,13 @@ reading moves by the planted share times the planted change.
 
 **Order:** the synthetic of the per-molecule reading; the donors' `.pat` files fetched to the build bucket (saved as they arrive); the
 mixes; the readings on Google, each mix saved as it is read; the scorer committed before any real mix is read.
+
+**The 34 healthy GSE186007 plasmas' cell shares on today's chain, and the megakaryocyte column added to their reading (written before it runs).** Read by the one
+command (GitHub run 42561979988), scored remotely by `plasma_lab3/plasma_shares_table.py` (GitHub run 42575159481; `plasma_lab3/plasma_shares_healthy_summary.txt`): granulocytes 0.3812, monocytes 0.0808
+(1 % or more in 23 of 34), erythrocyte progenitors 0.0752, macrophage columns 0.165 together, scattered tissue columns 0.163, and no
+megakaryocytes: the default Deconvolver reference for sequencing leaves the provisional megakaryocyte column out, and pure megakaryocyte DNA
+lands mostly on lung interstitial macrophages and erythrocyte progenitors when it is missing (above). The column was built and published
+and is not used by default (the author's lesson: what the atlases hold and should be used, sooner). **Test, written before it runs:** the
+same 34 read again with the column in the reference (`plasma_lab3_samples_r4mk.csv`: each row's flags plus `--dev-deconv-ref
+deconv_reference_mk_dev.parquet`). Development; nothing scored. What it shows if the lead is right: a megakaryocyte share appears in most
+plasmas, and the macrophage and erythroid shares fall by about as much. **Prior reading:** these 34 were read before (`CANON/data_spent.csv`).

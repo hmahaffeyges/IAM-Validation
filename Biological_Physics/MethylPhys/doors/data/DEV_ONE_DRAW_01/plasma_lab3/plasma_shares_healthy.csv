@@ -1,0 +1,366 @@
+sample,cell,share,ruler
+9ff0b85c4722d0e0250e69406b0e8848,granulocytes,0.6789,IAM Sequencing Atlas
+9ff0b85c4722d0e0250e69406b0e8848,nk cells,0.0939,IAM Sequencing Atlas
+9ff0b85c4722d0e0250e69406b0e8848,monocytes,0.078,IAM Sequencing Atlas
+9ff0b85c4722d0e0250e69406b0e8848,t effector cell cd8,0.0583,IAM Sequencing Atlas
+9ff0b85c4722d0e0250e69406b0e8848,bladder epithelium,0.039,IAM Sequencing Atlas
+9ff0b85c4722d0e0250e69406b0e8848,pancreatic acinar,0.0201,IAM Sequencing Atlas
+9ff0b85c4722d0e0250e69406b0e8848,pancreatic duct,0.0163,IAM Sequencing Atlas
+9ff0b85c4722d0e0250e69406b0e8848,vascular saphenous endothelium,0.0155,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,granulocytes,0.374,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,monocytes,0.1951,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,colon macrophages,0.1539,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,aorta endothelium,0.0617,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,striated muscle,0.0424,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,lung alveolar macrophages,0.0419,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,kidney glomerular endothelium,0.0392,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,hepatocyte,0.0376,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,gastric body epithelium,0.0285,IAM Sequencing Atlas
+700a3399f1ed6b831c7a7cea385336a9,pancreatic acinar,0.0132,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,granulocytes,0.2527,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,erythrocyte progenitors,0.2135,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,monocytes,0.1529,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,lung interstitial macrophages,0.1019,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,nk cells,0.0773,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,naive cd8 t cells,0.051,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,pancreatic alpha,0.036,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,cardiomyocyte,0.0296,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,colon epithelium,0.0218,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,colon macrophages,0.0188,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,tongue epithelium,0.0161,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,cortical neurons,0.0156,IAM Sequencing Atlas
+8840aa80781b981403308f5f6707c499,kidney tubular endothelium,0.0129,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,granulocytes,0.2337,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,monocytes,0.2204,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,hepatocyte,0.0914,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,nk cells,0.075,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,pancreatic alpha,0.0691,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,lung alveolar macrophages,0.0545,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,pancreas endothelium,0.0511,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,oligodendrocytes,0.0411,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,kidney glomerular epithelium,0.0319,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,pancreatic beta,0.0317,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,erythrocyte progenitors,0.0289,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,colon epithelium,0.0286,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,effector memory cd8 t cells,0.0228,IAM Sequencing Atlas
+848f26f6f501d6d644b3194ef9c68b21,t effector memory cd4,0.0116,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,lung interstitial macrophages,0.2321,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,granulocytes,0.2041,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,erythrocyte progenitors,0.1348,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,aorta endothelium,0.108,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,monocytes,0.0971,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,hepatocyte,0.0556,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,naive cd8 t cells,0.044,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,naive cd4 t cells,0.0336,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,thyroid epithelium,0.0314,IAM Sequencing Atlas
+0a301d72deb2c799913badc2548581a0,kidney tubular endothelium,0.0277,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,granulocytes,0.3822,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,erythrocyte progenitors,0.1563,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,lung alveolar macrophages,0.1349,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,b cells,0.0833,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,hepatocyte,0.0593,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,lung interstitial macrophages,0.0432,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,pancreatic delta,0.0419,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,small intestine epithelium,0.0401,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,kidney tubular endothelium,0.0203,IAM Sequencing Atlas
+e951940d784103ea6a62c34d93039706,endometrium epithelium,0.0197,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,granulocytes,0.4669,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,erythrocyte progenitors,0.1477,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,monocytes,0.0977,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,colon macrophages,0.0737,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,t effector cell cd8,0.0588,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,gastric antrum epithelium,0.0363,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,aorta endothelium,0.0282,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,lung alveolar epithelium,0.0238,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,striated muscle,0.0168,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,lung bronchus epithelium,0.0157,IAM Sequencing Atlas
+b4a48b6b5ec16b54d42fdc60a64759a0,cardiomyocyte,0.0143,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,granulocytes,0.2451,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,lung alveolar macrophages,0.2379,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,nk cells,0.1375,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,lung alveolar endothelium,0.0854,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,erythrocyte progenitors,0.0751,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,monocytes,0.066,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,breast basal epithelium,0.0567,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,colon macrophages,0.0384,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,hepatocyte,0.0254,IAM Sequencing Atlas
+bc1a2e52f3bf22bb8ae0edba332bbe65,adipocytes,0.0127,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,colon macrophages,0.1717,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,monocytes,0.1675,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,granulocytes,0.1428,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,erythrocyte progenitors,0.1374,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,pancreas endothelium,0.0685,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,adipocytes,0.0642,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,hepatocyte,0.0587,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,nk cells,0.0449,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,vascular saphenous endothelium,0.042,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,naive cd4 t cells,0.0259,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,thyroid epithelium,0.0179,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,tonsil pharyngeal epithelium,0.0142,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,breast basal epithelium,0.0128,IAM Sequencing Atlas
+61926dc475e22333ebd35e3b044536f6,oligodendrocytes,0.0104,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,granulocytes,0.3987,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,lung interstitial macrophages,0.1364,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,erythrocyte progenitors,0.1089,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,naive cd8 t cells,0.0867,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,nk cells,0.0707,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,colon macrophages,0.0481,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,cortical neurons,0.0273,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,hepatocyte,0.0273,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,breast basal epithelium,0.0271,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,bladder epithelium,0.0202,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,aorta endothelium,0.0192,IAM Sequencing Atlas
+c0207993eb508a34d445e530541acdcf,vascular saphenous endothelium,0.01,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,granulocytes,0.3361,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,hepatocyte,0.1523,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,kidney tubular endothelium,0.0862,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,monocytes,0.086,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,erythrocyte progenitors,0.0757,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,colon macrophages,0.0639,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,nk cells,0.0593,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,cortical neurons,0.0545,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,breast basal epithelium,0.0264,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,naive cd4 t cells,0.019,IAM Sequencing Atlas
+9764bac3da4aa8f5833b634de40419ab,kidney glomerular endothelium,0.0175,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,granulocytes,0.2886,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,monocytes,0.1896,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,lung alveolar macrophages,0.1398,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,erythrocyte progenitors,0.1207,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,vascular saphenous endothelium,0.0907,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,lung interstitial macrophages,0.056,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,cd8 t cells,0.0426,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,endometrium epithelium,0.016,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,cd4 t cells,0.0154,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,pancreatic beta,0.014,IAM Sequencing Atlas
+64c72d6a5a2f39fe4434ba1773f85444,naive cd4 t cells,0.0115,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,granulocytes,0.262,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,hepatocyte,0.2051,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,lung interstitial macrophages,0.1377,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,lung alveolar macrophages,0.1265,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,naive cd8 t cells,0.0726,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,erythrocyte progenitors,0.0671,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,cortical neurons,0.0558,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,striated muscle,0.0532,IAM Sequencing Atlas
+7d263c402f32501b3a4f4b860a804bd4,lung alveolar endothelium,0.0118,IAM Sequencing Atlas
+cc724d106b861c94a7858dd55642bf5c,granulocytes,0.6591,IAM Sequencing Atlas
+cc724d106b861c94a7858dd55642bf5c,nk cells,0.1598,IAM Sequencing Atlas
+cc724d106b861c94a7858dd55642bf5c,monocytes,0.0835,IAM Sequencing Atlas
+cc724d106b861c94a7858dd55642bf5c,pancreatic delta,0.0327,IAM Sequencing Atlas
+cc724d106b861c94a7858dd55642bf5c,naive cd4 t cells,0.0313,IAM Sequencing Atlas
+cc724d106b861c94a7858dd55642bf5c,erythrocyte progenitors,0.0193,IAM Sequencing Atlas
+cc724d106b861c94a7858dd55642bf5c,colon macrophages,0.0102,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,monocytes,0.3138,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,granulocytes,0.1741,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,hepatocyte,0.1104,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,vascular saphenous endothelium,0.0858,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,colon enteroendocrine,0.0813,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,naive cd8 t cells,0.0655,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,nk cells,0.0594,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,cd4 t cells,0.0391,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,erythrocyte progenitors,0.0377,IAM Sequencing Atlas
+a3ab4762801bd28249544b68f2db94f2,striated muscle,0.0128,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,granulocytes,0.5177,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,colon macrophages,0.1667,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,naive cd8 t cells,0.0911,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,small intestine epithelium,0.0719,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,lung alveolar macrophages,0.0347,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,lung alveolar endothelium,0.026,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,colon fibroblasts,0.0171,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,tonsil palatine epithelium,0.017,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,monocytes,0.0164,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,cardiomyocyte,0.0153,IAM Sequencing Atlas
+8cd2a7f245a4daa1c87f39196e1899a6,erythrocyte progenitors,0.0151,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,granulocytes,0.3148,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,monocytes,0.2889,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,b cells,0.0738,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,colon epithelium,0.0491,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,lung alveolar endothelium,0.0409,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,nk cells,0.0359,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,naive cd8 t cells,0.0287,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,tongue epithelium,0.0282,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,kidney tubular endothelium,0.0258,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,breast basal epithelium,0.0227,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,naive cd4 t cells,0.0226,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,pancreatic beta,0.0219,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,lung alveolar epithelium,0.0205,IAM Sequencing Atlas
+66d02e88809c5d47dc92fff8f0f6dba8,lung interstitial macrophages,0.0179,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,granulocytes,0.4199,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,monocytes,0.1209,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,pancreatic delta,0.0944,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,erythrocyte progenitors,0.0935,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,nk cells,0.0565,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,lung interstitial macrophages,0.0477,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,b cells,0.0379,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,hepatocyte,0.0328,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,pancreatic duct,0.0316,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,thyroid epithelium,0.0185,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,tonsil palatine epithelium,0.0127,IAM Sequencing Atlas
+433459012fdcb6b6a013aabbf02951a3,pancreatic acinar,0.0103,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,granulocytes,0.5236,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,erythrocyte progenitors,0.155,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,pancreatic alpha,0.0598,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,lung alveolar endothelium,0.0587,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,colon macrophages,0.0451,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,lung alveolar macrophages,0.0414,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,naive cd8 t cells,0.0387,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,kidney tubular endothelium,0.0218,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,bladder epithelium,0.0163,IAM Sequencing Atlas
+1096579796e3a6f9f9ac26dfd4c8eba4,hepatocyte,0.0124,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,granulocytes,0.2426,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,lung alveolar macrophages,0.1569,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,monocytes,0.154,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,erythrocyte progenitors,0.133,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,hepatocyte,0.0751,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,cortical neurons,0.0562,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,vascular saphenous endothelium,0.046,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,naive cd8 t cells,0.0237,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,gastric antrum epithelium,0.0207,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,colon enteroendocrine,0.0203,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,lung bronchus epithelium,0.0184,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,nk cells,0.0171,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,breast luminal epithelium,0.0109,IAM Sequencing Atlas
+d503dbead26687c6f4486634042950fd,kidney glomerular epithelium,0.0106,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,granulocytes,0.353,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,colon macrophages,0.1347,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,nk cells,0.0953,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,monocytes,0.0944,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,naive cd4 t cells,0.0536,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,lung alveolar macrophages,0.0438,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,naive cd8 t cells,0.0413,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,small intestine epithelium,0.0278,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,erythrocyte progenitors,0.0244,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,pancreatic alpha,0.0205,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,kidney tubular epithelium,0.0172,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,pancreas endothelium,0.0161,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,tongue epithelium,0.0156,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,striated muscle,0.0151,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,cardiomyocyte,0.0148,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,b cells,0.0144,IAM Sequencing Atlas
+23c644f7613d29b5ee27eb0bd034fccb,kidney tubular endothelium,0.0105,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,granulocytes,0.3374,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,erythrocyte progenitors,0.1988,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,colon macrophages,0.1587,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,vascular saphenous endothelium,0.0916,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,lung alveolar macrophages,0.0819,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,lung alveolar epithelium,0.0702,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,pancreatic duct,0.0216,IAM Sequencing Atlas
+2263b9f1da83e4d8ad407d8530383333,nk cells,0.0166,IAM Sequencing Atlas
+45c187156d333d18854c4b37ddce2ce5,granulocytes,0.3893,IAM Sequencing Atlas
+45c187156d333d18854c4b37ddce2ce5,lung interstitial macrophages,0.2946,IAM Sequencing Atlas
+45c187156d333d18854c4b37ddce2ce5,naive cd4 t cells,0.132,IAM Sequencing Atlas
+45c187156d333d18854c4b37ddce2ce5,vascular saphenous endothelium,0.0613,IAM Sequencing Atlas
+45c187156d333d18854c4b37ddce2ce5,lung alveolar macrophages,0.0548,IAM Sequencing Atlas
+45c187156d333d18854c4b37ddce2ce5,b cells,0.0262,IAM Sequencing Atlas
+45c187156d333d18854c4b37ddce2ce5,kidney tubular endothelium,0.0178,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,granulocytes,0.4071,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,colon macrophages,0.192,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,lung alveolar macrophages,0.1006,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,lung interstitial macrophages,0.0781,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,erythrocyte progenitors,0.0718,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,thyroid epithelium,0.0448,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,aorta endothelium,0.0236,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,nk cells,0.0233,IAM Sequencing Atlas
+ab10328b70c3ec25887378a91d1564f5,bladder epithelium,0.0144,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,granulocytes,0.2787,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,monocytes,0.2385,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,pancreatic alpha,0.1082,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,cd8 t cells,0.0742,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,colon macrophages,0.0728,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,kidney tubular endothelium,0.0718,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,oligodendrocytes,0.0513,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,vascular saphenous endothelium,0.0386,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,cortical neurons,0.0338,IAM Sequencing Atlas
+bb6d9f0ea85472f608af14a17f5e8bb3,naive cd8 t cells,0.032,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,granulocytes,0.5788,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,t central memory cd4,0.0893,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,breast basal epithelium,0.0846,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,pancreatic duct,0.07,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,endometrium epithelium,0.0624,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,t effector cell cd8,0.0341,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,memory b cells,0.0298,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,oligodendrocytes,0.0234,IAM Sequencing Atlas
+ff7663d7d4ea371e2b58de76365263d6,pancreatic acinar,0.0212,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,granulocytes,0.7016,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,striated muscle,0.0638,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,smooth muscle,0.0599,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,cortical neurons,0.0422,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,tonsil palatine epithelium,0.027,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,b cells,0.0245,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,fallopien tubes epithelium,0.0173,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,small intestine epithelium,0.0133,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,erythrocyte progenitors,0.0111,IAM Sequencing Atlas
+585e9d2c7f93518571481cc35dfacafa,oligodendrocytes,0.0106,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,granulocytes,0.4052,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,nk cells,0.1282,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,lung alveolar macrophages,0.1209,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,colon macrophages,0.1012,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,erythrocyte progenitors,0.0752,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,lung alveolar endothelium,0.0382,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,small intestine epithelium,0.0306,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,cardiomyocyte,0.0232,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,lung alveolar epithelium,0.0193,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,pancreatic acinar,0.0182,IAM Sequencing Atlas
+bb306ed8a8bce90eded84bf092efd9c3,hepatocyte,0.0175,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,granulocytes,0.4181,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,colon macrophages,0.2983,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,erythrocyte progenitors,0.1162,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,kidney tubular endothelium,0.0733,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,endometrium epithelium,0.0318,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,cardiomyocyte,0.0311,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,pancreatic duct,0.0174,IAM Sequencing Atlas
+24b10fe46d82eec520fa53ce82e0718e,monocytes,0.0136,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,granulocytes,0.3801,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,colon macrophages,0.1332,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,nk cells,0.0999,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,erythrocyte progenitors,0.0837,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,monocytes,0.062,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,lung interstitial macrophages,0.0502,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,b cells,0.0449,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,kidney tubular endothelium,0.0438,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,vascular saphenous endothelium,0.0293,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,gastric body epithelium,0.0242,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,naive cd8 t cells,0.0157,IAM Sequencing Atlas
+94a47b8f18683d24cf6a0f0fd70be2c9,lung alveolar macrophages,0.0144,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,granulocytes,0.4202,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,monocytes,0.218,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,colon macrophages,0.1364,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,lung interstitial macrophages,0.0604,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,naive cd8 t cells,0.0462,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,cortical neurons,0.0371,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,b cells,0.0273,IAM Sequencing Atlas
+5572d8d037ae8728fbcb94f540bd0f33,hepatocyte,0.0264,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,granulocytes,0.3864,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,monocytes,0.22,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,erythrocyte progenitors,0.0994,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,nk cells,0.0661,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,prostate epithelium,0.0577,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,oligodendrocytes,0.0503,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,colon macrophages,0.0348,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,naive cd4 t cells,0.0259,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,thyroid epithelium,0.0251,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,kidney glomerular epithelium,0.014,IAM Sequencing Atlas
+284d8d34a11a8f8345b664725e5d1059,pancreatic beta,0.0101,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,granulocytes,0.5752,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,lung interstitial macrophages,0.1449,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,naive cd8 t cells,0.0882,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,tongue epithelium,0.07,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,effector memory cd8 t cells,0.022,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,pancreatic acinar,0.0218,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,gastric antrum epithelium,0.0178,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,lung bronchus epithelium,0.0157,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,colon macrophages,0.0131,IAM Sequencing Atlas
+5c9cd222010fa921aee33ea19f253b0b,small intestine epithelium,0.0108,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,granulocytes,0.3652,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,erythrocyte progenitors,0.1229,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,monocytes,0.0767,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,pancreatic acinar,0.0564,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,naive cd4 t cells,0.0539,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,adipocytes,0.0509,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,striated muscle,0.0433,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,lung interstitial macrophages,0.0402,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,kidney glomerular endothelium,0.0314,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,b cells,0.0304,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,hepatocyte,0.0296,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,pancreatic alpha,0.0252,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,pancreatic beta,0.0228,IAM Sequencing Atlas
+d7db71fd8b08f38567be0992c17a1da0,vascular saphenous endothelium,0.013,IAM Sequencing Atlas
