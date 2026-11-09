@@ -1,0 +1,8 @@
+GMP noise diagnostic (gmp_noise_diag.py; 12 quiet-laboratory neutrophil donors x added noise; development, nothing scored)
+        n  measured_sII  gmp  gmp_max  with_gmp     neu   other   met_a
+noise                                                                  
+0.000  12        0.0047  0.0        0         0  0.9688  0.0000  0.9600
+0.003  12        0.0058  0.0        0         0  0.9690  0.0052  0.9601
+0.006  12        0.0093  0.0        0         0  0.9688  0.0051  0.9615
+0.009  12        0.0116  0.0        0         0  0.9690  0.0000  0.9616
+paired rise of the neutrophils' Met-A over the same donor with no noise added: 0.003: -0.0002, 0.006: +0.0004, 0.009: +0.0012

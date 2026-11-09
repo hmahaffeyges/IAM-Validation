@@ -1185,3 +1185,13 @@ Among the atlas's 64 sorted neutrophil donors the GMP share follows the array's 
 answer it. Next, written before it runs (`gmp_noise_diag.py`): 12 neutrophil donors from the quiet laboratories read again with noise added
 at the noisy laboratories' level. If GMP appears and the neutrophils' Met-A rises, the GMP share is made by the measurement, the fix is in the
 chain, and the in-between column is set aside.
+
+**The GMP noise diagnostic: added noise does not make GMP** (`gmp_noise_diag_summary.txt`). The 12 quiet-laboratory
+neutrophil donors read again with noise added up to a measured design-II noise of 0.0116 (beyond the noisiest laboratory's 0.0095): GMP at
+no share in any of the 48 readings; the neutrophils' share unchanged (0.969); their Met-A rises by at most 0.0012 at the largest noise. So
+random noise on the array is not what the Deconvolver turns into GMP, and weighting its fit by each array's noise would not remove it. The
+link between GMP and the measured noise among the donors (+0.78) is something the noisy laboratories carry beside their noise: either cells
+in their neutrophil samples, or an error tied to particular probes rather than random (the chain's measured noise is the scatter about the
+array's line at firmly held sites, which takes in both). The in-between neutrophil column stays set aside (the promyelocyte array was not
+found as GMP); next, on the same kept values: whether the noisy laboratories' neutrophil arrays depart from the atlas's neutrophil column
+in GMP's own direction at GMP's identity sites (cells), or at scattered probes of their own (a probe-tied error).
