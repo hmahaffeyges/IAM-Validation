@@ -1,0 +1,9 @@
+The library floor by molecule position on already-aligned spent libraries (run_sample.py --build seq-floor-position; 398 molecule pieces of 403, Google, 2 machines x 4 cores; development, nothing scored)
+              libraries     end  interior  end_over_interior      lo       hi
+set                                                                          
+GSE134664 B           4  0.0185    0.0052             3.5213  3.1100   4.8896
+GSE98837 CD8          8  0.0337    0.0039             9.0518  7.5469  12.5354
+JHU CD4              18  0.0063    0.0026             1.4898  0.8926  20.9673
+
+per library: floor_position_real.csv
+whole-sample Met-A of the 18 libraries with a bundle against the end rate: rank correlation -0.27

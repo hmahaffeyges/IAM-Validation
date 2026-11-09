@@ -1725,3 +1725,15 @@ of real libraries is what the test measures; the synthetic covers none (1), larg
 **Then, spent and already aligned (no alignment):** the molecule files in the build bucket, Johns Hopkins CD4 (85 pieces), the outside B
 and CD8 T cells (192) and the Johns Hopkins tissues (126), spread four pieces at a time over the free machines (`floor_position_real.sh`).
 **Prior reading:** all three were read before (`CANON/data_spent.csv`); nothing here is scored.
+
+**The library floor by molecule position: synthetic met; the real libraries read.** Synthetic (GitHub run 42591860537): no end
+effect read 0.90, the planted 10 and 2 read 10.30 and 1.99, inner distances at the interior rate. On 30 spent, already aligned
+libraries (`seq_atlas/floor_position_real_summary.txt`, `floor_position_real.csv`; no alignment, about 15 minutes): the opposite calls
+sit at the molecules' ends. The outside CD8 T laboratory (GSE98837) reads its first and last CpGs at 7.5 to 12.5 times its interior
+floor; the outside B laboratory (GSE134664) 3.1 to 4.9 times; the Johns Hopkins CD4 libraries 0.89 to 21, library by library (about half
+near 1, the rest 4 to 21). The interior floors are close across all three (0.0013 to 0.0067), while the pooled floor the chain uses
+(`library_floor`) carries the ends: GSE98837's 0.014 to 0.021 is mostly end calls over an interior of 0.003 to 0.005. So most of what
+differs between these laboratories' floors is library chemistry at the read ends, not the cells. On the 18 libraries with a whole-sample
+bundle, the end rate alone does not track whole-sample Met-A (rank correlation -0.27), so the next
+test removes the end calls from the reading itself (each molecule's outer CpGs left out, as end trimming does) and reads the same spent
+libraries again, from these molecule files. Development; nothing scored.
