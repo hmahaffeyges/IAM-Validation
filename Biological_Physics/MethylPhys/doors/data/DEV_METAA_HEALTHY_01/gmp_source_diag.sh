@@ -1,7 +1,7 @@
 #!/bin/bash
 # gmp_source_diag.py on a Google machine, one part of six (PART set by the launcher; W, R, B, log and up given by it). Saves as it goes.
 set -u; D=$R/Biological_Physics/MethylPhys/doors/data/DEV_METAA_HEALTHY_01; O=$B/gmp_source_diag; mkdir -p $W/vals
-if [ "${CURVE:-0}" = 1 ]; then O=$B/gmp_curve_diag; gcloud storage ls "$O/gmp_curve_diag_p${PART}.json.done" > /dev/null 2>&1 && { log "already read"; exit 0; }
+if [ "${CURVE:-0}" = 1 ]; then O=$B/${CURVE_OUT:-gmp_curve_diag}; gcloud storage ls "$O/gmp_curve_diag_p${PART}.json.done" > /dev/null 2>&1 && { log "already read"; exit 0; }
   gcloud storage cp -q "$O/gmp_curve_diag_p${PART}.json" $W/ > /dev/null 2>&1; for g in $(tail -n +2 $D/gmp_source_donors.csv | cut -d, -f1); do gcloud storage cp -q "$(dirname $B)/rehearsal/bv2_donors/betas/${g}_betas.parquet" $W/vals/ > /dev/null 2>&1; done
   ( cd $R && python3 -u $D/gmp_source_diag.py $W/vals $W/gmp_curve_diag_p${PART}.json $PART curve > $W/gc.log 2>&1; echo $? > $W/gc_rc ) &
   while [ ! -f $W/gc_rc ]; do sleep 120; [ -f $W/gmp_curve_diag_p${PART}.json ] && gcloud storage cp -q $W/gmp_curve_diag_p${PART}.json $O/ > /dev/null 2>&1; log "c$PART: $(tail -1 $W/gc.log | cut -c1-80)"; done

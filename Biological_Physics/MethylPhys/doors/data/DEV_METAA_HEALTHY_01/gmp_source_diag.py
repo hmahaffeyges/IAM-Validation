@@ -47,7 +47,7 @@ for i, (g, ser) in enumerate(zip(D.gsm, D.series)):
     if CAL and p.returncode == 0:   # the values the chain read after its own calibration: the same function on the same cells the chain used
         import stage_t_selftare as STt; cc = json.load(open(bj)).get("curve_cal") if os.path.exists(bj) else None
     if cc and cc.get("cells"):
-        x0, _ = STt.curve_cal(x0, cc["cells"], STt._json()["design"]); ch["curve_cal"] = {k: v.get("largest_correction") for k, v in (cc.get("designs") or {}).items()}
+        x0, _ = STt.curve_cal(x0, cc["cells"], SA._ruler()[0].to_dict()); ch["curve_cal"] = {k: v.get("largest_correction") for k, v in (cc.get("designs") or {}).items()}
     shutil.rmtree(wd, ignore_errors=True)
     x = x0.reindex(M).dropna()
     d, r = d_all.reindex(x.index), x - n_all.reindex(x.index); ok = d.notna() & r.notna(); d, r = d[ok], r[ok]

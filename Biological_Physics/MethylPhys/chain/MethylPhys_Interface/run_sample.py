@@ -1205,7 +1205,7 @@ def main():
             try:
                 import stage_t_selftare as _STcc; _b0cc = _pd.Series(beta, dtype="float64")
                 _c0 = [r_["cell"] for r_ in (V4.stage_d21(_b0cc, _panel()).get("cells") or []) if (r_.get("share") or 0) >= 0.01]
-                _bcc, o["curve_cal"] = _STcc.curve_cal(_b0cc, _c0, _STcc._json()["design"]); o["curve_cal"]["flag"] = "DEVELOPMENT (DEV-METAA-HEALTHY-01)"
+                import stage_metaa_atlas as _SAcc; _bcc, o["curve_cal"] = _STcc.curve_cal(_b0cc, _c0, _SAcc._ruler()[0].to_dict())   # the full design table (2026-11-09: the self-tare's 6,963 anchors only, at first; my error); o["curve_cal"]["flag"] = "DEVELOPMENT (DEV-METAA-HEALTHY-01)"
                 if any((x or {}).get("mapped") for x in o["curve_cal"]["designs"].values()): beta = _bcc
                 print("Stage C: each design's response on its own calibrators: " + "; ".join(f"{k} {v.get('levels', 0)} levels, largest {v.get('largest_correction')}" if v.get("mapped") else f"{k} not mapped" for k, v in o["curve_cal"]["designs"].items()), flush=True)
             except Exception as e: o["curve_cal"] = {"mapped": False, "reason": f"{type(e).__name__}: {str(e)[:160]}"}

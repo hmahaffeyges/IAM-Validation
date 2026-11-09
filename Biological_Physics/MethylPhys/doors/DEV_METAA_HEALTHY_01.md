@@ -1258,7 +1258,7 @@ on sequencing input the IAM Sequencing Atlas as ruler, the donors' levels, the c
 megakaryocyte column. Off: the two library floors (failed their own tests), the measured middle (held), the curve calibration (until its
 synthetic).
 
-**Each array's response curve on its own calibrators, on the 57 real donors: not met.** (`gmp_curve_diag_summary.txt`). Every donor
+**Each array's response curve on its own calibrators, on the 57 real donors: not met. (VOID, 2026-11-09 3 AM: the chain handed the calibration the self-tare's design table, its 6,963 anchor probes only, so about 6,400 sites were calibrated; my error. Read again with the full design table, below.)** (`gmp_curve_diag_summary.txt`). Every donor
 read by the one command with `--dev-curve-cal`: design II was mapped on all 57 (largest correction 0.010 to 0.026), design I on none (a
 sorted neutrophil array holds fewer than 3 levels with 20 calibrators on design I). The GMP share did not move (median 0.0107 to
 0.0114; 29 donors above 0.01 before and after), nor the laboratories' departures in GMP's direction (spread of laboratory
@@ -1268,3 +1268,11 @@ through the same pipeline, so it is not the depositors' processing. The array's 
 laboratories (negative-control level +0.50 and conversion efficiency +0.57 with the GMP share; signal to background +0.73 with design I's
 departure) but not the donors within a laboratory (-0.25 to +0.26), so with seven laboratories they do not establish a cause.
 `--dev-curve-cal` stays built and off (it failed its own test on real donors); its synthetic's result is recorded when it lands.
+
+**The curve synthetic, read: not met, and the cause found in the chain (my error).** All 48 readings made (`curve_synthetic_summary.txt`);
+the calibrated readings came out almost the same as the raw ones (share distance from the unbent reading 0.10 to 0.14 for laboratory A,
+0.54 to 0.64 for C, raw and calibrated alike). The calibration record showed design II mapped on 4 to 5 levels and 6,366 sites, design I on
+none: `run_sample.py` passed `curve_cal` the self-tare's design table, which holds only its 6,963 anchor probes, instead of the ruler's full
+design table. Fixed (`stage_metaa_atlas._ruler`'s design); the same cells offline now give 20 levels on both designs. This also voids the
+real-donor reading above (same table). Both run again unchanged otherwise. Seen on the way: laboratory A's small bend alone (largest change
+0.0195) moved the cell shares by 0.10 to 0.14, so the Deconvolver is very sensitive to a design-dependent bend.
