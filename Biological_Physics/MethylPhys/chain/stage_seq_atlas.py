@@ -409,6 +409,37 @@ def library_floor(beta, calls, path=FLOOR_SITES):
         out[side] = dict(sites_read=int(g.sum()), calls=int(nn), opposite=int(opp), rate=round(opp / nn, 6) if nn else None); tot_o += opp; tot_n += nn
     out["rate"] = round(tot_o / tot_n, 6) if tot_n else None; return out
 
+def floor_by_position(pat, path=FLOOR_SITES, max_d=4):
+    """2026-11-09 (development; the detector-split null test on sequencing, DEV-ATLAS-V21-01): a library's floor from its molecules, split by
+    where each call sits on its molecule. At the floor sites (every healthy cell agrees completely), each call is opposite or not (methylated at
+    an unmarked site, unmethylated at a marked one), counted by the call's distance in CpGs from the nearer outer end of its molecule (0 = the
+    first or last CpG read, up to max_d and beyond) and, apart, beside a gap inside the molecule ('.' between the two reads of a pair, the
+    reads' inner ends). Biology does not depend on where a CpG sits on a molecule; library chemistry at the read ends does (the M-bias of
+    end repair). Counts only; nothing fitted. pat: a wgbstools .pat(.gz) file (chr, first CpG index, pattern, count)."""
+    import pandas as pd, gzip
+    D = pd.read_parquet(path); side = dict(zip(D.cpg.astype(np.int64), D.side)); B = {k: [0, 0] for k in list(range(max_d + 1)) + ["gap", "interior"]}
+    op = gzip.open if str(pat).endswith(".gz") else open; mol = 0
+    with op(pat, "rt") as f:
+        for line in f:
+            p = line.rstrip("\n").split("\t")
+            if len(p) < 4: continue
+            s0, pt, n = int(p[1]), p[2], int(p[3]); L = len(pt); mol += n
+            idx = [j for j, ch in enumerate(pt) if ch != "."]
+            if not idx: continue
+            lo, hi = idx[0], idx[-1]
+            for j in idx:
+                sd = side.get(s0 + j)
+                if sd is None: continue
+                ch = pt[j]; opp = (ch == "C") if sd == "unmarked" else (ch == "T")
+                if ch not in "CT": continue
+                d = min(j - lo, hi - j); k = d if d <= max_d else "interior"
+                if 0 < j < L - 1 and (pt[j - 1] == "." or pt[j + 1] == ".") and k == "interior": k = "gap"
+                B[k][0] += n * opp; B[k][1] += n
+    rows = {str(k): dict(calls=v[1], opposite=v[0], rate=round(v[0] / v[1], 6) if v[1] else None) for k, v in B.items()}
+    end = B[0]; inn = B["interior"]
+    return dict(flag="DEVELOPMENT - not commissioned (floor by molecule position)", molecules=mol, by_distance_from_end=rows,
+                end_over_interior=round((end[0] / end[1]) / (inn[0] / inn[1]), 4) if end[1] and inn[1] and inn[0] else None)
+
 METAA_COUNTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_half_counts")   # metaa_half_counts_v1.parquet, built by --build seq-metaa-counts
 
 def metaa_half_counts(samples_csv, out, ref=None):

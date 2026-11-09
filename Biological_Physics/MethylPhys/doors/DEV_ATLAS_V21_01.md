@@ -1709,3 +1709,19 @@ outside libraries carry there, and that share measure is not confirmed; (3) real
 floor against the other sealed half, spread 0.82 to 1.14 at the islands, wider than a 0.95 to 1.05 band. The class floor stays off by
 default. Next, before anything new is planted: the real outside libraries' false-call rate at the island sites outside the floor sites,
 measured from the per-site tables already saved (18 samples), and the cell-mix candidate, each by a test written first.
+
+**The library floor by molecule position: the detector-split null test on sequencing (development; synthetic written before it runs).** The record of
+11-01 found sorted-cell Met-A follows each library's own disorder per read at its identity sites (rank correlation 0.974), shallower
+libraries holding more off-pattern reads, not counting. Whether those reads are biology or library chemistry is open. On arrays the probe
+designs split the instrument from the biology; on sequencing the split is where a call sits on its molecule: biology does not depend on it,
+chemistry at the read ends does (end repair's M-bias). `stage_seq_atlas.floor_by_position` (`run_sample.py --build seq-floor-position`):
+at the floor sites, opposite calls by distance from the molecule's nearer end, and beside the gap between a pair's reads.
+**Synthetic** (`seq_atlas/floor_position_synthetic.py`): three constructed libraries of 400,000 molecules, no end effect, ten times at
+the ends, and a plasma-level floor twice at the ends. Bars: no end effect reads end over interior 0.8 to 1.25; the planted ratios
+recovered within 10 %; inner distances read the interior rate within 15 %.
+**Range of the data:** library floors measured by the chain run from 0.00154 (BLUEPRINT) and 0.00628 (the atlas's inputs) to 0.022 to
+0.037 (plasmas); the synthetic's interior floors 0.005 and 0.03 and its end floors 0.005 to 0.06 span them. The end-over-interior ratio
+of real libraries is what the test measures; the synthetic covers none (1), large (10) and modest (2).
+**Then, spent and already aligned (no alignment):** the molecule files in the build bucket, Johns Hopkins CD4 (85 pieces), the outside B
+and CD8 T cells (192) and the Johns Hopkins tissues (126), spread four pieces at a time over the free machines (`floor_position_real.sh`).
+**Prior reading:** all three were read before (`CANON/data_spent.csv`); nothing here is scored.

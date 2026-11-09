@@ -2678,6 +2678,10 @@ is the library's own (unconverted DNA, sequencing error, damage).
 A sequenced sample's library floor: at those sites, the share of opposite calls on each side and pooled, from the sample's own calls;
 recorded on every sequenced sample as `development.library_floor`, flagged.
 
+### stage_seq_atlas.py::floor_by_position
+
+The library floor counted from the molecules themselves, split by where each call sits on its molecule: at the floor sites (every healthy cell agrees completely), the share of opposite calls by the call's distance in CpGs from the nearer end of its molecule, and apart, beside a gap between the two reads of a pair. Biology does not depend on where a CpG sits on a molecule; library chemistry at the read ends does (the M-bias of end repair, as geneticists call it). It is the detector-split null test of the CMB missions on sequencing: split the data by a property the sky cannot depend on, and whatever differs is the instrument. Run alone by `run_sample.py --build seq-floor-position --build-input PAT`.
+
 ### stage_seq_atlas.py::metaa_reference_of
 One cell's rows of that reference, indexed by probe, levels 0 to 1 (blank as missing); nothing when the file or the cell is absent, and the
 reading then says it was read against IAM-Atlas v2.1.
