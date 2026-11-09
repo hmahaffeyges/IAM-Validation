@@ -1779,3 +1779,11 @@ to the truth in 5 of 6, the share on cells not in the sample no larger in 5 of 6
 **Range of the data:** the real libraries read at a median 6 to 26 calls per site (the 18 sorted libraries) and the real healthy plasmas at
 a median 6 with 251,945 of 813,951 sites read (GSM7426156); the synthetic reads depth 6 and 20 with site-to-site variation and, for plasma,
 a third of the sites read.
+
+**The molecule-position split at the identity sites, read: the laboratories differ at molecule ends, not inside.** On the 18 sorted
+libraries (`seq_atlas/floor_position_identity_summary.txt`), each library's Met-A follows its opposite-call rate at molecule ends (rank
+correlation 0.88) and not inside molecules (-0.20): end rates GSE134664 B 0.087 to 0.089, Johns Hopkins CD4 0.061 to 0.075,
+GSE98837 CD8 0.031 to 0.059, while interior rates overlap (0.004 to 0.015). The site-matched ratio does not follow Met-A (0.15); the
+interior calls come from fewer, CpG-denser sites, so the next step reads Met-A itself without the outer calls: the 18 libraries through the
+one command with `--dev-seq-trim-ends` 0, 1 and 2 (`trim_read.sh`, `trim_read_samples.csv`), one library read first and checked before the
+rest are sent. **Prior reading:** all 18 were read before (`CANON/data_spent.csv`).

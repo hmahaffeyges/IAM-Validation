@@ -1,0 +1,22 @@
+The molecule-position split at each library's identity sites (18 sorted libraries, 277 pieces; floor_position_identity.sh)
+k                    lab                  cell       0       1  interior  matched   met_a
+gsm                                                                                      
+GSM3963006   GSE134664 B        memory b cells  0.0869  0.0406    0.0109   2.5511  1.2628
+GSM3963004   GSE134664 B               b cells  0.0869  0.0356    0.0062   2.9863  1.2810
+GSM3963003   GSE134664 B               b cells  0.0890  0.0357    0.0062   3.9444  1.3116
+GSM3963005   GSE134664 B        memory b cells  0.0881  0.0400    0.0087   1.7772  1.3088
+GSM2616075  GSE98837 CD8           cd8 t cells  0.0415  0.0225    0.0042   2.4391  0.7536
+GSM2616074  GSE98837 CD8   t effector cell cd8  0.0499  0.0325    0.0105   1.4824  0.8612
+GSM2616073  GSE98837 CD8   t effector cell cd8  0.0537  0.0352    0.0151   1.3845  0.8633
+GSM2616072  GSE98837 CD8     naive cd8 t cells  0.0309  0.0185    0.0082   1.9420  0.7135
+GSM2616071  GSE98837 CD8     naive cd8 t cells  0.0543  0.0333    0.0098   1.8188  0.9568
+GSM2616070  GSE98837 CD8   t effector cell cd8  0.0587  0.0365    0.0126   1.4395  0.9176
+GSM2616068  GSE98837 CD8     naive cd8 t cells  0.0413  0.0256    0.0084   1.8391  0.8861
+GSM2616069  GSE98837 CD8   t effector cell cd8  0.0588  0.0355    0.0127   1.5273  0.8731
+GSM2103007       JHU CD4           cd4 t cells  0.0752  0.0440    0.0074   1.2780  0.9862
+GSM2103006       JHU CD4           cd4 t cells  0.0674  0.0447    0.0122   1.2525  0.9724
+GSM2103005       JHU CD4  t central memory cd4  0.0693  0.0467    0.0136   1.1972  0.9110
+GSM2103004       JHU CD4             monocytes  0.0639  0.0402    0.0073   1.2082  0.9233
+GSM2103003       JHU CD4           cd4 t cells  0.0606  0.0368    0.0087   1.2712  0.9424
+GSM2103002       JHU CD4           cd4 t cells  0.0617  0.0376    0.0058   1.3431  0.9363
+rank correlation of Met-A with the end-call opposite rate 0.88, with the interior rate -0.20, with the site-matched ratio 0.15 (18 libraries)

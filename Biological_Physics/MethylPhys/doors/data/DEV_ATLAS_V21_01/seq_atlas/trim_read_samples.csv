@@ -1,0 +1,19 @@
+gsm,specimen,pat
+GSM2103002,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103002.pat.gz
+GSM2103003,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103003.pat.gz
+GSM2103004,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103004.pat.gz
+GSM2103005,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103005.pat.gz
+GSM2103006,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103006.pat.gz
+GSM2103007,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103007.pat.gz
+GSM2616068,sorted naive cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616068.pat.gz
+GSM2616069,sorted effector memory cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616069.pat.gz
+GSM2616070,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616070.pat.gz
+GSM2616071,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616071.pat.gz
+GSM2616072,sorted naive cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616072.pat.gz
+GSM2616073,sorted effector memory cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616073.pat.gz
+GSM2616074,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616074.pat.gz
+GSM2616075,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616075.pat.gz
+GSM3963003,sorted b cells,seq_atlas/xl_class/merge/merged/GSM3963003.pat.gz
+GSM3963004,sorted b cells,seq_atlas/xl_class/merge/merged/GSM3963004.pat.gz
+GSM3963005,sorted memory b cells,seq_atlas/xl_class/merge/merged/GSM3963005.pat.gz
+GSM3963006,sorted memory b cells,seq_atlas/xl_class/merge/merged/GSM3963006.pat.gz
