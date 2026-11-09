@@ -9,7 +9,7 @@ plasma-like 6 with a third of the sites read (as the healthy GSE186007 plasmas),
 import os, sys, json, subprocess, numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); CH = os.path.abspath(os.path.join(H, "..", "..", "..", "..", "chain")); sys.path.insert(0, CH)
 import stage_metaa_atlas as SA, stage_seq_atlas as SQ, stage_seq_values as SV
-out = sys.argv[1]; PART = int(sys.argv[2]); os.makedirs(out, exist_ok=True)
+out = os.path.abspath(sys.argv[1]); PART = int(sys.argv[2]); os.makedirs(out, exist_ok=True)   # absolute: the chain runs from its own folder (first run found no input; fixed 2026-11-09)
 SA.SEQ_ATLAS = SQ.ARRAY_COLS
 BLOOD = {"granulocytes": 0.55, "monocytes": 0.12, "cd4 t cells": 0.13, "cd8 t cells": 0.08, "b cells": 0.06, "nk cells": 0.06}
 ADD = {"erythrocyte progenitors": 0.08, "liver hepatocytes": 0.06, "vascular endothelial cells": 0.10}
