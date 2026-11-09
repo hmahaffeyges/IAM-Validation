@@ -1339,3 +1339,12 @@ GSE118144 and GSE124565, with every marker site Tokushima's bloods lack set as u
 0 unmasked). The 1,331 sites the 450K chip lacks are where GMP and neutrophils differ most (median difference 0.0373, against 0.0175 at the
 sites kept), so on 450K the Deconvolver's line between the two is weaker and a smaller laboratory distortion reads as GMP; the distortion
 itself is in Tokushima's values. **Prior reading:** these donors and laboratories were read before (`CANON/data_spent.csv`).
+
+**Array commissioning, rehearsal: Met-A per cell on sorted healthy cells from a laboratory the atlas never held (spent; written before its readings are opened).** The instrument's job: a healthy sorted cell from a laboratory the atlas never held reads Normal for the cell the IAM-Deconvolver found most of, against that cell's width measured on IAM-Atlas v2.1's own donors.
+Reference: IAM-Atlas v2.1 (the widths, `Runtime Matrices/Met_A_Widths/donor_widths_v1.json`); nothing from other samples.
+Data: GSE110554's 37 sorted cells (EPIC; neutrophils, monocytes, CD4, CD8, B, NK; not an atlas source), read by the one command's default
+chain through `run_series.py` on Google (`series_google.sh`), one shard first and opened before the rest. Bars (`sorted_rehearsal_score.py`):
+1. the top cell found is the sorted kind in at least 90 % of arrays; 2. at least 85 % of arrays with a state read Normal; 3. every kind with
+5 or more arrays at least 70 % Normal. The sealed test then reads unseen healthy sets (GSE147430's 71 non-smoker CD8 T cells, EPIC;
+GSE71955's 62 healthy CD4 and CD8 controls, 450K), chosen from metadata only.
+**Prior reading:** GSE110554 was read before (`CANON/data_spent.csv`); this is a rehearsal, not the test.
