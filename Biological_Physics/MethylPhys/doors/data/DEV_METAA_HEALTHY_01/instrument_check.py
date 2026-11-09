@@ -10,13 +10,20 @@ SRC = [("realblood_GSE318173_samples.csv", "whole blood"), ("realblood_GSE87571_
 lst, spec = SRC[P]
 g = next(csv.DictReader(open(os.path.join(H, lst))))["gsm"] if lst else next(r["gsm"] for r in csv.DictReader(open(os.path.join(H, "gmp_source_donors.csv"))) if r["series"] == "GSE118144")
 u = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{g[:-3]}nnn/{g}/suppl/"
-names = sorted(set(re.findall(rf"{g}_[^\"<>]*_(?:Grn|Red)\.idat\.gz", urllib.request.urlopen(u, timeout=120).read().decode()))); fs = {}
+try:
+    names = sorted(set(re.findall(rf"{g}_[^\"<>]*_(?:Grn|Red)\.idat\.gz", urllib.request.urlopen(u, timeout=120).read().decode())))
+except Exception as e:
+    open(os.path.join(out, f"instrument_check_p{P}.txt"), "w").write(f"{g}: the raw files could not be listed: {e}\n"); sys.exit(1)
+fs = {}
 for n in names:
     f = os.path.join(wd, n); urllib.request.urlretrieve(u + n, f); fs["grn" if "_Grn" in n else "red"] = f
 bj = os.path.join(wd, "b.json")
 p = subprocess.run([sys.executable, RS, "--grn", fs["grn"], "--red", fs["red"], "--specimen", spec, "--id", g, "--out", os.path.join(wd, "r.html"), "--bundle", bj],
                    cwd=os.path.dirname(RS), capture_output=True, text=True)
 B = json.load(open(bj)) if os.path.exists(bj) else {}
+import shutil
+if os.path.exists(bj): shutil.copy(bj, os.path.join(out, f"instrument_check_p{P}_bundle.json"))   # the full bundle kept (2026-11-09)
+open(os.path.join(out, f"instrument_check_p{P}_chain.log"), "w").write(p.stdout[-20000:] + "\n--- stderr ---\n" + p.stderr[-8000:])
 SECT = ["intake", "cell_shares", "cells_found", "label_check", "met_a_each_cell", "met_a_whole", "cscore_each_cell", "cscore_sky", "territories", "iam_a",
         "iam_a_mix", "coupling_a", "info_sphere", "globe", "atlas_ruler", "reference", "full_chain", "development"]
 BAD = re.compile(r"(?i)traceback|error|exception|not made|could not|failed|withheld")
