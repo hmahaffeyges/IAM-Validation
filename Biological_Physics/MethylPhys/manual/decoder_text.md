@@ -2064,7 +2064,11 @@ Each cell's Met-A divided by its own healthy prediction, as the whole-sample rea
 
 ### stage_metaa_atlas.py::width_state
 
-The state of one cell's Met-A against that cell's healthy width measured on IAM-Atlas v2.1's own donors read by the one command (`Runtime Matrices/Met_A_Widths/donor_widths_v1.json`): Normal within 1 plus or minus k widths, k = t(0.975, n - 1) x sqrt(1 + 1/n) for its n donors (the prediction interval for one new reading), else above or below Normal, with the distance from 1 in widths. 1 is the middle; a cell whose donors read their middle more than 2 widths from 1 carries that note and is not commissioned. Given only at a share the cell held among its donors (share_min); below it the row says the width is not measured there. Arrays only. Its synthetic: the third new-people test, met.
+Each cell's state against its healthy Normal measured on IAM-Atlas v2.1's own donors, read the way the sample is read: where the cell holds a
+share its sorted donors held, the sorted donors' table (`donor_widths_v1.json`); otherwise, where it holds a share it held in the 200 healthy
+bloods built from those donors, the in-blood table (`donor_widths_blood_v1.json`). Normal is the measured median plus or minus k widths (k: the
+prediction interval for one new reading from n donors). 1 is the atlas's prediction, a reference mark: each state prints the measured middle's
+distance from 1, and a middle more than 2 widths from 1 is flagged as not commissioned. The share picks the table, never the label.
 
 ### stage_metaa_atlas.py::cells_found
 

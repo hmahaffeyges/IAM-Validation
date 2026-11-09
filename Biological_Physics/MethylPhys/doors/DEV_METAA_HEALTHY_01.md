@@ -1096,3 +1096,12 @@ healthy bloods, one array each, read below 1 too (neutrophils 0.9812, monocytes 
 not 1. This is the share synthetic's finding seen in healthy blood: a cell's reading in a mix is mostly its neighbors' DNA at its identity
 sites. Two ways to read it: the middle inside a blood is measured on the atlas's donors mixed as real bloods are (the rotation test's
 Normal), or the in-mix reading is changed so a healthy cell in a mix reads 1. For the author and me to decide before the commissioning test.
+
+**Normal is centered on the measured middle, not on 1 (chain change; agreed with the author).** Normal cannot be derived, so it is measured: each cell's middle and
+width on the atlas's own healthy donors, read the way the sample is read. 1 is what the atlas predicts, kept as a reference mark beside every
+state. Both tests that were met (width test 3 and the rotation test) measured Normal this way; the chain's step-5 state centered on 1 did not
+match them (my inconsistency). `width_state` now centers on the measured median, with a second table for cells inside a whole blood
+(`donor_widths_blood_v1.json`, from the rotation bloods, counted by donors), chosen by the cell's share. Preview on the 100 spent healthy
+bloods (diagnostic, after the fact): 310 of 369 cell states Normal; monocytes 39 Normal and 46 below (median 0.9738 against an in-blood middle
+of 0.9896). One laboratory cannot separate its own term from what six-cell constructed bloods leave out (eosinophils, basophils, young
+granulocytes); spent healthy bloods from other laboratories are read next, before the commissioning test is sealed.

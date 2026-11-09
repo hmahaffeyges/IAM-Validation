@@ -1,0 +1,10 @@
+The 100 spent healthy bloods' six cells against the measured-middle Normal (diagnostic, after the fact)
+cat          Normal  above Normal  below Normal  no width at this share
+cell                                                                   
+neutrophils      96             1             0                       3
+monocytes        39             0            46                       1
+cd4 t cells      42             0             2                       2
+cd8 t cells      56             0             2                       1
+b cells          44             0             5                       0
+nk cells         33             0             3                       0
+with a state: 369; Normal 310

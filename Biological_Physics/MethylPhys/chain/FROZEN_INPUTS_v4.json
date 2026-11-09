@@ -17,7 +17,8 @@
     "Runtime Matrices/Atlas_V21/sky_order_v21.npz": "c61c2f7efd8e6b2c2e2669913d0ce1614db5370d1d0ec540521b3b3758844230",
     "Runtime Matrices/Atlas_V21/sex_chromosome_sites_v21.json": "7cbb4a517fe4ce66100e8c5af519dc33a47b853af09e354ce148555834cd50ab",
     "Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json": "652906dff10a0c33d0b5d15c36a118ab2253655af0f46ba521b579faa1f00c50",
-    "Runtime Matrices/Met_A_Widths/donor_widths_v1.json": "c8e0231f6ef3f90799feab2184da17616e4ac119dd58c1eae8e10cbff4905910"
+    "Runtime Matrices/Met_A_Widths/donor_widths_v1.json": "c8e0231f6ef3f90799feab2184da17616e4ac119dd58c1eae8e10cbff4905910",
+    "Runtime Matrices/Met_A_Widths/donor_widths_blood_v1.json": "0ab7250d000ff65a57479b745799d0cdcbdebe4da6a75be8c83292b9d1303287"
   },
   "superseded": {
     "Runtime Matrices/Met_A_Floors/blood_composition_EPIC_v1.json": {

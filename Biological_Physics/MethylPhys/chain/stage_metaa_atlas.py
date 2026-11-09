@@ -919,18 +919,29 @@ def cell_prediction(each, beta, shares, blur):
     return each
 
 WIDTHS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Met_A_Widths", "donor_widths_v1.json")
+WIDTHS_BLOOD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Met_A_Widths", "donor_widths_blood_v1.json")
 
 def width_state(cell, a, share=None):
-    """2026-11-08 (array step 5; the author: Normal is measured, not chosen; 1 is the middle; no fixed band). The state of one cell's Met-A against
-    that cell's healthy width measured on IAM-Atlas v2.1's own donors (WIDTHS): Normal within 1 +/- k x width (k: the prediction interval for one
-    new reading from n donors), else above or below Normal, with the distance from 1 in widths. A cell without a measured width says so."""
+    """2026-11-08 (array step 5), centered on the measured middle 2026-11-08 (author and assistant: Normal is measured, not derived; 1 is the
+    atlas's prediction, a reference mark, not the center). The state of one cell's Met-A against that cell's healthy Normal measured on IAM-Atlas
+    v2.1's own donors, read the way the sample is read: the sorted donors' table (WIDTHS) where the cell holds a share its sorted donors held, else
+    the in-blood table (WIDTHS_BLOOD: the donors mixed into healthy bloods) where it holds a share it held there. Normal: the measured median
+    +/- k x width (k: the prediction interval for one new reading from n donors); else above or below Normal. The distance of the measured
+    middle from 1 is printed beside it (a check on the prediction); a middle more than 2 widths from 1 is flagged, not commissioned. The share
+    picks the table, never the label."""
     k_ = ("w", ); W = _cache.get(k_)
-    if W is None: W = _cache[k_] = json.load(open(WIDTHS))["cells"] if os.path.exists(WIDTHS) else {}
-    w = W.get(IDENTITY_OF.get(cell, cell))
+    if W is None: W = _cache[k_] = {t: (json.load(open(f))["cells"] if os.path.exists(f) else {}) for t, f in (("sorted", WIDTHS), ("in a blood", WIDTHS_BLOOD))}
     if a is None: return dict(state=None)
-    if not w: return dict(state="no healthy width measured for this cell on the atlas's donors", distance_from_1=round(a - 1, 5))
-    if share is not None and share < w.get("share_min", 0): return dict(state=f"no healthy width measured at {100 * share:.1f} % of the sample (measured where this cell held {100 * w['share_min']:.0f} % or more)", distance_from_1=round(a - 1, 5))
-    lim = w["k"] * w["width"]; z = (a - 1) / w["width"]
-    st = "Normal" if abs(a - 1) <= lim else ("above Normal" if a > 1 else "below Normal")
-    return dict(state=st, normal=(round(1 - lim, 4), round(1 + lim, 4)), widths_from_1=round(z, 2), width=w["width"], donors=w["n"],
-                **({"middle_note": f"the atlas's own donors of this cell read their middle at {w['median']:.4f}, more than 2 widths from 1: not commissioned"} if w["middle_off"] else {}))
+    c = IDENTITY_OF.get(cell, cell); ws, wbl = W["sorted"].get(c), W["in a blood"].get(c)
+    if not ws and not wbl: return dict(state="no healthy width measured for this cell on the atlas's donors", distance_from_1=round(a - 1, 5))
+    w, tab = None, None
+    if ws and (share is None or share >= ws.get("share_min", 0)): w, tab = ws, "sorted donors"
+    elif wbl and share is not None and share >= wbl.get("share_min", 0): w, tab = wbl, "donors mixed into healthy bloods"
+    if not w:
+        lo = min(x.get("share_min", 1) for x in (ws, wbl) if x)
+        return dict(state=f"no healthy width measured at {100 * share:.1f} % of the sample (measured where this cell held {100 * lo:.1f} % or more)", distance_from_1=round(a - 1, 5))
+    lim = w["k"] * w["width"]; m = w["median"]
+    st = "Normal" if abs(a - m) <= lim else ("above Normal" if a > m else "below Normal")
+    return dict(state=st, normal=(round(m - lim, 4), round(m + lim, 4)), middle=m, middle_from_1=round(m - 1, 4), widths_from_middle=round((a - m) / w["width"], 2),
+                width=w["width"], donors=w["n"], measured_on=tab,
+                **({"middle_note": f"the atlas's own donors of this cell read their middle at {m:.4f}, more than 2 widths from 1: not commissioned"} if w["middle_off"] else {}))
