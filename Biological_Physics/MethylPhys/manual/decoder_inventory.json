@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1538,
+   "lines": 1548,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,9 +308,9 @@
      "function": "main",
      "name": "main",
      "line": 567,
-     "end": 1535,
+     "end": 1545,
      "args": [],
-     "lines": 969,
+     "lines": 979,
      "doc": "",
      "constants": [
       "BIO",
@@ -321,17 +321,17 @@
      ],
      "data_files": [
       ".gz",
+      "DIR/deconv_reference_v1.parquet",
       "MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json",
       "OUT.csv",
       "Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet",
       "_bundle.json",
       "a wgbstools .pat / .pat.gz",
+      "array_sites/mu_part1.parquet",
       "deconv_reference_mk_dev.parquet",
+      "deconv_reference_v1.parquet",
       "metA_floors_v1_3.json",
-      "mu_part1.parquet",
-      "pip install -r Biological_Physics/MethylPhys/chain/requirements.txt",
-      "pyarrow.parquet",
-      "seq_atlas_inputs.csv"
+      "mu_part1.parquet"
      ],
      "traced_calls": {
       "array": 1,
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 894,
-     "end": 898,
+     "line": 901,
+     "end": 905,
      "args": [
       "r"
      ],
@@ -359,8 +359,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1129,
-     "end": 1136,
+     "line": 1136,
+     "end": 1143,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1460,
-     "end": 1461,
+     "line": 1467,
+     "end": 1468,
      "args": [
       "b",
       "it",

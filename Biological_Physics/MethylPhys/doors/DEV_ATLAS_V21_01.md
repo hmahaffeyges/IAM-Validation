@@ -1797,7 +1797,7 @@ Atlas, so their DNA must be read as other cells; the bloods' rises are not expla
 spreads small shares over more cells at moderate depth. `--dev-seq-noise-weight` stays built and off.
 
 **The trim reading, read: one end call out cuts the laboratories' spread sevenfold; the reference must take the same path.** The 18 sorted libraries through the one
-command with 0, 1 and 2 calls left out at each molecule end (`trim_read.sh`, `seq_atlas/trim_read_summary.txt`, 50 of 54 readings at the time of writing; 27 bundles first read with no Met-A, a chain bug fixed in
+command with 0, 1 and 2 calls left out at each molecule end (`trim_read.sh`, `seq_atlas/trim_read_summary.txt`, all 54 readings; 27 bundles first read with no Met-A, a chain bug fixed in
 `_cover_den`, were set aside and read again). Spread of the laboratories' median whole-sample Met-A: 0.2404 untrimmed, 0.0338 with one call
 out, 0.1887 with two; of the per-cell Met-A: 0.3147, 0.0877, 0.2544. With one call out every laboratory reads a little below 1 (0.94 to
 0.97), as it should when the sample is trimmed and the atlas it is read against is not: the reference must be processed as the sample is.
@@ -1817,3 +1817,14 @@ from its molecules (`--geo-pat`, the size check on): untrimmed, the count file e
 that file's cap of 255 (0 differing). With one call left out at each end, 122,743,125 of 388,137,463 molecules keep a call (molecules with one
 or two CpGs keep none) and 350,898,464 of 954,416,086 calls are kept (37 %): the trimmed atlas rests on about a third of the depth, as does
 a trimmed sample. The other 155 donors are being counted on Google.
+
+**The trimmed atlas: build and test written before they run (development).** The instrument's job: a sorted healthy library read with one molecule-end call
+left out at each end reads Normal against the atlas built the same way, from any laboratory. The 159 donors (the 156 of
+`seq_atlas_inputs.csv` and the 3 granulocyte donors of `gran_inputs.csv`) are counted with one call out (`atlas_trim_donors.sh`), the atlas is
+built from those counts by the one command exactly as the published one, every cell in one folder (`trim_atlas_build.sh`: 113 pieces, then the
+in-mix columns at IAM-Atlas v2.1's sites and the Deconvolver's reference), and the 18 sorted libraries of three laboratories are read
+again with one call out against it (`run_sample.py --dev-seq-atlas-dir`, development: the bundle and the reference door name the rebuilt atlas
+as not door-checked). Measured, not scored: the laboratories' spread of whole-sample and per-cell Met-A, and how far each laboratory's median
+sits from 1, beside the same libraries read untrimmed against the published atlas (0.2404 and 0.3147) and trimmed against it (0.0338 and
+0.0877). Only the in-mix columns and the Deconvolver's reference are rebuilt for this test; the floor sites and the per-input tables stay the
+published ones, as the bundle says.

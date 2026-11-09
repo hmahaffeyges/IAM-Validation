@@ -5,7 +5,7 @@
 # already counted are skipped. CHECK=1 also compares the N=0 count with the published .beta (equal where that file's count is below 255).
 set -u; IF=$R/Biological_Physics/MethylPhys/chain/MethylPhys_Interface; SDIR=$R/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas
 O=$B/atlas_trim; mkdir -p $W/at; gcloud storage ls -r "$O/" 2>/dev/null | grep lbeta | sed 's#.*/atlas_trim/##' > $W/done.txt
-sed -n "$((FIRST + 1)),$((LAST + 1))p" $SDIR/seq_atlas_inputs.csv > $W/rows.csv
+sed -n "$((FIRST + 1)),$((LAST + 1))p" $SDIR/${INF:-seq_atlas_inputs.csv} > $W/rows.csv   # INF: gran_inputs.csv for the granulocytes
 while IFS=, read -r G TITLE CELL HALF FILE; do
   for N in ${TRIMS:-1}; do
     grep -qx "t$N/$G.lbeta" $W/done.txt && { echo "already read: $G t$N"; log "already read: $G t$N"; continue; }

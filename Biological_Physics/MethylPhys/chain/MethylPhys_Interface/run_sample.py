@@ -718,6 +718,7 @@ def main():
     ap.add_argument("--commissioned-only", action="store_true", help="read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off)")
     ap.add_argument("--dev-seq-trim-ends", type=int, default=None, metavar="N", help="DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat)")
     ap.add_argument("--dev-seq-noise-weight", action="store_true", help="DEVELOPMENT (2026-11-09): on sequencing, the IAM-Deconvolver weights each site by its own read count's counting noise (from the model's prediction, as each sky pixel by its noise); off until its synthetic is met")
+    ap.add_argument("--dev-seq-atlas-dir", default=None, metavar="DIR", help="DEVELOPMENT (2026-11-09): on sequencing, read against a rebuilt IAM Sequencing Atlas in DIR (DIR/array_sites/ for the in-mix readings, DIR/deconv_reference_v1.parquet for the Deconvolver) instead of the committed one; e.g. the atlas counted with the molecules' end calls left out, for samples read with --dev-seq-trim-ends; the bundle names it and the reference door records it as not door-checked")
     ap.add_argument("--dev-one-scale", action="store_true", help="DEVELOPMENT (2026-11-09): arrays; the per-cell readings (Met-A, C-Score, departures) on Stage 1's values, one scale with the array's own measured line (the self-tare map rescales only its 6,963 anchor probes and leaves the rest raw, so 3 to 7 percent of identity sites were corrected twice); the self-tare path's per-cell Met-A kept beside it as met_a_each_cell_selftare")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
@@ -727,6 +728,12 @@ def main():
     if getattr(a, "dev_line_wide", False): import stage_metaa_atlas as _SAlw0; _SAlw0.LINE_WIDE = True   # 2026-11-08: every route
     if getattr(a, "dev_line_censored", False): import stage_metaa_atlas as _SAlc0; _SAlc0.LINE_CENSORED = True   # 2026-11-07: every route, arrays included (the first placement was inside the sequencing branches; synthetic test 4 ran without it)
     if getattr(a, "dev_pred_raw", False): import stage_metaa_atlas as _SApr0; _SApr0.PRED_RAW = True   # 2026-11-07
+    if getattr(a, "dev_seq_atlas_dir", None):   # 2026-11-09 (development): a rebuilt sequencing atlas in place of the committed one
+        import stage_seq_atlas as _SQdd
+        for _p in ("array_sites/mu_part1.parquet", "deconv_reference_v1.parquet"):
+            if not os.path.exists(os.path.join(a.dev_seq_atlas_dir, _p)): ap.error(f"--dev-seq-atlas-dir: {_p} not in {a.dev_seq_atlas_dir}")
+        _SQdd.ARRAY_COLS = os.path.join(a.dev_seq_atlas_dir, "array_sites"); _SQdd.DECONV_REF = os.path.join(a.dev_seq_atlas_dir, "deconv_reference_v1.parquet")
+        print(f"DEVELOPMENT: read against the rebuilt sequencing atlas in {a.dev_seq_atlas_dir}", flush=True)
     if not getattr(a, "build", None):   # 2026-11-07, lock 1 (reference_door.py): the atlases checked against their checksums before any reading
         import reference_door as _RD; _rdc = _RD.check()
         if not _rdc["ok"]:
@@ -1513,6 +1520,9 @@ def main():
     except Exception as _e: o["cells_found"] = dict(status="NOT_ASSEMBLED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
     try: import reference_door as _RD2; o["reference"] = _RD2.record(o)   # 2026-11-07, lock 1: the atlases read and every tare applied
     except Exception as _e: o["reference"] = dict(status="NOT_RECORDED", reason=f"{type(_e).__name__}: {str(_e)[:160]}")
+    if getattr(a, "dev_seq_atlas_dir", None) and isinstance(o.get("reference"), dict):   # 2026-11-09: the rebuilt atlas named, and not door-checked
+        o["reference"]["development_atlas"] = dict(folder=os.path.basename(os.path.normpath(a.dev_seq_atlas_dir)), files=["array_sites/", "deconv_reference_v1.parquet"], checked=False,
+                                                   about="a development rebuild of the IAM Sequencing Atlas read in place of the committed one (--dev-seq-atlas-dir); not in the reference manifest")
     if not a.no_bundle:
         bundle_path = a.bundle or (os.path.splitext(a.out)[0] + "_bundle.json")
         _json.dump(o, open(bundle_path, "w"), default=str)
