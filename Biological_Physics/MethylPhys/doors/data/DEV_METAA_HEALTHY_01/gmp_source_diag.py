@@ -6,7 +6,7 @@ column. Kept per donor: the projection f = sum(r d) / sum(d d) (the GMP fraction
 design II probes separately (a null test by detector: real GMP cells give the same f on both designs, an error of one probe design does not);
 f again with the 5 % of probes carrying the largest |r d| left out (cells spread over many probes keep f; a few probes carrying it lose it);
 and the rank correlation of r with d over the sites. Each donor is first read by the one command (run_sample.py --full-chain --cell-panel
-atlas --dev-line-wide) so its GMP share and neutrophil Met-A are the chain's own. Usage: gmp_source_diag.py VALUES_DIR OUT.json PART (0-5)"""
+atlas --dev-line-wide) so its GMP share and neutrophil Met-A are the chain's own. Usage: gmp_source_diag.py VALUES_DIR OUT.json PART (0-5) [errors: the second pass, no re-read]"""
 import os, sys, json, subprocess, tempfile, shutil
 import numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); CH = os.path.abspath(os.path.join(H, "..", "..", "..", "chain")); sys.path.insert(0, CH)
@@ -18,6 +18,19 @@ mu = R["mu"].loc[M]; d_all = (mu["GMP (bone marrow)"] - mu["neutrophils"]); n_al
 D = pd.read_csv(os.path.join(H, "gmp_source_donors.csv")); res = []
 def proj(r, d): return float((r * d).sum() / (d * d).sum()) if len(d) and (d * d).sum() > 0 else None
 res = json.load(open(outf)) if os.path.exists(outf) else []; done_ = {r_["gsm"] for r_ in res}
+# 2026-11-08 late, second pass (no re-read): for donors already read here, the number of marker sites on each probe design and the bootstrap
+# error (200 draws of sites, seeded) of each design's projection, so design I's null can be judged against its own noise
+if len(sys.argv) > 4 and sys.argv[4] == "errors":
+    rg = np.random.default_rng(20261108)
+    for r_ in res:
+        if "se_I" in r_ or not r_.get("read"): continue
+        x = pd.read_parquet(os.path.join(vd, r_["gsm"] + "_betas.parquet")).iloc[:, 0]; x.index = x.index.astype(str); x = x.reindex(M).dropna()
+        d, r = d_all.reindex(x.index), x - n_all.reindex(x.index); ok = d.notna() & r.notna(); d, r = d[ok], r[ok]; t_ = des.reindex(d.index)
+        for k in ("I", "II"):
+            dk, rk = d[t_ == k].values, r[t_ == k].values; r_["n_" + k] = int(len(dk))
+            B = [proj(pd.Series(rk[i]), pd.Series(dk[i])) for i in (rg.integers(0, len(dk), len(dk)) for _ in range(200))] if len(dk) else []
+            r_["se_" + k] = float(np.std(B)) if B else None
+    json.dump(res, open(outf, "w"), indent=1); print("errors added", flush=True); sys.exit(0)
 for i, (g, ser) in enumerate(zip(D.gsm, D.series)):
     if i % 6 != PART or g in done_: continue
     f = os.path.join(vd, g + "_betas.parquet")
