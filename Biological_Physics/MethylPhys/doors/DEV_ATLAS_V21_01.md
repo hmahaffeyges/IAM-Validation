@@ -1819,8 +1819,8 @@ or two CpGs keep none) and 350,898,464 of 954,416,086 calls are kept (37 %): the
 a trimmed sample. The other 155 donors are being counted on Google.
 
 **The trimmed atlas: build and test written before they run (development).** The instrument's job: a sorted healthy library read with one molecule-end call
-left out at each end reads Normal against the atlas built the same way, from any laboratory. The 159 donors (the 156 of
-`seq_atlas_inputs.csv` and the 3 granulocyte donors of `gran_inputs.csv`) are counted with one call out (`atlas_trim_donors.sh`), the atlas is
+left out at each end reads Normal against the atlas built the same way, from any laboratory. The 156 donors of
+`seq_atlas_inputs.csv` (57 cells, the 3 granulocyte donors among them) are counted with one call out (`atlas_trim_donors.sh`), the atlas is
 built from those counts by the one command exactly as the published one, every cell in one folder (`trim_atlas_build.sh`: 113 pieces, then the
 in-mix columns at IAM-Atlas v2.1's sites and the Deconvolver's reference), and the 18 sorted libraries of three laboratories are read
 again with one call out against it (`run_sample.py --dev-seq-atlas-dir`, development: the bundle and the reference door name the rebuilt atlas
@@ -1828,3 +1828,5 @@ as not door-checked). Measured, not scored: the laboratories' spread of whole-sa
 sits from 1, beside the same libraries read untrimmed against the published atlas (0.2404 and 0.3147) and trimmed against it (0.0338 and
 0.0877). Only the in-mix columns and the Deconvolver's reference are rebuilt for this test; the floor sites and the per-input tables stay the
 published ones, as the bundle says.
+
+**Count corrected (my error).** The build was first written for 159 donors, taking the 3 granulocyte donors of `gran_inputs.csv` to be outside `seq_atlas_inputs.csv`; they are inside it (156 donors, 57 cells). The build's own count check refused to build on all 12 machines; it now expects 156 and drops duplicates.

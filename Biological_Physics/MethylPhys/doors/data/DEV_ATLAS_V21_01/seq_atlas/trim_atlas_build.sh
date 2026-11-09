@@ -1,6 +1,6 @@
 #!/bin/bash
-# The IAM Sequencing Atlas rebuilt from its donors' trimmed counts (2026-11-09; development): the 156 donors of seq_atlas_inputs.csv and the 3
-# granulocyte donors of gran_inputs.csv, each counted with one call left out at each molecule end (atlas_trim_donors.sh, $B/atlas_trim/t1/),
+# The IAM Sequencing Atlas rebuilt from its donors' trimmed counts (2026-11-09; development): the 156 donors of seq_atlas_inputs.csv (57 cells,
+# the 3 granulocyte donors among them), each counted with one call left out at each molecule end (atlas_trim_donors.sh, $B/atlas_trim/t1/),
 # built by the one command exactly as the published atlas (run_sample.py --build seq-atlas, pieces of 250,000 CpGs), every cell in one folder.
 # PART=k of NPARTS: builds the pieces k, k+NPARTS, ... into $B/atlas_trim/pieces57t1/ (a piece already there is skipped).
 # PART=final: from all 113 pieces, the in-mix columns at IAM-Atlas v2.1's sites (--build seq-array-cols) and the Deconvolver's reference
@@ -17,10 +17,10 @@ if [ "$PART" = final ]; then
     && log "built: $(tail -1 $W/ac.log | cut -c1-150) | $(tail -1 $W/dr.log | cut -c1-150)"; log "rows final to final done"; exit 0
 fi
 gcloud storage cp -q "$O/t1/*.lbeta" $W/lb/ > /dev/null 2>&1; nl=$(ls $W/lb/*.lbeta | wc -l); log "trimmed count files: $nl"
-[ "$nl" -eq 159 ] || { log "only $nl of 159 donors counted; not built"; exit 1; }
+[ "$nl" -eq 156 ] || { log "only $nl of 156 donors counted; not built"; exit 1; }
 python3 - $SDIR/seq_atlas_inputs.csv $SDIR/gran_inputs.csv $W/lb $W/inputs_t1.csv <<'PY'
 import sys, os, pandas as pd
-S = pd.concat([pd.read_csv(sys.argv[1], dtype=str), pd.read_csv(sys.argv[2], dtype=str)], ignore_index=True)
+S = pd.concat([pd.read_csv(sys.argv[1], dtype=str), pd.read_csv(sys.argv[2], dtype=str)], ignore_index=True).drop_duplicates("gsm"); assert len(S) == 156 and S.cell.nunique() == 57, (len(S), S.cell.nunique())
 S["file"] = [os.path.join(sys.argv[3], g + ".lbeta") for g in S.gsm]; assert all(os.path.exists(f) for f in S.file); S.to_csv(sys.argv[4], index=False); print(len(S), S.cell.nunique())
 PY
 gcloud storage ls "$O/pieces57t1/" 2>/dev/null | sed 's#.*/##' > $W/done.txt; k=0
