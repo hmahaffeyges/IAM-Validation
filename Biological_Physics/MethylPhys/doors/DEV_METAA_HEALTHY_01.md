@@ -1134,3 +1134,27 @@ as in the constructed bloods: each blood's distance from the middle rises with i
 Uppsala, the one laboratory that met bar 1, has the least GMP (median 0.5 %, Oslo 3.7 %, Tokushima 4.9 %). The measured middle is kept out
 of the chain. The lead is DNA of maturing neutrophils, which have no column, landing on GMP; next, the in-between neutrophil column from the
 public healthy bone-marrow maturation data (two donors, four stages), synthetic first, then these same spent bloods read again.
+
+## Plan: an in-between neutrophil column for IAM-Atlas v2.1 (design only; nothing downloaded or run)
+
+The instrument's job: the IAM-Deconvolver gives DNA of maturing neutrophils its own column instead of GMP's, so a healthy blood's
+cells read Normal whatever share of maturing neutrophils it carries.
+
+**Source (public, healthy, metadata checked only):** the bone-marrow neutrophil maturation series of the European blood epigenome project,
+GRCh38: donor BM030613 (myelocyte S00JE0A1, metamyelocyte S00JFZA1, band S00JGXA1, segmented S00JHVA1) and donor BM060814 (S00VCUA1,
+S00VDSA1, S00VEQA1, S00VFOA1), whole-genome bisulfite, per-CpG level and coverage tracks (a third donor, BM160614, holds RNA only). The
+chain reads such track pairs at the atlas's sites already (`stage_seq_values.values_from_bigwig`) and carries provisional array columns
+beside the atlas's own shares (`--dev-provisional`, Stage D21), as the megakaryocyte column was carried.
+
+**Steps, each written and committed before it runs:**
+1. **Platform bridge:** the two donors' segmented bone-marrow neutrophils, read at IAM-Atlas v2.1's sites, against the atlas's neutrophil
+   column (arrays). If they do not read as neutrophils within the neutrophil donors' width, sequencing-made columns cannot join the array
+   atlas this way, and the plan stops there.
+2. **Which stages make the column:** the stages' identity sites against GMP and mature neutrophils; a stage joins the column only if its
+   sites separate it from both.
+3. **Synthetic:** healthy bloods built from the atlas's columns plus the new column at known shares (0 to 15 %); bars: the new column's
+   share within 0.05 of planted, and the GMP share falling to under 1 % where no GMP was planted.
+4. **Spent bloods read again** with the column as a provisional column: the four laboratories' 400 healthy bloods. What it should show if
+   the lead is right: the GMP share falls, and the laboratories' medians and the within-laboratory spread both shrink.
+
+Two donors are few: the column is provisional and flagged, as the megakaryocyte column was, until more healthy donors are found.
