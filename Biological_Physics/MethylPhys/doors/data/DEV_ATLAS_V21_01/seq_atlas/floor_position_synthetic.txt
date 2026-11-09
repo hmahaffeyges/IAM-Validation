@@ -1,0 +1,9 @@
+library a (planted interior 0.005, ends 0.005): end over interior 0.9046; interior 0.005499; distances 1-4 [('1', 0.005076), ('2', 0.004825), ('3', 0.005243), ('4', 0.00509)]
+library b (planted interior 0.005, ends 0.05): end over interior 10.301; interior 0.004834; distances 1-4 [('1', 0.004934), ('2', 0.004953), ('3', 0.005129), ('4', 0.004795)]
+library c (planted interior 0.03, ends 0.06): end over interior 1.9923; interior 0.030147; distances 1-4 [('1', 0.029499), ('2', 0.030311), ('3', 0.030054), ('4', 0.029813)]
+site-matched end over inner: {'a': 0.9836, 'b': 10.0144, 'c': 2.0076}
+bar 1 (no end effect reads none): met
+bar 2 (planted end effects recovered within 10 %): met
+bar 3 (inner distances read the interior rate): met
+bar 4 (site-matched): met
+MET

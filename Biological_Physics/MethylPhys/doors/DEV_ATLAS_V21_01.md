@@ -1749,3 +1749,11 @@ to 0.0067 and end floors 0.0019 to 0.0415; the synthetic plants end-over-inner 1
 end keeps 38 to 49 %, 17 to 23 % and 5 to 6 % of the calls, and read-end chemistry is set in bases, which the molecule files no longer
 hold. `--dev-seq-trim-ends N` (`stage_seq_values.trim_pat`) is built for testing and stays off; the next step is decided by the
 site-matched result.
+
+**The floor by molecule position, site-matched: synthetic met; the end effect is real and differs by library.** Synthetic (GitHub run 42600923336):
+site-matched 0.9836, 10.0144 and 2.0076 (`seq_atlas/floor_position_synthetic.txt`) for the planted 1, 10 and 2; all four bars met. On the 30 spent libraries (400 of 403 pieces, 8 Google
+machines; `seq_atlas/floor_position_matched.csv`), end calls against inner calls at the same sites: GSE98837 CD8 4.6 to 8.1 (the first
+measure's 7.5 to 12.5 was part site mix), GSE134664 B 3.1 to 4.2, Johns Hopkins CD4 0.86 to 12.4 (ten libraries 0.86 to 1.17, eight 1.9 to
+12.4). So library chemistry at the molecule ends is real and is a property of each library, not of the laboratory alone. On the 18
+libraries with a whole-sample reading it does not track whole-sample Met-A (rank correlation -0.10), so it is
+not by itself the laboratory term in Met-A; it does inflate the pooled library floor the chain measures. Development; nothing scored.
