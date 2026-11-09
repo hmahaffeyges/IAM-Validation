@@ -1,0 +1,19 @@
+Laboratory directions learned from all 146 atlas donors (6 blood cells, 9 laboratories; none of these three laboratories among them), taken out of the four-laboratory healthy bloods' kept values before the IAM-Deconvolver (IAM-Atlas v2.1 panel, its markers, no resampling); 30 bloods per laboratory; medians
+lab           Oslo  Tokushima  Uppsala
+base_gmp    0.0577     0.1417   0.0000
+base_other  0.1044     0.2575   0.0712
+base_neu    0.4657     0.5116   0.5623
+dir3_gmp    0.0213     0.1489   0.0000
+dir3_other  0.0993     0.2615   0.0761
+dir3_neu    0.4643     0.5132   0.5635
+dir6_gmp    0.0142     0.1559   0.0000
+dir6_other  0.0977     0.2570   0.0799
+dir6_neu    0.4647     0.5134   0.5636
+cells not in blood (median share) by laboratory, as read:
+                        Oslo  Tokushima  Uppsala
+GMP (bone marrow)     0.0577     0.1417   0.0000
+HSC (bone marrow)     0.0000     0.0231   0.0165
+L-MPP (bone marrow)   0.0155     0.0000   0.0000
+eosinophils           0.0111     0.0000   0.0001
+vascular endothelium  0.0074     0.0000   0.0000
+marker sites measured in every blood of the laboratory: {"Oslo": 7427, "Uppsala": 7632, "Tokushima": 6561} of 7892
