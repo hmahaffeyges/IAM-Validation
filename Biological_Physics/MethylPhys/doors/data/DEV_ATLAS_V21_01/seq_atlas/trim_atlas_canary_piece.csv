@@ -1,0 +1,58 @@
+cell,sites_kept,depth_ratio,level_diff_median,level_absdiff_median
+adipocytes,0.94,0.566,0.0,0.0214
+aorta endothelium,0.939,0.564,0.0,0.0184
+b cells,0.946,0.556,0.0,0.0167
+bladder epithelium,0.958,0.592,0.0,0.0171
+breast basal epithelium,0.939,0.56,0.0,0.0133
+breast luminal epithelium,0.943,0.556,0.0,0.0178
+cardiomyocyte,0.948,0.567,0.0,0.0183
+cd4 t cells,0.945,0.555,0.0,0.0163
+cd8 t cells,0.944,0.549,0.0,0.0211
+colon enteroendocrine,0.941,0.568,0.0,0.0156
+colon epithelium,0.942,0.554,0.0,0.0181
+colon fibroblasts,0.943,0.563,0.0,0.0192
+colon macrophages,0.944,0.577,0.0,0.0156
+cortical neurons,0.934,0.537,0.0,0.0185
+effector memory cd8 t cells,0.921,0.574,0.0,0.0244
+endometrium epithelium,0.948,0.566,0.0,0.0186
+erythrocyte progenitors,0.95,0.558,0.0,0.0261
+fallopien tubes epithelium,0.948,0.563,0.0,0.0154
+gastric antrum epithelium,0.949,0.553,0.0,0.0188
+gastric body epithelium,0.947,0.557,0.0,0.019
+gastric fundus epithelium,0.947,0.555,0.0,0.0185
+granulocytes,0.948,0.557,0.0,0.0158
+heart fibroblasts,0.947,0.561,0.0,0.0238
+hepatocyte,0.947,0.561,0.0,0.0178
+kidney glomerular endothelium,0.952,0.57,0.0,0.0193
+kidney glomerular epithelium,0.941,0.576,0.0,0.0161
+kidney tubular endothelium,0.95,0.567,0.0,0.0192
+kidney tubular epithelium,0.953,0.579,0.0,0.0182
+lung alveolar endothelium,0.95,0.565,0.0,0.02
+lung alveolar epithelium,0.944,0.551,0.0,0.0185
+lung alveolar macrophages,0.944,0.564,0.0,0.0139
+lung bronchus epithelium,0.95,0.568,0.0,0.0178
+lung interstitial macrophages,0.95,0.562,0.0,0.0167
+memory b cells,0.934,0.564,0.0,0.0207
+monocytes,0.945,0.552,0.0,0.0114
+naive cd4 t cells,0.927,0.576,0.0,0.0107
+naive cd8 t cells,0.923,0.572,0.0,0.0102
+nk cells,0.945,0.556,0.0,0.017
+oligodendrocytes,0.94,0.547,0.0,0.0169
+pancreas endothelium,0.943,0.562,0.0,0.0231
+pancreatic acinar,0.951,0.575,0.0,0.0203
+pancreatic alpha,0.949,0.564,0.0,0.0188
+pancreatic beta,0.946,0.564,0.0,0.0193
+pancreatic delta,0.947,0.572,0.0,0.0188
+pancreatic duct,0.946,0.559,0.0,0.0165
+prostate epithelium,0.948,0.565,0.0,0.019
+small intestine epithelium,0.947,0.559,0.0,0.0175
+smooth muscle,0.949,0.567,0.0,0.0258
+striated muscle,0.94,0.558,0.0,0.0189
+t central memory cd4,0.945,0.556,0.0,0.0202
+t effector cell cd8,0.947,0.557,0.0,0.0214
+t effector memory cd4,0.946,0.558,0.0,0.0227
+thyroid epithelium,0.948,0.564,0.0,0.0167
+tongue epithelium,0.952,0.568,0.0,0.0185
+tonsil palatine epithelium,0.947,0.556,0.0,0.0208
+tonsil pharyngeal epithelium,0.94,0.567,0.0,0.0181
+vascular saphenous endothelium,0.95,0.563,0.0,0.0201

@@ -1830,3 +1830,11 @@ sits from 1, beside the same libraries read untrimmed against the published atla
 published ones, as the bundle says.
 
 **Count corrected (my error).** The build was first written for 159 donors, taking the 3 granulocyte donors of `gran_inputs.csv` to be outside `seq_atlas_inputs.csv`; they are inside it (156 donors, 57 cells). The build's own count check refused to build on all 12 machines; it now expects 156 and drops duplicates.
+
+**The trimmed atlas's first piece, checked against the published one before the rest were built.** (`seq_atlas/trim_atlas_canary_piece.csv`; CpGs 0 to 250,000,
+all 57 cells.) Same CpG rows and fields; per cell, 0.921 to 0.958 of the sites keep a level, the
+reads at those sites are 0.537 to 0.592 of the published depth, and the level moves by a median of
+0 (median absolute change 0.0102 to 0.0261, the counting noise of the smaller depth).
+The other 112 pieces were then built. A first launch of all 12 build machines before this check refused to build on a donor count I had
+written wrong (above), and the launcher left those machines idle instead of deleting them; the launcher now deletes a machine however its
+job ends.
