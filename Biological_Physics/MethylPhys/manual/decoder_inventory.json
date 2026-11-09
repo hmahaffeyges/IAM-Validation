@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1530,
+   "lines": 1533,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,9 +308,9 @@
      "function": "main",
      "name": "main",
      "line": 562,
-     "end": 1527,
+     "end": 1530,
      "args": [],
-     "lines": 966,
+     "lines": 969,
      "doc": "",
      "constants": [
       "BIO",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1452,
-     "end": 1453,
+     "line": 1455,
+     "end": 1456,
      "args": [
       "b",
       "it",
@@ -7109,7 +7109,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 959,
+   "lines": 983,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -8065,10 +8065,30 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "territory_prediction",
+     "name": "territory_prediction",
+     "line": 944,
+     "end": 965,
+     "args": [
+      "terr",
+      "beta",
+      "shares",
+      "blur"
+     ],
+     "lines": 22,
+     "doc": "2026-11-09 (the instrument check: healthy arrays, a sorted neutrophil among them, read the islands at 0.84 and the domains at 0.86 to 0.95, because the territories alone carried no healthy prediction). For each territory set, on arrays: the same healthy prediction the whole-sample and per-cell readings use (predicted_healthy, the array's own line and noise per probe design measured once on the who",
+     "constants": [
+      "MIX_COVER"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "width_state",
      "name": "width_state",
-     "line": 945,
-     "end": 958,
+     "line": 969,
+     "end": 982,
      "args": [
       "cell",
       "a",
@@ -10240,5 +10260,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 523
+ "n_functions": 524
 }

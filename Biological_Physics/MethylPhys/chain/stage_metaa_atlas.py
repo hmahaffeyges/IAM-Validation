@@ -940,6 +940,30 @@ def cell_prediction(each, beta, shares, blur):
     each["prediction_rule"] = "ratio = A_raw / A_pred at each cell's identity sites (cell_prediction); a healthy cell reads 1"
     return each
 
+
+def territory_prediction(terr, beta, shares, blur):
+    """2026-11-09 (the instrument check: healthy arrays, a sorted neutrophil among them, read the islands at 0.84 and the domains at 0.86 to
+    0.95, because the territories alone carried no healthy prediction). For each territory set, on arrays: the same healthy prediction the
+    whole-sample and per-cell readings use (predicted_healthy, the array's own line and noise per probe design measured once on the whole
+    array, blur), on the array's own values (not the ruler's), at the set's sites in this sample's mix. Adds A_raw, A_pred and ratio = A_raw /
+    A_pred beside the set's A; a healthy sample reads 1. Arrays only; on sequencing the expectation already counts the reads."""
+    if not terr or not terr.get("sets") or not blur: return terr
+    x0 = pd.Series(beta, dtype="float64"); cells = [c for c, f in shares.items() if f]; F = pd.Series({k: float(shares[k]) for k in cells})
+    for name, S in territory_sets().items():
+        r = terr["sets"].get(name)
+        if not r or r.get("A") is None: continue
+        try:
+            idx = pd.Index(S).intersection(x0.dropna().index); MU = pd.concat([_col("mu", k).reindex(idx).rename(k) for k in cells], axis=1); have = MU.notna()
+            cover = have.mul(F, axis=1).sum(1) / _cover_den(F); e = MU.fillna(0.0).mul(F, axis=1).sum(1) / have.mul(F, axis=1).sum(1).where(cover > 0)
+            ok = e.notna() & (cover >= MIX_COVER); xs, es = x0.reindex(idx)[ok], e[ok]; w = pd.Series(1.0, index=es.index)
+            Ar = float(np.asarray(_H(xs), dtype="float64").mean() / np.asarray(_H(es), dtype="float64").mean()); hp = predicted_healthy(xs, es, w, blur=blur, min_sites=500)
+            if not hp.get("A_pred"): r["prediction"] = "not made: " + str(hp.get("reason")); continue
+            r.update(A_raw=round(Ar, 5), A_pred=hp["A_pred"], ratio=round(Ar / hp["A_pred"], 5),
+                     prediction="the array's own line and noise (measured once on the whole array) applied to the atlas in this sample's mix at this set's sites")
+        except Exception as ex: r["prediction"] = f"not made: {type(ex).__name__}: {str(ex)[:120]}"
+    terr["prediction_rule"] = "ratio = A_raw / A_pred at each set's sites (territory_prediction); a healthy sample reads 1"
+    return terr
+
 WIDTHS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Met_A_Widths", "donor_widths_v1.json")
 
 def width_state(cell, a, share=None):

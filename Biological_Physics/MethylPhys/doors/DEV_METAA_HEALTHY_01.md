@@ -1348,3 +1348,13 @@ chain through `run_series.py` on Google (`series_google.sh`), one shard first an
 5 or more arrays at least 70 % Normal. The sealed test then reads unseen healthy sets (GSE147430's 71 non-smoker CD8 T cells, EPIC;
 GSE71955's 62 healthy CD4 and CD8 controls, 450K), chosen from metadata only.
 **Prior reading:** GSE110554 was read before (`CANON/data_spent.csv`); this is a rehearsal, not the test.
+
+**Every instrument checked on spent healthy arrays (working check; nothing scored).** (`instrument_check.py`, `instrument_check_summary.txt`.) Four arrays (EPIC and
+450K whole bloods from three laboratories, an EPIC sorted neutrophil) through the default chain: the cell shares, cells found, Met-A per cell,
+whole-sample Met-A, C-Score per cell, territories, globe, information sphere and atlas ruler all give readings on all four; IAM-A and
+coupling-A read molecules and run on sequencing only. Found and fixed on the way, each checked locally before any machine: the default chain
+read with the six-cell panel unless told otherwise (now every atlas cell, the six-cell reading beside it); sorted neutrophils got only the first
+commissioning's path (now the atlas readings too); a cell with no column at the ruler's sites removed every site on sequencing (`_cover_den`);
+and the territories carried no healthy prediction, so a healthy sorted neutrophil read its islands at 0.84 (with `territory_prediction`,
+1.0005; domains 1.023). Healthy whole bloods from the laboratories with a large GMP share still read low (Tokushima islands 0.903): the
+laboratory distortion under work. **Prior reading:** all four were read before (`CANON/data_spent.csv`).

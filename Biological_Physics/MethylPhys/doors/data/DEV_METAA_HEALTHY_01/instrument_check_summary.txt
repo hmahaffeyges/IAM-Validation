@@ -1,0 +1,25 @@
+Every instrument of the default chain on four spent healthy arrays (instrument_check.py on GitHub; the fourth read earlier tonight by run_series), after the panel, neutrophil-route and absent-column fixes
+                                       0                      1                                    2                                            3
+sample            GSE318173 blood (EPIC)  GSE87571 blood (450K)  GSE124565 sorted neutrophils (EPIC)  GSE67393 blood (450K), read earlier tonight
+specimen                     whole blood            whole blood                   sorted neutrophils                                  whole blood
+chip                             EPIC_v1                 HM450K                               HM450K                                       HM450K
+cell_shares                          yes                    yes                                  yes                                          yes
+cells_found                          yes                    yes                                  yes                                          yes
+met_a_each_cell                      yes                    yes                                  yes                                          yes
+met_a_whole                          yes                    yes                                  yes                                          yes
+cscore_each_cell                     yes                    yes                                  yes                                          yes
+territories                          yes                    yes                                  yes                                          yes
+globe                                yes                    yes                                  yes                                          yes
+info_sphere                          yes                    yes                                  yes                                          yes
+atlas_ruler                          yes                    yes                                  yes                                          yes
+label_check                          yes                    yes                                  yes                                          yes
+top                   neutrophils 0.4249     neutrophils 0.7033                   neutrophils 0.9778                           neutrophils 0.4313
+met_a                            0.98173                0.98542                              0.97633                                      1.08029
+c_score                           1.0633                 0.9485                               0.9774                                       0.9779
+whole                            0.86852                0.89728                              0.92477                                      0.82207
+islands                          0.84342                0.83931                              0.84005                                      0.63655
+domains                          0.86357                0.90015                              0.95329                                      0.86337
+
+Territories with the array's own healthy prediction (territory_prediction), checked on the laptop before commit, values kept from earlier readings:
+sorted neutrophil donor GSM1185594: whole A 0.91402, over prediction 1.00891; islands A 0.83697, ratio 1.0005; domains A 0.94189, ratio 1.02294
+Tokushima blood GSM1646161: whole A 0.82207, over prediction 0.945; islands A 0.63655, ratio 0.90293; domains A 0.86337, ratio 0.96229

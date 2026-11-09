@@ -1,0 +1,5 @@
+sample,specimen,chip,cell_shares,cells_found,met_a_each_cell,met_a_whole,cscore_each_cell,territories,globe,info_sphere,atlas_ruler,label_check,top,met_a,c_score,whole,islands,domains
+GSE318173 blood (EPIC),whole blood,EPIC_v1,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,neutrophils 0.4249,0.98173,1.0633,0.86852,0.84342,0.86357
+GSE87571 blood (450K),whole blood,HM450K,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,neutrophils 0.7033,0.98542,0.9485,0.89728,0.83931,0.90015
+GSE124565 sorted neutrophils (EPIC),sorted neutrophils,HM450K,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,neutrophils 0.9778,0.97633,0.9774,0.92477,0.84005,0.95329
+"GSE67393 blood (450K), read earlier tonight",whole blood,HM450K,yes,yes,yes,yes,yes,yes,yes,yes,yes,yes,neutrophils 0.4313,1.08029,0.9779,0.82207,0.63655,0.86337
