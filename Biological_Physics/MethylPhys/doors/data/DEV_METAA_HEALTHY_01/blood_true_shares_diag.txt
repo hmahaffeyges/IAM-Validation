@@ -1,0 +1,21 @@
+True-shares diagnostic (development, nothing scored): 35 constructed bloods in the bucket, 30 read; medians
+              chain   found   built   n
+cell                                   
+neutrophils  0.9995  1.0056  1.0033  30
+monocytes    0.9835  0.9890  0.9855  30
+cd4 t cells  0.9940  0.9941  0.9957  30
+cd8 t cells  0.9917  0.9918  0.9936  30
+b cells      0.9900  0.9851  0.9868  30
+nk cells     0.9886  0.9900  0.9890  30
+
+The 100 spent healthy bloods (one array each; rehearsal_bloods_cells.csv): each of the six cells, median Met-A
+               n  median      sd   share
+cell                                    
+neutrophils  100  0.9812  0.0280  0.5541
+monocytes     86  0.9738  0.0152  0.0404
+cd4 t cells   46  0.9987  0.0136  0.0628
+cd8 t cells   59  0.9899  0.0103  0.0691
+b cells       49  0.9792  0.0131  0.0330
+nk cells      36  0.9829  0.0135  0.0469
+
+The atlas's sorted donors (share 0.85 or more; atlas_donor_readings.csv): median Met-A {"neutrophils": 0.9904, "monocytes": 0.9891, "cd4 t cells": 1.0028, "cd8 t cells": 1.0042, "b cells": 0.9995, "nk cells": 0.9939}

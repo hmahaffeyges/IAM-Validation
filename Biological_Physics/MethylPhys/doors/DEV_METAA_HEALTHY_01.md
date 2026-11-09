@@ -1087,3 +1087,12 @@ bloods land on bone-marrow precursors and macrophages here. One GSE186007 health
 committed reference (GitHub run 42538745757; no megakaryocyte column by default) gives granulocytes 0.6591, NK cells 0.1598, monocytes 0.0835.
 On both routes the Deconvolver's misplaced shares are the open problem; on blood they follow the missing neutrophil precursors (GMP, above).
 The plasma bars were not reached for depth (DEV_ONE_DRAW_01), so the shares were recorded and not read as a misplacement problem until now.
+
+**The true-shares diagnostic: the false shares do not explain the offset** (`blood_true_shares_diag.txt`). On 30 rotation bloods read
+again on Google, each cell's reading remade with the true built shares instead of the found ones reads the same, about 1 % below 1 (monocytes
+0.9855, B cells 0.9868, NK cells 0.9890, with true shares). The correlation with the false shares above did not hold up as a cause. The 100 spent
+healthy bloods, one array each, read below 1 too (neutrophils 0.9812, monocytes 0.9738, B cells 0.9792, NK cells 0.9829, CD8 T 0.9899, CD4 T
+0.9987), while the atlas's sorted donors read close to 1 (`blood_true_shares_diag.txt`). So inside a real blood a healthy cell's middle is
+not 1. This is the share synthetic's finding seen in healthy blood: a cell's reading in a mix is mostly its neighbors' DNA at its identity
+sites. Two ways to read it: the middle inside a blood is measured on the atlas's donors mixed as real bloods are (the rotation test's
+Normal), or the in-mix reading is changed so a healthy cell in a mix reads 1. For the author and me to decide before the commissioning test.
