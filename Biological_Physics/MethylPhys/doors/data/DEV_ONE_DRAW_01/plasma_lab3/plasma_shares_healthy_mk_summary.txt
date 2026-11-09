@@ -1,0 +1,60 @@
+34 plasmas; Deconvolver: ['IAM Sequencing Atlas']
+                                median_share  plasmas_at_1pct
+cell                                                         
+granulocytes                          0.3620               34
+monocytes                             0.0736               26
+lung interstitial macrophages         0.0497               21
+nk cells                              0.0393               26
+erythrocyte progenitors               0.0354               24
+megakaryocytes                        0.0309               25
+colon macrophages                     0.0051               17
+aorta endothelium                     0.0000                5
+breast basal epithelium               0.0000                7
+cd8 t cells                           0.0000                4
+cd4 t cells                           0.0000                2
+cardiomyocyte                         0.0000               10
+colon epithelium                      0.0000                5
+colon fibroblasts                     0.0000                4
+cortical neurons                      0.0000               12
+effector memory cd8 t cells           0.0000                2
+colon enteroendocrine                 0.0000                3
+endometrium epithelium                0.0000                4
+fallopien tubes epithelium            0.0000                5
+gastric body epithelium               0.0000                2
+gastric antrum epithelium             0.0000                4
+breast luminal epithelium             0.0000                1
+b cells                               0.0000               13
+bladder epithelium                    0.0000                7
+adipocytes                            0.0000                4
+kidney glomerular endothelium         0.0000                3
+hepatocyte                            0.0000               15
+heart fibroblasts                     0.0000                1
+gastric fundus epithelium             0.0000                2
+lung alveolar endothelium             0.0000                5
+kidney glomerular epithelium          0.0000                3
+kidney tubular epithelium             0.0000                2
+kidney tubular endothelium            0.0000                5
+lung bronchus epithelium              0.0000                2
+lung alveolar macrophages             0.0000               11
+lung alveolar epithelium              0.0000                4
+memory b cells                        0.0000                1
+naive cd4 t cells                     0.0000                8
+naive cd8 t cells                     0.0000               13
+oligodendrocytes                      0.0000                7
+pancreas endothelium                  0.0000                6
+pancreatic acinar                     0.0000                6
+pancreatic alpha                      0.0000                4
+pancreatic beta                       0.0000                5
+pancreatic delta                      0.0000                5
+pancreatic duct                       0.0000                6
+prostate epithelium                   0.0000                1
+small intestine epithelium            0.0000                5
+smooth muscle                         0.0000                1
+striated muscle                       0.0000                7
+t central memory cd4                  0.0000                1
+t effector cell cd8                   0.0000                3
+thyroid epithelium                    0.0000                5
+tongue epithelium                     0.0000                9
+tonsil palatine epithelium            0.0000                3
+tonsil pharyngeal epithelium          0.0000                5
+vascular saphenous endothelium        0.0000                8

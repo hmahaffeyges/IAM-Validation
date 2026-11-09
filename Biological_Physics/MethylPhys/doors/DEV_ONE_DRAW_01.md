@@ -804,3 +804,11 @@ and is not used by default (the author's lesson: what the atlases hold and shoul
 same 34 read again with the column in the reference (`plasma_lab3_samples_r4mk.csv`: each row's flags plus `--dev-deconv-ref
 deconv_reference_mk_dev.parquet`). Development; nothing scored. What it shows if the lead is right: a megakaryocyte share appears in most
 plasmas, and the macrophage and erythroid shares fall by about as much. **Prior reading:** these 34 were read before (`CANON/data_spent.csv`).
+
+**The 34 healthy plasmas with the megakaryocyte column, read: as the test said it would if the lead is right.** Read by the one command
+(GitHub run 42579968505), scored remotely by `plasma_shares_table.py` (GitHub run 42582585786; `plasma_lab3/plasma_shares_healthy_mk_summary.txt`,
+`plasma_shares_mk_comparison.csv`). Megakaryocytes at 1 % or more in 25 of 34 plasmas (median 0.0309; none before). The columns that stood in
+for them fell: erythrocyte progenitors from 0.0752 to 0.0354, the macrophage columns together from 0.1648 to 0.1436; across the plasmas the
+median fall of the two (0.0268) is about the megakaryocyte share (0.0309), though plasma by plasma the two do not track each other (rank
+correlation 0.08). Macrophage columns still hold 0.14 and scattered tissue columns 0.18, so the column explains part of the plasmas' shares,
+not all. Development; nothing scored.

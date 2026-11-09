@@ -13,9 +13,9 @@ for n in names:
     f = os.path.join(wd, n); urllib.request.urlretrieve(u + n, f); fs["grn" if "_Grn" in n else "red"] = f
 cache = tempfile.mkdtemp(); env = dict(os.environ, METHYLPHYS_CACHE=cache); res = []
 for k in (1, 2):
-    bj = os.path.join(wd, f"b{k}.json"); t0 = time.time()
+    rd = os.path.join(wd, f"read{k}"); os.makedirs(rd, exist_ok=True); bj = os.path.join(rd, "b.json"); t0 = time.time()   # same file names in both readings (the first run named them r1/r2, and the sphere records its file name)
     p = subprocess.run([sys.executable, RS, "--grn", fs["grn"], "--red", fs["red"], "--specimen", "whole blood", "--id", g, "--full-chain", "--cell-panel", "atlas", "--dev-line-wide",
-                        "--out", os.path.join(wd, f"r{k}.html"), "--bundle", bj], capture_output=True, text=True, env=env)
+                        "--out", os.path.join(rd, "r.html"), "--bundle", bj], capture_output=True, text=True, env=env)
     res.append((p.returncode, time.time() - t0, bj, len(os.listdir(cache))))
 SKIP = re.compile(r"(?i)time|stamp|run_id|^id$|path|ledger|elapsed|command|out$|bundle$")
 def clean(o):

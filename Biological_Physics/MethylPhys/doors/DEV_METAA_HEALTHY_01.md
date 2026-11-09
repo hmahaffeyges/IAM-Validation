@@ -1229,3 +1229,8 @@ both designs alike; this is a distortion of each design, laboratory by laborator
 carries about three quarters of the marker sites. What it points to: each array's response, per design, measured on its own calibrators
 (the sites the sample's own cells hold firmly at known levels across the range, not only at the two extremes the self-tare uses) before
 the Deconvolver; synthetic first, then the EpiQC same-DNA arrays across laboratories.
+
+**The marker cache's identity check, run 1: not met by the check's own file names** (`marker_cache_identity_run1.txt`, GitHub
+run 42583593035): the second reading took 265 s against 318 s, and the two bundles were identical except the information sphere, which
+records its report's file name; the check had named the two reports r1 and r2. The sphere's draws are seeded (`stage_info_sphere.build`,
+seed 20261013). The check now writes both readings under the same file names in separate folders, and runs again.

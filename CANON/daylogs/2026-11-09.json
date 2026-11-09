@@ -22,6 +22,14 @@
      "outcome": "Each probe design departs by laboratory in GMP's direction, far above its own error, and the two designs disagree laboratory by laboratory. Cells would move both alike, so the GMP share is a per-design laboratory distortion of the measurement.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
      "reference": "IAM-Atlas v2.1"
+    },
+    {
+     "title": "The 34 healthy plasmas with the megakaryocyte column",
+     "status": "development",
+     "reference": "IAM Sequencing Atlas",
+     "what": "The 34 healthy GSE186007 plasmas read again by the one command with the built megakaryocyte column in the Deconvolver's reference, scored remotely.",
+     "outcome": "As the test said it would if the lead is right: megakaryocytes at 1 % or more in 25 of 34 plasmas (none before); erythrocyte progenitors from 0.0752 to 0.0354 and the macrophage columns from 0.1648 to 0.1436. Part of the plasmas' shares explained, not all.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
     }
    ]
   },

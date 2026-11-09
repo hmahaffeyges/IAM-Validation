@@ -1,0 +1,8 @@
+cell,without,with
+erythroid,0.0752,0.0354
+lymphoid,0.0932,0.1106
+macrophage,0.1648,0.1436
+megakaryocyte,0.0,0.0309
+monocyte,0.0808,0.0736
+neutrophil line,0.3812,0.362
+tissue,0.1631,0.1829
