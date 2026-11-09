@@ -1167,3 +1167,12 @@ Two donors are few: the column is provisional and flagged, as the megakaryocyte 
 sequencing-atlas flag; specimen unknown), one GitHub machine each (`bm_neutrophil_stages_read.py`). Nothing is scored. What it shows if the
 lead is right: segmented neutrophils found mostly as neutrophils, and the younger stages (myelocyte, metamyelocyte) put largely on GMP. If
 the segmented cells are not found as neutrophils, the scale between the two platforms comes first (`sequencing_term_v1.json`).
+
+**The maturation stages on the sequencing route: not readable there for this question (diagnostic, after reading).** All eight
+bone-marrow tracks (`bm_neutrophil_stages_read.json`) are found as neutrophils 0.493 to 0.612 and lung interstitial macrophages 0.337 to
+0.422, every stage alike, GMP at no share. Sorted blood monocytes on sequencing already put 0.315 on that macrophage column
+(`blueprint_share_destinations.txt`), and the healthy plasmas put blood-cell DNA there too, so on the sequencing route myeloid DNA is split
+onto it whatever its stage. Step 1 of the plan is not met as written: the segmented cells do not read as neutrophils alone, and the stages are
+not told apart, so a column from these tracks cannot join the array atlas this way. The question moves to the array route: GSE42118's one
+healthy promyelocyte array and one healthy CD34 array (450K, processed values only), read by the one command (`promyelocyte_read.py`,
+written before it runs). If the promyelocyte is found largely as GMP, the lead holds on arrays.

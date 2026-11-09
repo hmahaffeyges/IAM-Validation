@@ -1,0 +1,97 @@
+[
+ {
+  "id": "S00JE0A1",
+  "donor": "BM030613",
+  "stage": "myelocyte",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.582,
+   "lung interstitial macrophages": 0.3642,
+   "erythrocyte progenitors": 0.0451
+  }
+ },
+ {
+  "id": "S00JFZA1",
+  "donor": "BM030613",
+  "stage": "metamyelocyte",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.5807,
+   "lung interstitial macrophages": 0.3471,
+   "erythrocyte progenitors": 0.0408,
+   "eosinophils": 0.0314
+  }
+ },
+ {
+  "id": "S00JGXA1",
+  "donor": "BM030613",
+  "stage": "band",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.5535,
+   "lung interstitial macrophages": 0.3826,
+   "eosinophils": 0.0401,
+   "erythrocyte progenitors": 0.0237
+  }
+ },
+ {
+  "id": "S00JHVA1",
+  "donor": "BM030613",
+  "stage": "segmented",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.6123,
+   "lung interstitial macrophages": 0.3403,
+   "erythrocyte progenitors": 0.0277,
+   "eosinophils": 0.0196
+  }
+ },
+ {
+  "id": "S00VCUA1",
+  "donor": "BM060814",
+  "stage": "myelocyte",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.5248,
+   "lung interstitial macrophages": 0.408,
+   "erythrocyte progenitors": 0.0481,
+   "eosinophils": 0.019
+  }
+ },
+ {
+  "id": "S00VDSA1",
+  "donor": "BM060814",
+  "stage": "metamyelocyte",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.5889,
+   "lung interstitial macrophages": 0.3367,
+   "erythrocyte progenitors": 0.0573,
+   "eosinophils": 0.0171
+  }
+ },
+ {
+  "id": "S00VEQA1",
+  "donor": "BM060814",
+  "stage": "band",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.5806,
+   "lung interstitial macrophages": 0.3631,
+   "erythrocyte progenitors": 0.0391,
+   "eosinophils": 0.0172
+  }
+ },
+ {
+  "id": "S00VFOA1",
+  "donor": "BM060814",
+  "stage": "segmented",
+  "rc": 0,
+  "cells": {
+   "neutrophils": 0.4927,
+   "lung interstitial macrophages": 0.422,
+   "eosinophils": 0.0501,
+   "erythrocyte progenitors": 0.0352
+  }
+ }
+]

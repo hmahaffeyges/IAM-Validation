@@ -349,6 +349,7 @@ GSE38266,,,,,unspent,,,,,,,,,
 GSE40279,downloads/D_ageing/GSE40279/,12.08,,,partly spent,,,DEV_REPLICATE_01; PROC_RECORD_02_OUTCOME,,,,,Ageing blood arrays,S3 register
 GSE40699,,,,,,,,DEV_ATLAS_V21_01,,,,,,
 GSE41826,,,,,,,,,not usable (no raw data (TXT only)),cortical neurons | oligodendrocytes,yes,no per-sample IDAT or SRA link (series files: GSE41826_FinalReport_zkaminsky_CETStrimmed.txt.gz; GSE41826_RAW.tar),A Cell Epigenotype Specific Model for the Correction of Cellular Heterogeneity in the Brain,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
+GSE42118,,,,,,,,DEV_METAA_HEALTHY_01,,,,,,
 GSE42752,,,,,partly spent,,,DEV_REPLICATE_01,,,,,,
 GSE42861,downloads/A_blood_immune/GSE42861/,29.62,IDAT,yes,partly spent,,,DEV_CSCORE_LIMIT_01; DEV_METAA_HEALTHY_01; DEV_REPLICATE_01; PROC_BAND_01_PREREG; PROC_CMB_04_OUTCOME; PROC_CMB_05_OUTCOME; PROC_COV_01_PREREG; PROC_MAHA_03_OUT,,,,,Human blood and immune-disease arrays (blood cancers first),S3 register
 GSE43976,,,,,,,,,not usable (not healthy (MS cohort); input 1 called it healthy),monocytes,yes,IDAT listed for 95/95 samples,An evaluation of analysis pipelines for DNA methylation profiling using the Illumina Human Methylation 450k platform,gold-mine map; candidates DEV_ATLAS_COMMISSION_01
