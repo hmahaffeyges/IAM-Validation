@@ -5,14 +5,15 @@ laboratories (GMP share 0; gmp_noise_donors.csv; their calibrated values kept by
 with noise added to every probe at NOISE = 0, 0.003, 0.006 and 0.009 (normal, seeded per donor; values held to 0..1), which spans the noisy
 laboratories' measured noise once the donors' own is counted. Kept per reading: the cells found and shares, the neutrophils' Met-A and the
 measured line. If the GMP share and the neutrophils' Met-A rise with the added noise, the GMP share is made by the measurement.
-Usage: gmp_noise_diag.py VALUES_DIR OUTDIR"""
+Usage: gmp_noise_diag.py VALUES_DIR OUTDIR [PART 0-5, two donors each]"""
 import os, sys, json, subprocess, tempfile, shutil
 import numpy as np, pandas as pd
 H = os.path.dirname(os.path.abspath(__file__)); RS = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface", "run_sample.py"))
-vd, out = sys.argv[1], sys.argv[2]; os.makedirs(out, exist_ok=True)
-D = pd.read_csv(os.path.join(H, "gmp_noise_donors.csv")); RF = os.path.join(out, "gmp_noise_diag.json")
+vd, out = sys.argv[1], sys.argv[2]; os.makedirs(out, exist_ok=True); PART = int(sys.argv[3]) if len(sys.argv) > 3 else None   # 2 donors a part
+D = pd.read_csv(os.path.join(H, "gmp_noise_donors.csv")); RF = os.path.join(out, "gmp_noise_diag.json" if PART is None else f"gmp_noise_diag_p{PART}.json")
 res = json.load(open(RF)) if os.path.exists(RF) else []; done_ = {(r["gsm"], r["noise"]) for r in res}
 for i, g in enumerate(D.gsm):
+    if PART is not None and i // 2 != PART: continue
     b = pd.read_parquet(os.path.join(vd, g + "_betas.parquet")).iloc[:, 0].dropna(); b.index = b.index.astype(str)
     for nz in (0.0, 0.003, 0.006, 0.009):
         if (g, nz) in done_: continue
