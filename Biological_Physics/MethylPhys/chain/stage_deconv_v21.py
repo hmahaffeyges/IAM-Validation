@@ -47,6 +47,19 @@ def reference(cells, atlas=ATLAS, spread=None):
     lab = A21.lab_sd()
     return dict(mu=out["mu"], sd=np.sqrt(se ** 2 + D ** 2 + lab ** 2 + A21.FLOOR), cells=list(cells), spread=spread, lab_sd=lab, floor=A21.FLOOR)
 def markers(R, per_cell=PER_CELL):
+    """The marker sites (markers_compute), kept in a cache on the machine under a key made from the reference's own numbers, cells and per_cell
+    (2026-11-08: they were recomputed on every array, 78 s of a 364 s reading; the same reference always gives the same sites, and any change
+    to the atlas, a provisional column or the panel gives a new key). The cache folder: METHYLPHYS_CACHE, else the system's temporary folder."""
+    import hashlib, tempfile
+    h = hashlib.sha1(); h.update(json.dumps([list(R["cells"]), int(per_cell)]).encode())
+    for k in ("mu", "sd"): h.update(np.ascontiguousarray(R[k].to_numpy(dtype="float32")).tobytes()); h.update("|".join(map(str, R[k].index[:5])).encode() + str(len(R[k].index)).encode())
+    cd = os.environ.get("METHYLPHYS_CACHE") or os.path.join(tempfile.gettempdir(), "methylphys_cache"); f = os.path.join(cd, "markers_" + h.hexdigest() + ".json")
+    if os.path.exists(f):
+        try: return json.load(open(f))
+        except Exception: pass
+    M = markers_compute(R, per_cell); os.makedirs(cd, exist_ok=True); tmp = f + f".{os.getpid()}"; json.dump(M, open(tmp, "w")); os.replace(tmp, f)
+    return M
+def markers_compute(R, per_cell=PER_CELL):
     mu, sd = R["mu"], R["sd"]; ok = mu.notna().all(1) & sd.notna().all(1); mu, sd = mu[ok], sd[ok]; pick = set()
     for c in R["cells"]:
         others = [o for o in R["cells"] if o != c]

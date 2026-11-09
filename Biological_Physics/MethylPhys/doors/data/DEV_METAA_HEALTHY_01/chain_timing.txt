@@ -1,0 +1,23 @@
+GSM9488422: rc 0, 364 s in all
+seconds after each printed line (the slowest 40):
+   195.8  Stage D21: a second deconvolution with provisional columns (megakaryocytes), flagged
+    59.9  Reading IDATs: 100%|██████████| 1/1 [00:11<00:00, 11.86s/it]
+    59.7  Stage D21: cell shares against IAM-Atlas v2.1
+    11.9  array detected: epic (1,051,815 bead addresses, barcode 203821710027)
+    11.7  Stage 0: intake gates (SOP 11-19)
+     6.9  Reading IDATs: 100%|██████████| 1/1 [00:11<00:00, 11.86s/it]
+     6.1  Stage 1: calibrating the IDAT pair (methylprep noob) - about 25 s
+     4.1  Processing samples: 100%|██████████| 1/1 [00:59<00:00, 59.89s/it]
+     2.3  Stage 0 verdict: PROCEED
+     2.2  report: xout/tmp/r.html | bundle: xout/tmp/b.json | evidence ledger: /home/runner/work/IAM-Validation/IAM-Validation/xout/tmp/evidence_ledger.jsonl (o
+     1.5  start
+     1.0  Stage 1: 843,920 of 862,927 probes detected (97.80 %); 19,007 at background removed
+     0.5  calibrated: 843,920 CpGs (noob, per-sample dye-bias + probe-type norm)
+     0.2  array detected: epic (1,051,815 bead addresses, barcode 203821710027)
+     0.0  GSM9488422: Met-A (neutrophils) 0.9679 (untared: read A_rel (Stage T)) | C 1.0941 | tare None
+     0.0  Processing samples:   0%|          | 0/1 [00:00<?, ?it/s]
+     0.0  Reading IDATs:   0%|          | 0/1 [00:00<?, ?it/s]
+     0.0  array type: EPIC_v1 (header: EPIC_v1, 1,051,815 addresses)
+     0.0  Stage D21: a second deconvolution with provisional columns (megakaryocytes), flagged
+     0.0  Reading IDATs: 100%|██████████| 1/1 [00:11<00:00, 11.86s/it]
+     0.0  Processing samples: 100%|██████████| 1/1 [00:59<00:00, 59.89s/it]

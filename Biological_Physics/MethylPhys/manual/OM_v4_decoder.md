@@ -35,7 +35,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **515 functions** (nested ones included); 515 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **516 functions** (nested ones included); 516 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -50,7 +50,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/report_figs_v4.py` | 157 | 8 | 6 | 2 |
 | `dev_stages.py` | 391 | 29 | 1 | 0 |
 | `stage_v4.py` | 187 | 11 | 4 | 2 |
-| `stage_deconv_v21.py` | 200 | 6 | 4 | 0 |
+| `stage_deconv_v21.py` | 213 | 7 | 4 | 0 |
 | `stage_q2_selfref.py` | 400 | 36 | 0 | 11 |
 | `stage_atlas_commission.py` | 62 | 8 | 1 | 0 |
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
@@ -1474,13 +1474,21 @@ missing value) and builds sd as above.
 
 The marker sites for the panel, as above.
 
-*Code:* `stage_deconv_v21.py` line 49 (8 lines) · arguments: R, per_cell · calls: array run 1 · constants read: `PER_CELL`
+The sites are kept in a cache on each machine under a key made from the reference's own numbers, its cells and `per_cell`, so an array after the first reads them instead of recomputing them (78 of 364 seconds on one array); a changed atlas, provisional column or panel makes a new key, so a stale list can never be used.
+
+*Code:* `stage_deconv_v21.py` line 49 (13 lines) · arguments: R, per_cell · calls: array run 1 · constants read: `PER_CELL`
+
+### `stage_deconv_v21.py::markers_compute`
+
+The marker sites themselves, as `markers` computed them before the cache: for each cell, the sites that separate it most from its nearest other cell in the panel, in both directions.
+
+*Code:* `stage_deconv_v21.py` line 62 (8 lines) · arguments: R, per_cell · calls: not called on the traced runs · constants read: `PER_CELL`
 
 ### `stage_deconv_v21.py::_solve`
 
 The three-pass weighted non-negative least squares.
 
-*Code:* `stage_deconv_v21.py` line 57 (5 lines) · arguments: y, A, S, lab_sd, passes · calls: array run 201
+*Code:* `stage_deconv_v21.py` line 70 (5 lines) · arguments: y, A, S, lab_sd, passes · calls: array run 201
 
 ### `stage_deconv_v21.py::deconvolve`
 
@@ -1489,20 +1497,20 @@ The shares, raw sum, 95 % intervals and sites used for one sample.
 Since 2026-10-22 it also records each cell's `resampled_median`, the middle of the resampled shares, beside the best fit, so a wide panel's two
 estimates can be compared against known mixtures (development; the commissioned six-cell shares are the best fit, unchanged).
 
-*Code:* `stage_deconv_v21.py` line 62 (16 lines) · arguments: beta, R, M, lab_sd, boot, seed · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`
+*Code:* `stage_deconv_v21.py` line 75 (16 lines) · arguments: beta, R, M, lab_sd, boot, seed · calls: array run 1 · constants read: `BOOT`, `LAB_SD`, `SEED`
 
 ### `stage_deconv_v21.py::sample`
 
 Inside the planted test only: builds a planted array, each cell's DNA drawn from the atlas's donor spread, mixed in known shares, plus a
 laboratory shift and array noise.
 
-*Code:* `stage_deconv_v21.py` line 95 (2 lines) · arguments: f, lab · calls: not called on the traced runs
+*Code:* `stage_deconv_v21.py` line 108 (2 lines) · arguments: f, lab · calls: not called on the traced runs
 
 ### `stage_deconv_v21.py::sample_check`
 
 For the second sealed test: a pure array passes when it reads at least 0.80 of its own cell. Failing arrays are listed and not mixed.
 
-*Code:* `stage_deconv_v21.py` line 172 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`
+*Code:* `stage_deconv_v21.py` line 185 (2 lines) · arguments: x, cell, R, M · calls: not called on the traced runs · constants read: `SELF_MIN`
 
 ## 8. IAM-Atlas v2.1's commissioning rules: `stage_atlas_commission.py`
 

@@ -3814,7 +3814,7 @@
   },
   {
    "file": "stage_deconv_v21.py",
-   "lines": 200,
+   "lines": 213,
    "functions": [
     {
      "file": "stage_deconv_v21.py",
@@ -3846,13 +3846,13 @@
      "function": "markers",
      "name": "markers",
      "line": 49,
-     "end": 56,
+     "end": 61,
      "args": [
       "R",
       "per_cell"
      ],
-     "lines": 8,
-     "doc": "",
+     "lines": 13,
+     "doc": "The marker sites (markers_compute), kept in a cache on the machine under a key made from the reference's own numbers, cells and per_cell (2026-11-08: they were recomputed on every array, 78 s of a 364 s reading; the same reference always gives the same sites, and any change to the atlas, a provisional column or the panel gives a new key). The cache folder: METHYLPHYS_CACHE, else the system's tempo",
      "constants": [
       "PER_CELL"
      ],
@@ -3863,10 +3863,28 @@
     },
     {
      "file": "stage_deconv_v21.py",
+     "function": "markers_compute",
+     "name": "markers_compute",
+     "line": 62,
+     "end": 69,
+     "args": [
+      "R",
+      "per_cell"
+     ],
+     "lines": 8,
+     "doc": "",
+     "constants": [
+      "PER_CELL"
+     ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_deconv_v21.py",
      "function": "_solve",
      "name": "_solve",
-     "line": 57,
-     "end": 61,
+     "line": 70,
+     "end": 74,
      "args": [
       "y",
       "A",
@@ -3886,8 +3904,8 @@
      "file": "stage_deconv_v21.py",
      "function": "deconvolve",
      "name": "deconvolve",
-     "line": 62,
-     "end": 77,
+     "line": 75,
+     "end": 90,
      "args": [
       "beta",
       "R",
@@ -3912,8 +3930,8 @@
      "file": "stage_deconv_v21.py",
      "function": "sample",
      "name": "sample",
-     "line": 95,
-     "end": 96,
+     "line": 108,
+     "end": 109,
      "args": [
       "f",
       "lab"
@@ -3928,8 +3946,8 @@
      "file": "stage_deconv_v21.py",
      "function": "sample_check",
      "name": "sample_check",
-     "line": 172,
-     "end": 173,
+     "line": 185,
+     "end": 186,
      "args": [
       "x",
       "cell",
@@ -10091,5 +10109,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 515
+ "n_functions": 516
 }

@@ -1012,6 +1012,12 @@ missing value) and builds sd as above.
 ### stage_deconv_v21.py::markers
 The marker sites for the panel, as above.
 
+The sites are kept in a cache on each machine under a key made from the reference's own numbers, its cells and `per_cell`, so an array after the first reads them instead of recomputing them (78 of 364 seconds on one array); a changed atlas, provisional column or panel makes a new key, so a stale list can never be used.
+
+### stage_deconv_v21.py::markers_compute
+
+The marker sites themselves, as `markers` computed them before the cache: for each cell, the sites that separate it most from its nearest other cell in the panel, in both directions.
+
 ### stage_deconv_v21.py::_solve
 The three-pass weighted non-negative least squares.
 

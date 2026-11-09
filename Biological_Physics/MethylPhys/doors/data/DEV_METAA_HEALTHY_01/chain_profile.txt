@@ -1,0 +1,50 @@
+Mon Nov  9 07:53:30 2026    xout/tmp/p.prof
+
+         155588918 function calls (155224686 primitive calls) in 397.949 seconds
+
+   Ordered by: cumulative time
+   List reduced from 14767 to 40 due to restriction <40>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   2231/1    0.046    0.000  398.395  398.395 {built-in method builtins.exec}
+        1    0.088    0.088  398.395  398.395 Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py:1(<module>)
+        1    0.231    0.231  398.300  398.300 Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py:552(main)
+        1    0.086    0.086  116.568  116.568 Biological_Physics/MethylPhys/chain/stage_1_idat_calibration.py:106(calibrate_idat_to_beta)
+        1    0.100    0.100  108.808  108.808 methylprep/processing/pipeline.py:43(run_pipeline)
+        2    0.567    0.284   77.862   38.931 Biological_Physics/MethylPhys/chain/stage_deconv_v21.py:49(markers)
+        1    0.010    0.010   60.873   60.873 Biological_Physics/MethylPhys/chain/stage_v4.py:33(stage_d21)
+    17588    0.136    0.000   58.220    0.003 pandas/core/generic.py:5044(reindex)
+        1    0.824    0.824   58.162   58.162 methylprep/processing/pipeline.py:619(process_all)
+        1    0.016    0.016   55.277   55.277 Biological_Physics/MethylPhys/chain/stage_v4.py:64(stage_d21_provisional)
+    17513    0.053    0.000   52.587    0.003 pandas/core/series.py:5077(reindex)
+     9453    0.062    0.000   49.359    0.005 pandas/core/indexes/base.py:4318(reindex)
+        1    3.501    3.501   44.932   44.932 Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py:207(build)
+     8814    0.048    0.000   44.932    0.005 pandas/core/generic.py:5293(_reindex_axes)
+        1    0.323    0.323   44.535   44.535 Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py:354(read_in_mix)
+    10917    0.103    0.000   41.681    0.004 pandas/core/indexes/base.py:3888(get_indexer)
+3561/2423    0.013    0.000   41.288    0.017 pandas/util/_decorators.py:323(wrapper)
+    54398    0.190    0.000   36.658    0.001 pandas/core/indexes/base.py:5464(equals)
+    41546    0.085    0.000   35.669    0.001 pandas/core/dtypes/missing.py:460(array_equivalent)
+    20529    0.063    0.000   35.541    0.002 pandas/core/dtypes/missing.py:564(_array_equivalent_object)
+    20529   35.450    0.002   35.450    0.002 {pandas._libs.lib.array_equivalent_object}
+     4237    0.016    0.000   33.887    0.008 pandas/core/ops/common.py:57(new_method)
+     1385    0.029    0.000   32.528    0.023 pandas/core/frame.py:7599(_dispatch_frame_op)
+    10241    0.038    0.000   30.445    0.003 pandas/core/indexes/base.py:3975(_get_indexer)
+    10241   30.362    0.003   30.362    0.003 {method 'get_indexer' of 'pandas._libs.index.IndexEngine' objects}
+        2    2.850    1.425   30.019   15.010 Biological_Physics/MethylPhys/chain/stage_deconv_v21.py:62(deconvolve)
+     3969    0.025    0.000   28.964    0.007 pandas/core/ops/array_ops.py:136(_na_arithmetic_op)
+     3969    0.009    0.000   28.930    0.007 pandas/core/computation/expressions.py:225(evaluate)
+     3969    0.010    0.000   28.921    0.007 pandas/core/computation/expressions.py:64(_evaluate_standard)
+     3014    0.014    0.000   28.587    0.009 pandas/core/ops/array_ops.py:185(arithmetic_op)
+     7298    0.029    0.000   27.562    0.004 pandas/core/frame.py:609(__init__)
+       51    0.596    0.012   27.395    0.537 Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_globe_v4.py:187(_cell_change)
+       10    0.000    0.000   26.650    2.665 pandas/core/series.py:4661(apply)
+       10    0.037    0.004   26.650    2.665 pandas/core/apply.py:1108(apply)
+       10    0.000    0.000   26.614    2.661 pandas/core/apply.py:1159(apply_standard)
+       11    1.708    0.155   26.582    2.417 {pandas._libs.lib.map_infer}
+  5196896    2.940    0.000   24.873    0.000 pandas/core/apply.py:141(f)
+    20417    0.098    0.000   23.675    0.001 pandas/core/internals/managers.py:301(apply)
+        1    0.216    0.216   23.475   23.475 methylprep/processing/preprocess.py:22(preprocess_noob)
+      402    2.839    0.007   23.092    0.057 Biological_Physics/MethylPhys/chain/stage_deconv_v21.py:57(_solve)
+
+

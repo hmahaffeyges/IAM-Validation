@@ -1210,3 +1210,10 @@ by probe design (the null test by detector): it follows the design II projection
 not agree donor by donor (-0.01). GMP-like cells would show on both designs. So the GMP share most likely comes from a laboratory-dependent
 distortion of design II probes, spread over many sites, which the Deconvolver reads as GMP. **Caveat before it is called:** design I holds
 fewer marker sites, so its projection is noisier; its site count and error are measured next, on the same donors.
+
+**Speed: the one command timed, and the marker sites cached (chain change, with its identity check written before it runs).** One spent array
+read by the one command took 364 s on a GitHub machine (`chain_timing.py`, GitHub run 42580674076): calibration 116.568 s, the Deconvolver's
+marker sites recomputed on every array 77.862 s, repeated table-index comparisons 35.450 s (`chain_profile.txt`). The marker sites depend only on the reference, so
+`stage_deconv_v21.markers` now keeps them in a cache on each machine under a key made from the reference's own numbers (`markers_compute`
+computes them as before). Check (`marker_cache_identity.py`): the same array read twice, computing then from the cache; met if the bundles
+are identical apart from timestamps and paths and the second is faster. Machines will also read three shards side by side.
