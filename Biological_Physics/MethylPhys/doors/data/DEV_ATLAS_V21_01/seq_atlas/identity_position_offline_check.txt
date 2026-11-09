@@ -1,0 +1,3 @@
+Offline check of floor_by_position at identity sites (stage_seq_atlas.identity_side_table('cd4 t cells'); 60,000 constructed molecules, 3 to 9 CpGs, each holding one identity site at a random place; opposite calls 5 % at a molecule's outer CpG, 0.5 % inside; seed 3)
+{"unmarked": {"end_over_inner": 9.2663, "sites": 2939}, "marked": {"end_over_inner": 9.829, "sites": 2933}, "both": {"end_over_inner": 9.5429, "sites": 5872}}
+planted end over inner 10; read (both sides) 9.5429

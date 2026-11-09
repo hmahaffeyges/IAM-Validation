@@ -1,0 +1,19 @@
+gsm,cell,share
+GSM2103002,cd4 t cells,0.3195
+GSM2103003,cd4 t cells,0.3711
+GSM2103004,monocytes,0.6413
+GSM2103005,t central memory cd4,0.3984
+GSM2103006,cd4 t cells,0.4075
+GSM2103007,cd4 t cells,0.3581
+GSM2616068,naive cd8 t cells,0.5829
+GSM2616069,t effector cell cd8,0.3748
+GSM2616070,t effector cell cd8,0.2404
+GSM2616071,naive cd8 t cells,0.2358
+GSM2616072,naive cd8 t cells,0.4685
+GSM2616073,t effector cell cd8,0.3848
+GSM2616074,t effector cell cd8,0.266
+GSM2616075,cd8 t cells,0.3428
+GSM3963003,b cells,0.8974
+GSM3963004,b cells,0.8685
+GSM3963005,memory b cells,0.6822
+GSM3963006,memory b cells,0.6166

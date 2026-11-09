@@ -1757,3 +1757,12 @@ measure's 7.5 to 12.5 was part site mix), GSE134664 B 3.1 to 4.2, Johns Hopkins 
 12.4). So library chemistry at the molecule ends is real and is a property of each library, not of the laboratory alone. On the 18
 libraries with a whole-sample reading it does not track whole-sample Met-A (rank correlation -0.10), so it is
 not by itself the laboratory term in Met-A; it does inflate the pooled library floor the chain measures. Development; nothing scored.
+
+**The molecule-position split at each library's identity sites (development, spent, already-aligned files; nothing scored).** The floor
+split found a real read-end effect that differs by library but does not follow whole-sample Met-A. Met-A reads the identity sites, so the same
+split is made there: `run_sample.py --build seq-floor-position --build-cell CELL` (`stage_seq_atlas.identity_side_table`), CELL the main cell
+the IAM-Deconvolver found in each library's own earlier bundle (`seq_atlas/identity_position_cells.csv`; Johns Hopkins GSM2103004, labeled
+CD4, is read at monocytes, where its Deconvolver put it). Checked offline on constructed molecules with a planted tenfold end rate: read 9.54 (`seq_atlas/identity_position_offline_check.txt`).
+Run over the 18 sorted libraries' already-aligned pieces on 12 machines (`floor_position_identity.sh`). If the end calls carry the libraries'
+extra off-pattern reads at the identity sites, each library can be calibrated on its own molecules, with nothing from other samples.
+**Prior reading:** all 18 were read before (`CANON/data_spent.csv`).

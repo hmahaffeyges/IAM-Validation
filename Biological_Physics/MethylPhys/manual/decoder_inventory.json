@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1519,
+   "lines": 1523,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -225,11 +225,11 @@
      "function": "_build",
      "name": "_build",
      "line": 254,
-     "end": 488,
+     "end": 492,
      "args": [
       "a"
      ],
-     "lines": 235,
+     "lines": 239,
      "doc": "--build: the chain builds a reference and records how; the report goes to --bundle (JSON), the reference to --build-out.",
      "constants": [
       "_ISV_ABOUT"
@@ -254,8 +254,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_build._R",
      "name": "_R",
-     "line": 400,
-     "end": 400,
+     "line": 404,
+     "end": 404,
      "args": [
       "m"
      ],
@@ -269,8 +269,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_genome_globe",
      "name": "_genome_globe",
-     "line": 491,
-     "end": 511,
+     "line": 495,
+     "end": 515,
      "args": [
       "a",
       "cnt",
@@ -286,8 +286,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "_dev_run",
      "name": "_dev_run",
-     "line": 514,
-     "end": 555,
+     "line": 518,
+     "end": 559,
      "args": [
       "a",
       "o",
@@ -307,8 +307,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main",
      "name": "main",
-     "line": 558,
-     "end": 1516,
+     "line": 562,
+     "end": 1520,
      "args": [],
      "lines": 959,
      "doc": "",
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 882,
-     "end": 886,
+     "line": 886,
+     "end": 890,
      "args": [
       "r"
      ],
@@ -359,8 +359,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1117,
-     "end": 1124,
+     "line": 1121,
+     "end": 1128,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1441,
-     "end": 1442,
+     "line": 1445,
+     "end": 1446,
      "args": [
       "b",
       "it",
@@ -9223,7 +9223,7 @@
   },
   {
    "file": "stage_seq_atlas.py",
-   "lines": 937,
+   "lines": 948,
    "functions": [
     {
      "file": "stage_seq_atlas.py",
@@ -9617,10 +9617,32 @@
     },
     {
      "file": "stage_seq_atlas.py",
+     "function": "identity_side_table",
+     "name": "identity_side_table",
+     "line": 412,
+     "end": 421,
+     "args": [
+      "cell",
+      "out",
+      "lo",
+      "hi"
+     ],
+     "lines": 10,
+     "doc": "2026-11-09 (development): the sites floor_by_position reads for one cell's Met-A instead of the floor: that cell's identity sites in the IAM Sequencing Atlas's Met-A reference (metaa_seq_reference_v1.parquet), each with the side the cell holds it on (level at most lo: unmarked; at least hi: marked; between: left out). The cell is the one the IAM-Deconvolver found, never the label. Writes probe, cp",
+     "constants": [
+      "FLOOR_SITES"
+     ],
+     "data_files": [
+      "metaa_seq_reference_v1.parquet"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_seq_atlas.py",
      "function": "floor_by_position",
      "name": "floor_by_position",
-     "line": 412,
-     "end": 452,
+     "line": 423,
+     "end": 463,
      "args": [
       "pat",
       "path",
@@ -9638,8 +9660,8 @@
      "file": "stage_seq_atlas.py",
      "function": "floor_by_position.mh",
      "name": "mh",
-     "line": 443,
-     "end": 447,
+     "line": 454,
+     "end": 458,
      "args": [
       "items"
      ],
@@ -9653,8 +9675,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_half_counts",
      "name": "metaa_half_counts",
-     "line": 456,
-     "end": 475,
+     "line": 467,
+     "end": 486,
      "args": [
       "samples_csv",
       "out",
@@ -9675,8 +9697,8 @@
      "file": "stage_seq_atlas.py",
      "function": "range_of_average",
      "name": "range_of_average",
-     "line": 479,
-     "end": 497,
+     "line": 490,
+     "end": 508,
      "args": [
       "meth",
       "reads",
@@ -9693,8 +9715,8 @@
      "file": "stage_seq_atlas.py",
      "function": "sphere_columns",
      "name": "sphere_columns",
-     "line": 499,
-     "end": 518,
+     "line": 510,
+     "end": 529,
      "args": [
       "out",
       "cols",
@@ -9718,8 +9740,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_maps",
      "name": "noise_maps",
-     "line": 522,
-     "end": 538,
+     "line": 533,
+     "end": 549,
      "args": [
       "cols"
      ],
@@ -9738,8 +9760,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_check",
      "name": "noise_check",
-     "line": 540,
-     "end": 554,
+     "line": 551,
+     "end": 565,
      "args": [
       "cols",
       "ref"
@@ -9761,8 +9783,8 @@
      "file": "stage_seq_atlas.py",
      "function": "sky_mask_sites",
      "name": "sky_mask_sites",
-     "line": 558,
-     "end": 564,
+     "line": 569,
+     "end": 575,
      "args": [
       "ids"
      ],
@@ -9781,8 +9803,8 @@
      "file": "stage_seq_atlas.py",
      "function": "sky_null",
      "name": "sky_null",
-     "line": 566,
-     "end": 579,
+     "line": 577,
+     "end": 590,
      "args": [
       "v",
       "order",
@@ -9800,8 +9822,8 @@
      "file": "stage_seq_atlas.py",
      "function": "minkowski",
      "name": "minkowski",
-     "line": 583,
-     "end": 600,
+     "line": 594,
+     "end": 611,
      "args": [
       "ring",
       "nu"
@@ -9818,8 +9840,8 @@
      "file": "stage_seq_atlas.py",
      "function": "minkowski.comps",
      "name": "comps",
-     "line": 596,
-     "end": 598,
+     "line": 607,
+     "end": 609,
      "args": [
       "sel"
      ],
@@ -9833,8 +9855,8 @@
      "file": "stage_seq_atlas.py",
      "function": "sky_minkowski",
      "name": "sky_minkowski",
-     "line": 602,
-     "end": 625,
+     "line": 613,
+     "end": 636,
      "args": [
       "v",
       "order",
@@ -9852,8 +9874,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_minkowski",
      "name": "noise_minkowski",
-     "line": 627,
-     "end": 638,
+     "line": 638,
+     "end": 649,
      "args": [
       "cols",
       "man",
@@ -9874,8 +9896,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_null",
      "name": "noise_null",
-     "line": 640,
-     "end": 650,
+     "line": 651,
+     "end": 661,
      "args": [
       "cols",
       "man"
@@ -9895,8 +9917,8 @@
      "file": "stage_seq_atlas.py",
      "function": "bridge",
      "name": "bridge",
-     "line": 652,
-     "end": 670,
+     "line": 663,
+     "end": 681,
      "args": [
       "cols"
      ],
@@ -9915,8 +9937,8 @@
      "file": "stage_seq_atlas.py",
      "function": "genome_spectrum",
      "name": "genome_spectrum",
-     "line": 675,
-     "end": 687,
+     "line": 686,
+     "end": 698,
      "args": [
       "v",
       "chrom",
@@ -9937,8 +9959,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_spectrum",
      "name": "noise_spectrum",
-     "line": 689,
-     "end": 699,
+     "line": 700,
+     "end": 710,
      "args": [
       "cols"
      ],
@@ -9956,8 +9978,8 @@
      "file": "stage_seq_atlas.py",
      "function": "terr_half_counts",
      "name": "terr_half_counts",
-     "line": 704,
-     "end": 717,
+     "line": 715,
+     "end": 728,
      "args": [
       "samples_csv",
       "out"
@@ -9978,8 +10000,8 @@
      "file": "stage_seq_atlas.py",
      "function": "terr_counts_of",
      "name": "terr_counts_of",
-     "line": 719,
-     "end": 735,
+     "line": 730,
+     "end": 746,
      "args": [
       "cells",
       "half",
@@ -10001,8 +10023,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donor_counts",
      "name": "metaa_donor_counts",
-     "line": 740,
-     "end": 753,
+     "line": 751,
+     "end": 764,
      "args": [
       "samples_csv",
       "out",
@@ -10021,8 +10043,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_donors_of",
      "name": "metaa_donors_of",
-     "line": 755,
-     "end": 765,
+     "line": 766,
+     "end": 776,
      "args": [
       "cell",
       "half",
@@ -10043,8 +10065,8 @@
      "file": "stage_seq_atlas.py",
      "function": "beta_vs_pat",
      "name": "beta_vs_pat",
-     "line": 767,
-     "end": 795,
+     "line": 778,
+     "end": 806,
      "args": [
       "beta_src",
       "pat_path",
@@ -10064,8 +10086,8 @@
      "file": "stage_seq_atlas.py",
      "function": "noise_at_identity",
      "name": "noise_at_identity",
-     "line": 797,
-     "end": 818,
+     "line": 808,
+     "end": 829,
      "args": [
       "path"
      ],
@@ -10085,8 +10107,8 @@
      "file": "stage_seq_atlas.py",
      "function": "metaa_reference_of",
      "name": "metaa_reference_of",
-     "line": 820,
-     "end": 835,
+     "line": 831,
+     "end": 846,
      "args": [
       "cell",
       "path"
@@ -10107,8 +10129,8 @@
      "file": "stage_seq_atlas.py",
      "function": "held_reference",
      "name": "held_reference",
-     "line": 837,
-     "end": 861,
+     "line": 848,
+     "end": 872,
      "args": [
       "samples",
       "out"
@@ -10123,8 +10145,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare_pair",
      "name": "compare_pair",
-     "line": 863,
-     "end": 878,
+     "line": 874,
+     "end": 889,
      "args": [
       "a_path",
       "b_path",
@@ -10142,8 +10164,8 @@
      "file": "stage_seq_atlas.py",
      "function": "compare",
      "name": "compare",
-     "line": 880,
-     "end": 932,
+     "line": 891,
+     "end": 943,
      "args": [
       "lbeta",
       "piece_dirs",
@@ -10164,8 +10186,8 @@
      "file": "stage_seq_atlas.py",
      "function": "geo_url",
      "name": "geo_url",
-     "line": 934,
-     "end": 936,
+     "line": 945,
+     "end": 947,
      "args": [
       "gsm",
       "title"
@@ -10181,5 +10203,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 520
+ "n_functions": 521
 }

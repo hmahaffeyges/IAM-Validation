@@ -335,7 +335,11 @@ def _build(a):
         print(json.dumps(dict(sites=rep["sites"], by_side=rep["by_side"]))); return 0
     if a.build == "seq-floor-position":   # 2026-11-09 (development): the library floor split by where each call sits on its molecule
         if not a.build_input: print("--build seq-floor-position needs --build-input PAT and --bundle OUT.json"); return 2
-        import stage_seq_atlas as _SQfp; rep = _SQfp.floor_by_position(a.build_input)
+        import stage_seq_atlas as _SQfp
+        if a.build_cell:   # 2026-11-09 (development): at the identity sites of the cell the IAM-Deconvolver found, not the floor
+            _sp = (a.bundle or "fp") + ".sites.parquet"; _n = _SQfp.identity_side_table(a.build_cell, _sp); rep = _SQfp.floor_by_position(a.build_input, path=_sp)
+            rep.update(sites="identity", cell=a.build_cell, held_identity_sites=_n); os.remove(_sp)
+        else: rep = _SQfp.floor_by_position(a.build_input); rep.update(sites="floor")
         rep.update(command=[os.path.basename(sys.argv[0])] + sys.argv[1:], input=os.path.basename(a.build_input))
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps(dict(molecules=rep["molecules"], end_over_interior=rep["end_over_interior"]))); return 0

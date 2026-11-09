@@ -409,6 +409,17 @@ def library_floor(beta, calls, path=FLOOR_SITES):
         out[side] = dict(sites_read=int(g.sum()), calls=int(nn), opposite=int(opp), rate=round(opp / nn, 6) if nn else None); tot_o += opp; tot_n += nn
     out["rate"] = round(tot_o / tot_n, 6) if tot_n else None; return out
 
+def identity_side_table(cell, out, lo=0.2, hi=0.8):
+    """2026-11-09 (development): the sites floor_by_position reads for one cell's Met-A instead of the floor: that cell's identity sites in the
+    IAM Sequencing Atlas's Met-A reference (metaa_seq_reference_v1.parquet), each with the side the cell holds it on (level at most lo:
+    unmarked; at least hi: marked; between: left out). The cell is the one the IAM-Deconvolver found, never the label. Writes probe, cpg, side."""
+    import pandas as pd
+    T = pd.read_parquet(os.path.join(os.path.dirname(FLOOR_SITES), "metaa_seq_reference_v1.parquet"), columns=["cpg", "cell", "probe", "level"])
+    T = T[(T.cell == cell) & (T.level != 65535)].copy(); lv = T.level / 10000.0
+    T["side"] = np.where(lv <= lo, "unmarked", np.where(lv >= hi, "marked", "")); T = T[T.side != ""]
+    if T.empty: raise KeyError(f"no held identity sites for {cell!r}")
+    T[["probe", "cpg", "side"]].to_parquet(out, index=False); return int(len(T))
+
 def floor_by_position(pat, path=FLOOR_SITES, max_d=4):
     """2026-11-09 (development; the detector-split null test on sequencing, DEV-ATLAS-V21-01): a library's floor from its molecules, split by
     where each call sits on its molecule. At the floor sites (every healthy cell agrees completely), each call is opposite or not (methylated at
