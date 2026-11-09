@@ -1,0 +1,1718 @@
+lab,gsm,cell,share,met_a,table,gauge,widths,inside
+Oslo GSE318173,GSM9488126,cd4 t cells,0.3409,0.9614,sorted,0.97023,-1.305,True
+Oslo GSE318173,GSM9488126,monocytes,0.1672,0.96466,in a blood,0.9748,-3.416,False
+Oslo GSE318173,GSM9488126,neutrophils,0.0763,0.99292,,,,
+Oslo GSE318173,GSM9488126,b cells,0.0402,0.94401,in a blood,0.95606,-3.444,False
+Oslo GSE318173,GSM9488126,cd8 t cells,0.0178,0.95312,in a blood,0.96187,-3.229,False
+Oslo GSE318173,GSM9488034,neutrophils,0.3196,0.96118,,,,
+Oslo GSE318173,GSM9488034,cd4 t cells,0.1792,0.97597,in a blood,0.98137,-1.765,True
+Oslo GSE318173,GSM9488034,monocytes,0.1756,0.95213,in a blood,0.96214,-5.133,False
+Oslo GSE318173,GSM9488034,cd8 t cells,0.0397,0.98134,in a blood,0.99035,-0.817,True
+Oslo GSE318173,GSM9488034,b cells,0.0332,0.97729,in a blood,0.98976,-0.802,True
+Oslo GSE318173,GSM9488188,neutrophils,0.4646,0.99427,in a blood,0.98834,-0.319,True
+Oslo GSE318173,GSM9488188,monocytes,0.0979,0.96202,in a blood,0.97213,-3.778,False
+Oslo GSE318173,GSM9488188,cd4 t cells,0.081,0.96928,in a blood,0.97464,-2.402,False
+Oslo GSE318173,GSM9488075,neutrophils,0.8249,1.02145,sorted,1.01294,0.253,True
+Oslo GSE318173,GSM9488075,monocytes,0.043,0.96022,in a blood,0.97031,-4.025,False
+Oslo GSE318173,GSM9488018,neutrophils,0.4625,1.02653,in a blood,1.02041,0.558,True
+Oslo GSE318173,GSM9488018,monocytes,0.057,0.96855,in a blood,0.97873,-2.884,False
+Oslo GSE318173,GSM9488018,cd4 t cells,0.0377,0.98364,in a blood,0.98908,-1.034,True
+Oslo GSE318173,GSM9488491,neutrophils,0.422,0.95751,in a blood,0.9518,-1.318,True
+Oslo GSE318173,GSM9488491,monocytes,0.1137,0.96402,in a blood,0.97415,-3.504,False
+Oslo GSE318173,GSM9488491,cd4 t cells,0.0765,0.96642,in a blood,0.97176,-2.674,False
+Oslo GSE318173,GSM9488491,b cells,0.0267,0.96591,in a blood,0.97824,-1.706,True
+Oslo GSE318173,GSM9488110,neutrophils,0.4297,0.98767,in a blood,0.98178,-0.498,True
+Oslo GSE318173,GSM9488110,monocytes,0.1164,0.96483,in a blood,0.97497,-3.393,False
+Oslo GSE318173,GSM9488110,cd4 t cells,0.0633,0.97294,in a blood,0.97832,-2.053,True
+Oslo GSE318173,GSM9488110,b cells,0.024,0.9676,in a blood,0.97995,-1.571,True
+Oslo GSE318173,GSM9487965,neutrophils,0.5509,1.03972,in a blood,1.03352,0.916,True
+Oslo GSE318173,GSM9487965,cd4 t cells,0.0638,0.99921,in a blood,1.00474,0.449,True
+Oslo GSE318173,GSM9487965,monocytes,0.0515,0.97164,in a blood,0.98185,-2.46,False
+Oslo GSE318173,GSM9487973,neutrophils,0.6687,1.00794,in a blood,1.00193,0.053,True
+Oslo GSE318173,GSM9487973,cd4 t cells,0.124,0.98442,in a blood,0.98986,-0.96,True
+Oslo GSE318173,GSM9487973,monocytes,0.0474,0.97651,in a blood,0.98677,-1.793,True
+Oslo GSE318173,GSM9488384,neutrophils,0.4348,1.02146,in a blood,1.01537,0.42,True
+Oslo GSE318173,GSM9488384,cd4 t cells,0.1194,0.98394,in a blood,0.98938,-1.006,True
+Oslo GSE318173,GSM9488384,monocytes,0.065,0.95709,in a blood,0.96715,-4.453,False
+Oslo GSE318173,GSM9488042,neutrophils,0.4384,0.97057,in a blood,0.96478,-0.963,True
+Oslo GSE318173,GSM9488042,monocytes,0.1715,0.96394,in a blood,0.97407,-3.515,False
+Oslo GSE318173,GSM9488042,cd4 t cells,0.0891,0.96697,in a blood,0.97232,-2.622,False
+Oslo GSE318173,GSM9488042,b cells,0.0268,0.96918,in a blood,0.98155,-1.446,True
+Oslo GSE318173,GSM9488042,cd8 t cells,0.0187,0.97311,in a blood,0.98205,-1.521,True
+Oslo GSE318173,GSM9488392,neutrophils,0.3275,0.98009,,,,
+Oslo GSE318173,GSM9488392,cd4 t cells,0.1345,0.9699,in a blood,0.97526,-2.343,False
+Oslo GSE318173,GSM9488392,monocytes,0.1086,0.94589,in a blood,0.95583,-5.988,False
+Oslo GSE318173,GSM9488392,cd8 t cells,0.0601,0.97378,in a blood,0.98272,-1.463,True
+Oslo GSE318173,GSM9488392,b cells,0.0386,0.96397,in a blood,0.97627,-1.86,True
+Oslo GSE318173,GSM9488453,neutrophils,0.5316,1.00331,in a blood,0.99733,-0.073,True
+Oslo GSE318173,GSM9488453,monocytes,0.1684,0.9771,in a blood,0.98737,-1.712,True
+Oslo GSE318173,GSM9488097,neutrophils,0.3295,0.97653,,,,
+Oslo GSE318173,GSM9488097,cd4 t cells,0.1852,0.96623,in a blood,0.97157,-2.692,False
+Oslo GSE318173,GSM9488097,cd8 t cells,0.1423,0.96758,in a blood,0.97647,-1.993,True
+Oslo GSE318173,GSM9488097,monocytes,0.0466,0.94649,in a blood,0.95644,-5.905,False
+Oslo GSE318173,GSM9488097,b cells,0.0307,0.95765,in a blood,0.96987,-2.361,False
+Oslo GSE318173,GSM9488486,neutrophils,0.5217,0.97625,in a blood,0.97043,-0.808,True
+Oslo GSE318173,GSM9488486,cd4 t cells,0.1167,0.9836,in a blood,0.98904,-1.038,True
+Oslo GSE318173,GSM9488486,monocytes,0.0749,0.96663,in a blood,0.97679,-3.147,False
+Oslo GSE318173,GSM9488193,neutrophils,0.3342,1.03585,,,,
+Oslo GSE318173,GSM9488193,cd4 t cells,0.1902,0.98787,in a blood,0.99333,-0.631,True
+Oslo GSE318173,GSM9488193,monocytes,0.0766,0.96641,in a blood,0.97657,-3.177,False
+Oslo GSE318173,GSM9488234,neutrophils,0.624,1.00508,in a blood,0.99909,-0.025,True
+Oslo GSE318173,GSM9488234,cd4 t cells,0.1171,0.97539,in a blood,0.98078,-1.82,True
+Oslo GSE318173,GSM9488234,monocytes,0.1092,0.98426,in a blood,0.9946,-0.732,True
+Oslo GSE318173,GSM9488074,neutrophils,0.4528,1.00181,in a blood,0.99583,-0.114,True
+Oslo GSE318173,GSM9488074,monocytes,0.0898,0.96352,in a blood,0.97365,-3.573,False
+Oslo GSE318173,GSM9488074,cd4 t cells,0.0444,0.9877,in a blood,0.99316,-0.648,True
+Oslo GSE318173,GSM9488244,neutrophils,0.3232,0.98979,,,,
+Oslo GSE318173,GSM9488244,cd4 t cells,0.2489,0.97055,sorted,0.97946,-0.9,True
+Oslo GSE318173,GSM9488244,monocytes,0.0551,0.9508,in a blood,0.96079,-5.315,False
+Oslo GSE318173,GSM9488244,cd8 t cells,0.0379,0.96828,in a blood,0.97717,-1.933,True
+Oslo GSE318173,GSM9488244,b cells,0.0304,0.96447,in a blood,0.97678,-1.82,True
+Oslo GSE318173,GSM9488090,neutrophils,0.4614,0.99522,in a blood,0.98928,-0.293,True
+Oslo GSE318173,GSM9488090,monocytes,0.0892,0.95806,in a blood,0.96813,-4.321,False
+Oslo GSE318173,GSM9488090,b cells,0.0486,0.96517,in a blood,0.97749,-1.764,True
+Oslo GSE318173,GSM9488090,cd4 t cells,0.0223,0.97488,in a blood,0.98027,-1.869,True
+Oslo GSE318173,GSM9488090,cd8 t cells,0.0205,0.9772,in a blood,0.98617,-1.171,True
+Oslo GSE318173,GSM9488004,neutrophils,0.3207,1.01476,,,,
+Oslo GSE318173,GSM9488004,cd4 t cells,0.1596,0.9834,in a blood,0.98884,-1.057,True
+Oslo GSE318173,GSM9488004,monocytes,0.1227,0.96616,in a blood,0.97631,-3.211,False
+Oslo GSE318173,GSM9488403,neutrophils,0.4645,0.99093,in a blood,0.98502,-0.41,True
+Oslo GSE318173,GSM9488403,monocytes,0.1587,0.96394,in a blood,0.97407,-3.515,False
+Oslo GSE318173,GSM9488403,cd4 t cells,0.1353,0.96574,in a blood,0.97108,-2.739,False
+Oslo GSE318173,GSM9488403,cd8 t cells,0.0281,0.96855,in a blood,0.97744,-1.91,True
+Oslo GSE318173,GSM9488403,b cells,0.0265,0.96399,in a blood,0.97629,-1.858,True
+Oslo GSE318173,GSM9488229,neutrophils,0.5035,0.98492,in a blood,0.97905,-0.573,True
+Oslo GSE318173,GSM9488229,cd4 t cells,0.1154,0.96472,in a blood,0.97006,-2.836,False
+Oslo GSE318173,GSM9488229,monocytes,0.0927,0.95622,in a blood,0.96627,-4.573,False
+Oslo GSE318173,GSM9488229,b cells,0.0283,0.96073,in a blood,0.97299,-2.117,True
+Oslo GSE318173,GSM9488229,cd8 t cells,0.0264,0.96262,in a blood,0.97146,-2.417,True
+Oslo GSE318173,GSM9488012,neutrophils,0.5702,0.99987,in a blood,0.99391,-0.167,True
+Oslo GSE318173,GSM9488012,monocytes,0.0917,0.95077,in a blood,0.96076,-5.319,False
+Oslo GSE318173,GSM9488012,cd4 t cells,0.0328,0.97246,in a blood,0.97784,-2.099,True
+Oslo GSE318173,GSM9488012,b cells,0.0293,0.96334,in a blood,0.97563,-1.91,True
+Oslo GSE318173,GSM9488120,neutrophils,0.4087,1.0098,in a blood,1.00378,0.103,True
+Oslo GSE318173,GSM9488120,monocytes,0.141,0.96069,in a blood,0.97079,-3.96,False
+Oslo GSE318173,GSM9488120,cd4 t cells,0.1222,0.9831,in a blood,0.98854,-1.086,True
+Oslo GSE318173,GSM9488177,neutrophils,0.3017,0.97924,,,,
+Oslo GSE318173,GSM9488177,monocytes,0.1743,0.92375,in a blood,0.93346,-9.021,False
+Oslo GSE318173,GSM9488177,cd4 t cells,0.0356,0.94441,in a blood,0.94963,-4.77,False
+Oslo GSE318173,GSM9488177,b cells,0.0308,0.92267,in a blood,0.93444,-5.137,False
+Oslo GSE318173,GSM9488032,neutrophils,0.5541,0.99305,in a blood,0.98713,-0.352,True
+Oslo GSE318173,GSM9488032,cd4 t cells,0.1319,0.97727,in a blood,0.98267,-1.641,True
+Oslo GSE318173,GSM9488032,monocytes,0.0453,0.96744,in a blood,0.97761,-3.036,False
+Oslo GSE318173,GSM9488032,cd8 t cells,0.032,0.9816,in a blood,0.99061,-0.795,True
+Oslo GSE318173,GSM9488024,neutrophils,0.477,1.03231,in a blood,1.02615,0.715,True
+Oslo GSE318173,GSM9488024,monocytes,0.1169,0.9772,in a blood,0.98747,-1.699,True
+Oslo GSE318173,GSM9488024,cd4 t cells,0.0661,0.99012,in a blood,0.9956,-0.417,True
+Oslo GSE318173,GSM9488073,neutrophils,0.6062,1.00462,in a blood,0.99863,-0.037,True
+Oslo GSE318173,GSM9488073,monocytes,0.0697,0.96696,in a blood,0.97712,-3.101,False
+Oslo GSE318173,GSM9488073,cd4 t cells,0.0327,0.97897,in a blood,0.98438,-1.479,True
+Oslo GSE318173,GSM9488321,neutrophils,0.4845,0.96053,in a blood,0.9548,-1.236,True
+Oslo GSE318173,GSM9488321,monocytes,0.1389,0.9555,in a blood,0.96554,-4.671,False
+Oslo GSE318173,GSM9488321,cd4 t cells,0.0769,0.97059,in a blood,0.97596,-2.277,True
+Oslo GSE318173,GSM9488321,cd8 t cells,0.0475,0.96951,in a blood,0.97841,-1.828,True
+Oslo GSE318173,GSM9488321,b cells,0.0308,0.96867,in a blood,0.98103,-1.487,True
+Oslo GSE318173,GSM9488399,neutrophils,0.4379,1.00747,in a blood,1.00146,0.04,True
+Oslo GSE318173,GSM9488399,monocytes,0.1462,0.96482,in a blood,0.97496,-3.395,False
+Oslo GSE318173,GSM9488399,cd4 t cells,0.1143,0.96579,in a blood,0.97113,-2.734,False
+Oslo GSE318173,GSM9488399,cd8 t cells,0.0165,0.96472,in a blood,0.97358,-2.238,True
+Oslo GSE318173,GSM9488399,b cells,0.0129,0.95698,in a blood,0.96919,-2.414,False
+Oslo GSE318173,GSM9488419,neutrophils,0.4968,0.99136,in a blood,0.98545,-0.398,True
+Oslo GSE318173,GSM9488419,monocytes,0.1049,0.95937,in a blood,0.96945,-4.141,False
+Oslo GSE318173,GSM9488419,cd4 t cells,0.0862,0.9844,in a blood,0.98984,-0.962,True
+Oslo GSE318173,GSM9488419,cd8 t cells,0.0278,0.98622,in a blood,0.99528,-0.4,True
+Oslo GSE318173,GSM9488336,neutrophils,0.5132,1.00041,in a blood,0.99444,-0.152,True
+Oslo GSE318173,GSM9488336,cd4 t cells,0.1465,0.98044,in a blood,0.98586,-1.339,True
+Oslo GSE318173,GSM9488336,monocytes,0.1225,0.96636,in a blood,0.97652,-3.184,False
+Oslo GSE318173,GSM9488336,b cells,0.0204,0.97646,in a blood,0.98892,-0.868,True
+Oslo GSE318173,GSM9488048,neutrophils,0.4636,0.9661,in a blood,0.96034,-1.084,True
+Oslo GSE318173,GSM9488048,monocytes,0.0992,0.96107,in a blood,0.97117,-3.908,False
+Oslo GSE318173,GSM9488048,cd8 t cells,0.0451,0.97433,in a blood,0.98328,-1.416,True
+Oslo GSE318173,GSM9488048,b cells,0.0427,0.97029,in a blood,0.98267,-1.358,True
+Oslo GSE318173,GSM9488048,cd4 t cells,0.0404,0.96886,in a blood,0.97422,-2.442,False
+Oslo GSE318173,GSM9488361,neutrophils,0.5552,0.97953,in a blood,0.97369,-0.719,True
+Oslo GSE318173,GSM9488361,cd4 t cells,0.1228,0.97801,in a blood,0.98342,-1.57,True
+Oslo GSE318173,GSM9488361,monocytes,0.1146,0.96925,in a blood,0.97944,-2.788,False
+Oslo GSE318173,GSM9488459,neutrophils,0.4148,0.97839,in a blood,0.97255,-0.75,True
+Oslo GSE318173,GSM9488459,cd4 t cells,0.1578,0.98762,in a blood,0.99308,-0.655,True
+Oslo GSE318173,GSM9488459,monocytes,0.066,0.97133,in a blood,0.98154,-2.503,False
+Oslo GSE318173,GSM9488422,neutrophils,0.4249,0.98173,in a blood,0.97587,-0.66,True
+Oslo GSE318173,GSM9488422,cd4 t cells,0.1532,0.98646,in a blood,0.99192,-0.766,True
+Oslo GSE318173,GSM9488422,monocytes,0.0721,0.97395,in a blood,0.98419,-2.144,False
+Oslo GSE318173,GSM9488475,neutrophils,0.6024,0.99414,in a blood,0.98821,-0.322,True
+Oslo GSE318173,GSM9488475,cd4 t cells,0.0965,0.9901,in a blood,0.99558,-0.419,True
+Oslo GSE318173,GSM9488475,monocytes,0.0623,0.97026,in a blood,0.98046,-2.649,False
+Oslo GSE318173,GSM9488033,neutrophils,0.5961,0.99783,in a blood,0.99188,-0.222,True
+Oslo GSE318173,GSM9488033,cd4 t cells,0.1382,0.9799,in a blood,0.98532,-1.39,True
+Oslo GSE318173,GSM9488033,monocytes,0.039,0.95972,in a blood,0.96981,-4.093,False
+Oslo GSE318173,GSM9488156,neutrophils,0.5334,1.0342,in a blood,1.02803,0.766,True
+Oslo GSE318173,GSM9488156,monocytes,0.0687,0.97435,in a blood,0.98459,-2.089,False
+Oslo GSE318173,GSM9488156,cd4 t cells,0.0448,0.99289,in a blood,0.99838,-0.153,True
+Oslo GSE318173,GSM9488269,neutrophils,0.2486,0.99506,,,,
+Oslo GSE318173,GSM9488269,cd4 t cells,0.1809,0.95187,in a blood,0.95713,-4.06,False
+Oslo GSE318173,GSM9488269,monocytes,0.1647,0.96094,in a blood,0.97104,-3.926,False
+Oslo GSE318173,GSM9488269,nk cells,0.0512,0.95569,in a blood,0.96456,-3.135,False
+Oslo GSE318173,GSM9488269,cd8 t cells,0.0336,0.94439,in a blood,0.95306,-3.975,False
+Oslo GSE318173,GSM9488269,b cells,0.0142,0.9365,in a blood,0.94845,-4.04,False
+Oslo GSE318173,GSM9488253,neutrophils,0.2696,0.96455,,,,
+Oslo GSE318173,GSM9488253,cd4 t cells,0.1917,0.95985,in a blood,0.96516,-3.3,False
+Oslo GSE318173,GSM9488253,monocytes,0.1668,0.9518,in a blood,0.9618,-5.178,False
+Oslo GSE318173,GSM9488253,cd8 t cells,0.0716,0.95969,in a blood,0.9685,-2.668,False
+Oslo GSE318173,GSM9488253,b cells,0.0368,0.95793,in a blood,0.97015,-2.339,False
+Oslo GSE318173,GSM9488438,neutrophils,0.5227,0.98566,in a blood,0.97978,-0.553,True
+Oslo GSE318173,GSM9488438,cd4 t cells,0.1441,0.98785,in a blood,0.99331,-0.633,True
+Oslo GSE318173,GSM9488438,monocytes,0.0503,0.96519,in a blood,0.97533,-3.344,False
+Oslo GSE318173,GSM9488438,cd8 t cells,0.0283,0.9926,in a blood,1.00172,0.145,True
+Oslo GSE318173,GSM9488438,b cells,0.0266,0.98871,in a blood,1.00133,0.104,True
+Oslo GSE318173,GSM9488010,neutrophils,0.2571,0.98706,,,,
+Oslo GSE318173,GSM9488010,monocytes,0.2099,0.97075,in a blood,0.98095,-2.582,False
+Oslo GSE318173,GSM9488010,cd4 t cells,0.0392,0.97848,in a blood,0.98389,-1.526,True
+Oslo GSE318173,GSM9487998,neutrophils,0.4724,1.02303,in a blood,1.01693,0.463,True
+Oslo GSE318173,GSM9487998,cd4 t cells,0.1222,0.96862,in a blood,0.97398,-2.465,False
+Oslo GSE318173,GSM9487998,monocytes,0.0619,0.96485,in a blood,0.97499,-3.39,False
+Oslo GSE318173,GSM9488378,neutrophils,0.3613,0.96218,in a blood,0.95644,-1.191,True
+Oslo GSE318173,GSM9488378,cd4 t cells,0.1584,0.96778,in a blood,0.97313,-2.545,False
+Oslo GSE318173,GSM9488378,monocytes,0.0984,0.94747,in a blood,0.95743,-5.771,False
+Oslo GSE318173,GSM9488378,cd8 t cells,0.031,0.9692,in a blood,0.9781,-1.855,True
+Oslo GSE318173,GSM9488378,b cells,0.0152,0.96454,in a blood,0.97685,-1.814,True
+Oslo GSE318173,GSM9488401,neutrophils,0.5355,1.0119,in a blood,1.00586,0.16,True
+Oslo GSE318173,GSM9488401,cd4 t cells,0.1436,0.98232,in a blood,0.98775,-1.16,True
+Oslo GSE318173,GSM9488401,monocytes,0.0779,0.9741,in a blood,0.98434,-2.123,False
+Oslo GSE318173,GSM9488323,neutrophils,0.4416,0.97981,in a blood,0.97397,-0.712,True
+Oslo GSE318173,GSM9488323,cd4 t cells,0.149,0.97141,in a blood,0.97678,-2.199,True
+Oslo GSE318173,GSM9488323,monocytes,0.0674,0.96012,in a blood,0.97021,-4.038,False
+Oslo GSE318173,GSM9488323,cd8 t cells,0.0378,0.9761,in a blood,0.98506,-1.265,True
+Oslo GSE318173,GSM9488323,b cells,0.0259,0.97701,in a blood,0.98948,-0.825,True
+Oslo GSE318173,GSM9488266,cd4 t cells,0.359,0.97391,sorted,0.98285,-0.752,True
+Oslo GSE318173,GSM9488266,neutrophils,0.1295,1.0493,,,,
+Oslo GSE318173,GSM9488266,monocytes,0.0818,0.97249,in a blood,0.98271,-2.344,False
+Oslo GSE318173,GSM9488266,b cells,0.0373,0.94078,in a blood,0.95279,-3.7,False
+Oslo GSE318173,GSM9488266,cd8 t cells,0.0236,0.95677,in a blood,0.96556,-2.917,False
+Oslo GSE318173,GSM9488026,neutrophils,0.5102,1.03207,in a blood,1.02591,0.708,True
+Oslo GSE318173,GSM9488026,monocytes,0.0918,0.9506,in a blood,0.96059,-5.342,False
+Oslo GSE318173,GSM9488476,neutrophils,0.5686,0.98546,in a blood,0.97958,-0.558,True
+Oslo GSE318173,GSM9488476,cd4 t cells,0.1087,0.98385,in a blood,0.98929,-1.014,True
+Oslo GSE318173,GSM9488476,monocytes,0.0977,0.96995,in a blood,0.98014,-2.692,False
+Oslo GSE318173,GSM9488460,neutrophils,0.4435,0.96719,in a blood,0.96142,-1.055,True
+Oslo GSE318173,GSM9488460,monocytes,0.1045,0.93433,in a blood,0.94415,-7.571,False
+Oslo GSE318173,GSM9488460,cd4 t cells,0.0612,0.97079,in a blood,0.97616,-2.258,True
+Oslo GSE318173,GSM9488460,cd8 t cells,0.0158,0.97334,in a blood,0.98228,-1.501,True
+Oslo GSE318173,GSM9488067,cd4 t cells,0.2145,0.93099,sorted,0.93954,-2.651,False
+Oslo GSE318173,GSM9488067,neutrophils,0.2079,0.95693,,,,
+Oslo GSE318173,GSM9488067,monocytes,0.137,0.9308,in a blood,0.94058,-8.055,False
+Oslo GSE318173,GSM9488067,cd8 t cells,0.0758,0.93368,in a blood,0.94225,-4.891,False
+Oslo GSE318173,GSM9488067,b cells,0.0578,0.933,in a blood,0.94491,-4.317,False
+Oslo GSE318173,GSM9488067,nk cells,0.0499,0.93562,in a blood,0.94431,-4.927,False
+Oslo GSE318173,GSM9488437,neutrophils,0.4954,0.99087,in a blood,0.98496,-0.411,True
+Oslo GSE318173,GSM9488437,monocytes,0.1281,0.97162,in a blood,0.98183,-2.463,False
+Oslo GSE318173,GSM9488437,cd4 t cells,0.1197,0.99628,in a blood,1.00179,0.17,True
+Oslo GSE318173,GSM9488437,cd8 t cells,0.0226,0.99782,in a blood,1.00698,0.591,True
+Oslo GSE318173,GSM9488122,neutrophils,0.455,1.01196,in a blood,1.00592,0.162,True
+Oslo GSE318173,GSM9488122,cd4 t cells,0.1132,0.98257,in a blood,0.988,-1.136,True
+Oslo GSE318173,GSM9488122,monocytes,0.0869,0.95255,in a blood,0.96256,-5.075,False
+Oslo GSE318173,GSM9488088,cd4 t cells,0.2299,0.977,sorted,0.98597,-0.615,True
+Oslo GSE318173,GSM9488088,monocytes,0.1134,0.94728,in a blood,0.95724,-5.797,False
+Oslo GSE318173,GSM9488088,neutrophils,0.0958,0.96318,,,,
+Oslo GSE318173,GSM9487956,neutrophils,0.4678,0.97448,in a blood,0.96867,-0.857,True
+Oslo GSE318173,GSM9487956,monocytes,0.1368,0.95289,in a blood,0.9629,-5.029,False
+Oslo GSE318173,GSM9487956,cd4 t cells,0.0656,0.97027,in a blood,0.97564,-2.308,False
+Oslo GSE318173,GSM9487956,cd8 t cells,0.0342,0.96874,in a blood,0.97764,-1.894,True
+Oslo GSE318173,GSM9487956,b cells,0.0149,0.96529,in a blood,0.97761,-1.755,True
+Oslo GSE318173,GSM9488066,cd4 t cells,0.2251,0.96367,sorted,0.97252,-1.205,True
+Oslo GSE318173,GSM9488066,neutrophils,0.1681,0.95726,,,,
+Oslo GSE318173,GSM9488066,monocytes,0.1238,0.95523,in a blood,0.96527,-4.708,False
+Oslo GSE318173,GSM9488066,cd8 t cells,0.0776,0.96827,in a blood,0.97716,-1.934,True
+Oslo GSE318173,GSM9488066,b cells,0.0556,0.95918,in a blood,0.97142,-2.24,False
+Oslo GSE318173,GSM9488436,neutrophils,0.7434,1.02128,sorted,1.01277,0.25,True
+Oslo GSE318173,GSM9488436,monocytes,0.0771,0.96365,in a blood,0.97378,-3.555,False
+Oslo GSE318173,GSM9488436,cd4 t cells,0.0327,0.99334,in a blood,0.99883,-0.11,True
+Oslo GSE318173,GSM9488420,neutrophils,0.6507,0.99734,in a blood,0.99139,-0.235,True
+Oslo GSE318173,GSM9488420,monocytes,0.1037,0.94626,in a blood,0.9562,-5.937,False
+Oslo GSE318173,GSM9488420,cd4 t cells,0.0598,0.97102,in a blood,0.97639,-2.236,True
+Oslo GSE318173,GSM9488420,b cells,0.0221,0.96244,in a blood,0.97472,-1.981,True
+Oslo GSE318173,GSM9488267,monocytes,0.3132,0.98429,in a blood,0.99463,-0.727,True
+Oslo GSE318173,GSM9488267,cd4 t cells,0.205,0.96974,in a blood,0.9751,-2.358,False
+Oslo GSE318173,GSM9488267,neutrophils,0.1977,1.05157,,,,
+Oslo GSE318173,GSM9488267,b cells,0.0326,0.92441,in a blood,0.93621,-4.999,False
+Oslo GSE318173,GSM9488267,nk cells,0.032,0.96749,in a blood,0.97647,-2.081,True
+Oslo GSE318173,GSM9488267,cd8 t cells,0.0236,0.94831,in a blood,0.95702,-3.64,False
+Oslo GSE318173,GSM9488119,neutrophils,0.6517,1.02981,in a blood,1.02367,0.647,True
+Oslo GSE318173,GSM9488119,monocytes,0.0787,0.97185,in a blood,0.98206,-2.432,False
+Oslo GSE318173,GSM9488119,cd4 t cells,0.0191,0.97719,in a blood,0.98259,-1.649,True
+Oslo GSE318173,GSM9488226,neutrophils,0.5406,0.97551,in a blood,0.96969,-0.829,True
+Oslo GSE318173,GSM9488226,monocytes,0.1537,0.96546,in a blood,0.97561,-3.307,False
+Oslo GSE318173,GSM9488226,cd4 t cells,0.0828,0.96309,in a blood,0.96842,-2.991,False
+Oslo GSE318173,GSM9488226,b cells,0.0235,0.96469,in a blood,0.977,-1.802,True
+Oslo GSE318173,GSM9488226,cd8 t cells,0.0187,0.96459,in a blood,0.97345,-2.249,True
+Oslo GSE318173,GSM9488251,neutrophils,0.5882,0.99324,in a blood,0.98732,-0.347,True
+Oslo GSE318173,GSM9488251,cd4 t cells,0.1397,0.96883,in a blood,0.97419,-2.445,False
+Oslo GSE318173,GSM9488251,monocytes,0.0722,0.96813,in a blood,0.9783,-2.941,False
+Oslo GSE318173,GSM9488251,cd8 t cells,0.0509,0.97206,in a blood,0.98099,-1.61,True
+Oslo GSE318173,GSM9488314,neutrophils,0.4091,0.97468,in a blood,0.96887,-0.851,True
+Oslo GSE318173,GSM9488314,cd4 t cells,0.1225,0.97675,in a blood,0.98215,-1.69,True
+Oslo GSE318173,GSM9488314,monocytes,0.1071,0.96811,in a blood,0.97828,-2.944,False
+Oslo GSE318173,GSM9488314,cd8 t cells,0.071,0.97314,in a blood,0.98208,-1.518,True
+Oslo GSE318173,GSM9488314,b cells,0.0132,0.97628,in a blood,0.98874,-0.883,True
+Oslo GSE318173,GSM9488494,neutrophils,0.5464,0.99897,in a blood,0.99301,-0.191,True
+Oslo GSE318173,GSM9488494,cd4 t cells,0.1865,0.98,in a blood,0.98542,-1.381,True
+Oslo GSE318173,GSM9488494,monocytes,0.1235,0.97218,in a blood,0.9824,-2.386,False
+Oslo GSE318173,GSM9488494,cd8 t cells,0.0303,0.97808,in a blood,0.98706,-1.096,True
+Oslo GSE318173,GSM9488284,neutrophils,0.5568,0.9957,in a blood,0.98976,-0.28,True
+Oslo GSE318173,GSM9488284,cd4 t cells,0.1786,0.97961,in a blood,0.98503,-1.418,True
+Oslo GSE318173,GSM9488284,monocytes,0.1094,0.97649,in a blood,0.98675,-1.796,True
+Oslo GSE318173,GSM9488400,neutrophils,0.5756,0.98967,in a blood,0.98377,-0.444,True
+Oslo GSE318173,GSM9488400,monocytes,0.1257,0.96064,in a blood,0.97074,-3.967,False
+Oslo GSE318173,GSM9488400,cd4 t cells,0.0795,0.97829,in a blood,0.9837,-1.544,True
+Oslo GSE318173,GSM9488292,neutrophils,0.4248,1.02247,in a blood,1.01637,0.448,True
+Oslo GSE318173,GSM9488292,monocytes,0.1379,0.95898,in a blood,0.96906,-4.195,False
+Oslo GSE318173,GSM9488292,cd4 t cells,0.1089,0.98178,in a blood,0.98721,-1.211,True
+Oslo GSE318173,GSM9488292,b cells,0.0366,0.96782,in a blood,0.98017,-1.554,True
+Oslo GSE318173,GSM9488221,neutrophils,0.4588,0.97894,in a blood,0.9731,-0.735,True
+Oslo GSE318173,GSM9488221,cd4 t cells,0.1598,0.91609,in a blood,0.92116,-7.468,False
+Oslo GSE318173,GSM9488221,monocytes,0.106,0.93453,in a blood,0.94435,-7.544,False
+Oslo GSE318173,GSM9488221,nk cells,0.0496,0.92811,in a blood,0.93673,-5.597,False
+Oslo GSE318173,GSM9488260,neutrophils,0.6764,0.99834,in a blood,0.99239,-0.208,True
+Oslo GSE318173,GSM9488260,monocytes,0.115,0.97434,in a blood,0.98458,-2.09,False
+Oslo GSE318173,GSM9488260,cd4 t cells,0.0823,0.98025,in a blood,0.98567,-1.357,True
+Oslo GSE318173,GSM9487947,neutrophils,0.4779,0.98688,in a blood,0.98099,-0.52,True
+Oslo GSE318173,GSM9487947,cd4 t cells,0.1565,0.9848,in a blood,0.99025,-0.924,True
+Oslo GSE318173,GSM9487947,monocytes,0.1027,0.97392,in a blood,0.98416,-2.148,False
+Oslo GSE318173,GSM9487947,cd8 t cells,0.0218,0.98874,in a blood,0.99782,-0.185,True
+Oslo GSE318173,GSM9488165,neutrophils,0.4828,1.02525,in a blood,1.01914,0.523,True
+Oslo GSE318173,GSM9488165,monocytes,0.0902,0.97208,in a blood,0.9823,-2.4,False
+Oslo GSE318173,GSM9488165,cd4 t cells,0.0769,0.98467,in a blood,0.99012,-0.936,True
+Oslo GSE318173,GSM9488153,cd4 t cells,0.2478,0.97627,sorted,0.98524,-0.647,True
+Oslo GSE318173,GSM9488153,monocytes,0.1443,0.95958,in a blood,0.96966,-4.112,False
+Oslo GSE318173,GSM9488153,neutrophils,0.0635,0.97889,,,,
+Oslo GSE318173,GSM9488153,cd8 t cells,0.0608,0.97662,in a blood,0.98559,-1.221,True
+Oslo GSE318173,GSM9488153,b cells,0.0386,0.96422,in a blood,0.97652,-1.84,True
+Oslo GSE318173,GSM9488446,neutrophils,0.4768,0.98243,in a blood,0.97657,-0.64,True
+Oslo GSE318173,GSM9488446,monocytes,0.1385,0.93569,in a blood,0.94552,-7.385,False
+Oslo GSE318173,GSM9488446,cd4 t cells,0.0707,0.97591,in a blood,0.98131,-1.77,True
+Oslo GSE318173,GSM9488446,b cells,0.0199,0.96747,in a blood,0.97982,-1.582,True
+Oslo GSE318173,GSM9488446,cd8 t cells,0.0156,0.97812,in a blood,0.9871,-1.092,True
+Oslo GSE318173,GSM9488368,neutrophils,0.454,0.99451,in a blood,0.98858,-0.312,True
+Oslo GSE318173,GSM9488368,cd4 t cells,0.1603,0.97991,in a blood,0.98533,-1.39,True
+Oslo GSE318173,GSM9488368,monocytes,0.102,0.96562,in a blood,0.97577,-3.285,False
+Oslo GSE318173,GSM9488368,cd8 t cells,0.0111,0.98447,in a blood,0.99351,-0.55,True
+Oslo GSE318173,GSM9487971,neutrophils,0.5532,1.00403,in a blood,0.99804,-0.054,True
+Oslo GSE318173,GSM9487971,cd4 t cells,0.1369,0.97983,in a blood,0.98525,-1.397,True
+Oslo GSE318173,GSM9487971,monocytes,0.0787,0.96748,in a blood,0.97765,-3.03,False
+Oslo GSE318173,GSM9488411,neutrophils,0.5513,1.00778,in a blood,1.00177,0.048,True
+Oslo GSE318173,GSM9488411,cd4 t cells,0.1605,0.97147,in a blood,0.97684,-2.193,True
+Oslo GSE318173,GSM9488411,cd8 t cells,0.0377,0.96848,in a blood,0.97737,-1.916,True
+Oslo GSE318173,GSM9488411,monocytes,0.0332,0.96818,in a blood,0.97835,-2.934,False
+Oslo GSE318173,GSM9488411,b cells,0.0168,0.96324,in a blood,0.97553,-1.917,True
+Oslo GSE318173,GSM9488391,neutrophils,0.4596,1.02724,in a blood,1.02111,0.577,True
+Oslo GSE318173,GSM9488391,cd4 t cells,0.1419,0.98043,in a blood,0.98585,-1.34,True
+Oslo GSE318173,GSM9488391,monocytes,0.0394,0.9592,in a blood,0.96928,-4.164,False
+Oslo GSE318173,GSM9488391,b cells,0.016,0.97062,in a blood,0.98301,-1.332,True
+Oslo GSE318173,GSM9488112,neutrophils,0.678,1.02499,in a blood,1.01888,0.516,True
+Oslo GSE318173,GSM9488112,monocytes,0.0405,0.97481,in a blood,0.98505,-2.026,True
+Oslo GSE318173,GSM9488283,neutrophils,0.4507,1.05345,in a blood,1.04717,1.289,True
+Oslo GSE318173,GSM9488283,cd4 t cells,0.1969,0.98481,in a blood,0.99026,-0.923,True
+Oslo GSE318173,GSM9488283,monocytes,0.0515,0.96257,in a blood,0.97269,-3.703,False
+Oslo GSE318173,GSM9488145,neutrophils,0.5187,1.02147,in a blood,1.01538,0.42,True
+Oslo GSE318173,GSM9488145,monocytes,0.1057,0.96987,in a blood,0.98006,-2.703,False
+Oslo GSE318173,GSM9488145,cd4 t cells,0.0751,0.98211,in a blood,0.98754,-1.18,True
+Oslo GSE318173,GSM9488485,neutrophils,0.5638,0.97856,in a blood,0.97272,-0.746,True
+Oslo GSE318173,GSM9488485,cd4 t cells,0.0999,0.97505,in a blood,0.98044,-1.852,True
+Oslo GSE318173,GSM9488485,monocytes,0.098,0.93934,in a blood,0.94921,-6.885,False
+Oslo GSE318173,GSM9488201,cd4 t cells,0.3433,0.9713,sorted,0.98022,-0.867,True
+Oslo GSE318173,GSM9488201,neutrophils,0.2911,0.99686,,,,
+Oslo GSE318173,GSM9488201,monocytes,0.1097,0.96811,in a blood,0.97828,-2.944,False
+Oslo GSE318173,GSM9488201,b cells,0.0439,0.96113,in a blood,0.97339,-2.085,True
+Oslo GSE318173,GSM9488201,cd8 t cells,0.0416,0.96749,in a blood,0.97638,-2.001,True
+Oslo GSE318173,GSM9488082,neutrophils,0.3656,1.00621,in a blood,1.00021,0.006,True
+Oslo GSE318173,GSM9488082,cd4 t cells,0.2122,0.97849,sorted,0.98748,-0.549,True
+Oslo GSE318173,GSM9488082,monocytes,0.0389,0.95393,in a blood,0.96396,-4.886,False
+Oslo GSE318173,GSM9488082,cd8 t cells,0.0302,0.97849,in a blood,0.98748,-1.061,True
+Oslo GSE318173,GSM9488082,b cells,0.0164,0.96879,in a blood,0.98115,-1.477,True
+Oslo GSE318173,GSM9488484,neutrophils,0.4405,0.98964,in a blood,0.98374,-0.445,True
+Oslo GSE318173,GSM9488484,cd4 t cells,0.1331,0.98426,in a blood,0.9897,-0.975,True
+Oslo GSE318173,GSM9488484,monocytes,0.125,0.97202,in a blood,0.98224,-2.408,False
+Oslo GSE318173,GSM9488168,neutrophils,0.7379,0.97352,sorted,0.96541,-0.677,True
+Oslo GSE318173,GSM9488168,monocytes,0.08,0.93682,in a blood,0.94667,-7.23,False
+Oslo GSE318173,GSM9488168,b cells,0.016,0.96461,in a blood,0.97692,-1.809,True
+Oslo GSE318173,GSM9488451,neutrophils,0.6174,1.00354,in a blood,0.99755,-0.067,True
+Oslo GSE318173,GSM9488451,cd4 t cells,0.0629,0.99544,in a blood,1.00095,0.09,True
+Oslo GSE318173,GSM9488451,monocytes,0.0623,0.97587,in a blood,0.98613,-1.881,True
+Oslo GSE318173,GSM9488282,neutrophils,0.4922,1.02696,in a blood,1.02083,0.57,True
+Oslo GSE318173,GSM9488282,cd4 t cells,0.1072,0.96698,in a blood,0.97233,-2.621,False
+Oslo GSE318173,GSM9488282,cd8 t cells,0.0702,0.96418,in a blood,0.97303,-2.284,True
+Oslo GSE318173,GSM9488282,monocytes,0.0541,0.95722,in a blood,0.96728,-4.436,False
+Oslo GSE318173,GSM9488282,b cells,0.0195,0.95273,in a blood,0.96489,-2.752,False
+Oslo GSE318173,GSM9488113,neutrophils,0.4768,1.00699,in a blood,1.00098,0.027,True
+Oslo GSE318173,GSM9488113,cd4 t cells,0.0939,0.98369,in a blood,0.98913,-1.03,True
+Oslo GSE318173,GSM9488113,monocytes,0.0799,0.97207,in a blood,0.98229,-2.401,False
+Oslo GSE318173,GSM9487989,neutrophils,0.3322,0.96626,,,,
+Oslo GSE318173,GSM9487989,monocytes,0.1084,0.9622,in a blood,0.97231,-3.753,False
+Oslo GSE318173,GSM9487989,cd4 t cells,0.0901,0.97314,in a blood,0.97852,-2.034,True
+Oslo GSE318173,GSM9487966,neutrophils,0.5958,1.00069,in a blood,0.99472,-0.144,True
+Oslo GSE318173,GSM9487966,monocytes,0.1531,0.97698,in a blood,0.98725,-1.729,True
+Oslo GSE318173,GSM9487966,cd4 t cells,0.0497,0.98691,in a blood,0.99237,-0.723,True
+Oslo GSE318173,GSM9488152,neutrophils,0.6331,1.04408,in a blood,1.03785,1.035,True
+Oslo GSE318173,GSM9488152,monocytes,0.0537,0.97199,in a blood,0.9822,-2.412,False
+Oslo GSE318173,GSM9488017,neutrophils,0.6339,0.99698,in a blood,0.99103,-0.245,True
+Oslo GSE318173,GSM9488017,monocytes,0.0741,0.96194,in a blood,0.97205,-3.789,False
+Oslo GSE318173,GSM9488017,b cells,0.0275,0.9676,in a blood,0.97995,-1.571,True
+Oslo GSE318173,GSM9487950,neutrophils,0.4299,0.95767,in a blood,0.95196,-1.313,True
+Oslo GSE318173,GSM9487950,monocytes,0.1427,0.95907,in a blood,0.96915,-4.182,False
+Oslo GSE318173,GSM9487950,cd4 t cells,0.1055,0.97901,in a blood,0.98442,-1.475,True
+Oslo GSE318173,GSM9487950,cd8 t cells,0.0219,0.98272,in a blood,0.99174,-0.699,True
+Oslo GSE318173,GSM9488125,cd4 t cells,0.4045,0.97187,sorted,0.9808,-0.842,True
+Oslo GSE318173,GSM9488125,neutrophils,0.277,0.99691,,,,
+Oslo GSE318173,GSM9488125,monocytes,0.068,0.96695,in a blood,0.97711,-3.103,False
+Oslo GSE318173,GSM9488125,cd8 t cells,0.062,0.9732,in a blood,0.98214,-1.513,True
+Oslo GSE318173,GSM9488125,b cells,0.0208,0.96372,in a blood,0.97602,-1.879,True
+Oslo GSE318173,GSM9488467,neutrophils,0.4905,0.98181,in a blood,0.97595,-0.657,True
+Oslo GSE318173,GSM9488467,cd4 t cells,0.1105,0.98754,in a blood,0.993,-0.663,True
+Oslo GSE318173,GSM9488467,monocytes,0.0728,0.96182,in a blood,0.97193,-3.805,False
+Oslo GSE318173,GSM9488133,neutrophils,0.2556,1.00905,,,,
+Oslo GSE318173,GSM9488133,cd4 t cells,0.2413,0.98521,sorted,0.99426,-0.252,True
+Oslo GSE318173,GSM9488133,monocytes,0.0812,0.95655,in a blood,0.9666,-4.527,False
+Oslo GSE318173,GSM9488133,b cells,0.0139,0.96168,in a blood,0.97395,-2.041,True
+Oslo GSE318173,GSM9488148,neutrophils,0.3538,1.01112,,,,
+Oslo GSE318173,GSM9488148,monocytes,0.1554,0.97044,in a blood,0.98064,-2.625,False
+Oslo GSE318173,GSM9488148,cd4 t cells,0.0915,0.97104,in a blood,0.97641,-2.234,True
+Oslo GSE318173,GSM9488148,b cells,0.0208,0.96271,in a blood,0.97499,-1.96,True
+Oslo GSE318173,GSM9488236,neutrophils,0.6121,0.98561,in a blood,0.97973,-0.554,True
+Oslo GSE318173,GSM9488236,cd4 t cells,0.0945,0.96756,in a blood,0.97291,-2.566,False
+Oslo GSE318173,GSM9488236,cd8 t cells,0.0701,0.97,in a blood,0.97891,-1.786,True
+Oslo GSE318173,GSM9488236,monocytes,0.0596,0.95994,in a blood,0.97003,-4.063,False
+Oslo GSE318173,GSM9488236,b cells,0.0113,0.9678,in a blood,0.98015,-1.556,True
+Uppsala GSE87571,GSM2334198,neutrophils,0.4664,0.94929,in a blood,0.94363,-1.541,True
+Uppsala GSE87571,GSM2334198,cd8 t cells,0.124,0.99326,in a blood,1.00238,0.202,True
+Uppsala GSE87571,GSM2334198,nk cells,0.0468,0.98955,in a blood,0.99874,-0.112,True
+Uppsala GSE87571,GSM2334198,b cells,0.0302,0.99647,in a blood,1.00919,0.72,True
+Uppsala GSE87571,GSM2334198,monocytes,0.0279,0.99328,in a blood,1.00372,0.504,True
+Uppsala GSE87571,GSM2333935,neutrophils,0.5412,0.94563,in a blood,0.93999,-1.64,True
+Uppsala GSE87571,GSM2333935,monocytes,0.0691,0.97363,in a blood,0.98386,-2.188,False
+Uppsala GSE87571,GSM2333935,cd8 t cells,0.0617,0.98026,in a blood,0.98926,-0.909,True
+Uppsala GSE87571,GSM2333935,nk cells,0.0501,0.97627,in a blood,0.98534,-1.297,True
+Uppsala GSE87571,GSM2333935,b cells,0.0143,0.97676,in a blood,0.98922,-0.844,True
+Uppsala GSE87571,GSM2334423,neutrophils,0.4331,0.96213,in a blood,0.95639,-1.192,True
+Uppsala GSE87571,GSM2334423,cd4 t cells,0.1176,1.00567,in a blood,1.01123,1.064,True
+Uppsala GSE87571,GSM2334423,cd8 t cells,0.0994,1.00249,in a blood,1.0117,0.991,True
+Uppsala GSE87571,GSM2334423,b cells,0.0803,1.00049,in a blood,1.01326,1.039,True
+Uppsala GSE87571,GSM2334423,nk cells,0.0465,0.9859,in a blood,0.99505,-0.438,True
+Uppsala GSE87571,GSM2334423,monocytes,0.0328,0.98315,in a blood,0.99348,-0.884,True
+Uppsala GSE87571,GSM2334531,neutrophils,0.6714,0.96857,in a blood,0.96279,-1.017,True
+Uppsala GSE87571,GSM2334531,cd8 t cells,0.0716,0.98265,in a blood,0.99167,-0.705,True
+Uppsala GSE87571,GSM2334531,cd4 t cells,0.0683,0.99242,in a blood,0.99791,-0.198,True
+Uppsala GSE87571,GSM2334531,nk cells,0.0469,0.9799,in a blood,0.989,-0.973,True
+Uppsala GSE87571,GSM2334531,b cells,0.0188,0.97943,in a blood,0.99193,-0.633,True
+Uppsala GSE87571,GSM2334395,neutrophils,0.3937,1.02694,in a blood,1.02082,0.569,True
+Uppsala GSE87571,GSM2334395,cd4 t cells,0.1395,1.01482,in a blood,1.02043,1.935,True
+Uppsala GSE87571,GSM2334395,cd8 t cells,0.0667,0.98633,in a blood,0.99539,-0.391,True
+Uppsala GSE87571,GSM2334395,b cells,0.0537,0.95298,in a blood,0.96514,-2.732,False
+Uppsala GSE87571,GSM2334395,nk cells,0.0466,0.97742,in a blood,0.9865,-1.195,True
+Uppsala GSE87571,GSM2334287,neutrophils,0.4835,0.9683,in a blood,0.96252,-1.024,True
+Uppsala GSE87571,GSM2334287,cd8 t cells,0.0821,0.98643,in a blood,0.99549,-0.382,True
+Uppsala GSE87571,GSM2334287,monocytes,0.0627,0.98572,in a blood,0.99608,-0.532,True
+Uppsala GSE87571,GSM2334287,nk cells,0.0465,0.98237,in a blood,0.99149,-0.753,True
+Uppsala GSE87571,GSM2334287,b cells,0.0354,0.97658,in a blood,0.98904,-0.859,True
+Uppsala GSE87571,GSM2334287,cd4 t cells,0.0166,1.00022,in a blood,1.00575,0.545,True
+Uppsala GSE87571,GSM2334442,neutrophils,0.4542,0.96538,in a blood,0.95962,-1.104,True
+Uppsala GSE87571,GSM2334442,monocytes,0.0826,0.97568,in a blood,0.98593,-1.907,True
+Uppsala GSE87571,GSM2334442,b cells,0.0689,0.96113,in a blood,0.97339,-2.085,True
+Uppsala GSE87571,GSM2334442,cd8 t cells,0.0657,0.97626,in a blood,0.98523,-1.251,True
+Uppsala GSE87571,GSM2334317,neutrophils,0.4071,0.95768,in a blood,0.95197,-1.313,True
+Uppsala GSE87571,GSM2334317,cd8 t cells,0.1204,0.99097,in a blood,1.00007,0.006,True
+Uppsala GSE87571,GSM2334317,monocytes,0.0724,0.97857,in a blood,0.98885,-1.511,True
+Uppsala GSE87571,GSM2334317,nk cells,0.0666,0.97486,in a blood,0.98391,-1.423,True
+Uppsala GSE87571,GSM2334317,cd4 t cells,0.0538,0.99508,in a blood,1.00058,0.055,True
+Uppsala GSE87571,GSM2334317,b cells,0.0321,0.97999,in a blood,0.9925,-0.588,True
+Uppsala GSE87571,GSM2334086,neutrophils,0.3876,0.93798,in a blood,0.93239,-1.848,True
+Uppsala GSE87571,GSM2334086,cd8 t cells,0.12,0.9787,in a blood,0.98769,-1.043,True
+Uppsala GSE87571,GSM2334086,monocytes,0.0599,0.97445,in a blood,0.98469,-2.075,False
+Uppsala GSE87571,GSM2334086,b cells,0.0407,0.96866,in a blood,0.98102,-1.487,True
+Uppsala GSE87571,GSM2334086,nk cells,0.03,0.95861,in a blood,0.96751,-2.874,False
+Uppsala GSE87571,GSM2334090,neutrophils,0.4337,0.94705,in a blood,0.9414,-1.602,True
+Uppsala GSE87571,GSM2334090,monocytes,0.103,0.97695,in a blood,0.98722,-1.733,True
+Uppsala GSE87571,GSM2334090,cd8 t cells,0.0908,0.98439,in a blood,0.99343,-0.556,True
+Uppsala GSE87571,GSM2334090,nk cells,0.0654,0.97039,in a blood,0.9794,-1.822,True
+Uppsala GSE87571,GSM2334090,b cells,0.0223,0.97871,in a blood,0.9912,-0.69,True
+Uppsala GSE87571,GSM2334028,neutrophils,0.7033,0.98542,sorted,0.97721,-0.446,True
+Uppsala GSE87571,GSM2334028,cd4 t cells,0.1102,1.01515,in a blood,1.02076,1.967,True
+Uppsala GSE87571,GSM2334028,monocytes,0.0484,0.99544,in a blood,1.0059,0.8,True
+Uppsala GSE87571,GSM2334028,b cells,0.0162,0.98917,in a blood,1.00179,0.14,True
+Uppsala GSE87571,GSM2334028,cd8 t cells,0.014,1.00155,in a blood,1.01075,0.91,True
+Uppsala GSE87571,GSM2334029,neutrophils,0.5192,0.99403,in a blood,0.9881,-0.325,True
+Uppsala GSE87571,GSM2334029,cd8 t cells,0.1106,1.00273,in a blood,1.01194,1.011,True
+Uppsala GSE87571,GSM2334029,cd4 t cells,0.0538,1.00867,in a blood,1.01425,1.35,True
+Uppsala GSE87571,GSM2334029,nk cells,0.052,0.99015,in a blood,0.99934,-0.058,True
+Uppsala GSE87571,GSM2334029,monocytes,0.0484,0.97855,in a blood,0.98883,-1.514,True
+Uppsala GSE87571,GSM2334029,b cells,0.0423,0.98261,in a blood,0.99515,-0.38,True
+Uppsala GSE87571,GSM2334584,neutrophils,0.5547,0.95968,in a blood,0.95396,-1.259,True
+Uppsala GSE87571,GSM2334584,cd8 t cells,0.175,1.00067,in a blood,1.00986,0.835,True
+Uppsala GSE87571,GSM2334584,monocytes,0.0593,0.99572,in a blood,1.00618,0.838,True
+Uppsala GSE87571,GSM2334584,cd4 t cells,0.0356,1.00218,in a blood,1.00772,0.731,True
+Uppsala GSE87571,GSM2334584,nk cells,0.0259,0.99406,in a blood,1.00329,0.291,True
+Uppsala GSE87571,GSM2334584,b cells,0.0174,0.99774,in a blood,1.01047,0.821,True
+Uppsala GSE87571,GSM2334204,neutrophils,0.533,0.97312,in a blood,0.96732,-0.893,True
+Uppsala GSE87571,GSM2334204,cd4 t cells,0.1281,1.00315,in a blood,1.0087,0.824,True
+Uppsala GSE87571,GSM2334204,cd8 t cells,0.0905,1.00544,in a blood,1.01467,1.243,True
+Uppsala GSE87571,GSM2334204,nk cells,0.0378,0.98863,in a blood,0.99781,-0.194,True
+Uppsala GSE87571,GSM2334204,monocytes,0.0314,0.99163,in a blood,1.00205,0.278,True
+Uppsala GSE87571,GSM2334204,b cells,0.024,0.99969,in a blood,1.01245,0.975,True
+Uppsala GSE87571,GSM2334013,neutrophils,0.4808,0.99657,in a blood,0.99063,-0.256,True
+Uppsala GSE87571,GSM2334013,monocytes,0.1096,0.98384,in a blood,0.99418,-0.789,True
+Uppsala GSE87571,GSM2334013,cd8 t cells,0.1063,0.98594,in a blood,0.99499,-0.424,True
+Uppsala GSE87571,GSM2334013,nk cells,0.0212,0.97646,in a blood,0.98553,-1.28,True
+Uppsala GSE87571,GSM2334013,cd4 t cells,0.0165,0.99422,in a blood,0.99972,-0.027,True
+Uppsala GSE87571,GSM2334013,b cells,0.0152,0.96092,in a blood,0.97318,-2.102,True
+Uppsala GSE87571,GSM2334064,neutrophils,0.5106,0.98616,in a blood,0.98028,-0.539,True
+Uppsala GSE87571,GSM2334064,monocytes,0.0935,0.98461,in a blood,0.99496,-0.684,True
+Uppsala GSE87571,GSM2334064,nk cells,0.092,0.97666,in a blood,0.98573,-1.263,True
+Uppsala GSE87571,GSM2334064,cd8 t cells,0.0381,0.98766,in a blood,0.99673,-0.277,True
+Uppsala GSE87571,GSM2334064,b cells,0.0319,0.97257,in a blood,0.98498,-1.177,True
+Uppsala GSE87571,GSM2334434,neutrophils,0.4837,0.98527,in a blood,0.97939,-0.563,True
+Uppsala GSE87571,GSM2334434,cd8 t cells,0.1533,0.98634,in a blood,0.9954,-0.39,True
+Uppsala GSE87571,GSM2334434,cd4 t cells,0.054,1.00356,in a blood,1.00911,0.863,True
+Uppsala GSE87571,GSM2334434,b cells,0.0511,0.96446,in a blood,0.97677,-1.821,True
+Uppsala GSE87571,GSM2334434,monocytes,0.0326,0.99138,in a blood,1.0018,0.244,True
+Uppsala GSE87571,GSM2333918,neutrophils,0.4353,0.95443,in a blood,0.94874,-1.401,True
+Uppsala GSE87571,GSM2333918,cd8 t cells,0.0785,0.98776,in a blood,0.99683,-0.268,True
+Uppsala GSE87571,GSM2333918,nk cells,0.0746,0.98186,in a blood,0.99098,-0.798,True
+Uppsala GSE87571,GSM2333918,monocytes,0.0497,0.98524,in a blood,0.99559,-0.597,True
+Uppsala GSE87571,GSM2333918,b cells,0.0382,0.98602,in a blood,0.9986,-0.11,True
+Uppsala GSE87571,GSM2334361,neutrophils,0.452,1.0453,in a blood,1.03907,1.068,True
+Uppsala GSE87571,GSM2334361,cd4 t cells,0.1356,1.01101,in a blood,1.0166,1.572,True
+Uppsala GSE87571,GSM2334361,cd8 t cells,0.1313,0.99854,in a blood,1.00771,0.653,True
+Uppsala GSE87571,GSM2334361,nk cells,0.0392,0.98616,in a blood,0.99532,-0.414,True
+Uppsala GSE87571,GSM2334361,b cells,0.0262,0.97077,in a blood,0.98316,-1.32,True
+Uppsala GSE87571,GSM2334623,neutrophils,0.4751,0.99341,in a blood,0.98749,-0.342,True
+Uppsala GSE87571,GSM2334623,cd4 t cells,0.1044,0.95624,in a blood,0.96153,-3.644,False
+Uppsala GSE87571,GSM2334623,cd8 t cells,0.0771,0.94277,in a blood,0.95143,-4.114,False
+Uppsala GSE87571,GSM2334623,monocytes,0.069,0.95424,in a blood,0.96427,-4.844,False
+Uppsala GSE87571,GSM2334623,nk cells,0.0349,0.94148,in a blood,0.95022,-4.404,False
+Uppsala GSE87571,GSM2334336,neutrophils,0.4823,0.97575,in a blood,0.96993,-0.822,True
+Uppsala GSE87571,GSM2334336,cd8 t cells,0.0978,0.98878,in a blood,0.99786,-0.181,True
+Uppsala GSE87571,GSM2334336,monocytes,0.0895,0.97388,in a blood,0.98411,-2.153,False
+Uppsala GSE87571,GSM2334336,b cells,0.0556,0.96917,in a blood,0.98154,-1.447,True
+Uppsala GSE87571,GSM2334009,neutrophils,0.7003,0.96013,sorted,0.95213,-0.937,True
+Uppsala GSE87571,GSM2334009,cd8 t cells,0.0512,0.93388,in a blood,0.94246,-4.874,False
+Uppsala GSE87571,GSM2334009,cd4 t cells,0.0453,0.95192,in a blood,0.95718,-4.055,False
+Uppsala GSE87571,GSM2334009,b cells,0.0302,0.93122,in a blood,0.9431,-4.459,False
+Uppsala GSE87571,GSM2333905,neutrophils,0.5236,0.96473,in a blood,0.95898,-1.121,True
+Uppsala GSE87571,GSM2333905,cd8 t cells,0.0759,0.99758,in a blood,1.00674,0.571,True
+Uppsala GSE87571,GSM2333905,monocytes,0.0731,0.98209,in a blood,0.99241,-1.029,True
+Uppsala GSE87571,GSM2333905,cd4 t cells,0.0428,1.00287,in a blood,1.00842,0.797,True
+Uppsala GSE87571,GSM2333905,nk cells,0.0388,0.98281,in a blood,0.99194,-0.713,True
+Uppsala GSE87571,GSM2333905,b cells,0.0297,0.98475,in a blood,0.99732,-0.21,True
+Uppsala GSE87571,GSM2334628,neutrophils,0.5183,0.9816,in a blood,0.97575,-0.663,True
+Uppsala GSE87571,GSM2334628,cd8 t cells,0.0856,0.98822,in a blood,0.9973,-0.229,True
+Uppsala GSE87571,GSM2334628,b cells,0.0468,0.97532,in a blood,0.98777,-0.959,True
+Uppsala GSE87571,GSM2334628,monocytes,0.0443,0.96279,in a blood,0.97291,-3.673,False
+Uppsala GSE87571,GSM2334628,cd4 t cells,0.0146,0.99543,in a blood,1.00094,0.089,True
+Uppsala GSE87571,GSM2334628,nk cells,0.0138,0.97507,in a blood,0.98412,-1.404,True
+Uppsala GSE87571,GSM2333987,neutrophils,0.513,0.98329,in a blood,0.97743,-0.617,True
+Uppsala GSE87571,GSM2333987,cd4 t cells,0.1385,1.01956,in a blood,1.0252,2.387,False
+Uppsala GSE87571,GSM2333987,cd8 t cells,0.0921,1.01315,in a blood,1.02245,1.902,True
+Uppsala GSE87571,GSM2333987,monocytes,0.0686,0.9962,in a blood,1.00667,0.904,True
+Uppsala GSE87571,GSM2333987,nk cells,0.0589,1.00186,in a blood,1.01116,0.987,True
+Uppsala GSE87571,GSM2333987,b cells,0.0395,1.003,in a blood,1.0158,1.238,True
+Uppsala GSE87571,GSM2334203,neutrophils,0.5429,0.94436,in a blood,0.93873,-1.675,True
+Uppsala GSE87571,GSM2334203,cd8 t cells,0.1256,0.97443,in a blood,0.98338,-1.408,True
+Uppsala GSE87571,GSM2334203,nk cells,0.0515,0.97041,in a blood,0.97942,-1.821,True
+Uppsala GSE87571,GSM2334203,cd4 t cells,0.0422,0.98008,in a blood,0.9855,-1.373,True
+Uppsala GSE87571,GSM2334203,monocytes,0.0343,0.98484,in a blood,0.99519,-0.652,True
+Uppsala GSE87571,GSM2334203,b cells,0.0314,0.97118,in a blood,0.98357,-1.287,True
+Uppsala GSE87571,GSM2334080,neutrophils,0.452,0.959,in a blood,0.95328,-1.277,True
+Uppsala GSE87571,GSM2334080,cd8 t cells,0.1374,0.99914,in a blood,1.00832,0.704,True
+Uppsala GSE87571,GSM2334080,nk cells,0.0663,0.98323,in a blood,0.99236,-0.676,True
+Uppsala GSE87571,GSM2334080,cd4 t cells,0.0552,1.00252,in a blood,1.00806,0.764,True
+Uppsala GSE87571,GSM2334080,monocytes,0.0466,0.98221,in a blood,0.99253,-1.012,True
+Uppsala GSE87571,GSM2334080,b cells,0.0271,0.9923,in a blood,1.00496,0.389,True
+Uppsala GSE87571,GSM2334632,neutrophils,0.3093,1.00462,,,,
+Uppsala GSE87571,GSM2334632,cd8 t cells,0.1732,0.98514,in a blood,0.99419,-0.492,True
+Uppsala GSE87571,GSM2334632,cd4 t cells,0.1226,0.99559,in a blood,1.0011,0.104,True
+Uppsala GSE87571,GSM2334632,b cells,0.0425,0.96904,in a blood,0.98141,-1.457,True
+Uppsala GSE87571,GSM2334632,monocytes,0.0304,0.97339,in a blood,0.98362,-2.221,False
+Uppsala GSE87571,GSM2334632,nk cells,0.0296,0.97395,in a blood,0.98299,-1.504,True
+Uppsala GSE87571,GSM2334448,neutrophils,0.5107,0.98445,in a blood,0.97858,-0.586,True
+Uppsala GSE87571,GSM2334448,cd8 t cells,0.0693,0.985,in a blood,0.99405,-0.504,True
+Uppsala GSE87571,GSM2334448,monocytes,0.0519,0.9736,in a blood,0.98383,-2.192,False
+Uppsala GSE87571,GSM2334448,b cells,0.0402,0.96945,in a blood,0.98182,-1.425,True
+Uppsala GSE87571,GSM2334448,nk cells,0.0131,0.97186,in a blood,0.98088,-1.691,True
+Uppsala GSE87571,GSM2334366,neutrophils,0.3909,0.92446,in a blood,0.91895,-2.216,False
+Uppsala GSE87571,GSM2334366,monocytes,0.075,0.96781,in a blood,0.97798,-2.985,False
+Uppsala GSE87571,GSM2334366,cd8 t cells,0.068,0.95332,in a blood,0.96207,-3.212,False
+Uppsala GSE87571,GSM2334366,b cells,0.0564,0.95214,in a blood,0.96429,-2.798,False
+Uppsala GSE87571,GSM2334521,neutrophils,0.5318,1.00026,in a blood,0.99429,-0.156,True
+Uppsala GSE87571,GSM2334521,cd8 t cells,0.143,0.98842,in a blood,0.9975,-0.212,True
+Uppsala GSE87571,GSM2334521,cd4 t cells,0.0974,1.01087,in a blood,1.01646,1.559,True
+Uppsala GSE87571,GSM2334521,b cells,0.0449,0.97087,in a blood,0.98326,-1.312,True
+Uppsala GSE87571,GSM2334521,monocytes,0.0447,1.00389,in a blood,1.01444,1.958,True
+Uppsala GSE87571,GSM2334521,nk cells,0.0272,0.99122,in a blood,1.00042,0.037,True
+Uppsala GSE87571,GSM2334599,neutrophils,0.4452,1.05995,in a blood,1.05363,1.466,True
+Uppsala GSE87571,GSM2334599,cd8 t cells,0.1367,0.9987,in a blood,1.00787,0.667,True
+Uppsala GSE87571,GSM2334599,cd4 t cells,0.0807,1.01099,in a blood,1.01658,1.57,True
+Uppsala GSE87571,GSM2334599,b cells,0.0248,0.97264,in a blood,0.98505,-1.171,True
+Uppsala GSE87571,GSM2334536,neutrophils,0.5991,1.00233,in a blood,0.99635,-0.1,True
+Uppsala GSE87571,GSM2334536,cd8 t cells,0.0664,0.97601,in a blood,0.98497,-1.273,True
+Uppsala GSE87571,GSM2334536,cd4 t cells,0.0522,0.99238,in a blood,0.99787,-0.202,True
+Uppsala GSE87571,GSM2334536,monocytes,0.0464,0.98718,in a blood,0.99755,-0.332,True
+Uppsala GSE87571,GSM2334536,b cells,0.0379,0.95082,in a blood,0.96295,-2.903,False
+Uppsala GSE87571,GSM2334536,nk cells,0.0221,0.97655,in a blood,0.98562,-1.272,True
+Uppsala GSE87571,GSM2334473,neutrophils,0.5506,0.97097,in a blood,0.96518,-0.952,True
+Uppsala GSE87571,GSM2334473,cd8 t cells,0.1054,0.97896,in a blood,0.98795,-1.021,True
+Uppsala GSE87571,GSM2334473,monocytes,0.0611,0.97365,in a blood,0.98388,-2.185,False
+Uppsala GSE87571,GSM2334473,b cells,0.0314,0.96856,in a blood,0.98092,-1.495,True
+Uppsala GSE87571,GSM2334473,nk cells,0.0246,0.96999,in a blood,0.979,-1.858,True
+Uppsala GSE87571,GSM2334218,neutrophils,0.4359,0.98148,in a blood,0.97563,-0.666,True
+Uppsala GSE87571,GSM2334218,cd8 t cells,0.1306,0.99029,in a blood,0.99938,-0.052,True
+Uppsala GSE87571,GSM2334218,monocytes,0.0844,0.99314,in a blood,1.00358,0.485,True
+Uppsala GSE87571,GSM2334218,nk cells,0.0319,0.9872,in a blood,0.99637,-0.321,True
+Uppsala GSE87571,GSM2334218,b cells,0.0182,0.97009,in a blood,0.98247,-1.374,True
+Uppsala GSE87571,GSM2334131,neutrophils,0.5226,0.98343,in a blood,0.97756,-0.613,True
+Uppsala GSE87571,GSM2334131,cd4 t cells,0.1714,0.99923,in a blood,1.00476,0.45,True
+Uppsala GSE87571,GSM2334131,cd8 t cells,0.0651,0.99109,in a blood,1.00019,0.016,True
+Uppsala GSE87571,GSM2334131,nk cells,0.0348,0.98281,in a blood,0.99194,-0.713,True
+Uppsala GSE87571,GSM2334131,monocytes,0.0315,0.98863,in a blood,0.99902,-0.133,True
+Uppsala GSE87571,GSM2334131,b cells,0.0284,0.97712,in a blood,0.98959,-0.816,True
+Uppsala GSE87571,GSM2334424,neutrophils,0.7178,0.96083,sorted,0.95283,-0.924,True
+Uppsala GSE87571,GSM2334424,cd8 t cells,0.0698,0.96457,in a blood,0.97343,-2.25,True
+Uppsala GSE87571,GSM2334424,monocytes,0.0296,0.98516,in a blood,0.99551,-0.608,True
+Uppsala GSE87571,GSM2334424,cd4 t cells,0.0254,0.97805,in a blood,0.98346,-1.567,True
+Uppsala GSE87571,GSM2334424,b cells,0.0238,0.96548,in a blood,0.9778,-1.74,True
+Uppsala GSE87571,GSM2334609,neutrophils,0.29,0.96666,,,,
+Uppsala GSE87571,GSM2334609,monocytes,0.0458,0.97935,in a blood,0.98964,-1.404,True
+Uppsala GSE87571,GSM2334609,b cells,0.0453,0.98135,in a blood,0.99387,-0.48,True
+Uppsala GSE87571,GSM2334609,cd4 t cells,0.0298,0.99382,in a blood,0.99932,-0.065,True
+Uppsala GSE87571,GSM2334609,nk cells,0.0144,0.98605,in a blood,0.99521,-0.424,True
+Uppsala GSE87571,GSM2334609,cd8 t cells,0.0109,0.99073,in a blood,0.99983,-0.015,True
+Uppsala GSE87571,GSM2334263,neutrophils,0.3363,0.96922,,,,
+Uppsala GSE87571,GSM2334263,cd8 t cells,0.1526,0.98322,in a blood,0.99225,-0.656,True
+Uppsala GSE87571,GSM2334263,cd4 t cells,0.0886,0.99431,in a blood,0.99981,-0.018,True
+Uppsala GSE87571,GSM2334263,monocytes,0.062,0.98118,in a blood,0.99149,-1.153,True
+Uppsala GSE87571,GSM2334263,nk cells,0.0602,0.97136,in a blood,0.98038,-1.736,True
+Uppsala GSE87571,GSM2334263,b cells,0.0473,0.96904,in a blood,0.98141,-1.457,True
+Uppsala GSE87571,GSM2334234,neutrophils,0.3803,0.96837,in a blood,0.96259,-1.023,True
+Uppsala GSE87571,GSM2334234,cd8 t cells,0.2038,0.9942,in a blood,1.00333,0.282,True
+Uppsala GSE87571,GSM2334234,monocytes,0.0683,0.97735,in a blood,0.98762,-1.678,True
+Uppsala GSE87571,GSM2334234,nk cells,0.0481,0.97722,in a blood,0.98629,-1.213,True
+Uppsala GSE87571,GSM2334234,b cells,0.0402,0.98265,in a blood,0.99519,-0.377,True
+Uppsala GSE87571,GSM2334234,cd4 t cells,0.0378,0.99775,in a blood,1.00327,0.31,True
+Uppsala GSE87571,GSM2334097,neutrophils,0.5763,0.9883,in a blood,0.98241,-0.481,True
+Uppsala GSE87571,GSM2334097,monocytes,0.0808,0.98702,in a blood,0.99739,-0.353,True
+Uppsala GSE87571,GSM2334097,cd8 t cells,0.0553,0.97222,in a blood,0.98115,-1.597,True
+Uppsala GSE87571,GSM2334097,nk cells,0.0439,0.97101,in a blood,0.98003,-1.767,True
+Uppsala GSE87571,GSM2334097,b cells,0.0151,0.96002,in a blood,0.97227,-2.173,True
+Uppsala GSE87571,GSM2333928,neutrophils,0.4875,0.96781,in a blood,0.96204,-1.038,True
+Uppsala GSE87571,GSM2333928,cd8 t cells,0.1027,0.97883,in a blood,0.98782,-1.032,True
+Uppsala GSE87571,GSM2333928,monocytes,0.0729,0.97424,in a blood,0.98448,-2.104,False
+Uppsala GSE87571,GSM2333928,b cells,0.0437,0.9595,in a blood,0.97174,-2.214,False
+Uppsala GSE87571,GSM2334629,neutrophils,0.5248,1.04038,in a blood,1.03417,0.934,True
+Uppsala GSE87571,GSM2334629,cd4 t cells,0.0969,1.00211,in a blood,1.00765,0.725,True
+Uppsala GSE87571,GSM2334629,cd8 t cells,0.0725,0.99088,in a blood,0.99998,-0.002,True
+Uppsala GSE87571,GSM2334629,nk cells,0.0435,0.98275,in a blood,0.99188,-0.719,True
+Uppsala GSE87571,GSM2334629,monocytes,0.0247,0.97882,in a blood,0.98911,-1.477,True
+Uppsala GSE87571,GSM2334629,b cells,0.0179,0.97622,in a blood,0.98868,-0.887,True
+Uppsala GSE87571,GSM2334146,neutrophils,0.7051,0.96773,sorted,0.95967,-0.79,True
+Uppsala GSE87571,GSM2334146,cd8 t cells,0.1083,0.99641,in a blood,1.00556,0.471,True
+Uppsala GSE87571,GSM2334146,monocytes,0.0423,0.99073,in a blood,1.00114,0.155,True
+Uppsala GSE87571,GSM2334146,nk cells,0.0177,0.99637,in a blood,1.00562,0.497,True
+Uppsala GSE87571,GSM2334146,b cells,0.0119,0.99847,in a blood,1.01121,0.879,True
+Uppsala GSE87571,GSM2333953,neutrophils,0.5965,0.99364,in a blood,0.98771,-0.336,True
+Uppsala GSE87571,GSM2333953,cd4 t cells,0.0774,0.99823,in a blood,1.00375,0.355,True
+Uppsala GSE87571,GSM2333953,cd8 t cells,0.0512,0.98818,in a blood,0.99726,-0.232,True
+Uppsala GSE87571,GSM2333953,nk cells,0.0401,0.97832,in a blood,0.9874,-1.114,True
+Uppsala GSE87571,GSM2333953,monocytes,0.0283,0.98349,in a blood,0.99383,-0.837,True
+Uppsala GSE87571,GSM2333953,b cells,0.0251,0.97376,in a blood,0.98619,-1.083,True
+Uppsala GSE87571,GSM2334541,neutrophils,0.4944,0.94763,in a blood,0.94198,-1.586,True
+Uppsala GSE87571,GSM2334541,cd8 t cells,0.1418,1.00259,in a blood,1.0118,0.999,True
+Uppsala GSE87571,GSM2334541,monocytes,0.0937,0.982,in a blood,0.99232,-1.041,True
+Uppsala GSE87571,GSM2334541,b cells,0.0254,0.99779,in a blood,1.01052,0.825,True
+Uppsala GSE87571,GSM2334541,nk cells,0.0118,0.9869,in a blood,0.99606,-0.348,True
+Uppsala GSE87571,GSM2334186,neutrophils,0.6402,0.96231,in a blood,0.95657,-1.187,True
+Uppsala GSE87571,GSM2334186,cd8 t cells,0.0743,0.98897,in a blood,0.99805,-0.165,True
+Uppsala GSE87571,GSM2334186,cd4 t cells,0.0689,0.99371,in a blood,0.99921,-0.075,True
+Uppsala GSE87571,GSM2334186,monocytes,0.053,0.98883,in a blood,0.99922,-0.105,True
+Uppsala GSE87571,GSM2334186,b cells,0.0279,0.98562,in a blood,0.9982,-0.141,True
+Uppsala GSE87571,GSM2334186,nk cells,0.0107,0.98286,in a blood,0.99199,-0.709,True
+Uppsala GSE87571,GSM2334190,neutrophils,0.4805,0.97761,in a blood,0.97178,-0.771,True
+Uppsala GSE87571,GSM2334190,cd4 t cells,0.1705,1.01217,in a blood,1.01777,1.683,True
+Uppsala GSE87571,GSM2334190,monocytes,0.0531,0.99898,in a blood,1.00948,1.285,True
+Uppsala GSE87571,GSM2334190,nk cells,0.0485,0.99252,in a blood,1.00174,0.154,True
+Uppsala GSE87571,GSM2334190,cd8 t cells,0.015,1.00531,in a blood,1.01454,1.232,True
+Uppsala GSE87571,GSM2334190,b cells,0.011,0.997,in a blood,1.00972,0.762,True
+Uppsala GSE87571,GSM2334000,neutrophils,0.5874,0.96219,in a blood,0.95645,-1.19,True
+Uppsala GSE87571,GSM2334000,cd8 t cells,0.1174,1.00199,in a blood,1.01119,0.948,True
+Uppsala GSE87571,GSM2334000,cd4 t cells,0.1047,1.00312,in a blood,1.00867,0.821,True
+Uppsala GSE87571,GSM2334000,monocytes,0.0445,0.97529,in a blood,0.98554,-1.96,True
+Uppsala GSE87571,GSM2334000,b cells,0.0183,0.99264,in a blood,1.00531,0.416,True
+Uppsala GSE87571,GSM2333950,neutrophils,0.5882,0.95179,in a blood,0.94611,-1.473,True
+Uppsala GSE87571,GSM2333950,b cells,0.0472,0.96805,in a blood,0.9804,-1.536,True
+Uppsala GSE87571,GSM2333950,monocytes,0.0371,0.99164,in a blood,1.00206,0.279,True
+Uppsala GSE87571,GSM2333927,neutrophils,0.5294,0.96977,in a blood,0.96399,-0.985,True
+Uppsala GSE87571,GSM2333927,cd8 t cells,0.0967,0.97834,in a blood,0.98732,-1.074,True
+Uppsala GSE87571,GSM2333927,monocytes,0.058,0.97199,in a blood,0.9822,-2.412,False
+Uppsala GSE87571,GSM2333927,b cells,0.049,0.96396,in a blood,0.97626,-1.86,True
+Uppsala GSE87571,GSM2333927,nk cells,0.0191,0.96934,in a blood,0.97834,-1.916,True
+Uppsala GSE87571,GSM2334132,neutrophils,0.545,0.95065,in a blood,0.94498,-1.504,True
+Uppsala GSE87571,GSM2334132,monocytes,0.0792,0.97493,in a blood,0.98518,-2.01,True
+Uppsala GSE87571,GSM2334132,cd8 t cells,0.0715,0.97215,in a blood,0.98108,-1.603,True
+Uppsala GSE87571,GSM2334132,b cells,0.0461,0.96585,in a blood,0.97818,-1.71,True
+Uppsala GSE87571,GSM2334132,nk cells,0.022,0.96242,in a blood,0.97136,-2.534,False
+Uppsala GSE87571,GSM2334061,neutrophils,0.5834,0.98333,in a blood,0.97747,-0.616,True
+Uppsala GSE87571,GSM2334061,cd4 t cells,0.1171,0.97824,in a blood,0.98365,-1.549,True
+Uppsala GSE87571,GSM2334061,cd8 t cells,0.0536,0.97087,in a blood,0.97979,-1.712,True
+Uppsala GSE87571,GSM2334061,nk cells,0.0449,0.96622,in a blood,0.97519,-2.195,True
+Uppsala GSE87571,GSM2334061,monocytes,0.0224,0.96492,in a blood,0.97506,-3.381,False
+Uppsala GSE87571,GSM2334431,neutrophils,0.3797,1.01631,in a blood,1.01025,0.28,True
+Uppsala GSE87571,GSM2334431,cd4 t cells,0.1917,1.01729,in a blood,1.02292,2.17,True
+Uppsala GSE87571,GSM2334431,cd8 t cells,0.1,0.99809,in a blood,1.00726,0.615,True
+Uppsala GSE87571,GSM2334431,nk cells,0.0525,0.98889,in a blood,0.99807,-0.171,True
+Uppsala GSE87571,GSM2334431,b cells,0.0504,0.96594,in a blood,0.97827,-1.703,True
+Uppsala GSE87571,GSM2334431,monocytes,0.0407,0.9956,in a blood,1.00606,0.822,True
+Uppsala GSE87571,GSM2334124,neutrophils,0.5654,0.95785,in a blood,0.95214,-1.308,True
+Uppsala GSE87571,GSM2334124,cd8 t cells,0.0804,0.98151,in a blood,0.99052,-0.803,True
+Uppsala GSE87571,GSM2334124,monocytes,0.0588,0.9838,in a blood,0.99414,-0.795,True
+Uppsala GSE87571,GSM2334124,b cells,0.0433,0.98007,in a blood,0.99258,-0.582,True
+Uppsala GSE87571,GSM2334124,nk cells,0.0358,0.97235,in a blood,0.98138,-1.647,True
+Uppsala GSE87571,GSM2334574,neutrophils,0.4731,0.95703,in a blood,0.95132,-1.331,True
+Uppsala GSE87571,GSM2334574,cd4 t cells,0.1255,0.93582,in a blood,0.941,-5.589,False
+Uppsala GSE87571,GSM2334574,nk cells,0.0941,0.91914,in a blood,0.92767,-6.398,False
+Uppsala GSE87571,GSM2334574,cd8 t cells,0.0579,0.92284,in a blood,0.93131,-5.817,False
+Uppsala GSE87571,GSM2334574,monocytes,0.0542,0.93537,in a blood,0.9452,-7.429,False
+Uppsala GSE87571,GSM2334574,b cells,0.015,0.90763,in a blood,0.91921,-6.331,False
+Uppsala GSE87571,GSM2334523,neutrophils,0.4514,0.9785,in a blood,0.97266,-0.747,True
+Uppsala GSE87571,GSM2334523,cd8 t cells,0.0961,0.9765,in a blood,0.98547,-1.231,True
+Uppsala GSE87571,GSM2334523,monocytes,0.0744,0.99807,in a blood,1.00856,1.16,True
+Uppsala GSE87571,GSM2334523,nk cells,0.0657,0.97028,in a blood,0.97929,-1.832,True
+Uppsala GSE87571,GSM2334523,b cells,0.0356,0.95896,in a blood,0.9712,-2.257,False
+Uppsala GSE87571,GSM2334523,cd4 t cells,0.0111,0.99253,,,,
+Uppsala GSE87571,GSM2334173,neutrophils,0.619,0.98462,in a blood,0.97875,-0.581,True
+Uppsala GSE87571,GSM2334173,cd4 t cells,0.0918,0.98984,in a blood,0.99531,-0.444,True
+Uppsala GSE87571,GSM2334173,cd8 t cells,0.064,0.9813,in a blood,0.99031,-0.821,True
+Uppsala GSE87571,GSM2334173,nk cells,0.0454,0.978,in a blood,0.98708,-1.143,True
+Uppsala GSE87571,GSM2334173,monocytes,0.0416,0.98499,in a blood,0.99534,-0.632,True
+Uppsala GSE87571,GSM2334173,b cells,0.0168,0.96433,in a blood,0.97664,-1.831,True
+Uppsala GSE87571,GSM2334333,neutrophils,0.4915,0.96195,in a blood,0.95621,-1.197,True
+Uppsala GSE87571,GSM2334333,cd8 t cells,0.077,1.00391,in a blood,1.01313,1.112,True
+Uppsala GSE87571,GSM2334333,nk cells,0.0654,0.99369,in a blood,1.00292,0.258,True
+Uppsala GSE87571,GSM2334333,monocytes,0.0612,0.97643,in a blood,0.98669,-1.804,True
+Uppsala GSE87571,GSM2334333,b cells,0.0277,0.99893,in a blood,1.01168,0.915,True
+Uppsala GSE87571,GSM2334519,neutrophils,0.5613,0.98319,in a blood,0.97733,-0.62,True
+Uppsala GSE87571,GSM2334519,monocytes,0.0454,0.99634,in a blood,1.00681,0.923,True
+Uppsala GSE87571,GSM2334519,cd8 t cells,0.0241,0.97515,in a blood,0.98411,-1.346,True
+Uppsala GSE87571,GSM2334519,b cells,0.0161,0.96418,in a blood,0.97648,-1.843,True
+Uppsala GSE87571,GSM2334372,neutrophils,0.4683,0.96408,in a blood,0.95833,-1.139,True
+Uppsala GSE87571,GSM2334372,cd4 t cells,0.1752,0.98675,in a blood,0.99221,-0.738,True
+Uppsala GSE87571,GSM2334372,cd8 t cells,0.1573,0.98234,in a blood,0.99136,-0.732,True
+Uppsala GSE87571,GSM2334372,monocytes,0.0442,0.9783,in a blood,0.98858,-1.548,True
+Uppsala GSE87571,GSM2334372,nk cells,0.0198,0.97423,in a blood,0.98328,-1.479,True
+Uppsala GSE87571,GSM2334373,neutrophils,0.6417,0.99241,in a blood,0.98649,-0.369,True
+Uppsala GSE87571,GSM2334373,monocytes,0.0719,0.98844,in a blood,0.99883,-0.159,True
+Uppsala GSE87571,GSM2334373,cd4 t cells,0.05,0.99259,in a blood,0.99808,-0.182,True
+Uppsala GSE87571,GSM2334373,nk cells,0.0495,0.97202,in a blood,0.98105,-1.677,True
+Uppsala GSE87571,GSM2334373,b cells,0.0238,0.96422,in a blood,0.97652,-1.84,True
+Uppsala GSE87571,GSM2334365,neutrophils,0.3831,0.99537,in a blood,0.98943,-0.289,True
+Uppsala GSE87571,GSM2334365,cd4 t cells,0.1283,1.00823,in a blood,1.01381,1.308,True
+Uppsala GSE87571,GSM2334365,cd8 t cells,0.0987,0.98753,in a blood,0.9966,-0.288,True
+Uppsala GSE87571,GSM2334365,nk cells,0.068,0.98161,in a blood,0.99072,-0.821,True
+Uppsala GSE87571,GSM2334365,b cells,0.0567,0.96295,in a blood,0.97524,-1.94,True
+Uppsala GSE87571,GSM2334365,monocytes,0.037,0.99545,in a blood,1.00591,0.801,True
+Uppsala GSE87571,GSM2334220,neutrophils,0.5081,1.00339,in a blood,0.99741,-0.071,True
+Uppsala GSE87571,GSM2334220,cd8 t cells,0.105,0.9963,in a blood,1.00545,0.462,True
+Uppsala GSE87571,GSM2334220,cd4 t cells,0.0579,1.00607,in a blood,1.01163,1.102,True
+Uppsala GSE87571,GSM2334220,monocytes,0.0509,0.98997,in a blood,1.00037,0.051,True
+Uppsala GSE87571,GSM2334220,nk cells,0.0506,0.98688,in a blood,0.99604,-0.35,True
+Uppsala GSE87571,GSM2334220,b cells,0.0253,0.97839,in a blood,0.99088,-0.715,True
+Uppsala GSE87571,GSM2334037,neutrophils,0.5119,1.00282,in a blood,0.99684,-0.086,True
+Uppsala GSE87571,GSM2334037,monocytes,0.0957,0.97634,in a blood,0.9866,-1.816,True
+Uppsala GSE87571,GSM2334037,cd8 t cells,0.0853,1.01174,in a blood,1.02103,1.781,True
+Uppsala GSE87571,GSM2334037,nk cells,0.0489,0.99596,in a blood,1.00521,0.461,True
+Uppsala GSE87571,GSM2334037,cd4 t cells,0.0336,1.01548,in a blood,1.0211,1.998,True
+Uppsala GSE87571,GSM2334037,b cells,0.0251,0.99396,in a blood,1.00664,0.521,True
+Uppsala GSE87571,GSM2334522,neutrophils,0.4277,0.97967,in a blood,0.97383,-0.715,True
+Uppsala GSE87571,GSM2334522,cd8 t cells,0.1155,0.98114,in a blood,0.99015,-0.834,True
+Uppsala GSE87571,GSM2334522,cd4 t cells,0.0853,0.99496,in a blood,1.00046,0.044,True
+Uppsala GSE87571,GSM2334522,monocytes,0.0617,1.00099,in a blood,1.01151,1.56,True
+Uppsala GSE87571,GSM2334522,b cells,0.0584,0.96624,in a blood,0.97857,-1.679,True
+Uppsala GSE87571,GSM2334522,nk cells,0.0491,0.97818,in a blood,0.98726,-1.127,True
+Uppsala GSE87571,GSM2334406,neutrophils,0.4524,1.00673,in a blood,1.00073,0.02,True
+Uppsala GSE87571,GSM2334406,nk cells,0.0805,0.98775,in a blood,0.99692,-0.272,True
+Uppsala GSE87571,GSM2334406,monocytes,0.0644,0.97982,in a blood,0.99012,-1.34,True
+Uppsala GSE87571,GSM2334406,cd8 t cells,0.0318,1.00084,in a blood,1.01003,0.85,True
+Uppsala GSE87571,GSM2334406,b cells,0.0187,0.98054,in a blood,0.99305,-0.544,True
+Uppsala GSE87571,GSM2334406,cd4 t cells,0.0175,1.01394,in a blood,1.01955,1.851,True
+Uppsala GSE87571,GSM2334386,neutrophils,0.4936,0.95439,in a blood,0.9487,-1.402,True
+Uppsala GSE87571,GSM2334386,cd8 t cells,0.1303,0.98879,in a blood,0.99787,-0.18,True
+Uppsala GSE87571,GSM2334386,cd4 t cells,0.0609,0.99114,in a blood,0.99662,-0.32,True
+Uppsala GSE87571,GSM2334386,nk cells,0.0584,0.96736,in a blood,0.97634,-2.093,True
+Uppsala GSE87571,GSM2334386,monocytes,0.0544,0.96715,in a blood,0.97731,-3.075,False
+Uppsala GSE87571,GSM2334040,neutrophils,0.6719,0.96947,in a blood,0.96369,-0.993,True
+Uppsala GSE87571,GSM2334040,cd8 t cells,0.0382,1.0003,in a blood,1.00949,0.803,True
+Uppsala GSE87571,GSM2334040,monocytes,0.025,0.98871,in a blood,0.9991,-0.122,True
+Uppsala GSE87571,GSM2334040,b cells,0.0212,0.99871,in a blood,1.01145,0.898,True
+Uppsala GSE87571,GSM2334040,nk cells,0.0127,0.99188,in a blood,1.00109,0.096,True
+Uppsala GSE87571,GSM2334596,neutrophils,0.4569,1.0339,in a blood,1.02773,0.758,True
+Uppsala GSE87571,GSM2334596,b cells,0.0598,0.96573,in a blood,0.97805,-1.72,True
+Uppsala GSE87571,GSM2334596,cd8 t cells,0.059,0.98384,in a blood,0.99288,-0.603,True
+Uppsala GSE87571,GSM2334596,nk cells,0.046,0.97784,in a blood,0.98692,-1.157,True
+Uppsala GSE87571,GSM2334596,cd4 t cells,0.029,0.9943,in a blood,0.9998,-0.019,True
+Uppsala GSE87571,GSM2334596,monocytes,0.0153,0.96668,in a blood,0.97684,-3.14,False
+Uppsala GSE87571,GSM2334129,neutrophils,0.5892,0.94722,in a blood,0.94157,-1.597,True
+Uppsala GSE87571,GSM2334129,monocytes,0.0719,0.97409,in a blood,0.98433,-2.125,False
+Uppsala GSE87571,GSM2334129,cd8 t cells,0.0699,0.97027,in a blood,0.97918,-1.763,True
+Uppsala GSE87571,GSM2334129,cd4 t cells,0.036,0.97739,in a blood,0.9828,-1.63,True
+Uppsala GSE87571,GSM2334129,b cells,0.0267,0.96434,in a blood,0.97665,-1.83,True
+Uppsala GSE87571,GSM2334353,neutrophils,0.3824,0.99555,in a blood,0.98961,-0.284,True
+Uppsala GSE87571,GSM2334353,cd4 t cells,0.213,1.00602,sorted,1.01526,0.669,True
+Uppsala GSE87571,GSM2334353,cd8 t cells,0.1239,0.99612,in a blood,1.00527,0.446,True
+Uppsala GSE87571,GSM2334353,b cells,0.0433,0.96934,in a blood,0.98171,-1.433,True
+Uppsala GSE87571,GSM2334353,nk cells,0.0205,0.97699,in a blood,0.98606,-1.233,True
+Uppsala GSE87571,GSM2334353,monocytes,0.0178,0.98263,in a blood,0.99296,-0.955,True
+Uppsala GSE87571,GSM2334304,neutrophils,0.4712,0.9648,in a blood,0.95905,-1.12,True
+Uppsala GSE87571,GSM2334304,cd4 t cells,0.1941,1.0013,in a blood,1.00684,0.648,True
+Uppsala GSE87571,GSM2334304,monocytes,0.0447,0.98162,in a blood,0.99194,-1.093,True
+Uppsala GSE87571,GSM2334304,b cells,0.0426,0.98462,in a blood,0.99718,-0.221,True
+Uppsala GSE87571,GSM2334304,cd8 t cells,0.0331,0.99744,in a blood,1.0066,0.559,True
+Uppsala GSE87571,GSM2334304,nk cells,0.0178,0.97794,in a blood,0.98702,-1.148,True
+Uppsala GSE87571,GSM2333992,neutrophils,0.5388,0.95164,in a blood,0.94596,-1.477,True
+Uppsala GSE87571,GSM2333992,cd8 t cells,0.1838,0.99395,in a blood,1.00308,0.261,True
+Uppsala GSE87571,GSM2333992,monocytes,0.0417,0.99336,in a blood,1.0038,0.515,True
+Uppsala GSE87571,GSM2333992,nk cells,0.0194,0.98877,in a blood,0.99795,-0.181,True
+Uppsala GSE87571,GSM2333992,b cells,0.0146,0.99236,in a blood,1.00502,0.394,True
+Uppsala GSE87571,GSM2334499,neutrophils,0.427,0.99084,in a blood,0.98493,-0.412,True
+Uppsala GSE87571,GSM2334499,monocytes,0.0982,0.98564,in a blood,0.996,-0.542,True
+Uppsala GSE87571,GSM2334499,nk cells,0.0824,0.97106,in a blood,0.98008,-1.762,True
+Uppsala GSE87571,GSM2334499,cd8 t cells,0.0646,0.97248,in a blood,0.98141,-1.574,True
+Uppsala GSE87571,GSM2334499,b cells,0.0576,0.94232,in a blood,0.95434,-3.578,False
+Uppsala GSE87571,GSM2334499,cd4 t cells,0.0557,0.98902,in a blood,0.99449,-0.522,True
+Uppsala GSE87571,GSM2334030,neutrophils,0.6164,0.97209,in a blood,0.96629,-0.921,True
+Uppsala GSE87571,GSM2334030,monocytes,0.1087,0.98817,in a blood,0.99855,-0.196,True
+Uppsala GSE87571,GSM2334030,cd8 t cells,0.0656,1.00879,in a blood,1.01805,1.529,True
+Uppsala GSE87571,GSM2334030,nk cells,0.0512,0.99168,in a blood,1.00089,0.079,True
+Uppsala GSE87571,GSM2334030,b cells,0.0227,0.99258,in a blood,1.00525,0.411,True
+Uppsala GSE87571,GSM2334030,cd4 t cells,0.0147,1.01337,in a blood,1.01897,1.797,True
+Uppsala GSE87571,GSM2334227,neutrophils,0.4532,0.98894,in a blood,0.98304,-0.464,True
+Uppsala GSE87571,GSM2334227,cd4 t cells,0.1293,0.99649,in a blood,1.002,0.19,True
+Uppsala GSE87571,GSM2334227,cd8 t cells,0.0619,0.98393,in a blood,0.99297,-0.596,True
+Uppsala GSE87571,GSM2334227,monocytes,0.0583,0.98188,in a blood,0.9922,-1.058,True
+Uppsala GSE87571,GSM2334227,nk cells,0.0581,0.97034,in a blood,0.97935,-1.827,True
+Uppsala GSE87571,GSM2334227,b cells,0.0276,0.96251,in a blood,0.97479,-1.975,True
+Uppsala GSE87571,GSM2334270,neutrophils,0.5441,0.98756,in a blood,0.98167,-0.501,True
+Uppsala GSE87571,GSM2334270,cd8 t cells,0.0995,0.99769,in a blood,1.00685,0.58,True
+Uppsala GSE87571,GSM2334270,monocytes,0.059,0.97784,in a blood,0.98812,-1.611,True
+Uppsala GSE87571,GSM2334270,b cells,0.0308,0.98832,in a blood,1.00093,0.073,True
+Uppsala GSE87571,GSM2334270,nk cells,0.0255,0.98677,in a blood,0.99593,-0.36,True
+Uppsala GSE87571,GSM2334270,cd4 t cells,0.0208,1.0047,in a blood,1.01026,0.971,True
+Uppsala GSE87571,GSM2334246,neutrophils,0.4854,1.01954,in a blood,1.01346,0.368,True
+Uppsala GSE87571,GSM2334246,monocytes,0.0743,0.99131,in a blood,1.00173,0.234,True
+Uppsala GSE87571,GSM2334246,cd4 t cells,0.0631,1.01195,in a blood,1.01755,1.662,True
+Uppsala GSE87571,GSM2334246,cd8 t cells,0.0601,0.99249,in a blood,1.0016,0.136,True
+Uppsala GSE87571,GSM2334246,nk cells,0.0414,0.98875,in a blood,0.99793,-0.183,True
+Uppsala GSE87571,GSM2334246,b cells,0.0351,0.96895,in a blood,0.98131,-1.464,True
+Uppsala GSE87571,GSM2333995,neutrophils,0.4744,0.97826,in a blood,0.97243,-0.754,True
+Uppsala GSE87571,GSM2333995,nk cells,0.0945,0.99862,in a blood,1.00789,0.698,True
+Uppsala GSE87571,GSM2333995,cd8 t cells,0.0602,1.00472,in a blood,1.01395,1.181,True
+Uppsala GSE87571,GSM2333995,monocytes,0.0484,0.98884,in a blood,0.99923,-0.104,True
+Uppsala GSE87571,GSM2333995,cd4 t cells,0.0468,1.0076,in a blood,1.01317,1.248,True
+Uppsala GSE87571,GSM2333995,b cells,0.0319,0.99636,in a blood,1.00907,0.711,True
+Uppsala GSE87571,GSM2334303,neutrophils,0.6184,0.99085,in a blood,0.98494,-0.412,True
+Uppsala GSE87571,GSM2334303,monocytes,0.078,0.98919,in a blood,0.99959,-0.056,True
+Uppsala GSE87571,GSM2334303,cd8 t cells,0.0536,0.97885,in a blood,0.98784,-1.03,True
+Uppsala GSE87571,GSM2334303,b cells,0.0405,0.96377,in a blood,0.97607,-1.875,True
+Uppsala GSE87571,GSM2334211,neutrophils,0.6379,0.94702,in a blood,0.94137,-1.603,True
+Uppsala GSE87571,GSM2334211,cd8 t cells,0.1441,0.99891,in a blood,1.00808,0.685,True
+Uppsala GSE87571,GSM2334211,nk cells,0.0348,0.98766,in a blood,0.99683,-0.28,True
+Uppsala GSE87571,GSM2334211,b cells,0.0189,0.99603,in a blood,1.00874,0.685,True
+Uppsala GSE87571,GSM2334211,monocytes,0.0148,0.98597,in a blood,0.99633,-0.497,True
+Uppsala GSE87571,GSM2334207,neutrophils,0.4887,0.99065,in a blood,0.98474,-0.417,True
+Uppsala GSE87571,GSM2334207,cd8 t cells,0.1293,1.00105,in a blood,1.01024,0.868,True
+Uppsala GSE87571,GSM2334207,cd4 t cells,0.1225,1.00994,in a blood,1.01553,1.47,True
+Uppsala GSE87571,GSM2334207,nk cells,0.0554,0.9891,in a blood,0.99828,-0.152,True
+Uppsala GSE87571,GSM2334207,monocytes,0.0546,0.99199,in a blood,1.00242,0.327,True
+Uppsala GSE87571,GSM2334207,b cells,0.0193,0.98621,in a blood,0.99879,-0.094,True
+Uppsala GSE87571,GSM2334600,neutrophils,0.4098,0.97466,in a blood,0.96885,-0.852,True
+Uppsala GSE87571,GSM2334600,cd8 t cells,0.0769,0.9826,in a blood,0.99162,-0.709,True
+Uppsala GSE87571,GSM2334600,b cells,0.0553,0.97043,in a blood,0.98281,-1.347,True
+Uppsala GSE87571,GSM2334600,monocytes,0.0306,0.95945,in a blood,0.96953,-4.13,False
+Uppsala GSE87571,GSM2334600,cd4 t cells,0.0228,0.98651,in a blood,0.99197,-0.761,True
+Uppsala GSE87571,GSM2333917,neutrophils,0.6526,0.94835,in a blood,0.94269,-1.567,True
+Uppsala GSE87571,GSM2333917,cd8 t cells,0.0679,0.98354,in a blood,0.99257,-0.629,True
+Uppsala GSE87571,GSM2333917,monocytes,0.0497,0.97503,in a blood,0.98528,-1.996,True
+Uppsala GSE87571,GSM2333917,b cells,0.034,0.98014,in a blood,0.99265,-0.576,True
+Uppsala GSE87571,GSM2334381,neutrophils,0.6973,1.0153,sorted,1.00684,0.134,True
+Uppsala GSE87571,GSM2334381,cd8 t cells,0.04,1.01051,in a blood,1.01979,1.676,True
+Uppsala GSE87571,GSM2334381,monocytes,0.0337,1.00148,in a blood,1.012,1.627,True
+Uppsala GSE87571,GSM2334381,b cells,0.0188,1.00155,in a blood,1.01433,1.123,True
+Uppsala GSE87571,GSM2334143,neutrophils,0.4518,0.96013,in a blood,0.9544,-1.246,True
+Uppsala GSE87571,GSM2334143,cd8 t cells,0.1131,0.98909,in a blood,0.99817,-0.155,True
+Uppsala GSE87571,GSM2334143,cd4 t cells,0.0976,0.99467,in a blood,1.00017,0.016,True
+Uppsala GSE87571,GSM2334143,nk cells,0.0818,0.98227,in a blood,0.99139,-0.762,True
+Uppsala GSE87571,GSM2334143,b cells,0.0652,0.9895,in a blood,1.00213,0.167,True
+Uppsala GSE87571,GSM2334143,monocytes,0.0493,0.98565,in a blood,0.99601,-0.541,True
+Uppsala GSE87571,GSM2334544,neutrophils,0.4502,0.9756,in a blood,0.96978,-0.826,True
+Uppsala GSE87571,GSM2334544,monocytes,0.0723,0.99325,in a blood,1.00369,0.5,True
+Uppsala GSE87571,GSM2334544,cd8 t cells,0.0671,0.97604,in a blood,0.985,-1.27,True
+Uppsala GSE87571,GSM2334544,b cells,0.0403,0.965,in a blood,0.97731,-1.778,True
+Uppsala GSE87571,GSM2334544,cd4 t cells,0.0304,0.99377,in a blood,0.99927,-0.07,True
+Uppsala GSE87571,GSM2334114,neutrophils,0.7202,0.99748,sorted,0.98917,-0.212,True
+Uppsala GSE87571,GSM2334114,monocytes,0.0535,0.99612,in a blood,1.00659,0.893,True
+Uppsala GSE87571,GSM2334114,cd8 t cells,0.0409,0.99366,in a blood,1.00279,0.236,True
+Uppsala GSE87571,GSM2334114,b cells,0.0145,0.97956,in a blood,0.99206,-0.622,True
+Uppsala GSE87571,GSM2334114,nk cells,0.0116,0.98921,in a blood,0.9984,-0.142,True
+Uppsala GSE87571,GSM2333901,neutrophils,0.6886,0.9634,in a blood,0.95765,-1.158,True
+Uppsala GSE87571,GSM2333901,cd8 t cells,0.0402,0.99045,in a blood,0.99955,-0.038,True
+Uppsala GSE87571,GSM2333901,nk cells,0.0396,0.98117,in a blood,0.99028,-0.86,True
+Uppsala GSE87571,GSM2333901,b cells,0.0337,0.98178,in a blood,0.99431,-0.446,True
+Uppsala GSE87571,GSM2333901,monocytes,0.0114,0.99087,in a blood,1.00128,0.174,True
+Uppsala GSE87571,GSM2334050,neutrophils,0.6691,0.98671,in a blood,0.98083,-0.524,True
+Uppsala GSE87571,GSM2334050,nk cells,0.0616,0.9943,in a blood,1.00353,0.312,True
+Uppsala GSE87571,GSM2334050,monocytes,0.0423,0.998,in a blood,1.00849,1.151,True
+Uppsala GSE87571,GSM2334050,cd8 t cells,0.0422,0.99463,in a blood,1.00376,0.319,True
+Uppsala GSE87571,GSM2334050,b cells,0.0228,0.98529,in a blood,0.99786,-0.167,True
+Uppsala GSE87571,GSM2333941,neutrophils,0.5899,0.94788,in a blood,0.94223,-1.579,True
+Uppsala GSE87571,GSM2333941,cd8 t cells,0.0925,0.99312,in a blood,1.00224,0.19,True
+Uppsala GSE87571,GSM2333941,b cells,0.0524,0.99065,in a blood,1.00329,0.258,True
+Uppsala GSE87571,GSM2333941,monocytes,0.0252,0.99294,in a blood,1.00338,0.458,True
+Uppsala GSE87571,GSM2334154,neutrophils,0.4842,0.96358,in a blood,0.95783,-1.153,True
+Uppsala GSE87571,GSM2334154,cd8 t cells,0.0953,0.99698,in a blood,1.00614,0.52,True
+Uppsala GSE87571,GSM2334154,nk cells,0.0745,0.98563,in a blood,0.99478,-0.462,True
+Uppsala GSE87571,GSM2334154,monocytes,0.0555,0.98032,in a blood,0.99062,-1.271,True
+Uppsala GSE87571,GSM2334154,b cells,0.044,0.99347,in a blood,1.00615,0.482,True
+Uppsala GSE87571,GSM2334601,neutrophils,0.4326,0.9844,in a blood,0.97853,-0.587,True
+Uppsala GSE87571,GSM2334601,monocytes,0.103,0.95931,in a blood,0.96939,-4.149,False
+Uppsala GSE87571,GSM2334601,cd8 t cells,0.1016,0.99419,in a blood,1.00332,0.281,True
+Uppsala GSE87571,GSM2334601,b cells,0.0284,0.97821,in a blood,0.99069,-0.729,True
+Uppsala GSE87571,GSM2334601,nk cells,0.0107,0.97889,in a blood,0.98798,-1.063,True
+Uppsala GSE87571,GSM2334482,neutrophils,0.5424,0.98868,in a blood,0.98278,-0.471,True
+Uppsala GSE87571,GSM2334482,cd8 t cells,0.0867,1.00749,in a blood,1.01674,1.418,True
+Uppsala GSE87571,GSM2334482,cd4 t cells,0.079,1.01203,in a blood,1.01763,1.67,True
+Uppsala GSE87571,GSM2334482,b cells,0.0299,0.99825,in a blood,1.01099,0.861,True
+Uppsala GSE87571,GSM2334482,monocytes,0.0235,0.97188,in a blood,0.98209,-2.427,False
+Uppsala GSE87571,GSM2333994,neutrophils,0.5582,0.94593,in a blood,0.94029,-1.632,True
+Uppsala GSE87571,GSM2333994,cd4 t cells,0.152,0.99241,in a blood,0.9979,-0.199,True
+Uppsala GSE87571,GSM2333994,cd8 t cells,0.1123,0.98487,in a blood,0.99391,-0.515,True
+Uppsala GSE87571,GSM2333994,monocytes,0.0297,0.97579,in a blood,0.98604,-1.892,True
+Uppsala GSE87571,GSM2333994,b cells,0.0256,0.98189,in a blood,0.99442,-0.437,True
+Uppsala GSE87571,GSM2334302,neutrophils,0.4175,0.9824,in a blood,0.97654,-0.641,True
+Uppsala GSE87571,GSM2334302,cd8 t cells,0.0758,0.99116,in a blood,1.00026,0.022,True
+Uppsala GSE87571,GSM2334302,cd4 t cells,0.0544,0.99835,in a blood,1.00387,0.367,True
+Uppsala GSE87571,GSM2334302,nk cells,0.0464,0.96949,in a blood,0.97849,-1.903,True
+Uppsala GSE87571,GSM2334302,monocytes,0.0386,0.96632,in a blood,0.97648,-3.189,False
+Uppsala GSE87571,GSM2334302,b cells,0.0345,0.97455,in a blood,0.98699,-1.02,True
+Uppsala GSE87571,GSM2334267,neutrophils,0.5591,1.0293,in a blood,1.02316,0.633,True
+Uppsala GSE87571,GSM2334267,cd4 t cells,0.12,1.01534,in a blood,1.02096,1.985,True
+Uppsala GSE87571,GSM2334267,cd8 t cells,0.0948,1.00527,in a blood,1.0145,1.228,True
+Uppsala GSE87571,GSM2334267,nk cells,0.0442,0.99522,in a blood,1.00446,0.395,True
+Uppsala GSE87571,GSM2334267,monocytes,0.0219,0.98831,in a blood,0.9987,-0.177,True
+Uppsala GSE87571,GSM2334267,b cells,0.0166,0.98334,in a blood,0.99589,-0.322,True
+Uppsala GSE87571,GSM2334174,neutrophils,0.5125,0.97632,in a blood,0.9705,-0.807,True
+Uppsala GSE87571,GSM2334174,cd8 t cells,0.0753,0.97258,in a blood,0.98151,-1.566,True
+Uppsala GSE87571,GSM2334174,monocytes,0.0737,0.97487,in a blood,0.98512,-2.018,True
+Uppsala GSE87571,GSM2334174,b cells,0.0605,0.95402,in a blood,0.96619,-2.649,False
+Uppsala GSE87571,GSM2334174,nk cells,0.028,0.96703,in a blood,0.97601,-2.122,True
+Uppsala GSE87571,GSM2334066,neutrophils,0.5664,0.97446,in a blood,0.96865,-0.857,True
+Uppsala GSE87571,GSM2334066,cd4 t cells,0.1086,0.99409,in a blood,0.99959,-0.039,True
+Uppsala GSE87571,GSM2334066,cd8 t cells,0.0629,0.98941,in a blood,0.9985,-0.127,True
+Uppsala GSE87571,GSM2334066,nk cells,0.054,0.97815,in a blood,0.98723,-1.129,True
+Uppsala GSE87571,GSM2334066,monocytes,0.0329,0.97822,in a blood,0.9885,-1.559,True
+Uppsala GSE87571,GSM2334066,b cells,0.0254,0.97939,in a blood,0.99189,-0.636,True
+Tokushima GSE67393,GSM1649806,neutrophils,0.3263,1.03565,,,,
+Tokushima GSE67393,GSM1649806,cd4 t cells,0.0956,0.97789,in a blood,0.9833,-1.582,True
+Tokushima GSE67393,GSM1649806,b cells,0.0787,0.92005,in a blood,0.93179,-5.345,False
+Tokushima GSE67393,GSM1649806,cd8 t cells,0.0278,0.93798,in a blood,0.94659,-4.523,False
+Tokushima GSE67393,GSM1649806,nk cells,0.0257,0.93314,in a blood,0.9418,-5.148,False
+Tokushima GSE67393,GSM1646161,neutrophils,0.4313,1.08029,in a blood,1.07385,2.019,True
+Tokushima GSE67393,GSM1646161,cd4 t cells,0.0831,0.96939,in a blood,0.97475,-2.391,False
+Tokushima GSE67393,GSM1646161,nk cells,0.0361,0.93679,in a blood,0.94549,-4.822,False
+Tokushima GSE67393,GSM1649781,neutrophils,0.5023,0.96848,in a blood,0.9627,-1.02,True
+Tokushima GSE67393,GSM1649781,nk cells,0.095,0.97988,in a blood,0.98898,-0.975,True
+Tokushima GSE67393,GSM1649781,cd8 t cells,0.07,0.99283,in a blood,1.00195,0.165,True
+Tokushima GSE67393,GSM1649781,cd4 t cells,0.029,0.99798,in a blood,1.0035,0.331,True
+Tokushima GSE67393,GSM1649781,b cells,0.0284,0.9833,in a blood,0.99585,-0.325,True
+Tokushima GSE67393,GSM1649781,monocytes,0.0167,0.98622,in a blood,0.99658,-0.463,True
+Tokushima GSE67393,GSM1646177,neutrophils,0.5702,1.08538,in a blood,1.07891,2.157,False
+Tokushima GSE67393,GSM1646177,cd4 t cells,0.0319,0.97112,in a blood,0.97649,-2.227,True
+Tokushima GSE67393,GSM1649778,neutrophils,0.6437,0.96465,in a blood,0.9589,-1.124,True
+Tokushima GSE67393,GSM1649778,cd8 t cells,0.1227,1.00554,in a blood,1.01477,1.251,True
+Tokushima GSE67393,GSM1649778,cd4 t cells,0.0897,1.00388,in a blood,1.00943,0.893,True
+Tokushima GSE67393,GSM1649778,nk cells,0.0446,0.98352,in a blood,0.99265,-0.65,True
+Tokushima GSE67393,GSM1649810,neutrophils,0.3095,1.08727,,,,
+Tokushima GSE67393,GSM1649810,cd4 t cells,0.0673,0.97735,in a blood,0.98276,-1.633,True
+Tokushima GSE67393,GSM1649810,nk cells,0.053,0.93839,in a blood,0.9471,-4.679,False
+Tokushima GSE67393,GSM1649810,cd8 t cells,0.0481,0.91723,in a blood,0.92565,-6.297,False
+Tokushima GSE67393,GSM1649810,b cells,0.0467,0.90778,in a blood,0.91936,-6.319,False
+Tokushima GSE67393,GSM1649754,neutrophils,0.6891,0.98618,in a blood,0.9803,-0.539,True
+Tokushima GSE67393,GSM1649754,nk cells,0.0775,0.98371,in a blood,0.99284,-0.633,True
+Tokushima GSE67393,GSM1649754,cd8 t cells,0.054,0.99406,in a blood,1.00319,0.27,True
+Tokushima GSE67393,GSM1649754,monocytes,0.0218,0.99673,in a blood,1.0072,0.977,True
+Tokushima GSE67393,GSM1649742,neutrophils,0.5573,0.97864,in a blood,0.9728,-0.743,True
+Tokushima GSE67393,GSM1649742,b cells,0.0365,0.98926,in a blood,1.00188,0.148,True
+Tokushima GSE67393,GSM1649742,cd8 t cells,0.0365,0.99536,in a blood,1.0045,0.381,True
+Tokushima GSE67393,GSM1649742,cd4 t cells,0.0244,0.99848,in a blood,1.004,0.379,True
+Tokushima GSE67393,GSM1649742,nk cells,0.0224,0.97691,in a blood,0.98598,-1.24,True
+Tokushima GSE67393,GSM1649742,monocytes,0.0101,0.98637,,,,
+Tokushima GSE67393,GSM1649762,neutrophils,0.3612,0.96035,in a blood,0.95462,-1.24,True
+Tokushima GSE67393,GSM1649762,nk cells,0.1069,0.97518,in a blood,0.98423,-1.395,True
+Tokushima GSE67393,GSM1649762,cd8 t cells,0.0959,0.984,in a blood,0.99304,-0.59,True
+Tokushima GSE67393,GSM1649762,b cells,0.0295,0.97858,in a blood,0.99107,-0.7,True
+Tokushima GSE67393,GSM1649762,monocytes,0.0167,0.99484,in a blood,1.0053,0.718,True
+Tokushima GSE67393,GSM1646182,neutrophils,0.4203,1.05712,in a blood,1.05082,1.389,True
+Tokushima GSE67393,GSM1646182,cd4 t cells,0.0913,0.97197,in a blood,0.97735,-2.146,True
+Tokushima GSE67393,GSM1646182,nk cells,0.0665,0.93566,in a blood,0.94435,-4.923,False
+Tokushima GSE67393,GSM1646182,cd8 t cells,0.0244,0.92185,in a blood,0.93032,-5.902,False
+Tokushima GSE67393,GSM1646182,b cells,0.0157,0.89802,in a blood,0.90948,-7.094,False
+Tokushima GSE67393,GSM1649774,neutrophils,0.5248,0.963,in a blood,0.95726,-1.168,True
+Tokushima GSE67393,GSM1649774,cd4 t cells,0.1211,0.99173,in a blood,0.99721,-0.264,True
+Tokushima GSE67393,GSM1649774,cd8 t cells,0.0796,0.98869,in a blood,0.99777,-0.189,True
+Tokushima GSE67393,GSM1649774,b cells,0.0352,0.97657,in a blood,0.98903,-0.86,True
+Tokushima GSE67393,GSM1649774,nk cells,0.0317,0.96781,in a blood,0.9768,-2.053,True
+Tokushima GSE67393,GSM1649774,monocytes,0.0185,0.96001,in a blood,0.9701,-4.053,False
+Tokushima GSE67393,GSM1649758,neutrophils,0.5368,0.99238,in a blood,0.98646,-0.37,True
+Tokushima GSE67393,GSM1649758,cd4 t cells,0.0726,1.0062,in a blood,1.01176,1.114,True
+Tokushima GSE67393,GSM1649758,nk cells,0.0523,0.98685,in a blood,0.99601,-0.353,True
+Tokushima GSE67393,GSM1649758,monocytes,0.0367,0.99995,in a blood,1.01046,1.418,True
+Tokushima GSE67393,GSM1649758,b cells,0.0267,0.98964,in a blood,1.00227,0.178,True
+Tokushima GSE67393,GSM1649830,neutrophils,0.5733,1.10258,in a blood,1.096,2.624,False
+Tokushima GSE67393,GSM1649826,neutrophils,0.3635,1.07463,in a blood,1.06822,1.865,True
+Tokushima GSE67393,GSM1649826,nk cells,0.1607,0.95336,in a blood,0.96221,-3.343,False
+Tokushima GSE67393,GSM1649826,cd4 t cells,0.05,0.99213,in a blood,0.99762,-0.226,True
+Tokushima GSE67393,GSM1649827,neutrophils,0.4304,1.05754,in a blood,1.05123,1.401,True
+Tokushima GSE67393,GSM1649827,cd4 t cells,0.0977,0.97999,in a blood,0.98541,-1.382,True
+Tokushima GSE67393,GSM1649827,b cells,0.0401,0.91869,in a blood,0.93041,-5.453,False
+Tokushima GSE67393,GSM1649827,cd8 t cells,0.0302,0.93943,in a blood,0.94806,-4.399,False
+Tokushima GSE67393,GSM1649759,neutrophils,0.6283,0.98511,in a blood,0.97923,-0.568,True
+Tokushima GSE67393,GSM1649759,cd8 t cells,0.0604,0.99584,in a blood,1.00499,0.422,True
+Tokushima GSE67393,GSM1649759,nk cells,0.0521,0.98374,in a blood,0.99287,-0.63,True
+Tokushima GSE67393,GSM1649759,b cells,0.0199,0.98673,in a blood,0.99932,-0.053,True
+Tokushima GSE67393,GSM1649775,neutrophils,0.6787,1.00365,in a blood,0.99766,-0.064,True
+Tokushima GSE67393,GSM1649775,cd4 t cells,0.1398,0.98511,in a blood,0.99056,-0.894,True
+Tokushima GSE67393,GSM1649775,cd8 t cells,0.0319,0.97291,in a blood,0.98184,-1.538,True
+Tokushima GSE67393,GSM1649775,nk cells,0.0261,0.9658,in a blood,0.97477,-2.232,True
+Tokushima GSE67393,GSM1649763,neutrophils,0.5513,0.94944,in a blood,0.94378,-1.537,True
+Tokushima GSE67393,GSM1649763,cd4 t cells,0.103,0.98398,in a blood,0.98942,-1.002,True
+Tokushima GSE67393,GSM1649763,cd8 t cells,0.0554,0.98362,in a blood,0.99265,-0.622,True
+Tokushima GSE67393,GSM1649763,b cells,0.0368,0.97509,in a blood,0.98753,-0.977,True
+Tokushima GSE67393,GSM1649763,nk cells,0.0223,0.97007,in a blood,0.97908,-1.851,True
+Tokushima GSE67393,GSM1649763,monocytes,0.0185,0.97063,in a blood,0.98083,-2.599,False
+Tokushima GSE67393,GSM1646183,neutrophils,0.405,1.07371,in a blood,1.06731,1.84,True
+Tokushima GSE67393,GSM1646183,cd8 t cells,0.0812,0.92282,in a blood,0.93129,-5.819,False
+Tokushima GSE67393,GSM1646183,cd4 t cells,0.0679,0.9784,in a blood,0.98381,-1.533,True
+Tokushima GSE67393,GSM1646183,nk cells,0.0413,0.94154,in a blood,0.95028,-4.398,False
+Tokushima GSE67393,GSM1646183,monocytes,0.0348,0.99801,in a blood,1.0085,1.152,True
+Tokushima GSE67393,GSM1649743,neutrophils,0.5791,0.97749,in a blood,0.97166,-0.775,True
+Tokushima GSE67393,GSM1649743,cd8 t cells,0.1418,0.99689,in a blood,1.00605,0.512,True
+Tokushima GSE67393,GSM1649743,b cells,0.0283,0.98769,in a blood,1.00029,0.023,True
+Tokushima GSE67393,GSM1649743,monocytes,0.0266,0.98746,in a blood,0.99784,-0.293,True
+Tokushima GSE67393,GSM1649743,nk cells,0.0224,0.98551,in a blood,0.99466,-0.472,True
+Tokushima GSE67393,GSM1649755,neutrophils,0.6827,0.97637,in a blood,0.97055,-0.805,True
+Tokushima GSE67393,GSM1649755,cd8 t cells,0.1077,0.99255,in a blood,1.00167,0.141,True
+Tokushima GSE67393,GSM1649755,monocytes,0.0222,0.98926,in a blood,0.99966,-0.047,True
+Tokushima GSE67393,GSM1649755,b cells,0.0168,0.98601,in a blood,0.99859,-0.11,True
+Tokushima GSE67393,GSM1649811,neutrophils,0.6095,1.09853,in a blood,1.09198,2.514,False
+Tokushima GSE67393,GSM1649811,monocytes,0.0154,0.99983,in a blood,1.01034,1.401,True
+Tokushima GSE67393,GSM1649796,neutrophils,0.4152,0.96556,in a blood,0.9598,-1.099,True
+Tokushima GSE67393,GSM1649796,nk cells,0.1102,0.98411,in a blood,0.99325,-0.597,True
+Tokushima GSE67393,GSM1649796,cd4 t cells,0.0739,1.00484,in a blood,1.0104,0.985,True
+Tokushima GSE67393,GSM1649796,cd8 t cells,0.0496,1.00346,in a blood,1.01268,1.074,True
+Tokushima GSE67393,GSM1649796,monocytes,0.0331,0.98537,in a blood,0.99573,-0.579,True
+Tokushima GSE67393,GSM1649796,b cells,0.0289,0.99207,in a blood,1.00473,0.371,True
+Tokushima GSE67393,GSM1649780,neutrophils,0.5017,0.94859,in a blood,0.94293,-1.56,True
+Tokushima GSE67393,GSM1649780,cd8 t cells,0.1376,0.99086,in a blood,0.99996,-0.003,True
+Tokushima GSE67393,GSM1649780,cd4 t cells,0.0593,0.98918,in a blood,0.99465,-0.507,True
+Tokushima GSE67393,GSM1649780,b cells,0.0563,0.98037,in a blood,0.99288,-0.558,True
+Tokushima GSE67393,GSM1649807,neutrophils,0.381,1.06263,in a blood,1.05629,1.539,True
+Tokushima GSE67393,GSM1649807,cd4 t cells,0.1241,0.98483,in a blood,0.99028,-0.921,True
+Tokushima GSE67393,GSM1649807,nk cells,0.0547,0.94266,in a blood,0.95141,-4.298,False
+Tokushima GSE67393,GSM1649807,b cells,0.044,0.92311,in a blood,0.93489,-5.102,False
+Tokushima GSE67393,GSM1649764,neutrophils,0.4385,0.93471,in a blood,0.92914,-1.937,True
+Tokushima GSE67393,GSM1649764,cd8 t cells,0.1236,0.96542,in a blood,0.97429,-2.178,True
+Tokushima GSE67393,GSM1649764,b cells,0.0555,0.96074,in a blood,0.973,-2.116,True
+Tokushima GSE67393,GSM1649764,nk cells,0.0392,0.95638,in a blood,0.96526,-3.073,False
+Tokushima GSE67393,GSM1649764,monocytes,0.0164,0.97966,in a blood,0.98996,-1.362,True
+Tokushima GSE67393,GSM1649772,neutrophils,0.4577,0.95148,in a blood,0.94581,-1.482,True
+Tokushima GSE67393,GSM1649772,cd8 t cells,0.1529,1.00529,in a blood,1.01452,1.23,True
+Tokushima GSE67393,GSM1649772,b cells,0.0675,1.0005,in a blood,1.01327,1.04,True
+Tokushima GSE67393,GSM1649772,monocytes,0.0389,0.97288,in a blood,0.9831,-2.29,False
+Tokushima GSE67393,GSM1649772,nk cells,0.0388,0.98454,in a blood,0.99368,-0.559,True
+Tokushima GSE67393,GSM1649820,neutrophils,0.5182,1.05317,in a blood,1.04689,1.282,True
+Tokushima GSE67393,GSM1649820,cd4 t cells,0.0725,0.98049,in a blood,0.98591,-1.334,True
+Tokushima GSE67393,GSM1649820,monocytes,0.0349,0.96666,in a blood,0.97682,-3.142,False
+Tokushima GSE67393,GSM1649820,nk cells,0.0347,0.94085,in a blood,0.94959,-4.46,False
+Tokushima GSE67393,GSM1649820,cd8 t cells,0.0143,0.94966,in a blood,0.95838,-3.525,False
+Tokushima GSE67393,GSM1649748,neutrophils,0.4346,0.95845,in a blood,0.95273,-1.292,True
+Tokushima GSE67393,GSM1649748,cd8 t cells,0.1092,0.9917,in a blood,1.00081,0.068,True
+Tokushima GSE67393,GSM1649748,b cells,0.0587,0.9798,in a blood,0.9923,-0.603,True
+Tokushima GSE67393,GSM1649748,monocytes,0.0146,0.97199,in a blood,0.9822,-2.412,False
+Tokushima GSE67393,GSM1649800,neutrophils,0.4681,0.95303,in a blood,0.94735,-1.439,True
+Tokushima GSE67393,GSM1649800,cd8 t cells,0.1042,0.99581,in a blood,1.00496,0.42,True
+Tokushima GSE67393,GSM1649800,nk cells,0.0955,0.97043,in a blood,0.97944,-1.819,True
+Tokushima GSE67393,GSM1649800,monocytes,0.0386,0.97725,in a blood,0.98752,-1.692,True
+Tokushima GSE67393,GSM1649800,b cells,0.0295,0.98157,in a blood,0.9941,-0.463,True
+Tokushima GSE67393,GSM1646167,neutrophils,0.37,1.08846,in a blood,1.08197,2.241,False
+Tokushima GSE67393,GSM1646167,cd4 t cells,0.1129,0.98283,in a blood,0.98827,-1.111,True
+Tokushima GSE67393,GSM1646167,nk cells,0.0926,0.94706,in a blood,0.95585,-3.905,False
+Tokushima GSE67393,GSM1649791,neutrophils,0.5195,0.94266,in a blood,0.93704,-1.721,True
+Tokushima GSE67393,GSM1649791,cd8 t cells,0.0914,0.98956,in a blood,0.99865,-0.115,True
+Tokushima GSE67393,GSM1649791,monocytes,0.0652,0.9875,in a blood,0.99788,-0.288,True
+Tokushima GSE67393,GSM1649791,nk cells,0.0469,0.97715,in a blood,0.98622,-1.219,True
+Tokushima GSE67393,GSM1649791,b cells,0.0164,0.98912,in a blood,1.00174,0.137,True
+Tokushima GSE67393,GSM1649816,neutrophils,0.5388,1.07373,in a blood,1.06733,1.84,True
+Tokushima GSE67393,GSM1649816,monocytes,0.0424,0.9887,in a blood,0.99909,-0.123,True
+Tokushima GSE67393,GSM1649816,cd4 t cells,0.0339,0.98954,in a blood,0.99501,-0.472,True
+Tokushima GSE67393,GSM1649816,b cells,0.0172,0.92423,in a blood,0.93602,-5.013,False
+Tokushima GSE67393,GSM1649744,neutrophils,0.5187,0.98864,in a blood,0.98274,-0.472,True
+Tokushima GSE67393,GSM1649744,cd4 t cells,0.0764,1.00364,in a blood,1.00919,0.87,True
+Tokushima GSE67393,GSM1649744,cd8 t cells,0.0619,1.00004,in a blood,1.00922,0.781,True
+Tokushima GSE67393,GSM1649744,b cells,0.0234,0.99067,in a blood,1.00331,0.26,True
+Tokushima GSE67393,GSM1649744,nk cells,0.0195,0.98282,in a blood,0.99195,-0.712,True
+Tokushima GSE67393,GSM1649745,neutrophils,0.5555,0.98151,in a blood,0.97566,-0.665,True
+Tokushima GSE67393,GSM1649745,cd8 t cells,0.1096,0.98764,in a blood,0.99671,-0.279,True
+Tokushima GSE67393,GSM1649745,nk cells,0.0816,0.97806,in a blood,0.98714,-1.137,True
+Tokushima GSE67393,GSM1649745,b cells,0.0268,0.97274,in a blood,0.98515,-1.163,True
+Tokushima GSE67393,GSM1649745,cd4 t cells,0.0199,0.99455,in a blood,1.00005,0.005,True
+Tokushima GSE67393,GSM1649753,neutrophils,0.5557,0.9637,in a blood,0.95795,-1.149,True
+Tokushima GSE67393,GSM1649753,nk cells,0.0592,0.98085,in a blood,0.98996,-0.888,True
+Tokushima GSE67393,GSM1649753,cd8 t cells,0.0481,0.99074,in a blood,0.99984,-0.014,True
+Tokushima GSE67393,GSM1649753,monocytes,0.0401,0.99149,in a blood,1.00191,0.259,True
+Tokushima GSE67393,GSM1649753,b cells,0.0386,0.98573,in a blood,0.99831,-0.133,True
+Tokushima GSE67393,GSM1646170,neutrophils,0.3428,1.09626,,,,
+Tokushima GSE67393,GSM1646170,cd4 t cells,0.0939,0.9919,in a blood,0.99739,-0.248,True
+Tokushima GSE67393,GSM1646170,nk cells,0.0935,0.95612,in a blood,0.965,-3.096,False
+Tokushima GSE67393,GSM1646170,cd8 t cells,0.0277,0.93606,in a blood,0.94466,-4.687,False
+Tokushima GSE67393,GSM1649790,neutrophils,0.5713,0.95031,in a blood,0.94464,-1.513,True
+Tokushima GSE67393,GSM1649790,cd8 t cells,0.1562,0.9996,in a blood,1.00878,0.744,True
+Tokushima GSE67393,GSM1649790,nk cells,0.0388,0.98387,in a blood,0.99301,-0.619,True
+Tokushima GSE67393,GSM1649790,b cells,0.0297,0.99775,in a blood,1.01048,0.821,True
+Tokushima GSE67393,GSM1649790,monocytes,0.0267,0.99236,in a blood,1.00279,0.378,True
+Tokushima GSE67393,GSM1646166,neutrophils,0.394,1.07711,in a blood,1.07069,1.932,True
+Tokushima GSE67393,GSM1646166,cd4 t cells,0.1243,0.97601,in a blood,0.98141,-1.761,True
+Tokushima GSE67393,GSM1646166,nk cells,0.029,0.94128,in a blood,0.95002,-4.421,False
+Tokushima GSE67393,GSM1646166,cd8 t cells,0.0107,0.92736,,,,
+Tokushima GSE67393,GSM1649769,neutrophils,0.4014,0.94928,in a blood,0.94362,-1.541,True
+Tokushima GSE67393,GSM1649769,cd4 t cells,0.1709,0.97231,in a blood,0.97769,-2.113,True
+Tokushima GSE67393,GSM1649769,nk cells,0.048,0.95587,in a blood,0.96475,-3.119,False
+Tokushima GSE67393,GSM1649769,b cells,0.0344,0.95545,in a blood,0.96764,-2.536,False
+Tokushima GSE67393,GSM1649786,neutrophils,0.3852,0.90955,in a blood,0.90413,-2.621,False
+Tokushima GSE67393,GSM1649786,cd4 t cells,0.1654,0.92271,in a blood,0.92781,-6.837,False
+Tokushima GSE67393,GSM1649786,nk cells,0.0957,0.90525,in a blood,0.91366,-7.638,False
+Tokushima GSE67393,GSM1649786,cd8 t cells,0.054,0.91472,in a blood,0.92312,-6.511,False
+Tokushima GSE67393,GSM1649786,b cells,0.0494,0.90013,in a blood,0.91162,-6.926,False
+Tokushima GSE67393,GSM1649786,monocytes,0.0265,0.93347,in a blood,0.94328,-7.689,False
+Tokushima GSE67393,GSM1649801,neutrophils,0.5092,0.95841,in a blood,0.95269,-1.293,True
+Tokushima GSE67393,GSM1649801,nk cells,0.0904,0.98035,in a blood,0.98945,-0.933,True
+Tokushima GSE67393,GSM1649801,cd8 t cells,0.0471,0.9965,in a blood,1.00565,0.479,True
+Tokushima GSE67393,GSM1649801,b cells,0.0432,0.9865,in a blood,0.99909,-0.071,True
+Tokushima GSE67393,GSM1649801,monocytes,0.0181,0.98722,in a blood,0.99759,-0.326,True
+Tokushima GSE67393,GSM1649749,neutrophils,0.5543,0.97233,in a blood,0.96653,-0.915,True
+Tokushima GSE67393,GSM1649749,cd8 t cells,0.1058,0.98861,in a blood,0.99769,-0.196,True
+Tokushima GSE67393,GSM1649749,b cells,0.0364,0.98613,in a blood,0.99871,-0.101,True
+Tokushima GSE67393,GSM1649749,monocytes,0.0135,0.98584,in a blood,0.9962,-0.515,True
+Tokushima GSE67393,GSM1649773,neutrophils,0.4046,0.94181,in a blood,0.93619,-1.744,True
+Tokushima GSE67393,GSM1649773,cd8 t cells,0.225,0.99923,in a blood,1.00841,0.712,True
+Tokushima GSE67393,GSM1649773,b cells,0.069,0.99664,in a blood,1.00936,0.733,True
+Tokushima GSE67393,GSM1649773,monocytes,0.0256,0.97304,in a blood,0.98327,-2.268,False
+Tokushima GSE67393,GSM1649765,neutrophils,0.5509,0.93787,in a blood,0.93228,-1.851,True
+Tokushima GSE67393,GSM1649765,cd4 t cells,0.1802,0.95861,in a blood,0.96391,-3.418,False
+Tokushima GSE67393,GSM1649765,cd8 t cells,0.0581,0.95123,in a blood,0.95997,-3.391,False
+Tokushima GSE67393,GSM1649765,nk cells,0.0384,0.94969,in a blood,0.95851,-3.671,False
+Tokushima GSE67393,GSM1649765,monocytes,0.0128,0.97345,in a blood,0.98368,-2.212,False
+Tokushima GSE67393,GSM1649765,b cells,0.0116,0.945,in a blood,0.95706,-3.365,False
+Tokushima GSE67393,GSM1649822,neutrophils,0.4019,1.05008,in a blood,1.04382,1.198,True
+Tokushima GSE67393,GSM1649822,cd4 t cells,0.0945,0.97384,in a blood,0.97923,-1.968,True
+Tokushima GSE67393,GSM1649822,cd8 t cells,0.0505,0.92832,in a blood,0.93685,-5.349,False
+Tokushima GSE67393,GSM1649822,b cells,0.0298,0.90394,in a blood,0.91547,-6.624,False
+Tokushima GSE67393,GSM1649818,neutrophils,0.5944,1.06956,in a blood,1.06318,1.727,True
+Tokushima GSE67393,GSM1649818,nk cells,0.0261,0.93721,in a blood,0.94591,-4.785,False
+Tokushima GSE67393,GSM1649818,cd4 t cells,0.0245,0.97779,in a blood,0.9832,-1.591,True
+Tokushima GSE67393,GSM1649818,monocytes,0.0202,0.97778,in a blood,0.98806,-1.619,True
+Tokushima GSE67393,GSM1649770,neutrophils,0.4663,0.94871,in a blood,0.94305,-1.557,True
+Tokushima GSE67393,GSM1649770,cd8 t cells,0.1675,0.95706,in a blood,0.96585,-2.892,False
+Tokushima GSE67393,GSM1649770,nk cells,0.086,0.9558,in a blood,0.96468,-3.125,False
+Tokushima GSE67393,GSM1649770,cd4 t cells,0.0588,0.96455,in a blood,0.96988,-2.852,False
+Tokushima GSE67393,GSM1649789,neutrophils,0.5141,0.94596,in a blood,0.94032,-1.632,True
+Tokushima GSE67393,GSM1649789,cd8 t cells,0.0828,1.00195,in a blood,1.01115,0.944,True
+Tokushima GSE67393,GSM1649789,cd4 t cells,0.0765,1.00222,in a blood,1.00776,0.735,True
+Tokushima GSE67393,GSM1649789,monocytes,0.0709,0.98018,in a blood,0.99048,-1.29,True
+Tokushima GSE67393,GSM1649789,nk cells,0.0597,0.98396,in a blood,0.9931,-0.611,True
+Tokushima GSE67393,GSM1649789,b cells,0.0268,0.99761,in a blood,1.01034,0.81,True
+Tokushima GSE67393,GSM1649766,neutrophils,0.6648,0.97149,in a blood,0.9657,-0.938,True
+Tokushima GSE67393,GSM1649766,cd4 t cells,0.0768,0.98325,in a blood,0.98869,-1.071,True
+Tokushima GSE67393,GSM1649766,cd8 t cells,0.0453,0.97413,in a blood,0.98308,-1.433,True
+Tokushima GSE67393,GSM1649766,nk cells,0.0284,0.96959,in a blood,0.97859,-1.894,True
+Tokushima GSE67393,GSM1649766,monocytes,0.0151,0.99606,in a blood,1.00653,0.885,True
+Tokushima GSE67393,GSM1649766,b cells,0.0117,0.958,in a blood,0.97022,-2.333,False
+Tokushima GSE67393,GSM1646169,neutrophils,0.3579,1.07595,in a blood,1.06953,1.901,True
+Tokushima GSE67393,GSM1646169,cd4 t cells,0.1223,0.97701,in a blood,0.98241,-1.666,True
+Tokushima GSE67393,GSM1646169,nk cells,0.0657,0.9414,in a blood,0.95014,-4.411,False
+Tokushima GSE67393,GSM1646169,b cells,0.018,0.90466,in a blood,0.9162,-6.567,False
+Tokushima GSE67393,GSM1649746,neutrophils,0.5661,0.96943,in a blood,0.96365,-0.994,True
+Tokushima GSE67393,GSM1649746,cd8 t cells,0.0711,0.99076,in a blood,0.99986,-0.012,True
+Tokushima GSE67393,GSM1649746,b cells,0.0434,0.98205,in a blood,0.99458,-0.425,True
+Tokushima GSE67393,GSM1649746,monocytes,0.0191,0.98111,in a blood,0.99142,-1.163,True
+Tokushima GSE67393,GSM1649750,neutrophils,0.5568,0.96945,in a blood,0.96367,-0.993,True
+Tokushima GSE67393,GSM1649750,cd8 t cells,0.1505,0.99239,in a blood,1.0015,0.127,True
+Tokushima GSE67393,GSM1649750,monocytes,0.0338,0.98303,in a blood,0.99336,-0.9,True
+Tokushima GSE67393,GSM1649750,nk cells,0.0266,0.97907,in a blood,0.98816,-1.047,True
+Tokushima GSE67393,GSM1649750,b cells,0.0156,0.98461,in a blood,0.99717,-0.221,True
+Tokushima GSE67393,GSM1649814,neutrophils,0.4232,1.03894,in a blood,1.03274,0.895,True
+Tokushima GSE67393,GSM1649814,cd4 t cells,0.0726,0.97577,in a blood,0.98117,-1.784,True
+Tokushima GSE67393,GSM1649814,cd8 t cells,0.0671,0.93574,in a blood,0.94433,-4.715,False
+Tokushima GSE67393,GSM1649814,nk cells,0.0382,0.9295,in a blood,0.93813,-5.473,False
+Tokushima GSE67393,GSM1649814,b cells,0.0153,0.91863,in a blood,0.93035,-5.458,False
+Tokushima GSE67393,GSM1649814,monocytes,0.0145,0.96683,in a blood,0.97699,-3.119,False
+Tokushima GSE67393,GSM1649793,neutrophils,0.4279,0.95597,in a blood,0.95027,-1.36,True
+Tokushima GSE67393,GSM1649793,cd8 t cells,0.1066,0.99685,in a blood,1.006,0.509,True
+Tokushima GSE67393,GSM1649793,nk cells,0.0844,0.98129,in a blood,0.9904,-0.849,True
+Tokushima GSE67393,GSM1649793,monocytes,0.0569,0.99352,in a blood,1.00396,0.537,True
+Tokushima GSE67393,GSM1649793,b cells,0.0214,0.98218,in a blood,0.99471,-0.414,True
+Tokushima GSE67393,GSM1646165,neutrophils,0.4592,1.07282,in a blood,1.06642,1.816,True
+Tokushima GSE67393,GSM1646165,nk cells,0.0517,0.94133,in a blood,0.95007,-4.417,False
+Tokushima GSE67393,GSM1646165,cd4 t cells,0.0502,0.97107,in a blood,0.97644,-2.231,True
+Tokushima GSE67393,GSM1646165,monocytes,0.0295,1.00276,in a blood,1.0133,1.803,True
+Tokushima GSE67393,GSM1649802,neutrophils,0.5173,0.95494,in a blood,0.94924,-1.387,True
+Tokushima GSE67393,GSM1649802,cd8 t cells,0.0579,0.99825,in a blood,1.00742,0.628,True
+Tokushima GSE67393,GSM1649802,nk cells,0.0384,0.97697,in a blood,0.98604,-1.235,True
+Tokushima GSE67393,GSM1649802,b cells,0.0296,0.98958,in a blood,1.00221,0.173,True
+Tokushima GSE67393,GSM1649802,cd4 t cells,0.0288,0.99671,in a blood,1.00222,0.21,True
+Tokushima GSE67393,GSM1649802,monocytes,0.016,0.98062,in a blood,0.99093,-1.23,True
+Tokushima GSE67393,GSM1649803,neutrophils,0.6321,0.96114,in a blood,0.95541,-1.219,True
+Tokushima GSE67393,GSM1649803,cd8 t cells,0.1062,0.99764,in a blood,1.0068,0.576,True
+Tokushima GSE67393,GSM1649803,b cells,0.0376,0.99059,in a blood,1.00323,0.253,True
+Tokushima GSE67393,GSM1649803,nk cells,0.0354,0.97854,in a blood,0.98763,-1.095,True
+Tokushima GSE67393,GSM1649784,neutrophils,0.5034,0.95274,in a blood,0.94706,-1.447,True
+Tokushima GSE67393,GSM1649784,cd8 t cells,0.1002,0.98768,in a blood,0.99675,-0.275,True
+Tokushima GSE67393,GSM1649784,monocytes,0.0666,0.99031,in a blood,1.00072,0.097,True
+Tokushima GSE67393,GSM1649784,nk cells,0.0371,0.9761,in a blood,0.98516,-1.313,True
+Tokushima GSE67393,GSM1649784,b cells,0.0233,0.98004,in a blood,0.99255,-0.584,True
+Tokushima GSE67393,GSM1646172,neutrophils,0.3403,1.10338,,,,
+Tokushima GSE67393,GSM1646172,cd4 t cells,0.1436,0.99647,in a blood,1.00198,0.188,True
+Tokushima GSE67393,GSM1646172,nk cells,0.0493,0.96017,in a blood,0.96909,-2.735,False
+Tokushima GSE67393,GSM1646172,b cells,0.0169,0.92617,in a blood,0.93799,-4.86,False
+Tokushima GSE67393,GSM1649815,neutrophils,0.4318,1.05313,in a blood,1.04685,1.281,True
+Tokushima GSE67393,GSM1649815,cd4 t cells,0.1261,0.97155,in a blood,0.97692,-2.186,True
+Tokushima GSE67393,GSM1649815,cd8 t cells,0.0569,0.93362,in a blood,0.94219,-4.896,False
+Tokushima GSE67393,GSM1649815,nk cells,0.0457,0.9354,in a blood,0.94409,-4.946,False
+Tokushima GSE67393,GSM1649751,neutrophils,0.5537,0.9635,in a blood,0.95775,-1.155,True
+Tokushima GSE67393,GSM1649751,cd8 t cells,0.1449,0.97105,in a blood,0.97997,-1.697,True
+Tokushima GSE67393,GSM1649751,b cells,0.0305,0.96399,in a blood,0.97629,-1.858,True
+Tokushima GSE67393,GSM1649751,monocytes,0.0224,0.97657,in a blood,0.98683,-1.785,True
+Tokushima GSE67393,GSM1649747,neutrophils,0.5956,0.97137,in a blood,0.96558,-0.941,True
+Tokushima GSE67393,GSM1649747,cd8 t cells,0.0776,0.99586,in a blood,1.00501,0.424,True
+Tokushima GSE67393,GSM1649747,b cells,0.0297,0.98627,in a blood,0.99886,-0.09,True
+Tokushima GSE67393,GSM1649747,monocytes,0.0266,0.97635,in a blood,0.98661,-1.815,True
+Tokushima GSE67393,GSM1649747,cd4 t cells,0.0101,0.99746,,,,
+Tokushima GSE67393,GSM1649788,neutrophils,0.4541,0.94957,in a blood,0.94391,-1.533,True
+Tokushima GSE67393,GSM1649788,cd8 t cells,0.1219,1.00597,in a blood,1.01521,1.288,True
+Tokushima GSE67393,GSM1649788,nk cells,0.0742,0.99415,in a blood,1.00338,0.299,True
+Tokushima GSE67393,GSM1649788,b cells,0.0474,1.00571,in a blood,1.01854,1.453,True
+Tokushima GSE67393,GSM1649788,monocytes,0.043,0.99079,in a blood,1.0012,0.163,True
+Tokushima GSE67393,GSM1649767,neutrophils,0.599,0.95629,in a blood,0.95059,-1.351,True
+Tokushima GSE67393,GSM1649767,cd4 t cells,0.113,0.98398,in a blood,0.98942,-1.002,True
+Tokushima GSE67393,GSM1649767,nk cells,0.0957,0.96854,in a blood,0.97753,-1.988,True
+Tokushima GSE67393,GSM1649767,monocytes,0.0264,0.98014,in a blood,0.99044,-1.296,True
+Tokushima GSE67393,GSM1646168,neutrophils,0.3297,1.06661,,,,
+Tokushima GSE67393,GSM1646168,cd4 t cells,0.1183,0.97141,in a blood,0.97678,-2.199,True
+Tokushima GSE67393,GSM1646168,nk cells,0.09,0.93395,in a blood,0.94262,-5.076,False
+Tokushima GSE67393,GSM1646168,cd8 t cells,0.025,0.92243,in a blood,0.9309,-5.852,False
+Tokushima GSE67393,GSM1646168,b cells,0.0229,0.90587,in a blood,0.91743,-6.471,False
+Tokushima GSE67393,GSM1649771,neutrophils,0.46,0.97894,in a blood,0.9731,-0.735,True
+Tokushima GSE67393,GSM1649771,cd4 t cells,0.1095,0.9982,in a blood,1.00372,0.352,True
+Tokushima GSE67393,GSM1649771,cd8 t cells,0.1082,0.99944,in a blood,1.00862,0.73,True
+Tokushima GSE67393,GSM1649771,nk cells,0.1031,0.97722,in a blood,0.98629,-1.213,True
+Tokushima GSE67393,GSM1649771,b cells,0.0409,0.98602,in a blood,0.9986,-0.11,True
+Tokushima GSE67393,GSM1649819,neutrophils,0.5788,1.0685,in a blood,1.06213,1.698,True
+Tokushima GSE67393,GSM1649819,monocytes,0.0554,0.97351,in a blood,0.98374,-2.204,False
+Tokushima GSE67393,GSM1649819,nk cells,0.0235,0.93981,in a blood,0.94854,-4.553,False
+Tokushima GSE67393,GSM1649823,neutrophils,0.4135,1.0809,in a blood,1.07445,2.035,False
+Tokushima GSE67393,GSM1649823,cd4 t cells,0.1241,0.9942,in a blood,0.9997,-0.029,True
+Tokushima GSE67393,GSM1649823,cd8 t cells,0.0416,0.94448,in a blood,0.95315,-3.968,False
+Tokushima GSE67393,GSM1649823,b cells,0.0265,0.92573,in a blood,0.93754,-4.894,False
+Tokushima GSE67393,GSM1649740,neutrophils,0.5098,0.98667,in a blood,0.98079,-0.525,True
+Tokushima GSE67393,GSM1649740,cd4 t cells,0.0611,1.01023,in a blood,1.01582,1.498,True
+Tokushima GSE67393,GSM1649740,nk cells,0.0558,0.99022,in a blood,0.99941,-0.052,True
+Tokushima GSE67393,GSM1649740,monocytes,0.0468,0.99084,in a blood,1.00125,0.17,True
+Tokushima GSE67393,GSM1649740,b cells,0.0341,0.99786,in a blood,1.01059,0.83,True
+Tokushima GSE67393,GSM1649740,cd8 t cells,0.0155,1.0069,in a blood,1.01615,1.368,True
+Tokushima GSE67393,GSM1649828,neutrophils,0.4277,1.09727,in a blood,1.09073,2.48,False
+Tokushima GSE67393,GSM1649828,cd4 t cells,0.1184,1.00068,in a blood,1.00621,0.589,True
+Tokushima GSE67393,GSM1649828,nk cells,0.0258,0.95755,in a blood,0.96644,-2.969,False
+Tokushima GSE67393,GSM1649828,b cells,0.0221,0.93144,in a blood,0.94333,-4.441,False
+Tokushima GSE67393,GSM1649756,neutrophils,0.6028,0.96348,in a blood,0.95773,-1.155,True
+Tokushima GSE67393,GSM1649756,cd8 t cells,0.1445,0.99614,in a blood,1.00529,0.448,True
+Tokushima GSE67393,GSM1649756,b cells,0.0384,0.98953,in a blood,1.00216,0.169,True
+Tokushima GSE67393,GSM1649756,monocytes,0.0117,0.9997,in a blood,1.01021,1.384,True
+Tokushima GSE67393,GSM1649812,neutrophils,0.3024,1.0569,,,,
+Tokushima GSE67393,GSM1649812,cd4 t cells,0.1249,0.99404,in a blood,0.99954,-0.044,True
+Tokushima GSE67393,GSM1649812,nk cells,0.0575,0.94857,in a blood,0.95738,-3.771,False
+Tokushima GSE67393,GSM1649812,cd8 t cells,0.0452,0.95057,in a blood,0.9593,-3.447,False
+Tokushima GSE67393,GSM1649812,b cells,0.0446,0.92998,in a blood,0.94185,-4.557,False
+Tokushima GSE67393,GSM1649795,neutrophils,0.5796,0.95445,in a blood,0.94876,-1.401,True
+Tokushima GSE67393,GSM1649795,cd8 t cells,0.0994,0.99028,in a blood,0.99937,-0.053,True
+Tokushima GSE67393,GSM1649795,b cells,0.0434,0.98508,in a blood,0.99765,-0.184,True
+Tokushima GSE67393,GSM1649795,monocytes,0.0164,0.99584,in a blood,1.00631,0.855,True
+Tokushima GSE67393,GSM1646175,neutrophils,0.3243,1.06366,,,,
+Tokushima GSE67393,GSM1646175,cd4 t cells,0.1754,0.97542,in a blood,0.98081,-1.817,True
+Tokushima GSE67393,GSM1646175,nk cells,0.04,0.93889,in a blood,0.94761,-4.635,False
+Tokushima GSE67393,GSM1646175,cd8 t cells,0.0361,0.92449,in a blood,0.93298,-5.676,False
+Tokushima GSE67393,GSM1646175,b cells,0.028,0.9032,in a blood,0.91473,-6.683,False
+Tokushima GSE67393,GSM1649783,neutrophils,0.7154,0.98479,sorted,0.97659,-0.458,True
+Tokushima GSE67393,GSM1649783,nk cells,0.0496,0.97966,in a blood,0.98876,-0.995,True
+Tokushima GSE67393,GSM1649783,monocytes,0.0398,0.9931,in a blood,1.00354,0.479,True
+Tokushima GSE67393,GSM1649783,cd8 t cells,0.0266,0.99514,in a blood,1.00428,0.362,True
+Tokushima GSE67393,GSM1649783,b cells,0.0125,0.981,in a blood,0.99352,-0.508,True
+Tokushima GSE67393,GSM1649824,neutrophils,0.5029,1.09067,in a blood,1.08417,2.301,False
+Tokushima GSE67393,GSM1649824,cd4 t cells,0.0634,0.99796,in a blood,1.00348,0.33,True
+Tokushima GSE67393,GSM1649824,nk cells,0.017,0.95144,in a blood,0.96027,-3.514,False
+Tokushima GSE67393,GSM1649824,cd8 t cells,0.0133,0.95362,in a blood,0.96238,-3.186,False
+Tokushima GSE67393,GSM1649824,b cells,0.0127,0.93269,in a blood,0.94459,-4.342,False
+Tokushima GSE67393,GSM1649832,neutrophils,0.5059,1.09799,in a blood,1.09144,2.5,False
+Tokushima GSE67393,GSM1649832,cd4 t cells,0.0538,0.992,in a blood,0.99749,-0.238,True
+Tokushima GSE67393,GSM1649832,nk cells,0.012,0.95173,in a blood,0.96057,-3.488,False
+Tokushima GSE67393,GSM1649832,b cells,0.0117,0.92537,in a blood,0.93718,-4.923,False
+Tokushima GSE67393,GSM1649776,neutrophils,0.6032,0.9681,in a blood,0.96233,-1.03,True
+Tokushima GSE67393,GSM1649776,cd8 t cells,0.1193,0.9972,in a blood,1.00636,0.538,True
+Tokushima GSE67393,GSM1649776,nk cells,0.0466,0.98235,in a blood,0.99147,-0.754,True
+Tokushima GSE67393,GSM1649776,b cells,0.0381,0.9881,in a blood,1.00071,0.056,True
+Tokushima GSE67393,GSM1649776,cd4 t cells,0.0267,0.9998,in a blood,1.00533,0.505,True
+Tokushima GSE67393,GSM1649776,monocytes,0.0178,0.97857,in a blood,0.98885,-1.511,True
+Tokushima GSE67393,GSM1646180,neutrophils,0.394,1.09322,in a blood,1.0867,2.37,False
+Tokushima GSE67393,GSM1646180,cd4 t cells,0.0949,0.98053,in a blood,0.98595,-1.33,True
+Tokushima GSE67393,GSM1646180,nk cells,0.0772,0.94629,in a blood,0.95508,-3.974,False
+Tokushima GSE67393,GSM1646180,b cells,0.0112,0.90601,in a blood,0.91757,-6.46,False
+Tokushima GSE67393,GSM1649760,neutrophils,0.6329,0.97978,in a blood,0.97394,-0.713,True
+Tokushima GSE67393,GSM1649760,cd8 t cells,0.0416,0.9845,in a blood,0.99354,-0.547,True
+Tokushima GSE67393,GSM1649760,nk cells,0.0278,0.97916,in a blood,0.98825,-1.039,True
+Tokushima GSE67393,GSM1649760,b cells,0.0166,0.97736,in a blood,0.98983,-0.797,True
+Tokushima GSE67393,GSM1649760,cd4 t cells,0.0134,0.99368,in a blood,0.99918,-0.078,True
+Tokushima GSE67393,GSM1649760,monocytes,0.0106,0.99842,,,,
+Tokushima GSE67393,GSM1649808,neutrophils,0.3805,1.02648,in a blood,1.02036,0.557,True
+Tokushima GSE67393,GSM1649808,cd8 t cells,0.1121,0.93536,in a blood,0.94395,-4.747,False
+Tokushima GSE67393,GSM1649808,cd4 t cells,0.0372,0.97117,in a blood,0.97654,-2.222,True
+Tokushima GSE67393,GSM1649808,b cells,0.028,0.91261,in a blood,0.92426,-5.936,False
+Tokushima GSE67393,GSM1649809,neutrophils,0.411,1.03173,in a blood,1.02558,0.699,True
+Tokushima GSE67393,GSM1649809,cd8 t cells,0.0722,0.93934,in a blood,0.94797,-4.407,False
+Tokushima GSE67393,GSM1649809,cd4 t cells,0.0589,0.9798,in a blood,0.98522,-1.4,True
+Tokushima GSE67393,GSM1649809,b cells,0.0232,0.92102,in a blood,0.93277,-5.268,False
+Tokushima GSE67393,GSM1649761,neutrophils,0.6255,1.01129,in a blood,1.00526,0.144,True
+Tokushima GSE67393,GSM1649761,cd4 t cells,0.0632,0.99603,in a blood,1.00154,0.146,True
+Tokushima GSE67393,GSM1649761,nk cells,0.0475,0.97239,in a blood,0.98142,-1.644,True
+Tokushima GSE67393,GSM1649761,b cells,0.0221,0.96902,in a blood,0.98139,-1.459,True
+Tokushima GSE67393,GSM1649761,cd8 t cells,0.0187,0.98219,in a blood,0.99121,-0.744,True
+Tokushima GSE67393,GSM1649798,neutrophils,0.5451,0.95549,in a blood,0.94979,-1.373,True
+Tokushima GSE67393,GSM1649798,cd4 t cells,0.11,0.8914,in a blood,0.89633,-9.819,False
+Tokushima GSE67393,GSM1649798,nk cells,0.0671,0.87322,in a blood,0.88133,-10.498,False
+Tokushima GSE67393,GSM1649798,monocytes,0.0159,0.90859,in a blood,0.91814,-11.097,False
+Tokushima GSE67393,GSM1649777,neutrophils,0.651,0.97544,in a blood,0.96962,-0.83,True
+Tokushima GSE67393,GSM1649777,cd4 t cells,0.0727,1.00503,in a blood,1.01059,1.003,True
+Tokushima GSE67393,GSM1649777,nk cells,0.0618,0.98779,in a blood,0.99696,-0.269,True
+Tokushima GSE67393,GSM1649777,monocytes,0.0545,0.98614,in a blood,0.9965,-0.474,True
+Tokushima GSE67393,GSM1649777,cd8 t cells,0.0358,1.00178,in a blood,1.01098,0.93,True
+Tokushima GSE67393,GSM1649777,b cells,0.026,0.99592,in a blood,1.00863,0.676,True
+Tokushima GSE67393,GSM1649825,neutrophils,0.3613,1.05966,in a blood,1.05334,1.458,True
+Tokushima GSE67393,GSM1649825,cd4 t cells,0.0487,0.98396,in a blood,0.9894,-1.004,True
+Tokushima GSE67393,GSM1649825,b cells,0.0416,0.918,in a blood,0.92971,-5.508,False
+Tokushima GSE67393,GSM1649825,cd8 t cells,0.0348,0.9406,in a blood,0.94924,-4.299,False
+Tokushima GSE67393,GSM1649805,neutrophils,0.3942,1.06237,in a blood,1.05603,1.532,True
+Tokushima GSE67393,GSM1649805,cd4 t cells,0.0878,0.98888,in a blood,0.99435,-0.535,True
+Tokushima GSE67393,GSM1649805,nk cells,0.0603,0.95004,in a blood,0.95886,-3.639,False
+Tokushima GSE67393,GSM1649805,b cells,0.027,0.92875,in a blood,0.9406,-4.655,False
+Tokushima GSE67393,GSM1649782,neutrophils,0.4949,0.95523,in a blood,0.94953,-1.38,True
+Tokushima GSE67393,GSM1649782,cd8 t cells,0.1205,0.9852,in a blood,0.99425,-0.487,True
+Tokushima GSE67393,GSM1649782,monocytes,0.0465,0.98302,in a blood,0.99335,-0.901,True
+Tokushima GSE67393,GSM1649782,b cells,0.0319,0.97413,in a blood,0.98656,-1.053,True
+Tokushima GSE67393,GSM1646162,neutrophils,0.5955,1.06378,in a blood,1.05744,1.57,True
+Tokushima GSE67393,GSM1646162,cd4 t cells,0.0227,0.95625,in a blood,0.96154,-3.643,False
+Tokushima GSE67393,GSM1646162,nk cells,0.021,0.92589,in a blood,0.93449,-5.796,False
+Tokushima GSE67393,GSM1649794,neutrophils,0.2973,0.95148,,,,
+Tokushima GSE67393,GSM1649794,cd8 t cells,0.1121,0.9916,in a blood,1.00071,0.06,True
+Tokushima GSE67393,GSM1649794,nk cells,0.0605,0.98129,in a blood,0.9904,-0.849,True
+Tokushima GSE67393,GSM1649794,b cells,0.0597,0.99113,in a blood,1.00378,0.296,True
+Tokushima GSE67393,GSM1649794,monocytes,0.0495,0.99375,in a blood,1.00419,0.568,True
+Tokushima GSE67393,GSM1646174,neutrophils,0.4501,1.08871,in a blood,1.08222,2.248,False
+Tokushima GSE67393,GSM1646174,nk cells,0.0656,0.94225,in a blood,0.951,-4.335,False
+Tokushima GSE67393,GSM1646174,cd4 t cells,0.0559,0.9796,in a blood,0.98502,-1.419,True
+Tokushima GSE67393,GSM1649813,neutrophils,0.3939,1.04511,in a blood,1.03888,1.063,True
+Tokushima GSE67393,GSM1649813,cd4 t cells,0.1263,0.98032,in a blood,0.98574,-1.35,True
+Tokushima GSE67393,GSM1649813,b cells,0.0511,0.91563,in a blood,0.92731,-5.696,False
+Tokushima GSE67393,GSM1649813,nk cells,0.0301,0.93409,in a blood,0.94276,-5.063,False
+Tokushima GSE67393,GSM1649757,neutrophils,0.5135,1.09308,in a blood,1.08656,2.366,False
+Tokushima GSE67393,GSM1649757,cd4 t cells,0.074,1.00772,in a blood,1.01329,1.259,True
+Tokushima GSE67393,GSM1649757,nk cells,0.0338,0.97742,in a blood,0.9865,-1.195,True
+Tokushima GSE67393,GSM1649829,neutrophils,0.6013,1.08666,in a blood,1.08018,2.192,False
+Tokushima GSE67393,GSM1649741,neutrophils,0.6329,0.97407,in a blood,0.96826,-0.868,True
+Tokushima GSE67393,GSM1649741,cd8 t cells,0.0806,0.9891,in a blood,0.99818,-0.154,True
+Tokushima GSE67393,GSM1649741,nk cells,0.0144,0.97965,in a blood,0.98875,-0.996,True
+GSE235717 (previewed),GSM1051533,neutrophils,0.5658,0.96111,in a blood,0.95538,-1.22,True
+GSE235717 (previewed),GSM1051533,cd8 t cells,0.0844,0.98216,in a blood,0.99118,-0.747,True
+GSE235717 (previewed),GSM1051533,nk cells,0.0556,0.98113,in a blood,0.99024,-0.863,True
+GSE235717 (previewed),GSM1051533,b cells,0.0297,0.98347,in a blood,0.99602,-0.312,True
+GSE235717 (previewed),GSM1051533,monocytes,0.0157,0.96946,in a blood,0.97965,-2.759,False
+GSE235717 (previewed),GSM1051534,neutrophils,0.648,0.9776,in a blood,0.97177,-0.772,True
+GSE235717 (previewed),GSM1051534,cd4 t cells,0.0763,1.0022,in a blood,1.00774,0.733,True
+GSE235717 (previewed),GSM1051534,nk cells,0.0452,0.99534,in a blood,1.00458,0.405,True
+GSE235717 (previewed),GSM1051534,monocytes,0.0428,0.97847,in a blood,0.98875,-1.525,True
+GSE235717 (previewed),GSM1051534,cd8 t cells,0.0411,0.99924,in a blood,1.00842,0.713,True
+GSE235717 (previewed),GSM1051535,neutrophils,0.6914,0.97995,in a blood,0.97411,-0.708,True
+GSE235717 (previewed),GSM1051535,cd8 t cells,0.0675,0.99434,in a blood,1.00347,0.294,True
+GSE235717 (previewed),GSM1051535,nk cells,0.0491,0.9951,in a blood,1.00434,0.384,True
+GSE235717 (previewed),GSM1051535,cd4 t cells,0.0422,0.99722,in a blood,1.00274,0.259,True
+GSE235717 (previewed),GSM1051535,monocytes,0.0234,0.98225,in a blood,0.99257,-1.007,True
+GSE235717 (previewed),GSM1051535,b cells,0.0179,0.99612,in a blood,1.00883,0.692,True
+GSE235717 (previewed),GSM1051536,neutrophils,0.4193,0.98702,in a blood,0.98113,-0.516,True
+GSE235717 (previewed),GSM1051536,cd4 t cells,0.097,0.95939,in a blood,0.9647,-3.344,False
+GSE235717 (previewed),GSM1051536,cd8 t cells,0.0838,0.95773,in a blood,0.96653,-2.835,False
+GSE235717 (previewed),GSM1051536,nk cells,0.0408,0.95245,in a blood,0.96129,-3.424,False
+GSE235717 (previewed),GSM1051536,monocytes,0.026,0.93349,in a blood,0.9433,-7.686,False
+GSE235717 (previewed),GSM1051536,b cells,0.011,0.94962,in a blood,0.96174,-2.998,False
+GSE235717 (previewed),GSM1051537,neutrophils,0.6818,1.0009,in a blood,0.99493,-0.139,True
+GSE235717 (previewed),GSM1051537,cd8 t cells,0.0695,0.98743,in a blood,0.9965,-0.297,True
+GSE235717 (previewed),GSM1051537,nk cells,0.022,0.98692,in a blood,0.99608,-0.346,True
+GSE235717 (previewed),GSM1051537,b cells,0.0137,0.98432,in a blood,0.99688,-0.244,True
+GSE235717 (previewed),GSM1051537,cd4 t cells,0.0116,0.99664,,,,
+GSE235717 (previewed),GSM1051538,neutrophils,0.6551,0.98332,in a blood,0.97746,-0.616,True
+GSE235717 (previewed),GSM1051538,nk cells,0.0953,0.99073,in a blood,0.99993,-0.006,True
+GSE235717 (previewed),GSM1051538,cd4 t cells,0.0822,0.99648,in a blood,1.00199,0.189,True
+GSE235717 (previewed),GSM1051538,monocytes,0.0261,0.97451,in a blood,0.98475,-2.067,False
+GSE235717 (previewed),GSM1051539,neutrophils,0.5915,0.96624,in a blood,0.96048,-1.08,True
+GSE235717 (previewed),GSM1051539,cd8 t cells,0.0831,0.98709,in a blood,0.99616,-0.326,True
+GSE235717 (previewed),GSM1051539,monocytes,0.0458,0.9748,in a blood,0.98504,-2.027,True
+GSE235717 (previewed),GSM1051540,neutrophils,0.6849,0.98552,in a blood,0.97964,-0.557,True
+GSE235717 (previewed),GSM1051540,nk cells,0.0897,0.9945,in a blood,1.00373,0.33,True
+GSE235717 (previewed),GSM1051540,monocytes,0.0773,0.97223,in a blood,0.98245,-2.379,False
+GSE235717 (previewed),GSM1051540,cd8 t cells,0.024,0.99194,in a blood,1.00105,0.089,True
+GSE235717 (previewed),GSM1051541,neutrophils,0.5927,0.98308,in a blood,0.97722,-0.623,True
+GSE235717 (previewed),GSM1051541,nk cells,0.0522,0.98296,in a blood,0.99209,-0.7,True
+GSE235717 (previewed),GSM1051541,cd8 t cells,0.0477,0.98313,in a blood,0.99216,-0.664,True
+GSE235717 (previewed),GSM1051541,monocytes,0.044,0.95475,in a blood,0.96478,-4.774,False
+GSE235717 (previewed),GSM1051541,cd4 t cells,0.0402,0.98941,in a blood,0.99488,-0.485,True
+GSE235717 (previewed),GSM1051542,neutrophils,0.6132,1.01724,in a blood,1.01117,0.305,True
+GSE235717 (previewed),GSM1051542,nk cells,0.0522,0.92332,in a blood,0.93189,-6.025,False
+GSE235717 (previewed),GSM1051542,monocytes,0.0314,0.90268,in a blood,0.91217,-11.907,False
+GSE235717 (previewed),GSM1051542,cd4 t cells,0.0305,0.93485,in a blood,0.94002,-5.681,False
+GSE235717 (previewed),GSM1051543,neutrophils,0.5896,0.97603,in a blood,0.97021,-0.814,True
+GSE235717 (previewed),GSM1051543,monocytes,0.0774,0.98239,in a blood,0.99271,-0.988,True
+GSE235717 (previewed),GSM1051543,nk cells,0.0725,0.99103,in a blood,1.00023,0.021,True
+GSE235717 (previewed),GSM1051543,cd4 t cells,0.0666,0.99438,in a blood,0.99988,-0.011,True
+GSE235717 (previewed),GSM1051543,b cells,0.033,0.99131,in a blood,1.00396,0.31,True
+GSE235717 (previewed),GSM1051544,neutrophils,0.6477,0.98943,in a blood,0.98353,-0.45,True
+GSE235717 (previewed),GSM1051544,nk cells,0.0716,0.99093,in a blood,1.00013,0.012,True
+GSE235717 (previewed),GSM1051544,monocytes,0.0325,0.97494,in a blood,0.98519,-2.008,True
+GSE235717 (previewed),GSM1051544,cd4 t cells,0.03,0.99543,in a blood,1.00094,0.089,True
+GSE235717 (previewed),GSM1051544,cd8 t cells,0.0179,0.99547,in a blood,1.00461,0.391,True
+GSE235717 (previewed),GSM1051545,neutrophils,0.5756,0.98459,in a blood,0.97872,-0.582,True
+GSE235717 (previewed),GSM1051545,monocytes,0.0644,0.96305,in a blood,0.97317,-3.637,False
+GSE235717 (previewed),GSM1051545,nk cells,0.0537,0.97951,in a blood,0.98861,-1.008,True
+GSE235717 (previewed),GSM1051545,cd8 t cells,0.0466,0.98608,in a blood,0.99514,-0.412,True
+GSE235717 (previewed),GSM1051545,cd4 t cells,0.0168,0.9884,in a blood,0.99387,-0.581,True
+GSE235717 (previewed),GSM1051549,neutrophils,0.4796,1.00246,in a blood,0.99648,-0.096,True
+GSE235717 (previewed),GSM1051549,cd8 t cells,0.1213,0.99028,in a blood,0.99937,-0.053,True
+GSE235717 (previewed),GSM1051549,cd4 t cells,0.0625,0.99777,in a blood,1.00329,0.311,True
+GSE235717 (previewed),GSM1051549,monocytes,0.0433,0.95717,in a blood,0.96723,-4.442,False
+GSE235717 (previewed),GSM1051549,nk cells,0.0215,0.98144,in a blood,0.99055,-0.836,True
+GSE235717 (previewed),GSM1051550,neutrophils,0.4683,1.01415,in a blood,1.0081,0.221,True
+GSE235717 (previewed),GSM1051550,nk cells,0.0986,0.98565,in a blood,0.9948,-0.46,True
+GSE235717 (previewed),GSM1051550,cd4 t cells,0.0723,1.00002,in a blood,1.00555,0.526,True
+GSE235717 (previewed),GSM1051550,cd8 t cells,0.0315,0.99345,in a blood,1.00257,0.218,True
+GSE235717 (previewed),GSM1051550,b cells,0.0235,0.97982,in a blood,0.99232,-0.602,True
+GSE235717 (previewed),GSM1051550,monocytes,0.0184,0.96911,in a blood,0.97929,-2.807,False
+GSE235717 (previewed),GSM1051551,neutrophils,0.4814,0.98546,in a blood,0.97958,-0.558,True
+GSE235717 (previewed),GSM1051551,nk cells,0.1012,0.98396,in a blood,0.9931,-0.611,True
+GSE235717 (previewed),GSM1051551,monocytes,0.0801,0.95969,in a blood,0.96978,-4.097,False
+GSE235717 (previewed),GSM1051551,cd8 t cells,0.0666,0.99034,in a blood,0.99943,-0.048,True
+GSE235717 (previewed),GSM1051551,cd4 t cells,0.0125,0.99422,,,,
+GSE235717 (previewed),GSM1051552,neutrophils,0.667,0.99049,in a blood,0.98458,-0.421,True
+GSE235717 (previewed),GSM1051552,b cells,0.0388,0.98039,in a blood,0.9929,-0.556,True
+GSE235717 (previewed),GSM1051552,nk cells,0.0384,0.98246,in a blood,0.99158,-0.745,True
+GSE235717 (previewed),GSM1051552,monocytes,0.0273,0.9635,in a blood,0.97363,-3.575,False
+GSE235717 (previewed),GSM1051552,cd4 t cells,0.0185,0.99212,in a blood,0.99761,-0.227,True
+GSE235717 (previewed),GSM1051552,cd8 t cells,0.0107,0.98768,,,,
+GSE235717 (previewed),GSM1051553,neutrophils,0.4874,1.02809,in a blood,1.02196,0.6,True
+GSE235717 (previewed),GSM1051553,cd8 t cells,0.0792,0.97009,in a blood,0.979,-1.779,True
+GSE235717 (previewed),GSM1051553,cd4 t cells,0.0456,0.98559,in a blood,0.99104,-0.849,True
+GSE235717 (previewed),GSM1051553,monocytes,0.0175,0.9585,in a blood,0.96857,-4.26,False
+GSE235717 (previewed),GSM1051555,neutrophils,0.5077,0.97334,in a blood,0.96753,-0.888,True
+GSE235717 (previewed),GSM1051555,cd8 t cells,0.0821,0.98038,in a blood,0.98938,-0.899,True
+GSE235717 (previewed),GSM1051555,b cells,0.0515,0.97049,in a blood,0.98287,-1.342,True
+GSE235717 (previewed),GSM1051555,monocytes,0.0404,0.9557,in a blood,0.96574,-4.644,False
+GSE235717 (previewed),GSM1051555,cd4 t cells,0.0368,0.98424,in a blood,0.98968,-0.977,True
+GSE235717 (previewed),GSM1051555,nk cells,0.0285,0.97002,in a blood,0.97903,-1.855,True
+GSE235717 (previewed),GSM1051556,neutrophils,0.3998,0.98619,in a blood,0.98031,-0.538,True
+GSE235717 (previewed),GSM1051556,cd4 t cells,0.1195,0.99529,in a blood,1.00079,0.075,True
+GSE235717 (previewed),GSM1051556,cd8 t cells,0.0692,0.98725,in a blood,0.99632,-0.312,True
+GSE235717 (previewed),GSM1051556,nk cells,0.0622,0.97999,in a blood,0.98909,-0.965,True
+GSE235717 (previewed),GSM1051556,b cells,0.0558,0.9811,in a blood,0.99362,-0.5,True
+GSE235717 (previewed),GSM1051556,monocytes,0.0315,0.95686,in a blood,0.96692,-4.485,False
+GSE235717 (previewed),GSM1235534,neutrophils,0.4242,1.04462,in a blood,1.03839,1.049,True
+GSE235717 (previewed),GSM1235534,cd4 t cells,0.1564,1.00912,in a blood,1.0147,1.392,True
+GSE235717 (previewed),GSM1235534,monocytes,0.0467,0.98453,in a blood,0.99488,-0.695,True
+GSE235717 (previewed),GSM1235534,cd8 t cells,0.0409,0.99349,in a blood,1.00261,0.221,True
+GSE235717 (previewed),GSM1235534,b cells,0.0255,0.97358,in a blood,0.986,-1.097,True
+GSE235717 (previewed),GSM1235535,neutrophils,0.4368,1.03449,in a blood,1.02832,0.774,True
+GSE235717 (previewed),GSM1235535,cd4 t cells,0.1477,1.01437,in a blood,1.01998,1.892,True
+GSE235717 (previewed),GSM1235535,cd8 t cells,0.0754,1.00089,in a blood,1.01008,0.854,True
+GSE235717 (previewed),GSM1235535,monocytes,0.038,0.98369,in a blood,0.99403,-0.81,True
+GSE235717 (previewed),GSM1235535,b cells,0.0264,0.98214,in a blood,0.99467,-0.417,True
+GSE235717 (previewed),GSM1235537,neutrophils,0.4209,1.03846,in a blood,1.03227,0.882,True
+GSE235717 (previewed),GSM1235537,cd8 t cells,0.1262,0.99693,in a blood,1.00609,0.515,True
+GSE235717 (previewed),GSM1235537,b cells,0.0447,0.97691,in a blood,0.98938,-0.833,True
+GSE235717 (previewed),GSM1235537,cd4 t cells,0.0436,1.00873,in a blood,1.01431,1.355,True
+GSE235717 (previewed),GSM1235537,monocytes,0.0382,0.98074,in a blood,0.99105,-1.214,True
+GSE235717 (previewed),GSM1235539,neutrophils,0.5292,1.01041,in a blood,1.00438,0.12,True
+GSE235717 (previewed),GSM1235539,cd4 t cells,0.0632,0.99159,in a blood,0.99707,-0.277,True
+GSE235717 (previewed),GSM1235539,cd8 t cells,0.0588,0.97847,in a blood,0.98746,-1.062,True
+GSE235717 (previewed),GSM1235539,b cells,0.0372,0.96109,in a blood,0.97335,-2.088,True
+GSE235717 (previewed),GSM1235539,monocytes,0.0278,0.97397,in a blood,0.98421,-2.141,False
+GSE235717 (previewed),GSM1235540,neutrophils,0.3366,1.00515,,,,
+GSE235717 (previewed),GSM1235540,cd4 t cells,0.1545,0.98643,in a blood,0.99189,-0.769,True
+GSE235717 (previewed),GSM1235540,monocytes,0.0945,0.97339,in a blood,0.98362,-2.221,False
+GSE235717 (previewed),GSM1235540,cd8 t cells,0.0827,0.97254,in a blood,0.98147,-1.569,True
+GSE235717 (previewed),GSM1235540,nk cells,0.0379,0.96383,in a blood,0.97278,-2.408,False
+GSE235717 (previewed),GSM1235540,b cells,0.0311,0.95213,in a blood,0.96428,-2.799,False
+GSE235717 (previewed),GSM1235541,neutrophils,0.555,1.08645,in a blood,1.07997,2.186,False
+GSE235717 (previewed),GSM1235541,cd4 t cells,0.1171,0.99881,in a blood,1.00433,0.41,True
+GSE235717 (previewed),GSM1235541,cd8 t cells,0.0215,0.97567,in a blood,0.98463,-1.302,True
+GSE235717 (previewed),GSM1235541,nk cells,0.0103,0.9751,in a blood,0.98415,-1.402,True
+GSE235717 (previewed),GSM1235542,neutrophils,0.5597,1.0405,in a blood,1.03429,0.937,True
+GSE235717 (previewed),GSM1235542,cd8 t cells,0.0547,0.98976,in a blood,0.99885,-0.097,True
+GSE235717 (previewed),GSM1235542,b cells,0.0326,0.96991,in a blood,0.98229,-1.388,True
+GSE235717 (previewed),GSM1235542,monocytes,0.0294,0.98516,in a blood,0.99551,-0.608,True
+GSE235717 (previewed),GSM1235542,cd4 t cells,0.0225,1.00074,in a blood,1.00627,0.594,True
+GSE235717 (previewed),GSM1235545,neutrophils,0.4173,1.06176,in a blood,1.05543,1.515,True
+GSE235717 (previewed),GSM1235545,cd4 t cells,0.2052,1.013,in a blood,1.0186,1.762,True
+GSE235717 (previewed),GSM1235545,cd8 t cells,0.0934,0.99946,in a blood,1.00864,0.732,True
+GSE235717 (previewed),GSM1235545,b cells,0.019,0.97507,in a blood,0.98751,-0.979,True
+GSE235717 (previewed),GSM1235546,neutrophils,0.5689,1.01312,in a blood,1.00708,0.193,True
+GSE235717 (previewed),GSM1235546,cd8 t cells,0.084,0.99227,in a blood,1.00138,0.117,True
+GSE235717 (previewed),GSM1235546,monocytes,0.0469,0.98126,in a blood,0.99157,-1.142,True
+GSE235717 (previewed),GSM1235546,b cells,0.0406,0.97775,in a blood,0.99023,-0.766,True
+GSE235717 (previewed),GSM1235546,cd4 t cells,0.0314,1.0051,in a blood,1.01066,1.01,True
+GSE235717 (previewed),GSM1235546,nk cells,0.0113,0.98769,in a blood,0.99686,-0.278,True
+GSE235717 (previewed),GSM1235547,neutrophils,0.5367,1.02974,in a blood,1.0236,0.645,True
+GSE235717 (previewed),GSM1235547,cd4 t cells,0.075,0.99904,in a blood,1.00457,0.432,True
+GSE235717 (previewed),GSM1235547,cd8 t cells,0.0596,0.98582,in a blood,0.99487,-0.434,True
+GSE235717 (previewed),GSM1235547,b cells,0.0321,0.96643,in a blood,0.97876,-1.664,True
+GSE235717 (previewed),GSM1235547,monocytes,0.0119,0.98131,in a blood,0.99162,-1.136,True
+GSE235717 (previewed),GSM1235552,neutrophils,0.3463,1.02552,,,,
+GSE235717 (previewed),GSM1235552,cd4 t cells,0.1273,1.00876,in a blood,1.01434,1.358,True
+GSE235717 (previewed),GSM1235552,cd8 t cells,0.0935,0.9955,in a blood,1.00464,0.393,True
+GSE235717 (previewed),GSM1235552,b cells,0.052,0.97493,in a blood,0.98737,-0.99,True
+GSE235717 (previewed),GSM1235552,monocytes,0.0314,0.98041,in a blood,0.99071,-1.259,True
+GSE235717 (previewed),GSM1235554,neutrophils,0.4289,1.03679,in a blood,1.03061,0.837,True
+GSE235717 (previewed),GSM1235554,cd4 t cells,0.0911,1.0059,in a blood,1.01146,1.086,True
+GSE235717 (previewed),GSM1235554,cd8 t cells,0.0588,0.99425,in a blood,1.00338,0.286,True
+GSE235717 (previewed),GSM1235554,b cells,0.0379,0.97548,in a blood,0.98793,-0.946,True
+GSE235717 (previewed),GSM1235554,monocytes,0.0107,0.98451,,,,
+GSE235717 (previewed),GSM1235555,neutrophils,0.5544,1.02217,in a blood,1.01607,0.439,True
+GSE235717 (previewed),GSM1235555,cd4 t cells,0.1148,0.99357,in a blood,0.99906,-0.089,True
+GSE235717 (previewed),GSM1235555,cd8 t cells,0.0761,0.98274,in a blood,0.99177,-0.697,True
+GSE235717 (previewed),GSM1235555,b cells,0.0254,0.96845,in a blood,0.98081,-1.504,True
+GSE235717 (previewed),GSM1235556,neutrophils,0.4435,1.01041,in a blood,1.00438,0.12,True
+GSE235717 (previewed),GSM1235556,cd4 t cells,0.0577,1.0067,in a blood,1.01227,1.162,True
+GSE235717 (previewed),GSM1235556,monocytes,0.0548,0.98429,in a blood,0.99463,-0.727,True
+GSE235717 (previewed),GSM1235556,cd8 t cells,0.0499,0.99583,in a blood,1.00498,0.421,True
+GSE235717 (previewed),GSM1235556,nk cells,0.0486,0.98896,in a blood,0.99814,-0.164,True
+GSE235717 (previewed),GSM1235556,b cells,0.0379,0.98386,in a blood,0.99641,-0.281,True
+GSE235717 (previewed),GSM1235557,neutrophils,0.3758,1.00808,in a blood,1.00207,0.057,True
+GSE235717 (previewed),GSM1235557,cd8 t cells,0.128,0.99163,in a blood,1.00074,0.062,True
+GSE235717 (previewed),GSM1235557,cd4 t cells,0.1111,1.00273,in a blood,1.00828,0.784,True
+GSE235717 (previewed),GSM1235557,b cells,0.0494,0.96756,in a blood,0.97991,-1.575,True
+GSE235717 (previewed),GSM1235557,monocytes,0.0378,0.97363,in a blood,0.98386,-2.188,False
+GSE235717 (previewed),GSM1235558,neutrophils,0.3448,0.99931,,,,
+GSE235717 (previewed),GSM1235558,cd8 t cells,0.1168,0.98919,in a blood,0.99827,-0.146,True
+GSE235717 (previewed),GSM1235558,cd4 t cells,0.0895,0.99413,in a blood,0.99963,-0.035,True
+GSE235717 (previewed),GSM1235558,b cells,0.0491,0.97375,in a blood,0.98618,-1.083,True
+GSE235717 (previewed),GSM1235559,neutrophils,0.485,1.02515,in a blood,1.01904,0.52,True
+GSE235717 (previewed),GSM1235559,cd8 t cells,0.0603,0.98808,in a blood,0.99715,-0.241,True
+GSE235717 (previewed),GSM1235559,b cells,0.0518,0.96814,in a blood,0.98049,-1.529,True
+GSE235717 (previewed),GSM1235559,cd4 t cells,0.0283,0.99714,in a blood,1.00265,0.251,True
+GSE235717 (previewed),GSM1235560,neutrophils,0.5539,1.05771,in a blood,1.0514,1.405,True
+GSE235717 (previewed),GSM1235560,cd8 t cells,0.0615,0.98004,in a blood,0.98904,-0.928,True
+GSE235717 (previewed),GSM1235560,monocytes,0.0509,0.97392,in a blood,0.98416,-2.148,False
+GSE235717 (previewed),GSM1235560,b cells,0.0361,0.95419,in a blood,0.96637,-2.636,False
+GSE235717 (previewed),GSM1235560,cd4 t cells,0.0273,0.99362,in a blood,0.99912,-0.084,True
+GSE235717 (previewed),GSM1235570,neutrophils,0.4915,1.01576,in a blood,1.0097,0.265,True
+GSE235717 (previewed),GSM1235570,cd8 t cells,0.1108,0.98757,in a blood,0.99664,-0.285,True
+GSE235717 (previewed),GSM1235570,cd4 t cells,0.0251,0.99762,in a blood,1.00314,0.297,True
+GSE235717 (previewed),GSM1235570,monocytes,0.023,0.97329,in a blood,0.98352,-2.234,False
+GSE235717 (previewed),GSM1235570,b cells,0.0207,0.9645,in a blood,0.97681,-1.817,True
+GSE235717 (previewed),GSM1235571,neutrophils,0.4809,1.06255,in a blood,1.05621,1.537,True
+GSE235717 (previewed),GSM1235571,cd4 t cells,0.0535,1.01504,in a blood,1.02065,1.956,True
+GSE235717 (previewed),GSM1235571,b cells,0.0361,0.97382,in a blood,0.98625,-1.078,True
+GSE235717 (previewed),GSM1235571,cd8 t cells,0.0185,0.99793,in a blood,1.00709,0.601,True
+GSE235717 (previewed),GSM2333901,neutrophils,0.6886,0.9634,in a blood,0.95765,-1.158,True
+GSE235717 (previewed),GSM2333901,cd8 t cells,0.0402,0.99045,in a blood,0.99955,-0.038,True
+GSE235717 (previewed),GSM2333901,nk cells,0.0396,0.98117,in a blood,0.99028,-0.86,True
+GSE235717 (previewed),GSM2333901,b cells,0.0337,0.98178,in a blood,0.99431,-0.446,True
+GSE235717 (previewed),GSM2333901,monocytes,0.0114,0.99087,in a blood,1.00128,0.174,True
+GSE235717 (previewed),GSM2333902,neutrophils,0.4892,0.9992,in a blood,0.99324,-0.185,True
+GSE235717 (previewed),GSM2333902,cd4 t cells,0.1831,1.00975,in a blood,1.01533,1.452,True
+GSE235717 (previewed),GSM2333902,monocytes,0.0794,0.99503,in a blood,1.00549,0.744,True
+GSE235717 (previewed),GSM2333902,nk cells,0.068,0.98876,in a blood,0.99794,-0.182,True
+GSE235717 (previewed),GSM2333902,cd8 t cells,0.0411,0.99657,in a blood,1.00572,0.485,True
+GSE235717 (previewed),GSM2333902,b cells,0.0121,0.98027,in a blood,0.99278,-0.566,True
+GSE235717 (previewed),GSM2333903,neutrophils,0.8235,0.96635,sorted,0.9583,-0.817,True
+GSE235717 (previewed),GSM2333903,cd8 t cells,0.0341,0.99995,in a blood,1.00913,0.774,True
+GSE235717 (previewed),GSM2333903,cd4 t cells,0.0222,1.01364,in a blood,1.01925,1.823,True
+GSE235717 (previewed),GSM2333903,b cells,0.0214,1.01018,in a blood,1.02307,1.808,True
+GSE235717 (previewed),GSM2333903,nk cells,0.0151,1.00425,in a blood,1.01357,1.201,True
+GSE235717 (previewed),GSM2333904,neutrophils,0.4967,0.94072,in a blood,0.93511,-1.774,True
+GSE235717 (previewed),GSM2333904,nk cells,0.1,0.98013,in a blood,0.98923,-0.953,True
+GSE235717 (previewed),GSM2333904,cd8 t cells,0.0933,0.98974,in a blood,0.99883,-0.099,True
+GSE235717 (previewed),GSM2333904,monocytes,0.0772,0.97967,in a blood,0.98997,-1.36,True
+GSE235717 (previewed),GSM2333904,b cells,0.0429,0.98748,in a blood,1.00008,0.006,True
+GSE235717 (previewed),GSM2333905,neutrophils,0.5236,0.96473,in a blood,0.95898,-1.121,True
+GSE235717 (previewed),GSM2333905,cd8 t cells,0.0759,0.99758,in a blood,1.00674,0.571,True
+GSE235717 (previewed),GSM2333905,monocytes,0.0731,0.98209,in a blood,0.99241,-1.029,True
+GSE235717 (previewed),GSM2333905,cd4 t cells,0.0428,1.00287,in a blood,1.00842,0.797,True
+GSE235717 (previewed),GSM2333905,nk cells,0.0388,0.98281,in a blood,0.99194,-0.713,True
+GSE235717 (previewed),GSM2333905,b cells,0.0297,0.98475,in a blood,0.99732,-0.21,True
+GSE235717 (previewed),GSM2333906,neutrophils,0.4513,0.97314,in a blood,0.96734,-0.893,True
+GSE235717 (previewed),GSM2333906,b cells,0.0584,0.96973,in a blood,0.9821,-1.402,True
+GSE235717 (previewed),GSM2333906,monocytes,0.0473,0.96731,in a blood,0.97748,-3.053,False
+GSE235717 (previewed),GSM2333906,cd8 t cells,0.041,0.97601,in a blood,0.98497,-1.273,True
+GSE235717 (previewed),GSM2333907,neutrophils,0.5492,0.98743,in a blood,0.98154,-0.505,True
+GSE235717 (previewed),GSM2333907,cd8 t cells,0.1055,0.9925,in a blood,1.00161,0.137,True
+GSE235717 (previewed),GSM2333907,cd4 t cells,0.0874,0.99852,in a blood,1.00404,0.383,True
+GSE235717 (previewed),GSM2333907,nk cells,0.0374,0.98019,in a blood,0.98929,-0.947,True
+GSE235717 (previewed),GSM2333907,monocytes,0.0247,0.98496,in a blood,0.99531,-0.636,True
+GSE235717 (previewed),GSM2333907,b cells,0.0226,0.98667,in a blood,0.99926,-0.058,True
+GSE235717 (previewed),GSM2333908,neutrophils,0.67,1.00647,in a blood,1.00047,0.013,True
+GSE235717 (previewed),GSM2333908,cd8 t cells,0.0966,0.9865,in a blood,0.99556,-0.376,True
+GSE235717 (previewed),GSM2333908,monocytes,0.0278,0.99772,in a blood,1.00821,1.112,True
+GSE235717 (previewed),GSM2333908,b cells,0.0177,0.96996,in a blood,0.98234,-1.384,True
+GSE235717 (previewed),GSM2333909,neutrophils,0.381,0.98332,in a blood,0.97746,-0.616,True
+GSE235717 (previewed),GSM2333909,cd8 t cells,0.2267,0.994,in a blood,1.00313,0.265,True
+GSE235717 (previewed),GSM2333909,cd4 t cells,0.0569,1.00307,in a blood,1.00862,0.816,True
+GSE235717 (previewed),GSM2333909,b cells,0.0521,0.97759,in a blood,0.99006,-0.779,True
+GSE235717 (previewed),GSM2333909,monocytes,0.0433,0.98877,in a blood,0.99916,-0.114,True
+GSE235717 (previewed),GSM2333909,nk cells,0.0181,0.98247,in a blood,0.99159,-0.744,True
+GSE235717 (previewed),GSM2333910,neutrophils,0.5701,0.99379,in a blood,0.98786,-0.332,True
+GSE235717 (previewed),GSM2333910,cd4 t cells,0.0846,1.01187,in a blood,1.01747,1.654,True
+GSE235717 (previewed),GSM2333910,nk cells,0.0733,0.99244,in a blood,1.00166,0.146,True
+GSE235717 (previewed),GSM2333910,cd8 t cells,0.0696,1.00346,in a blood,1.01268,1.074,True
+GSE235717 (previewed),GSM2333910,monocytes,0.037,0.98865,in a blood,0.99904,-0.13,True
+GSE235717 (previewed),GSM2333910,b cells,0.0222,0.98569,in a blood,0.99827,-0.136,True
+GSE235717 (previewed),GSM2333911,neutrophils,0.6893,0.93499,in a blood,0.92941,-1.93,True
+GSE235717 (previewed),GSM2333911,monocytes,0.0342,0.98548,in a blood,0.99584,-0.564,True
+GSE235717 (previewed),GSM2333911,cd8 t cells,0.0227,0.97751,in a blood,0.98649,-1.144,True
+GSE235717 (previewed),GSM2333911,b cells,0.0182,0.98285,in a blood,0.99539,-0.361,True
+GSE235717 (previewed),GSM2333912,neutrophils,0.5279,0.9761,in a blood,0.97028,-0.813,True
+GSE235717 (previewed),GSM2333912,cd4 t cells,0.1399,0.99969,in a blood,1.00522,0.494,True
+GSE235717 (previewed),GSM2333912,cd8 t cells,0.0659,0.99559,in a blood,1.00473,0.401,True
+GSE235717 (previewed),GSM2333912,nk cells,0.0429,0.98318,in a blood,0.99231,-0.68,True
+GSE235717 (previewed),GSM2333912,b cells,0.0337,0.98832,in a blood,1.00093,0.073,True
+GSE235717 (previewed),GSM2333913,neutrophils,0.5344,0.96587,in a blood,0.96011,-1.09,True
+GSE235717 (previewed),GSM2333913,cd8 t cells,0.0887,0.99401,in a blood,1.00314,0.266,True
+GSE235717 (previewed),GSM2333913,monocytes,0.0684,0.97854,in a blood,0.98882,-1.515,True
+GSE235717 (previewed),GSM2333913,cd4 t cells,0.0468,1.00229,in a blood,1.00783,0.742,True
+GSE235717 (previewed),GSM2333913,b cells,0.0389,0.99021,in a blood,1.00285,0.223,True
+GSE235717 (previewed),GSM2333913,nk cells,0.0269,0.98164,in a blood,0.99075,-0.818,True
+GSE235717 (previewed),GSM2333914,neutrophils,0.5414,0.97088,in a blood,0.96509,-0.954,True
+GSE235717 (previewed),GSM2333914,cd8 t cells,0.0625,0.98992,in a blood,0.99901,-0.084,True
+GSE235717 (previewed),GSM2333914,monocytes,0.0592,1.00154,in a blood,1.01207,1.636,True
+GSE235717 (previewed),GSM2333914,b cells,0.0323,0.9865,in a blood,0.99909,-0.071,True
+GSE235717 (previewed),GSM2333915,neutrophils,0.6197,0.97004,in a blood,0.96425,-0.977,True
+GSE235717 (previewed),GSM2333915,nk cells,0.0773,0.98693,in a blood,0.99609,-0.346,True
+GSE235717 (previewed),GSM2333915,cd8 t cells,0.0691,0.99661,in a blood,1.00576,0.488,True
+GSE235717 (previewed),GSM2333915,monocytes,0.0492,0.98339,in a blood,0.99372,-0.851,True
+GSE235717 (previewed),GSM2333915,b cells,0.0164,0.9903,in a blood,1.00294,0.23,True
+GSE235717 (previewed),GSM2333916,neutrophils,0.5205,0.9924,in a blood,0.98648,-0.37,True
+GSE235717 (previewed),GSM2333916,cd4 t cells,0.1011,1.00538,in a blood,1.01094,1.036,True
+GSE235717 (previewed),GSM2333916,cd8 t cells,0.0751,0.99745,in a blood,1.00661,0.56,True
+GSE235717 (previewed),GSM2333916,monocytes,0.0635,0.98733,in a blood,0.99771,-0.311,True
+GSE235717 (previewed),GSM2333916,nk cells,0.0339,0.98155,in a blood,0.99066,-0.826,True
+GSE235717 (previewed),GSM2333916,b cells,0.0231,0.97923,in a blood,0.99173,-0.648,True
+GSE235717 (previewed),GSM2333917,neutrophils,0.6526,0.94835,in a blood,0.94269,-1.567,True
+GSE235717 (previewed),GSM2333917,cd8 t cells,0.0679,0.98354,in a blood,0.99257,-0.629,True
+GSE235717 (previewed),GSM2333917,monocytes,0.0497,0.97503,in a blood,0.98528,-1.996,True
+GSE235717 (previewed),GSM2333917,b cells,0.034,0.98014,in a blood,0.99265,-0.576,True
+GSE235717 (previewed),GSM2333918,neutrophils,0.4353,0.95443,in a blood,0.94874,-1.401,True
+GSE235717 (previewed),GSM2333918,cd8 t cells,0.0785,0.98776,in a blood,0.99683,-0.268,True
+GSE235717 (previewed),GSM2333918,nk cells,0.0746,0.98186,in a blood,0.99098,-0.798,True
+GSE235717 (previewed),GSM2333918,monocytes,0.0497,0.98524,in a blood,0.99559,-0.597,True
+GSE235717 (previewed),GSM2333918,b cells,0.0382,0.98602,in a blood,0.9986,-0.11,True
+GSE235717 (previewed),GSM2333919,neutrophils,0.5589,0.95372,in a blood,0.94803,-1.421,True
+GSE235717 (previewed),GSM2333919,cd8 t cells,0.1062,0.9975,in a blood,1.00666,0.564,True
+GSE235717 (previewed),GSM2333919,b cells,0.0453,0.99477,in a blood,1.00746,0.585,True
+GSE235717 (previewed),GSM2333919,nk cells,0.0303,0.98375,in a blood,0.99288,-0.629,True
+GSE235717 (previewed),GSM2333919,monocytes,0.0278,0.9857,in a blood,0.99606,-0.534,True
+GSE235717 (previewed),GSM2333920,neutrophils,0.6032,0.96689,in a blood,0.96112,-1.063,True
+GSE235717 (previewed),GSM2333920,cd8 t cells,0.0696,0.97373,in a blood,0.98267,-1.468,True
+GSE235717 (previewed),GSM2333920,monocytes,0.0583,0.97549,in a blood,0.98574,-1.933,True
+GSE235717 (previewed),GSM2333920,b cells,0.0336,0.95982,in a blood,0.97207,-2.189,False
+GSE235717 (previewed),GSM4649388,neutrophils,0.5488,0.96768,in a blood,0.96191,-1.041,True
+GSE235717 (previewed),GSM4649388,monocytes,0.0657,0.98814,in a blood,0.99852,-0.2,True
+GSE235717 (previewed),GSM4649388,cd8 t cells,0.0114,0.98266,in a blood,0.99168,-0.704,True
+GSE235717 (previewed),GSM4649389,neutrophils,0.6426,0.98863,in a blood,0.98273,-0.472,True
+GSE235717 (previewed),GSM4649389,monocytes,0.0738,0.96427,in a blood,0.9744,-3.47,False
+GSE235717 (previewed),GSM4649390,neutrophils,0.6706,0.97944,in a blood,0.9736,-0.722,True
+GSE235717 (previewed),GSM4649390,monocytes,0.0243,0.96382,in a blood,0.97395,-3.532,False
+GSE235717 (previewed),GSM4649391,neutrophils,0.4478,0.95592,in a blood,0.95022,-1.361,True
+GSE235717 (previewed),GSM4649391,monocytes,0.0631,0.97158,in a blood,0.98179,-2.468,False
+GSE235717 (previewed),GSM4649396,neutrophils,0.5317,0.94634,in a blood,0.9407,-1.621,True
+GSE235717 (previewed),GSM4649396,monocytes,0.0516,0.92425,in a blood,0.93396,-8.952,False
+GSE235717 (previewed),GSM4649396,cd8 t cells,0.0294,0.94601,in a blood,0.9547,-3.837,False
+GSE235717 (previewed),GSM4649396,b cells,0.0171,0.93515,in a blood,0.94708,-4.147,False
+GSE235717 (previewed),GSM4649397,neutrophils,0.5554,0.97166,in a blood,0.96586,-0.933,True
+GSE235717 (previewed),GSM4649397,monocytes,0.069,0.95854,in a blood,0.96861,-4.255,False
+GSE235717 (previewed),GSM4649398,neutrophils,0.4609,0.9626,in a blood,0.95686,-1.179,True
+GSE235717 (previewed),GSM4649398,monocytes,0.0356,0.96885,in a blood,0.97903,-2.842,False
+GSE235717 (previewed),GSM4649400,neutrophils,0.5556,0.98311,in a blood,0.97725,-0.622,True
+GSE235717 (previewed),GSM4649400,monocytes,0.0358,0.95255,in a blood,0.96256,-5.075,False
+GSE235717 (previewed),GSM4649401,neutrophils,0.5509,0.96271,in a blood,0.95697,-1.176,True
+GSE235717 (previewed),GSM4649401,monocytes,0.0252,0.96178,in a blood,0.97189,-3.811,False
+GSE235717 (previewed),GSM4649402,neutrophils,0.6288,0.96728,in a blood,0.96151,-1.052,True
+GSE235717 (previewed),GSM4649402,monocytes,0.0485,0.95594,in a blood,0.96599,-4.611,False
+GSE235717 (previewed),GSM4649403,neutrophils,0.6476,0.96435,in a blood,0.9586,-1.132,True
+GSE235717 (previewed),GSM4649403,monocytes,0.03,0.9679,in a blood,0.97807,-2.973,False
+GSE235717 (previewed),GSM4649404,neutrophils,0.632,0.97806,in a blood,0.97223,-0.759,True
+GSE235717 (previewed),GSM4649404,monocytes,0.0641,0.95874,in a blood,0.96882,-4.227,False
+GSE235717 (previewed),GSM4649405,neutrophils,0.6202,0.97595,in a blood,0.97013,-0.817,True
+GSE235717 (previewed),GSM4649405,monocytes,0.0504,0.96301,in a blood,0.97313,-3.642,False
+GSE235717 (previewed),GSM4649406,neutrophils,0.6924,0.9695,in a blood,0.96372,-0.992,True
+GSE235717 (previewed),GSM4649406,monocytes,0.0319,0.96305,in a blood,0.97317,-3.637,False
+GSE235717 (previewed),GSM4649407,neutrophils,0.5782,0.96776,in a blood,0.96199,-1.039,True
+GSE235717 (previewed),GSM4649407,monocytes,0.0827,0.97067,in a blood,0.98087,-2.593,False
+GSE235717 (previewed),GSM4649409,neutrophils,0.725,0.98369,sorted,0.9755,-0.48,True
+GSE235717 (previewed),GSM4649409,monocytes,0.0495,0.97779,in a blood,0.98807,-1.618,True
+GSE235717 (previewed),GSM4649410,neutrophils,0.7053,0.9699,sorted,0.96182,-0.748,True
+GSE235717 (previewed),GSM4649410,monocytes,0.0325,0.96061,in a blood,0.97071,-3.971,False
+GSE235717 (previewed),GSM4649411,neutrophils,0.5117,0.96297,in a blood,0.95723,-1.169,True
+GSE235717 (previewed),GSM4649411,monocytes,0.0435,0.95746,in a blood,0.96752,-4.403,False
+GSE235717 (previewed),GSM4649412,neutrophils,0.6532,0.97585,in a blood,0.97003,-0.819,True
+GSE235717 (previewed),GSM4649412,monocytes,0.0913,0.95618,in a blood,0.96623,-4.578,False
+GSE235717 (previewed),GSM4649413,neutrophils,0.6908,0.96477,in a blood,0.95902,-1.12,True
+GSE235717 (previewed),GSM4649413,monocytes,0.0522,0.95643,in a blood,0.96648,-4.544,False
+GSE235717 (previewed),GSM7508426,neutrophils,0.5702,0.9705,in a blood,0.96471,-0.965,True
+GSE235717 (previewed),GSM7508426,monocytes,0.0275,0.96943,in a blood,0.97962,-2.763,False
+GSE235717 (previewed),GSM7508427,neutrophils,0.5455,0.97868,in a blood,0.97284,-0.742,True
+GSE235717 (previewed),GSM7508427,monocytes,0.0356,0.97058,in a blood,0.98078,-2.605,False
+GSE235717 (previewed),GSM7508428,neutrophils,0.7612,0.99515,sorted,0.98686,-0.257,True
+GSE235717 (previewed),GSM7508429,neutrophils,0.5345,0.98381,in a blood,0.97794,-0.603,True
+GSE235717 (previewed),GSM7508430,neutrophils,0.3913,0.97172,in a blood,0.96592,-0.932,True
+GSE235717 (previewed),GSM7508430,monocytes,0.0307,0.9757,in a blood,0.98595,-1.904,True
+GSE235717 (previewed),GSM7508431,neutrophils,0.5628,0.98177,in a blood,0.97591,-0.658,True
+GSE235717 (previewed),GSM7508431,monocytes,0.0364,0.97941,in a blood,0.9897,-1.396,True
+GSE235717 (previewed),GSM7508432,neutrophils,0.3688,0.96608,in a blood,0.96032,-1.085,True
+GSE235717 (previewed),GSM7508432,monocytes,0.0441,0.97241,in a blood,0.98263,-2.355,False
+GSE235717 (previewed),GSM7508433,neutrophils,0.3749,0.96062,in a blood,0.95489,-1.233,True
+GSE235717 (previewed),GSM7508433,monocytes,0.0351,0.97069,in a blood,0.98089,-2.59,False
+GSE235717 (previewed),GSM7508434,neutrophils,0.7155,0.99272,sorted,0.98445,-0.304,True
+GSE235717 (previewed),GSM7508435,neutrophils,0.5503,0.97739,in a blood,0.97156,-0.777,True
+GSE235717 (previewed),GSM7508435,monocytes,0.0219,0.96951,in a blood,0.9797,-2.752,False
+GSE235717 (previewed),GSM7508436,neutrophils,0.5627,0.97977,in a blood,0.97393,-0.713,True
+GSE235717 (previewed),GSM7508436,monocytes,0.0415,0.98505,in a blood,0.9954,-0.623,True
+GSE235717 (previewed),GSM7508437,neutrophils,0.537,0.98102,in a blood,0.97517,-0.679,True
+GSE235717 (previewed),GSM7508437,monocytes,0.1264,0.97967,in a blood,0.98997,-1.36,True
+GSE235717 (previewed),GSM7508438,neutrophils,0.4975,0.97094,in a blood,0.96515,-0.953,True
+GSE235717 (previewed),GSM7508439,neutrophils,0.534,0.97243,in a blood,0.96663,-0.912,True
+GSE235717 (previewed),GSM7508440,neutrophils,0.6692,0.98382,in a blood,0.97795,-0.603,True
+GSE235717 (previewed),GSM7508440,monocytes,0.0119,0.99414,in a blood,1.00459,0.622,True
+GSE235717 (previewed),GSM7508441,neutrophils,0.5623,0.97754,in a blood,0.97171,-0.773,True
+GSE235717 (previewed),GSM7508441,monocytes,0.019,0.99084,in a blood,1.00125,0.17,True
+GSE235717 (previewed),GSM7508442,neutrophils,0.5634,0.97217,in a blood,0.96637,-0.919,True
+GSE235717 (previewed),GSM7508442,monocytes,0.0241,0.9716,in a blood,0.98181,-2.466,False
+GSE235717 (previewed),GSM7508443,neutrophils,0.57,0.98138,in a blood,0.97553,-0.669,True
+GSE235717 (previewed),GSM7508443,monocytes,0.051,0.96753,in a blood,0.9777,-3.023,False
+GSE235717 (previewed),GSM7508444,neutrophils,0.526,0.98013,in a blood,0.97428,-0.703,True
+GSE235717 (previewed),GSM7508444,monocytes,0.0137,0.97577,in a blood,0.98602,-1.895,True
+GSE235717 (previewed),GSM7508445,neutrophils,0.5779,0.9835,in a blood,0.97763,-0.611,True
+GSE235717 (previewed),GSM7508445,monocytes,0.0405,0.96714,in a blood,0.9773,-3.077,False

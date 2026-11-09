@@ -1,0 +1,18 @@
+Diagnostic of the four-laboratory test (after scoring; development, nothing scored)
+real spread within each laboratory against the constructed bloods' width, and the range of the laboratories' medians (Met-A)
+             constructed_width  constructed_middle  real_sd_within_lab_median  lab_medians_range
+neutrophils             0.0368              1.0060                     0.0267             0.0212
+monocytes               0.0073              0.9896                     0.0133             0.0215
+cd4 t cells             0.0105              0.9945                     0.0146             0.0202
+cd8 t cells             0.0117              0.9909                     0.0136             0.0180
+b cells                 0.0126              0.9874                     0.0146             0.0149
+nk cells                0.0112              0.9908                     0.0158             0.0372
+
+the Deconvolver's shares of cells outside the six, median by laboratory
+                       gmp     eos   other
+lab                                       
+Oslo GSE318173      0.0374  0.0164  0.0269
+Tokushima GSE67393  0.0489  0.0000  0.0585
+Uppsala GSE87571    0.0054  0.0000  0.0556
+rank correlation of each reading's distance from the middle (in widths) with the blood's GMP share: neutrophils +0.70, monocytes -0.31, nk cells -0.51
+not read: GSM1646163, GSM1646178, GSM1646184, GSM1649792 (GSE67393; refused at intake, exit 2; the first and last refused in an earlier test too)

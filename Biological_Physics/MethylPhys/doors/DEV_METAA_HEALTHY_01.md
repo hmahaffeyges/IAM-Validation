@@ -1123,3 +1123,14 @@ the next step is built bloods that also hold the atlas's own eosinophil and baso
 the in-blood Normal frozen as `realblood_inblood_normal.json`, from the rotation bloods; the sorted Normal is the chain's `donor_widths_v1.json`).
 **Disclosed:** GSE235717 (the 100 bloods) was previewed against this same Normal before the test was written, 310 of 369 readings Normal and
 monocytes 39 Normal, 46 below; its score in this test is therefore not blind, and the three other laboratories decide the test.
+
+**The four-laboratory spent test of the measured middle: not met** (`realblood_summary.txt`). 1,672 readings of the six cells with a
+Normal (1,645 by the in-blood table). Bar 1: Uppsala 487 of 529 (92 %) met; Oslo 227 of 360, Tokushima 301 of 414 and GSE235717 (previewed)
+310 of 369 not. Bar 2: neutrophils 345 of 360 met; monocytes 161 of 329, NK cells 148 of 193, B cells 208 of 260 not. Bar 3: monocytes in Oslo
+and GSE235717 and NK cells in Tokushima more than 2 widths from 1. Four Tokushima arrays refused at intake (`realblood_diag.txt`).
+**What it shows (diagnostic, after scoring):** real healthy people spread 1.2 to 1.8 times wider within a laboratory than the constructed
+bloods the in-blood Normal was measured on, and the laboratories' medians differ by 1.5 to 3.7 %. Both follow the Deconvolver's GMP share,
+as in the constructed bloods: each blood's distance from the middle rises with it for neutrophils (+0.70) and falls for NK cells (-0.51);
+Uppsala, the one laboratory that met bar 1, has the least GMP (median 0.5 %, Oslo 3.7 %, Tokushima 4.9 %). The measured middle is kept out
+of the chain. The lead is DNA of maturing neutrophils, which have no column, landing on GMP; next, the in-between neutrophil column from the
+public healthy bone-marrow maturation data (two donors, four stages), synthetic first, then these same spent bloods read again.

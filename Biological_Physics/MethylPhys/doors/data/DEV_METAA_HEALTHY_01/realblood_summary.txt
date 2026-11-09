@@ -1,0 +1,14 @@
+1717 readings of the six cells; 1672 with a Normal ({'in a blood': 1645, 'sorted': 27})
+bar 1, each laboratory >= 90 %: not met | GSE235717 (previewed) 310 of 369, Oslo GSE318173 227 of 360, Tokushima GSE67393 301 of 414, Uppsala GSE87571 487 of 529
+bar 2, each cell >= 85 %: not met | neutrophils 345 of 360, monocytes 161 of 329, cd4 t cells 230 of 264, cd8 t cells 233 of 266, b cells 208 of 260, nk cells 148 of 193
+bar 3, each laboratory's median within 2 widths of 1: not met | off: GSE235717 (previewed) monocytes -2.19, Oslo GSE318173 monocytes -3.46, Tokushima GSE67393 nk cells -2.02
+overall: NOT MET
+median gauge by laboratory and cell:
+lab          GSE235717 (previewed)  Oslo GSE318173  Tokushima GSE67393  Uppsala GSE87571
+cell                                                                                    
+neutrophils                 0.9743          0.9912              0.9735            0.9699
+monocytes                   0.9839          0.9745              0.9962            0.9938
+cd4 t cells                 1.0044          0.9837              0.9894            1.0043
+cd8 t cells                 0.9992          0.9810              0.9982            0.9980
+b cells                     0.9917          0.9766              0.9911            0.9891
+nk cells                    0.9920          0.9544              0.9772            0.9903
