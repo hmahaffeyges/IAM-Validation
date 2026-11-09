@@ -1,20 +1,20 @@
-Three laboratories' healthy bloods read again from their kept values with the fixed default chain (values_read.sh); 276 of 282 bloods at the time of this summary
+Three laboratories' healthy bloods read again from their kept values with the fixed default chain (values_read.sh); 282 of 282 bloods
 per laboratory, median of each blood
             whole  islands  domains     gmp
 lab                                        
-Oslo       0.9694   1.0080   0.9547  0.0444
-Tokushima  0.9756   0.9779   0.9786  0.0412
-Uppsala    0.9867   0.9936   0.9781  0.0000
-raw islands A (no prediction): {'Oslo': 0.8285, 'Tokushima': 0.8492, 'Uppsala': 0.8469}
+Oslo       0.9694   1.0080   0.9546  0.0410
+Tokushima  0.9733   0.9761   0.9773  0.0424
+Uppsala    0.9867   0.9944   0.9781  0.0000
+raw islands A (no prediction): {'Oslo': 0.8293, 'Tokushima': 0.8489, 'Uppsala': 0.8478}
 per-cell Met-A (cells at 5 % or more), median by laboratory
 lab            Oslo  Tokushima  Uppsala
 cell                                   
-b cells      0.9461     0.9801   0.9651
-cd4 t cells  0.9771     0.9830   1.0023
-cd8 t cells  0.9710     0.9912   0.9882
+b cells      0.9461     0.9801   0.9657
+cd4 t cells  0.9773     0.9832   1.0021
+cd8 t cells  0.9710     0.9912   0.9883
 monocytes    0.9648     0.9868   0.9815
-neutrophils  0.9955     0.9815   0.9756
-nk cells     0.9557     0.9695   0.9816
+neutrophils  0.9952     0.9832   0.9747
+nk cells     0.9557     0.9695   0.9817
 the same cells in the earlier reading (realblood_rows.csv)
 lab            Oslo  Tokushima  Uppsala
 cell                                   
