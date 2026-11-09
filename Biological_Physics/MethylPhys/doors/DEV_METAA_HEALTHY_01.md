@@ -1096,3 +1096,25 @@ healthy bloods, one array each, read below 1 too (neutrophils 0.9812, monocytes 
 not 1. This is the share synthetic's finding seen in healthy blood: a cell's reading in a mix is mostly its neighbors' DNA at its identity
 sites. Two ways to read it: the middle inside a blood is measured on the atlas's donors mixed as real bloods are (the rotation test's
 Normal), or the in-mix reading is changed so a healthy cell in a mix reads 1. For the author and me to decide before the commissioning test.
+
+## The measured middle on real healthy blood from four laboratories, spent data (written before it is scored)
+
+The instrument's job: a healthy whole blood reads Normal for each main cell found in it, on a gauge where the measured healthy middle is 1.
+
+**Normal:** each cell's middle and width measured on IAM-Atlas v2.1's own donors only, read as the sample is read (the sorted donors where the
+cell holds a share its sorted donors held; else the 200 healthy bloods built from those donors, the rotation test): the gauge reads each cell's
+Met-A divided by that measured middle, so measured healthy is 1; Normal is 1 plus or minus k widths (k: the prediction interval for one new
+reading from the number of donors). Nothing is set from the bloods scored here; the middles and widths are frozen before they are read
+(`donor_widths_v1.json`, and the in-blood table built from `blood_rotation_rows.csv`, held out of the chain until this test is scored).
+
+**Data (all spent; development, not commissioning):** 100 healthy whole bloods from each of four laboratories none of which gave the atlas
+donors: GSE235717 (the rehearsal's 100, already read on today's chain), and 100 drawn at random (seed 20261109) from the healthy controls of
+GSE318173 (Oslo, EPIC), the adults of GSE87571 (Uppsala, 450K) and GSE67393 (Tokushima, 450K), read by the one command on GitHub
+(`realblood_*_samples.csv`; --full-chain --cell-panel atlas --dev-line-wide).
+
+**Bars:** 1. in each laboratory at least 90 % of the six cells' readings that have a Normal read Normal; 2. across the four, each cell at least
+85 %; 3. in each laboratory each cell's median gauge reading within 2 widths of 1 (no laboratory term left). **Known circularities, stated:**
+the atlas columns were built from the same donors whose middles are measured (so the donors read near the prediction partly by construction),
+and the built bloods hold six cell types; both are why the test is on laboratories outside the atlas. If monocytes fail across laboratories,
+the next step is built bloods that also hold the atlas's own eosinophil and basophil donors (atlas only), not a change from these bloods.
+**Prior reading:** all four were read before (GSE318173's healthy controls for Group-A's commissioning, GSE87571 and GSE67393 in earlier development, GSE235717 in the rehearsal; `CANON/data_spent.csv`); this test is development on spent data and commissions nothing.

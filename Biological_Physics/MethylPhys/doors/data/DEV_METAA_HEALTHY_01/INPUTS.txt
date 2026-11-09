@@ -11,3 +11,6 @@ gsm7508429_shares.csv
 atlas_donors_samples.csv
 # 2026-11-07: IAM-Atlas v2.1's build arrays (firm or conditional, GEO), from atlas_v21_build_samples.csv; a sample list, not a reading
 atlas_donors_sources.csv
+realblood_GSE318173_samples.csv
+realblood_GSE87571_samples.csv
+realblood_GSE67393_samples.csv
