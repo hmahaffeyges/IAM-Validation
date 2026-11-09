@@ -1118,3 +1118,8 @@ the atlas columns were built from the same donors whose middles are measured (so
 and the built bloods hold six cell types; both are why the test is on laboratories outside the atlas. If monocytes fail across laboratories,
 the next step is built bloods that also hold the atlas's own eosinophil and basophil donors (atlas only), not a change from these bloods.
 **Prior reading:** all four were read before (GSE318173's healthy controls for Group-A's commissioning, GSE87571 and GSE67393 in earlier development, GSE235717 in the rehearsal; `CANON/data_spent.csv`); this test is development on spent data and commissions nothing.
+
+**The four-laboratory test's scorer and frozen Normal, committed before any of its readings is scored** (`realblood_score.py`;
+the in-blood Normal frozen as `realblood_inblood_normal.json`, from the rotation bloods; the sorted Normal is the chain's `donor_widths_v1.json`).
+**Disclosed:** GSE235717 (the 100 bloods) was previewed against this same Normal before the test was written, 310 of 369 readings Normal and
+monocytes 39 Normal, 46 below; its score in this test is therefore not blind, and the three other laboratories decide the test.

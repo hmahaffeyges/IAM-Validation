@@ -1,0 +1,54 @@
+{
+ "_rule": "Each cell's healthy Normal inside a whole blood on arrays, measured on IAM-Atlas v2.1's own 146 blood-cell donor arrays mixed into 200 constructed bloods at the shares of 100 healthy bloods (blood_constructed.py MODE all; the rotation test, met), read by the one command (--full-chain --cell-panel atlas --dev-line-wide): median and standard deviation of each cell's Met-A; k is the prediction interval for one new reading from d donors, t(0.975, d - 1) x sqrt(1 + 1/d) (counted by donors, not bloods). share_min: the lowest share the cell held in those bloods.",
+ "source": "Biological_Physics/MethylPhys/doors/data/DEV_METAA_HEALTHY_01/blood_rotation_rows.csv",
+ "cells": {
+  "neutrophils": {
+   "n": 55,
+   "median": 1.006,
+   "width": 0.0368,
+   "k": 2.023,
+   "share_min": 0.3571,
+   "middle_off": false
+  },
+  "monocytes": {
+   "n": 38,
+   "median": 0.9896,
+   "width": 0.0073,
+   "k": 2.0527,
+   "share_min": 0.0112,
+   "middle_off": false
+  },
+  "cd4 t cells": {
+   "n": 12,
+   "median": 0.9945,
+   "width": 0.0105,
+   "k": 2.2909,
+   "share_min": 0.0132,
+   "middle_off": false
+  },
+  "cd8 t cells": {
+   "n": 8,
+   "median": 0.9909,
+   "width": 0.0117,
+   "k": 2.5081,
+   "share_min": 0.0108,
+   "middle_off": false
+  },
+  "b cells": {
+   "n": 17,
+   "median": 0.9874,
+   "width": 0.0126,
+   "k": 2.1814,
+   "share_min": 0.0101,
+   "middle_off": false
+  },
+  "nk cells": {
+   "n": 12,
+   "median": 0.9908,
+   "width": 0.0112,
+   "k": 2.2909,
+   "share_min": 0.01,
+   "middle_off": false
+  }
+ }
+}
