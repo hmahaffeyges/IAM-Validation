@@ -1,0 +1,10 @@
+part 0 blood depth 6: distance unweighted 0.1396 weighted 0.0882; cells not in it 0.1274 -> 0.0816
+part 1 blood depth 20: distance unweighted 0.0768 weighted 0.0631; cells not in it 0.0448 -> 0.0515
+part 2 blood depth 6: distance unweighted 0.1353 weighted 0.0951; cells not in it 0.0555 -> 0.0721
+part 3 plasma depth 6: distance unweighted 0.2528 weighted 0.2127; cells not in it 0.0819 -> 0.1413
+part 4 plasma depth 6: distance unweighted 0.3621 weighted 0.2003; cells not in it 0.2064 -> 0.0933
+part 5 plasma depth 6: distance unweighted 0.3473 weighted 0.2095; cells not in it 0.1933 -> 0.0745
+bar 1 (closer, 5 of 6): 6 of 6: met
+bar 2 (false cells no larger, 5 of 6): 3 of 6: not met
+bar 3 (depth 20 no worse by 0.01): met
+NOT MET

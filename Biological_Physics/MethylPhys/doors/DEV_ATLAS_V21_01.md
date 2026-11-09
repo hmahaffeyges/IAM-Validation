@@ -1787,3 +1787,11 @@ GSE98837 CD8 0.031 to 0.059, while interior rates overlap (0.004 to 0.015). The 
 interior calls come from fewer, CpG-denser sites, so the next step reads Met-A itself without the outer calls: the 18 libraries through the
 one command with `--dev-seq-trim-ends` 0, 1 and 2 (`trim_read.sh`, `trim_read_samples.csv`), one library read first and checked before the
 rest are sent. **Prior reading:** all 18 were read before (`CANON/data_spent.csv`).
+
+**The read-count weighting synthetic, read: not met (bar 2).** (`seq_atlas/seq_noise_weight_synthetic_summary.txt`; the
+first send found no input, my relative path, and read nothing.) Bar 1 met, 6 of 6 closer to the truth (blood depth 6: 0.1396 to 0.0882;
+plasma: 0.3621 to 0.2003); bar 3 met at depth 20 (0.0768 to 0.0631). Bar 2 not met, 3 of 6: the share on cells not in the sample rose in
+two bloods (0.0448 to 0.0515 at depth 20, 0.0555 to 0.0721 at depth 6) and one plasma (0.0819 to 0.1413). A design error of mine confounds
+bar 2 on the plasmas: two of their planted tissues (liver hepatocytes, vascular endothelial cells) are not cell types of the IAM Sequencing
+Atlas, so their DNA must be read as other cells; the bloods' rises are not explained by it. Weighting brings the shares closer overall and
+spreads small shares over more cells at moderate depth. `--dev-seq-noise-weight` stays built and off.
