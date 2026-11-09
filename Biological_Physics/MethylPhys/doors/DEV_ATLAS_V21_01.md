@@ -1811,3 +1811,9 @@ were read before (`CANON/data_spent.csv`).
 machine an empty file with no error, and neither the fetch (`geo_pat`) nor the counter checked. The fetch now compares each download with the
 size GEO states and fetches again when short; the counter refuses a file with no molecules. Checked locally (an empty file refused; an empty
 then a short body refetched until whole). The empty canary output was set aside (`atlas_trim_void/`) and the canary sent again.
+
+**The trimmed donors' canary: the count file equals GEO's published file; one call out keeps 32 % of molecules.** Donor GSM5652176, counted by the one command
+from its molecules (`--geo-pat`, the size check on): untrimmed, the count file equals GEO's published .beta at all 28,217,448 CpGs below
+that file's cap of 255 (0 differing). With one call left out at each end, 122,743,125 of 388,137,463 molecules keep a call (molecules with one
+or two CpGs keep none) and 350,898,464 of 954,416,086 calls are kept (37 %): the trimmed atlas rests on about a third of the depth, as does
+a trimmed sample. The other 155 donors are being counted on Google.

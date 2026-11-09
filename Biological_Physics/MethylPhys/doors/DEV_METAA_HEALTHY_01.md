@@ -1367,3 +1367,11 @@ IAM-Deconvolver splits a sorted lymphocyte across its subtypes (naive, memory, e
 width was measured at. Bar 3 is met only in the two kinds with 5 or more states (neutrophils, monocytes); the four lymphocyte kinds have 2 to 4
 states each and are not assessed at this size. So the arrays read the two myeloid cells Normal from a laboratory the atlas never held; the
 lymphocytes read slightly below 1, as they do inside whole blood, and how a lymphocyte's subtypes are joined comes before the sealed test.
+
+**Does a blended expectation lower a sorted cell's Met-A? A little, in every cell (diagnostic; nothing scored).** On 18 of the atlas's own sorted
+donors (3 each of neutrophils, monocytes, CD4, CD8, B and NK; kept values, raw Met-A at the cell's identity sites, no line correction), the
+reading against the blend of cells the IAM-Deconvolver found is lower than against the cell's own column alone by a median of
+0.0076 (from -0.0244 to +0.0014; `blend_vs_own_column.csv`):
+a blend of columns holds more disorder than one column, so a split across similar cells lowers the reading slightly. It is in neutrophils
+too, and it is small beside the donor-to-donor spread of the raw readings (0.86 to 1.15), so it is not the main reason lymphocytes from
+another laboratory read below 1. **Prior reading:** these donors were read before (`CANON/data_spent.csv`).
