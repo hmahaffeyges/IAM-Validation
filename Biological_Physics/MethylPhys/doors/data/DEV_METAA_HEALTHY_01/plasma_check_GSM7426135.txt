@@ -1,0 +1,8 @@
+GSM7426135 (GSE186007 healthy plasma) read on today's chain with the committed reference (GitHub run 42538745757, cov_read, plasma_lab3_samples_r3.csv row 51): Deconvolver shares
+granulocytes 0.6591
+nk cells 0.1598
+monocytes 0.0835
+pancreatic delta 0.0327
+naive cd4 t cells 0.0313
+erythrocyte progenitors 0.0193
+colon macrophages 0.0102

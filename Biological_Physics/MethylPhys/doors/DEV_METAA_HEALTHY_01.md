@@ -1079,3 +1079,11 @@ centered on 1, the same 200 bloods give 834 of 939 inside, and monocytes, NK and
 0.9945). The offset follows the Deconvolver's false shares (neutrophils rise with them, +0.66; B and NK fall, -0.57 and -0.46), not each
 cell's own share. So the rotation test shows a stable Normal around a middle that is not yet 1; the false shares (the missing neutrophil
 precursors, above) come first. The commissioning test on unseen healthy whole blood (GSE234461 chosen, metadata only) waits for them.
+
+**The same misplacement in plasma, from records already committed (diagnostic; nothing new read).** The 30 tuning plasmas read with the
+megakaryocyte reference (`DEV_ONE_DRAW_01/plasma_seq_06/plasma_shares_diag_06.txt`, `mk_shares_compare.txt`) give monocytes a median 0.013 of
+each plasma and colon macrophages 0.059 (lung macrophages 0.014): blood-cell DNA landing on tissue macrophage columns, as the constructed
+bloods land on bone-marrow precursors and macrophages here. One GSE186007 healthy plasma (GSM7426135) read again on today's chain with the
+committed reference (GitHub run 42538745757; no megakaryocyte column by default) gives granulocytes 0.6591, NK cells 0.1598, monocytes 0.0835.
+On both routes the Deconvolver's misplaced shares are the open problem; on blood they follow the missing neutrophil precursors (GMP, above).
+The plasma bars were not reached for depth (DEV_ONE_DRAW_01), so the shares were recorded and not read as a misplacement problem until now.
