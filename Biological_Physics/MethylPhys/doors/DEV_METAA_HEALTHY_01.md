@@ -1195,3 +1195,10 @@ in their neutrophil samples, or an error tied to particular probes rather than r
 array's line at firmly held sites, which takes in both). The in-between neutrophil column stays set aside (the promyelocyte array was not
 found as GMP); next, on the same kept values: whether the noisy laboratories' neutrophil arrays depart from the atlas's neutrophil column
 in GMP's own direction at GMP's identity sites (cells), or at scattered probes of their own (a probe-tied error).
+
+**Cells or a probe-tied error: the check, written before it runs** (`gmp_source_diag.py`). For each of the atlas's neutrophil
+donors with kept values, the array's departure from the atlas's neutrophil column projected on GMP's direction at the Deconvolver's marker
+sites; that projection again on design I and design II probes separately (a null test by detector, as the CMB splits by detector), and
+again with the 5 % of probes carrying most of it left out. Real GMP-like cells: the same projection on both designs, kept when the few
+largest probes are left out, and larger in the laboratories with more GMP. A probe-tied error: one design only, or lost with the few
+probes. Each donor is read by the one command first, so its GMP share is the chain's own. Spent values, nothing scored.
