@@ -1,0 +1,11 @@
+12 clean EPIC neutrophil donors (GSE118144, GSE124565), GMP share as read and with Tokushima's (450K) or Uppsala's missing marker sites masked
+        all  tokushima_mask  uppsala_mask
+count  12.0         12.0000          12.0
+mean    0.0          0.0004           0.0
+std     0.0          0.0015           0.0
+min     0.0          0.0000           0.0
+25%     0.0          0.0000           0.0
+50%     0.0          0.0000           0.0
+75%     0.0          0.0000           0.0
+max     0.0          0.0053           0.0
+marker sites lost on Tokushima's bloods: 1331; median |GMP - neutrophils| at lost sites 0.0373, at kept sites 0.0175

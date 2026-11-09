@@ -2,13 +2,14 @@
 works first, check all the instruments including the C scores and territories'). SAMPLE p (0 to 3): the first spent healthy whole blood of
 GSE318173 (EPIC), of GSE87571 and of GSE67393 (450K), and an atlas neutrophil donor (GSE118144, EPIC), fetched from GEO and read by the one
 command with its defaults (the full development chain). For each instrument the bundle's section is checked: present, holding a reading, and
-no error text. Output: instrument_check_p{p}.json and .txt in OUTDIR. Usage: instrument_check.py OUTDIR SAMPLE"""
+no error text. Output: instrument_check_p{p}.json and .txt in OUTDIR. Usage: instrument_check.py OUTDIR SAMPLE [GSM]"""
 import os, sys, json, subprocess, urllib.request, re, csv
 H = os.path.dirname(os.path.abspath(__file__)); RS = os.path.abspath(os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface", "run_sample.py"))
 out = os.path.abspath(sys.argv[1]); P = int(sys.argv[2]); os.makedirs(out, exist_ok=True); wd = os.path.join(out, f"tmp{P}"); os.makedirs(wd, exist_ok=True)
 SRC = [("realblood_GSE318173_samples.csv", "whole blood"), ("realblood_GSE87571_samples.csv", "whole blood"), ("realblood_GSE67393_samples.csv", "whole blood"), (None, "sorted neutrophils")]
 lst, spec = SRC[P]
 g = next(csv.DictReader(open(os.path.join(H, lst))))["gsm"] if lst else next(r["gsm"] for r in csv.DictReader(open(os.path.join(H, "gmp_source_donors.csv"))) if r["series"] == "GSE118144")
+if len(sys.argv) > 3: g = sys.argv[3]   # 2026-11-09: a named sample instead (a GEO folder refused listing, 403)
 u = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/{g[:-3]}nnn/{g}/suppl/"
 try:
     names = sorted(set(re.findall(rf"{g}_[^\"<>]*_(?:Grn|Red)\.idat\.gz", urllib.request.urlopen(u, timeout=120).read().decode())))

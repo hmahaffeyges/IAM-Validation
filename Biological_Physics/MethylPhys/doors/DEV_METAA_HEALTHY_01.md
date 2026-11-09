@@ -1333,3 +1333,9 @@ GMP share 0.0577 to 0.0142 with six directions; Tokushima (450K) unchanged (0.14
 cells-not-in-blood are almost all GMP (0.1417) with some stem cells (0.0231), and its bloods measure fewer of the marker sites (6,561 of 7,892
 in all 30, against 7,427 and 7,632): its distortion is one the atlas's laboratories do not show, so they cannot teach it. The directions help
 where the atlas has seen the kind of laboratory. **Prior reading:** all three laboratories were read before (`CANON/data_spent.csv`).
+
+**Is Tokushima's GMP share the 450K chip's missing marker sites? No (development; nothing scored).** The 12 clean EPIC neutrophil donors of
+GSE118144 and GSE124565, with every marker site Tokushima's bloods lack set as unmeasured, read GMP 0.0004 on average (at most 0.0053;
+0 unmasked). The 1,331 sites the 450K chip lacks are where GMP and neutrophils differ most (median difference 0.0373, against 0.0175 at the
+sites kept), so on 450K the Deconvolver's line between the two is weaker and a smaller laboratory distortion reads as GMP; the distortion
+itself is in Tokushima's values. **Prior reading:** these donors and laboratories were read before (`CANON/data_spent.csv`).
