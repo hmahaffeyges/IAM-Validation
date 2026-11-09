@@ -1,0 +1,7 @@
+cell,donors,readings,inside_median,inside_1,median,width,k,share_min,middle_off
+neutrophils,55,200,190,182,1.006,0.0368,2.023,0.3571,False
+monocytes,38,118,109,82,0.9896,0.0073,2.0527,0.0112,False
+cd4 t cells,12,186,181,184,0.9945,0.0105,2.2909,0.0132,False
+cd8 t cells,8,168,168,164,0.9909,0.0117,2.5081,0.0108,False
+b cells,17,146,145,123,0.9874,0.0126,2.1814,0.0101,False
+nk cells,12,121,120,99,0.9908,0.0112,2.2909,0.01,False

@@ -67,6 +67,11 @@
      "date": "2026-11-08",
      "text": "We built 200 healthy test bloods from the atlas's own donor cells and read them with the chain. 913 of 939 cell readings landed inside the healthy range measured on the other donors, and every cell type passed. Next: a sealed test on healthy blood from laboratories the atlas has never seen.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "date": "2026-11-08",
+     "text": "A closer look: our rule is that a healthy cell reads 1, and inside a whole blood most cells read about 1 percent below it, because the chain credits part of each blood to bone-marrow cells that are not there. We fix that first, then run the sealed test.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]
   },

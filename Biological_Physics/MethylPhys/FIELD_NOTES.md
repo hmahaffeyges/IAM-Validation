@@ -57,6 +57,10 @@ Record: [COMMISSIONING_NOTE_ATLAS_V21.md](doors/COMMISSIONING_NOTE_ATLAS_V21.md)
 
 Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
 
+### · A closer look: our rule is that a healthy cell reads 1, and inside a whole blood most cells read about 1 percent below it, because the chain credits part of each blood to bone-marrow cells that are not there. We fix that first, then run the sealed test.
+
+Record: [DEV_METAA_HEALTHY_01.md](doors/DEV_METAA_HEALTHY_01.md)
+
 <a id="iama-commission"></a>
 ## Does our second instrument read the same DNA the same way everywhere?
 

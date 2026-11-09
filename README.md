@@ -117,7 +117,7 @@ against it, 140 of 140.
 | experiment | status | newest update |
 |---|---|---|
 | Building a bigger map of healthy cells: IAM-Atlas v2.1 | Result is in | Commissioned. [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_ATLAS_V21.md) |
-| A healthy middle for every cell in a regular blood draw | Running now | We built 200 healthy test bloods from the atlas's own donor cells and read them with the chain. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
+| A healthy middle for every cell in a regular blood draw | Running now | A closer look: our rule is that a healthy cell reads 1, and inside a whole blood most cells read about 1 percent below it, because the chain credits part of each blood to bone-marrow cells that are not there. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
 | Does our second instrument read the same DNA the same way everywhere? | On hold | Still paused. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
 | Brain cells: does healthy order hold in cells that never divide? | On hold | Still paused and still blind. [record](Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md) |
 | Lung cancer: waiting for a better map of the lung | On hold | Still on hold for the same reason: the map needs measured lung support cells first. [record](Biological_Physics/MethylPhys/doors/DEV_TISSUE_LUNG_03.md) |

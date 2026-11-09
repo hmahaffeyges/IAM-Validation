@@ -1072,3 +1072,10 @@ atlas's own donors with each donor left out in turn (bar 90 %); every cell 85 % 
 181 of 186, CD8 T 168 of 168, B 145 of 146, NK 120 of 121). On arrays, a whole blood's cells found now have a Normal from the atlas alone,
 for development. Spent data: commissioning needs the sealed test on unseen healthy blood arrays. The Deconvolver's false shares (GMP above)
 stay open; this Normal holds with them in place.
+
+**The rotation test's Normal was centered on the donors' median, not on 1 (my design; disclosed).** The chain's rule is that 1 is the middle. With each Normal
+centered on 1, the same 200 bloods give 834 of 939 inside, and monocytes, NK and B cells fall under 85 %
+(`blood_rotation_centered_on_1.txt`): inside a whole blood every cell but the neutrophils reads a little below 1 (medians 0.9874 to
+0.9945). The offset follows the Deconvolver's false shares (neutrophils rise with them, +0.66; B and NK fall, -0.57 and -0.46), not each
+cell's own share. So the rotation test shows a stable Normal around a middle that is not yet 1; the false shares (the missing neutrophil
+precursors, above) come first. The commissioning test on unseen healthy whole blood (GSE234461 chosen, metadata only) waits for them.
