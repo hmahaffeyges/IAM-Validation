@@ -876,7 +876,7 @@ are dropped.
 
 ### stage_seq_values.py::pat_to_lbeta
 
-A molecule file counted into a per-CpG count file (`.lbeta`, uint16 methylated and all calls at every hg19 CpG, the layout the atlas build reads). Run as `run_sample.py --build seq-pat-lbeta --pat FILE [--dev-seq-trim-ends N] --build-out OUT.lbeta`; with a trim, the file is trimmed once by `trim_pat` and then counted. Untrimmed it equals the published `.beta` of the same molecules below that file's cap of 255. Used to count the IAM Sequencing Atlas's own donors with the trim a sample is read with, so sample and reference take the same path (the CMB rule: the theory goes through the instrument's processing, not the data cleaned toward the theory).
+A molecule file counted into a per-CpG count file (`.lbeta`, uint16 methylated and all calls at every hg19 CpG, the layout the atlas build reads). Run as `run_sample.py --build seq-pat-lbeta --pat FILE [--dev-seq-trim-ends N] --build-out OUT.lbeta`; with a trim, the file is trimmed once by `trim_pat` and then counted. Untrimmed it equals the published `.beta` of the same molecules below that file's cap of 255. Used to count the IAM Sequencing Atlas's own donors with the trim a sample is read with, so sample and reference take the same path (the CMB rule: the theory goes through the instrument's processing, not the data cleaned toward the theory). A file with no molecules (empty or unreadable) is refused and nothing is written.
 
 ### stage_seq_values.py::pat_to_lbeta.flush
 
@@ -1370,7 +1370,7 @@ errors. Commissioned 2026-10-20 for groups of whole bloods run in one series, EP
 printed digit from the committed rows. Groups in any other specimen are read and labeled preliminary.
 
 **Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
-their laboratories.
+their laboratories. The download is checked against the size GEO states: an empty or short body (GEO sometimes sends one with no error) is fetched again, up to the retries, and never read.
 
 ### stage_groupa.py::_find
 A person's bundle in the bundles folder, or in any folder below it (sequencing runs land each bundle in its own folder).

@@ -1806,3 +1806,8 @@ files with the same trim (`stage_seq_values.pat_to_lbeta`, `run_sample.py --buil
 trim_pat then values_from_pat at every site, for 0, 1 and 2 calls out), and the atlas's own build then runs unchanged on those counts
 (`atlas_trim_donors.sh`; one donor first, its untrimmed count checked against the published .beta). **Prior reading:** all 18 libraries
 were read before (`CANON/data_spent.csv`).
+
+**The trimmed donors' canary counted nothing: an empty download read as an empty donor (chain bug, fixed).** The first donor's count came back with 0 molecules: GEO sent the Google
+machine an empty file with no error, and neither the fetch (`geo_pat`) nor the counter checked. The fetch now compares each download with the
+size GEO states and fetches again when short; the counter refuses a file with no molecules. Checked locally (an empty file refused; an empty
+then a short body refetched until whole). The empty canary output was set aside (`atlas_trim_void/`) and the canary sent again.

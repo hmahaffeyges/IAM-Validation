@@ -56,11 +56,11 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 90 | 5 | 0 | 0 |
-| `stage_seq_values.py` | 208 | 11 | 0 | 0 |
+| `stage_seq_values.py` | 210 | 11 | 0 | 0 |
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
-| `stage_q0_intake.py` | 174 | 7 | 0 | 0 |
+| `stage_q0_intake.py` | 177 | 7 | 0 | 0 |
 | `stage_q_iam_a.py` | 174 | 9 | 0 | 0 |
 | `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
@@ -1339,7 +1339,7 @@ pinned by the release check as a frozen input (F1): Stage T step 1 runs on every
 
 Reads a public pair of GRCh38 bigWig tracks (per-CpG methylation level and read coverage, the form consortia such as BLUEPRINT release whole-genome bisulfite calls in) at each atlas site's GRCh38 position (the C of the CpG, or the next base where the caller reports the reverse strand), giving a value at each site for every reader but IAM-A, which needs molecules. Used by `run_sample.py --dev-seq-beta CALL.bw,COV.bw`.
 
-*Code:* `stage_seq_values.py` line 158 (22 lines) · arguments: call_bw, cov_bw, min_calls · calls: not called on the traced runs · constants read: `KEY38` · files named: `atlas/v2.1/sites_key_hg38.parquet`
+*Code:* `stage_seq_values.py` line 160 (22 lines) · arguments: call_bw, cov_bw, min_calls · calls: not called on the traced runs · constants read: `KEY38` · files named: `atlas/v2.1/sites_key_hg38.parquet`
 
 ### `stage_seq_values.py::key`
 
@@ -1357,7 +1357,7 @@ site (seeded) and written as a `.beta` count file with a truth record. With `--d
 the cell's six-cell share as the one command scales a plant, so the counting noise falls on the planted levels as it would on a real loss. Made because the open matched set (GSE186888) is reserved unread for
 the one-draw test that counts (author 2026-10-22).
 
-*Code:* `stage_seq_values.py` line 125 (29 lines) · arguments: blood, add, depth_buffy, depth_plasma, out_dir, seed, plant · calls: not called on the traced runs · constants read: `HERE`, `HG19_CPGS` · files named: `truth.json`
+*Code:* `stage_seq_values.py` line 127 (29 lines) · arguments: blood, add, depth_buffy, depth_plasma, out_dir, seed, plant · calls: not called on the traced runs · constants read: `HERE`, `HG19_CPGS` · files named: `truth.json`
 
 ### `stage_seq_values.py::values_from_beta`
 
@@ -1366,7 +1366,7 @@ numbering, the numbering of the frozen site key); a file of another length is re
 runs but IAM-A, which needs molecules (`run_sample.py --dev-seq-beta`, `run_draw.py --buffy-seqbeta / --plasma-seqbeta`). Checked on a
 constructed file (the example blood GSM7508429 drawn at 30 reads per site): the IAM-Deconvolver's six shares within 1.2 points of the array's.
 
-*Code:* `stage_seq_values.py` line 109 (14 lines) · arguments: path, min_calls · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
+*Code:* `stage_seq_values.py` line 111 (14 lines) · arguments: path, min_calls · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
 
 ### `stage_seq_values.py::genome_coverage`
 
@@ -1377,7 +1377,7 @@ chromosomes 1 to 8), and the readings made from it are wrong in a way no later s
 library (plasma) pass and stops a partial one (DEV-SEQ-INTAKE-01). The rule behind it: never read the first N pairs of a run; read it whole,
 or check its order first.
 
-*Code:* `stage_seq_values.py` line 184 (24 lines) · arguments: values, key, rule · calls: not called on the traced runs · constants read: `GENOME_COVERAGE_RULE` · files named: `sites_sequencing_key.parquet`
+*Code:* `stage_seq_values.py` line 186 (24 lines) · arguments: values, key, rule · calls: not called on the traced runs · constants read: `GENOME_COVERAGE_RULE` · files named: `sites_sequencing_key.parquet`
 
 ### `stage_seq_values.py::values_from_pat`
 
@@ -1396,9 +1396,9 @@ are dropped.
 
 ### `stage_seq_values.py::pat_to_lbeta`
 
-A molecule file counted into a per-CpG count file (`.lbeta`, uint16 methylated and all calls at every hg19 CpG, the layout the atlas build reads). Run as `run_sample.py --build seq-pat-lbeta --pat FILE [--dev-seq-trim-ends N] --build-out OUT.lbeta`; with a trim, the file is trimmed once by `trim_pat` and then counted. Untrimmed it equals the published `.beta` of the same molecules below that file's cap of 255. Used to count the IAM Sequencing Atlas's own donors with the trim a sample is read with, so sample and reference take the same path (the CMB rule: the theory goes through the instrument's processing, not the data cleaned toward the theory).
+A molecule file counted into a per-CpG count file (`.lbeta`, uint16 methylated and all calls at every hg19 CpG, the layout the atlas build reads). Run as `run_sample.py --build seq-pat-lbeta --pat FILE [--dev-seq-trim-ends N] --build-out OUT.lbeta`; with a trim, the file is trimmed once by `trim_pat` and then counted. Untrimmed it equals the published `.beta` of the same molecules below that file's cap of 255. Used to count the IAM Sequencing Atlas's own donors with the trim a sample is read with, so sample and reference take the same path (the CMB rule: the theory goes through the instrument's processing, not the data cleaned toward the theory). A file with no molecules (empty or unreadable) is refused and nothing is written.
 
-*Code:* `stage_seq_values.py` line 84 (23 lines) · arguments: path, out, n · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
+*Code:* `stage_seq_values.py` line 84 (25 lines) · arguments: path, out, n · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
 
 ### `stage_seq_values.py::pat_to_lbeta.flush`
 
@@ -2059,13 +2059,13 @@ Parses and counts one line.
 Runs the checks in the table and returns the record with each check's value, rule and result, and the decision: stop at the first
 refusal, or proceed.
 
-*Code:* `stage_q0_intake.py` line 115 (59 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `GEO_BUILD`, `MIN_CALLS`, `Q0_LIMITS`
+*Code:* `stage_q0_intake.py` line 118 (59 lines) · arguments: path, specimen, cell, alignment_qc, selfref_cells · calls: not called on the traced runs · constants read: `ACCEPTED`, `AUTOSOMES`, `GEO_BUILD`, `MIN_CALLS`, `Q0_LIMITS`
 
 ### `stage_q0_intake.py::intake.chk`
 
 Records one check and, when it stops the file, the first refusal's code and reason, with its five-part explanation.
 
-*Code:* `stage_q0_intake.py` line 129 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
+*Code:* `stage_q0_intake.py` line 132 (10 lines) · arguments: step, ok, value, rule, code, stop · calls: not called on the traced runs
 
 ## 10b. Genome builds: which genome each reading counts on, and how the chain keeps them apart (2026-10-22, lesson C34)
 
@@ -2103,7 +2103,7 @@ The build a file's name declares when it is not hg19 (hg38, GRCh38, hg18, mm9, m
 A GEO sample's .pat file on the build the chain reads, as described above, with its name, address, the other files GEO holds, its size
 and checksum; stops, with what GEO holds, when it cannot pick exactly one.
 
-*Code:* `stage_q0_intake.py` line 87 (27 lines) · arguments: gsm, dest, build, retries · calls: not called on the traced runs · constants read: `GEO_BUILD`
+*Code:* `stage_q0_intake.py` line 87 (30 lines) · arguments: gsm, dest, build, retries · calls: not called on the traced runs · constants read: `GEO_BUILD`
 
 ## 11. Group-A, has a whole group moved: `stage_groupa.py`
 
@@ -2128,7 +2128,7 @@ errors. Commissioned 2026-10-20 for groups of whole bloods run in one series, EP
 printed digit from the committed rows. Groups in any other specimen are read and labeled preliminary.
 
 **Why one series.** Across laboratories, untared readings differ by several percent. Two groups from two laboratories would differ by
-their laboratories.
+their laboratories. The download is checked against the size GEO states: an empty or short body (GEO sometimes sends one with no error) is fetched again, up to the retries, and never read.
 
 ### `stage_groupa.py::_find`
 

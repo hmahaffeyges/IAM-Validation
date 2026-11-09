@@ -5139,7 +5139,7 @@
   },
   {
    "file": "stage_seq_values.py",
-   "lines": 208,
+   "lines": 210,
    "functions": [
     {
      "file": "stage_seq_values.py",
@@ -5228,13 +5228,13 @@
      "function": "pat_to_lbeta",
      "name": "pat_to_lbeta",
      "line": 84,
-     "end": 106,
+     "end": 108,
      "args": [
       "path",
       "out",
       "n"
      ],
-     "lines": 23,
+     "lines": 25,
      "doc": "DEVELOPMENT (2026-11-09, DEV-ATLAS-V21-01): a molecule file (.pat(.gz), hg19 CpG numbering) counted into a per-CpG count file (.lbeta: uint16 methylated and all calls at every hg19 CpG, the layout stage_seq_atlas.read_block reads), with the n outermost calls at each end of every molecule left out, exactly as trim_pat leaves them out, in one pass. With n = 0 it is the plain count (a check: it must ",
      "constants": [
       "FLAG",
@@ -5262,8 +5262,8 @@
      "file": "stage_seq_values.py",
      "function": "values_from_beta",
      "name": "values_from_beta",
-     "line": 109,
-     "end": 122,
+     "line": 111,
+     "end": 124,
      "args": [
       "path",
       "min_calls"
@@ -5281,8 +5281,8 @@
      "file": "stage_seq_values.py",
      "function": "construct_draw",
      "name": "construct_draw",
-     "line": 125,
-     "end": 153,
+     "line": 127,
+     "end": 155,
      "args": [
       "blood",
       "add",
@@ -5307,8 +5307,8 @@
      "file": "stage_seq_values.py",
      "function": "values_from_bigwig",
      "name": "values_from_bigwig",
-     "line": 158,
-     "end": 179,
+     "line": 160,
+     "end": 181,
      "args": [
       "call_bw",
       "cov_bw",
@@ -5328,8 +5328,8 @@
      "file": "stage_seq_values.py",
      "function": "genome_coverage",
      "name": "genome_coverage",
-     "line": 184,
-     "end": 207,
+     "line": 186,
+     "end": 209,
      "args": [
       "values",
       "key",
@@ -5857,7 +5857,7 @@
   },
   {
    "file": "stage_q0_intake.py",
-   "lines": 174,
+   "lines": 177,
    "functions": [
     {
      "file": "stage_q0_intake.py",
@@ -5932,14 +5932,14 @@
      "function": "geo_pat",
      "name": "geo_pat",
      "line": 87,
-     "end": 113,
+     "end": 116,
      "args": [
       "gsm",
       "dest",
       "build",
       "retries"
      ],
-     "lines": 27,
+     "lines": 30,
      "doc": "A sequencing sample's .pat file from GEO, on the build the chain reads (2026-10-22, lesson C34: a download that took the first file name in alphabetical order got the hg38 file, which sorts before hg19). Lists the sample's supplementary files and keeps the .pat.gz names that declare no other build; if more than one remain, the one naming hg19. Refuses, with what GEO holds, when none or several rem",
      "constants": [
       "GEO_BUILD"
@@ -5951,8 +5951,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake",
      "name": "intake",
-     "line": 115,
-     "end": 173,
+     "line": 118,
+     "end": 176,
      "args": [
       "path",
       "specimen",
@@ -5976,8 +5976,8 @@
      "file": "stage_q0_intake.py",
      "function": "intake.chk",
      "name": "chk",
-     "line": 129,
-     "end": 138,
+     "line": 132,
+     "end": 141,
      "args": [
       "step",
       "ok",

@@ -102,7 +102,9 @@ def pat_to_lbeta(path, out, n=0):
             for j in keep: bp.append(i + j); bm.append(s[j] == "C"); bw.append(w)
             cout += w * len(keep)
             if len(bp) > 5_000_000: flush()
-    flush(); a = np.empty(2 * HG19_CPGS, np.uint16); a[0::2] = np.minimum(M, 65535); a[1::2] = np.minimum(C, 65535); a.tofile(out)
+    flush()
+    if mol == 0: raise ValueError(f"{os.path.basename(str(path))}: no molecules counted (an empty or unreadable file); nothing written")   # 2026-11-09
+    a = np.empty(2 * HG19_CPGS, np.uint16); a[0::2] = np.minimum(M, 65535); a[1::2] = np.minimum(C, 65535); a.tofile(out)
     return out, dict(trim_each_end=int(n), molecules=mol, calls_in=cin, calls_kept=cout, cpgs_with_calls=int((C > 0).sum()), source=os.path.basename(str(path)), flag=FLAG)
 
 HG19_CPGS = 28217448   # CpGs in the hg19 reference numbering the .pat and .beta files share (stated; a file of another length is refused)

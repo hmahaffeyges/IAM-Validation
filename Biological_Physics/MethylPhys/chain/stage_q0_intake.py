@@ -105,7 +105,10 @@ def geo_pat(gsm, dest, build=GEO_BUILD, retries=5):
     for t in range(retries):
         try:
             with urllib.request.urlopen(u, timeout=900) as r, open(f, "wb") as o:
+                want = int(r.headers.get("Content-Length") or -1)
                 for c in iter(lambda: r.read(1 << 20), b""): o.write(c); h.update(c)
+            got = os.path.getsize(f)   # 2026-11-09: GEO sometimes sends an empty or short body with no error; a short file is fetched again, never read
+            if got == 0 or (want >= 0 and got != want): raise IOError(f"{n}: got {got:,} of {want:,} bytes")
             break
         except Exception:
             if t == retries - 1: raise
