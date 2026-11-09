@@ -1327,8 +1327,8 @@ same-chip laboratories are left to learn from (3 directions for the 450K pair). 
 **Prior reading:** the 57 atlas donors are IAM-Atlas v2.1's own build arrays, read many times before (`CANON/data_spent.csv`); each laboratory is
 left out of its own correction, nothing more. Nothing is scored.
 
-**Laboratory directions on the four laboratories' healthy bloods (kept values, development; nothing scored).** Learned once from all the
-atlas's donors (none from these laboratories) and taken out before the Deconvolver (`lab_directions_four_labs_summary.txt`): Oslo (EPIC)
+**Laboratory directions on three of the four laboratories' healthy bloods (kept values, development; nothing scored; GSE235717 has no kept values and was not read).** Learned once from all the
+atlas's donors (none from these laboratories) and taken out before the Deconvolver (`lab_directions_three_labs_summary.txt`): Oslo (EPIC)
 GMP share 0.0577 to 0.0142 with six directions; Tokushima (450K) unchanged (0.1417 to 0.1559); Uppsala (450K) none before or after. Tokushima's
 cells-not-in-blood are almost all GMP (0.1417) with some stem cells (0.0231), and its bloods measure fewer of the marker sites (6,561 of 7,892
 in all 30, against 7,427 and 7,632): its distortion is one the atlas's laboratories do not show, so they cannot teach it. The directions help

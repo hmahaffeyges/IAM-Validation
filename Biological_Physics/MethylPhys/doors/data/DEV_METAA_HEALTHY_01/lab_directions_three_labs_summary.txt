@@ -1,4 +1,4 @@
-Laboratory directions learned from all 146 atlas donors (6 blood cells, 9 laboratories; none of these three laboratories among them), taken out of the four-laboratory healthy bloods' kept values before the IAM-Deconvolver (IAM-Atlas v2.1 panel, its markers, no resampling); 30 bloods per laboratory; medians
+Laboratory directions learned from all 146 atlas donors (6 blood cells, 9 laboratories; none of these three laboratories among them), taken out of three of the four laboratories' healthy bloods' kept values (Oslo GSE318173, Uppsala GSE87571, Tokushima GSE67393; GSE235717 has no kept values and was not read) before the IAM-Deconvolver (IAM-Atlas v2.1 panel, its markers, no resampling); 30 bloods per laboratory; medians
 lab           Oslo  Tokushima  Uppsala
 base_gmp    0.0577     0.1417   0.0000
 base_other  0.1044     0.2575   0.0712
