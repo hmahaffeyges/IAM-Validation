@@ -1234,3 +1234,26 @@ the Deconvolver; synthetic first, then the EpiQC same-DNA arrays across laborato
 run 42583593035): the second reading took 265 s against 318 s, and the two bundles were identical except the information sphere, which
 records its report's file name; the check had named the two reports r1 and r2. The sphere's draws are seeded (`stage_info_sphere.build`,
 seed 20261013). The check now writes both readings under the same file names in separate folders, and runs again.
+
+**Each array's response curve on its own calibrators (chain change, development; its synthetic written before it runs).** IAM-Atlas v2.1's
+20 blood cell types hold hundreds of sites at the same level across the whole range (design II 4,671, 483, 354, 440, 359, 198, 254 and
+7,130 sites in the bins 0.1 to 0.9 with all 20 within 0.10; design I 5 to 309), so a blood array carries its own calibrators across the
+range, not only at the two ends the self-tare uses. `stage_t_selftare.curve_cal` (`--dev-curve-cal`): the cells found by a first
+Deconvolver pass; calibrators where all of them agree, never islands or domains; per design, one point per 0.05 of atlas level with 20 or
+more sites, made monotone; every site of that design mapped. Offline on one constructed blood with a planted bend: design II's median error
+against the truth 0.0427 before, 0.0073 after (the planted noise's level). **Synthetic, written before it runs** (`curve_synthetic.py`,
+`curve_synthetic_score.py`): six constructed healthy bloods, unbent and bent two ways (laboratories A and C), read by the one command with and without the
+calibration, and a 3 % neutrophil loss planted. Bars: the calibrated shares at most half as far from the unbent reading as the raw ones (10
+of 12); each cell's Met-A within 0.005 of the unbent reading (median); the planted loss survives within 0.005 (5 of 6).
+**Range of the data:** on the 57 real donors (7 laboratories) the laboratory medians of the departure projected on GMP's direction run
+-0.0278 to 0.0621 on design II and -0.1206 to 0.2088 on design I (`gmp_source_diag_summary.txt`). The synthetic's laboratory A bend gives
+0.0082 on design II and 0.0042 on design I (largest change in any level 0.0195), well inside; laboratory C (A times 7.5) gives about 0.062 on
+design II, the real top. Design I's real range is not reached by a smooth bend of any reasonable size, which may mean part of the real
+departure does not follow level; so the same check runs on the real donors, each read by the one command with the calibration
+(`gmp_source_diag.py ... curve`): the GMP share and both designs' projections before and after.
+
+**The full chain is now the default** (author: "They should always run but just be marked as development, not turned off"): every built
+development reading runs on every sample, each flagged, unless `--commissioned-only` is given; added to it tonight: the wide array line, and
+on sequencing input the IAM Sequencing Atlas as ruler, the donors' levels, the counted island expectation, the copy correction and the
+megakaryocyte column. Off: the two library floors (failed their own tests), the measured middle (held), the curve calibration (until its
+synthetic).

@@ -698,6 +698,8 @@ def main():
     ap.add_argument("--dev-input-floors", default=None, help="DEVELOPMENT: an atlas input floors file in the committed format (gsm, cell, half, floor, calls), for synthetics")
     ap.add_argument("--dev-terr-counts", default=None, help="DEVELOPMENT: a per-half island counts file in the committed format (cell, probe, mA, nA, mB, nB), for synthetics")
     ap.add_argument("--dev-pred-raw", action="store_true", help="development (2026-11-07): the healthy prediction of an array on its own values, not on the atlas ruler's")
+    ap.add_argument("--dev-curve-cal", action="store_true", help="DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal)")
+    ap.add_argument("--commissioned-only", action="store_true", help="read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off)")
     ap.add_argument("--full-chain", action="store_true", help="every development reading that applies to the input, beside the commissioned ones, each flagged; "
                     "a reading that cannot run is recorded with its reason under bundle['full_chain'] (2026-10-29; the replays use it)")
     ap.add_argument("--atlas-v2", default=os.environ.get("CPG_ATLAS_V2_PARQUET"), help="atlas v2 parquet for the atlas-based development flags (not stored in the repository)")
@@ -713,6 +715,7 @@ def main():
             if a.bundle: json.dump({"status": "REFERENCE_REFUSED", "id": a.id, "reference": _rdc, "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1, default=str)
             sys.exit(7)
     a._full_chain = None
+    if not getattr(a, "commissioned_only", False): a.full_chain = True   # 2026-11-08 (author: 'They should always run but just be marked as development, not turned off'): the full chain is the default
     if a.full_chain:   # 2026-10-29 (author): every development reading that applies to the input is run beside the commissioned ones, each flagged;
         # a reading that cannot run here is recorded with its reason (bundle["full_chain"]), never left out silently
         on, skip = [], {}
@@ -725,6 +728,14 @@ def main():
         a.dev_line_censored = True; a.dev_pred_raw = True; on += ["line_censored", "pred_raw"]
         import stage_metaa_atlas as _SAfc1; _SAfc1.LINE_CENSORED = True; _SAfc1.PRED_RAW = True   # the module values are read before this block, so set here too
         a.dev_territories = a.dev_info_sphere = True; on += ["territories", "info_sphere"]
+        # 2026-11-08 (author: nothing built that has not failed its own test sits switched off; each runs, flagged development):
+        a.dev_line_wide = True; import stage_metaa_atlas as _SAfc2; _SAfc2.LINE_WIDE = True; on.append("line_wide")   # width test 3 and the rotation test ran with it
+        if not a.dev_seq_ref: a.dev_seq_ref = "auto"
+        if not a.dev_seq_level: a.dev_seq_level = "donors"
+        a.dev_terr_counted = True; a.dev_seq_copies = True
+        if not a.dev_deconv_ref: a.dev_deconv_ref = "deconv_reference_mk_dev.parquet"   # the megakaryocyte column in the sequencing Deconvolver (platelet test met; healthy plasmas 25 of 34)
+        on += ["sequencing: the IAM Sequencing Atlas as ruler (seq_ref auto), the donors' levels, the counted island expectation, the copy correction, the megakaryocyte column (each on sequencing input only)"]
+        # stay off: the common and class library floors (failed their own tests), the measured middle (held until its spent test), --dev-curve-cal (until its synthetic)
         if not a.dev_provisional: a.dev_provisional = "megakaryocytes"
         on.append("provisional megakaryocytes" + ("" if (a.cell_panel or "blood") != "blood" else " (runs with --cell-panel atlas; not with the six-cell blood panel)"))
         if a.pat: a.dev_genome_globe = True; on.append("genome_globe")
@@ -1175,6 +1186,14 @@ def main():
             _SAd.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or _SAd.SEQ_LEVEL   # 2026-10-31: the expectation's level (pooled by default)
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
+        if getattr(a, "dev_curve_cal", False) and not a._seqv:   # 2026-11-08 (development): each design's response on the array's own calibrators, before the shares
+            try:
+                import stage_t_selftare as _STcc; _b0cc = _pd.Series(beta, dtype="float64")
+                _c0 = [r_["cell"] for r_ in (V4.stage_d21(_b0cc, _panel()).get("cells") or []) if (r_.get("share") or 0) >= 0.01]
+                _bcc, o["curve_cal"] = _STcc.curve_cal(_b0cc, _c0, _STcc._json()["design"]); o["curve_cal"]["flag"] = "DEVELOPMENT (DEV-METAA-HEALTHY-01)"
+                if any((x or {}).get("mapped") for x in o["curve_cal"]["designs"].values()): beta = _bcc
+                print("Stage C: each design's response on its own calibrators: " + "; ".join(f"{k} {v.get('levels', 0)} levels, largest {v.get('largest_correction')}" if v.get("mapped") else f"{k} not mapped" for k, v in o["curve_cal"]["designs"].items()), flush=True)
+            except Exception as e: o["curve_cal"] = {"mapped": False, "reason": f"{type(e).__name__}: {str(e)[:160]}"}
         print("Stage D21: cell shares against " + ("the IAM Sequencing Atlas (development)" if _dsr else "IAM-Atlas v2.1"), flush=True)
         o["cell_shares"] = V4.stage_d21(_pd.Series(beta, dtype="float64"), _panel(), sequencing=bool(a._seqv), seqref=_dsr)
         import stage_0_intake as _S0L   # 2026-11-07 (the Deconvolver decides): the specimen's claim checked against what Stage D21 found, recorded

@@ -821,6 +821,10 @@ The whole conductor, in the order above. Returns the array reading's records (mi
 Loads a file from `Runtime Matrices/Development` once and keeps it; the self-tare matrix's old name reads the moved file
 (`stage_t_selftare._json`), so older scripts still run.
 
+### stage_t_selftare.py::curve_cal
+
+Each array's response curve, per probe design, measured on its own calibrators and mapped onto IAM-Atlas v2.1 before the cell shares (`run_sample.py --dev-curve-cal`, development). Calibrators: sites where every cell found holds the same atlas level, never the islands or domains (cancer's territories) and never a cell's identity sites; binned by atlas level, one point per bin, made monotone. Added when the GMP share was traced to a laboratory-dependent departure on each probe design, which the two-point line of the self-tare cannot take out. Like a CMB detector calibrated on its own data against known calibrators. Nothing comes from other samples.
+
 ### stage_t_selftare.py::_json
 Loads the self-tare matrix once, `Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json`: the four fixed-site sets, each site's probe design,
 and the reference arrays' anchors. Moved unchanged from `Runtime Matrices/Development/` on 2026-10-22 (finding F23; the same sha256) and

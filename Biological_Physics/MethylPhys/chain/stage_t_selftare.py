@@ -51,3 +51,39 @@ def selftare_map(beta, st=None):
         b2.loc[s] = (Lr + (b2.loc[s] - L) * (Ur - Lr) / (U - L)).clip(1e-6, 1 - 1e-6)
         maps[d] = {"L": round(L, 5), "U": round(U, 5), "L_ref": round(Lr, 5), "U_ref": round(Ur, 5), "slope": round((Ur - Lr) / (U - L), 5), "n_sites_mapped": int(len(s))}
     return b2, {"anchors": an, "maps": maps}
+
+
+CURVE_BIN = 0.05; CURVE_MIN_SITES = 20; CURVE_AGREE = 0.10
+
+def curve_cal(beta, cells, design):
+    """Each array's response curve, per probe design, on its own calibrators (development, 2026-11-08, DEV-METAA-HEALTHY-01; the CMB route: each
+    detector calibrated on its own data against known calibrators). The self-tare and the ruler map a straight line through two anchors (low,
+    high); the GMP diagnostics showed each laboratory's arrays depart from IAM-Atlas v2.1 on each probe design differently, a bend a two-point
+    line cannot take out. Calibrators: sites where every cell found in this sample (cells, from a first IAM-Deconvolver pass) holds the same
+    level in the atlas (all within CURVE_AGREE of each other), outside cancer's territories (the islands and domains, never calibrators, so a
+    change there is never calibrated away); a cell's identity sites are where cells differ, so they are never calibrators either. Per design,
+    the calibrators are binned by their atlas level (CURVE_BIN); each bin with CURVE_MIN_SITES or more gives one point (the array's median, the
+    atlas's median); the points, made monotone, map every site of that design (beyond the outer points, shifted by the outer offset).
+    Nothing comes from other samples. Returns (mapped beta, record)."""
+    import stage_metaa_atlas as SA, numpy as np
+    b = pd.Series(beta, dtype="float64"); b.index = b.index.astype(str); des = pd.Series(design).reindex(b.index)
+    MU = pd.concat([SA._col("mu", c).reindex(b.index).rename(c) for c in cells], axis=1)
+    T = SA.territory_sets(); terr = b.index.isin(set(T["islands"]) | set(T["domains"]))
+    ok = MU.notna().all(1).to_numpy() & ~terr & b.notna().to_numpy() & ((MU.max(1) - MU.min(1)) <= CURVE_AGREE).to_numpy()
+    m = MU.mean(1); out = b.copy(); rec = {"cells": list(cells), "agree_within": CURVE_AGREE, "bin": CURVE_BIN, "min_sites": CURVE_MIN_SITES,
+                                          "territories": "islands and domains are never calibrators", "designs": {}}
+    for d in ("I", "II"):
+        s = ok & (des == d).to_numpy(); xs, ts = b[s], m[s]
+        bins = np.floor(ts.to_numpy() / CURVE_BIN).astype(int); P = []
+        for k in np.unique(bins):
+            w = bins == k
+            if w.sum() >= CURVE_MIN_SITES: P.append((float(np.median(ts.to_numpy()[w])), float(np.median(xs.to_numpy()[w])), int(w.sum())))
+        if len(P) < 3: rec["designs"][d] = {"mapped": False, "reason": f"{len(P)} calibrator levels with {CURVE_MIN_SITES} or more sites (3 needed)"}; continue
+        P.sort(); tr = np.array([p[0] for p in P]); ob = np.maximum.accumulate(np.array([p[1] for p in P])); ob = ob + np.arange(len(ob)) * 1e-9
+        sd = (des == d).to_numpy() & b.notna().to_numpy(); v = b[sd].to_numpy()
+        y = np.interp(v, ob, tr); y = np.where(v < ob[0], v + (tr[0] - ob[0]), y); y = np.where(v > ob[-1], v + (tr[-1] - ob[-1]), y)
+        out[sd] = np.clip(y, 1e-4, 1 - 1e-4)
+        rec["designs"][d] = {"mapped": True, "calibrators": int(s.sum()), "levels": len(P), "points": [[round(p[0], 4), round(p[1], 4), p[2]] for p in P],
+                             "largest_correction": round(float(np.max(np.abs(tr - ob))), 4), "sites_mapped": int(sd.sum())}
+    return out, rec
+

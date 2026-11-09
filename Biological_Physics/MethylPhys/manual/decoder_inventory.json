@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1480,
+   "lines": 1499,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,9 +308,9 @@
      "function": "main",
      "name": "main",
      "line": 552,
-     "end": 1477,
+     "end": 1496,
      "args": [],
-     "lines": 926,
+     "lines": 945,
      "doc": "",
      "constants": [
       "BIO",
@@ -325,13 +325,13 @@
       "Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet",
       "_bundle.json",
       "a wgbstools .pat / .pat.gz",
+      "deconv_reference_mk_dev.parquet",
       "metA_floors_v1_3.json",
       "mu_part1.parquet",
       "pip install -r Biological_Physics/MethylPhys/chain/requirements.txt",
       "pyarrow.parquet",
       "seq_atlas_inputs.csv",
-      "sequencing_values.csv",
-      "sites.parquet"
+      "sequencing_values.csv"
      ],
      "traced_calls": {
       "array": 1,
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 856,
-     "end": 860,
+     "line": 867,
+     "end": 871,
      "args": [
       "r"
      ],
@@ -359,8 +359,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1091,
-     "end": 1098,
+     "line": 1102,
+     "end": 1109,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1402,
-     "end": 1403,
+     "line": 1421,
+     "end": 1422,
      "args": [
       "b",
       "it",
@@ -5034,7 +5034,7 @@
   },
   {
    "file": "stage_t_selftare.py",
-   "lines": 54,
+   "lines": 90,
    "functions": [
     {
      "file": "stage_t_selftare.py",
@@ -5108,6 +5108,27 @@
      "data_files": [
       "Runtime Matrices/Stage_T/selftare_typeII_EPIC_v1.json"
      ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_t_selftare.py",
+     "function": "curve_cal",
+     "name": "curve_cal",
+     "line": 58,
+     "end": 88,
+     "args": [
+      "beta",
+      "cells",
+      "design"
+     ],
+     "lines": 31,
+     "doc": "Each array's response curve, per probe design, on its own calibrators (development, 2026-11-08, DEV-METAA-HEALTHY-01; the CMB route: each detector calibrated on its own data against known calibrators). The self-tare and the ruler map a straight line through two anchors (low, high); the GMP diagnostics showed each laboratory's arrays depart from IAM-Atlas v2.1 on each probe design differently, a be",
+     "constants": [
+      "CURVE_AGREE",
+      "CURVE_BIN",
+      "CURVE_MIN_SITES"
+     ],
+     "data_files": [],
      "traced_calls": {}
     }
    ],
@@ -10109,5 +10130,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 516
+ "n_functions": 517
 }
