@@ -1429,3 +1429,13 @@ So each cell's limit is now scaled by a factor measured on the atlas's donors (`
 neutrophils 1.0314, 7 laboratories; monocytes 1.0062, 6), only where five or more laboratories hold the cell. With it, spent outside
 arrays: neutrophils 11 of 13 (450K) and 9 of 9 (EPIC), monocytes 55 of 62 (EPIC). A sealed fresh test follows, with Met-A's next two
 scopes (neutrophils on EPIC, monocytes on 450K).
+
+**What we already hold for the next commissioning tests (metadata review; nothing read).** (`commissioning_data_review.csv`.) Our register (`CANON/data_spent.csv`, 49 unspent
+and reserved sets) and the master inventory (sorted-cell sets) were searched before GEO. Healthy sorted neutrophils on EPIC with raw
+files: none, in our holdings or on GEO, beyond those already read (GSE110554, GSE318669); that scope waits on data. Held and unspent:
+GSE87640 (450K; healthy controls' sorted monocytes, CD4 and CD8 and their whole blood, the same people), the next 450K monocyte
+confirmation, a third T-cell laboratory, and the first test of a cell read in whole blood against the same person's sorted cell.
+GSE71955 and GSE147430 (450K T cells) serve the T-cell atlas add-on or a later test; GSE83944 (one man every 3 hours) the same person
+over time. Not healthy (TB contacts, arthritis, multiple sclerosis, cystic fibrosis) or without raw files: listed, not used.
+
+**Prior reading:** GSE318669 and GSE110607's granulocytes were read in COMMISSION-METAA-SORTED-01; GSE318669's lymphocytes in this record's diagnostic; GSE110554 was read before (CANON/data_spent.csv).

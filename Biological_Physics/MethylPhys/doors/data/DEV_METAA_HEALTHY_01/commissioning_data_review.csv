@@ -1,0 +1,12 @@
+series,platform,cells,healthy,register,use
+GSE87640,450K,"monocytes, CD4, CD8, whole blood (same people)","16 monocytes, 16 CD4, 15 CD8, 19 whole blood (healthy lab and other controls)",unspent,next 450K monocyte confirmation; a third laboratory for CD4/CD8; sorted cells and whole blood from the same people (the in-blood test)
+GSE72338,450K,"neutrophils, monocytes","household contacts of TB patients (exposed, not confirmed healthy)",not in register,not a healthy reference; observation only
+GSE71955,450K,"CD4, CD8","31 CD4, 31 CD8 healthy controls",not in register,T-cell laboratory for the atlas add-on or a sealed test
+GSE147430,"450K (121), EPIC (11)",CD8,71 non-smokers,not in register,T-cell laboratory for the atlas add-on or a sealed test
+GSE83944,450K,neutrophils,"one healthy man, 48 arrays every 3 h over 72 h",not in register,"within-person stability (the same person over time), not a laboratory test"
+GSE118696,450K,"monocytes (4), macrophages",4 healthy donors,not in register,too few monocytes
+GSE128734,mostly sequencing; 4 EPIC,"neutrophils, CD4",few,not in register,too few arrays
+GSE185556,EPIC,"lavage granulocytes, macrophages",cystic fibrosis (19 of 20),not in register,not healthy
+GSE137634,EPIC,"B, CD4",arthritis patients only,not in register,not healthy
+GSE43976,450K,monocytes,multiple sclerosis patients,not in register,not healthy
+"GSE35069, GSE56046, GSE56581, GSE59250, GSE63499, GSE65097",450K,purified blood cells,various,not in register,no raw IDAT files on GEO; the chain cannot read them
