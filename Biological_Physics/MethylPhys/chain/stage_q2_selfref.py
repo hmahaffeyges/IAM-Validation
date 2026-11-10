@@ -130,7 +130,7 @@ def held_err_length(by_len):
     if f(lo) > 0 or f(hi) < 0: return dict(held_err_length=None, held_e_call=None)
     e = brentq(f, lo, hi, xtol=1e-10); return dict(held_err_length=float(e * (1 - e) ** 2), held_e_call=float(e))
 def count_pat(lines, tiles):
-    tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]; QL = {}   # 2026-11-03 (plan 40.11): qualifying molecules by length: [molecules, isolated losses, opportunities]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
+    tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]; QL = {}; QD = {}   # 2026-11-03 (plan 40.11): qualifying molecules by length: [molecules, isolated losses, opportunities]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
     K = [0, 0, 0, 0, 0]   # 2026-10-28: K[4] the most adjacent pairs possible (each molecule's errors in one run, t - 1); 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
     for k, line in enumerate(lines):
         p = line.rstrip("\n").split("\t")
@@ -148,10 +148,13 @@ def count_pat(lines, tiles):
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") >= QUAL_MIN_METH * len(s):
             _iso = sum(1 for q in range(1, len(s) - 1) if s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C"); e_opp += n * (len(s) - 2); e_iso += n * _iso
             _ql = QL.setdefault(len(s), [0, 0, 0]); _ql[0] += n; _ql[1] += n * _iso; _ql[2] += n * (len(s) - 2)
+            for q in range(1, len(s) - 1):   # 2026-11-10 (development, recorded only): the same held error by distance from the molecule's nearer end (1 = the second call in)
+                _d = min(q, len(s) - 1 - q, 6); _qd = QD.setdefault(_d, [0, 0]); _qd[1] += n; _qd[0] += n * (s[q] == "T" and s[q - 1] == "C" and s[q + 1] == "C")
             _t = s.count("T"); K[0] += n * _t; K[1] += n * len(s); K[2] += n * sum(1 for q in range(1, len(s)) if s[q] == "T" and s[q - 1] == "T"); K[3] += n * _t * (_t - 1) / len(s); K[4] += n * max(_t - 1, 0)
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
-    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())}), g_iso, g_opp)
+    return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
+                   held_by_distance={str(k): v for k, v in sorted(QD.items())}), g_iso, g_opp)
 
 def _coupling(K):
     """2026-10-25 (plan 49.5, development, recorded only; from the published information-theory study's nearest-neighbor coupling): whether held

@@ -330,3 +330,17 @@ The convergence strengthens from day 2 to day 4 in both lines, and the loose sha
 **E2 machines give the same alignment as N2.** One Johns Hopkins CD4 chunk (GSM2103003, chunk 0 of 12), already aligned by `split_google.sh` on an N2 spot machine, was aligned again on an E2
 spot machine into its own bucket folder and the two molecule files compared after decompression: identical byte for byte, 8,062,694 lines each,
 the same SHA-256 (2207e6e132db...). The machine type changes only the time a job takes, so E2 is used for the Google slots above Toronto's N2 limit.
+
+## The held error by position on the molecule (written and committed before any count exists; PHY-050)
+
+**Prior reading:** the 18 sorted libraries (xl_class, merged molecule files) were read for the sequencing atlas's cross-laboratory work and
+the end-call measurements (spent); none was counted by position.
+**The question:** the counter leaves out the outermost call at each end of a molecule; the opposite-call rate at Met-A's identity sites is
+still raised one and two calls in (`DEV_ATLAS_V21_01/seq_atlas/floor_position_identity_by_side.csv`). How much of the held error, and so of
+the firm rate, is the meter's end error inside the counted interior? **Data:** the 18 merged libraries (3.9 GB), each counted by
+`run_sample.py --dev-count-only` (Stage Q2), whose count now records the held error by distance from the nearer end (`held_by_distance`; the
+reading itself unchanged).
+**Written before:** for each library, the plateau is the held error at distance 4 and beyond; the meter's share of its held error is (held
+error minus plateau) over held error. **Outcomes, both informative:** the held error falls with distance and levels off by distance 3 or 4,
+so the meter's share is measured and the firm rate is revised down by it (a revised line is a new version, built on the line's own samples,
+not on these); or it is flat from distance 1, so the counted interior carries no end error and the firm rate is the cell's. Nothing scored.

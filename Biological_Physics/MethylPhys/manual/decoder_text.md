@@ -1183,6 +1183,8 @@ Nearest-neighbor coupling on held molecules (development, recorded only, plan 49
 ### stage_q2_selfref.py::count_pat_tile_errors
 The held error tile by tile (DEV-ERASE-01 graded maintenance test): held molecules and lone errors by Stage Q2's own rules, each molecule in the tile of its first CpG (blocks of 2,000 consecutive CpG indices, so no genome table is needed), split into two halves that share no molecule (even and odd lines), so one half can measure a tile's level and the other remove the measurement's own scatter from the slope.
 
+Since 2026-11-10 it also records, for development only, the same held error by distance from the molecule's nearer end (held_by_distance: 1 is the second call in, 6 means six or more), so the meter's end error inside the counted interior can be measured; the reading is unchanged.
+
 ### stage_q2_selfref.py::chain_sha
 The SHA-256 over every `.py` file of the chain folder, names and contents, in sorted order.
 
