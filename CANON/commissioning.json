@@ -20,7 +20,7 @@
    "register_id": "COMMISSIONING-METAA-ATLAS-SORTED",
    "name": "Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and sorted monocytes (EPIC v1)",
    "date": "2026-11-09",
-   "summary": "Met-A against IAM-Atlas v2.1 alone, sorted neutrophils (450K) and sorted monocytes (EPIC v1)",
+   "summary": "Met-A against IAM-Atlas v2.1 alone, sorted neutrophils (450K) and sorted monocytes (EPIC v1 and 450K)",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md",
    "status_line": "| **Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and monocytes (EPIC v1)** | **COMMISSIONED 2026-11-09** ([note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)) | the cell the IAM-Deconvolver finds most of in a sorted sample, against its width on the atlas's own donors; 74 unseen healthy arrays, five laboratories, every one with a state Normal |",
    "reference": "IAM-Atlas v2.1 alone (each cell's healthy profile; Normal as its measured width on the atlas's own donors)",

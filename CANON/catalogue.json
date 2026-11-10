@@ -53,7 +53,7 @@
    "next": "Lymphocytes (they read 2 to 5 percent below 1 in a laboratory the atlas never held), neutrophils on EPIC with a fresh test, and cells inside whole blood, after the cross-laboratory work.",
    "book_chapter": "ch:meta",
    "specialty": "Cost and reach: a single array, the most common methylation measurement in the world, read on the gauge against the same cell type's healthy reference, with its detection limit printed.",
-   "commissioned": "tested and commissioned against IAM-Atlas v2.1 alone on sorted neutrophils (450K) and sorted monocytes (EPIC v1), 2026-11-09 (first commissioned on isolated neutrophils, EPIC v1, 2026-10-09, against a same-run tare)",
+   "commissioned": "tested and commissioned against IAM-Atlas v2.1 alone on sorted neutrophils (450K) and sorted monocytes (EPIC v1, and 450K by COMMISSION-MONO450-01), 2026-11-09 (first commissioned on isolated neutrophils, EPIC v1, 2026-10-09, against a same-run tare)",
    "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md",
    "history_rows": [
     "COM-METAA-039",
