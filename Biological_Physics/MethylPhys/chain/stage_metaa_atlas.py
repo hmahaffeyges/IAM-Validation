@@ -873,12 +873,23 @@ def cscore_limit(n_sites, q=0.95, w=CS_BLOCK):
     nb = int(n_sites) // w; n = nb * w
     return None if nb < 10 else float(n / nb * _beta.ppf(q, (nb - 1) / 2, (n - nb) / 2))
 
+
+def _cs_cell_factor(cell):
+    """The cell's C-Score limit factor from Runtime Matrices/CScore_Limits/cell_factors_v1.json (measured on IAM-Atlas v2.1's own healthy
+    donors, cells whose donors span five or more laboratories), or None (the derived limit stands)."""
+    if "csf" not in _cache:
+        p_ = os.path.join(HERE, "Runtime Matrices", "CScore_Limits", "cell_factors_v1.json"); _cache["csf"] = json.load(open(p_))["cells"] if os.path.exists(p_) else {}
+    return (_cache["csf"].get(IDENTITY_OF.get(cell, cell)) or {}).get("factor")
+
 def cscore_limits(cs, array_type):
     """Adds each reading's limit to the C-Score record from cscore_in_mix: limit, within (C at or below it) and the rule used."""
     if not isinstance(cs, dict): return cs
     for c in cs.get("cells") or []:
         if c.get("C") is not None and c.get("n_sites"):
-            l = cscore_limit(c["n_sites"]); c.update(limit=None if l is None else round(l, 4), within=None if l is None else bool(c["C"] <= l), limit_rule="derived")
+            l = cscore_limit(c["n_sites"]); rule = "derived"
+            fa = _cs_cell_factor(c["cell"])   # 2026-11-09: the cell's factor measured on the atlas's own donors, where five or more laboratories hold it
+            if l is not None and fa: l *= fa; rule = "derived x the cell's factor measured on IAM-Atlas v2.1's donors"
+            c.update(limit=None if l is None else round(l, 4), within=None if l is None else bool(c["C"] <= l), limit_rule=rule)
     w = cs.get("whole_genome") or {}
     if w.get("C") is not None and w.get("n_sites"):
         l = cscore_limit(w["n_sites"]); rule = "derived"

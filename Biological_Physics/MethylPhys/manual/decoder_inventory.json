@@ -7144,7 +7144,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 1002,
+   "lines": 1013,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -8045,15 +8045,36 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "_cs_cell_factor",
+     "name": "_cs_cell_factor",
+     "line": 877,
+     "end": 882,
+     "args": [
+      "cell"
+     ],
+     "lines": 6,
+     "doc": "The cell's C-Score limit factor from Runtime Matrices/CScore_Limits/cell_factors_v1.json (measured on IAM-Atlas v2.1's own healthy donors, cells whose donors span five or more laboratories), or None (the derived limit stands).",
+     "constants": [
+      "HERE",
+      "IDENTITY_OF"
+     ],
+     "data_files": [
+      "cell_factors_v1.json",
+      "s C-Score limit factor from Runtime Matrices/CScore_Limits/cell_factors_v1.json"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "cscore_limits",
      "name": "cscore_limits",
-     "line": 876,
-     "end": 888,
+     "line": 884,
+     "end": 899,
      "args": [
       "cs",
       "array_type"
      ],
-     "lines": 13,
+     "lines": 16,
      "doc": "Adds each reading's limit to the C-Score record from cscore_in_mix: limit, within (C at or below it) and the rule used.",
      "constants": [
       "HERE"
@@ -8067,8 +8088,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_sorted_route",
      "name": "_sorted_route",
-     "line": 896,
-     "end": 900,
+     "line": 907,
+     "end": 911,
      "args": [
       "specimen"
      ],
@@ -8082,8 +8103,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "metaa_status",
      "name": "metaa_status",
-     "line": 902,
-     "end": 907,
+     "line": 913,
+     "end": 918,
      "args": [
       "o",
       "row",
@@ -8101,8 +8122,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cells_found",
      "name": "cells_found",
-     "line": 909,
-     "end": 934,
+     "line": 920,
+     "end": 945,
      "args": [
       "o"
      ],
@@ -8116,8 +8137,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cell_prediction",
      "name": "cell_prediction",
-     "line": 937,
-     "end": 960,
+     "line": 948,
+     "end": 971,
      "args": [
       "each",
       "beta",
@@ -8136,8 +8157,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_prediction",
      "name": "territory_prediction",
-     "line": 963,
-     "end": 984,
+     "line": 974,
+     "end": 995,
      "args": [
       "terr",
       "beta",
@@ -8156,8 +8177,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "width_state",
      "name": "width_state",
-     "line": 988,
-     "end": 1001,
+     "line": 999,
+     "end": 1012,
      "args": [
       "cell",
       "a",
@@ -10329,5 +10350,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 528
+ "n_functions": 529
 }

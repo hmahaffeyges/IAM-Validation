@@ -2052,8 +2052,14 @@ The disorder of j methylated of m reads after each unmethylated read is turned m
 ### stage_metaa_atlas.py::ceiling_counted
 The distance to the entropy ceiling on sequencing: the reading the sample would give with every site at one half, read at its own reads by the reading's own expectation; distance, headroom used and the share of sites that crossed one half.
 
+### stage_metaa_atlas.py::_cs_cell_factor
+
+The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell found at 85 % or more), the one-sided 95 % prediction limit of C over the derived limit, for cells whose donors span five or more laboratories (neutrophils 1.0314, 57 donors, 7 laboratories; monocytes 1.0062, 40 donors, 6). Healthy neutrophils carry a little real clustering in every laboratory, so the derived limit, which assumes none, is slightly tight for them. None for every other cell: the derived limit stands.
+
 ### stage_metaa_atlas.py::cscore_limits
 Adds each C-Score reading's limit, whether it sits within it, and the rule used. Each cell: the derived limit. The whole genome: the derived limit, times the 450K platform term on a 450K array (measured once on spent healthy 450K bloods and frozen, Runtime Matrices/CScore_Limits/platform_term_450k.json; calibrated).
+
+Each cell's limit is the derived limit times `_cs_cell_factor` where the atlas's donors measure one (limit_rule says which).
 
 ### stage_metaa_atlas.py::cscore_limit
 The C-Score's derived healthy upper limit (development): with departures independent from site to site, C over nb = n // 10 blocks follows a scaled Beta((nb - 1) / 2, (n - nb) / 2); the limit is its 95th percentile. Nothing is measured.

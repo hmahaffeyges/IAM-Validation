@@ -1419,3 +1419,13 @@ reading low in every independent instrument is the reference's offset, not one l
 width to take these in would hide a bias. The lymphocyte columns and widths rest on two laboratories; the fix is more laboratories in
 the atlas itself (an add-on version), with one laboratory held back for the sealed test. Until then each lymphocyte row stays
 development, flagged as resting on two laboratories (the widths settle at about five, measured on neutrophils and monocytes).
+
+**The C-Score on sorted cells against the atlas alone: rehearsal on spent arrays (development).** (`cscore_rehearsal_sorted.csv`.) The instrument's job: a healthy sorted cell's
+C-Score sits at or under its limit. The derived limit (departures independent from site to site) held 9 of 13 450K neutrophils from a
+laboratory the atlas never held. Not noise: on constructed departures with no clustering the derived and a shuffled per-array limit
+agree (92 to 95 percent within, normal and heavy-tailed), and the whole-genome maps' neighbor correlation is near 0 on both platforms.
+The atlas's own healthy donors show it in every laboratory: neutrophils within the derived limit 86 to 89 percent, monocytes 90 to 93.
+So each cell's limit is now scaled by a factor measured on the atlas's donors (`Runtime Matrices/CScore_Limits/cell_factors_v1.json`;
+neutrophils 1.0314, 7 laboratories; monocytes 1.0062, 6), only where five or more laboratories hold the cell. With it, spent outside
+arrays: neutrophils 11 of 13 (450K) and 9 of 9 (EPIC), monocytes 55 of 62 (EPIC). A sealed fresh test follows, with Met-A's next two
+scopes (neutrophils on EPIC, monocytes on 450K).

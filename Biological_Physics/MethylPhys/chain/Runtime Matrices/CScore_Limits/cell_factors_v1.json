@@ -1,0 +1,23 @@
+{
+ "_rule": "Each cell's C-Score limit factor, measured on IAM-Atlas v2.1's own healthy donors only (the cell found at 85 % or more): the one-sided 95 % prediction limit of C over the derived limit (cscore_limit), for one new reading. Only cells whose donors span five or more laboratories; every other cell keeps the derived limit (flagged). Built from atlas_donor_readings / the donors' bundles (DEV_METAA_HEALTHY_01).",
+ "cells": {
+  "neutrophils": {
+   "factor": 1.0314,
+   "donors": 57,
+   "labs": 7,
+   "platforms": [
+    "EPIC_v1",
+    "HM450K"
+   ]
+  },
+  "monocytes": {
+   "factor": 1.0062,
+   "donors": 40,
+   "labs": 6,
+   "platforms": [
+    "EPIC_v1",
+    "HM450K"
+   ]
+  }
+ }
+}
