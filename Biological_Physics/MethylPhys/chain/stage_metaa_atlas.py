@@ -900,7 +900,13 @@ def cscore_limits(cs, array_type):
 
 
 METAA_ATLAS_COMMISSIONED = dict(record="COMMISSION-METAA-SORTED-01 (doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)", date="2026-11-09",
-                                scope={("neutrophils", "HM450K"), ("monocytes", "EPIC_v1")})
+                                scope={("neutrophils", "HM450K"), ("monocytes", "EPIC_v1"), ("monocytes", "HM450K")},
+                                records={("neutrophils", "HM450K"): "COMMISSION-METAA-SORTED-01", ("monocytes", "EPIC_v1"): "COMMISSION-METAA-SORTED-01",
+                                         ("monocytes", "HM450K"): "COMMISSION-MONO450-01"})
+CSCORE_ATLAS_COMMISSIONED = dict(record="COMMISSION-MONO450-01 (doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)", date="2026-11-09",
+                                 scope={("monocytes", "HM450K")})
+# 2026-11-09 (COMMISSION-MONO450-01): the C-Score against IAM-Atlas v2.1 alone (its limit times the cell's factor measured on the atlas's
+# own donors), commissioned for the top cell found in a sorted sample on these (cell, platform) pairs only.
 # 2026-11-09: Met-A against IAM-Atlas v2.1 alone, commissioned for the cell the IAM-Deconvolver finds most of in a sorted sample, on these
 # (cell, platform) pairs only; every other row stays development and says so.
 
@@ -915,7 +921,16 @@ def metaa_status(o, row, is_top):
     platform, a state measured against the cell's width); else 'development'."""
     ok = (is_top and row.get("met_a_state") in ("Normal", "above Normal", "below Normal") and _sorted_route(o.get("specimen"))
           and (row.get("cell"), o.get("array_type")) in METAA_ATLAS_COMMISSIONED["scope"])
-    return f"commissioned ({METAA_ATLAS_COMMISSIONED['record']})" if ok else "development"
+    if not ok: return "development"
+    rec = (METAA_ATLAS_COMMISSIONED.get("records") or {}).get((row.get("cell"), o.get("array_type")), METAA_ATLAS_COMMISSIONED["record"])
+    return f"commissioned ({rec})"
+
+def cscore_status(o, row, is_top):
+    """'commissioned (record)' when this row's C-Score is in CSCORE_ATLAS_COMMISSIONED's scope (a sorted sample, the top cell found, that cell
+    on that platform, a limit scaled by the cell's factor measured on the atlas's donors); else 'development'."""
+    ok = (is_top and row.get("c_within") is not None and "factor measured" in str(row.get("c_limit_rule") or "") and _sorted_route(o.get("specimen"))
+          and (row.get("cell"), o.get("array_type")) in CSCORE_ATLAS_COMMISSIONED["scope"])
+    return f"commissioned ({CSCORE_ATLAS_COMMISSIONED['record']})" if ok else "development"
 
 def cells_found(o):
     """2026-11-07 (author: 'we dont score bundles of cells we score individual cells that are found by the deconvolver in a sample'; 'Each cell
@@ -932,7 +947,7 @@ def cells_found(o):
     for m in sorted(M, key=lambda x: -(x.get("share") or 0)):
         c = C.get(m["cell"]) or {}
         r = dict(cell=m["cell"], share=m.get("share"), met_a=(m.get("ratio") if m.get("ratio") is not None else m.get("A")), met_a_untared=m.get("A"), met_a_pred=m.get("A_pred"), met_a_se=m.get("se_over_sites"), met_a_note=m.get("coverage_flag") or m.get("reason"),
-                 c_score=c.get("C"), c_limit=c.get("limit"), c_within=c.get("within"),
+                 c_score=c.get("C"), c_limit=c.get("limit"), c_within=c.get("within"), c_limit_rule=c.get("limit_rule"),
                  own_fraction=m.get("share"),
                  reads=("the cell itself (it is nearly all the sample)" if (m.get("share") or 0) >= 0.9 else
                         f"the sample at this cell's identity sites: of a change here, about {100 * (m.get('share') or 0):.0f} % would be this cell's own"))
@@ -940,6 +955,7 @@ def cells_found(o):
         _ws = width_state(m["cell"], r.get("met_a"), r.get("share")) if not (o.get("sequencing_values") or o.get("sequencing_ruler")) else {}   # arrays: the widths are measured on arrays
         if _ws: r.update(met_a_state=_ws.pop("state"), met_a_gauge=_ws)
         r["met_a_status"] = metaa_status(o, r, not rows)   # 2026-11-09: commissioned only inside METAA_ATLAS_COMMISSIONED's scope
+        r["c_status"] = cscore_status(o, r, not rows)   # 2026-11-09: commissioned only inside CSCORE_ATLAS_COMMISSIONED's scope
         rows.append(r)
     return dict(rule="each cell the IAM-Deconvolver found, each instrument against that cell's own atlas reference, in the sample's own shares",
                 flag="development: each row's readings carry their own status; not commissioned unless an instrument's row says so", cells=rows)

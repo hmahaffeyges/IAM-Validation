@@ -327,7 +327,7 @@ lung cancer) is chosen but not yet read. For precancer, 140 public rectal biopsi
 not yet run. Early detection needs samples with known follow-up, which public data rarely give.
 
 **How large are the commissioning sets?**
-Stated with each: 74 healthy sorted arrays from five laboratories the atlas never held for Met-A against IAM-Atlas v2.1 alone (neutrophils on 450K, monocytes on EPIC), and 541 healthy neutrophil arrays from 18 series for its first commissioning; three laboratories for the C-Score; 731 held-out arrays for IAM-Atlas v2.1; 200 mixtures for the
+Stated with each: 74 healthy sorted arrays from five laboratories the atlas never held for Met-A against IAM-Atlas v2.1 alone (neutrophils on 450K, monocytes on EPIC), 19 healthy sorted monocyte arrays on 450K from two laboratories for Met-A and the C-Score against the atlas, and 541 healthy neutrophil arrays from 18 series for its first commissioning; three laboratories for the C-Score; 731 held-out arrays for IAM-Atlas v2.1; 200 mixtures for the
 Deconvolver; for IAM-A, 8 healthy CD8 T-cell samples read (7 Normal) after the sample-shape check declined 5 of 13; for Group-A, 278 healthy
 people from one new laboratory (263 read). **Open question:** larger
 sets, other cell types and other laboratories for IAM-A.

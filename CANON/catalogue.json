@@ -65,17 +65,17 @@
    "id": "cscore",
    "name": "C-Score (the clustering meter)",
    "question": "Has the pattern started to clump?",
-   "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping, against the sample's own scattered change. Its first healthy limit was set on healthy arrays from many studies; Healthy comes only from the atlases, so it is being re-commissioned against IAM-Atlas v2.1 alone. Its limit will come from the atlases alone: each site's spread between healthy donors, how neighboring sites move together between donors, and the array's own noise.",
+   "how": "Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping, against the sample's own scattered change. Its first healthy limit was set on healthy arrays from many studies; Healthy comes only from the atlases, so it is re-commissioned against IAM-Atlas v2.1 alone, first on sorted monocytes (450K). Its limit will come from the atlases alone: each site's spread between healthy donors, how neighboring sites move together between donors, and the array's own noise.",
    "reads": "arrays",
    "rows": [
     "COM-CSCORE-011",
     "COM-CSCORE-012"
    ],
    "next": "The healthy limit from the atlases alone; then its sealed test on held data; then real cancers, 450K, EPIC v2 and plasma. Its family (below, In development): the whole-genome C-Score against the atlas, and IAM-A's.",
-   "commissioned": "tested and commissioned on whole blood, EPIC v1, 2026-10-15",
+   "commissioned": "tested and commissioned on whole blood, EPIC v1, 2026-10-15; tested and commissioned against IAM-Atlas v2.1 alone on sorted monocytes (450K), 2026-11-09",
    "book_chapter": "ch:cscore",
    "specialty": "The shape of a change, not its size: whether a sample's departures from healthy are scattered like ordinary wear or packed together in stretches, the way a tumor that silences or loses a region leaves them. It is the clustering step of the cosmic microwave background analysis chain, carried over to the genome.",
-   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md",
    "recommission": true
   },
   {

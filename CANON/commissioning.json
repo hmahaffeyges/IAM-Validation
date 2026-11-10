@@ -94,6 +94,83 @@
    ]
   },
   {
+   "register_id": "COMMISSIONING-CSCORE-ATLAS-SORTED",
+   "name": "The C-Score against IAM-Atlas v2.1, sorted monocytes (450K)",
+   "date": "2026-11-09",
+   "summary": "The C-Score against IAM-Atlas v2.1 alone, sorted monocytes (450K)",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md",
+   "status_line": "| **The C-Score against IAM-Atlas v2.1, sorted monocytes (450K)** | **COMMISSIONED 2026-11-09** ([note](doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)) | the top cell found in a sorted sample, its limit times the cell's factor measured on the atlas's own donors; 18 of 19 unseen healthy arrays within, two laboratories |",
+   "reference": "IAM-Atlas v2.1 alone (the cell's healthy profile; the limit's factor measured on the atlas's own donors)",
+   "atlas_only": true,
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-11-09"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "pattern": "CSCORE_ATLAS_COMMISSIONED = dict\\(record=\"COMMISSION-MONO450-01"
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
+     "pattern": "C-Score status"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is commissioned on sorted monocytes \\(Infinium 450K\\)"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is commissioned on sorted monocytes \\(Infinium 450K\\)"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v4_chain.md",
+     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is commissioned on sorted monocytes \\(Infinium 450K\\)"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "\\*\\*The C-Score against IAM-Atlas v2\\.1, sorted monocytes \\(450K\\)\\*\\* \\| \\*\\*COMMISSIONED 2026-11-09"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_09_cscore.tex",
+     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is \\\\textbf\\{commissioned on sorted monocytes\\}"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "C-Score commissioned against IAM-Atlas v2\\.1 alone on sorted monocytes"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.json",
+     "pattern": "tested and commissioned against IAM-Atlas v2\\.1 alone on sorted monocytes \\(450K\\)"
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is commissioned on sorted monocytes"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "Met-A and the C-Score are \\*\\*Commissioned\\*\\* against IAM-Atlas v2\\.1 alone"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "19 healthy sorted monocyte arrays on 450K from two laboratories"
+    }
+   ]
+  },
+  {
    "register_id": "COMMISSIONING-METAA-NEUTROPHILS",
    "name": "Met-A, isolated neutrophils, EPIC v1",
    "date": "2026-10-09",

@@ -54,7 +54,7 @@ IAM-Atlas v2.1 comes first because nearly every other reading is made against it
 | **Met-A, whole sample** | IAM-Atlas v2.1 mixed in the person's own cell shares, with the array's own blur measured on the atlas's anchor sites | the ceiling, the read-count correction, the array's blur | the atlas | a loss spread evenly over every site, the anchors included; which cell changed | Met-A for each cell, the territories, IAM-A | in development |
 | **Met-A, each cell** | each cell's identity sites in IAM-Atlas v2.1 (commissioned: healthy references of the same cell on the same platform) | the ceiling, the read-count correction | the atlas | changes outside a cell's identity sites, such as the islands and loosely held domains | Met-A for the whole sample, the territories | commissioned: tested and commissioned against IAM-Atlas v2.1 alone on sorted neutrophils (450K) and sorted monocytes (EPIC v1) (first commissioned on isolated neutrophils, EPIC v1, against a same-run tare); in a mix, each cell's reading is in development |
 | **The territories (islands and loosely held domains)** | IAM-Atlas v2.1 at sites no healthy cell type marks, and at marked sites some cell types hold loosely | the expectation at each site's read count | the two site sets, by fixed rules on the atlas | changes at a cell's identity sites | Met-A for each cell | in development |
-| **C-Score, neutrophils** | the sample's own departures: how they lie along the genome, not how large they are | its value for scattered departures, 1 | its healthy upper limit | an even shift with no layout; cells other than neutrophils | the other C-Scores, Met-A | commissioned: tested and commissioned on whole blood, EPIC v1; the other cells' C-Scores are in development |
+| **C-Score, neutrophils** | the sample's own departures: how they lie along the genome, not how large they are | its value for scattered departures, 1 | its healthy upper limit | an even shift with no layout; cells other than neutrophils | the other C-Scores, Met-A | commissioned: tested and commissioned on whole blood, EPIC v1; tested and commissioned against IAM-Atlas v2.1 alone on sorted monocytes (450K); the other cells' C-Scores are in development |
 | **C-Score, whole genome** | the same statistic at every atlas site, against the atlas in the person's own mix | its value for scattered departures, 1 | its healthy limit, not set yet | which cell; an even shift | the C-Score for each cell, Met-A | in development |
 | **C-Score, each cell** | each cell's departure map at its identity sites | its value for scattered departures, 1 | its healthy limit, not set yet | a loss spread evenly through one cell | Met-A for each cell | in development |
 | **IAM-A's C-Score (version 2)** | each region's held error predicted from that region's own loose share | being derived | nothing yet | arrays | the array C-Scores | in development |
@@ -145,16 +145,16 @@ Reads the methylation level at each cell's identity sites, sites a healthy cell 
 
 **The question:** Has the pattern started to clump?
 
-Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping, against the sample's own scattered change. Its first healthy limit was set on healthy arrays from many studies; Healthy comes only from the atlases, so it is being re-commissioned against IAM-Atlas v2.1 alone. Its limit will come from the atlases alone: each site's spread between healthy donors, how neighboring sites move together between donors, and the array's own noise.
+Cancer does not only shift tagging levels; it clumps them into runs. The C-Score measures that clumping, against the sample's own scattered change. Its first healthy limit was set on healthy arrays from many studies; Healthy comes only from the atlases, so it is re-commissioned against IAM-Atlas v2.1 alone, first on sorted monocytes (450K). Its limit will come from the atlases alone: each site's spread between healthy donors, how neighboring sites move together between donors, and the array's own noise.
 
-**Reads:** arrays. **Where it stands:** being re-commissioned against IAM-Atlas v2.1 alone (first commissioned against references from other samples: on whole blood, EPIC v1).
+**Reads:** arrays. **Where it stands:** being re-commissioned against IAM-Atlas v2.1 alone (first commissioned against references from other samples: on whole blood, EPIC v1; tested and commissioned against IAM-Atlas v2.1 alone on sorted monocytes (450K)).
 
 **The tests behind it:**
 
 - COM-CSCORE-011 C-score healthy band test: run; last run: met
 - COM-CSCORE-012 C-score last check: same-person repeatability on unspent replicate arrays: run; last run: met
 
-**Record:** [COMMISSIONING_NOTE_CSCORE.md](doors/COMMISSIONING_NOTE_CSCORE.md)
+**Record:** [COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md](doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)
 
 **Next:** The healthy limit from the atlases alone; then its sealed test on held data; then real cancers, 450K, EPIC v2 and plasma. Its family (below, In development): the whole-genome C-Score against the atlas, and IAM-A's.
 

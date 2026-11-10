@@ -6,6 +6,7 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 | Instrument | Commissioned | Scope |
 |---|---|---|
 | **Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and monocytes (EPIC v1)** | **COMMISSIONED 2026-11-09** ([note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)) | the cell the IAM-Deconvolver finds most of in a sorted sample, against its width on the atlas's own donors; 74 unseen healthy arrays, five laboratories, every one with a state Normal |
+| **The C-Score against IAM-Atlas v2.1, sorted monocytes (450K)** | **COMMISSIONED 2026-11-09** ([note](doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)) | the top cell found in a sorted sample, its limit times the cell's factor measured on the atlas's own donors; 18 of 19 unseen healthy arrays within, two laboratories |
 | Met-A, neutrophils, EPIC v1 (first commissioning) | 2026-10-09, against a same-run healthy tare, since retired ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | history; Met-A against the atlas alone is commissioned in the row above; EPIC neutrophils await a fresh atlas-only test |
 | **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |
 | **IAM-Atlas v2.1** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | 79 cell types; met all three sealed bars against both published reference atlases on 731 held-out arrays (markers, mixtures, cells a reference lacks); cell profiles confirmed on held-out cortical neurons, lung bronchus epithelium and naive CD4 T cells; blind sites of the colon and lung tissue tests |
@@ -20,6 +21,14 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 Healthy now comes only from the atlas. Met-A was tested on 74 healthy sorted white blood cells from five laboratories the atlas never held, against a test written and sealed before any of them was read. The IAM-Deconvolver named the right cell in 73 of 74, and every array the chain could read gave Normal, measured against each cell's healthy width on the atlas's own donors.
 
 Note: [COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)
+
+## The C-Score against IAM-Atlas v2.1, sorted monocytes (450K) (2026-11-09)
+
+**The C-Score commissioned against IAM-Atlas v2.1 alone** on sorted monocytes (450K), with Met-A on the same scope
+
+The clustering meter now takes its healthy limit from the atlas alone. On 19 healthy sorted monocytes from two laboratories the atlas never held, read against a test sealed before any was read, the IAM-Deconvolver found monocytes in every one, Met-A read Normal in 13 of the 14 it could give a state, and the C-Score sat within its limit in 18 of 19.
+
+Note: [COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md](doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 

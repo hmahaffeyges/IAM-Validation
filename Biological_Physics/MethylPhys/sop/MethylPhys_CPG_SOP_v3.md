@@ -15,7 +15,7 @@
 > first commissioning's band (Normal 0.95 to 1.05) until each cell's healthy width, measured from the atlas's own donors, replaces it.
 > The sections below are the chain v3 record as it was written and run.
 >
-> **Commissioned:** Met-A against IAM-Atlas v2.1 alone is commissioned on sorted neutrophils (Infinium 450K) and sorted monocytes (Infinium EPIC v1), 2026-11-09 (`doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md`); every other Met-A reading against the atlas is development.
+> **Commissioned:** Met-A against IAM-Atlas v2.1 alone is commissioned on sorted neutrophils (Infinium 450K) and sorted monocytes (Infinium EPIC v1), 2026-11-09 (`doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md`); every other Met-A reading against the atlas is development. The C-Score against IAM-Atlas v2.1 alone is commissioned on sorted monocytes (Infinium 450K), 2026-11-09 (`doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md`), and Met-A on the same scope (COMMISSION-MONO450-01).
 
 ## 1. Physics stated once
 

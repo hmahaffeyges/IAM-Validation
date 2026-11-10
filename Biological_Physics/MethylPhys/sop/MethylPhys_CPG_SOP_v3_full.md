@@ -7,7 +7,7 @@
 **Written from:** repository `hmahaffeyges/IAM-Validation`, `main` at `7cdbbf8` (floor v1.3) **plus the audit-fix patch** (`chain_fix_patch.zip`, branch `audit-fixes`, not yet pushed). Line numbers refer to the patched files. Paths are relative to `Biological_Physics/MethylPhys/`. Every number is read from a frozen file or the canon; the file and key are given beside it.
 **Readings:** Met-A (arrays; COMMISSIONED on isolated neutrophils 2026-10-09), Met-A C-score (arrays; COMMISSIONED on whole blood 2026-10-15, one-sided band upper 1.152), Group-A (arrays; COMMISSIONED 2026-10-20 on groups of whole bloods run in one series, chain/stage_groupa.py), A_rel (Met-A after the same-run tare), IAM-A (sequencing; COMMISSIONED 2026-10-17 on healthy blood CD8 T cells, whole-genome bisulfite). Deconvolution tool (COMMISSIONED 2026-10-17 for blood-cell shares: neutrophils, monocytes, CD4 T, CD8 T; arrays). Reference: IAM-Atlas v2.1 (COMMISSIONED 2026-10-16 for three cell references (cortical neurons, lung bronchus epithelium, naive CD4 T cells; 450K) and the colon and lung blind sites; every other use development).
 
-**Commissioned:** Met-A against IAM-Atlas v2.1 alone is commissioned on sorted neutrophils (Infinium 450K) and sorted monocytes (Infinium EPIC v1), 2026-11-09 (`doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md`).
+**Commissioned:** Met-A against IAM-Atlas v2.1 alone is commissioned on sorted neutrophils (Infinium 450K) and sorted monocytes (Infinium EPIC v1), 2026-11-09 (`doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md`). The C-Score against IAM-Atlas v2.1 alone is commissioned on sorted monocytes (Infinium 450K), 2026-11-09 (`doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md`), and Met-A on the same scope (COMMISSION-MONO450-01).
 
 ---
 

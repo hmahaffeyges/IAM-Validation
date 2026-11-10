@@ -1,0 +1,20 @@
+gsm,series,platform,top,share,met_a,state,c_score,c_limit,c_within
+GSM3004024,GSE110607,HM450K,monocytes,0.7727,1.00802,Normal,0.9704,1.1319,True
+GSM3004026,GSE110607,HM450K,monocytes,0.7232,1.00882,no healthy width measured at 72.3 % of the sample (measured where this cell held 73 % or more),0.9811,1.1257,True
+GSM3004028,GSE110607,HM450K,monocytes,0.744,1.04801,above Normal,1.01,1.127,True
+GSM3004030,GSE110607,HM450K,monocytes,0.6963,1.01042,no healthy width measured at 69.6 % of the sample (measured where this cell held 73 % or more),0.9869,1.1257,True
+GSM3004032,GSE110607,HM450K,monocytes,0.6492,1.02047,no healthy width measured at 64.9 % of the sample (measured where this cell held 73 % or more),1.0943,1.1257,True
+GSM3004034,GSE110607,HM450K,monocytes,0.7637,1.00549,Normal,1.0387,1.1257,True
+GSM3004036,GSE110607,HM450K,monocytes,0.725,1.02305,no healthy width measured at 72.5 % of the sample (measured where this cell held 73 % or more),1.0368,1.1257,True
+GSM3004038,GSE110607,HM450K,monocytes,0.7628,1.0026,Normal,1.0792,1.1257,True
+GSM3004040,GSE110607,HM450K,monocytes,0.863,0.99624,Normal,1.0699,1.1257,True
+GSM3004042,GSE110607,HM450K,monocytes,0.8437,0.99386,Normal,1.0726,1.1257,True
+GSM3004044,GSE110607,HM450K,monocytes,0.8426,0.9941,Normal,1.1372,1.1257,False
+GSM3004046,GSE110607,HM450K,monocytes,0.8567,1.00393,Normal,1.0734,1.1257,True
+GSM3004048,GSE110607,HM450K,monocytes,0.8522,0.99966,Normal,1.0472,1.1257,True
+GSM3791459,GSE131627,HM450K,monocytes,0.9349,1.00254,Normal,1.0551,1.1257,True
+GSM3791460,GSE131627,HM450K,monocytes,0.9222,1.00275,Normal,1.0253,1.1257,True
+GSM3791461,GSE131627,HM450K,monocytes,0.8073,0.98787,Normal,0.9796,1.1319,True
+GSM3791462,GSE131627,HM450K,monocytes,0.7104,1.0436,no healthy width measured at 71.0 % of the sample (measured where this cell held 73 % or more),0.8931,1.1299,True
+GSM3791463,GSE131627,HM450K,monocytes,0.8219,0.98979,Normal,1.0483,1.1319,True
+GSM3791464,GSE131627,HM450K,monocytes,0.9141,1.00449,Normal,0.9388,1.1259,True

@@ -73,7 +73,7 @@
    "physics": "It does not depend on how large the departures are, only on how they are laid out. Ordinary wear is local and random; a process that acts on a stretch of DNA moves neighbors together.",
    "significance": "It separates ordinary aging, which wears marks here and there, from change that acts on whole stretches of the genome, and it sees small changes because it reads thousands of sites at once.",
    "sky": "The question a power spectrum asks of the microwave sky (is the structure random, or does it have scale?) asked of the genome's map.",
-   "status": "Commissioned on whole blood, EPIC v1. This applies to the first C-Score only; the whole-genome, each-cell and IAM-A C-Scores are development.",
+   "status": "Commissioned on whole blood, EPIC v1; tested and commissioned against IAM-Atlas v2.1 alone on sorted monocytes (450K). This applies to the first C-Score only; the whole-genome, each-cell and IAM-A C-Scores are development.",
    "instrument_name": "C-Score (the clustering meter)"
   },
   "v4-iama": {

@@ -1,4 +1,4 @@
-# Met-A on sorted neutrophils (450K) and sorted monocytes (EPIC v1), against IAM-Atlas v2.1 — commissioning note
+# Met-A on sorted neutrophils (450K) and sorted monocytes (EPIC v1 and 450K), against IAM-Atlas v2.1 — commissioning note
 
 **Status: COMMISSIONED 2026-11-09** on the sealed test COMMISSION-METAA-SORTED-01 (all three bars met; `COMMISSION_METAA_SORTED_01_OUTCOME.md`).
 
@@ -8,7 +8,7 @@
 
 **Synthetic test:** chain/stage_metaa_atlas.py, chain/MethylPhys_Interface/run_sample.py, DEV_METAA_HEALTHY_01/width_new3_summary.txt
 
-**Prior reading:** GSE110554 (the rehearsal) and the atlas's donor series GSE103541, GSE118144, GSE122244, GSE124565, GSE224807, GSE226298, GSE252045, GSE49618, GSE88824 (read to measure the widths and build the atlas) were read before (`CANON/data_spent.csv`); the sealed test's 79 arrays were never read before it.
+**Prior reading:** GSE110554 (the rehearsal) and the atlas's donor series GSE103541, GSE118144, GSE122244, GSE124565, GSE224807, GSE226298, GSE252045, GSE49618, GSE88824 (read to measure the widths and build the atlas) were read before (`CANON/data_spent.csv`); the sealed test's 79 arrays were never read before it; GSE318669 and GSE110607 were since read in this test, and GSE318669's lymphocytes in a diagnostic (`DEV_METAA_HEALTHY_01.md`).
 
 **Milestone:** the first instrument commissioned against the atlas alone.
 
@@ -19,6 +19,8 @@ of the same kind, after the cross-laboratory work.
 **What it would take** to finish: those three sealed tests met; nothing more is needed for the scope commissioned here.
 
 **Correction (after reading; the sealed design is unchanged).** GEO lists GSE318669 as 450K, but the chain read 7 of its 8 neutrophil arrays as EPIC v1 from their own IDAT files (one, a smoker's, as 450K). So the scored 450K neutrophils come from one laboratory, GSE110607 (12 of 12 with a state Normal); GSE318669's 3 scored neutrophils are EPIC v1 and read Normal (1.015 to 1.026), outside the commissioned scope and reported as an observation. The three bars were scored over all arrays, as sealed, and are met; Met-A on sorted neutrophils on 450K is commissioned on one new laboratory's arrays.
+
+**Extended 2026-11-09:** sorted monocytes on Infinium 450K, on the sealed test COMMISSION-MONO450-01 (19 of 19 found as monocytes; 13 of 14 with a state Normal; `COMMISSION_MONO450_01_OUTCOME.md`).
 
 ## Scope
 Met-A for the cell the IAM-Deconvolver finds most of, in a sorted neutrophil sample on Infinium 450K or a sorted monocyte sample on Infinium

@@ -148,6 +148,10 @@ Each result says what was tested and what it means; the record behind it has eve
 
 Healthy now comes only from the atlas. Met-A was tested on 74 healthy sorted white blood cells from five laboratories the atlas never held, against a test written and sealed before any of them was read. The IAM-Deconvolver named the right cell in 73 of 74, and every array the chain could read gave Normal, measured against each cell's healthy width on the atlas's own donors.
 
+**The C-Score commissioned against IAM-Atlas v2.1 alone on sorted monocytes (450K)** · [record](Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)
+
+The clustering meter now takes its healthy limit from the atlas alone. On 19 healthy sorted monocytes from two laboratories the atlas never held, read against a test sealed before any was read, the IAM-Deconvolver found monocytes in every one, Met-A read Normal in 13 of the 14 it could give a state, and the C-Score sat within its limit in 18 of 19.
+
 **Megakaryocytes join the IAM Sequencing Atlas and its globe** · [record](Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md)
 
 The cells that make platelets, a large source of the DNA in blood plasma, are now in our sequencing reference and on its globe, as a provisional 58th cell type. Platelet DNA the chain had never read comes out nearest them of every cell. The 57 cells before are unchanged.

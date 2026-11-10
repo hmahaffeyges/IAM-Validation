@@ -12,6 +12,14 @@ Healthy sorted neutrophils and monocytes from five laboratories the atlas never 
 
 Record: [COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)
 
+## The C-Score commissioned against the atlas alone
+
+**2026-11-09** · commissioned · 18 of 19
+
+Healthy sorted monocytes from two laboratories the atlas never held sit within the clustering meter's atlas limit
+
+Record: [COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md](doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)
+
 ## Megakaryocytes join the atlas
 
 **2026-11-07** · published · DOI

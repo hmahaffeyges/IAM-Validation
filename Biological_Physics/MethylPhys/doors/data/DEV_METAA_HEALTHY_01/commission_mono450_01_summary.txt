@@ -1,0 +1,23 @@
+GSM3004024 sorted monocytes: top monocytes (0.7727) Met-A 1.00802 state Normal C-Score within True
+GSM3004026 sorted monocytes: top monocytes (0.7232) Met-A 1.00882 state no healthy width measured at 72.3 % of the sample (measured where this cell held 73 % or more) C-Score within True
+GSM3004028 sorted monocytes: top monocytes (0.744) Met-A 1.04801 state above Normal C-Score within True
+GSM3004030 sorted monocytes: top monocytes (0.6963) Met-A 1.01042 state no healthy width measured at 69.6 % of the sample (measured where this cell held 73 % or more) C-Score within True
+GSM3004032 sorted monocytes: top monocytes (0.6492) Met-A 1.02047 state no healthy width measured at 64.9 % of the sample (measured where this cell held 73 % or more) C-Score within True
+GSM3004034 sorted monocytes: top monocytes (0.7637) Met-A 1.00549 state Normal C-Score within True
+GSM3004036 sorted monocytes: top monocytes (0.725) Met-A 1.02305 state no healthy width measured at 72.5 % of the sample (measured where this cell held 73 % or more) C-Score within True
+GSM3004038 sorted monocytes: top monocytes (0.7628) Met-A 1.0026 state Normal C-Score within True
+GSM3004040 sorted monocytes: top monocytes (0.863) Met-A 0.99624 state Normal C-Score within True
+GSM3004042 sorted monocytes: top monocytes (0.8437) Met-A 0.99386 state Normal C-Score within True
+GSM3004044 sorted monocytes: top monocytes (0.8426) Met-A 0.9941 state Normal C-Score within False
+GSM3004046 sorted monocytes: top monocytes (0.8567) Met-A 1.00393 state Normal C-Score within True
+GSM3004048 sorted monocytes: top monocytes (0.8522) Met-A 0.99966 state Normal C-Score within True
+GSM3791459 sorted monocytes: top monocytes (0.9349) Met-A 1.00254 state Normal C-Score within True
+GSM3791460 sorted monocytes: top monocytes (0.9222) Met-A 1.00275 state Normal C-Score within True
+GSM3791461 sorted monocytes: top monocytes (0.8073) Met-A 0.98787 state Normal C-Score within True
+GSM3791462 sorted monocytes: top monocytes (0.7104) Met-A 1.0436 state no healthy width measured at 71.0 % of the sample (measured where this cell held 73 % or more) C-Score within True
+GSM3791463 sorted monocytes: top monocytes (0.8219) Met-A 0.98979 state Normal C-Score within True
+GSM3791464 sorted monocytes: top monocytes (0.9141) Met-A 1.00449 state Normal C-Score within True
+bar 1 (top cell is the sorted kind, 90 %): 19 of 19: met
+bar 2 (Normal, 85 % of arrays with a state): 13 of 14: met
+bar 3 (C-Score within its limit, 85 % of arrays with a C-Score): 18 of 19: met
+MET

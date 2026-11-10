@@ -87,6 +87,7 @@ those sites have drifted toward a coin flip, as entropy in bits, against the cel
 floor to saturation. A healthy sample reads 1.
 **Commissioned** against IAM-Atlas v2.1 alone on sorted neutrophils (450K arrays) and sorted monocytes (EPIC arrays): on 74 healthy sorted
 arrays from five laboratories the atlas never held (the 450K neutrophils from one of them), every one with a state read Normal ([commissioning note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)).
+On sorted monocytes on 450K arrays, from two more laboratories, Met-A and the C-Score are **Commissioned** against IAM-Atlas v2.1 alone: the C-Score within its limit in 18 of 19 ([C-Score note](doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)).
 It was first commissioned on isolated neutrophils, EPIC v1 arrays, against six healthy reference arrays, detecting a 2 % change
 ([first commissioning](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)). Now each cell's
 reading is divided by its own healthy prediction from the atlas, with the array's own line and noise measured on the array itself, and

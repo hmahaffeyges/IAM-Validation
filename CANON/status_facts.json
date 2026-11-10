@@ -24,7 +24,7 @@
   {
    "id": "metA_commissioned",
    "since": "2026-11-09",
-   "fact": "Met-A against IAM-Atlas v2.1 alone is commissioned on sorted neutrophils (450K) and sorted monocytes (EPIC v1) (COMMISSION-METAA-SORTED-01); first commissioned on isolated neutrophils (EPIC v1) against a same-run tare, now history; whole blood and every other cell, platform and stage is development",
+   "fact": "Met-A against IAM-Atlas v2.1 alone is commissioned on sorted neutrophils (450K) and sorted monocytes (EPIC v1, COMMISSION-METAA-SORTED-01; 450K, COMMISSION-MONO450-01); first commissioned on isolated neutrophils (EPIC v1) against a same-run tare, now history; whole blood and every other cell, platform and stage is development",
    "forbid": [
     "(?i)no cell is commissioned",
     "(?i)not yet commissioned\\)",
