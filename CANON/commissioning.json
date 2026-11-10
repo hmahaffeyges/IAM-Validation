@@ -296,7 +296,7 @@
     {
      "kind": "status",
      "file": "Biological_Physics/MethylPhys/STATUS.md",
-     "pattern": "\\*\\*Met-A C-score, whole blood, EPIC v1\\*\\* \\| \\*\\*COMMISSIONED 2026-10-15"
+     "pattern": "Met-A C-score, whole blood, EPIC v1 \\(first commissioning\\) \\| 2026-10-15"
     },
     {
      "kind": "book",
@@ -321,7 +321,7 @@
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### C-Score:[^#]*?\\*\\*Being re-commissioned\\*\\*"
+     "pattern": "### C-Score:[^#]*?[Bb]eing re-commissioned"
     },
     {
      "kind": "qa",
@@ -395,8 +395,8 @@
      "pattern": "\\(50-site blocks\\)"
     }
    ],
-   "status_line": "| **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |",
-   "summary": "the Met-A C-score on whole blood, EPIC v1",
+   "status_line": "| Met-A C-score, whole blood, EPIC v1 (first commissioning) | 2026-10-15, against a healthy range set on other studies' healthy arrays, since retired ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | history; the C-Score against the atlas alone is commissioned on sorted monocytes (450K) in its own row; whole blood awaits an atlas-only test |",
+   "summary": "",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE.md",
    "reference": "same-run healthy tare (at least 3 healthy arrays on its slide)",
    "atlas_only": false,
@@ -731,6 +731,7 @@
   }
  ],
  "_notes": [
-  "2026-11-07: Met-A, C-Score and Group-A were commissioned against references from other samples; their intro places now require the introduction to say they are being re-commissioned against the atlas alone."
+  "2026-11-07: Met-A, C-Score and Group-A were commissioned against references from other samples; their intro places now require the introduction to say they are being re-commissioned against the atlas alone.",
+  "2026-11-10 (author agreed): the whole-blood C-score's first commissioning (a healthy range from other studies' arrays) is history, as Met-A's first is; the C-Score against the atlas alone is commissioned on sorted monocytes (450K)."
  ]
 }

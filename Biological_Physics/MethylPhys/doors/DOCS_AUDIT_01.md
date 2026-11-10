@@ -19,3 +19,11 @@ documents, 7 manuals and SOP, 29 working notes and outputs, 2 website pages, 34 
 traces every number; doc_audit finds 2 missing paths (a run note naming TODO.md and PRIORITY_2026-10-13.md); status_check's findings are
 box-run code records; canon_check finds warn-level retired terms in 121 files. Next: each of the 82 non-book documents read against the canon
 (book method), with a generate, generate-the-facts, keep-as-record or merge recommendation per file.
+
+**First fixes (the author agreed):** the whole-blood C-score's first commissioning (a healthy range from other studies' arrays) is kept as history,
+as Met-A's first is (commissioning.json, STATUS.md); the Introduction's C-Score section states its atlas-only scope (sorted monocytes,
+450K); IAM-A's catalogue entry says the baseline is read from the sample's own loose share on a line whose form follows from the cell's
+design and whose two constants were measured once on 56 healthy cell types (foundation.json). The fundraiser's status paragraph is drafted
+for the author. **Agreed structure:** one SOP (the operating manual; the OMs retired into it), one Decoder (the flowchart folded in when
+finished), the book, the A-score database, Four Domains; the Q&A, the Introduction and the researcher papers hand-written; records kept;
+working notes archived.

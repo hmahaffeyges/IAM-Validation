@@ -99,8 +99,10 @@ average at single sites.
 
 Healthy aging wears marks away here and there. Tumors break whole stretches. The C-Score reads how clustered a sample's departures are
 across the genome's map.
-**Being re-commissioned** against the atlases alone. It was first commissioned on whole blood with a healthy range set on healthy
-arrays from many studies ([commissioning note](doors/COMMISSIONING_NOTE_CSCORE.md)); its limit will now come from the atlases: each
+**Commissioned** against IAM-Atlas v2.1 alone on sorted monocytes (450K arrays): on 19 healthy arrays from two laboratories the atlas
+never held for this cell, it sat within its limit in 18 ([C-Score note](doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md)). On whole blood
+and every other cell it is being re-commissioned against the atlases alone. It was first commissioned on whole blood with a healthy range set on healthy
+arrays from many studies ([commissioning note](doors/COMMISSIONING_NOTE_CSCORE.md)); its limit now comes from the atlases: each
 site's spread between healthy donors, how neighboring sites move together between donors, and the array's own noise. What its first
 tests showed about the instrument itself stands: the same person measured twice reads the same (spread 0.0379 over 13 pairs), a change
 on only 5 % of sites shows when the sites cluster, and planted scattered losses never read as clustered: 0 of 120.

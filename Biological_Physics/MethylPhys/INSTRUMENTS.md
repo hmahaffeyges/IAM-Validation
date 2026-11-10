@@ -162,7 +162,7 @@ Cancer does not only shift tagging levels; it clumps them into runs. The C-Score
 
 **The question:** Is each mark still held at its own healthy rate?
 
-Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the healthy middle comes from the sample itself. Every reading states its own counting error: how many held-error chances it counted and the range that leaves.
+Counts tagging mistakes one DNA molecule at a time, the most direct reading of informational fidelity we have, and reads them against the sample's own line. The physics end of the catalogue: the floor and ceiling are derived, and the baseline is read from the sample's own loose share, on a line whose form follows from the cell's design and whose two constants were measured once on 56 healthy cell types. Every reading states its own counting error: how many held-error chances it counted and the range that leaves.
 
 **Reads:** single-molecule sequencing (bisulfite, EM-seq; nanopore next). **Where it stands:** commissioned (each sample against its own reference; sealed test on healthy blood CD8 T cells, whole-genome bisulfite).
 
