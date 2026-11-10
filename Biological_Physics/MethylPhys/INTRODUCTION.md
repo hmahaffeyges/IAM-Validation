@@ -86,7 +86,7 @@ Every cell type keeps a set of identity sites: places that are firmly marked, or
 those sites have drifted toward a coin flip, as entropy in bits, against the cell's own healthy profile, on a scale from the physics
 floor to saturation. A healthy sample reads 1.
 **Commissioned** against IAM-Atlas v2.1 alone on sorted neutrophils (450K arrays) and sorted monocytes (EPIC arrays): on 74 healthy sorted
-arrays from five laboratories the atlas never held, every one with a state read Normal ([commissioning note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)).
+arrays from five laboratories the atlas never held (the 450K neutrophils from one of them), every one with a state read Normal ([commissioning note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)).
 It was first commissioned on isolated neutrophils, EPIC v1 arrays, against six healthy reference arrays, detecting a 2 % change
 ([first commissioning](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)). Now each cell's
 reading is divided by its own healthy prediction from the atlas, with the array's own line and noise measured on the array itself, and

@@ -16,6 +16,8 @@ by cells inside whole blood.
 | 2. of arrays with a state, 85 % Normal | 66 of 67 | yes |
 | 3. each kind with 5+ arrays, 70 % Normal | monocytes 51 of 51, neutrophils 15 of 15 | yes |
 
+**Correction (after reading; the sealed design is unchanged).** GEO lists GSE318669 as 450K, but the chain read 7 of its 8 neutrophil arrays as EPIC v1 from their own IDAT files (one, a smoker's, as 450K). So the scored 450K neutrophils come from one laboratory, GSE110607 (12 of 12 with a state Normal); GSE318669's 3 scored neutrophils are EPIC v1 and read Normal (1.015 to 1.026), outside the commissioned scope and reported as an observation. The three bars were scored over all arrays, as sealed, and are met; Met-A on sorted neutrophils on 450K is commissioned on one new laboratory's arrays.
+
 **Arrays without a state (8 of 74, each with the chain's own reason).** Seven GSE201752 monocyte arrays were declined for array quality: one
 detected 41 % of probes, so the cell shares were withheld; six measured fewer than half of the monocyte's 6,000 identity sites (detection
 61 % to 86 %), so Met-A was not read. One GSE110607 neutrophil was found at 62.9 %, below the 69 % at which the atlas's neutrophil donors
@@ -23,7 +25,7 @@ were measured. No reading carried the atlas's middle-not-at-1 flag.
 
 **Readings by laboratory (Normal arrays, Met-A median and range).** Monocytes (EPIC): GSE201752 0.9884
 (0.9567 to 1.0181), GSE189426 0.9875, GSE196071 0.9769.
-Neutrophils (450K): GSE110607 1.031, GSE318669 1.0159. The 5 smokers (read, not scored) read
+Neutrophils: GSE110607 (450K) 1.031; GSE318669 (EPIC v1, 3 scored, outside the scope) 1.0159. The 5 smokers (read, not scored) read
 Normal, 0.968 to 1.047. Monocytes sit 1 to 2 percent below 1 and neutrophils 2 to 3 percent above, inside each cell's measured width.
 
 **Commissioned:** Met-A on sorted neutrophils (Infinium 450K) and sorted monocytes (Infinium EPIC v1), against IAM-Atlas v2.1 alone (each

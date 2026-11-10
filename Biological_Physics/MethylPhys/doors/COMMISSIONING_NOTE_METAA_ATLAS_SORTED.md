@@ -18,6 +18,8 @@ of the same kind, after the cross-laboratory work.
 
 **What it would take** to finish: those three sealed tests met; nothing more is needed for the scope commissioned here.
 
+**Correction (after reading; the sealed design is unchanged).** GEO lists GSE318669 as 450K, but the chain read 7 of its 8 neutrophil arrays as EPIC v1 from their own IDAT files (one, a smoker's, as 450K). So the scored 450K neutrophils come from one laboratory, GSE110607 (12 of 12 with a state Normal); GSE318669's 3 scored neutrophils are EPIC v1 and read Normal (1.015 to 1.026), outside the commissioned scope and reported as an observation. The three bars were scored over all arrays, as sealed, and are met; Met-A on sorted neutrophils on 450K is commissioned on one new laboratory's arrays.
+
 ## Scope
 Met-A for the cell the IAM-Deconvolver finds most of, in a sorted neutrophil sample on Infinium 450K or a sorted monocyte sample on Infinium
 EPIC v1, read by the one command's default chain against IAM-Atlas v2.1 alone. Normal is that cell's measured width on the atlas's own
