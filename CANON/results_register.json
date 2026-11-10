@@ -520,6 +520,25 @@
     "head": "Megakaryocytes join the atlas",
     "sub": "{cells} healthy cell types, the 58th provisional; platelet DNA reads nearest it. DOI {doi}."
    }
+  },
+  {
+   "id": "COMMISSIONING-METAA-ATLAS-SORTED",
+   "date": "2026-11-09",
+   "kind": "commissioning",
+   "instrument": "Met-A",
+   "status": "commissioned",
+   "book": false,
+   "record": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md",
+   "headline": "**Met-A commissioned against IAM-Atlas v2.1 alone** on sorted neutrophils (450K) and sorted monocytes (EPIC v1)",
+   "covers": [],
+   "plain": "Healthy now comes only from the atlas. Met-A was tested on 74 healthy sorted white blood cells from five laboratories the atlas never held, against a test written and sealed before any of them was read. The IAM-Deconvolver named the right cell in 73 of 74, and every array the chain could read gave Normal, measured against each cell's healthy width on the atlas's own donors.",
+   "win": {
+    "rank": 8,
+    "stat": "66 of 66",
+    "head": "Met-A commissioned against the atlas alone",
+    "sub": "Healthy sorted neutrophils and monocytes from five laboratories the atlas never held read Normal, every one the chain could read"
+   },
+   "title": "Met-A commissioned against IAM-Atlas v2.1 alone on sorted neutrophils (450K) and sorted monocytes (EPIC v1)"
   }
  ],
  "losses": [

@@ -17,6 +17,83 @@
  ],
  "instruments": [
   {
+   "register_id": "COMMISSIONING-METAA-ATLAS-SORTED",
+   "name": "Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and sorted monocytes (EPIC v1)",
+   "date": "2026-11-09",
+   "summary": "Met-A against IAM-Atlas v2.1 alone, sorted neutrophils (450K) and sorted monocytes (EPIC v1)",
+   "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md",
+   "status_line": "| **Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and monocytes (EPIC v1)** | **COMMISSIONED 2026-11-09** ([note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)) | the cell the IAM-Deconvolver finds most of in a sorted sample, against its width on the atlas's own donors; 74 unseen healthy arrays, five laboratories, every one with a state Normal |",
+   "reference": "IAM-Atlas v2.1 alone (each cell's healthy profile; Normal as its measured width on the atlas's own donors)",
+   "atlas_only": true,
+   "places": [
+    {
+     "kind": "note",
+     "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md",
+     "pattern": "\\*\\*Status: COMMISSIONED 2026-11-09"
+    },
+    {
+     "kind": "chain",
+     "file": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "pattern": "METAA_ATLAS_COMMISSIONED = dict\\(record=\"COMMISSION-METAA-SORTED-01"
+    },
+    {
+     "kind": "report",
+     "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
+     "pattern": "Met-A status"
+    },
+    {
+     "kind": "sop",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
+     "pattern": "Met\\-A\\ against\\ IAM\\-Atlas\\ v2\\.1\\ alone\\ is\\ commissioned\\ on\\ sorted\\ neutrophils\\ \\(Infinium\\ 450K\\)\\ and\\ sorted\\ monocytes\\ \\(Infinium\\ EPIC\\ v1\\),\\ 2026\\-11\\-09"
+    },
+    {
+     "kind": "sop_full",
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
+     "pattern": "Met\\-A\\ against\\ IAM\\-Atlas\\ v2\\.1\\ alone\\ is\\ commissioned\\ on\\ sorted\\ neutrophils\\ \\(Infinium\\ 450K\\)\\ and\\ sorted\\ monocytes\\ \\(Infinium\\ EPIC\\ v1\\),\\ 2026\\-11\\-09"
+    },
+    {
+     "kind": "om",
+     "file": "Biological_Physics/MethylPhys/manual/OM_v4_chain.md",
+     "pattern": "Met\\-A\\ against\\ IAM\\-Atlas\\ v2\\.1\\ alone\\ is\\ commissioned\\ on\\ sorted\\ neutrophils\\ \\(Infinium\\ 450K\\)\\ and\\ sorted\\ monocytes\\ \\(Infinium\\ EPIC\\ v1\\),\\ 2026\\-11\\-09"
+    },
+    {
+     "kind": "status",
+     "file": "Biological_Physics/MethylPhys/STATUS.md",
+     "pattern": "\\*\\*Met-A against IAM-Atlas v2\\.1, sorted neutrophils \\(450K\\) and monocytes \\(EPIC v1\\)\\*\\* \\| \\*\\*COMMISSIONED 2026-11-09"
+    },
+    {
+     "kind": "book",
+     "file": "docs/book/part6/p6_07_meta.tex",
+     "pattern": "commissioned against IAM-Atlas v2\\.1 alone\\} on sorted neutrophils \\(450K\\)"
+    },
+    {
+     "kind": "book_status",
+     "file": "docs/book/part6/p6_24_status.tex",
+     "pattern": "Met-A commissioned against IAM-Atlas v2\\.1 alone on sorted neutrophils"
+    },
+    {
+     "kind": "catalogue",
+     "file": "CANON/catalogue.json",
+     "pattern": "tested and commissioned against IAM-Atlas v2\\.1 alone on sorted neutrophils"
+    },
+    {
+     "kind": "readme",
+     "file": "Biological_Physics/README.md",
+     "pattern": "Met-A against IAM-Atlas v2\\.1 alone is commissioned on sorted neutrophils"
+    },
+    {
+     "kind": "intro",
+     "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
+     "pattern": "\\*\\*Commissioned\\*\\* against IAM-Atlas v2\\.1 alone on sorted neutrophils"
+    },
+    {
+     "kind": "qa",
+     "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
+     "pattern": "74 healthy sorted arrays from five laboratories the atlas never held for Met-A"
+    }
+   ]
+  },
+  {
    "register_id": "COMMISSIONING-METAA-NEUTROPHILS",
    "name": "Met-A, isolated neutrophils, EPIC v1",
    "date": "2026-10-09",
@@ -54,7 +131,7 @@
     {
      "kind": "status",
      "file": "Biological_Physics/MethylPhys/STATUS.md",
-     "pattern": "\\*\\*Met-A, neutrophils, EPIC v1\\*\\* \\| \\*\\*COMMISSIONED 2026-10-09"
+     "pattern": "Met-A, neutrophils, EPIC v1 \\(first commissioning\\) \\| 2026-10-09"
     },
     {
      "kind": "book",
@@ -69,22 +146,22 @@
     {
      "kind": "catalogue",
      "file": "CANON/catalogue.json",
-     "pattern": "\"commissioned\":\\ \"tested\\ and\\ commissioned\\ on\\ isolated\\ neut"
+     "pattern": "first commissioned on isolated neutrophils, EPIC v1"
     },
     {
      "kind": "readme",
      "file": "Biological_Physics/README.md",
-     "pattern": "Met-A on isolated neutrophils \\(EPIC v1\\) is commissioned"
+     "pattern": "first commissioned on isolated neutrophils, EPIC v1"
     },
     {
      "kind": "intro",
      "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-     "pattern": "### Met-A:[^#]*?\\*\\*Being re-commissioned\\*\\*"
+     "pattern": "It was first commissioned on isolated neutrophils, EPIC v1"
     },
     {
      "kind": "qa",
      "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
-     "pattern": "541 healthy neutrophil arrays from 18 series for Met-A"
+     "pattern": "541 healthy neutrophil arrays from 18 series for its first commissioning"
     }
    ],
    "forbid": [
@@ -97,12 +174,12 @@
      "pattern": "\\*\\*Build:\\*\\* development v3 \\(2026-10-01\\), DEVELOPMENT - not commissioned"
     }
    ],
-   "status_line": "| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | tested and commissioned on isolated neutrophils against their own healthy profile; detection limit 2 % |",
-   "summary": "Met-A on neutrophils, EPIC v1, isolated neutrophils",
+   "status_line": "| Met-A, neutrophils, EPIC v1 (first commissioning) | 2026-10-09, against a same-run healthy tare, since retired ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | history; Met-A against the atlas alone is commissioned in the row above; EPIC neutrophils await a fresh atlas-only test |",
+   "summary": "",
    "note": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md",
    "reference": "same-run healthy tare (the median tare, conductor_v3.stage_t_tare)",
    "atlas_only": false,
-   "recommission": "awaiting atlas-only re-commissioning (plan 60.29): synthetic over the real range, spent rehearsal per person, fresh test per person, on IAM-Atlas v2.1 alone"
+   "recommission": "re-commissioned against IAM-Atlas v2.1 alone in COMMISSIONING-METAA-ATLAS-SORTED (sorted neutrophils on 450K, sorted monocytes on EPIC v1); EPIC neutrophils await a fresh atlas-only test"
   },
   {
    "register_id": "COMMISSIONING-CSCORE",

@@ -85,8 +85,10 @@ tare on healthy arrays run alongside, or a band set on healthy cohorts) is being
 Every cell type keeps a set of identity sites: places that are firmly marked, or firmly unmarked, in that cell. Met-A reads how much
 those sites have drifted toward a coin flip, as entropy in bits, against the cell's own healthy profile, on a scale from the physics
 floor to saturation. A healthy sample reads 1.
-**Being re-commissioned** against IAM-Atlas v2.1 alone. It was first commissioned on isolated neutrophils, EPIC v1 arrays, against six
-healthy reference arrays, detecting a 2 % change ([commissioning note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)). Now each cell's
+**Commissioned** against IAM-Atlas v2.1 alone on sorted neutrophils (450K arrays) and sorted monocytes (EPIC arrays): on 74 healthy sorted
+arrays from five laboratories the atlas never held, every one with a state read Normal ([commissioning note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)).
+It was first commissioned on isolated neutrophils, EPIC v1 arrays, against six healthy reference arrays, detecting a 2 % change
+([first commissioning](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)). Now each cell's
 reading is divided by its own healthy prediction from the atlas, with the array's own line and noise measured on the array itself, and
 Normal is each cell's healthy width measured from the atlas's own donors ([the record](doors/DEV_METAA_HEALTHY_01.md)).
 **Different because** it reads the state of the record itself, in physical units, instead of a difference from a control group's

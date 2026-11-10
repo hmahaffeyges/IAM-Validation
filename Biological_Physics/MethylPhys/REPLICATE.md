@@ -19,6 +19,7 @@ Chain entry points: `chain/conductor_v3.py`, `chain/reference_door.py`, `chain/s
 
 | instrument | commissioned | where in the chain |
 |---|---|---|
+| Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and sorted monocytes (EPIC v1) | | `chain/MethylPhys_Interface/report_v4.py`, `chain/stage_metaa_atlas.py` |
 | Met-A, isolated neutrophils, EPIC v1 | | `chain/MethylPhys_Interface/report_v3.py`, `chain/conductor_v3.py` |
 | Met-A C-score, whole blood, EPIC v1 | | `chain/MethylPhys_Interface/report_v3.py`, `chain/conductor_v3.py` |
 | IAM-Atlas v2.1, per use | | `chain/MethylPhys_Interface/report_v3.py`, `chain/stage_atlas_commission.py` |

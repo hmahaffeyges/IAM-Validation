@@ -43,6 +43,7 @@ make the instruments possible.
 
 | Instrument and scope | Commissioned | Note |
 |---|---|---|
+| Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and sorted monocytes (EPIC v1) | 2026-11-09 | [COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md](../doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md) |
 | Met-A, isolated neutrophils, EPIC v1 | 2026-10-09 | [COMMISSIONING_NOTE_METAA_NEUTROPHILS.md](../doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md) |
 | Met-A C-score, whole blood, EPIC v1 | 2026-10-15 | [COMMISSIONING_NOTE_CSCORE.md](../doors/COMMISSIONING_NOTE_CSCORE.md) |
 | IAM-Atlas v2.1, per use | 2026-10-16 | [COMMISSIONING_NOTE_ATLAS_V21.md](../doors/COMMISSIONING_NOTE_ATLAS_V21.md) |

@@ -5,12 +5,21 @@ Master Testing Manifest; do not edit by hand. Commissioned means a use is allowe
 
 | Instrument | Commissioned | Scope |
 |---|---|---|
-| **Met-A, neutrophils, EPIC v1** | **COMMISSIONED 2026-10-09** ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | tested and commissioned on isolated neutrophils against their own healthy profile; detection limit 2 % |
+| **Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and monocytes (EPIC v1)** | **COMMISSIONED 2026-11-09** ([note](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)) | the cell the IAM-Deconvolver finds most of in a sorted sample, against its width on the atlas's own donors; 74 unseen healthy arrays, five laboratories, every one with a state Normal |
+| Met-A, neutrophils, EPIC v1 (first commissioning) | 2026-10-09, against a same-run healthy tare, since retired ([note](doors/COMMISSIONING_NOTE_METAA_NEUTROPHILS.md)) | history; Met-A against the atlas alone is commissioned in the row above; EPIC neutrophils await a fresh atlas-only test |
 | **Met-A C-score, whole blood, EPIC v1** | **COMMISSIONED 2026-10-15** ([note](doors/COMMISSIONING_NOTE_CSCORE.md)) | tested and commissioned on whole blood; one-sided band, upper 1.152; detection limit C_rel 1.5 at 5 % clustered |
 | **IAM-Atlas v2.1** | **COMMISSIONED 2026-10-16** ([note](doors/COMMISSIONING_NOTE_ATLAS_V21.md)) | 79 cell types; met all three sealed bars against both published reference atlases on 731 held-out arrays (markers, mixtures, cells a reference lacks); cell profiles confirmed on held-out cortical neurons, lung bronchus epithelium and naive CD4 T cells; blind sites of the colon and lung tissue tests |
 | **IAM-Deconvolver (atlas v2.1)** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_DECONV_V21.md)) | blood-cell shares on arrays, tested on mixtures of neutrophils, monocytes, CD4 T and CD8 T cells from a laboratory the atlas never saw: mean share error 0.016 |
 | **IAM-A, own reference** | **COMMISSIONED 2026-10-17** ([note](doors/COMMISSIONING_NOTE_IAMA.md)) | each sample against its own loose share, on a self-reference line from 56 healthy cell types; sealed test on healthy blood CD8 T cells, whole-genome bisulfite: 7 of 8 read Normal |
 | **Group-A, groups of whole bloods** | **COMMISSIONED 2026-10-20** ([note](doors/COMMISSIONING_NOTE_GROUPA.md)) | two groups within one series, each person tared against same-run healthy references; sealed test on 278 healthy controls: women and men -0.36 %, a planted 1 % loss found at 7.253 SE |
+
+## Met-A against IAM-Atlas v2.1, sorted neutrophils (450K) and sorted monocytes (EPIC v1) (2026-11-09)
+
+**Met-A commissioned against IAM-Atlas v2.1 alone** on sorted neutrophils (450K) and sorted monocytes (EPIC v1)
+
+Healthy now comes only from the atlas. Met-A was tested on 74 healthy sorted white blood cells from five laboratories the atlas never held, against a test written and sealed before any of them was read. The IAM-Deconvolver named the right cell in 73 of 74, and every array the chain could read gave Normal, measured against each cell's healthy width on the atlas's own donors.
+
+Note: [COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)
 
 ## Met-A, isolated neutrophils, EPIC v1 (2026-10-09)
 

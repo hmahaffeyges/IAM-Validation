@@ -54,7 +54,7 @@
    "compares": "Healthy neutrophil references, so healthy reads 1, on a gauge whose floor (the least entropy a cell can carry and still hold its identity) and saturation (every identity site fully scrambled) are derived from physics.",
    "physics": "The floor and saturation are derived, not fitted; only the healthy mark is measured. A reading is the state of the record itself, not a difference from a group's average.",
    "significance": "The reading that has passed a sealed test. Where this sample is outside its commissioned scope, the reading is still shown, and says so.",
-   "status": "Commissioned on isolated neutrophils, EPIC v1.",
+   "status": "Commissioned on tested and commissioned against IAM-Atlas v2.1 alone on sorted neutrophils (450K) and sorted monocytes (EPIC v1) (first commissioned on isolated neutrophils, EPIC v1, against a same-run tare).",
    "instrument_name": "Met-A"
   },
   "v4-territories": {

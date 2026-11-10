@@ -27,7 +27,7 @@ def stage(inst, M):
     # 2026-11-07 (author: healthy comes only from the atlases): an instrument first commissioned against references taken from other samples (a same-run
     # tare, or a band set on labeled-healthy cohorts) is shown as being re-commissioned, its first commissioning as history
     if inst.get("recommission"): return "being re-commissioned against IAM-Atlas v2.1 alone (first commissioned against references from other samples: " + re.sub(r"^tested and commissioned ", "", inst.get("commissioned") or "isolated neutrophils") + ")"
-    if inst["id"] == "meta": return "commissioned (isolated neutrophils)"
+    if inst["id"] == "meta": return "commissioned against IAM-Atlas v2.1 alone (sorted neutrophils on 450K, sorted monocytes on EPIC v1)"   # 2026-11-09: COMMISSION-METAA-SORTED-01
     if inst.get("commissioned"): return f"commissioned ({inst['commissioned']})"
     if any((r.get("runs") or [{}])[-1].get("outcome") == "success" for r in rows): return "passing its tests"
     return "in development"

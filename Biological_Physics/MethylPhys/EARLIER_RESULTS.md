@@ -4,6 +4,14 @@
 commissioned chain (CANON/chain_front.json). These results came before it: most were development tests, read before the chain that now
 runs every sample existed. Each keeps its record; none is withdrawn.*
 
+## Met-A commissioned against the atlas alone
+
+**2026-11-09** · commissioned · 66 of 66
+
+Healthy sorted neutrophils and monocytes from five laboratories the atlas never held read Normal, every one the chain could read
+
+Record: [COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md](doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)
+
 ## Megakaryocytes join the atlas
 
 **2026-11-07** · published · DOI

@@ -84,12 +84,12 @@ IAM-Atlas v2.1, a reference of 79 healthy cell types. A fifth, Group-A, compares
 
 **What do the globes show, and is anything read from them?**
 Every site the instruments read has one fixed place on a sphere laid out the way the microwave sky is mapped (HEALPix, equal-area pixels,
-sites in genome order), so every cell, reference and sample can be compared pixel for pixel. The site's Globe Explorer turns IAM-Atlas
+sites in genome order), so every cell, reference and sample can be compared pixel for pixel. The site's Globe Viewer turns IAM-Atlas
 v2.1's 79 cells, Met-A's purified-array reference and example samples; every report carries its own sample on the same globe against its
 healthy reference. The change is fixed by the measurement (each site's difference in its healthy width, in the sample's own spread,
 read in blocks of 10 neighboring sites, as the C-Score reads them; a block has changed beyond the line pure chance crosses less than once in 20 genomes, so a healthy sample stays nearly dark and a change that runs along the genome lights up in clumps), and its count never moves; a slider only fades the healthy background so the change can be seen by itself. They are pictures: nothing is scored from a globe, and each layer is
 labeled with the reference its instrument reads against
-([the Globe Explorer](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html)).
+([the Globe Viewer](https://hmahaffeyges.github.io/IAM-Validation/atlas/sphere.html)).
 Evidence: [Biological_Physics/MethylPhys/INSTRUMENTS.md](INSTRUMENTS.md), [Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md](COMMISSIONING_REPORT.md). Book: [reading a report, step by step](https://hmahaffeyges.github.io/IAM-Validation/book/ch_walkthrough.html).
 
 **Is it a diagnostic test?**
@@ -327,7 +327,7 @@ lung cancer) is chosen but not yet read. For precancer, 140 public rectal biopsi
 not yet run. Early detection needs samples with known follow-up, which public data rarely give.
 
 **How large are the commissioning sets?**
-Stated with each: 541 healthy neutrophil arrays from 18 series for Met-A; three laboratories for the C-Score; 731 held-out arrays for IAM-Atlas v2.1; 200 mixtures for the
+Stated with each: 74 healthy sorted arrays from five laboratories the atlas never held for Met-A against IAM-Atlas v2.1 alone (neutrophils on 450K, monocytes on EPIC), and 541 healthy neutrophil arrays from 18 series for its first commissioning; three laboratories for the C-Score; 731 held-out arrays for IAM-Atlas v2.1; 200 mixtures for the
 Deconvolver; for IAM-A, 8 healthy CD8 T-cell samples read (7 Normal) after the sample-shape check declined 5 of 13; for Group-A, 278 healthy
 people from one new laboratory (263 read). **Open question:** larger
 sets, other cell types and other laboratories for IAM-A.

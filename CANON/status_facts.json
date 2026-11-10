@@ -23,8 +23,8 @@
  "facts": [
   {
    "id": "metA_commissioned",
-   "since": "2026-10-09",
-   "fact": "Met-A on isolated neutrophils (EPIC v1) is commissioned; whole blood and every other stage is development (author, 2026-10-11)",
+   "since": "2026-11-09",
+   "fact": "Met-A against IAM-Atlas v2.1 alone is commissioned on sorted neutrophils (450K) and sorted monocytes (EPIC v1) (COMMISSION-METAA-SORTED-01); first commissioned on isolated neutrophils (EPIC v1) against a same-run tare, now history; whole blood and every other cell, platform and stage is development",
    "forbid": [
     "(?i)no cell is commissioned",
     "(?i)not yet commissioned\\)",
@@ -38,19 +38,19 @@
    "require": [
     [
      "Biological_Physics/README.md",
-     "Met-A on isolated neutrophils \\(EPIC v1\\) is commissioned"
+     "Met-A against IAM-Atlas v2\\.1 alone is commissioned on sorted neutrophils"
+    ],
+    [
+     "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+     "METAA_ATLAS_COMMISSIONED = dict\\(record=\"COMMISSION-METAA-SORTED-01"
     ],
     [
      "Biological_Physics/MethylPhys/chain/conductor_v3.py",
      "\"status\": \"COMMISSIONED\", \"date\": \"2026-10-09\""
     ],
     [
-     "Biological_Physics/MethylPhys/chain/conductor_v3.py",
-     "\"specimens\": \\[\"isolated neutrophils\"\\]"
-    ],
-    [
      "Biological_Physics/MethylPhys/STATUS.md",
-     "Commissioned:\\*\\* Met-A on neutrophils, EPIC v1, isolated neutrophils"
+     "Commissioned:\\*\\* Met-A against IAM-Atlas v2\\.1 alone, sorted neutrophils \\(450K\\) and sorted monocytes \\(EPIC v1\\)"
     ]
    ]
   },

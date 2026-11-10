@@ -888,6 +888,24 @@ def cscore_limits(cs, array_type):
     return cs
 
 
+METAA_ATLAS_COMMISSIONED = dict(record="COMMISSION-METAA-SORTED-01 (doors/COMMISSIONING_NOTE_METAA_ATLAS_SORTED.md)", date="2026-11-09",
+                                scope={("neutrophils", "HM450K"), ("monocytes", "EPIC_v1")})
+# 2026-11-09: Met-A against IAM-Atlas v2.1 alone, commissioned for the cell the IAM-Deconvolver finds most of in a sorted sample, on these
+# (cell, platform) pairs only; every other row stays development and says so.
+
+def _sorted_route(specimen):
+    """The route a sorted sample takes (the label picks the route, never the cell): isolated, sorted or purified cells."""
+    import stage_0_intake as _S0
+    s = _S0.normalise_specimen(specimen or "")
+    return bool(_S0.is_isolated(specimen) or (s.split(" ")[0] in ("isolated", "sorted", "purified") and s.endswith(" neutrophils")))
+
+def metaa_status(o, row, is_top):
+    """'commissioned (record)' when this row is in METAA_ATLAS_COMMISSIONED's scope (a sorted sample, the top cell found, that cell on that
+    platform, a state measured against the cell's width); else 'development'."""
+    ok = (is_top and row.get("met_a_state") in ("Normal", "above Normal", "below Normal") and _sorted_route(o.get("specimen"))
+          and (row.get("cell"), o.get("array_type")) in METAA_ATLAS_COMMISSIONED["scope"])
+    return f"commissioned ({METAA_ATLAS_COMMISSIONED['record']})" if ok else "development"
+
 def cells_found(o):
     """2026-11-07 (author: 'we dont score bundles of cells we score individual cells that are found by the deconvolver in a sample'; 'Each cell
     has a score for each of the instruments that can read it'): the sample's result, one row per cell the IAM-Deconvolver found, each with every
@@ -910,6 +928,7 @@ def cells_found(o):
         if q.get("A") is not None and q.get("cell") == m["cell"]: r.update(iam_a=q.get("A"), iam_a_state=q.get("state"))
         _ws = width_state(m["cell"], r.get("met_a"), r.get("share")) if not (o.get("sequencing_values") or o.get("sequencing_ruler")) else {}   # arrays: the widths are measured on arrays
         if _ws: r.update(met_a_state=_ws.pop("state"), met_a_gauge=_ws)
+        r["met_a_status"] = metaa_status(o, r, not rows)   # 2026-11-09: commissioned only inside METAA_ATLAS_COMMISSIONED's scope
         rows.append(r)
     return dict(rule="each cell the IAM-Deconvolver found, each instrument against that cell's own atlas reference, in the sample's own shares",
                 flag="development: each row's readings carry their own status; not commissioned unless an instrument's row says so", cells=rows)
