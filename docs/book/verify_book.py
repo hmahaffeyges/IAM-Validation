@@ -144,6 +144,12 @@ def theta_s_fixed_rs(b, H0=67.36, Om_=0.3153, rs=144.43, zs=1089.92):
     Hf = lambda a: H0 * np.sqrt(Om_ * a**-3 + Or * a**-4 + (1 - Om_ - Or) + b * np.exp(1 - 1 / a))
     return rs / (quad(lambda z: 1 / Hf(1 / (1 + z)), 0, zs, limit=500, epsabs=0, epsrel=1e-12)[0] * ck)
 THETA_S_OBS, THETA_S_ERR = 0.0104110, 3.1e-6   # Planck 2018 100 theta_s / 100
+def bg_shift_pact(nsig=2.0):
+    """The quoted photon-coupling bound (2026-11-09): beta_gamma at which theta_* moves nsig of the fit's errors from the model's own
+    beta_gamma = 0 value, every input from the one CMB-only fit P-ACT (Planck with ACT DR6; Louis et al. 2025, LCDM table: H0 67.62,
+    Omega_m 0.3116, r_* 144.53 Mpc, z_* 1089.68, 100 theta_* 1.04094 +/- 0.00025), as verify_beta_gamma.py part 2."""
+    t0 = theta_s_fixed_rs(0.0, H0=67.62, Om_=0.3116, rs=144.53, zs=1089.68)
+    return brentq(lambda b: (theta_s_fixed_rs(b, H0=67.62, Om_=0.3116, rs=144.53, zs=1089.68) - t0) / 0.025e-4 - nsig, 1e-7, 0.05)
 def fs8_pred(which, z, s8):          # f sigma8(z) = f(z) sigma8 D(z)/D(0), the book's Eq. st_ode prediction
     y = _g(which).sol(np.log(1 / (1 + z)))
     return float(y[1] / y[0] * s8 * y[0] / _g(which).sol(0.0)[0])
@@ -13076,7 +13082,7 @@ def check_1060():
        file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='0.0080', tol=0.0)
 def check_3442():
     'beta_gamma < 0.0052 (95 %): Delta chi2 = 4 on theta_s with r_* fixed, every input from one Planck 2018 fit (theta_s_fixed_rs; port of verify_beta_gamma.py). Book line 39, printed 0.0052 (the inventory row carried the superseded 0.0039).'
-    value = _b02_bg_bound(4.0)
+    value = round(bg_shift_pact(2.0), 4)   # 2026-11-09: the quoted bound is shift-only on P-ACT (the profile against Planck 2018 gave 0.0052)
     return locals()
 
 @check(label='ch:dsvalidation:L67', chapter='ch:dsvalidation', part=2, title='activation function E(1)=1 check',
@@ -13116,7 +13122,7 @@ def check_1063():
        file='part2/p2_10_dual_sector_validation', line=71, status='calc', kind='num', printed='0.0080', tol=0.0)
 def check_3443():
     'Eq. dsv_bg, beta_gamma < 0.0052 (95 %, acoustic scale), recomputed as Delta chi2 = 4 on theta_s at fixed r_* (one Planck 2018 fit). Book line 71, printed 0.0052 (the inventory row carried the superseded 0.0039).'
-    value = _b02_bg_bound(4.0)
+    value = round(bg_shift_pact(2.0), 4)   # 2026-11-09: the quoted bound is shift-only on P-ACT (the profile against Planck 2018 gave 0.0052)
     return locals()
 
 @check(label='eq:dsv_bm', chapter='ch:dsvalidation', part=2, title='β_m=Ω_m/2 definition',
@@ -13543,7 +13549,7 @@ def check_1094():
        file='part2/p2_10_dual_sector_validation', line=456, status='calc', kind='num', printed='0.0080', tol=0.0)
 def check_3468():
     'Table dsv_observables, CMB theta_s row, beta_gamma < 0.0052 (95 %), recomputed as at line 71. Book line 456 (the inventory row carried the superseded 0.0039).'
-    value = _b02_bg_bound(4.0)
+    value = round(bg_shift_pact(2.0), 4)   # 2026-11-09: the quoted bound is shift-only on P-ACT (the profile against Planck 2018 gave 0.0052)
     return locals()
 
 @check(label='ch:dsvalidation:L457', chapter='ch:dsvalidation', part=2, title='H0 photon sector from Level2 chain',
