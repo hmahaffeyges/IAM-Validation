@@ -1392,3 +1392,11 @@ scale and offset measured and taken out; since then Stage 1 changed only in its 
 library is pinned (methylprep 1.7.1, `chain/requirements.txt`). So on arrays the atlas and a sample already share one processing, and the
 laboratory distortion still seen in two laboratories' bloods (the GMP share) is in those laboratories' own chemistry on the chip, which each
 array's measured line and noise catch only in part; it is not a processing mismatch.
+
+**The rehearsal's lymphocytes with their subtypes counted together (diagnostic on spent bundles; nothing scored; the chain unchanged).** (`rehearsal_family_share_diag.csv`.) Of the 23 sorted lymphocytes, 10 had no state
+because the IAM-Deconvolver split each across its subtypes, so no single row reached the share at which the atlas's donors of that cell
+were measured. Counting a cell's subtypes with it gives every one a state, but 15 of 23 read Normal on the parent's reading (8 below
+Normal), short of the 85 % bar: the NK cells read 0.971 to 0.978 against a width of 0.0076, the CD4 and CD8 cells 0.93 to 0.97. So the
+lymphocytes' miss is not the reporting; they read 2 to 5 percent below 1 in this laboratory, the cross-laboratory problem again, and
+their commissioning waits on it. The rule is not added to the chain. Neutrophils and monocytes, which read Normal, go to the sealed test
+(COMMISSION-METAA-SORTED-01).

@@ -1,0 +1,24 @@
+gsm,kind,family_share,top,top_share,now,family_rule_top,parent_met_a,family_rule_parent
+GSM2998022,nk cells,0.986,nk cells,0.634,no healthy wi,below Normal,0.9718,below Normal
+GSM2998024,b cells,0.986,naive b cells,0.485,no healthy wi,Normal,0.97473,Normal
+GSM2998025,nk cells,0.903,nk cells,0.854,below Normal,below Normal,0.97831,below Normal
+GSM2998027,nk cells,0.974,nk cells,0.652,no healthy wi,below Normal,0.97104,below Normal
+GSM2998028,cd4 t cells,0.964,naive cd4 t cells,0.412,no healthy wi,below Normal,0.96527,Normal
+GSM2998029,b cells,0.996,naive b cells,0.54,below Normal,below Normal,0.99163,Normal
+GSM2998032,cd8 t cells,0.864,naive cd8 t cells,0.452,no healthy wi,Normal,0.96928,Normal
+GSM2998035,cd8 t cells,0.937,naive cd8 t cells,0.471,no healthy wi,Normal,0.95532,below Normal
+GSM2998042,cd4 t cells,0.982,cd4 t cells,0.486,Normal,Normal,0.97086,Normal
+GSM2998069,cd8 t cells,0.904,cd8 t cells,0.688,Normal,Normal,0.99428,Normal
+GSM2998075,cd8 t cells,0.97,cd8 t cells,0.684,Normal,Normal,0.96586,Normal
+GSM2998087,b cells,0.999,b cells,0.615,Normal,Normal,0.98686,Normal
+GSM2998094,cd8 t cells,0.844,effector memory cd8 t cells,0.461,no healthy wi,below Normal,0.93458,below Normal
+GSM2998097,cd4 t cells,1.0,cd4 t cells,0.359,Normal,Normal,0.95495,Normal
+GSM2998100,b cells,0.997,b cells,0.425,no healthy wi,Normal,0.97714,Normal
+GSM2998106,cd4 t cells,1.0,cd4 t cells,0.377,below Normal,below Normal,0.95032,below Normal
+GSM2998122,b cells,0.989,b cells,0.666,Normal,Normal,0.9821,Normal
+GSM2998126,nk cells,0.986,nk cells,0.937,Normal,Normal,0.99588,Normal
+GSM2998131,nk cells,0.991,nk cells,0.821,below Normal,below Normal,0.97625,below Normal
+GSM2998134,b cells,0.994,b cells,0.745,Normal,Normal,0.99257,Normal
+GSM2998140,cd4 t cells,0.99,memory cd4 t cells,0.643,no healthy wi,no healthy wi,0.94846,below Normal
+GSM2998146,cd4 t cells,1.0,memory cd4 t cells,0.525,no healthy wi,no healthy wi,0.95998,Normal
+GSM2998149,nk cells,0.989,nk cells,0.818,Normal,Normal,0.99394,Normal
