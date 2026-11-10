@@ -28238,7 +28238,8 @@
   "zenodo_globe_upload.py": "deposit job: the Sequencing Atlas Globe at every CpG to its Zenodo draft (rebuilt on Google from the published atlas, set by set, saved as it goes)",
   "zenodo_globe_README.md": "the README of the Sequencing Atlas Globe's Zenodo deposit",
   "DEV_WB450_REHEARSAL_01.md": "development rehearsal on spent data (450K whole-sample Met-A tared on its run), before plan 60.6 spends GSE85210",
-  "globe_wg_story.json": "the one source for every telling of the Sequencing Atlas Globe at every CpG (page, book, SOP, catalogue); each part names its committed record"
+  "globe_wg_story.json": "the one source for every telling of the Sequencing Atlas Globe at every CpG (page, book, SOP, catalogue); each part names its committed record",
+  "DOCS_AUDIT_01.md": "documents audit (accuracy, generation from the canon, consolidation), not a test"
  },
  "frozen": {
   "CANON/next_jobs.json": "f89949ec7890afd9c40d944098f7564eb5181247bac1ebf0e671049a4680a6ea",
