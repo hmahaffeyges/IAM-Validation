@@ -1400,3 +1400,14 @@ Normal), short of the 85 % bar: the NK cells read 0.971 to 0.978 against a width
 lymphocytes' miss is not the reporting; they read 2 to 5 percent below 1 in this laboratory, the cross-laboratory problem again, and
 their commissioning waits on it. The rule is not added to the chain. Neutrophils and monocytes, which read Normal, go to the sealed test
 (COMMISSION-METAA-SORTED-01).
+
+**Why the lymphocytes miss: their widths rest on two laboratories (diagnostic on spent atlas donors; nothing scored).** (`lymph_lab_jackknife.csv`.) Each laboratory of the atlas's own
+donors was left out and read against the width of the others. Lymphocyte donors the IAM-Deconvolver finds nearly pure (85 % or more)
+read 1 in every laboratory (0.994 to 1.005), but they come from two laboratories only (GSE224807, GSE88824), where the neutrophil and
+monocyte widths each span six or seven. So a lymphocyte's width holds little of the spread between laboratories (NK 0.0076, against 0.05
+for neutrophils), and a new laboratory's lymphocytes 2 to 5 percent below 1 fall outside it: a width measured on too few independent
+laboratories, as an error bar from too few patches of sky. Lymphocyte donors found split across subtypes read about 0.98 inside the
+atlas's own laboratories too. Ruled out on the atlas itself: the probe-design mix and the level mix of the identity sites are the same
+for every cell (design II 0.99 to 1.00; half held high at 0.947, half low at 0.054 to 0.055), so the array's own response cannot single
+out lymphocytes. Next: GSE318669's sorted lymphocytes (a laboratory the atlas never held; CD4, CD8, CD19, CD56;
+`lymph_newlab_GSE318669_samples.csv`), read by the one command as a diagnostic, not a commissioning test.
