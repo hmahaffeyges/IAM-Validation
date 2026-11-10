@@ -22,3 +22,5 @@ blood_shares_100.csv
 sorted_rehearsal_GSE110554_samples.csv
 values_read_three_labs.csv
 realblood_rows.csv
+commission_sorted_01_samples.csv
+commission_sorted_01_scored.csv
