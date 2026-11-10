@@ -1,0 +1,16 @@
+gsm,specimen,pat,cond,plant
+GSM2103002,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103002.pat.gz,c0,
+GSM2103002,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103002.pat.gz,c1,"0.05,0,0"
+GSM2103002,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103002.pat.gz,c2,"0,0.03,0"
+GSM2103002,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103002.pat.gz,c3,"0.08,0.03,0"
+GSM2103002,sorted cd4 t cells,seq_atlas/xl_class/merge/merged/GSM2103002.pat.gz,c4,"0,0,0.02"
+GSM2616075,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616075.pat.gz,c0,
+GSM2616075,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616075.pat.gz,c1,"0.05,0,0"
+GSM2616075,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616075.pat.gz,c2,"0,0.03,0"
+GSM2616075,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616075.pat.gz,c3,"0.08,0.03,0"
+GSM2616075,sorted cd8 t cells,seq_atlas/xl_class/merge/merged/GSM2616075.pat.gz,c4,"0,0,0.02"
+GSM3963003,sorted b cells,seq_atlas/xl_class/merge/merged/GSM3963003.pat.gz,c0,
+GSM3963003,sorted b cells,seq_atlas/xl_class/merge/merged/GSM3963003.pat.gz,c1,"0.05,0,0"
+GSM3963003,sorted b cells,seq_atlas/xl_class/merge/merged/GSM3963003.pat.gz,c2,"0,0.03,0"
+GSM3963003,sorted b cells,seq_atlas/xl_class/merge/merged/GSM3963003.pat.gz,c3,"0.08,0.03,0"
+GSM3963003,sorted b cells,seq_atlas/xl_class/merge/merged/GSM3963003.pat.gz,c4,"0,0,0.02"

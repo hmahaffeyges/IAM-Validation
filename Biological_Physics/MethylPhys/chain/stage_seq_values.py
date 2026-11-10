@@ -65,6 +65,52 @@ def thin_pat(path, frac, dest, seed=20261022):
     return dest, dict(fraction=frac, seed=seed, molecules_in=kin, molecules_kept=kout)
 
 
+def end_calls_from_pat(path, n_end=1):
+    """2026-11-10 (development; run_sample.py --dev-seq-self-cal): from a .pat(.gz) file, at every IAM-Atlas v2.1 site, the calls made by the
+    n_end outermost CpG calls at each end of every molecule (the calls trim_pat leaves out), and of those the methylated: end_n, end_m (Series
+    by probe). With values_from_pat's calls and methylated counts at the same sites, the library's inner calls are the rest. Counts only."""
+    k = key(); idx = k["idx"]; n = len(idx); M = np.zeros(n, np.int64); C = np.zeros(n, np.int64)
+    op = gzip.open if str(path).endswith(".gz") else open
+    with op(path, "rt") as fh:
+        bp, bm, bw = [], [], []
+        def flush():
+            if not bp: return
+            q = np.array(bp, np.int64); m = np.array(bm, bool); w = np.array(bw, np.int64); j = np.searchsorted(idx, q)
+            ok = (j < n) & (idx[np.minimum(j, n - 1)] == q); np.add.at(C, j[ok], w[ok]); np.add.at(M, j[ok & m], w[ok & m]); bp.clear(); bm.clear(); bw.clear()
+        for line in fh:
+            f = line.rstrip("\n").split("\t")
+            if len(f) < 4: continue
+            i, pat, w = int(f[1]), f[2], int(f[3]); ix = [j for j, x in enumerate(pat) if x in "CT"]
+            for j in sorted(set(ix[:n_end] + ix[-n_end:])): bp.append(i + j); bm.append(pat[j] == "C"); bw.append(w)
+            if len(bp) > 5_000_000: flush()
+        flush()
+    has = C > 0
+    return pd.Series(C[has], index=k["probe"][has], dtype="int64"), pd.Series(M[has], index=k["probe"][has], dtype="int64")
+
+def plant_ends(path, end_ct, end_tc, all_ct, dest, seed=20261110):
+    """TESTS ONLY (2026-11-10, the self-calibration synthetic): a copy of a .pat(.gz) file with known errors planted. At the outermost CpG call
+    at each end of every molecule, a methylated call (C) is read unmethylated (T) with probability end_ct and an unmethylated call (T) is read
+    methylated (C) with probability end_tc (a library's chemistry at its molecule ends, per side); at every call, wherever it sits, a C is
+    read T with probability all_ct (a change in the cell itself, which does not depend on position on the molecule). Molecules with a count
+    above 1 are written out one per line so each copy draws its own errors. Seeded. Returns the path and counts."""
+    rng = np.random.default_rng(seed); op = gzip.open if str(path).endswith(".gz") else open; n_in = n_end = flips = 0
+    with op(path, "rt") as fh, gzip.open(dest, "wt") as o:
+        for line in fh:
+            f = line.rstrip("\n").split("\t")
+            if len(f) < 4: continue
+            w = int(f[3]); base = list(f[2]); ix = [j for j, x in enumerate(base) if x in "CT"]; ends = set(ix[:1] + ix[-1:])
+            for _ in range(w):
+                p = base[:]; n_in += len(ix)
+                for j in ix:
+                    u = rng.random()
+                    if j in ends:
+                        n_end += 1
+                        if p[j] == "C" and u < end_ct: p[j] = "T"; flips += 1; continue
+                        if p[j] == "T" and u < end_tc: p[j] = "C"; flips += 1; continue
+                    if p[j] == "C" and rng.random() < all_ct: p[j] = "T"; flips += 1
+                o.write("\t".join(f[:2] + ["".join(p), "1"] + f[4:]) + "\n")
+    return dest, dict(planted="TESTS ONLY", end_ct=end_ct, end_tc=end_tc, all_ct=all_ct, calls=n_in, end_calls=n_end, flipped=flips, seed=seed)
+
 def trim_pat(path, n, dest):
     """DEVELOPMENT (2026-11-09, DEV-ATLAS-V21-01): a copy of a .pat(.gz) file with the n outermost CpG calls at each end of every molecule
     left out ('.'), the calls where library chemistry at the read ends lands (the floor by molecule position: GSE98837's end calls read 9

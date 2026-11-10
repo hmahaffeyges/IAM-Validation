@@ -767,6 +767,31 @@ def metaa_donor_counts(samples_csv, out, ref=None):
     T = pd.concat(parts, ignore_index=True); os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); T.to_parquet(out, index=False)
     return dict(inputs=int(T.gsm.nunique()), cells=int(T.cell.nunique()), rows=int(len(T)), output=os.path.basename(out))
 
+METAA_INNER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Runtime Matrices", "Seq_Atlas", "metaa_inner_reference", "metaa_inner_reference_v1.parquet")
+
+def metaa_inner_reference(trimmed_counts, out, published=None):
+    """2026-11-10 (development; sequencing step 1, each library calibrated on its own calls): the IAM Sequencing Atlas's level at every Met-A
+    identity site without the atlas's own molecule-end calls: its healthy donors' counts after the one-call trim at each molecule end (the
+    chain's trim_pat; the donors' count files made by run_sample.py --build seq-pat-lbeta --dev-seq-trim-ends 1, then --build seq-metaa-donors),
+    pooled over the cell's donors (meth_inner, reads_inner), and, with the published per-donor counts (metaa_donor_counts_v1), its end calls
+    (meth_end, reads_end = published minus trimmed; a donor-site row with fewer published than trimmed reads is left out, counted). Counts only."""
+    import pandas as pd
+    T = pd.read_parquet(trimmed_counts); T["m"] = T.m.astype("int64"); T["n"] = T.n.astype("int64"); info = dict(trimmed_rows=int(len(T)))
+    if published is None: published = os.path.join(METAA_DONORS_DIR, "metaa_donor_counts_v1.parquet")
+    P = pd.read_parquet(published); M = P.merge(T, on=["cell", "probe", "cpg", "gsm", "half"], suffixes=("_p", ""))
+    M["m_e"] = M.m_p.astype("int64") - M.m; M["n_e"] = M.n_p.astype("int64") - M.n
+    bad = (M.n_e < 0) | (M.m_e < 0) | (M.m_e > M.n_e); info["rows_left_out"] = int(bad.sum()); M = M[~bad]
+    G = M.groupby(["cell", "probe", "cpg"], as_index=False).agg(meth_inner=("m", "sum"), reads_inner=("n", "sum"), meth_end=("m_e", "sum"), reads_end=("n_e", "sum"), donors=("gsm", "nunique"))
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); G.to_parquet(out, index=False)
+    info.update(rows=int(len(G)), cells=int(G.cell.nunique()), output=os.path.basename(out)); return info
+
+def metaa_inner_of(cell, path=None):
+    """One cell's rows of the inner reference, indexed by probe (meth_inner, reads_inner, meth_end, reads_end); None when absent."""
+    import pandas as pd
+    p = path or METAA_INNER
+    if not os.path.exists(p): return None
+    T = pd.read_parquet(p, filters=[("cell", "==", cell)]); return T.set_index("probe") if len(T) else None
+
 def metaa_donors_of(cell, half=None, exclude=None):
     """One cell's per-donor counts at its identity sites as two arrays (sites x donors, NaN where a donor has no row), indexed by probe;
     only the given donor half when half is A or B; the sample itself left out when exclude names it. None when the file is absent."""

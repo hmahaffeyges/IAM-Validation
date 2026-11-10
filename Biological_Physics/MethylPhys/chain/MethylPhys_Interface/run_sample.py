@@ -296,6 +296,11 @@ def _build(a):
         rep = dict(_SQth.terr_half_counts(a.build_samples, a.build_out), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
         if a.bundle: json.dump(rep, open(a.bundle, "w"), indent=1, default=str)
         print(json.dumps(rep, default=str)); return 0
+    if a.build == "seq-metaa-inner":   # 2026-11-10 (development, sequencing step 1): the atlas's level without its own molecule-end calls
+        if not (a.build_input and a.build_out): print("--build seq-metaa-inner needs --build-input TRIMMED_DONOR_COUNTS.parquet and --build-out PARQUET"); return 2
+        import stage_seq_atlas as _SQin
+        rep = dict(_SQin.metaa_inner_reference(a.build_input, a.build_out), command=["run_sample.py"] + sys.argv[1:], label="DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)")
+        print(json.dumps(rep)); json.dump(rep, open(a.bundle, "w"), indent=1) if a.bundle else None; return 0
     if a.build == "seq-metaa-donors":   # 2026-10-31 (plan 35.30, development): each healthy input's own reads at its cell's Met-A identity sites
         if not (a.build_samples and a.build_out): print("--build seq-metaa-donors needs --build-samples INPUTS.csv and --build-out PARQUET"); return 2
         import stage_seq_atlas as _SQdc
@@ -656,7 +661,7 @@ def main():
                  ("percell-b", "stage 5 B cells, development floor (needs --atlas-v2)"), ("sky", "stages 11-12 sky with the block-shuffle null (needs --atlas-v2, healpy)"),
                  ("epic-v2", "DEV-EPIC-V2-01: read an EPIC v2 IDAT pair through SeSAMe (needs --sesame-rscript)")):
         ap.add_argument(f"--dev-{f}", action="store_true", help=f"DEVELOPMENT - not commissioned: {h}; written under bundle['development'], not part of the reading")
-    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pat-lbeta", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
+    ap.add_argument("--build", default=None, choices=("info-sphere", "info-globe", "provisional", "explorer-purified", "explorer-noise", "atlas-sphere", "atlas-masks", "constructed-draw", "seq-atlas", "seq-lift", "seq-compare", "seq-held", "seq-metaa-ref", "seq-floor", "seq-floor-position", "seq-pat-lbeta", "seq-pair", "seq-deconv-ref", "seq-array-cols", "seq-metaa-counts", "seq-noise-identity", "seq-beta-vs-pat", "seq-table", "seq-metaa-donors", "seq-metaa-inner", "seq-terr-halves", "seq-sphere-cols", "seq-atlas-sphere", "seq-noise-cols", "seq-noise-sphere", "seq-wg-sphere", "seq-wg-layers", "seq-noise-null", "seq-noise-minkowski", "seq-input-floors", "seq-merge-pieces", "seq-domain-disorder", "seq-bridge", "seq-noise-spectrum"),
                     help="build a reference or a reference globe instead of reading a sample (2026-10-22: the chain builds its own references and draws every "
                          "globe): info-sphere = the information sphere's layout from --build-input (development, DEV-SPHERE-01); explorer-purified / "
                          "explorer-noise = the Globe Explorer's reference globes (--build-input: the noise maps folder); atlas-sphere / atlas-masks = the "
@@ -717,6 +722,8 @@ def main():
     ap.add_argument("--dev-pred-raw", action="store_true", help="development (2026-11-07): the healthy prediction of an array on its own values, not on the atlas ruler's")
     ap.add_argument("--dev-curve-cal", action="store_true", help="DEVELOPMENT (2026-11-08, DEV-METAA-HEALTHY-01): arrays only; each probe design's response curve measured on this array's own calibrators (sites where every cell found holds the same atlas level, never islands or domains) and mapped onto IAM-Atlas v2.1 before the cell shares (stage_t_selftare.curve_cal)")
     ap.add_argument("--commissioned-only", action="store_true", help="read only the commissioned instruments; without it every built development reading runs, each flagged (2026-11-08, author: nothing built sits switched off)")
+    ap.add_argument("--dev-plant-ends", default=None, metavar="END_CT,END_TC,ALL_CT", help="TESTS ONLY (2026-11-10, the self-calibration synthetic): on a .pat input, at each molecule's outermost call a C read T with probability END_CT and a T read C with END_TC, and at every call a C read T with ALL_CT (stage_seq_values.plant_ends); a PLANTED banner")
+    ap.add_argument("--dev-seq-self-cal", action="store_true", help="DEVELOPMENT (2026-11-10, sequencing step 1): on a .pat input, Met-A's healthy expectation is the IAM Sequencing Atlas's inner level (its donors without their molecule-end calls) moved by this library's own measured end error per side (stage_metaa_atlas.self_calibrated); nothing cut, nothing borrowed from other samples")
     ap.add_argument("--dev-seq-trim-ends", type=int, default=None, metavar="N", help="DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat)")
     ap.add_argument("--dev-seq-noise-weight", action="store_true", help="DEVELOPMENT (2026-11-09): on sequencing, the IAM-Deconvolver weights each site by its own read count's counting noise (from the model's prediction, as each sky pixel by its noise); off until its synthetic is met")
     ap.add_argument("--dev-seq-atlas-dir", default=None, metavar="DIR", help="DEVELOPMENT (2026-11-09): on sequencing, read against a rebuilt IAM Sequencing Atlas in DIR (DIR/array_sites/ for the in-mix readings, DIR/deconv_reference_v1.parquet for the Deconvolver) instead of the committed one; e.g. the atlas counted with the molecules' end calls left out, for samples read with --dev-seq-trim-ends; the bundle names it and the reference door records it as not door-checked")
@@ -794,6 +801,13 @@ def main():
         _tp2, a._trim = _SVtr.trim_pat(a.pat, a.dev_seq_trim_ends, os.path.join(_tftr.mkdtemp(), "trimmed_" + os.path.basename(a.pat).replace(".gz", "") + ".gz"))
         a._trim["source"] = os.path.basename(a.pat); a._trim["flag"] = "DEVELOPMENT (DEV-ATLAS-V21-01)"; a.pat = _tp2
         print(f"The molecules' {a.dev_seq_trim_ends} outer calls at each end left out: {a._trim['calls_kept']} of {a._trim['calls_in']} calls kept", flush=True)
+    if getattr(a, "dev_plant_ends", None):   # 2026-11-10 TESTS ONLY (the self-calibration synthetic): known end errors and a uniform change planted
+        if not a.pat: ap.error("--dev-plant-ends needs --pat")
+        import stage_seq_values as _SVpe, tempfile as _tfpe
+        _ect, _etc, _act = [float(x) for x in a.dev_plant_ends.split(",")]
+        a.pat, _pe = _SVpe.plant_ends(a.pat, _ect, _etc, _act, os.path.join(_tfpe.mkdtemp(), "planted_" + os.path.basename(a.pat).replace(".gz", "") + ".gz"))
+        a.banner = (a.banner + " | " if a.banner else "") + f"PLANTED (constructed for a test): end C->T {_ect:g}, end T->C {_etc:g}, every call C->T {_act:g}"
+        print(a.banner, flush=True)
     if a.dev_thin is not None:   # 2026-10-22 (step 40): a deep sample thinned by the chain itself
         if not a.pat: ap.error("--dev-thin needs --pat (or --geo-pat)")
         import stage_seq_values as _SVt, tempfile as _tft
@@ -817,6 +831,10 @@ def main():
         import stage_seq_values as _SV, tempfile as _tf
         print(f"Sequencing values: counting {os.path.basename(a.pat)} at IAM-Atlas v2.1's sites (at least {a.dev_seq_values} calls)", flush=True)
         _vb, _vc, a._seqv = _SV.values_from_pat(a.pat, a.dev_seq_values); a._seqc = _vc   # read counts per site, for Met-A's k-of-n expectation (40.3)
+        if getattr(a, "dev_seq_self_cal", False):   # 2026-11-10 (development): this library's own molecule-end calls, for Met-A's self-calibrated expectation
+            import stage_metaa_atlas as _SAsc; _en, _em = _SV.end_calls_from_pat(a.pat, 1)
+            _SAsc.SELFCAL = dict(end_n=_en, end_m=_em, all_m=(_vb * _vc).round().astype("int64"))
+            print(f"  self-calibration: {int(_en.sum()):,} molecule-end calls of {int(_vc.sum()):,} at the atlas sites", flush=True)
         a.betas = os.path.join(_tf.mkdtemp(), "sequencing_values.csv"); _vb.rename("beta").to_frame().to_csv(a.betas)
         print(f"  {a._seqv['sites_with_value']:,} of {a._seqv['atlas_sites']:,} sites with a value; median {a._seqv['calls_per_site_median']:.0f} calls per site", flush=True)
     if a._seqv is not None and not getattr(a, "dev_allow_partial_genome", False):   # 2026-11-04: the genome-coverage intake check, before any reading

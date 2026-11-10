@@ -35,11 +35,11 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **532 functions** (nested ones included); 532 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **540 functions** (nested ones included); 540 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,549 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,567 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -56,7 +56,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `MethylPhys_Interface/report_pdf_v4.py` | 114 | 7 | 6 | 6 |
 | `MethylPhys_Interface/info_sphere_viewer.py` | 194 | 5 | 0 | 0 |
 | `stage_t_selftare.py` | 90 | 5 | 0 | 0 |
-| `stage_seq_values.py` | 210 | 11 | 0 | 0 |
+| `stage_seq_values.py` | 256 | 14 | 0 | 0 |
 | `dev_comp_methods.py` | 216 | 17 | 0 | 0 |
 | `deconv_v2.py` | 74 | 3 | 0 | 0 |
 | `sky_statistics.py` | 108 | 6 | 0 | 0 |
@@ -65,21 +65,21 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
-| `stage_groupa.py` | 156 | 7 | 0 | 0 |
+| `stage_groupa.py` | 215 | 9 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
-| `stage_metaa_atlas.py` | 1,029 | 56 | 0 | 0 |
+| `stage_metaa_atlas.py` | 1,076 | 57 | 0 | 0 |
 | `reference_door.py` | 81 | 5 | 0 | 0 |
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
 | `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
-| `stage_seq_atlas.py` | 952 | 49 | 0 | 0 |
+| `stage_seq_atlas.py` | 977 | 51 | 0 | 0 |
 
 ## The one command's options
 
-Read from `run_sample.py`'s own option definitions at build time: **114 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
+Read from `run_sample.py`'s own option definitions at build time: **116 options**. Without `--commissioned-only` the full development chain runs on every sample (each development reading flagged); the last column says whether that default turns the option on. A push is refused when an option has no description.
 
 | option | default | on in the default chain | what it does |
 |---|---|---|---|
@@ -135,6 +135,7 @@ Read from `run_sample.py`'s own option definitions at build time: **114 options*
 | `--dev-metaa-specific` | None |  | DEVELOPMENT (39.9): also read Met-A for each cell on sites held by that cell and differing by at least DELTA from every other cell of the panel |
 | `--dev-one-scale` | off |  | DEVELOPMENT (2026-11-09): arrays; the per-cell readings (Met-A, C-Score, departures) on Stage 1's values, one scale with the array's own measured line (the self-tare map rescales only its 6,963 anchor probes and leaves the rest raw, so 3 to 7 percent of identity sites were corrected twice); the self-tare path's per-cell Met-A kept beside it as met_a_each_cell_selftare |
 | `--dev-plant` | None |  | TESTS ONLY (2026-10-22, author: tests run through the chain): plant a CONSTRUCTED loss of CELL's pattern (an IAM-Atlas v2.1 cell) in this array's values after Stage 1, before every reading, by stage_metaa_atlas.plant; in whole blood the loss is scaled by CELL's share as the IAM-Deconvolver reads it on the unplanted values. Every report and bundle says PLANTED; the bundle records the plant (key 'planted') |
+| `--dev-plant-ends` | None |  | TESTS ONLY (2026-11-10, the self-calibration synthetic): on a .pat input, at each molecule's outermost call a C read T with probability END_CT and a T read C with END_TC, and at every call a C read T with ALL_CT (stage_seq_values.plant_ends); a PLANTED banner |
 | `--dev-plant-territory` | None |  | TESTS ONLY: a constructed gain at islands or loss in domains, planted by the chain |
 | `--dev-pred-raw` | off | yes | development (2026-11-07): the healthy prediction of an array on its own values, not on the atlas ruler's |
 | `--dev-provisional` | None | yes | DEVELOPMENT (plan 40.18): with the full atlas panel, a second deconvolution with provisional columns (stage_provisional) beside IAM-Atlas v2.1, recorded as cell_shares_provisional and flagged; the atlas's own shares are unchanged |
@@ -148,6 +149,7 @@ Read from `run_sample.py`'s own option definitions at build time: **114 options*
 | `--dev-seq-noise-weight` | off |  | DEVELOPMENT (2026-11-09): on sequencing, the IAM-Deconvolver weights each site by its own read count's counting noise (from the model's prediction, as each sky pixel by its noise); off until its synthetic is met |
 | `--dev-seq-ref` | None | yes | DEVELOPMENT (plan 35.30): with --dev-metaa-atlas on sequencing values, the healthy levels from the IAM Sequencing Atlas's Met-A reference (auto: Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet) instead of IAM-Atlas v2.1 |
 | `--dev-seq-ref-half` | None |  | with --dev-seq-ref: that sealed donor half only (for a sample of the other half) |
+| `--dev-seq-self-cal` | off |  | DEVELOPMENT (2026-11-10, sequencing step 1): on a .pat input, Met-A's healthy expectation is the IAM Sequencing Atlas's inner level (its donors without their molecule-end calls) moved by this library's own measured end error per side (stage_metaa_atlas.self_calibrated); nothing cut, nothing borrowed from other samples |
 | `--dev-seq-trim-ends` | None |  | DEVELOPMENT (2026-11-09): on a .pat input, the N outermost CpG calls at each end of every molecule left out before any reading (library chemistry at read ends; stage_seq_values.trim_pat) |
 | `--dev-seq-values` | None |  | DEVELOPMENT (to-do step 40): with --pat, also make a value at each IAM-Atlas v2.1 site from the molecules (methylated calls over calls, sites with at least MIN_CALLS calls; chain/stage_seq_values.py), so the IAM-Deconvolver, Met-A for each cell, Met-A against the atlas and the globe read the same sequencing run IAM-A reads. The commissioned array readings (Met-A on neutrophils, the C-Score) are not applied to sequencing values; every reading is flagged |
 | `--dev-shares` | None |  | DEVELOPMENT, diagnosis only: read every share-based reading against these declared shares instead of the Deconvolver's (which are kept under cell_shares_read) |
@@ -485,7 +487,7 @@ autosomes (`stage_q2_globe.count_pat_regions`) and draws the sample against its 
 against that second file (`pair_globe`, named by `--prior-name`). Written under bundle `development.genome_globe`; with `--explorer-spec`,
 the Globe Explorer file.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 501 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 506 (21 lines) · arguments: a, cnt, sid · calls: not called on the traced runs
 
 ### `run_sample.py::_build`
 
@@ -493,7 +495,7 @@ the Globe Explorer file.
 matrix of levels (sites x cell types), with its report (variance kept, sky covered and masked, distance agreement, edge ratio, and each named
 site group's concentration against random groups) to `--bundle` and the layout to `--build-out`.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 254 (245 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build seq-wg-layers needs --build-input TEXTURES.npz`, `--build seq-wg-sphere needs --build-input TEXTURES.npz`, `--build-samples B and --bundle OUT.json`, `--build-samples NOISE_MAPS.npz`, `MORE.npz`, `_layout.npz`, `_summary.txt`, `and --bundle OUT.json`, `import pyarrow.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 254 (250 lines) · arguments: a · calls: not called on the traced runs · constants read: `_ISV_ABOUT` · files named: `--build seq-metaa-counts needs --build-samples INPUTS.csv`, `--build seq-metaa-donors needs --build-samples INPUTS.csv`, `--build seq-metaa-inner needs --build-input TRIMMED_DONOR_COUNTS.parquet`, `--build seq-terr-halves needs --build-samples INPUTS.csv`, `--build seq-wg-layers needs --build-input TEXTURES.npz`, `--build seq-wg-sphere needs --build-input TEXTURES.npz`, `--build-samples B and --bundle OUT.json`, `--build-samples NOISE_MAPS.npz`, `MORE.npz`, `_layout.npz`, `_summary.txt`, `and --bundle OUT.json`
 
 ### `run_sample.py::_dev_run`
 
@@ -501,7 +503,7 @@ Runs the development readings named by `--dev-*` flags (direction, trace cell, f
 B-cell reading, sky with the block-shuffle null, EPIC v2 through SeSAMe). Each writes its own record under `bundle["development"]`,
 labeled DEVELOPMENT, and an error in one is caught and recorded. None of them changes the reading, the gauge or the tare.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 524 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
+*Code:* `MethylPhys_Interface/run_sample.py` line 529 (42 lines) · arguments: a, o, beta, intake · calls: array run 1, bam run 1
 
 ### `run_sample.py::main`
 
@@ -515,14 +517,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 568 (979 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 573 (992 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1137 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1155 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -530,13 +532,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 902 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 920 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1468 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1486 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -1342,7 +1344,25 @@ pinned by the release check as a frozen input (F1): Stage T step 1 runs on every
 
 Reads a public pair of GRCh38 bigWig tracks (per-CpG methylation level and read coverage, the form consortia such as BLUEPRINT release whole-genome bisulfite calls in) at each atlas site's GRCh38 position (the C of the CpG, or the next base where the caller reports the reverse strand), giving a value at each site for every reader but IAM-A, which needs molecules. Used by `run_sample.py --dev-seq-beta CALL.bw,COV.bw`.
 
-*Code:* `stage_seq_values.py` line 160 (22 lines) · arguments: call_bw, cov_bw, min_calls · calls: not called on the traced runs · constants read: `KEY38` · files named: `atlas/v2.1/sites_key_hg38.parquet`
+*Code:* `stage_seq_values.py` line 206 (22 lines) · arguments: call_bw, cov_bw, min_calls · calls: not called on the traced runs · constants read: `KEY38` · files named: `atlas/v2.1/sites_key_hg38.parquet`
+
+### `stage_seq_values.py::plant_ends`
+
+TESTS ONLY: a molecule file with known errors planted: at each molecule's outermost calls a methylated call read unmethylated or the reverse, at set rates, and optionally a change at every call wherever it sits (a change in the cell). For the self-calibration synthetic.
+
+*Code:* `stage_seq_values.py` line 90 (23 lines) · arguments: path, end_ct, end_tc, all_ct, dest, seed · calls: not called on the traced runs
+
+### `stage_seq_values.py::end_calls_from_pat`
+
+From a molecule file, at every atlas site, the calls made at the outermost CpG of each molecule end, and how many were methylated. Counts only.
+
+*Code:* `stage_seq_values.py` line 68 (21 lines) · arguments: path, n_end · calls: not called on the traced runs
+
+### `stage_seq_values.py::end_calls_from_pat.flush`
+
+Inside end_calls_from_pat: adds the buffered end calls to the per-site counts.
+
+*Code:* `stage_seq_values.py` line 76 (4 lines) · arguments: none · calls: not called on the traced runs
 
 ### `stage_seq_values.py::key`
 
@@ -1360,7 +1380,7 @@ site (seeded) and written as a `.beta` count file with a truth record. With `--d
 the cell's six-cell share as the one command scales a plant, so the counting noise falls on the planted levels as it would on a real loss. Made because the open matched set (GSE186888) is reserved unread for
 the one-draw test that counts (author 2026-10-22).
 
-*Code:* `stage_seq_values.py` line 127 (29 lines) · arguments: blood, add, depth_buffy, depth_plasma, out_dir, seed, plant · calls: not called on the traced runs · constants read: `HERE`, `HG19_CPGS` · files named: `truth.json`
+*Code:* `stage_seq_values.py` line 173 (29 lines) · arguments: blood, add, depth_buffy, depth_plasma, out_dir, seed, plant · calls: not called on the traced runs · constants read: `HERE`, `HG19_CPGS` · files named: `truth.json`
 
 ### `stage_seq_values.py::values_from_beta`
 
@@ -1369,7 +1389,7 @@ numbering, the numbering of the frozen site key); a file of another length is re
 runs but IAM-A, which needs molecules (`run_sample.py --dev-seq-beta`, `run_draw.py --buffy-seqbeta / --plasma-seqbeta`). Checked on a
 constructed file (the example blood GSM7508429 drawn at 30 reads per site): the IAM-Deconvolver's six shares within 1.2 points of the array's.
 
-*Code:* `stage_seq_values.py` line 111 (14 lines) · arguments: path, min_calls · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
+*Code:* `stage_seq_values.py` line 157 (14 lines) · arguments: path, min_calls · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
 
 ### `stage_seq_values.py::genome_coverage`
 
@@ -1380,7 +1400,7 @@ chromosomes 1 to 8), and the readings made from it are wrong in a way no later s
 library (plasma) pass and stops a partial one (DEV-SEQ-INTAKE-01). The rule behind it: never read the first N pairs of a run; read it whole,
 or check its order first.
 
-*Code:* `stage_seq_values.py` line 186 (24 lines) · arguments: values, key, rule · calls: not called on the traced runs · constants read: `GENOME_COVERAGE_RULE` · files named: `sites_sequencing_key.parquet`
+*Code:* `stage_seq_values.py` line 232 (24 lines) · arguments: values, key, rule · calls: not called on the traced runs · constants read: `GENOME_COVERAGE_RULE` · files named: `sites_sequencing_key.parquet`
 
 ### `stage_seq_values.py::values_from_pat`
 
@@ -1401,19 +1421,19 @@ are dropped.
 
 A molecule file counted into a per-CpG count file (`.lbeta`, uint16 methylated and all calls at every hg19 CpG, the layout the atlas build reads). Run as `run_sample.py --build seq-pat-lbeta --pat FILE [--dev-seq-trim-ends N] --build-out OUT.lbeta`; with a trim, the file is trimmed once by `trim_pat` and then counted. Untrimmed it equals the published `.beta` of the same molecules below that file's cap of 255. Used to count the IAM Sequencing Atlas's own donors with the trim a sample is read with, so sample and reference take the same path (the CMB rule: the theory goes through the instrument's processing, not the data cleaned toward the theory). A file with no molecules (empty or unreadable) is refused and nothing is written.
 
-*Code:* `stage_seq_values.py` line 84 (25 lines) · arguments: path, out, n · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
+*Code:* `stage_seq_values.py` line 130 (25 lines) · arguments: path, out, n · calls: not called on the traced runs · constants read: `FLAG`, `HG19_CPGS`
 
 ### `stage_seq_values.py::pat_to_lbeta.flush`
 
 Inside `pat_to_lbeta`: adds the buffered calls (CpG position, methylated or not, molecule count) into the two per-CpG totals in one vectorized step every five million calls. Counts only.
 
-*Code:* `stage_seq_values.py` line 92 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `HG19_CPGS`
+*Code:* `stage_seq_values.py` line 138 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `HG19_CPGS`
 
 ### `stage_seq_values.py::trim_pat`
 
 A copy of a molecule file with the N outermost CpG calls at each end of every molecule left out, for `run_sample.py --dev-seq-trim-ends N` (development): the calls where library chemistry at the read ends lands, found by the floor by molecule position (one outside laboratory's end calls read 9 times its interior floor, reaching about 4 CpGs in). Geneticists call this trimming for M-bias. The bundle records what was kept.
 
-*Code:* `stage_seq_values.py` line 68 (14 lines) · arguments: path, n, dest · calls: not called on the traced runs
+*Code:* `stage_seq_values.py` line 114 (14 lines) · arguments: path, n, dest · calls: not called on the traced runs
 
 ### `stage_seq_values.py::thin_pat`
 
@@ -2137,45 +2157,45 @@ their laboratories. The download is checked against the size GEO states: an empt
 
 A person's bundle in the bundles folder (named ID_bundle.json, or ID.json as the series runner's pass 1 writes it), or in any folder below it (sequencing runs land each bundle in its own folder).
 
-*Code:* `stage_groupa.py` line 83 (7 lines) · arguments: bundle_dir, i · calls: not called on the traced runs · files named: `_bundle.json`, `s pass-1 bundles are named GSM.json`
+*Code:* `stage_groupa.py` line 85 (7 lines) · arguments: bundle_dir, i · calls: not called on the traced runs · files named: `_bundle.json`, `s pass-1 bundles are named GSM.json`
 
 ### `stage_groupa.py::tare`
 
 Each reading over the median of its healthy references (same slide when there are at least 3 there, else the series), excluding itself;
 records which scope was used.
 
-*Code:* `stage_groupa.py` line 31 (22 lines) · arguments: r, healthy · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 33 (22 lines) · arguments: r, healthy · calls: not called on the traced runs
 
 ### `stage_groupa.py::welch`
 
 The two groups' means, counts, difference, standard error and t.
 
-*Code:* `stage_groupa.py` line 54 (4 lines) · arguments: a, b · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 56 (4 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `stage_groupa.py::compare`
 
 Tares, compares and calls the result, with the smallest findable difference and the commissioning label.
 
-*Code:* `stage_groupa.py` line 59 (17 lines) · arguments: rows, group_col, a, b, healthy, specimen, platform · calls: not called on the traced runs · constants read: `PRELIMINARY`
+*Code:* `stage_groupa.py` line 61 (17 lines) · arguments: rows, group_col, a, b, healthy, specimen, platform · calls: not called on the traced runs · constants read: `PRELIMINARY`
 
 ### `stage_groupa.py::collect`
 
 Builds one row per person from the run's report bundles and the researcher's sample list (id, slide, group column, optional
 healthy_reference).
 
-*Code:* `stage_groupa.py` line 91 (11 lines) · arguments: bundle_dir, samples_csv, out_csv, reading · calls: not called on the traced runs · constants read: `READINGS`
+*Code:* `stage_groupa.py` line 93 (11 lines) · arguments: bundle_dir, samples_csv, out_csv, reading · calls: not called on the traced runs · constants read: `READINGS`
 
 ### `stage_groupa.py::collect_cells`
 
 Development (Group-A against IAM-Atlas v2.1 alone): one row per person and per cell the IAM-Deconvolver found (the bundle's cells_found rows), with the cell's share, its Met-A against the atlas (each cell divided by its own healthy prediction) and its C-Score; no tare. `python3 stage_groupa.py collect-cells BUNDLE_DIR SAMPLES.csv OUT.csv`.
 
-*Code:* `stage_groupa.py` line 104 (13 lines) · arguments: bundle_dir, samples_csv, out_csv · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 106 (13 lines) · arguments: bundle_dir, samples_csv, out_csv · calls: not called on the traced runs
 
 ### `stage_groupa.py::compare_cells`
 
 Development: Group-A per cell found, against the atlas alone. For each cell read in at least 3 people of each group at a share of at least 5 %, the two groups' Met-A means are compared (welch: difference, standard error, t; groups differ when |t| >= 2). Two groups of one series share that series' own array line, so it cancels in their difference and nothing but the atlas is used as healthy. `python3 stage_groupa.py compare-cells CELLS.csv GROUP_COLUMN A B`.
 
-*Code:* `stage_groupa.py` line 118 (10 lines) · arguments: rows, group_col, a, b, min_share, min_n · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 120 (10 lines) · arguments: rows, group_col, a, b, min_share, min_n · calls: not called on the traced runs
 
 ## 12. The retired position reading, Stage Q: `stage_q_iam_a.py`
 
@@ -2183,6 +2203,18 @@ Development: Group-A per cell found, against the atlas alone. For each cell read
 on 2026-10-17 by Stage Q2, each sample against its own reference. The one command runs Stage Q only with `--site-table` or
 `--dev-iama-position`, and labels it development. It is kept so earlier records can be reproduced. Its text still uses the retired term
 "copy error"; what it counts is the held error described in section 9.
+
+### `stage_groupa.py::compare_cells_sites`
+
+Which cell changed between two groups, site by site. In one array every cell's row blends that cell with its neighbors in proportion to their DNA, so a change in one cell moves every row. At each site, each person's value is the sum of the cells found, each weighted by its share (the IAM-Deconvolver's), with each cell's own value in the series shared by both groups and each cell's difference between the groups estimated by least squares, as a mean difference is estimated. Each cell's difference is then read against its own atlas pattern at its own identity sites, each site weighted by its own measured noise in the series (the matched filter of the CMB maps); a 1 % loss of the cell's pattern reads +1 %. Healthy enters only from the atlas. Standard errors from resampling the people. Reads the saved values of run_sample.py --keep-values. Development.
+
+*Code:* `stage_groupa.py` line 135 (47 lines) · arguments: rows, values_dir, group_col, a, b, plant, seed · calls: not called on the traced runs · constants read: `WEIGHTED` · files named: `_betas.parquet`
+
+### `stage_groupa.py::compare_cells_sites.est`
+
+Inside compare_cells_sites: for a set of people (all of them, or one resample), the per-site least-squares solution and each cell's noise-weighted reading against its own atlas pattern at its own identity sites.
+
+*Code:* `stage_groupa.py` line 167 (6 lines) · arguments: ix · calls: not called on the traced runs
 
 ### `stage_q_iam_a.py::positions`
 
@@ -3282,29 +3314,35 @@ The development flag on every atlas reading, naming the ruler used (IAM-Atlas v2
 
 *Code:* `stage_metaa_atlas.py` line 29 (2 lines) · arguments: none · calls: not called on the traced runs · constants read: `FLAG`, `SEQ_ATLAS`
 
+### `stage_metaa_atlas.py::self_calibrated`
+
+Each sequencing library calibrated on its own calls, as each CMB detector was calibrated on sources in its own maps. Biology does not depend on where a CpG sits on a molecule, so the difference between a library's molecule-end calls and its inner calls at the same cell's identity sites is its chemistry alone, measured per side (a false T where the cell holds a mark, a false C where it holds none). The healthy expectation is the atlas's inner level moved by that measured end error at each site's own share of end calls. Nothing is cut and nothing is borrowed from other samples. Development (run_sample.py --dev-seq-self-cal).
+
+*Code:* `stage_metaa_atlas.py` line 287 (29 lines) · arguments: cell, level, counts, sc, lo, hi · calls: not called on the traced runs
+
 ### `stage_metaa_atlas.py::floor_raise`
 
 The probability that raises a library's floor from f to F: (F - f) / (1 - f).
 
-*Code:* `stage_metaa_atlas.py` line 654 (3 lines) · arguments: f_low, F · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 701 (3 lines) · arguments: f_low, F · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::_Hj`
 
 The disorder of j methylated of m reads after each unmethylated read is turned methylated with probability u (a library's floor raised).
 
-*Code:* `stage_metaa_atlas.py` line 645 (8 lines) · arguments: m, u · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 692 (8 lines) · arguments: m, u · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::ceiling_counted`
 
 The distance to the entropy ceiling on sequencing: the reading the sample would give with every site at one half, read at its own reads by the reading's own expectation; distance, headroom used and the share of sites that crossed one half.
 
-*Code:* `stage_metaa_atlas.py` line 572 (12 lines) · arguments: A, A_sat, x, e · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 619 (12 lines) · arguments: A, A_sat, x, e · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::_cs_cell_factor`
 
 The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell found at 85 % or more), the one-sided 95 % prediction limit of C over the derived limit, for cells whose donors span five or more laboratories (neutrophils 1.0314, 57 donors, 7 laboratories; monocytes 1.0062, 40 donors, 6). Healthy neutrophils carry a little real clustering in every laboratory, so the derived limit, which assumes none, is slightly tight for them. None for every other cell: the derived limit stands.
 
-*Code:* `stage_metaa_atlas.py` line 877 (6 lines) · arguments: cell · calls: not called on the traced runs · constants read: `HERE`, `IDENTITY_OF` · files named: `cell_factors_v1.json`, `s C-Score limit factor from Runtime Matrices/CScore_Limits/cell_factors_v1.json`
+*Code:* `stage_metaa_atlas.py` line 924 (6 lines) · arguments: cell · calls: not called on the traced runs · constants read: `HERE`, `IDENTITY_OF` · files named: `cell_factors_v1.json`, `s C-Score limit factor from Runtime Matrices/CScore_Limits/cell_factors_v1.json`
 
 ### `stage_metaa_atlas.py::cscore_limits`
 
@@ -3312,31 +3350,31 @@ Adds each C-Score reading's limit, whether it sits within it, and the rule used.
 
 Each cell's limit is the derived limit times `_cs_cell_factor` where the atlas's donors measure one (limit_rule says which).
 
-*Code:* `stage_metaa_atlas.py` line 884 (16 lines) · arguments: cs, array_type · calls: not called on the traced runs · constants read: `HERE` · files named: `platform_term_450k.json`
+*Code:* `stage_metaa_atlas.py` line 931 (16 lines) · arguments: cs, array_type · calls: not called on the traced runs · constants read: `HERE` · files named: `platform_term_450k.json`
 
 ### `stage_metaa_atlas.py::cscore_limit`
 
 The C-Score's derived healthy upper limit (development): with departures independent from site to site, C over nb = n // 10 blocks follows a scaled Beta((nb - 1) / 2, (n - nb) / 2); the limit is its 95th percentile. Nothing is measured.
 
-*Code:* `stage_metaa_atlas.py` line 871 (4 lines) · arguments: n_sites, q, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
+*Code:* `stage_metaa_atlas.py` line 918 (4 lines) · arguments: n_sites, q, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
 
 ### `stage_metaa_atlas.py::read_on_curve`
 
 Met-A with IAM-Atlas v2.1 as the ruler on the array's own response curve (plan 14.14, development): identity sites chosen on the atlas; the array's mean reading and its spread at each atlas level, measured at every other site it read; its healthy mark is the expected entropy at the identity sites of a reading on that curve with that spread; Met-A is its own mean entropy there over the mark. No cohort and no same-run references; also returns how far the array reads above its own curve at the identity sites.
 
-*Code:* `stage_metaa_atlas.py` line 280 (28 lines) · arguments: beta, cell · calls: not called on the traced runs · constants read: `CURVE_EDGES`, `RULE`
+*Code:* `stage_metaa_atlas.py` line 319 (28 lines) · arguments: beta, cell · calls: not called on the traced runs · constants read: `CURVE_EDGES`, `RULE`
 
 ### `stage_metaa_atlas.py::_he`
 
 The healthy expectation of disorder at each site: on sequencing, the expected entropy of k of n reads at that site's own read count (expected_H_counts), so a site read from one molecule, which can only read 0 or 1, is not taken as order; on arrays, the entropy of the expected level.
 
-*Code:* `stage_metaa_atlas.py` line 628 (3 lines) · arguments: es, counts · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 675 (3 lines) · arguments: es, counts · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::_ruler`
 
 Loads the atlas ruler's frozen file once: every site's probe design (I or II), the anchor sites per design (held below about 0.05 or above about 0.95 in every one of the 79 cell types) and the atlas's values there.
 
-*Code:* `stage_metaa_atlas.py` line 738 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `RULER`
+*Code:* `stage_metaa_atlas.py` line 785 (4 lines) · arguments: none · calls: not called on the traced runs · constants read: `RULER`
 
 ### `stage_metaa_atlas.py::_line_censored`
 
@@ -3347,13 +3385,13 @@ a + b e with noise s, from the same anchor sites, counting each reading at 0 or 
 likelihood). When no anchor is at a bound it returns the plain estimate unchanged. It measures the instrument at sites where every healthy
 cell agrees; nothing is fitted to any reading of the sample.
 
-*Code:* `stage_metaa_atlas.py` line 746 (13 lines) · arguments: x, e, a0, b0, s0 · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 793 (13 lines) · arguments: x, e, a0, b0, s0 · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::_line_censored.nll`
 
 The negative log-likelihood the line is measured by: anchors strictly between 0 and 1 count by their normal density around a + b e; an anchor at 0 counts by the chance of a reading at or below 0, one at 1 by the chance at or above 1.
 
-*Code:* `stage_metaa_atlas.py` line 754 (3 lines) · arguments: t · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 801 (3 lines) · arguments: t · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::array_blur`
 
@@ -3362,49 +3400,49 @@ Measures the array's own blur, per probe design, at its anchor sites: the straig
 
 With `--dev-line-wide` (LINE_WIDE, development): the line is measured on every site this sample's own mix holds firmly, below 0.05 or above 0.95, with the identity sites of the cells found set aside (passed as exclude), about 110,000 sites instead of the ruler's 8,000 anchors. Added when the width diagnostic showed the anchors' line moving from person to person enough to move a cell's Met-A by about 0.25 %.
 
-*Code:* `stage_metaa_atlas.py` line 765 (20 lines) · arguments: xs, es, exclude · calls: not called on the traced runs · constants read: `LINE_CENSORED`, `LINE_WIDE`
+*Code:* `stage_metaa_atlas.py` line 812 (20 lines) · arguments: xs, es, exclude · calls: not called on the traced runs · constants read: `LINE_CENSORED`, `LINE_WIDE`
 
 ### `stage_metaa_atlas.py::predicted_healthy`
 
 Met-A's healthy middle line predicted from the array itself: at each site, the disorder this array would show if the sample were exactly the atlas in its own mix, E[H(clip(a + b e + noise, 0, 1))] over the array's measured noise by 20-point Gauss-Hermite quadrature; A_pred = sum w E[H] / sum w H(e) with the whole-sample reading's weights. A healthy sample should read A / A_pred = 1, with no healthy cohort and no reference arrays. Blind spot, stated: a loss spread evenly over every site, the anchors included, looks like a weaker array (DEV-METAA-HEALTHY-01).
 
-*Code:* `stage_metaa_atlas.py` line 786 (16 lines) · arguments: xs, es, w, blur, min_sites, exclude · calls: not called on the traced runs · constants read: `GH_NODES`
+*Code:* `stage_metaa_atlas.py` line 833 (16 lines) · arguments: xs, es, w, blur, min_sites, exclude · calls: not called on the traced runs · constants read: `GH_NODES`
 
 ### `stage_metaa_atlas.py::cell_prediction`
 
 Each cell's Met-A divided by its own healthy prediction, as the whole-sample reading already is: the array's own line and noise per probe design, measured once on the whole array, applied to the atlas in this sample's mix at that cell's identity sites (predicted_healthy). The row keeps A_raw and A_pred beside the ratio; a healthy cell reads 1. Added when the width synthetic showed each cell's reading carrying the array's line and noise (center 0.89, spread up to ten times the true person spread). Arrays only; on sequencing the expectation already counts the reads.
 
-*Code:* `stage_metaa_atlas.py` line 964 (24 lines) · arguments: each, beta, shares, blur · calls: not called on the traced runs · constants read: `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 1011 (24 lines) · arguments: each, beta, shares, blur · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::width_state`
 
 The state of one cell's Met-A against that cell's healthy width measured on IAM-Atlas v2.1's own donors read by the one command (`Runtime Matrices/Met_A_Widths/donor_widths_v1.json`): Normal within 1 plus or minus k widths, k = t(0.975, n - 1) x sqrt(1 + 1/n) for its n donors (the prediction interval for one new reading), else above or below Normal, with the distance from 1 in widths. 1 is the middle; a cell whose donors read their middle more than 2 widths from 1 carries that note and is not commissioned. Given only at a share the cell held among its donors (share_min); below it the row says the width is not measured there. Arrays only. Its synthetic: the third new-people test, met.
 
-*Code:* `stage_metaa_atlas.py` line 1015 (14 lines) · arguments: cell, a, share · calls: not called on the traced runs · constants read: `IDENTITY_OF`, `WIDTHS`
+*Code:* `stage_metaa_atlas.py` line 1062 (14 lines) · arguments: cell, a, share · calls: not called on the traced runs · constants read: `IDENTITY_OF`, `WIDTHS`
 
 ### `stage_metaa_atlas.py::_sorted_route`
 
 True when the specimen's words choose the sorted-sample route (isolated, sorted or purified cells, of a named cell or none). The words choose only the route; which cell is read comes from the IAM-Deconvolver.
 
-*Code:* `stage_metaa_atlas.py` line 913 (5 lines) · arguments: specimen · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 960 (5 lines) · arguments: specimen · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::metaa_status`
 
 Each row of cells_found carries met_a_status: 'commissioned (record)' only when the sample took the sorted route, the row is the top cell found, that (cell, platform) is in METAA_ATLAS_COMMISSIONED's scope (COMMISSION-METAA-SORTED-01: neutrophils on Infinium 450K, monocytes on Infinium EPIC v1, against IAM-Atlas v2.1 alone), and a state was measured against the cell's width; otherwise 'development'. The report shows it per row.
 
-*Code:* `stage_metaa_atlas.py` line 919 (8 lines) · arguments: o, row, is_top · calls: not called on the traced runs · constants read: `METAA_ATLAS_COMMISSIONED`
+*Code:* `stage_metaa_atlas.py` line 966 (8 lines) · arguments: o, row, is_top · calls: not called on the traced runs · constants read: `METAA_ATLAS_COMMISSIONED`
 
 ### `stage_metaa_atlas.py::cscore_status`
 
 Each cells_found row's `c_status`: 'commissioned (COMMISSION-MONO450-01 ...)' when the row is the top cell found in a sorted sample, its C-Score limit is scaled by the cell's factor measured on the atlas's own donors, and (cell, platform) is in CSCORE_ATLAS_COMMISSIONED's scope (sorted monocytes on Infinium 450K); otherwise 'development'. Met-A's `met_a_status` names the record of its own scope (METAA_ATLAS_COMMISSIONED's records: monocytes on 450K by COMMISSION-MONO450-01). The report's per-cell table shows both.
 
-*Code:* `stage_metaa_atlas.py` line 928 (6 lines) · arguments: o, row, is_top · calls: not called on the traced runs · constants read: `CSCORE_ATLAS_COMMISSIONED`
+*Code:* `stage_metaa_atlas.py` line 975 (6 lines) · arguments: o, row, is_top · calls: not called on the traced runs · constants read: `CSCORE_ATLAS_COMMISSIONED`
 
 ### `stage_metaa_atlas.py::cells_found`
 
 The sample's result, cell by cell (the author: we score individual cells found by the IAM-Deconvolver, not bundles of cells). One row per cell the Deconvolver found (exactly the cells the chain did not mark not found; no threshold chosen), with each instrument's reading of that cell against its own atlas reference in the sample's own shares: Met-A, the C-Score with its limit, and IAM-A when IAM-A read that cell. The whole-sample reading stays a side line. Each row states its own fraction, the cell's share: the share synthetic measured that a cell's reading in a mix moves with a change in the cell and a change around it in proportion to the DNA each holds at its identity sites, so of a change in that row, about that share would be the cell's own. Above 90 % the row reads the cell itself.
 
-*Code:* `stage_metaa_atlas.py` line 935 (27 lines) · arguments: o · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 982 (27 lines) · arguments: o · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::read_whole`
 
@@ -3413,55 +3451,55 @@ Met-A for the whole sample over every atlas site: the atlas mixed in the sample'
 
 With `--dev-pred-raw` (PRED_RAW; development, 2026-11-07) the healthy prediction of an array, and the A it is compared with, are read on the array's own values even when the whole-sample A is read on the atlas ruler (which `--full-chain` turns on): the healthy prediction measures the array's own line, and measuring it again on ruler-mapped values handles the array's blur twice (DEV-METAA-HEALTHY-01, the capture after synthetic test 6).
 
-*Code:* `stage_metaa_atlas.py` line 806 (56 lines) · arguments: beta, shares, counts, raw · calls: not called on the traced runs · constants read: `MIX_COVER`, `PRED_RAW`, `WHOLE_SITE_OUT`
+*Code:* `stage_metaa_atlas.py` line 853 (56 lines) · arguments: beta, shares, counts, raw · calls: not called on the traced runs · constants read: `MIX_COVER`, `PRED_RAW`, `WHOLE_SITE_OUT`
 
 ### `stage_metaa_atlas.py::read_whole.one`
 
 The weighted reading over one group of sites (all, or one place), with its standard error over sites; a group with fewer than 500 sites is not read.
 
-*Code:* `stage_metaa_atlas.py` line 831 (6 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 878 (6 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::territory_sets`
 
 The two sets where early cancer is known to act, by fixed rules on IAM-Atlas v2.1 over the sites measured in all 79 cell types: islands (every cell type below 0.2) and loosely held domains (mean at least 0.75, none below 0.2, at least one between 0.2 and 0.7). Read column by column so memory stays near one column.
 
-*Code:* `stage_metaa_atlas.py` line 532 (17 lines) · arguments: none · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`, `sites.parquet`
+*Code:* `stage_metaa_atlas.py` line 579 (17 lines) · arguments: none · calls: not called on the traced runs · constants read: `ATLAS`, `NA` · files named: `import pyarrow.parquet`, `sites.parquet`
 
 ### `stage_metaa_atlas.py::ceiling_reading`
 
 Distance to the entropy ceiling (CAN-005), derived and unfitted: a reading's saturation A_sat = sum w / sum w H(e) (every site at 1 bit), the distance (A_sat - A) / (A_sat - 1) (1 at the healthy expectation, 0 at the ceiling), and the turnover share, the weighted share of sites whose level has crossed 0.5 to the far side of their healthy state, past which the reading falls as loss continues. Attached to Met-A for the whole sample (and each place), each cell's Met-A, and each territory.
 
-*Code:* `stage_metaa_atlas.py` line 550 (21 lines) · arguments: xs, es, w · calls: not called on the traced runs · files named: `CANON/foundation.json`
+*Code:* `stage_metaa_atlas.py` line 597 (21 lines) · arguments: xs, es, w · calls: not called on the traced runs · files named: `CANON/foundation.json`
 
 ### `stage_metaa_atlas.py::territory_prediction`
 
 Each territory set's reading on arrays divided by the array's own healthy prediction, as the whole-sample and per-cell readings already are: the array's line and noise per probe design (measured once on the whole array) applied to the atlas in this sample's mix at the set's sites, on the array's own values. Adds A_raw, A_pred and ratio beside A; a healthy sample reads 1. Added when healthy arrays, a sorted neutrophil among them, read the islands at 0.84 without it (1.0005 with it). Arrays only.
 
-*Code:* `stage_metaa_atlas.py` line 990 (22 lines) · arguments: terr, beta, shares, blur · calls: not called on the traced runs · constants read: `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 1037 (22 lines) · arguments: terr, beta, shares, blur · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::territory_reading`
 
 The sample's disorder at each set against the atlas mixed in its own shares: mean H(beta) over mean H(e), the mean level change, the standard error over sites, and how much of the set the array measures. Development, flagged.
 
-*Code:* `stage_metaa_atlas.py` line 585 (32 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `MIX_COVER`, `SEQ_ATLAS`, `TERR_COUNTED`, `TERR_RULES`, `TERR_SITE_OUT`
+*Code:* `stage_metaa_atlas.py` line 632 (32 lines) · arguments: beta, shares, counts · calls: not called on the traced runs · constants read: `MIX_COVER`, `SEQ_ATLAS`, `TERR_COUNTED`, `TERR_RULES`, `TERR_SITE_OUT`
 
 ### `stage_metaa_atlas.py::plant_territory`
 
 Tests only: a constructed gain at a seeded fraction of the islands, or loss at the domains, so a test of the territory readings runs through the one command.
 
-*Code:* `stage_metaa_atlas.py` line 618 (7 lines) · arguments: beta, name, frac, size, seed · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 665 (7 lines) · arguments: beta, name, frac, size, seed · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::absent_cells`
 
 The cells among a sample's shares whose column holds no value at any site of the ruler in use (cached per ruler). On sequencing the provisional megakaryocyte column, built on the whole genome, has none at IAM-Atlas v2.1's sites. Used by `_cover_den`.
 
-*Code:* `stage_metaa_atlas.py` line 353 (11 lines) · arguments: cells · calls: not called on the traced runs · constants read: `SEQ_ATLAS`, `SEQ_LEVEL`, `_ABSENT`
+*Code:* `stage_metaa_atlas.py` line 392 (11 lines) · arguments: cells · calls: not called on the traced runs · constants read: `SEQ_ATLAS`, `SEQ_LEVEL`, `_ABSENT`
 
 ### `stage_metaa_atlas.py::_cover_den`
 
 The share a site's cover is measured against (MIX_COVER, 0.99): the sample's shares less those of cells with no column at any site (`absent_cells`). Gaps inside a column still count against the cover. Added when every sequenced library with megakaryocytes found at 1 % or more lost every site of every reading (27 of 49 trim-reading bundles). `read_whole` names the cells set aside and their share (`absent_from_ruler`); the per-cell row of such a cell says it is not a cell of IAM-Atlas v2.1.
 
-*Code:* `stage_metaa_atlas.py` line 365 (6 lines) · arguments: F · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 404 (6 lines) · arguments: F · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::read_in_mix_allsites`
 
@@ -3470,14 +3508,14 @@ of that cell would make there, share × |0.5 − μ| (the chain's own shift rule
 loss, its standard error over sites and its effective number of sites. The standard error is within one sample; how much healthy people
 differ is measured on many healthy samples, not here.
 
-*Code:* `stage_metaa_atlas.py` line 442 (30 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 489 (30 lines) · arguments: beta, shares · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::departure_in_mix`
 
 The per-site departure behind Met-A for one cell of a mixed sample: at the cell's identity sites,
 H(β) − H(e), e the atlas mixed in the sample's own shares by `read_in_mix`'s rule; by site id. Used by the globe's layer for each cell.
 
-*Code:* `stage_metaa_atlas.py` line 427 (13 lines) · arguments: beta, shares, cell · calls: not called on the traced runs · constants read: `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 474 (13 lines) · arguments: beta, shares, cell · calls: not called on the traced runs · constants read: `MIX_COVER`
 
 ### `stage_metaa_atlas.py::_H`
 
@@ -3531,13 +3569,13 @@ On sequencing (read counts given), the atlas column is first put in sequencing u
 published sequencing atlas (`Runtime Matrices/Atlas_V21/sequencing_term_v1.json`: sequencing = -0.0902 + 1.1026 x atlas level, clipped to
 0 to 1): the atlas is on the array scale, whose unmarked sites sit near 0.055 where sequencing reads 0. Arrays are read unchanged.
 
-*Code:* `stage_metaa_atlas.py` line 203 (74 lines) · arguments: beta, cell, specimen, counts, seqref, half · calls: not called on the traced runs · constants read: `FLOOR_EQUAL`, `RULE`, `SAMPLE_FLOOR`, `SEQ_COUNTED`, `SEQ_LEVEL`, `SITE_OUT`
+*Code:* `stage_metaa_atlas.py` line 203 (80 lines) · arguments: beta, cell, specimen, counts, seqref, half · calls: not called on the traced runs · constants read: `FLOOR_EQUAL`, `RULE`, `SAMPLE_FLOOR`, `SELFCAL`, `SEQ_COUNTED`, `SEQ_LEVEL`, `SITE_OUT`
 
 ### `stage_metaa_atlas.py::tare`
 
 A_rel = A over the median of at least 3 same-run healthy references (never the sample), the references' spread and the detection limit.
 
-*Code:* `stage_metaa_atlas.py` line 309 (10 lines) · arguments: A, refs · calls: not called on the traced runs · constants read: `RULE`
+*Code:* `stage_metaa_atlas.py` line 348 (10 lines) · arguments: A, refs · calls: not called on the traced runs · constants read: `RULE`
 
 ### `stage_metaa_atlas.py::specific_sites`
 
@@ -3560,14 +3598,14 @@ On a wide panel (`--cell-panel atlas`) the expectation at each site is mixed ove
 site counts when those cells hold at least `MIX_COVER` (99 %) of the sample's shares: before this rule (2026-10-22), one small cell without a
 value dropped the site, and on the 79-cell panel most cells lost about half their identity sites.
 
-*Code:* `stage_metaa_atlas.py` line 374 (51 lines) · arguments: beta, shares, counts, specific · calls: not called on the traced runs · constants read: `COPY_FLOOR`, `MIX_COVER`, `NOT_FOUND_SHARE`, `READ_COVER_MIN`, `READ_COVER_MIN_SEQ`, `RULE`, `SEQ_ATLAS`
+*Code:* `stage_metaa_atlas.py` line 413 (59 lines) · arguments: beta, shares, counts, specific · calls: not called on the traced runs · constants read: `COPY_FLOOR`, `MIX_COVER`, `NOT_FOUND_SHARE`, `READ_COVER_MIN`, `READ_COVER_MIN_SEQ`, `RULE`, `SELFCAL`, `SEQ_ATLAS`
 
 ### `stage_metaa_atlas.py::plant_all`
 
 TESTS ONLY: a constructed loss of a cell's whole pattern, every atlas site the array measured where the cell has a value moved the given share of
 the way to 0.5 (`run_sample.py --dev-plant CELL:LOSS:all`). A real loss of hold reaches every held site, not only the identity sites.
 
-*Code:* `stage_metaa_atlas.py` line 320 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 359 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::plant_runs`
 
@@ -3575,14 +3613,14 @@ TESTS ONLY: a constructed clustered loss, 10 runs of 30 neighboring identity sit
 a seeded draw, each moved the given share of the way to 0.5 (`run_sample.py --dev-plant CELL:LOSS:runs`). The shape the globe's block rule is
 built to see.
 
-*Code:* `stage_metaa_atlas.py` line 327 (13 lines) · arguments: beta, cell, loss, seed · calls: not called on the traced runs · constants read: `ATLAS`, `HERE` · files named: `chain/Runtime Matrices/Atlas_V21/sky_order_v21.npz`, `import pyarrow.parquet`, `sites.parquet`, `sky_order_v21.npz`
+*Code:* `stage_metaa_atlas.py` line 366 (13 lines) · arguments: beta, cell, loss, seed · calls: not called on the traced runs · constants read: `ATLAS`, `HERE` · files named: `chain/Runtime Matrices/Atlas_V21/sky_order_v21.npz`, `import pyarrow.parquet`, `sites.parquet`, `sky_order_v21.npz`
 
 ### `stage_metaa_atlas.py::plant`
 
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the
 series runner's `--plant metaa_atlas` and, scaled by the neutrophil share found, `--plant neutrophil_atlas`; never by a reading.
 
-*Code:* `stage_metaa_atlas.py` line 341 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 380 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
 
 ## 17. The whole-genome globe (development): `stage_q2_globe.py`
 
@@ -3757,7 +3795,7 @@ The mean jump of the mean-level map across HEALPix base-face edges over the jump
 
 With --build info-globe: the concentration R of a set of sites on the information sphere (the length of their mean direction, 0 spread evenly, 1 all in one place), reported for each family and each direction in the build record; at least 20 sites, else none.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 410 (1 lines) · arguments: m · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 415 (1 lines) · arguments: m · calls: not called on the traced runs
 
 ### `stage_info_sphere.py::save_layout`
 
@@ -4020,19 +4058,19 @@ its buffy-coat share by more than its 95 % interval.
 
 The commissioned C-Score's statistic, unchanged: the departures in genome order, the variance of the means of blocks of 10 neighboring sites (times the square root of 10) over the variance of the sites. Departures independent from site to site give 1; departures that run along the genome give more. Only the layout counts, not the size. *Derived* (the variance of a mean of independent values).
 
-*Code:* `stage_metaa_atlas.py` line 477 (7 lines) · arguments: z, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
+*Code:* `stage_metaa_atlas.py` line 524 (7 lines) · arguments: z, w · calls: not called on the traced runs · constants read: `CS_BLOCK`
 
 ### `stage_metaa_atlas.py::_genome_order`
 
 Sorts site ids into genome order, the order of IAM-Atlas v2.1's site list, which the planted runs and the globe use.
 
-*Code:* `stage_metaa_atlas.py` line 485 (6 lines) · arguments: ids · calls: not called on the traced runs · constants read: `ATLAS` · files named: `import pyarrow.parquet`, `s sites.parquet`, `sites.parquet`
+*Code:* `stage_metaa_atlas.py` line 532 (6 lines) · arguments: ids · calls: not called on the traced runs · constants read: `ATLAS` · files named: `import pyarrow.parquet`, `s sites.parquet`, `sites.parquet`
 
 ### `stage_metaa_atlas.py::cscore_in_mix`
 
 The C-Score for each cell found in a mixed sample and for the whole genome (development, flagged). For every cell the IAM-Deconvolver finds: its departure map at its identity sites (the map its globe layer draws), read by the commissioned statistic. The whole-genome version reads the same at every atlas site the sample measured. Untared: healthy samples of the same series are the comparison until a tare for these readings is built. Below 1 % of the sample the C is flagged, not withheld (*stated*): there a cell's departure map is mostly the other cells'. Which cells are there is the IAM-Deconvolver's answer. It also reports the whole-genome map's correlation between neighboring sites at lags 1 to 9 (neighbor_corr), in genome order: near zero where departures are independent, as the derived limit assumes.
 
-*Code:* `stage_metaa_atlas.py` line 492 (31 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_FLAG_SHARE`, `MIX_COVER`
+*Code:* `stage_metaa_atlas.py` line 539 (31 lines) · arguments: beta, shares, deps · calls: not called on the traced runs · constants read: `CS_BLOCK`, `CS_FLAG_SHARE`, `MIX_COVER`
 
 ### `stage_provisional.py::pool_hg38`
 
@@ -4131,6 +4169,18 @@ seed 20261029; their difference is noise map 2, defined for a cell with one dono
 Each cell's mean pooled level, its disorder and the donor spread at the domains (`--build seq-domain-disorder`).
 
 *Code:* `stage_seq_atlas.py` line 163 (13 lines) · arguments: none · calls: not called on the traced runs · constants read: `ARRAY_COLS` · files named: `seq_atlas_inputs.csv`
+
+### `stage_seq_atlas.py::metaa_inner_of`
+
+One cell's rows of the inner reference, by site.
+
+*Code:* `stage_seq_atlas.py` line 788 (6 lines) · arguments: cell, path · calls: not called on the traced runs · constants read: `METAA_INNER`
+
+### `stage_seq_atlas.py::metaa_inner_reference`
+
+The IAM Sequencing Atlas's level at every Met-A identity site without the atlas's own molecule-end calls: its donors' calls after a one-call trim at each molecule end, and the end calls themselves (published minus trimmed). Built by run_sample.py --build seq-metaa-inner. Counts only. Development.
+
+*Code:* `stage_seq_atlas.py` line 772 (15 lines) · arguments: trimmed_counts, out, published · calls: not called on the traced runs · constants read: `METAA_DONORS_DIR` · files named: `metaa_donor_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::merge_pieces`
 
@@ -4254,14 +4304,14 @@ Each cell's methylated and total reads at its Met-A identity sites in each seale
 At each cell's Met-A identity sites, by side: noise map 1 (donor halves) and noise map 2 (read halves) as mean squares, and map 1 against the
 counting its two halves' own reads predict (`run_sample.py --build seq-noise-identity`).
 
-*Code:* `stage_seq_atlas.py` line 812 (22 lines) · arguments: path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
+*Code:* `stage_seq_atlas.py` line 837 (22 lines) · arguments: path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::beta_vs_pat`
 
 One healthy input's published .beta counts against counts taken from its own molecule file at its cell's Met-A identity sites, and the
 share of molecules covering two or more of those sites (`run_sample.py --build seq-beta-vs-pat`).
 
-*Code:* `stage_seq_atlas.py` line 782 (29 lines) · arguments: beta_src, pat_path, cell, ref · calls: not called on the traced runs · constants read: `HG19_CPGS`, `METAA_REF`
+*Code:* `stage_seq_atlas.py` line 807 (29 lines) · arguments: beta_src, pat_path, cell, ref · calls: not called on the traced runs · constants read: `HG19_CPGS`, `METAA_REF`
 
 ### `stage_seq_atlas.py::table_to_lbeta`
 
@@ -4288,25 +4338,25 @@ The exact expected entropy of K methylated of N reads thinned without replacemen
 The expected disorder of a healthy sample of a mix, from each cell's reference reads: every read from a cell of the mix, drawn without
 replacement from that cell's reads, so no level is treated as exact (exactly unbiased).
 
-*Code:* `stage_metaa_atlas.py` line 664 (24 lines) · arguments: Mk, Nk, F, m, block, u · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 711 (24 lines) · arguments: Mk, Nk, F, m, block, u · calls: not called on the traced runs
 
 ### `stage_metaa_atlas.py::_floor_probes`
 
 The library-floor sites by probe (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked there). The class floor (--dev-floor-class) counts a sample's and its reference's false-call rate at those of them that lie inside the islands read, so a call there is a false call and never the islands' own low methylation.
 
-*Code:* `stage_metaa_atlas.py` line 690 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE`, `_FP` · files named: `floor_sites_v1.parquet`, `import pyarrow.parquet`
+*Code:* `stage_metaa_atlas.py` line 737 (7 lines) · arguments: none · calls: not called on the traced runs · constants read: `HERE`, `_FP` · files named: `floor_sites_v1.parquet`, `import pyarrow.parquet`
 
 ### `stage_metaa_atlas.py::islands_counted`
 
 The islands read with that expectation, against the donor half given, both sides at a common depth of at most 20 reads.
 
-*Code:* `stage_metaa_atlas.py` line 698 (35 lines) · arguments: xs, counts, F · calls: not called on the traced runs · constants read: `FLOOR_CLASS`, `FLOOR_EQUAL`, `SAMPLE_FLOOR`, `TERR_HALF`, `TERR_M`, `TERR_SHARE_MIN` · files named: `terr_half_counts_v1.parquet`
+*Code:* `stage_metaa_atlas.py` line 745 (35 lines) · arguments: xs, counts, F · calls: not called on the traced runs · constants read: `FLOOR_CLASS`, `FLOOR_EQUAL`, `SAMPLE_FLOOR`, `TERR_HALF`, `TERR_M`, `TERR_SHARE_MIN` · files named: `terr_half_counts_v1.parquet`
 
 ### `stage_metaa_atlas.py::thin_H`
 
 The exact expected disorder of a site's reads drawn down to fewer reads without replacement.
 
-*Code:* `stage_metaa_atlas.py` line 658 (5 lines) · arguments: k, n, m, u · calls: not called on the traced runs
+*Code:* `stage_metaa_atlas.py` line 705 (5 lines) · arguments: k, n, m, u · calls: not called on the traced runs
 
 ### `report_globe_v4.py::use_atlas`
 
@@ -4416,7 +4466,7 @@ Each healthy input's own methylated and total reads at its cell's Met-A identity
 
 One cell's per-donor counts at its identity sites (sites by donors), the donor half's donors only when a half is given.
 
-*Code:* `stage_seq_atlas.py` line 770 (11 lines) · arguments: cell, half, exclude · calls: not called on the traced runs · constants read: `DONORS_FILE`, `METAA_DONORS_DIR` · files named: `metaa_donor_counts_v1.parquet`
+*Code:* `stage_seq_atlas.py` line 795 (11 lines) · arguments: cell, half, exclude · calls: not called on the traced runs · constants read: `DONORS_FILE`, `METAA_DONORS_DIR` · files named: `metaa_donor_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::array_columns`
 
@@ -4485,7 +4535,7 @@ The site-matched ratio inside `floor_by_position`: over the floor sites holding 
 One cell's rows of that reference, indexed by probe, levels 0 to 1 (blank as missing); nothing when the file or the cell is absent, and the
 reading then says it was read against IAM-Atlas v2.1.
 
-*Code:* `stage_seq_atlas.py` line 835 (16 lines) · arguments: cell, path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
+*Code:* `stage_seq_atlas.py` line 860 (16 lines) · arguments: cell, path · calls: not called on the traced runs · constants read: `BLANK`, `METAA_COUNTS_DIR`, `METAA_REF` · files named: `metaa_half_counts_v1.parquet`
 
 ### `stage_seq_atlas.py::held_reference`
 
@@ -4494,14 +4544,14 @@ sample's held-error counts by tile (`--dev-count-only --dev-count-tiles`; a tile
 ratios: donors, lone errors and their chances in all, in each sealed donor half, and in each half of every donor's molecules. A tile's held
 error is its lone errors over its chances. It is the healthy held error a plasma's own mix is built from: each cell's, weighted by its share.
 
-*Code:* `stage_seq_atlas.py` line 852 (25 lines) · arguments: samples, out · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 877 (25 lines) · arguments: samples, out · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::compare_pair`
 
 How far two samples sit from each other (`run_sample.py --build seq-pair`): at the CpGs where both have at least 5 reads, the mean level
 difference, and the summed squared differences over the squared difference counting predicts (about 1 for the same cell read twice).
 
-*Code:* `stage_seq_atlas.py` line 878 (16 lines) · arguments: a_path, b_path, min_reads · calls: not called on the traced runs · constants read: `HG19_CPGS`
+*Code:* `stage_seq_atlas.py` line 903 (16 lines) · arguments: a_path, b_path, min_reads · calls: not called on the traced runs · constants read: `HG19_CPGS`
 
 ### `stage_seq_atlas.py::compare`
 
@@ -4512,13 +4562,13 @@ CpGs) so a 16 GB machine holds it. Also a depth-weighted score per cell: each Cp
 (the sample's and the column's binomial scatter and the column's donors' spread squared), averaged, about 1 for a healthy cell of that column;
 ranked as `weighted_ranked`, so a column pooled from sparse reads is not pushed away by its own counting scatter.
 
-*Code:* `stage_seq_atlas.py` line 895 (53 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
+*Code:* `stage_seq_atlas.py` line 920 (53 lines) · arguments: lbeta, piece_dirs, min_reads · calls: not called on the traced runs · constants read: `BLANK`, `HG19_CPGS` · files named: `pyarrow.parquet`
 
 ### `stage_seq_atlas.py::geo_url`
 
 The hg19 .beta file of a published sequencing sample on GEO (used when the inputs list gives no file).
 
-*Code:* `stage_seq_atlas.py` line 949 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
+*Code:* `stage_seq_atlas.py` line 974 (3 lines) · arguments: gsm, title · calls: not called on the traced runs
 
 ### `stage_seq_atlas.py::_u16`
 

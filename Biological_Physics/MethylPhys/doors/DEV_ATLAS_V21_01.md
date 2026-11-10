@@ -1872,3 +1872,29 @@ atlas build) differ by exactly its end calls, so its end and inner rates come fr
 written before any library is read with it.
 **Range of the data:** in the real libraries, end calls 0.86 to 12.4 times the inner rate at the same sites, library by library (30 spent libraries, site-matched,
 `floor_position_matched.csv`); the atlas's own donor 2.33 times (one donor). The synthetic plants end profiles across 0.8 to 13 times.
+
+**Each laboratory's end signature has its own side (development; spent, already-aligned data; nothing read again).** The 277 saved pieces of the 18 sorted libraries
+(`floor_position_identity_by_side.csv`, pooled from each piece's site-matched end-over-inner ratio per side, weighted by sites): at the identity sites
+the cell holds marked, the B-cell laboratory (GSE134664) reads its end calls 1.6 to 3.2 times as often opposite as its inner calls at the same
+sites, the Johns Hopkins CD4 laboratory 1.2 to 1.35 times, the CD8 laboratory (GSE98837) 0.85 to 1.2 times; at the sites held unmarked the CD8
+laboratory reads 2.9 to 6.8 times, the others 0.67 to 2.4. Met-A follows the marked side (rank 0.84; unmarked -0.48): B cells 1.26 to 1.31, CD8
+0.71 to 0.96, CD4 0.91 to 0.99. A false T at a marked site near a molecule's end is what end repair with unmarked C writes; a false C at an
+unmarked site is a different chemistry. Each library carries its own signature, per side, measurable from its own molecules: the input the
+per-library forward model needs (absolute rates per side and distance from the end: the pieces are being read again with the per-side counts).
+
+**Sequencing step 1, each library calibrated on its own calls: built, synthetic sealed (development).** The absolute per-side rates, read again from the
+277 pieces by the one command (`floor_by_position`, per side): end calls are 59 to 76 % of the calls at marked identity sites and 25 to 48 % at
+unmarked ones; at marked sites the end calls read opposite 3.4 to 12.4 % against 2.9 to 7.4 % inside. The atlas's own end calls, measured
+from its 156 donors (published counts minus the one-call-trimmed counts, `metaa_inner_reference_v1`; 787 of 905,266 donor-site rows had fewer
+published than trimmed calls and are left out): across the 57 cells the atlas's end calls read opposite more often than its inner calls, a
+median 0.43 points more at marked sites and 0.95 at unmarked ones (B, CD4, CD8 T cells and monocytes 1.1 to 1.6 points at marked sites).
+So the atlas and every library carry an end error of their own. The route (`stage_metaa_atlas.self_calibrated`, `run_sample.py
+--dev-seq-self-cal`): the healthy level is the atlas's inner level; each library's own end excess per side (end rate minus inner rate at the
+found cell's identity sites) moves it at each site by that site's own share of end calls; nothing cut, nothing borrowed from other samples.
+**Synthetic (sealed before any planted library is read, `selfcal_synthetic_score.py`):** one spent library from each of three laboratories,
+read five ways (`selfcal_synthetic_samples.csv`): unplanted; end C to T 5 %; end T to C 3 %; both 8 % and 3 %; a uniform C to T 2 % at every
+call (a change in the cell). Bar 1: with the calibration every end plant moves Met-A by at most 0.01 (all nine). Bar 2: without it the median
+move is at least 0.02 (else the synthetic cannot see its plant). Bar 3: the uniform change is kept, its move with the calibration at least
+80 % of its move without (all three).
+**Range of the data:** in the real libraries, end calls at marked identity sites read opposite 3.4 to 12.4 % and inner calls 2.9 to 7.4 %
+(18 spent libraries, `floor_position_identity_by_side.csv`); the synthetic plants end errors of 3 to 8 % on top of each library's own.

@@ -1470,3 +1470,14 @@ comparison), the planted loss reads +0.96 % (truth 1 %, 61 standard errors) in t
 cell; healthy women and men read alike, also with offsets of two shapes planted in other cells (five fresh draws, none at 2 standard errors;
 the neutrophils average 0.9, a small bias below the line). Next: this comparison in the chain (stage_groupa), then on GSE318173's 95 arrays
 whose values were kept, with the same planted loss.
+
+**Group-A site by site, in the chain, on the 95 kept arrays (development; spent data; `stage_groupa.compare_cells_sites`).** GSE318173's 95 healthy
+controls whose values were kept (`run_sample.py --keep-values`; the rehearsal's own bundles and its sealed planted and unplanted halves), read by
+`stage_groupa.py compare-cells-sites` (25,296 sites every person measured; five cells found in at least half the people at 3 % or more; each
+site weighted by its own residual variance across the people, the matched filter of the CMB maps; 200 resamples of people). Healthy women
+against men: no cell differs (neutrophils +0.47 %, standard error 0.59; CD4 +1.5 %, 1.7; monocytes +0.1 %, 3.8; GMP -0.5 %, 3.1; CD56bright
+NK -6.7 %, 4.9). The planted 1 % neutrophil loss (`--plant neutrophils:0.01:half`): the same split without the plant reads -0.62 % and with it
++0.23 %, so the plant itself reads +0.84 % in the neutrophils (a 1 % loss at their share, scaled to the cells found) and no other cell moves
+with it; the instrument names the cell that changed and reads its size. Not found at this size: two random halves of 95 people already differ
+by about 0.6 % by chance, so the smallest neutrophil change this series can show is about 1.1 % (2 standard errors); with equal weights it was
+1.4 %. The row comparison (`compare_cells`) found the plant here but also called the sexes different; this comparison calls nothing false.

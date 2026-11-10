@@ -101,6 +101,14 @@
    "bytes": 5543063,
    "sha256": "14b1d5097404cd2eca61932391f55efd63806af6f155e96d5da778db93a5d09c"
   },
+  "metaa_inner_reference/metaa_inner_reference_v1.json": {
+   "bytes": 670,
+   "sha256": "de96764c6e34723120cda33f667a81036002df75d79b08a3d68ef2d98cd42d91"
+  },
+  "metaa_inner_reference/metaa_inner_reference_v1.parquet": {
+   "bytes": 5609489,
+   "sha256": "88d3cd49cc7e849224ef3b28c9e326431f2b7b665a3e63d2e13c64b0d581052f"
+  },
   "metaa_seq_reference_v1.json": {
    "bytes": 2207,
    "sha256": "30666e57c383fc92b790a8758d1fccb5c17623ff8ccbcdb3e4d87ce796ec678f"

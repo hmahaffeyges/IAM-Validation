@@ -227,6 +227,12 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
         mu = mu.copy()
         if not use_seq: mu[ok] = seq_units(mu[ok])
         _n = pd.Series(counts).reindex(mu[ok].index).fillna(0).astype("int64").to_numpy(); href = float(np.nanmean(expected_H_counts(mu[ok].to_numpy(), _n)))
+        if SELFCAL is not None and use_seq:   # 2026-11-10 (development, run_sample.py --dev-seq-self-cal): each library calibrated on its own calls
+            _sc = self_calibrated(cell, mu[ok], counts, SELFCAL)
+            if _sc.get("q") is not None:
+                _q = _sc.pop("q"); href = float(np.nanmean(expected_H_counts(_q.to_numpy(), _n))); rec["self_calibration"] = _sc
+                rec["expectation"] = "k of n reads at each site's own depth, at the atlas's inner level shifted by this library's own measured end error (self_calibrated)"
+            else: rec["self_calibration"] = _sc
         _h = str(half or "").upper()
         if SEQ_COUNTED and use_seq and _h in ("A", "B") and f"n{_h}" in seqref.columns and seqref[f"n{_h}"].reindex(mu[ok].index).notna().all():   # 2026-10-30: the counted reference
             _mr = seqref[f"m{_h}"].reindex(mu[ok].index).to_numpy(); _nr = seqref[f"n{_h}"].reindex(mu[ok].index).to_numpy()
@@ -274,6 +280,39 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
                                      sample_median_unmethylated=round(float(x[ok][_lo].median()), 5) if _lo.any() else None,
                                      atlas_median_unmethylated=round(float(mu[ok][_lo].median()), 5) if _lo.any() else None)
     return rec
+
+
+SELFCAL = None   # 2026-11-10 (run_sample.py --dev-seq-self-cal): dict(end_n=Series, end_m=Series) of the sample's molecule-end calls per probe
+
+def self_calibrated(cell, level, counts, sc, lo=0.2, hi=0.8):
+    """2026-11-10 (DEVELOPMENT; sequencing step 1, the Planck route: each detector calibrated on its own data and its measured response
+    forward-modeled onto the expectation, nothing cut and nothing borrowed from other samples). Libraries differ at their molecules' ends, each
+    in its own way and on its own side (a false T at marked sites, a false C at unmarked ones); biology does not depend on where a CpG sits on a
+    molecule, so the difference between a library's end calls and its inner calls at the same cell's identity sites is its chemistry alone.
+    The healthy level at each identity site is the atlas's inner level (its donors' calls without their own molecule-end calls,
+    stage_seq_atlas.metaa_inner_reference); this library's end excess per side is its end calls' opposite rate minus its inner calls' at the
+    cell's identity sites held unmarked (level at most lo) and marked (at least hi); each site's expected level is the inner level moved by
+    the library's own share of end calls at that site times its excess on that site's side (up for a site below 0.5, down above). Returns q
+    (the expected levels) and what was measured. level: the published level at the identity sites read; a site with no inner level keeps
+    it (counted). q is None, with the reason, when the inner reference is missing."""
+    import stage_seq_atlas as _SQ
+    I = _SQ.metaa_inner_of(cell)
+    if I is None: return dict(q=None, reason=f"no inner reference for {cell!r}")
+    sites = level.index; I = I.reindex(sites); n = pd.Series(counts).reindex(sites).fillna(0).astype("float64")
+    ne = pd.Series(sc["end_n"]).reindex(sites).fillna(0).astype("float64"); me = pd.Series(sc["end_m"]).reindex(sites).fillna(0).astype("float64")
+    mt = pd.Series(sc["all_m"]).reindex(sites).fillna(0).astype("float64"); ni = n - ne; mi = mt - me
+    p = (I.meth_inner / I.reads_inner.where(I.reads_inner > 0)).astype("float64"); no_inner = int(p.isna().sum()); p = p.fillna(level.astype("float64"))
+    good = p.notna() & (n > 0) & (ne >= 0) & (ni >= 0)
+    out = dict(flag="DEVELOPMENT - each library calibrated on its own molecule-end calls (not commissioned)", sites=int(good.sum()), sites_published_level=no_inner)
+    for side, sel in (("unmarked", good & (p <= lo)), ("marked", good & (p >= hi))):
+        E, Ni = ne[sel].sum(), ni[sel].sum()
+        if E <= 0 or Ni <= 0: out[side] = dict(end_calls=int(E), inner_calls=int(Ni), excess=0.0); continue
+        oe = (me[sel].sum() if side == "unmarked" else E - me[sel].sum()) / E; oi = (mi[sel].sum() if side == "unmarked" else Ni - mi[sel].sum()) / Ni
+        out[side] = dict(end_calls=int(E), inner_calls=int(Ni), end_rate=round(float(oe), 6), inner_rate=round(float(oi), 6), excess=round(float(oe - oi), 6))
+    f = (ne / n.where(n > 0)).fillna(0.0); eu, em = out["unmarked"]["excess"], out["marked"]["excess"]
+    q = (p + np.where(p <= 0.5, 1.0, -1.0) * f * np.where(p <= 0.5, eu, em)).clip(0.0, 1.0)
+    q = q.where(good, p)
+    out["end_share_median"] = round(float(f[good].median()), 4); out["q"] = q; return out
 
 CURVE_EDGES = [0, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 0.97, 0.98, 0.99, 1.0]   # step 3 v7's, stated
 
@@ -409,6 +448,14 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         he = float(_H(e[ok]).mean())
         if counts is not None:   # sequencing: the expectation at each site's own read count (40.3)
             _n = pd.Series(counts).reindex(e[ok].index).fillna(0).astype("int64").to_numpy(); he = float(np.nanmean(expected_H_counts(e[ok].to_numpy(), _n)))
+            if SELFCAL is not None:   # 2026-11-10 (development, --dev-seq-self-cal): the found cell's own correction (its atlas column without the atlas's end
+                # calls, moved by this library's measured end error) applied to the mixed expectation; exact for a sorted sample, an approximation in a mix
+                _sc = self_calibrated(c, mu[ok], counts, SELFCAL)
+                if _sc.get("q") is not None:
+                    _he0 = he; e_cal = (e[ok] + (_sc.pop("q") - mu[ok])).clip(0.0, 1.0); he = float(np.nanmean(expected_H_counts(e_cal.to_numpy(), _n)))
+                    _sc["A_without"] = round(float(_H(x[ok]).mean() / _he0), 5)   # the same reading against the expectation without the calibration
+                    _sc["applied"] = "to the mixed expectation at this cell's identity sites (exact when the sample is nearly all this cell)"
+                r["self_calibration"] = {k: v for k, v in _sc.items() if k != "q"}
         A = float(_H(x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
         _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison

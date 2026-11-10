@@ -20,6 +20,8 @@ Usage:
   python3 stage_groupa.py compare READINGS.csv GROUP_COLUMN A B      tare, compare group A with group B, print the call
   python3 stage_groupa.py collect-cells BUNDLE_DIR SAMPLES.csv OUT.csv        development: one row per person and cell found
   python3 stage_groupa.py compare-cells CELLS.csv GROUP_COLUMN A B           development: per cell, against the atlas alone, no tare
+  python3 stage_groupa.py compare-cells-sites CELLS.csv VALUES_DIR GROUP_COLUMN A B [--plant CELL:LOSS:HALF_COLUMN]
+                                                                     development: which cell changed, site by site (saved values, run_sample.py --keep-values)
 """
 import os, sys, json, numpy as np, pandas as pd
 GROUPA_COMMISSIONING = {"status": "COMMISSIONED", "date": "2026-10-20", "reading": "Group-A", "platform": "EPIC v1", "specimens": ["whole blood"],
@@ -127,6 +129,58 @@ def compare_cells(rows, group_col, a, b, min_share=0.05, min_n=3):
     return out
 
 
+WEIGHTED = True   # compare_cells_sites: each site weighted by its own measured noise in the series (False: equal weights, the first reading)
+SITES_SHARE_MIN, SITES_PEOPLE_MIN, SITES_BOOT = 0.03, 0.5, 200   # compare_cells_sites: a cell enters when it is at least 3 % of the sample in at least half the people; 200 people resamples (stated)
+
+def compare_cells_sites(rows, values_dir, group_col, a, b, plant=None, seed=20261110):
+    """2026-11-10 (development; Group-A per cell against IAM-Atlas v2.1 alone, the site-by-site comparison). Every cell's row in one array
+    blends that cell with its neighbors in proportion to their DNA (the share synthetic), so a change in one cell moves every row; this reads
+    which cell changed. At every site of the cells found (each at least SITES_SHARE_MIN of the sample in at least SITES_PEOPLE_MIN of the
+    people), each person's measured value is x_i = sum_k F_ik a_k + g_i sum_k F_ik d_k, with F_ik the shares the IAM-Deconvolver found (scaled
+    to sum 1 over those cells), g_i the person's group (centered), a_k each cell's value in this series (shared by both groups, as the series'
+    array line is) and d_k each cell's difference between the groups: the established cell-type-specific comparison, solved by least squares
+    at each site, as Welch's mean difference is an estimate; nothing about healthy is estimated, and the atlas enters only as each cell's
+    template. Each cell's difference is read against its own pattern at its own identity sites: departure = sum d (0.5 - mu) / sum (0.5 - mu)^2
+    over the cell's identity sites (a 1 % loss of that cell's pattern reads +1 %). Standard errors from SITES_BOOT resamples of people within
+    each group (seeded). Sites: those every person measured. plant=(cell, loss, half_col): TESTS ONLY, the people with half_col == 'planted'
+    get stage_metaa_atlas.plant(values, cell, loss x that person's share of the cell), as run_series.py --plant neutrophil_atlas plants."""
+    import stage_metaa_atlas as SA
+    r = rows[rows.cell.notna()].copy(); P = r.pivot_table(index="gsm", columns="cell", values="share", aggfunc="first").fillna(0.0)
+    cells = [c for c in P.columns if (P[c] >= SITES_SHARE_MIN).mean() >= SITES_PEOPLE_MIN]
+    grp = r.groupby("gsm")[group_col].first().astype(str); keep = [g for g in P.index if grp.get(g) in (str(a), str(b))]
+    sites = sorted(set().union(*[set(SA.identity_sites(c)) for c in cells])); X = {}
+    for g in keep:
+        f = os.path.join(values_dir, g + "_betas.parquet")
+        if not os.path.exists(f): continue
+        v = pd.read_parquet(f); v = (v.set_index(v.columns[0]).iloc[:, 0] if v.shape[1] > 1 else v.iloc[:, 0]).astype("float64")
+        if plant and str(r[r.gsm == g][plant[2]].iloc[0]) == "planted": v = SA.plant(v, plant[0], loss=plant[1] * float(P.loc[g, plant[0]]))
+        X[g] = v.reindex(sites)
+    if len(X) < 6: return dict(reason=f"only {len(X)} people with saved values")
+    Xm = pd.DataFrame(X).T.dropna(axis=1); ppl = list(Xm.index); F = P.loc[ppl, cells]; F = F.div(F.sum(1), axis=0).to_numpy()
+    gA = (grp.reindex(ppl) == str(a)).to_numpy().astype(float); Xv = Xm.to_numpy(); K = len(cells)
+    T = {c: (0.5 - SA._col("mu", c).reindex(Xm.columns)).where(Xm.columns.isin(SA.identity_sites(c))).to_numpy() for c in cells}
+    # each site's own noise in this series (2026-11-10, the matched filter weighted by each pixel's measured noise, as the CMB maps are): the
+    # residual variance across the people of the full-data fit at that site, fixed for the resamples; the sites' weights are 1 / variance
+    D0 = np.column_stack([F, (gA - gA.mean())[:, None] * F]); res0 = Xv - D0 @ np.linalg.lstsq(D0, Xv, rcond=None)[0]
+    W = 1.0 / np.maximum(res0.var(0, ddof=D0.shape[1]) if len(ppl) > D0.shape[1] + 1 else res0.var(0), 1e-8)
+    if not WEIGHTED: W = np.ones_like(W)
+    def est(ix):
+        D = np.column_stack([F[ix], (gA[ix] - gA[ix].mean())[:, None] * F[ix]]); B = np.linalg.lstsq(D, Xv[ix], rcond=None)[0][K:]
+        out = []
+        for k, c in enumerate(cells):
+            t = T[c]; ok = np.isfinite(t); out.append(float((B[k][ok] * W[ok]) @ t[ok] / ((W[ok] * t[ok]) @ t[ok])) if ok.any() else np.nan)
+        return np.array(out)
+    i0 = np.arange(len(ppl)); d0 = est(i0); rng = np.random.default_rng(seed); ia, ib = i0[gA == 1], i0[gA == 0]
+    bs = np.array([est(np.r_[rng.choice(ia, len(ia)), rng.choice(ib, len(ib))]) for _ in range(SITES_BOOT)]); se = bs.std(0)
+    res = {}
+    for k, c in enumerate(cells):
+        t = d0[k] / se[k] if se[k] > 0 else np.nan
+        res[c] = dict(departure_pct=round(100 * d0[k], 4), se_pct=round(100 * se[k], 4), t=round(float(t), 2), call="groups differ" if abs(t) >= 2 else "no difference found",
+                      smallest_findable_pct=round(200 * se[k], 4), share_median=round(float(P.loc[ppl, c].median()), 4), identity_sites=int(np.isfinite(T[c]).sum()))
+    return dict(flag="DEVELOPMENT - Group-A per cell, site by site, against IAM-Atlas v2.1 alone", people=len(ppl), n_a=int(gA.sum()), n_b=int((1 - gA).sum()),
+                sites=int(Xm.shape[1]), weighting="each site by 1 / its residual variance across the people" if WEIGHTED else "equal", cells=res, planted=(dict(cell=plant[0], loss=plant[1], half=plant[2]) if plant else None))
+
+
 if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if len(sys.argv) >= 5 and sys.argv[1] == "collect":
@@ -151,5 +205,10 @@ if __name__ == "__main__":
         for cell, o in compare_cells(R, sys.argv[3], sys.argv[4], sys.argv[5]).items():
             print(f"Group-A (development, per cell, against IAM-Atlas v2.1 alone) {cell} (median share {o['share_median']}): {sys.argv[4]} {o['mean1']} (n {o['n1']}), "
                   f"{sys.argv[5]} {o['mean2']} (n {o['n2']}): {100*o['rel_difference']:+.2f} %, {o['t']} SE -> {o['call']}; smallest findable {100*o['smallest_findable_difference']:.2f} %")
+    elif len(sys.argv) >= 7 and sys.argv[1] == "compare-cells-sites":
+        R = pd.read_csv(sys.argv[2]); pl = None
+        if len(sys.argv) >= 9 and sys.argv[7] == "--plant": c_, l_, h_ = sys.argv[8].split(":"); pl = (c_, float(l_), h_)
+        o = compare_cells_sites(R, sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], plant=pl)
+        print(json.dumps(o, indent=1))
     else:
         print(__doc__); sys.exit(1)

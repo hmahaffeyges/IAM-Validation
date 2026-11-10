@@ -841,6 +841,18 @@ pinned by the release check as a frozen input (F1): Stage T step 1 runs on every
 ### stage_seq_values.py::values_from_bigwig
 Reads a public pair of GRCh38 bigWig tracks (per-CpG methylation level and read coverage, the form consortia such as BLUEPRINT release whole-genome bisulfite calls in) at each atlas site's GRCh38 position (the C of the CpG, or the next base where the caller reports the reverse strand), giving a value at each site for every reader but IAM-A, which needs molecules. Used by `run_sample.py --dev-seq-beta CALL.bw,COV.bw`.
 
+### stage_seq_values.py::plant_ends
+
+TESTS ONLY: a molecule file with known errors planted: at each molecule's outermost calls a methylated call read unmethylated or the reverse, at set rates, and optionally a change at every call wherever it sits (a change in the cell). For the self-calibration synthetic.
+
+### stage_seq_values.py::end_calls_from_pat
+
+From a molecule file, at every atlas site, the calls made at the outermost CpG of each molecule end, and how many were methylated. Counts only.
+
+### stage_seq_values.py::end_calls_from_pat.flush
+
+Inside end_calls_from_pat: adds the buffered end calls to the per-site counts.
+
 ### stage_seq_values.py::key
 Loads the frozen site key (`atlas/v2.1/sites_sequencing_key.parquet`: each IAM-Atlas v2.1 site's EPIC v1 probe name, hg19 position and CpG index
 in the .pat files' numbering) once, sorted by CpG index. Development (to-do step 40).
@@ -1403,6 +1415,14 @@ Development: Group-A per cell found, against the atlas alone. For each cell read
 on 2026-10-17 by Stage Q2, each sample against its own reference. The one command runs Stage Q only with `--site-table` or
 `--dev-iama-position`, and labels it development. It is kept so earlier records can be reproduced. Its text still uses the retired term
 "copy error"; what it counts is the held error described in section 9.
+
+### stage_groupa.py::compare_cells_sites
+
+Which cell changed between two groups, site by site. In one array every cell's row blends that cell with its neighbors in proportion to their DNA, so a change in one cell moves every row. At each site, each person's value is the sum of the cells found, each weighted by its share (the IAM-Deconvolver's), with each cell's own value in the series shared by both groups and each cell's difference between the groups estimated by least squares, as a mean difference is estimated. Each cell's difference is then read against its own atlas pattern at its own identity sites, each site weighted by its own measured noise in the series (the matched filter of the CMB maps); a 1 % loss of the cell's pattern reads +1 %. Healthy enters only from the atlas. Standard errors from resampling the people. Reads the saved values of run_sample.py --keep-values. Development.
+
+### stage_groupa.py::compare_cells_sites.est
+
+Inside compare_cells_sites: for a set of people (all of them, or one resample), the per-site least-squares solution and each cell's noise-weighted reading against its own atlas pattern at its own identity sites.
 
 ### stage_q_iam_a.py::positions
 Loads the frozen positions file (`iama_positions_v2.json`).
@@ -2049,6 +2069,10 @@ The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v
 ### stage_metaa_atlas.py::_flag
 The development flag on every atlas reading, naming the ruler used (IAM-Atlas v2.1 or the IAM Sequencing Atlas).
 
+### stage_metaa_atlas.py::self_calibrated
+
+Each sequencing library calibrated on its own calls, as each CMB detector was calibrated on sources in its own maps. Biology does not depend on where a CpG sits on a molecule, so the difference between a library's molecule-end calls and its inner calls at the same cell's identity sites is its chemistry alone, measured per side (a false T where the cell holds a mark, a false C where it holds none). The healthy expectation is the atlas's inner level moved by that measured end error at each site's own share of end calls. Nothing is cut and nothing is borrowed from other samples. Development (run_sample.py --dev-seq-self-cal).
+
 ### stage_metaa_atlas.py::floor_raise
 The probability that raises a library's floor from f to F: (F - f) / (1 - f).
 
@@ -2557,6 +2581,14 @@ seed 20261029; their difference is noise map 2, defined for a cell with one dono
 
 ### stage_seq_atlas.py::domain_disorder
 Each cell's mean pooled level, its disorder and the donor spread at the domains (`--build seq-domain-disorder`).
+
+### stage_seq_atlas.py::metaa_inner_of
+
+One cell's rows of the inner reference, by site.
+
+### stage_seq_atlas.py::metaa_inner_reference
+
+The IAM Sequencing Atlas's level at every Met-A identity site without the atlas's own molecule-end calls: its donors' calls after a one-call trim at each molecule end, and the end calls themselves (published minus trimmed). Built by run_sample.py --build seq-metaa-inner. Counts only. Development.
 
 ### stage_seq_atlas.py::merge_pieces
 Piece folders joined block by block into one folder, so each builder sees every cell (`--build seq-merge-pieces`).
