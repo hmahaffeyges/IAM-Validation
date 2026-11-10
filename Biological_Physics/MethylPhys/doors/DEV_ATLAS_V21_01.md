@@ -1919,3 +1919,14 @@ measured data, against the atlas's inner level, which carries no end calls), and
 compared on the same molecules. One row first as a canary.
 **Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
 synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
+
+**The second form's design does not remove a counted error (found on its first 11 rows; my design error, recorded before its last rows land).** A sequencing site's level is a few reads; an end error flips a whole read at a few sites rather than
+lowering every site a little. Subtracting each site's average expected error from its observed level is clipped away where no error fell and
+moves a hit site by about a hundredth where the error moved it by a third, so the disorder the errors add stays in (unplanted B cells: 1.29
+without, 1.28 with). The first form, the error put into the counting expectation, handles the reads exactly (B cells 1.29 to 1.00).
+**The self-calibration synthetic, third form (sealed before reading; development).** The same 15 rows, bars and scorer form
+(`selfcal_synthetic3.sh`, `selfcal_synthetic3_score.py`): Met-A as the observed disorder minus the disorder the library's measured end error
+adds, in expectation under counting, read against the atlas's inner level (run_sample.py --dev-seq-self-cal-disorder). Each read records all
+four forms on the same molecules. One row first as a canary.
+**Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
+synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.

@@ -282,6 +282,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     return rec
 
 
+SELFCAL_ENTROPY = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-disorder): the disorder the library's end error adds taken out of the observed disorder
 SELFCAL_DATA = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-data): the measured end error taken out of the library's own calls, not put into the expectation
 SELFCAL = None   # 2026-11-10 (run_sample.py --dev-seq-self-cal): dict(end_n=Series, end_m=Series) of the sample's molecule-end calls per probe
 
@@ -462,10 +463,17 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                     # site's side, read against the atlas's inner level (no end calls on either side)
                     _x_dat = (x[ok] - (_q - _p)).clip(1e-6, 1 - 1e-6); _e_in = (e[ok] + (_p - mu[ok])).clip(0.0, 1.0)
                     _he_dat = float(np.nanmean(expected_H_counts(_e_in.to_numpy(), _n))); _sc["A_data_side"] = round(float(_H(_x_dat).mean() / _he_dat), 5)
-                    if SELFCAL_DATA: he = _he_dat; _xr = _x_dat; _sc["applied"] = "taken out of this library's own calls, against the atlas's inner level mixed in this sample's shares"
+                    # 2026-11-10, after the second synthetic (a level shift cannot undo an error that flips whole reads at a few sites): the
+                    # disorder the library's end error adds, in expectation under counting (expectation with it minus without it), taken out of
+                    # the observed disorder; the rest read against the atlas's inner level
+                    _A_ent = float((_H(x[ok]).mean() - (_he_exp - _he_dat)) / _he_dat); _sc["A_disorder_side"] = round(_A_ent, 5)
+                    if SELFCAL_ENTROPY: he = _he_dat; _xr = None; _sc["applied"] = "the disorder the library's measured end error adds, in expectation under counting, taken out of the observed disorder; against the atlas's inner level"
+                    elif SELFCAL_DATA: he = _he_dat; _xr = _x_dat; _sc["applied"] = "taken out of this library's own calls, against the atlas's inner level mixed in this sample's shares"
                     else: he = _he_exp; _sc["applied"] = "to the mixed expectation at this cell's identity sites (exact when the sample is nearly all this cell)"
                 r["self_calibration"] = {k: v for k, v in _sc.items() if k not in ("q", "p")}
-        A = float(_H(_xr if _xr is not None else x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
+        A = float(_H(_xr if _xr is not None else x[ok]).mean() / he)
+        if SELFCAL_ENTROPY and (r.get("self_calibration") or {}).get("A_disorder_side") is not None: A = float(r["self_calibration"]["A_disorder_side"])
+        xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
         _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison
         r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5), expectation_rule=f"mixed over the cells with an atlas value; site kept at >= {MIX_COVER:.0%} of the shares",
