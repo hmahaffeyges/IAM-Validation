@@ -1898,3 +1898,17 @@ move is at least 0.02 (else the synthetic cannot see its plant). Bar 3: the unif
 80 % of its move without (all three).
 **Range of the data:** in the real libraries, end calls at marked identity sites read opposite 3.4 to 12.4 % and inner calls 2.9 to 7.4 %
 (18 spent libraries, `floor_position_identity_by_side.csv`); the synthetic plants end errors of 3 to 8 % on top of each library's own.
+
+**The self-calibration synthetic: not met (bar 1, 1 of 9); bar 2 informative; bar 3 met (3 of 3).** (`DEV_ATLAS_V21_01/seq_atlas/selfcal_synthetic_summary.txt`; 15 libraries
+read by the one command with --dev-seq-self-cal, one per row, scored by the sealed scorer.) Each library measures its own planted end error
+(marked-side end rate up by 0.046 to 0.071 for a planted 0.05 to 0.08), so the measurement holds; the shortfall is in how it enters Met-A.
+Planted end error removed (change in Met-A from the unplanted reading, without and with the calibration): B cells (found 89 %) 92 % and 97 %
+on the marked side and both sides, but on the unmarked side the plant moved Met-A +0.026 and the calibration -0.024 (overshot); CD4 T cells
+(found 36 %) 91 %, 95 % and the unmarked side within 0.01; CD8 T cells (found 32 %) 73 %, 88 % and 87 %. A uniform 2 % change was kept in
+all three (bar 3). The unplanted B library read 1.29 without and 1.00 with the calibration; CD4 0.954 and 0.942; CD8 0.798 and 0.766.
+What the pattern says: the found share does not explain the shortfall (CD4 at 36 % is absorbed nearly as well as B at 89 %); the library
+whose reading sits farthest from 1 (CD8, 0.77) is absorbed least. Met-A is a ratio of disorders, H of the library over H of the expectation,
+and an error added to both moves them by the slope of H at each one's own level; only when the library reads 1 do the two moves cancel.
+Correcting the expectation alone therefore cannot leave Met-A unchanged when the library departs from healthy, by construction. Next (a new
+synthetic, sealed before reading): remove the library's measured end error from its own calls (the measured response taken out of the
+measured data, against the atlas's inner level, which carries no end calls), and test it on the same 15 rows' bundles' conditions.

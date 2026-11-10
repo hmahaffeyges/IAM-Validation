@@ -1,0 +1,160 @@
+path,commits,kind,group
+Biological_Physics/MethylPhys/V21_RELEASE_CHECKLIST.md,306,hand-written document,MethylPhys top-level documents
+Biological_Physics/MethylPhys/RUNS.md,204,hand-written document,MethylPhys top-level documents
+Biological_Physics/MethylPhys/manual/decoder_text.md,188,hand-written document,manuals and SOP
+Biological_Physics/MethylPhys/LESSONS.md,79,hand-written document,MethylPhys top-level documents
+Biological_Physics/MethylPhys/V21_READINESS.md,38,hand-written document,MethylPhys top-level documents
+Biological_Physics/MethylPhys/INTRODUCTION.md,30,hand-written document,MethylPhys top-level documents
+docs/book/appendices/app_F_glossary.tex,25,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/boxruns/PRELAUNCH_CHECKLIST.md,24,hand-written document,other
+Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md,24,hand-written document,manuals and SOP
+docs/book/part6/p6_06_gauge.tex,20,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_24_status.tex,19,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_14_atlas.tex,17,hand-written document,book (already reviewed; verified by verify_book)
+development/WHITEBOARD_2026-10-15.md,16,hand-written document,working notes
+docs/book/part6/p6_00b_astrogenetics.tex,16,hand-written document,book (already reviewed; verified by verify_book)
+CANON/GLOSSARY.md,16,hand-written document,other
+website/art/out/examples/globe_healthy_blood.html,15,hand-written document,website
+docs/book/part6/p6_02_landauer.tex,13,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_19_chain.tex,12,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/paper/OUTLINE.md,12,hand-written document,other
+docs/book/part6/p6_09_cscore.tex,11,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_08_iama.tex,11,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part7/p7_08_one_gauge.tex,11,hand-written document,book (already reviewed; verified by verify_book)
+development/REPRODUCIBILITY_BACKLOG.md,11,hand-written document,working notes
+Biological_Physics/MethylPhys/atlas/README.md,10,hand-written document,other
+docs/book/part6/p6_01_bridge.tex,10,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md,10,hand-written document,manuals and SOP
+Biological_Physics/MethylPhys/CHAIN_WORKFLOW_DRAFT.md,9,hand-written document,working notes
+docs/book/main.tex,9,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_14c_seq_atlas.tex,9,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/appendices/app_N_notation.tex,8,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_16a_skytools.tex,8,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_16_sky.tex,8,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/verification/verify_book_output.txt,8,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md,8,hand-written document,manuals and SOP
+docs/book/part7/p7_09_open.tex,7,hand-written document,book (already reviewed; verified by verify_book)
+development/TEST_PLAN_TRACKS_2026-10-17.md,7,hand-written document,working notes
+docs/book/part7/p7_11_status_all.tex,7,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/verification/VERIFY_BOOK_INVENTORY.md,7,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_10_temperature.tex,7,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_20c_reproduced.tex,7,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_07_meta.tex,7,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_20_report.tex,7,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/RESEARCHER_PACKAGE.md,6,hand-written document,MethylPhys top-level documents
+docs/book/front/p0_preface.tex,6,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part7/p7_08_synthesis.tex,5,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_18_discipline.tex,5,hand-written document,book (already reviewed; verified by verify_book)
+development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md,5,hand-written document,working notes
+docs/book/part6/p6_05_floorbreach.tex,5,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/CHAIN_WORKFLOW_OUTLINE.md,5,hand-written document,MethylPhys top-level documents
+docs/book/part6/p6_20b_walkthrough.tex,5,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/manual/OM_v4_chain.md,5,hand-written document,manuals and SOP
+docs/book/part6/p6_11_translation.tex,5,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/deposit/DEPOSIT_MANIFEST.txt,4,hand-written document,other
+docs/book/appendices/app_C2_reproduce_cells.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/START_HERE.md,4,hand-written document,MethylPhys top-level documents
+docs/book/appendices/app_I_provenance.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part7/p7_09_reach.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/paper/METHODS_DRAFT.md,4,hand-written document,working notes
+docs/book/part6/p6_16c_information_sphere.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_16b_explorer.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/16a_skytools_map79.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_09b_groupa.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part7/p7_07_predictions.tex,4,hand-written document,book (already reviewed; verified by verify_book)
+development/bit_paper/OUTLINE.md,3,hand-written document,working notes
+Biological_Physics/MethylPhys/NOT_CHAIN_VERIFIED.md,3,hand-written document,MethylPhys top-level documents
+development/dark_sector_2026-10-16/bit_ledger_output.txt,3,hand-written document,working notes
+development/LIMITS_STUDY_2026-10-17.md,3,hand-written document,working notes
+docs/book/part6/p6_23_reach.tex,3,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/sop/README.md,3,hand-written document,manuals and SOP
+Biological_Physics/MethylPhys/manual/README.md,3,hand-written document,manuals and SOP
+docs/book/part6/p6_17_serial.tex,3,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/paper/build/VALUES.md,3,hand-written document,other
+docs/book/front/p0_giants.tex,3,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/paper/build/OUTLINE.md,3,hand-written document,other
+docs/book/part2/p2_03_theory.tex,3,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_13_separation.tex,3,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_04_ledgers.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/appendices/app_S_saturation.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part3/p3_07_saturation.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part3/p3_01b_bh_information.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part7/p7_10_conclusion.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_22_leukocyte.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+development/bit_paper/PIECES.md,2,hand-written document,working notes
+Biological_Physics/MethylPhys/atlas/v2/README.md,2,hand-written document,other
+docs/book/part7/p7_05b_virial_partners.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part2/p2_13b_baryon_chain.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/front/p0_abstract.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/whiteboard/2026-10-14_coffee_and_whiteboard.md,2,hand-written document,other
+fundraiser/GOFUNDME_STORY_LIVE.txt,2,hand-written document,other
+docs/book/appendices/app_A2_frozen_values.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/verification/scripts/BETA_GAMMA_CURRENT.md,2,hand-written document,other
+website/art/out/information_sphere.html,2,hand-written document,website
+Biological_Physics/MethylPhys/DATA_WE_NEED.md,2,hand-written document,MethylPhys top-level documents
+docs/book/part5/p5_10_qubit_platforms.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part2/p2_05_dual_sector_note.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part2/p2_10_dual_sector_validation.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+CANON/physics_root.md,2,hand-written document,other
+CANON/data_register_audit.md,2,hand-written document,other
+docs/book/appendices/app_G_predictions_register.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_12_instrument.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/MethylPhys/paper/build/METHODS_DRAFT.md,2,hand-written document,working notes
+docs/book/preamble.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_15_identity.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part1/p1_02_iams_law.tex,2,hand-written document,book (already reviewed; verified by verify_book)
+development/TEST_PLAN_TRACKS_2026-10-18.md,1,hand-written document,working notes
+development/loose_share_2026-10-15/own_reads_opensea_synthetic.txt,1,hand-written document,working notes
+docs/book/part7/p7_02_exploratory.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part6/p6_03_surface.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+development/outreach/EXPERT_QUESTIONS_REFERENCE.md,1,hand-written document,working notes
+docs/book/part4/p4_22_electroweak.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part4/p4_22b_higgs_record.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part4/p4_21_entanglement_records.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part4/p4_15a_lepton_koide.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part4/p4_06_nonlocality.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+development/loose_share_2026-10-15/genome_samples.txt,1,hand-written document,working notes
+development/loose_share_2026-10-15/run2/genome_samples.txt,1,hand-written document,working notes
+development/sims/breast_tissue_02_output.txt,1,hand-written document,working notes
+development/loose_share_2026-10-15/own_reads_loose_synthetic.txt,1,hand-written document,working notes
+development/island_eraser_2026-10-15/island_eraser_synthetic.txt,1,hand-written document,working notes
+development/PHYSICS_GAMEPLAN.md,1,hand-written document,working notes
+Biological_Physics/MethylPhys/boxruns/ledger_guard_test_output.txt,1,hand-written document,other
+CANON/reference_sets.txt,1,hand-written document,other
+docs/book/part2/p2_02_virial.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+development/sims/breast_tissue_01_output.txt,1,hand-written document,working notes
+Biological_Physics/MethylPhys/boxruns/run9_fp2/synth_align_output.txt,1,hand-written document,other
+development/sims/writer_context_01_output.txt,1,hand-written document,working notes
+development/sims/writer_01_output.txt,1,hand-written document,working notes
+development/sims/hammer_01_output.txt,1,hand-written document,working notes
+development/sims/methionine_01_output.txt,1,hand-written document,working notes
+development/sims/fingerprint_power_02_output.txt,1,hand-written document,working notes
+docs/book/part2/p2_16_survey_predictions.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+Biological_Physics/Landauer_Metrology/verify_landauer_metrology_output.txt,1,hand-written document,other
+.github/ISSUE_TEMPLATE/report_a_book_error.md,1,hand-written document,other
+CANON/todo_audit_2026-11-05.md,1,hand-written document,other
+docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/verification/FOR_AUTHOR.md,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/verification/REVIEWED_ACCURATE.md,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part2/p2_04_dualsector_chains.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/part2/p2_09_sector_tension.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/verification/scripts/verify_beta_gamma_output.txt,1,hand-written document,other
+docs/verification/scripts/verify_beta_gamma_current_output.txt,1,hand-written document,other
+Biological_Physics/MethylPhys/deposit/zenodo_seq_atlas_v12_README_noise.md,1,hand-written document,other
+Biological_Physics/MethylPhys/deposit/zenodo_mk_v11_README_atlas.md,1,hand-written document,other
+Biological_Physics/MethylPhys/deposit/zenodo_mk_v11_README_globe.md,1,hand-written document,other
+Biological_Physics/MethylPhys/deposit/zenodo_globe_README.md,1,hand-written document,other
+Biological_Physics/MethylPhys/paper/RESULTS_DRAFT.md,1,hand-written document,working notes
+Biological_Physics/MethylPhys/boxruns/run2/JOBS.md,1,hand-written document,other
+Biological_Physics/MethylPhys/paper/build/RESULTS_DRAFT.md,1,hand-written document,working notes
+Biological_Physics/MethylPhys/deposit/zenodo_seq_atlas_SHA256.txt,1,hand-written document,other
+Biological_Physics/MethylPhys/deposit/README.md,1,hand-written document,other
+docs/book/part6/p6_metaa_healthy_line.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/book/front/p0_how_to_read.tex,1,hand-written document,book (already reviewed; verified by verify_book)
+docs/verification/README.md,1,hand-written document,other
+docs/verification/scripts/verify_iams_law_derivations_output.txt,1,hand-written document,other
+docs/verification/theory/IAM_LAW_CHECK.md,1,hand-written document,other
+docs/verification/scripts/verify_astrogenetics_book_output.txt,1,hand-written document,other
+docs/verification/scripts/verify_cell_papers_output.txt,1,hand-written document,other
+Biological_Physics/MethylPhys/boxruns/run1/JOBS.md,1,hand-written document,other
+development/sims/sam_lever_02_output.txt,1,hand-written document,working notes
