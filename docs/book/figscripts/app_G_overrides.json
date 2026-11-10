@@ -46,6 +46,10 @@
    [
     "falsified if CMB-S4 (or any data) detects",
     "falsified if any data detects"
+   ],
+   [
+    "current bound beta_gamma < 0.0052 (95 %), beta_gamma/beta_m < 0.033",
+    "current bound beta_gamma < 0.0080 (95 %, Planck with ACT DR6), beta_gamma/beta_m < 0.051"
    ]
   ]
  },

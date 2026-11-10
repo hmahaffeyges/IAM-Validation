@@ -7985,7 +7985,7 @@ def check_3310():
     return locals()
 
 @check(label='ch:theory:L1067', chapter='ch:theory', part=2, title='beta_gamma 95 % bound (committed output) over beta_m, per cent',
-       file='part2/p2_03_theory', line=1067, status='calc', kind='num', printed='3.3\\%', tol=0)
+       file='part2/p2_03_theory', line=1067, status='calc', kind='num', printed='5.1\\%', tol=0)
 def check_0524():
     'beta_gamma 95 % bound (committed output) over beta_m, per cent. Book line 1067, printed 3.3\\%.'
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -7993,7 +7993,7 @@ def check_0524():
     return locals()
 
 @check(label='ch:theory:L1067:0.0052', chapter='ch:theory', part=2, title='beta_gamma 95 % bound (committed output)',
-       file='part2/p2_03_theory', line=1067, status='measured', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       file='part2/p2_03_theory', line=1067, status='measured', kind='file', printed='0.0080', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
 def check_3311():
     'Acoustic-scale bound on the photon coupling, beta_gamma < 0.0052 (95 %, Delta chi2 = 4), read from the committed output of verify_beta_gamma.py. Book line 1067 (the inventory row carried the earlier 0.0039; the book now prints 0.0052).'
@@ -10149,7 +10149,7 @@ def check_0778():
     return locals()
 
 @check(label='ch:dsnote:L111:0.033', chapter='ch:dsnote', part=2, title='sector ratio beta_gamma/beta_m from the committed 95 % bound',
-       file='part2/p2_05_dual_sector_note', line=111, status='calc', kind='num', printed='0.033', tol=0)
+       file='part2/p2_05_dual_sector_note', line=111, status='calc', kind='num', printed='0.051', tol=0)
 def check_0779():
     'sector ratio beta_gamma/beta_m from the committed 95 % bound. Book line 111, printed 0.033.'
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -10157,7 +10157,7 @@ def check_0779():
     return locals()
 
 @check(label='ch:dsnote:L112', chapter='ch:dsnote', part=2, title="'at least 30x': beta_m/beta_gamma bound, whole multiples",
-       file='part2/p2_05_dual_sector_note', line=112, status='calc', kind='num', printed='30', tol=0)
+       file='part2/p2_05_dual_sector_note', line=112, status='calc', kind='num', printed='19', tol=0)
 def check_0780():
     "'at least 30x': beta_m/beta_gamma bound, whole multiples. Book line 112, printed 30."
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -10370,7 +10370,7 @@ def check_0798():
     return locals()
 
 @check(label='ch:dsnote:L135:0.033', chapter='ch:dsnote', part=2, title='sector ratio beta_gamma/beta_m from the committed 95 % bound',
-       file='part2/p2_05_dual_sector_note', line=135, status='calc', kind='num', printed='0.033', tol=0)
+       file='part2/p2_05_dual_sector_note', line=135, status='calc', kind='num', printed='0.051', tol=0)
 def check_0799():
     'sector ratio beta_gamma/beta_m from the committed 95 % bound. Book line 135, printed 0.033.'
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -10402,7 +10402,7 @@ def check_0802():
     return locals()
 
 @check(label='ch:dsnote:L145:0.033', chapter='ch:dsnote', part=2, title='sector ratio beta_gamma/beta_m from the committed 95 % bound',
-       file='part2/p2_05_dual_sector_note', line=145, status='calc', kind='num', printed='0.033', tol=0)
+       file='part2/p2_05_dual_sector_note', line=145, status='calc', kind='num', printed='0.051', tol=0)
 def check_0803():
     'sector ratio beta_gamma/beta_m from the committed 95 % bound. Book line 145, printed 0.033.'
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -10823,7 +10823,7 @@ def check_3363():
     return locals()
 
 @check(label='ch:dsnote:L213:0.0052', chapter='ch:dsnote', part=2, title='beta_gamma 95 % bound in the falsifier table (committed output)',
-       file='part2/p2_05_dual_sector_note', line=213, status='calc', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       file='part2/p2_05_dual_sector_note', line=213, status='calc', kind='file', printed='0.0080', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
 def check_3364():
     'beta_gamma < 0.0052 (95 %, Delta chi2 = 4 on theta_s), committed output of verify_beta_gamma.py. Book line 213 (the inventory row carried the earlier 0.0039; the book now prints 0.0052).'
@@ -10849,7 +10849,7 @@ def check_3365():
     return locals()
 
 @check(label='ch:dsnote:L236', chapter='ch:dsnote', part=2, title='beta_gamma 95 % bound in the summary (committed output)',
-       file='part2/p2_05_dual_sector_note', line=236, status='record', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       file='part2/p2_05_dual_sector_note', line=236, status='record', kind='file', printed='0.0080', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
 def check_3366():
     'beta_gamma < 0.0052 (95 %), committed output of verify_beta_gamma.py. Book line 236 (the inventory row carried the earlier 0.0039; the book now prints 0.0052).'
@@ -13057,7 +13057,7 @@ def _b02_bg_bound(lev=4.0):
     return _B02_DSV[('bg', lev)]
 
 @check(label='ch:dsvalidation:L39', chapter='ch:dsvalidation', part=2, title='sector ratio from the committed 95 % bound',
-       file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='0.033', tol=0)
+       file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='0.051', tol=0)
 def check_1059():
     'sector ratio from the committed 95 % bound. Book line 39, printed 0.033.'
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -13065,7 +13065,7 @@ def check_1059():
     return locals()
 
 @check(label='ch:dsvalidation:L39:30', chapter='ch:dsvalidation', part=2, title="'at least 30x': beta_m/beta_gamma bound, whole multiples",
-       file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='30', tol=0)
+       file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='19', tol=0)
 def check_1060():
     "'at least 30x': beta_m/beta_gamma bound, whole multiples. Book line 39, printed 30."
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -13073,7 +13073,7 @@ def check_1060():
     return locals()
 
 @check(label='ch:dsvalidation:L39:0.0052', chapter='ch:dsvalidation', part=2, title='beta_gamma 95 % bound from the acoustic angle',
-       file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='0.0052', tol=0.0)
+       file='part2/p2_10_dual_sector_validation', line=39, status='calc', kind='num', printed='0.0080', tol=0.0)
 def check_3442():
     'beta_gamma < 0.0052 (95 %): Delta chi2 = 4 on theta_s with r_* fixed, every input from one Planck 2018 fit (theta_s_fixed_rs; port of verify_beta_gamma.py). Book line 39, printed 0.0052 (the inventory row carried the superseded 0.0039).'
     value = _b02_bg_bound(4.0)
@@ -13113,7 +13113,7 @@ def check_1063():
     return locals()
 
 @check(label='ch:dsvalidation:L71', chapter='ch:dsvalidation', part=2, title='beta_gamma 95 % bound, Eq. dsv_bg',
-       file='part2/p2_10_dual_sector_validation', line=71, status='calc', kind='num', printed='0.0052', tol=0.0)
+       file='part2/p2_10_dual_sector_validation', line=71, status='calc', kind='num', printed='0.0080', tol=0.0)
 def check_3443():
     'Eq. dsv_bg, beta_gamma < 0.0052 (95 %, acoustic scale), recomputed as Delta chi2 = 4 on theta_s at fixed r_* (one Planck 2018 fit). Book line 71, printed 0.0052 (the inventory row carried the superseded 0.0039).'
     value = _b02_bg_bound(4.0)
@@ -13532,7 +13532,7 @@ def check_1093():
     return locals()
 
 @check(label='ch:dsvalidation:L443', chapter='ch:dsvalidation', part=2, title='sector ratio from the committed 95 % bound',
-       file='part2/p2_10_dual_sector_validation', line=443, status='calc', kind='num', printed='<0.033', tol=0)
+       file='part2/p2_10_dual_sector_validation', line=443, status='calc', kind='num', printed='<0.051', tol=0)
 def check_1094():
     'sector ratio from the committed 95 % bound. Book line 443, printed <0.033.'
     bg=float(re.search(r'beta_g < ([\d.]+) \(95', file_text('docs/verification/scripts/verify_beta_gamma_output.txt')).group(1))  # 95 % bound, committed output
@@ -13540,7 +13540,7 @@ def check_1094():
     return locals()
 
 @check(label='ch:dsvalidation:L456', chapter='ch:dsvalidation', part=2, title='Table dsv_observables: beta_gamma bound',
-       file='part2/p2_10_dual_sector_validation', line=456, status='calc', kind='num', printed='0.0052', tol=0.0)
+       file='part2/p2_10_dual_sector_validation', line=456, status='calc', kind='num', printed='0.0080', tol=0.0)
 def check_3468():
     'Table dsv_observables, CMB theta_s row, beta_gamma < 0.0052 (95 %), recomputed as at line 71. Book line 456 (the inventory row carried the superseded 0.0039).'
     value = _b02_bg_bound(4.0)
@@ -40208,7 +40208,7 @@ def check_4776():
     value = _b17_st(r'MGS\s+z ([\d.]+):')[0]
     return locals()
 
-@check(label='app:glossary:L24:0.0052', title='beta_gamma 95 % bound from the acoustic scale', line=24, status='observed', kind='file', printed='0.0052', tol=0.0,
+@check(label='app:glossary:L24:0.0052', title='beta_gamma 95 % bound from the acoustic scale', line=24, status='observed', kind='file', printed='0.0080', tol=0.0,
        source='docs/verification/scripts/verify_beta_gamma_output.txt', heavy=True, rerun=_B17_BG_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4777():
     'The CMB acoustic scale bounds the photon coupling at beta_gamma < 0.0052 (95 %, Delta chi2 = 4), read from the committed output of verify_beta_gamma.py. Book line 24, printed 0.0052 (the inventory row recorded the older 0.0039; the book now prints 0.0052).'
@@ -40368,14 +40368,14 @@ def check_4789():
 
 # ---------------------------------------------------------------- L88-L156
 
-@check(label='app:glossary:L88:0.0052', title='beta_gamma 95 % bound', line=88, status='observed', kind='file', printed='0.0052', tol=0.0,
+@check(label='app:glossary:L88:0.0052', title='beta_gamma 95 % bound', line=88, status='observed', kind='file', printed='0.0080', tol=0.0,
        source='docs/verification/scripts/verify_beta_gamma_output.txt', heavy=True, rerun=_B17_BG_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4790():
     'beta_gamma < 0.0052 (95 %), read from the committed output of verify_beta_gamma.py. Book line 88, printed 0.0052 (the inventory row recorded the older 0.0039).'
     value = _b17_bg95()
     return locals()
 
-@check(label='app:glossary:L88:3.3', title='beta_gamma bound over beta_m, per cent', line=88, status='observed', kind='file', printed='3.3', tol=0.0,
+@check(label='app:glossary:L88:3.3', title='beta_gamma bound over beta_m, per cent', line=88, status='observed', kind='file', printed='5.1', tol=0.0,
        source='docs/verification/scripts/verify_beta_gamma_output.txt', heavy=True, rerun=_B17_BG_RERUN, chapter='app:glossary', part=8, file='appendices/app_F_glossary')
 def check_4791():
     'Under 3.3 % of beta_m: the 95 % bound on beta_gamma (committed output) over beta_m = Omega_m/2 (canon), in per cent. Book line 88, printed 3.3 (the inventory row recorded the older 2.5).'
@@ -42110,7 +42110,7 @@ def check_4969():
     return locals()
 
 @check(label='app:register:L39:0.0052', chapter='app:register', part=8, title='COS-016: photon-coupling bound beta_gamma, 95 %',
-       file='appendices/app_G_predictions_register', line=39, status='openprob', kind='file', printed='0.0052', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       file='appendices/app_G_predictions_register', line=39, status='openprob', kind='file', printed='0.0080', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
 def check_4970():
     'COS-016: current bound beta_gamma < 0.0052 (95 %) from the acoustic scale, read from the committed output of verify_beta_gamma.py. Book line 39; the inventory row carried the earlier 0.0039, the book now prints 0.0052.'
@@ -42118,7 +42118,7 @@ def check_4970():
     return locals()
 
 @check(label='app:register:L39:0.033', chapter='app:register', part=8, title='COS-016: beta_gamma bound over beta_m',
-       file='appendices/app_G_predictions_register', line=39, status='openprob', kind='file', printed='0.033', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
+       file='appendices/app_G_predictions_register', line=39, status='openprob', kind='file', printed='0.051', tol=0.0, source='docs/verification/scripts/verify_beta_gamma_output.txt',
        heavy=True, rerun='python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt')
 def check_4971():
     'COS-016: beta_gamma/beta_m < 0.033: the 95 % bound of verify_beta_gamma.py divided by beta_m = Omega_m/2 (CANON). Book line 39; the inventory row carried the earlier 0.025, the book now prints 0.033.'

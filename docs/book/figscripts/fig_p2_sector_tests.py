@@ -32,18 +32,22 @@ def theta(b):
 t0 = theta(0.0); c0 = ((t0 - obs) / err)**2
 dchi = lambda b: ((theta(b) - obs) / err)**2 - c0
 lim = {lev: brentq(lambda b: dchi(b) - lev, 1e-6, 0.05) for lev in (1, 4, 9)}
-bg = np.linspace(0, 0.009, 91); prof = np.array([dchi(b) for b in bg])
+bg = np.linspace(0, 0.012, 121); prof = np.array([dchi(b) for b in bg])
+# 2026-11-09: the bound quoted is shift-only (from the model's own beta_g = 0 value), which does not depend on the baseline's +1.4 sigma miss
+sh2 = lambda b: ((theta(b) - t0) / err)**2; shp = np.array([sh2(b) for b in bg]); lim_s = brentq(lambda b: sh2(b) - 4, 1e-6, 0.05)
 bb = np.linspace(0, 0.17, 69); shift = np.array([(theta(b) - t0) / err for b in bb])
 s_m = (theta(bm) - t0) / err; p_m = 100 * (theta(bm) / t0 - 1)
 print(f"beta_g < {lim[1]:.4f} (68 %), {lim[4]:.4f} (95 %), {lim[9]:.4f} (99.7 %); ratio to beta_m {lim[4]/bm:.3f}; "
       f"beta_m on photon paths: {p_m:+.3f} % = {s_m:.1f} sigma")
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(S.TEXTW, 2.6), gridspec_kw=dict(wspace=0.36))
-a1.plot(bg, prof, color=S.DATA, lw=1.5)
+a1.plot(bg, shp, color=S.DATA, lw=1.5, label="shift from $\\beta_\\gamma=0$")
+a1.plot(bg, prof, color=S.GR, lw=0.9, ls="--", label="against measured $\\theta_s$")
+a1.legend(fontsize=6, frameon=False, loc="upper left")
 for lev, ls in ((1, ":"), (4, "--"), (9, ":")):
     a1.axhline(lev, color=S.LIGHT, lw=0.7, ls=ls)
-a1.axvline(lim[4], color=S.DATA, lw=0.8, ls="--")
-a1.annotate(f"95 %: $\\beta_\\gamma$ < {lim[4]:.4f}", (lim[4], 4), xytext=(6, -12), textcoords="offset points", fontsize=7, color=S.DATA, va="top")
-a1.set_xlim(0, 0.009); a1.set_ylim(0, 14)
+a1.axvline(lim_s, color=S.DATA, lw=0.8, ls="--")
+a1.text(lim_s - 0.0003, 12.8, f"2$\\sigma$ shift:\n$\\beta_\\gamma$ = {lim_s:.4f}", fontsize=7, color=S.DATA, ha="right", va="top")
+a1.set_xlim(0, 0.012); a1.set_ylim(0, 14)
 a1.set_xlabel("photon coupling $\\beta_\\gamma$"); a1.set_ylabel("$\\Delta\\chi^2$ (acoustic scale)")
 a1.set_title("Light is not coupled")
 S.panel_letter(a1, "a", dx=-0.16)

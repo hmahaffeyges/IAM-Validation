@@ -1,8 +1,10 @@
 1. mcmc_final_iam.py theta_s(beta_g=0) as written = -0.01024947  (-6665 sigma) -> the 1.4e-6 bound is an artefact
-2. corrected theta_s(beta_g=0) = 0.01041524 (+1.4 sigma: fixed r_s, simplified)
-   beta_g < 0.0016 (68 %, Delta chi2 = 1)
-   beta_g < 0.0052 (95 %, Delta chi2 = 4)
-   beta_g < 0.0096 (99.7 %, Delta chi2 = 9)
-   beta_g / beta_m < 0.033 (95 %)
+2. QUOTED: beta_g < 0.0080 (95 %, shift-only, P-ACT: Planck with ACT DR6, CMB only)
+   beta_g / beta_m < 0.051 (shift-only, P-ACT); photons couple at least 19.5 times more weakly than matter
+2b. Planck 2018: theta_s(beta_g=0) = 0.01041524 (+1.4 sigma: fixed r_s, simplified)
+   profile (depends on the baseline miss): beta_g at Delta chi2 = 1: 0.0016 (68 %)
+   profile (depends on the baseline miss): beta_g at Delta chi2 = 4: 0.0052 (95 %)
+   profile (depends on the baseline miss): beta_g at Delta chi2 = 9: 0.0096 (99.7 %)
+   Planck 2018 shift-only: beta_g 0.0099 at a 2 sigma shift; ratio to beta_m 0.063
 3. beta = 0.1800 on photon paths: theta_s shift +1.018 % = 34.2 sigma at Planck precision
 3. beta = 0.1577 on photon paths: theta_s shift +0.898 % = 30.2 sigma at Planck precision

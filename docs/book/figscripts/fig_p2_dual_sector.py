@@ -110,7 +110,7 @@ def box(x, y, w, h, title, lines, col):
     for i, l in enumerate(lines):
         ax.text(x + 0.15, y + h - 0.62 - 0.33 * i, l, ha="left", va="top", fontsize=6)
 box(0.2, 3.1, 4.6, 2.7, "Photon sector (null worldlines)",
-    [r"no proper time: $d\tau=0$, no records written", r"$\beta_\gamma<0.0052$ (95 %): acoustic scale",
+    [r"no proper time: $d\tau=0$, no records written", r"$\beta_\gamma<0.0080$ (95 %): acoustic scale",
      r"$\beta_\gamma/\beta_m<0.033$", r"$H_0=67.16\pm0.47$ (Level 2 chain)", r"$\Sigma=1$: lensing and $\theta_s$ unmodified"], S.GR)
 box(5.2, 3.1, 4.6, 2.7, "Matter sector (timelike worldlines)",
     [r"records written: $S_{\rm info}>0$ iff $d\tau>0$", r"$\beta_m=\Omega_m/2=0.15765$, fixed",
