@@ -1,0 +1,8 @@
+ACT DR6 alone: theta_*(beta_g=0) = 0.01041842 (+3.5 sigma, fixed r_*) | beta_g < 0.0007 (68 %), < 0.0026 (95 %), beta_g/beta_m < 0.016 (95 %)
+   shift-only: beta_g < 0.0100 (2 sigma shift), beta_g/beta_m < 0.059
+Planck (in the ACT DR6 table): theta_*(beta_g=0) = 0.01041416 (+1.1 sigma, fixed r_*) | beta_g < 0.0020 (68 %), < 0.0060 (95 %), beta_g/beta_m < 0.038 (95 %)
+   shift-only: beta_g < 0.0099 (2 sigma shift), beta_g/beta_m < 0.063
+W-ACT (WMAP + ACT DR6): theta_*(beta_g=0) = 0.01041484 (+2.2 sigma, fixed r_*) | beta_g < 0.0010 (68 %), < 0.0036 (95 %), beta_g/beta_m < 0.022 (95 %)
+   shift-only: beta_g < 0.0093 (2 sigma shift), beta_g/beta_m < 0.057
+P-ACT (Planck + ACT DR6, CMB only): theta_*(beta_g=0) = 0.01041324 (+1.5 sigma, fixed r_*) | beta_g < 0.0012 (68 %), < 0.0039 (95 %), beta_g/beta_m < 0.025 (95 %)
+   shift-only: beta_g < 0.0080 (2 sigma shift), beta_g/beta_m < 0.051
