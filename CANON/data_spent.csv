@@ -268,3 +268,9 @@ GSE329728,spent (test),"PROC-DNMT-01 part B, IAM-A on EM-seq molecules (Biologic
 GSE245832,spent (development),"DEV-ATLAS-V21-01: a second outside laboratory's healthy CD8 T cells, 12 libraries (lab2_cd8_samples.csv)",GEO 2026-11-04
 GSE144691,partly spent,"DEV-METAA-ATLAS-CURVE-01: its healthy libraries 383224-383227 and 647759-647762 are GSE98837's eight (spent), deposited again; the five other healthy libraries and the patients unread",GEO 2026-11-04
 GSE86340,spent (test),"DEV-ATLAS-V21-01: the Johns Hopkins healthy CD4 T-cell test (six donors, seq_atlas/outside_data/jhu_cd4_samples.csv); its tumor and normal tissue pairs unread",GEO 2026-11-05
+GSE110607,reserved,granulocytes read in COMMISSION-METAA-SORTED-01; monocytes reserved for COMMISSION-MONO450-01,2026-11-09
+GSE318669,spent,sorted cells read in COMMISSION-METAA-SORTED-01 and the lymphocyte diagnostic,2026-11-09
+GSE201752,spent,monocytes read in COMMISSION-METAA-SORTED-01,2026-11-09
+GSE189426,spent,monocytes read in COMMISSION-METAA-SORTED-01,2026-11-09
+GSE196071,spent,monocytes read in COMMISSION-METAA-SORTED-01,2026-11-09
+GSE131627,reserved,healthy-control monocytes reserved for COMMISSION-MONO450-01,2026-11-09
