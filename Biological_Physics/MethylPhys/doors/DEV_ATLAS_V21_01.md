@@ -1943,11 +1943,12 @@ run_sample.py --dev-seq-self-cal-mix). Each read records all five forms on the s
 **Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
 synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
 
-**The self-calibration synthetic, fourth form, read: not met (11 of 15 rows; the four planted CD4 rows stopped unread).** Bar 1 (planted end errors absorbed, Met-A moves at most 0.01): CD8 T cells (32 % of
+**The self-calibration synthetic, fourth form, read: not met (13 of 15 rows; two planted CD4 rows stopped unread).** Bar 1 (planted end errors absorbed, Met-A moves at most 0.01): CD8 T cells (32 % of
 their sample) marked side +0.107, unmarked +0.012, both +0.119; B cells (89 %) unmarked -0.018, both -0.011. Without the calibration the same
 plants moved Met-A +0.375, +0.120, +0.529 (CD8) and +0.026, +0.441 (B). Bar 3 (a uniform 2 % change kept): 88 % (CD8) and 84 % (B), met.
-The four planted CD4 rows did not finish in this form or the third (their machines stopped after 80 minutes with no reading); the verdict
-does not depend on them. **What all four forms share:** each removes most of the planted error (about 75 to 98 %), none removes enough, and
+CD4 T cells (36 %): unmarked side +0.014 (without the calibration +0.058); the uniform change kept 100 %. Correction: the CD4 rows were slow,
+not hung. Two finished; the marked-side and both-sides CD4 rows were stopped by hand after 80 minutes, before they finished, which was a
+mistake in reading their logs, and they were not read. The verdict does not depend on them. **What all four forms share:** each removes most of the planted error (about 75 to 98 %), none removes enough, and
 the remainder is largest where the found cell is a minority of its sample and on the marked side. Modelling the mix (fourth form) did not
 change that, and converting the measured excess to a per-call rate accounts for about 4 %. Next: compare, site by site, the change each plant
 made with the change the correction predicts, on molecules already aligned, before any fifth form.
