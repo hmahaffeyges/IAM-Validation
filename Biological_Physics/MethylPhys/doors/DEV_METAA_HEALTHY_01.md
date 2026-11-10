@@ -1411,3 +1411,11 @@ atlas's own laboratories too. Ruled out on the atlas itself: the probe-design mi
 for every cell (design II 0.99 to 1.00; half held high at 0.947, half low at 0.054 to 0.055), so the array's own response cannot single
 out lymphocytes. Next: GSE318669's sorted lymphocytes (a laboratory the atlas never held; CD4, CD8, CD19, CD56;
 `lymph_newlab_GSE318669_samples.csv`), read by the one command as a diagnostic, not a commissioning test.
+
+**GSE318669's sorted lymphocytes (a second laboratory the atlas never held; diagnostic, nothing scored).** (`lymph_newlab_GSE318669_rows.csv`; 35 arrays, mostly EPIC v1.)
+Median Met-A by kind: b cells 0.9609 (3 of 9 Normal), cd4 t cells 0.9669 (5 of 9 Normal), cd8 t cells 0.9676 (5 of 8 Normal), nk cells 0.9806 (0 of 9 Normal). So both laboratories the atlas never held read
+their lymphocytes about 3 to 5 percent below 1, in the same direction, while the atlas's own two lymphocyte laboratories read 1. A
+reading low in every independent instrument is the reference's offset, not one laboratory's artifact and not noise: widening the
+width to take these in would hide a bias. The lymphocyte columns and widths rest on two laboratories; the fix is more laboratories in
+the atlas itself (an add-on version), with one laboratory held back for the sealed test. Until then each lymphocyte row stays
+development, flagged as resting on two laboratories (the widths settle at about five, measured on neutrophils and monocytes).

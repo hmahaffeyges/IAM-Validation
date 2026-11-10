@@ -1,0 +1,36 @@
+gsm,kind,smoker,plat,top,share,met_a,state
+GSM9500254,b cells,no,EPIC_v1,b cells,0.9925,0.95125,below Normal
+GSM9500255,b cells,no,EPIC_v1,b cells,0.8547,0.95617,below Normal
+GSM9500256,b cells,no,EPIC_v1,b cells,0.7918,0.96245,below Normal
+GSM9500257,b cells,yes,EPIC_v1,b cells,0.7247,0.93342,below Normal
+GSM9500258,b cells,yes,EPIC_v1,b cells,0.5343,0.96094,below Normal
+GSM9500259,b cells,yes,EPIC_v1,memory b cells,0.5026,0.94802,no healthy width measured at 50.3 % of the sample (measured where this cell held 91 % or more)
+GSM9500260,b cells,yes,EPIC_v1,b cells,0.6696,0.98602,Normal
+GSM9500261,b cells,yes,HM450K,b cells,0.9468,1.01459,Normal
+GSM9500262,cd4 t cells,no,EPIC_v1,cd4 t cells,0.8416,0.94868,below Normal
+GSM9500263,cd4 t cells,no,EPIC_v1,cd4 t cells,0.9611,0.97335,Normal
+GSM9500264,cd4 t cells,no,EPIC_v1,cd4 t cells,0.9952,0.97171,Normal
+GSM9500265,cd4 t cells,yes,EPIC_v1,cd4 t cells,0.5318,0.94287,below Normal
+GSM9500266,cd4 t cells,yes,EPIC_v1,cd4 t cells,0.7888,0.94706,below Normal
+GSM9500267,cd4 t cells,yes,EPIC_v1,cd4 t cells,0.6479,0.95156,below Normal
+GSM9500268,cd4 t cells,yes,EPIC_v1,cd4 t cells,0.596,0.96688,Normal
+GSM9500269,cd4 t cells,yes,HM450K,cd4 t cells,0.9846,1.03986,Normal
+GSM9500270,cd4 t cells,no,HM450K,cd4 t cells,0.7831,1.01011,Normal
+GSM9500271,nk cells,no,EPIC_v1,nk cells,0.8053,0.98061,below Normal
+GSM9500272,nk cells,no,EPIC_v1,nk cells,0.771,0.96096,below Normal
+GSM9500273,nk cells,no,EPIC_v1,nk cells,0.7268,0.96393,below Normal
+GSM9500274,nk cells,yes,EPIC_v1,nk cells,0.4285,0.93501,no healthy width measured at 42.9 % of the sample (measured where this cell held 66 % or more)
+GSM9500275,nk cells,yes,EPIC_v1,nk cells,0.5464,0.97436,no healthy width measured at 54.6 % of the sample (measured where this cell held 66 % or more)
+GSM9500276,nk cells,yes,EPIC_v1,nk cells,0.4088,0.98656,no healthy width measured at 40.9 % of the sample (measured where this cell held 66 % or more)
+GSM9500277,nk cells,yes,EPIC_v1,nk cells,0.7002,0.98239,below Normal
+GSM9500278,nk cells,yes,HM450K,nk cells,0.8542,1.02897,above Normal
+GSM9500279,cd8 t cells,no,EPIC_v1,cd8 t cells,0.6179,0.96061,below Normal
+GSM9500280,cd8 t cells,no,EPIC_v1,cd8 t cells,0.59,0.96307,below Normal
+GSM9500281,cd8 t cells,no,EPIC_v1,cd8 t cells,0.5635,0.96641,Normal
+GSM9500282,cd8 t cells,yes,EPIC_v1,cd8 t cells,0.4638,0.92475,below Normal
+GSM9500283,cd8 t cells,yes,EPIC_v1,naive cd8 t cells,0.5071,0.98869,Normal
+GSM9500284,cd8 t cells,yes,EPIC_v1,cd8 t cells,0.5867,0.96877,Normal
+GSM9500285,cd8 t cells,yes,HM450K,cd8 t cells,0.9654,1.01785,Normal
+GSM9500286,cd8 t cells,yes,EPIC_v1,cd8 t cells,0.5033,0.97443,Normal
+GSM9500289,b cells,no,HM450K,b cells,0.8285,0.97735,Normal
+GSM9500291,nk cells,yes,HM450K,nk cells,0.2927,0.9881,no healthy width measured at 29.3 % of the sample (measured where this cell held 66 % or more)
