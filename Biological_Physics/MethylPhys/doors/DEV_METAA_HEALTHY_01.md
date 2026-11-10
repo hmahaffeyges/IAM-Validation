@@ -1439,3 +1439,13 @@ GSE71955 and GSE147430 (450K T cells) serve the T-cell atlas add-on or a later t
 over time. Not healthy (TB contacts, arthritis, multiple sclerosis, cystic fibrosis) or without raw files: listed, not used.
 
 **Prior reading:** GSE318669 and GSE110607's granulocytes were read in COMMISSION-METAA-SORTED-01; GSE318669's lymphocytes in this record's diagnostic; GSE110554 was read before (CANON/data_spent.csv).
+
+**Group-A against IAM-Atlas v2.1 alone: the spent rehearsal (development; nothing scored).** The instrument's job: two groups of healthy people of one series read as no different, and a
+group shift planted into healthy arrays is found. Each person is read by the one command; each cell the IAM-Deconvolver finds is compared
+between the groups against the atlas alone, with no tare (`stage_groupa.collect_cells`, `compare_cells`); the two groups share the series' own
+array line, which cancels in their difference. The planted half carries a constructed 1 % loss of the neutrophils' pattern scaled by the
+neutrophil share found in each array, and both halves are read from their saved values (`run_series.py --plant neutrophil_atlas`). Read on
+GSE318173, the 278 healthy controls of Group-A's first commissioning (spent; `groupa_atlas_rehearsal_GSE318173_samples.csv`): women against
+men, and the planted half against the unplanted half. A sealed test on an unread set follows if the rehearsal reads as the job says.
+
+**Prior reading:** GSE318173 was read in Group-A's first commissioning (`CANON/data_spent.csv`).

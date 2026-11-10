@@ -6458,14 +6458,14 @@
   },
   {
    "file": "stage_groupa.py",
-   "lines": 118,
+   "lines": 155,
    "functions": [
     {
      "file": "stage_groupa.py",
      "function": "tare",
      "name": "tare",
-     "line": 29,
-     "end": 50,
+     "line": 31,
+     "end": 52,
      "args": [
       "r",
       "healthy"
@@ -6480,8 +6480,8 @@
      "file": "stage_groupa.py",
      "function": "welch",
      "name": "welch",
-     "line": 52,
-     "end": 55,
+     "line": 54,
+     "end": 57,
      "args": [
       "a",
       "b"
@@ -6496,8 +6496,8 @@
      "file": "stage_groupa.py",
      "function": "compare",
      "name": "compare",
-     "line": 57,
-     "end": 73,
+     "line": 59,
+     "end": 75,
      "args": [
       "rows",
       "group_col",
@@ -6519,17 +6519,18 @@
      "file": "stage_groupa.py",
      "function": "_find",
      "name": "_find",
-     "line": 81,
-     "end": 85,
+     "line": 83,
+     "end": 89,
      "args": [
       "bundle_dir",
       "i"
      ],
-     "lines": 5,
+     "lines": 7,
      "doc": "",
      "constants": [],
      "data_files": [
-      "_bundle.json"
+      "_bundle.json",
+      "s pass-1 bundles are named GSM.json"
      ],
      "traced_calls": {}
     },
@@ -6537,8 +6538,8 @@
      "file": "stage_groupa.py",
      "function": "collect",
      "name": "collect",
-     "line": 87,
-     "end": 97,
+     "line": 91,
+     "end": 101,
      "args": [
       "bundle_dir",
       "samples_csv",
@@ -6550,6 +6551,43 @@
      "constants": [
       "READINGS"
      ],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_groupa.py",
+     "function": "collect_cells",
+     "name": "collect_cells",
+     "line": 104,
+     "end": 116,
+     "args": [
+      "bundle_dir",
+      "samples_csv",
+      "out_csv"
+     ],
+     "lines": 13,
+     "doc": "2026-11-10 (development; re-commissioning against IAM-Atlas v2.1 alone): one row per person and per cell the IAM-Deconvolver found (the bundle's cells_found rows), with that cell's share and its Met-A against the atlas (each cell divided by its own healthy prediction). No tare: healthy comes only from the atlas, and two groups of one series share the series' own line, which cancels in their differ",
+     "constants": [],
+     "data_files": [],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_groupa.py",
+     "function": "compare_cells",
+     "name": "compare_cells",
+     "line": 118,
+     "end": 127,
+     "args": [
+      "rows",
+      "group_col",
+      "a",
+      "b",
+      "min_share",
+      "min_n"
+     ],
+     "lines": 10,
+     "doc": "2026-11-10 (development): Group-A per cell found, against the atlas alone (no tare). For each cell read in at least min_n people of each group at a share of at least min_share, the two groups' Met-A means are compared (welch). Returns one result per cell.",
+     "constants": [],
      "data_files": [],
      "traced_calls": {}
     }
@@ -9158,7 +9196,7 @@
   },
   {
    "file": "MethylPhys_Interface/run_series.py",
-   "lines": 183,
+   "lines": 199,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_series.py",
@@ -9254,12 +9292,12 @@
      "function": "read",
      "name": "read",
      "line": 98,
-     "end": 164,
+     "end": 180,
      "args": [
       "a",
       "extra"
      ],
-     "lines": 67,
+     "lines": 83,
      "doc": "",
      "constants": [
       "HERE"
@@ -9277,8 +9315,8 @@
      "file": "MethylPhys_Interface/run_series.py",
      "function": "table",
      "name": "table",
-     "line": 166,
-     "end": 172,
+     "line": 182,
+     "end": 188,
      "args": [
       "a"
      ],
@@ -10369,5 +10407,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 530
+ "n_functions": 532
 }

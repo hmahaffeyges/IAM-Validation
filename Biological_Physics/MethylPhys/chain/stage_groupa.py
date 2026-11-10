@@ -18,6 +18,8 @@ Usage:
                                                                      READING met_a (arrays, default) or, on sequencing, sorted, whole, islands;
                                                                      SAMPLES.csv needs id, slide, and your group column (optional: healthy_reference)
   python3 stage_groupa.py compare READINGS.csv GROUP_COLUMN A B      tare, compare group A with group B, print the call
+  python3 stage_groupa.py collect-cells BUNDLE_DIR SAMPLES.csv OUT.csv        development: one row per person and cell found
+  python3 stage_groupa.py compare-cells CELLS.csv GROUP_COLUMN A B           development: per cell, against the atlas alone, no tare
 """
 import os, sys, json, numpy as np, pandas as pd
 GROUPA_COMMISSIONING = {"status": "COMMISSIONED", "date": "2026-10-20", "reading": "Group-A", "platform": "EPIC v1", "specimens": ["whole blood"],
@@ -81,6 +83,8 @@ READINGS = {   # 2026-11-02 (sequencing atlas checklist B9, development): which 
 def _find(bundle_dir, i):
     p = os.path.join(bundle_dir, f"{i}_bundle.json")
     if os.path.exists(p): return p
+    p = os.path.join(bundle_dir, f"{i}.json")   # 2026-11-10: run_series.py's pass-1 bundles are named GSM.json
+    if os.path.exists(p): return p
     import glob as _g   # 2026-11-02: sequencing runs land each bundle in its own folder
     f = sorted(_g.glob(os.path.join(bundle_dir, "**", f"{i}_bundle.json"), recursive=True)); return f[-1] if f else None
 
@@ -95,6 +99,32 @@ def collect(bundle_dir, samples_csv, out_csv, reading="met_a"):
         if "slide" not in row or pd.isna(row.get("slide")): row["slide"] = "series"
         L.append(row)
     pd.DataFrame(L).to_csv(out_csv, index=False); return len(L)
+
+
+def collect_cells(bundle_dir, samples_csv, out_csv):
+    """2026-11-10 (development; re-commissioning against IAM-Atlas v2.1 alone): one row per person and per cell the IAM-Deconvolver found
+    (the bundle's cells_found rows), with that cell's share and its Met-A against the atlas (each cell divided by its own healthy prediction).
+    No tare: healthy comes only from the atlas, and two groups of one series share the series' own line, which cancels in their difference."""
+    S = pd.read_csv(samples_csv); L = []
+    for _, s in S.iterrows():
+        p = _find(bundle_dir, s["id"]); b = json.load(open(p)) if p else {}
+        cf = (b.get("cells_found") or {}).get("cells") or []
+        if not cf: L.append(dict(s, gsm=s["id"], cell=None, share=None, A=None, C=None, withheld="no bundle" if not b else "no cells found")); continue
+        for c in cf:
+            L.append(dict(s, gsm=s["id"], cell=c.get("cell"), share=c.get("share"), A=c.get("met_a"), C=c.get("c_score"),
+                          withheld=None if c.get("met_a") is not None else (c.get("met_a_note") or "no reading")))
+    pd.DataFrame(L).to_csv(out_csv, index=False); return len(L)
+
+def compare_cells(rows, group_col, a, b, min_share=0.05, min_n=3):
+    """2026-11-10 (development): Group-A per cell found, against the atlas alone (no tare). For each cell read in at least min_n people of
+    each group at a share of at least min_share, the two groups' Met-A means are compared (welch). Returns one result per cell."""
+    r = rows[rows.A.notna() & (rows.share.fillna(0) >= min_share)]; out = {}
+    for cell, g in r.groupby("cell"):
+        x, y = g[g[group_col] == a].A, g[g[group_col] == b].A
+        if len(x) < min_n or len(y) < min_n: continue
+        s = welch(x, y); s["call"] = "groups differ" if abs(s["t"]) >= 2 else "no difference found"
+        s["smallest_findable_difference"] = round(2 * s["se"], 5); s["share_median"] = round(float(g.share.median()), 4); out[cell] = s
+    return out
 
 if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -113,5 +143,12 @@ if __name__ == "__main__":
               f"  difference {100*o['rel_difference']:+.2f} %, {o['t']} standard errors -> {o['call']}\n"
               f"  smallest difference this design could have found: {100*o['smallest_findable_difference']:.2f} % (2 x the standard error)\n"
               f"  tare references: {o['ref_scope']}; readings with no tare: {o['untared']}" + (f"\n  {o['commissioning']}" if o.get("commissioning") else ""))
+    elif len(sys.argv) >= 5 and sys.argv[1] == "collect-cells":
+        print(f"collected {collect_cells(sys.argv[2], sys.argv[3], sys.argv[4])} cell rows into {sys.argv[4]} (cells_found, against the atlas, no tare)")
+    elif len(sys.argv) >= 6 and sys.argv[1] == "compare-cells":
+        R = pd.read_csv(sys.argv[2]); R[sys.argv[3]] = R[sys.argv[3]].astype(str)
+        for cell, o in compare_cells(R, sys.argv[3], sys.argv[4], sys.argv[5]).items():
+            print(f"Group-A (development, per cell, against IAM-Atlas v2.1 alone) {cell} (median share {o['share_median']}): {sys.argv[4]} {o['mean1']} (n {o['n1']}), "
+                  f"{sys.argv[5]} {o['mean2']} (n {o['n2']}): {100*o['rel_difference']:+.2f} %, {o['t']} SE -> {o['call']}; smallest findable {100*o['smallest_findable_difference']:.2f} %")
     else:
         print(__doc__); sys.exit(1)

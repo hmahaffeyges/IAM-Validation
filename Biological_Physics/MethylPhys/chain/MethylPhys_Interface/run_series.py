@@ -128,6 +128,22 @@ def read(a, extra):
                 rc = run(base + ["--out", os.path.join(W, r.gsm + ".html"), "--bundle", os.path.join(d1, r.gsm + ".json"), "--save-betas", bv1] + ex, os.path.join(d1, r.gsm + ".log"))
                 if getattr(a, "keep_values", None) and rc == 0 and os.path.exists(bv1):   # 2026-11-08: keep each array's calibrated values (the work folder is removed after each array)
                     import shutil as _sh; os.makedirs(a.keep_values, exist_ok=True); _sh.copy(bv1, os.path.join(a.keep_values, r.gsm + "_betas.parquet"))
+                if a.plant == "neutrophil_atlas" and "half" in S.columns and rc == 0 and os.path.exists(bv1):
+                    # 2026-11-10 (Group-A against IAM-Atlas v2.1 alone, development): pass 1 only, no references. Both halves are read again from
+                    # their saved values, so planted and unplanted take the same route; the planted half carries a constructed 1 % loss of the
+                    # neutrophils' pattern, scaled by the neutrophil share the IAM-Deconvolver found in that array (stage_metaa_atlas.plant).
+                    sys.path.insert(0, os.path.dirname(HERE)); import stage_metaa_atlas as SA
+                    b = pd.read_parquet(bv1).iloc[:, 0]; half = str(getattr(r, "half"))
+                    cf = (json.load(open(os.path.join(d1, r.gsm + ".json"))).get("cells_found") or {}).get("cells") or []
+                    sh = next((c.get("share") for c in cf if c.get("cell") == "neutrophils"), None)
+                    if half == "planted" and sh:
+                        pv = os.path.join(W, r.gsm + "_planted.csv"); SA.plant(b, "neutrophils", loss=0.01 * float(sh)).rename("beta").to_frame().to_csv(pv)
+                        run(["--betas", pv, "--specimen", sp, "--id", r.gsm + "_planted", "--banner", "PLANTED: a constructed 1 % loss of the neutrophil pattern, not a person.",
+                             "--out", os.path.join(W, r.gsm + "_planted.html"), "--bundle", os.path.join(d1, r.gsm + "_planted.json")] + ex, os.path.join(d1, r.gsm + "_planted.log"))
+                    elif half == "unplanted":
+                        uv = os.path.join(W, r.gsm + "_values.csv"); b.rename("beta").to_frame().to_csv(uv)
+                        run(["--betas", uv, "--specimen", sp, "--id", r.gsm + "_values", "--out", os.path.join(W, r.gsm + "_values.html"),
+                             "--bundle", os.path.join(d1, r.gsm + "_values.json")] + ex, os.path.join(d1, r.gsm + "_values.log"))
                 if a.plant == "neutrophil" and "half" in S.columns and getattr(r, "half") == "unplanted" and rc == 0 and os.path.exists(bv1):
                     uv = os.path.join(W, r.gsm + "_values.csv"); pd.read_parquet(bv1).iloc[:, 0].rename("beta").to_frame().to_csv(uv)
                     run(["--betas", uv, "--specimen", a.specimen, "--id", r.gsm + "_values", "--out", os.path.join(W, r.gsm + "_values.html"),
@@ -176,7 +192,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
     r_ = sp.add_parser("read"); r_.add_argument("samples"); r_.add_argument("out"); r_.add_argument("shard", type=int); r_.add_argument("nshards", type=int)
     r_.add_argument("--specimen", default="whole blood"); r_.add_argument("--pass", dest="pass_", type=int, default=1, choices=(1, 2))
-    r_.add_argument("--scope", default="series", choices=("series", "slide", "slide_else_series")); r_.add_argument("--plant", default=None, choices=("metaa_atlas", "neutrophil"))
+    r_.add_argument("--scope", default="series", choices=("series", "slide", "slide_else_series")); r_.add_argument("--plant", default=None, choices=("metaa_atlas", "neutrophil", "neutrophil_atlas"))
     r_.add_argument("--keep-values", dest="keep_values", default=None, help="pass 1: also keep each array's calibrated values (its --save-betas file) in this folder as GSM_betas.parquet")
     t_ = sp.add_parser("table"); t_.add_argument("out")
     a = ap.parse_args(argv); read(a, extra) if a.cmd == "read" else table(a)

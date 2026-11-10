@@ -1375,7 +1375,7 @@ printed digit from the committed rows. Groups in any other specimen are read and
 their laboratories. The download is checked against the size GEO states: an empty or short body (GEO sometimes sends one with no error) is fetched again, up to the retries, and never read. An empty folder page from GEO is fetched again before the sample is taken to hold no molecule files.
 
 ### stage_groupa.py::_find
-A person's bundle in the bundles folder, or in any folder below it (sequencing runs land each bundle in its own folder).
+A person's bundle in the bundles folder (named ID_bundle.json, or ID.json as the series runner's pass 1 writes it), or in any folder below it (sequencing runs land each bundle in its own folder).
 
 ### stage_groupa.py::tare
 Each reading over the median of its healthy references (same slide when there are at least 3 there, else the series), excluding itself;
@@ -1390,6 +1390,12 @@ Tares, compares and calls the result, with the smallest findable difference and 
 ### stage_groupa.py::collect
 Builds one row per person from the run's report bundles and the researcher's sample list (id, slide, group column, optional
 healthy_reference).
+
+### stage_groupa.py::collect_cells
+Development (Group-A against IAM-Atlas v2.1 alone): one row per person and per cell the IAM-Deconvolver found (the bundle's cells_found rows), with the cell's share, its Met-A against the atlas (each cell divided by its own healthy prediction) and its C-Score; no tare. `python3 stage_groupa.py collect-cells BUNDLE_DIR SAMPLES.csv OUT.csv`.
+
+### stage_groupa.py::compare_cells
+Development: Group-A per cell found, against the atlas alone. For each cell read in at least 3 people of each group at a share of at least 5 %, the two groups' Met-A means are compared (welch: difference, standard error, t; groups differ when |t| >= 2). Two groups of one series share that series' own array line, so it cancels in their difference and nothing but the atlas is used as healthy. `python3 stage_groupa.py compare-cells CELLS.csv GROUP_COLUMN A B`.
 
 ## 12. The retired position reading, Stage Q: `stage_q_iam_a.py`
 
@@ -2224,7 +2230,7 @@ built to see.
 
 ### stage_metaa_atlas.py::plant
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the
-series runner's `--plant metaa_atlas`; never by a reading.
+series runner's `--plant metaa_atlas` and, scaled by the neutrophil share found, `--plant neutrophil_atlas`; never by a reading.
 
 ## 17. The whole-genome globe (development): `stage_q2_globe.py`
 
@@ -2451,6 +2457,8 @@ One bundle's numbers for the table: Met-A, its tare, the C-Score, atlas Met-A an
 ### run_series.py::read
 One shard of a pass, as described above; with `--plant`, the constructed loss is planted in the array's own saved values and read by the one
 command with the same references (Group-A's design: the planted and unplanted halves both by the values route). A per-array atlas cell (samples column atlas_cell) replaces --dev-metaa-atlas CELL for that array, so one series run reads each sorted subtype against its own IAM-Atlas v2.1 column.
+
+`--plant neutrophil_atlas` (pass 1, development; Group-A against the atlas alone): with a `half` column, both halves are read again from their own saved values, so they take the same route; the planted half carries a constructed 1 % loss of the neutrophils' pattern scaled by the neutrophil share the IAM-Deconvolver found in that array (`stage_metaa_atlas.plant`). No references are used.
 
 `--keep-values DIR` (pass 1): each array's calibrated values (its `--save-betas` file) are also copied to DIR as GSM_betas.parquet before the work folder is removed; used to build healthy bloods from the atlas's own donors.
 

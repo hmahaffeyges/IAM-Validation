@@ -35,7 +35,7 @@ make the instruments possible.
 
 ## The chain in numbers
 
-Read from the code at build time: the one command can load **37 Python files** holding **530 functions** (nested ones included); 530 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
+Read from the code at build time: the one command can load **37 Python files** holding **532 functions** (nested ones included); 532 of them have their entry in this Decoder, and a push is refused when one does not. Called: how many of a file's functions each traced run used (the array run on a healthy whole blood; the sequencing run on the release check's planted BAM).
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
@@ -65,7 +65,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_coupling.py` | 30 | 2 | 0 | 0 |
 | `stage_provisional.py` | 98 | 7 | 0 | 0 |
 | `serial_mode.py` | 67 | 6 | 0 | 0 |
-| `stage_groupa.py` | 118 | 5 | 0 | 0 |
+| `stage_groupa.py` | 155 | 7 | 0 | 0 |
 | `MethylPhys_Interface/report_globe_v4.py` | 456 | 24 | 0 | 0 |
 | `MethylPhys_Interface/globe_viewer.py` | 145 | 7 | 0 | 0 |
 | `stage_metaa_atlas.py` | 1,029 | 56 | 0 | 0 |
@@ -73,7 +73,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 | `stage_q2_globe.py` | 145 | 14 | 0 | 0 |
 | `stage_info_sphere.py` | 199 | 15 | 0 | 0 |
 | `MethylPhys_Interface/reference_globes.py` | 279 | 15 | 0 | 0 |
-| `MethylPhys_Interface/run_series.py` | 183 | 7 | 0 | 0 |
+| `MethylPhys_Interface/run_series.py` | 199 | 7 | 0 | 0 |
 | `MethylPhys_Interface/run_draw.py` | 91 | 5 | 0 | 0 |
 | `stage_seq_atlas.py` | 948 | 49 | 0 | 0 |
 
@@ -2135,35 +2135,47 @@ their laboratories. The download is checked against the size GEO states: an empt
 
 ### `stage_groupa.py::_find`
 
-A person's bundle in the bundles folder, or in any folder below it (sequencing runs land each bundle in its own folder).
+A person's bundle in the bundles folder (named ID_bundle.json, or ID.json as the series runner's pass 1 writes it), or in any folder below it (sequencing runs land each bundle in its own folder).
 
-*Code:* `stage_groupa.py` line 81 (5 lines) · arguments: bundle_dir, i · calls: not called on the traced runs · files named: `_bundle.json`
+*Code:* `stage_groupa.py` line 83 (7 lines) · arguments: bundle_dir, i · calls: not called on the traced runs · files named: `_bundle.json`, `s pass-1 bundles are named GSM.json`
 
 ### `stage_groupa.py::tare`
 
 Each reading over the median of its healthy references (same slide when there are at least 3 there, else the series), excluding itself;
 records which scope was used.
 
-*Code:* `stage_groupa.py` line 29 (22 lines) · arguments: r, healthy · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 31 (22 lines) · arguments: r, healthy · calls: not called on the traced runs
 
 ### `stage_groupa.py::welch`
 
 The two groups' means, counts, difference, standard error and t.
 
-*Code:* `stage_groupa.py` line 52 (4 lines) · arguments: a, b · calls: not called on the traced runs
+*Code:* `stage_groupa.py` line 54 (4 lines) · arguments: a, b · calls: not called on the traced runs
 
 ### `stage_groupa.py::compare`
 
 Tares, compares and calls the result, with the smallest findable difference and the commissioning label.
 
-*Code:* `stage_groupa.py` line 57 (17 lines) · arguments: rows, group_col, a, b, healthy, specimen, platform · calls: not called on the traced runs · constants read: `PRELIMINARY`
+*Code:* `stage_groupa.py` line 59 (17 lines) · arguments: rows, group_col, a, b, healthy, specimen, platform · calls: not called on the traced runs · constants read: `PRELIMINARY`
 
 ### `stage_groupa.py::collect`
 
 Builds one row per person from the run's report bundles and the researcher's sample list (id, slide, group column, optional
 healthy_reference).
 
-*Code:* `stage_groupa.py` line 87 (11 lines) · arguments: bundle_dir, samples_csv, out_csv, reading · calls: not called on the traced runs · constants read: `READINGS`
+*Code:* `stage_groupa.py` line 91 (11 lines) · arguments: bundle_dir, samples_csv, out_csv, reading · calls: not called on the traced runs · constants read: `READINGS`
+
+### `stage_groupa.py::collect_cells`
+
+Development (Group-A against IAM-Atlas v2.1 alone): one row per person and per cell the IAM-Deconvolver found (the bundle's cells_found rows), with the cell's share, its Met-A against the atlas (each cell divided by its own healthy prediction) and its C-Score; no tare. `python3 stage_groupa.py collect-cells BUNDLE_DIR SAMPLES.csv OUT.csv`.
+
+*Code:* `stage_groupa.py` line 104 (13 lines) · arguments: bundle_dir, samples_csv, out_csv · calls: not called on the traced runs
+
+### `stage_groupa.py::compare_cells`
+
+Development: Group-A per cell found, against the atlas alone. For each cell read in at least 3 people of each group at a share of at least 5 %, the two groups' Met-A means are compared (welch: difference, standard error, t; groups differ when |t| >= 2). Two groups of one series share that series' own array line, so it cancels in their difference and nothing but the atlas is used as healthy. `python3 stage_groupa.py compare-cells CELLS.csv GROUP_COLUMN A B`.
+
+*Code:* `stage_groupa.py` line 118 (10 lines) · arguments: rows, group_col, a, b, min_share, min_n · calls: not called on the traced runs
 
 ## 12. The retired position reading, Stage Q: `stage_q_iam_a.py`
 
@@ -3568,7 +3580,7 @@ built to see.
 ### `stage_metaa_atlas.py::plant`
 
 A constructed loss for tests: every identity site the array measured moved 1 % of the way to 0.5, the shift `read` predicts. Used by the
-series runner's `--plant metaa_atlas`; never by a reading.
+series runner's `--plant metaa_atlas` and, scaled by the neutrophil share found, `--plant neutrophil_atlas`; never by a reading.
 
 *Code:* `stage_metaa_atlas.py` line 341 (5 lines) · arguments: beta, cell, loss · calls: not called on the traced runs
 
@@ -3953,15 +3965,17 @@ One bundle's numbers for the table: Met-A, its tare, the C-Score, atlas Met-A an
 One shard of a pass, as described above; with `--plant`, the constructed loss is planted in the array's own saved values and read by the one
 command with the same references (Group-A's design: the planted and unplanted halves both by the values route). A per-array atlas cell (samples column atlas_cell) replaces --dev-metaa-atlas CELL for that array, so one series run reads each sorted subtype against its own IAM-Atlas v2.1 column.
 
+`--plant neutrophil_atlas` (pass 1, development; Group-A against the atlas alone): with a `half` column, both halves are read again from their own saved values, so they take the same route; the planted half carries a constructed 1 % loss of the neutrophils' pattern scaled by the neutrophil share the IAM-Deconvolver found in that array (`stage_metaa_atlas.plant`). No references are used.
+
 `--keep-values DIR` (pass 1): each array's calibrated values (its `--save-betas` file) are also copied to DIR as GSM_betas.parquet before the work folder is removed; used to build healthy bloods from the atlas's own donors.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 98 (67 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
+*Code:* `MethylPhys_Interface/run_series.py` line 98 (83 lines) · arguments: a, extra · calls: not called on the traced runs · constants read: `HERE` · files named: `_betas.parquet`, `_planted.csv`, `_planted.json`, `_values.csv`, `_values.json`
 
 ### `run_series.py::table`
 
 One row per bundle, for the scorer.
 
-*Code:* `MethylPhys_Interface/run_series.py` line 166 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
+*Code:* `MethylPhys_Interface/run_series.py` line 182 (7 lines) · arguments: a · calls: not called on the traced runs · files named: `rows.csv`
 
 ## 20. One blood draw: `run_draw.py` (development, to-do step 40)
 
