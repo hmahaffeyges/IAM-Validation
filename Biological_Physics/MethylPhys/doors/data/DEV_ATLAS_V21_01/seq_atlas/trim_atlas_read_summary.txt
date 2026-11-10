@@ -1,0 +1,9 @@
+The 18 sorted libraries with one molecule-end call left out, read against the atlas rebuilt from its donors' one-call-trimmed counts
+(trim_read.sh ATLAS_T1=1, --dev-seq-atlas-dir; development), beside the same libraries untrimmed and trimmed against the published atlas
+median per laboratory
+              whole_raw  whole_pub   whole  met_a_raw  met_a_pub   met_a
+lab                                                                     
+GSE134664 B      1.2634     0.9532  0.9533     1.2451     0.7512  0.8012
+GSE98837 CD8     1.0521     0.9739  1.0181     0.9622     0.8390  1.0569
+JHU CD4          1.0229     0.9401  0.9178     0.9305     0.8031  0.7937
+spread of the laboratory medians: {"whole_raw": 0.2405, "whole_pub": 0.0338, "whole": 0.1003, "met_a_raw": 0.3146, "met_a_pub": 0.0878, "met_a": 0.2632}

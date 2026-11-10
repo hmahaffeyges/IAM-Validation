@@ -1851,3 +1851,11 @@ cell), a molecule's end calls read marked 2.33 times as often as its inner calls
 floor sites, so indicative only). The source's files keep an end effect, smaller than most of the sample laboratories' (0.86 to 12.4 times),
 so the atlas is trimmed as the samples are, not twice. In public text the end bias is credited as known; what this work adds is putting the
 atlas through the same processing as the sample.
+
+**The trimmed libraries against the trimmed atlas: not met.** (`seq_atlas/trim_atlas_read_summary.txt`, `trim_atlas_read_rows.csv`; all 18.) Putting
+the atlas through the same trim widened the laboratories' spread instead of closing it: whole-sample Met-A 0.0338 against the
+published atlas, 0.1003 against the trimmed one; per-cell 0.0878 and 0.2632. The change is laboratory by laboratory:
+GSE98837's CD8 cells moved to 1.0569 (from 0.839), the other two hardly moved. So the
+trimmed sample read against the published atlas stays the better reading, and the rebuilt atlas stays a development folder, not a new
+version. Why one laboratory moves and the others do not is the next thing to read (the depth each library keeps after the trim, and the
+atlas cells' own end effect).
