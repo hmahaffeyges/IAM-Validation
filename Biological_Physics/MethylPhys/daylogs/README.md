@@ -4,6 +4,7 @@ _One per day, generated from `CANON/daylogs/` by `CANON/daylog.py`. Each is what
 
 | date | the day |
 |---|---|
+| [2026-11-10](2026-11-10.md) | Group-A per cell, and each library's own calibration begun |
 | [2026-11-09](2026-11-09.md) | Where the GMP share comes from, and a faster chain |
 | [2026-11-08](2026-11-08.md) | The website brought to the atlas-only rule |
 | [2026-11-07](2026-11-07.md) | The Deconvolver decides what is in a sample |

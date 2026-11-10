@@ -4305,3 +4305,85 @@ A full book chapter on the IAM Sequencing Atlas, how it differs from IAM-Atlas v
 
 ### 2026-11-09 · COMMISSION-MONO450-01: met (GRP-019, COMMISSION_MONO450_01_OUTCOME.md)
 Sealed before reading (d34c9064); 19 unseen healthy sorted monocytes on Infinium 450K from two laboratories (GSE110607 co-twins, GSE131627 controls), read by the one command: 19 of 19 found as monocytes, Met-A Normal in 13 of the 14 with a state, the C-Score within its limit (the derived limit times the monocyte's factor measured on the atlas's own donors) in 18 of 19. Met-A extended to sorted monocytes on 450K; the C-Score commissioned against IAM-Atlas v2.1 alone on the same scope (`COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md`).
+
+### 2026-11-09 · Day summary
+**Set out:** Find whether the IAM-Deconvolver's GMP share in healthy blood is cells or the measurement; make each test take minutes; finish the cross-laboratory work for arrays and sequencing; then commission what the chain can read against the atlases alone.
+
+**Ran, and how each came out:**
+- Both probe designs measured against their own error on the atlas's 57 sorted neutrophil donors: each departs by laboratory in GMP's direction and the two designs disagree, so the GMP share is a per-design laboratory distortion of the measurement, not cells (`06c6d63e`).
+- Each array's response curve per probe design on its own calibrators (`--dev-curve-cal`): synthetic not met with the full design table (`a098851e`); on the real donors not met, the distortion is not a curve (`fe3bd038`).
+- One scale for the per-cell readings (`--dev-one-scale`): not met, and not the magnifier (`9db9cfd8`). The published probe masks are not the distortion; three laboratories' array lines are ordinary.
+- Laboratory directions learned from the atlas's donors: help the two EPIC laboratories, barely move the two 450K ones; a planted loss survives them (`93d30f28`, `f49d5317`; three of the four laboratories read, `6a4654a7`).
+- Tokushima's GMP share is not the 450K chip's missing marker sites (`5df300d3`).
+- The 34 healthy plasmas with the megakaryocyte column: megakaryocytes in 25 of 34 (`4431e84c`).
+- Sequencing, the library floor by molecule position: synthetic met; on 30 spent aligned libraries the laboratories' extra floor sits at the molecules' ends, 0.86 to 12.4 times inner calls site-matched (`373f6f57`, `1b05e82c`); at the identity sites Met-A follows the end-call rate (rank 0.88; `20f33f5c`).
+- Read-count weighting of the Deconvolver (`--dev-seq-noise-weight`): synthetic not met, stays off (`1dd262e1`).
+- One molecule-end call left out of the sample: the laboratories' whole-sample spread 0.24 to 0.034 against the published atlas, every laboratory below 1 (`c4954e23`). The atlas rebuilt from its 156 donors with the same trim (`4d617d58`, `e7864a40`): the trimmed libraries against the trimmed atlas not met, spread 0.100; the published atlas stays the reference (`cfe67009`).
+- Instrument check: every instrument of the default chain on four spent healthy arrays (`09f433fa`, `17af4f35`), which found and fixed three default-chain faults (`09adfbdd`), and gave the territories the array's own healthy prediction.
+- The three laboratories' 282 healthy bloods read again from kept values on the fixed chain: islands 0.976 to 1.008 by laboratory; per-cell readings unchanged (`19304185`).
+- Array rehearsal on 37 sorted cells from GSE110554 (spent): not met, 20 of 24 Normal; every neutrophil and monocyte Normal, lymphocytes 2 to 5 percent below 1 (`c4954e23`, `fda6f94a`).
+- **COMMISSION-METAA-SORTED-01, met** (sealed `de180dba`, met `9afecf6f`, description corrected `218850de`): 79 unseen sorted healthy arrays read, 74 scored; 73 of 74 found as the sorted kind; 66 of 66 with a state Normal.
+- Lymphocytes: pure lymphocyte donors read 1 in every atlas laboratory but come from two laboratories (`5a39be86`); GSE318669's sorted lymphocytes read 3 to 5 percent below 1, as GSE110554's did: the offset is the reference's (`b710f486`).
+- C-Score against the atlas alone: each cell's limit scaled by a factor measured on the atlas's own donors where five or more laboratories hold the cell (neutrophils 1.0314, monocytes 1.0062); the shuffle limit tested and not needed (`1406c7e4`).
+- **COMMISSION-MONO450-01, met** (sealed `d34c9064`, met `c3666e69`): 19 unseen sorted monocytes on 450K, 19 of 19 found as monocytes, Met-A Normal 13 of 14, the C-Score within its limit 18 of 19.
+- Book: the photon-coupling bound recomputed on current CMB-only data, shift-only P-ACT beta_gamma < 0.0080 (`9de06b46`, `ec27a938`, `39bce826`); CMB-S4 no longer named (`de9fc2d9`).
+- Group-A against the atlas alone, per cell found, with a planted neutrophil loss read from saved values (`605619b6`); its spent rehearsal launched on GSE318173.
+
+**Successes:**
+- Met-A commissioned against IAM-Atlas v2.1 alone: sorted neutrophils (450K) and sorted monocytes (EPIC v1 and 450K).
+- The C-Score commissioned against IAM-Atlas v2.1 alone on sorted monocytes (450K).
+- The one command runs about 78 seconds faster an array (the Deconvolver's marker sites cached, `4b0dd400`); the Decoder carries every option of the one command, generated at each build (`20548168`).
+- Why the atlas is the only healthy reference, in the author's words of choice, in the book, Q&A, atlas README, website, Introduction and Decoder (`32d3c12f`).
+
+**Learned:**
+- The GMP share is a per-design laboratory distortion, not cells and not random noise; not a curve, not the one-scale map, not the probe masks.
+- Sequencing laboratories differ at the molecules' ends, not inside, and the end effect differs library by library; trimming moves every laboratory down, so the answer is to measure each library's own profile, not cut data.
+- The atlas's lymphocyte widths rest on two laboratories; about five are needed before a cell's width holds the spread between laboratories.
+- GEO's platform label can be wrong (GSE318669 is EPIC by its own IDATs); the chain's array type is the one to trust.
+- In the IAM Sequencing Atlas every cell comes from one published laboratory.
+
+**Errors (the agent's own), and what caught each:**
+- "Design II only" stated before design I's error was measured (my own next measurement, `06c6d63e`).
+- The curve synthetic's bend line comment swallowed the design masks, and every part stopped before reading (the parts' logs, `7d3a2f84`); three full-chain readings at once ran GitHub's machines out of memory (the logs, `f9973331`).
+- The curve calibration passed the self-tare's short design table, voiding the real-donor reading (my check of the sites calibrated, `18544b5a`).
+- The read-count synthetic passed its input by a relative path (the parts' logs, `161c003d`) and included two plasma tissues not in the sequencing atlas (the score, disclosed, `1dd262e1`).
+- The floor-by-position measure first mixed sites (disclosed, site-matched measure `160d4aaf`).
+- Two records said four laboratories where three were read (the auditor, `6a4654a7`, `5f905367`).
+- A donor count of 159 where the build holds 156 (the build's own check, `4d617d58`).
+- GSE318669 described as 450K from GEO's listing (the chain's own array type, `218850de`).
+- Jobs that ended with exit left their Google machines idle until the time limit (the half-hour check; an EXIT trap added); four waves re-sent for errors a one-part canary would have shown (the author; the canary rule).
+- In reports to the author: the floor and ceiling described as limits data can cross, the write-erase balance called the virial half, "modified Friedmann" used for the matter-sector rate, and a correct H_ref called an error from my own rounding (the author, reading the book again; none reached the book).
+
+**The author's instructions and corrections:**
+- Use already-aligned, spent data for exploratory sequencing work; spread work across every core; raw data and long runs only for commissioning.
+- "what would a cosmologist do?" is the motto; every chain change goes into the Decoder.
+- The atlas rule stands; if it ever bends, only toward known calibrators; that reason goes in the book and Q&A.
+- Keep arrays and sequencing both going; check every instrument; check every machine every half hour; a canary before every wave.
+- Commission what the chain can read now (arrays, then sequencing), then expand; a cell with too few laboratories is scored and flagged as an observation; uncommissioned cells become a documented data request.
+- Never state which cells can be in blood; the Deconvolver decides, and any cell found in whole blood, buffy coat or plasma is scored.
+- Search our own register and inventory for commissioning data before GEO.
+- Sequencing must not need five laboratories per cell; it is the route to plasma and tissue DNA.
+- IAM's Law tests come next after commissioning, built so a physicist and a geneticist cannot take them apart.
+- The book was confirmed over days by many reviewers: change nothing without certainty; flag, categorize, suggest and ask; log passages found accurate.
+- "Modified Friedmann" is forbidden language: IAM enters only through the entropy functional.
+- Sub-agents cost the author's credits; GitHub and Google machines first.
+
+**Path changes:**
+- The full development chain is the default on every sample; nothing built sits switched off (`95e84ea0`).
+- The first-commissioning path carries its first commissioning as history, marked as being re-commissioned against the atlas alone (`60c3d50e`).
+- Each cells_found row states its Met-A status and its C-Score status against the commissioned scopes.
+- Order of work: commission the array instruments on the cells they read, then sequencing (per-library self-calibration first), then expansion and the Law tests.
+
+**Data:**
+- Spent for the commissioning tests: GSE110607, GSE318669, GSE201752, GSE189426, GSE196071 (COMMISSION-METAA-SORTED-01); GSE110607 monocytes and GSE131627 (COMMISSION-MONO450-01). Rehearsal: GSE110554 (already spent).
+- Held for the next tests: GSE87640 (450K healthy monocytes, CD4, CD8 and the same people's whole blood).
+- Lymphocyte add-on candidates from metadata: GSE71955, GSE147430; GSE137634 not healthy.
+- No unread healthy EPIC neutrophil set found in our register, inventory or GEO.
+
+**Machines:**
+- GitHub ran the curve synthetics, the floor-by-position synthetic and pieces, the read-count synthetic, the instrument check and the kept-value readings.
+- Google ran the curve calibration readings, the trim readings, the trimmed atlas build (156 donors), the two commissioning tests, the lymphocyte diagnostic and the Group-A rehearsal (28 shards from late evening).
+- Idle: several Google machines after jobs ending in exit (fixed); GitHub idle from late evening.
+
+**Open at turnover:**
+- The Group-A rehearsal reading on Google; the book review's findings to bring to the author; sequencing step 1 (each library's own measured end profile in its expected value), synthetic first; the territories' re-commissioning; lymphocytes and EPIC neutrophils waiting on data.

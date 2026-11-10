@@ -1449,3 +1449,24 @@ GSE318173, the 278 healthy controls of Group-A's first commissioning (spent; `gr
 men, and the planted half against the unplanted half. A sealed test on an unread set follows if the rehearsal reads as the job says.
 
 **Prior reading:** GSE318173 was read in Group-A's first commissioning (`CANON/data_spent.csv`).
+
+**Group-A against the atlas alone, the spent rehearsal read: per cell, with the mix accounted for, it does its job (development).** (`groupa_atlas_rehearsal_summary.txt`; 147 of
+GSE318173's arrays, stopped there because they answer it.) The neutrophil row finds the planted 1 % loss (2.70 % at 5.6 standard errors) but
+also calls healthy women and men different (1.75 %, 3.25 standard errors): the row carries its neighbors' DNA in proportion to their shares,
+and the two groups' mixes differ (men more monocytes, fewer CD4 T cells). With each person's mix accounted for (the shares the IAM-Deconvolver
+found, coefficients measured on the healthy arrays only), women and men read alike (0.45 %, 1.29 standard errors) and the planted loss is found
+more clearly (9.4 standard errors). The whole-sample reading calls the sexes alike but does not see the planted loss. Next: the leakage
+forward-modeled from the atlas itself (each cell's row's dependence on the mix at its identity sites, nothing fitted), with a synthetic first,
+the composition adjustment reported beside it as the standard check.
+
+**Which cell changed: an offline design check, not a chain result (development).** The rows below were computed outside the one command, so they guide the design only; the comparison chosen gets its own synthetic through run_sample.py before anything is read with it. On the 147 real mixes of the rehearsal with constructed values
+(offline; not committed as a test): a 1 % neutrophil
+loss planted in half the people moves every cell's row (monocytes +2.1 %, CD4 +1.9 %, all above 12 standard errors), and neither the leakage
+forward-modeled from the atlas nor the standard composition adjustment of the row averages removes it; on one array the leakage matrix is
+ill-conditioned (condition 160,800): at a cell's identity sites every cell's DNA enters in proportion to its share, so the rows are near
+copies. Site by site, with each cell's own value for the series estimated from the people's varying mixes at every site (common to both groups,
+as the series' array line is) and each cell's group difference read against that cell's atlas pattern (the established cell-type-specific
+comparison), the planted loss reads +0.96 % (truth 1 %, 61 standard errors) in the neutrophils and under 1.5 standard errors in every other
+cell; healthy women and men read alike, also with offsets of two shapes planted in other cells (five fresh draws, none at 2 standard errors;
+the neutrophils average 0.9, a small bias below the line). Next: this comparison in the chain (stage_groupa), then on GSE318173's 95 arrays
+whose values were kept, with the same planted loss.

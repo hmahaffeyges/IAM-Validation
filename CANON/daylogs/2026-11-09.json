@@ -3,13 +3,13 @@
  "date": "2026-11-09",
  "title": "Where the GMP share comes from, and a faster chain",
  "set_out": "Find whether the IAM-Deconvolver's GMP share in healthy blood is cells or the measurement, and make each test take minutes, not hours.",
- "open_at_turnover": "Written through the day; the hand-written day summary at the end of the day.",
+ "open_at_turnover": "Group-A's rehearsal against the atlas alone; sequencing step 1, each library's own measured end profile in its expected value, synthetic first; the territories' re-commissioning.",
  "check_completeness": false,
  "off_page_rows": [],
  "compute": {
   "pending": "filled by CANON/day_compute.py"
  },
- "closing": "",
+ "closing": "Met-A and the C-Score commissioned against the atlas alone on the cells it reads, and the next steps set: the rest of the array instruments, then each sequencing library calibrated on its own known sites.",
  "sections": [
   {
    "kind": "ran",
@@ -30,6 +30,22 @@
      "what": "The 34 healthy GSE186007 plasmas read again by the one command with the built megakaryocyte column in the Deconvolver's reference, scored remotely.",
      "outcome": "As the test said it would if the lead is right: megakaryocytes at 1 % or more in 25 of 34 plasmas (none before); erythrocyte progenitors from 0.0752 to 0.0354 and the macrophage columns from 0.1648 to 0.1436. Part of the plasmas' shares explained, not all.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md"
+    },
+    {
+     "title": "COMMISSION-METAA-SORTED-01: Met-A commissioned against the atlas alone",
+     "status": "sealed",
+     "reference": "IAM-Atlas v2.1",
+     "what": "79 healthy sorted neutrophils and monocytes from five laboratories the atlas never held, sealed before any was read, each read by the one command against IAM-Atlas v2.1 alone.",
+     "outcome": "All three bars met: 73 of 74 scored arrays found as the sorted kind, 66 of 66 with a state Normal. Met-A is commissioned on sorted neutrophils (450K) and sorted monocytes (EPIC v1).",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSION_METAA_SORTED_01_OUTCOME.md"
+    },
+    {
+     "title": "COMMISSION-MONO450-01: Met-A and the C-Score on sorted monocytes (450K)",
+     "status": "sealed",
+     "reference": "IAM-Atlas v2.1",
+     "what": "19 healthy sorted monocytes on 450K from two laboratories the atlas never held, sealed before any was read, read by the one command against IAM-Atlas v2.1 alone.",
+     "outcome": "All three bars met: 19 of 19 found as monocytes, Met-A Normal in 13 of 14 with a state, the C-Score within its atlas-measured limit in 18 of 19. Met-A extends to monocytes on 450K; the C-Score is commissioned against the atlas alone on that scope.",
+     "record": "Biological_Physics/MethylPhys/doors/COMMISSION_MONO450_01_OUTCOME.md"
     }
    ]
   },
@@ -55,6 +71,22 @@
      "status": "diagnosis",
      "what": "Random noise added past the noisiest laboratory made no GMP; the departure sits on both probe designs, differently in each laboratory.",
      "outcome": "The correction has to come from each array's own response per design, measured on its own calibrators across the whole range.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    },
+    {
+     "title": "Sequencing laboratories differ at the molecules' ends",
+     "status": "diagnosis",
+     "reference": "IAM Sequencing Atlas",
+     "what": "30 spent aligned libraries, opposite calls by position on the molecule, site-matched.",
+     "outcome": "Interior error rates agree across laboratories; the end calls read 0.86 to 12.4 times the inner rate, library by library. Each library's own measured end profile is the next step, rather than cutting data.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The lymphocyte widths rest on two laboratories",
+     "status": "diagnosis",
+     "reference": "IAM-Atlas v2.1",
+     "what": "The atlas's pure lymphocyte donors by laboratory, and sorted lymphocytes from two laboratories the atlas never held.",
+     "outcome": "Both outside laboratories read lymphocytes 3 to 5 percent below 1 while the atlas's own two read 1, so the width needs more laboratories; lymphocyte readings are shown as observations until then.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
     }
    ]

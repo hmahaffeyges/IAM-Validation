@@ -1,0 +1,33 @@
+Group-A against IAM-Atlas v2.1 alone, spent rehearsal (development): 278 listed arrays
+read (idat route): 147 arrays
+
+Healthy groups, women against men (idat route), per cell found at a share of 5 % or more:
+  GMP (bone marrow)            share 0.092: women 0.96257 (n 30), men 0.96588 (n 43): -0.34 %, -1.13 SE -> no difference found
+  cd4 t cells                  share 0.124: women 0.97377 (n 35), men 0.97361 (n 101): +0.02 %, +0.07 SE -> no difference found
+  cd56bright nk cells          share 0.061: women 0.99238 (n 7), men 0.97605 (n 42): +1.67 %, +1.95 SE -> no difference found
+  cd8 t cells                  share 0.070: women 0.96409 (n 8), men 0.96899 (n 14): -0.51 %, -0.90 SE -> no difference found
+  cd8 temra t cells            share 0.082: women 1.00014 (n 9), men 0.99516 (n 30): +0.50 %, +0.56 SE -> no difference found
+  effector memory cd8 t cells  share 0.079: women 0.98474 (n 8), men 0.97835 (n 17): +0.65 %, +1.02 SE -> no difference found
+  monocytes                    share 0.106: women 0.95992 (n 35), men 0.96185 (n 106): -0.20 %, -0.86 SE -> no difference found
+  naive cd4 t cells            share 0.078: women 0.99516 (n 3), men 0.98969 (n 5): +0.55 %, +0.39 SE -> no difference found
+  neutrophils                  share 0.466: women 1.01056 (n 37), men 0.99314 (n 110): +1.75 %, +3.25 SE -> groups differ
+
+Planted half (1 % loss of the neutrophils' pattern) against the unplanted half, both by saved values, per cell found:
+  GMP (bone marrow)            share 0.091: planted 0.96485 (n 33), unplanted 0.96343 (n 32): +0.15 %, +0.43 SE -> no difference found
+  cd4 t cells                  share 0.127: planted 0.97826 (n 62), unplanted 0.97293 (n 63): +0.55 %, +2.46 SE -> groups differ
+  cd56bright nk cells          share 0.060: planted 0.9819 (n 20), unplanted 0.97397 (n 22): +0.81 %, +1.55 SE -> no difference found
+  cd8 t cells                  share 0.071: planted 0.9638 (n 7), unplanted 0.96901 (n 12): -0.54 %, -0.80 SE -> no difference found
+  cd8 temra t cells            share 0.090: planted 0.9995 (n 16), unplanted 0.99342 (n 18): +0.61 %, +0.99 SE -> no difference found
+  effector memory cd8 t cells  share 0.079: planted 0.98308 (n 15), unplanted 0.97799 (n 8): +0.52 %, +0.83 SE -> no difference found
+  eosinophils                  share 0.065: planted 0.99579 (n 5), unplanted 1.00027 (n 6): -0.45 %, -0.74 SE -> no difference found
+  memory cd4 t cells           share 0.065: planted 0.98542 (n 4), unplanted 0.98151 (n 7): +0.40 %, +0.49 SE -> no difference found
+  monocytes                    share 0.106: planted 0.96655 (n 65), unplanted 0.95994 (n 62): +0.69 %, +2.91 SE -> groups differ
+  naive cd4 t cells            share 0.084: planted 1.00235 (n 3), unplanted 0.98993 (n 4): +1.25 %, +1.02 SE -> no difference found
+  neutrophils                  share 0.460: planted 1.02259 (n 67), unplanted 0.99555 (n 66): +2.68 %, +5.60 SE -> groups differ
+
+The rehearsal was stopped at 147 of 278 arrays read (enough to answer it; the rest would have been raw re-reads on paid machines).
+Whole-sample Met-A (each person's mix in its expectation): women against men 0.526 SE (no difference); planted against unplanted -0.572 SE (the planted neutrophil loss is not seen in the whole sample).
+The neutrophil row with each person's cell mix accounted for (residual after the shares the IAM-Deconvolver found, neutrophils, monocytes, CD4 T cells, GMP; coefficients measured on the healthy idat-route arrays only):
+  women against men: +0.00452 (n 37 against 110), 1.288 SE: no difference
+  planted against unplanted: +0.02979 (n 67 against 66), 9.387 SE: found
+Shares, women against men: neutrophils 0.4230 against 0.4557, monocytes 0.0897 against 0.1151, CD4 T cells 0.1703 against 0.1217.

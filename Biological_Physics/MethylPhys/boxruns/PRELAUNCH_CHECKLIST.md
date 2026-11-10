@@ -5,6 +5,22 @@ Read this file before every AWS launch. Every box job in `CANON/box_jobs.json` d
 this checklist and the known-facts section that applies; `CANON/box_code_check.py` refuses a job without it. Each item names the lesson it
 comes from (`../LESSONS.md`).
 
+## Before any new test, first (author, 2026-11-10)
+
+Four questions, answered in writing before a test is written or launched (the launcher refuses a new job without them):
+
+1. **Is this the best data for this test, considering time and efficiency, and was that concluded from all the data in front of us?** Look first at
+   what is already computed: kept values, existing bundles, count files, already-assembled molecule files, committed outputs. Use the smallest set
+   that answers the question. Raw downloads, fresh reading and alignment are for sealed commissioning tests, and only when nothing already in hand
+   serves.
+2. **Have all of GitHub's machines been used first, before Google?** Spread the work across every free GitHub runner; Google takes only what
+   GitHub cannot (a job longer than its time limit, larger than its disk or memory, or inputs only in the bucket), and the reason is written down.
+3. **Is this the best test for its purpose, adequate and faithful?** It answers the instrument's job and nothing tighter (KISS), with enough
+   samples to decide and no more, and it measures what it claims (a synthetic first where the instrument is new; the bar checked for its chance
+   of failing a perfect instrument).
+4. **What would a cosmologist do?** Ask how the CMB missions solved the same problem (null tests, detector splits, calibration on known sources,
+   forward-modeling the instrument onto the expectation) before building anything new.
+
 ## The checklist
 
 0. **GitHub first** (author, 2026-10-20: "We save AWS for the jobs that are to much for GitHub"). Before any AWS launch, say why the job cannot run

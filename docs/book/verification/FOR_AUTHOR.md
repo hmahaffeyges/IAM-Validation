@@ -2,7 +2,7 @@
 
 Items a check raised that would change a result, the framing of a claim, or that need a source or a script before they can be checked. The book is unchanged for each open item.
 
-Open items: 0.
+Open items: 25, from the book review in `BOOK_REVIEW_FOR_AUTHOR.md` (each with its evidence and a proposed text; nothing changed until the author has seen it). Passages questioned and found accurate are logged in `REVIEWED_ACCURATE.md` and are not raised again.
 
 
 ## Resolved 2026-10-04

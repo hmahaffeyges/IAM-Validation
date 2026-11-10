@@ -1859,3 +1859,16 @@ GSE98837's CD8 cells moved to 1.0569 (from 0.839), the other two hardly moved. S
 trimmed sample read against the published atlas stays the better reading, and the rebuilt atlas stays a development folder, not a new
 version. Why one laboratory moves and the others do not is the next thing to read (the depth each library keeps after the trim, and the
 atlas cells' own end effect).
+
+**Sequencing step 1, per-library self-calibration: the atlas's own error profile (development; spent data).** The instrument's job: a healthy
+library from any laboratory reads 1 against the sequencing atlas, with nothing borrowed from other samples. The trims showed why cutting data is
+not the answer: one end call left out of the sample alone tightened the laboratories (whole-sample spread 0.034 against the published atlas) but
+put every laboratory below 1 (0.94 to 0.97; per cell 0.75 to 0.84), and trimming the atlas too widened them (`trim_atlas_read_summary.txt`);
+the atlas's own donors keep an end effect (2.33 times their inner rate on one donor). The route the CMB missions took is to forward-model each
+instrument's measured response onto the expectation: each library's own error at the molecules' ends and inside, measured at the floor sites
+(every healthy cell unmarked) and its cell's held identity sites, both sides (`floor_by_position` now reports each side), and the atlas's own,
+built into the expected value. The atlas's side needs no new reading: each donor's published counts and its one-call-trimmed counts (the trimmed
+atlas build) differ by exactly its end calls, so its end and inner rates come from those two count files. The expectation and its synthetic are
+written before any library is read with it.
+**Range of the data:** in the real libraries, end calls 0.86 to 12.4 times the inner rate at the same sites, library by library (30 spent libraries, site-matched,
+`floor_position_matched.csv`); the atlas's own donor 2.33 times (one donor). The synthetic plants end profiles across 0.8 to 13 times.

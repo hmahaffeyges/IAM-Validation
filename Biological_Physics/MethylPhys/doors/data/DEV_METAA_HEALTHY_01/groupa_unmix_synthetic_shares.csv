@@ -1,0 +1,1525 @@
+gsm,sex,cell,share
+GSM9488258,male,neutrophils,0.4558
+GSM9488258,male,monocytes,0.1275
+GSM9488258,male,cd4 t cells,0.1198
+GSM9488258,male,cd8 t cells,0.1042
+GSM9488258,male,memory cd4 t cells,0.0492
+GSM9488258,male,eosinophils,0.0464
+GSM9488258,male,cd56bright nk cells,0.0404
+GSM9488258,male,cd8 temra t cells,0.0202
+GSM9488258,male,naive b cells,0.0102
+GSM9488219,male,neutrophils,0.5499
+GSM9488219,male,GMP (bone marrow),0.1502
+GSM9488219,male,monocytes,0.095
+GSM9488219,male,cd4 t cells,0.0843
+GSM9488219,male,cd56bright nk cells,0.0376
+GSM9488219,male,eosinophils,0.0305
+GSM9488219,male,MEP (bone marrow),0.0228
+GSM9488219,male,naive b cells,0.0134
+GSM9488235,female,neutrophils,0.3098
+GSM9488235,female,cd4 t cells,0.2089
+GSM9488235,female,cd8 temra t cells,0.1305
+GSM9488235,female,monocytes,0.1117
+GSM9488235,female,GMP (bone marrow),0.0644
+GSM9488235,female,cd8 t cells,0.052
+GSM9488235,female,b cells,0.0432
+GSM9488235,female,eosinophils,0.024
+GSM9488235,female,effector memory cd8 t cells,0.0238
+GSM9488370,female,neutrophils,0.4187
+GSM9488370,female,cd4 t cells,0.1071
+GSM9488370,female,GMP (bone marrow),0.0922
+GSM9488370,female,L-MPP (bone marrow),0.0847
+GSM9488370,female,monocytes,0.0833
+GSM9488370,female,naive cd8 t cells,0.0675
+GSM9488370,female,cd56bright nk cells,0.0381
+GSM9488370,female,naive b cells,0.0179
+GSM9488370,female,cd8 temra t cells,0.0173
+GSM9488370,female,CMP (bone marrow),0.0163
+GSM9488370,female,HSC (bone marrow),0.0142
+GSM9488370,female,regulatory t cells,0.0135
+GSM9488274,male,neutrophils,0.2833
+GSM9488274,male,cd4 t cells,0.1687
+GSM9488274,male,monocytes,0.1548
+GSM9488274,male,effector memory cd8 t cells,0.1086
+GSM9488274,male,GMP (bone marrow),0.0667
+GSM9488274,male,cd8 temra t cells,0.0645
+GSM9488274,male,b cells,0.0439
+GSM9488274,male,nk cells,0.0328
+GSM9488274,male,cd8 t cells,0.0231
+GSM9488274,male,eosinophils,0.0156
+GSM9488274,male,MEP (bone marrow),0.014
+GSM9488274,male,memory cd4 t cells,0.0103
+GSM9488331,male,neutrophils,0.5023
+GSM9488331,male,cd4 t cells,0.1171
+GSM9488331,male,cd8 temra t cells,0.0995
+GSM9488331,male,monocytes,0.0673
+GSM9488331,male,b cells,0.0488
+GSM9488331,male,cd8 t cells,0.0395
+GSM9488331,male,cd56bright nk cells,0.0288
+GSM9488331,male,memory cd4 t cells,0.023
+GSM9488331,male,L-MPP (bone marrow),0.0206
+GSM9488331,male,eosinophils,0.0184
+GSM9488331,male,GMP (bone marrow),0.0179
+GSM9488346,male,neutrophils,0.4942
+GSM9488346,male,cd4 t cells,0.1441
+GSM9488346,male,monocytes,0.139
+GSM9488346,male,GMP (bone marrow),0.0581
+GSM9488346,male,cd56bright nk cells,0.0259
+GSM9488346,male,eosinophils,0.0205
+GSM9488346,male,effector memory cd8 t cells,0.0193
+GSM9488346,male,cd8 temra t cells,0.0152
+GSM9488346,male,cd8 t cells,0.0127
+GSM9488346,male,cd8 central memory t cells,0.0124
+GSM9488346,male,naive b cells,0.0123
+GSM9488346,male,L-MPP (bone marrow),0.0103
+GSM9488192,female,neutrophils,0.6213
+GSM9488192,female,GMP (bone marrow),0.078
+GSM9488192,female,monocytes,0.0615
+GSM9488192,female,t central memory cd4,0.0441
+GSM9488192,female,naive cd8 t cells,0.0345
+GSM9488192,female,cd4 t cells,0.0212
+GSM9488192,female,naive cd4 t cells,0.0208
+GSM9488192,female,naive b cells,0.0189
+GSM9488192,female,cd56bright nk cells,0.0186
+GSM9488192,female,L-MPP (bone marrow),0.0145
+GSM9488192,female,vascular endothelium,0.0129
+GSM9488192,female,eosinophils,0.0114
+GSM9488192,female,microglia,0.0107
+GSM9488491,male,neutrophils,0.422
+GSM9488491,male,cd8 temra t cells,0.2486
+GSM9488491,male,monocytes,0.1137
+GSM9488491,male,cd4 t cells,0.0765
+GSM9488491,male,eosinophils,0.0379
+GSM9488491,male,memory cd4 t cells,0.033
+GSM9488491,male,b cells,0.0267
+GSM9488491,male,CMP (bone marrow),0.0204
+GSM9488491,male,basophils,0.0127
+GSM9488307,male,neutrophils,0.5791
+GSM9488307,male,GMP (bone marrow),0.1566
+GSM9488307,male,monocytes,0.102
+GSM9488307,male,cd4 t cells,0.0535
+GSM9488307,male,cd56bright nk cells,0.0296
+GSM9488307,male,eosinophils,0.0253
+GSM9488307,male,cd8 temra t cells,0.0225
+GSM9488307,male,naive b cells,0.0165
+GSM9488242,male,neutrophils,0.4643
+GSM9488242,male,monocytes,0.1635
+GSM9488242,male,cd4 t cells,0.0993
+GSM9488242,male,cd56bright nk cells,0.0769
+GSM9488242,male,cd8 temra t cells,0.0541
+GSM9488242,male,MPP (bone marrow),0.039
+GSM9488242,male,cd8 t cells,0.0345
+GSM9488242,male,eosinophils,0.0247
+GSM9488242,male,b cells,0.0237
+GSM9488429,male,neutrophils,0.5724
+GSM9488429,male,monocytes,0.1262
+GSM9488429,male,cd4 t cells,0.0783
+GSM9488429,male,L-MPP (bone marrow),0.045
+GSM9488429,male,cd56bright nk cells,0.0313
+GSM9488429,male,naive b cells,0.029
+GSM9488429,male,naive cd4 t cells,0.0237
+GSM9488429,male,HSC (bone marrow),0.0218
+GSM9488429,male,cd8 central memory t cells,0.0161
+GSM9488429,male,cd8 temra t cells,0.0157
+GSM9488429,male,memory cd4 t cells,0.0134
+GSM9488385,male,neutrophils,0.6059
+GSM9488385,male,monocytes,0.1348
+GSM9488385,male,cd4 t cells,0.0534
+GSM9488385,male,cd56bright nk cells,0.0518
+GSM9488385,male,MEP (bone marrow),0.0316
+GSM9488385,male,cd8 temra t cells,0.0267
+GSM9488385,male,cd8 t cells,0.0249
+GSM9488385,male,eosinophils,0.0238
+GSM9488385,male,GMP (bone marrow),0.0124
+GSM9488385,male,b cells,0.012
+GSM9488392,male,neutrophils,0.3275
+GSM9488392,male,cd4 t cells,0.1345
+GSM9488392,male,monocytes,0.1086
+GSM9488392,male,effector memory cd8 t cells,0.0764
+GSM9488392,male,cd8 temra t cells,0.0647
+GSM9488392,male,cd8 t cells,0.0601
+GSM9488392,male,cd56bright nk cells,0.0557
+GSM9488392,male,GMP (bone marrow),0.0525
+GSM9488392,male,L-MPP (bone marrow),0.0456
+GSM9488392,male,b cells,0.0386
+GSM9488392,male,eosinophils,0.0124
+GSM9488392,male,naive cd8 t cells,0.0101
+GSM9488453,male,neutrophils,0.5316
+GSM9488453,male,monocytes,0.1684
+GSM9488453,male,cd56bright nk cells,0.0656
+GSM9488453,male,naive b cells,0.0413
+GSM9488453,male,eosinophils,0.0397
+GSM9488453,male,t central memory cd4,0.0367
+GSM9488453,male,naive cd4 t cells,0.0344
+GSM9488453,male,CMP (bone marrow),0.0305
+GSM9488453,male,cd8 temra t cells,0.0291
+GSM9488453,male,vascular endothelium,0.0102
+GSM9488428,male,neutrophils,0.3462
+GSM9488428,male,cd4 t cells,0.1623
+GSM9488428,male,monocytes,0.0916
+GSM9488428,male,eosinophils,0.0831
+GSM9488428,male,cd8 central memory t cells,0.0638
+GSM9488428,male,cd56bright nk cells,0.0538
+GSM9488428,male,cd8 temra t cells,0.0523
+GSM9488428,male,cd8 t cells,0.0514
+GSM9488428,male,naive b cells,0.0217
+GSM9488428,male,HSC (bone marrow),0.0199
+GSM9488428,male,basophils,0.0143
+GSM9488428,male,memory cd4 t cells,0.0129
+GSM9488428,male,b cells,0.0104
+GSM9488306,female,neutrophils,0.4189
+GSM9488306,female,GMP (bone marrow),0.1843
+GSM9488306,female,cd4 t cells,0.1632
+GSM9488306,female,monocytes,0.0524
+GSM9488306,female,cd8 temra t cells,0.0519
+GSM9488306,female,effector memory cd8 t cells,0.0403
+GSM9488306,female,cd56bright nk cells,0.0236
+GSM9488306,female,eosinophils,0.0166
+GSM9488306,female,t central memory cd4,0.0157
+GSM9488306,female,b cells,0.013
+GSM9488306,female,naive b cells,0.0119
+GSM9488243,male,neutrophils,0.6061
+GSM9488243,male,monocytes,0.1522
+GSM9488243,male,cd4 t cells,0.0546
+GSM9488243,male,cd56bright nk cells,0.0427
+GSM9488243,male,MEP (bone marrow),0.0359
+GSM9488243,male,eosinophils,0.0347
+GSM9488243,male,cd8 t cells,0.0182
+GSM9488243,male,effector memory cd8 t cells,0.0129
+GSM9488243,male,vascular endothelium,0.0113
+GSM9488486,male,neutrophils,0.5217
+GSM9488486,male,cd4 t cells,0.1167
+GSM9488486,male,monocytes,0.0749
+GSM9488486,male,cd56bright nk cells,0.0596
+GSM9488486,male,naive b cells,0.0471
+GSM9488486,male,L-MPP (bone marrow),0.037
+GSM9488486,male,memory cd4 t cells,0.0336
+GSM9488486,male,cd8 temra t cells,0.0282
+GSM9488486,male,naive cd8 t cells,0.0276
+GSM9488486,male,cd8 central memory t cells,0.0155
+GSM9488193,female,neutrophils,0.3342
+GSM9488193,female,cd4 t cells,0.1902
+GSM9488193,female,naive cd4 t cells,0.1019
+GSM9488193,female,monocytes,0.0766
+GSM9488193,female,GMP (bone marrow),0.0657
+GSM9488193,female,t central memory cd4,0.0407
+GSM9488193,female,cd56bright nk cells,0.0393
+GSM9488193,female,naive cd8 t cells,0.0377
+GSM9488193,female,eosinophils,0.0259
+GSM9488193,female,effector memory cd8 t cells,0.0227
+GSM9488193,female,naive b cells,0.0164
+GSM9488193,female,memory b cells,0.0117
+GSM9488193,female,L-MPP (bone marrow),0.0107
+GSM9488469,male,neutrophils,0.5814
+GSM9488469,male,monocytes,0.0801
+GSM9488469,male,GMP (bone marrow),0.0565
+GSM9488469,male,naive b cells,0.0547
+GSM9488469,male,cd56bright nk cells,0.0546
+GSM9488469,male,L-MPP (bone marrow),0.0443
+GSM9488469,male,eosinophils,0.0415
+GSM9488469,male,t central memory cd4,0.0233
+GSM9488469,male,cd8 temra t cells,0.0197
+GSM9488469,male,CMP (bone marrow),0.012
+GSM9488469,male,naive cd8 t cells,0.0101
+GSM9488347,male,neutrophils,0.436
+GSM9488347,male,cd4 t cells,0.156
+GSM9488347,male,GMP (bone marrow),0.0961
+GSM9488347,male,monocytes,0.0865
+GSM9488347,male,cd8 t cells,0.0631
+GSM9488347,male,effector memory cd8 t cells,0.0525
+GSM9488347,male,b cells,0.0378
+GSM9488347,male,cd56bright nk cells,0.0307
+GSM9488347,male,eosinophils,0.0185
+GSM9488347,male,cd8 temra t cells,0.0167
+GSM9488275,male,monocytes,0.4313
+GSM9488275,male,neutrophils,0.1513
+GSM9488275,male,cd4 t cells,0.1382
+GSM9488275,male,GMP (bone marrow),0.0504
+GSM9488275,male,effector memory cd8 t cells,0.0467
+GSM9488275,male,MEP (bone marrow),0.0405
+GSM9488275,male,b cells,0.039
+GSM9488275,male,nk cells,0.0339
+GSM9488275,male,naive b cells,0.0259
+GSM9488275,male,eosinophils,0.0161
+GSM9488275,male,regulatory t cells,0.016
+GSM9488330,male,neutrophils,0.7465
+GSM9488330,male,GMP (bone marrow),0.0781
+GSM9488330,male,cd4 t cells,0.0592
+GSM9488330,male,monocytes,0.0365
+GSM9488330,male,cd56bright nk cells,0.0245
+GSM9488330,male,effector memory cd8 t cells,0.0171
+GSM9488330,male,naive b cells,0.0122
+GSM9488330,male,t central memory cd4,0.0119
+GSM9488234,male,neutrophils,0.624
+GSM9488234,male,cd4 t cells,0.1171
+GSM9488234,male,monocytes,0.1092
+GSM9488234,male,cd56bright nk cells,0.0425
+GSM9488234,male,HSC (bone marrow),0.0386
+GSM9488234,male,naive b cells,0.022
+GSM9488234,male,basophils,0.0163
+GSM9488234,male,eosinophils,0.0159
+GSM9488371,male,neutrophils,0.3395
+GSM9488371,male,cd4 t cells,0.1364
+GSM9488371,male,GMP (bone marrow),0.0981
+GSM9488371,male,monocytes,0.0926
+GSM9488371,male,eosinophils,0.0653
+GSM9488371,male,naive cd4 t cells,0.0629
+GSM9488371,male,effector memory cd8 t cells,0.0415
+GSM9488371,male,cd8 t cells,0.041
+GSM9488371,male,cd56bright nk cells,0.0259
+GSM9488371,male,naive cd8 t cells,0.0237
+GSM9488371,male,naive b cells,0.0229
+GSM9488371,male,cd8 temra t cells,0.0201
+GSM9488371,male,L-MPP (bone marrow),0.0144
+GSM9488218,male,neutrophils,0.5106
+GSM9488218,male,GMP (bone marrow),0.1487
+GSM9488218,male,cd4 t cells,0.1276
+GSM9488218,male,cd56bright nk cells,0.0957
+GSM9488218,male,monocytes,0.061
+GSM9488218,male,b cells,0.0169
+GSM9488218,male,eosinophils,0.0149
+GSM9488218,male,effector memory cd8 t cells,0.0128
+GSM9488259,female,neutrophils,0.3658
+GSM9488259,female,monocytes,0.1458
+GSM9488259,female,cd4 t cells,0.1248
+GSM9488259,female,cd8 temra t cells,0.1179
+GSM9488259,female,cd8 t cells,0.0943
+GSM9488259,female,cd56bright nk cells,0.0626
+GSM9488259,female,eosinophils,0.0385
+GSM9488259,female,b cells,0.037
+GSM9488205,female,neutrophils,0.3773
+GSM9488205,female,cd4 t cells,0.174
+GSM9488205,female,monocytes,0.0946
+GSM9488205,female,GMP (bone marrow),0.0908
+GSM9488205,female,effector memory cd8 t cells,0.0595
+GSM9488205,female,cd56bright nk cells,0.0556
+GSM9488205,female,t central memory cd4,0.0386
+GSM9488205,female,naive cd8 t cells,0.0211
+GSM9488205,female,L-MPP (bone marrow),0.0188
+GSM9488205,female,b cells,0.0169
+GSM9488205,female,eosinophils,0.0145
+GSM9488205,female,regulatory t cells,0.0119
+GSM9488205,female,naive b cells,0.0103
+GSM9488252,male,neutrophils,0.6188
+GSM9488252,male,cd4 t cells,0.134
+GSM9488252,male,monocytes,0.1048
+GSM9488252,male,cd56bright nk cells,0.0678
+GSM9488252,male,naive b cells,0.0213
+GSM9488252,male,eosinophils,0.0116
+GSM9488478,male,neutrophils,0.6022
+GSM9488478,male,monocytes,0.1132
+GSM9488478,male,cd56bright nk cells,0.0772
+GSM9488478,male,cd8 temra t cells,0.0387
+GSM9488478,male,CMP (bone marrow),0.035
+GSM9488478,male,cd4 t cells,0.0326
+GSM9488478,male,naive b cells,0.0258
+GSM9488478,male,t central memory cd4,0.0166
+GSM9488478,male,eosinophils,0.0145
+GSM9488478,male,vascular endothelium,0.01
+GSM9488301,male,neutrophils,0.3476
+GSM9488301,male,cd8 temra t cells,0.1519
+GSM9488301,male,cd4 t cells,0.1293
+GSM9488301,male,effector memory cd8 t cells,0.0935
+GSM9488301,male,monocytes,0.0829
+GSM9488301,male,GMP (bone marrow),0.0679
+GSM9488301,male,b cells,0.0417
+GSM9488301,male,eosinophils,0.0269
+GSM9488301,male,memory b cells,0.0217
+GSM9488301,male,t central memory cd4,0.0133
+GSM9488244,female,neutrophils,0.3232
+GSM9488244,female,cd4 t cells,0.2489
+GSM9488244,female,effector memory cd8 t cells,0.1142
+GSM9488244,female,GMP (bone marrow),0.0587
+GSM9488244,female,monocytes,0.0551
+GSM9488244,female,cd56bright nk cells,0.0395
+GSM9488244,female,cd8 t cells,0.0379
+GSM9488244,female,eosinophils,0.0313
+GSM9488244,female,b cells,0.0304
+GSM9488244,female,memory b cells,0.0256
+GSM9488213,male,neutrophils,0.5473
+GSM9488213,male,monocytes,0.1154
+GSM9488213,male,cd4 t cells,0.0838
+GSM9488213,male,cd56bright nk cells,0.0462
+GSM9488213,male,eosinophils,0.0374
+GSM9488213,male,GMP (bone marrow),0.0318
+GSM9488213,male,L-MPP (bone marrow),0.0298
+GSM9488213,male,t central memory cd4,0.0285
+GSM9488213,male,naive cd8 t cells,0.0254
+GSM9488213,male,naive cd4 t cells,0.021
+GSM9488213,male,naive b cells,0.0171
+GSM9488268,female,cd4 t cells,0.3309
+GSM9488268,female,GMP (bone marrow),0.1269
+GSM9488268,female,cd8 temra t cells,0.1137
+GSM9488268,female,neutrophils,0.1095
+GSM9488268,female,cd8 t cells,0.1092
+GSM9488268,female,monocytes,0.0821
+GSM9488268,female,b cells,0.0498
+GSM9488268,female,effector memory cd8 t cells,0.0314
+GSM9488268,female,L-MPP (bone marrow),0.0278
+GSM9488229,male,neutrophils,0.5035
+GSM9488229,male,cd4 t cells,0.1154
+GSM9488229,male,GMP (bone marrow),0.1069
+GSM9488229,male,monocytes,0.0927
+GSM9488229,male,cd8 temra t cells,0.0631
+GSM9488229,male,cd56bright nk cells,0.0343
+GSM9488229,male,b cells,0.0283
+GSM9488229,male,cd8 t cells,0.0264
+GSM9488229,male,eosinophils,0.0168
+GSM9488291,female,neutrophils,0.6187
+GSM9488291,female,monocytes,0.106
+GSM9488291,female,GMP (bone marrow),0.0789
+GSM9488291,female,cd4 t cells,0.0651
+GSM9488291,female,cd56bright nk cells,0.045
+GSM9488291,female,cd8 temra t cells,0.0308
+GSM9488291,female,L-MPP (bone marrow),0.0236
+GSM9488291,female,b cells,0.0136
+GSM9488291,female,t central memory cd4,0.0112
+GSM9488209,female,neutrophils,0.6518
+GSM9488209,female,GMP (bone marrow),0.0927
+GSM9488209,female,monocytes,0.0572
+GSM9488209,female,L-MPP (bone marrow),0.0477
+GSM9488209,female,eosinophils,0.0365
+GSM9488209,female,cd56bright nk cells,0.0308
+GSM9488209,female,naive cd4 t cells,0.0259
+GSM9488209,female,naive cd8 t cells,0.0148
+GSM9488209,female,naive b cells,0.0131
+GSM9488209,female,regulatory t cells,0.0125
+GSM9488177,male,neutrophils,0.3017
+GSM9488177,male,cd8 temra t cells,0.2087
+GSM9488177,male,monocytes,0.1743
+GSM9488177,male,cd56bright nk cells,0.1233
+GSM9488177,male,eosinophils,0.0387
+GSM9488177,male,cd4 t cells,0.0356
+GSM9488177,male,b cells,0.0308
+GSM9488177,male,effector memory cd8 t cells,0.028
+GSM9488177,male,memory cd4 t cells,0.0171
+GSM9488177,male,vascular endothelium,0.0154
+GSM9488462,male,neutrophils,0.3609
+GSM9488462,male,cd8 temra t cells,0.1783
+GSM9488462,male,monocytes,0.1754
+GSM9488462,male,cd4 t cells,0.0826
+GSM9488462,male,memory cd4 t cells,0.0308
+GSM9488462,male,naive b cells,0.0303
+GSM9488462,male,t central memory cd4,0.0235
+GSM9488462,male,cd56bright nk cells,0.0226
+GSM9488462,male,CMP (bone marrow),0.0183
+GSM9488462,male,eosinophils,0.0136
+GSM9488462,male,b cells,0.0108
+GSM9488462,male,vascular endothelium,0.0105
+GSM9488321,male,neutrophils,0.4845
+GSM9488321,male,monocytes,0.1389
+GSM9488321,male,cd4 t cells,0.0769
+GSM9488321,male,cd8 temra t cells,0.0758
+GSM9488321,male,eosinophils,0.0606
+GSM9488321,male,cd8 t cells,0.0475
+GSM9488321,male,b cells,0.0308
+GSM9488321,male,naive b cells,0.0245
+GSM9488321,male,cd56bright nk cells,0.0163
+GSM9488321,male,MEP (bone marrow),0.0128
+GSM9488399,male,neutrophils,0.4379
+GSM9488399,male,monocytes,0.1462
+GSM9488399,male,cd4 t cells,0.1143
+GSM9488399,male,GMP (bone marrow),0.0614
+GSM9488399,male,effector memory cd8 t cells,0.0577
+GSM9488399,male,cd56bright nk cells,0.0552
+GSM9488399,male,L-MPP (bone marrow),0.0427
+GSM9488399,male,eosinophils,0.0187
+GSM9488399,male,cd8 t cells,0.0165
+GSM9488399,male,b cells,0.0129
+GSM9488399,male,regulatory t cells,0.0124
+GSM9488399,male,naive b cells,0.0121
+GSM9488376,male,neutrophils,0.5657
+GSM9488376,male,monocytes,0.1177
+GSM9488376,male,cd4 t cells,0.0998
+GSM9488376,male,cd8 t cells,0.0487
+GSM9488376,male,cd56bright nk cells,0.0441
+GSM9488376,male,naive b cells,0.029
+GSM9488376,male,eosinophils,0.027
+GSM9488376,male,GMP (bone marrow),0.025
+GSM9488376,male,cd8 central memory t cells,0.0184
+GSM9488360,male,neutrophils,0.3456
+GSM9488360,male,monocytes,0.1556
+GSM9488360,male,cd4 t cells,0.1206
+GSM9488360,male,eosinophils,0.079
+GSM9488360,male,naive cd8 t cells,0.0536
+GSM9488360,male,cd56bright nk cells,0.0392
+GSM9488360,male,cd8 central memory t cells,0.0367
+GSM9488360,male,CMP (bone marrow),0.0349
+GSM9488360,male,naive cd4 t cells,0.027
+GSM9488360,male,memory cd4 t cells,0.0268
+GSM9488360,male,b cells,0.0199
+GSM9488360,male,naive b cells,0.0192
+GSM9488419,male,neutrophils,0.4968
+GSM9488419,male,cd8 temra t cells,0.1144
+GSM9488419,male,monocytes,0.1049
+GSM9488419,male,cd4 t cells,0.0862
+GSM9488419,male,GMP (bone marrow),0.0353
+GSM9488419,male,effector memory cd8 t cells,0.0318
+GSM9488419,male,cd56bright nk cells,0.0285
+GSM9488419,male,cd8 t cells,0.0278
+GSM9488419,male,naive b cells,0.0254
+GSM9488419,male,eosinophils,0.0153
+GSM9488419,male,vascular endothelium,0.0112
+GSM9488337,male,neutrophils,0.5944
+GSM9488337,male,GMP (bone marrow),0.1715
+GSM9488337,male,cd4 t cells,0.0929
+GSM9488337,male,monocytes,0.0583
+GSM9488337,male,naive b cells,0.0214
+GSM9488337,male,L-MPP (bone marrow),0.0198
+GSM9488337,male,cd56bright nk cells,0.0169
+GSM9488336,male,neutrophils,0.5132
+GSM9488336,male,cd4 t cells,0.1465
+GSM9488336,male,monocytes,0.1225
+GSM9488336,male,effector memory cd8 t cells,0.0356
+GSM9488336,male,cd56bright nk cells,0.0353
+GSM9488336,male,eosinophils,0.035
+GSM9488336,male,L-MPP (bone marrow),0.0305
+GSM9488336,male,GMP (bone marrow),0.0278
+GSM9488336,male,b cells,0.0204
+GSM9488336,male,cd8 temra t cells,0.0128
+GSM9488361,male,neutrophils,0.5552
+GSM9488361,male,cd4 t cells,0.1228
+GSM9488361,male,monocytes,0.1146
+GSM9488361,male,cd56bright nk cells,0.052
+GSM9488361,male,cd8 temra t cells,0.0276
+GSM9488361,male,memory cd4 t cells,0.0189
+GSM9488361,male,CMP (bone marrow),0.0173
+GSM9488361,male,naive cd4 t cells,0.0148
+GSM9488361,male,naive cd8 t cells,0.0142
+GSM9488361,male,L-MPP (bone marrow),0.0135
+GSM9488361,male,naive b cells,0.0116
+GSM9488361,male,basophils,0.0112
+GSM9488377,male,neutrophils,0.4661
+GSM9488377,male,monocytes,0.2024
+GSM9488377,male,cd8 temra t cells,0.075
+GSM9488377,male,cd56bright nk cells,0.0516
+GSM9488377,male,cd4 t cells,0.0445
+GSM9488377,male,eosinophils,0.0421
+GSM9488377,male,cd8 t cells,0.039
+GSM9488377,male,memory cd4 t cells,0.0352
+GSM9488377,male,basophils,0.0135
+GSM9488377,male,b cells,0.0132
+GSM9488459,male,neutrophils,0.4148
+GSM9488459,male,cd4 t cells,0.1578
+GSM9488459,male,monocytes,0.066
+GSM9488459,male,memory cd4 t cells,0.0518
+GSM9488459,male,cd56bright nk cells,0.0513
+GSM9488459,male,cd8 central memory t cells,0.0484
+GSM9488459,male,eosinophils,0.0439
+GSM9488459,male,cd8 temra t cells,0.0412
+GSM9488459,male,naive cd4 t cells,0.0349
+GSM9488459,male,naive b cells,0.0232
+GSM9488459,male,naive cd8 t cells,0.0208
+GSM9488459,male,CMP (bone marrow),0.0132
+GSM9488320,male,neutrophils,0.5314
+GSM9488320,male,monocytes,0.1208
+GSM9488320,male,cd4 t cells,0.1124
+GSM9488320,male,cd56bright nk cells,0.0721
+GSM9488320,male,cd8 temra t cells,0.034
+GSM9488320,male,eosinophils,0.0315
+GSM9488320,male,memory cd4 t cells,0.0304
+GSM9488320,male,b cells,0.021
+GSM9488320,male,MEP (bone marrow),0.0209
+GSM9488160,female,neutrophils,0.4877
+GSM9488160,female,cd4 t cells,0.0958
+GSM9488160,female,GMP (bone marrow),0.0918
+GSM9488160,female,monocytes,0.0867
+GSM9488160,female,effector memory cd8 t cells,0.0413
+GSM9488160,female,cd56bright nk cells,0.041
+GSM9488160,female,naive b cells,0.0333
+GSM9488160,female,naive cd8 t cells,0.0326
+GSM9488160,female,eosinophils,0.0223
+GSM9488160,female,L-MPP (bone marrow),0.0195
+GSM9488160,female,regulatory t cells,0.0186
+GSM9488160,female,t central memory cd4,0.0161
+GSM9488475,male,neutrophils,0.6024
+GSM9488475,male,cd4 t cells,0.0965
+GSM9488475,male,monocytes,0.0623
+GSM9488475,male,cd8 central memory t cells,0.0335
+GSM9488475,male,naive b cells,0.03
+GSM9488475,male,naive cd8 t cells,0.0295
+GSM9488475,male,CMP (bone marrow),0.029
+GSM9488475,male,cd56bright nk cells,0.0251
+GSM9488475,male,naive cd4 t cells,0.0181
+GSM9488176,male,neutrophils,0.3066
+GSM9488176,male,cd4 t cells,0.1782
+GSM9488176,male,monocytes,0.146
+GSM9488176,male,naive cd8 t cells,0.0888
+GSM9488176,male,L-MPP (bone marrow),0.076
+GSM9488176,male,effector memory cd8 t cells,0.0665
+GSM9488176,male,cd56bright nk cells,0.0446
+GSM9488176,male,b cells,0.027
+GSM9488176,male,regulatory t cells,0.023
+GSM9488176,male,GMP (bone marrow),0.0151
+GSM9488176,male,naive b cells,0.0133
+GSM9488176,male,vascular endothelium,0.0104
+GSM9488121,male,neutrophils,0.5296
+GSM9488121,male,memory cd4 t cells,0.0947
+GSM9488121,male,cd4 t cells,0.0821
+GSM9488121,male,monocytes,0.0678
+GSM9488121,male,cd56bright nk cells,0.0376
+GSM9488121,male,eosinophils,0.0346
+GSM9488121,male,b cells,0.0269
+GSM9488121,male,cd8 t cells,0.0236
+GSM9488121,male,basophils,0.0227
+GSM9488121,male,nk cells,0.0175
+GSM9488121,male,naive cd4 t cells,0.0136
+GSM9488121,male,lung interstitial macrophages,0.0107
+GSM9488290,female,neutrophils,0.5024
+GSM9488290,female,cd4 t cells,0.1161
+GSM9488290,female,GMP (bone marrow),0.1072
+GSM9488290,female,monocytes,0.0951
+GSM9488290,female,effector memory cd8 t cells,0.0568
+GSM9488290,female,eosinophils,0.0477
+GSM9488290,female,cd56bright nk cells,0.0237
+GSM9488290,female,b cells,0.0206
+GSM9488290,female,cd8 temra t cells,0.0104
+GSM9488156,male,neutrophils,0.5334
+GSM9488156,male,GMP (bone marrow),0.1021
+GSM9488156,male,monocytes,0.0687
+GSM9488156,male,cd56bright nk cells,0.0676
+GSM9488156,male,effector memory cd8 t cells,0.0486
+GSM9488156,male,cd4 t cells,0.0448
+GSM9488156,male,t central memory cd4,0.0416
+GSM9488156,male,naive b cells,0.0245
+GSM9488156,male,naive cd8 t cells,0.0233
+GSM9488156,male,L-MPP (bone marrow),0.0169
+GSM9488156,male,vascular endothelium,0.0105
+GSM9488228,male,neutrophils,0.4273
+GSM9488228,male,monocytes,0.1412
+GSM9488228,male,cd4 t cells,0.115
+GSM9488228,male,cd8 t cells,0.1053
+GSM9488228,male,memory cd4 t cells,0.0757
+GSM9488228,male,nk cells,0.0436
+GSM9488228,male,eosinophils,0.0396
+GSM9488228,male,b cells,0.0155
+GSM9488228,male,MEP (bone marrow),0.0134
+GSM9488228,male,cd56bright nk cells,0.0108
+GSM9488394,male,neutrophils,0.2959
+GSM9488394,male,cd8 temra t cells,0.1491
+GSM9488394,male,GMP (bone marrow),0.1211
+GSM9488394,male,cd4 t cells,0.1171
+GSM9488394,male,monocytes,0.0989
+GSM9488394,male,eosinophils,0.0699
+GSM9488394,male,cd56bright nk cells,0.0589
+GSM9488394,male,b cells,0.0413
+GSM9488394,male,effector memory cd8 t cells,0.0205
+GSM9488402,male,neutrophils,0.3909
+GSM9488402,male,cd4 t cells,0.1753
+GSM9488402,male,monocytes,0.1186
+GSM9488402,male,L-MPP (bone marrow),0.1031
+GSM9488402,male,GMP (bone marrow),0.064
+GSM9488402,male,cd56bright nk cells,0.0453
+GSM9488402,male,cd8 temra t cells,0.0288
+GSM9488402,male,eosinophils,0.0193
+GSM9488402,male,vascular endothelium,0.0153
+GSM9488402,male,MEP (bone marrow),0.0134
+GSM9488269,female,neutrophils,0.2486
+GSM9488269,female,cd4 t cells,0.1809
+GSM9488269,female,monocytes,0.1647
+GSM9488269,female,cd56bright nk cells,0.0573
+GSM9488269,female,GMP (bone marrow),0.0539
+GSM9488269,female,memory cd4 t cells,0.0513
+GSM9488269,female,nk cells,0.0512
+GSM9488269,female,MEP (bone marrow),0.0483
+GSM9488269,female,eosinophils,0.0371
+GSM9488269,female,effector memory cd8 t cells,0.0358
+GSM9488269,female,cd8 t cells,0.0336
+GSM9488269,female,b cells,0.0142
+GSM9488269,female,L-MPP (bone marrow),0.0129
+GSM9488212,male,neutrophils,0.4846
+GSM9488212,male,monocytes,0.0905
+GSM9488212,male,cd4 t cells,0.0829
+GSM9488212,male,effector memory cd8 t cells,0.0715
+GSM9488212,male,cd56bright nk cells,0.0635
+GSM9488212,male,GMP (bone marrow),0.06
+GSM9488212,male,L-MPP (bone marrow),0.038
+GSM9488212,male,naive b cells,0.0317
+GSM9488212,male,regulatory t cells,0.0148
+GSM9488212,male,naive cd8 t cells,0.0142
+GSM9488212,male,t central memory cd4,0.0134
+GSM9488212,male,eosinophils,0.0105
+GSM9488300,female,neutrophils,0.661
+GSM9488300,female,GMP (bone marrow),0.1021
+GSM9488300,female,monocytes,0.0932
+GSM9488300,female,cd4 t cells,0.0896
+GSM9488300,female,naive b cells,0.0148
+GSM9488245,female,neutrophils,0.5533
+GSM9488245,female,cd4 t cells,0.1362
+GSM9488245,female,GMP (bone marrow),0.1169
+GSM9488245,female,cd56bright nk cells,0.0437
+GSM9488245,female,monocytes,0.0417
+GSM9488245,female,t central memory cd4,0.0279
+GSM9488245,female,eosinophils,0.0224
+GSM9488245,female,MEP (bone marrow),0.0207
+GSM9488245,female,effector memory cd8 t cells,0.0159
+GSM9488245,female,b cells,0.0139
+GSM9488253,male,neutrophils,0.2696
+GSM9488253,male,cd4 t cells,0.1917
+GSM9488253,male,monocytes,0.1668
+GSM9488253,male,cd56bright nk cells,0.083
+GSM9488253,male,memory cd4 t cells,0.0752
+GSM9488253,male,eosinophils,0.0749
+GSM9488253,male,cd8 t cells,0.0716
+GSM9488253,male,b cells,0.0368
+GSM9488253,male,MEP (bone marrow),0.0118
+GSM9488339,female,neutrophils,0.3407
+GSM9488339,female,cd4 t cells,0.2046
+GSM9488339,female,monocytes,0.171
+GSM9488339,female,GMP (bone marrow),0.0891
+GSM9488339,female,cd56bright nk cells,0.0561
+GSM9488339,female,b cells,0.0375
+GSM9488339,female,eosinophils,0.0287
+GSM9488339,female,effector memory cd8 t cells,0.025
+GSM9488339,female,MEP (bone marrow),0.0239
+GSM9488339,female,naive b cells,0.0112
+GSM9488293,female,neutrophils,0.425
+GSM9488293,female,cd4 t cells,0.1793
+GSM9488293,female,monocytes,0.119
+GSM9488293,female,GMP (bone marrow),0.1139
+GSM9488293,female,cd56bright nk cells,0.0601
+GSM9488293,female,MEP (bone marrow),0.028
+GSM9488293,female,eosinophils,0.0248
+GSM9488293,female,effector memory cd8 t cells,0.0169
+GSM9488293,female,naive b cells,0.0143
+GSM9488378,male,neutrophils,0.3613
+GSM9488378,male,cd4 t cells,0.1584
+GSM9488378,male,monocytes,0.0984
+GSM9488378,male,effector memory cd8 t cells,0.0853
+GSM9488378,male,GMP (bone marrow),0.079
+GSM9488378,male,cd8 temra t cells,0.0757
+GSM9488378,male,cd8 t cells,0.031
+GSM9488378,male,naive b cells,0.0275
+GSM9488378,male,eosinophils,0.0219
+GSM9488378,male,b cells,0.0152
+GSM9488378,male,cd56bright nk cells,0.0144
+GSM9488378,male,cd8 central memory t cells,0.0143
+GSM9488401,male,neutrophils,0.5355
+GSM9488401,male,cd4 t cells,0.1436
+GSM9488401,male,monocytes,0.0779
+GSM9488401,male,GMP (bone marrow),0.0719
+GSM9488401,male,naive b cells,0.0451
+GSM9488401,male,cd56bright nk cells,0.0397
+GSM9488401,male,L-MPP (bone marrow),0.0254
+GSM9488401,male,naive cd8 t cells,0.0198
+GSM9488401,male,eosinophils,0.0145
+GSM9488401,male,naive cd4 t cells,0.0122
+GSM9488285,male,neutrophils,0.305
+GSM9488285,male,cd4 t cells,0.2627
+GSM9488285,male,GMP (bone marrow),0.1369
+GSM9488285,male,monocytes,0.1364
+GSM9488285,male,cd8 temra t cells,0.0503
+GSM9488285,male,cd8 t cells,0.0253
+GSM9488285,male,cd56bright nk cells,0.0252
+GSM9488285,male,eosinophils,0.0242
+GSM9488285,male,b cells,0.0166
+GSM9488354,male,neutrophils,0.2783
+GSM9488354,male,cd4 t cells,0.1665
+GSM9488354,male,monocytes,0.1296
+GSM9488354,male,cd8 temra t cells,0.0924
+GSM9488354,male,effector memory cd8 t cells,0.0792
+GSM9488354,male,cd8 t cells,0.0564
+GSM9488354,male,eosinophils,0.0561
+GSM9488354,male,CMP (bone marrow),0.031
+GSM9488354,male,memory cd4 t cells,0.0228
+GSM9488354,male,b cells,0.0176
+GSM9488354,male,basophils,0.0157
+GSM9488354,male,cd56bright nk cells,0.0157
+GSM9488354,male,MPP (bone marrow),0.0151
+GSM9488354,male,L-MPP (bone marrow),0.0103
+GSM9488138,female,neutrophils,0.3759
+GSM9488138,female,cd4 t cells,0.1901
+GSM9488138,female,monocytes,0.1299
+GSM9488138,female,GMP (bone marrow),0.0763
+GSM9488138,female,effector memory cd8 t cells,0.0674
+GSM9488138,female,cd56bright nk cells,0.0347
+GSM9488138,female,t central memory cd4,0.028
+GSM9488138,female,cd8 temra t cells,0.0205
+GSM9488138,female,naive b cells,0.0178
+GSM9488138,female,b cells,0.016
+GSM9488138,female,eosinophils,0.0149
+GSM9488180,female,cd4 t cells,0.1929
+GSM9488180,female,b cells,0.1273
+GSM9488180,female,monocytes,0.1205
+GSM9488180,female,GMP (bone marrow),0.1005
+GSM9488180,female,neutrophils,0.1005
+GSM9488180,female,cd8 temra t cells,0.077
+GSM9488180,female,effector memory cd8 t cells,0.0742
+GSM9488180,female,naive cd4 t cells,0.0702
+GSM9488180,female,naive cd8 t cells,0.0356
+GSM9488180,female,t central memory cd4,0.0263
+GSM9488180,female,cd56bright nk cells,0.0233
+GSM9488180,female,eosinophils,0.0109
+GSM9488180,female,naive b cells,0.0102
+GSM9488250,male,neutrophils,0.4775
+GSM9488250,male,monocytes,0.1113
+GSM9488250,male,cd4 t cells,0.0925
+GSM9488250,male,memory cd4 t cells,0.0798
+GSM9488250,male,cd56bright nk cells,0.0626
+GSM9488250,male,eosinophils,0.0487
+GSM9488250,male,cd8 t cells,0.0397
+GSM9488250,male,cd8 temra t cells,0.0235
+GSM9488250,male,effector memory cd8 t cells,0.0222
+GSM9488250,male,b cells,0.0153
+GSM9488315,male,neutrophils,0.1845
+GSM9488315,male,cd4 t cells,0.17
+GSM9488315,male,monocytes,0.1628
+GSM9488315,male,L-MPP (bone marrow),0.0993
+GSM9488315,male,MEP (bone marrow),0.0886
+GSM9488315,male,HSC (bone marrow),0.0756
+GSM9488315,male,GMP (bone marrow),0.0707
+GSM9488315,male,cd56bright nk cells,0.0436
+GSM9488315,male,MPP (bone marrow),0.0354
+GSM9488315,male,cd8 temra t cells,0.0129
+GSM9488315,male,cd8 t cells,0.011
+GSM9488196,male,neutrophils,0.2364
+GSM9488196,male,cd4 t cells,0.1709
+GSM9488196,male,effector memory cd8 t cells,0.1085
+GSM9488196,male,monocytes,0.079
+GSM9488196,male,cd56bright nk cells,0.055
+GSM9488196,male,naive cd8 t cells,0.052
+GSM9488196,male,eosinophils,0.0479
+GSM9488196,male,L-MPP (bone marrow),0.0462
+GSM9488196,male,cd8 temra t cells,0.0415
+GSM9488196,male,naive cd4 t cells,0.035
+GSM9488196,male,b cells,0.0338
+GSM9488196,male,GMP (bone marrow),0.0287
+GSM9488196,male,memory cd4 t cells,0.0165
+GSM9488196,male,t central memory cd4,0.015
+GSM9488196,male,memory b cells,0.0106
+GSM9488483,male,neutrophils,0.5229
+GSM9488483,male,cd4 t cells,0.1287
+GSM9488483,male,monocytes,0.0932
+GSM9488483,male,cd56bright nk cells,0.0558
+GSM9488483,male,cd8 temra t cells,0.0316
+GSM9488483,male,naive b cells,0.0308
+GSM9488483,male,naive cd8 t cells,0.0259
+GSM9488483,male,cd8 t cells,0.0206
+GSM9488483,male,eosinophils,0.0192
+GSM9488483,male,memory b cells,0.0158
+GSM9488362,male,neutrophils,0.3102
+GSM9488362,male,cd56bright nk cells,0.1484
+GSM9488362,male,cd4 t cells,0.1457
+GSM9488362,male,monocytes,0.1207
+GSM9488362,male,GMP (bone marrow),0.0885
+GSM9488362,male,effector memory cd8 t cells,0.083
+GSM9488362,male,eosinophils,0.03
+GSM9488362,male,b cells,0.0255
+GSM9488362,male,L-MPP (bone marrow),0.0212
+GSM9488362,male,cd8 temra t cells,0.0133
+GSM9488227,male,neutrophils,0.5869
+GSM9488227,male,monocytes,0.0979
+GSM9488227,male,cd4 t cells,0.0742
+GSM9488227,male,GMP (bone marrow),0.0684
+GSM9488227,male,memory cd4 t cells,0.0515
+GSM9488227,male,cd8 t cells,0.0403
+GSM9488227,male,naive b cells,0.0306
+GSM9488227,male,cd56bright nk cells,0.0148
+GSM9488323,male,neutrophils,0.4416
+GSM9488323,male,cd4 t cells,0.149
+GSM9488323,male,GMP (bone marrow),0.0985
+GSM9488323,male,monocytes,0.0674
+GSM9488323,male,cd56bright nk cells,0.0413
+GSM9488323,male,cd8 t cells,0.0378
+GSM9488323,male,eosinophils,0.0363
+GSM9488323,male,effector memory cd8 t cells,0.0309
+GSM9488323,male,b cells,0.0259
+GSM9488323,male,cd8 temra t cells,0.0212
+GSM9488323,male,cd8 central memory t cells,0.0189
+GSM9488323,male,memory cd4 t cells,0.0133
+GSM9488323,male,naive b cells,0.0115
+GSM9488266,female,cd4 t cells,0.359
+GSM9488266,female,GMP (bone marrow),0.1841
+GSM9488266,female,neutrophils,0.1295
+GSM9488266,female,monocytes,0.0818
+GSM9488266,female,naive b cells,0.0604
+GSM9488266,female,naive cd8 t cells,0.0594
+GSM9488266,female,b cells,0.0373
+GSM9488266,female,cd56bright nk cells,0.034
+GSM9488266,female,cd8 t cells,0.0236
+GSM9488266,female,L-MPP (bone marrow),0.0213
+GSM9488421,male,neutrophils,0.6098
+GSM9488421,male,monocytes,0.1147
+GSM9488421,male,cd4 t cells,0.0626
+GSM9488421,male,cd8 temra t cells,0.0602
+GSM9488421,male,cd56bright nk cells,0.0408
+GSM9488421,male,memory cd4 t cells,0.0221
+GSM9488421,male,cd8 t cells,0.0198
+GSM9488421,male,b cells,0.0178
+GSM9488421,male,eosinophils,0.0144
+GSM9488421,male,basophils,0.0132
+GSM9488421,male,vascular endothelium,0.0119
+GSM9488476,male,neutrophils,0.5686
+GSM9488476,male,cd4 t cells,0.1087
+GSM9488476,male,monocytes,0.0977
+GSM9488476,male,GMP (bone marrow),0.0436
+GSM9488476,male,cd56bright nk cells,0.0331
+GSM9488476,male,cd8 central memory t cells,0.0301
+GSM9488476,male,cd8 temra t cells,0.0233
+GSM9488476,male,naive b cells,0.0161
+GSM9488476,male,L-MPP (bone marrow),0.0131
+GSM9488476,male,microglia,0.0118
+GSM9488476,male,t central memory cd4,0.0116
+GSM9488476,male,eosinophils,0.0107
+GSM9488460,male,neutrophils,0.4435
+GSM9488460,male,cd8 temra t cells,0.1625
+GSM9488460,male,monocytes,0.1045
+GSM9488460,male,cd4 t cells,0.0612
+GSM9488460,male,memory cd4 t cells,0.0548
+GSM9488460,male,eosinophils,0.0425
+GSM9488460,male,naive b cells,0.0352
+GSM9488460,male,effector memory cd8 t cells,0.0228
+GSM9488460,male,cd56bright nk cells,0.0167
+GSM9488460,male,cd8 t cells,0.0158
+GSM9488460,male,vascular endothelium,0.0133
+GSM9488122,male,neutrophils,0.455
+GSM9488122,male,cd4 t cells,0.1132
+GSM9488122,male,GMP (bone marrow),0.0901
+GSM9488122,male,effector memory cd8 t cells,0.0869
+GSM9488122,male,monocytes,0.0869
+GSM9488122,male,cd8 temra t cells,0.0496
+GSM9488122,male,cd56bright nk cells,0.0383
+GSM9488122,male,eosinophils,0.0196
+GSM9488122,male,memory b cells,0.0185
+GSM9488122,male,vascular endothelium,0.0154
+GSM9487956,male,neutrophils,0.4678
+GSM9487956,male,monocytes,0.1368
+GSM9487956,male,cd4 t cells,0.0656
+GSM9487956,male,cd8 temra t cells,0.0573
+GSM9487956,male,cd56bright nk cells,0.0515
+GSM9487956,male,memory cd4 t cells,0.0416
+GSM9487956,male,cd8 t cells,0.0342
+GSM9487956,male,eosinophils,0.0278
+GSM9487956,male,naive cd4 t cells,0.025
+GSM9487956,male,naive b cells,0.0208
+GSM9487956,male,b cells,0.0149
+GSM9487956,male,effector memory cd8 t cells,0.0139
+GSM9487956,male,basophils,0.012
+GSM9488461,female,neutrophils,0.5926
+GSM9488461,female,cd8 temra t cells,0.0823
+GSM9488461,female,cd4 t cells,0.0638
+GSM9488461,female,monocytes,0.0567
+GSM9488461,female,GMP (bone marrow),0.0566
+GSM9488461,female,cd56bright nk cells,0.0387
+GSM9488461,female,t central memory cd4,0.037
+GSM9488461,female,naive b cells,0.0256
+GSM9488461,female,cd8 t cells,0.0196
+GSM9488477,male,neutrophils,0.5485
+GSM9488477,male,monocytes,0.1127
+GSM9488477,male,cd4 t cells,0.0676
+GSM9488477,male,cd56bright nk cells,0.0463
+GSM9488477,male,naive cd8 t cells,0.0348
+GSM9488477,male,naive cd4 t cells,0.034
+GSM9488477,male,cd8 temra t cells,0.0276
+GSM9488477,male,CMP (bone marrow),0.024
+GSM9488477,male,naive b cells,0.0233
+GSM9488477,male,memory cd4 t cells,0.0201
+GSM9488477,male,t central memory cd4,0.0128
+GSM9488477,male,basophils,0.0118
+GSM9488477,male,L-MPP (bone marrow),0.0103
+GSM9488420,female,neutrophils,0.6507
+GSM9488420,female,monocytes,0.1037
+GSM9488420,female,cd8 temra t cells,0.0876
+GSM9488420,female,cd4 t cells,0.0598
+GSM9488420,female,b cells,0.0221
+GSM9488420,female,cd56bright nk cells,0.0147
+GSM9488420,female,eosinophils,0.012
+GSM9488420,female,vascular endothelium,0.0116
+GSM9488420,female,basophils,0.0105
+GSM9488322,male,neutrophils,0.3307
+GSM9488322,male,cd8 temra t cells,0.2821
+GSM9488322,male,monocytes,0.0736
+GSM9488322,male,cd56bright nk cells,0.0643
+GSM9488322,male,cd4 t cells,0.0593
+GSM9488322,male,effector memory cd8 t cells,0.04
+GSM9488322,male,GMP (bone marrow),0.037
+GSM9488322,male,eosinophils,0.0349
+GSM9488322,male,memory cd4 t cells,0.0292
+GSM9488322,male,b cells,0.0262
+GSM9488267,male,monocytes,0.3132
+GSM9488267,male,cd4 t cells,0.205
+GSM9488267,male,neutrophils,0.1977
+GSM9488267,male,GMP (bone marrow),0.0632
+GSM9488267,male,effector memory cd8 t cells,0.0588
+GSM9488267,male,MEP (bone marrow),0.0376
+GSM9488267,male,b cells,0.0326
+GSM9488267,male,nk cells,0.032
+GSM9488267,male,cd8 t cells,0.0236
+GSM9488267,male,eosinophils,0.0129
+GSM9488363,female,neutrophils,0.4928
+GSM9488363,female,cd4 t cells,0.1683
+GSM9488363,female,monocytes,0.0907
+GSM9488363,female,GMP (bone marrow),0.0562
+GSM9488363,female,cd56bright nk cells,0.0381
+GSM9488363,female,eosinophils,0.0371
+GSM9488363,female,cd8 temra t cells,0.0311
+GSM9488363,female,cd8 t cells,0.0255
+GSM9488363,female,naive b cells,0.0141
+GSM9488363,female,microglia,0.0138
+GSM9488226,male,neutrophils,0.5406
+GSM9488226,male,monocytes,0.1537
+GSM9488226,male,cd4 t cells,0.0828
+GSM9488226,male,cd56bright nk cells,0.0553
+GSM9488226,male,memory cd4 t cells,0.0403
+GSM9488226,male,b cells,0.0235
+GSM9488226,male,cd8 temra t cells,0.0233
+GSM9488226,male,MEP (bone marrow),0.0211
+GSM9488226,male,cd8 t cells,0.0187
+GSM9488226,male,eosinophils,0.0138
+GSM9488226,male,GMP (bone marrow),0.0102
+GSM9488197,male,cd4 t cells,0.2138
+GSM9488197,male,neutrophils,0.1442
+GSM9488197,male,monocytes,0.1224
+GSM9488197,male,naive cd4 t cells,0.0837
+GSM9488197,male,cd56bright nk cells,0.0758
+GSM9488197,male,GMP (bone marrow),0.0638
+GSM9488197,male,cd8 temra t cells,0.0594
+GSM9488197,male,L-MPP (bone marrow),0.0488
+GSM9488197,male,naive cd8 t cells,0.0466
+GSM9488197,male,b cells,0.0316
+GSM9488197,male,effector memory cd8 t cells,0.0249
+GSM9488197,male,regulatory t cells,0.0237
+GSM9488197,male,naive b cells,0.0186
+GSM9488197,male,eosinophils,0.0151
+GSM9488197,male,t central memory cd4,0.012
+GSM9488251,female,neutrophils,0.5882
+GSM9488251,female,cd4 t cells,0.1397
+GSM9488251,female,monocytes,0.0722
+GSM9488251,female,cd8 t cells,0.0509
+GSM9488251,female,cd56bright nk cells,0.0416
+GSM9488251,female,GMP (bone marrow),0.0366
+GSM9488251,female,cd8 temra t cells,0.0249
+GSM9488251,female,naive b cells,0.0195
+GSM9488314,male,neutrophils,0.4091
+GSM9488314,male,cd4 t cells,0.1225
+GSM9488314,male,monocytes,0.1071
+GSM9488314,male,cd8 t cells,0.071
+GSM9488314,male,memory cd4 t cells,0.0647
+GSM9488314,male,cd56bright nk cells,0.0593
+GSM9488314,male,MEP (bone marrow),0.0442
+GSM9488314,male,eosinophils,0.0336
+GSM9488314,male,GMP (bone marrow),0.0322
+GSM9488314,male,b cells,0.0132
+GSM9488314,male,cd8 central memory t cells,0.0112
+GSM9488181,female,cd4 t cells,0.2193
+GSM9488181,female,monocytes,0.187
+GSM9488181,female,neutrophils,0.1575
+GSM9488181,female,effector memory cd8 t cells,0.1299
+GSM9488181,female,cd56bright nk cells,0.0469
+GSM9488181,female,GMP (bone marrow),0.0456
+GSM9488181,female,cd8 t cells,0.0422
+GSM9488181,female,L-MPP (bone marrow),0.0421
+GSM9488181,female,naive b cells,0.0394
+GSM9488181,female,b cells,0.0185
+GSM9488181,female,memory cd4 t cells,0.0122
+GSM9488181,female,naive cd8 t cells,0.0115
+GSM9488181,female,cd8 temra t cells,0.0107
+GSM9488181,female,t central memory cd4,0.01
+GSM9488494,female,neutrophils,0.5464
+GSM9488494,female,cd4 t cells,0.1865
+GSM9488494,female,monocytes,0.1235
+GSM9488494,female,MEP (bone marrow),0.0371
+GSM9488494,female,cd8 t cells,0.0303
+GSM9488494,female,cd56bright nk cells,0.0292
+GSM9488494,female,naive b cells,0.0198
+GSM9488355,male,neutrophils,0.5668
+GSM9488355,male,monocytes,0.1353
+GSM9488355,male,cd4 t cells,0.0816
+GSM9488355,male,effector memory cd8 t cells,0.0453
+GSM9488355,male,MEP (bone marrow),0.0448
+GSM9488355,male,cd56bright nk cells,0.0356
+GSM9488355,male,cd8 temra t cells,0.023
+GSM9488355,male,b cells,0.0214
+GSM9488355,male,eosinophils,0.0181
+GSM9488355,male,cd8 t cells,0.0161
+GSM9488355,male,memory cd4 t cells,0.01
+GSM9488284,male,neutrophils,0.5568
+GSM9488284,male,cd4 t cells,0.1786
+GSM9488284,male,monocytes,0.1094
+GSM9488284,male,MEP (bone marrow),0.0359
+GSM9488284,male,cd56bright nk cells,0.034
+GSM9488284,male,naive b cells,0.0242
+GSM9488284,male,naive cd8 t cells,0.0236
+GSM9488284,male,eosinophils,0.0201
+GSM9488400,male,neutrophils,0.5756
+GSM9488400,male,monocytes,0.1257
+GSM9488400,male,cd4 t cells,0.0795
+GSM9488400,male,cd8 temra t cells,0.0574
+GSM9488400,male,cd56bright nk cells,0.0477
+GSM9488400,male,eosinophils,0.0226
+GSM9488400,male,memory cd4 t cells,0.0203
+GSM9488400,male,CMP (bone marrow),0.0199
+GSM9488400,male,L-MPP (bone marrow),0.0175
+GSM9488400,male,naive b cells,0.0117
+GSM9488379,male,neutrophils,0.6288
+GSM9488379,male,GMP (bone marrow),0.1146
+GSM9488379,male,cd4 t cells,0.0877
+GSM9488379,male,cd56bright nk cells,0.0776
+GSM9488379,male,monocytes,0.0349
+GSM9488379,male,L-MPP (bone marrow),0.0164
+GSM9488379,male,cd8 t cells,0.0126
+GSM9488379,male,eosinophils,0.0123
+GSM9488338,male,neutrophils,0.6516
+GSM9488338,male,GMP (bone marrow),0.1175
+GSM9488338,male,monocytes,0.0962
+GSM9488338,male,cd56bright nk cells,0.0425
+GSM9488338,male,cd4 t cells,0.0365
+GSM9488338,male,cd8 temra t cells,0.017
+GSM9488338,male,L-MPP (bone marrow),0.0161
+GSM9488338,male,naive b cells,0.0111
+GSM9488292,male,neutrophils,0.4248
+GSM9488292,male,monocytes,0.1379
+GSM9488292,male,cd4 t cells,0.1089
+GSM9488292,male,GMP (bone marrow),0.0984
+GSM9488292,male,cd56bright nk cells,0.0463
+GSM9488292,male,L-MPP (bone marrow),0.0449
+GSM9488292,male,t central memory cd4,0.0375
+GSM9488292,male,b cells,0.0366
+GSM9488292,male,cd8 temra t cells,0.03
+GSM9488292,male,effector memory cd8 t cells,0.0209
+GSM9488299,male,neutrophils,0.6279
+GSM9488299,male,GMP (bone marrow),0.1249
+GSM9488299,male,cd4 t cells,0.0878
+GSM9488299,male,L-MPP (bone marrow),0.0393
+GSM9488299,male,monocytes,0.0334
+GSM9488299,male,cd8 temra t cells,0.0246
+GSM9488299,male,naive b cells,0.0171
+GSM9488299,male,effector memory cd8 t cells,0.0159
+GSM9488299,male,cd8 t cells,0.0102
+GSM9488276,male,cd4 t cells,0.3032
+GSM9488276,male,monocytes,0.2185
+GSM9488276,male,neutrophils,0.1322
+GSM9488276,male,cd8 t cells,0.0975
+GSM9488276,male,nk cells,0.0598
+GSM9488276,male,effector memory cd8 t cells,0.0428
+GSM9488276,male,cd8 temra t cells,0.0409
+GSM9488276,male,MEP (bone marrow),0.0323
+GSM9488276,male,b cells,0.0255
+GSM9488276,male,GMP (bone marrow),0.0196
+GSM9488276,male,eosinophils,0.0185
+GSM9488221,male,neutrophils,0.4588
+GSM9488221,male,cd4 t cells,0.1598
+GSM9488221,male,monocytes,0.106
+GSM9488221,male,GMP (bone marrow),0.0907
+GSM9488221,male,MEP (bone marrow),0.0761
+GSM9488221,male,nk cells,0.0496
+GSM9488221,male,eosinophils,0.0344
+GSM9488221,male,naive b cells,0.0113
+GSM9488237,male,neutrophils,0.4615
+GSM9488237,male,cd4 t cells,0.1168
+GSM9488237,male,monocytes,0.105
+GSM9488237,male,cd8 t cells,0.0949
+GSM9488237,male,GMP (bone marrow),0.0473
+GSM9488237,male,memory cd4 t cells,0.0465
+GSM9488237,male,b cells,0.0356
+GSM9488237,male,effector memory cd8 t cells,0.021
+GSM9488237,male,eosinophils,0.0174
+GSM9488237,male,cd56bright nk cells,0.0158
+GSM9488237,male,cd8 temra t cells,0.0116
+GSM9488237,male,cd8 central memory t cells,0.01
+GSM9488149,male,neutrophils,0.4855
+GSM9488149,male,cd4 t cells,0.1031
+GSM9488149,male,monocytes,0.0877
+GSM9488149,male,naive cd4 t cells,0.0849
+GSM9488149,male,cd56bright nk cells,0.0384
+GSM9488149,male,naive cd8 t cells,0.0363
+GSM9488149,male,L-MPP (bone marrow),0.03
+GSM9488149,male,cd8 central memory t cells,0.0251
+GSM9488149,male,memory cd4 t cells,0.024
+GSM9488149,male,naive b cells,0.0227
+GSM9488149,male,eosinophils,0.0213
+GSM9488260,male,neutrophils,0.6764
+GSM9488260,male,monocytes,0.115
+GSM9488260,male,cd4 t cells,0.0823
+GSM9488260,male,cd56bright nk cells,0.0532
+GSM9488260,male,eosinophils,0.0255
+GSM9488260,male,memory cd4 t cells,0.0204
+GSM9488260,male,MEP (bone marrow),0.0169
+GSM9488427,male,neutrophils,0.4186
+GSM9488427,male,cd4 t cells,0.1747
+GSM9488427,male,monocytes,0.0882
+GSM9488427,male,cd56bright nk cells,0.0724
+GSM9488427,male,cd8 temra t cells,0.0588
+GSM9488427,male,CMP (bone marrow),0.0561
+GSM9488427,male,memory cd4 t cells,0.0364
+GSM9488427,male,GMP (bone marrow),0.0264
+GSM9488427,male,L-MPP (bone marrow),0.0145
+GSM9488427,male,naive cd8 t cells,0.014
+GSM9488470,male,neutrophils,0.5885
+GSM9488470,male,monocytes,0.0808
+GSM9488470,male,cd4 t cells,0.0802
+GSM9488470,male,cd8 temra t cells,0.0672
+GSM9488470,male,cd56bright nk cells,0.0461
+GSM9488470,male,memory cd4 t cells,0.0394
+GSM9488470,male,naive b cells,0.017
+GSM9488470,male,naive cd8 t cells,0.0153
+GSM9488470,male,basophils,0.0131
+GSM9488470,male,naive cd4 t cells,0.0118
+GSM9488173,male,neutrophils,0.2746
+GSM9488173,male,cd4 t cells,0.2714
+GSM9488173,male,effector memory cd8 t cells,0.1502
+GSM9488173,male,GMP (bone marrow),0.1365
+GSM9488173,male,monocytes,0.0502
+GSM9488173,male,cd8 temra t cells,0.0316
+GSM9488173,male,b cells,0.0295
+GSM9488173,male,cd56bright nk cells,0.0224
+GSM9488173,male,naive b cells,0.0201
+GSM9488153,female,cd4 t cells,0.2478
+GSM9488153,female,monocytes,0.1443
+GSM9488153,female,effector memory cd8 t cells,0.1046
+GSM9488153,female,cd56bright nk cells,0.0854
+GSM9488153,female,GMP (bone marrow),0.0713
+GSM9488153,female,naive cd4 t cells,0.0704
+GSM9488153,female,neutrophils,0.0635
+GSM9488153,female,cd8 t cells,0.0608
+GSM9488153,female,cd8 temra t cells,0.0415
+GSM9488153,female,b cells,0.0386
+GSM9488153,female,naive cd8 t cells,0.0209
+GSM9488153,female,naive b cells,0.014
+GSM9488153,female,regulatory t cells,0.014
+GSM9488368,male,neutrophils,0.454
+GSM9488368,male,cd4 t cells,0.1603
+GSM9488368,male,monocytes,0.102
+GSM9488368,male,GMP (bone marrow),0.0582
+GSM9488368,male,cd56bright nk cells,0.0514
+GSM9488368,male,effector memory cd8 t cells,0.0342
+GSM9488368,male,naive b cells,0.029
+GSM9488368,male,CMP (bone marrow),0.0255
+GSM9488368,male,eosinophils,0.0238
+GSM9488368,male,L-MPP (bone marrow),0.0121
+GSM9488368,male,cd8 t cells,0.0111
+GSM9488368,male,t central memory cd4,0.011
+GSM9488391,male,neutrophils,0.4596
+GSM9488391,male,cd4 t cells,0.1419
+GSM9488391,male,GMP (bone marrow),0.1028
+GSM9488391,male,cd56bright nk cells,0.0701
+GSM9488391,male,t central memory cd4,0.0577
+GSM9488391,male,monocytes,0.0394
+GSM9488391,male,eosinophils,0.0353
+GSM9488391,male,L-MPP (bone marrow),0.0328
+GSM9488391,male,effector memory cd8 t cells,0.0171
+GSM9488391,male,b cells,0.016
+GSM9488391,male,memory b cells,0.0106
+GSM9488283,female,neutrophils,0.4507
+GSM9488283,female,cd4 t cells,0.1969
+GSM9488283,female,GMP (bone marrow),0.1767
+GSM9488283,female,monocytes,0.0515
+GSM9488283,female,naive cd8 t cells,0.0448
+GSM9488283,female,naive b cells,0.0306
+GSM9488283,female,cd56bright nk cells,0.0248
+GSM9488283,female,eosinophils,0.0239
+GSM9488329,female,neutrophils,0.6627
+GSM9488329,female,cd4 t cells,0.1133
+GSM9488329,female,GMP (bone marrow),0.044
+GSM9488329,female,L-MPP (bone marrow),0.0348
+GSM9488329,female,monocytes,0.0337
+GSM9488329,female,naive cd8 t cells,0.0337
+GSM9488329,female,cd56bright nk cells,0.0315
+GSM9488329,female,b cells,0.0162
+GSM9488329,female,naive cd4 t cells,0.0156
+GSM9488145,male,neutrophils,0.5187
+GSM9488145,male,monocytes,0.1057
+GSM9488145,male,cd4 t cells,0.0751
+GSM9488145,male,cd56bright nk cells,0.0645
+GSM9488145,male,effector memory cd8 t cells,0.042
+GSM9488145,male,L-MPP (bone marrow),0.0415
+GSM9488145,male,eosinophils,0.0257
+GSM9488145,male,GMP (bone marrow),0.0222
+GSM9488145,male,naive b cells,0.0217
+GSM9488145,male,t central memory cd4,0.0205
+GSM9488145,male,naive cd8 t cells,0.0162
+GSM9488145,male,microglia,0.0131
+GSM9488145,male,vascular endothelium,0.0123
+GSM9488145,male,memory b cells,0.0105
+GSM9488352,male,neutrophils,0.5258
+GSM9488352,male,cd4 t cells,0.1872
+GSM9488352,male,monocytes,0.0874
+GSM9488352,male,cd56bright nk cells,0.0436
+GSM9488352,male,L-MPP (bone marrow),0.0321
+GSM9488352,male,naive b cells,0.0187
+GSM9488352,male,eosinophils,0.0183
+GSM9488352,male,cd8 temra t cells,0.0161
+GSM9488352,male,effector memory cd8 t cells,0.0147
+GSM9488493,male,neutrophils,0.5417
+GSM9488493,male,cd4 t cells,0.1328
+GSM9488493,male,monocytes,0.0812
+GSM9488493,male,GMP (bone marrow),0.0458
+GSM9488493,male,cd8 t cells,0.0398
+GSM9488493,male,cd56bright nk cells,0.0329
+GSM9488493,male,naive b cells,0.0268
+GSM9488493,male,L-MPP (bone marrow),0.0205
+GSM9488493,male,eosinophils,0.0189
+GSM9488493,male,naive cd8 t cells,0.0167
+GSM9488493,male,b cells,0.0101
+GSM9488493,male,cd8 central memory t cells,0.0101
+GSM9488313,male,neutrophils,0.5282
+GSM9488313,male,cd4 t cells,0.1975
+GSM9488313,male,monocytes,0.0844
+GSM9488313,male,GMP (bone marrow),0.0635
+GSM9488313,male,cd56bright nk cells,0.0299
+GSM9488313,male,eosinophils,0.0269
+GSM9488313,male,cd8 t cells,0.0241
+GSM9488313,male,b cells,0.0197
+GSM9488313,male,MEP (bone marrow),0.018
+GSM9488485,male,neutrophils,0.5638
+GSM9488485,male,cd4 t cells,0.0999
+GSM9488485,male,monocytes,0.098
+GSM9488485,male,memory cd4 t cells,0.0758
+GSM9488485,male,cd8 temra t cells,0.037
+GSM9488485,male,cd56bright nk cells,0.028
+GSM9488485,male,naive b cells,0.0257
+GSM9488485,male,cd8 central memory t cells,0.0227
+GSM9488485,male,naive cd8 t cells,0.0127
+GSM9488485,male,vascular endothelium,0.0109
+GSM9488344,female,neutrophils,0.4165
+GSM9488344,female,cd4 t cells,0.2493
+GSM9488344,female,GMP (bone marrow),0.0981
+GSM9488344,female,monocytes,0.0617
+GSM9488344,female,cd8 temra t cells,0.0356
+GSM9488344,female,cd56bright nk cells,0.032
+GSM9488344,female,naive b cells,0.0192
+GSM9488344,female,naive cd8 t cells,0.0187
+GSM9488344,female,naive cd4 t cells,0.0158
+GSM9488344,female,eosinophils,0.0156
+GSM9488344,female,cd8 t cells,0.0107
+GSM9488200,female,neutrophils,0.5647
+GSM9488200,female,cd4 t cells,0.1229
+GSM9488200,female,GMP (bone marrow),0.0995
+GSM9488200,female,monocytes,0.0595
+GSM9488200,female,effector memory cd8 t cells,0.0476
+GSM9488200,female,cd56bright nk cells,0.0348
+GSM9488200,female,cd8 t cells,0.027
+GSM9488200,female,naive b cells,0.0268
+GSM9488200,female,cd8 temra t cells,0.0143
+GSM9488345,male,neutrophils,0.4872
+GSM9488345,male,cd4 t cells,0.1366
+GSM9488345,male,monocytes,0.1071
+GSM9488345,male,eosinophils,0.0599
+GSM9488345,male,cd8 t cells,0.0563
+GSM9488345,male,memory cd4 t cells,0.0309
+GSM9488345,male,cd8 central memory t cells,0.0294
+GSM9488345,male,cd56bright nk cells,0.0276
+GSM9488345,male,GMP (bone marrow),0.0259
+GSM9488345,male,naive b cells,0.0192
+GSM9488484,male,neutrophils,0.4405
+GSM9488484,male,cd4 t cells,0.1331
+GSM9488484,male,monocytes,0.125
+GSM9488484,male,cd56bright nk cells,0.0933
+GSM9488484,male,L-MPP (bone marrow),0.042
+GSM9488484,male,naive b cells,0.0393
+GSM9488484,male,cd8 central memory t cells,0.0311
+GSM9488484,male,naive cd8 t cells,0.0281
+GSM9488484,male,CMP (bone marrow),0.0222
+GSM9488484,male,memory cd4 t cells,0.0168
+GSM9488492,male,neutrophils,0.35
+GSM9488492,male,cd4 t cells,0.2611
+GSM9488492,male,monocytes,0.1222
+GSM9488492,male,GMP (bone marrow),0.104
+GSM9488492,male,cd56bright nk cells,0.0448
+GSM9488492,male,naive cd8 t cells,0.038
+GSM9488492,male,naive b cells,0.0267
+GSM9488492,male,L-MPP (bone marrow),0.0217
+GSM9488492,male,naive cd4 t cells,0.0167
+GSM9488353,male,neutrophils,0.2561
+GSM9488353,male,cd4 t cells,0.1852
+GSM9488353,male,monocytes,0.1299
+GSM9488353,male,cd56bright nk cells,0.1138
+GSM9488353,male,cd8 t cells,0.0794
+GSM9488353,male,memory cd4 t cells,0.0629
+GSM9488353,male,cd8 temra t cells,0.0433
+GSM9488353,male,b cells,0.0355
+GSM9488353,male,L-MPP (bone marrow),0.0322
+GSM9488353,male,naive b cells,0.0145
+GSM9488353,male,cd8 central memory t cells,0.0115
+GSM9488353,male,eosinophils,0.0113
+GSM9488353,male,naive cd4 t cells,0.0113
+GSM9488144,male,neutrophils,0.3063
+GSM9488144,male,naive cd4 t cells,0.1525
+GSM9488144,male,GMP (bone marrow),0.0975
+GSM9488144,male,cd4 t cells,0.0794
+GSM9488144,male,monocytes,0.0762
+GSM9488144,male,L-MPP (bone marrow),0.0659
+GSM9488144,male,effector memory cd8 t cells,0.0591
+GSM9488144,male,naive b cells,0.0444
+GSM9488144,male,cd56bright nk cells,0.0402
+GSM9488144,male,regulatory t cells,0.0229
+GSM9488144,male,naive cd8 t cells,0.0199
+GSM9488144,male,vascular endothelium,0.0101
+GSM9488282,female,neutrophils,0.4922
+GSM9488282,female,GMP (bone marrow),0.1226
+GSM9488282,female,cd4 t cells,0.1072
+GSM9488282,female,cd8 t cells,0.0702
+GSM9488282,female,monocytes,0.0541
+GSM9488282,female,cd56bright nk cells,0.0415
+GSM9488282,female,effector memory cd8 t cells,0.0291
+GSM9488282,female,cd8 temra t cells,0.0288
+GSM9488282,female,eosinophils,0.0284
+GSM9488282,female,b cells,0.0195
+GSM9488328,male,neutrophils,0.5945
+GSM9488328,male,monocytes,0.1412
+GSM9488328,male,cd8 temra t cells,0.0516
+GSM9488328,male,naive b cells,0.05
+GSM9488328,male,cd4 t cells,0.0447
+GSM9488328,male,MPP (bone marrow),0.0266
+GSM9488328,male,cd56bright nk cells,0.0264
+GSM9488328,male,cd8 t cells,0.0177
+GSM9488328,male,L-MPP (bone marrow),0.0115
+GSM9488040,female,neutrophils,0.4773
+GSM9488040,female,cd4 t cells,0.1226
+GSM9488040,female,cd8 temra t cells,0.0982
+GSM9488040,female,monocytes,0.067
+GSM9488040,female,GMP (bone marrow),0.0535
+GSM9488040,female,L-MPP (bone marrow),0.0408
+GSM9488040,female,cd8 t cells,0.0392
+GSM9488040,female,effector memory cd8 t cells,0.0228
+GSM9488040,female,b cells,0.0207
+GSM9488040,female,naive cd4 t cells,0.0153
+GSM9488040,female,naive b cells,0.0114
+GSM9488040,female,vascular endothelium,0.0102
+GSM9488369,male,neutrophils,0.3314
+GSM9488369,male,monocytes,0.188
+GSM9488369,male,cd4 t cells,0.1333
+GSM9488369,male,cd8 temra t cells,0.1026
+GSM9488369,male,cd56bright nk cells,0.0667
+GSM9488369,male,eosinophils,0.0482
+GSM9488369,male,cd8 t cells,0.0368
+GSM9488369,male,effector memory cd8 t cells,0.0297
+GSM9488369,male,b cells,0.023
+GSM9488369,male,CMP (bone marrow),0.0123
+GSM9488369,male,memory cd4 t cells,0.0102
+GSM9488386,male,neutrophils,0.4792
+GSM9488386,male,monocytes,0.1636
+GSM9488386,male,effector memory cd8 t cells,0.0977
+GSM9488386,male,cd4 t cells,0.0754
+GSM9488386,male,GMP (bone marrow),0.0458
+GSM9488386,male,eosinophils,0.0366
+GSM9488386,male,t central memory cd4,0.0245
+GSM9488386,male,cd56bright nk cells,0.0195
+GSM9488386,male,MEP (bone marrow),0.0138
+GSM9488386,male,b cells,0.0131
+GSM9488152,male,neutrophils,0.6331
+GSM9488152,male,GMP (bone marrow),0.1028
+GSM9488152,male,cd56bright nk cells,0.0543
+GSM9488152,male,monocytes,0.0537
+GSM9488152,male,cd8 temra t cells,0.0397
+GSM9488152,male,L-MPP (bone marrow),0.0309
+GSM9488152,male,naive b cells,0.0225
+GSM9488152,male,eosinophils,0.0204
+GSM9488152,male,t central memory cd4,0.0124
+GSM9488152,male,regulatory t cells,0.0107
+GSM9488430,male,neutrophils,0.4321
+GSM9488430,male,monocytes,0.1022
+GSM9488430,male,cd8 temra t cells,0.0934
+GSM9488430,male,cd4 t cells,0.0886
+GSM9488430,male,memory cd4 t cells,0.0703
+GSM9488430,male,cd56bright nk cells,0.0691
+GSM9488430,male,cd8 t cells,0.064
+GSM9488430,male,eosinophils,0.0315
+GSM9488430,male,b cells,0.0301
+GSM9488125,female,cd4 t cells,0.4045
+GSM9488125,female,neutrophils,0.277
+GSM9488125,female,monocytes,0.068
+GSM9488125,female,cd8 t cells,0.062
+GSM9488125,female,GMP (bone marrow),0.0541
+GSM9488125,female,cd56bright nk cells,0.0449
+GSM9488125,female,naive cd8 t cells,0.0306
+GSM9488125,female,b cells,0.0208
+GSM9488125,female,MEP (bone marrow),0.0149
+GSM9488467,male,neutrophils,0.4905
+GSM9488467,male,cd4 t cells,0.1105
+GSM9488467,male,cd8 temra t cells,0.0965
+GSM9488467,male,monocytes,0.0728
+GSM9488467,male,cd56bright nk cells,0.0607
+GSM9488467,male,effector memory cd8 t cells,0.0512
+GSM9488467,male,eosinophils,0.0333
+GSM9488467,male,naive b cells,0.0235
+GSM9488467,male,GMP (bone marrow),0.0135
+GSM9488467,male,memory b cells,0.0115
+GSM9488467,male,vascular endothelium,0.0104
+GSM9488172,male,neutrophils,0.3303
+GSM9488172,male,cd4 t cells,0.183
+GSM9488172,male,monocytes,0.1376
+GSM9488172,male,naive cd4 t cells,0.0719
+GSM9488172,male,naive b cells,0.0656
+GSM9488172,male,naive cd8 t cells,0.0531
+GSM9488172,male,GMP (bone marrow),0.0413
+GSM9488172,male,L-MPP (bone marrow),0.034
+GSM9488172,male,MEP (bone marrow),0.0327
+GSM9488172,male,cd56bright nk cells,0.0213
+GSM9488172,male,eosinophils,0.0186
+GSM9488308,male,neutrophils,0.4522
+GSM9488308,male,monocytes,0.1609
+GSM9488308,male,cd4 t cells,0.1268
+GSM9488308,male,eosinophils,0.1211
+GSM9488308,male,cd8 temra t cells,0.0473
+GSM9488308,male,b cells,0.0336
+GSM9488308,male,memory cd4 t cells,0.0174
+GSM9488308,male,basophils,0.0146
+GSM9488261,male,neutrophils,0.4383
+GSM9488261,male,cd4 t cells,0.2584
+GSM9488261,male,monocytes,0.0749
+GSM9488261,male,eosinophils,0.0631
+GSM9488261,male,cd8 t cells,0.0365
+GSM9488261,male,nk cells,0.0261
+GSM9488261,male,basophils,0.0203
+GSM9488261,male,naive cd8 t cells,0.0188
+GSM9488261,male,naive b cells,0.0142
+GSM9488261,male,MPP (bone marrow),0.0138
+GSM9488261,male,b cells,0.0115
+GSM9488261,male,memory cd4 t cells,0.0112
+GSM9488261,male,MEP (bone marrow),0.0109
+GSM9488148,male,neutrophils,0.3538
+GSM9488148,male,monocytes,0.1554
+GSM9488148,male,eosinophils,0.1103
+GSM9488148,male,cd4 t cells,0.0915
+GSM9488148,male,cd56bright nk cells,0.0536
+GSM9488148,male,naive cd4 t cells,0.0456
+GSM9488148,male,effector memory cd8 t cells,0.0387
+GSM9488148,male,CMP (bone marrow),0.0285
+GSM9488148,male,naive cd8 t cells,0.0258
+GSM9488148,male,b cells,0.0208
+GSM9488148,male,cd8 temra t cells,0.0189
+GSM9488148,male,regulatory t cells,0.0177
+GSM9488148,male,basophils,0.0118
+GSM9488148,male,vascular endothelium,0.0109
+GSM9488236,female,neutrophils,0.6121
+GSM9488236,female,cd4 t cells,0.0945
+GSM9488236,female,cd8 t cells,0.0701
+GSM9488236,female,monocytes,0.0596
+GSM9488236,female,cd8 temra t cells,0.042
+GSM9488236,female,GMP (bone marrow),0.041
+GSM9488236,female,eosinophils,0.0269
+GSM9488236,female,naive b cells,0.0197
+GSM9488236,female,b cells,0.0113
+GSM9488220,male,neutrophils,0.3307
+GSM9488220,male,cd8 temra t cells,0.1092
+GSM9488220,male,GMP (bone marrow),0.1074
+GSM9488220,male,monocytes,0.1059
+GSM9488220,male,cd4 t cells,0.0892
+GSM9488220,male,nk cells,0.062
+GSM9488220,male,eosinophils,0.0519
+GSM9488220,male,effector memory cd8 t cells,0.0435
+GSM9488220,male,cd8 t cells,0.0412
+GSM9488220,male,cd56bright nk cells,0.0226
+GSM9488220,male,MEP (bone marrow),0.0185
+GSM9488220,male,b cells,0.0179
+GSM9488298,female,cd4 t cells,0.2561
+GSM9488298,female,neutrophils,0.2314
+GSM9488298,female,GMP (bone marrow),0.1422
+GSM9488298,female,effector memory cd8 t cells,0.0992
+GSM9488298,female,cd56bright nk cells,0.0601
+GSM9488298,female,monocytes,0.0573
+GSM9488298,female,cd8 temra t cells,0.0541
+GSM9488298,female,cd8 t cells,0.0375
+GSM9488298,female,b cells,0.0344
+GSM9488277,male,cd4 t cells,0.1813
+GSM9488277,male,cd8 t cells,0.178
+GSM9488277,male,neutrophils,0.1619
+GSM9488277,male,monocytes,0.1392
+GSM9488277,male,nk cells,0.0925
+GSM9488277,male,GMP (bone marrow),0.0886
+GSM9488277,male,effector memory cd8 t cells,0.0497
+GSM9488277,male,cd8 temra t cells,0.0455
+GSM9488277,male,b cells,0.024
+GSM9488277,male,MEP (bone marrow),0.0204
+GSM9488277,male,eosinophils,0.0125

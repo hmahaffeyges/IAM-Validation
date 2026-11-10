@@ -1,0 +1,52 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-10",
+ "title": "Group-A per cell, and each library's own calibration begun",
+ "set_out": "Re-commission Group-A against the atlas alone, start each sequencing library's self-calibration, and review the book with its history.",
+ "open_at_turnover": "Group-A's per-site cell comparison on the kept arrays, then its sealed test; sequencing step 1 on the atlas's own donors; the book changes the author approved, checked by the book's verifier.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "Group-A against the atlas alone, the spent rehearsal",
+     "status": "development",
+     "reference": "IAM-Atlas v2.1",
+     "what": "147 of GSE318173's healthy controls read by the one command, women against men, and a constructed 1 % neutrophil loss in half of them.",
+     "outcome": "Read per cell, the neutrophil row finds the planted loss; with each person's cell mix taken into account, healthy women and men read alike. A synthetic on the same 147 mixes shows the cell that changed is named when the comparison is made site by site against each cell's atlas pattern.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": [
+    {
+     "title": "Four questions before every new test",
+     "status": "rule",
+     "what": "Best data from everything already in hand; GitHub's free machines before any paid one; the test fit for its purpose; what a cosmologist would do.",
+     "outcome": "The top of the pre-launch checklist; the launcher refuses a new job without the answers.",
+     "record": "Biological_Physics/MethylPhys/boxruns/PRELAUNCH_CHECKLIST.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": []
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": []
+  }
+ ]
+}

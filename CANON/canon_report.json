@@ -55,7 +55,16 @@
 },
 {
 "file": "README.md",
-"line": 158,
+"line": 120,
+"pattern": "healthy middle",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| A healthy middle for every cell in a regular blood draw | Running now | A closer look: our rule is that a healthy cell reads 1, and inside a whole blood most "
+},
+{
+"file": "README.md",
+"line": 159,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -64,7 +73,16 @@
 },
 {
 "file": "FOLLOW.md",
-"line": 234,
+"line": 29,
+"pattern": "healthy middle",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "### A healthy middle for every cell in a regular blood draw"
+},
+{
+"file": "FOLLOW.md",
+"line": 260,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -73,7 +91,7 @@
 },
 {
 "file": "FOLLOW.md",
-"line": 234,
+"line": 260,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -109,7 +127,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 621,
+"line": 627,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -118,7 +136,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 621,
+"line": 627,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -127,7 +145,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 1744,
+"line": 1750,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -136,7 +154,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29958,
+"line": 29964,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -145,7 +163,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29958,
+"line": 29964,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -154,7 +172,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29959,
+"line": 29965,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -163,7 +181,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29959,
+"line": 29965,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -172,7 +190,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29960,
+"line": 29966,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -181,7 +199,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29967,
+"line": 29973,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -190,7 +208,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29967,
+"line": 29973,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -199,7 +217,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29968,
+"line": 29974,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -208,7 +226,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29974,
+"line": 29980,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -217,7 +235,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29974,
+"line": 29980,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -226,7 +244,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29975,
+"line": 29981,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -235,7 +253,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29981,
+"line": 29987,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -244,7 +262,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29981,
+"line": 29987,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -253,7 +271,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29982,
+"line": 29988,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -262,7 +280,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29991,
+"line": 29997,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -271,7 +289,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29991,
+"line": 29997,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -280,7 +298,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29991,
+"line": 29997,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -289,7 +307,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29992,
+"line": 29998,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -298,7 +316,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29992,
+"line": 29998,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -307,7 +325,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29993,
+"line": 29999,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -316,7 +334,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29993,
+"line": 29999,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -325,7 +343,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29995,
+"line": 30001,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -334,7 +352,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29996,
+"line": 30002,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -343,7 +361,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29999,
+"line": 30005,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -352,7 +370,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 29999,
+"line": 30005,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -361,7 +379,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30000,
+"line": 30006,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -370,7 +388,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30006,
+"line": 30012,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -379,7 +397,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30006,
+"line": 30012,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -388,7 +406,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30007,
+"line": 30013,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -397,7 +415,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30019,
+"line": 30025,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -406,7 +424,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30019,
+"line": 30025,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -415,7 +433,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30020,
+"line": 30026,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -424,7 +442,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30030,
+"line": 30036,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -433,7 +451,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30030,
+"line": 30036,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -442,7 +460,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30031,
+"line": 30037,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -451,7 +469,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30033,
+"line": 30039,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -460,7 +478,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30037,
+"line": 30043,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -469,7 +487,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30037,
+"line": 30043,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -478,7 +496,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30037,
+"line": 30043,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -487,7 +505,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30038,
+"line": 30044,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -496,7 +514,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30038,
+"line": 30044,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -505,7 +523,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30039,
+"line": 30045,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -514,7 +532,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30039,
+"line": 30045,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -523,7 +541,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30041,
+"line": 30047,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -532,7 +550,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30042,
+"line": 30048,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -541,7 +559,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30045,
+"line": 30051,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -550,7 +568,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30045,
+"line": 30051,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -559,7 +577,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30045,
+"line": 30051,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -568,7 +586,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30046,
+"line": 30052,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -577,7 +595,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30046,
+"line": 30052,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -586,7 +604,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30047,
+"line": 30053,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -595,7 +613,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30047,
+"line": 30053,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -604,7 +622,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30049,
+"line": 30055,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -613,7 +631,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30050,
+"line": 30056,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -622,7 +640,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30053,
+"line": 30059,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -631,7 +649,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30053,
+"line": 30059,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -640,7 +658,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30053,
+"line": 30059,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -649,7 +667,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30054,
+"line": 30060,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -658,7 +676,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30054,
+"line": 30060,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -667,7 +685,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30055,
+"line": 30061,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -676,7 +694,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30055,
+"line": 30061,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -685,7 +703,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30057,
+"line": 30063,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -694,7 +712,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30058,
+"line": 30064,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -703,7 +721,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30061,
+"line": 30067,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -712,7 +730,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30061,
+"line": 30067,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -721,7 +739,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30061,
+"line": 30067,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -730,7 +748,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30062,
+"line": 30068,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -739,7 +757,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30062,
+"line": 30068,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -748,7 +766,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30063,
+"line": 30069,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -757,7 +775,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30063,
+"line": 30069,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -766,7 +784,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30065,
+"line": 30071,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -775,7 +793,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30066,
+"line": 30072,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -784,7 +802,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30069,
+"line": 30075,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -793,7 +811,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30069,
+"line": 30075,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -802,7 +820,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30070,
+"line": 30076,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -811,7 +829,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30076,
+"line": 30082,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -820,7 +838,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30076,
+"line": 30082,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -829,7 +847,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30077,
+"line": 30083,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -838,7 +856,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30088,
+"line": 30094,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -847,7 +865,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30088,
+"line": 30094,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -856,7 +874,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30089,
+"line": 30095,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -865,7 +883,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30102,
+"line": 30108,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -874,7 +892,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30102,
+"line": 30108,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -883,7 +901,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30103,
+"line": 30109,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -892,7 +910,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30111,
+"line": 30117,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -901,7 +919,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30111,
+"line": 30117,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -910,7 +928,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30112,
+"line": 30118,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -919,7 +937,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30120,
+"line": 30126,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -928,7 +946,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30120,
+"line": 30126,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -937,7 +955,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30121,
+"line": 30127,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -946,7 +964,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30128,
+"line": 30134,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -955,7 +973,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30128,
+"line": 30134,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -964,7 +982,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 30129,
+"line": 30135,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -973,7 +991,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 31814,
+"line": 31820,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -982,7 +1000,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 31814,
+"line": 31820,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -991,7 +1009,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 31815,
+"line": 31821,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -1000,7 +1018,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 34841,
+"line": 34847,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -1009,7 +1027,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 34844,
+"line": 34850,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -1018,7 +1036,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 37538,
+"line": 37544,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -1027,7 +1045,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 37541,
+"line": 37547,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -1036,7 +1054,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 42686,
+"line": 42692,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -1045,7 +1063,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 43528,
+"line": 43531,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1054,7 +1072,7 @@
 },
 {
 "file": "docs/book/verify_book.py",
-"line": 43529,
+"line": 43532,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1252,6 +1270,15 @@
 },
 {
 "file": "docs/book/appendices/app_F_glossary.tex",
+"line": 482,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "\\textbf{Normal (band)} & Where healthy lies for one cell on one instrument. $A=1$ is the middle (the physics); the width is measured for each cell from the atla"
+},
+{
+"file": "docs/book/appendices/app_F_glossary.tex",
 "line": 667,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
@@ -1312,6 +1339,267 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "\\text{IAM-A}=\\frac{\\varepsilon}{\\varepsilon_{\\rm pred}(L)},}{IAM-A against the sample's own reference: measured held error over what its loose share $L$ predict"
+},
+{
+"file": "docs/book/verification/REVIEWED_ACCURATE.md",
+"line": 36,
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- questioned: Needed to check all temperature-dependent floor numbers for drift after the 2026-10-19 holding-energy correction (3.41 kT -> 3.08 kT)."
+},
+{
+"file": "docs/book/verification/REVIEWED_ACCURATE.md",
+"line": 37,
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- accurate: GitHub commit 862930f2 (2026-10-19, 'Holding energy on the commissioned counter: canon, book, figures, FOUR_DOMAINS, checks corrected; stale-check g"
+},
+{
+"file": "docs/book/verification/REVIEWED_ACCURATE.md",
+"line": 40,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- questioned: Checking the P value and its retired/development-flag status against canon, since the IAM-A position form was superseded by the self-reference lin"
+},
+{
+"file": "docs/book/verification/REVIEWED_ACCURATE.md",
+"line": 40,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- questioned: Checking the P value and its retired/development-flag status against canon, since the IAM-A position form was superseded by the self-reference lin"
+},
+{
+"file": "docs/book/verification/REVIEWED_ACCURATE.md",
+"line": 85,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "- questioned: Commit 3cb97633 (2026-10-24) renamed 'the Mahaffey number' to 'the M number' across this and other files in my set; I checked for any missed insta"
+},
+{
+"file": "docs/book/verification/REVIEWED_ACCURATE.md",
+"line": 86,
+"pattern": "Mahaffey number",
+"use": "the M number (named like the Mach number; author 2026-10-24)",
+"severity": "block",
+"status": "RECORD",
+"text": "- accurate: A whole-file and whole-book grep of all 27 part-C files for the phrase 'Mahaffey number' found zero remaining instances; every location shown in the"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 72,
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Recomputed: 3.084/20.94 = 0.1473, matching canon; 3.41/20.94 = 0.1628, matching the OLD superseded E_hold (3.41 kT)."
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 72,
+"pattern": "(?<![\\d.])0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|(?<![\\d.])0\\.163 of (one|an) ATP",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Recomputed: 3.084/20.94 = 0.1473, matching canon; 3.41/20.94 = 0.1628, matching the OLD superseded E_hold (3.41 kT)."
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 73,
+"pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Commit 862930f2 (2026-10-19, 'Holding energy on the commissioned counter') edited this exact paragraph, changing E_hold 3.41->3.08 kT and eps0 0.032->0.044 tw"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 88,
+"pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- CANON/iam_canon.json /retired/ section explicitly lists the pattern '(varepsilon_0|eps0|...)...0.032' with replaced_by text pointing to the commissioned count"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 89,
+"pattern": "(?<![\\d.])0\\.2043",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Commit 862930f2 (2026-10-19, 'Holding energy on the commissioned counter') edited the immediately adjacent rows of this same table in app_N_notation.tex -- E_"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 89,
+"pattern": "(?<![\\d.])0\\.2043",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Commit 862930f2 (2026-10-19, 'Holding energy on the commissioned counter') edited the immediately adjacent rows of this same table in app_N_notation.tex -- E_"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 89,
+"pattern": "(?<![\\d.])0\\.2043",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Commit 862930f2 (2026-10-19, 'Holding energy on the commissioned counter') edited the immediately adjacent rows of this same table in app_N_notation.tex -- E_"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 89,
+"pattern": "(?<![\\d.])0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|(?<![\\d.])0\\.163 of (one|an) ATP",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Commit 862930f2 (2026-10-19, 'Holding energy on the commissioned counter') edited the immediately adjacent rows of this same table in app_N_notation.tex -- E_"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 97,
+"pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "Question: Confirm this eps0=0.032 row was simply missed by the 2026-10-19 holding-energy correction (it sits right next to Href=0.259 bits, which only follows f"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 106,
+"pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Chat history (host.frames, searched across all project frames): the eps0=0.032 / E_hold=3.41 kT / phi=0.1628 / Href=0.2043 bits set is the PRE-2026-10-19 cano"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 106,
+"pattern": "(?<![\\d.])0\\.2043",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Chat history (host.frames, searched across all project frames): the eps0=0.032 / E_hold=3.41 kT / phi=0.1628 / Href=0.2043 bits set is the PRE-2026-10-19 cano"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 106,
+"pattern": "(?<![\\d.])0\\.1628|\\bphi *= *0\\.163|varphi *= *0\\.16[23]?\\b|(?<![\\d.])0\\.163 of (one|an) ATP",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Chat history (host.frames, searched across all project frames): the eps0=0.032 / E_hold=3.41 kT / phi=0.1628 / Href=0.2043 bits set is the PRE-2026-10-19 cano"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 106,
+"pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Chat history (host.frames, searched across all project frames): the eps0=0.032 / E_hold=3.41 kT / phi=0.1628 / Href=0.2043 bits set is the PRE-2026-10-19 cano"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 106,
+"pattern": "(varepsilon_0|varepsilon_\\{0\\}|eps0|\u03b5\u2080|eps_0)[^0-9\\n]{0,18}0\\.032(?!\\d)",
+"use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
+"severity": "block",
+"status": "RECORD",
+"text": "- Chat history (host.frames, searched across all project frames): the eps0=0.032 / E_hold=3.41 kT / phi=0.1628 / Href=0.2043 bits set is the PRE-2026-10-19 cano"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 249,
+"pattern": "AstroGenetics|Cosmic Methylome",
+"use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
+"severity": "warn",
+"status": "RECORD",
+"text": "**A16. `part6/p6_00b_astrogenetics.tex` line 276** (stale since newer result; confidence medium; in the book since unknown (not edited since before 2026-10-10),"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 339,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- This summary line lists 'the position P' alongside E_hold as one of the book's current measured inputs supporting the 'no free parameter' claim, but P is reti"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 339,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "- This summary line lists 'the position P' alongside E_hold as one of the book's current measured inputs supporting the 'no free parameter' claim, but P is reti"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 342,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Recommendation: Remove 'the position P' from this list of current measured quantities, or replace it with the current self-reference line parameters (the two co"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 342,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Recommendation: Remove 'the position P' from this list of current measured quantities, or replace it with the current self-reference line parameters (the two co"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 345,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Proposed text: the results use calibrated quantities (the cell references held fixed after one measurement), measured ones (the holding energy $E_{\\rm hold}$ an"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 345,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Proposed text: the results use calibrated quantities (the cell references held fixed after one measurement), measured ones (the holding energy $E_{\\rm hold}$ an"
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 347,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Question: This summary line cites 'the position P' as a current measured input, but P is retired (development flag only) and the commissioned IAM-A reading now "
+},
+{
+"file": "docs/book/verification/BOOK_REVIEW_FOR_AUTHOR.md",
+"line": 347,
+"pattern": "self-reference line",
+"use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Question: This summary line cites 'the position P' as a current measured input, but P is retired (development flag only) and the commissioned IAM-A reading now "
 },
 {
 "file": "docs/book/part7/p7_09_open.tex",
@@ -1375,6 +1663,15 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "\\section{Where Met-A's healthy middle line comes from}\\label{sec:metaa_healthy_line}"
+},
+{
+"file": "docs/book/part6/p6_06_gauge.tex",
+"line": 37,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "Normal (Met-A) & each cell's measured width & $A=1$ is the middle; the width of healthy is measured for each cell from the atlas's own donors and confirmed by t"
 },
 {
 "file": "docs/book/part6/p6_06_gauge.tex",
@@ -1504,7 +1801,7 @@
 },
 {
 "file": "docs/book/part6/p6_16a_skytools.tex",
-"line": 194,
+"line": 196,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -1864,7 +2161,7 @@
 },
 {
 "file": "Biological_Physics/README.md",
-"line": 60,
+"line": 63,
 "pattern": "(?<![\\d.])3\\.41(\\\\,|~|\\s)*(\\$\\s*)?(\\\\kB|k_?\\{?B\\}?\\s*T|kT|k\\\\_B|\\\\,\\\\kB)",
 "use": "the commissioned counter's value (CANON constants E_hold_meth 3.08 kT, eps0_meth 0.0438, phi 0.147, H_ref_cell 0.259 bits; holding_energy_q2.json). The earlier value counted end CpGs as opportunities (superseded 2026-10-19)",
 "severity": "block",
@@ -1918,7 +2215,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md",
-"line": 12,
+"line": 13,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1927,7 +2224,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md",
-"line": 12,
+"line": 13,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1936,7 +2233,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/CHAIN_WORKFLOW_OUTLINE.md",
-"line": 112,
+"line": 125,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1945,7 +2242,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/STATUS.md",
-"line": 15,
+"line": 17,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1954,7 +2251,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/STATUS.md",
-"line": 15,
+"line": 17,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1972,7 +2269,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 102,
+"line": 113,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1981,7 +2278,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 104,
+"line": 115,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1990,7 +2287,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 104,
+"line": 115,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -1999,7 +2296,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 189,
+"line": 193,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2008,7 +2305,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 192,
+"line": 196,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2017,7 +2314,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 230,
+"line": 235,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2026,7 +2323,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 242,
+"line": 247,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2035,7 +2332,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 242,
+"line": 247,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2044,7 +2341,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 272,
+"line": 277,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2053,7 +2350,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/INTRODUCTION.md",
-"line": 272,
+"line": 277,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2089,7 +2386,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
-"line": 351,
+"line": 384,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2098,7 +2395,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
-"line": 351,
+"line": 384,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2107,7 +2404,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
-"line": 356,
+"line": 389,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2116,7 +2413,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/QUESTIONS_AND_ANSWERS.md",
-"line": 356,
+"line": 389,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2134,7 +2431,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 12,
+"line": 13,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2143,7 +2440,43 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 23,
+"line": 18,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.33** [open] Normal is measured, not chosen (author 2026-11-07: 'there should be no reason for us to put a plus or minus 5 percent band on anything. We ju"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 20,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.29** [running] THE ATLAS IS THE ONLY HEALTHY REFERENCE (author 2026-11-07: 'healthy for comparisons MUST always come from the atlas's ... never tare our "
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 22,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.29.2** [open] C-Score on arrays, atlas only. The whole-genome C against IAM-Atlas v2.1 (written by the chain on every array) needs a healthy limit for ne"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 27,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.31** [built] Lock 1: one reference door in the chain (the published atlases only, checked by checksum; every bundle records its reference), then the dail"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 44,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2152,7 +2485,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 26,
+"line": 47,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2161,7 +2494,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 27,
+"line": 48,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2170,7 +2503,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 27,
+"line": 48,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2179,7 +2512,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 46,
+"line": 67,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2188,7 +2521,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 46,
+"line": 67,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2197,7 +2530,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 53,
+"line": 74,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2206,7 +2539,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 53,
+"line": 74,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2215,7 +2548,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 53,
+"line": 74,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2224,7 +2557,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 63,
+"line": 84,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2233,7 +2566,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 106,
+"line": 127,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2242,7 +2575,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 112,
+"line": 133,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2251,7 +2584,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 112,
+"line": 133,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2260,7 +2593,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 112,
+"line": 133,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2269,7 +2602,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 112,
+"line": 133,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2278,7 +2611,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 115,
+"line": 136,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2287,7 +2620,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 116,
+"line": 137,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2296,7 +2629,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 116,
+"line": 137,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2305,7 +2638,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 116,
+"line": 137,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2314,7 +2647,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 116,
+"line": 137,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2323,7 +2656,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 116,
+"line": 137,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2332,7 +2665,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 120,
+"line": 141,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2341,7 +2674,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 121,
+"line": 142,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2350,7 +2683,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 121,
+"line": 142,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2359,7 +2692,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 137,
+"line": 158,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2368,7 +2701,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 137,
+"line": 158,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2377,7 +2710,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 190,
+"line": 211,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -2386,7 +2719,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 221,
+"line": 242,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2395,7 +2728,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 221,
+"line": 242,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2404,7 +2737,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 221,
+"line": 242,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2413,7 +2746,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 230,
+"line": 251,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2422,7 +2755,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 230,
+"line": 251,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2431,7 +2764,43 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 264,
+"line": 272,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.33** (step 1, 2026-11-07) [open] Normal is measured, not chosen (author 2026-11-07: 'there should be no reason for us to put a plus or minus 5 percent ba"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 274,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.29** (step 1, 2026-11-07) [running] THE ATLAS IS THE ONLY HEALTHY REFERENCE (author 2026-11-07: 'healthy for comparisons MUST always come from the atlas'"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 276,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.29.2** (step 1, 2026-11-07) [open] C-Score on arrays, atlas only. The whole-genome C against IAM-Atlas v2.1 (written by the chain on every array) needs a"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 281,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **60.31** (step 1, 2026-11-07) [built] Lock 1: one reference door in the chain (the published atlases only, checked by checksum; every bundle records its refe"
+},
+{
+"file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
+"line": 306,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2440,7 +2809,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 273,
+"line": 315,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2449,7 +2818,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 276,
+"line": 318,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2458,7 +2827,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 277,
+"line": 319,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2467,7 +2836,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 277,
+"line": 319,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2476,7 +2845,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 294,
+"line": 336,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2485,7 +2854,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 294,
+"line": 336,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2494,7 +2863,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 299,
+"line": 341,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2503,7 +2872,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 306,
+"line": 348,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2512,7 +2881,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 306,
+"line": 348,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2521,7 +2890,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 306,
+"line": 348,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2530,7 +2899,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 314,
+"line": 356,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2539,7 +2908,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 314,
+"line": 356,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2548,7 +2917,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 314,
+"line": 356,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2557,7 +2926,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 314,
+"line": 356,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2566,7 +2935,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 316,
+"line": 358,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2575,7 +2944,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 317,
+"line": 359,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2584,7 +2953,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 317,
+"line": 359,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2593,7 +2962,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 317,
+"line": 359,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2602,7 +2971,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 317,
+"line": 359,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2611,7 +2980,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 317,
+"line": 359,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2620,7 +2989,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 319,
+"line": 361,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2629,7 +2998,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 319,
+"line": 361,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2638,7 +3007,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 319,
+"line": 361,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2647,7 +3016,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 327,
+"line": 369,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2656,7 +3025,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 346,
+"line": 388,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2665,7 +3034,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 365,
+"line": 407,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -2674,7 +3043,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 368,
+"line": 410,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2683,7 +3052,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 368,
+"line": 410,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2692,7 +3061,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md",
-"line": 421,
+"line": 463,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -2701,7 +3070,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/CHAIN_WORKFLOW_DRAFT.md",
-"line": 252,
+"line": 263,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2718,8 +3087,17 @@
 "text": "| Cancer methylomes (tissue or plasma, with reads) with each sample's recorded stage or grade | The A-score database keeps every score with its cancer type and "
 },
 {
+"file": "Biological_Physics/MethylPhys/FIELD_NOTES.md",
+"line": 52,
+"pattern": "healthy middle",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "## A healthy middle for every cell in a regular blood draw"
+},
+{
 "file": "Biological_Physics/MethylPhys/REPLICATE.md",
-"line": 53,
+"line": 54,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2728,7 +3106,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/REPLICATE.md",
-"line": 53,
+"line": 54,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2782,7 +3160,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 147,
+"line": 140,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2791,7 +3169,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 147,
+"line": 140,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2800,7 +3178,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 148,
+"line": 141,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2809,7 +3187,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 177,
+"line": 170,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2818,7 +3196,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 177,
+"line": 170,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -2827,7 +3205,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/paper/OUTLINE.md",
-"line": 177,
+"line": 170,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3060,8 +3438,17 @@
 "text": "| `iama_line` | **IAM-A's self-reference line, rebuilt from 158 public healthy-cell sequencing files.** Every healthy cell type's held error falls on one simple"
 },
 {
+"file": "Biological_Physics/MethylPhys/deposit/zenodo_repo_snapshot.py",
+"line": 3,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "(git archive, the repository exactly as GitHub holds it: the chain, every test record, the canon, the book, the website, the A-score"
+},
+{
 "file": "Biological_Physics/MethylPhys/sop/build_sop_v4.py",
-"line": 59,
+"line": 60,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -3070,7 +3457,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
-"line": 130,
+"line": 132,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -3358,7 +3745,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_v4.py",
-"line": 100,
+"line": 101,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3367,7 +3754,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_v4.py",
-"line": 100,
+"line": 101,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3376,12 +3763,30 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
-"line": 707,
+"line": 787,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
 "text": "\"\"\"Met-A's healthy middle line predicted from the array itself (development, DEV-METAA-HEALTHY-01). At each site, the disorder this array"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+"line": 879,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "donors, cells whose donors span five or more laboratories), or None (the derived limit stands).\"\"\""
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/stage_metaa_atlas.py",
+"line": 937,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "has a score for each of the instruments that can read it'): the sample's result, one row per cell the IAM-Deconvolver found, each with every"
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/conductor_v3.py",
@@ -3484,7 +3889,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
-"line": 229,
+"line": 234,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3493,7 +3898,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/report_v4.py",
-"line": 229,
+"line": 234,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3502,7 +3907,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 478,
+"line": 503,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3511,7 +3916,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 478,
+"line": 503,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3520,7 +3925,16 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1287,
+"line": 753,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "# the healthy line measured with censored anchors (DEV-METAA-HEALTHY-01 test 5) and the whole-sample prediction on the array's own values,"
+},
+{
+"file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
+"line": 1414,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3529,7 +3943,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1287,
+"line": 1414,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3538,7 +3952,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1289,
+"line": 1416,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3547,7 +3961,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/chain/MethylPhys_Interface/run_sample.py",
-"line": 1289,
+"line": 1416,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -3652,6 +4066,15 @@
 "severity": "warn",
 "status": "RECORD",
 "text": "What the sprint still gets right, for later: C1 (two-point correlation per class with MASTER-style mode coupling), C3 (2D posterior shape for A-score pairs \u2014 th"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMMISSION_MONO450_01_PREREG.md",
+"line": 7,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "C-Score's limit is the derived limit times the monocyte's factor measured on the atlas's own donors (`CScore_Limits/cell_factors_v1.json`)."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/DEV_CSCORE_LIMIT_01.md",
@@ -3906,6 +4329,15 @@
 "text": "healthy plasma on every reading; they are then a cancer set with recorded stage, as the A-score database needs."
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_ONE_DRAW_01.md",
+"line": 622,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "plasmas by type, for the A-score database (where healthy ends and cancer begins is for experts to set)."
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/PROC_PREDX_SEQUENCE_01_PREREG.md",
 "line": 27,
 "pattern": "program reading",
@@ -4102,6 +4534,87 @@
 "severity": "warn",
 "status": "LIVE",
 "text": "A-score database, on the A-score scale (1 healthy; the ceiling to the right, the floor to the left)."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 491,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "derived limit (scored only after its own synthetic, plan 60.29.2)."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 594,
+"pattern": "reference line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "command; the daily reference line in the day summary follows."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 607,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "C-Score's whole-genome reading sat within its derived limit for 96 of 100 (recorded; its own synthetic comes first, plan 60.29.2). **Correction"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 669,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "values the healthy line was measured on are a stretched copy of the input (low tail, design II: 1.0344 x input - 0.0154; center 1.0156 x input"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 721,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "centering bar, not met, also shows; the C-Score within its derived limit 96 of 100 (that limit's term was calibrated on labeled-healthy bloods,"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 725,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**One default chain (the plan's first step to a working chain): the two fixes that were met are part of the full chain.** The author: get the chain working, the"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 1102,
+"pattern": "healthy middle",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The instrument's job: a healthy whole blood reads Normal for each main cell found in it, on a gauge where the measured healthy middle is 1."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 1424,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "C-Score sits at or under its limit. The derived limit (departures independent from site to site) held 9 of 13 450K neutrophils from a"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_METAA_HEALTHY_01.md",
+"line": 1427,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The atlas's own healthy donors show it in every laboratory: neutrophils within the derived limit 86 to 89 percent, monocytes 90 to 93."
 },
 {
 "file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_IAMA.md",
@@ -4356,6 +4869,60 @@
 "text": "0.0042). The readings go into the A-score database with the tumor grade."
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+"line": 399,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "`replay_score.py`; 382 of 384 whole bloods and 240 of 240 sorted arrays of GSE87650, untared; A-score rows `*_atlas_full_rows.csv`.) **Whole blood:**"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+"line": 406,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "untared; A-score rows `r6_stroke_atlas_full_rows.csv`.) The three subtypes against each other: 1 of 155 to 161 readings below p 0.001 (a"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+"line": 412,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "GSE141682, untared, each reading against age; A-score rows `r6_aging_atlas_full_rows.csv`.) 2 of 169 readings below p 0.001, both known features"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+"line": 474,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "this set; A-score rows added as reference only."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+"line": 513,
+"pattern": "healthy line",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "recorded beside the open centering of the healthy line (synthetic test 7) and the mix, not explained. Spent data."
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/DEV_REPLICATE_01.md",
+"line": 523,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "LIVE",
+"text": "A-score rows: sources WAVE-C-COAD-ATLAS to WAVE-C-READ-ATLAS (`wave_c/rc_*_rows.csv`)."
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/DEV_FINGERPRINT_02_OUTCOME.md",
 "line": 22,
 "pattern": "\\bA[- ]score",
@@ -4554,6 +5121,24 @@
 "text": "**Stated limits now.** Floor from 8 donors on one 450K batch; EPIC-Italy is a different lab; arrays give the program reading only."
 },
 {
+"file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md",
+"line": 5,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "**Reference:** IAM-Atlas v2.1 alone: the cell's healthy profile at its identity sites, and its C-Score limit, the derived limit times the"
+},
+{
+"file": "Biological_Physics/MethylPhys/doors/COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED.md",
+"line": 30,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "| Synthetic (no clustering, normal and heavy tails; planted clustering) | `DEV_METAA_HEALTHY_01.md` | derived limit holds 92 to 95 %; planted runs found |"
+},
+{
 "file": "Biological_Physics/MethylPhys/doors/PROC_PARTIAL_01_OUTCOME.md",
 "line": 28,
 "pattern": "\\bA[- ]score",
@@ -4609,7 +5194,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 104,
+"line": 226,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4618,16 +5203,34 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 845,
-"pattern": "healthy middle",
+"line": 284,
+"pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
+"text": "person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30). **Lock 1, the reference door** (`reference_door.py`): every run"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 1077,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "**The gauge.** Healthy is 1 (the middle mark, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against th"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 1079,
+"pattern": "healthy middle",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
 "text": "scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy middle is measured"
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 1490,
+"line": 1758,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4636,7 +5239,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 1490,
+"line": 1758,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4645,7 +5248,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 1500,
+"line": 1768,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4654,7 +5257,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 2930,
+"line": 3210,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4663,7 +5266,34 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3025,
+"line": 3305,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell foun"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 3305,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell foun"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 3305,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell foun"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 3311,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4672,7 +5302,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3025,
+"line": 3311,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4681,7 +5311,16 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3061,
+"line": 3313,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Each cell's limit is the derived limit times `_cs_cell_factor` where the atlas's donors measure one (limit_rule says which)."
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
+"line": 3369,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4690,7 +5329,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3223,
+"line": 3594,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4699,7 +5338,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3223,
+"line": 3594,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4708,7 +5347,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3480,
+"line": 3851,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4717,7 +5356,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3628,
+"line": 4033,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4726,7 +5365,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_decoder.md",
-"line": 3682,
+"line": 4087,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4744,16 +5383,34 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 556,
-"pattern": "healthy middle",
+"line": 90,
+"pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
 "status": "LIVE",
+"text": "person, and a fresh test per person, all against the atlas (plan 60.29; sequencing, plan 60.30). **Lock 1, the reference door** (`reference_door.py`): every run"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 645,
+"pattern": "\\bA[- ]score",
+"use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
+"severity": "warn",
+"status": "RECORD",
+"text": "**The gauge.** Healthy is 1 (the middle mark, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against th"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 647,
+"pattern": "healthy middle",
+"use": "the baseline (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "RECORD",
 "text": "scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy middle is measured"
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1012,
+"line": 1127,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4762,7 +5419,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1012,
+"line": 1127,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4771,7 +5428,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1022,
+"line": 1137,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4780,7 +5437,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1891,
+"line": 2012,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4789,7 +5446,34 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1941,
+"line": 2063,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell foun"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 2063,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell foun"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 2063,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "The C-Score limit factor of one cell, from `Runtime Matrices/CScore_Limits/cell_factors_v1.json`: measured on IAM-Atlas v2.1's own healthy donors (the cell foun"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 2066,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4798,7 +5482,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1941,
+"line": 2066,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4807,7 +5491,16 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 1959,
+"line": 2068,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "Each cell's limit is the derived limit times `_cs_cell_factor` where the atlas's donors measure one (limit_rule says which)."
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
+"line": 2101,
 "pattern": "healthy middle",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4816,7 +5509,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2059,
+"line": 2242,
 "pattern": "reference line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4825,7 +5518,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2059,
+"line": 2242,
 "pattern": "self-reference line",
 "use": "IAM-A's baseline (calibrated) (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4834,7 +5527,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2211,
+"line": 2394,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4843,7 +5536,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2292,
+"line": 2499,
 "pattern": "derived limit",
 "use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
 "severity": "warn",
@@ -4852,7 +5545,7 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/decoder_text.md",
-"line": 2319,
+"line": 2526,
 "pattern": "\\bA[- ]score",
 "use": "eps (qubit gate error in nats, -ln(1-p)) or A (reading / healthy or as-built reference)",
 "severity": "warn",
@@ -4861,7 +5554,16 @@
 },
 {
 "file": "Biological_Physics/MethylPhys/manual/OM_v4_chain.md",
-"line": 27,
+"line": 22,
+"pattern": "derived limit",
+"use": "the floor or the ceiling (author 2026-10-24: one name, a status label)",
+"severity": "warn",
+"status": "LIVE",
+"text": "- **The C-Score against the atlas.** The C-Score against IAM-Atlas v2.1 alone is commissioned on sorted monocytes (Infinium 450K), 2026-11-09 (`doors/COMMISSION"
+},
+{
+"file": "Biological_Physics/MethylPhys/manual/OM_v4_chain.md",
+"line": 28,
 "pattern": "healthy line",
 "use": "the baseline (author 2026-10-24: one name, a status label)",
 "severity": "warn",

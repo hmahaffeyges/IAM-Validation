@@ -126,6 +126,7 @@ def compare_cells(rows, group_col, a, b, min_share=0.05, min_n=3):
         s["smallest_findable_difference"] = round(2 * s["se"], 5); s["share_median"] = round(float(g.share.median()), 4); out[cell] = s
     return out
 
+
 if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if len(sys.argv) >= 5 and sys.argv[1] == "collect":
