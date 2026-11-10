@@ -282,6 +282,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     return rec
 
 
+SELFCAL_MIX = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-mix): the fourth form, mix_forward
 SELFCAL_ENTROPY = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-disorder): the disorder the library's end error adds taken out of the observed disorder
 SELFCAL_DATA = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-data): the measured end error taken out of the library's own calls, not put into the expectation
 SELFCAL = None   # 2026-11-10 (run_sample.py --dev-seq-self-cal): dict(end_n=Series, end_m=Series) of the sample's molecule-end calls per probe
@@ -412,6 +413,29 @@ def _cover_den(F):
 NOT_FOUND_SHARE = 0.01   # 2026-10-24: below 1 % of the sample a cell is reported as not found; its Met-A is flagged, not withheld (stated)
 COPY_FLOOR = 1.0   # 2026-11-02 (D7, stated): below one copy of a cell per site (its share times the site's reads) a cell's reading is flagged
 
+
+_INNER_CACHE = {}
+
+def mix_forward(sites, cells, F, counts, sc, unmarked, marked):
+    """2026-11-10 (DEVELOPMENT; the self-calibration's fourth form, after the first three synthetics): the Planck forward model on the whole
+    mixed expectation. Every cell found contributes its IAM Sequencing Atlas inner level (its donors without their molecule-end calls; the
+    published level where it has none), mixed in this sample's shares as read_in_mix mixes the atlas; the library's own measured end error
+    then flips calls in proportion to each state's share at each site, as an end error does: a false T at rate `marked` (its excess at sites
+    held marked) on the marked share, a false C at rate `unmarked` on the unmarked share, on this library's share of end calls at that site:
+    e = e_in + f (unmarked (1 - e_in) - marked e_in). Returns (e_in, e) at the sites given."""
+    import stage_seq_atlas as _SQ
+    cols = []
+    for k in cells:
+        if k not in _INNER_CACHE: _INNER_CACHE[k] = _SQ.metaa_inner_of(k)
+        I = _INNER_CACHE[k]; m = _col("mu", k).reindex(sites)
+        pk = (I.meth_inner / I.reads_inner.where(I.reads_inner > 0)).reindex(sites) if I is not None else pd.Series(np.nan, index=sites)
+        cols.append(pk.astype("float64").where(pk.notna(), m).rename(k))
+    P = pd.concat(cols, axis=1); have = P.notna(); Fk = pd.Series({k: float(F[k]) for k in cells})
+    e_in = P.fillna(0.0).mul(Fk, axis=1).sum(1) / have.mul(Fk, axis=1).sum(1)
+    n = pd.Series(counts).reindex(sites).astype("float64"); f = (pd.Series(sc["end_n"]).reindex(sites).astype("float64") / n.where(n > 0)).fillna(0.0)
+    e = (e_in + f * (float(unmarked) * (1.0 - e_in) - float(marked) * e_in)).clip(0.0, 1.0)
+    return e_in, e
+
 def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
@@ -467,12 +491,19 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                     # disorder the library's end error adds, in expectation under counting (expectation with it minus without it), taken out of
                     # the observed disorder; the rest read against the atlas's inner level
                     _A_ent = float((_H(x[ok]).mean() - (_he_exp - _he_dat)) / _he_dat); _sc["A_disorder_side"] = round(_A_ent, 5)
-                    if SELFCAL_ENTROPY: he = _he_dat; _xr = None; _sc["applied"] = "the disorder the library's measured end error adds, in expectation under counting, taken out of the observed disorder; against the atlas's inner level"
+                    # 2026-11-10 (fourth form): every found cell's inner level mixed in the sample's shares, the library's end error flipping calls in
+                    # proportion to each state's share at each site (mix_forward)
+                    _e4in, _e4 = mix_forward(e[ok].index, cells, shares, counts, SELFCAL, (_sc.get("unmarked") or {}).get("excess", 0.0), (_sc.get("marked") or {}).get("excess", 0.0))
+                    _ok4 = _e4.notna().to_numpy()
+                    _he4 = float(np.nanmean(expected_H_counts(_e4.fillna(e[ok]).to_numpy(), _n))); _sc["A_mix_forward"] = round(float(_H(x[ok]).mean() / _he4), 5)
+                    _sc["mix_forward_sites"] = int(_ok4.sum())
+                    if SELFCAL_MIX: he = _he4; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's measured end error flipping calls in proportion to each state's share (mix_forward)"
+                    elif SELFCAL_ENTROPY: he = _he_dat; _xr = None; _sc["applied"] = "the disorder the library's measured end error adds, in expectation under counting, taken out of the observed disorder; against the atlas's inner level"
                     elif SELFCAL_DATA: he = _he_dat; _xr = _x_dat; _sc["applied"] = "taken out of this library's own calls, against the atlas's inner level mixed in this sample's shares"
                     else: he = _he_exp; _sc["applied"] = "to the mixed expectation at this cell's identity sites (exact when the sample is nearly all this cell)"
                 r["self_calibration"] = {k: v for k, v in _sc.items() if k not in ("q", "p")}
         A = float(_H(_xr if _xr is not None else x[ok]).mean() / he)
-        if SELFCAL_ENTROPY and (r.get("self_calibration") or {}).get("A_disorder_side") is not None: A = float(r["self_calibration"]["A_disorder_side"])
+        if SELFCAL_ENTROPY and not SELFCAL_MIX and (r.get("self_calibration") or {}).get("A_disorder_side") is not None: A = float(r["self_calibration"]["A_disorder_side"])
         xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
         _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison

@@ -2071,6 +2071,14 @@ The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v
 ### stage_metaa_atlas.py::_flag
 The development flag on every atlas reading, naming the ruler used (IAM-Atlas v2.1 or the IAM Sequencing Atlas).
 
+### stage_metaa_atlas.py::mix_forward
+
+The self-calibration's fourth form, the Planck forward model on the whole mixed expectation: every cell found contributes its IAM Sequencing Atlas inner level (its donors without their own molecule-end calls), mixed in the sample's shares as Met-A mixes the atlas; the library's measured end error then flips calls in proportion to each state's share at each site (a false T on the marked share, a false C on the unmarked share), on that site's share of end calls. An end error acts on every molecule in the mix and on each site in proportion to its level, which the first three forms did not model. Development.
+
+### run_sample.py --dev-seq-self-cal-mix
+
+With --dev-seq-self-cal, Met-A's expectation is mix_forward's: every found cell's inner level mixed in the sample's shares, with this library's measured end error applied in proportion to each state's share. Every read records A_mix_forward beside the other forms. Development.
+
 ### run_sample.py --dev-seq-self-cal-disorder
 
 With --dev-seq-self-cal, Met-A is the observed disorder at the cell's identity sites minus the disorder this library's measured molecule-end error adds (the counting expectation at the atlas's inner level moved by the library's end error, minus the same expectation without it), read against the atlas's inner level. An error flips whole reads at a few sites, so it is taken out as disorder, in expectation, not as a shift of each site's level. Every read records A_without, A_expectation_side, A_data_side and A_disorder_side. Development.

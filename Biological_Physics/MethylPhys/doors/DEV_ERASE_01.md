@@ -344,3 +344,12 @@ reading itself unchanged).
 error minus plateau) over held error. **Outcomes, both informative:** the held error falls with distance and levels off by distance 3 or 4,
 so the meter's share is measured and the firm rate is revised down by it (a revised line is a new version, built on the line's own samples,
 not on these); or it is flat from distance 1, so the counted interior carries no end error and the firm rate is the cell's. Nothing scored.
+
+**The held error by position, read: neither outcome as written** (`data/DEV_ERASE_01/position_01/position_summary.txt`, all 18 libraries). The CD8 laboratory (GSE98837) reads its held error higher one call in than further in (median
+meter share 0.042; up to 0.0995 in an effector library), and still falling at six calls in, so it does not level off; the CD4 (Johns
+Hopkins) and B-cell (GSE134664) laboratories read no higher one call in than two (median shares -0.017 and -0.072: the interior reads
+higher than the ends). Every one of the 18 libraries dips at three calls in and rises again at four, so the distance tally also carries
+molecule length (positions four and beyond exist only on molecules of nine calls or more, which sit in other parts of the genome). **What it
+means for the firm rate:** the meter's end error inside the counted interior is at most about a tenth of the held error, in one laboratory;
+a tenth moves phi from 0.147 to 0.1525. For phi to be one half, the held error would have to be 1,543 times smaller, so the meter cannot
+be what keeps the cell's held share below one half. Next, if needed: the same tally within one molecule length.

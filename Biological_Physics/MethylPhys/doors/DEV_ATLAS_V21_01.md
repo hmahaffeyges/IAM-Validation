@@ -1930,3 +1930,15 @@ adds, in expectation under counting, read against the atlas's inner level (run_s
 four forms on the same molecules. One row first as a canary.
 **Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
 synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
+
+**The third form, on its first 11 rows, and why: not met; the fault is the correction's model (development).** Comparing the forms on the same molecules (`selfcal_synthetic3_score.py`
+when its last rows land): the both-sides plant cancels in CD8 T cells (-0.003) while each side alone does not (+0.082 marked, -0.004
+unmarked), and B cells (89 % of their sample) do better than CD8 and CD4 (about a third). The first three forms corrected each site by a
+step rule (marked or unmarked side, split at one half) on the found cell's own atlas column; an end error flips calls in proportion to each
+state's share, on every molecule in the mix.
+**The self-calibration synthetic, fourth form (sealed before reading; development).** The same 15 rows, bars and scorer form
+(`selfcal_synthetic4.sh`, `selfcal_synthetic4_score.py`): every found cell's inner level mixed in the sample's shares, the library's
+measured end error flipping calls in proportion to each state's share at each site (`stage_metaa_atlas.mix_forward`,
+run_sample.py --dev-seq-self-cal-mix). Each read records all five forms on the same molecules. One row first as a canary.
+**Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
+synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
