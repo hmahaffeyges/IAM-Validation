@@ -2069,6 +2069,10 @@ The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v
 ### stage_metaa_atlas.py::_flag
 The development flag on every atlas reading, naming the ruler used (IAM-Atlas v2.1 or the IAM Sequencing Atlas).
 
+### run_sample.py --dev-seq-self-cal-data
+
+With --dev-seq-self-cal, Met-A is read on the library's own calls with its measured molecule-end error taken out (each site moved back by the library's end share there times its measured excess on that site's side), against the IAM Sequencing Atlas's inner level, which holds no end calls. Added after the first synthetic: a ratio of disorders moves unequally when the same error enters a library that departs from 1 and its expectation. Every read records A_without, A_expectation_side and A_data_side. Development.
+
 ### stage_metaa_atlas.py::self_calibrated
 
 Each sequencing library calibrated on its own calls, as each CMB detector was calibrated on sources in its own maps. Biology does not depend on where a CpG sits on a molecule, so the difference between a library's molecule-end calls and its inner calls at the same cell's identity sites is its chemistry alone, measured per side (a false T where the cell holds a mark, a false C where it holds none). The healthy expectation is the atlas's inner level moved by that measured end error at each site's own share of end calls. Nothing is cut and nothing is borrowed from other samples. Development (run_sample.py --dev-seq-self-cal).

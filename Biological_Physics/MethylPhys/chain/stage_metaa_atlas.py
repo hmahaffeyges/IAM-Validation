@@ -230,7 +230,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
         if SELFCAL is not None and use_seq:   # 2026-11-10 (development, run_sample.py --dev-seq-self-cal): each library calibrated on its own calls
             _sc = self_calibrated(cell, mu[ok], counts, SELFCAL)
             if _sc.get("q") is not None:
-                _q = _sc.pop("q"); href = float(np.nanmean(expected_H_counts(_q.to_numpy(), _n))); rec["self_calibration"] = _sc
+                _sc.pop("p", None); _q = _sc.pop("q"); href = float(np.nanmean(expected_H_counts(_q.to_numpy(), _n))); rec["self_calibration"] = _sc
                 rec["expectation"] = "k of n reads at each site's own depth, at the atlas's inner level shifted by this library's own measured end error (self_calibrated)"
             else: rec["self_calibration"] = _sc
         _h = str(half or "").upper()
@@ -282,6 +282,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
     return rec
 
 
+SELFCAL_DATA = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-data): the measured end error taken out of the library's own calls, not put into the expectation
 SELFCAL = None   # 2026-11-10 (run_sample.py --dev-seq-self-cal): dict(end_n=Series, end_m=Series) of the sample's molecule-end calls per probe
 
 def self_calibrated(cell, level, counts, sc, lo=0.2, hi=0.8):
@@ -312,7 +313,7 @@ def self_calibrated(cell, level, counts, sc, lo=0.2, hi=0.8):
     f = (ne / n.where(n > 0)).fillna(0.0); eu, em = out["unmarked"]["excess"], out["marked"]["excess"]
     q = (p + np.where(p <= 0.5, 1.0, -1.0) * f * np.where(p <= 0.5, eu, em)).clip(0.0, 1.0)
     q = q.where(good, p)
-    out["end_share_median"] = round(float(f[good].median()), 4); out["q"] = q; return out
+    out["end_share_median"] = round(float(f[good].median()), 4); out["q"] = q; out["p"] = p; return out
 
 CURVE_EDGES = [0, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 0.97, 0.98, 0.99, 1.0]   # step 3 v7's, stated
 
@@ -445,18 +446,26 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         if ok.sum() < _rmin * len(S):   # 2026-10-23 (author: read and flag): withheld only below half (a tenth on sequencing); above that and below RULE's 90 %, read and flagged
             r["reason"] = f"only {int(ok.sum())} of {len(S)} identity sites measured (at least {_rmin:.0%} needed to read)"; out["cells"].append(r); continue
         if ok.sum() < RULE["coverage_min"] * len(S): r["coverage_flag"] = f"read on {int(ok.sum())} of {len(S)} identity sites ({ok.sum() / len(S):.0%}; below the {RULE['coverage_min']:.0%} of the commissioned rule)"
-        he = float(_H(e[ok]).mean())
+        he = float(_H(e[ok]).mean()); _xr = None
         if counts is not None:   # sequencing: the expectation at each site's own read count (40.3)
             _n = pd.Series(counts).reindex(e[ok].index).fillna(0).astype("int64").to_numpy(); he = float(np.nanmean(expected_H_counts(e[ok].to_numpy(), _n)))
             if SELFCAL is not None:   # 2026-11-10 (development, --dev-seq-self-cal): the found cell's own correction (its atlas column without the atlas's end
                 # calls, moved by this library's measured end error) applied to the mixed expectation; exact for a sorted sample, an approximation in a mix
                 _sc = self_calibrated(c, mu[ok], counts, SELFCAL)
                 if _sc.get("q") is not None:
-                    _he0 = he; e_cal = (e[ok] + (_sc.pop("q") - mu[ok])).clip(0.0, 1.0); he = float(np.nanmean(expected_H_counts(e_cal.to_numpy(), _n)))
+                    _q = _sc.pop("q"); _p = _sc.pop("p"); _he0 = he
+                    e_cal = (e[ok] + (_q - mu[ok])).clip(0.0, 1.0); _he_exp = float(np.nanmean(expected_H_counts(e_cal.to_numpy(), _n)))
                     _sc["A_without"] = round(float(_H(x[ok]).mean() / _he0), 5)   # the same reading against the expectation without the calibration
-                    _sc["applied"] = "to the mixed expectation at this cell's identity sites (exact when the sample is nearly all this cell)"
-                r["self_calibration"] = {k: v for k, v in _sc.items() if k != "q"}
-        A = float(_H(x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
+                    _sc["A_expectation_side"] = round(float(_H(x[ok]).mean() / _he_exp), 5)   # the library's error put into the expectation
+                    # 2026-11-10, after the first synthetic (a ratio of disorders moves unequally when the same error is added to a library that departs
+                    # from 1 and to its expectation): each site's calls moved back by the library's own end share times its measured excess on that
+                    # site's side, read against the atlas's inner level (no end calls on either side)
+                    _x_dat = (x[ok] - (_q - _p)).clip(1e-6, 1 - 1e-6); _e_in = (e[ok] + (_p - mu[ok])).clip(0.0, 1.0)
+                    _he_dat = float(np.nanmean(expected_H_counts(_e_in.to_numpy(), _n))); _sc["A_data_side"] = round(float(_H(_x_dat).mean() / _he_dat), 5)
+                    if SELFCAL_DATA: he = _he_dat; _xr = _x_dat; _sc["applied"] = "taken out of this library's own calls, against the atlas's inner level mixed in this sample's shares"
+                    else: he = _he_exp; _sc["applied"] = "to the mixed expectation at this cell's identity sites (exact when the sample is nearly all this cell)"
+                r["self_calibration"] = {k: v for k, v in _sc.items() if k not in ("q", "p")}
+        A = float(_H(_xr if _xr is not None else x[ok]).mean() / he); xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
         _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison
         r.update(A=round(A, 5), n_sites=int(ok.sum()), H_expectation=round(he, 5), expectation_rule=f"mixed over the cells with an atlas value; site kept at >= {MIX_COVER:.0%} of the shares",

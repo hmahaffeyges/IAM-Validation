@@ -1912,3 +1912,10 @@ and an error added to both moves them by the slope of H at each one's own level;
 Correcting the expectation alone therefore cannot leave Met-A unchanged when the library departs from healthy, by construction. Next (a new
 synthetic, sealed before reading): remove the library's measured end error from its own calls (the measured response taken out of the
 measured data, against the atlas's inner level, which carries no end calls), and test it on the same 15 rows' bundles' conditions.
+
+**The self-calibration synthetic, second form (sealed before reading; development).** The same 15 rows, the same bars and scorer form
+(`selfcal_synthetic2.sh`, `selfcal_synthetic2_score.py`), with Met-A read on each library's own calls with its measured end error taken out
+(run_sample.py --dev-seq-self-cal-data), against the atlas's inner level. Each read also records the first form's reading, so the two are
+compared on the same molecules. One row first as a canary.
+**Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
+synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
