@@ -32,7 +32,7 @@
   "test_and_date": [
    [
     "CMB-S4 (forecast to recompute)",
-    "CMB-S4"
+    "current CMB experiments: acoustic scale and blackbody spectrum (CMB-S4 not going ahead)"
    ]
   ],
   "reason": "working note",
@@ -41,7 +41,13 @@
    "COS-229",
    "PAR-003"
   ],
-  "color": "passed"
+  "color": "passed",
+  "statement": [
+   [
+    "falsified if CMB-S4 (or any data) detects",
+    "falsified if any data detects"
+   ]
+  ]
  },
  "COS-025": {
   "exclude": "records an early fit that the final chains replace (COS-008, COS-018); no remaining test"
