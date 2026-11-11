@@ -2075,9 +2075,17 @@ The atlas ruler: the self-tare's straight line per probe design onto IAM-Atlas v
 ### stage_metaa_atlas.py::_flag
 The development flag on every atlas reading, naming the ruler used (IAM-Atlas v2.1 or the IAM Sequencing Atlas).
 
+### stage_metaa_atlas.py::agree_rates
+
+The library's two molecule-end error rates (a false T on marked molecules, a false C on unmarked ones), measured where every found cell agrees: the atlas sites at which every found cell's IAM-Atlas v2.1 level, in sequencing units, is at most 0.1 or every one at least 0.9, chosen on the atlas and never on the library. On each set the library's end calls minus its inner calls give one equation (end level minus inner level = unmarked rate x (1 - inner level) - marked rate x inner level); the two sets solve both rates exactly. Physics: the error is the chemistry of the library's molecule ends, the same at every CpG, so it is measured where the state of every molecule is known. Added after four synthetics failed most for a minority cell on the marked side: sides set by the read cell's own level at its identity sites hold mostly the other cells' opposite-state molecules. Development.
+
 ### stage_metaa_atlas.py::mix_forward
 
 The self-calibration's fourth form, the Planck forward model on the whole mixed expectation: every cell found contributes its IAM Sequencing Atlas inner level (its donors without their own molecule-end calls), mixed in the sample's shares as Met-A mixes the atlas; the library's measured end error then flips calls in proportion to each state's share at each site (a false T on the marked share, a false C on the unmarked share), on that site's share of end calls. An end error acts on every molecule in the mix and on each site in proportion to its level, which the first three forms did not model. Development.
+
+### run_sample.py --dev-seq-self-cal-agree
+
+With --dev-seq-self-cal, Met-A's expectation is every found cell's inner level mixed in the sample's shares, with the library's two end-error rates from agree_rates flipping calls in proportion to each state's share at each site (mix_forward). Every read records A_agree and the agreement-site counts beside the earlier forms. Development.
 
 ### run_sample.py --dev-seq-self-cal-mix
 

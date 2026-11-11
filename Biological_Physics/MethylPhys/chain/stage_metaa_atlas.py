@@ -416,6 +416,32 @@ COPY_FLOOR = 1.0   # 2026-11-02 (D7, stated): below one copy of a cell per site 
 
 _INNER_CACHE = {}
 
+SELFCAL_AGREE = False   # 2026-11-11 (run_sample.py --dev-seq-self-cal-agree): the fifth form, rates from agree_rates into mix_forward
+_AGREE_CACHE = {}
+
+def agree_rates(cells, counts, sc, lo=0.1, hi=0.9):
+    """2026-11-11 (DEVELOPMENT; the self-calibration's fifth form, after four synthetics failed most for a minority cell on the marked side).
+    The four earlier forms measured the library's end error on sides set by the read cell's own level at its identity sites; at those sites
+    the other cells of a mix hold the opposite state, so a minority cell's 'marked' side is mostly unmarked molecules and the measured rate is
+    a blend of both errors. The error is the library's chemistry, the same at every CpG, so it is measured where every cell found agrees:
+    the atlas sites at which every found cell's IAM-Atlas v2.1 level (in sequencing units) is at most lo, or every one at least hi (chosen on
+    the atlas, never on the library, so the choice carries none of the library's noise). On each set the library's end calls and inner calls
+    give one equation, end level minus inner level = unmarked (1 - inner level) - marked x inner level; the two sets solve the false-C rate on
+    unmarked molecules (unmarked) and the false-T rate on marked ones (marked) exactly. Counts only; nothing fitted. One result per sample."""
+    key = tuple(sorted(cells))
+    if key in _AGREE_CACHE: return _AGREE_CACHE[key]
+    ne = pd.Series(sc["end_n"]).astype("float64"); me = pd.Series(sc["end_m"]).reindex(ne.index).fillna(0).astype("float64")
+    n = pd.Series(counts).reindex(ne.index).fillna(0).astype("float64"); mt = pd.Series(sc["all_m"]).reindex(ne.index).fillna(0).astype("float64")
+    ni, mi = n - ne, mt - me; good = (ne > 0) & (ni > 0)
+    L = pd.concat([seq_units(_col("mu", k).reindex(ne.index)).rename(k) for k in cells], axis=1)
+    low = good & L.notna().all(axis=1) & (L <= lo).all(axis=1); high = good & L.notna().all(axis=1) & (L >= hi).all(axis=1)
+    out = dict(rule=f"sites where every found cell's atlas level is at most {lo} or at least {hi}", sites_unmarked=int(low.sum()), sites_marked=int(high.sum()))
+    if low.sum() < 100 or high.sum() < 100: out.update(unmarked=None, marked=None, reason="fewer than 100 agreement sites on a side"); _AGREE_CACHE[key] = out; return out
+    xeu, xiu = me[low].sum() / ne[low].sum(), mi[low].sum() / ni[low].sum(); xem, xim = me[high].sum() / ne[high].sum(), mi[high].sum() / ni[high].sum()
+    a_u, a_m = np.linalg.solve(np.array([[1 - xiu, -xiu], [1 - xim, -xim]]), np.array([xeu - xiu, xem - xim]))
+    out.update(unmarked=round(float(a_u), 6), marked=round(float(a_m), 6), end_calls=int(ne[low | high].sum()), inner_calls=int(ni[low | high].sum()))
+    _AGREE_CACHE[key] = out; return out
+
 def mix_forward(sites, cells, F, counts, sc, unmarked, marked):
     """2026-11-10 (DEVELOPMENT; the self-calibration's fourth form, after the first three synthetics): the Planck forward model on the whole
     mixed expectation. Every cell found contributes its IAM Sequencing Atlas inner level (its donors without their molecule-end calls; the
@@ -497,7 +523,13 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                     _ok4 = _e4.notna().to_numpy()
                     _he4 = float(np.nanmean(expected_H_counts(_e4.fillna(e[ok]).to_numpy(), _n))); _sc["A_mix_forward"] = round(float(_H(x[ok]).mean() / _he4), 5)
                     _sc["mix_forward_sites"] = int(_ok4.sum())
-                    if SELFCAL_MIX: he = _he4; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's measured end error flipping calls in proportion to each state's share (mix_forward)"
+                    # 2026-11-11 (fifth form): the same mixed forward model with the library's two rates measured where every found cell agrees
+                    _ar = agree_rates(cells, counts, SELFCAL); _sc["agree_rates"] = _ar
+                    if _ar.get("marked") is not None:
+                        _e5in, _e5 = mix_forward(e[ok].index, cells, shares, counts, SELFCAL, _ar["unmarked"], _ar["marked"])
+                        _he5 = float(np.nanmean(expected_H_counts(_e5.fillna(e[ok]).to_numpy(), _n))); _sc["A_agree"] = round(float(_H(x[ok]).mean() / _he5), 5)
+                    if SELFCAL_AGREE and _sc.get("A_agree") is not None: he = _he5; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's two end-error rates measured where every found cell agrees (agree_rates, mix_forward)"
+                    elif SELFCAL_MIX: he = _he4; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's measured end error flipping calls in proportion to each state's share (mix_forward)"
                     elif SELFCAL_ENTROPY: he = _he_dat; _xr = None; _sc["applied"] = "the disorder the library's measured end error adds, in expectation under counting, taken out of the observed disorder; against the atlas's inner level"
                     elif SELFCAL_DATA: he = _he_dat; _xr = _x_dat; _sc["applied"] = "taken out of this library's own calls, against the atlas's inner level mixed in this sample's shares"
                     else: he = _he_exp; _sc["applied"] = "to the mixed expectation at this cell's identity sites (exact when the sample is nearly all this cell)"

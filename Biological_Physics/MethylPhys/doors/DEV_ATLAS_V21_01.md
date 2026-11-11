@@ -1958,3 +1958,17 @@ lone-loss rate near the molecule ends minus farther in. Synthetic (offline desig
 damage reads -0.0011 to -0.0003 (ok); 0.003 planted reads 0.0019 to 0.0029; 0.006 planted reads 0.0036 to 0.0047 (flagged). On the 18 spent
 sorted libraries: GSE98837's CD8 libraries flagged in 6 of 8; GSE134664's B cells and the Johns Hopkins CD4 libraries all ok.
 **Range of the data:** in the real libraries, end damage -0.0034 to 0.0079 (PHY-050 records); the synthetic planted 0 to 0.006.
+
+**Why the first four forms failed (found 2026-11-11, from the fourth form's bundles).** Each form measured the library's end error on sides set by
+the read cell's own level at its identity sites. Those are the sites where the cell differs from the rest of the sample, so for a cell that is a
+third of its sample the 'marked' side holds mostly unmarked molecules of the other cells, and the measured rate is a blend of both errors. The
+measurement of each planted error itself was right (CD8 library: marked-side excess up 0.046 for a planted 0.05, unmarked up 0.029 for 0.03).
+It matches the failure pattern of all four forms: worst for a minority cell, on the marked side; nearly right for the B-cell library (89 %).
+
+**The self-calibration synthetic, fifth form (sealed before reading; development).** The same 15 rows, bars and scorer form
+(`selfcal_synthetic5.sh`, `selfcal_synthetic5_score.py`): Met-A against every found cell's inner level mixed in the sample's shares, the
+library's two end-error rates measured where every found cell agrees (stage_metaa_atlas.agree_rates; run_sample.py --dev-seq-self-cal-agree),
+put into the mixed forward model (mix_forward). Checked before sealing on a simulated library on the atlas's own columns (cd8, cd4 and
+b cells): planted 0.05 and 0 recovered as 0.0505 and 0.0001; planted 0.08 and 0.03 as 0.0811 and 0.0304. One row first as a canary.
+**Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
+synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.

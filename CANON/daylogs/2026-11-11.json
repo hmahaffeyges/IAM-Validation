@@ -1,0 +1,51 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-11",
+ "title": "Sequencing self-calibration: why four forms failed, and a fifth",
+ "set_out": "Finish the derivation and commissioning list: the hairpin genotypes, the control-gain optimum, the temperature prediction, sequencing self-calibration, the qubit derivations and the M-number paper outline.",
+ "open_at_turnover": "The fifth self-calibration form's synthetic; the hairpin genotype comparison; the temperature prediction sealed; the qubit derivations and the M-number paper outline.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": []
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": [
+    {
+     "title": "Self-calibration, fifth form",
+     "status": "sealed",
+     "what": "The library's two molecule-end error rates measured where every found cell agrees on the atlas, put into the mixed forward model (stage_metaa_atlas.agree_rates, run_sample.py --dev-seq-self-cal-agree); its synthetic sealed before reading, the same 15 rows and bars as the first four.",
+     "outcome": "Checked on a simulated library on the atlas's own columns before sealing: both planted rates recovered.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "Why the first four self-calibration forms failed",
+     "status": "diagnosis",
+     "what": "Each measured the library's end error on sides set by the read cell's own level at its identity sites, where the other cells of a mix hold the opposite state.",
+     "outcome": "The measured rate is a blend of both errors for a minority cell; the measurement of each planted error itself was right.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": []
+  }
+ ]
+}
