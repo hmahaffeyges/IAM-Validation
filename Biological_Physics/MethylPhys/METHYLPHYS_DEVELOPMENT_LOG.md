@@ -4399,3 +4399,7 @@ The lone-loss rate, found beside PHY-050's verdict equal to 1/(1+M), was sealed 
 Johns Hopkins tissue samples labeled normal and read by the one command: all six 24 to 45 % above (median ratio 1.3380, 0 of 6 within 10 %),
 with small molecule-end damage (0.0002 to 0.0016). By the reading fixed in advance, against the lead; it is not confirmed on an independent
 laboratory's tissues.
+
+### 2026-11-10 · PHY-050 second test: caveat added after the verdict (PHY_050_LONE_LOSS_OUTCOME.md)
+The six samples labeled normal are tumor-adjacent tissue from cancer patients, not healthy donors (liver tumors often arise in diseased liver);
+this was not stated before reading. The verdict stands as recorded; a test on healthy donors' tissue is needed before the lead is judged on tissue.

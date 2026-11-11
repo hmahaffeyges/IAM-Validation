@@ -19,6 +19,10 @@ that the lone-loss rate is set by 1/(1+M); it is not explained by this laborator
 Loyfer samples the slope came from, and this laboratory read high on IAM-A before; neither was separated here. The lead now stands as:
 found on sorted cells and Loyfer's tissues (171 samples, four laboratories), not confirmed on an independent laboratory's tissues.
 
+**A caveat not stated before reading (added after the verdict).** The six samples labeled normal are tissue taken beside liver and lung tumors in cancer patients, not tissue
+from healthy donors; liver tumors often arise in diseased liver. The verdict stands as recorded, and it is a test on tumor-adjacent tissue,
+not on healthy tissue; a test on healthy donors' tissue is needed before the lead is judged on tissue.
+
 **What it would take to succeed.** A prediction for the healthy middle derived from physics and sealed before reading that holds on
 healthy samples from at least two laboratories not used to find it.
 
