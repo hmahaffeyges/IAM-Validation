@@ -3,3 +3,5 @@ outcome_numbers.txt
 lone_loss_jhu_samples.csv
 lone_loss_jhu.sh
 lone_loss_score.py
+lone_loss_summary.txt
+lone_loss_jhu_out/

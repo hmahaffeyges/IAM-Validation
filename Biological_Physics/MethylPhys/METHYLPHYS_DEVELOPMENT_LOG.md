@@ -4393,3 +4393,9 @@ Sealed before any count was opened (3a44cf72; addendum f48f3905). 153 healthy Lo
 The per-call firm rate of a fully held region is 0.05048 (95 % 0.04930 to 0.05165) against 1/(1+M) = 0.04558: 10.8 % above, more than the
 copier's measured error alone can add, by the reading fixed in advance. Recorded beside, not scored: the length-corrected lone-loss rate,
 0.04558 (0.04465 to 0.04651), equal to 1/(1+M); seen after the verdict, so a lead for a new sealed test on other laboratories, not a result.
+
+### 2026-11-10 · PHY-050 second test: not met (the lone-loss rate on Johns Hopkins tissue, PHY_050_LONE_LOSS_OUTCOME.md)
+The lone-loss rate, found beside PHY-050's verdict equal to 1/(1+M), was sealed (5e5a7230) as 0.04558 + 0.0284 x loose share on the six
+Johns Hopkins tissue samples labeled normal and read by the one command: all six 24 to 45 % above (median ratio 1.3380, 0 of 6 within 10 %),
+with small molecule-end damage (0.0002 to 0.0016). By the reading fixed in advance, against the lead; it is not confirmed on an independent
+laboratory's tissues.

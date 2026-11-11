@@ -1,0 +1,12 @@
+PHY-050 second test: lone-loss rate against 0.04558 + 0.0284 x loose share, Johns Hopkins tissue samples labeled normal (GSE86340)
+sample loose observed predicted ratio end_damage
+GSM2103008 0.6886 0.08228 0.06514 1.2633 0.0010
+GSM2103010 0.6504 0.07946 0.06405 1.2405 0.0002
+GSM2103012 0.6460 0.08595 0.06393 1.3445 0.0015
+GSM2103014 0.6092 0.08406 0.06288 1.3368 0.0016
+GSM2103016 0.5626 0.08927 0.06156 1.4503 0.0015
+GSM2103018 0.5383 0.08152 0.06087 1.3392 0.0011
+samples 6
+bar 1 within 10 %: 0 of 6: not met
+bar 2 median ratio 1.3380: not met
+verdict: NOT MET
