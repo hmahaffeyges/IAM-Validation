@@ -31,3 +31,24 @@ samples come from one laboratory.
 never been computed. On 18 other spent healthy libraries (three laboratories, doors/data/DEV_ERASE_01/position_01) the per-call intercept
 read 0.0473 +/- 0.0027 today, which is what prompted this test; the 1/(1+M) candidate was itself proposed after the counter-scale numbers
 were seen (IAMA_MIDDLE_DERIVATION_STATUS, 2026-11-10).
+
+## Addendum, written before any of the 153 counts was opened (the bars above unchanged)
+
+**The measuring stick, checked on synthetic molecules (offline design check; the counter's rules and `held_err_length` on the real length
+mix of a healthy library's qualifying molecules, 200,000 molecules per case, true per-call loss 0.04558):** truth alone, per-call reads
+0.04540 (-0.4 %) and the counter 0.03679; a copier error of 0.5 % on marked calls, per-call 0.05030 (+10 %); 1 %, 0.05538 (+22 %); losses
+clumped (a loss makes its neighbour lost with 20 % extra chance), 0.03619 (-21 %); clumped and a 0.5 % copier, 0.04059 (-11 %). So the
+per-call correction recovers the truth; a copier error adds to it about one for one; clumped losses pull it down.
+
+**How a miss will be read (fixed now).** Let d = per-call intercept - 0.04558.
+- d within the interval: met (bar 1).
+- d above, at most 0.003: within what the copier's measured error alone can add (PROC-CHANNEL-01: 0.1 to 0.3 % per substitution, ENCODE
+  alignments); the copier is then the first candidate, and a copier-corrected prediction is tested next on laboratories not used here.
+- d above, more than 0.003: more than the copier's measured error can add; the cell loses more than M alone allows.
+- d below: the cell holds better than M alone allows, or its losses clump; the counts' own clumping record (`coupling_pair_share`) is
+  read beside.
+Nothing will be adjusted to match after the counts are opened.
+**Range of the data:** the synthetic used a true per-call loss of 0.04558, copier errors of 0 to 1 % and clumping of 0 to 20 %, on molecules of
+6 to 43 calls (median 7); in the real data, the 18 spent healthy libraries read per-call 0.0401 to 0.0763 (counter 0.0333 to 0.0546) on molecules of the same
+length mix, and their mirror error on molecules held unmarked (`gain_err`) 1.4 % in the library whose length mix was used.
+
