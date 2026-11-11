@@ -1,0 +1,9 @@
+PHY-050 outcome numbers, computed from percall_summary.txt (DEV_CHAIN_Q2_01/percall_score.py)
+prediction 1/(1+M) = 0.04558
+per-call intercept 0.05048, 95 % interval 0.04930 to 0.05165, half-width 0.00118
+miss above the prediction 0.0049; relative 10.8 %; standard errors 8.2
+addendum's copier allowance 0.003
+counter held_err intercept 0.04018 (0.03946 to 0.04090); length-corrected 0.04558 (0.04465 to 0.04651); cell-type medians 0.04977 (0.04773 to 0.05180)
+median per-call holding energy 2.789 kT; ln M 3.042
+per-call rate giving a lone-loss chance of 0.04558: 0.05056
+per 100 marks: per-call 5.05, prediction 4.56

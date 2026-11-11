@@ -4387,3 +4387,9 @@ Sealed before reading (d34c9064); 19 unseen healthy sorted monocytes on Infinium
 
 **Open at turnover:**
 - The Group-A rehearsal reading on Google; the book review's findings to bring to the author; sequencing step 1 (each library's own measured end profile in its expected value), synthetic first; the territories' re-commissioning; lymphocytes and EPIC neutrophils waiting on data.
+
+### 2026-11-10 · PHY-050: not met (the per-call firm rate against the M number, PHY_050_PERCALL_OUTCOME.md)
+Sealed before any count was opened (3a44cf72; addendum f48f3905). 153 healthy Loyfer samples read by the one command on GitHub's machines.
+The per-call firm rate of a fully held region is 0.05048 (95 % 0.04930 to 0.05165) against 1/(1+M) = 0.04558: 10.8 % above, more than the
+copier's measured error alone can add, by the reading fixed in advance. Recorded beside, not scored: the length-corrected lone-loss rate,
+0.04558 (0.04465 to 0.04651), equal to 1/(1+M); seen after the verdict, so a lead for a new sealed test on other laboratories, not a result.

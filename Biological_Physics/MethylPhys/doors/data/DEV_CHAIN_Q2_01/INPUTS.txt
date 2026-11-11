@@ -3,3 +3,5 @@ loyfer_samples.csv
 encode_samples.tsv
 percall_count.py
 percall_score.py
+percall_summary.txt
+percall_out/
