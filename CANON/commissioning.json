@@ -5,8 +5,6 @@
   "chain",
   "report",
   "sop",
-  "sop_full",
-  "om",
   "status",
   "book",
   "book_status",
@@ -43,18 +41,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "Met\\-A\\ against\\ IAM\\-Atlas\\ v2\\.1\\ alone\\ is\\ commissioned\\ on\\ sorted\\ neutrophils\\ \\(Infinium\\ 450K\\)\\ and\\ sorted\\ monocytes\\ \\(Infinium\\ EPIC\\ v1\\),\\ 2026\\-11\\-09"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "Met\\-A\\ against\\ IAM\\-Atlas\\ v2\\.1\\ alone\\ is\\ commissioned\\ on\\ sorted\\ neutrophils\\ \\(Infinium\\ 450K\\)\\ and\\ sorted\\ monocytes\\ \\(Infinium\\ EPIC\\ v1\\),\\ 2026\\-11\\-09"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v4_chain.md",
-     "pattern": "Met\\-A\\ against\\ IAM\\-Atlas\\ v2\\.1\\ alone\\ is\\ commissioned\\ on\\ sorted\\ neutrophils\\ \\(Infinium\\ 450K\\)\\ and\\ sorted\\ monocytes\\ \\(Infinium\\ EPIC\\ v1\\),\\ 2026\\-11\\-09"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ Met\\-A\\ against\\ IAM\\-Atlas\\ v2\\.1,\\ sorted\\ neutrophils\\ \\(450K\\)\\ and\\ sorted\\ monocytes\\ \\(EPIC\\ v1\\)\\ \\|\\ 2026\\-11\\-09\\ \\|"
     },
     {
      "kind": "status",
@@ -120,18 +108,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is commissioned on sorted monocytes \\(Infinium 450K\\)"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is commissioned on sorted monocytes \\(Infinium 450K\\)"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v4_chain.md",
-     "pattern": "The C-Score against IAM-Atlas v2\\.1 alone is commissioned on sorted monocytes \\(Infinium 450K\\)"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ The\\ C\\-Score\\ against\\ IAM\\-Atlas\\ v2\\.1,\\ sorted\\ monocytes\\ \\(450K\\)\\ \\|\\ 2026\\-11\\-09\\ \\|"
     },
     {
      "kind": "status",
@@ -192,18 +170,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "Met-A on neutrophils, EPIC v1, commissioned 2026-10-09"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "Met-A \\(arrays; COMMISSIONED on isolated neutrophils 2026-10-09\\)"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
-     "pattern": "Met-A on isolated neutrophils COMMISSIONED 2026-10-09"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ Met\\-A,\\ isolated\\ neutrophils,\\ EPIC\\ v1\\ \\|\\ 2026\\-10\\-09\\ \\|"
     },
     {
      "kind": "status",
@@ -280,18 +248,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "Met-A C-score on whole blood, EPIC v1, commissioned 2026-10-15"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "Met-A C-score \\(arrays; COMMISSIONED on whole blood 2026-10-15"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
-     "pattern": "Stage MC C-score \\|[^\\n]*COMMISSIONED 2026-10-15 on whole blood"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ Met\\-A\\ C\\-score,\\ whole\\ blood,\\ EPIC\\ v1\\ \\|\\ 2026\\-10\\-15\\ \\|"
     },
     {
      "kind": "status",
@@ -427,18 +385,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "IAM-Atlas v2.1, commissioned 2026-10-16 for three cell references"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "IAM-Atlas v2.1 \\(COMMISSIONED 2026-10-16 for three cell references"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
-     "pattern": "Atlas v2.1 reference \\(Stage A21\\)[^\\n]*COMMISSIONED 2026-10-16"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ IAM\\-Atlas\\ v2\\.1,\\ per\\ use\\ \\|\\ 2026\\-10\\-16\\ \\|"
     },
     {
      "kind": "status",
@@ -507,18 +455,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "Deconvolution tool, commissioned 2026-10-17 for blood-cell shares"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "Deconvolution tool \\(COMMISSIONED 2026-10-17 for blood-cell shares"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
-     "pattern": "Deconvolution tool \\(stage_deconv_v21.py\\)[^\\n]*COMMISSIONED 2026-10-17 for blood-cell shares"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ Deconvolution\\ tool,\\ blood\\-cell\\ shares,\\ arrays\\ \\|\\ 2026\\-10\\-17\\ \\|"
     },
     {
      "kind": "status",
@@ -588,18 +526,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "IAM-A \\(sequencing; COMMISSIONED 2026-10-17 on healthy blood CD8 T cells"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "IAM-A \\(sequencing; COMMISSIONED 2026-10-17 on healthy blood CD8 T cells"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
-     "pattern": "Stage Q2 IAM-A self-reference \\|[^\\n]*COMMISSIONED 2026-10-17 on healthy blood CD8 T cells"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ IAM\\-A,\\ healthy\\ blood\\ CD8\\ T\\ cells,\\ sequencing\\ \\|\\ 2026\\-10\\-17\\ \\|"
     },
     {
      "kind": "status",
@@ -675,18 +603,8 @@
     },
     {
      "kind": "sop",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md",
-     "pattern": "Group-A on groups of whole bloods in one series, EPIC v1, commissioned 2026-10-20"
-    },
-    {
-     "kind": "sop_full",
-     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3_full.md",
-     "pattern": "Group-A \\(arrays; COMMISSIONED 2026-10-20 on groups of whole bloods"
-    },
-    {
-     "kind": "om",
-     "file": "Biological_Physics/MethylPhys/manual/OM_v3_neutrophil_chain.md",
-     "pattern": "Stage G Group-A \\|[^\\n]*COMMISSIONED 2026-10-20 on groups of whole bloods"
+     "file": "Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md",
+     "pattern": "\\|\\ Group\\-A,\\ groups\\ of\\ whole\\ bloods\\ in\\ one\\ series,\\ EPIC\\ v1\\ \\|\\ 2026\\-10\\-20\\ \\|"
     },
     {
      "kind": "status",
@@ -732,6 +650,7 @@
  ],
  "_notes": [
   "2026-11-07: Met-A, C-Score and Group-A were commissioned against references from other samples; their intro places now require the introduction to say they are being re-commissioned against the atlas alone.",
-  "2026-11-10 (author agreed): the whole-blood C-score's first commissioning (a healthy range from other studies' arrays) is history, as Met-A's first is; the C-Score against the atlas alone is commissioned on sorted monocytes (450K)."
+  "2026-11-10 (author agreed): the whole-blood C-score's first commissioning (a healthy range from other studies' arrays) is history, as Met-A's first is; the C-Score against the atlas alone is commissioned on sorted monocytes (450K).",
+  "2026-11-12 (document consolidation, author-approved): one SOP. The operations manual (manual/OM_v4_chain.md) is retired into SOP v4 section 5b, and SOP v3 and v3_full are kept as records of chain v3 (the book verifier reads v3); so the kinds om and sop_full are no longer required places, and each instrument's sop place is SOP v4's generated commissioned table row."
  ]
 }

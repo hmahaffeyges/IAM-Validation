@@ -146,11 +146,36 @@ A public series of arrays: `run_series.py` runs the one command on every array o
 
 ## 5. What the chain declines, and why
 
-- An EPIC v2 or 450K array: refused at intake with one sentence (no frozen Met-A reference for that platform).
+- An EPIC v2 array: refused at intake with one sentence (`PLATFORM_REFUSED`; Stage 1, methylprep 1.7.1, does not calibrate EPIC v2).
+- A 450K array is read: the atlas readers (the IAM-Deconvolver, and Met-A and the C-Score against IAM-Atlas v2.1) read it by site name, flagged with their own coverage; only the earlier same-run readers, built on EPIC v1 references, do not read it.
 - A sequencing file on another genome build than hg19: stopped at intake, by its name before any line is read, then by its CpG index ranges.
 - A failed array (Stage 0 quarantine): exit 2, no report.
 - A sequencing sample whose shape is outside the healthy shape of its declared cell type, or with too few qualifying molecules: IAM-A declines and says why.
 - A noisy array (the noise gate): the Met-A state is withheld and no gauge is drawn.
+
+## 5b. Operating: before a run, and when the chain stops
+
+Folded in from the operations manual (manual/OM_v4_chain.md, retired into this SOP on 2026-11-12).
+
+**Before a run.**
+
+1. Run the release check once per installation and after every update: `python3 release_check_v4.py`. Every check must pass.
+2. Arrays: the Illumina manifest must be in `$HOME/.methylprep_manifest_files/` (methylprep fetches it on first use). Read the first array of a batch alone, so the download is not raced.
+3. Sequencing: give the cell type with `--seq-cell`, and for a BAM the exact reference FASTA it was aligned to (`--ref-fasta`, indexed).
+4. Declare the specimen (`--specimen`): whole blood, buffy coat, isolated, sorted or purified neutrophils, isolated, sorted or purified cells of any IAM-Atlas v2.1 type, or a constructed DNA mixture of blood cells (test material). Anything else is refused at intake with its reason.
+5. Healthy comes only from the atlases: no same-run or same-laboratory healthy references are needed.
+
+**When the chain stops.**
+
+| exit | printed | meaning | what to do |
+|---|---|---|---|
+| 0 | the report | read, or declined with a reason printed in the report (specimen, platform, sample shape) | read the report |
+| 1 | an argument message | a command-line input is missing or malformed | correct the command |
+| 2 | `QUARANTINE` and its code | Stage 0 failed the file (corrupt or truncated IDAT, missing channel, array type mismatch, low detection) | nothing is scored; check the file, rerun from the scanner output |
+| 3 | `ENVIRONMENT_MISSING_MANIFEST` or `GENOME_COVERAGE_REFUSED` | the Illumina manifest could not be fetched, or a sequencing file covers too little of the genome | put the manifest in place, or supply a fuller file; the sample was not judged |
+| 7 | `REFERENCE_REFUSED` | an atlas file does not match its published checksum | restore the atlas files from their Zenodo record; nothing was read |
+
+The commissioning tests and the headline results rebuild from public data with one command each: `Biological_Physics/MethylPhys/reproduce/README.md`.
 
 ## 6. Outputs
 
@@ -228,4 +253,4 @@ Every reference the chain reads is a committed file; nothing is fitted at run ti
 - Clean clone: every chain change passes `release_check_v4.py` on a fresh clone, on a clean machine, before it is called tested.
 - One reading per instrument; no lines beyond Normal are printed until they are measured on the gauge.
 
-The earlier procedure, for chain v3, is kept as the record of how the chain was built: [MethylPhys_CPG_SOP_v3.md](MethylPhys_CPG_SOP_v3.md).
+The earlier procedure, for chain v3, is kept as the record of how the chain was built: [MethylPhys_CPG_SOP_v3.md](MethylPhys_CPG_SOP_v3.md) (with its full version); neither is updated after 2026-11-12. This SOP is the one operating procedure.
