@@ -1,0 +1,57 @@
+{
+ "rule": "M form: held error eps = 1/(1+M), M = dG_ATP / (R T), dG_ATP held fixed (canon 54000 J/mol); log-odds ln((1-eps)/eps) = ln M; cold/warm log-odds ratio = ln M(cold) / ln M(warm). Fixed-joule form for comparison: ratio = T_warm / T_cold.",
+ "dG_ATP_J_per_mol": 54000.0,
+ "pairs": {
+  "plants 10 C vs 16 C (PRED-TEMPERATURE-01, read)": {
+   "T_cold_C": 10,
+   "T_warm_C": 16,
+   "M_cold": 22.9373,
+   "M_warm": 22.4614,
+   "ratio_M_form": 1.0067,
+   "ratio_fixed_joule": 1.0212,
+   "eps_cold_M_form": 0.04178,
+   "eps_warm_M_form": 0.04262
+  },
+  "hamster torpor 5 C vs euthermic 37 C": {
+   "T_cold_C": 5,
+   "T_warm_C": 37,
+   "M_cold": 23.3497,
+   "M_warm": 20.9405,
+   "ratio_M_form": 1.0358,
+   "ratio_fixed_joule": 1.115,
+   "eps_cold_M_form": 0.04107,
+   "eps_warm_M_form": 0.04558
+  },
+  "fish 10 C vs 18 C": {
+   "T_cold_C": 10,
+   "T_warm_C": 18,
+   "M_cold": 22.9373,
+   "M_warm": 22.3071,
+   "ratio_M_form": 1.009,
+   "ratio_fixed_joule": 1.0283,
+   "eps_cold_M_form": 0.04178,
+   "eps_warm_M_form": 0.04291
+  },
+  "cells 30 C vs 37 C": {
+   "T_cold_C": 30,
+   "T_warm_C": 37,
+   "M_cold": 21.4241,
+   "M_warm": 20.9405,
+   "ratio_M_form": 1.0075,
+   "ratio_fixed_joule": 1.0231,
+   "eps_cold_M_form": 0.04459,
+   "eps_warm_M_form": 0.04558
+  },
+  "cells 37 C vs 40 C (fever range)": {
+   "T_cold_C": 37,
+   "T_warm_C": 40,
+   "M_cold": 20.9405,
+   "M_warm": 20.7399,
+   "ratio_M_form": 1.0032,
+   "ratio_fixed_joule": 1.0097,
+   "eps_cold_M_form": 0.04558,
+   "eps_warm_M_form": 0.046
+  }
+ },
+ "note": "Written 2026-11-11 before any molecule of a new two-temperature set is read. The plants (GSE54292) were read before this was written: their 1.0002 (0.993 to 1.008) is consistent with the M form's 1.0067 and excludes the fixed-joule form's 1.0212, but it was not a test of the M form."
+}

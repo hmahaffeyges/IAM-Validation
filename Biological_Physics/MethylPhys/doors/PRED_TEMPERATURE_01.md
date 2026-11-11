@@ -132,3 +132,27 @@ methylome of Swedish accessions grown at 10 °C and 16 °C) reported that temper
 levels, while CHH methylation on transposons was 14 % higher at 16 °C. A level is not an error rate, so that report did not decide this test
 in advance, but it was a warning available before sealing, and the CG null here agrees with it. Anyone choosing a temperature test after
 this one should start from it: in plants, the CG maintenance machinery holds its marks the same at both temperatures.
+
+## The M form's temperature prediction (sealed 2026-11-11, before any new two-temperature molecules are read)
+
+# NO CHAIN: a prediction note; no chain stage reads temperature
+**The rule.** If a held mark's error is set by the cell's drive, eps = 1/(1 + M) with M = dG_ATP / (R T) and dG_ATP held fixed (the canon's
+54,000 J/mol), then the log-odds of the held error is ln M, and between two held temperatures the cold/warm log-odds ratio is
+ln M(cold) / ln M(warm). The fixed-joule form tested above gives T_warm / T_cold. The numbers, computed from the canon, are in
+`data/PRED_TEMPERATURE_01/temperature_law_M_form.json`.
+
+| Pair | M form | Fixed-joule form | No temperature effect |
+|---|---|---|---|
+| plants, 10 °C against 16 °C (read before this was written) | 1.0067 | 1.0212 | 1 |
+| hamster torpor 5 °C against euthermic 37 °C | 1.0358 | 1.115 | 1 |
+| fish, 10 °C against 18 °C | 1.009 | 1.0283 | 1 |
+| cells, 30 °C against 37 °C | 1.0075 | 1.0231 | 1 |
+
+**What the plants already say, stated honestly.** Their 1.0002 (0.993 to 1.008) excludes the fixed-joule form and is consistent with the
+M form, but it was read before the M form was written, and its interval also holds no change: it is not a test of the M form.
+**The test that can fail.** A set with molecules at two held temperatures, the step large enough that the M form, the fixed-joule form and
+no change are separated by more than the interval (the hamster step separates them by 3.6 and 11.5 percent; the plants' interval was
+about 0.8 percent). The ratio is a ratio within one laboratory, so a constant laboratory factor cancels. GSE199815 holds per-site files
+only, different animals per stage and no recorded body temperatures, so it cannot be this test; the data search asks for such a set.
+**Caveat stated before reading:** dG_ATP is held fixed; a cell whose energy state changes with temperature (torpor lowers metabolic rate)
+moves M through its numerator too, and the prediction would then need that cell's own measured dG_ATP.
