@@ -1,0 +1,26 @@
+GSM2103002 c0: cd4 t cells share 0.3563 A 0.87402 A_without 0.95411
+GSM2103002 c1: cd4 t cells share 0.3406 A 0.88065 A_without 1.18607
+GSM2103002 c2: cd4 t cells share 0.3454 A 0.85779 A_without 1.01171
+GSM2103002 c3: cd4 t cells share 0.2851 A 0.89165 A_without 1.36854
+GSM2103002 c4: cd4 t cells share 0.3674 A 1.05491 A_without 1.16072
+GSM2616075 c0: cd8 t cells share 0.3192 A 0.7089 A_without 0.79818
+GSM2616075 c1: cd8 t cells share 0.3312 A 0.86772 A_without 1.17293
+GSM2616075 c2: cd8 t cells share 0.3065 A 0.71338 A_without 0.91865
+GSM2616075 c3: cd8 t cells share 0.3082 A 0.81322 A_without 1.32724
+GSM2616075 c4: cd8 t cells share 0.3377 A 0.97388 A_without 1.00739
+GSM3963003 c0: b cells share 0.8891 A 0.77797 A_without 1.29068
+GSM3963003 c1: b cells share 0.8808 A 0.84798 A_without 1.61561
+GSM3963003 c2: b cells share 0.8762 A 0.77225 A_without 1.3168
+GSM3963003 c3: b cells share 0.8443 A 0.85247 A_without 1.73144
+GSM3963003 c4: b cells share 0.8883 A 0.88003 A_without 1.47347
+bar 1 (end errors absorbed, |dA| <= 0.01 with the calibration): 3 of 9 -> not met
+bar 2 (plant visible without the calibration, median |dA| >= 0.02): 0.3249 -> informative
+bar 3 (a uniform change kept, >= 80 %): 2 of 3 -> not met
+
+Fifth form, diagnostics (exploration, after the sealed score; from the same 15 bundles)
+GSM3963003 b cells share 0.8891: identity-site end excess marked 0.054204 unmarked 0.016584; agreement-site rates marked 0.121579 unmarked 0.01641
+GSM2616075 cd8 t cells share 0.3192: identity-site end excess marked 0.007278 unmarked 0.035232; agreement-site rates marked 0.00872 unmarked 0.033533
+GSM2103002 cd4 t cells share 0.3563: identity-site end excess marked 0.017259 unmarked 0.021362; agreement-site rates marked 0.021285 unmarked 0.003838
+CD8 both sides planted (0.08 marked, 0.03 unmarked): agreement-site rates marked 0.088816 unmarked 0.059681; A_agree minus unplanted +0.1043
+CD8 c1: no agreement sites (cells without an atlas array column hold more than 2 percent of the sample); its A is the first form's
+CD8 c4: no agreement sites (cells without an atlas array column hold more than 2 percent of the sample); its A is the first form's

@@ -1979,3 +1979,14 @@ qualified and the reading fell back to the earlier form (recorded in its bundle)
 98 percent of the sample's DNA and all agree. Checked on that row's own 12 cells and shares with simulated counts at the real sites before
 the next canary: 30,588 marked and 101,805 unmarked agreement sites; planted 0.08 and 0.03 recovered as 0.0807 and 0.0307, planted 0.007 and
 0.035 as 0.0066 and 0.0356. The bars and rows are unchanged.
+
+**The self-calibration synthetic, fifth form, read: not met** (`selfcal_synthetic5_summary.txt`, the sealed scorer unchanged). Bar 1, end errors absorbed: 3 of 9.
+Bar 2, the plant visible without the calibration: median 0.3249. Bar 3, a uniform change kept: 2 of 3. Two CD8 rows found no agreement
+sites (cells without an atlas array column held more than 2 percent of the sample) and their reading is the first form's, counted as written.
+**What it showed (exploration on the same bundles, after the score).** The agreement sites measure a planted error exactly: on the CD8
+both-sides row the rates read 0.0888 (marked) and 0.0597 (unmarked), the library's own 0.0087 and 0.0335 plus the planted 0.08 and 0.03,
+yet Met-A still moved +0.1043; so the remainder is in how the rates enter the mixed expectation, not in measuring them. And the library's own
+end error is not the same at every CpG: B cells (89 percent of their sample) read 0.0542 at their identity sites and 0.1216 at the sites where
+every cell is marked; CD4 read 0.0214 and 0.0038 on the unmarked side; CD8 agrees on both sides. The fifth form's premise, one rate per
+library, fails in two of the three laboratories. Next, a sixth form, synthetic first: the two rates measured on the read cell's own identity
+sites, only where the mixed expectation is near 0 or 1, so the molecules' state is known and the site set is the one read.

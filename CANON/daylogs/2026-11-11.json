@@ -14,7 +14,16 @@
   {
    "kind": "ran",
    "heading": "What ran, and how each came out",
-   "entries": []
+   "entries": [
+    {
+     "title": "Self-calibration synthetic, fifth form",
+     "status": "failed",
+     "what": "The same 15 planted rows as the first four forms, the library's end-error rates measured where the found cells agree on the atlas.",
+     "outcome": "Not met: end errors absorbed in 3 of 9; plant visible; a uniform change kept 2 of 3. The rates themselves were measured exactly; the library's own end error differs between site sets in two of three laboratories.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "reference": "IAM Sequencing Atlas"
+    }
+   ]
   },
   {
    "kind": "built",
@@ -39,13 +48,35 @@
      "what": "Each measured the library's end error on sides set by the read cell's own level at its identity sites, where the other cells of a mix hold the opposite state.",
      "outcome": "The measured rate is a blend of both errors for a minority cell; the measurement of each planted error itself was right.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "A library's molecule-end error depends on the site set",
+     "status": "development",
+     "what": "In the B-cell and CD4 laboratories the end error at the read cell's identity sites differs from that at sites every cell holds alike.",
+     "outcome": "One rate per library is not enough; the next form measures the rates on the cell's own sites.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },
   {
    "kind": "mistakes",
    "heading": "Our own mistakes, and what caught each",
-   "entries": []
+   "entries": [
+    {
+     "title": "The fifth form's first rule found no sites",
+     "status": "diagnosis",
+     "what": "The agreement rule required every found cell to hold an atlas value; a provisional cell's column is missing at most array sites.",
+     "outcome": "Caught by the one-row canary before the other rows ran; the rule made share-weighted.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Two machine loops lost their connection unnoticed",
+     "status": "diagnosis",
+     "what": "The relaunch watcher and the GitHub filler logged only connection errors for about eleven hours; the half-hour checks read their last line only.",
+     "outcome": "Both restarted with fresh logs; the loop check now reports a loop whose last six cycles all failed.",
+     "record": "Biological_Physics/MethylPhys/boxruns/PRELAUNCH_CHECKLIST.md"
+    }
+   ]
   }
  ]
 }
