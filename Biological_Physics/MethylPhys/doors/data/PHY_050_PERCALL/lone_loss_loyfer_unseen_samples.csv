@@ -1,0 +1,55 @@
+sample,title,tissue,cell,lab
+GSM5652190,Liver-Endothelium-Z000000RB,Liver,Endothelium,OHSU
+GSM5652197,Pancreas-Islet-Endothelium-Z0000042Y,Pancreas,Endothelium,UA
+GSM5652200,Heart-Fibroblasts-Z0000043R,Heart,Fibroblast,Lonza
+GSM5652204,Dermal-Fibroblasts-Z00000423,Ad-dermal,Fibroblast,Lonza
+GSM5652210,Prostate-Smooth-Muscle-Z0000041Y,Prostate,Smooth muscle,Lonza
+GSM5652211,Lung-Bronchus-Smooth-Muscle-Z00000421,Bronchial,Smooth muscle,Lonza
+GSM5652214,Heart-Cardiomyocyte-Z0000044N,Heart,Cardiomyocyte,Had-HU
+GSM5652215,Heart-Cardiomyocyte-Z0000044P,Heart,Cardiomyocyte,Had-HU
+GSM5652217,Heart-Cardiomyocyte-Z0000044R,Heart,Cardiomyocyte,Had-HU
+GSM5652218,Bone-Osteoblasts-Z0000042Z,Bone,Osteoblasts,Lonza
+GSM5652222,Oligodendrocytes-Z0000042N,Brain,Oligodendrocytes,KI
+GSM5652226,Cortex-Neuron-Z0000042H,Brain,Neuronal,KI
+GSM5652227,Cortex-Neuron-Z0000042J,Brain,Neuronal,KI
+GSM5652228,Cortex-Neuron-Z0000042M,Brain,Neuronal,KI
+GSM5652229,Cortex-Neuron-Z0000042P,Brain,Neuronal,KI
+GSM5652230,Cortex-Neuron-Z0000042K,Brain,Neuronal,KI
+GSM5652231,Cerebellum-Neuron-Z000000TB,Brain,Neuronal,KI
+GSM5652232,Cortex-Neuron-Z000000TD,Brain,Neuronal,KI
+GSM5652236,Liver-Hepatocytes-Z0000044H,Liver,Hepatocyte,Had-HU
+GSM5652237,Liver-Hepatocytes-Z0000044M,Liver,Hepatocyte,Had-HU
+GSM5652238,Liver-Hepatocytes-Z00000431,Liver,Hepatocyte,Lonza
+GSM5652242,Pancreas-Duct-Z000000QZ,Pancreas,Duct,OHSU
+GSM5652246,Pancreas-Acinar-Z0000043Y,Pancreas,Acinar,UA
+GSM5652261,Kidney-Glomerular-Podocytes-Z0000042W,Kidney glomerular,Podocyte,Had-HU
+GSM5652262,Kidney-Glomerular-Podocytes-Z00000441,Kidney glomerular,Podocyte,Had-HU
+GSM5652263,Kidney-Glomerular-Podocytes-Z00000442,Kidney glomerular,Podocyte,Had-HU
+GSM5652270,Ovary-Epithelium-Z000000QT,Ovary,Epithelium,Had-HU
+GSM5652277,Blood-T-CD3-Z000000TV,Blood,T (CD3+) cells,Had-HU
+GSM5652278,Blood-T-CD3-Z000000UP,Blood,T (CD3+) cells,Had-HU
+GSM5652294,Blood-T-EffMem-CD8-Z0000041A,Blood,T effector memory CD8,Had-HU
+GSM5652297,Blood-T-Naive-CD8-Z0000041B,Blood,Naive T cells CD8,Had-HU
+GSM5652307,Liver-Macrophages-Z0000043P,Liver,Macrophages,Sigma
+GSM5652313,Blood-Granulocytes-Z000000TZ,Blood,Granulocytes,Had-HU
+GSM5652314,Blood-Granulocytes-Z000000UD,Blood,Granulocytes,Had-HU
+GSM5652315,Blood-Granulocytes-Z000000UT,Blood,Granulocytes,Had-HU
+GSM5652321,Epidermal-Keratinocytes-Z00000424,Skin,keratinocyte,Lonza
+GSM5652330,Tongue_base-Epithelium-Z0000044B,Tongue,Epithelium,Had-HU
+GSM5652331,Larynx-Epithelium-Z000000QB,Larynx,Epithelium,Had-HU
+GSM5652332,Esophagus-Epithelium-Z000000PZ,Esophagus,Epithelium,Had-HU
+GSM5652333,Esophagus-Epithelium-Z00000426,Esophagus,Epithelium,Had-HU
+GSM5652334,Pharynx-Epithelium-Z0000044A,Pharynx,Epithelium,Had-HU
+GSM5652341,Prostate-Epithelium-Z0000045G,Prostate,Epithelium,Had-HU
+GSM5652345,Bladder-Epithelium-Z0000044L,Bladder,Epithelium,Had-HU
+GSM5652346,Bladder-Epithelium-Z00000450,Bladder,Epithelium,Had-HU
+GSM5652353,Breast-Basal-Epithelium-Z0000043E,Breast,Basal epithelial,Had-HU
+GSM5652357,Lung-Pleura-Z0000042B,Lung pleural,Epithelium,Had-HU
+GSM5652358,Gallbladder-Epithelium-Z00000432,Gallbladder,Epithelium,Had-HU
+GSM5652368,Gastric-antrum-Endocrine-Z00000437,Gastric,Endocrine,Had-HU
+GSM5652369,Gastric-antrum-Endocrine-Z00000438,Gastric,Endocrine,Had-HU
+GSM5652374,Colon-Left-Endocrine-Z0000044J,Colon,Endocrine,Had-HU
+GSM5652376,Colon-Left-Epithelium-Z0000043B,Colon,Epithelium,Had-HU
+GSM5652377,Colon-Left-Epithelium-Z0000043C,Colon,Epithelium,Had-HU
+GSM5652378,Small-int-Epithelium-Z0000042V,Jejunum,Epithelium,Had-HU
+GSM5652382,Small-int-Endocrine-Z00000436,Jejunum,Endocrine,Had-HU
