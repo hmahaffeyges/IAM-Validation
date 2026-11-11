@@ -451,6 +451,29 @@ def agree_rates(cells, counts, sc, lo=0.1, hi=0.9, shares=None):
     out.update(unmarked=round(float(a_u), 6), marked=round(float(a_m), 6), end_calls=int(ne[low | high].sum()), inner_calls=int(ni[low | high].sum()))
     _AGREE_CACHE[key] = out; return out
 
+SELFCAL_OWN = False   # 2026-11-12 (run_sample.py --dev-seq-self-cal-own): the sixth form, own_level_added
+
+def own_level_added(sites, counts, sc, e_bin, bins=10):
+    """2026-11-12 (DEVELOPMENT; the self-calibration's sixth form, after five forms: the rates were measured exactly at the fifth form's
+    agreement sites, yet the reading still moved, and a library's end error differs between site sets). The disorder a library's molecule-end
+    error adds is computed at the library's OWN level at each of the read cell's identity sites, not at the atlas's: an error near 0 or 1 adds
+    disorder steeply, so the added amount depends on where the site truly sits. (1) The end error itself is measured at these same sites, as the
+    difference between the library's end calls and its inner calls, in bins of the mixed atlas inner level (e_bin): biology is the same at a
+    molecule's end and its middle, so within a bin the difference is the library's chemistry at exactly these sites and in their actual state mix.
+    (2) Each site's own inner level (its inner calls) is the base; the added disorder is the counting expectation with that site's end share of
+    calls moved by its bin's difference, minus the expectation without it. Returns the added disorder (mean over sites) and what was measured.
+    Counts only; nothing fitted, no constant chosen."""
+    ne = pd.Series(sc["end_n"]).reindex(sites).fillna(0).astype("float64").to_numpy(); me = pd.Series(sc["end_m"]).reindex(sites).fillna(0).astype("float64").to_numpy()
+    n = pd.Series(counts).reindex(sites).fillna(0).astype("float64").to_numpy(); mt = pd.Series(sc["all_m"]).reindex(sites).fillna(0).astype("float64").to_numpy()
+    ni, mi = n - ne, mt - me; w = pd.Series(e_bin).reindex(sites).astype("float64").to_numpy()
+    b = np.minimum((np.nan_to_num(w, nan=0.5) * bins).astype(int), bins - 1); d = np.zeros(bins); used = np.zeros(bins, int)
+    for j in range(bins):
+        s = (b == j) & (ne > 0) & (ni > 0)
+        if s.sum() >= 20: d[j] = me[s].sum() / ne[s].sum() - mi[s].sum() / ni[s].sum(); used[j] = int(s.sum())
+    xi = np.where(ni > 0, mi / np.maximum(ni, 1), np.nan_to_num(w, nan=0.5)); f = np.where(n > 0, ne / np.maximum(n, 1), 0.0)
+    nn = n.astype("int64"); added = float(np.nanmean(expected_H_counts(np.clip(xi + f * d[b], 0, 1), nn)) - np.nanmean(expected_H_counts(np.clip(xi, 0, 1), nn)))
+    return added, dict(bins_difference=[round(float(v), 5) for v in d], bins_sites=used.tolist(), end_share_median=round(float(np.median(f)), 4), added_disorder=round(added, 6))
+
 def mix_forward(sites, cells, F, counts, sc, unmarked, marked):
     """2026-11-10 (DEVELOPMENT; the self-calibration's fourth form, after the first three synthetics): the Planck forward model on the whole
     mixed expectation. Every cell found contributes its IAM Sequencing Atlas inner level (its donors without their molecule-end calls; the
@@ -537,7 +560,13 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                     if _ar.get("marked") is not None:
                         _e5in, _e5 = mix_forward(e[ok].index, cells, shares, counts, SELFCAL, _ar["unmarked"], _ar["marked"])
                         _he5 = float(np.nanmean(expected_H_counts(_e5.fillna(e[ok]).to_numpy(), _n))); _sc["A_agree"] = round(float(_H(x[ok]).mean() / _he5), 5)
-                    if SELFCAL_AGREE and _sc.get("A_agree") is not None: he = _he5; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's two end-error rates measured where every found cell agrees (agree_rates, mix_forward)"
+                    # 2026-11-12 (sixth form): the disorder the library's end error adds, computed at the library's own level at each site, with the end
+                    # error measured at these sites in bins of the mixed atlas inner level; the rest read against the atlas's inner level mixed (_e4in)
+                    _he6 = float(np.nanmean(expected_H_counts(_e4in.fillna(e[ok]).to_numpy(), _n)))
+                    _ad6, _m6 = own_level_added(e[ok].index, counts, SELFCAL, _e4in.fillna(e[ok])); _sc["own_level"] = _m6
+                    _sc["A_own_level"] = round(float((_H(x[ok]).mean() - _ad6) / _he6), 5)
+                    if SELFCAL_OWN: he = _he6; _xr = None; _sc["applied"] = "the disorder the library's end error adds, at the library's own level at each site, end error measured at these sites by mixed atlas level, taken out; against the atlas's inner level mixed in this sample's shares (own_level_added)"
+                    elif SELFCAL_AGREE and _sc.get("A_agree") is not None: he = _he5; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's two end-error rates measured where every found cell agrees (agree_rates, mix_forward)"
                     elif SELFCAL_MIX: he = _he4; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's measured end error flipping calls in proportion to each state's share (mix_forward)"
                     elif SELFCAL_ENTROPY: he = _he_dat; _xr = None; _sc["applied"] = "the disorder the library's measured end error adds, in expectation under counting, taken out of the observed disorder; against the atlas's inner level"
                     elif SELFCAL_DATA: he = _he_dat; _xr = _x_dat; _sc["applied"] = "taken out of this library's own calls, against the atlas's inner level mixed in this sample's shares"
@@ -545,6 +574,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                 r["self_calibration"] = {k: v for k, v in _sc.items() if k not in ("q", "p")}
         A = float(_H(_xr if _xr is not None else x[ok]).mean() / he)
         if SELFCAL_ENTROPY and not SELFCAL_MIX and (r.get("self_calibration") or {}).get("A_disorder_side") is not None: A = float(r["self_calibration"]["A_disorder_side"])
+        if SELFCAL_OWN and (r.get("self_calibration") or {}).get("A_own_level") is not None: A = float(r["self_calibration"]["A_own_level"])
         xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
         _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison

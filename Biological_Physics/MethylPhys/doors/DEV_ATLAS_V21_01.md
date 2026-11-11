@@ -1990,3 +1990,13 @@ end error is not the same at every CpG: B cells (89 percent of their sample) rea
 every cell is marked; CD4 read 0.0214 and 0.0038 on the unmarked side; CD8 agrees on both sides. The fifth form's premise, one rate per
 library, fails in two of the three laboratories. Next, a sixth form, synthetic first: the two rates measured on the read cell's own identity
 sites, only where the mixed expectation is near 0 or 1, so the molecules' state is known and the site set is the one read.
+
+**The self-calibration synthetic, sixth form (sealed before reading; development).** The same 15 rows, bars and scorer form (`selfcal_synthetic6.sh`,
+`selfcal_synthetic6_score.py`): Met-A as the observed disorder minus the disorder the library's end error adds, computed at the library's own
+level at each of the cell's identity sites, with the end error measured at those sites in ten bins of the mixed atlas inner level
+(stage_metaa_atlas.own_level_added; run_sample.py --dev-seq-self-cal-own), read against the atlas's inner level mixed in the sample's shares.
+Checked before sealing offline on simulated libraries with the same sites under every condition (the design check, not the test): at 89
+percent share, planted end errors moved the reading by 0.0009 to 0.0039 (without the correction 0.0144 to 0.0922, the largest with an end error
+twice as high at the cell's marked sites); a real 2 percent change was kept in full. One row first as a canary.
+**Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
+synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
