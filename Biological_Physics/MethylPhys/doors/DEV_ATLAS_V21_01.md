@@ -1972,3 +1972,10 @@ put into the mixed forward model (mix_forward). Checked before sealing on a simu
 b cells): planted 0.05 and 0 recovered as 0.0505 and 0.0001; planted 0.08 and 0.03 as 0.0811 and 0.0304. One row first as a canary.
 **Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
 synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
+
+**The fifth form's canary: no agreement sites (rule changed before the other rows run).** The CD8 both-sides row found 12 cells, among them the provisional
+megakaryocytes (1.8 percent), whose column is missing at most array sites; the rule required every found cell to hold a value, so no site
+qualified and the reading fell back to the earlier form (recorded in its bundle). The rule now asks that the cells with a value hold at least
+98 percent of the sample's DNA and all agree. Checked on that row's own 12 cells and shares with simulated counts at the real sites before
+the next canary: 30,588 marked and 101,805 unmarked agreement sites; planted 0.08 and 0.03 recovered as 0.0807 and 0.0307, planted 0.007 and
+0.035 as 0.0066 and 0.0356. The bars and rows are unchanged.

@@ -419,7 +419,7 @@ _INNER_CACHE = {}
 SELFCAL_AGREE = False   # 2026-11-11 (run_sample.py --dev-seq-self-cal-agree): the fifth form, rates from agree_rates into mix_forward
 _AGREE_CACHE = {}
 
-def agree_rates(cells, counts, sc, lo=0.1, hi=0.9):
+def agree_rates(cells, counts, sc, lo=0.1, hi=0.9, shares=None):
     """2026-11-11 (DEVELOPMENT; the self-calibration's fifth form, after four synthetics failed most for a minority cell on the marked side).
     The four earlier forms measured the library's end error on sides set by the read cell's own level at its identity sites; at those sites
     the other cells of a mix hold the opposite state, so a minority cell's 'marked' side is mostly unmarked molecules and the measured rate is
@@ -428,14 +428,23 @@ def agree_rates(cells, counts, sc, lo=0.1, hi=0.9):
     the atlas, never on the library, so the choice carries none of the library's noise). On each set the library's end calls and inner calls
     give one equation, end level minus inner level = unmarked (1 - inner level) - marked x inner level; the two sets solve the false-C rate on
     unmarked molecules (unmarked) and the false-T rate on marked ones (marked) exactly. Counts only; nothing fitted. One result per sample."""
-    key = tuple(sorted(cells))
+    # 2026-11-11 (the canary: a provisional cell's column, missing at most array sites, left no site where every cell had a value): a site
+    # qualifies when the cells with an atlas value there hold at least `known` of the sample's DNA (by its shares) and all of them agree
+    known = 0.98
+    key = (tuple(sorted(cells)), tuple(round(float(shares.get(k) or 0), 4) for k in sorted(cells)) if shares is not None else None)
     if key in _AGREE_CACHE: return _AGREE_CACHE[key]
     ne = pd.Series(sc["end_n"]).astype("float64"); me = pd.Series(sc["end_m"]).reindex(ne.index).fillna(0).astype("float64")
     n = pd.Series(counts).reindex(ne.index).fillna(0).astype("float64"); mt = pd.Series(sc["all_m"]).reindex(ne.index).fillna(0).astype("float64")
     ni, mi = n - ne, mt - me; good = (ne > 0) & (ni > 0)
-    L = pd.concat([seq_units(_col("mu", k).reindex(ne.index)).rename(k) for k in cells], axis=1)
-    low = good & L.notna().all(axis=1) & (L <= lo).all(axis=1); high = good & L.notna().all(axis=1) & (L >= hi).all(axis=1)
-    out = dict(rule=f"sites where every found cell's atlas level is at most {lo} or at least {hi}", sites_unmarked=int(low.sum()), sites_marked=int(high.sum()))
+    cols = []
+    for k in cells:
+        try: cols.append(seq_units(_col("mu", k).reindex(ne.index)).rename(k))
+        except KeyError: cols.append(pd.Series(np.nan, index=ne.index, name=k))
+    L = pd.concat(cols, axis=1)
+    w = pd.Series({k: float((shares or {}).get(k) or 0) for k in cells}) if shares is not None else pd.Series(1.0, index=cells)
+    w = w / w.sum(); has = L.notna(); cover = has.mul(w, axis=1).sum(axis=1)
+    low = good & (cover >= known) & (L.where(has, 0.0) <= lo).all(axis=1); high = good & (cover >= known) & (L.where(has, 1.0) >= hi).all(axis=1)
+    out = dict(rule=f"sites where the cells with an atlas value hold at least {known} of the sample's DNA and every one of them is at most {lo} or at least {hi}", sites_unmarked=int(low.sum()), sites_marked=int(high.sum()))
     if low.sum() < 100 or high.sum() < 100: out.update(unmarked=None, marked=None, reason="fewer than 100 agreement sites on a side"); _AGREE_CACHE[key] = out; return out
     xeu, xiu = me[low].sum() / ne[low].sum(), mi[low].sum() / ni[low].sum(); xem, xim = me[high].sum() / ne[high].sum(), mi[high].sum() / ni[high].sum()
     a_u, a_m = np.linalg.solve(np.array([[1 - xiu, -xiu], [1 - xim, -xim]]), np.array([xeu - xiu, xem - xim]))
@@ -524,7 +533,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                     _he4 = float(np.nanmean(expected_H_counts(_e4.fillna(e[ok]).to_numpy(), _n))); _sc["A_mix_forward"] = round(float(_H(x[ok]).mean() / _he4), 5)
                     _sc["mix_forward_sites"] = int(_ok4.sum())
                     # 2026-11-11 (fifth form): the same mixed forward model with the library's two rates measured where every found cell agrees
-                    _ar = agree_rates(cells, counts, SELFCAL); _sc["agree_rates"] = _ar
+                    _ar = agree_rates(cells, counts, SELFCAL, shares=shares); _sc["agree_rates"] = _ar
                     if _ar.get("marked") is not None:
                         _e5in, _e5 = mix_forward(e[ok].index, cells, shares, counts, SELFCAL, _ar["unmarked"], _ar["marked"])
                         _he5 = float(np.nanmean(expected_H_counts(_e5.fillna(e[ok]).to_numpy(), _n))); _sc["A_agree"] = round(float(_H(x[ok]).mean() / _he5), 5)
