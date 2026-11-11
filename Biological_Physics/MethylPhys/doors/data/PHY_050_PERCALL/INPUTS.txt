@@ -5,3 +5,4 @@ lone_loss_jhu.sh
 lone_loss_score.py
 lone_loss_summary.txt
 lone_loss_jhu_out/
+lone_loss_jhu_tumor_samples.csv

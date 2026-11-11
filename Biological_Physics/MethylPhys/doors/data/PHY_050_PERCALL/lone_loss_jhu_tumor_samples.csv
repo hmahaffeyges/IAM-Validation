@@ -1,0 +1,7 @@
+gsm,person,organ,pat
+GSM2103009,indiv1,liver,seq_atlas/jhu_tissue/merged/GSM2103009.pat.gz
+GSM2103011,indiv2,liver,seq_atlas/jhu_tissue/merged/GSM2103011.pat.gz
+GSM2103013,indiv3,liver,seq_atlas/jhu_tissue/merged/GSM2103013.pat.gz
+GSM2103015,indiv5,lung,seq_atlas/jhu_tissue/merged/GSM2103015.pat.gz
+GSM2103017,indiv6,lung,seq_atlas/jhu_tissue/merged/GSM2103017.pat.gz
+GSM2103019,unlabeled,lung,seq_atlas/jhu_tissue/merged/GSM2103019.pat.gz
