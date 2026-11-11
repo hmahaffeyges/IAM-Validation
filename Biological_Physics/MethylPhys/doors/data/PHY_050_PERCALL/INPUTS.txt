@@ -1,2 +1,4 @@
 percall_summary.txt
 outcome_numbers.txt
+lone_loss_jhu_samples.csv
+lone_loss_jhu.sh
