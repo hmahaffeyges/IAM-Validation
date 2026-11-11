@@ -1180,6 +1180,10 @@ The held error with the qualifying rule's length bias removed (development, reco
 ### stage_q2_selfref.py::_coupling
 Nearest-neighbor coupling on held molecules (development, recorded only, plan 49.5): the adjacent pairs of unmethylated calls, set against what random placement gives each molecule from its own length L and its own number k of unmethylated calls, k (k - 1) / L. 1 when errors fall independently, above 1 when they cluster along the molecule. Nothing fitted. Clustered errors lower the lone-error count IAM-A uses at the same error share, so the two are reported together.
 
+### stage_q2_selfref.py::meter_end_damage
+
+The library-noise rule, applied to every library alike: the library's own molecule-end damage, the lone-loss rate one and two calls from the molecule's nearer end minus four to six calls in, on the same held molecules (count_pat's held_by_distance). Healthy chromatin has no reason to lose marks at the ends of the fragments a library happens to cut, a copier does. Above METER_END_MAX (0.002) the library is flagged a noisy meter: still read and scored, never a healthy reference. Recorded in every count as end_damage and meter. Development.
+
 ### stage_q2_selfref.py::count_pat_tile_errors
 The held error tile by tile (DEV-ERASE-01 graded maintenance test): held molecules and lone errors by Stage Q2's own rules, each molecule in the tile of its first CpG (blocks of 2,000 consecutive CpG indices, so no genome table is needed), split into two halves that share no molecule (even and odd lines), so one half can measure a tile's level and the other remove the measurement's own scatter from the slope.
 

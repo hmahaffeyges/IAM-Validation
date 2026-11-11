@@ -129,6 +129,23 @@ def held_err_length(by_len):
     lo, hi = 1e-6, 0.2
     if f(lo) > 0 or f(hi) < 0: return dict(held_err_length=None, held_e_call=None)
     e = brentq(f, lo, hi, xtol=1e-10); return dict(held_err_length=float(e * (1 - e) ** 2), held_e_call=float(e))
+METER_END_MAX = 0.002   # 2026-11-10: a library whose molecule-end damage exceeds this is a noisy meter (PHY-050 records; the CD8 laboratory GSE98837)
+
+def meter_end_damage(by_dist, limit=None):
+    """2026-11-10 (the library-noise rule, applied to every library alike): each library's own molecule-end damage, from count_pat's
+    held_by_distance tally: the lone-loss rate one and two calls from the molecule's nearer end minus the rate four to six calls in, on the
+    same held molecules. A copier that damages molecule ends (end repair, over-conversion) adds false lone losses there; healthy chromatin
+    has no reason to. Above METER_END_MAX the library is flagged a noisy meter: it is still read and scored, and cannot serve as a healthy
+    reference. The limit was set on the 18 spent sorted libraries (three laboratories, PHY-050 records) and applies to libraries read
+    after it."""
+    limit = METER_END_MAX if limit is None else limit
+    r = {int(k): v[0] / v[1] for k, v in (by_dist or {}).items() if v[1]}
+    near = [r[k] for k in (1, 2) if k in r]; far = [r[k] for k in (4, 5, 6) if k in r]
+    if not near or not far: return dict(end_damage=None, meter="not measured (molecules too short for the distance tally)")
+    d = sum(near) / len(near) - sum(far) / len(far)
+    return dict(end_damage=round(d, 5), meter=("noisy meter: end damage above %.3f; not a healthy reference" % limit) if d > limit else "ok")
+
+
 def count_pat(lines, tiles):
     tile_calls = {}; e_iso = e_opp = g_iso = g_opp = 0; M = [0, 0, 0]; QL = {}; QD = {}   # 2026-11-03 (plan 40.11): qualifying molecules by length: [molecules, isolated losses, opportunities]   # 2026-10-24 (plan 40.11): molecules on the tile half: qualifying, below CUT, undecided
     K = [0, 0, 0, 0, 0]   # 2026-10-28: K[4] the most adjacent pairs possible (each molecule's errors in one run, t - 1); 2026-10-25 (plan 49.5, development, recorded only): on held molecules, unmethylated calls, calls, adjacent unmethylated pairs, adjacent pairs
@@ -154,7 +171,7 @@ def count_pat(lines, tiles):
         elif len(s) >= QUAL_MIN_CALLS and s.count("C") <= QUAL_MAX_METH * len(s):
             g_opp += n * (len(s) - 2); g_iso += n * sum(1 for q in range(1, len(s) - 1) if s[q] == "C" and s[q - 1] == "T" and s[q + 1] == "T")
     return _finish(tile_calls, e_iso, e_opp, dict(reader="pat", assembly="hg19", **_mol(M), **_coupling(K), **held_err_length(QL), held_by_length={str(k): v for k, v in sorted(QL.items())},
-                   held_by_distance={str(k): v for k, v in sorted(QD.items())}), g_iso, g_opp)
+                   held_by_distance={str(k): v for k, v in sorted(QD.items())}, **meter_end_damage({str(k): v for k, v in QD.items()})), g_iso, g_opp)
 
 def _coupling(K):
     """2026-10-25 (plan 49.5, development, recorded only; from the published information-theory study's nearest-neighbor coupling): whether held

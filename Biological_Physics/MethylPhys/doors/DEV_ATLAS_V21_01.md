@@ -1952,3 +1952,9 @@ mistake in reading their logs, and they were not read. The verdict does not depe
 the remainder is largest where the found cell is a minority of its sample and on the marked side. Modelling the mix (fourth form) did not
 change that, and converting the measured excess to a per-call rate accounts for about 4 %. Next: compare, site by site, the change each plant
 made with the change the correction predicts, on molecules already aligned, before any fifth form.
+
+**The library-noise rule (2026-11-10; chain change, development).** `stage_q2_selfref.meter_end_damage`, recorded in every count (end_damage, meter): each library's
+lone-loss rate near the molecule ends minus farther in. Synthetic (offline design check, 60,000 planted molecules, two draws each): no end
+damage reads -0.0011 to -0.0003 (ok); 0.003 planted reads 0.0019 to 0.0029; 0.006 planted reads 0.0036 to 0.0047 (flagged). On the 18 spent
+sorted libraries: GSE98837's CD8 libraries flagged in 6 of 8; GSE134664's B cells and the Johns Hopkins CD4 libraries all ok.
+**Range of the data:** in the real libraries, end damage -0.0034 to 0.0079 (PHY-050 records); the synthetic planted 0 to 0.006.
