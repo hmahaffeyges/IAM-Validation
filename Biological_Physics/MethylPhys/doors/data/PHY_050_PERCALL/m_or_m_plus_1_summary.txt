@@ -1,0 +1,12 @@
+M or M + 1 (exploration on spent counts; nothing sealed). M = 20.94; odds M give 1/(1+M) = 0.04558; odds 1 + M give 1/(2+M) = 0.04359.
+                          set   n  intercept    lo95    hi95  slope  M_in  M_plus_1_in
+      153 Loyfer, non-neurons 150    0.04592 0.04431 0.04749 0.0389  True        False
+54 Loyfer unseen, non-neurons  47    0.04298 0.04057 0.04518 0.0442 False         True
+            both, non-neurons 197    0.04526 0.04375 0.04657 0.0398  True        False
+Shared cell types, median observed / M-based prediction (0.0284 x loose share added):
+            cell  n153  r153  n54   r54
+   cardiomyocyte     3 0.986    3 0.988
+      hepatocyte     3 0.933    3 0.869
+oligodendrocytes     3 0.939    1 0.934
+   smooth muscle     3 1.028    2 1.047
+Reading: the two sets differ mainly by their cell mix (shared types agree, hepatocyte aside); pooled, odds of M are favored and 1 + M is not.

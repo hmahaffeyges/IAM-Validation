@@ -4546,3 +4546,12 @@ On the 54 spent counts of the third test, the last call reads like the interior 
 median between 0.96 and 1.01 of the prediction. Observed over predicted rises with the loose share; without neurons the line's intercept is
 0.0430 (95 % 0.0407-0.0452), narrowly below 1/(1+M) = 0.04558 and including eps0 = 0.04376 from the measured holding energy; its slope 0.044
 is above the prediction's 0.0284. Exploration; the middle remains measured.
+
+### 2026-11-12 · PHY-079: M or M + 1 (exploration on spent counts)
+**Where IAM's Law is:** the coin M = dG_ATP/(R T_cell) (canon M_cell) sets the restore/loss odds; the question is whether those odds are M or 1 + M.
+The length-corrected lone-loss rate of the 153 Loyfer samples and of the 54 unseen ones, neurons set aside, by
+`doors/data/PHY_050_PERCALL/m_or_m_plus_1.py` (`m_or_m_plus_1_summary.txt`): the 153 read 0.04592 (0.04431-0.04749), with 1/(1+M) inside and
+1/(2+M) outside; the 54 read 0.04298 (0.04057-0.04518), the other way round; pooled, 0.04526 (0.04375-0.04657), with odds of M favored. Where
+the two sets share a cell type they read alike (hepatocyte aside), so their difference is mainly their cell mix. Cell types differ by up to
+about 10 % from the M-based prediction (hepatocytes low, smooth muscle high): whether that spread is the drive (each cell's own ATP free
+energy) or something else is open. Nothing sealed; fresh data is kept for one final sealed test.

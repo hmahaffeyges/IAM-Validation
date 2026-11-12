@@ -1,0 +1,4 @@
+set,n,intercept,lo95,hi95,slope,M_in,M_plus_1_in
+"153 Loyfer, non-neurons",150,0.04592,0.04431,0.04749,0.0389,True,False
+"54 Loyfer unseen, non-neurons",47,0.04298,0.04057,0.04518,0.0442,False,True
+"both, non-neurons",197,0.04526,0.04375,0.04657,0.0398,True,False
