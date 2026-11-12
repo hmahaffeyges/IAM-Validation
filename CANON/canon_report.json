@@ -28,7 +28,7 @@
 },
 {
 "file": "WHY_IAM.md",
-"line": 192,
+"line": 201,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",
@@ -37,7 +37,7 @@
 },
 {
 "file": "WHY_IAM.md",
-"line": 244,
+"line": 253,
 "pattern": "AstroGenetics|Cosmic Methylome",
 "use": "the information physics of methylation (the name stays only in the book's origin chapter, ch:astrogenetics; author 2026-10-24)",
 "severity": "warn",

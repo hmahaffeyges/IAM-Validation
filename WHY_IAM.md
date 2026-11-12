@@ -22,6 +22,15 @@ it is what we know we have.
 
 **Judging results.** Exploration is judged by what the data shows; strict sealed bars are for commissioning and referees. Act on named risks before reading, not only note them.
 
+**Setting test bars (agreed 2026-11-12; never set a bar by choice).** A bar comes from measured uncertainty, following metrology's guide (GUM):
+1. Combined uncertainty: sigma_total^2 = (the prediction's own uncertainty)^2 + (the meter)^2 + (the natural spread)^2. When the test is on a mean or median of n samples, the natural spread enters divided by n. Coverage k = 2 (about 95 %).
+2. Say which question is tested. The baseline (is the healthy level where the law predicts?) is tested on the median, with the median's uncertainty. Each sample (is every sample within X?) uses X = the natural spread itself, and about 1 healthy sample in 20 is expected outside by chance.
+3. Write the formula and the bar before any data are read (sealed), so a referee can recompute the bar.
+4. Report the pull, (observed - predicted) / sigma_total: within 2 passes; 2 to 3, watch; beyond 3, a real miss. One result just past 2 is not a refutation; a miss counts when it is large or repeats.
+5. A claim of new physics needs about 5 sigma; agreement tests use k = 2.
+6. Measured components so far (healthy lone-loss rate, 150 Loyfer non-neuron samples, PHY-079): meter under 1 %; same cell type 2.9 %; between cell types 6.7 %; total 7.5 %. Per-cell-type bars become possible as the cell-type part is explained.
+7. The lesson behind it: PHY-050's third test held each sample to +/-10 % while the body's own spread is 7.5 % (about 82 % of healthy samples fall inside by nature; the bar asked 83 %; it got 81.5 %). On the baseline question it passes at about 1 sigma (median 0.987 of the prediction, uncertainty about 1.3 %). The original sealed verdicts stay in the record beside the rescored ones.
+
 **The chain.** If the chain didn't produce it, it didn't happen; every chain change goes into the Decoder in the same commit; synthetic first; nothing fitted; healthy always from the atlases; the Deconvolver decides what is in a sample.
 
 ## The law
