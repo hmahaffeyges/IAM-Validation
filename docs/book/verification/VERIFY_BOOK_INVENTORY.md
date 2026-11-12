@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4690 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4692 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -4560,13 +4560,12 @@ Totals: 4690 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 56 | ch:iama:L56 | measured | `0.70` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, lowest | PASS |
 | 56 | ch:iama:L56:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, highest | PASS |
 | 69 | ch:iama:mc:limit | derived |  | sympy: the odds approach w/2 for a strong push | PASS |
-| 74 | ch:iama:mc:sam_lo | measured | `2.09` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, lowest of four cell types | PASS |
-| 74 | ch:iama:mc:sam_hi | measured | `2.14` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, highest of four cell types | PASS |
 | 75 | ch:iama:mc:2M | calculated | `41.88` | numeric: work of two coins, 2M | PASS |
 | 75 | ch:iama:mc:odds2 | conjecture | `21.45` | numeric: restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage) | PASS |
 | 75 | ch:iama:mc:eps2 | conjecture | `0.04454` | numeric: candidate healthy held error 1/(1+odds) | PASS |
 | 75 | ch:iama:mc:E2 | conjecture | `3.066` | numeric: candidate holding energy ln(odds), in kT | PASS |
 | 75 | ch:iama:mc:phi2 | conjecture | `0.1464` | numeric: candidate phi = ln(odds)/M | PASS |
+| 75 | ch:iama:mc:ak_ident | derived |  | sympy: the SAM price identity | PASS |
 | 76 | ch:iama:mc:pool | measured | `0.04526` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled healthy lone-loss intercept | PASS |
 | 76 | ch:iama:mc:poollo | measured | `0.04375` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, lower 95 % | PASS |
 | 76 | ch:iama:mc:poolhi | measured | `0.04657` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, upper 95 % | PASS |
@@ -4585,10 +4584,12 @@ Totals: 4690 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 95 | ch:iama:mc:met_e_lo | prediction | `1.057` | numeric: energy route, low end, for a 3.33-5.00 fall | PASS |
 | 95 | ch:iama:mc:met_e_hi | prediction | `1.077` | numeric: energy route, high end | PASS |
 | 96 | ch:iama:mc:met_r | measured | `3.33` | file `Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt`: the fall, low end, from the committed readings | PASS |
-| 100 | ch:iama:mc:eps_sam_lo | conjecture | `0.0418` | numeric: held error at the highest SAM price | PASS |
-| 100 | ch:iama:mc:eps_sam_hi | conjecture | `0.0427` | numeric: held error at the lowest SAM price | PASS |
-| 100 | ch:iama:mc:E_sam_lo | conjecture | `3.109` | numeric: holding energy at the lowest SAM price | PASS |
-| 100 | ch:iama:mc:E_sam_hi | conjecture | `3.132` | numeric: holding energy at the highest SAM price | PASS |
+| 99 | ch:iama:mc:ak_lo | derived | `1.967` | numeric: SAM price, adenylate kinase at half its equilibrium | PASS |
+| 99 | ch:iama:mc:ak_hi | derived | `2.033` | numeric: SAM price, adenylate kinase at twice its equilibrium | PASS |
+| 100 | ch:iama:mc:sam_lo | measured | `2.09` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, lowest of four cell types | PASS |
+| 100 | ch:iama:mc:sam_hi | measured | `2.14` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, highest of four cell types | PASS |
+| 100 | ch:iama:mc:ak_eps_lo | conjecture | `0.04386` | numeric: held error at the highest SAM price in range | PASS |
+| 100 | ch:iama:mc:ak_eps_hi | conjecture | `0.04524` | numeric: held error at the lowest SAM price in range | PASS |
 | 105 | ch:iama:L61 | measured | `1.137` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, lowest | PASS |
 | 105 | ch:iama:L61:1.168 | measured | `1.168` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, highest | PASS |
 | 106 | ch:iama:L53 | measured | `0.984` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, lowest | PASS |
@@ -5501,23 +5502,24 @@ Totals: 4690 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 35 | app:canon:SAM_cost_ATP:1 | measured | `2.12` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins at standard state | PASS |
+| 35 | app:canon:SAM_cost_ATP:ak | derived |  | sympy: one SAM in coins, adenylate kinase at equilibrium | PASS |
 | 36 | app:canon:eps_healthy_pool:2 | measured | `0.04526` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: healthy lone-loss intercept, pooled | PASS |
 | 37 | app:canon:W_restore:3 | conjecture | `41.88` | numeric: work per methyl transfer, two coins | PASS |
 | 38 | app:canon:odds_restore:4 | conjecture | `21.45` | numeric: restore-to-loss odds of the driven passage | PASS |
 | 39 | app:canon:eps0_candidate:5 | conjecture | `0.04454` | numeric: the baseline candidate, held error | PASS |
 | 40 | app:canon:E_hold_candidate:6 | conjecture | `3.066` | numeric: the baseline candidate, holding energy | PASS |
 | 41 | app:canon:phi_candidate:7 | conjecture | `0.1464` | numeric: the baseline candidate, delivered share | PASS |
-| 42 | app:canon:eps0_candidate_SAM:8 | conjecture | `0.0418` | numeric: baseline candidate at the highest SAM price | PASS |
-| 42 | app:canon:eps0_candidate_SAM:9 | conjecture | `0.0427` | numeric: baseline candidate at the lowest SAM price | PASS |
-| 43 | app:canon:E_hold_candidate_SAM:10 | conjecture | `3.109` | numeric: holding energy at the lowest SAM price | PASS |
-| 43 | app:canon:E_hold_candidate_SAM:11 | conjecture | `3.132` | numeric: holding energy at the highest SAM price | PASS |
+| 42 | app:canon:eps0_candidate_SAM:8 | conjecture | `0.04386` | numeric: baseline candidate at the highest SAM price | PASS |
+| 42 | app:canon:eps0_candidate_SAM:9 | conjecture | `0.04524` | numeric: baseline candidate at the lowest SAM price | PASS |
+| 43 | app:canon:E_hold_candidate_SAM:10 | conjecture | `3.05` | numeric: holding energy at the lowest SAM price | PASS |
+| 43 | app:canon:E_hold_candidate_SAM:11 | conjecture | `3.082` | numeric: holding energy at the highest SAM price | PASS |
 | 46 | app:canon:eps_UHRF1_control:12 | measured | `0.03216` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 control held error | PASS |
 | 47 | app:canon:eps_UHRF1_knockout:13 | measured | `0.09407` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout held error | PASS |
 | 48 | app:canon:W_UHRF1_control:14 | interpretation | `59.2` | numeric: work that gives the UHRF1 control held error | PASS |
 | 49 | app:canon:W_UHRF1_knockout:15 | interpretation | `18.2` | numeric: work that gives the UHRF1 knockout held error | PASS |
 | 50 | app:canon:methionine_energy_route:16 | prediction | `1.057` | numeric: energy route, low end | PASS |
 | 50 | app:canon:methionine_energy_route:17 | prediction | `1.077` | numeric: energy route, high end | PASS |
+| 51 | app:canon:SAM_cost_ATP_textbook:1 | measured | `2.12` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, textbook tables | PASS |
 
 ## Part 8 - app:constants - `docs/book/appendices/app_A2_frozen_values.tex`
 

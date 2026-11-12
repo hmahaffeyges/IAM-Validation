@@ -142,7 +142,14 @@ wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}
   if [ "$gen" = hg19 ]; then N=$(zcat $S/wgbs_tools/references/hg19/CpG.bed.gz | wc -l); log "CpG sites in the hg19 dictionary: $N (must be 28217448)"; [ "$N" = 28217448 ] || exit 27; fi
   rm -rf $S/pat/*; wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || { cp $S/logs/${GSM}_bam2pat.log $OUT/; exit 34; }
   log "bam2pat succeeded after the dictionary was rebuilt"; }
-PAT=$(ls $S/pat/$GSM*.pat.gz | head -1); rm -f $S/bam/$GSM.bam*; cp $PAT $OUT/; TP=$(date +%s); log "pat in $((TP-TA)) s"
+cp $S/logs/${GSM}_bam2pat.log $OUT/ 2>/dev/null; ls -la $S/pat > $OUT/${GSM}_pat_ls.txt 2>&1   # 2026-11-12: kept every time
+PAT=$(ls $S/pat/$GSM*.pat.gz 2>/dev/null | head -1)
+if [ -z "$PAT" ] || [ ! -s "$PAT" ]; then   # 2026-11-12 (DRR322659): bam2pat exited 0 and wrote no molecules; say so and keep what explains it
+  log "bam2pat wrote no molecule file; keeping its log, the BAM header and the first reads"
+  samtools view -H $S/bam/$GSM.bam | head -40 > $OUT/${GSM}_bam_header.txt; samtools view $S/bam/$GSM.bam | head -20 | cut -c1-400 > $OUT/${GSM}_bam_head.txt
+  samtools idxstats $S/bam/$GSM.bam | head -30 > $OUT/${GSM}_idxstats.txt; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt; exit 36
+fi
+rm -f $S/bam/$GSM.bam*; cp $PAT $OUT/; TP=$(date +%s); log "pat in $((TP-TA)) s"
 if [ "${PATONLY:-0}" = 1 ]; then   # 2026-10-24 (split alignment): one chunk's molecules only; the merge job counts them all once
   C=$(echo "${CHUNK:-0/1}" | tr / _); mv $OUT/$(basename $PAT) $OUT/${GSM}_c${C}.pat.gz
   echo "{\"gsm\": \"$GSM\", \"chunk\": \"${CHUNK:-}\", \"pairs\": $n1, \"fetch_s\": $((TF-TI)), \"align_s\": $((TA-TF)), \"to_pat_s\": $((TP-TA))}" > $OUT/${GSM}_c${C}_timing.json; exit 0

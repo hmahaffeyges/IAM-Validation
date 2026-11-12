@@ -4744,3 +4744,19 @@ canon appendix carries them with 17 verify_book checks (app:canon:*). Carried in
 (from M and the SAM price), four_domains.json (reference, held share), foundation.json (baseline_candidate, anchored), physics_root.md
 (canon tokens), the Decoder text, the glossary (SAM corrected from one ATP to about two; driven passage added), the formula sheet's
 description, and the physics game plan. Rebuilt with build_all; whole book 4,690 checks, 0 failures.
+
+### 2026-11-12 · PHY-083: one SAM is exactly two coins where adenylate kinase is at equilibrium
+**Where IAM's Law is:** the work per restore, paid in coins of M kT. Making one SAM spends ATP -> AMP + 2 Pi = (ATP -> ADP + Pi) +
+(ADP -> AMP + Pi); adenylate kinase (ATP + AMP <-> 2 ADP) links the two bonds, so SAM/coin = 2 - dG_AK/coin exactly
+(`minicell/sam_cost_ak.py`, `sam_cost_ak_summary.txt`; checked symbolically). Where adenylate kinase is at equilibrium, the assumption by which
+free cytosolic AMP is computed (Veech et al. 1979), one SAM is two coins whatever the concentrations; within a factor two of equilibrium,
+1.967-2.033 coins, held error 0.04386-0.04524 and E_hold 3.050-3.082 kT, inside the measured pooled range (0.04375-0.04657). The textbook
+2.09-2.14 (`sam_cost.py`) came from tables whose standard values imply K_AK about 0.22, not the measured value near 1, with total nucleotides.
+The 6 % gap is withdrawn. Not counted: the recycling of the methyl group (SAH back to methionine). Canon SAM_cost_ATP 2.0 (derived, given
+the equilibrium), SAM_cost_ATP_textbook kept; chapter, glossary and four domains follow; whole book 4,692 checks, 0 failures.
+
+### 2026-11-12 · COM-IAMA-041 / PHY-006: the DEV-METHIONINE-01 canary (DRR322659) aligned but wrote no molecules (exit 35)
+The MZGC1 control library aligned (99.94 % of 19.8 M reads), but bam2pat exited 0 and wrote no molecule file, so the one command was given
+an empty --pat and stopped (exit 35); the workflow showed success because it always uploads. Not read; nothing scored. erase_gh.sh now keeps
+bam2pat's log and a look at the BAM every time and stops with exit 36 when no molecules are written; erase_test.yml fails the run when the
+job's exit is not 0 and takes a read-pair cap for a short canary. Next: a 200,000-pair canary of the same library.

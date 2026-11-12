@@ -142,14 +142,14 @@
       "source": "calculated from M_cell = 20.94"
     },
     "SAM_cost_ATP": {
-      "value": 2.12,
+      "value": 2.0,
       "range": [
-        2.09,
-        2.14
+        1.9669,
+        2.0331
       ],
       "units": "ATP coins (ATP -> ADP + Pi) per SAM made",
-      "derivation": "MEASURED (published biochemistry). Making one SAM spends ATP -> AMP + PPi with the PPi hydrolysed (ATP -> AMP + 2 Pi); [dG0(ATP->AMP+PPi) + dG0(PPi->2Pi) + RT ln Q] / [dG0(ATP->ADP+Pi) + RT ln Q'] at textbook standard free energies and cell concentrations (value at standard state; range over four cell types). To be pinned with free, Mg-corrected in-cell values",
-      "source": "Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt (minicell/sam_cost.py)"
+      "derivation": "DERIVED (given adenylate kinase at equilibrium): making one SAM spends ATP -> AMP + 2 Pi = (ATP -> ADP + Pi) + (ADP -> AMP + Pi), and adenylate kinase (ATP + AMP <-> 2 ADP) links the two bonds, so SAM/coin = 2 - dG_AK/coin exactly; at equilibrium (dG_AK = 0) one SAM is two coins whatever the concentrations. Range: adenylate kinase within a factor two of equilibrium. Counts only the ATP spent making SAM, not the methyl group's recycling",
+      "source": "Biological_Physics/MethylPhys/minicell/sam_cost_ak_summary.txt (minicell/sam_cost_ak.py)"
     },
     "eps_healthy_pool": {
       "value": 0.04526,
@@ -188,16 +188,16 @@
     },
     "eps0_candidate_SAM": {
       "value": [
-        0.0418,
-        0.0427
+        0.04386,
+        0.04524
       ],
       "units": "held error",
       "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
     },
     "E_hold_candidate_SAM": {
       "value": [
-        3.109,
-        3.132
+        3.05,
+        3.082
       ],
       "units": "kT per methylated site",
       "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
@@ -250,6 +250,16 @@
       "units": "held error ratio, depleted over control",
       "derivation": "PREDICTION (sealed before reading, DEV-METHIONINE-01): if the push is the coin's energy, a fall of SAM/SAH by r = 3.33-5.00 lowers W by 2 ln r kT; the supply route predicts the full factor r",
       "source": "Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md"
+    },
+    "SAM_cost_ATP_textbook": {
+      "value": 2.12,
+      "range": [
+        2.09,
+        2.14
+      ],
+      "units": "ATP coins (ATP -> ADP + Pi) per SAM made",
+      "derivation": "MEASURED (textbook tables, total nucleotides): Making one SAM spends ATP -> AMP + PPi with the PPi hydrolysed (ATP -> AMP + 2 Pi); [dG0(ATP->AMP+PPi) + dG0(PPi->2Pi) + RT ln Q] / [dG0(ATP->ADP+Pi) + RT ln Q'] at textbook standard free energies and cell concentrations (value at standard state; range over four cell types). To be pinned with free, Mg-corrected in-cell values. Their standard free energies imply K_AK about 0.22, against a measured K_AK near 1",
+      "source": "Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt (minicell/sam_cost.py)"
     }
   },
   "names": {

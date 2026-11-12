@@ -1,0 +1,9 @@
+identity SAM/coin = 2 - dG_AK/coin: holds
+coin (canon) 54.0 kJ/mol, M 20.941
+adenylate kinase mass action 0.25 x K: SAM = 1.9338 coins, held error 0.04596, E_hold 3.033 kT
+adenylate kinase mass action  0.5 x K: SAM = 1.9669 coins, held error 0.04524, E_hold 3.050 kT
+adenylate kinase mass action  1.0 x K: SAM = 2.0000 coins, held error 0.04454, E_hold 3.066 kT
+adenylate kinase mass action  2.0 x K: SAM = 2.0331 coins, held error 0.04386, E_hold 3.082 kT
+adenylate kinase mass action  4.0 x K: SAM = 2.0662 coins, held error 0.04320, E_hold 3.098 kT
+textbook standard values imply dG0_AK = +3.8 kJ/mol (K_AK = 0.22 at 25 C); measured K_AK is near 1
+measured: pooled healthy intercept 0.04526 (95 % 0.04375-0.04657); canon E_hold 3.084 kT

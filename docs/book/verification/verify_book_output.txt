@@ -5793,31 +5793,35 @@ PASS  ch:iama:mc:met_e_lo                ch:iama:p6_08_iama:95  printed 1.057  r
 PASS  ch:iama:mc:met_e_hi                ch:iama:p6_08_iama:95  printed 1.077  recomputed 1.07716  tol 5.000005e-04  [prediction] energy route, high end
 PASS  ch:iama:mc:met_r                   ch:iama:p6_08_iama:96  printed 3.33  recomputed 3.33  tol 0.00500001  [measured] the fall, low end, from the committed readings  file Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt
 PASS  ch:iama:mc:limit                   ch:iama:p6_08_iama:69  printed (algebra)  recomputed True  [derived] the odds approach w/2 for a strong push
-PASS  ch:iama:mc:sam_lo                  ch:iama:p6_08_iama:74  printed 2.09  recomputed 2.09  tol 0.00500001  [measured] one SAM in ATP coins, lowest of four cell types  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
-PASS  ch:iama:mc:sam_hi                  ch:iama:p6_08_iama:74  printed 2.14  recomputed 2.14  tol 0.00500001  [measured] one SAM in ATP coins, highest of four cell types  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
-PASS  ch:iama:mc:eps_sam_lo              ch:iama:p6_08_iama:100  printed 0.0418  recomputed 0.0418099  tol 5.000005e-05  [conjecture] held error at the highest SAM price
-PASS  ch:iama:mc:eps_sam_hi              ch:iama:p6_08_iama:100  printed 0.0427  recomputed 0.042745  tol 5.000005e-05  [conjecture] held error at the lowest SAM price
-PASS  ch:iama:mc:E_sam_lo                ch:iama:p6_08_iama:100  printed 3.109  recomputed 3.10882  tol 5.000005e-04  [conjecture] holding energy at the lowest SAM price
-PASS  ch:iama:mc:E_sam_hi                ch:iama:p6_08_iama:100  printed 3.132  recomputed 3.13191  tol 5.000005e-04  [conjecture] holding energy at the highest SAM price
+PASS  ch:iama:mc:sam_lo                  ch:iama:p6_08_iama:100  printed 2.09  recomputed 2.09  tol 0.00500001  [measured] one SAM in ATP coins, lowest of four cell types  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
+PASS  ch:iama:mc:sam_hi                  ch:iama:p6_08_iama:100  printed 2.14  recomputed 2.14  tol 0.00500001  [measured] one SAM in ATP coins, highest of four cell types  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
 PASS  ch:iama:mc:kappa                   ch:iama:p6_08_iama:86  printed (algebra)  recomputed True  [derived] three-state balance: coupling equals the restore-rate ratio
 
 == Part 8: Appendices | app:canon (appendices/app_A_canon.tex)
-PASS  app:canon:SAM_cost_ATP:1           app:canon:app_A_canon:35  printed 2.12  recomputed 2.12  tol 0.00500001  [measured] one SAM in ATP coins at standard state  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
 PASS  app:canon:eps_healthy_pool:2       app:canon:app_A_canon:36  printed 0.04526  recomputed 0.04526  tol 5.000005e-06  [measured] healthy lone-loss intercept, pooled  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
 PASS  app:canon:W_restore:3              app:canon:app_A_canon:37  printed 41.88  recomputed 41.8811  tol 0.00500001  [conjecture] work per methyl transfer, two coins
 PASS  app:canon:odds_restore:4           app:canon:app_A_canon:38  printed 21.45  recomputed 21.4528  tol 0.00500001  [conjecture] restore-to-loss odds of the driven passage
 PASS  app:canon:eps0_candidate:5         app:canon:app_A_canon:39  printed 0.04454  recomputed 0.0445379  tol 5.000005e-06  [conjecture] the baseline candidate, held error
 PASS  app:canon:E_hold_candidate:6       app:canon:app_A_canon:40  printed 3.066  recomputed 3.06585  tol 5.000005e-04  [conjecture] the baseline candidate, holding energy
 PASS  app:canon:phi_candidate:7          app:canon:app_A_canon:41  printed 0.1464  recomputed 0.146408  tol 5.000005e-05  [conjecture] the baseline candidate, delivered share
-PASS  app:canon:eps0_candidate_SAM:8     app:canon:app_A_canon:42  printed 0.0418  recomputed 0.0418099  tol 5.000005e-05  [conjecture] baseline candidate at the highest SAM price
-PASS  app:canon:eps0_candidate_SAM:9     app:canon:app_A_canon:42  printed 0.0427  recomputed 0.042745  tol 5.000005e-05  [conjecture] baseline candidate at the lowest SAM price
-PASS  app:canon:E_hold_candidate_SAM:10  app:canon:app_A_canon:43  printed 3.109  recomputed 3.10882  tol 5.000005e-04  [conjecture] holding energy at the lowest SAM price
-PASS  app:canon:E_hold_candidate_SAM:11  app:canon:app_A_canon:43  printed 3.132  recomputed 3.13191  tol 5.000005e-04  [conjecture] holding energy at the highest SAM price
+PASS  app:canon:eps0_candidate_SAM:8     app:canon:app_A_canon:42  printed 0.04386  recomputed 0.0438613  tol 5.000005e-06  [conjecture] baseline candidate at the highest SAM price
+PASS  app:canon:eps0_candidate_SAM:9     app:canon:app_A_canon:42  printed 0.04524  recomputed 0.0452357  tol 5.000005e-06  [conjecture] baseline candidate at the lowest SAM price
+PASS  app:canon:E_hold_candidate_SAM:10  app:canon:app_A_canon:43  printed 3.05  recomputed 3.04958  tol 0.00500001  [conjecture] holding energy at the lowest SAM price
+PASS  app:canon:E_hold_candidate_SAM:11  app:canon:app_A_canon:43  printed 3.082  recomputed 3.08187  tol 5.000005e-04  [conjecture] holding energy at the highest SAM price
 PASS  app:canon:eps_UHRF1_control:12     app:canon:app_A_canon:46  printed 0.03216  recomputed 0.03216  tol 5.000005e-06  [measured] UHRF1 control held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
 PASS  app:canon:eps_UHRF1_knockout:13    app:canon:app_A_canon:47  printed 0.09407  recomputed 0.09407  tol 5.000005e-06  [measured] UHRF1 knockout held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
 PASS  app:canon:W_UHRF1_control:14       app:canon:app_A_canon:48  printed 59.2  recomputed 59.1719  tol 0.0592001  [interpretation] work that gives the UHRF1 control held error
 PASS  app:canon:W_UHRF1_knockout:15      app:canon:app_A_canon:49  printed 18.2  recomputed 18.2026  tol 0.0546001  [interpretation] work that gives the UHRF1 knockout held error
 PASS  app:canon:methionine_energy_route:16 app:canon:app_A_canon:50  printed 1.057  recomputed 1.05662  tol 5.000005e-04  [prediction] energy route, low end
 PASS  app:canon:methionine_energy_route:17 app:canon:app_A_canon:50  printed 1.077  recomputed 1.07716  tol 5.000005e-04  [prediction] energy route, high end
+PASS  app:canon:SAM_cost_ATP:ak          app:canon:app_A_canon:35  printed (algebra)  recomputed True  [derived] one SAM in coins, adenylate kinase at equilibrium
+PASS  app:canon:SAM_cost_ATP_textbook:1  app:canon:app_A_canon:51  printed 2.12  recomputed 2.12  tol 0.00500001  [measured] one SAM in ATP coins, textbook tables  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
 
-SUMMARY  PASS 4690  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:iama (part6/p6_08_iama.tex)
+PASS  ch:iama:mc:ak_lo                   ch:iama:p6_08_iama:99  printed 1.967  recomputed 1.9669  tol 5.000005e-04  [derived] SAM price, adenylate kinase at half its equilibrium
+PASS  ch:iama:mc:ak_hi                   ch:iama:p6_08_iama:99  printed 2.033  recomputed 2.0331  tol 5.000005e-04  [derived] SAM price, adenylate kinase at twice its equilibrium
+PASS  ch:iama:mc:ak_eps_lo               ch:iama:p6_08_iama:100  printed 0.04386  recomputed 0.0438613  tol 5.000005e-06  [conjecture] held error at the highest SAM price in range
+PASS  ch:iama:mc:ak_eps_hi               ch:iama:p6_08_iama:100  printed 0.04524  recomputed 0.0452358  tol 5.000005e-06  [conjecture] held error at the lowest SAM price in range
+PASS  ch:iama:mc:ak_ident                ch:iama:p6_08_iama:75  printed (algebra)  recomputed True  [derived] the SAM price identity
+
+SUMMARY  PASS 4692  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

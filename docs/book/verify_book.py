@@ -44250,46 +44250,23 @@ def check_mc_25():
     w = sp.symbols('w', positive=True); ok = bool(sp.limit(((w / 2) / (1 - (1 - sp.exp(-w)) / w)) / (w / 2), w, sp.oo) == 1)
     return locals()
 
+DATA_FILES['Biological_Physics/MethylPhys/minicell/sam_cost_ak_summary.txt'] = 'the SAM price from the adenylate kinase balance (sam_cost_ak.py)'
 DATA_FILES['Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt'] = 'the cost of one SAM in ATP coins, textbook free energies (sam_cost.py)'
 
 def _mc_sam(stat):
     v = [float(x) for x in re.findall(r'ratio ([\d.]+)', load_data('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt'))]
     return min(v) if stat == 'min' else max(v)
 
-@check(label='ch:iama:mc:sam_lo', chapter='ch:iama', part=6, title='one SAM in ATP coins, lowest of four cell types', file='part6/p6_08_iama', line=74, status='measured', kind='file', printed='2.09', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
+@check(label='ch:iama:mc:sam_lo', chapter='ch:iama', part=6, title='one SAM in ATP coins, lowest of four cell types', file='part6/p6_08_iama', line=100, status='measured', kind='file', printed='2.09', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
 def check_mc_sam_lo():
     'one SAM in ATP coins, lowest of four cell types. Book printed 2.09.'
     value = _mc_sam('min')
     return locals()
 
-@check(label='ch:iama:mc:sam_hi', chapter='ch:iama', part=6, title='one SAM in ATP coins, highest of four cell types', file='part6/p6_08_iama', line=74, status='measured', kind='file', printed='2.14', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
+@check(label='ch:iama:mc:sam_hi', chapter='ch:iama', part=6, title='one SAM in ATP coins, highest of four cell types', file='part6/p6_08_iama', line=100, status='measured', kind='file', printed='2.14', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
 def check_mc_sam_hi():
     'one SAM in ATP coins, highest of four cell types. Book printed 2.14.'
     value = _mc_sam('max')
-    return locals()
-
-@check(label='ch:iama:mc:eps_sam_lo', chapter='ch:iama', part=6, title='held error at the highest SAM price', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='0.0418', tol=0.0)
-def check_mc_eps_sam_lo():
-    'held error at the highest SAM price. Book printed 0.0418.'
-    value = 1 / (1 + _mc_odds(_mc_sam('max') * _mc_M()))
-    return locals()
-
-@check(label='ch:iama:mc:eps_sam_hi', chapter='ch:iama', part=6, title='held error at the lowest SAM price', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='0.0427', tol=0.0)
-def check_mc_eps_sam_hi():
-    'held error at the lowest SAM price. Book printed 0.0427.'
-    value = 1 / (1 + _mc_odds(_mc_sam('min') * _mc_M()))
-    return locals()
-
-@check(label='ch:iama:mc:E_sam_lo', chapter='ch:iama', part=6, title='holding energy at the lowest SAM price', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='3.109', tol=0.0)
-def check_mc_E_sam_lo():
-    'holding energy at the lowest SAM price. Book printed 3.109.'
-    value = math.log(_mc_odds(_mc_sam('min') * _mc_M()))
-    return locals()
-
-@check(label='ch:iama:mc:E_sam_hi', chapter='ch:iama', part=6, title='holding energy at the highest SAM price', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='3.132', tol=0.0)
-def check_mc_E_sam_hi():
-    'holding energy at the highest SAM price. Book printed 3.132.'
-    value = math.log(_mc_odds(_mc_sam('max') * _mc_M()))
     return locals()
 
 @check(label='ch:iama:mc:kappa', chapter='ch:iama', part=6, title='three-state balance: coupling equals the restore-rate ratio', file='part6/p6_08_iama', line=86, status='derived', kind='sym', printed='', tol=0.0)
@@ -44306,13 +44283,8 @@ def _cn_M():
     return dG_ATP / (R_gas * T_cell)
 
 def _cn_sam():
-    return [float(x) for x in re.findall(r'ratio ([\d.]+)', load_data('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt'))]
+    return [float(x) for x in re.findall(r'mass action\s+(?:0\.5|2\.0) x K: SAM = ([\d.]+)', load_data('Biological_Physics/MethylPhys/minicell/sam_cost_ak_summary.txt'))]
 
-@check(label='app:canon:SAM_cost_ATP:1', chapter='app:canon', part=8, title='one SAM in ATP coins at standard state', file='appendices/app_A_canon', line=35, status='measured', kind='file', printed='2.12', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
-def check_cn_1():
-    'one SAM in ATP coins at standard state. Canon appendix printed 2.12.'
-    value = _mc_num('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt', r'standard state: one SAM = ([\d.]+)')
-    return locals()
 
 @check(label='app:canon:eps_healthy_pool:2', chapter='app:canon', part=8, title='healthy lone-loss intercept, pooled', file='appendices/app_A_canon', line=36, status='measured', kind='file', printed='0.04526', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
 def check_cn_2():
@@ -44350,25 +44322,25 @@ def check_cn_7():
     value = math.log(_mc_odds(2 * _cn_M())) / _cn_M()
     return locals()
 
-@check(label='app:canon:eps0_candidate_SAM:8', chapter='app:canon', part=8, title='baseline candidate at the highest SAM price', file='appendices/app_A_canon', line=42, status='conjecture', kind='num', printed='0.0418', tol=0.0)
+@check(label='app:canon:eps0_candidate_SAM:8', chapter='app:canon', part=8, title='baseline candidate at the highest SAM price', file='appendices/app_A_canon', line=42, status='conjecture', kind='num', printed='0.04386', tol=0.0)
 def check_cn_8():
     'baseline candidate at the highest SAM price. Canon appendix printed 0.0418.'
     value = 1 / (1 + _mc_odds(max(_cn_sam()) * _cn_M()))
     return locals()
 
-@check(label='app:canon:eps0_candidate_SAM:9', chapter='app:canon', part=8, title='baseline candidate at the lowest SAM price', file='appendices/app_A_canon', line=42, status='conjecture', kind='num', printed='0.0427', tol=0.0)
+@check(label='app:canon:eps0_candidate_SAM:9', chapter='app:canon', part=8, title='baseline candidate at the lowest SAM price', file='appendices/app_A_canon', line=42, status='conjecture', kind='num', printed='0.04524', tol=0.0)
 def check_cn_9():
     'baseline candidate at the lowest SAM price. Canon appendix printed 0.0427.'
     value = 1 / (1 + _mc_odds(min(_cn_sam()) * _cn_M()))
     return locals()
 
-@check(label='app:canon:E_hold_candidate_SAM:10', chapter='app:canon', part=8, title='holding energy at the lowest SAM price', file='appendices/app_A_canon', line=43, status='conjecture', kind='num', printed='3.109', tol=0.0)
+@check(label='app:canon:E_hold_candidate_SAM:10', chapter='app:canon', part=8, title='holding energy at the lowest SAM price', file='appendices/app_A_canon', line=43, status='conjecture', kind='num', printed='3.05', tol=0.0)
 def check_cn_10():
     'holding energy at the lowest SAM price. Canon appendix printed 3.109.'
     value = math.log(_mc_odds(min(_cn_sam()) * _cn_M()))
     return locals()
 
-@check(label='app:canon:E_hold_candidate_SAM:11', chapter='app:canon', part=8, title='holding energy at the highest SAM price', file='appendices/app_A_canon', line=43, status='conjecture', kind='num', printed='3.132', tol=0.0)
+@check(label='app:canon:E_hold_candidate_SAM:11', chapter='app:canon', part=8, title='holding energy at the highest SAM price', file='appendices/app_A_canon', line=43, status='conjecture', kind='num', printed='3.082', tol=0.0)
 def check_cn_11():
     'holding energy at the highest SAM price. Canon appendix printed 3.132.'
     value = math.log(_mc_odds(max(_cn_sam()) * _cn_M()))
@@ -44408,6 +44380,48 @@ def check_cn_16():
 def check_cn_17():
     'energy route, high end. Canon appendix printed 1.077.'
     M_ = _cn_M(); e0 = 1 / (1 + _mc_odds(2 * M_)); value = 1 / (1 + _mc_odds(2 * (M_ - math.log(1 / 0.20)))) / e0
+    return locals()
+
+@check(label='app:canon:SAM_cost_ATP:ak', chapter='app:canon', part=8, title='one SAM in coins, adenylate kinase at equilibrium', file='appendices/app_A_canon', line=35, status='derived', kind='sym', printed='', tol=0.0)
+def check_cn_ak():
+    'SAM/coin = 2 - dG_AK/coin; at dG_AK = 0 it is exactly 2.'
+    a, ak = sp.symbols('a ak'); lhs = (a + (a - ak)) / a; rhs = 2 - ak / a; ok = sp.simplify(lhs - rhs) == 0 and sp.simplify(lhs.subs(ak, 0)) == 2
+    return locals()
+
+@check(label='app:canon:SAM_cost_ATP_textbook:1', chapter='app:canon', part=8, title='one SAM in ATP coins, textbook tables', file='appendices/app_A_canon', line=51, status='measured', kind='file', printed='2.12', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
+def check_cn_tb():
+    'one SAM in ATP coins, textbook tables.'
+    value = _mc_num('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt', r'standard state: one SAM = ([\d.]+)')
+    return locals()
+
+@check(label='ch:iama:mc:ak_lo', chapter='ch:iama', part=6, title='SAM price, adenylate kinase at half its equilibrium', file='part6/p6_08_iama', line=99, status='derived', kind='num', printed='1.967', tol=0.0)
+def check_mc_ak_lo():
+    'SAM price at mass action K/2.'
+    value = 2 + (R_gas * T_cell * math.log(0.5)) / dG_ATP
+    return locals()
+
+@check(label='ch:iama:mc:ak_hi', chapter='ch:iama', part=6, title='SAM price, adenylate kinase at twice its equilibrium', file='part6/p6_08_iama', line=99, status='derived', kind='num', printed='2.033', tol=0.0)
+def check_mc_ak_hi():
+    'SAM price at mass action 2K.'
+    value = 2 + (R_gas * T_cell * math.log(2.0)) / dG_ATP
+    return locals()
+
+@check(label='ch:iama:mc:ak_eps_lo', chapter='ch:iama', part=6, title='held error at the highest SAM price in range', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='0.04386', tol=0.0)
+def check_mc_ak_eps_lo():
+    'held error at SAM price 2 + RT ln2/coin.'
+    value = 1 / (1 + _mc_odds((2 + R_gas * T_cell * math.log(2.0) / dG_ATP) * _mc_M()))
+    return locals()
+
+@check(label='ch:iama:mc:ak_eps_hi', chapter='ch:iama', part=6, title='held error at the lowest SAM price in range', file='part6/p6_08_iama', line=100, status='conjecture', kind='num', printed='0.04524', tol=0.0)
+def check_mc_ak_eps_hi():
+    'held error at SAM price 2 - RT ln2/coin.'
+    value = 1 / (1 + _mc_odds((2 + R_gas * T_cell * math.log(0.5) / dG_ATP) * _mc_M()))
+    return locals()
+
+@check(label='ch:iama:mc:ak_ident', chapter='ch:iama', part=6, title='the SAM price identity', file='part6/p6_08_iama', line=75, status='derived', kind='sym', printed='', tol=0.0)
+def check_mc_ak_ident():
+    'SAM/coin = 2 - dG_AK/coin.'
+    a, ak = sp.symbols('a ak'); lhs = (a + (a - ak)) / a; rhs = 2 - ak / a; ok = sp.simplify(lhs - rhs) == 0
     return locals()
 
 if __name__ == "__main__":
