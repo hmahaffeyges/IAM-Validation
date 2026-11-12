@@ -4581,3 +4581,12 @@ sample's own loose share: correct as recorded, and not the value to set against 
 from two offsetting meter effects (flagged for the author; the canon is unchanged). Open: whether the real clustering is the cell or the
 meter, and whether the law's held error is the lone-loss or the per-call rate. The author's reading (Mach): M = the coin over the kick,
 and the coin (the ATP free energy, set by each cell's fuel state) is not fixed, so each cell type's held error may track its own coin.
+
+### 2026-11-12 · PHY-079: each cell's own coin, a first look (exploration)
+**Where IAM's Law is:** the coin M = dG_ATP/(R T); the author's reading (Mach: the coin over the kick, and the medium is not fixed) asks
+whether each cell type's held error follows its own coin. Published in-vivo ranges of the ATP free energy (liver -53.5 to -59 kJ/mol, heart
+-59.5 to -61.7, as quoted with the in-vivo human 31P-MRS literature) give M 20.8-22.9 and 23.1-23.9 at 37 C, so odds of M predict held
+errors 0.92-1.01 and 0.88-0.91 times the 54 kJ/mol value. Observed (m_or_m_plus_1_shared_cells.csv; three samples each): hepatocytes 0.93
+and 0.87, inside or near their range; cardiomyocytes 0.99, outside theirs. The plain form (each tissue's cytosolic ATP energy sets its held
+error) has one counterexample; open: the nucleus's own charge, the methylation potential (SAM over spent SAM) at the mark, and whether the
+held error is set in the copying window (adult heart cells barely divide). Nothing sealed; no data spent.
