@@ -4600,3 +4600,13 @@ predicted) are tissue macrophages and erythroid progenitors (0.85-0.90); the hig
 epithelium, striated muscle and the effector and memory T cells (1.07-1.11). Effector and memory T cells read 9-16 % above their naive
 parent types (CD8 0.997 against effector CD8 1.086; CD4 0.938 against central memory CD4 1.100): a lead that division history moves the
 held error. The author's reading: many small inputs (fuel, temperature, diet, age) add up, like a fuel's BTU content.
+
+### 2026-11-12 · PHY-079: held error against how often a cell is replaced (exploration)
+**Where IAM's Law is:** the hold's delivery share phi (E_hold = phi M kT): the author's question separates the writing load (re-marking
+each new strand at every copy) from the holding load (repairing losses between copies); the cell-type spread corresponds to phi varying
+about 0.142-0.155. `doors/data/PHY_050_PERCALL/lifespan_vs_held.py` (`lifespan_vs_held_summary.txt`) pairs 27 Loyfer cell types with the
+mean human lifespan of the matching type in the published cell-turnover census (Sender & Milo 2021, Supplementary Table 5,
+`census_cell_lifespans.csv`; 14 pairings use a parent type, marked). Rank correlation 0.47 (p 0.014; 0.45, p 0.07 with each lifespan once;
+0.50, p 0.17 on the 9 exact matches): cell types replaced rarely hold slightly worse. Exceptions: cardiomyocytes and oligodendrocytes
+(decades, near the prediction) and alveolar macrophages (months, best). Reading: the full restore crew works with the copier; a resting cell
+repairs between rare copies. Next: the copying window in the mini cell (writing load beside holding load, phi on the ledger).

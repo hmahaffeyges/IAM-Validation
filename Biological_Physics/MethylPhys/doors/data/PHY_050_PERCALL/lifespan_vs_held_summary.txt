@@ -1,0 +1,31 @@
+Held error against lifespan (exploration). Spearman: all 27 pairings rho 0.47 (p 0.014); one per census type n=17 rho 0.45 (p 0.071); same-type pairings only n=9 rho 0.50 (p 0.170).
+Positive: cell types replaced rarely hold slightly worse than those replaced often.
+
+                          cell                           census  match  lifespan_days  held_over_prediction
+              colon epithelium           Colon epithelial cells   same       3.400000                 0.938
+                     monocytes                        Monocytes   same       3.451409                 0.905
+    small intestine epithelium Small intestine epithelial cells   same       5.300000                 0.989
+     gastric fundus epithelium         Stomach epithelial cells parent       9.000000                 1.016
+       gastric body epithelium         Stomach epithelial cells parent       9.000000                 1.019
+     gastric antrum epithelium         Stomach epithelial cells parent       9.000000                 1.022
+                       b cells                   mature B cells parent      62.864935                 0.911
+      lung bronchus epithelium       Bronchial epithelial cells   same     138.682345                 1.064
+     lung alveolar macrophages             Alveolar macrophages   same     164.509148                 0.850
+                   cd4 t cells                   mature T cells parent     323.046679                 0.938
+                   cd8 t cells                   mature T cells parent     323.046679                 0.997
+  kidney glomerular epithelium           Glomerulus total cells parent     400.000000                 1.024
+               pancreatic beta                      Islet cells parent     800.000000                 1.048
+              pancreatic alpha                      Islet cells parent     800.000000                 1.074
+              pancreatic delta                      Islet cells parent     800.000000                 1.107
+    kidney tubular endothelium                Endothelial cells parent    2281.250000                 1.066
+             aorta endothelium                Endothelial cells parent    2281.250000                 1.028
+     lung alveolar endothelium                Endothelial cells parent    2281.250000                 1.039
+vascular saphenous endothelium                Endothelial cells parent    2281.250000                 1.050
+ kidney glomerular endothelium                Endothelial cells parent    2281.250000                 1.075
+          pancreas endothelium                Endothelial cells parent    2281.250000                 1.100
+            thyroid epithelium                 Follicular cells   same    3000.000000                 1.026
+                    adipocytes                       Adipocytes   same    4451.219512                 1.077
+             heart fibroblasts          Connective tissue cells parent    9400.000000                 1.021
+               striated muscle                         Myocytes   same   18340.241382                 1.113
+              oligodendrocytes                      Glial cells parent   20904.342462                 0.939
+                 cardiomyocyte                   Cardiomyocytes   same   55747.793052                 0.986

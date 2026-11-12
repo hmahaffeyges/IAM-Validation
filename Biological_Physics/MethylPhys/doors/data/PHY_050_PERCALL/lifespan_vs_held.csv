@@ -1,0 +1,28 @@
+cell,census,match,lifespan_days,held_over_prediction
+colon epithelium,Colon epithelial cells,same,3.4,0.938
+monocytes,Monocytes,same,3.451409116890697,0.905
+small intestine epithelium,Small intestine epithelial cells,same,5.3,0.989
+gastric fundus epithelium,Stomach epithelial cells,parent,9.0,1.016
+gastric body epithelium,Stomach epithelial cells,parent,9.0,1.019
+gastric antrum epithelium,Stomach epithelial cells,parent,9.0,1.022
+b cells,mature B cells,parent,62.86493458200684,0.911
+lung bronchus epithelium,Bronchial epithelial cells,same,138.6823445007129,1.064
+lung alveolar macrophages,Alveolar macrophages,same,164.5091479959365,0.85
+cd4 t cells,mature T cells,parent,323.0466791325193,0.938
+cd8 t cells,mature T cells,parent,323.0466791325193,0.997
+kidney glomerular epithelium,Glomerulus total cells,parent,400.0,1.024
+pancreatic beta,Islet cells,parent,800.0,1.048
+pancreatic alpha,Islet cells,parent,800.0,1.074
+pancreatic delta,Islet cells,parent,800.0,1.107
+kidney tubular endothelium,Endothelial cells,parent,2281.25,1.066
+aorta endothelium,Endothelial cells,parent,2281.25,1.028
+lung alveolar endothelium,Endothelial cells,parent,2281.25,1.039
+vascular saphenous endothelium,Endothelial cells,parent,2281.25,1.05
+kidney glomerular endothelium,Endothelial cells,parent,2281.25,1.075
+pancreas endothelium,Endothelial cells,parent,2281.25,1.1
+thyroid epithelium,Follicular cells,same,3000.0,1.026
+adipocytes,Adipocytes,same,4451.219512195122,1.077
+heart fibroblasts,Connective tissue cells,parent,9400.0,1.021
+striated muscle,Myocytes,same,18340.24138235819,1.113
+oligodendrocytes,Glial cells,parent,20904.34246222576,0.939
+cardiomyocyte,Cardiomyocytes,same,55747.79305155358,0.986
