@@ -4476,3 +4476,9 @@ this was not stated before reading. The verdict stands as recorded; a test on he
 
 **Open at turnover:**
 - A self-calibration form that measures the end error independent of the read cell; the hairpin genotypes (wild type against writers and erasers removed); the control-gain optimum; the temperature prediction sealed; the qubit derivations; the M-number paper outline; the documents consolidation.
+
+### 2026-11-11 · PHY-050 third test: not met by one sample; median 0.9870 of the M-based prediction (PHY_050_LONE_LOSS_LOYFER_OUTCOME.md)
+On 54 healthy sorted Loyfer samples whose lone-loss rate had never been computed (sealed 11a03096), the prediction 0.04558 + 0.0284 x loose
+share matched at a median of 0.9870; without the neurons, a risk named before reading but not set aside, 42 of 47 read within 10 %. As scored:
+44 of 54 within 10 % (83 % needed), not met by one sample. The canary sample was opened before the rest were counted, to check the job.
+Exploration continues on these spent samples; fresh healthy data from another laboratory is kept for one final sealed test.

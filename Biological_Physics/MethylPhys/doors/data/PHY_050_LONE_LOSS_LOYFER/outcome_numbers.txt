@@ -1,0 +1,5 @@
+PHY-050 third test, numbers computed after the verdict from lone_loss_loyfer_summary.txt (exploration, not scored)
+samples inside 10 %: 44; their mean observed/predicted 0.9989, SD 0.0523
+without the seven neuron samples: 42 of 47 within 10 %
+rank correlation of the ratio with molecule-end damage 0.48, with the loose share 0.62
+samples outside 10 % (ratio): GSM5652227 Brain_Neuronal 0.746, GSM5652228 Brain_Neuronal 0.746, GSM5652229 Brain_Neuronal 0.747, GSM5652230 Brain_Neuronal 0.749, GSM5652226 Brain_Neuronal 0.760, GSM5652297 Blood_Naive_T_cells_CD8 0.825, GSM5652236 Liver_Hepatocyte 0.847, GSM5652341 Prostate_Epithelium 0.861, GSM5652237 Liver_Hepatocyte 0.869, GSM5652315 Blood_Granulocytes 0.897
