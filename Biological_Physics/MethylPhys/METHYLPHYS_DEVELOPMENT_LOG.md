@@ -4721,3 +4721,16 @@ sec:middle_candidate (docs/book/part6/p6_08_iama.tex), labeled CONJECTURE: the h
 coupling and the UHRF1 crew result as MEASURED, the methionine and one-strand tests as PREDICTION, and the two-coin step, the geometry, the
 stem-cell control and the eraser share as OPEN PROBLEM. The Landauer chapter's balance section and the gauge chapter point to it. Every
 printed number has a verify_book check (25 new, ch:iama:mc:*); the full book on a complete copy of the repository: 4,668 checks, 0 failures.
+
+### 2026-11-12 · PHY-083: what one methyl transfer costs, and what the hairpin states say restores the healthy level
+**Where IAM's Law is:** the work of each restore, paid at the encoding surface in coins of M kT. Two desk results (exploration; nothing sealed).
+(1) In a three-state model of each CpG pair (both held, half-lost, both lost), the strand coupling 4 UU MM / H^2 equals the ratio of the
+restore rate of a half-lost pair to that of a fully lost one. The spent hairpin counts give about 10 in wild type at the most held bins; a
+synthetic with independent strands, grouped by level the same way and with site-to-site spread, reads at most 1.7, so the coupling is real.
+The healthy level is therefore set mostly by single methyl transfers on half-lost pairs (the copier, recruited to them), so the dyad
+cannot be the factor of two. (2) Making one SAM spends ATP -> AMP + 2 Pi: `minicell/sam_cost.py` (`sam_cost_summary.txt`), textbook
+standard free energies and cell concentrations, gives 2.09-2.14 coins per SAM in four cell types (2.12 at standard state). With 2.09-2.14
+coins per transfer the candidate gives held error 0.0418-0.0428 and E_hold 3.109-3.132 kT, against measured 0.04526 (0.04375-0.04657) and
+3.084: close on the holding energy, a little better than measured on the held error. Reading: a methyl transfer costs a little more than two
+coins at the source, and a little less than two reaches the hold; whether that gap is delivery or the textbook values' uncertainty is open.
+The two steps are not equal halves (70 % / 30 % at standard state), so a "half stored, half burned" reading is not supported by these numbers.

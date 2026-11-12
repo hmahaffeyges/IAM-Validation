@@ -1,0 +1,10 @@
+standard state: one SAM = 2.12 coins
+rat hepatocyte    : coin  -46.7 kJ/mol | one SAM  -98.7 kJ/mol | ratio 2.11
+rat myocyte       : coin  -48.5 kJ/mol | one SAM -103.3 kJ/mol | ratio 2.13
+rat neuron        : coin  -49.0 kJ/mol | one SAM -105.0 kJ/mol | ratio 2.14
+human erythrocyte : coin  -52.7 kJ/mol | one SAM -110.0 kJ/mol | ratio 2.09
+2.0 coins per methyl transfer: held error 0.04454, E_hold 3.066 kT
+2.09 coins per methyl transfer: held error 0.04275, E_hold 3.109 kT
+2.14 coins per methyl transfer: held error 0.04181, E_hold 3.132 kT
+measured: pooled healthy intercept 0.04526 (95 % 0.04375-0.04657); canon E_hold 3.084
+the two steps' shares, standard state: 70 % (ATP -> AMP + PPi) / 30 % (PPi -> 2 Pi)
