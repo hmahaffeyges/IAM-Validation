@@ -1,0 +1,7 @@
+maintenance alone: restores per loss 16.38 -> m = 0.9661 per cycle (lag 0.1)
+wild type target: 12.11; held level 0.956
+eraser e = 0.00: wild-type restores per loss 16.91 (writer d = 0.337)
+eraser e = 0.01: wild-type restores per loss 15.69 (writer d = 0.481)
+eraser e = 0.03: wild-type restores per loss 14.21 (writer d = 0.683)
+eraser e = 0.06: wild-type restores per loss 13.09 (writer d = 0.852)
+eraser e = 0.10: wild-type restores per loss 12.37 (writer d = 0.949)

@@ -179,8 +179,12 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["phi"] = Param(0.1473, "fraction of one coin", "measured", "phi = E_hold/M, canon (56 healthy cell types)", "restore", origin="measured")
     P["iam"] = Param(True, "switch", "definition", "IAM on: the held level from the law; off: the measured 37 C level, fixed", origin="ours")
     P["eps_measured_37C"] = Param(0.04376, "held error", "measured", "canon eps0_meth at 37 C (used only with IAM off)", origin="measured")
-    P["held_marked.m"].value = 0.94354; P["held_marked.m"].label = "derived"; P["held_marked.m"].origin = "measured"
-    P["held_marked.m"].source = "calibrated on the hairpin wild type, restores per loss 12.11 (GSE116482), lag and eraser assumed"
+    P["held_marked.m"].value = 0.9661; P["held_marked.m"].label = "derived"; P["held_marked.m"].origin = "measured"
+    P["held_marked.m"].source = ("calibrated on maintenance alone: hairpin genotype without writers or erasers (Tet1-3 + Dnmt3a/b/c knockout), restores per "
+                                 "loss 16.38 (GSE116482, mouse stem cells), lag assumed 0.1 cycle")
+    P["held_marked.e"].value = 0.10; P["held_marked.e"].label = "derived"; P["held_marked.e"].origin = "measured"
+    P["held_marked.e"].source = ("first calibration: wild type 12.11 needs about 10 % of held marks erased and rewritten per cycle (reaches 12.4 at the human "
+                                 "level 0.956; the stem cells' own level at those sites not yet used)")
     return ModelCard(name, "cell", P)
 
 

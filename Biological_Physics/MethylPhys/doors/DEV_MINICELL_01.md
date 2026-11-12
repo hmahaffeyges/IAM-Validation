@@ -43,3 +43,10 @@ the held error moves with temperature and with the drive.
 (restores per loss 12.1 to 8.3 in the model), while the hairpin genotypes measured it rising (wild type 12.4 and 11.9; without Tet1-3 and
 Dnmt3a/b/c 17.2 and 15.5; GSE116482). So turnover at held sites is much larger than assumed: the eraser rate is to be calibrated from the
 genotypes, as the next step of the calibration.
+
+
+**First calibration from the hairpin genotypes (development, 2026-11-11).** Maintenance alone (no writers, no erasers: restores per loss 16.38) sets m = 0.9661 per cycle with the
+copier lag assumed at 0.1 cycle. With that maintenance, wild type's 12.11 needs large turnover (`data/DEV_MINICELL_01/calibrate_hairpin.txt`): about 10 % of held marks erased and rewritten per
+cycle (e = 0.1 with writing 0.95 reaches 12.4 at the human held level 0.956). Turnover is a large, paid share of holding work (the law's
+'every write pays'). Limits: mouse stem cells, and the stem cells' own level at the most-held sites is not yet used (the human somatic level
+stands in), so this is a first calibration.
