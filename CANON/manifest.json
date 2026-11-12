@@ -28345,6 +28345,28 @@
    "sources_of_row": [
     "author discussion 2026-11-11"
    ]
+  },
+  {
+   "title": "The mini cell: a molecule-level simulation of a cell and its sequencing meter (DEV-MINICELL-01)",
+   "purpose": "the author's training-simulator idea (2026-11-11): steady state, sensitivity and contingencies on known truth, read by the one command; a simulation of the model, not data",
+   "instrument_or_term": "all instruments (test bench)",
+   "sources": [
+    "spent: three sorted libraries' end profiles, GSE116482 hairpin genotypes, the 153 healthy counts"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_MINICELL_01.md",
+   "status": "designed",
+   "runs": [],
+   "next_step": "version 1: held/loose sites, loss, restore, copier lag, the meter at each library's measured reach; calibrate on spent data first",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "added 2026-11-11; feeds plan step 35.16 (the browser lever simulator) later",
+   "id": "PHY-078",
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ]
   }
  ],
  "not_tests": {
