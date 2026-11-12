@@ -4775,3 +4775,6 @@ From the 2026-11-10 dataset lists, verified on GEO and SRA: GSE173787 (another l
 monocytes 10; genome-wide bisulfite, paired, about 170 M pairs each) is reserved for PHY-084, the one sealed referee test of the baseline
 candidate; GSE186383 (FDA SEQC2 EpiQC; the same GIAB reference DNA read by several laboratories and chemistries) is reserved for ATL-076,
 the cross-laboratory calibrator for sequencing Met-A. Neither is read until its test is sealed.
+
+### 2026-11-12 · PHY-083: the mini cell carries the baseline candidate as a switch
+`minicell/minicell.py`: a `baseline_candidate` switch and a `SAM_cost` input (canon 2.0); the relation `driven_passage` added to `simcore.py`'s IAM relations; five new self-tests (candidate 0.04454 and 3.066 kT, a dearer SAM holds better, off reproduces measured phi); all 18 pass.

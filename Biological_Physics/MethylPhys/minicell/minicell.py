@@ -179,6 +179,8 @@ def law_card(name="mini cell v2 (healthy, law first)"):
     P["phi"] = Param(0.1473, "fraction of one coin", "measured", "phi = E_hold/M, canon (56 healthy cell types)", "restore", origin="measured")
     P["iam"] = Param(True, "switch", "definition", "IAM on: the held level from the law; off: the measured 37 C level, fixed", origin="ours")
     P["eps_measured_37C"] = Param(0.04376, "held error", "measured", "canon eps0_meth at 37 C (used only with IAM off)", origin="measured")
+    P["baseline_candidate"] = Param(False, "switch", "definition", "on (with IAM on): the held level from the driven passage (PHY-083, candidate) instead of measured phi", origin="ours")
+    P["SAM_cost"] = Param(2.0, "ATP coins per SAM", "derived", "canon SAM_cost_ATP: exactly 2 where adenylate kinase is at equilibrium (minicell/sam_cost_ak.py)", "coin", origin="established")
     P["held_marked.m"].value = 0.9661; P["held_marked.m"].label = "derived"; P["held_marked.m"].origin = "measured"
     P["held_marked.m"].source = ("calibrated on maintenance alone: hairpin genotype without writers or erasers (Tet1-3 + Dnmt3a/b/c knockout), restores per "
                                  "loss 16.38 (GSE116482, mouse stem cells), lag assumed 0.1 cycle")
@@ -192,8 +194,12 @@ def ledger(card):
     """The law's ledger for this card (IAM readings name the relation they used)."""
     Sc = _sc; T = card.v("T_cell"); kT = Sc.K_B * T
     M = Sc.Reading(card.v("dG_ATP") / (R_GAS * T), "IAM", ["coin_M", "encoding_surface"], "the drive in kicks at the encoding surface (chromatin) at the cell's own temperature")
-    E = Sc.Reading(card.v("phi") * M, "IAM", ["coin_M", "delivery_phi"], "holding energy in kT")
-    eps = Sc.Reading(1 / (1 + math.exp(E)), "IAM", ["coin_M", "delivery_phi", "hold_energy"], "held error the law sets")
+    if "baseline_candidate" in card and card.v("baseline_candidate"):
+        w = card.v("SAM_cost") * float(M); odds = (w / 2) / (1 - (1 - math.exp(-w)) / w)
+        E = Sc.Reading(math.log(odds), "IAM", ["coin_M", "driven_passage"], "holding energy in kT from the driven passage (candidate)")
+    else:
+        E = Sc.Reading(card.v("phi") * M, "IAM", ["coin_M", "delivery_phi"], "holding energy in kT")
+    eps = Sc.Reading(1 / (1 + math.exp(E)), "IAM", list(E.relations) + ["hold_energy"], "held error the law sets")
     return dict(M=M, M_landauer=Sc.Reading(M / Sc.LN2, "IAM", ["coin_M", "encoding_surface"], "the coin in Landauer units"), E_hold_kT=E, eps_hold=eps,
                 landauer_floor_J=Sc.Reading(kT * Sc.LN2, "established", note="Landauer, kT ln2 at the cell's temperature"),
                 eps_ceiling=Sc.Reading(0.5, "established", note="the coin flip"))

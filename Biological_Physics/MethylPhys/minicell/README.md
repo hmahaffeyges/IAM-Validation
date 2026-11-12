@@ -46,3 +46,7 @@ The full operator translation of every shared term is `simcore.TRANSLATOR`.
 - `selftest.py`: checks that must all pass before any output is used (origin rules, the switch, limits, the floor).
 
 Evidence comes only from a prediction written before its data are read and compared with data the simulator was not tuned on.
+
+**The baseline candidate switch (2026-11-12, PHY-083).** `law_card().set(baseline_candidate=True)` replaces measured phi with the driven
+passage: W = SAM_cost x M kT per methyl transfer (SAM_cost 2.0, canon SAM_cost_ATP), held error 0.04454 and 3.066 kT, readings labeled
+IAM through the relation `driven_passage` (candidate, its test not yet passed). Off by default; `selftest.py` checks both.
