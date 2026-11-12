@@ -4590,3 +4590,13 @@ errors 0.92-1.01 and 0.88-0.91 times the 54 kJ/mol value. Observed (m_or_m_plus_
 and 0.87, inside or near their range; cardiomyocytes 0.99, outside theirs. The plain form (each tissue's cytosolic ATP energy sets its held
 error) has one counterexample; open: the nucleus's own charge, the methylation potential (SAM over spent SAM) at the mark, and whether the
 held error is set in the copying window (adult heart cells barely divide). Nothing sealed; no data spent.
+
+### 2026-11-12 · PHY-079: the healthy held error's scatter, split three ways (exploration)
+**Where IAM's Law is:** the hold predicts one held error from the coin; this measures how far real cells scatter around it, and why.
+`doors/data/PHY_050_PERCALL/scatter_split.py` (`scatter_split_summary.txt`), on the 150 non-neuron Loyfer counts: total scatter 7.5 % around
+the M-based prediction; the meter (synthetic replicates at the real clustering, plus counting) under 1 %; samples of the same cell type
+2.9 %; between cell types 6.7 %. The scatter is mostly real and mostly by cell type, not the meter. The lowest (holding better than
+predicted) are tissue macrophages and erythroid progenitors (0.85-0.90); the highest are endocrine pancreas, endothelium, tonsil and tongue
+epithelium, striated muscle and the effector and memory T cells (1.07-1.11). Effector and memory T cells read 9-16 % above their naive
+parent types (CD8 0.997 against effector CD8 1.086; CD4 0.938 against central memory CD4 1.100): a lead that division history moves the
+held error. The author's reading: many small inputs (fuel, temperature, diet, age) add up, like a fuel's BTU content.
