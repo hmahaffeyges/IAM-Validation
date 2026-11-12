@@ -2094,3 +2094,13 @@ the trimmed Deconvolver reference is not yet fit to identify cells. **Next (the 
 given the library's calls past its reach, read against a Deconvolver reference built from the atlas's own donors past the same reach, its
 identity first checked on the atlas's held-out donors; Met-A as in the seventh form.
 
+**Does the Deconvolver keep its identity when the molecule ends are cut? No (spent bundles; nothing new read).** (`seq_atlas/deconv_trim_identity.csv`, from the 18 libraries already read on 11-09: `trim_read/` t0, t1, t2 and
+`trim_read_at1/`.) Each library's share of its own lineage (all CD4, all CD8 or all B columns) against the full reading: ends cut by one
+call and read against the full atlas, median -0.044 (lower in 14 of 17); by two calls, -0.082 (15 of 17); by one call against the trimmed
+atlas, -0.212 (17 of 17; CD4 libraries pick up CD8 shares). The CD8 libraries lose most (to -0.25). GSM2103004, labeled sorted CD4, reads as
+monocytes every way and is set aside here (the Deconvolver decides). **Reading:** cutting calls throws away information the identity needs,
+so the eighth form does not cut the Deconvolver's calls. **The eighth form, designed before anything is read:** the Deconvolver reads every
+call, each end call weighted by the library's own measured end error (the per-pixel noise weighting of the CMB missions; an operator's
+state estimator weighting each meter by its accuracy), and Met-A is read past each side's reach as in the seventh form. Synthetic first, on
+the same 15 rows and bars, with the bar-setting method's pulls reported beside them; one canary row first.
+

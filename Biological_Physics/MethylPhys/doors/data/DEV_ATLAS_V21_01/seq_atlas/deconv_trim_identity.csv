@@ -1,0 +1,19 @@
+gsm,specimen,lineage_share_full,trim1_full_atlas,trim2_full_atlas,trim1_trimmed_atlas
+GSM2103002,sorted cd4 t cells,0.825,0.794,0.726,0.593
+GSM2103003,sorted cd4 t cells,0.86,0.799,0.782,0.501
+GSM2103004,sorted cd4 t cells,0,0,0,0.071
+GSM2103005,sorted cd4 t cells,0.894,0.839,0.812,0.45
+GSM2103006,sorted cd4 t cells,0.856,0.812,0.766,0.544
+GSM2103007,sorted cd4 t cells,0.84,0.812,0.782,0.468
+GSM2616068,sorted naive cd8 t cells,0.632,0.587,0.587,0.38
+GSM2616069,sorted effector memory cd8 t cells,0.748,0.729,0.732,0.602
+GSM2616070,sorted cd8 t cells,0.607,0.465,0.445,0.527
+GSM2616071,sorted cd8 t cells,0.665,0.471,0.435,0.663
+GSM2616072,sorted naive cd8 t cells,0.561,0.319,0.297,0.388
+GSM2616073,sorted effector memory cd8 t cells,0.904,0.816,0.932,0.814
+GSM2616074,sorted cd8 t cells,0.649,0.717,0.729,0.4
+GSM2616075,sorted cd8 t cells,0.647,0.399,0.254,0.404
+GSM3963003,sorted b cells,0.889,0.863,0.846,0.677
+GSM3963004,sorted b cells,0.852,0.853,0.642,0.68
+GSM3963005,sorted memory b cells,0.962,0.937,0.897,0.863
+GSM3963006,sorted memory b cells,0.895,0.9,0.728,0.829
