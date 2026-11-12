@@ -4686,3 +4686,14 @@ value 0.0456; the equipartition route predicts the same as CpG. Scored by the ag
 single-molecule reads of neuron methylomes with non-CpG contexts kept (the chain's .pat counter reads CpGs only, so a non-CpG counter comes
 first, synthetic first). Consistent with rule 25: neither route has division in it. Also noted: the book's open item (Ch. 7, the copying
 enzyme's measured preference of 7-80-fold, 1.9-4.4 kT, should give the holding energy) brackets ln M = 3.04.
+
+### 2026-11-12 · PHY-083: the Einstein-relation route in closed form; route one withdrawn (before any data were read)
+**Where IAM's Law is:** the coin M sets the hold's gain. In closed form the odds of a constant drive of work W across one mark against
+thermal diffusion are (W/2kT) / (1 - (1 - e^(-W/kT)) / (W/kT)) (reflecting start, absorbing end). With the dyad's two coins (W = 2M kT):
+odds 21.452, held error 0.04454, holding energy 3.066 kT; the exact-M form gives 0.04558 and 3.042 kT; measured, the pooled healthy
+intercept 0.04526 (95 % 0.04375-0.04657; meter-corrected 0.046-0.048) and the canon's raw-counter E_hold 3.084. The two forms differ by
+about 2 %, finer than present resolution. **Route one withdrawn:** the probability that a site reads lost is a threshold crossing, not the
+size of its jitter, and a threshold crossing against a proportional stiffness is exponential (the floor's form), so equipartition does not
+give the middle. **Correction to the sealed non-CpG number, made before any data were read:** the large-drive approximation gave 0.0872; the
+closed form at one coin gives odds 10.995 and a held error 0.0834, about 1.87 times the CpG value. The comparison is now the dyad route
+(0.0834 at single-strand marks) against a single-strand mark held like a CpG (about 0.045).
