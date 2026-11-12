@@ -3356,7 +3356,7 @@
    "legacy_ids": [
     "A4"
    ],
-   "notes": "TODO A4 sits in the IAM-A block; the physics-lever section group (levers.json methyl_supply) also carries it. | 2026-11-12: energy-or-supply test (PHY-083) sealed on PRJDB12471 before reading, with its synthetic: Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md",
+   "notes": "TODO A4 sits in the IAM-A block; the physics-lever section group (levers.json methyl_supply) also carries it. | 2026-11-12: energy-or-supply test (PHY-083) sealed on PRJDB12471 before reading, with its synthetic: Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md | 2026-11-12: reading job written before any library is read (RRBS mode added to erase_gh.sh; met_samples.csv): Biological_Physics/MethylPhys/doors/DEV_METHIONINE_01.md",
    "depends_on": [],
    "id": "COM-IAMA-041",
    "sources_of_row": [

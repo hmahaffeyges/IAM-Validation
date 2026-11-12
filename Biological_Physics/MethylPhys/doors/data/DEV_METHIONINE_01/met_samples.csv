@@ -1,0 +1,7 @@
+unit,gse,gsm,genotype,genome,title,srr,spots,library,specimen
+MZGC1,PRJDB12471,DRR322659,control,hg19,MZGC1 control,DRR322659,54884361,rrbs,cultured cells
+MZGC1,PRJDB12471,DRR322660,methionine depleted,hg19,MZGC1 methionine depleted,DRR322660,53277779,rrbs,cultured cells
+MZGC2,PRJDB12471,DRR322661,control,hg19,MZGC2 control,DRR322661,52371272,rrbs,cultured cells
+MZGC2,PRJDB12471,DRR322662,methionine depleted,hg19,MZGC2 methionine depleted,DRR322662,69416553,rrbs,cultured cells
+MZGC3,PRJDB12471,DRR322663,control,hg19,MZGC3 control,DRR322663,57673676,rrbs,cultured cells
+MZGC3,PRJDB12471,DRR322664,methionine depleted,hg19,MZGC3 methionine depleted,DRR322664,43188816,rrbs,cultured cells

@@ -114,13 +114,24 @@ LIB=$(python3 -c "import csv,sys; r=[x for x in csv.DictReader(open(sys.argv[1])
 # 2026-10-26: a PBAT library (post-bisulfite adaptor tagging; e.g. GSE236026's tPBAT) reads its first mate from the strand a directional
 # library reads with its second, so bwa-meth is given the mates in swapped order; directional libraries are unchanged.
 if [ "$LIB" = "pbat" ]; then R1=$S/fq/${GSM}_2.fq; R2=$S/fq/${GSM}_1.fq; log "PBAT library: mates given to the aligner in swapped order"; else R1=$S/fq/${GSM}_1.fq; R2=$S/fq/${GSM}_2.fq; fi
+# 2026-11-12 (DEV-METHIONINE-01): an RRBS library (reduced representation, MspI-cut; library column "rrbs") has its mates trimmed by
+# Trim Galore 0.6.10 --rrbs --paired (the end-repair cytosines and adaptors removed, as reproduce/mice_rrbs.sh does), and is not
+# duplicate-marked, since RRBS fragments share their cut sites by design and marking would remove real molecules. Other libraries unchanged.
+if [ "$LIB" = "rrbs" ] && [ "$RESUME" != aligned ]; then
+  [ -d $S/e_tg ] || $MM create -y -q -p $S/e_tg -c conda-forge -c bioconda trim-galore=0.6.10 >> $S/logs/install.log 2>&1 || exit 17
+  mkdir -p $S/trim; PATH=$S/e_tg/bin:$PATH trim_galore --rrbs --paired --cores 2 -o $S/trim $R1 $R2 > $S/logs/${GSM}_trim.log 2>&1 || exit 18
+  R1=$(ls $S/trim/${GSM}_1_val_1.fq* | head -1); R2=$(ls $S/trim/${GSM}_2_val_2.fq* | head -1); log "RRBS library: mates trimmed (--rrbs --paired)"
+  grep -m1 "Number of sequence pairs removed" $S/logs/${GSM}_trim.log | sed 's/^/  /'
+fi
 if [ "$RESUME" != aligned ]; then
 bwameth.py --threads $T --reference $REF $R1 $R2 2> $S/logs/${GSM}_align.log | samtools view -b -o $S/bam/$GSM.u.bam - || exit 31
-rm -f $S/fq/${GSM}_*.fq; TA=$(date +%s); log "aligned in $((TA-TF)) s"
+rm -f $S/fq/${GSM}_*.fq; rm -rf $S/trim; TA=$(date +%s); log "aligned in $((TA-TF)) s"
   if [ -n "${CKPT:-}" ]; then echo $n1 > $S/pairs.txt; ckput "${GSM}_pairs.txt" $S/pairs.txt; ckput "${GSM}.u.bam" $S/bam/$GSM.u.bam; fi
 else TA=$(date +%s); fi
 samtools sort -@ $T -m 1G -T $S/bam/$GSM.tmp -o $S/bam/$GSM.s.bam $S/bam/$GSM.u.bam && rm -f $S/bam/$GSM.u.bam || exit 32
+if [ "$LIB" = "rrbs" ]; then mv $S/bam/$GSM.s.bam $S/bam/$GSM.bam; log "RRBS library: not duplicate-marked"; else
 sambamba markdup -l 1 -t $T --sort-buffer-size 4000 --overflow-list-size 10000000 --tmpdir $S/bam $S/bam/$GSM.s.bam $S/bam/$GSM.bam > $S/logs/${GSM}_markdup.log 2>&1 && rm -f $S/bam/$GSM.s.bam || exit 33
+fi
 samtools index $S/bam/$GSM.bam; samtools flagstat $S/bam/$GSM.bam > $OUT/${GSM}_flagstat.txt
 wgbstools bam2pat $S/bam/$GSM.bam -o $S/pat --genome $gen -@ $T > $S/logs/${GSM}_bam2pat.log 2>&1 || {
   # 2026-10-24: with the index fetched from the release, bam2pat stopped (exit 34) in every job; its log is kept, the genome dictionary is

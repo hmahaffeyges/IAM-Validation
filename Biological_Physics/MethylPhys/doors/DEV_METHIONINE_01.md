@@ -36,3 +36,9 @@ RRBS-length molecules (3-15 CpGs,
 assumed), loose 0.20, read by the one command (run_sample.py --dev-count-only): planted rises x1.066, x1.5, x4 read x1.053, x1.379, x2.662;
 control replicates agree within 0.87 %. The counter compresses large rises, so each route's prediction is scored in the counter's own
 reading, mapped through this synthetic re-run at the libraries' own molecule lengths before any library is scored.
+**Reading job (written before any library is read):** each library (`data/DEV_METHIONINE_01/met_samples.csv`) by the committed GitHub pipeline
+(`data/DEV_ERASE_01/erase_gh.sh` through the erase_test workflow): the same 20 spread blocks of 10,000,000 read pairs, Trim Galore 0.6.10
+--rrbs --paired (new library mode "rrbs"; RRBS fragments are not duplicate-marked, since they share their cut sites by design), bwa-meth
+0.2.0 on hg19 from the index release, wgbstools 0.1.0 bam2pat, then the one command's count (run_sample.py --dev-count-only). One library
+first as a canary (MZGC1 control); the synthetic is re-run at that library's own molecule lengths before any depleted library is scored.
+
