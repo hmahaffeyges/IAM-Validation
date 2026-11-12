@@ -22,6 +22,30 @@
      "outcome": "Not met: end errors absorbed in 3 of 9; plant visible; a uniform change kept 2 of 3. The rates themselves were measured exactly; the library's own end error differs between site sets in two of three laboratories.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
      "reference": "IAM Sequencing Atlas"
+    },
+    {
+     "title": "Self-calibration synthetic, sixth form",
+     "status": "failed",
+     "reference": "IAM Sequencing Atlas",
+     "what": "15 planted rows on three spent sorted libraries, read by the one command with the disorder the end error adds computed at each library's own level.",
+     "outcome": "End errors absorbed in 1 of 9; a uniform change kept 3 of 3. It removes the marked-side plants and takes out too much on the B-cell library's unmarked plant.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "The end error located along each molecule",
+     "status": "diagnosis",
+     "reference": "IAM Sequencing Atlas",
+     "what": "Error per call by distance from the molecule's nearer end, on molecules of one length, in the three spent libraries.",
+     "outcome": "Marked side: the last call only. Unmarked side: two to three calls in. Inside the molecule the three laboratories read alike.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "PHY-050 third test: the lone-loss rate on 54 healthy sorted samples",
+     "status": "failed",
+     "reference": "IAM Sequencing Atlas (loose share); the M number (prediction)",
+     "what": "The lone-loss rate against 1/(1+M) plus the measured loose-region share, sealed before 54 healthy sorted samples never counted before were read.",
+     "outcome": "Median 0.987 of the prediction; 44 of 54 within 10 % (45 needed); five of the ten misses were neurons, a risk named before reading.",
+     "record": "Biological_Physics/MethylPhys/doors/PHY_050_LONE_LOSS_LOYFER_OUTCOME.md"
     }
    ]
   },
@@ -34,6 +58,13 @@
      "status": "sealed",
      "what": "The library's two molecule-end error rates measured where every found cell agrees on the atlas, put into the mixed forward model (stage_metaa_atlas.agree_rates, run_sample.py --dev-seq-self-cal-agree); its synthetic sealed before reading, the same 15 rows and bars as the first four.",
      "outcome": "Checked on a simulated library on the atlas's own columns before sealing: both planted rates recovered.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Per-site self-calibration inputs (run_sample.py --dev-seq-self-cal-dump)",
+     "status": "development",
+     "what": "Every site's inputs to the self-calibration written out for the read cell.",
+     "outcome": "Read on four rows, for the offline model.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
@@ -55,6 +86,13 @@
      "what": "In the B-cell and CD4 laboratories the end error at the read cell's identity sites differs from that at sites every cell holds alike.",
      "outcome": "One rate per library is not enough; the next form measures the rates on the cell's own sites.",
      "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    },
+    {
+     "title": "Two sources disagree exactly where corrections failed",
+     "status": "diagnosis",
+     "what": "Each library's end error read at the cell's identity sites and at the sites every found cell holds fully.",
+     "outcome": "They agree in CD8 and disagree in the B-cell and CD4 libraries, where every correction failed; a planted error is seen alike by both.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
     }
    ]
   },
@@ -75,6 +113,13 @@
      "what": "The relaunch watcher and the GitHub filler logged only connection errors for about eleven hours; the half-hour checks read their last line only.",
      "outcome": "Both restarted with fresh logs; the loop check now reports a loop whose last six cycles all failed.",
      "record": "Biological_Physics/MethylPhys/boxruns/PRELAUNCH_CHECKLIST.md"
+    },
+    {
+     "title": "A day lost to idle machines",
+     "status": "audit",
+     "what": "The agent stopped overnight on two questions it already had answers to.",
+     "outcome": "Caught by the author; the agent now acts on its recommendation and reports.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
     }
    ]
   }

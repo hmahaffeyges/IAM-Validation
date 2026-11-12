@@ -4482,3 +4482,61 @@ On 54 healthy sorted Loyfer samples whose lone-loss rate had never been computed
 share matched at a median of 0.9870; without the neurons, a risk named before reading but not set aside, 42 of 47 read within 10 %. As scored:
 44 of 54 within 10 % (83 % needed), not met by one sample. The canary sample was opened before the rest were counted, to check the job.
 Exploration continues on these spent samples; fresh healthy data from another laboratory is kept for one final sealed test.
+
+### 2026-11-11 · Day summary
+**Set out:** Finish the overnight list (hairpin genotypes, sequencing self-calibration, the temperature prediction, the qubit numbers, the M-number paper outline); after the author's correction for the idle day, the sixth self-calibration form, the third isolated-loss test on healthy sorted samples, and the first document merge; in the evening, the author's power-system methods applied to the sequencing calibration, the derivations and IAM's Law.
+
+**Ran, and how each came out:**
+- Hairpin genotypes, same laboratory (GSE116482; exploration): restores per loss at the most fully held sites 12.4 and 11.9 in wild type, 17.2 and 15.5 without writers and erasers, 17.6 and 18.2 with writers mostly removed; the writers and the eraser add half-marked sites, so a half-marked snapshot is not pure maintenance. Cells with no methyltransferases put the instrument's false-mark floor at about 0.004.
+- The M form's temperature prediction sealed before any new two-temperature molecules are read (`d367f942`, exploratory).
+- Self-calibration, fifth form: its canary found no agreement sites; the site rule fixed (`9baceffe`); read: not met, end errors absorbed in 3 of 9, a uniform change kept 2 of 3 (`5c3af166`).
+- Self-calibration, sixth form (`762e36d9`): read: not met, absorbed in 1 of 9, plant visible (median 0.3249), a uniform change kept 3 of 3 (`6d48682f`); it removes the marked-side plants and takes out too much on the B-cell library's unmarked plant (-0.058).
+- Two sources per library (exploration, `b688acf9`): the end error read at the cell's identity sites and at the sites every found cell holds fully agree in CD8 and disagree where corrections failed (B cells marked 0.054 against 0.122; CD4 unmarked 0.021 against 0.004); a planted error is seen alike by both. Duplicate reads ruled out (about 1.8 reads per molecule line in all three).
+- The end error located along the molecule (exploration, `6d48682f`): marked side at the last call only, unmarked side two to three calls in; inside the molecule the three laboratories read alike. The chain's trim option already records the same reach on GSE98837 (about 4 CpGs, 11-09); new is that it differs library by library and side by side.
+- PHY-050 third test (sealed `11a03096`): on 54 healthy sorted samples never counted before, the prediction matched at a median of 0.9870; 44 of 54 within 10 % (83 % needed), not met by one sample; all ten misses below, five of them neurons, a risk named before reading but not set aside; without the neurons 42 of 47 (`1e3b549c`).
+- Per-site dumps (`run_sample.py --dev-seq-self-cal-dump`, `selfcal_dump.sh`): read on four rows (B cells and CD8, unplanted and unmarked plant).
+- Documents: the operations manual's operator chapter folded into SOP v4, two stale statements corrected (`ed2d8df4`).
+- Manifest: the evening's agreed items entered (ATL-071 to ATL-075, PHY-060, PHY-061, OTH-084; `6b4bbc12`).
+
+**Successes:**
+- The isolated-loss rate on 54 fresh healthy samples sits at a median of 0.987 of the M-based prediction.
+- The two-source alarm trips exactly where every correction failed, and the end error is located along each molecule.
+
+**Learned:**
+- The writers and the eraser add half-marked sites; maintenance alone holds about 12 to 18 restores per loss in these stem cells.
+- The sixth form's overcorrection is about five times what an offline model with independent reads gives, so the model lacks an input; duplication is not it.
+- Laboratories differ mainly at the molecule ends; inside the molecule they read alike.
+- The planted synthetics put errors at the last call only, while the real unmarked-side error reaches two to three calls.
+
+**Errors (the agent's own), and what caught each:**
+- The machines sat idle for most of the day while I waited on two questions I had answers to; caught by the author.
+- The hairpin "correction" from GEO's sample titles was wrong; the site-level clone test reversed it.
+- A manifest note landed on the wrong row (OTH-050); caught on reading the row; restored from main and noted on PHY-057.
+- The relaunch watcher and the GitHub filler logged only errors for hours, because my checks read only the last line; both restarted and the loop check now counts error lines.
+- The fifth form's first site rule found no sites on the canary (the provisional megakaryocyte column is missing at most sites); caught by the canary.
+- A first comparison of base and planted rows drew different sites per run; redone with the same sites and molecules.
+- The per-site comparison first counted every molecule length together, which faked a slow fade; redone on fixed-length molecules.
+- A grid wording of IAM's Law that describes nothing real; caught by the author and dropped.
+- I headlined the third test as "still a miss" when the data showed a median of 0.987 and the misses traced to a risk named in advance; caught by the author; the record now leads with what the data showed.
+- A development-log entry was dated by the server's day (11-12) instead of the author's (11-11); caught by the gate.
+
+**The author's instructions and corrections:**
+- Never wait for him overnight; always do what is most defensible and best for IAM.
+- Exploration is judged by what the data shows, on spent data; strict sealed bars are for commissioning and referees; fresh data is spent once, for one final sealed test.
+- Grid methods for the metering problem: redundant sources and a reasonability alarm ("never trust a suspicious reading"), meters pulled from service when in doubt (WAC 480-100-338), the impedance fault locator and relay zones, the PIE historian, overcorrection by relays left enabled, a powerflow to find the missing model input.
+- For the qubit middle: separate self-made from imported imbalance (two meters, ambient, topology); the island-tying rules (small additions, high reserves, isochronous).
+- IAM's Law includes Bekenstein's surface; the law's wording is to be referee-accurate for a physicist, a biophysicist and a geneticist.
+- The private QAPE technical reference stays out of the repo and anything public.
+
+**Path changes:**
+- The seventh self-calibration form will use each library's own end reach per side and two sources with a stated tolerance; a library out of tolerance is flagged and its state withheld, nothing corrected.
+- The IAM-A middle continues on spent samples (interior counts, neurons set aside for their stated reason, copier lag separated from loss).
+
+**Data:**
+- Spent: the 54 healthy sorted Loyfer samples (GSE186458) for the lone-loss rate; the hairpin genotype files (GSE116482).
+
+**Machines:**
+- Idle on Google and GitHub from about 4 AM to 3 PM (my error). Afternoon and evening: 15 sixth-form rows and 4 per-site dump rows on Google; 54 counts on GitHub, none failed.
+
+**Open at turnover:**
+- The seventh form, offline first on the per-site dumps; the interior lone-loss count on spent samples; the effective-temperature qubit test; the remaining QAPE/SCAPE scorecard checks (private).
