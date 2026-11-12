@@ -2087,6 +2087,10 @@ The disorder a library's molecule-end error adds at the read cell's identity sit
 
 The self-calibration's fourth form, the Planck forward model on the whole mixed expectation: every cell found contributes its IAM Sequencing Atlas inner level (its donors without their own molecule-end calls), mixed in the sample's shares as Met-A mixes the atlas; the library's measured end error then flips calls in proportion to each state's share at each site (a false T on the marked share, a false C on the unmarked share), on that site's share of end calls. An end error acts on every molecule in the mix and on each site in proportion to its level, which the first three forms did not model. Development.
 
+### run_sample.py --dev-seq-self-cal-dump
+
+With --dev-seq-self-cal, writes each read cell's per-site inputs to the self-calibration (reads, end reads, end and all marked calls, the measured level, and the IAM Sequencing Atlas's inner and published levels mixed in the sample's shares) to PREFIX_<cell>.csv.gz. For diagnosis: it changes no reading. Added to put a real library's inputs, site by site, into the offline model of the calibration, after the sixth form overcorrected on one library. Development.
+
 ### run_sample.py --dev-seq-self-cal-own
 
 With --dev-seq-self-cal, Met-A is the observed disorder minus the disorder the library's end error adds (own_level_added), read against the atlas's inner level mixed in the sample's shares. Every read records A_own_level and the measured bin differences beside the earlier forms. Development.

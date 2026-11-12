@@ -2000,3 +2000,14 @@ percent share, planted end errors moved the reading by 0.0009 to 0.0039 (without
 twice as high at the cell's marked sites); a real 2 percent change was kept in full. One row first as a canary.
 **Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
 synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
+
+**Diagnosing the sixth form: two sources per library, and every site's inputs (development; nothing scored).** Each library's molecule-end error is read by two
+independent sources: at the read cell's identity sites, and at the sites where every found cell is fully marked or fully unmarked. In the
+sixth form's bundles they agree in the CD8 library on both sides (where every correction has worked), and disagree in the B-cell library on the
+marked side (0.054 against 0.122) and in the CD4 library on the unmarked side (0.021 against 0.004), where the corrections failed; a planted
+error is seen alike by both (+0.047 and +0.046). The sixth form also takes out too much on the B-cell library's unmarked plant (-0.058), where
+its two sources agree, and an offline model with independent reads gives a fifth of that, so the model lacks an input. Duplicate reads are not it:
+the three libraries carry the same, about 1.8 reads per molecule line. run_sample.py --dev-seq-self-cal-dump now writes every site's inputs,
+read on the same rows as the sixth form (`selfcal_dump.sh`), for the offline model.
+**Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
+synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.

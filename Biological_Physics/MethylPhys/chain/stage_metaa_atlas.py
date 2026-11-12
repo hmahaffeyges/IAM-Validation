@@ -451,6 +451,7 @@ def agree_rates(cells, counts, sc, lo=0.1, hi=0.9, shares=None):
     out.update(unmarked=round(float(a_u), 6), marked=round(float(a_m), 6), end_calls=int(ne[low | high].sum()), inner_calls=int(ni[low | high].sum()))
     _AGREE_CACHE[key] = out; return out
 
+SELFCAL_DUMP = None   # 2026-11-12 (run_sample.py --dev-seq-self-cal-dump PREFIX): each read cell's per-site self-calibration inputs written to PREFIX_<cell>.csv.gz
 SELFCAL_OWN = False   # 2026-11-12 (run_sample.py --dev-seq-self-cal-own): the sixth form, own_level_added
 
 def own_level_added(sites, counts, sc, e_bin, bins=10):
@@ -565,6 +566,11 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                     _he6 = float(np.nanmean(expected_H_counts(_e4in.fillna(e[ok]).to_numpy(), _n)))
                     _ad6, _m6 = own_level_added(e[ok].index, counts, SELFCAL, _e4in.fillna(e[ok])); _sc["own_level"] = _m6
                     _sc["A_own_level"] = round(float((_H(x[ok]).mean() - _ad6) / _he6), 5)
+                    if SELFCAL_DUMP:   # 2026-11-12 (DEVELOPMENT, run_sample.py --dev-seq-self-cal-dump): every site's inputs to the self-calibration, for diagnosis
+                        _ix = e[ok].index; _sv = lambda k: pd.Series(SELFCAL[k]).reindex(_ix).fillna(0).astype("int64")
+                        pd.DataFrame(dict(reads=pd.Series(counts).reindex(_ix).fillna(0).astype("int64"), end_reads=_sv("end_n"), end_marked=_sv("end_m"),
+                                          all_marked=_sv("all_m"), level=x[ok], atlas_inner_mixed=_e4in.reindex(_ix), atlas_published_mixed=e[ok],
+                                          share=float(shares[c]))).to_csv(f"{SELFCAL_DUMP}_{c.replace(' ', '_')}.csv.gz")
                     if SELFCAL_OWN: he = _he6; _xr = None; _sc["applied"] = "the disorder the library's end error adds, at the library's own level at each site, end error measured at these sites by mixed atlas level, taken out; against the atlas's inner level mixed in this sample's shares (own_level_added)"
                     elif SELFCAL_AGREE and _sc.get("A_agree") is not None: he = _he5; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's two end-error rates measured where every found cell agrees (agree_rates, mix_forward)"
                     elif SELFCAL_MIX: he = _he4; _xr = None; _sc["applied"] = "every found cell's inner level mixed in this sample's shares, the library's measured end error flipping calls in proportion to each state's share (mix_forward)"
