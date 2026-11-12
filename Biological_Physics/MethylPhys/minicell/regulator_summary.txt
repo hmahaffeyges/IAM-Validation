@@ -1,0 +1,10 @@
+M (canon) = 20.94
+held error 1/(1+M) = 0.04558   (healthy lone-loss intercept, pooled 197 samples: 0.04526, 95 % 0.04375-0.04657; meter-corrected 0.046-0.048)
+holding energy ln M = 3.0417 kT   (canon E_hold, raw counter at each sample's own loose share: 3.084)
+phi = ln M / M = 0.1453   (canon phi: 0.1473)
+the floor (a wall M kicks high, Boltzmann): 1/(1+e^M) = 8.051e-10; the middle (a proportional hold of gain M): 1/(1+M) = 0.04558
+
+Proportional hold against thermal noise (kT = 1): steady <x^2> x K, by gain K and rate scale
+  K = 5.0: rate x5: 0.980; rate x1: 1.059; rate x0.2: 0.999   (equipartition: 1.000 at every rate)
+  K = 20.94: rate x5: 1.011; rate x1: 1.042; rate x0.2: 0.988   (equipartition: 1.000 at every rate)
+  K = 80.0: rate x5: 1.024; rate x1: 0.999; rate x0.2: 1.037   (equipartition: 1.000 at every rate)

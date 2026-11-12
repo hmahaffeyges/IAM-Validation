@@ -28477,6 +28477,28 @@
    "next_step": "check each dataset's platform and access before any reading; spend none until the design is written",
    "cost": "laptop",
    "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ],
+   "notes": "added 2026-11-12 from the author's droop-control answer (5 % droop = gain 20)",
+   "id": "PHY-083",
+   "title": "The healthy middle derived as a proportional regulator whose gain is the coin in thermal kicks",
+   "purpose": "Where IAM's Law is: the loop gain K = M (the coin in kicks at the encoding surface, local temperature). Borrowed: a proportional loop leaves error 1/(1+K); equipartition fixes a proportional hold's steady error by kT over the restoring energy, whatever the rates. The held error is the writing/erasing balance, independent of division (rule 25). Gives held error 1/(1+M), E_hold = ln M, phi = ln M / M, nothing fitted; the floor 1/(1+e^M) is the same M held by a wall instead of a loop",
+   "instrument_or_term": "minicell/regulator.py",
+   "sources": [
+    "GSE186458 (spent)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "planned",
+   "next_step": "sealed tests: (1) SAM energy vs supply: lowering SAM by a factor r moves the held error by about ln r of a kick if the gain is the coin's energy, by the factor r if it is the supply; (2) rate independence: interventions that change how fast the writer and eraser act, at an unchanged coin, leave the held error unchanged; (3) the open step: derive why the restoring energy equals one coin",
+   "cost": "laptop",
+   "impact": 5
   }
  ],
  "not_tests": {

@@ -4637,3 +4637,30 @@ the coin cannot carry the 6.7 % spread of held error between cell types (scatter
 lone-loss intercept (pooled 0.04526; 0.046-0.048 after the counter synthetic's correction), which the canon's value matches (0.04558).
 Open, flagged for the author (canon unchanged): whether the coin that pays at the mark (through SAM, in the nucleus) is lower than the
 cytosol's, or whether the match at 54 kJ/mol has another cause.
+
+### 2026-11-12 · PHY-083: the healthy middle as a proportional regulator (candidate derivation; predictions sealed before any test)
+**Where IAM's Law is:** the loop gain equals the coin in thermal kicks at the encoding surface, at its local temperature: K = M =
+dG_ATP/(R T_cell). The held error is the balance between writing (on SAM) and erasing (on oxygen and 2-oxoglutarate) at the held sites,
+independent of division (rule 25). **Borrowed:** a proportional loop with gain K leaves a steady error 1/(1 + K) (control; the author's
+grid governors run 5 % droop, a gain of 20); a deviation held by a proportional restoring stiffness against thermal noise keeps kT/2
+(equipartition), so its size is set by kT over the restoring energy whatever the rates. Together, with nothing fitted: held error
+1/(1 + M), holding energy ln M, delivery share phi = ln M / M. The "+1" is the disturbance in every proportional loop's 1 + K; phi is the
+diminishing return of proportional correction, not energy lost on the way; and the floor 1/(1 + e^M) is the same M held by a wall
+(Boltzmann) instead of a loop. Rate independence is why such a hold does not depend on division. `minicell/regulator.py`
+(`regulator_summary.txt`):
+```
+M (canon) = 20.94
+held error 1/(1+M) = 0.04558   (healthy lone-loss intercept, pooled 197 samples: 0.04526, 95 % 0.04375-0.04657; meter-corrected 0.046-0.048)
+holding energy ln M = 3.0417 kT   (canon E_hold, raw counter at each sample's own loose share: 3.084)
+phi = ln M / M = 0.1453   (canon phi: 0.1473)
+the floor (a wall M kicks high, Boltzmann): 1/(1+e^M) = 8.051e-10; the middle (a proportional hold of gain M): 1/(1+M) = 0.04558
+
+Proportional hold against thermal noise (kT = 1): steady <x^2> x K, by gain K and rate scale
+  K = 5.0: rate x5: 0.980; rate x1: 1.059; rate x0.2: 0.999   (equipartition: 1.000 at every rate)
+  K = 20.94: rate x5: 1.011; rate x1: 1.042; rate x0.2: 0.988   (equipartition: 1.000 at every rate)
+  K = 80.0: rate x5: 1.024; rate x1: 0.999; rate x0.2: 1.037   (equipartition: 1.000 at every rate)
+```
+**Open, the one step to derive:** why the restoring energy equals one coin. **Sealed before any test (scored by the agreed bar method):**
+(1) energy or supply: lowering SAM by a factor r moves the held error by about ln r of a kick if the gain is the coin's energy, by the
+factor r if it is the supply; (2) rate independence: an intervention that changes how fast the writer and eraser act, at an unchanged coin,
+leaves the held error unchanged.
