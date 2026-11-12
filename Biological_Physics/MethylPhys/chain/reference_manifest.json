@@ -192,6 +192,14 @@
   "terr_half_counts/terr_half_counts_v1.parquet": {
    "bytes": 19400699,
    "sha256": "5fe496614606d97629adb4f97ac1ffc760aa0f35ca03e0dbeccfe56bfe32e315"
+  },
+  "metaa_inner_reference/metaa_inner_reference_t3.parquet": {
+   "bytes": 5538290,
+   "sha256": "d07f46168f37facc7026a77434c397f7e4959906f685c8aac0d9299da64eba18"
+  },
+  "metaa_inner_reference/metaa_inner_reference_t3.json": {
+   "bytes": 447,
+   "sha256": "99437d38429270acc86fabbb06e2ee7dd4019100e2b2c10ed01b845afcbc2007"
   }
  }
 }
