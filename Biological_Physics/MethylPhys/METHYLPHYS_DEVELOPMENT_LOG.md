@@ -4769,3 +4769,9 @@ log (wgbs_install.log) and stops with exit 16 if still missing. The same 200,000
 
 ### 2026-11-12 · ATL-071: the CD4 laboratory's low Met-A is its unmarked side reading its own conversion floor (exploration)
 Recorded in `doors/DEV_ATLAS_V21_01.md`: donors' unmarked identity-site rate tracks their library floor (rho 0.88); the per-side shortfall is the unmarked side (A 0.925 -> 0.991); interior unmarked over interior floor 0.92 (CD4), 0.96 (B), 0.27 (CD8, open). Spent data; nothing sealed.
+
+### 2026-11-12 · PHY-084 / ATL-076: data reserved for the referee test and the cross-laboratory calibrator (nothing read)
+From the 2026-11-10 dataset lists, verified on GEO and SRA: GSE173787 (another laboratory; healthy sorted CD19 B 24, CD4 12, CD8 12, CD14
+monocytes 10; genome-wide bisulfite, paired, about 170 M pairs each) is reserved for PHY-084, the one sealed referee test of the baseline
+candidate; GSE186383 (FDA SEQC2 EpiQC; the same GIAB reference DNA read by several laboratories and chemistries) is reserved for ATL-076,
+the cross-laboratory calibrator for sequencing Met-A. Neither is read until its test is sealed.
