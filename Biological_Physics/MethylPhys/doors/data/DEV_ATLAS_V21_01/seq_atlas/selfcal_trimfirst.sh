@@ -10,7 +10,7 @@ gcloud storage ls "$O/" 2>/dev/null | sed 's#.*/##' > $W/done.txt
 python3 -c "import csv,sys; r=list(csv.DictReader(open('$SDIR/selfcal_synthetic_samples.csv')))[$ROW]; print('|'.join([r['gsm'],r['specimen'],r['pat'],r['cond'],r['plant']]))" > $W/row.txt
 IFS='|' read -r G SPEC PAT C PL < $W/row.txt; N=${G}_$C
 if grep -qx "$N.json" $W/done.txt; then log "already read: $N"; else
-  gcloud storage cp -q $ROOT/seq_atlas/atlas_trim/atlas57t1/array_sites.tgz $ROOT/seq_atlas/atlas_trim/atlas57t1/deconv_reference_v1.parquet $W/atl/ > /dev/null 2>&1 \
+  gcloud storage cp -q $ROOT/seq_atlas/fpos/atlas_trim/atlas57t1/array_sites.tgz $ROOT/seq_atlas/fpos/atlas_trim/atlas57t1/deconv_reference_v1.parquet $W/atl/ > /dev/null 2>&1 \
     && (cd $W/atl && tar xzf array_sites.tgz) || { log "rebuilt atlas not copied"; exit 1; }
   gcloud storage cp -q "$ROOT/$PAT" $W/sc/$G.pat.gz > /dev/null 2>&1 || { log "$G: pat not copied"; exit 1; }
   [ -n "$PL" ] || PL="0,0,0"
