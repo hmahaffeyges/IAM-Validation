@@ -50,3 +50,12 @@ copier lag assumed at 0.1 cycle. With that maintenance, wild type's 12.11 needs 
 cycle (e = 0.1 with writing 0.95 reaches 12.4 at the human held level 0.956). Turnover is a large, paid share of holding work (the law's
 'every write pays'). Limits: mouse stem cells, and the stem cells' own level at the most-held sites is not yet used (the human somatic level
 stands in), so this is a first calibration.
+
+**The mini cosmos, version 0 (design and skeleton, 2026-11-12)** (`minicell/minicosmos.py`, on the same core `simcore.py`; output `data/DEV_MINICELL_01/minicosmos_selftest.txt`). **Where IAM's Law is:** the
+cosmic horizon as the encoding surface at its Gibbons-Hawking temperature; the bit price k_B T_H ln2; the cumulative record E(a) (conjecture);
+the virial partition beta_m = Omega_m/2 and the ratio R(a). IAM enters only through the entropy functional; the Friedmann equation is not
+modified. The clock is the scale factor a, so every reading is drawn over cosmic time. The IAM switch off gives the established flat LambdaCDM
+background alone; on adds the ledger. Self-tests: the four-domains table's printed cosmos values recomputed (T_GH 2.65e-30 K, bit price
+2.53e-53 J, horizon bits 3.3e122 and 2.8e122, R = 2, 5.9, 19.8, 399 at z = 0, 0.3, 0.7, 2, mu(1) 0.864): all 11 pass. **Next (v1):** the
+record rate along a with the established growth factor, so E(a) arises instead of being put in; then the two rulers' H0 as a time series.
+

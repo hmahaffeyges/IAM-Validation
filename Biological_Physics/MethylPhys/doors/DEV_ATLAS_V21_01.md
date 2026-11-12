@@ -2138,3 +2138,12 @@ unmarked rate over its interior floor 0.92 (0.0030 / 0.00327), the B library's 0
 overcorrected Met-A as a whole; this reads the unmarked side alone. **Next:** the CD4 atlas donors' interior floors at the same floor sites
 (spent, GitHub), then a synthetic of an unmarked-side expectation set by each library's own interior floor, before any form is sealed.
 
+**The CD4 atlas donors' interior floors (exploration, 2026-11-12)** (`data/DEV_ATLAS_V21_01/seq_atlas/cd4_interior_floor.csv`; the three CD4 donors
+by `run_sample.py --build seq-floor-position --geo-pat`, GitHub explore runs, bundles in `lab_floor_fp/`). Unmarked side, past three
+calls: the donors' interior floors 0.00568, 0.00564, 0.00277 and their identity-site rates 1.10-1.33 times their floor (median 1.25; the
+identity sites carry slightly more than the floor sites); the JHU CD4 library's floor 0.00328, 0.58 of the donors' median, and its identity
+rate 0.92 of its floor. Carrying the donors' 1.25 onto the library's own floor predicts 0.0041 against the observed 0.0030: **the floor
+accounts for about two thirds of the unmarked gap** (per-side A 0.925 -> 0.949 of 0.991). The rest is open: the library reads below its own
+floor at identity sites while every donor reads above theirs. **Next:** a synthetic of an unmarked-side expectation set from each library's
+own interior floor (development, a switch), before any form is sealed; then the cross-laboratory calibrator (ATL-076).
+

@@ -1,0 +1,143 @@
+{
+ "flag": "DEVELOPMENT - not commissioned (floor by molecule position)",
+ "molecules": 396950533,
+ "by_distance_from_end": {
+  "0": {
+   "calls": 474297,
+   "opposite": 8249,
+   "rate": 0.017392
+  },
+  "1": {
+   "calls": 386995,
+   "opposite": 1167,
+   "rate": 0.003016
+  },
+  "2": {
+   "calls": 299699,
+   "opposite": 914,
+   "rate": 0.00305
+  },
+  "3": {
+   "calls": 220921,
+   "opposite": 649,
+   "rate": 0.002938
+  },
+  "4": {
+   "calls": 154262,
+   "opposite": 422,
+   "rate": 0.002736
+  },
+  "gap": {
+   "calls": 13519,
+   "opposite": 52,
+   "rate": 0.003846
+  },
+  "interior": {
+   "calls": 305514,
+   "opposite": 806,
+   "rate": 0.002638
+  }
+ },
+ "by_side": {
+  "unmarked": {
+   "0": {
+    "calls": 473974,
+    "opposite": 8242,
+    "rate": 0.0173891
+   },
+   "1": {
+    "calls": 386779,
+    "opposite": 1165,
+    "rate": 0.0030121
+   },
+   "2": {
+    "calls": 299573,
+    "opposite": 914,
+    "rate": 0.003051
+   },
+   "3": {
+    "calls": 220845,
+    "opposite": 646,
+    "rate": 0.0029251
+   },
+   "4": {
+    "calls": 154244,
+    "opposite": 422,
+    "rate": 0.0027359
+   },
+   "gap": {
+    "calls": 13513,
+    "opposite": 52,
+    "rate": 0.0038481
+   },
+   "interior": {
+    "calls": 305480,
+    "opposite": 806,
+    "rate": 0.0026385
+   }
+  },
+  "marked": {
+   "0": {
+    "calls": 323,
+    "opposite": 7,
+    "rate": 0.0216718
+   },
+   "1": {
+    "calls": 216,
+    "opposite": 2,
+    "rate": 0.0092593
+   },
+   "2": {
+    "calls": 126,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "3": {
+    "calls": 76,
+    "opposite": 3,
+    "rate": 0.0394737
+   },
+   "4": {
+    "calls": 18,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "gap": {
+    "calls": 6,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "interior": {
+    "calls": 34,
+    "opposite": 0,
+    "rate": 0.0
+   }
+  }
+ },
+ "site_matched": {
+  "unmarked": {
+   "end_over_inner": 6.8593,
+   "sites": 45162
+  },
+  "marked": {
+   "end_over_inner": 6.8811,
+   "sites": 20
+  },
+  "both": {
+   "end_over_inner": 6.8593,
+   "sites": 45182
+  }
+ },
+ "end_over_interior": 6.5925,
+ "sites": "floor",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-floor-position",
+  "--geo-pat",
+  "GSM5652281",
+  "--bundle",
+  "xout/GSM5652281_floorfp.json"
+ ],
+ "input": "GSM5652281_Blood-T-CD4-Z000000UM.pat.gz"
+}

@@ -1,0 +1,18 @@
+mini cosmos v0 self-tests (python3 Biological_Physics/MethylPhys/minicell/minicosmos.py)
+PASS T_GH = 2.65e-30 K at H0 67.16 (four domains, temperature)
+PASS bit price 2.53e-53 J at H0 67.16 (four domains, bit_price)
+PASS horizon bits about 3.3e122 at 67.16 (four domains, bits)
+PASS horizon bits about 2.8e122 at 72.26
+PASS R(z=0.0) = 2.0 (four domains, ratio_R)
+PASS R(z=0.3) = 5.9 (four domains, ratio_R)
+PASS R(z=0.7) = 19.8 (four domains, ratio_R)
+PASS R(z=2.0) = 399 (four domains, ratio_R)
+PASS E(1) = 1, E(1/2) inflection value e^-1
+PASS mu(1) = 1/(1 + beta_m) = 0.864 (four domains, reference)
+PASS IAM off: no IAM readings
+ALL PASS
+values: T_H 2.65e-30 K, bit price 2.53e-53 J, horizon bits 3.29e+122, mu(1) 0.864
+R(z=0.0) 2
+R(z=0.3) 5.931
+R(z=0.7) 19.79
+R(z=2.0) 399

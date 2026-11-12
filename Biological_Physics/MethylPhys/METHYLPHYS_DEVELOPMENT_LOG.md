@@ -4778,3 +4778,9 @@ the cross-laboratory calibrator for sequencing Met-A. Neither is read until its 
 
 ### 2026-11-12 · PHY-083: the mini cell carries the baseline candidate as a switch
 `minicell/minicell.py`: a `baseline_candidate` switch and a `SAM_cost` input (canon 2.0); the relation `driven_passage` added to `simcore.py`'s IAM relations; five new self-tests (candidate 0.04454 and 3.066 kT, a dearer SAM holds better, off reproduces measured phi); all 18 pass.
+
+### 2026-11-12 · ATL-071: the CD4 atlas donors' interior floors; the floor accounts for about two thirds of the CD4 laboratory's unmarked gap
+Recorded in `doors/DEV_ATLAS_V21_01.md` (`cd4_interior_floor.csv`): donors read 1.10-1.33 times their interior floor at identity sites, the CD4 library 0.92; its floor is 0.58 of theirs; per-side A 0.925 -> 0.949 when its unmarked rate is set from its own floor. Exploration on spent data.
+
+### 2026-11-12 · PHY-078: the mini cosmos, version 0 (design and skeleton on the simulators' core)
+Recorded in `doors/DEV_MINICELL_01.md`: `minicell/minicosmos.py`, time along the scale factor, IAM on/off (the Friedmann equation is never modified), 11 self-tests against the canon's four-domains cosmos values, all pass.
