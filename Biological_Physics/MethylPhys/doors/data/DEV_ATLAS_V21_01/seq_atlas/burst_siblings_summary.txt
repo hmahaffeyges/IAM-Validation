@@ -1,0 +1,15 @@
+Opposite calls on single-copy molecule lines at the identity sites: the share that differ from a many-copy line with the same start and length at
+exactly that one call (exploration, 2026-11-11; first 8 million lines of each of the three libraries)
+         lab     side                        kind  opposite_calls  share
+ GSE134664 B   marked        no many-copy sibling             291  0.715
+ GSE134664 B unmarked        no many-copy sibling              31  0.939
+ GSE134664 B   marked sibling of a many-copy line             116  0.285
+ GSE134664 B unmarked sibling of a many-copy line               2  0.061
+GSE98837 CD8   marked        no many-copy sibling             124  0.663
+GSE98837 CD8   marked sibling of a many-copy line              63  0.337
+GSE98837 CD8 unmarked        no many-copy sibling              69  0.945
+GSE98837 CD8 unmarked sibling of a many-copy line               4  0.055
+     JHU CD4   marked        no many-copy sibling             247  0.619
+     JHU CD4   marked sibling of a many-copy line             152  0.381
+     JHU CD4 unmarked        no many-copy sibling              18  0.947
+     JHU CD4 unmarked sibling of a many-copy line               1  0.053

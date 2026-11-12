@@ -2057,3 +2057,9 @@ single lines; 0.0139, 0.0000 and 0.0228 on lines of four to nine copies). Two re
 copying (a copy carrying an error no longer matches its siblings and becomes a line of its own; then agreement among copies removes the meter's
 error, redundant meters on one circuit), or the many-copy lines are a different kind of molecule. Next: whether single lines split off
 many-copy lines in the proportion a per-read error predicts.
+
+**Which side's error is made per read (exploration; `seq_atlas/burst_siblings_summary.txt`).** Of the opposite calls on single-copy lines,
+the share that are one-call siblings of a many-copy line (same start and length, differing only there): marked side 0.285, 0.337 and 0.381;
+unmarked side 0.061, 0.055 and 0.053. About a third of the marked side's false T calls are made per read after copying (agreement among copies
+removes them); the unmarked side's false C calls are in the molecule before copying, consistent with its end fault reaching three calls in
+(library preparation at the molecule ends, not the sequencer). Two faults at two stages, one per side.

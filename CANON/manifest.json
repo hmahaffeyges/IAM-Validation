@@ -28295,7 +28295,7 @@
    "cost": "laptop",
    "impact": 4,
    "depends_on": [],
-   "notes": "added 2026-11-11 from the evening's discussion | 2026-11-11: errors sit on molecule lines seen once (Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/burst_lines_summary.txt); per-read error or a different molecule kind, not yet separated",
+   "notes": "added 2026-11-11 from the evening's discussion | 2026-11-11: errors sit on molecule lines seen once (Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/burst_lines_summary.txt); per-read error or a different molecule kind, not yet separated | 2026-11-11: marked side: about a third of single-line errors are per-read siblings of duplicates; unmarked side: about 5 %, errors made before copying (Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/burst_siblings_summary.txt)",
    "id": "ATL-074",
    "legacy_ids": [],
    "sources_of_row": [
