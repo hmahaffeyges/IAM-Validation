@@ -10,8 +10,10 @@ The instrument still reads the sample. What it drops is the atlas, the purified 
 ## Why tonight changed the plan
 
 1. **The floor and the ceiling are already derived**, the same for every cell (thermal kicks against one ATP; one bit per site).
-2. **The middle is measured** (3.41 kT) and its derivation is open. The half-and-half picture needs one premise proved: that the
-   eraser's loss equals the writer's (r = 1).
+2. **The middle is measured** (3.084 kT; 3.41 on the earlier counter, superseded) and a candidate derivation exists (PHY-083): restoring paid
+   against thermal kicks, one SAM (about two ATP) per methyl transfer, gives 3.066 kT and held error 0.04454 from M and the SAM price, nothing
+   fitted. Its test: the methionine lever (DEV-METHIONINE-01), the SAM price pinned in-cell, then one sealed referee test on fresh data.
+   The half-and-half picture (r = 1) was not met (DEV-ERASE-01).
 3. **The cell's operating point follows its architecture.** Across 56 healthy cell types the held error tracks the share of the genome
    the cell holds loosely (rank +0.87, DEV-ARCH-01, exploration). A cell's architecture can be read from the cell's own pattern.
    If the line from architecture to held error is derived, every cell type's reference point comes from the sample itself.

@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4673 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4690 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -5496,6 +5496,28 @@ Totals: 4673 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 33 | ch:conclusion:L33 | prediction | `-0.136` | numeric: mu0 = mu(a=1) - 1 | PASS |
 | 34 | ch:conclusion:L34 | prediction | `4.25` | numeric: growth deficit today, per cent | PASS |
 | 36 | ch:conclusion:L36 | prediction | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
+
+## Part 8 - app:canon - `docs/book/appendices/app_A_canon.tex`
+
+| line | label | status | printed | checked how | result |
+|---:|---|---|---|---|---|
+| 35 | app:canon:SAM_cost_ATP:1 | measured | `2.12` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins at standard state | PASS |
+| 36 | app:canon:eps_healthy_pool:2 | measured | `0.04526` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: healthy lone-loss intercept, pooled | PASS |
+| 37 | app:canon:W_restore:3 | conjecture | `41.88` | numeric: work per methyl transfer, two coins | PASS |
+| 38 | app:canon:odds_restore:4 | conjecture | `21.45` | numeric: restore-to-loss odds of the driven passage | PASS |
+| 39 | app:canon:eps0_candidate:5 | conjecture | `0.04454` | numeric: the baseline candidate, held error | PASS |
+| 40 | app:canon:E_hold_candidate:6 | conjecture | `3.066` | numeric: the baseline candidate, holding energy | PASS |
+| 41 | app:canon:phi_candidate:7 | conjecture | `0.1464` | numeric: the baseline candidate, delivered share | PASS |
+| 42 | app:canon:eps0_candidate_SAM:8 | conjecture | `0.0418` | numeric: baseline candidate at the highest SAM price | PASS |
+| 42 | app:canon:eps0_candidate_SAM:9 | conjecture | `0.0427` | numeric: baseline candidate at the lowest SAM price | PASS |
+| 43 | app:canon:E_hold_candidate_SAM:10 | conjecture | `3.109` | numeric: holding energy at the lowest SAM price | PASS |
+| 43 | app:canon:E_hold_candidate_SAM:11 | conjecture | `3.132` | numeric: holding energy at the highest SAM price | PASS |
+| 46 | app:canon:eps_UHRF1_control:12 | measured | `0.03216` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 control held error | PASS |
+| 47 | app:canon:eps_UHRF1_knockout:13 | measured | `0.09407` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout held error | PASS |
+| 48 | app:canon:W_UHRF1_control:14 | interpretation | `59.2` | numeric: work that gives the UHRF1 control held error | PASS |
+| 49 | app:canon:W_UHRF1_knockout:15 | interpretation | `18.2` | numeric: work that gives the UHRF1 knockout held error | PASS |
+| 50 | app:canon:methionine_energy_route:16 | prediction | `1.057` | numeric: energy route, low end | PASS |
+| 50 | app:canon:methionine_energy_route:17 | prediction | `1.077` | numeric: energy route, high end | PASS |
 
 ## Part 8 - app:constants - `docs/book/appendices/app_A2_frozen_values.tex`
 

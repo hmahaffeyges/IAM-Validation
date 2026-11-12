@@ -645,7 +645,8 @@ Met-A; only a change in how well the cells hold their marks does.
 **The gauge.** Healthy is 1 (the middle mark, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against the atlas, confirmed by the A-score database), never a chosen band; the earlier 0.95 to 1.05 design tolerance is superseded (author), and the printed state still uses it until the measured widths replace it. The floor (derived: thermal kicks against about one
 ATP per site, M = {{canon:M_cell:.2f}}) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
 scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy middle is measured
-once and never fitted to the sample.
+once and never fitted to the sample (a candidate derives it from M and the SAM price, held error {{canon:eps0_candidate:.4f}};
+it is not used by the chain until its test passes).
 
 **The ceiling caveat (`_ceiling`).** H(β) peaks at β = 0.5. Met-A rises with loss of the pattern only while the methylated sites stay
 above 0.5. Every reading records the mean β of the cell's methylated sites and flags `past_entropy_ceiling` when it has fallen below 0.5,

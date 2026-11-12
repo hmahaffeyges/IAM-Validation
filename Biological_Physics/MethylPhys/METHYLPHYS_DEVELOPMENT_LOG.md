@@ -4734,3 +4734,13 @@ coins per transfer the candidate gives held error 0.0418-0.0428 and E_hold 3.109
 3.084: close on the holding energy, a little better than measured on the held error. Reading: a methyl transfer costs a little more than two
 coins at the source, and a little less than two reaches the hold; whether that gap is delivery or the textbook values' uncertainty is open.
 The two steps are not equal halves (70 % / 30 % at standard state), so a "half stored, half burned" reading is not supported by these numbers.
+
+### 2026-11-12 · PHY-083 in the canon: every new number and equation fed from CANON/iam_canon.json
+**Where IAM's Law is:** the coin M and the work per restore, now canon constants. CANON/iam_canon.json v1.2 adds 16 constants (the SAM price,
+the pooled healthy intercept, the candidate's W, odds, held error, holding energy and phi, their range over the SAM price, the strand
+couplings, the UHRF1 values and the methionine energy-route prediction) and two names (driven passage, SAM price), each computed by
+`canon_add_middle.py`-style code from the canon's inputs or read from its cited file; the baseline's definition names the candidate. The
+canon appendix carries them with 17 verify_book checks (app:canon:*). Carried into every source the generators read: the IAM-A chapter
+(from M and the SAM price), four_domains.json (reference, held share), foundation.json (baseline_candidate, anchored), physics_root.md
+(canon tokens), the Decoder text, the glossary (SAM corrected from one ATP to about two; driven passage added), the formula sheet's
+description, and the physics game plan. Rebuilt with build_all; whole book 4,690 checks, 0 failures.

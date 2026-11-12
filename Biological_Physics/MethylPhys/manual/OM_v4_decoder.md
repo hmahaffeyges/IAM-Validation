@@ -11,7 +11,9 @@ make the instruments possible.
    whose mark is lost entirely reads as a coin flip, one bit of disorder: the ceiling. Counting single DNA molecules in 56 healthy human
    cell types, the energy that holds a methyl mark is 3.08 k_B T, about 0.147 of the ATP the cell pays to keep each site (M = 20.94 k_B T).
    A healthy cell sits at a measured place between the floor and the ceiling, so a reading in bits means the same thing in any
-   laboratory, for any cell type, before anything has been trained.
+   laboratory, for any cell type, before anything has been trained. A candidate derives that place from M and the price of the methyl
+   donor (one SAM costs about 2.1 ATP): restoring paid against thermal kicks gives a held error of
+   0.0445 and 3.07 k_B T, against the measured 0.0453 (candidate, not yet tested).
 2. **Disorder is counted, and counting has exact statistics.** A sample's disorder at a site is the binary entropy of its measured level,
    and the disorder that heat and counting alone would give at that site's number of reads follows exactly. So every instrument sets a
    measured disorder beside an expectation derived from the physics and from the sample's own reads. Nothing is fitted to the sample.
@@ -1087,7 +1089,8 @@ Met-A; only a change in how well the cells hold their marks does.
 **The gauge.** Healthy is 1 (the middle mark, measured). Normal is each cell's measured healthy width on each instrument (the atlas's own donors read against the atlas, confirmed by the A-score database), never a chosen band; the earlier 0.95 to 1.05 design tolerance is superseded (author), and the printed state still uses it until the measured widths replace it. The floor (derived: thermal kicks against about one
 ATP per site, M = 20.94) sits millions of times below any reading; the ceiling (derived: one bit per site, every identity site
 scrambled) sits about three times above healthy. What the physics fixes is the scale and its two ends. The healthy middle is measured
-once and never fitted to the sample.
+once and never fitted to the sample (a candidate derives it from M and the SAM price, held error 0.0445;
+it is not used by the chain until its test passes).
 
 **The ceiling caveat (`_ceiling`).** H(β) peaks at β = 0.5. Met-A rises with loss of the pattern only while the methylated sites stay
 above 0.5. Every reading records the mean β of the cell's methylated sites and flags `past_entropy_ceiling` when it has fallen below 0.5,

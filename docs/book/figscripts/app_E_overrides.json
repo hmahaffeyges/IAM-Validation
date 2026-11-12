@@ -1338,6 +1338,11 @@
    "entry": 510,
    "sheet": "The earlier position form of IAM-A, retired 2026-10-17 to a development flag; $P$ as measured on the earlier counter.",
    "why": "2026-10-19: the sheet listed the retired form as current"
+  },
+  "ch:iama|eq:middle_passage": {
+   "entry": 509,
+   "why": "PHY-083, the candidate display (2026-11-12)",
+   "sheet": "The baseline's candidate: restore-to-loss odds of a constant push across one mark against thermal diffusion; with $W$ one SAM, about $2M\\,\\kB T$, it gives $\\varepsilon_0=0.04454$."
   }
  }
 }

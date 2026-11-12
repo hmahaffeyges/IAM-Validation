@@ -9,7 +9,9 @@ make the instruments possible.
    whose mark is lost entirely reads as a coin flip, one bit of disorder: the ceiling. Counting single DNA molecules in 56 healthy human
    cell types, the energy that holds a methyl mark is {{canon:E_hold_meth:.2f}} k_B T, about {{canon:phi:.3f}} of the ATP the cell pays to keep each site (M = {{canon:M_cell:.2f}} k_B T).
    A healthy cell sits at a measured place between the floor and the ceiling, so a reading in bits means the same thing in any
-   laboratory, for any cell type, before anything has been trained.
+   laboratory, for any cell type, before anything has been trained. A candidate derives that place from M and the price of the methyl
+   donor (one SAM costs about {{canon:SAM_cost_ATP:.1f}} ATP): restoring paid against thermal kicks gives a held error of
+   {{canon:eps0_candidate:.4f}} and {{canon:E_hold_candidate:.2f}} k_B T, against the measured {{canon:eps_healthy_pool:.4f}} (candidate, not yet tested).
 2. **Disorder is counted, and counting has exact statistics.** A sample's disorder at a site is the binary entropy of its measured level,
    and the disorder that heat and counting alone would give at that site's number of reads follows exactly. So every instrument sets a
    measured disorder beside an expectation derived from the physics and from the sample's own reads. Nothing is fitted to the sample.

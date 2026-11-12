@@ -44299,5 +44299,116 @@ def check_mc_kappa():
     lhs = 4 * UU * MM / H**2; rhs = rh / ru; ok = sp.simplify(lhs - rhs) == 0
     return locals()
 
+
+# ---- The canon appendix (appendices/app_A_canon): the PHY-083 constants, each recomputed from the canon's inputs or its cited file ----
+
+def _cn_M():
+    return dG_ATP / (R_gas * T_cell)
+
+def _cn_sam():
+    return [float(x) for x in re.findall(r'ratio ([\d.]+)', load_data('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt'))]
+
+@check(label='app:canon:SAM_cost_ATP:1', chapter='app:canon', part=8, title='one SAM in ATP coins at standard state', file='appendices/app_A_canon', line=35, status='measured', kind='file', printed='2.12', tol=0.0, source='Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt')
+def check_cn_1():
+    'one SAM in ATP coins at standard state. Canon appendix printed 2.12.'
+    value = _mc_num('Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt', r'standard state: one SAM = ([\d.]+)')
+    return locals()
+
+@check(label='app:canon:eps_healthy_pool:2', chapter='app:canon', part=8, title='healthy lone-loss intercept, pooled', file='appendices/app_A_canon', line=36, status='measured', kind='file', printed='0.04526', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt')
+def check_cn_2():
+    'healthy lone-loss intercept, pooled. Canon appendix printed 0.04526.'
+    value = _mc_num('Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt', r'both, non-neurons\s+197\s+([\d.]+)')
+    return locals()
+
+@check(label='app:canon:W_restore:3', chapter='app:canon', part=8, title='work per methyl transfer, two coins', file='appendices/app_A_canon', line=37, status='conjecture', kind='num', printed='41.88', tol=0.0)
+def check_cn_3():
+    'work per methyl transfer, two coins. Canon appendix printed 41.88.'
+    value = 2 * _cn_M()
+    return locals()
+
+@check(label='app:canon:odds_restore:4', chapter='app:canon', part=8, title='restore-to-loss odds of the driven passage', file='appendices/app_A_canon', line=38, status='conjecture', kind='num', printed='21.45', tol=0.0)
+def check_cn_4():
+    'restore-to-loss odds of the driven passage. Canon appendix printed 21.45.'
+    value = _mc_odds(2 * _cn_M())
+    return locals()
+
+@check(label='app:canon:eps0_candidate:5', chapter='app:canon', part=8, title='the baseline candidate, held error', file='appendices/app_A_canon', line=39, status='conjecture', kind='num', printed='0.04454', tol=0.0)
+def check_cn_5():
+    'the baseline candidate, held error. Canon appendix printed 0.04454.'
+    value = 1 / (1 + _mc_odds(2 * _cn_M()))
+    return locals()
+
+@check(label='app:canon:E_hold_candidate:6', chapter='app:canon', part=8, title='the baseline candidate, holding energy', file='appendices/app_A_canon', line=40, status='conjecture', kind='num', printed='3.066', tol=0.0)
+def check_cn_6():
+    'the baseline candidate, holding energy. Canon appendix printed 3.066.'
+    value = math.log(_mc_odds(2 * _cn_M()))
+    return locals()
+
+@check(label='app:canon:phi_candidate:7', chapter='app:canon', part=8, title='the baseline candidate, delivered share', file='appendices/app_A_canon', line=41, status='conjecture', kind='num', printed='0.1464', tol=0.0)
+def check_cn_7():
+    'the baseline candidate, delivered share. Canon appendix printed 0.1464.'
+    value = math.log(_mc_odds(2 * _cn_M())) / _cn_M()
+    return locals()
+
+@check(label='app:canon:eps0_candidate_SAM:8', chapter='app:canon', part=8, title='baseline candidate at the highest SAM price', file='appendices/app_A_canon', line=42, status='conjecture', kind='num', printed='0.0418', tol=0.0)
+def check_cn_8():
+    'baseline candidate at the highest SAM price. Canon appendix printed 0.0418.'
+    value = 1 / (1 + _mc_odds(max(_cn_sam()) * _cn_M()))
+    return locals()
+
+@check(label='app:canon:eps0_candidate_SAM:9', chapter='app:canon', part=8, title='baseline candidate at the lowest SAM price', file='appendices/app_A_canon', line=42, status='conjecture', kind='num', printed='0.0427', tol=0.0)
+def check_cn_9():
+    'baseline candidate at the lowest SAM price. Canon appendix printed 0.0427.'
+    value = 1 / (1 + _mc_odds(min(_cn_sam()) * _cn_M()))
+    return locals()
+
+@check(label='app:canon:E_hold_candidate_SAM:10', chapter='app:canon', part=8, title='holding energy at the lowest SAM price', file='appendices/app_A_canon', line=43, status='conjecture', kind='num', printed='3.109', tol=0.0)
+def check_cn_10():
+    'holding energy at the lowest SAM price. Canon appendix printed 3.109.'
+    value = math.log(_mc_odds(min(_cn_sam()) * _cn_M()))
+    return locals()
+
+@check(label='app:canon:E_hold_candidate_SAM:11', chapter='app:canon', part=8, title='holding energy at the highest SAM price', file='appendices/app_A_canon', line=43, status='conjecture', kind='num', printed='3.132', tol=0.0)
+def check_cn_11():
+    'holding energy at the highest SAM price. Canon appendix printed 3.132.'
+    value = math.log(_mc_odds(max(_cn_sam()) * _cn_M()))
+    return locals()
+
+@check(label='app:canon:eps_UHRF1_control:12', chapter='app:canon', part=8, title='UHRF1 control held error', file='appendices/app_A_canon', line=46, status='measured', kind='file', printed='0.03216', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
+def check_cn_12():
+    'UHRF1 control held error. Canon appendix printed 0.03216.'
+    value = _mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^control.*?held error ([\d.]+)')
+    return locals()
+
+@check(label='app:canon:eps_UHRF1_knockout:13', chapter='app:canon', part=8, title='UHRF1 knockout held error', file='appendices/app_A_canon', line=47, status='measured', kind='file', printed='0.09407', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt')
+def check_cn_13():
+    'UHRF1 knockout held error. Canon appendix printed 0.09407.'
+    value = _mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^UHRF1 knockout\s+held error ([\d.]+)')
+    return locals()
+
+@check(label='app:canon:W_UHRF1_control:14', chapter='app:canon', part=8, title='work that gives the UHRF1 control held error', file='appendices/app_A_canon', line=48, status='interpretation', kind='num', printed='59.2', tol=0.001)
+def check_cn_14():
+    'work that gives the UHRF1 control held error. Canon appendix printed 59.2.'
+    value = _mc_w(_mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^control.*?held error ([\d.]+)'))
+    return locals()
+
+@check(label='app:canon:W_UHRF1_knockout:15', chapter='app:canon', part=8, title='work that gives the UHRF1 knockout held error', file='appendices/app_A_canon', line=49, status='interpretation', kind='num', printed='18.2', tol=0.003)
+def check_cn_15():
+    'work that gives the UHRF1 knockout held error. Canon appendix printed 18.2.'
+    value = _mc_w(_mc_num('Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt', r'^UHRF1 knockout\s+held error ([\d.]+)'))
+    return locals()
+
+@check(label='app:canon:methionine_energy_route:16', chapter='app:canon', part=8, title='energy route, low end', file='appendices/app_A_canon', line=50, status='prediction', kind='num', printed='1.057', tol=0.0)
+def check_cn_16():
+    'energy route, low end. Canon appendix printed 1.057.'
+    M_ = _cn_M(); e0 = 1 / (1 + _mc_odds(2 * M_)); value = 1 / (1 + _mc_odds(2 * (M_ - math.log(1 / 0.30)))) / e0
+    return locals()
+
+@check(label='app:canon:methionine_energy_route:17', chapter='app:canon', part=8, title='energy route, high end', file='appendices/app_A_canon', line=50, status='prediction', kind='num', printed='1.077', tol=0.0)
+def check_cn_17():
+    'energy route, high end. Canon appendix printed 1.077.'
+    M_ = _cn_M(); e0 = 1 / (1 + _mc_odds(2 * M_)); value = 1 / (1 + _mc_odds(2 * (M_ - math.log(1 / 0.20)))) / e0
+    return locals()
+
 if __name__ == "__main__":
     sys.exit(main())

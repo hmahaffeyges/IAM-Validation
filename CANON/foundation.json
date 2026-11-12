@@ -103,6 +103,15 @@
    "layer": "core"
   },
   {
+   "id": "baseline_candidate",
+   "statement": "A CANDIDATE for the middle mark from M and the SAM price (PHY-083): the floor is a site behind a wall M kicks high (1/(1+e^M), the potential half); the baseline is a site held by restoring paid continuously against thermal kicks, a driven first passage whose restore-to-loss odds are (w/2)/(1-(1-e^-w)/w), w = W/kT (the kinetic half). With W = SAM_cost_ATP x M kT (making one SAM spends ATP -> AMP + 2 Pi) it gives eps0_candidate and E_hold_candidate, against eps_healthy_pool and E_hold_meth. The odds depend on w alone, not on rates, so the balance does not depend on division. The factor two was looked for after one coin gave odds of about M/2; the middle stays MEASURED until the candidate's test passes.",
+   "status": "CANDIDATE (conjecture; its test not yet passed)",
+   "derived_in": "docs/book/part6/p6_08_iama.tex",
+   "anchor": "The floor and the ceiling are derived; the healthy reference is measured. A candidate gives it from $M$ and the price of the methyl donor",
+   "commit": "pending",
+   "layer": "core"
+  },
+  {
    "id": "three_energies",
    "statement": "eps_min = 1/(1+e^M) from M and temperature ALONE - the error one ATP of holding energy still allows against thermal kicks, NOT a copying error, and the same whether the cell divides or not (the floor, a calculation); eps_0 = 1/(1+e^{phi M}) with phi M = 3.08 kT measured across 56 healthy cell types (the middle, measured, phi = 0.147 of one ATP); H_min = H(eps_min); H_ref = H(eps_0). Ceiling: no energy holding the site, error 1/2, one bit per site, set by physics.",
    "status": "DERIVED from the holding energies; only eps_0's energy is measured",
