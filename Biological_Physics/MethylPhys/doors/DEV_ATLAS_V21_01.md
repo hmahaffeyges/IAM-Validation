@@ -2113,3 +2113,16 @@ recovered to machine precision), after a first Deconvolver pass finds the cells 
 (`seq_atlas/selfcal_synthetic8.sh`, `selfcal_synthetic8_score.py`); beside the sealed bars, each difference is reported as a pull against
 its own error (the bar method). Canary first: row 8 (CD8, both sides planted). **Where IAM's Law is:** the instrument, not the law.
 
+**The self-calibration synthetic, eighth form, read: not met** (`data/DEV_ATLAS_V21_01/seq_atlas/selfcal_synthetic8_summary.txt`; all 15 rows, the one command,
+run_sample.py --dev-seq-end-cal). **Where IAM's Law is:** the instrument, not the law (each library's own end error taken out of every level
+before the Deconvolver). Bar 1 (planted end errors absorbed, |dA| <= 0.01): 2 of 9, not met. Bar 2: 0.0916, informative. Bar 3 (a real
+change kept): 3 of 3, met. Bar 4 (laboratories read alike): 0.299 with against 0.1285 without, not met. **Rescored by the agreed bar
+method (exploration; the verdict stands):** as pulls against each reading's own error, the CD4 library is fixed (-1.0, 0.0, +1.1; the
+seventh form -4.1, -2.7, -5.5); B cells -0.9, -2.6, -0.3; CD8 -2.3, +2.8, -3.6 (unchanged from the seventh form): 5 of 9 within k = 2
+against 2 of 9. **The 18 real libraries** (`selfcal8_real_summary.txt`): every laboratory's median moves toward 1 (CD4 0.863 to 0.887,
+CD8 0.930 to 1.003, B 0.880 to 0.912; median |A - 1| 0.118 to 0.092), but the CD8 laboratory's spread grows (sd 0.090 to 0.146), carried
+by one library (GSM2616075, 0.777 to 0.655) and its effector libraries rising past 1; the three laboratories still do not read alike.
+**Reading:** the correction works where the library is read as one cell type in a few identities (CD4) and fails in the CD8 library, the
+one whose cells the Deconvolver splits across naive, effector and memory identities. **Next:** the CD8 library's per-identity shares
+before and after the correction, on these bundles (no machines).
+

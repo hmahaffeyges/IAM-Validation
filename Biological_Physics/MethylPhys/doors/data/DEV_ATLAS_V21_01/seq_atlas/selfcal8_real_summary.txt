@@ -1,0 +1,28 @@
+Eighth self-calibration form on the 18 spent sorted libraries (selfcal8_real.sh; the one command with --dev-seq-self-cal --dev-seq-self-cal-reach 3 --dev-seq-end-cal)
+       gsm           cell_found  share  A_end_cal  A_without     se
+GSM2103002          cd4 t cells  0.365     0.8517     0.8528 0.0099
+GSM2103003          cd4 t cells  0.384     0.8511     0.8676 0.0114
+GSM2103004            monocytes  0.567     0.9069     0.8179 0.0102
+GSM2103005 t central memory cd4  0.376     0.8836     0.8594 0.0100
+GSM2103006          cd4 t cells  0.400     0.8972     0.8815 0.0105
+GSM2103007          cd4 t cells  0.382     0.8911     0.8819 0.0097
+GSM2616068    naive cd8 t cells  0.573     0.9899     0.9303 0.0147
+GSM2616069  t effector cell cd8  0.351     1.0304     0.9258 0.0122
+GSM2616070  t effector cell cd8  0.208     1.0770     0.9795 0.0128
+GSM2616071    naive cd8 t cells  0.237     0.9394     0.9537 0.0134
+GSM2616072    naive cd8 t cells  0.452     0.7977     0.7593 0.0141
+GSM2616073  t effector cell cd8  0.376     1.0531     0.9296 0.0134
+GSM2616074          cd8 t cells  0.283     1.0167     1.0044 0.0149
+GSM2616075          cd8 t cells  0.322     0.6553     0.7772 0.0147
+GSM3963003              b cells  0.887     0.9543     0.9058 0.0160
+GSM3963004              b cells  0.849     0.8496     0.8452 0.0151
+GSM3963005       memory b cells  0.650     0.9155     0.9852 0.0150
+GSM3963006       memory b cells  0.570     0.9092     0.8542 0.0144
+
+By laboratory:
+             n  median_with  median_without  sd_with  sd_without
+gsm                                                             
+lab 1 (CD4)  6        0.887           0.863    0.024       0.024
+lab 2 (CD8)  8        1.003           0.930    0.146       0.090
+lab 3 (B)    4        0.912           0.880    0.043       0.064
+median |A - 1|: with 0.092, without 0.118
