@@ -1,0 +1,18 @@
+GSM2103002 c0: cd4 t cells share 0.3563 A 0.8563 A_without 0.95411
+GSM2103002 c1: cd4 t cells share 0.3406 A 0.79002 A_without 1.18607
+GSM2103002 c2: cd4 t cells share 0.3454 A 0.82642 A_without 1.01171
+GSM2103002 c3: cd4 t cells share 0.2851 A 0.75563 A_without 1.36854
+GSM2103002 c4: cd4 t cells share 0.3674 A 1.10934 A_without 1.16072
+GSM2616075 c0: cd8 t cells share 0.3192 A 0.607 A_without 0.79818
+GSM2616075 c1: cd8 t cells share 0.3312 A 0.62612 A_without 1.17293
+GSM2616075 c2: cd8 t cells share 0.3065 A 0.6185 A_without 0.91865
+GSM2616075 c3: cd8 t cells share 0.3082 A 0.56864 A_without 1.32724
+GSM2616075 c4: cd8 t cells share 0.3377 A 0.8269 A_without 1.00739
+GSM3963003 c0: b cells share 0.8891 A 0.84693 A_without 1.29068
+GSM3963003 c1: b cells share 0.8808 A 0.8515 A_without 1.61561
+GSM3963003 c2: b cells share 0.8762 A 0.78923 A_without 1.3168
+GSM3963003 c3: b cells share 0.8443 A 0.8045 A_without 1.73144
+GSM3963003 c4: b cells share 0.8883 A 1.02981 A_without 1.47347
+bar 1 (end errors absorbed, |dA| <= 0.01 with the calibration): 1 of 9 -> not met
+bar 2 (plant visible without the calibration, median |dA| >= 0.02): 0.3249 -> informative
+bar 3 (a uniform change kept, >= 80 %): 3 of 3 -> met

@@ -2011,3 +2011,13 @@ the three libraries carry the same, about 1.8 reads per molecule line. run_sampl
 read on the same rows as the sixth form (`selfcal_dump.sh`), for the offline model.
 **Range of the data:** in the real libraries, marked-side end calls read opposite 4.4 to 11.5 % and inner calls 3.7 to 6.0 % (the first
 synthetic's unplanted rows); the plants add 3 to 8 % at the ends, as before.
+
+**The self-calibration synthetic, sixth form, read: not met** (`selfcal_synthetic6_summary.txt`, the sealed scorer unchanged). Bar 1, end errors absorbed: 1 of 9.
+Bar 2, the plant visible without the calibration: median 0.3249. Bar 3, a uniform change kept: 3 of 3. It removes the marked-side plants
+(CD8 +0.019, B cells +0.005, against +0.375 and +0.325 without) and takes out too much elsewhere (B cells, unmarked plant, -0.058).
+**Where the error sits along the molecule (exploration, after the score; the three spent merged molecule files, molecules of exactly 12 calls,
+each call judged by the other 11).** Marked side: a fault at the last call only, flat from the second (B cells 0.229 against 0.039 inside; CD8
+0.059 against 0.040; CD4 0.100 against 0.040). Unmarked side: it reaches two to three calls in (B cells 0.041, 0.016, 0.011, then 0.007). Inside
+the molecule the three laboratories read alike (about 0.040 marked, 0.007 to 0.010 unmarked). Every form so far measured the end as the last
+call and the inner level as every other call, so on the unmarked side the inner reference carried end error. Next: each library's own reach per
+side from its own profile, the reference taken beyond it, offline first on the per-site dumps (`selfcal_dump.sh`).
