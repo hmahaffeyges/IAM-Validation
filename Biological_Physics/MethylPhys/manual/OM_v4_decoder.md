@@ -3365,6 +3365,13 @@ With --dev-seq-self-cal, Met-A's expectation is mix_forward's: every found cell'
 
 With --dev-seq-self-cal, Met-A is the observed disorder at the cell's identity sites minus the disorder this library's measured molecule-end error adds (the counting expectation at the atlas's inner level moved by the library's end error, minus the same expectation without it), read against the atlas's inner level. An error flips whole reads at a few sites, so it is taken out as disorder, in expectation, not as a shift of each site's level. Every read records A_without, A_expectation_side, A_data_side and A_disorder_side. Development.
 
+### run_sample.py --dev-plant-ends
+
+TESTS ONLY (the self-calibration synthetics). On a .pat input, known errors are planted in a copy of the file (stage_seq_values.plant_ends):
+END_CT and END_TC at the outermost CpG call at each end of every molecule, ALL_CT at every call. The plant is applied first, before
+--dev-seq-trim-ends, so a planted end error sits on the library's real outermost call and a trim of that call removes it (2026-11-12). The
+report carries a PLANTED banner.
+
 ### run_sample.py --dev-seq-self-cal-reach
 
 With --dev-seq-self-cal (the seventh form, development), Met-A is read on the library's calls past each side's reach along the molecule: at sites

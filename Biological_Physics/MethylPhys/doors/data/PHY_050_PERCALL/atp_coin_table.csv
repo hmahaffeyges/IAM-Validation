@@ -1,0 +1,11 @@
+tissue,dG_kJ,M,held_error_1_over_1pM,source
+erythrocytes (rat),-57.11,22.147,0.0432,"Frontiers Physiol 2021, 10.3389/fphys.2021.658997, Table 1 (free Mg corrected)"
+brain (rat),-58.91,22.845,0.04194,same table
+liver (rat),-58.7,22.764,0.04208,same table
+skeletal muscle (rat),-57.28,22.212,0.04308,same table
+"brain (human, 31P-MRS model)",-62.1,24.082,0.03987,"Iotti et al. 2005, BBA, S0005272805000095, Table (PCr 5 mM, pH 7.0, pMg 3.8)"
+liver (range quoted),-53.5,20.747,0.04598,"range low end, as quoted in the literature (-53.5 to -59)"
+liver (range quoted),-59.0,22.879,0.04188,range high end
+heart (range quoted),-59.5,23.073,0.04154,range low end (-59.5 to -61.7)
+heart (range quoted),-61.7,23.927,0.04012,range high end
+canon (iam_canon.json dG_ATP),-54.0,20.941,0.04558,CANON

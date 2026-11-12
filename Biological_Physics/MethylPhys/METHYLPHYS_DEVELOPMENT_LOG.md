@@ -4627,3 +4627,13 @@ Reading: test 3 (the lone-loss rate) agrees with 1/(1+M) within about half a sta
 is the quantity the law's held error is set against.
 ```
 `doors/data/PHY_050_PERCALL/crew_vs_held.py` (`crew_vs_held_summary.txt`): Crew and copying against held error (exploration). 29 cell types: restore crew (DNMT1 + UHRF1 RNA) rho -0.43 (p 0.019); proliferation (MKI67) rho -0.35 (p 0.066). With a census lifespan, n=15: lifespan rho +0.38 (p 0.160); crew plus lifespan, leave-one-out rho +0.17. More restore crew, lower held error; crew is made mostly in copying cells, so crew and copying are partly one signal.
+
+### 2026-11-12 · PHY-079: the coin measured tissue by tissue (exploration)
+**Where IAM's Law is:** the coin M = dG_ATP/(R T), the drive in thermal kicks. `doors/data/PHY_050_PERCALL/atp_coin_table.csv` holds published
+in-vivo ATP free energies, each converted to M by code at 37 C, with its source. Two readings. (1) The coin is held almost constant
+between tissues: rat red cells, brain, liver and muscle read -57.1 to -58.9 kJ/mol (mean -58.0, 1.6 % between tissues; M 22.1-22.8), so
+the coin cannot carry the 6.7 % spread of held error between cell types (scatter_split.py); that spread sits in the delivery share phi.
+(2) The measured cytosolic coin is above the canon's 54 kJ/mol (M 22.5 against 20.94): with it, 1/(1+M) = 0.0425, below the healthy
+lone-loss intercept (pooled 0.04526; 0.046-0.048 after the counter synthetic's correction), which the canon's value matches (0.04558).
+Open, flagged for the author (canon unchanged): whether the coin that pays at the mark (through SAM, in the nucleus) is lower than the
+cytosol's, or whether the match at 54 kJ/mol has another cause.

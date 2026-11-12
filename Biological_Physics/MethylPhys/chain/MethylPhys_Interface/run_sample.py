@@ -802,19 +802,19 @@ def main():
         a.dev_seq_values = 1; print("The Deconvolver runs first: values made from the sequencing file (at least 1 call a site)", flush=True)
     a._seqv = None; a._thin = None; a._seqc = None
     a._trim = None
-    if getattr(a, "dev_seq_trim_ends", None):   # 2026-11-09 (development): the molecules' outer calls left out (the floor by molecule position)
-        if not a.pat: ap.error("--dev-seq-trim-ends needs --pat")
-        import stage_seq_values as _SVtr, tempfile as _tftr
-        _tp2, a._trim = _SVtr.trim_pat(a.pat, a.dev_seq_trim_ends, os.path.join(_tftr.mkdtemp(), "trimmed_" + os.path.basename(a.pat).replace(".gz", "") + ".gz"))
-        a._trim["source"] = os.path.basename(a.pat); a._trim["flag"] = "DEVELOPMENT (DEV-ATLAS-V21-01)"; a.pat = _tp2
-        print(f"The molecules' {a.dev_seq_trim_ends} outer calls at each end left out: {a._trim['calls_kept']} of {a._trim['calls_in']} calls kept", flush=True)
-    if getattr(a, "dev_plant_ends", None):   # 2026-11-10 TESTS ONLY (the self-calibration synthetic): known end errors and a uniform change planted
+    if getattr(a, "dev_plant_ends", None):   # 2026-11-10 TESTS ONLY (the self-calibration synthetic): known end errors and a uniform change planted; 2026-11-12: applied before any trim, so a planted end error sits on the library's real outermost call
         if not a.pat: ap.error("--dev-plant-ends needs --pat")
         import stage_seq_values as _SVpe, tempfile as _tfpe
         _ect, _etc, _act = [float(x) for x in a.dev_plant_ends.split(",")]
         a.pat, _pe = _SVpe.plant_ends(a.pat, _ect, _etc, _act, os.path.join(_tfpe.mkdtemp(), "planted_" + os.path.basename(a.pat).replace(".gz", "") + ".gz"))
         a.banner = (a.banner + " | " if a.banner else "") + f"PLANTED (constructed for a test): end C->T {_ect:g}, end T->C {_etc:g}, every call C->T {_act:g}"
         print(a.banner, flush=True)
+    if getattr(a, "dev_seq_trim_ends", None):   # 2026-11-09 (development): the molecules' outer calls left out (the floor by molecule position)
+        if not a.pat: ap.error("--dev-seq-trim-ends needs --pat")
+        import stage_seq_values as _SVtr, tempfile as _tftr
+        _tp2, a._trim = _SVtr.trim_pat(a.pat, a.dev_seq_trim_ends, os.path.join(_tftr.mkdtemp(), "trimmed_" + os.path.basename(a.pat).replace(".gz", "") + ".gz"))
+        a._trim["source"] = os.path.basename(a.pat); a._trim["flag"] = "DEVELOPMENT (DEV-ATLAS-V21-01)"; a.pat = _tp2
+        print(f"The molecules' {a.dev_seq_trim_ends} outer calls at each end left out: {a._trim['calls_kept']} of {a._trim['calls_in']} calls kept", flush=True)
     if a.dev_thin is not None:   # 2026-10-22 (step 40): a deep sample thinned by the chain itself
         if not a.pat: ap.error("--dev-thin needs --pat (or --geo-pat)")
         import stage_seq_values as _SVt, tempfile as _tft
