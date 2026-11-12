@@ -2038,3 +2038,15 @@ or a meter error not at the ends); unmarked side, the three libraries 0.0030 to 
 interior difference, not an end fault). **The seventh form, from this:** the same per-side reach for the sample and the atlas (the atlas rebuilt
 from its donors counted past the same reach), the interior difference left to the agreement-site calibration, each library's reach from its
 own profile; one library read first as a canary.
+
+**The self-calibration synthetic, seventh form (sealed before reading; development).** The author's distance-relay zones made into a reading: the library read
+on its calls past each side's reach (marked side past one call at each molecule end, unmarked side past three), against the IAM Sequencing
+Atlas's level past the same reach (`metaa_inner_reference_t3`, built from its 156 donors counted with three calls out, `inner_reach_build.sh`,
+exactly as the one-call reference was), every found cell mixed in the sample's shares; nothing modeled or corrected
+(run_sample.py --dev-seq-self-cal-reach 3; `stage_metaa_atlas.reach_read`). The same 15 rows and three bars as the first form
+(`selfcal_synthetic7.sh`, `selfcal_synthetic7_score.py`), and a fourth stated now: the spread of the three unplanted libraries' Met-A with the
+reach at most half their spread without it. Stated before reading: the planted errors sit on the last call, inside the reach, so bar 1 tests
+only that the cut removes them; bars 3 and 4 are the informative ones. Order: the atlas donors counted past three calls (one donor first as a
+canary), the reference built and committed, then one row as a canary, then the rest.
+**Where IAM's Law is:** not in this; it is the instrument (the meter's terminals located and cut out on both sides of the comparison), so that
+Met-A on sequencing reads the record's own disorder against healthy, which is where the law is tested.

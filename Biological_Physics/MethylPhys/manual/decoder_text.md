@@ -2107,6 +2107,15 @@ With --dev-seq-self-cal, Met-A's expectation is mix_forward's: every found cell'
 
 With --dev-seq-self-cal, Met-A is the observed disorder at the cell's identity sites minus the disorder this library's measured molecule-end error adds (the counting expectation at the atlas's inner level moved by the library's end error, minus the same expectation without it), read against the atlas's inner level. An error flips whole reads at a few sites, so it is taken out as disorder, in expectation, not as a shift of each site's level. Every read records A_without, A_expectation_side, A_data_side and A_disorder_side. Development.
 
+### run_sample.py --dev-seq-self-cal-reach
+
+With --dev-seq-self-cal (the seventh form, development), Met-A is read on the library's calls past each side's reach along the molecule: at sites
+the read cell holds marked, past the last call at each end; at sites it holds unmarked, past the last N calls. The healthy level is the IAM
+Sequencing Atlas's own level past the same reach (its donors counted with the same trims), every found cell mixed in the sample's shares. Nothing
+is modeled or corrected: both sides of the comparison pass through the same cut, because the atlas's donors carry the same molecule-end fault as
+the samples. In grid terms: a distance relay's zone reach, set per side from the library's own fault profile, with the reading taken only beyond
+it. Every read records A_reach beside the other forms. Development.
+
 ### run_sample.py --dev-seq-self-cal-data
 
 With --dev-seq-self-cal, Met-A is read on the library's own calls with its measured molecule-end error taken out (each site moved back by the library's end share there times its measured excess on that site's side), against the IAM Sequencing Atlas's inner level, which holds no end calls. Added after the first synthetic: a ratio of disorders moves unequally when the same error enters a library that departs from 1 and its expectation. Every read records A_without, A_expectation_side and A_data_side. Development.
@@ -2221,6 +2230,13 @@ The cells among a sample's shares whose column holds no value at any site of the
 ### stage_metaa_atlas.py::_cover_den
 
 The share a site's cover is measured against (MIX_COVER, 0.99): the sample's shares less those of cells with no column at any site (`absent_cells`). Gaps inside a column still count against the cover. Added when every sequenced library with megakaryocytes found at 1 % or more lost every site of every reading (27 of 49 trim-reading bundles). `read_whole` names the cells set aside and their share (`absent_from_ruler`); the per-cell row of such a cell says it is not a cell of IAM-Atlas v2.1.
+
+### stage_metaa_atlas.py::reach_read
+
+The seventh self-calibration form's reading: the sample's calls past each side's reach (marked side past one call, unmarked side past N) at
+each identity site, the atlas's inner levels past the same reach (metaa_inner_reference at one call and at N calls) mixed in the sample's shares,
+and each site's remaining call count, for Met-A as observed disorder over the counting expectation. Returns nothing, with the reason, when the
+atlas reference at N calls has not been built. Counts only; nothing fitted. Development.
 
 ### stage_metaa_atlas.py::read_in_mix_allsites
 Met-A for each cell over every IAM-Atlas v2.1 site (development; `run_sample.py --dev-metaa-allsites`): each site counts by the shift a loss

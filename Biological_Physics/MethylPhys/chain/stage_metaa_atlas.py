@@ -284,6 +284,7 @@ def read(beta, cell, specimen="isolated", counts=None, seqref=None, half=None):
 
 SELFCAL_MIX = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-mix): the fourth form, mix_forward
 SELFCAL_ENTROPY = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-disorder): the disorder the library's end error adds taken out of the observed disorder
+SELFCAL_REACH = None   # 2026-11-12 (run_sample.py --dev-seq-self-cal-reach N): the seventh form; N = the unmarked side's reach in calls (the marked side's is 1)
 SELFCAL_DATA = False   # 2026-11-10 (run_sample.py --dev-seq-self-cal-data): the measured end error taken out of the library's own calls, not put into the expectation
 SELFCAL = None   # 2026-11-10 (run_sample.py --dev-seq-self-cal): dict(end_n=Series, end_m=Series) of the sample's molecule-end calls per probe
 
@@ -495,6 +496,35 @@ def mix_forward(sites, cells, F, counts, sc, unmarked, marked):
     e = (e_in + f * (float(unmarked) * (1.0 - e_in) - float(marked) * e_in)).clip(0.0, 1.0)
     return e_in, e
 
+def reach_read(cells, shares, sites, side_level, x_all, counts, sc, n_unmarked):
+    """2026-11-12 (DEVELOPMENT; the seventh self-calibration form, the author's distance-relay zones: each side's fault located along the molecule,
+    and the comparison made beyond its reach on both sides). Nothing modeled and nothing corrected: the sample is read on its calls past each
+    side's reach (the marked side past its last call, the unmarked side past its last n_unmarked calls; each site's side is the read cell's own
+    atlas level, at most 0.5 unmarked), against the IAM Sequencing Atlas's level past the same reach (its donors counted with the same trim:
+    metaa_inner_of at the one-call and the n_unmarked-call references), every found cell's level mixed in the sample's shares. The atlas's donors
+    carry the same end fault as the samples (DEV-ATLAS-V21-01, nine donors), so both sides of the comparison pass through the same cut.
+    Returns (x_in, n_in, e_in) at the sites with calls past the reach, or None with a reason."""
+    import stage_seq_atlas as _SQ
+    p3 = _SQ.METAA_INNER.replace("_v1.parquet", f"_t{int(n_unmarked)}.parquet")
+    if not os.path.exists(p3): return None, f"no atlas inner reference past {int(n_unmarked)} calls ({os.path.basename(p3)})"
+    if f"end_n{int(n_unmarked)}" not in sc: return None, f"the sample's end calls at {int(n_unmarked)} calls were not counted"
+    unm = (side_level.reindex(sites) <= 0.5).to_numpy()
+    n = pd.Series(counts).reindex(sites).fillna(0).astype("float64").to_numpy(); mt = pd.Series(sc["all_m"]).reindex(sites).fillna(0).astype("float64").to_numpy()
+    g = lambda k: pd.Series(sc[k]).reindex(sites).fillna(0).astype("float64").to_numpy()
+    ne = np.where(unm, g(f"end_n{int(n_unmarked)}"), g("end_n")); me = np.where(unm, g(f"end_m{int(n_unmarked)}"), g("end_m"))
+    n_in = n - ne; m_in = mt - me; ok = (n_in > 0) & (m_in >= 0) & (m_in <= n_in)
+    cols, have = [], []
+    for k in cells:
+        I1 = _SQ.metaa_inner_of(k); I3 = _SQ.metaa_inner_of(k, path=p3); m = _col("mu", k).reindex(sites).astype("float64").to_numpy()
+        l1 = ((I1.meth_inner / I1.reads_inner.where(I1.reads_inner > 0)).reindex(sites).astype("float64").to_numpy() if I1 is not None else np.full(len(sites), np.nan))
+        l3 = ((I3.meth_inner / I3.reads_inner.where(I3.reads_inner > 0)).reindex(sites).astype("float64").to_numpy() if I3 is not None else np.full(len(sites), np.nan))
+        lv = np.where(unm, l3, l1); lv = np.where(np.isnan(lv), m, lv); cols.append(lv)
+    P = np.column_stack(cols); Fk = np.array([float(shares[k]) for k in cells]); hv = ~np.isnan(P)
+    e_in = np.nansum(np.nan_to_num(P) * Fk, axis=1) / np.where(hv @ Fk > 0, hv @ Fk, np.nan)
+    ok &= np.isfinite(e_in)
+    x_in = pd.Series(np.where(ok, m_in / np.where(n_in > 0, n_in, 1), np.nan), index=sites)
+    return (x_in[ok], n_in[ok].astype("int64"), pd.Series(e_in, index=sites)[ok]), None
+
 def read_in_mix(beta, shares, counts=None, specific=None):
     """Met-A for each cell of a mixed sample (whole blood), against IAM-Atlas v2.1 mixed in this sample's own cell shares (development, written
     2026-10-22; author: read it and flag it until a sealed test passes). shares: {atlas cell: share} from the IAM-Deconvolver (Stage D21).
@@ -558,6 +588,12 @@ def read_in_mix(beta, shares, counts=None, specific=None):
                     _sc["mix_forward_sites"] = int(_ok4.sum())
                     # 2026-11-11 (fifth form): the same mixed forward model with the library's two rates measured where every found cell agrees
                     _ar = agree_rates(cells, counts, SELFCAL, shares=shares); _sc["agree_rates"] = _ar
+                    if SELFCAL_REACH:   # 2026-11-12 (seventh form): both sides read past each side's reach, nothing corrected
+                        _rr, _why = reach_read(cells, shares, e[ok].index, mu[ok], x[ok], counts, SELFCAL, SELFCAL_REACH)
+                        if _rr is None: _sc["A_reach"] = None; _sc["reach_reason"] = _why
+                        else:
+                            _xi, _ni, _ei = _rr; _he7 = float(np.nanmean(expected_H_counts(_ei.to_numpy(), _ni)))
+                            _sc["A_reach"] = round(float(_H(_xi.clip(1e-6, 1 - 1e-6)).mean() / _he7), 5); _sc["reach"] = dict(marked=1, unmarked=int(SELFCAL_REACH), sites=int(len(_xi)))
                     if _ar.get("marked") is not None:
                         _e5in, _e5 = mix_forward(e[ok].index, cells, shares, counts, SELFCAL, _ar["unmarked"], _ar["marked"])
                         _he5 = float(np.nanmean(expected_H_counts(_e5.fillna(e[ok]).to_numpy(), _n))); _sc["A_agree"] = round(float(_H(x[ok]).mean() / _he5), 5)
@@ -581,6 +617,7 @@ def read_in_mix(beta, shares, counts=None, specific=None):
         A = float(_H(_xr if _xr is not None else x[ok]).mean() / he)
         if SELFCAL_ENTROPY and not SELFCAL_MIX and (r.get("self_calibration") or {}).get("A_disorder_side") is not None: A = float(r["self_calibration"]["A_disorder_side"])
         if SELFCAL_OWN and (r.get("self_calibration") or {}).get("A_own_level") is not None: A = float(r["self_calibration"]["A_own_level"])
+        if SELFCAL_REACH and (r.get("self_calibration") or {}).get("A_reach") is not None: A = float(r["self_calibration"]["A_reach"])   # 2026-11-12: the seventh form
         xd = (x[ok] + float(shares[c]) * 0.01 * (0.5 - mu[ok])).clip(1e-6, 1 - 1e-6)
         _hx = np.asarray(_H(x[ok]), dtype="float64"); _he = np.asarray(_H(e[ok]), dtype="float64")
         r["se_over_sites"] = round(float(np.sqrt(((_hx - A * _he) ** 2).sum()) / _he.sum()), 6)   # 2026-10-22: for the all-site comparison
