@@ -41,4 +41,14 @@ reading, mapped through this synthetic re-run at the libraries' own molecule len
 --rrbs --paired (new library mode "rrbs"; RRBS fragments are not duplicate-marked, since they share their cut sites by design), bwa-meth
 0.2.0 on hg19 from the index release, wgbstools 0.1.0 bam2pat, then the one command's count (run_sample.py --dev-count-only). One library
 first as a canary (MZGC1 control); the synthetic is re-run at that library's own molecule lengths before any depleted library is scored.
+**The SAM/SAH falls, two independent readings of Fig. 2B (2026-11-12, before any depleted library is read):** the figure shows three
+pairs (the legend names only MZGC1 and MZGC2, a discrepancy in the paper), each control normalized to 1.0. Reader one (the author): MZGC1
+depleted 0.75, MZGC3 0.25-0.30, MZGC2 no bar drawn. Reader two (a separate vision reading given only the image): MZGC1 about 0.70, MZGC3
+about 0.20-0.25, MZGC2 about 1.0. Computed by `DEV_METHIONINE_01/predictions_by_line.py` (`predictions_by_line_summary.txt`): MZGC1 r
+1.33-1.43, energy route x1.013-1.016, supply route x1.33-1.43; MZGC3 r 3.33-5.00, energy route x1.057-1.077, supply route x3.33-5.00;
+MZGC2 not scored (the readings disagree). Each prediction is mapped through the synthetic at the libraries' own molecule lengths before
+scoring. **Open caveat:** SAM/SAH was measured at 72 h; the paper does not state when the RRBS libraries were taken.
+**Predicted rise of the held error, depleted over control:** MZGC1 energy x1.013-1.016, supply x1.33-1.43; MZGC3 energy x1.057-1.077,
+supply x3.3-5.0 (each mapped through the synthetic at the libraries' own molecule lengths before scoring). **Open caveat:** SAM/SAH was
+measured at 72 h; the paper does not state when the RRBS libraries were taken.
 

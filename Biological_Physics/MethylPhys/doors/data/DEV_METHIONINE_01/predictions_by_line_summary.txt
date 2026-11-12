@@ -1,0 +1,5 @@
+M = 20.94; control held error (two coins) 0.04454
+line | depleted SAM/SAH (both readings) | r range | energy route | supply route
+MZGC1 | 0.70-0.75 | 1.33-1.43 | x1.013-1.016 | x1.33-1.43
+MZGC3 | 0.20-0.30 | 3.33-5.00 | x1.057-1.077 | x3.33-5.00
+MZGC2 | readings disagree ({'reader one': None, 'reader two': (1.0, 1.0)}) | not scored
