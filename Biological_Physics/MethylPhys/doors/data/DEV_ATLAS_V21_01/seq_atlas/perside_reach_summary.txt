@@ -1,0 +1,25 @@
+Per-side reach at each library's identity sites (exploration, 2026-11-11; spent molecule files of the three self-calibration libraries, first 12 million lines;
+identity sites and sides from stage_seq_atlas.identity_side_table; reach marked 1 call, unmarked 3 calls from the nearer molecule end, from the fault profiles)
+opposite-call share by rule
+lab                   GSE134664 B  GSE98837 CD8  JHU CD4
+side     rule                                           
+marked   all               0.1049        0.0423   0.0683
+         per_side          0.0666        0.0366   0.0574
+         reach1_both       0.0666        0.0366   0.0574
+unmarked all               0.0089        0.0179   0.0032
+         per_side          0.0041        0.0032   0.0030
+         reach1_both       0.0061        0.0067   0.0033
+atlas opposite share at the same sites (metaa_seq_reference_v1)
+lab       GSE134664 B  GSE98837 CD8  JHU CD4
+side                                        
+marked         0.0591        0.0684   0.0654
+unmarked       0.0045        0.0049   0.0051
+observed over atlas
+lab                   GSE134664 B  GSE98837 CD8  JHU CD4
+side     rule                                           
+marked   all                1.775         0.618    1.044
+         per_side           1.127         0.535    0.878
+         reach1_both        1.127         0.535    0.878
+unmarked all                1.978         3.653    0.627
+         per_side           0.911         0.653    0.588
+         reach1_both        1.356         1.367    0.647

@@ -1,0 +1,19 @@
+lab,side,rule,opposite,calls,atlas_opposite,minus_atlas,over_atlas
+GSE134664 B,marked,all,0.1049,7272,0.0591,0.0458,1.775
+GSE134664 B,marked,reach1_both,0.0666,1908,0.0591,0.0075,1.127
+GSE134664 B,marked,per_side,0.0666,1908,0.0591,0.0075,1.127
+GSE134664 B,unmarked,all,0.0089,6272,0.0045,0.0044,1.978
+GSE134664 B,unmarked,reach1_both,0.0061,4394,0.0045,0.0016,1.356
+GSE134664 B,unmarked,per_side,0.0041,1934,0.0045,-0.0004,0.911
+GSE98837 CD8,marked,all,0.0423,7070,0.0684,-0.0261,0.618
+GSE98837 CD8,marked,reach1_both,0.0366,1801,0.0684,-0.0318,0.535
+GSE98837 CD8,marked,per_side,0.0366,1801,0.0684,-0.0318,0.535
+GSE98837 CD8,unmarked,all,0.0179,6976,0.0049,0.013,3.653
+GSE98837 CD8,unmarked,reach1_both,0.0067,4351,0.0049,0.0018,1.367
+GSE98837 CD8,unmarked,per_side,0.0032,1563,0.0049,-0.0017,0.653
+JHU CD4,marked,all,0.0683,12566,0.0654,0.0029,1.044
+JHU CD4,marked,reach1_both,0.0574,3465,0.0654,-0.008,0.878
+JHU CD4,marked,per_side,0.0574,3465,0.0654,-0.008,0.878
+JHU CD4,unmarked,all,0.0032,7511,0.0051,-0.0019,0.627
+JHU CD4,unmarked,reach1_both,0.0033,5389,0.0051,-0.0018,0.647
+JHU CD4,unmarked,per_side,0.003,2664,0.0051,-0.0021,0.588

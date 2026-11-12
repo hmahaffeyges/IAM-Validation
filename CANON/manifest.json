@@ -28229,7 +28229,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "added 2026-11-11 from the evening's discussion",
+   "notes": "added 2026-11-11 from the evening's discussion | 2026-11-11: per-library reach: the chain's existing run_sample.py --build seq-floor-position (stage_seq_atlas.floor_by_position: error by distance from the molecule end, per side, at floor sites) already measures it; already run on the 18 spent libraries (posq2, 2026-11-10) | 2026-11-11: per-side reach explored on the three libraries (Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/perside_reach_summary.txt): unmarked side converges across laboratories past three calls; marked side differs beyond the ends (not a terminal fault)",
    "id": "ATL-071",
    "legacy_ids": [],
    "sources_of_row": [

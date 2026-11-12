@@ -2021,3 +2021,11 @@ each call judged by the other 11).** Marked side: a fault at the last call only,
 the molecule the three laboratories read alike (about 0.040 marked, 0.007 to 0.010 unmarked). Every form so far measured the end as the last
 call and the inner level as every other call, so on the unmarked side the inner reference carried end error. Next: each library's own reach per
 side from its own profile, the reference taken beyond it, offline first on the per-site dumps (`selfcal_dump.sh`).
+
+**Per-side reach at the identity sites (exploration; `seq_atlas/perside_reach_summary.txt`).** On the three self-calibration libraries, each library's calls
+counted beyond its own per-side reach (marked side past the last call, unmarked side past the third): on the unmarked side the three laboratories
+read 0.0041, 0.0032 and 0.0030 opposite (all calls: 0.0089, 0.0179, 0.0032), 0.588 to 0.911 of the atlas, which is itself built with its donors'
+end calls; on the marked side they still differ beyond the end (0.0666, 0.0366, 0.0574; 1.127, 0.535 and 0.878 of the atlas), so that
+difference is not a molecule-end fault: it is biology (donors, subtypes) or a meter error of another kind, which one library per laboratory
+cannot separate. The 54 Loyfer counts (PHY-079) show no end fault in the atlas's own laboratory. Next: the seventh form counts the sample past
+its own per-side reach; whether the atlas's unmarked side also needs it is checked on its donors' counts first.
