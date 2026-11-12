@@ -4566,3 +4566,18 @@ GSE116482's nine SKO files (three clones, days 15, 30, 60), reduced to strand-pa
 per loss stay within 4 to 8 % across 45 days (13.2-14.3, 9.6-10.3, 14.4-14.9), while two clones' mark level rises 18-20 % (the third 4 %).
 The odds behave like a fixed setting, different from clone to clone, and the level is what moves: the first time axis for the mini cell.
 Nothing sealed.
+
+### 2026-11-12 · PHY-079: the held-error counters on molecules whose truth we set (synthetic; development)
+**Where IAM's Law is:** the instrument, not the law: which of the chain's counters reads the held error the law predicts, before data decide
+between restore/loss odds of M and of 1 + M. `doors/data/DEV_CHAIN_Q2_01/counter_synthetic.py` (`counter_synthetic_summary.txt`) writes
+molecules with a planted per-call loss (lengths from a real library, spread over the autosomes, loose regions at random levels), two
+samples at each of seven loose shares, and reads each with the one command (run_sample.py --pat --dev-count-only), as the real samples were.
+Independent losses: the raw counter (the canon's held error) reads 12 % low at zero loose; the length-corrected counter 0.6 % low; its
+straight-line intercept across loose shares 1.9 % low. Losses clustered as in the real samples (coupling at zero loose 1.42 in the
+synthetic with the next loss 1.5 times likelier, 1.41 in the 150 non-neuron Loyfer samples): the length-corrected counter 1.8 % low at
+zero loose and its intercept 6.4 % low. Every bias reads low, so the pooled real intercept 0.04526 places the true lone-loss rate near
+0.046-0.048: odds of M (0.04558) sit at its low edge and 1 + M (0.04359) below it. The canon's E_hold 3.084 kT is the raw counter at each
+sample's own loose share: correct as recorded, and not the value to set against a zero-loose prediction; its closeness to ln(1 + M) comes
+from two offsetting meter effects (flagged for the author; the canon is unchanged). Open: whether the real clustering is the cell or the
+meter, and whether the law's held error is the lone-loss or the per-call rate. The author's reading (Mach): M = the coin over the kick,
+and the coin (the ATP free energy, set by each cell's fuel state) is not fixed, so each cell type's held error may track its own coin.
