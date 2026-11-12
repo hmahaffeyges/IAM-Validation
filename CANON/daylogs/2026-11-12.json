@@ -1,0 +1,152 @@
+{
+ "_convention": "see 2026-10-13.json",
+ "date": "2026-11-12",
+ "title": "The healthy level against M, rescored; what spreads it between cell types",
+ "set_out": "Settle whether the healthy held error follows odds of M or 1 + M; split its spread into meter, samples and cell types; rescore the middle-number tests by the agreed bar method; finish the seventh self-calibration form.",
+ "open_at_turnover": "The Deconvolver given the cut end calls (plant before trim), one canary first; restore crew and copying as predictors of each cell type's delivery share; the ATP table per tissue; the day summary.",
+ "check_completeness": false,
+ "off_page_rows": [],
+ "compute": {
+  "pending": "filled by CANON/day_compute.py"
+ },
+ "closing": "",
+ "sections": [
+  {
+   "kind": "ran",
+   "heading": "What ran, and how each came out",
+   "entries": [
+    {
+     "title": "M or M + 1 on spent counts",
+     "status": "development",
+     "what": "The healthy lone-loss intercept on the 153 and the 54 Loyfer samples (m_or_m_plus_1.py).",
+     "outcome": "Pooled 0.04526 (0.04375-0.04657): odds of M favored over 1 + M; the two sets differ mainly by cell mix.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
+    },
+    {
+     "title": "The held-error counters on molecules whose truth we set",
+     "status": "development",
+     "what": "Synthetic molecules with a planted loss, read by the one command (counter_synthetic.py).",
+     "outcome": "Every counter reads low; the length-corrected one is right at zero loose; at the real clustering the true lone-loss rate sits near 0.046-0.048.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): synthetic molecules with a planted truth"
+    },
+    {
+     "title": "Hairpin time course",
+     "status": "development",
+     "what": "Nine spent SKO files, three clones over 45 days (timecourse.py).",
+     "outcome": "Each clone's restore/loss odds stay within 4-8 % while its mark level rises up to 20 %.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
+    },
+    {
+     "title": "The spread split three ways",
+     "status": "development",
+     "what": "150 healthy samples against the M-based prediction (scatter_split.py).",
+     "outcome": "Meter under 1 %; samples of one cell type 2.9 %; between cell types 6.7 %.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
+    },
+    {
+     "title": "Held error against how often a cell is replaced",
+     "status": "development",
+     "what": "27 cell types paired with the published turnover census (lifespan_vs_held.py).",
+     "outcome": "Rarely replaced types hold slightly worse (Spearman 0.47, p 0.014); 18 of the 27 pairings use a parent type.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
+    },
+    {
+     "title": "The middle-number tests rescored",
+     "status": "development",
+     "what": "The three PHY-050 tests as pulls at k = 2 (rescore_middle.py); the sealed verdicts stand.",
+     "outcome": "Test 3 (lone-loss rate, 54 unseen samples) agrees within about half a standard deviation; tests 1 and 2 remain misses.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
+    },
+    {
+     "title": "Restore crew against held error",
+     "status": "development",
+     "what": "Human Protein Atlas DNMT1 + UHRF1 against each cell type's held error (crew_vs_held.py).",
+     "outcome": "More crew, lower held error (rho -0.43, p 0.019, 29 types).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
+    },
+    {
+     "title": "Self-calibration synthetic, seventh form",
+     "status": "failed",
+     "what": "The same 15 planted rows, each library and the atlas read past each side's molecule-end reach.",
+     "outcome": "Not met: end errors absorbed in 1 of 9; a real change kept 3 of 3; laboratories not brought together. The planted calls still reach the reading, most likely through the Deconvolver.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+     "reference": "IAM Sequencing Atlas (its three-call inner reference, metaa_inner_reference_t3)"
+    }
+   ]
+  },
+  {
+   "kind": "built",
+   "heading": "What we built",
+   "entries": [
+    {
+     "title": "How test bars are set",
+     "status": "rule",
+     "what": "A bar is the combined measured uncertainty at k = 2 (the metrology guide); results are reported as pulls (Why IAM, Read first).",
+     "outcome": "Written into both copies of Why IAM.",
+     "record": "WHY_IAM.md"
+    },
+    {
+     "title": "Three-call atlas inner reference",
+     "status": "development",
+     "what": "metaa_inner_reference_t3, counted from the atlas's own donors past three calls.",
+     "outcome": "Registered in the reference manifest; used by the seventh form.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
+    }
+   ]
+  },
+  {
+   "kind": "learned",
+   "heading": "What we learned that we did not know yesterday",
+   "entries": [
+    {
+     "title": "The spread is mostly the cell type",
+     "status": "development",
+     "what": "Meter, samples and cell types measured separately.",
+     "outcome": "The instrument is clean; the cell-type part is the delivery share phi moving about +/-5 %, not the coin.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Bars narrower than the body's own spread",
+     "status": "rule",
+     "what": "The PHY-050 third test held each sample to 10 % while healthy samples spread 7.5 %.",
+     "outcome": "On the baseline question it passes at about 1 sigma; bars now come from measured uncertainty.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  },
+  {
+   "kind": "mistakes",
+   "heading": "Our own mistakes, and what caught each",
+   "entries": [
+    {
+     "title": "ln(1 + M) raised as a lead too soon",
+     "status": "diagnosis",
+     "what": "It matched the canon's holding energy, which is the raw counter at each sample's own loose share.",
+     "outcome": "Withdrawn after the code check on two counters; its closeness is two offsetting meter effects.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "Lifespan record counted 14 parent pairings",
+     "status": "diagnosis",
+     "what": "The record said 14; the table holds 18 of 27.",
+     "outcome": "Caught by the reviewer; corrected (fa658312).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    },
+    {
+     "title": "A correction started while a commit was in flight",
+     "status": "diagnosis",
+     "what": "The merge conflicted and left the local log behind main.",
+     "outcome": "Main's copy restored by the API and the one line fixed; one writer per file again.",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+    }
+   ]
+  }
+ ]
+}

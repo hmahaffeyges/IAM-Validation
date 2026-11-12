@@ -2063,3 +2063,17 @@ the share that are one-call siblings of a many-copy line (same start and length,
 unmarked side 0.061, 0.055 and 0.053. About a third of the marked side's false T calls are made per read after copying (agreement among copies
 removes them); the unmarked side's false C calls are in the molecule before copying, consistent with its end fault reaching three calls in
 (library preparation at the molecule ends, not the sequencer). Two faults at two stages, one per side.
+
+**The self-calibration synthetic, seventh form, read: not met** (`data/DEV_ATLAS_V21_01/seq_atlas/selfcal_synthetic7_summary.txt`; all 15 rows, the one
+command, run_sample.py --dev-seq-self-cal-reach 3). **Where IAM's Law is:** the instrument, not the law (reading each library past its own
+molecule-end fault reach, the author's distance-relay zones). Bar 1 (planted end errors absorbed, |dA| <= 0.01): 1 of 9, not met. Bar 2
+(the plant visible without the calibration): median 0.3249, informative. Bar 3 (a real change kept): 3 of 3, met. Bar 4 (laboratories read
+alike): spread 0.2894 with the cut against 0.4925 without, not met (half needed). **Rescored by the agreed bar method (exploration; the verdict
+stands):** bar 1's 0.01 is narrower than each reading's own error (0.010-0.018 per reading, 0.014-0.025 for a difference); as pulls, B cells
++0.4, -2.3, -1.3; CD8 -2.4, +2.9, -4.5; CD4 -4.1, -2.7, -5.5, so the CD4 and CD8 misses are real (the rows share molecules, so their true
+difference errors are smaller still). Every planted end error sits on the outermost call, inside both reaches, so cutting the calls should
+leave the library's own reading unchanged; it does not, which points to the planted calls still reaching the reading through another path.
+The leading candidate: the Deconvolver reads every call, ends included, so the plant moves the shares (CD4 0.356 to 0.285) and with them the
+mixed expectation the reading is set against; the B-cell library, read nearly alone (share 0.88), comes closest. **Next:** the same rows with
+the Deconvolver also given the cut calls (one canary first), before any eighth form.
+
