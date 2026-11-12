@@ -1,0 +1,143 @@
+{
+ "flag": "DEVELOPMENT - not commissioned (floor by molecule position)",
+ "molecules": 98926586,
+ "by_distance_from_end": {
+  "0": {
+   "calls": 102426,
+   "opposite": 1884,
+   "rate": 0.018394
+  },
+  "1": {
+   "calls": 83544,
+   "opposite": 520,
+   "rate": 0.006224
+  },
+  "2": {
+   "calls": 64248,
+   "opposite": 346,
+   "rate": 0.005385
+  },
+  "3": {
+   "calls": 48106,
+   "opposite": 234,
+   "rate": 0.004864
+  },
+  "4": {
+   "calls": 33344,
+   "opposite": 143,
+   "rate": 0.004289
+  },
+  "gap": {
+   "calls": 9321,
+   "opposite": 39,
+   "rate": 0.004184
+  },
+  "interior": {
+   "calls": 60609,
+   "opposite": 228,
+   "rate": 0.003762
+  }
+ },
+ "by_side": {
+  "unmarked": {
+   "0": {
+    "calls": 102358,
+    "opposite": 1874,
+    "rate": 0.0183083
+   },
+   "1": {
+    "calls": 83510,
+    "opposite": 518,
+    "rate": 0.0062028
+   },
+   "2": {
+    "calls": 64222,
+    "opposite": 346,
+    "rate": 0.0053876
+   },
+   "3": {
+    "calls": 48087,
+    "opposite": 233,
+    "rate": 0.0048454
+   },
+   "4": {
+    "calls": 33343,
+    "opposite": 143,
+    "rate": 0.0042888
+   },
+   "gap": {
+    "calls": 9320,
+    "opposite": 39,
+    "rate": 0.0041845
+   },
+   "interior": {
+    "calls": 60601,
+    "opposite": 228,
+    "rate": 0.0037623
+   }
+  },
+  "marked": {
+   "0": {
+    "calls": 68,
+    "opposite": 10,
+    "rate": 0.1470588
+   },
+   "1": {
+    "calls": 34,
+    "opposite": 2,
+    "rate": 0.0588235
+   },
+   "2": {
+    "calls": 26,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "3": {
+    "calls": 19,
+    "opposite": 1,
+    "rate": 0.0526316
+   },
+   "4": {
+    "calls": 1,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "gap": {
+    "calls": 1,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "interior": {
+    "calls": 8,
+    "opposite": 0,
+    "rate": 0.0
+   }
+  }
+ },
+ "site_matched": {
+  "unmarked": {
+   "end_over_inner": 4.0573,
+   "sites": 31327
+  },
+  "marked": {
+   "end_over_inner": 4.8529,
+   "sites": 14
+  },
+  "both": {
+   "end_over_inner": 4.0595,
+   "sites": 31341
+  }
+ },
+ "end_over_interior": 4.8896,
+ "sites": "floor",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-floor-position",
+  "--build-input",
+  "/tmp/dmp/full.pat.gz",
+  "--bundle",
+  "/tmp/fp_full.json"
+ ],
+ "input": "full.pat.gz"
+}

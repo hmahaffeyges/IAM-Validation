@@ -1,0 +1,143 @@
+{
+ "flag": "DEVELOPMENT - not commissioned (floor by molecule position)",
+ "molecules": 61782643,
+ "by_distance_from_end": {
+  "0": {
+   "calls": 104468,
+   "opposite": 4340,
+   "rate": 0.041544
+  },
+  "1": {
+   "calls": 77503,
+   "opposite": 986,
+   "rate": 0.012722
+  },
+  "2": {
+   "calls": 52377,
+   "opposite": 516,
+   "rate": 0.009852
+  },
+  "3": {
+   "calls": 34623,
+   "opposite": 686,
+   "rate": 0.019813
+  },
+  "4": {
+   "calls": 21211,
+   "opposite": 149,
+   "rate": 0.007025
+  },
+  "gap": {
+   "calls": 5109,
+   "opposite": 82,
+   "rate": 0.01605
+  },
+  "interior": {
+   "calls": 27110,
+   "opposite": 136,
+   "rate": 0.005017
+  }
+ },
+ "by_side": {
+  "unmarked": {
+   "0": {
+    "calls": 104438,
+    "opposite": 4339,
+    "rate": 0.0415462
+   },
+   "1": {
+    "calls": 77428,
+    "opposite": 986,
+    "rate": 0.0127344
+   },
+   "2": {
+    "calls": 52350,
+    "opposite": 514,
+    "rate": 0.0098185
+   },
+   "3": {
+    "calls": 34610,
+    "opposite": 685,
+    "rate": 0.019792
+   },
+   "4": {
+    "calls": 21206,
+    "opposite": 149,
+    "rate": 0.0070263
+   },
+   "gap": {
+    "calls": 5106,
+    "opposite": 82,
+    "rate": 0.0160595
+   },
+   "interior": {
+    "calls": 27106,
+    "opposite": 136,
+    "rate": 0.0050173
+   }
+  },
+  "marked": {
+   "0": {
+    "calls": 30,
+    "opposite": 1,
+    "rate": 0.0333333
+   },
+   "1": {
+    "calls": 75,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "2": {
+    "calls": 27,
+    "opposite": 2,
+    "rate": 0.0740741
+   },
+   "3": {
+    "calls": 13,
+    "opposite": 1,
+    "rate": 0.0769231
+   },
+   "4": {
+    "calls": 5,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "gap": {
+    "calls": 3,
+    "opposite": 0,
+    "rate": 0.0
+   },
+   "interior": {
+    "calls": 4,
+    "opposite": 0,
+    "rate": 0.0
+   }
+  }
+ },
+ "site_matched": {
+  "unmarked": {
+   "end_over_inner": 3.1935,
+   "sites": 28710
+  },
+  "marked": {
+   "end_over_inner": 2.25,
+   "sites": 10
+  },
+  "both": {
+   "end_over_inner": 3.193,
+   "sites": 28720
+  }
+ },
+ "end_over_interior": 8.2813,
+ "sites": "floor",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-floor-position",
+  "--build-input",
+  "/tmp/dmp/GSM2616075.pat.gz",
+  "--bundle",
+  "/tmp/fp_GSM2616075.json"
+ ],
+ "input": "GSM2616075.pat.gz"
+}

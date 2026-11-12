@@ -2126,3 +2126,15 @@ by one library (GSM2616075, 0.777 to 0.655) and its effector libraries rising pa
 one whose cells the Deconvolver splits across naive, effector and memory identities. **Next:** the CD8 library's per-identity shares
 before and after the correction, on these bundles (no machines).
 
+**The CD4 laboratory's low Met-A: the unmarked side reads its own conversion floor (exploration, 2026-11-12)** **Where IAM's Law is:** the
+instrument, not the law (each detector calibrated on its own calibrators). On spent data only. (1) Across the nine atlas donors, the unmarked
+side's opposite share at the cell's identity sites past three calls tracks each donor's library floor (`input_floors_v1.parquet`): rank
+correlation 0.88 (p 0.002), twofold between donors of the one laboratory, so it is library chemistry, not cells. (2) Per-side rates at the
+CD4 identity sites (3,000 unmarked, 2,996 marked) give A 0.925; with the unmarked side set to the donors' rate A is 0.991, with the marked
+side set instead 0.933: the per-side shortfall is the unmarked side. (3) Interior floors at the floor sites, by `run_sample.py --build
+seq-floor-position` on the three spent libraries (`data/DEV_ATLAS_V21_01/seq_atlas/lab_floor_fp/`): the CD4 library's identity-site interior
+unmarked rate over its interior floor 0.92 (0.0030 / 0.00327), the B library's 0.96 (0.0041 / 0.00425), the CD8 library's 0.27
+(0.0032 / 0.0117; its floor sites carry more than its identity sites, open). The earlier whole-floor correction (`--dev-floor-equal`)
+overcorrected Met-A as a whole; this reads the unmarked side alone. **Next:** the CD4 atlas donors' interior floors at the same floor sites
+(spent, GitHub), then a synthetic of an unmarked-side expectation set by each library's own interior floor, before any form is sealed.
+

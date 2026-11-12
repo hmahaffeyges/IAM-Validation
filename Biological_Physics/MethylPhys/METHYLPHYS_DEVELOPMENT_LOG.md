@@ -4766,3 +4766,6 @@ A 200,000-pair canary of DRR322659 (erase_test run 43292514925, 11 minutes) stop
 compiled part of wgbs_tools (src/pipeline_wgbs/patter) was missing; setup.py had returned 0 without building it. erase_gh.sh now checks
 patter and match_maker after setup, rebuilds a missing one with the headers newer compilers no longer include implicitly, keeps the build
 log (wgbs_install.log) and stops with exit 16 if still missing. The same 200,000-pair canary is rerun before the four libraries.
+
+### 2026-11-12 · ATL-071: the CD4 laboratory's low Met-A is its unmarked side reading its own conversion floor (exploration)
+Recorded in `doors/DEV_ATLAS_V21_01.md`: donors' unmarked identity-site rate tracks their library floor (rho 0.88); the per-side shortfall is the unmarked side (A 0.925 -> 0.991); interior unmarked over interior floor 0.92 (CD4), 0.96 (B), 0.27 (CD8, open). Spent data; nothing sealed.
