@@ -4542,7 +4542,7 @@ Exploration continues on these spent samples; fresh healthy data from another la
 - The seventh form, offline first on the per-site dumps; the interior lone-loss count on spent samples; the effective-temperature qubit test; the remaining QAPE/SCAPE scorecard checks (private).
 
 ### 2026-11-11 · PHY-079 exploration: the isolated-loss misses are not the molecule ends (data/PHY_050_LONE_LOSS_LOYFER/interior_exploration.txt)
-On the 54 spent counts of the third test, the last call reads like the interior (median 1.005), and counting only the interior leaves the
+On the 54 spent counts of the third test, the last call reads like the interior in the counter's held error (median 1.005; mostly marked-side held sites; the unmarked side, measured later on an atlas donor, does carry an end fault), and counting only the interior leaves the
 median between 0.96 and 1.01 of the prediction. Observed over predicted rises with the loose share; without neurons the line's intercept is
 0.0430 (95 % 0.0407-0.0452), narrowly below 1/(1+M) = 0.04558 and including eps0 = 0.04376 from the measured holding energy; its slope 0.044
 is above the prediction's 0.0284. Exploration; the middle remains measured.

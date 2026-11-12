@@ -2027,5 +2027,14 @@ counted beyond its own per-side reach (marked side past the last call, unmarked 
 read 0.0041, 0.0032 and 0.0030 opposite (all calls: 0.0089, 0.0179, 0.0032), 0.588 to 0.911 of the atlas, which is itself built with its donors'
 end calls; on the marked side they still differ beyond the end (0.0666, 0.0366, 0.0574; 1.127, 0.535 and 0.878 of the atlas), so that
 difference is not a molecule-end fault: it is biology (donors, subtypes) or a meter error of another kind, which one library per laboratory
-cannot separate. The 54 Loyfer counts (PHY-079) show no end fault in the atlas's own laboratory. Next: the seventh form counts the sample past
+cannot separate. The 54 Loyfer counts (PHY-079) show no end fault in the counter's held error, which is mostly marked-side sites; the atlas's own B-cell donor GSM5652316, read by run_sample.py --build seq-floor-position at the B-cell identity sites, does carry one on the unmarked side (last call 0.0189 opposite, inside 0.0036; site-matched end over inner 5.3086) and a weak one on the marked side (1.1093), so the atlas's unmarked side carries end error too (`seq_atlas/atlas_donor_perside_summary.txt`). Next: the seventh form counts the sample past
 its own per-side reach; whether the atlas's unmarked side also needs it is checked on its donors' counts first.
+
+**The atlas donors' own per-side profile (exploration; `seq_atlas/atlas_donor_perside_summary.txt`).** Nine of the atlas's donors (three each of B, CD8 and CD4), read by
+the one command's seq-floor-position build at their own cell's identity sites: every donor carries the end fault, unmarked side site-matched
+2.9781 to 5.3086, marked side 1.1093 to 1.2259. Past each side's reach the sample and the atlas compare like for like: marked side, CD4 library
+0.0574 against its atlas donors' median 0.0582, B 0.0666 against 0.0545, CD8 0.0366 against 0.0619 (the CD8 library reads more marked: biology
+or a meter error not at the ends); unmarked side, the three libraries 0.0030 to 0.0041 against the donors' 0.0058 to 0.0062 (a laboratory-level
+interior difference, not an end fault). **The seventh form, from this:** the same per-side reach for the sample and the atlas (the atlas rebuilt
+from its donors counted past the same reach), the interior difference left to the agreement-site calibration, each library's reach from its
+own profile; one library read first as a canary.

@@ -1,5 +1,5 @@
 PHY-079 exploration on the 54 spent PHY-050 third-test counts (GSE186458; nothing sealed, nothing spent; computed from held_by_distance and held_err_length in each count)
-End fault: held error at the molecule's last call over the interior (call 4 and beyond): median 1.005, range 0.931-1.044. These libraries carry no measurable end fault.
+End fault: held error at the molecule's last call over the interior (call 4 and beyond): median 1.005, range 0.931-1.044. No end fault in the counter's held error (mostly marked-side held sites); the unmarked side was not measured here, and the atlas's own B-cell donor does show one there (DEV_ATLAS_V21_01.md, seq-floor-position).
 Interior beyond reach R, against 0.04558 + 0.0284 x loose share (median ratio; within 10 %):
   all 54:          scored 0.9870 (44/54); R>=2 0.9736 (43/54); R>=3 0.9600 (42/54); R>=4 1.0073 (42/54)
   without neurons: scored 0.9924 (42/47); R>=2 0.9770 (41/47); R>=3 0.9691 (40/47); R>=4 1.0102 (40/47)

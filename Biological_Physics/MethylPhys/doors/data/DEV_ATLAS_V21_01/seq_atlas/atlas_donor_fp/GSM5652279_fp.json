@@ -1,0 +1,147 @@
+{
+ "flag": "DEVELOPMENT - not commissioned (floor by molecule position)",
+ "molecules": 435240786,
+ "by_distance_from_end": {
+  "0": {
+   "calls": 121709,
+   "opposite": 6928,
+   "rate": 0.056923
+  },
+  "1": {
+   "calls": 45135,
+   "opposite": 1536,
+   "rate": 0.034031
+  },
+  "2": {
+   "calls": 22029,
+   "opposite": 415,
+   "rate": 0.018839
+  },
+  "3": {
+   "calls": 12800,
+   "opposite": 152,
+   "rate": 0.011875
+  },
+  "4": {
+   "calls": 7473,
+   "opposite": 77,
+   "rate": 0.010304
+  },
+  "gap": {
+   "calls": 727,
+   "opposite": 11,
+   "rate": 0.015131
+  },
+  "interior": {
+   "calls": 13159,
+   "opposite": 127,
+   "rate": 0.009651
+  }
+ },
+ "by_side": {
+  "unmarked": {
+   "0": {
+    "calls": 27633,
+    "opposite": 580,
+    "rate": 0.0209894
+   },
+   "1": {
+    "calls": 21943,
+    "opposite": 157,
+    "rate": 0.0071549
+   },
+   "2": {
+    "calls": 16443,
+    "opposite": 121,
+    "rate": 0.0073588
+   },
+   "3": {
+    "calls": 10986,
+    "opposite": 69,
+    "rate": 0.0062807
+   },
+   "4": {
+    "calls": 6800,
+    "opposite": 41,
+    "rate": 0.0060294
+   },
+   "gap": {
+    "calls": 666,
+    "opposite": 7,
+    "rate": 0.0105105
+   },
+   "interior": {
+    "calls": 12714,
+    "opposite": 104,
+    "rate": 0.00818
+   }
+  },
+  "marked": {
+   "0": {
+    "calls": 94076,
+    "opposite": 6348,
+    "rate": 0.0674774
+   },
+   "1": {
+    "calls": 23192,
+    "opposite": 1379,
+    "rate": 0.0594602
+   },
+   "2": {
+    "calls": 5586,
+    "opposite": 294,
+    "rate": 0.0526316
+   },
+   "3": {
+    "calls": 1814,
+    "opposite": 83,
+    "rate": 0.0457552
+   },
+   "4": {
+    "calls": 673,
+    "opposite": 36,
+    "rate": 0.0534918
+   },
+   "gap": {
+    "calls": 61,
+    "opposite": 4,
+    "rate": 0.0655738
+   },
+   "interior": {
+    "calls": 445,
+    "opposite": 23,
+    "rate": 0.0516854
+   }
+  }
+ },
+ "site_matched": {
+  "unmarked": {
+   "end_over_inner": 3.2733,
+   "sites": 2807
+  },
+  "marked": {
+   "end_over_inner": 1.1948,
+   "sites": 2004
+  },
+  "both": {
+   "end_over_inner": 1.4527,
+   "sites": 4811
+  }
+ },
+ "end_over_interior": 5.898,
+ "sites": "identity",
+ "cell": "cd4 t cells",
+ "held_identity_sites": 5996,
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-floor-position",
+  "--geo-pat",
+  "GSM5652279",
+  "--build-cell",
+  "cd4 t cells",
+  "--bundle",
+  "xout/GSM5652279_fp.json"
+ ],
+ "input": "GSM5652279_Blood-T-CD4-Z000000TT.pat.gz"
+}
