@@ -187,10 +187,10 @@ def law_card(name="mini cell v2 (healthy, law first)"):
 def ledger(card):
     """The law's ledger for this card (IAM readings name the relation they used)."""
     Sc = _sc; T = card.v("T_cell"); kT = Sc.K_B * T
-    M = Sc.Reading(card.v("dG_ATP") / (R_GAS * T), "IAM", ["coin_M"], "the drive in kicks at the cell's temperature")
+    M = Sc.Reading(card.v("dG_ATP") / (R_GAS * T), "IAM", ["coin_M", "encoding_surface"], "the drive in kicks at the encoding surface (chromatin) at the cell's own temperature")
     E = Sc.Reading(card.v("phi") * M, "IAM", ["coin_M", "delivery_phi"], "holding energy in kT")
     eps = Sc.Reading(1 / (1 + math.exp(E)), "IAM", ["coin_M", "delivery_phi", "hold_energy"], "held error the law sets")
-    return dict(M=M, M_landauer=Sc.Reading(M / Sc.LN2, "IAM", ["coin_M"], "the coin in Landauer units"), E_hold_kT=E, eps_hold=eps,
+    return dict(M=M, M_landauer=Sc.Reading(M / Sc.LN2, "IAM", ["coin_M", "encoding_surface"], "the coin in Landauer units"), E_hold_kT=E, eps_hold=eps,
                 landauer_floor_J=Sc.Reading(kT * Sc.LN2, "established", note="Landauer, kT ln2 at the cell's temperature"),
                 eps_ceiling=Sc.Reading(0.5, "established", note="the coin flip"))
 
