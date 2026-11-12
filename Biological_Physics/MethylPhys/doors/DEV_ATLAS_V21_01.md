@@ -2084,3 +2084,13 @@ decides:** if each planted row then reads within its own error of its unplanted 
 the Deconvolver reading the planted calls, and the eighth form cuts the calls before the Deconvolver too; if not, the leak is elsewhere.
 Canary first: the CD8 rows 5 and 8 (unplanted, both sides planted), then the other 13.
 
+**The self-calibration diagnosis, trim first, read: the leak was the Deconvolver.** (`seq_atlas/selfcal_trimfirst_summary.txt`; canary rows 5 and 8, the CD8
+library unplanted and planted on both sides.) With the outermost call cut before any reading, the planted row reads exactly as its unplanted
+row (A 1.09883 both; identical shares). The plants sit only on that call, so every planted row of the 15 is then identical to its unplanted
+row by construction; the other 13 were not run (nothing more to learn, machines spared). So in the seventh form Met-A's own reading was cut
+correctly and the planted calls reached it through the Deconvolver, which reads every call. **A second finding:** against the trimmed atlas
+(atlas57t1) the Deconvolver finds this CD8 library mostly as effector memory CD4 (0.253; CD8 T 0.18), where the full atlas found CD8 T 0.319;
+the trimmed Deconvolver reference is not yet fit to identify cells. **Next (the eighth form, designed before reading):** the Deconvolver
+given the library's calls past its reach, read against a Deconvolver reference built from the atlas's own donors past the same reach, its
+identity first checked on the atlas's held-out donors; Met-A as in the seventh form.
+

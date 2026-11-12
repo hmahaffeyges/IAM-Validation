@@ -1,0 +1,4 @@
+Self-calibration diagnosis, trim first (selfcal_trimfirst.sh; canary rows 5 and 8, the CD8 library unplanted and planted on both sides)
+GSM2616075_c0: top cell t effector memory cd4 share 0.2529, A 1.09883, se 0.025661; next [('cd4 t cells', 0.239), ('cd8 t cells', 0.184), ('effector memory cd8 t cells', 0.142)]
+GSM2616075_c3: top cell t effector memory cd4 share 0.2529, A 1.09883, se 0.025661; next [('cd4 t cells', 0.239), ('cd8 t cells', 0.184), ('effector memory cd8 t cells', 0.142)]
+The two bundles read identically: with the outermost call cut before any reading, the planted errors (all on that call) are gone.
