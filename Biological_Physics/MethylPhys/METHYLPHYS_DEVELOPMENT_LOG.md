@@ -4705,3 +4705,12 @@ pair is restored as one unit, losses come together. `doors/data/DEV_MINICELL_01/
 independent strands give (median 7.81), and half-lost pairs about half. The pair behaves largely as one unit, which leans to the dyad's two
 coins per restore. **Confound, named before writing:** these cells have no de novo writers, so a pair lost on both strands stays lost and is
 copied, which alone makes excess UU. Not decisive; a lead. Next: the same count in cells that keep their writers, if hairpin data exist.
+
+### 2026-11-12 · PHY-083: the strands are lost together in cells with their writers too
+**Where IAM's Law is:** the price of one restore. `doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs.py` now also reads the
+wild-type and control clones of the same series (`genotypes/`, the binning of HAIRPIN_GENOTYPES): at the most fully held bin, fully lost
+pairs are 5.43-5.56 times what independent strands give in wild type, whose writers can rewrite a lost pair, so the missing-writer confound
+does not explain the coupling. The author's switching practice gives the reading: breakers are always one operation apiece, but one
+protection scheme can trip both at once. So restoring is paid strand by strand (two coins for a fully lost pair, one for a half-lost pair),
+while a loss can be common-mode. Next, on the same counts: whether half-lost pairs are repaired at the one-coin rate and fully lost pairs at
+the two-coin rate (prediction to be written before looking).

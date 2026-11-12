@@ -14,7 +14,15 @@ for f in sorted(glob.glob(os.path.join(H, "GSM*.tsv"))):
         x = T.loc[b]; n = x.MM + x.MU + x.UM + x.UU; p = (x.MU + x.UM + 2 * x.UU) / (2 * n); d, c = LAB[os.path.basename(f)[-6:-4]]
         rows.append(dict(clone=c, day=d, bin=b, p_strand=round(p, 4), UU_obs=round(x.UU / n, 5), UU_if_independent=round(p * p, 5),
                          UU_ratio=round((x.UU / n) / (p * p), 2), half_lost_obs=round((x.MU + x.UM) / n, 4), half_lost_if_independent=round(2 * p * (1 - p), 4)))
+G = {"GSM3669526": "WT rep1", "GSM3669527": "WT rep2", "GSM3669518": "SKO_Con rep1", "GSM3669519": "SKO_Con rep2", "GSM3669516": "PKO_Con rep1", "GSM3669517": "PKO_Con rep2"}
+for g, lab in G.items():   # 2026-11-12: clones with their writers (genotypes/, the same single-pass binning as HAIRPIN_GENOTYPES)
+    T = pd.read_csv(os.path.join(H, "genotypes", g + ".tsv"), sep="\t", header=None, names=["bin", "sites", "MM", "MU", "UM", "UU"]).set_index("bin")
+    for b in (8, 9):
+        x = T.loc[b]; n = x.MM + x.MU + x.UM + x.UU; p = (x.MU + x.UM + 2 * x.UU) / (2 * n)
+        rows.append(dict(clone=lab, day=0, bin=b, p_strand=round(p, 4), UU_obs=round(x.UU / n, 5), UU_if_independent=round(p * p, 5),
+                         UU_ratio=round((x.UU / n) / (p * p), 2), half_lost_obs=round((x.MU + x.UM) / n, 4), half_lost_if_independent=round(2 * p * (1 - p), 4)))
 R = pd.DataFrame(rows)
 t = ("Strand pairs at the most fully held bins (GSE116482 SKO hairpins; exploration)\n" + R.to_string(index=False) +
-     f"\n\nmedian UU observed / UU if independent: bin 9 {R[R.bin == 9].UU_ratio.median():.2f}, bin 8 {R[R.bin == 8].UU_ratio.median():.2f}\n")
+     f"\n\nmedian UU observed / UU if independent, SKO time course: bin 9 {R[(R.bin == 9) & (R.day > 0)].UU_ratio.median():.2f}, bin 8 {R[(R.bin == 8) & (R.day > 0)].UU_ratio.median():.2f}"
+     f"\nwild type (writers present), bin 9: {R[(R.bin == 9) & R.clone.str.startswith('WT')].UU_ratio.min():.2f}-{R[(R.bin == 9) & R.clone.str.startswith('WT')].UU_ratio.max():.2f}\n")
 open(os.path.join(H, "strand_pairs_summary.txt"), "w").write(t); print(t[-160:])
