@@ -28361,7 +28361,7 @@
    "cost": "laptop",
    "impact": 5,
    "depends_on": [],
-   "notes": "added 2026-11-11; feeds plan step 35.16 (the browser lever simulator) later",
+   "notes": "added 2026-11-11; feeds plan step 35.16 (the browser lever simulator) later | 2026-11-11: version 2 built physics first: the law's ledger (coin M, delivery phi, hold eps), maintenance kinetics delivering the level, origin of every parameter and reading, an IAM on/off switch, self-tests passing (Biological_Physics/MethylPhys/minicell/)",
    "id": "PHY-078",
    "legacy_ids": [],
    "sources_of_row": [

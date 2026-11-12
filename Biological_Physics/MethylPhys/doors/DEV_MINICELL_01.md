@@ -32,3 +32,14 @@ restores per loss within their counting error, before any other use.
 
 **In plain words.** A practice cell and practice sequencer built from measured numbers, so the instruments can be tested on a sample whose
 truth is known, the way an operator practices on a training simulator before acting on the live system.
+
+**Where IAM's Law is (version 2, 2026-11-11).** The law's ledger comes first: M = dG_ATP/(R T_cell), E_hold = phi M kT, eps = 1/(1+exp(E_hold/kT)) (IAM);
+the floor kT ln2 per bit (established, placed by IAM). The maintenance kinetics and the meter only deliver the level the law sets. Every
+parameter and reading carries its origin (IAM, established, measured, borrowed, ours, assumed), and an IAM switch runs the same model on
+established physics and measured inputs alone, so the difference is exactly the IAM claim. Files: `Biological_Physics/MethylPhys/minicell/` (`simcore.py`,
+`minicell.py`, `selftest.py`, all self-tests passing). The 37 C level is measured, not predicted; the law's content in the mini cell is how
+the held error moves with temperature and with the drive.
+**First lesson from the simulator (development).** With the eraser assumed small, removing the writers lowers the hairpin metric
+(restores per loss 12.1 to 8.3 in the model), while the hairpin genotypes measured it rising (wild type 12.4 and 11.9; without Tet1-3 and
+Dnmt3a/b/c 17.2 and 15.5; GSE116482). So turnover at held sites is much larger than assumed: the eraser rate is to be calibrated from the
+genotypes, as the next step of the calibration.
