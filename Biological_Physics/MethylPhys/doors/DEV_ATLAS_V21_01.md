@@ -2050,3 +2050,10 @@ only that the cut removes them; bars 3 and 4 are the informative ones. Order: th
 canary), the reference built and committed, then one row as a canary, then the rest.
 **Where IAM's Law is:** not in this; it is the instrument (the meter's terminals located and cut out on both sides of the comparison), so that
 Met-A on sequencing reads the record's own disorder against healthy, which is where the law is tested.
+
+**Errors by copies of the same molecule line (exploration; `seq_atlas/burst_lines_summary.txt`; the author's redundant-sources idea).** On the
+three libraries, the opposite calls sit almost entirely on molecule lines seen once (marked side at the end: 0.2533, 0.1160 and 0.1957 on
+single lines; 0.0139, 0.0000 and 0.0228 on lines of four to nine copies). Two readings, not yet separated: the error is made per read after
+copying (a copy carrying an error no longer matches its siblings and becomes a line of its own; then agreement among copies removes the meter's
+error, redundant meters on one circuit), or the many-copy lines are a different kind of molecule. Next: whether single lines split off
+many-copy lines in the proportion a per-read error predicts.

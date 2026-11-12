@@ -1,0 +1,26 @@
+Opposite-call share at the identity sites by how many copies of the same molecule line the file holds (exploration, 2026-11-11; the three
+self-calibration libraries, first 12 million lines; end = the last call, or the last three on the unmarked side)
+lab                         GSE134664 B  GSE98837 CD8  JHU CD4
+side     zone       copies                                    
+marked   end        1            0.2533        0.1160   0.1957
+                    10+          0.0000        0.0000   0.0073
+                    2-3          0.1065        0.0223   0.1154
+                    4-9          0.0139        0.0000   0.0228
+         past reach 1            0.0910        0.0470   0.0928
+                    10+             NaN        0.0000   0.0000
+                    2-3          0.0338        0.0340   0.0199
+                    4-9          0.0000        0.0000   0.0000
+unmarked end        1            0.0148        0.0295   0.0044
+                    10+          0.0000        0.0000   0.0000
+                    2-3          0.0041        0.0116   0.0000
+                    4-9          0.0000        0.0000   0.0000
+         past reach 1            0.0048        0.0038   0.0033
+                    2-3          0.0000        0.0000   0.0000
+                    4-9          0.0000        0.0000   0.0000
+
+calls by copies
+copies            1   10+   2-3   4-9
+lab                                  
+GSE134664 B    7669   413  3133  2329
+GSE98837 CD8   7624   284  3613  2525
+JHU CD4       10096  3622  3425  2934

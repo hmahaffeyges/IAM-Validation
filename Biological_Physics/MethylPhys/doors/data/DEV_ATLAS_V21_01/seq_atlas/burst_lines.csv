@@ -1,0 +1,45 @@
+lab,side,zone,copies,opposite,calls,lines
+GSE134664 B,unmarked,past reach,1,0.0048,1662,1662
+GSE134664 B,unmarked,end,1,0.0148,2975,2975
+GSE134664 B,marked,end,1,0.2533,1812,1812
+GSE134664 B,marked,end,4-9,0.0139,1731,314
+GSE134664 B,marked,past reach,1,0.091,1220,1220
+GSE134664 B,marked,past reach,2-3,0.0338,473,213
+GSE134664 B,unmarked,past reach,2-3,0.0,260,124
+GSE134664 B,marked,end,2-3,0.1065,1436,621
+GSE134664 B,unmarked,end,2-3,0.0041,964,440
+GSE134664 B,unmarked,end,4-9,0.0,371,73
+GSE134664 B,marked,past reach,4-9,0.0,215,43
+GSE134664 B,unmarked,past reach,4-9,0.0,12,3
+GSE134664 B,marked,end,10+,0.0,385,34
+GSE134664 B,unmarked,end,10+,0.0,28,2
+GSE98837 CD8,marked,end,1,0.116,1724,1724
+GSE98837 CD8,unmarked,end,1,0.0295,3496,3496
+GSE98837 CD8,unmarked,past reach,1,0.0038,1319,1319
+GSE98837 CD8,marked,past reach,1,0.047,1085,1085
+GSE98837 CD8,marked,past reach,2-3,0.034,441,200
+GSE98837 CD8,marked,end,2-3,0.0223,1477,648
+GSE98837 CD8,marked,past reach,4-9,0.0,265,50
+GSE98837 CD8,marked,end,4-9,0.0,1820,343
+GSE98837 CD8,unmarked,end,2-3,0.0116,1471,666
+GSE98837 CD8,unmarked,past reach,2-3,0.0,224,104
+GSE98837 CD8,unmarked,end,4-9,0.0,420,84
+GSE98837 CD8,marked,past reach,10+,0.0,10,1
+GSE98837 CD8,unmarked,past reach,4-9,0.0,20,5
+GSE98837 CD8,marked,end,10+,0.0,248,21
+GSE98837 CD8,unmarked,end,10+,0.0,26,2
+JHU CD4,unmarked,end,1,0.0044,3660,3660
+JHU CD4,unmarked,past reach,1,0.0033,2461,2461
+JHU CD4,unmarked,past reach,2-3,0.0,190,93
+JHU CD4,unmarked,end,2-3,0.0,708,326
+JHU CD4,marked,end,1,0.1957,2013,2013
+JHU CD4,marked,past reach,1,0.0928,1962,1962
+JHU CD4,marked,end,4-9,0.0228,2105,376
+JHU CD4,marked,past reach,2-3,0.0199,854,381
+JHU CD4,marked,end,2-3,0.1154,1673,737
+JHU CD4,marked,past reach,4-9,0.0,526,101
+JHU CD4,marked,end,10+,0.0073,3310,168
+JHU CD4,marked,past reach,10+,0.0,123,9
+JHU CD4,unmarked,end,4-9,0.0,290,55
+JHU CD4,unmarked,end,10+,0.0,189,10
+JHU CD4,unmarked,past reach,4-9,0.0,13,3
