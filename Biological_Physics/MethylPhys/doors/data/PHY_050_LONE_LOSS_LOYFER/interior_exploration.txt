@@ -1,0 +1,10 @@
+PHY-079 exploration on the 54 spent PHY-050 third-test counts (GSE186458; nothing sealed, nothing spent; computed from held_by_distance and held_err_length in each count)
+End fault: held error at the molecule's last call over the interior (call 4 and beyond): median 1.005, range 0.931-1.044. These libraries carry no measurable end fault.
+Interior beyond reach R, against 0.04558 + 0.0284 x loose share (median ratio; within 10 %):
+  all 54:          scored 0.9870 (44/54); R>=2 0.9736 (43/54); R>=3 0.9600 (42/54); R>=4 1.0073 (42/54)
+  without neurons: scored 0.9924 (42/47); R>=2 0.9770 (41/47); R>=3 0.9691 (40/47); R>=4 1.0102 (40/47)
+So the misses are not the meter's ends. Observed over predicted rises with the loose share (Spearman 0.62; 0.54 without neurons).
+Non-neuron samples (n=47), Theil-Sen line of the scored rate on the loose share: intercept 0.04298 (bootstrap 95 % 0.04072-0.04516),
+slope 0.0442 (0.0369-0.0568). Reference values: 1/(1+M) = 0.04558 (the prediction's term); eps0 = 1/(1+exp(phi M)) = 0.04376 (canon,
+measured holding energy, other samples from the same laboratory). The interval excludes 1/(1+M) narrowly and includes eps0. Exploration:
+consistency with a measurement from the same laboratory, not a derivation; the middle remains measured.
