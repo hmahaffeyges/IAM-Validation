@@ -1,0 +1,8 @@
+PHY-050 rescored by the agreed bar method (exploration; the sealed verdicts stand; a flip needs a fresh sealed test)
+                                                  test          sealed verdict  observed  predicted     off  pull, coin exact  pull, coin uncertainty
+                test 1: per-call firm rate, 153 Loyfer                 not met    0.0544    0.04558  0.1935              6.99                    3.51
+test 2: lone-loss rate, 6 tumor-adjacent tissues (JHU)                 not met    1.3380    1.00000  0.3380              6.78                    4.90
+      test 3: lone-loss rate, 54 unseen Loyfer samples not met (by one sample)    0.9870    1.00000 -0.0130             -0.55                   -0.24
+Reading: test 3 (the lone-loss rate) agrees with 1/(1+M) within about half a standard deviation; test 1 (the per-call rate) and test 2
+(tumor-adjacent tissue) remain misses. Losses cluster (coupling 1.41), so the per-call rate counts stretches lost together; the lone-loss rate
+is the quantity the law's held error is set against.

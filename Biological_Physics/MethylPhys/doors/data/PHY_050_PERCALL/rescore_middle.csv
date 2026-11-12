@@ -1,0 +1,4 @@
+test,sealed verdict,observed,predicted,off,"pull, coin exact","pull, coin uncertainty"
+"test 1: per-call firm rate, 153 Loyfer",not met,0.0544,0.04558,0.1935,6.99,3.51
+"test 2: lone-loss rate, 6 tumor-adjacent tissues (JHU)",not met,1.338,1.0,0.338,6.78,4.9
+"test 3: lone-loss rate, 54 unseen Loyfer samples",not met (by one sample),0.987,1.0,-0.013,-0.55,-0.24

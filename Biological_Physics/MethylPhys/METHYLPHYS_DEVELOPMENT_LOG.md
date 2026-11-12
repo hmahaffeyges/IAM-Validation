@@ -4610,3 +4610,20 @@ mean human lifespan of the matching type in the published cell-turnover census (
 0.50, p 0.17 on the 9 exact matches): cell types replaced rarely hold slightly worse. Exceptions: cardiomyocytes and oligodendrocytes
 (decades, near the prediction) and alveolar macrophages (months, best). Reading: the full restore crew works with the copier; a resting cell
 repairs between rare copies. Next: the copying window in the mini cell (writing load beside holding load, phi on the ledger).
+
+### 2026-11-12 · PHY-079: the middle-number tests rescored by the agreed bar method; restore crew against held error (exploration)
+**Where IAM's Law is:** the hold, held error = 1/(1 + M) at zero loose share, with M the coin (canon M_cell); the crew check asks what sets
+the delivery share phi between cell types. **Bars (Why IAM, Read first):** a bar comes from the combined measured uncertainty at k = 2 (the
+metrology guide), and a result is reported as its pull. `doors/data/PHY_050_PERCALL/rescore_middle.py` (`rescore_middle_summary.txt`) rescores the three sealed
+PHY-050 tests this way; the sealed verdicts stand, and a change of verdict needs a fresh sealed test.
+```
+PHY-050 rescored by the agreed bar method (exploration; the sealed verdicts stand; a flip needs a fresh sealed test)
+                                                  test          sealed verdict  observed  predicted     off  pull, coin exact  pull, coin uncertainty
+                test 1: per-call firm rate, 153 Loyfer                 not met    0.0544    0.04558  0.1935              6.99                    3.51
+test 2: lone-loss rate, 6 tumor-adjacent tissues (JHU)                 not met    1.3380    1.00000  0.3380              6.78                    4.90
+      test 3: lone-loss rate, 54 unseen Loyfer samples not met (by one sample)    0.9870    1.00000 -0.0130             -0.55                   -0.24
+Reading: test 3 (the lone-loss rate) agrees with 1/(1+M) within about half a standard deviation; test 1 (the per-call rate) and test 2
+(tumor-adjacent tissue) remain misses. Losses cluster (coupling 1.41), so the per-call rate counts stretches lost together; the lone-loss rate
+is the quantity the law's held error is set against.
+```
+`doors/data/PHY_050_PERCALL/crew_vs_held.py` (`crew_vs_held_summary.txt`): Crew and copying against held error (exploration). 29 cell types: restore crew (DNMT1 + UHRF1 RNA) rho -0.43 (p 0.019); proliferation (MKI67) rho -0.35 (p 0.066). With a census lifespan, n=15: lifespan rho +0.38 (p 0.160); crew plus lifespan, leave-one-out rho +0.17. More restore crew, lower held error; crew is made mostly in copying cells, so crew and copying are partly one signal.
