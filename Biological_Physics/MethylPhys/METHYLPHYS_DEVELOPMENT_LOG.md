@@ -4760,3 +4760,9 @@ The MZGC1 control library aligned (99.94 % of 19.8 M reads), but bam2pat exited 
 an empty --pat and stopped (exit 35); the workflow showed success because it always uploads. Not read; nothing scored. erase_gh.sh now keeps
 bam2pat's log and a look at the BAM every time and stops with exit 36 when no molecules are written; erase_test.yml fails the run when the
 job's exit is not 0 and takes a read-pair cap for a short canary. Next: a 200,000-pair canary of the same library.
+
+### 2026-11-12 · COM-IAMA-041 / PHY-006: the cause, wgbs_tools' patter never built
+A 200,000-pair canary of DRR322659 (erase_test run 43292514925, 11 minutes) stopped with the new exit 36 and kept bam2pat's log: the
+compiled part of wgbs_tools (src/pipeline_wgbs/patter) was missing; setup.py had returned 0 without building it. erase_gh.sh now checks
+patter and match_maker after setup, rebuilds a missing one with the headers newer compilers no longer include implicitly, keeps the build
+log (wgbs_install.log) and stops with exit 16 if still missing. The same 200,000-pair canary is rerun before the four libraries.

@@ -20,6 +20,13 @@ MM="$S/bin/micromamba -r $S/mamba"; log(){ echo "$(date -u +%H:%M:%S) $*"; }
 [ -d $S/e_sra ]  || $MM create -y -q -p $S/e_sra -c conda-forge -c bioconda sra-tools >> $S/logs/install.log 2>&1 || exit 16
 # 2026-10-29: the wgbs_tools download is retried up to five times (a chunk lost its tool to one network drop)
 [ -d $S/wgbs_tools ] || { for _t in 1 2 3 4 5; do git clone -q https://github.com/nloyfer/wgbs_tools.git $S/wgbs_tools && break; rm -rf $S/wgbs_tools; sleep $((_t * 20)); done; [ -d $S/wgbs_tools ] && git -C $S/wgbs_tools checkout -q 0.1.0 && (cd $S/wgbs_tools && PATH=$S/e_wgbs/bin:$PATH python setup.py >> $S/logs/install.log 2>&1); } || exit 17
+# 2026-11-12 (DEV-METHIONINE-01 canary): setup.py returned 0 without building patter, so bam2pat wrote nothing; check the binaries the
+# reading needs, rebuild any missing with the headers newer compilers no longer include implicitly, keep the build log, stop if still missing
+for _m in patter match_maker; do [ -x $S/wgbs_tools/src/pipeline_wgbs/$_m ] && continue
+  ( cd $S/wgbs_tools && g++ -std=c++11 -O2 -include cstdint -include algorithm -include stdexcept -include array src/pipeline_wgbs/$_m.cpp -o src/pipeline_wgbs/$_m ) >> $S/logs/install.log 2>&1
+  [ -x $S/wgbs_tools/src/pipeline_wgbs/$_m ] || { cp $S/logs/install.log $OUT/wgbs_install.log 2>/dev/null; echo "wgbs_tools $_m not built (see wgbs_install.log)"; exit 16; }
+  echo "wgbs_tools $_m rebuilt with explicit headers" >> $S/logs/install.log; done
+cp $S/logs/install.log $OUT/wgbs_install.log 2>/dev/null
 export PATH=$S/e_st19/bin:$S/e_wgbs/bin:$S/e_bm/bin:$S/e_sbb/bin:$S/e_sra/bin:$S/wgbs_tools:$PATH
 { bwameth.py --version 2>&1 | head -1; samtools --version | head -1; sambamba 2>&1 | grep -m1 sambamba; fastq-dump --version | grep -m1 dump; echo "wgbstools $(git -C $S/wgbs_tools describe --tags)"; } | tee $OUT/versions.txt
 gen=$(awk -F, -v g=$GSM '$3==g{print $5; exit}' ${SAMPLES:-$E/erase_samples.csv}); [ -n "$gen" ] || { echo "$GSM not in erase_samples.csv"; exit 19; }
