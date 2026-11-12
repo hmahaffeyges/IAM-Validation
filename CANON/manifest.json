@@ -28411,6 +28411,72 @@
    "next_step": "a written derivation note from published free energies",
    "cost": "laptop",
    "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ],
+   "notes": "added 2026-11-12 from the author's question: which levers drugs and conditions move, and whether trials with doses and times exist",
+   "id": "PHY-081",
+   "title": "The restore lever moved by a drug: decitabine in people, before and after",
+   "purpose": "Where IAM's Law is: the hold (eps = 1/(1 + restore/loss odds)) predicts how each cell's held level departs when the restore is throttled; a lever experiment already run on people",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "GSE78963 (36 HumanMethylation450 arrays with raw files; children with AML, decitabine before induction, blood and marrow before and after): Met-A per cell found, each person against their own before-sample; sequencing equivalents to be searched for IAM-A"
+   ],
+   "data_status": "unspent",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "planned",
+   "next_step": "check each dataset's platform and access before any reading; spend none until the design is written",
+   "cost": "laptop",
+   "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ],
+   "notes": "added 2026-11-12 from the author's question: which levers drugs and conditions move, and whether trials with doses and times exist",
+   "id": "PHY-082",
+   "title": "The eraser lever moved by vitamin C, and the kick lever moved by heat illness",
+   "purpose": "Where IAM's Law is: the eraser and the kick are levers of the same hold; whether each moves the held level as the law's form says, read on data already published",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "NCT02877277 (vitamin C or placebo on azacitidine; Danish pilot), the TET2 carriers' 1-year vitamin C trial, the exertional heat illness blood methylation cohort: data availability to be checked"
+   ],
+   "data_status": "unspent",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "planned",
+   "next_step": "check each dataset's platform and access before any reading; spend none until the design is written",
+   "cost": "laptop",
+   "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ],
+   "notes": "added 2026-11-12 from the author's question: which levers drugs and conditions move, and whether trials with doses and times exist",
+   "id": "OTH-085",
+   "title": "Each sample's medications and conditions recorded beside its reading",
+   "purpose": "A drug or condition that moves a lever makes a reading depart for a stated reason, not disease; the chain records it, and such samples are never used as healthy references",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "the chain's bundle; the sample sheets of every series read"
+   ],
+   "data_status": "n/a",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "planned",
+   "next_step": "check each dataset's platform and access before any reading; spend none until the design is written",
+   "cost": "laptop",
+   "impact": 4
   }
  ],
  "not_tests": {

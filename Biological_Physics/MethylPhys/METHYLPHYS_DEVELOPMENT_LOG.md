@@ -4555,3 +4555,6 @@ The length-corrected lone-loss rate of the 153 Loyfer samples and of the 54 unse
 the two sets share a cell type they read alike (hepatocyte aside), so their difference is mainly their cell mix. Cell types differ by up to
 about 10 % from the M-based prediction (hepatocytes low, smooth muscle high): whether that spread is the drive (each cell's own ATP free
 energy) or something else is open. Nothing sealed; fresh data is kept for one final sealed test.
+
+### 2026-11-12 · PHY-081, PHY-082, OTH-085: levers moved by drugs and conditions (planned)
+Drugs and conditions are lever experiments already run on people: decitabine and azacitidine throttle the restore, vitamin C drives the eraser, fever and heat illness move the kick, fasting and folate move the coin, chemotherapy and infection move copying. GSE78963 holds 36 450K arrays with raw files from children with AML before and after decitabine (Met-A per cell, each person against themselves); vitamin C and heat-illness data to be checked. A reading moved by a drug departs for a stated reason, not disease: medications are recorded beside each reading and such samples never serve as healthy references. Nothing read yet.
