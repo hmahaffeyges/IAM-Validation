@@ -4714,3 +4714,10 @@ does not explain the coupling. The author's switching practice gives the reading
 protection scheme can trip both at once. So restoring is paid strand by strand (two coins for a fully lost pair, one for a half-lost pair),
 while a loss can be common-mode. Next, on the same counts: whether half-lost pairs are repaired at the one-coin rate and fully lost pairs at
 the two-coin rate (prediction to be written before looking).
+
+### 2026-11-12 · PHY-083 in the book: a candidate for the healthy reference from M alone
+**Where IAM's Law is:** the work of each restore is paid in coins of M kT at the encoding surface. The IAM-A chapter gains Section
+sec:middle_candidate (docs/book/part6/p6_08_iama.tex), labeled CONJECTURE: the healthy reference as a driven first passage, with the strand
+coupling and the UHRF1 crew result as MEASURED, the methionine and one-strand tests as PREDICTION, and the two-coin step, the geometry, the
+stem-cell control and the eraser share as OPEN PROBLEM. The Landauer chapter's balance section and the gauge chapter point to it. Every
+printed number has a verify_book check (25 new, ch:iama:mc:*); the full book on a complete copy of the repository: 4,668 checks, 0 failures.

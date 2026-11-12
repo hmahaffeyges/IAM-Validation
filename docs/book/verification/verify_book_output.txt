@@ -35,7 +35,7 @@ PASS  ch:giants:L176                     ch:giants:p0_giants:176  printed 3.08  
 PASS  ch:giants:L177                     ch:giants:p0_giants:177  printed 0.044  recomputed 0.0437721  tol 6.875007e-04  [derived] Boltzmann floor computed from holding energy input
 
 == Part 0: Front matter | ch:p0_how_to_read (front/p0_how_to_read.tex)
-PASS  ch:p0_how_to_read:L50              ch:p0_how_to_read:p0_how_to_read:50  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] Mahaffey number M_cell for one ATP at 37C
+PASS  ch:p0_how_to_read:L50              ch:p0_how_to_read:p0_how_to_read:50  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] M number M_cell for one ATP at 37C
 PASS  ch:p0_how_to_read:L50:30.2         ch:p0_how_to_read:p0_how_to_read:50  printed 30.2  recomputed 30.2108  tol 0.0501321  [calc] M_cell converted to Landauer (bit) units
 
 == Part 1: Introduction to IAM's Law and the Virial Theorem | ch:iams_law (part1/p1_02_iams_law.tex)
@@ -210,13 +210,13 @@ PASS  ch:iams_law:L808                   ch:iams_law:p1_02_iams_law:808  printed
 PASS  ch:iams_law:L840                   ch:iams_law:p1_02_iams_law:840  printed 1/2  recomputed lhs-rhs=0  [derived] virial ratio for converged 1/r potential
 PASS  ch:iams_law:L841                   ch:iams_law:p1_02_iams_law:841  printed 1.456  recomputed 1.45626  tol 5.000005e-04  [derived] Chandrasekhar mass, mu_e=2, m_u
 PASS  ch:iams_law:L887                   ch:iams_law:p1_02_iams_law:887  printed 2\pi/8\pi  recomputed lhs-rhs=0  [derived] Jacobson eta=1/(4lP^2) ratio check
-PASS  ch:iams_law:L957                   ch:iams_law:p1_02_iams_law:957  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] cell Mahaffey number
-PASS  ch:iams_law:L957:30.2              ch:iams_law:p1_02_iams_law:957  printed 30.2  recomputed 30.2108  tol 0.0500113  [calc] cell Mahaffey number, Landauer units
-PASS  ch:iams_law:L957:399               ch:iams_law:p1_02_iams_law:957  printed 399  recomputed 399.267  tol 0.5  [calc] chip Mahaffey number
-PASS  ch:iams_law:L957:2.1\times10^{77}  ch:iams_law:p1_02_iams_law:957  printed 2.1\times10^{77}  recomputed 2.097910e+77  tol 5.000005e+75  [calc] BH Mahaffey number, one solar mass
-PASS  ch:iams_law:L957:3.9\times10^{90}  ch:iams_law:p1_02_iams_law:957  printed 3.9\times10^{90}  recomputed 3.879035e+90  tol 5.000005e+88  [calc] BH Mahaffey number, Sgr A*
-PASS  ch:iams_law:L979                   ch:iams_law:p1_02_iams_law:979  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] cell Mahaffey number, repeat
-PASS  ch:iams_law:L980                   ch:iams_law:p1_02_iams_law:980  printed 30.2  recomputed 30.2108  tol 0.0500113  [calc] cell Mahaffey number Landauer, repeat
+PASS  ch:iams_law:L957                   ch:iams_law:p1_02_iams_law:957  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] cell M number
+PASS  ch:iams_law:L957:30.2              ch:iams_law:p1_02_iams_law:957  printed 30.2  recomputed 30.2108  tol 0.0500113  [calc] cell M number, Landauer units
+PASS  ch:iams_law:L957:399               ch:iams_law:p1_02_iams_law:957  printed 399  recomputed 399.267  tol 0.5  [calc] chip M number
+PASS  ch:iams_law:L957:2.1\times10^{77}  ch:iams_law:p1_02_iams_law:957  printed 2.1\times10^{77}  recomputed 2.097910e+77  tol 5.000005e+75  [calc] BH M number, one solar mass
+PASS  ch:iams_law:L957:3.9\times10^{90}  ch:iams_law:p1_02_iams_law:957  printed 3.9\times10^{90}  recomputed 3.879035e+90  tol 5.000005e+88  [calc] BH M number, Sgr A*
+PASS  ch:iams_law:L979                   ch:iams_law:p1_02_iams_law:979  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] cell M number, repeat
+PASS  ch:iams_law:L980                   ch:iams_law:p1_02_iams_law:980  printed 30.2  recomputed 30.2108  tol 0.0500113  [calc] cell M number Landauer, repeat
 
 == Part 1: Introduction to IAM's Law and the Virial Theorem | ch:virial_law (part1/p1_03_virial_law.tex)
 PASS  eq:vl_euler                        ch:virial_law:p1_03_virial_law:33  printed (algebra)  recomputed lhs-rhs=0  [derived] Euler homogeneous-function relation, virial degree
@@ -797,8 +797,8 @@ PASS  ch:theory:L1060                    ch:theory:p2_03_theory:1060  printed 0.
 PASS  ch:theory:L1060:0.948              ch:theory:p2_03_theory:1060  printed 0.948  recomputed 0.948158  tol 5.000005e-04  [prediction] IAM mu prediction at z=0.5
 PASS  ch:theory:L1063                    ch:theory:p2_03_theory:1063  printed 0.35--0.5  recomputed 0.353712  tol 0.00500001  [measured] phantom-crossing redshift, lowest of the DESI DR2 fits  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
-PASS  ch:theory:L1067                    ch:theory:p2_03_theory:1067  printed 3.3\%  recomputed 3.29845  tol 0.05  [calc] beta_gamma 95 % bound (committed output) over beta_m, per cent
-PASS  ch:theory:L1067:0.0052             ch:theory:p2_03_theory:1067  printed 0.0052  recomputed 0.0052  tol 5.000005e-05  [measured] beta_gamma 95 % bound (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  ch:theory:L1067                    ch:theory:p2_03_theory:1067  printed 5.1\%  recomputed 5.07453  tol 0.05  [calc] beta_gamma 95 % bound (committed output) over beta_m, per cent
+PASS  ch:theory:L1067:0.0052             ch:theory:p2_03_theory:1067  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [measured] beta_gamma 95 % bound (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  ch:theory:L1084                    ch:theory:p2_03_theory:1084  printed 7/2  recomputed 3.5  tol 1.000001e-09  [derived] n = 7/2 restated in the summary (power counting)
 
@@ -1210,8 +1210,8 @@ PASS  ch:dsnote:L93                      ch:dsnote:p2_05_dual_sector_note:93  pr
 PASS  ch:dsnote:L99                      ch:dsnote:p2_05_dual_sector_note:99  printed 0.864  recomputed 0.863819  tol 5.184005e-04  [prediction] mu(0) restated as prediction
 PASS  ch:dsnote:L111                     ch:dsnote:p2_05_dual_sector_note:111  printed 0.0052  recomputed found in file  [calc] photon coupling bound from theta_s fit  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
-PASS  ch:dsnote:L111:0.033               ch:dsnote:p2_05_dual_sector_note:111  printed 0.033  recomputed 0.0329845  tol 5.000005e-04  [calc] sector ratio beta_gamma/beta_m from the committed 95 % bound
-PASS  ch:dsnote:L112                     ch:dsnote:p2_05_dual_sector_note:112  printed 30  recomputed 30  tol 0.5  [calc] 'at least 30x': beta_m/beta_gamma bound, whole multiples
+PASS  ch:dsnote:L111:0.033               ch:dsnote:p2_05_dual_sector_note:111  printed 0.051  recomputed 0.0507453  tol 5.000005e-04  [calc] sector ratio beta_gamma/beta_m from the committed 95 % bound
+PASS  ch:dsnote:L112                     ch:dsnote:p2_05_dual_sector_note:112  printed 19  recomputed 19  tol 0.5  [calc] 'at least 30x': beta_m/beta_gamma bound, whole multiples
 PASS  ch:dsnote:L113                     ch:dsnote:p2_05_dual_sector_note:113  printed 0.1583  recomputed 0.158287  tol 5.000005e-05  [measured] Omega_m/2 from Planck posterior (beta_m-fixed chain)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:dsnote:L113:0.0032              ch:dsnote:p2_05_dual_sector_note:113  printed 0.0032  recomputed 0.00324825  tol 5.120005e-05  [measured] uncertainty on Omega_m/2 posterior  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -1255,14 +1255,14 @@ PASS  ch:dsnote:L133                     ch:dsnote:p2_05_dual_sector_note:133  p
 PASS  ch:dsnote:L133:8.6                 ch:dsnote:p2_05_dual_sector_note:133  printed 8.6  recomputed 8.56372  tol 0.0516001  [measured] sigma below Planck, chain error in quadrature
 PASS  ch:dsnote:L135                     ch:dsnote:p2_05_dual_sector_note:135  printed 0.0052  recomputed found in file  [calc] photon coupling bound restated  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
-PASS  ch:dsnote:L135:0.033               ch:dsnote:p2_05_dual_sector_note:135  printed 0.033  recomputed 0.0329845  tol 5.000005e-04  [calc] sector ratio beta_gamma/beta_m from the committed 95 % bound
+PASS  ch:dsnote:L135:0.033               ch:dsnote:p2_05_dual_sector_note:135  printed 0.051  recomputed 0.0507453  tol 5.000005e-04  [calc] sector ratio beta_gamma/beta_m from the committed 95 % bound
 PASS  ch:dsnote:L136                     ch:dsnote:p2_05_dual_sector_note:136  printed 23.6  recomputed found in file  [observed] measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
       heavy: python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt
 PASS  ch:dsnote:L145                     ch:dsnote:p2_05_dual_sector_note:145  printed 1.4  recomputed found in file  [calc] sigma offset of the beta_gamma=0 point from the observed theta_s (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  ch:dsnote:L145:0.0052              ch:dsnote:p2_05_dual_sector_note:145  printed 0.0052  recomputed found in file  [calc] photon coupling bound (figure)  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
-PASS  ch:dsnote:L145:0.033               ch:dsnote:p2_05_dual_sector_note:145  printed 0.033  recomputed 0.0329845  tol 5.000005e-04  [calc] sector ratio beta_gamma/beta_m from the committed 95 % bound
+PASS  ch:dsnote:L145:0.033               ch:dsnote:p2_05_dual_sector_note:145  printed 0.051  recomputed 0.0507453  tol 5.000005e-04  [calc] sector ratio beta_gamma/beta_m from the committed 95 % bound
 PASS  ch:dsnote:L145:0.90                ch:dsnote:p2_05_dual_sector_note:145  printed 0.90  recomputed found in file  [calc] theta_s shift from full matter coupling  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  ch:dsnote:L145:30                  ch:dsnote:p2_05_dual_sector_note:145  printed 30  recomputed found in file  [calc] sigma significance of theta_s shift  file docs/verification/scripts/verify_beta_gamma_output.txt
@@ -1329,13 +1329,13 @@ PASS  ch:dsnote:L188:0.08                ch:dsnote:p2_05_dual_sector_note:188  p
 PASS  ch:dsnote:L188:0.11                ch:dsnote:p2_05_dual_sector_note:188  printed 0.11^{+0.45}_{-0.54}  recomputed 0.11  tol 0.00500001  [observed] published mu0, DESI 2024 full shape + BAO + BBN  file docs/verification/scripts/verify_theory_derivations_output.txt
 PASS  ch:dsnote:L188:0.04                ch:dsnote:p2_05_dual_sector_note:188  printed 0.04\pm0.22  recomputed 0.04  tol 0.00500001  [observed] published mu0, DESI full shape + CMB + DES Y3  file docs/verification/scripts/verify_entropic_gravity_output.txt
 PASS  ch:dsnote:L188:0.02                ch:dsnote:p2_05_dual_sector_note:188  printed 0.02\pm0.19  recomputed 0.02  tol 0.00500001  [observed] published mu0, ACT + WMAP + SDSS + SN  file docs/verification/scripts/verify_entropic_gravity_output.txt
-PASS  ch:dsnote:L213:0.0052              ch:dsnote:p2_05_dual_sector_note:213  printed 0.0052  recomputed 0.0052  tol 5.000005e-05  [calc] beta_gamma 95 % bound in the falsifier table (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  ch:dsnote:L213:0.0052              ch:dsnote:p2_05_dual_sector_note:213  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [calc] beta_gamma 95 % bound in the falsifier table (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  ch:dsnote:L234                     ch:dsnote:p2_05_dual_sector_note:234  printed +0.54  recomputed 0.541  tol 0.00502201  [record] Planck-only chi2 diff IAM vs LCDM, level-2 chains  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:dsnote:L235                     ch:dsnote:p2_05_dual_sector_note:235  printed 0.2  recomputed 0.196182  tol 0.05  [record] Planck posterior Omega_m/2 against fixed beta_m, sigma  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:dsnote:L236                     ch:dsnote:p2_05_dual_sector_note:236  printed 0.0052  recomputed 0.0052  tol 5.000005e-05  [record] beta_gamma 95 % bound in the summary (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  ch:dsnote:L236                     ch:dsnote:p2_05_dual_sector_note:236  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [record] beta_gamma 95 % bound in the summary (committed output)  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 
 == Part 2: Informational Actualization of General Relativity: The Cosmological Dynamic | ch:s8trend (part2/p2_08_s8_trend.tex)
@@ -1716,13 +1716,13 @@ PASS  ch:dsvalidation:L38                ch:dsvalidation:p2_10_dual_sector_valid
 PASS  ch:dsvalidation:L38:0.75           ch:dsvalidation:p2_10_dual_sector_validation:38  printed 0.75  recomputed 0.748747  tol 0.00500251  [measured] significance of H0(matter) vs SH0ES
 PASS  ch:dsvalidation:L38:0.37           ch:dsvalidation:p2_10_dual_sector_validation:38  printed 0.37  recomputed 0.368417  tol 0.00500001  [measured] H0 photon (Level 2 Run A) from Planck 2018, in Planck sigma  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:dsvalidation:L39                ch:dsvalidation:p2_10_dual_sector_validation:39  printed 0.033  recomputed 0.0329845  tol 5.000005e-04  [calc] sector ratio from the committed 95 % bound
-PASS  ch:dsvalidation:L39:30             ch:dsvalidation:p2_10_dual_sector_validation:39  printed 30  recomputed 30  tol 0.5  [calc] 'at least 30x': beta_m/beta_gamma bound, whole multiples
-PASS  ch:dsvalidation:L39:0.0052         ch:dsvalidation:p2_10_dual_sector_validation:39  printed 0.0052  recomputed 0.00523066  tol 5.000005e-05  [calc] beta_gamma 95 % bound from the acoustic angle
+PASS  ch:dsvalidation:L39                ch:dsvalidation:p2_10_dual_sector_validation:39  printed 0.051  recomputed 0.0507453  tol 5.000005e-04  [calc] sector ratio from the committed 95 % bound
+PASS  ch:dsvalidation:L39:30             ch:dsvalidation:p2_10_dual_sector_validation:39  printed 19  recomputed 19  tol 0.5  [calc] 'at least 30x': beta_m/beta_gamma bound, whole multiples
+PASS  ch:dsvalidation:L39:0.0052         ch:dsvalidation:p2_10_dual_sector_validation:39  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [calc] beta_gamma 95 % bound from the acoustic angle
 PASS  ch:dsvalidation:L67                ch:dsvalidation:p2_10_dual_sector_validation:67  printed (algebra)  recomputed True  [derived] activation function E(1)=1 check
 PASS  ch:dsvalidation:L67:3              ch:dsvalidation:p2_10_dual_sector_validation:67  printed (algebra)  recomputed True  [derived] inflection of E(a) at a=1/2
 PASS  ch:dsvalidation:L67:4              ch:dsvalidation:p2_10_dual_sector_validation:67  printed (algebra)  recomputed True  [derived] maximum of dE/dlna at a=1
-PASS  ch:dsvalidation:L71                ch:dsvalidation:p2_10_dual_sector_validation:71  printed 0.0052  recomputed 0.00523066  tol 5.000005e-05  [calc] beta_gamma 95 % bound, Eq. dsv_bg
+PASS  ch:dsvalidation:L71                ch:dsvalidation:p2_10_dual_sector_validation:71  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [calc] beta_gamma 95 % bound, Eq. dsv_bg
 PASS  eq:dsv_bm                          ch:dsvalidation:p2_10_dual_sector_validation:72  printed 0.15765  recomputed 0.15765  tol 5.000005e-06  [prediction] β_m=Ω_m/2 definition
 PASS  ch:dsvalidation:L75                ch:dsvalidation:p2_10_dual_sector_validation:75  printed 0.3166  recomputed 0.316574  tol 5.002285e-05  [calc] Ωm Level-2 MCMC posterior  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -1793,8 +1793,8 @@ PASS  ch:dsvalidation:L441:+0.90\%       ch:dsvalidation:p2_10_dual_sector_valid
 PASS  ch:dsvalidation:L441:30\sigma      ch:dsvalidation:p2_10_dual_sector_validation:441  printed 30\sigma  recomputed 30.1646  tol 0.501001  [calc] shift with beta_m in Planck errors
 PASS  ch:dsvalidation:L442               ch:dsvalidation:p2_10_dual_sector_validation:442  printed \approx61.5  recomputed 61.4548  tol 1.23  [measured] H0 from Level2b exploratory chain  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  ch:dsvalidation:L443               ch:dsvalidation:p2_10_dual_sector_validation:443  printed <0.033  recomputed 0.0329845  tol 5.000005e-04  [calc] sector ratio from the committed 95 % bound
-PASS  ch:dsvalidation:L456               ch:dsvalidation:p2_10_dual_sector_validation:456  printed 0.0052  recomputed 0.00523066  tol 5.000005e-05  [calc] Table dsv_observables: beta_gamma bound
+PASS  ch:dsvalidation:L443               ch:dsvalidation:p2_10_dual_sector_validation:443  printed <0.051  recomputed 0.0507453  tol 5.000005e-04  [calc] sector ratio from the committed 95 % bound
+PASS  ch:dsvalidation:L456               ch:dsvalidation:p2_10_dual_sector_validation:456  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [calc] Table dsv_observables: beta_gamma bound
 PASS  ch:dsvalidation:L457               ch:dsvalidation:p2_10_dual_sector_validation:457  printed 67.16\pm0.47  recomputed 67.1611  tol 0.00671601  [measured] H0 photon sector from Level2 chain  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  ch:dsvalidation:L457:67.36\pm0.54  ch:dsvalidation:p2_10_dual_sector_validation:457  printed 67.36\pm0.54  recomputed found in file  [measured] measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
@@ -3193,7 +3193,7 @@ PASS  ch:blackholes:L333                 ch:blackholes:p3_01_blackholes:333  pri
 PASS  ch:blackholes:L333:0.07            ch:blackholes:p3_01_blackholes:333  printed 0.07  recomputed 0.07  tol 0.00500001  [observed] TOV maximum mass, lower error, restated
 PASS  ch:blackholes:L335                 ch:blackholes:p3_01_blackholes:335  printed 0.6  recomputed 0.593  tol 0.05  [calc] typical white dwarf 0.6 M_sun (fig caption)
 PASS  ch:blackholes:L336:2.40            ch:blackholes:p3_01_blackholes:336  printed 2.40  recomputed 2.4  tol 0.00500001  [calc] A at the Chandrasekhar mass = 1.44/0.6
-PASS  ch:blackholes:L358                 ch:blackholes:p3_01_blackholes:358  printed 2.1\times10^{77}  recomputed 2.097910e+77  tol 5.000005e+75  [derived] Mahaffey number M c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun
+PASS  ch:blackholes:L358                 ch:blackholes:p3_01_blackholes:358  printed 2.1\times10^{77}  recomputed 2.097910e+77  tol 5.000005e+75  [derived] M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun
 PASS  ch:blackholes:L358:3.0\times10^{77} ch:blackholes:p3_01_blackholes:358  printed 3.0\times10^{77}  recomputed 3.026644e+77  tol 5.000005e+75  [derived] the same in Landauer units
 PASS  ch:blackholes:L369                 ch:blackholes:p3_01_blackholes:369  printed 10^{22}  recomputed 2.325015e+22  tol 2.162278e+22  [calc] M_eq > 10^22 M_sun at z = 0
 PASS  ch:blackholes:L372                 ch:blackholes:p3_01_blackholes:372  printed 1.158  recomputed 1.15765  tol 5.000005e-04  [prediction] 1/mu(z=0) = 1 + beta_m
@@ -3645,7 +3645,7 @@ PASS  ch:koide:L277:0.0396               ch:koide:p4_15a_lepton_koide:277  print
 PASS  ch:koide:L278                      ch:koide:p4_15a_lepton_koide:278  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
 PASS  ch:koide:L279                      ch:koide:p4_15a_lepton_koide:279  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L283                      ch:koide:p4_15a_lepton_koide:283  printed 0.222222047  recomputed 0.222222  tol 5.000005e-10  [calc] delta fixed by m_e, m_mu at Q = 2/3
-PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918519e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
+PASS  ch:koide:L284                      ch:koide:p4_15a_lepton_koide:284  printed 4\times10^{-10}  recomputed 3.918518e-10  tol 5.000005e-11  [calc] uncertainty of delta from m_mu
 PASS  ch:koide:L284:1.75\times10^{-7}    ch:koide:p4_15a_lepton_koide:284  printed 1.75\times10^{-7}  recomputed 1.751244e-07  tol 5.000005e-10  [calc] 2/9 - delta at Q = 2/3
 PASS  ch:koide:L285                      ch:koide:p4_15a_lepton_koide:285  printed 0.4  recomputed 0.405655  tol 0.05  [calc] delta - 2/9 in sigma
 PASS  ch:koide:L295                      ch:koide:p4_15a_lepton_koide:295  printed 1776.9690  recomputed 1776.97  tol 5.000005e-05  [calc] m_tau fixed by Q = 2/3, MeV
@@ -4253,26 +4253,26 @@ PASS  ch:astrogenetics:floor_eps         ch:astrogenetics:p6_00b_astrogenetics:8
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:iama (part6/p6_08_iama.tex)
 PASS  ch:iama:L46                        ch:iama:p6_08_iama:56  printed 0.870  recomputed 0.870162  tol 5.000005e-04  [measured] H_ref (average healthy cell type) at A = 1/P on the neutrophil gauge  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L61                        ch:iama:p6_08_iama:61  printed 1.137  recomputed 1.13676  tol 5.000005e-04  [measured] healthy donors on H_ref alone, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L61:1.168                  ch:iama:p6_08_iama:61  printed 1.168  recomputed 1.16845  tol 5.000005e-04  [measured] healthy donors on H_ref alone, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L53                        ch:iama:p6_08_iama:62  printed 0.984  recomputed 0.983844  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L53:1.025                  ch:iama:p6_08_iama:62  printed 1.025  recomputed 1.02536  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L55                        ch:iama:p6_08_iama:65  printed 1.273  recomputed 1.27321  tol 5.000005e-04  [measured] the 2 % rise read at each donor held-out position, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L55:1.313                  ch:iama:p6_08_iama:65  printed 1.313  recomputed 1.31265  tol 5.000005e-04  [measured] the 2 % rise read at each donor held-out position, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L61                        ch:iama:p6_08_iama:105  printed 1.137  recomputed 1.13676  tol 5.000005e-04  [measured] healthy donors on H_ref alone, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L61:1.168                  ch:iama:p6_08_iama:105  printed 1.168  recomputed 1.16845  tol 5.000005e-04  [measured] healthy donors on H_ref alone, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L53                        ch:iama:p6_08_iama:106  printed 0.984  recomputed 0.983844  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L53:1.025                  ch:iama:p6_08_iama:106  printed 1.025  recomputed 1.02536  tol 5.000005e-04  [measured] healthy donors with P, leave-one-donor-out, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L55                        ch:iama:p6_08_iama:109  printed 1.273  recomputed 1.27321  tol 5.000005e-04  [measured] the 2 % rise read at each donor held-out position, lowest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L55:1.313                  ch:iama:p6_08_iama:109  printed 1.313  recomputed 1.31265  tol 5.000005e-04  [measured] the 2 % rise read at each donor held-out position, highest  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
 PASS  ch:iama:L56                        ch:iama:p6_08_iama:56  printed 0.70  recomputed 0.7  tol 0.00500001  [measured] same cells on a second read pipeline, bare floor, lowest  file Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md
 PASS  ch:iama:L56:0.79                   ch:iama:p6_08_iama:56  printed 0.79  recomputed 0.79  tol 0.00500001  [measured] same cells on a second read pipeline, bare floor, highest  file Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md
-PASS  ch:iama:L74                        ch:iama:p6_08_iama:84  printed 1.149  recomputed 1.14921  tol 5.000005e-04  [calc] P in the curve of the figure  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L75                        ch:iama:p6_08_iama:75  printed 0.3  recomputed 0.288599  tol 0.05  [calc] a 2 % rise in held error moves the reading by about 0.3  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
-PASS  ch:iama:L90                        ch:iama:p6_08_iama:90  printed 0.033  recomputed 0.0333  tol 5.000005e-04  [measured] held error across 56 healthy cell types, lowest  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
-PASS  ch:iama:L90:0.042                  ch:iama:p6_08_iama:90  printed 0.042  recomputed 0.0417364  tol 5.000005e-04  [measured] held error across 56 healthy cell types, highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L90:3.41                   ch:iama:p6_08_iama:90  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy across 56 cell types, mean  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
-PASS  ch:iama:L91                        ch:iama:p6_08_iama:91  printed 0.79  recomputed 0.794  tol 0.00500001  [measured] healthy cell types on one physics floor, lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L91:1.23                   ch:iama:p6_08_iama:91  printed 1.18  recomputed 1.18  tol 0.00500001  [measured] healthy cell types on one physics floor, highest  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
-PASS  ch:iama:L91:1.01                   ch:iama:p6_08_iama:91  printed 1.02  recomputed 1.02  tol 0.00500001  [measured] healthy cell types on one physics floor, median  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
-PASS  ch:iama:L94                        ch:iama:p6_08_iama:94  printed 1.66  recomputed 1.66176  tol 0.00500001  [measured] held error on the common sites, highest over lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L95                        ch:iama:p6_08_iama:95  printed 0.80  recomputed 0.8  tol 0.00500001  [measured] intraclass correlation of the common-site held error across donors  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L96                        ch:iama:p6_08_iama:96  printed 3.4  recomputed 3.4  tol 0.05  [measured] colon epithelium lifespan (days)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
-PASS  ch:iama:L97                        ch:iama:p6_08_iama:97  printed 0.042  recomputed 0.04181  tol 5.000005e-04  [measured] held error of colon epithelium and cardiomyocytes  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
+PASS  ch:iama:L74                        ch:iama:p6_08_iama:128  printed 1.149  recomputed 1.14921  tol 5.000005e-04  [calc] P in the curve of the figure  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L75                        ch:iama:p6_08_iama:119  printed 0.3  recomputed 0.288599  tol 0.05  [calc] a 2 % rise in held error moves the reading by about 0.3  file Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv
+PASS  ch:iama:L90                        ch:iama:p6_08_iama:134  printed 0.033  recomputed 0.0333  tol 5.000005e-04  [measured] held error across 56 healthy cell types, lowest  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
+PASS  ch:iama:L90:0.042                  ch:iama:p6_08_iama:134  printed 0.042  recomputed 0.0417364  tol 5.000005e-04  [measured] held error across 56 healthy cell types, highest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L90:3.41                   ch:iama:p6_08_iama:134  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy across 56 cell types, mean  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
+PASS  ch:iama:L91                        ch:iama:p6_08_iama:135  printed 0.79  recomputed 0.794  tol 0.00500001  [measured] healthy cell types on one physics floor, lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L91:1.23                   ch:iama:p6_08_iama:135  printed 1.18  recomputed 1.18  tol 0.00500001  [measured] healthy cell types on one physics floor, highest  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
+PASS  ch:iama:L91:1.01                   ch:iama:p6_08_iama:135  printed 1.02  recomputed 1.02  tol 0.00500001  [measured] healthy cell types on one physics floor, median  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
+PASS  ch:iama:L94                        ch:iama:p6_08_iama:138  printed 1.66  recomputed 1.66176  tol 0.00500001  [measured] held error on the common sites, highest over lowest  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L95                        ch:iama:p6_08_iama:139  printed 0.80  recomputed 0.8  tol 0.00500001  [measured] intraclass correlation of the common-site held error across donors  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L96                        ch:iama:p6_08_iama:140  printed 3.4  recomputed 3.4  tol 0.05  [measured] colon epithelium lifespan (days)  file Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md
+PASS  ch:iama:L97                        ch:iama:p6_08_iama:141  printed 0.042  recomputed 0.04181  tol 5.000005e-04  [measured] held error of colon epithelium and cardiomyocytes  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:cscore (part6/p6_09_cscore.tex)
 PASS  eq:C                               ch:cscore:p6_09_cscore:26  printed 1.1104  recomputed 1.1104  tol 5.000005e-05  [calibrated] c_healthy: median of the six leave-one-out clustering values  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/neutrophil_reference_v1_1.json
@@ -4575,7 +4575,7 @@ PASS  part4:ch:reach:L72:0.0005          part4:ch:reach:p6_23_reach:72  printed 
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:status (part6/p6_24_status.tex)
 PASS  ch:status:L9                       ch:status:p6_24_status:9  printed 2.97\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-24  [calc] Landauer cost per bit at 37 C
-PASS  ch:status:L10                      ch:status:p6_24_status:10  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] Mahaffey number of the cell M = dG_ATP/(R T)
+PASS  ch:status:L10                      ch:status:p6_24_status:10  printed 20.94  recomputed 20.9405  tol 0.00500001  [calc] M number of the cell M = dG_ATP/(R T)
 PASS  ch:status:L10:30.2                 ch:status:p6_24_status:10  printed 30.2  recomputed 30.2108  tol 0.05  [calc] Landauer bits per ATP, M/ln 2
 PASS  ch:status:L19                      ch:status:p6_24_status:19  printed 0.330263  recomputed 0.330263  tol 5.000005e-07  [calc] EPIC neutrophil floor  file Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json
       heavy: Met-A chain Stage 1 on the 6 purified healthy EPIC neutrophil arrays (Salas, GSE110554); writes the Met_A_Floors runtime matrices
@@ -4684,7 +4684,7 @@ PASS  ch:onegauge:L63                    ch:onegauge:p7_08_one_gauge:63  printed
 PASS  ch:onegauge:L64                    ch:onegauge:p7_08_one_gauge:64  printed 0.044  recomputed 0.04376  tol 5.000005e-04  [measured] eps0 from the measured holding energy  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:onegauge:L66                    ch:onegauge:p7_08_one_gauge:66  printed 1.9  recomputed 1.94591  tol 0.05  [openprob] Hopfield energy gap ln 7 (low end)
 PASS  ch:onegauge:L66:4.4                ch:onegauge:p7_08_one_gauge:66  printed 4.4  recomputed 4.38203  tol 0.05  [openprob] Hopfield energy gap ln 80 (high end)
-PASS  ch:onegauge:L67                    ch:onegauge:p7_08_one_gauge:67  printed 20.94  recomputed 20.9405  tol 0.00500001  [openprob] Mahaffey number M = dG_ATP/(R T_cell)
+PASS  ch:onegauge:L67                    ch:onegauge:p7_08_one_gauge:67  printed 20.94  recomputed 20.9405  tol 0.00500001  [openprob] M number M = dG_ATP/(R T_cell)
 PASS  ch:onegauge:L79                    ch:onegauge:p7_08_one_gauge:79  printed (algebra)  recomputed lhs-rhs=0  [derived] drafted check, screened (runs; negative control fails)
 PASS  ch:onegauge:L94                    ch:onegauge:p7_08_one_gauge:94  printed 0.044  recomputed 0.0437494  tol 5.000005e-04  [derived] IAM-A floor eps0 = 1/(1 + e^{phi M})
 PASS  ch:onegauge:L110                   ch:onegauge:p7_08_one_gauge:110  printed 1.05  recomputed 1.05  tol 0.00500001  [measured] Normal band, upper edge (canon Normal_band)  file CANON/iam_canon.json
@@ -4975,7 +4975,7 @@ PASS  ch:statusall:L88:1.9               ch:statusall:p7_11_status_all:87  print
 PASS  ch:statusall:L88:4.4               ch:statusall:p7_11_status_all:87  printed 4.4  recomputed 4.38203  tol 0.05  [calc] Hopfield gap, highest published DNMT1 preference
 PASS  ch:statusall:L88:3.41              ch:statusall:p7_11_status_all:87  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] measured holding energy, k_B T  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:statusall:L90                   ch:statusall:p7_11_status_all:89  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
-PASS  ch:statusall:L91                   ch:statusall:p7_11_status_all:90  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
+PASS  ch:statusall:L91                   ch:statusall:p7_11_status_all:90  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)
 PASS  ch:statusall:L91:30.2              ch:statusall:p7_11_status_all:90  printed 30.2  recomputed 30.2108  tol 0.05  [calc] M/ln2
 PASS  ch:statusall:L92                   ch:statusall:p7_11_status_all:91  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] holding energy of a methylated site  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  ch:statusall:L92:0.032             ch:statusall:p7_11_status_all:91  printed 0.044  recomputed 0.04376  tol 5.000005e-04  [measured] held-error floor eps0  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
@@ -5021,7 +5021,7 @@ PASS  app:constants:L10                  app:constants:app_A2_frozen_values:10  
 PASS  app:constants:L10:37               app:constants:app_A2_frozen_values:10  printed 37  recomputed 37  tol 0.5  [observed] body temperature in Celsius  file CANON/iam_canon.json
 PASS  app:constants:L11                  app:constants:app_A2_frozen_values:11  printed 54  recomputed 54  tol 0.5  [observed] free energy of ATP hydrolysis, kJ/mol  file CANON/iam_canon.json
 PASS  app:constants:L12                  app:constants:app_A2_frozen_values:12  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
-PASS  app:constants:L13                  app:constants:app_A2_frozen_values:13  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
+PASS  app:constants:L13                  app:constants:app_A2_frozen_values:13  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)
 PASS  app:constants:L14                  app:constants:app_A2_frozen_values:14  printed 67.36  recomputed 67.36  tol 0.00500001  [observed] Planck 2018 H0, standard LambdaCDM fit  file docs/verification/scripts/verify_dual_sector_chapters_output.txt
       heavy: python3 docs/verification/scripts/verify_dual_sector_chapters.py > docs/verification/scripts/verify_dual_sector_chapters_output.txt (downloads the public Pantheon+ release; writes verify_dual_sector_chapters_data.json)
 PASS  app:constants:L15                  app:constants:app_A2_frozen_values:15  printed 67.16  recomputed 67.1611  tol 0.00500001  [observed] photon-sector H0, Level 2 chain  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
@@ -5041,7 +5041,7 @@ PASS  app:notation:L103:37               app:notation:app_N_notation:103  printe
 PASS  app:notation:L104                  app:notation:app_N_notation:104  printed 54  recomputed 54  tol 0.5  [observed] free energy of ATP hydrolysis, kJ/mol  file CANON/iam_canon.json
 PASS  app:notation:L105                  app:notation:app_N_notation:105  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.045605e-25  [calc] Landauer bit-cost energy at body temperature
 PASS  app:notation:L105:1.787            app:notation:app_N_notation:105  printed 1.787  recomputed 1.78744  tol 5.000005e-04  [calc] same value as p6_02_landauer:17 (per mole of bits, kJ)
-PASS  app:notation:L106                  app:notation:app_N_notation:106  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
+PASS  app:notation:L106                  app:notation:app_N_notation:106  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)
 PASS  app:notation:L107                  app:notation:app_N_notation:107  printed 30.2  recomputed found in file  [observed] measured: printed value found in iam_canon.json, a file the chapter names  file CANON/iam_canon.json
 PASS  app:notation:L108                  app:notation:app_N_notation:108  printed 3.08  recomputed 3.084  tol 0.00500001  [measured] measured: printed value found in iam_canon.json, a file the chapter names  file Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json
 PASS  app:notation:L109                  app:notation:app_N_notation:109  printed 4.45  recomputed 4.44927  tol 0.00500001  [observed] E_hold in Landauer units  file CANON/iam_canon.json
@@ -5109,7 +5109,7 @@ PASS  app:formulas:L602:18.5             app:formulas:app_E_formulas:593  printe
 PASS  app:formulas:L602:0.646            app:formulas:app_E_formulas:593  printed 0.646  recomputed 0.646447  tol 5.000005e-04  [derived] constant-field step per halving of area
 PASS  app:formulas:L610                  app:formulas:app_E_formulas:601  printed 310.15  recomputed 310.15  tol 0.00500001  [calc] body temperature, K (canon)  file CANON/iam_canon.json
 PASS  app:formulas:L610:2.968            app:formulas:app_E_formulas:601  printed 2.968\times10^{-21}  recomputed 2.968114e-21  tol 5.000005e-25  [calc] Landauer cost of one bit at body temperature
-PASS  app:formulas:L611                  app:formulas:app_E_formulas:602  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C)
+PASS  app:formulas:L611                  app:formulas:app_E_formulas:602  printed 20.94  recomputed 20.9405  tol 0.00500467  [calc] same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C)
 PASS  app:formulas:L613                  app:formulas:app_E_formulas:604  printed 30.21  recomputed 30.2108  tol 0.00500001  [calc] same value as p6_02_landauer:48 (M/ln2)
 PASS  app:formulas:L616                  app:formulas:app_E_formulas:607  printed 2.822\times10^{7}  recomputed 2.821745e+07  tol 5000  [calc] CpG sites of the hg19 index  file Biological_Physics/MethylPhys/atlas/v2/README.md
 PASS  app:formulas:L617                  app:formulas:app_E_formulas:608  printed 8.38\times10^{-14}  recomputed 8.375259e-14  tol 5.000005e-17  [calc] Landauer floor of one copy of the methylome  file Biological_Physics/MethylPhys/atlas/v2/README.md
@@ -5369,7 +5369,7 @@ PASS  app:glossary:L18:0.067             app:glossary:app_F_glossary:18  printed
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
 PASS  app:glossary:L18:0.15              app:glossary:app_F_glossary:18  printed 0.15  recomputed 0.15  tol 0.00500001  [observed] SDSS MGS f sigma8 redshift  file docs/verification/scripts/verify_sector_tension_output.txt
       heavy: python3 docs/verification/scripts/verify_sector_tension.py > docs/verification/scripts/verify_sector_tension_output.txt
-PASS  app:glossary:L24:0.0052            app:glossary:app_F_glossary:24  printed 0.0052  recomputed 0.0052  tol 5.000005e-05  [observed] beta_gamma 95 % bound from the acoustic scale  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  app:glossary:L24:0.0052            app:glossary:app_F_glossary:24  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [observed] beta_gamma 95 % bound from the acoustic scale  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  app:glossary:L28:0.02              app:glossary:app_F_glossary:28  printed 0.02  recomputed 0.02  tol 0.00500001  [observed] ACT + WMAP + SDSS + SN mu0 (Andrade et al. 2024)  file docs/verification/chains/LATE_TIME_GROWTH_CHECK.md
 PASS  app:glossary:L46:3.03              app:glossary:app_F_glossary:46  printed 3.03  recomputed 3.02789  tol 0.00500001  [observed] Met-A at the full surface, neutrophils  file CANON/iam_canon.json
@@ -5386,17 +5386,17 @@ PASS  app:glossary:L68:70.86             app:glossary:app_F_glossary:68  printed
 PASS  app:glossary:L68:67.4              app:glossary:app_F_glossary:68  printed 67.4  recomputed 67.36  tol 0.05  [calc] drafted check, screened (runs; negative control fails)
 PASS  app:glossary:L68:0.315             app:glossary:app_F_glossary:68  printed 0.315  recomputed 0.3153  tol 5.000005e-04  [calc] drafted check, screened (runs; negative control fails)
 PASS  app:glossary:L68:71.12             app:glossary:app_F_glossary:68  printed 71.12  recomputed 71.1234  tol 0.00500001  [observed] matter-sector late rate, Planck 2018 base values
-PASS  app:glossary:L70:74                app:glossary:app_F_glossary:70  printed 74  recomputed 74  tol 0.5  [observed] atlas v2: cell types  file Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json
-PASS  app:glossary:L70:814               app:glossary:app_F_glossary:70  printed 814  recomputed 813.95  tol 0.5  [observed] atlas v2: CpGs fitted, thousands  file Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json
+PASS  app:glossary:L70:79                app:glossary:app_F_glossary:70  printed 79  recomputed 79  tol 0.5  [observed] IAM-Atlas v2.1: cell types  file CANON/atlas_story.json
+PASS  app:glossary:L70:813951            app:glossary:app_F_glossary:70  printed 813951  recomputed 8.139510e+05  tol 0.5  [observed] IAM-Atlas v2.1: sites  file CANON/atlas_story.json
 PASS  app:glossary:L72                   app:glossary:app_F_glossary:72  printed 20.94  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
 PASS  app:glossary:L72:54                app:glossary:app_F_glossary:72  printed 54  recomputed 54  tol 0.5  [observed] ATP free energy of hydrolysis, kJ/mol  file CANON/iam_canon.json
 PASS  app:glossary:L74:61.5              app:glossary:app_F_glossary:74  printed 61.5  recomputed 61.4861  tol 0.05  [observed] Level 2b H0 (term in the background)  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
 PASS  app:glossary:L74:10.9              app:glossary:app_F_glossary:74  printed 10.9  recomputed 10.9356  tol 0.05  [observed] Level 2b H0 from Planck, in Planck errors  file Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
-PASS  app:glossary:L88:0.0052            app:glossary:app_F_glossary:88  printed 0.0052  recomputed 0.0052  tol 5.000005e-05  [observed] beta_gamma 95 % bound  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  app:glossary:L88:0.0052            app:glossary:app_F_glossary:88  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [observed] beta_gamma 95 % bound  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
-PASS  app:glossary:L88:3.3               app:glossary:app_F_glossary:88  printed 3.3  recomputed 3.29845  tol 0.05  [observed] beta_gamma bound over beta_m, per cent  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  app:glossary:L88:3.3               app:glossary:app_F_glossary:88  printed 5.1  recomputed 5.07453  tol 0.05  [observed] beta_gamma bound over beta_m, per cent  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  app:glossary:L89                   app:glossary:app_F_glossary:89  printed 0.15765  recomputed 0.15765  tol 5.044805e-06  [observed] same value as p1_02_iams_law:443 (beta_m is half of Omega_m)
 PASS  app:glossary:L89:0.3153            app:glossary:app_F_glossary:89  printed 0.3153  recomputed found in file  [observed] measured: printed value found in GLOSSARY.md, a file the chapter names  file CANON/GLOSSARY.md
@@ -5664,9 +5664,9 @@ PASS  app:register:L38:1.062             app:register:app_G_predictions_register
 PASS  app:register:L38:0.012             app:register:app_G_predictions_register:38  printed 0.012  recomputed 0.0116757  tol 5.000005e-04  [openprob] COS-013: effective wa
 PASS  app:register:L38:7.6               app:register:app_G_predictions_register:38  printed 7.6  recomputed 7.57197  tol 0.05  [openprob] COS-013: DESI DR2 w0 from -4/3, lower end
 PASS  app:register:L38:10.2              app:register:app_G_predictions_register:38  printed 10.2  recomputed 10.1988  tol 0.05  [openprob] COS-013: DESI DR2 w0 from -4/3, upper end
-PASS  app:register:L39:0.0052            app:register:app_G_predictions_register:39  printed 0.0052  recomputed 0.0052  tol 5.000005e-05  [openprob] COS-016: photon-coupling bound beta_gamma, 95 %  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  app:register:L39:0.0052            app:register:app_G_predictions_register:39  printed 0.0080  recomputed 0.008  tol 5.000005e-05  [openprob] COS-016: photon-coupling bound beta_gamma, 95 %  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
-PASS  app:register:L39:0.033             app:register:app_G_predictions_register:39  printed 0.033  recomputed 0.0329845  tol 5.000005e-04  [openprob] COS-016: beta_gamma bound over beta_m  file docs/verification/scripts/verify_beta_gamma_output.txt
+PASS  app:register:L39:0.033             app:register:app_G_predictions_register:39  printed 0.051  recomputed 0.0507453  tol 5.000005e-04  [openprob] COS-016: beta_gamma bound over beta_m  file docs/verification/scripts/verify_beta_gamma_output.txt
       heavy: python3 docs/verification/scripts/verify_beta_gamma.py > docs/verification/scripts/verify_beta_gamma_output.txt
 PASS  app:register:L40:+0.96             app:register:app_G_predictions_register:40  printed +0.96  recomputed 0.9555  tol 0.00500001  [openprob] COS-018: Level 1 Delta chi2, Planck only  file Cosmological_Physics/mgcamb_validation/CHAIN_PAIRS_FINAL.csv
       heavy: chains: rerun with Cobaya from the committed input YAML (Cosmological_Physics/mgcamb_validation/chains/*.input.yaml, Cosmological_Physics/camb_validation/yaml_configs/*.yaml; Level 2b: bash Cosmological_Physics/camb_validation/run_level2b_chain.sh), then extract with 30 % burn-in into Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv (no extraction script is committed)
@@ -5769,4 +5769,31 @@ PASS  ch:baryon_chain:bc_conv:17696      ch:baryon_chain:p2_13b_baryon_chain:105
 PASS  ch:baryon_chain:bc_conv:17920      ch:baryon_chain:p2_13b_baryon_chain:106  printed 0.009273  recomputed 0.009273  tol 5.000005e-07  [measured] 18th chain: R-1 of the means at the test over the last 17920 samples  file Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress
 PASS  ch:baryon_chain:bc_conv:bounds     ch:baryon_chain:p2_13b_baryon_chain:107  printed 0.063629  recomputed 0.063629  tol 5.000005e-07  [measured] 18th chain: R-1 of the bounds at the last test  file Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress
 
-SUMMARY  PASS 4643  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1342  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+== Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:iama (part6/p6_08_iama.tex)
+PASS  ch:iama:mc:2M                      ch:iama:p6_08_iama:73  printed 41.88  recomputed 41.8811  tol 0.00500001  [calculated] work of two coins, 2M
+PASS  ch:iama:mc:odds2                   ch:iama:p6_08_iama:74  printed 21.45  recomputed 21.4528  tol 0.00500001  [conjecture] restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage)
+PASS  ch:iama:mc:eps2                    ch:iama:p6_08_iama:74  printed 0.04454  recomputed 0.0445379  tol 5.000005e-06  [conjecture] candidate healthy held error 1/(1+odds)
+PASS  ch:iama:mc:E2                      ch:iama:p6_08_iama:74  printed 3.066  recomputed 3.06585  tol 5.000005e-04  [conjecture] candidate holding energy ln(odds), in kT
+PASS  ch:iama:mc:phi2                    ch:iama:p6_08_iama:74  printed 0.1464  recomputed 0.146408  tol 5.000005e-05  [conjecture] candidate phi = ln(odds)/M
+PASS  ch:iama:mc:pool                    ch:iama:p6_08_iama:75  printed 0.04526  recomputed 0.04526  tol 5.000005e-06  [measured] pooled healthy lone-loss intercept  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
+PASS  ch:iama:mc:poollo                  ch:iama:p6_08_iama:75  printed 0.04375  recomputed 0.04375  tol 5.000005e-06  [measured] pooled intercept, lower 95 %  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
+PASS  ch:iama:mc:poolhi                  ch:iama:p6_08_iama:75  printed 0.04657  recomputed 0.04657  tol 5.000005e-06  [measured] pooled intercept, upper 95 %  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
+PASS  ch:iama:mc:oddsM                   ch:iama:p6_08_iama:76  printed 0.04558  recomputed 0.0455777  tol 5.000005e-06  [conjecture] held error at odds = M
+PASS  ch:iama:mc:EM                      ch:iama:p6_08_iama:76  printed 3.042  recomputed 3.04169  tol 5.000005e-04  [conjecture] holding energy ln M
+PASS  ch:iama:mc:skolo                   ch:iama:p6_08_iama:83  printed 5.08  recomputed 5.08  tol 0.00500001  [measured] strand coupling, maintenance-only clones, minimum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:skohi                   ch:iama:p6_08_iama:83  printed 8.21  recomputed 8.21  tol 0.00500001  [measured] strand coupling, maintenance-only clones, maximum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:wtlo                    ch:iama:p6_08_iama:83  printed 5.43  recomputed 5.43  tol 0.00500001  [measured] strand coupling, wild type, minimum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:wthi                    ch:iama:p6_08_iama:83  printed 5.56  recomputed 5.56  tol 0.00500001  [measured] strand coupling, wild type, maximum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:u_rise                  ch:iama:p6_08_iama:86  printed 2.925  recomputed 2.925  tol 5.000005e-04  [measured] UHRF1 knockout over control, held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
+PASS  ch:iama:mc:u_c                     ch:iama:p6_08_iama:86  printed 0.03216  recomputed 0.03216  tol 5.000005e-06  [measured] UHRF1 control held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
+PASS  ch:iama:mc:u_k                     ch:iama:p6_08_iama:86  printed 0.09407  recomputed 0.09407  tol 5.000005e-06  [measured] UHRF1 knockout held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
+PASS  ch:iama:mc:Wc                      ch:iama:p6_08_iama:86  printed 59.2  recomputed 59.1719  tol 0.0592001  [interpretation] work per restore that gives the control held error
+PASS  ch:iama:mc:Wk                      ch:iama:p6_08_iama:86  printed 18.2  recomputed 18.2026  tol 0.0546001  [interpretation] work per restore that gives the knockout held error
+PASS  ch:iama:mc:met_e_lo                ch:iama:p6_08_iama:91  printed 1.057  recomputed 1.05662  tol 5.000005e-04  [prediction] energy route, low end, for a 3.33-5.00 fall
+PASS  ch:iama:mc:met_e_hi                ch:iama:p6_08_iama:91  printed 1.077  recomputed 1.07716  tol 5.000005e-04  [prediction] energy route, high end
+PASS  ch:iama:mc:met_r                   ch:iama:p6_08_iama:92  printed 3.33  recomputed 3.33  tol 0.00500001  [measured] the fall, low end, from the committed readings  file Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt
+PASS  ch:iama:mc:one                     ch:iama:p6_08_iama:93  printed 0.0834  recomputed 0.0833657  tol 5.000005e-05  [prediction] held error of a one-strand mark, one coin
+PASS  ch:iama:mc:ratio                   ch:iama:p6_08_iama:93  printed 1.87  recomputed 1.87179  tol 0.00500001  [prediction] one-strand over CpG held error
+PASS  ch:iama:mc:limit                   ch:iama:p6_08_iama:69  printed (algebra)  recomputed True  [derived] the odds approach w/2 for a strong push
+
+SUMMARY  PASS 4668  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)

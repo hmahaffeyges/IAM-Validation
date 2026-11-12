@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4668 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -70,7 +70,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 
 | line | label | status | printed | checked how | result |
 |---:|---|---|---|---|---|
-| 50 | ch:p0_how_to_read:L50 | calc | `20.94` | numeric: Mahaffey number M_cell for one ATP at 37C | PASS |
+| 50 | ch:p0_how_to_read:L50 | calc | `20.94` | numeric: M number M_cell for one ATP at 37C | PASS |
 | 50 | ch:p0_how_to_read:L50:30.2 | calc | `30.2` | numeric: M_cell converted to Landauer (bit) units | PASS |
 
 ## Part 1 - ch:iams_law - `docs/book/part1/p1_02_iams_law.tex`
@@ -266,14 +266,14 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 887 | ch:iams_law:L887 | derived | `2\pi/8\pi` | sympy: Jacobson eta=1/(4lP^2) ratio check | PASS |
 | 921 |  | none |  | not run: restates law eq:law, definition | - |
 | 948 |  | none | `1` | not run: trivial restatement E(1)=exp(0)=1 | - |
-| 957 | ch:iams_law:L957 | calc | `20.94` | numeric: cell Mahaffey number | PASS |
-| 957 | ch:iams_law:L957:30.2 | calc | `30.2` | numeric: cell Mahaffey number, Landauer units | PASS |
-| 957 | ch:iams_law:L957:399 | calc | `399` | numeric: chip Mahaffey number | PASS |
-| 957 | ch:iams_law:L957:2.1\times10^{77} | calc | `2.1\times10^{77}` | numeric: BH Mahaffey number, one solar mass | PASS |
-| 957 | ch:iams_law:L957:3.9\times10^{90} | calc | `3.9\times10^{90}` | numeric: BH Mahaffey number, Sgr A* | PASS |
-| 963 | eq:law_mahaffey | none |  | not run: defines Mahaffey number M | - |
-| 979 | ch:iams_law:L979 | calc | `20.94` | numeric: cell Mahaffey number, repeat | PASS |
-| 980 | ch:iams_law:L980 | calc | `30.2` | numeric: cell Mahaffey number Landauer, repeat | PASS |
+| 957 | ch:iams_law:L957 | calc | `20.94` | numeric: cell M number | PASS |
+| 957 | ch:iams_law:L957:30.2 | calc | `30.2` | numeric: cell M number, Landauer units | PASS |
+| 957 | ch:iams_law:L957:399 | calc | `399` | numeric: chip M number | PASS |
+| 957 | ch:iams_law:L957:2.1\times10^{77} | calc | `2.1\times10^{77}` | numeric: BH M number, one solar mass | PASS |
+| 957 | ch:iams_law:L957:3.9\times10^{90} | calc | `3.9\times10^{90}` | numeric: BH M number, Sgr A* | PASS |
+| 963 | eq:law_mahaffey | none |  | not run: defines M number | - |
+| 979 | ch:iams_law:L979 | calc | `20.94` | numeric: cell M number, repeat | PASS |
+| 980 | ch:iams_law:L980 | calc | `30.2` | numeric: cell M number Landauer, repeat | PASS |
 | 996 |  | none | `7/2` | not run: definition, exponent value restated | - |
 
 ## Part 1 - ch:virial_law - `docs/book/part1/p1_03_virial_law.tex`
@@ -918,11 +918,8 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 1060 | ch:theory:L1060:0.948 | prediction | `0.948` | numeric: IAM mu prediction at z=0.5 | PASS |
 | 1060 |  | prediction | `1` | not run: Sigma=1 part of headline prediction, trivial | - |
 | 1063 | ch:theory:L1063 | measured | `0.35--0.5` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: phantom-crossing redshift, lowest of the DESI DR2 fits | PASS |
-| 1065 |  | prediction | `10^{-4}` | not run: falsification threshold on beta_gamma | - |
-| 1066 |  | prediction | `10^{-5}` | not run: CMB-S4 energy-injection sensitivity target | - |
-| 1066 |  | prediction | `10^{-4}` | not run: repeat of beta_gamma falsification threshold | - |
-| 1067 | ch:theory:L1067 | calc | `3.3\%` | numeric: beta_gamma 95 % bound (committed output) over beta_m, per cent | PASS |
-| 1067 | ch:theory:L1067:0.0052 | measured | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound (committed output) | PASS |
+| 1067 | ch:theory:L1067 | calc | `5.1\%` | numeric: beta_gamma 95 % bound (committed output) over beta_m, per cent | PASS |
+| 1067 | ch:theory:L1067:0.0052 | measured | `0.0080` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound (committed output) | PASS |
 | 1069 |  | prediction | `1/2` | not run: restated beta_m/Om=1/2 constancy prediction | - |
 | 1078 |  | prediction | `-0.136` | not run: headline IAM mu0 prediction, locked canon value | - |
 | 1078 |  | prediction | `1` | not run: Sigma=1 part of headline prediction, trivial | - |
@@ -1269,8 +1266,8 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 96 |  | none | `4/3` | not run: cited f(R) gravity bound on mu (external) | - |
 | 99 | ch:dsnote:L99 | prediction | `0.864` | numeric: mu(0) restated as prediction | PASS |
 | 111 | ch:dsnote:L111 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound from theta_s fit | PASS |
-| 111 | ch:dsnote:L111:0.033 | calc | `0.033` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
-| 112 | ch:dsnote:L112 | calc | `30` | numeric: 'at least 30x': beta_m/beta_gamma bound, whole multiples | PASS |
+| 111 | ch:dsnote:L111:0.033 | calc | `0.051` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
+| 112 | ch:dsnote:L112 | calc | `19` | numeric: 'at least 30x': beta_m/beta_gamma bound, whole multiples | PASS |
 | 113 | ch:dsnote:L113 | measured | `0.1583` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Omega_m/2 from Planck posterior (beta_m-fixed chain) | PASS |
 | 113 | ch:dsnote:L113:0.0032 | measured | `0.0032` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: uncertainty on Omega_m/2 posterior | PASS |
 | 114 | ch:dsnote:L114 | measured | `0.2` | numeric: sigma deviation of Omega_m/2 from beta_m | PASS |
@@ -1296,11 +1293,11 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 133 | ch:dsnote:L133 | measured | `10.9` | numeric: sigma below Planck H0 (background chains) | PASS |
 | 133 | ch:dsnote:L133:8.6 | measured | `8.6` | numeric: sigma below Planck, chain error in quadrature | PASS |
 | 135 | ch:dsnote:L135 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound restated | PASS |
-| 135 | ch:dsnote:L135:0.033 | calc | `0.033` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
+| 135 | ch:dsnote:L135:0.033 | calc | `0.051` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
 | 136 | ch:dsnote:L136 | observed | `23.6` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 145 | ch:dsnote:L145 | calc | `1.4` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: sigma offset of the beta_gamma=0 point from the observed theta_s (committed output) | PASS |
 | 145 | ch:dsnote:L145:0.0052 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: photon coupling bound (figure) | PASS |
-| 145 | ch:dsnote:L145:0.033 | calc | `0.033` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
+| 145 | ch:dsnote:L145:0.033 | calc | `0.051` | numeric: sector ratio beta_gamma/beta_m from the committed 95 % bound | PASS |
 | 145 | ch:dsnote:L145:0.90 | calc | `0.90` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: theta_s shift from full matter coupling | PASS |
 | 145 | ch:dsnote:L145:30 | calc | `30` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: sigma significance of theta_s shift | PASS |
 | 145 |  | none | `144.43` | not run: input: sound horizon fixed value | - |
@@ -1370,13 +1367,13 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 197 |  | none | `0.0039` | not run: text changed at HEAD; present beta_gamma bound, restated, no macro | - |
 | 199 |  | prediction | `1/2` | not run: definition beta_m=Om/2, virial ratio restated | - |
 | 212 |  | prediction | `1` | not run: table: exact prediction Sigma=1, restated | - |
-| 213 | ch:dsnote:L213:0.0052 | calc | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound in the falsifier table (committed output) | PASS |
+| 213 | ch:dsnote:L213:0.0052 | calc | `0.0080` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound in the falsifier table (committed output) | PASS |
 | 213 |  | calc | `0` | not run: prediction, nothing to recompute: beta_gamma = 0 is the photon exemption itself (eq:dsn_iff, checked there); the measured side of the row is the bound 0.0052 (ch:dsnote:L213:0.0052) | - |
 | 214 |  | prediction | `1/2` | not run: table: definition beta_m=Om/2, restated | - |
 | 215 |  | prediction | `-0.136` | not run: table Value column: canon mu0 prediction restated | - |
 | 234 | ch:dsnote:L234 | record | `+0.54` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck-only chi2 diff IAM vs LCDM, level-2 chains | PASS |
 | 235 | ch:dsnote:L235 | record | `0.2` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Planck posterior Omega_m/2 against fixed beta_m, sigma | PASS |
-| 236 | ch:dsnote:L236 | record | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound in the summary (committed output) | PASS |
+| 236 | ch:dsnote:L236 | record | `0.0080` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound in the summary (committed output) | PASS |
 
 ## Part 2 - ch:s8trend - `docs/book/part2/p2_08_s8_trend.tex`
 
@@ -1702,14 +1699,14 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 38 | ch:dsvalidation:L38 | measured | `72.26` | numeric: H0(matter)=H0(photon)*sqrt(1+β_m) | PASS |
 | 38 | ch:dsvalidation:L38:0.75 | measured | `0.75` | numeric: significance of H0(matter) vs SH0ES | PASS |
 | 38 | ch:dsvalidation:L38:0.37 | measured | `0.37` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon (Level 2 Run A) from Planck 2018, in Planck sigma | PASS |
-| 39 | ch:dsvalidation:L39 | calc | `0.033` | numeric: sector ratio from the committed 95 % bound | PASS |
-| 39 | ch:dsvalidation:L39:30 | calc | `30` | numeric: 'at least 30x': beta_m/beta_gamma bound, whole multiples | PASS |
-| 39 | ch:dsvalidation:L39:0.0052 | calc | `0.0052` | numeric: beta_gamma 95 % bound from the acoustic angle | PASS |
+| 39 | ch:dsvalidation:L39 | calc | `0.051` | numeric: sector ratio from the committed 95 % bound | PASS |
+| 39 | ch:dsvalidation:L39:30 | calc | `19` | numeric: 'at least 30x': beta_m/beta_gamma bound, whole multiples | PASS |
+| 39 | ch:dsvalidation:L39:0.0052 | calc | `0.0080` | numeric: beta_gamma 95 % bound from the acoustic angle | PASS |
 | 64 | eq:dsv_Hm | none |  | not run: definition of matter-sector Friedmann equation | - |
 | 67 | ch:dsvalidation:L67 | derived |  | sympy: activation function E(1)=1 check | PASS |
 | 67 | ch:dsvalidation:L67:3 | derived |  | sympy: inflection of E(a) at a=1/2 | PASS |
 | 67 | ch:dsvalidation:L67:4 | derived |  | sympy: maximum of dE/dlna at a=1 | PASS |
-| 71 | ch:dsvalidation:L71 | calc | `0.0052` | numeric: beta_gamma 95 % bound, Eq. dsv_bg | PASS |
+| 71 | ch:dsvalidation:L71 | calc | `0.0080` | numeric: beta_gamma 95 % bound, Eq. dsv_bg | PASS |
 | 72 | eq:dsv_bm | prediction | `0.15765` | numeric: β_m=Ω_m/2 definition | PASS |
 | 75 | ch:dsvalidation:L75 | calc | `0.3166` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm Level-2 MCMC posterior | PASS |
 | 75 | ch:dsvalidation:L75:0.0065 | calc | `0.0065` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Ωm posterior standard deviation | PASS |
@@ -1769,8 +1766,8 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 441 | ch:dsvalidation:L441:+0.90\% | calc | `+0.90\%` | numeric: theta_s shift with beta_m | PASS |
 | 441 | ch:dsvalidation:L441:30\sigma | calc | `30\sigma` | numeric: shift with beta_m in Planck errors | PASS |
 | 442 | ch:dsvalidation:L442 | measured | `\approx61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 from Level2b exploratory chain | PASS |
-| 443 | ch:dsvalidation:L443 | calc | `<0.033` | numeric: sector ratio from the committed 95 % bound | PASS |
-| 456 | ch:dsvalidation:L456 | calc | `0.0052` | numeric: Table dsv_observables: beta_gamma bound | PASS |
+| 443 | ch:dsvalidation:L443 | calc | `<0.051` | numeric: sector ratio from the committed 95 % bound | PASS |
+| 456 | ch:dsvalidation:L456 | calc | `0.0080` | numeric: Table dsv_observables: beta_gamma bound | PASS |
 | 457 | ch:dsvalidation:L457 | measured | `67.16\pm0.47` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: H0 photon sector from Level2 chain | PASS |
 | 457 | ch:dsvalidation:L457:67.36\pm0.54 | measured | `67.36\pm0.54` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
 | 458 | ch:dsvalidation:L458 | measured | `0.809` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: measured: printed value found in verify_dual_sector_chapters_output.txt, a file the chapter names | PASS |
@@ -3225,7 +3222,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 335 |  | calc | `1.4` | not run: measured, source not named | - |
 | 336 | ch:blackholes:L336:2.40 | calc | `2.40` | numeric: A at the Chandrasekhar mass = 1.44/0.6 | PASS |
 | 336 |  | calc | `1.44` | not run: input: Chandrasekhar mass 1.44 M_sun as conventionally quoted (Chandrasekhar1931), restated from line 316; the constants-only 1.456 is checked by ch:blackholes:L316 | - |
-| 358 | ch:blackholes:L358 | derived | `2.1\times10^{77}` | numeric: Mahaffey number M c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun | PASS |
+| 358 | ch:blackholes:L358 | derived | `2.1\times10^{77}` | numeric: M number c^2/(k_B T_BH) = 8 pi (M/m_P)^2, 1 M_sun | PASS |
 | 358 | ch:blackholes:L358:3.0\times10^{77} | derived | `3.0\times10^{77}` | numeric: the same in Landauer units | PASS |
 | 369 | ch:blackholes:L369 | calc | `10^{22}` | numeric: M_eq > 10^22 M_sun at z = 0 | PASS |
 | 372 | ch:blackholes:L372 | prediction | `1.158` | numeric: 1/mu(z=0) = 1 + beta_m | PASS |
@@ -4562,24 +4559,49 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 56 | ch:iama:L46 | measured | `0.870` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: H_ref (average healthy cell type) at A = 1/P on the neutrophil gauge | PASS |
 | 56 | ch:iama:L56 | measured | `0.70` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, lowest | PASS |
 | 56 | ch:iama:L56:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, highest | PASS |
-| 61 | ch:iama:L61 | measured | `1.137` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, lowest | PASS |
-| 61 | ch:iama:L61:1.168 | measured | `1.168` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, highest | PASS |
-| 62 | ch:iama:L53 | measured | `0.984` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, lowest | PASS |
-| 62 | ch:iama:L53:1.025 | measured | `1.025` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, highest | PASS |
-| 65 | ch:iama:L55 | measured | `1.273` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, lowest | PASS |
-| 65 | ch:iama:L55:1.313 | measured | `1.313` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, highest | PASS |
-| 75 | ch:iama:L75 | calc | `0.3` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: a 2 % rise in held error moves the reading by about 0.3 | PASS |
-| 84 | ch:iama:L74 | calc | `1.149` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P in the curve of the figure | PASS |
-| 90 | ch:iama:L90 | measured | `0.033` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error across 56 healthy cell types, lowest | PASS |
-| 90 | ch:iama:L90:0.042 | measured | `0.042` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error across 56 healthy cell types, highest | PASS |
-| 90 | ch:iama:L90:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types, mean | PASS |
-| 91 | ch:iama:L91 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, lowest | PASS |
-| 91 | ch:iama:L91:1.23 | measured | `1.18` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, highest | PASS |
-| 91 | ch:iama:L91:1.01 | measured | `1.02` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, median | PASS |
-| 94 | ch:iama:L94 | measured | `1.66` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error on the common sites, highest over lowest | PASS |
-| 95 | ch:iama:L95 | measured | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: intraclass correlation of the common-site held error across donors | PASS |
-| 96 | ch:iama:L96 | measured | `3.4` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: colon epithelium lifespan (days) | PASS |
-| 97 | ch:iama:L97 | measured | `0.042` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error of colon epithelium and cardiomyocytes | PASS |
+| 69 | ch:iama:mc:limit | derived |  | sympy: the odds approach w/2 for a strong push | PASS |
+| 73 | ch:iama:mc:2M | calculated | `41.88` | numeric: work of two coins, 2M | PASS |
+| 74 | ch:iama:mc:odds2 | conjecture | `21.45` | numeric: restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage) | PASS |
+| 74 | ch:iama:mc:eps2 | conjecture | `0.04454` | numeric: candidate healthy held error 1/(1+odds) | PASS |
+| 74 | ch:iama:mc:E2 | conjecture | `3.066` | numeric: candidate holding energy ln(odds), in kT | PASS |
+| 74 | ch:iama:mc:phi2 | conjecture | `0.1464` | numeric: candidate phi = ln(odds)/M | PASS |
+| 75 | ch:iama:mc:pool | measured | `0.04526` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled healthy lone-loss intercept | PASS |
+| 75 | ch:iama:mc:poollo | measured | `0.04375` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, lower 95 % | PASS |
+| 75 | ch:iama:mc:poolhi | measured | `0.04657` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, upper 95 % | PASS |
+| 76 | ch:iama:mc:oddsM | conjecture | `0.04558` | numeric: held error at odds = M | PASS |
+| 76 | ch:iama:mc:EM | conjecture | `3.042` | numeric: holding energy ln M | PASS |
+| 83 | ch:iama:mc:skolo | measured | `5.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, maintenance-only clones, minimum | PASS |
+| 83 | ch:iama:mc:skohi | measured | `8.21` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, maintenance-only clones, maximum | PASS |
+| 83 | ch:iama:mc:wtlo | measured | `5.43` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, wild type, minimum | PASS |
+| 83 | ch:iama:mc:wthi | measured | `5.56` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, wild type, maximum | PASS |
+| 86 | ch:iama:mc:u_rise | measured | `2.925` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout over control, held error | PASS |
+| 86 | ch:iama:mc:u_c | measured | `0.03216` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 control held error | PASS |
+| 86 | ch:iama:mc:u_k | measured | `0.09407` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout held error | PASS |
+| 86 | ch:iama:mc:Wc | interpretation | `59.2` | numeric: work per restore that gives the control held error | PASS |
+| 86 | ch:iama:mc:Wk | interpretation | `18.2` | numeric: work per restore that gives the knockout held error | PASS |
+| 91 | ch:iama:mc:met_e_lo | prediction | `1.057` | numeric: energy route, low end, for a 3.33-5.00 fall | PASS |
+| 91 | ch:iama:mc:met_e_hi | prediction | `1.077` | numeric: energy route, high end | PASS |
+| 92 | ch:iama:mc:met_r | measured | `3.33` | file `Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt`: the fall, low end, from the committed readings | PASS |
+| 93 | ch:iama:mc:one | prediction | `0.0834` | numeric: held error of a one-strand mark, one coin | PASS |
+| 93 | ch:iama:mc:ratio | prediction | `1.87` | numeric: one-strand over CpG held error | PASS |
+| 105 | ch:iama:L61 | measured | `1.137` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, lowest | PASS |
+| 105 | ch:iama:L61:1.168 | measured | `1.168` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, highest | PASS |
+| 106 | ch:iama:L53 | measured | `0.984` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, lowest | PASS |
+| 106 | ch:iama:L53:1.025 | measured | `1.025` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, highest | PASS |
+| 109 | ch:iama:L55 | measured | `1.273` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, lowest | PASS |
+| 109 | ch:iama:L55:1.313 | measured | `1.313` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: the 2 % rise read at each donor held-out position, highest | PASS |
+| 119 | ch:iama:L75 | calc | `0.3` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: a 2 % rise in held error moves the reading by about 0.3 | PASS |
+| 128 | ch:iama:L74 | calc | `1.149` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: P in the curve of the figure | PASS |
+| 134 | ch:iama:L90 | measured | `0.033` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error across 56 healthy cell types, lowest | PASS |
+| 134 | ch:iama:L90:0.042 | measured | `0.042` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error across 56 healthy cell types, highest | PASS |
+| 134 | ch:iama:L90:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy across 56 cell types, mean | PASS |
+| 135 | ch:iama:L91 | measured | `0.79` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy cell types on one physics floor, lowest | PASS |
+| 135 | ch:iama:L91:1.23 | measured | `1.18` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, highest | PASS |
+| 135 | ch:iama:L91:1.01 | measured | `1.02` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy cell types on one physics floor, median | PASS |
+| 138 | ch:iama:L94 | measured | `1.66` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: held error on the common sites, highest over lowest | PASS |
+| 139 | ch:iama:L95 | measured | `0.80` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: intraclass correlation of the common-site held error across donors | PASS |
+| 140 | ch:iama:L96 | measured | `3.4` | file `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: colon epithelium lifespan (days) | PASS |
+| 141 | ch:iama:L97 | measured | `0.042` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held error of colon epithelium and cardiomyocytes | PASS |
 
 ## Part 6 - ch:cscore - `docs/book/part6/p6_09_cscore.tex`
 
@@ -4935,7 +4957,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 9 | ch:status:L9 | calc | `2.97\times10^{-21}` | numeric: Landauer cost per bit at 37 C | PASS |
 | 9 |  | calc | `37` | not run: input: T_cell = 310.15 K, 37 C (CANON T_cell) | - |
-| 10 | ch:status:L10 | calc | `20.94` | numeric: Mahaffey number of the cell M = dG_ATP/(R T) | PASS |
+| 10 | ch:status:L10 | calc | `20.94` | numeric: M number of the cell M = dG_ATP/(R T) | PASS |
 | 10 | ch:status:L10:30.2 | calc | `30.2` | numeric: Landauer bits per ATP, M/ln 2 | PASS |
 | 19 | ch:status:L19 | calc | `0.330263` | heavy file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`: EPIC neutrophil floor | PASS |
 | 19 |  | calc | `000` | not run: count: the neutrophil reference's 6,000 identity sites (the inventory read '000' from '6,000'); a design choice of the frozen reference (metA_floors_v1_3.json n_sites), checked by ch:status:L19 reading the same file | - |
@@ -5065,7 +5087,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 64 | ch:onegauge:L64 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: eps0 from the measured holding energy | PASS |
 | 66 | ch:onegauge:L66 | openprob | `1.9` | numeric: Hopfield energy gap ln 7 (low end) | PASS |
 | 66 | ch:onegauge:L66:4.4 | openprob | `4.4` | numeric: Hopfield energy gap ln 80 (high end) | PASS |
-| 67 | ch:onegauge:L67 | openprob | `20.94` | numeric: Mahaffey number M = dG_ATP/(R T_cell) | PASS |
+| 67 | ch:onegauge:L67 | openprob | `20.94` | numeric: M number M = dG_ATP/(R T_cell) | PASS |
 | 79 | ch:onegauge:L79 | derived |  | sympy: drafted check, screened (runs; negative control fails) | PASS |
 | 83 |  | none |  | not run: definition: Met-A = <H(beta)> at identity sites over <H(beta)> of the healthy reference | - |
 | 94 | ch:onegauge:L94 | derived | `0.044` | numeric: IAM-A floor eps0 = 1/(1 + e^{phi M}) | PASS |
@@ -5432,7 +5454,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 87 | ch:statusall:L88:3.41 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: measured holding energy, k_B T | PASS |
 | 89 | ch:statusall:L90 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
 | 89 |  | calc | `37` | not run: input: body temperature 37 C (T_cell = 310.15 K, canon); the Landauer cost is checked in ch:statusall:L90 | - |
-| 90 | ch:statusall:L91 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
+| 90 | ch:statusall:L91 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C) | PASS |
 | 90 | ch:statusall:L91:30.2 | calc | `30.2` | numeric: M/ln2 | PASS |
 | 91 | ch:statusall:L92 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: holding energy of a methylated site | PASS |
 | 91 | ch:statusall:L92:0.032 | measured | `0.044` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: held-error floor eps0 | PASS |
@@ -5483,7 +5505,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 11 |  | observed | `50` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11 | - |
 | 11 |  | observed | `-65` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:constants:L11 | - |
 | 12 | app:constants:L12 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
-| 13 | app:constants:L13 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
+| 13 | app:constants:L13 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C) | PASS |
 | 14 | app:constants:L14 | observed | `67.36` | heavy file `docs/verification/scripts/verify_dual_sector_chapters_output.txt`: Planck 2018 H0, standard LambdaCDM fit | PASS |
 | 15 | app:constants:L15 | observed | `67.16` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: photon-sector H0, Level 2 chain | PASS |
 | 15 | app:constants:L15:72.26 | observed | `72.26` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: matter-sector H0 from the Level 2 chain | PASS |
@@ -5504,7 +5526,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 104 |  | observed | `-65` | not run: observed: textbook range 50-65 kJ/mol of the free energy of ATP hydrolysis in cells, cited (Nelson2017); no committed file holds it, the canon value 54 is checked in app:notation:L104 | - |
 | 105 | app:notation:L105 | calc | `2.968\times10^{-21}` | numeric: Landauer bit-cost energy at body temperature | PASS |
 | 105 | app:notation:L105:1.787 | calc | `1.787` | numeric: same value as p6_02_landauer:17 (per mole of bits, kJ) | PASS |
-| 106 | app:notation:L106 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
+| 106 | app:notation:L106 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C) | PASS |
 | 107 | app:notation:L107 | observed | `30.2` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 108 | app:notation:L108 | measured | `3.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
 | 109 | app:notation:L109 | observed | `4.45` | file `CANON/iam_canon.json`: E_hold in Landauer units | PASS |
@@ -5582,7 +5604,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 593 |  | derived | `600` | not run: input: chip reading R = 600 times its floor (round value of the 576-593 checked in ch:conclusion:L25 and ch:statusall:L85); n_floor at R = 600 is checked in app:formulas:L602 | - |
 | 601 | app:formulas:L610 | calc | `310.15` | file `CANON/iam_canon.json`: body temperature, K (canon) | PASS |
 | 601 | app:formulas:L610:2.968 | calc | `2.968\times10^{-21}` | numeric: Landauer cost of one bit at body temperature | PASS |
-| 602 | app:formulas:L611 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (Mahaffey number M_cell for one ATP at 37C) | PASS |
+| 602 | app:formulas:L611 | calc | `20.94` | numeric: same value as p0_how_to_read:50 (M number M_cell for one ATP at 37C) | PASS |
 | 604 | app:formulas:L613 | calc | `30.21` | numeric: same value as p6_02_landauer:48 (M/ln2) | PASS |
 | 607 | app:formulas:L616 | calc | `2.822\times10^{7}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpG sites of the hg19 index | PASS |
 | 608 | app:formulas:L617 | calc | `8.38\times10^{-14}` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: Landauer floor of one copy of the methylome | PASS |
@@ -5908,7 +5930,7 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 |---:|---|---|---|---|---|
 | 18 | app:glossary:L18:0.067 | observed | `0.067` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: 6dFGS f sigma8 redshift | PASS |
 | 18 | app:glossary:L18:0.15 | observed | `0.15` | heavy file `docs/verification/scripts/verify_sector_tension_output.txt`: SDSS MGS f sigma8 redshift | PASS |
-| 24 | app:glossary:L24:0.0052 | observed | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound from the acoustic scale | PASS |
+| 24 | app:glossary:L24:0.0052 | observed | `0.0080` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound from the acoustic scale | PASS |
 | 26 |  | observed | `0.05` | not run: definition: identity-site rule, across-array SD at most 0.05 (canon Met_A_site_rule) | - |
 | 28 | app:glossary:L28:0.02 | observed | `0.02` | file `docs/verification/chains/LATE_TIME_GROWTH_CHECK.md`: ACT + WMAP + SDSS + SN mu0 (Andrade et al. 2024) | PASS |
 | 46 | app:glossary:L46:3.03 | observed | `3.03` | file `CANON/iam_canon.json`: Met-A at the full surface, neutrophils | PASS |
@@ -5926,15 +5948,15 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 68 | app:glossary:L68:67.4 | calc | `67.4` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 68 | app:glossary:L68:0.315 | calc | `0.315` | numeric: drafted check, screened (runs; negative control fails) | PASS |
 | 68 | app:glossary:L68:71.12 | observed | `71.12` | numeric: matter-sector late rate, Planck 2018 base values | PASS |
-| 70 | app:glossary:L70:74 | observed | `74` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json`: atlas v2: cell types | PASS |
-| 70 | app:glossary:L70:814 | observed | `814` | file `Biological_Physics/MethylPhys/atlas/v2/postbuild/records/atlas_v2_gate.json`: atlas v2: CpGs fitted, thousands | PASS |
+| 70 | app:glossary:L70:79 | observed | `79` | file `CANON/atlas_story.json`: IAM-Atlas v2.1: cell types | PASS |
+| 70 | app:glossary:L70:813951 | observed | `813951` | file `CANON/atlas_story.json`: IAM-Atlas v2.1: sites | PASS |
 | 70 |  | observed | `000` | not run: not a separate number: thousands group of "814,000", checked at app:glossary:L70:814 | - |
 | 72 | app:glossary:L72 | observed | `20.94` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 72 | app:glossary:L72:54 | observed | `54` | file `CANON/iam_canon.json`: ATP free energy of hydrolysis, kJ/mol | PASS |
 | 74 | app:glossary:L74:61.5 | observed | `61.5` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 (term in the background) | PASS |
 | 74 | app:glossary:L74:10.9 | observed | `10.9` | heavy file `Cosmological_Physics/mgcamb_validation/CHAIN_EXTRACTION_FINAL.csv`: Level 2b H0 from Planck, in Planck errors | PASS |
-| 88 | app:glossary:L88:0.0052 | observed | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound | PASS |
-| 88 | app:glossary:L88:3.3 | observed | `3.3` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma bound over beta_m, per cent | PASS |
+| 88 | app:glossary:L88:0.0052 | observed | `0.0080` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma 95 % bound | PASS |
+| 88 | app:glossary:L88:3.3 | observed | `5.1` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: beta_gamma bound over beta_m, per cent | PASS |
 | 89 | app:glossary:L89 | observed | `0.15765` | numeric: same value as p1_02_iams_law:443 (beta_m is half of Omega_m) | PASS |
 | 89 | app:glossary:L89:0.3153 | observed | `0.3153` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 89 | app:glossary:L89:0.1575 | observed | `0.1575` | file `CANON/iam_canon.json`: measured: printed value found in iam_canon.json, a file the chapter names | PASS |
@@ -5958,8 +5980,8 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 152 | app:glossary:L153:1.68 | observed | `1.68` | numeric: best 2D transmon T1 (Bland et al. 2025) | PASS |
 | 156 |  | observed | `0.62` | not run: input: f_coll = 0.62 restated from Eq. vc_eta (ch:virial line 75); the mass it implies is checked at ch:virial:L126:8.2 | - |
 | 156 |  | observed | `10` | not run: input: halo mass threshold 10^6 M_sun of the collapsed fraction (ch:virial), an order of magnitude | - |
-| 169 | app:glossary:L171:0.024 | observed | `0.024` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy held error, lowest of 56 cell types | PASS |
-| 169 | app:glossary:L171:0.042 | observed | `0.042` | numeric `Biological_Physics/MethylPhys/doors/PROC_CHANNEL_01_OUTCOME.md`: healthy held error, highest of 56 cell types | PASS |
+| 169 | app:glossary:L171:0.0333 | observed | `0.0333` | numeric `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy held error, lowest of 56 cell types (Stage Q2 counter) | PASS |
+| 169 | app:glossary:L171:0.0549 | observed | `0.0549` | numeric `Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json`: healthy held error, highest of 56 cell types (Stage Q2 counter) | PASS |
 | 176 | app:glossary:L178:0.7 | observed | `0.7` | heavy file `docs/verification/scripts/verify_lambda_baryon_book_output.txt`: Omega_b/Omega_m against (3/16) sqrt(Omega_Lambda), in sigma | PASS |
 | 180 |  | observed | `10` | not run: not a separate number: base of 10^{123}; the 123 orders are checked at app:glossary:L355:123 | - |
 | 181 | app:glossary:L183:2.8e7 | observed | `2.8\times10^7` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs per haploid human genome | PASS |
@@ -6040,7 +6062,6 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 327 |  | observed | `0.90` | not run: measured, source not named | - |
 | 327 |  | observed | `-0.98` | not run: measured, source not named | - |
 | 328 | app:glossary:L336 | observed | `0.330263` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
-| 328 | app:glossary:L336:0.2348 | observed | `0.2348` | file `CANON/GLOSSARY.md`: measured: printed value found in GLOSSARY.md, a file the chapter names | PASS |
 | 330 | app:glossary:L338 | observed | `0.983` | file `Biological_Physics/MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3_loo.csv`: held-out neutrophil reference arrays, lowest Met-A | PASS |
 | 330 | app:glossary:L338:-1.045 | observed | `-1.045` | file `Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v3.md`: measured: printed value found in MethylPhys_CPG_SOP_v3.md, a file the chapter names | PASS |
 | 333 | app:glossary:L341:28217448 | observed | `28{,}217{,}448` | file `Biological_Physics/MethylPhys/atlas/v2/README.md`: CpGs of the hg19 index | PASS |
@@ -6273,8 +6294,8 @@ Totals: 4644 PASS, 0 FAIL, 1342 inventoried and not run. Each run item carries t
 | 38 | app:register:L38:7.6 | openprob | `7.6` | numeric: COS-013: DESI DR2 w0 from -4/3, lower end | PASS |
 | 38 | app:register:L38:10.2 | openprob | `10.2` | numeric: COS-013: DESI DR2 w0 from -4/3, upper end | PASS |
 | 38 |  | openprob | `013` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
-| 39 | app:register:L39:0.0052 | openprob | `0.0052` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: COS-016: photon-coupling bound beta_gamma, 95 % | PASS |
-| 39 | app:register:L39:0.033 | openprob | `0.033` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: COS-016: beta_gamma bound over beta_m | PASS |
+| 39 | app:register:L39:0.0052 | openprob | `0.0080` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: COS-016: photon-coupling bound beta_gamma, 95 % | PASS |
+| 39 | app:register:L39:0.033 | openprob | `0.051` | heavy file `docs/verification/scripts/verify_beta_gamma_output.txt`: COS-016: beta_gamma bound over beta_m | PASS |
 | 39 |  | openprob | `016` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 39 |  | openprob | `017` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |
 | 39 |  | openprob | `229` | not run: definition: register entry identifier (COS-/PAR- number), not a quantity | - |

@@ -40,7 +40,7 @@ $\varepsilon=1/(1+e^{E/\kB T})$. \derived{} Three energies mark the gauge:
 \begin{tabular}{@{}llllll@{}}\toprule
 mark & where & energy holding each site & thermal kicks win & entropy per site & set by \\\midrule
 floor $\Hmin$ & left & one full ATP, $M=20.94\,\kB T$ & 1 in $1.24\times10^{9}$ & $2.5\times10^{-8}$ bits & $M$ alone \calc \\
-healthy reference $\Href$ & middle & $3.08\,\kB T$ & 1 in 23 ($\varepsilon_0=0.044$) & $0.259$ bits & healthy cells \measured \\
+healthy reference $\Href$ & middle & $3.08\,\kB T$ & 1 in 23 ($\varepsilon_0=0.044$) & $0.259$ bits & healthy cells \measured; candidate from $M$ (Section~\ref{sec:middle_candidate}) \conjecture \\
 ceiling & right & none & every other time ($\varepsilon=\tfrac12$) & 1 bit & physics \derived \\\bottomrule
 \end{tabular}\end{center}
 The floor is where thermal kicks win against everything one ATP can buy, and no cell comes near it. The healthy reference is where healthy
@@ -52,7 +52,51 @@ efficiency, $\phi$. Thermodynamics bounds the holding energy by the free energy 
 the cell actually holds is set by the kinetics of maintenance, the balance of restore and loss, $E_{\rm hold}=\kB T\ln(g/f)$
 (Section~\ref{sec:balance}), whether the cell divides or not. Restore and loss rates measured in the same cells return this balance by construction, since at steady state $g/f=(1-\varepsilon)/\varepsilon$;
 deriving $\phi$ needs the writer's discrimination measured outside the cell, and is the central open problem of the cellular rung
-(Chapter~\ref{ch:open}). \openprob
+(Chapter~\ref{ch:open}). \openprob{} A candidate that gives it from $M$ alone, by a different route, is set out next. \conjecture
+
+\section{A candidate for the healthy reference from $M$ alone}\label{sec:middle_candidate}
+
+The floor and the ceiling are derived; the healthy reference is measured. A candidate gives it from $M$ alone, with nothing fitted to
+methylation data ($M$ itself comes from the free energy of ATP and body temperature). \conjecture{} It holds the two marks apart by how
+they are held. The floor is a site held behind a wall $M$ kicks high: Boltzmann's factor, an error that falls exponentially with the
+energy, a record held by the landscape alone. The healthy reference is a site held by restoring that is paid for continuously against
+thermal kicks: a driven passage, an error that falls only in proportion to the work. \interp
+
+Take a site's state as one coordinate from held ($x=0$) to lost ($x=\ell$), with the restore pushing back with a constant work $W$ across
+the mark against thermal diffusion. The restore-to-loss odds are the undriven mean first-passage time over the driven one (the held end
+reflecting, the lost end absorbing; the Einstein relation ties the drift to the diffusion):
+\begin{equation}
+  \frac{g}{f}=\frac{w/2}{1-\left(1-e^{-w}\right)/w},\qquad w=\frac{W}{\kB T},\qquad \frac{g}{f}\to\frac{w}{2}\ \text{for}\ w\gg1 .
+  \label{eq:middle_passage}
+\end{equation}
+\derived{} (first passage, borrowed physics) IAM's Law enters through $W$: every restore is paid at the encoding surface in coins of
+$M\,\kB T$. A held CpG is a dyad, a methyl group on each strand, so restoring a lost pair takes two methyl transfers, $W=2M\kB T=41.88\,\kB T$.
+Then $g/f=21.45$, $\varepsilon_0=0.04454$, $E_{\rm hold}=\kB T\ln(g/f)=3.066\,\kB T$ and $\phi=E_{\rm hold}/M\kB T=0.1464$, against the measured
+$3.08\,\kB T$, $\phi=0.147$, and a pooled healthy lone-loss intercept of 0.04526 (95~\% 0.04375--0.04657, 197 samples). \conjecture{}
+The simpler form $g/f=M$ gives 0.04558 and $3.042\,\kB T$; the two differ by about 2~\%, finer than the present resolution.
+
+What it explains, and what has been measured beside it:
+\begin{itemize}
+\item \textbf{Rate independence.} The odds depend on $w$ alone, not on how fast restore and loss act (checked by direct simulation at a
+  fourfold change in speed). The balance therefore does not depend on division, as Section~\ref{sec:balance} requires. \derived
+\item \textbf{The pair as the unit.} On hairpin files, which read both strands of each molecule, the two strands of a fully held CpG are
+  lost together 5.08--8.21 times as often as independent strands allow in maintenance-only clones, and 5.43--5.56 times in wild-type cells
+  whose writers can rewrite a lost pair. \measured
+\item \textbf{The crew sets the push.} Removing UHRF1, which brings the maintenance methyltransferase to the site, raises the held error
+  2.925 times (0.03216 to 0.09407); in Equation~\eqref{eq:middle_passage} the work delivered per restore falls from $59.2$ to $18.2\,\kB T$.
+  \measured{} (rise) \interp{} (reading)
+\end{itemize}
+
+Two predictions were written before any of their data were read. \textbf{Energy or supply:} if the push is the coin's energy, a fall in
+SAM/SAH by a factor $r$ lowers each methyl transfer by $\ln r$ of a kick, and the held error rises by only $\times1.057$--$1.077$ for a fall of
+3.33--5.00; if it is the coin's supply, the held error rises by the full factor, $\times3.33$--$5.00$. \prediction{} \textbf{One strand:} a mark
+with no partner strand (methylation outside CpG) is restored by one coin, so its held error is 0.0834, 1.87 times the CpG value.
+\prediction
+
+What is not settled: the two-coin step was chosen after one coin gave odds of about $M/2$, so it is a hypothesis that the one-strand
+prediction tests; the constant push across one mark is a modeling choice; the stem-cell control of the UHRF1 series holds at 0.03216,
+which needs $59.2\,\kB T$ per restore, more than two coins ($41.88\,\kB T$); and removing the eraser lowers the held error only modestly, so
+whether loss at held sites is undriven or partly paid erasing changes the factor of order one. \openprob
 
 \section{The reading: each sample against its own reference}
 
