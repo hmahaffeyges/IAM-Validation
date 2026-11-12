@@ -25213,7 +25213,7 @@
    "cost": "unknown",
    "impact": 4,
    "depends_on": [],
-   "notes": "whiteboard part 6; ideas file holds the paper plan; no time-course data in our S3 (file-name search 2026-10-15: one hit, A_bar_replicates.csv, a replicates table, not a time course)",
+   "notes": "whiteboard part 6; ideas file holds the paper plan; no time-course data in our S3 (file-name search 2026-10-15: one hit, A_bar_replicates.csv, a replicates table, not a time course) | 2026-11-11: copier lag separated from permanent loss with the hairpin strand pairs (GSE116482), on spent data",
    "legacy_ids": [],
    "id": "PHY-044",
    "sources_of_row": [
@@ -28212,6 +28212,138 @@
    "id": "OTH-083",
    "sources_of_row": [
     "session 2026-11-04"
+   ]
+  },
+  {
+   "title": "Each library's own molecule-end reach, per side (distance-to-fault)",
+   "purpose": "the end error sits at the last call on the marked side and reaches two to three calls on the unmarked side; read each library and the atlas reference only beyond that library's own measured reach (the author's distance-relay zones)",
+   "instrument_or_term": "IAM Sequencing Atlas; Met-A self-calibration",
+   "sources": [
+    "the three spent sorted libraries' merged molecule files (selfcal_synthetic_samples.csv)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "offline on the per-site dumps (selfcal_dump.sh), then a sealed synthetic (seventh form)",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "added 2026-11-11 from the evening's discussion",
+   "id": "ATL-071",
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ]
+  },
+  {
+   "title": "Two sources per library, a stated tolerance, and pulling a library from service",
+   "purpose": "each library's end error read at the cell's identity sites and at the sites every found cell holds fully; tolerance per condition written before testing (as a meter rule tests at several conditions); out of tolerance: flagged, state withheld, nothing corrected",
+   "instrument_or_term": "Met-A self-calibration (sequencing)",
+   "sources": [
+    "the three spent sorted libraries' merged molecule files (selfcal_synthetic_samples.csv)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "status": "planned",
+   "runs": [],
+   "next_step": "write the tolerances from each cell's healthy width, then a sealed synthetic",
+   "cost": "laptop",
+   "impact": 5,
+   "depends_on": [],
+   "notes": "added 2026-11-11 from the evening's discussion",
+   "id": "ATL-072",
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ]
+  },
+  {
+   "title": "End error at partly marked sites: on the straight line between the two ends?",
+   "purpose": "the two natural test points are fully marked and fully unmarked; check the middle points inside mixed samples",
+   "instrument_or_term": "Met-A self-calibration (sequencing)",
+   "sources": [
+    "the three spent sorted libraries' merged molecule files (selfcal_synthetic_samples.csv)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "from the per-site dumps",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "added 2026-11-11 from the evening's discussion",
+   "id": "ATL-073",
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ]
+  },
+  {
+   "title": "High-count molecule lines at the sites that misbehave",
+   "purpose": "lines carrying one molecule copied many times during library preparation: do they sit where the calibration fails",
+   "instrument_or_term": "IAM Sequencing Atlas",
+   "sources": [
+    "the three spent sorted libraries' merged molecule files (selfcal_synthetic_samples.csv)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "count by site from the spent merged files",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "added 2026-11-11 from the evening's discussion",
+   "id": "ATL-074",
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ]
+  },
+  {
+   "title": "A historian of each laboratory's end meters",
+   "purpose": "trend each library's as-found end error (both sources, both sides) across libraries and batches, to see a drifting laboratory or one always off; for monitoring only, never to correct a reading",
+   "instrument_or_term": "Met-A self-calibration (sequencing)",
+   "sources": [
+    "the three spent sorted libraries' merged molecule files (selfcal_synthetic_samples.csv)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "one table from the bundles already written",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "added 2026-11-11 from the evening's discussion",
+   "id": "ATL-075",
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ]
+  },
+  {
+   "title": "Each person's own healthy band over time",
+   "purpose": "store each person's cell readings at every draw and alarm on a break from their own history (as an operator sees a slow drift against a meter's stored history)",
+   "instrument_or_term": "Met-A; IAM-A; early detection",
+   "sources": [
+    "to search"
+   ],
+   "data_status": "not yet searched",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md",
+   "status": "idea",
+   "runs": [],
+   "next_step": "find a public cohort with repeated draws from the same people",
+   "cost": "laptop",
+   "impact": 4,
+   "depends_on": [],
+   "notes": "added 2026-11-11 from the evening's discussion",
+   "id": "OTH-084",
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
    ]
   }
  ],
