@@ -2077,3 +2077,10 @@ The leading candidate: the Deconvolver reads every call, ends included, so the p
 mixed expectation the reading is set against; the B-cell library, read nearly alone (share 0.88), comes closest. **Next:** the same rows with
 the Deconvolver also given the cut calls (one canary first), before any eighth form.
 
+**The self-calibration diagnosis, trim first (written before reading; diagnosis).** `seq_atlas/selfcal_trimfirst.sh`: the seventh form's planted rows, each planted, then cut by its outermost
+call before any reading, the Deconvolver included (run_sample.py --dev-plant-ends, now applied before --dev-seq-trim-ends 1), against the
+atlas rebuilt the same way (atlas57t1). Unplanted rows go through the plant tool with zero plants, so every file is built alike. **What it
+decides:** if each planted row then reads within its own error of its unplanted row (pull within 2), the seventh form's misses came through
+the Deconvolver reading the planted calls, and the eighth form cuts the calls before the Deconvolver too; if not, the leak is elsewhere.
+Canary first: the CD8 rows 5 and 8 (unplanted, both sides planted), then the other 13.
+
