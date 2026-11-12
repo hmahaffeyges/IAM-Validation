@@ -20,7 +20,7 @@ Result: PASS, FAIL (each FAIL is listed in FOR_AUTHOR.md), or - (not run).
 This file is written by `python3 docs/book/verify_book.py --inventory-md > docs/book/verification/VERIFY_BOOK_INVENTORY.md`.
 
 
-Totals: 4668 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
+Totals: 4673 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries the label of its check: `python3 docs/book/verify_book.py --label <label>` runs it alone.
 
 
 ## Part 0 - ch:p0_preface - `docs/book/front/p0_preface.tex`
@@ -4560,30 +4560,35 @@ Totals: 4668 PASS, 0 FAIL, 1339 inventoried and not run. Each run item carries t
 | 56 | ch:iama:L56 | measured | `0.70` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, lowest | PASS |
 | 56 | ch:iama:L56:0.79 | measured | `0.79` | file `Biological_Physics/MethylPhys/chain_tests/IAMA_FLOOR_COMPARISON.md`: same cells on a second read pipeline, bare floor, highest | PASS |
 | 69 | ch:iama:mc:limit | derived |  | sympy: the odds approach w/2 for a strong push | PASS |
-| 73 | ch:iama:mc:2M | calculated | `41.88` | numeric: work of two coins, 2M | PASS |
-| 74 | ch:iama:mc:odds2 | conjecture | `21.45` | numeric: restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage) | PASS |
-| 74 | ch:iama:mc:eps2 | conjecture | `0.04454` | numeric: candidate healthy held error 1/(1+odds) | PASS |
-| 74 | ch:iama:mc:E2 | conjecture | `3.066` | numeric: candidate holding energy ln(odds), in kT | PASS |
-| 74 | ch:iama:mc:phi2 | conjecture | `0.1464` | numeric: candidate phi = ln(odds)/M | PASS |
-| 75 | ch:iama:mc:pool | measured | `0.04526` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled healthy lone-loss intercept | PASS |
-| 75 | ch:iama:mc:poollo | measured | `0.04375` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, lower 95 % | PASS |
-| 75 | ch:iama:mc:poolhi | measured | `0.04657` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, upper 95 % | PASS |
-| 76 | ch:iama:mc:oddsM | conjecture | `0.04558` | numeric: held error at odds = M | PASS |
-| 76 | ch:iama:mc:EM | conjecture | `3.042` | numeric: holding energy ln M | PASS |
-| 83 | ch:iama:mc:skolo | measured | `5.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, maintenance-only clones, minimum | PASS |
-| 83 | ch:iama:mc:skohi | measured | `8.21` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, maintenance-only clones, maximum | PASS |
-| 83 | ch:iama:mc:wtlo | measured | `5.43` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, wild type, minimum | PASS |
-| 83 | ch:iama:mc:wthi | measured | `5.56` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, wild type, maximum | PASS |
-| 86 | ch:iama:mc:u_rise | measured | `2.925` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout over control, held error | PASS |
-| 86 | ch:iama:mc:u_c | measured | `0.03216` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 control held error | PASS |
-| 86 | ch:iama:mc:u_k | measured | `0.09407` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout held error | PASS |
-| 86 | ch:iama:mc:Wc | interpretation | `59.2` | numeric: work per restore that gives the control held error | PASS |
-| 86 | ch:iama:mc:Wk | interpretation | `18.2` | numeric: work per restore that gives the knockout held error | PASS |
-| 91 | ch:iama:mc:met_e_lo | prediction | `1.057` | numeric: energy route, low end, for a 3.33-5.00 fall | PASS |
-| 91 | ch:iama:mc:met_e_hi | prediction | `1.077` | numeric: energy route, high end | PASS |
-| 92 | ch:iama:mc:met_r | measured | `3.33` | file `Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt`: the fall, low end, from the committed readings | PASS |
-| 93 | ch:iama:mc:one | prediction | `0.0834` | numeric: held error of a one-strand mark, one coin | PASS |
-| 93 | ch:iama:mc:ratio | prediction | `1.87` | numeric: one-strand over CpG held error | PASS |
+| 74 | ch:iama:mc:sam_lo | measured | `2.09` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, lowest of four cell types | PASS |
+| 74 | ch:iama:mc:sam_hi | measured | `2.14` | file `Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt`: one SAM in ATP coins, highest of four cell types | PASS |
+| 75 | ch:iama:mc:2M | calculated | `41.88` | numeric: work of two coins, 2M | PASS |
+| 75 | ch:iama:mc:odds2 | conjecture | `21.45` | numeric: restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage) | PASS |
+| 75 | ch:iama:mc:eps2 | conjecture | `0.04454` | numeric: candidate healthy held error 1/(1+odds) | PASS |
+| 75 | ch:iama:mc:E2 | conjecture | `3.066` | numeric: candidate holding energy ln(odds), in kT | PASS |
+| 75 | ch:iama:mc:phi2 | conjecture | `0.1464` | numeric: candidate phi = ln(odds)/M | PASS |
+| 76 | ch:iama:mc:pool | measured | `0.04526` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled healthy lone-loss intercept | PASS |
+| 76 | ch:iama:mc:poollo | measured | `0.04375` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, lower 95 % | PASS |
+| 76 | ch:iama:mc:poolhi | measured | `0.04657` | file `Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt`: pooled intercept, upper 95 % | PASS |
+| 77 | ch:iama:mc:oddsM | conjecture | `0.04558` | numeric: held error at odds = M | PASS |
+| 77 | ch:iama:mc:EM | conjecture | `3.042` | numeric: holding energy ln M | PASS |
+| 84 | ch:iama:mc:skolo | measured | `5.08` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, maintenance-only clones, minimum | PASS |
+| 84 | ch:iama:mc:skohi | measured | `8.21` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, maintenance-only clones, maximum | PASS |
+| 84 | ch:iama:mc:wtlo | measured | `5.43` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, wild type, minimum | PASS |
+| 84 | ch:iama:mc:wthi | measured | `5.56` | file `Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt`: strand coupling, wild type, maximum | PASS |
+| 86 | ch:iama:mc:kappa | derived |  | sympy: three-state balance: coupling equals the restore-rate ratio | PASS |
+| 90 | ch:iama:mc:u_rise | measured | `2.925` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout over control, held error | PASS |
+| 90 | ch:iama:mc:u_c | measured | `0.03216` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 control held error | PASS |
+| 90 | ch:iama:mc:u_k | measured | `0.09407` | file `Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt`: UHRF1 knockout held error | PASS |
+| 90 | ch:iama:mc:Wc | interpretation | `59.2` | numeric: work per restore that gives the control held error | PASS |
+| 90 | ch:iama:mc:Wk | interpretation | `18.2` | numeric: work per restore that gives the knockout held error | PASS |
+| 95 | ch:iama:mc:met_e_lo | prediction | `1.057` | numeric: energy route, low end, for a 3.33-5.00 fall | PASS |
+| 95 | ch:iama:mc:met_e_hi | prediction | `1.077` | numeric: energy route, high end | PASS |
+| 96 | ch:iama:mc:met_r | measured | `3.33` | file `Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt`: the fall, low end, from the committed readings | PASS |
+| 100 | ch:iama:mc:eps_sam_lo | conjecture | `0.0418` | numeric: held error at the highest SAM price | PASS |
+| 100 | ch:iama:mc:eps_sam_hi | conjecture | `0.0427` | numeric: held error at the lowest SAM price | PASS |
+| 100 | ch:iama:mc:E_sam_lo | conjecture | `3.109` | numeric: holding energy at the lowest SAM price | PASS |
+| 100 | ch:iama:mc:E_sam_hi | conjecture | `3.132` | numeric: holding energy at the highest SAM price | PASS |
 | 105 | ch:iama:L61 | measured | `1.137` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, lowest | PASS |
 | 105 | ch:iama:L61:1.168 | measured | `1.168` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors on H_ref alone, highest | PASS |
 | 106 | ch:iama:L53 | measured | `0.984` | file `Biological_Physics/MethylPhys/chain_tests/iama_floor_granulocytes.csv`: healthy donors with P, leave-one-donor-out, lowest | PASS |

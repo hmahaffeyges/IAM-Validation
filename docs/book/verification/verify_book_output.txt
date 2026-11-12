@@ -5770,30 +5770,35 @@ PASS  ch:baryon_chain:bc_conv:17920      ch:baryon_chain:p2_13b_baryon_chain:106
 PASS  ch:baryon_chain:bc_conv:bounds     ch:baryon_chain:p2_13b_baryon_chain:107  printed 0.063629  recomputed 0.063629  tol 5.000005e-07  [measured] 18th chain: R-1 of the bounds at the last test  file Cosmological_Physics/mgcamb_validation/iam_baryon_test.progress
 
 == Part 6: Cellular Physics: Thermodynamics of the Methylome | ch:iama (part6/p6_08_iama.tex)
-PASS  ch:iama:mc:2M                      ch:iama:p6_08_iama:73  printed 41.88  recomputed 41.8811  tol 0.00500001  [calculated] work of two coins, 2M
-PASS  ch:iama:mc:odds2                   ch:iama:p6_08_iama:74  printed 21.45  recomputed 21.4528  tol 0.00500001  [conjecture] restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage)
-PASS  ch:iama:mc:eps2                    ch:iama:p6_08_iama:74  printed 0.04454  recomputed 0.0445379  tol 5.000005e-06  [conjecture] candidate healthy held error 1/(1+odds)
-PASS  ch:iama:mc:E2                      ch:iama:p6_08_iama:74  printed 3.066  recomputed 3.06585  tol 5.000005e-04  [conjecture] candidate holding energy ln(odds), in kT
-PASS  ch:iama:mc:phi2                    ch:iama:p6_08_iama:74  printed 0.1464  recomputed 0.146408  tol 5.000005e-05  [conjecture] candidate phi = ln(odds)/M
-PASS  ch:iama:mc:pool                    ch:iama:p6_08_iama:75  printed 0.04526  recomputed 0.04526  tol 5.000005e-06  [measured] pooled healthy lone-loss intercept  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
-PASS  ch:iama:mc:poollo                  ch:iama:p6_08_iama:75  printed 0.04375  recomputed 0.04375  tol 5.000005e-06  [measured] pooled intercept, lower 95 %  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
-PASS  ch:iama:mc:poolhi                  ch:iama:p6_08_iama:75  printed 0.04657  recomputed 0.04657  tol 5.000005e-06  [measured] pooled intercept, upper 95 %  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
-PASS  ch:iama:mc:oddsM                   ch:iama:p6_08_iama:76  printed 0.04558  recomputed 0.0455777  tol 5.000005e-06  [conjecture] held error at odds = M
-PASS  ch:iama:mc:EM                      ch:iama:p6_08_iama:76  printed 3.042  recomputed 3.04169  tol 5.000005e-04  [conjecture] holding energy ln M
-PASS  ch:iama:mc:skolo                   ch:iama:p6_08_iama:83  printed 5.08  recomputed 5.08  tol 0.00500001  [measured] strand coupling, maintenance-only clones, minimum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
-PASS  ch:iama:mc:skohi                   ch:iama:p6_08_iama:83  printed 8.21  recomputed 8.21  tol 0.00500001  [measured] strand coupling, maintenance-only clones, maximum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
-PASS  ch:iama:mc:wtlo                    ch:iama:p6_08_iama:83  printed 5.43  recomputed 5.43  tol 0.00500001  [measured] strand coupling, wild type, minimum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
-PASS  ch:iama:mc:wthi                    ch:iama:p6_08_iama:83  printed 5.56  recomputed 5.56  tol 0.00500001  [measured] strand coupling, wild type, maximum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
-PASS  ch:iama:mc:u_rise                  ch:iama:p6_08_iama:86  printed 2.925  recomputed 2.925  tol 5.000005e-04  [measured] UHRF1 knockout over control, held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
-PASS  ch:iama:mc:u_c                     ch:iama:p6_08_iama:86  printed 0.03216  recomputed 0.03216  tol 5.000005e-06  [measured] UHRF1 control held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
-PASS  ch:iama:mc:u_k                     ch:iama:p6_08_iama:86  printed 0.09407  recomputed 0.09407  tol 5.000005e-06  [measured] UHRF1 knockout held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
-PASS  ch:iama:mc:Wc                      ch:iama:p6_08_iama:86  printed 59.2  recomputed 59.1719  tol 0.0592001  [interpretation] work per restore that gives the control held error
-PASS  ch:iama:mc:Wk                      ch:iama:p6_08_iama:86  printed 18.2  recomputed 18.2026  tol 0.0546001  [interpretation] work per restore that gives the knockout held error
-PASS  ch:iama:mc:met_e_lo                ch:iama:p6_08_iama:91  printed 1.057  recomputed 1.05662  tol 5.000005e-04  [prediction] energy route, low end, for a 3.33-5.00 fall
-PASS  ch:iama:mc:met_e_hi                ch:iama:p6_08_iama:91  printed 1.077  recomputed 1.07716  tol 5.000005e-04  [prediction] energy route, high end
-PASS  ch:iama:mc:met_r                   ch:iama:p6_08_iama:92  printed 3.33  recomputed 3.33  tol 0.00500001  [measured] the fall, low end, from the committed readings  file Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt
-PASS  ch:iama:mc:one                     ch:iama:p6_08_iama:93  printed 0.0834  recomputed 0.0833657  tol 5.000005e-05  [prediction] held error of a one-strand mark, one coin
-PASS  ch:iama:mc:ratio                   ch:iama:p6_08_iama:93  printed 1.87  recomputed 1.87179  tol 0.00500001  [prediction] one-strand over CpG held error
+PASS  ch:iama:mc:2M                      ch:iama:p6_08_iama:75  printed 41.88  recomputed 41.8811  tol 0.00500001  [calculated] work of two coins, 2M
+PASS  ch:iama:mc:odds2                   ch:iama:p6_08_iama:75  printed 21.45  recomputed 21.4528  tol 0.00500001  [conjecture] restore-to-loss odds at W = 2M kT (Eq. eq:middle_passage)
+PASS  ch:iama:mc:eps2                    ch:iama:p6_08_iama:75  printed 0.04454  recomputed 0.0445379  tol 5.000005e-06  [conjecture] candidate healthy held error 1/(1+odds)
+PASS  ch:iama:mc:E2                      ch:iama:p6_08_iama:75  printed 3.066  recomputed 3.06585  tol 5.000005e-04  [conjecture] candidate holding energy ln(odds), in kT
+PASS  ch:iama:mc:phi2                    ch:iama:p6_08_iama:75  printed 0.1464  recomputed 0.146408  tol 5.000005e-05  [conjecture] candidate phi = ln(odds)/M
+PASS  ch:iama:mc:pool                    ch:iama:p6_08_iama:76  printed 0.04526  recomputed 0.04526  tol 5.000005e-06  [measured] pooled healthy lone-loss intercept  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
+PASS  ch:iama:mc:poollo                  ch:iama:p6_08_iama:76  printed 0.04375  recomputed 0.04375  tol 5.000005e-06  [measured] pooled intercept, lower 95 %  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
+PASS  ch:iama:mc:poolhi                  ch:iama:p6_08_iama:76  printed 0.04657  recomputed 0.04657  tol 5.000005e-06  [measured] pooled intercept, upper 95 %  file Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/m_or_m_plus_1_summary.txt
+PASS  ch:iama:mc:oddsM                   ch:iama:p6_08_iama:77  printed 0.04558  recomputed 0.0455777  tol 5.000005e-06  [conjecture] held error at odds = M
+PASS  ch:iama:mc:EM                      ch:iama:p6_08_iama:77  printed 3.042  recomputed 3.04169  tol 5.000005e-04  [conjecture] holding energy ln M
+PASS  ch:iama:mc:skolo                   ch:iama:p6_08_iama:84  printed 5.08  recomputed 5.08  tol 0.00500001  [measured] strand coupling, maintenance-only clones, minimum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:skohi                   ch:iama:p6_08_iama:84  printed 8.21  recomputed 8.21  tol 0.00500001  [measured] strand coupling, maintenance-only clones, maximum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:wtlo                    ch:iama:p6_08_iama:84  printed 5.43  recomputed 5.43  tol 0.00500001  [measured] strand coupling, wild type, minimum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:wthi                    ch:iama:p6_08_iama:84  printed 5.56  recomputed 5.56  tol 0.00500001  [measured] strand coupling, wild type, maximum  file Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs_summary.txt
+PASS  ch:iama:mc:u_rise                  ch:iama:p6_08_iama:90  printed 2.925  recomputed 2.925  tol 5.000005e-04  [measured] UHRF1 knockout over control, held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
+PASS  ch:iama:mc:u_c                     ch:iama:p6_08_iama:90  printed 0.03216  recomputed 0.03216  tol 5.000005e-06  [measured] UHRF1 control held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
+PASS  ch:iama:mc:u_k                     ch:iama:p6_08_iama:90  printed 0.09407  recomputed 0.09407  tol 5.000005e-06  [measured] UHRF1 knockout held error  file Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/uhrf1_01/uhrf1_summary.txt
+PASS  ch:iama:mc:Wc                      ch:iama:p6_08_iama:90  printed 59.2  recomputed 59.1719  tol 0.0592001  [interpretation] work per restore that gives the control held error
+PASS  ch:iama:mc:Wk                      ch:iama:p6_08_iama:90  printed 18.2  recomputed 18.2026  tol 0.0546001  [interpretation] work per restore that gives the knockout held error
+PASS  ch:iama:mc:met_e_lo                ch:iama:p6_08_iama:95  printed 1.057  recomputed 1.05662  tol 5.000005e-04  [prediction] energy route, low end, for a 3.33-5.00 fall
+PASS  ch:iama:mc:met_e_hi                ch:iama:p6_08_iama:95  printed 1.077  recomputed 1.07716  tol 5.000005e-04  [prediction] energy route, high end
+PASS  ch:iama:mc:met_r                   ch:iama:p6_08_iama:96  printed 3.33  recomputed 3.33  tol 0.00500001  [measured] the fall, low end, from the committed readings  file Biological_Physics/MethylPhys/doors/data/DEV_METHIONINE_01/predictions_by_line_summary.txt
 PASS  ch:iama:mc:limit                   ch:iama:p6_08_iama:69  printed (algebra)  recomputed True  [derived] the odds approach w/2 for a strong push
+PASS  ch:iama:mc:sam_lo                  ch:iama:p6_08_iama:74  printed 2.09  recomputed 2.09  tol 0.00500001  [measured] one SAM in ATP coins, lowest of four cell types  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
+PASS  ch:iama:mc:sam_hi                  ch:iama:p6_08_iama:74  printed 2.14  recomputed 2.14  tol 0.00500001  [measured] one SAM in ATP coins, highest of four cell types  file Biological_Physics/MethylPhys/minicell/sam_cost_summary.txt
+PASS  ch:iama:mc:eps_sam_lo              ch:iama:p6_08_iama:100  printed 0.0418  recomputed 0.0418099  tol 5.000005e-05  [conjecture] held error at the highest SAM price
+PASS  ch:iama:mc:eps_sam_hi              ch:iama:p6_08_iama:100  printed 0.0427  recomputed 0.042745  tol 5.000005e-05  [conjecture] held error at the lowest SAM price
+PASS  ch:iama:mc:E_sam_lo                ch:iama:p6_08_iama:100  printed 3.109  recomputed 3.10882  tol 5.000005e-04  [conjecture] holding energy at the lowest SAM price
+PASS  ch:iama:mc:E_sam_hi                ch:iama:p6_08_iama:100  printed 3.132  recomputed 3.13191  tol 5.000005e-04  [conjecture] holding energy at the highest SAM price
+PASS  ch:iama:mc:kappa                   ch:iama:p6_08_iama:86  printed (algebra)  recomputed True  [derived] three-state balance: coupling equals the restore-rate ratio
 
-SUMMARY  PASS 4668  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
+SUMMARY  PASS 4673  FAIL 0  (heavy, read from committed outputs: 935)  inventoried-not-run 1339  (book: docs/book/main.tex; constants: CANON/iam_canon.json)
