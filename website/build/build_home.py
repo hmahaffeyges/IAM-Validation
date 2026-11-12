@@ -549,6 +549,7 @@ footer{padding:50px 22px 60px;color:var(--muted);font-size:14px}
 sys.path.insert(0, HERE); import md_lite
 INLINE = [("doc-commissioning", "Commissioning report: what is commissioned, its scope and what it passed", "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"),
           ("doc-instruments", "The instrument catalogue", "Biological_Physics/MethylPhys/INSTRUMENTS.md"),
+          ("doc-why", "Why IAM: what the law gives, beside what the field says", "WHY_IAM.md"),
           ("doc-four", "One law, four applications, and IAM in bits", "FOUR_DOMAINS.md"),
           ("doc-runs", "Every rented-computer run and what AWS billed", "Biological_Physics/MethylPhys/RUNS.md"),
           ("doc-status", "Status of every instrument", "Biological_Physics/MethylPhys/STATUS.md")]

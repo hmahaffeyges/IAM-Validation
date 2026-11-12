@@ -44,7 +44,7 @@ def problems(changed=None):
                                  f"(CANON/foundation.json, retired_numbers)")
             for r in F["retired_phrasings"]:
                 if re.search(re.escape(r["phrase"]), line, re.I):
-                    P.append(f"{f}:{n}: retired wording \"{r['phrase']}\" - {r['why']}; say instead: {r['use_instead']}")
+                    P.append(f"{f}:{n}: retired wording \"{r['phrase']}\" - {r['why']}; say instead: {r.get('use_instead') or r.get('instead')}")
     return P
 if __name__ == "__main__":
     if "--print" in sys.argv:
