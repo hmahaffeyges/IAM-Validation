@@ -8507,7 +8507,7 @@
    "depends_on": [
     "PHY: Hammer-seq"
    ],
-   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md. Pasted wording: 10-10 item 2 'Second kinetics set (GSE116482, DNMT1-only cells): same test in a second system; after 1's design'. No repo record retires it by name; status parked is this row's reading of the DEV-HAMMER-01 closure. GSE116482 not in MASTER_INVENTORY.csv.",
+   "notes": "repo: Biological_Physics/MethylPhys/doors/CANDIDATES_2026-10-10.md. Pasted wording: 10-10 item 2 'Second kinetics set (GSE116482, DNMT1-only cells): same test in a second system; after 1's design'. No repo record retires it by name; status parked is this row's reading of the DEV-HAMMER-01 closure. GSE116482 not in MASTER_INVENTORY.csv. | 2026-11-12: time course on the nine spent SKO files: odds fixed within 4-8 % per clone over 45 days while the level rises up to 20 % (Biological_Physics/MethylPhys/doors/data/DEV_MINICELL_01/hairpin_timecourse/timecourse.py): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "legacy_ids": [
     "2 (10-10)"
    ],

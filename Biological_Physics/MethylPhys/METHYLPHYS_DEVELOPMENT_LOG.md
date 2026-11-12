@@ -4558,3 +4558,11 @@ energy) or something else is open. Nothing sealed; fresh data is kept for one fi
 
 ### 2026-11-12 · PHY-081, PHY-082, OTH-085: levers moved by drugs and conditions (planned)
 Drugs and conditions are lever experiments already run on people: decitabine and azacitidine throttle the restore, vitamin C drives the eraser, fever and heat illness move the kick, fasting and folate move the coin, chemotherapy and infection move copying. GSE78963 holds 36 450K arrays with raw files from children with AML before and after decitabine (Met-A per cell, each person against themselves); vitamin C and heat-illness data to be checked. A reading moved by a drug departs for a stated reason, not disease: medications are recorded beside each reading and such samples never serve as healthy references. Nothing read yet.
+
+### 2026-11-12 · PHY-034: the hairpin time course, odds fixed while the level moves (exploration on spent files)
+**Where IAM's Law is:** the hold sets the held error by the restore/loss odds; this asks whether those odds behave as a fixed setting over time.
+GSE116482's nine SKO files (three clones, days 15, 30, 60), reduced to strand-pair counts by level bin, by
+`doors/data/DEV_MINICELL_01/hairpin_timecourse/timecourse.py` (`timecourse_summary.txt`). At the most fully held bin, each clone's restores
+per loss stay within 4 to 8 % across 45 days (13.2-14.3, 9.6-10.3, 14.4-14.9), while two clones' mark level rises 18-20 % (the third 4 %).
+The odds behave like a fixed setting, different from clone to clone, and the level is what moves: the first time axis for the mini cell.
+Nothing sealed.

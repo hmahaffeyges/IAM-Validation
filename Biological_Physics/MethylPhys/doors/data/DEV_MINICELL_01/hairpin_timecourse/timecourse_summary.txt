@@ -1,0 +1,18 @@
+Hairpin time course (GSE116482 SKO clones; exploration)
+       gsm  day clone  level  fidelity_all  fidelity_most_held  restore_over_loss
+GSM4495515   15    C1 0.4257        0.8634              0.9346              14.28
+GSM4495516   30    C1 0.4373        0.8607              0.9343              14.23
+GSM4495517   60    C1 0.5041        0.8588              0.9297              13.23
+GSM4495518   15    C2 0.4130        0.8178              0.9115              10.30
+GSM4495519   30    C2 0.4553        0.8037              0.9055               9.58
+GSM4495520   60    C2 0.4943        0.8251              0.9118              10.34
+GSM4495521   15    C3 0.4500        0.8809              0.9362              14.67
+GSM4495522   30    C3 0.4831        0.8918              0.9350              14.38
+GSM4495523   60    C3 0.4661        0.8803              0.9372              14.93
+
+By clone:
+       odds_min  odds_max  level_d15  level_d60  odds_spread_pct  level_change_pct
+clone                                                                             
+C1        13.23     14.28     0.4257     0.5041              7.9              18.4
+C2         9.58     10.34     0.4130     0.4943              7.9              19.7
+C3        14.38     14.93     0.4500     0.4661              3.8               3.6
