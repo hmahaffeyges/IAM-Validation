@@ -2104,3 +2104,12 @@ call, each end call weighted by the library's own measured end error (the per-pi
 state estimator weighting each meter by its accuracy), and Met-A is read past each side's reach as in the seventh form. Synthetic first, on
 the same 15 rows and bars, with the bar-setting method's pulls reported beside them; one canary row first.
 
+**The self-calibration synthetic, eighth form (sealed before reading; development).** A correction to the design written just above, made before anything was read: weighting the end calls
+reduces their noise, but a library's end error is a bias, so weighting would leave it in. The eighth form takes it out of every site's
+level instead, exactly in expectation (stage_metaa_atlas.end_corrected_levels, checked first on constructed sites with a known truth:
+recovered to machine precision), after a first Deconvolver pass finds the cells whose agreement sites measure the library's two end errors
+(agree_rates); the shares and every reading then use the corrected levels, and Met-A is read past each side's reach as in the seventh form
+(run_sample.py --dev-seq-self-cal --dev-seq-self-cal-reach 3 --dev-seq-end-cal). The same 15 rows, the same four bars and scorer form
+(`seq_atlas/selfcal_synthetic8.sh`, `selfcal_synthetic8_score.py`); beside the sealed bars, each difference is reported as a pull against
+its own error (the bar method). Canary first: row 8 (CD8, both sides planted). **Where IAM's Law is:** the instrument, not the law.
+

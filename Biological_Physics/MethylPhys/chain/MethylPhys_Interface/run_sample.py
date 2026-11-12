@@ -728,6 +728,7 @@ def main():
     ap.add_argument("--dev-seq-self-cal-dump", default=None, help="DEVELOPMENT (2026-11-12, with --dev-seq-self-cal): write each read cell's per-site self-calibration inputs (reads, end reads, end and all marked calls, the measured level, the atlas's inner and published levels mixed in the sample's shares) to PREFIX_<cell>.csv.gz, for diagnosis; changes no reading")
     ap.add_argument("--dev-seq-self-cal-own", action="store_true", help="DEVELOPMENT (2026-11-12, with --dev-seq-self-cal): the sixth form; the disorder the library's molecule-end error adds, computed at the library's own level at each of the cell's identity sites, the end error measured at those sites by mixed atlas level (stage_metaa_atlas.own_level_added), taken out of the observed disorder; every read records A_own_level beside the other forms")
     ap.add_argument("--dev-seq-self-cal-agree", action="store_true", help="DEVELOPMENT (2026-11-11, with --dev-seq-self-cal): the fifth form; the library's two molecule-end error rates measured where every found cell agrees (all at most 0.1 or all at least 0.9 on IAM-Atlas v2.1; stage_metaa_atlas.agree_rates), put into the mixed forward model (mix_forward); every read records A_agree beside the other forms")
+    ap.add_argument("--dev-seq-end-cal", action="store_true", help="DEVELOPMENT (2026-11-12, with --dev-seq-self-cal; the self-calibration's eighth form): before the cell shares, a first Deconvolver pass finds the cells, the library's two molecule-end error rates are measured where those cells agree on the atlas (agree_rates), every site's level is corrected for them (end_corrected_levels), and the shares and every reading then use the corrected levels")
     ap.add_argument("--dev-seq-self-cal-reach", type=int, default=None, metavar="N", help="DEVELOPMENT (2026-11-12, with --dev-seq-self-cal; the seventh form): Met-A read on the library's calls past each side's reach (marked side: past the last call; unmarked side: past the last N calls), against the IAM Sequencing Atlas's level past the same reach (its inner references at one and N calls); nothing corrected; every read records A_reach beside the other forms")
     ap.add_argument("--dev-seq-self-cal-data", action="store_true", help="DEVELOPMENT (2026-11-10, with --dev-seq-self-cal): Met-A read on this library's own calls with its measured molecule-end error taken out, against the IAM Sequencing Atlas's inner level (stage_metaa_atlas.read_in_mix); every read also records A_without, A_expectation_side and A_data_side")
     ap.add_argument("--dev-seq-self-cal", action="store_true", help="DEVELOPMENT (2026-11-10, sequencing step 1): on a .pat input, Met-A's healthy expectation is the IAM Sequencing Atlas's inner level (its donors without their molecule-end calls) moved by this library's own measured end error per side (stage_metaa_atlas.self_calibrated); nothing cut, nothing borrowed from other samples")
@@ -1256,6 +1257,18 @@ def main():
             _SAd.SEQ_LEVEL = getattr(a, "dev_seq_level", None) or _SAd.SEQ_LEVEL   # 2026-10-31: the expectation's level (pooled by default)
             o["sequencing_ruler"] = dict(deconvolver="IAM Sequencing Atlas" if _dsr else "IAM-Atlas v2.1", in_mix_levels="IAM Sequencing Atlas" if _SAd.SEQ_ATLAS else "IAM-Atlas v2.1 in sequencing units",
                                          metaa_sites="chosen on IAM-Atlas v2.1 (one instrument, one set of sites)", flag="development (plan 35.30)")
+        if getattr(a, "dev_seq_end_cal", False) and a._seqv:   # 2026-11-12 (development, the eighth form): the library's end error taken out of every level, before the shares
+            try:
+                import stage_metaa_atlas as _SAec; _b0ec = _pd.Series(beta, dtype="float64")
+                _r0 = V4.stage_d21(_b0ec, _panel(), sequencing=True, seqref=_dsr, counts=None).get("cells") or []
+                _sh0 = {r_["cell"]: r_["share"] for r_ in _r0 if (r_.get("share") or 0) >= 0.01}
+                if _SAec.SELFCAL is None: raise RuntimeError("--dev-seq-end-cal needs --dev-seq-self-cal (the library's end calls)")
+                _rt = _SAec.agree_rates(list(_sh0), a._seqc, _SAec.SELFCAL, shares=_sh0)
+                _bec, _rep = _SAec.end_corrected_levels(_b0ec, a._seqc, _SAec.SELFCAL, _rt)
+                o["end_cal"] = dict(_rep, first_pass_cells=_sh0, rates=_rt, flag="DEVELOPMENT (DEV-ATLAS-V21-01, the eighth self-calibration form)")
+                if _rep.get("applied"): beta = _bec.to_dict()
+                print("Stage E (development): the library's end error taken out of every level: " + (f"unmarked {_rep['unmarked']}, marked {_rep['marked']}, mean level change {_rep['mean_level_change']}" if _rep.get("applied") else "not applied: " + str(_rep.get("reason"))), flush=True)
+            except Exception as e: o["end_cal"] = {"applied": False, "reason": f"{type(e).__name__}: {str(e)[:200]}"}; print("Stage E: not applied: " + o["end_cal"]["reason"], flush=True)
         if getattr(a, "dev_curve_cal", False) and not a._seqv:   # 2026-11-08 (development): each design's response on the array's own calibrators, before the shares
             try:
                 import stage_t_selftare as _STcc; _b0cc = _pd.Series(beta, dtype="float64")

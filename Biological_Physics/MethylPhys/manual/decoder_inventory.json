@@ -3,7 +3,7 @@
  "files": [
   {
    "file": "MethylPhys_Interface/run_sample.py",
-   "lines": 1583,
+   "lines": 1596,
    "functions": [
     {
      "file": "MethylPhys_Interface/run_sample.py",
@@ -308,9 +308,9 @@
      "function": "main",
      "name": "main",
      "line": 573,
-     "end": 1580,
+     "end": 1593,
      "args": [],
-     "lines": 1008,
+     "lines": 1021,
      "doc": "",
      "constants": [
       "BIO",
@@ -342,8 +342,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._stopped",
      "name": "_stopped",
-     "line": 936,
-     "end": 940,
+     "line": 937,
+     "end": 941,
      "args": [
       "r"
      ],
@@ -359,8 +359,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._panel",
      "name": "_panel",
-     "line": 1171,
-     "end": 1178,
+     "line": 1172,
+     "end": 1179,
      "args": [],
      "lines": 8,
      "doc": "",
@@ -372,8 +372,8 @@
      "file": "MethylPhys_Interface/run_sample.py",
      "function": "main._ctx",
      "name": "_ctx",
-     "line": 1502,
-     "end": 1503,
+     "line": 1515,
+     "end": 1516,
      "args": [
       "b",
       "it",
@@ -7289,7 +7289,7 @@
   },
   {
    "file": "stage_metaa_atlas.py",
-   "lines": 1238,
+   "lines": 1255,
    "functions": [
     {
      "file": "stage_metaa_atlas.py",
@@ -7734,10 +7734,30 @@
     },
     {
      "file": "stage_metaa_atlas.py",
+     "function": "end_corrected_levels",
+     "name": "end_corrected_levels",
+     "line": 455,
+     "end": 470,
+     "args": [
+      "beta",
+      "counts",
+      "sc",
+      "rates"
+     ],
+     "lines": 16,
+     "doc": "2026-11-12 (DEVELOPMENT; the self-calibration's eighth form, run_sample.py --dev-seq-end-cal). The seventh form read Met-A past each side's molecule-end reach, yet planted end errors still moved the reading, through the Deconvolver, which reads every call; cutting the calls before the Deconvolver costs it identity (deconv_trim_identity.csv). A library's end error is a bias, not noise, and a site's",
+     "constants": [],
+     "data_files": [
+      "deconv_trim_identity.csv"
+     ],
+     "traced_calls": {}
+    },
+    {
+     "file": "stage_metaa_atlas.py",
      "function": "own_level_added",
      "name": "own_level_added",
-     "line": 458,
-     "end": 477,
+     "line": 475,
+     "end": 494,
      "args": [
       "sites",
       "counts",
@@ -7755,8 +7775,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "mix_forward",
      "name": "mix_forward",
-     "line": 479,
-     "end": 497,
+     "line": 496,
+     "end": 514,
      "args": [
       "sites",
       "cells",
@@ -7778,8 +7798,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "reach_read",
      "name": "reach_read",
-     "line": 499,
-     "end": 526,
+     "line": 516,
+     "end": 543,
      "args": [
       "cells",
       "shares",
@@ -7802,8 +7822,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix",
      "name": "read_in_mix",
-     "line": 528,
-     "end": 633,
+     "line": 545,
+     "end": 650,
      "args": [
       "beta",
       "shares",
@@ -7836,8 +7856,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "departure_in_mix",
      "name": "departure_in_mix",
-     "line": 636,
-     "end": 648,
+     "line": 653,
+     "end": 665,
      "args": [
       "beta",
       "shares",
@@ -7855,8 +7875,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_in_mix_allsites",
      "name": "read_in_mix_allsites",
-     "line": 651,
-     "end": 680,
+     "line": 668,
+     "end": 697,
      "args": [
       "beta",
       "shares"
@@ -7873,8 +7893,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_clustering",
      "name": "_clustering",
-     "line": 686,
-     "end": 692,
+     "line": 703,
+     "end": 709,
      "args": [
       "z",
       "w"
@@ -7891,8 +7911,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_genome_order",
      "name": "_genome_order",
-     "line": 694,
-     "end": 699,
+     "line": 711,
+     "end": 716,
      "args": [
       "ids"
      ],
@@ -7912,8 +7932,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_in_mix",
      "name": "cscore_in_mix",
-     "line": 701,
-     "end": 731,
+     "line": 718,
+     "end": 748,
      "args": [
       "beta",
       "shares",
@@ -7933,8 +7953,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_sets",
      "name": "territory_sets",
-     "line": 741,
-     "end": 757,
+     "line": 758,
+     "end": 774,
      "args": [],
      "lines": 17,
      "doc": "The two site sets, computed from the atlas column by column (memory near one column at a time) and cached.",
@@ -7952,8 +7972,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_reading",
      "name": "ceiling_reading",
-     "line": 759,
-     "end": 779,
+     "line": 776,
+     "end": 796,
      "args": [
       "xs",
       "es",
@@ -7971,8 +7991,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "ceiling_counted",
      "name": "ceiling_counted",
-     "line": 781,
-     "end": 792,
+     "line": 798,
+     "end": 809,
      "args": [
       "A",
       "A_sat",
@@ -7989,8 +8009,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_reading",
      "name": "territory_reading",
-     "line": 794,
-     "end": 825,
+     "line": 811,
+     "end": 842,
      "args": [
       "beta",
       "shares",
@@ -8012,8 +8032,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "plant_territory",
      "name": "plant_territory",
-     "line": 827,
-     "end": 833,
+     "line": 844,
+     "end": 850,
      "args": [
       "beta",
       "name",
@@ -8031,8 +8051,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_he",
      "name": "_he",
-     "line": 837,
-     "end": 839,
+     "line": 854,
+     "end": 856,
      "args": [
       "es",
       "counts"
@@ -8047,8 +8067,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_Hj",
      "name": "_Hj",
-     "line": 854,
-     "end": 861,
+     "line": 871,
+     "end": 878,
      "args": [
       "m",
       "u"
@@ -8063,8 +8083,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "floor_raise",
      "name": "floor_raise",
-     "line": 863,
-     "end": 865,
+     "line": 880,
+     "end": 882,
      "args": [
       "f_low",
       "F"
@@ -8079,8 +8099,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "thin_H",
      "name": "thin_H",
-     "line": 867,
-     "end": 871,
+     "line": 884,
+     "end": 888,
      "args": [
       "k",
       "n",
@@ -8097,8 +8117,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "expected_H_mix_counts",
      "name": "expected_H_mix_counts",
-     "line": 873,
-     "end": 896,
+     "line": 890,
+     "end": 913,
      "args": [
       "Mk",
       "Nk",
@@ -8117,8 +8137,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_floor_probes",
      "name": "_floor_probes",
-     "line": 899,
-     "end": 905,
+     "line": 916,
+     "end": 922,
      "args": [],
      "lines": 7,
      "doc": "The library-floor sites (Seq_Atlas floor_sites_v1, side 'unmarked': every healthy cell of the IAM Sequencing Atlas unmarked), by probe.",
@@ -8136,8 +8156,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "islands_counted",
      "name": "islands_counted",
-     "line": 907,
-     "end": 941,
+     "line": 924,
+     "end": 958,
      "args": [
       "xs",
       "counts",
@@ -8162,8 +8182,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_ruler",
      "name": "_ruler",
-     "line": 947,
-     "end": 950,
+     "line": 964,
+     "end": 967,
      "args": [],
      "lines": 4,
      "doc": "",
@@ -8177,8 +8197,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_line_censored",
      "name": "_line_censored",
-     "line": 955,
-     "end": 967,
+     "line": 972,
+     "end": 984,
      "args": [
       "x",
       "e",
@@ -8196,8 +8216,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_line_censored.nll",
      "name": "nll",
-     "line": 963,
-     "end": 965,
+     "line": 980,
+     "end": 982,
      "args": [
       "t"
      ],
@@ -8211,8 +8231,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "array_blur",
      "name": "array_blur",
-     "line": 974,
-     "end": 993,
+     "line": 991,
+     "end": 1010,
      "args": [
       "xs",
       "es",
@@ -8231,8 +8251,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "predicted_healthy",
      "name": "predicted_healthy",
-     "line": 995,
-     "end": 1010,
+     "line": 1012,
+     "end": 1027,
      "args": [
       "xs",
       "es",
@@ -8253,8 +8273,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole",
      "name": "read_whole",
-     "line": 1015,
-     "end": 1070,
+     "line": 1032,
+     "end": 1087,
      "args": [
       "beta",
       "shares",
@@ -8275,8 +8295,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "read_whole.one",
      "name": "one",
-     "line": 1040,
-     "end": 1045,
+     "line": 1057,
+     "end": 1062,
      "args": [
       "m"
      ],
@@ -8290,8 +8310,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limit",
      "name": "cscore_limit",
-     "line": 1080,
-     "end": 1083,
+     "line": 1097,
+     "end": 1100,
      "args": [
       "n_sites",
       "q",
@@ -8309,8 +8329,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_cs_cell_factor",
      "name": "_cs_cell_factor",
-     "line": 1086,
-     "end": 1091,
+     "line": 1103,
+     "end": 1108,
      "args": [
       "cell"
      ],
@@ -8330,8 +8350,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_limits",
      "name": "cscore_limits",
-     "line": 1093,
-     "end": 1108,
+     "line": 1110,
+     "end": 1125,
      "args": [
       "cs",
       "array_type"
@@ -8350,8 +8370,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "_sorted_route",
      "name": "_sorted_route",
-     "line": 1122,
-     "end": 1126,
+     "line": 1139,
+     "end": 1143,
      "args": [
       "specimen"
      ],
@@ -8365,8 +8385,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "metaa_status",
      "name": "metaa_status",
-     "line": 1128,
-     "end": 1135,
+     "line": 1145,
+     "end": 1152,
      "args": [
       "o",
       "row",
@@ -8384,8 +8404,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cscore_status",
      "name": "cscore_status",
-     "line": 1137,
-     "end": 1142,
+     "line": 1154,
+     "end": 1159,
      "args": [
       "o",
       "row",
@@ -8403,8 +8423,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cells_found",
      "name": "cells_found",
-     "line": 1144,
-     "end": 1170,
+     "line": 1161,
+     "end": 1187,
      "args": [
       "o"
      ],
@@ -8418,8 +8438,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "cell_prediction",
      "name": "cell_prediction",
-     "line": 1173,
-     "end": 1196,
+     "line": 1190,
+     "end": 1213,
      "args": [
       "each",
       "beta",
@@ -8438,8 +8458,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "territory_prediction",
      "name": "territory_prediction",
-     "line": 1199,
-     "end": 1220,
+     "line": 1216,
+     "end": 1237,
      "args": [
       "terr",
       "beta",
@@ -8458,8 +8478,8 @@
      "file": "stage_metaa_atlas.py",
      "function": "width_state",
      "name": "width_state",
-     "line": 1224,
-     "end": 1237,
+     "line": 1241,
+     "end": 1254,
      "args": [
       "cell",
       "a",
@@ -10670,5 +10690,5 @@
   }
  ],
  "n_files": 37,
- "n_functions": 545
+ "n_functions": 546
 }

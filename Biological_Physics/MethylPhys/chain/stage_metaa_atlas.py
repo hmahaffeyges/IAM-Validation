@@ -452,6 +452,23 @@ def agree_rates(cells, counts, sc, lo=0.1, hi=0.9, shares=None):
     out.update(unmarked=round(float(a_u), 6), marked=round(float(a_m), 6), end_calls=int(ne[low | high].sum()), inner_calls=int(ni[low | high].sum()))
     _AGREE_CACHE[key] = out; return out
 
+def end_corrected_levels(beta, counts, sc, rates):
+    """2026-11-12 (DEVELOPMENT; the self-calibration's eighth form, run_sample.py --dev-seq-end-cal). The seventh form read Met-A past each
+    side's molecule-end reach, yet planted end errors still moved the reading, through the Deconvolver, which reads every call; cutting the
+    calls before the Deconvolver costs it identity (deconv_trim_identity.csv). A library's end error is a bias, not noise, and a site's level
+    is linear in it: with f the share of the site's calls that are molecule-end calls, the observed level is
+    m_obs = m (1 - f e_m) + (1 - m) f e_u (e_m the false-T rate on marked molecules, e_u the false-C rate on unmarked ones, both measured by
+    agree_rates), so m = (m_obs - f e_u) / (1 - f (e_u + e_m)) exactly in expectation. Every site's level is corrected so, clipped to 0-1.
+    Returns the corrected levels (a Series by probe) and what was applied. Counts only; nothing fitted."""
+    b = pd.Series(beta, dtype="float64"); n = pd.Series(counts).reindex(b.index).astype("float64")
+    ne = pd.Series(sc["end_n"]).reindex(b.index).fillna(0).astype("float64")
+    eu, em = rates.get("unmarked"), rates.get("marked")
+    if eu is None or em is None: return b, dict(applied=False, reason=rates.get("reason") or "end error rates not measured")
+    f = (ne / n).where(n > 0, 0.0).clip(0, 1); den = 1 - f * (eu + em)
+    m = ((b - f * eu) / den.where(den > 0.05, np.nan)).clip(0, 1); m = m.where(m.notna(), b)
+    return m, dict(applied=True, unmarked=eu, marked=em, end_share_median=round(float(f[n > 0].median()), 4), sites=int(b.notna().sum()),
+                   mean_level_change=round(float((m - b).mean()), 6), rule="m = (m_obs - f e_u) / (1 - f (e_u + e_m)) at every site")
+
 SELFCAL_DUMP = None   # 2026-11-12 (run_sample.py --dev-seq-self-cal-dump PREFIX): each read cell's per-site self-calibration inputs written to PREFIX_<cell>.csv.gz
 SELFCAL_OWN = False   # 2026-11-12 (run_sample.py --dev-seq-self-cal-own): the sixth form, own_level_added
 

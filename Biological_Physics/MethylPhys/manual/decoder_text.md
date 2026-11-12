@@ -2114,6 +2114,20 @@ END_CT and END_TC at the outermost CpG call at each end of every molecule, ALL_C
 --dev-seq-trim-ends, so a planted end error sits on the library's real outermost call and a trim of that call removes it (2026-11-12). The
 report carries a PLANTED banner.
 
+### run_sample.py --dev-seq-end-cal
+
+DEVELOPMENT (the self-calibration's eighth form; with --dev-seq-self-cal). Before the cell shares, a first Deconvolver pass finds the cells
+(share at least 0.01); the library's two molecule-end error rates are measured where those cells agree on the atlas (agree_rates); every
+site's level is corrected for them (end_corrected_levels); the shares and every reading then use the corrected levels. The bundle's end_cal
+records the first-pass cells, the rates and the mean level change. **Where IAM's Law is:** the instrument, not the law.
+
+### stage_metaa_atlas.py::end_corrected_levels
+
+A library's molecule-end error is a bias on a site's level, linear in it: with f the share of the site's calls that are molecule-end calls,
+the observed level is m_obs = m (1 - f e_m) + (1 - m) f e_u (e_m the false-T rate on marked molecules, e_u the false-C rate on unmarked
+ones), so m = (m_obs - f e_u) / (1 - f (e_u + e_m)) exactly in expectation. Every site's level is corrected so and clipped to 0-1; sites
+whose denominator would fall below 0.05 keep their observed level. Counts only; nothing fitted. Development.
+
 ### run_sample.py --dev-seq-self-cal-reach
 
 With --dev-seq-self-cal (the seventh form, development), Met-A is read on the library's calls past each side's reach along the molecule: at sites
