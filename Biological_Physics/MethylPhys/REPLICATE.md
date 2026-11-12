@@ -55,7 +55,7 @@ test on is held to the rule by the push gate (CANON/chain_gate.py, rule 23b).
 **Also not chain-verified: the self-reference line itself** (development/loose_share_2026-10-15/, own-read counts of the 153 samples of the published sequencing atlas).
 It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 
-**81 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
+**82 synthetic tests.** Rerun first: the ones IAM-A's commissioning depends on, marked *IAM-A gate*.
 
 | record | synthetic script | why | manifest rows |
 |---|---|---|---|
@@ -127,6 +127,7 @@ It is rebuilt through chain Stage Q2 before any IAM-A test uses it (OTH-057).
 | DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/reference_door_synthetic.py` | no chain import | GRP-019 |
 | DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/synthetic_06.py` | no chain import | GRP-019 |
 | DEV_METAA_HEALTHY_01 | `DEV_METAA_HEALTHY_01/synthetic_07.py` | no chain import | GRP-019 |
+| DEV_METHIONINE_01 | `DEV_METHIONINE_01/methionine_synthetic.py` | no chain import | COM-IAMA-041, LEV-012, LEV-014, LEV-041, LEV-042, PHY-007 |
 | DEV_ONE_DRAW_01 | `DEV_ONE_DRAW_01/mk_absorb_01/provisional_synthetic_01.py` | no chain import | GRP-016 |
 | DEV_ONE_DRAW_01 | `DEV_ONE_DRAW_01/mk_absorb_01/provisional_synthetic_01.py` | no chain import | GRP-016 |
 | DEV_POSITION_EXPR_01 | `DEV_POSITION_EXPR_01/planted_position_expr_01.py` | declares NO CHAIN | PHY-041 |
