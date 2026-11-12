@@ -1,0 +1,19 @@
+{
+ "trimmed_rows": 905266,
+ "rows_left_out": 285,
+ "rows": 326553,
+ "cells": 57,
+ "output": "metaa_inner_reference_t3.parquet",
+ "command": [
+  "run_sample.py",
+  "--build",
+  "seq-metaa-inner",
+  "--build-input",
+  "/root/w/donors_t3.parquet",
+  "--build-out",
+  "/root/w/metaa_inner_reference_t3.parquet",
+  "--bundle",
+  "/root/w/metaa_inner_reference_t3.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned (IAM Sequencing Atlas, plan 35.30)"
+}
