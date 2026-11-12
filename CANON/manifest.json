@@ -28367,6 +28367,50 @@
    "sources_of_row": [
     "author discussion 2026-11-11"
    ]
+  },
+  {
+   "runs": [],
+   "depends_on": [],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ],
+   "notes": "added 2026-11-11 from the evening's discussion (first entered under ids already in use, so not added; re-entered)",
+   "id": "PHY-079",
+   "title": "The lone-loss rate on the interior of each molecule, on spent samples",
+   "purpose": "PHY-050's third test matched at a median of 0.987 with its misses below and five of ten in neurons; count the interior beyond each library's own end reach, neurons set aside for their stated reason",
+   "instrument_or_term": "IAM-A",
+   "sources": [
+    "GSE186458 (spent)"
+   ],
+   "data_status": "spent",
+   "record": "Biological_Physics/MethylPhys/doors/PHY_050_LONE_LOSS_LOYFER_OUTCOME.md",
+   "status": "planned",
+   "next_step": "each sample's own fault profile, then the interior count, on samples already read; fresh data from another laboratory only for one final sealed test",
+   "cost": "laptop",
+   "impact": 5
+  },
+  {
+   "runs": [],
+   "depends_on": [],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "author discussion 2026-11-11"
+   ],
+   "notes": "added 2026-11-11 from the evening's discussion (first entered under ids already in use, so not added; re-entered)",
+   "id": "PHY-080",
+   "title": "Which free energy sets the cell's drive",
+   "purpose": "the methyl group comes from SAM and the maintenance enzyme does not hydrolyze ATP directly; settle which free energy sets M before a referee asks",
+   "instrument_or_term": "M number",
+   "sources": [
+    "published free energies"
+   ],
+   "data_status": "none_needed",
+   "record": "development/IDEAS_BITS_AND_COMPUTER_SCIENCE_OF_REALITY.md",
+   "status": "idea",
+   "next_step": "a written derivation note from published free energies",
+   "cost": "laptop",
+   "impact": 4
   }
  ],
  "not_tests": {
