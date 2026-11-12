@@ -4675,3 +4675,14 @@ work W (10.99 at W/kT = 20.94, checked numerically), so odds of M need the drive
 geometry. Both are independent of the writer and eraser rates, as rule 25 requires. The open step is narrowed to this factor of order one.
 Also committed: `doors/data/DEV_ATLAS_V21_01/seq_atlas/selfcal8_real.sh`, the eighth self-calibration form on the 18 spent sorted
 libraries (the real-data side of bar 4: do the three laboratories' libraries of one cell type read alike?).
+
+### 2026-11-12 · PHY-083: the dyad as the factor of two, and a test that separates the two routes (sealed before any data)
+**Where IAM's Law is:** the coin M sets the hold's gain. A held CpG mark is a dyad, a methyl group on each strand of the palindrome, so
+restoring a fully lost site takes two methyl transfers, two coins. In the Einstein-relation route (odds about W/2kT) a drive of two coins
+gives odds of M, the factor the route was missing; the equipartition route gives M per coin without it. **The test that separates them
+(sealed; nothing read):** at a single-strand mark (methylated non-CpG cytosines, held in neurons by the writer, no partner strand), the
+Einstein-relation route with the dyad predicts odds M/2 and a held error 1/(1 + M/2) = 0.0872, about 1.91 times the CpG
+value 0.0456; the equipartition route predicts the same as CpG. Scored by the agreed bar method (pull at k = 2). Data needed:
+single-molecule reads of neuron methylomes with non-CpG contexts kept (the chain's .pat counter reads CpGs only, so a non-CpG counter comes
+first, synthetic first). Consistent with rule 25: neither route has division in it. Also noted: the book's open item (Ch. 7, the copying
+enzyme's measured preference of 7-80-fold, 1.9-4.4 kT, should give the holding energy) brackets ln M = 3.04.
