@@ -4697,3 +4697,11 @@ size of its jitter, and a threshold crossing against a proportional stiffness is
 give the middle. **Correction to the sealed non-CpG number, made before any data were read:** the large-drive approximation gave 0.0872; the
 closed form at one coin gives odds 10.995 and a held error 0.0834, about 1.87 times the CpG value. The comparison is now the dyad route
 (0.0834 at single-strand marks) against a single-strand mark held like a CpG (about 0.045).
+
+### 2026-11-12 · PHY-083: the two strands of a held CpG are lost together, not independently (exploration on spent hairpins)
+**Where IAM's Law is:** the price of one restore. If each strand were held by its own coin, the strands would be lost independently; if the
+pair is restored as one unit, losses come together. `doors/data/DEV_MINICELL_01/hairpin_timecourse/strand_pairs.py`
+(`strand_pairs_summary.txt`), on the nine spent SKO hairpin files: at the most fully held bin, fully lost pairs (UU) are 5.08-8.21 times what
+independent strands give (median 7.81), and half-lost pairs about half. The pair behaves largely as one unit, which leans to the dyad's two
+coins per restore. **Confound, named before writing:** these cells have no de novo writers, so a pair lost on both strands stays lost and is
+copied, which alone makes excess UU. Not decisive; a lead. Next: the same count in cells that keep their writers, if hairpin data exist.
