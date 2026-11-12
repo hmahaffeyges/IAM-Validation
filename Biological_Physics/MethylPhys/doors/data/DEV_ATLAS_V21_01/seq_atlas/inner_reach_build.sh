@@ -6,6 +6,7 @@
 # $B/atlas_trim/innerN/metaa_inner_reference_tN.parquet and its record.
 set -u; IF=$R/Biological_Physics/MethylPhys/chain/MethylPhys_Interface; SDIR=$R/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas
 O=$B/atlas_trim; mkdir -p $W/lb
+gcloud storage ls "$O/inner$N/metaa_inner_reference_t$N.parquet" > /dev/null 2>&1 && { echo "already read: inner $N"; log "already read: inner $N"; log "inner $N done"; exit 0; }   # skip-done
 gcloud storage cp -q "$O/t$N/*.lbeta" $W/lb/ > /dev/null 2>&1; nl=$(ls $W/lb/*.lbeta | wc -l); log "count files past $N calls: $nl"
 [ "$nl" -eq 156 ] || { log "only $nl of 156 donors counted; not built"; exit 1; }
 python3 - $SDIR/seq_atlas_inputs.csv $SDIR/gran_inputs.csv $W/lb $W/inputs_t$N.csv <<'PY'
