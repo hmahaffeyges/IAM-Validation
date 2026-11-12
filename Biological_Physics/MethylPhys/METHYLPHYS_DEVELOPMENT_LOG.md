@@ -4606,7 +4606,7 @@ held error. The author's reading: many small inputs (fuel, temperature, diet, ag
 each new strand at every copy) from the holding load (repairing losses between copies); the cell-type spread corresponds to phi varying
 about 0.142-0.155. `doors/data/PHY_050_PERCALL/lifespan_vs_held.py` (`lifespan_vs_held_summary.txt`) pairs 27 Loyfer cell types with the
 mean human lifespan of the matching type in the published cell-turnover census (Sender & Milo 2021, Supplementary Table 5,
-`census_cell_lifespans.csv`; 14 pairings use a parent type, marked). Rank correlation 0.47 (p 0.014; 0.45, p 0.07 with each lifespan once;
+`census_cell_lifespans.csv`; 18 of the 27 pairings use a parent type, marked). Rank correlation 0.47 (p 0.014; 0.45, p 0.07 with each lifespan once;
 0.50, p 0.17 on the 9 exact matches): cell types replaced rarely hold slightly worse. Exceptions: cardiomyocytes and oligodendrocytes
 (decades, near the prediction) and alveolar macrophages (months, best). Reading: the full restore crew works with the copier; a resting cell
 repairs between rare copies. Next: the copying window in the mini cell (writing load beside holding load, phi on the ledger).
