@@ -25,3 +25,15 @@ for K in (5.0, 20.94, 80.0):
         row.append(f"rate x{1/g:g}: {s / (n - n // 10 - 1) * K:.3f}")
     L.append(f"  K = {K}: " + "; ".join(row) + "   (equipartition: 1.000 at every rate)")
 t = "\n".join(L) + "\n"; open(os.path.join(H, "regulator_summary.txt"), "w").write(t); print(t)
+
+# The open step, second route (fluctuation-dissipation through the Einstein relation): a restoring drive of work W across one mark
+# against thermal diffusion; the odds are the diffusive passage time over the driven one. Mean first-passage time from 0 (reflecting)
+# to l (absorbing) with drift v and diffusion D: T(v) = int_0^l dy int_0^y dz exp(-(v/D)(y - z)) / D.
+from scipy.integrate import quad
+def _mfpt(v, D=1.0, l=1.0): return quad(lambda y: quad(lambda z: math.exp(-(v / D) * (y - z)), 0, y)[0] / D, 0, l)[0]
+_L2 = ["\nSecond route (Einstein relation): odds = diffusive / driven passage across one mark, by W/kT (= Pe)"]
+for _pe in (5.0, M, 80.0): _L2.append(f"  W/kT = {_pe:.2f}: odds {_mfpt(0.0) / _mfpt(_pe):.3f} (W/2kT = {_pe/2:.3f})")
+_L2.append("Both routes give odds in proportion to the coin. The first (equipartition with the virial half) gives exactly M but rests on mapping a\n"
+           "continuous restoring coordinate onto a two-state site; the second gives about W/2kT, so odds of M need the drive's work over one mark\n"
+           "to be two coins' worth or a different geometry. The open step is narrowed to this factor of order one.")
+_t2 = "\n".join(_L2) + "\n"; open(os.path.join(H, "regulator_summary.txt"), "a").write(_t2); print(_t2)

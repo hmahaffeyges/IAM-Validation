@@ -4664,3 +4664,14 @@ Proportional hold against thermal noise (kT = 1): steady <x^2> x K, by gain K an
 (1) energy or supply: lowering SAM by a factor r moves the held error by about ln r of a kick if the gain is the coin's energy, by the
 factor r if it is the supply; (2) rate independence: an intervention that changes how fast the writer and eraser act, at an unchanged coin,
 leaves the held error unchanged.
+
+### 2026-11-12 · PHY-083: the open step narrowed to a factor of order one (candidate derivation, continued)
+**Where IAM's Law is:** the coin M sets the hold's gain. Two routes now derive odds in proportion to the coin (`minicell/regulator.py`,
+`regulator_summary.txt`). (1) Equipartition with the virial half: a proportional restoring stiffness charged by one coin per full
+correction stores half of it (exact for any lossy linear charging), and thermal noise keeps kT/2 in it, so the jitter's share of the full
+mark is kT/coin = 1/M; resting on mapping a continuous restoring coordinate onto a two-state site (not yet rigorous). (2) The Einstein
+relation (fluctuation-dissipation): the odds are the diffusive over the driven passage time across one mark, about W/(2kT) for a drive of
+work W (10.99 at W/kT = 20.94, checked numerically), so odds of M need the drive's work over one mark to be two coins' worth, or another
+geometry. Both are independent of the writer and eraser rates, as rule 25 requires. The open step is narrowed to this factor of order one.
+Also committed: `doors/data/DEV_ATLAS_V21_01/seq_atlas/selfcal8_real.sh`, the eighth self-calibration form on the 18 spent sorted
+libraries (the real-data side of bar 4: do the three laboratories' libraries of one cell type read alike?).
