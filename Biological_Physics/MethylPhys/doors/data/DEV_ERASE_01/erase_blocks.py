@@ -3,7 +3,9 @@ read pairs, centred at (k + 1/2)/20 of the sample's spots; a block that crosses 
 (1-based spot ids, inclusive), one block piece per line."""
 import sys, pandas as pd
 N, K = 10_000_000, 20
-def plan(runs, n=None):   # 2026-10-23: n, the pairs to take (default N, the recount's); plasma_seq_01 takes every pair
+def plan(runs, n=None, K=K):   # 2026-10-23: n, the pairs to take (default N, the recount's); plasma_seq_01 takes every pair
+    # 2026-11-13 (PHY-084 canary): K, the number of blocks, from the sample list's optional 'blocks' column (default 20). A run stored in
+    # genome order puts each block on a few chromosomes; many small blocks sample every chromosome (the genome-coverage check decides).
     tot = sum(s for _, s in runs); size = min(n or N, tot) // K; out = []
     for k in range(K):
         g0 = max(0, min(tot - size, int((k + 0.5) * tot / K) - size // 2)); left = size; pos = g0
@@ -23,5 +25,7 @@ if __name__ == "__main__":
     S = pd.read_csv(sys.argv[1]); x = S[S.gsm == sys.argv[2]]
     R = list(zip(x.srr, x.spots))
     if len(sys.argv) > 3 and "/" in sys.argv[3]: k, n = map(int, sys.argv[3].split("/")); B = chunk(R, k, n)   # CHUNK=k/n
-    else: B = plan(R, int(sys.argv[3]) if len(sys.argv) > 3 else None)
+    else:
+        k = int(x.blocks.iloc[0]) if "blocks" in x.columns and pd.notna(x.blocks.iloc[0]) else K
+        B = plan(R, int(sys.argv[3]) if len(sys.argv) > 3 else None, k)
     for r, a, b in B: print(r, a, b)

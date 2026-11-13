@@ -5007,3 +5007,9 @@ GSE173787's 58 healthy-control libraries (24 B, 12 CD4, 12 CD8, 10 monocytes), r
 prediction put through the meter at its own measured clustering on the committed forward grid (12 runs, forward_out/pg_*); the observation
 its zero-loose intercept; the bar from measured uncertainty, about +/-18 % (k = 2). MET only if all four types fall inside. The scorer
 (referee_score.py) passed its synthetic test (on target MET; 30 % high NOT MET). Sealed by the agent under the author's standing authority.
+
+### 2026-11-13 · PHY-084: the canary refused at intake (runs stored in genome order); 200 small blocks instead of 20
+The genome-coverage check stopped the canary: GSE173787's runs are stored in genome order, so 20 blocks fell on a few chromosomes (six
+autosomes got no reads). `doors/data/DEV_ERASE_01/erase_blocks.py` takes an optional per-sample `blocks` column; the referee list uses 200
+(the same 10 million pairs). Earlier sample lists are unchanged (all 32 block plans byte-identical). Amendment 1 in doors/PHY_084_REFEREE.md,
+written before any held error was computed from a referee library. Canary rerun.

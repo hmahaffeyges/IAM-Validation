@@ -20,6 +20,13 @@ The 75 multiple-sclerosis libraries are not read.
 recount, then `run_sample.py --dev-count-only` (Stage Q2), 10 million read pairs in blocks across the whole run, the genome-coverage check
 kept (human). Canary first (one library, short); then all 58. A library the pipeline cannot read is reported, not replaced.
 
+**Amendment 1 (2026-11-13, before any held error was computed from a referee library).** The canary (GSM5278426, 2 million pairs, GitHub run 43403531488)
+was stopped at intake by the genome-coverage check: chr13, 16, 17, 19, 21 and 22 received no reads and chr4 13 %. GSE173787's runs are
+stored in genome order, so the plan's 20 blocks each fall on a few chromosomes. The read method is changed, nothing else: 200 equal blocks
+(50,000 pairs each, the same 10 million in total) evenly spaced through each run (`blocks` column of referee_runs.csv, read by
+erase_blocks.py; the default of 20 is unchanged and gives byte-identical plans for all 32 earlier samples). The prediction, the bar and
+pass/fail are untouched. The coverage check still decides; a library it refuses is reported, not read by another route.
+
 **The prediction, through the meter.** For each cell type, the counter's lone-loss reading (`held_err_length`) that the forward model gives
 at that cell type's own measured clustering (median `coupling` of its libraries, an instrument property read from the same libraries),
 interpolated on the committed grid (`data/DEV_CHAIN_Q2_01/forward_out/pg_<ratio>_<x>.csv`: forward_candidate.py, seq mode, 3 samples of
