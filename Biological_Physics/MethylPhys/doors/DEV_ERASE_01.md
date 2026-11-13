@@ -389,8 +389,10 @@ Normal band. This test asks the first question: does the eraser's share differ b
 one laboratory (GSE210026: TET2 knockout and its floxed control, four mice each, in LSK, CMP and GMP progenitors, vehicle arm only; the
 IL-1 beta arm is inflammation, not healthy) and mature B cells (GSE161463: TET2 + TET3 removed, two and two). Human mature-cell data with
 the eraser removed are controlled access. Spent data cannot answer it: PHY-085's two types already sit within 1.2 % of each other.
-(2) Synthetic: the counter synthetic (planted held error through run_sample.py). (3) Canary first, one library, short. (4) GitHub
-machines, after the referee test (PHY-084) has finished, so it is not delayed.
+(2) Synthetic: the counter synthetic (planted held error through run_sample.py). (3) Canary first, one library, short. (4) Google spot
+machines (amended 2026-11-13 before any library was opened: GitHub's 20 were all reading PHY-084), by erase_google.sh, which runs
+erase_test.yml's step unchanged with checkpoints on. (5) What would a cosmologist do: measure the instrument's own scatter first (the
+controls' replicate scatter, four per arm), as the not-assessed rule of P3 requires.
 
 **Read exactly as PHY-085:** `erase_types_samples.csv` (2,000 blocks, 10 million read pairs per library), mm10, run_sample.py
 --dev-count-only (development flag for non-human counts), lone-loss counter `held_err_length`; each unit's ratio is the median of its
