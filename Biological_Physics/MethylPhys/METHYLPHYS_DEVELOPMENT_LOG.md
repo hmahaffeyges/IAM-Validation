@@ -5034,3 +5034,9 @@ so the eraser is now measured by removing it. PHY-086 sealed before any library 
 CMP, GMP, one laboratory) and GSE161463 (mature B cells); the law's prediction is that cell types converge when the eraser is removed.
 PHY-085's two types were already within 1.2 % of each other, so spent data cannot answer it. Planned: PHY-087 (IAM-A's slope from physics),
 PHY-088 (the eraser's price).
+
+### 2026-11-13 · PHY-087: IAM-A's slope, step 1 written before counting (mixing inside a sample, or cell type?)
+IAM-A's baseline eps_pred(L) = a + b L: a now has a physical account (PHY-083); b (0.034625) is measured. Two readings, stated before any
+tile is counted (Biological_Physics/MethylPhys/doors/data/PHY_050_PERCALL/slope_01/slope_tiles.py): MIXING (inside one sample, tiles that are less marked lose more, and a sample with more loose
+tiles averages higher, reproducing b) or CELL TYPE (flat inside samples; b only across samples). Eleven spent healthy samples spanning
+the loose share (slope_samples.csv), each read by the one command with --dev-count-tiles; exploration.
