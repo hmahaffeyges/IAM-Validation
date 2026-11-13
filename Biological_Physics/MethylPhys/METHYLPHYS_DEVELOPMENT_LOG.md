@@ -4983,3 +4983,6 @@ Release check on 7a7cd07a (GitHub run 43363950295): 33 of 34 pass (V11, E4, E6, 
 into it ("hm450_coverage", "array detected: 450k"); the run exited 0 with verdict ADVANCE_FLAGGED_450K and wrote its report. E2 now requires
 the chain's own flag sentence (run_sample.py: "450K coverage of the commissioned references ... will refuse this array; the atlas readers read
 it, flagged") and the verdict line, as strict as before.
+
+### 2026-11-13 · OTH-070: the release check passes, 34 of 34
+release.yml on bbf79331 (GitHub run 43374282691): PASS, 34 checks, 4,526 s. First full pass since the report PDFs stopped building.
