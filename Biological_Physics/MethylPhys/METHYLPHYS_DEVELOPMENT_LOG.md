@@ -4826,3 +4826,19 @@ with independent losses the candidate reads 0.0406 (lone-loss) and 0.0444 (per-c
 and 0.0433, against healthy 0.04526 and 0.05048: 12.5 % and 14.3 % below, the same on both scales, so the gap is not a matter of which
 scale. The healthy readings imply a per-site loss 0.051-0.052, a work per restore of 1.69-1.73 coins, not 2. The earlier 1.6 % match
 compared a per-site prediction with a lone-loss reading. Open: what delivers about 85 % of the SAM's two coins to the hold.
+
+### 2026-11-12 · PHY-079: each cell type's net delivery of the 2-coin price, predictions written first
+**Cell types: net delivery against coin, crew and copying. Predictions written before computing (2026-11-13 03:29 UTC; exploration
+on spent counts; nothing sealed for referees).** Each cell type's held error (percall_out, lone-loss reading) is converted to effective coins
+through the forward model at that type's OWN median measured clustering (the counter's coupling), interpolated on the committed grid
+(forward_out/, independent and follow-on runs), never with one shared correction.
+(1) No cell type exceeds the 2-coin price once its own meter is used (net <= 100 %, alveolar macrophages included). If one still does,
+    the conversion, or the price, is wrong for it.
+(2) Net rises with restore crew (DNMT1 + UHRF1 RNA, crew_vs_held.csv): Spearman rho > 0.
+(3) Net rises with copying (shorter census lifespan): Spearman rho with lifespan < 0.
+(4) Where an in-tissue coin is published (atp_coin_table.csv), a bigger coin goes with a better hold. Too few tissues to score; lead only.
+**Read** (`doors/data/PHY_050_PERCALL/celltype_net.py`, `celltype_net_summary.txt`): (1) NOT met: with the canon's coin, lung alveolar and
+interstitial macrophages, erythrocyte progenitors (clustering outside the grid) and naive CD4 and CD8 T cells (one sample each) hold better than
+2 coins can buy (103-112 %); the measured in-tissue coins (atp_coin_table.csv, M 22.1-23.9, all above the canon's 20.94) would bring them to
+about 100 %, so either the cell's coin is bigger than the canon's or the formula is short. (2) met: net rises with restore crew, rho +0.42
+(p 0.024, 29 types). (3) met: net falls with lifespan, rho -0.39 (p 0.047, 27 pairings). Crew and copying are partly one signal.

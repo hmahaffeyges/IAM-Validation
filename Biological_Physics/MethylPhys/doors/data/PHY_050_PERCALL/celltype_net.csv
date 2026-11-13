@@ -1,0 +1,56 @@
+cell,n,held0,coupling,coins,net_pct,outside_clustering_grid
+tonsil palatine epithelium,3,0.05124,1.46309,1.51164,75.58212,False
+striated muscle,2,0.05111,1.35193,1.5327,76.63503,False
+pancreatic delta,3,0.05082,1.42357,1.53579,76.78963,False
+t effector cell cd8,3,0.05,1.53539,1.536,76.79979,False
+t central memory cd4,3,0.05036,1.44374,1.54563,77.28157,False
+tonsil pharyngeal epithelium,2,0.05021,1.43846,1.55227,77.61338,False
+pancreas endothelium,3,0.05042,1.33425,1.55705,77.85231,False
+memory b cells,2,0.04878,1.52683,1.57862,78.93112,False
+pancreatic alpha,3,0.04918,1.46672,1.57984,78.99223,False
+adipocytes,3,0.04954,1.34,1.58697,79.3484,False
+tongue epithelium,3,0.04904,1.45035,1.58953,79.47646,False
+t effector memory cd4,3,0.04822,1.55304,1.59631,79.81535,False
+kidney glomerular endothelium,3,0.0492,1.33042,1.59978,79.98899,False
+colon fibroblasts,2,0.04874,1.44542,1.60151,80.07569,False
+bladder epithelium,3,0.04862,1.44796,1.60514,80.25682,False
+lung bronchus epithelium,3,0.0488,1.34551,1.61273,80.63632,False
+kidney tubular endothelium,3,0.04877,1.33526,1.61482,80.74094,False
+smooth muscle,3,0.04729,1.63458,1.62308,81.15382,False
+vascular saphenous endothelium,3,0.04803,1.36686,1.6395,81.9749,False
+pancreatic beta,3,0.04789,1.4123,1.64093,82.04672,False
+effector memory cd8 t cells,1,0.04688,1.58205,1.64327,82.16359,False
+heart fibroblasts,3,0.0469,1.55149,1.6457,82.28507,False
+lung alveolar endothelium,3,0.0475,1.38885,1.65744,82.87212,False
+gastric antrum epithelium,3,0.04669,1.51146,1.65916,82.95775,False
+gastric body epithelium,3,0.04661,1.51984,1.65973,82.98641,False
+aorta endothelium,2,0.047,1.45092,1.66446,83.22296,False
+gastric fundus epithelium,3,0.04638,1.55775,1.66514,83.25709,False
+pancreatic acinar,3,0.04662,1.43411,1.68416,84.20804,False
+kidney glomerular epithelium,2,0.04675,1.35533,1.68925,84.46237,False
+thyroid epithelium,3,0.04683,1.29922,1.69046,84.52304,False
+cd8 t cells,3,0.04544,1.58954,1.69935,84.96772,False
+lung alveolar epithelium,3,0.04565,1.4599,1.71548,85.77423,False
+kidney tubular epithelium,3,0.04598,1.35486,1.71986,85.99297,False
+small intestine epithelium,3,0.04502,1.55548,1.72017,86.00843,False
+pancreatic duct,3,0.0454,1.33403,1.74536,87.26797,False
+prostate epithelium,3,0.04477,1.39363,1.76731,88.36555,False
+cardiomyocyte,3,0.04489,1.32928,1.7676,88.38015,False
+fallopien tubes epithelium,3,0.04401,1.46908,1.78199,89.09941,False
+endometrium epithelium,3,0.04369,1.45284,1.80115,90.05739,False
+colon enteroendocrine,2,0.0428,1.54367,1.81792,90.89601,False
+colon epithelium,3,0.04237,1.60097,1.83168,91.58389,False
+breast luminal epithelium,3,0.04263,1.47763,1.84159,92.07961,False
+cd4 t cells,3,0.04268,1.46918,1.84226,92.11317,False
+hepatocyte,3,0.04207,1.49841,1.86169,93.08443,False
+oligodendrocytes,3,0.04261,1.31466,1.87132,93.56605,False
+nk cells,3,0.04156,1.50451,1.88433,94.2166,False
+b cells,3,0.04138,1.48723,1.89852,94.92614,False
+monocytes,3,0.04111,1.50727,1.90529,95.26449,False
+breast basal epithelium,3,0.04172,1.39654,1.9067,95.33492,False
+colon macrophages,2,0.04092,1.52629,1.91006,95.50292,False
+lung alveolar macrophages,2,0.03854,1.46467,2.05745,102.87226,False
+lung interstitial macrophages,3,0.03838,1.46768,2.0654,103.2698,False
+erythrocyte progenitors,3,0.03698,2.1761,2.10173,105.08658,True
+naive cd4 t cells,1,0.03747,1.32589,2.14691,107.34559,False
+naive cd8 t cells,1,0.03598,1.30066,2.2443,112.21514,False

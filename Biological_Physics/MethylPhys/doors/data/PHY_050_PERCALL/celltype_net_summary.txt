@@ -1,0 +1,5 @@
+Cell-type net delivery (exploration): 55 types; net 75.6-112.2 % of the 2-coin price (median 84.2 %)
+above 100 % (more than the price buys): lung alveolar macrophages 102.9 % (n 2); lung interstitial macrophages 103.3 % (n 3); erythrocyte progenitors 105.1 % (n 3); naive cd4 t cells 107.3 % (n 1); naive cd8 t cells 112.2 % (n 1)
+net vs restore crew (DNMT1 + UHRF1 RNA): rho +0.42, p 0.024, n 29
+net vs proliferation (MKI67 RNA): rho +0.30, p 0.116, n 29
+net vs census lifespan: rho -0.39, p 0.047, n 27
