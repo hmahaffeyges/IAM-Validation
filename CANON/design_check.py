@@ -19,7 +19,7 @@ def num(x):
 def sheet_findings(S, name="sheet"):
     F = []
     for k in KEYS:
-        if k == "machines.why_not_github": continue
+        if k in ("machines.why_not_github", "value.why_this"): continue
         v = get(S, k)
         if v in (None, "", [], {}): F.append(f"{name}: '{k}' missing ({k} in CANON/TEST_DESIGN_CHECKLIST.md)")
     M = S.get("machines") or {}
@@ -38,11 +38,31 @@ def sheet_findings(S, name="sheet"):
         F.append(f"{name}: canary.instrument_check needs numbers: {', '.join(ALIGN)} (alignment jobs) or {', '.join(COUNT)} (count-only jobs)")
     if FLAG.search(str(get(S, "data.protocol_read") or "")) and not get(S, "data.method_ok"):
         F.append(f"{name}: the deposited method is flagged ({FLAG.search(str(get(S, 'data.protocol_read'))).group(0)}) and data.method_ok does not say how the read path handles it")
+    O = get(S, "value.options")
+    if not (isinstance(O, list) and len(O) >= 2 and all(isinstance(o, dict) and num(o.get("hours")) is not None and num(o.get("cost_usd")) is not None and "adequate" in o for o in O)):
+        F.append(f"{name}: value.options needs at least two options, each with hours, cost_usd and adequate")
+    else:
+        ch = [o for o in O if o.get("chosen")]
+        if len(ch) != 1: F.append(f"{name}: value.options must mark exactly one option chosen")
+        else:
+            c = ch[0]
+            if not c.get("adequate"): F.append(f"{name}: the chosen option is not adequate")
+            better = [o.get("name", "?") for o in O if o is not c and o.get("adequate") and num(o["hours"]) <= num(c["hours"]) and num(o["cost_usd"]) <= num(c["cost_usd"]) and (num(o["hours"]) < num(c["hours"]) or num(o["cost_usd"]) < num(c["cost_usd"]))]
+            if better and not str(get(S, "value.why_this") or "").strip(): F.append(f"{name}: {better} is adequate and at least as fast and cheap; value.why_this must say why not")
+        if not any("cosmolog" in str(o.get("name", "")).lower() or o.get("cosmologist") for o in O): F.append(f"{name}: value.options has no cosmologist's way")
+    P = get(S, "data.preflight")
+    if not (isinstance(P, dict) and str(P.get("checked", "")).strip() and num(P.get("minutes")) is not None and str(P.get("result", "")).strip()):
+        F.append(f"{name}: data.preflight needs checked, minutes and result (run it before the canary)")
+    elif num(P.get("minutes")) > 30: F.append(f"{name}: data.preflight took {num(P.get('minutes'))} min; a preflight is a small slice (30 min at most)")
+    elif re.search(r"(?i)\b(missing|refused|absent|not present)\b|(?<![-\w])failed\b(?! share)", str(P.get("result"))) and not str(P.get("resolved", "")).strip():
+        F.append(f"{name}: data.preflight found a problem and data.preflight.resolved does not say how it was settled")
     return F
 def git(*a): return subprocess.run(["git", "-C", R] + list(a), capture_output=True, text=True).stdout
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "sheet":
-        F = sheet_findings(json.load(open(sys.argv[2])), os.path.basename(sys.argv[2]))
+        S = json.load(open(sys.argv[2])); F = sheet_findings(S, os.path.basename(sys.argv[2]))
+        if str(S.get("_written", "")).startswith("AFTER THE FACT") and F:   # a record of a test designed before this check: its misses are listed, not hidden
+            print(f"design_check: after the fact, {len(F)} miss(es) recorded"); [print("  miss: " + f) for f in F]; sys.exit(0)
     else:
         base = sys.argv[2] if len(sys.argv) > 2 else "origin/main"
         old = {r.get("id") for r in json.loads(git("show", f"{base}:CANON/manifest.json") or '{"rows": []}')["rows"]}

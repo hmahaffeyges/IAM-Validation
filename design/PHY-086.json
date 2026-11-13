@@ -7,7 +7,13 @@
   "set": "P4 GSE161463 (mature splenic B, TET2+TET3 removed, 2 WT + 2 KO); P5 GSE66834 (iNKT, same laboratory, 2 WT + 2 KO young)",
   "protocol_read": "GSE161463: 1 ug DNA, lambda spike, sonicated, end repaired, A-tailed, methylated adaptors, Methylcode bisulfite. GSE66834: Covaris 200 bp, lambda spike 1:200, end repair, MethylC-seq, paired 2x100",
   "spent_first": "no: no spent set has the eraser removed in mature blood cell types; PHY-085's two progenitor types sit 1.2 % apart, too close to answer",
-  "alternatives": "GSE210026 (PBAT, about 500 cells, ends clipped: withdrawn); PRJNA1403508 (TET1/2/3 in five lineages: not public); Lio 2016 pro-B (to check)"
+  "alternatives": "GSE210026 (PBAT, about 500 cells, ends clipped: withdrawn); PRJNA1403508 (TET1/2/3 in five lineages: not public); Lio 2016 pro-B (to check)",
+  "needs": "standard directional libraries, paired reads, whole-genome spread, genotype labels, lambda spike for conversion",
+  "preflight": {
+   "checked": "AFTER THE FACT: the GSE161463 canary (2 million pairs): pairing, mapped share, quality-failed share",
+   "minutes": 25,
+   "result": "paired, 99.8 % mapped, 2.8 % quality-failed; chromosome spread passed the chain's coverage check"
+  }
  },
  "kiss": {
   "smallest": "two wild type and two knockout per type: the fewest that measure replicate scatter",
@@ -39,5 +45,35 @@
    "s_per_pair_max": 0.0015
   }
  },
- "cosmologist": "instrument check on a 2-million-pair canary per set before any full library (P4 passed: 2.8 % failed, 99.8 % mapped); the replicate scatter is the null test (not assessed if it exceeds half the effect)"
+ "cosmologist": {
+  "method": "forward model through the same counter (the PHY-085 grid); each library self-calibrated on its lambda spike-in conversion",
+  "null_test": "the two wild-type replicates per type must agree within half the expected effect before any ratio is read"
+ },
+ "value": {
+  "question": "does removing TET2 and TET3 bring each mature blood type to one thermal level? (A8, the top item after PHY-084)",
+  "adequate": "effect 5-20 % against replicate scatter 1-2 % (PHY-085)",
+  "options": [
+   {
+    "name": "full libraries, 10 million pairs, GitHub",
+    "hours": 2.6,
+    "cost_usd": 0,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "name": "same on Google",
+    "hours": 4.2,
+    "cost_usd": 2,
+    "adequate": true
+   },
+   {
+    "name": "cosmologist's way: canary depth (2 million pairs) per library, ratio through the forward model",
+    "hours": 0.9,
+    "cost_usd": 0,
+    "adequate": false,
+    "cosmologist": true,
+    "why": "2 million pairs gives about 1.5 % counting error per library, as large as the replicate scatter"
+   }
+  ]
+ }
 }

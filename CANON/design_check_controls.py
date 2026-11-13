@@ -10,7 +10,14 @@ OK = {"physics": {"where_iam_law": "the candidate's hold against thermal kicks a
                    "peak_mem_gb": 6, "machine_mem_gb": 16, "parallel_per_machine": 1, "expected_hours": 2.2, "time_limit_hours": 6, "cost": "free"},
       "save": {"resume": "ckpt"}, "watchers": {"count": 1, "stop_condition": "all four runs completed"},
       "canary": {"instrument_check": {"qc_failed_max": 0.05, "mapped_min": 0.95, "s_per_pair_max": 0.0015}},
-      "cosmologist": "instrument check on a 2-million-pair canary before any full library"}
+      "cosmologist": {"method": "forward-model the knockout through the same counter; self-calibrate on the lambda spike", "null_test": "the two wild-type replicates must agree before any ratio is read"},
+      "value": {"question": "does removing the erasers bring B cells to the thermal level?", "adequate": "effect 10 % against replicate scatter 1-2 %",
+                "options": [{"name": "full libraries on GitHub", "hours": 2.6, "cost_usd": 0, "adequate": True, "chosen": True},
+                            {"name": "cosmologist's way: forward-model the knockout through the counter, read only the canary depth", "hours": 1.0, "cost_usd": 0, "adequate": False, "cosmologist": True}]},
+      "_cosm": None}
+OK["data"]["needs"] = "paired reads, whole-genome spread, genotype label"
+OK["data"]["preflight"] = {"checked": "200 blocks: chromosome spread, read pairing, genotype labels", "minutes": 6, "result": "all 21 autosomes present in proportion; paired; labels match"}
+OK.pop("_cosm")
 def case(label, edit, expect_refused):
     S = copy.deepcopy(OK); edit(S); F = D.sheet_findings(S, label)
     ok = bool(F) == expect_refused
@@ -25,5 +32,11 @@ R = [case("complete sheet passes", lambda S: None, False),
      case("time limit under 1.3 x expected refused", lambda S: S["machines"].update(time_limit_hours=2.5), True),
      case("two watchers refused", lambda S: S["watchers"].update(count=2), True),
      case("canary without numbers refused", lambda S: S["canary"].update(instrument_check="looks fine"), True),
+     case("one option only refused", lambda S: S["value"].update(options=S["value"]["options"][:1]), True),
+     case("a faster, cheaper adequate option without a reason refused", lambda S: S["value"]["options"][1].update(adequate=True), True),
+     case("no cosmologist's way among the options refused", lambda S: [(o.pop("cosmologist", None), o.update(name="other")) for o in S["value"]["options"][1:]], True),
+     case("no preflight refused (the four referee libraries on chr1 and chr2, 11-13)", lambda S: S["data"].pop("preflight"), True),
+     case("preflight that found a problem without resolving it refused", lambda S: S["data"]["preflight"].update(result="chr6 missing in 4 libraries"), True),
+     case("'quality-failed share' in a clean preflight is not a problem", lambda S: S["data"]["preflight"].update(result="99.8 % mapped, 2.8 % quality-failed share"), False),
      case("count-only canary with its own three numbers passes", lambda S: S["canary"].update(instrument_check={"rows_min": 14000, "halves_corr_min": 0.7, "hours_per_sample_max": 3}), False)]
 print("design_check_controls: " + ("ok" if all(R) else "FAILED")); sys.exit(0 if all(R) else 1)

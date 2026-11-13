@@ -7,7 +7,14 @@
   "set": "eleven spent healthy Loyfer samples (slope_samples.csv), spanning the loose share",
   "protocol_read": "Loyfer et al. 2023 WGBS .pat files from GEO (standard libraries; already read by IAM-A, PHY-050)",
   "spent_first": "yes: spent samples, only the per-tile split is new",
-  "alternatives": "all 150 spent healthy samples (more than needed for step 1)"
+  "alternatives": "all 150 spent healthy samples (more than needed for step 1)",
+  "needs": "molecules with positions (pat files), the loose share per tile, enough opportunities per tile",
+  "preflight": {
+   "checked": "AFTER THE FACT: GSM5652295 finished first: rows, halves' correlation",
+   "minutes": 85,
+   "result": "14,106 tiles, halves' correlation 0.823; this was a full sample, not a preflight",
+   "resolved": "recorded as a miss: a 5-minute check on one chromosome would have answered it"
+  }
  },
  "kiss": {
   "smallest": "eleven samples, one every 15 in loose-share order",
@@ -41,5 +48,35 @@
    "_from": "GSM5652295 (finished first): 14,106 tiles, halves' correlation 0.823 over 13,940 tiles with at least 200 opportunities per half"
   }
  },
- "cosmologist": "two independent halves per tile (even and odd lines) give each tile's own noise before any slope is read"
+ "cosmologist": {
+  "method": "two independent halves per tile (even and odd lines), as cross-spectra: only signal common to both halves counts",
+  "null_test": "the halves' correlation across tiles must exceed 0.7 before any slope is read"
+ },
+ "value": {
+  "question": "is IAM-A's slope set by loose tiles inside a sample (mixing), or by cell type?",
+  "adequate": "14,000 tiles per sample; halves agree at 0.82",
+  "options": [
+   {
+    "name": "per-tile recount of eleven spent samples",
+    "hours": 1.5,
+    "cost_usd": 1,
+    "adequate": true,
+    "chosen": true
+   },
+   {
+    "name": "all 150 spent samples",
+    "hours": 14,
+    "cost_usd": 10,
+    "adequate": true
+   },
+   {
+    "name": "cosmologist's way: forward-model a mixed sample from the atlas and compare its slope",
+    "hours": 0.5,
+    "cost_usd": 0,
+    "adequate": false,
+    "cosmologist": true,
+    "why": "tests the model's mixing, not the data's; kept as step 2"
+   }
+  ]
+ }
 }

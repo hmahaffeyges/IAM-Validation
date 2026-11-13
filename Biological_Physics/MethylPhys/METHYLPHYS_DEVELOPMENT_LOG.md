@@ -5106,3 +5106,21 @@ Scored once on 54 libraries (GSE173787 healthy controls; four intake refusals re
 prediction: this laboratory's healthy blood holds its marks better than one level for every type predicts. The candidate stays a
 candidate with a blind test not met; no refit on these libraries. Next: each type's own level (PHY-086) and the laboratory meter offset
 (Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md, Result; Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_out_summary.txt).
+
+### 2026-11-13 · OTH-086: the design sheet also asks for the best value, the cosmologist's way and a data preflight
+Author (2026-11-13): is the chosen test the most answer for the time and money, would a cosmologist do it differently, and does the data hold
+everything the test needs before hours are spent? CANON/TEST_DESIGN_CHECKLIST.md now asks for the question and what its answer changes; at
+least two options with hours, cost and adequacy, one of them the cosmologist's way (forward model, null tests, self-calibration,
+cross-spectra), refused if an adequate option is at least as fast and cheap without a reason; whether the test can decide (effect against
+uncertainty); every field the data must hold; and a preflight of 30 minutes at most on a small slice, run before the canary, whose problems
+must be resolved. CANON/design_check_controls.py plants each case (17). The PHY-087 sheet records its miss: its 'preflight' was a full
+85-minute sample, where a 5-minute check on one chromosome would have answered.
+
+### 2026-11-13 · PHY-084 after the result: where the B-cell miss comes from (exploration on spent counts; verdict unchanged)
+Three parts. Between types: in the atlas laboratory the same four types already sit 0-7 % below the one prediction (B 0.0411 against
+0.0438, at zero loose share along IAM-A's slope). Between laboratories: the referee laboratory reads 4-12 % lower than the atlas laboratory
+type by type (0.876-0.965), at every molecule length (the gap grows with length, 0.98 at 6 CpGs to 0.91 at 13-14); the length mix explains
+8 % of it, and the in-sample calibrator (the unmarked side's stray marks, 20 % higher in the referee laboratory) puts incomplete conversion
+at 3.5 % of it, so the usual laboratory meter faults are not the cause. The scorer's own slope: B cells' slope fitted in their own 23
+libraries gives 0.0325, against 0.0371 along IAM-A's slope. Donor age, a known driver of loss, is not assessed: GSE173787 deposited no ages.
+(Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_diagnosis.py, referee_diagnosis_summary.txt.)

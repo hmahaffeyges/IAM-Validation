@@ -1,0 +1,11 @@
+PHY-084 after the result: exploration on spent counts; the sealed verdict (NOT MET) is unchanged.
+
+type        | prediction | atlas lab at 0 (n) | referee lab at 0 (n) | referee/atlas | sealed scorer intercept
+b cells     | 0.0438     | 0.0411 (3)         | 0.0371 (23)          | 0.904         | 0.0325
+cd4 t cells | 0.0437     | 0.0423 (3)         | 0.0408 (9)          | 0.965         | 0.0404
+cd8 t cells | 0.0437     | 0.0451 (3)         | 0.0395 (12)          | 0.876         | 0.0334
+monocytes   | 0.0435     | 0.0408 (3)         | 0.0372 (10)          | 0.911         | 0.0400
+
+meter, median per laboratory (the four types): atlas: mean length 7.77 CpGs, short-molecule share 0.606, long/short loss 1.016, end/inner 1.005; referee: mean length 8.12 CpGs, short-molecule share 0.535, long/short loss 0.961, end/inner 1.035
+calibrator, the unmarked side's stray marks (gain_err): atlas 0.0160, referee 0.0192 (1.202); the marked side at 0: atlas 0.0421, referee 0.0383 (0.908)
+incomplete conversion c raises the unmarked side by c and lowers the marked side by the factor (1 - c): the observed rise 0.0032 accounts for 3.5 % of the marked side's fall, so conversion is not the cause
