@@ -4910,6 +4910,10 @@ with the derivation (the CD4 laboratory, the release check); keep the study set,
 - Release check: the PDFs fixed; V11 fixed; E2, E4, E6, E9, V2 brought up to decided behavior (OTH-070).
 - Mini cell candidate switch; mini cosmos v0 (PHY-078).
 
+- Levers moved by drugs and conditions planned (PHY-081, PHY-082, OTH-085).
+- The methionine canary: wgbs_tools' patter never built, the cause found and fixed (COM-IAMA-041 / PHY-006).
+- The retired same-laboratory correction taken off the public development list (OTH-074).
+
 **Successes:**
 - A candidate healthy baseline from M, with every number in the canon and verified by code.
 - With the eraser's measured share, the candidate lands inside both healthy ranges, like for like, after the fact.
@@ -4991,3 +4995,8 @@ release.yml on bbf79331 (GitHub run 43374282691): PASS, 34 checks, 4,526 s. Firs
 **Where IAM's Law is:** none directly; a measured input to PHY-084. GSE227977, read by the sealed rule (doors/DEV_ERASE_01.md): knockout over
 wild type 0.900 (LSK) and 0.909 (lineage-negative), inside the sealed 0.86-0.95; mutant 0.952 and 0.934, between the knockout's and 1. TET2
 alone accounts for about 9-10 % of losses in blood progenitors, against 13.6 % for all erasers in stem cells. Limits in the record.
+
+### 2026-11-13 · PHY-084: the forward model given the eraser ratio, for the referee prediction grid
+`doors/data/DEV_CHAIN_Q2_01/forward_candidate.py` takes an optional eraser ratio r and plants the candidate over r (default 1: earlier
+results reproduce unchanged, same seeds). The referee prediction for each library is read off a grid at the two measured ratios (0.8642 stem
+cells, DEV-ERASE-01; 0.905 TET2 in blood progenitors, PHY-085) and clustering 1.25-2.5 (the blood libraries read 1.80-2.03), run on GitHub.

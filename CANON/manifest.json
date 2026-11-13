@@ -28509,7 +28509,7 @@
    "sources_of_row": [
     "2026-11-12 session"
    ],
-   "notes": "reserved 2026-11-12 from the 2026-11-10 dataset lists (also listed in SCO-014); verified on GEO: strategy RANDOM Bisulfite-Seq, SRR14416939 169.5 M spots",
+   "notes": "reserved 2026-11-12 from the 2026-11-10 dataset lists (also listed in SCO-014); verified on GEO: strategy RANDOM Bisulfite-Seq, SRR14416939 169.5 M spots | 2026-11-13: forward model takes the eraser ratio; prediction grid on GitHub: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
    "id": "PHY-084",
    "title": "The referee test of the baseline candidate: one sealed prediction on fresh healthy sorted cells from another laboratory",
    "purpose": "Where IAM's Law is: the hold's work per restore, one SAM (two coins) at the coin M; the healthy held error predicted from M and the SAM price before any library is read, with a bar from measured uncertainty (GUM)",

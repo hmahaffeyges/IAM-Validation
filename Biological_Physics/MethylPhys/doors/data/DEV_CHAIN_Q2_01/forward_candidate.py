@@ -7,11 +7,16 @@ clustering measure (coupling), to be set beside the healthy samples' measured co
   seq X : after a loss, the next call's loss chance is X times the candidate (losses follow each other along the molecule)
   het K : each molecule's loss chance is the candidate times a Gamma(K, 1/K) draw (some molecules or regions simply lose more)
   ind   : independent losses.
-Usage: python3 forward_candidate.py MODE PARAM REPS OUTPREFIX   (writes OUTPREFIX.csv and OUTPREFIX_summary.txt)"""
+Usage: python3 forward_candidate.py MODE PARAM REPS OUTPREFIX [ERASER_RATIO]   (writes OUTPREFIX.csv and OUTPREFIX_summary.txt)"""
 import os, sys, json, glob, gzip, random, subprocess, tempfile
 H = os.path.dirname(os.path.abspath(__file__)); IF = os.path.join(H, "..", "..", "..", "chain", "MethylPhys_Interface")
 E = json.load(open(os.path.join(H, "..", "..", "..", "..", "..", "CANON", "iam_canon.json")))["constants"]["eps0_candidate"]["value"]
 MODE, PARAM, REPS, OUT = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+# 2026-11-13 (PHY-084): optional 5th argument, the eraser ratio r (held error with the eraser removed over the control, measured:
+# DEV-ERASE-01 recount median 0.8642 in stem cells; PHY-085 TET2 in blood progenitors, mean of the two units). The planted per-site
+# loss is then the candidate over r (the candidate holds against thermal kicks alone; the eraser adds its measured share on top).
+RATIO = float(sys.argv[5]) if len(sys.argv) > 5 else 1.0
+E = E / RATIO
 N, SEED = 120000, 20261113
 REAL = json.load(open(sorted(glob.glob(os.path.join(H, "percall_out", "*.json")))[0])); REAL = REAL[0] if isinstance(REAL, list) else REAL
 LENS = {int(k): v[0] for k, v in REAL["held_by_length"].items() if int(k) <= 40}; Ls, Ws = list(LENS), list(LENS.values())
@@ -41,10 +46,10 @@ def sample(seed):
     return B["iam_a_count_only"]["count"]
 rows = []
 for r in range(REPS):
-    c = sample(SEED + 1000 * r + int(PARAM * 100) + {"ind": 0, "seq": 1, "het": 2}[MODE] * 100000)
+    c = sample(SEED + 1000 * r + int(PARAM * 100) + {"ind": 0, "seq": 1, "het": 2}[MODE] * 100000 + (0 if RATIO == 1.0 else int(RATIO * 1e4) * 1000000))
     rows.append((r, c["held_err_length"], c["held_e_call"], c.get("coupling"))); print(MODE, PARAM, r, rows[-1][1:], flush=True)
 with open(OUT + ".csv", "w") as f: f.write("mode,param,replicate,held_err_length,held_e_call,coupling\n" + "".join(f"{MODE},{PARAM},{a},{b},{c},{d}\n" for a, b, c, d in rows))
 m = lambda k: sum(x[k] for x in rows) / len(rows)
-open(OUT + "_summary.txt", "w").write(f"forward model of the candidate (per-site loss {E}) through the counter, {MODE} {PARAM}, {REPS} samples of {N} held molecules: "
+open(OUT + "_summary.txt", "w").write(f"forward model of the candidate (per-site loss {E:.5f}, eraser ratio {RATIO}) through the counter, {MODE} {PARAM}, {REPS} samples of {N} held molecules: "
                                       f"held_err_length {m(1):.5f}, held_e_call {m(2):.5f}, coupling {m(3):.3f}\n")
 print(open(OUT + "_summary.txt").read())
