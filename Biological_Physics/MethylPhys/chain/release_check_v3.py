@@ -186,7 +186,8 @@ def E2(tmp):
     # a 450K array carries too few of the EPIC neutrophil sites: Stage 0.7b (platform coverage, after calibration) quarantines it,
     # the run exits 2 and nothing is scored or written
     # 2026-11-12: since 2026-10-23 (author: read it and flag it) a 450K array goes on to the atlas readers, flagged; the commissioned readers refuse it themselves
-    ok = code == 0 and "ADVANCE_FLAGGED_450K" in log and "hm450_coverage" in log and os.path.exists(out) and "array detected: 450k" in log
+    ok = (code == 0 and "Stage 0 verdict: ADVANCE_FLAGGED_450K" in log and "450K coverage of the commissioned references" in log
+          and "will refuse this array; the atlas readers read it, flagged" in log and os.path.exists(out))   # the chain's own wording (run_sample.py, 2026-10-23)
     verdict = next((l.strip() for l in log.splitlines() if l.startswith("Stage 0 verdict")), "no Stage 0 verdict")
     rec("E2", ok, f"exit {code}; {verdict[:110]}; report written: {os.path.exists(out)}"
         + ("" if ok else " | log tail: " + " / ".join(log.strip().splitlines()[-3:])[:300]))

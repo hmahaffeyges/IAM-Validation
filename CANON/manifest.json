@@ -27545,7 +27545,7 @@
    "sources_of_row": [
     "session 2026-10-16"
    ],
-   "notes": "2026-11-12: release check 9 of 34 failed on main; the PDF cause found and fixed (report_pdf_v4.py): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-12: release check: V11 fixed (the coverage stop explained); E2, E4, E6, E9, V2 brought up to decided behavior: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
+   "notes": "2026-11-12: release check 9 of 34 failed on main; the PDF cause found and fixed (report_pdf_v4.py): Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-12: release check: V11 fixed (the coverage stop explained); E2, E4, E6, E9, V2 brought up to decided behavior: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md | 2026-11-12: release check 33 of 34; E2 wording corrected: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md"
   },
   {
    "title": "Front page and repository: the commissioned chain front and center",

@@ -4977,3 +4977,9 @@ GENOME_COVERAGE_REFUSED (exit 35), naming chr15-chr22. The check (2026-11-04, af
 v2.1's human sites; a mouse library has no chr20-22, so it can never pass. `doors/data/DEV_ERASE_01/erase_gh.sh`: a count on a non-human genome
 now passes it with --dev-allow-partial-genome (the Decoder's flag for development counts); human counts keep the check; the count still samples
 blocks across the whole run. The canary is rerun from its saved molecules.
+
+### 2026-11-12 · OTH-070: release check 33 of 34; E2 expected wording the chain does not print (my error), corrected
+Release check on 7a7cd07a (GitHub run 43363950295): 33 of 34 pass (V11, E4, E6, E9, V2 now pass). E2 failed only on two log phrases I wrote
+into it ("hm450_coverage", "array detected: 450k"); the run exited 0 with verdict ADVANCE_FLAGGED_450K and wrote its report. E2 now requires
+the chain's own flag sentence (run_sample.py: "450K coverage of the commissioned references ... will refuse this array; the atlas readers read
+it, flagged") and the verdict line, as strict as before.
