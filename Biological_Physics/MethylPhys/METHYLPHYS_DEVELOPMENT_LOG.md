@@ -5072,3 +5072,9 @@ is right: two coins are the price of one SAM, one methyl transfer onto one stran
 Same laboratory and knockout (TET2 + TET3) as P4's B cells, standard MethylC-seq libraries; P5 expects knockout over wild type 0.79-0.95;
 P6 (exploration grade) asks whether the two types' eraser shares account for the gap between them
 (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md, amendment 2; Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/erase_types2_samples.csv).
+
+### 2026-11-13 · PHY-083: the cells' firm rate and two-halves rows moved from open to candidate in the canon
+Author's decision (2026-11-13: keep every candidate-level status current). CANON/four_domains.json, cells column: "Gate error (the firm
+rate)" and "The two halves" open -> candidate (PHY-083; the sealed referee test PHY-084 decides); "Erasing process" stays candidate with
+its measured share in blood (PHY-085) and its price (PHY-088) added. Each entry keeps its history with a dated update; FOUR_DOMAINS.md and
+the bit tables regenerated.
