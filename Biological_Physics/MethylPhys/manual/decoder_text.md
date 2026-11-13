@@ -2133,6 +2133,10 @@ the observed level is m_obs = m (1 - f e_m) + (1 - m) f e_u (e_m the false-T rat
 ones), so m = (m_obs - f e_u) / (1 - f (e_u + e_m)) exactly in expectation. Every site's level is corrected so and clipped to 0-1; sites
 whose denominator would fall below 0.05 keep their observed level. Counts only; nothing fitted. Development.
 
+### run_sample.py --seq-cell
+
+The cell type IAM-A reads. For --pat and --bam, when not given, the cell the IAM-Deconvolver found most of among those IAM-A holds a reference for (2026-11-07: never the specimen's words). A --site-table has no Deconvolver, so its cell must be named; with none, Stage Q refuses it ('no frozen IAM-A position'). The genome-coverage intake stop now prints and keeps the same five parts as every other stop (2026-11-12, release check V11).
+
 ### run_sample.py --dev-seq-self-cal-reach
 
 With --dev-seq-self-cal (the seventh form, development), Met-A is read on the library's calls past each side's reach along the molecule: at sites

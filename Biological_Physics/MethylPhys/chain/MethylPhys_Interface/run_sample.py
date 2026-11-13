@@ -654,7 +654,7 @@ def main():
     ap.add_argument("--dev-allow-partial", action="store_true", help="development only: read IAM-A on a --pat-max-bytes cut (e.g. to reproduce position v1)")
     ap.add_argument("--site-table", default=None, help="v3 Stage Q: a per-site CSV with columns pos,opp_A,err_A,opp_B,err_B; needs --seq-pipeline")
     ap.add_argument("--seq-pipeline", default=None, help="the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it")
-    ap.add_argument("--seq-cell", default=None, help="cell type of the sequenced specimen (Stage Q); default: the stated specimen's IAM-Atlas v2.1 cell when it names one (2026-10-25: 'sorted b cells' was read as neutrophils and refused), else neutrophils")
+    ap.add_argument("--seq-cell", default=None, help="cell type of the sequenced specimen (Stage Q); default: for --pat and --bam, the cell the IAM-Deconvolver found most of among those IAM-A holds a reference for (2026-11-07: never the specimen's words); a --site-table has no Deconvolver, so name the cell")
     ap.add_argument("--prior-betas", default=None, help="stage 12b (difference map, DEV-TOOLKIT-ADDED-01): the Stage 1 beta vector of an earlier draw of the same person (as written by --save-betas); needs --prior-bundle")
     ap.add_argument("--prior-bundle", default=None, help="stage 12b: the bundle of that earlier draw; the difference is refused unless both draws carry the same identifier hash, array type and pipeline")
     ap.add_argument("--save-betas", default=None, help="also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle")
@@ -863,8 +863,15 @@ def main():
         _gc = _SV.genome_coverage(_vb); a._seqv["genome_coverage"] = _gc
         if _gc["status"] != "OK":
             print("  GENOME_COVERAGE_REFUSED - " + _gc["reason"], flush=True)
+            _gcrec = {}   # 2026-11-12 (release check V11): this stop gives the same five parts as every other stop
+            _why(_gcrec, "genome coverage (sequencing intake)", "refused",
+                 f"autosomes under the limit: {', '.join(_gc.get('short') or []) or 'all'}; median autosome share of sites with a value {_gc.get('median_share')}",
+                 f"each autosome's share at least {_gc.get('min_ratio')} of the median autosome's", "stage_seq_values.GENOME_COVERAGE_RULE (2026-11-04)",
+                 "the sample was read only in part (a run read from its first read pairs while stored in genome order, a truncated download or a lost chunk), so a reading would describe only some chromosomes",
+                 "read the whole library (every read pair) and run again; --dev-allow-partial-genome is for development counts only")
             if a.bundle:
                 json.dump({"status": "GENOME_COVERAGE_REFUSED", "id": a.id, "sequencing_values": a._seqv, "reason": _gc["reason"],
+                           "intake": {"stage0_explained": _gcrec.get("stage0_explained", [])},
                            "command": ["run_sample.py"] + sys.argv[1:]}, open(a.bundle, "w"), indent=1, default=str)
             sys.exit(3)
     if a._seqv is not None:   # 2026-11-03: the sample's own floor, before any reading, for every sequencing input (.beta, bigWig and .pat; it was

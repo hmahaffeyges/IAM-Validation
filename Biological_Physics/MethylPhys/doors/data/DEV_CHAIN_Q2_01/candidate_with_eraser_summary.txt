@@ -1,0 +1,5 @@
+eraser removed / control, five units: 0.9925, 0.7911, 0.8642, 0.9027, 0.8518; median 0.8642; middle three 0.8518-0.9027
+(a) candidate through the counter at the healthy clustering, with the eraser: lone-loss 0.04582 (0.04387-0.04649) against healthy 0.04526 (0.04375-0.04657)
+    per-call 0.05006 (0.04792-0.05079) against healthy 0.05048 (0.04887-0.05208)
+    without the eraser: lone-loss 0.03960, per-call 0.04326
+(b) per-site loss with the eraser 0.05154 (0.04934-0.05229); the healthy readings imply 0.05091 (lone-loss) and 0.05197 (per-call)

@@ -185,7 +185,8 @@ def E2(tmp):
                      "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
     # a 450K array carries too few of the EPIC neutrophil sites: Stage 0.7b (platform coverage, after calibration) quarantines it,
     # the run exits 2 and nothing is scored or written
-    ok = code == 2 and "hm450_coverage" in log and "QUARANTINE" in log and not os.path.exists(out) and "array detected: 450k" in log
+    # 2026-11-12: since 2026-10-23 (author: read it and flag it) a 450K array goes on to the atlas readers, flagged; the commissioned readers refuse it themselves
+    ok = code == 0 and "ADVANCE_FLAGGED_450K" in log and "hm450_coverage" in log and os.path.exists(out) and "array detected: 450k" in log
     verdict = next((l.strip() for l in log.splitlines() if l.startswith("Stage 0 verdict")), "no Stage 0 verdict")
     rec("E2", ok, f"exit {code}; {verdict[:110]}; report written: {os.path.exists(out)}"
         + ("" if ok else " | log tail: " + " / ".join(log.strip().splitlines()[-3:])[:300]))
@@ -242,10 +243,10 @@ def E4(tmp):
     T = pd.DataFrame({"pos": np.arange(n), "opp_A": opp, "err_A": per, "opp_B": opp, "err_B": per})
     st = os.path.join(tmp, "E4_sites.csv"); T.to_csv(st, index=False)
     out = os.path.join(tmp, "E4.html")
-    code, log = run([PY, RS, "--site-table", st, "--seq-pipeline", pipe, "--id", "CONSTRUCTED_SEQ", "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    code, log = run([PY, RS, "--site-table", st, "--seq-pipeline", pipe, "--seq-cell", "neutrophils", "--id", "CONSTRUCTED_SEQ", "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
     q = (_bundle(out) or {}).get("iam_a") or {}
     out2 = os.path.join(tmp, "E4b.html")
-    code2, _ = run([PY, RS, "--site-table", st, "--seq-pipeline", "another_pipeline", "--id", "CONSTRUCTED_SEQ_B", "--out", out2, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    code2, _ = run([PY, RS, "--site-table", st, "--seq-pipeline", "another_pipeline", "--seq-cell", "neutrophils", "--id", "CONSTRUCTED_SEQ_B", "--out", out2, "--ledger", os.path.join(tmp, "ledger.jsonl")])
     q2 = (_bundle(out2) or {}).get("iam_a") or {}
     pat = os.path.join(tmp, "E4.pat.gz")
     with gzip.open(pat, "wt") as fh:
@@ -287,14 +288,14 @@ def E6(tmp):
     res = []
     o1 = os.path.join(tmp, "E6_tissue.html")
     k1, log1 = run([PY, RS, "--grn", g, "--red", r_, "--specimen", "tissue", "--id", "E6_TISSUE", "--out", o1, "--ledger", os.path.join(tmp, "ledger.jsonl")])
-    b1 = _bundle(o1) or {}; res.append(("tissue IDAT", k1 == 0 and b1.get("refusal_code") == "SPECIMEN_REFUSED" and "'tissue'" in str(b1.get("refusal")) and not b1.get("met_a")
-                                         and "Stage 1: calibrating" not in log1 and "not run" in open(o1).read()))
+    b1 = _bundle(o1) or {}; # 2026-11-12: since 2026-10-23 (author: read it and flag it) a tissue is read on the full atlas, flagged, and never by the commissioned blood readers
+    res.append(("tissue IDAT read and flagged", k1 == 0 and not b1.get("refusal_code") and "TISSUE" in json.dumps(b1.get("intake") or {}).upper()))
     csv = os.path.join(tmp, "E3_constructed.csv")
-    for sp in ("PBMC", "cell line"):
+    for sp in ("PBMC",):   # 2026-11-12: a cell line is an unnamed specimen, read and flagged on the tissue route (2026-10-23)
         o = os.path.join(tmp, f"E6_{sp.replace(' ', '_')}.html")
         k, _ = run([PY, RS, "--betas", csv, "--specimen", sp, "--id", "E6_" + sp.replace(" ", "_"), "--out", o, "--ledger", os.path.join(tmp, "ledger.jsonl")])
         b = _bundle(o) or {}; res.append((sp, k == 0 and b.get("refusal_code") == "SPECIMEN_REFUSED" and not b.get("met_a") and "SPECIMEN_REFUSED" in open(o).read()))
-    rec("E6", all(x[1] for x in res), "; ".join(f"{n}: {'refused with a report' if ok else 'NOT refused as specified'}" for n, ok in res))
+    rec("E6", all(x[1] for x in res), "; ".join(f"{n}: {'as specified' if ok else 'NOT as specified'}" for n, ok in res))
 
 
 def E7(tmp):

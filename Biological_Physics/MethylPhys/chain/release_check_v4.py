@@ -79,11 +79,15 @@ def V2(tmp):
     with gzip.open(pat, "wt") as fh:
         for c in range(1, 23):
             for i in range(40): fh.write("chr%d\t%d\t%s\t1\n" % (c, 10_000 * c + i * 7, "CCCCCCCC"))
-    out = os.path.join(tmp, "V2.html"); code, log = R3.run([PY, RS, "--pat", pat, "--seq-cell", "cd8 t cells", "--specimen", "sorted cd8 t cells", "--id", "CONSTRUCTED_PAT", "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    # 2026-11-12: since 2026-11-04 the genome-coverage intake stops a file this small before Stage Q2; both are checked: the gate stops it with
+    # its five-part explanation, and Stage Q2 (reached with the development flag, test material only) refuses it rather than reading it
+    o0 = os.path.join(tmp, "V2g.html"); c0, l0 = R3.run([PY, RS, "--pat", pat, "--seq-cell", "cd8 t cells", "--specimen", "sorted cd8 t cells", "--id", "CONSTRUCTED_PAT_G", "--out", o0, "--ledger", os.path.join(tmp, "ledger.jsonl")])
+    gate_ok = c0 == 3 and "GENOME_COVERAGE_REFUSED" in l0 and "WHY: genome coverage" in l0
+    out = os.path.join(tmp, "V2.html"); code, log = R3.run([PY, RS, "--pat", pat, "--seq-cell", "cd8 t cells", "--specimen", "sorted cd8 t cells", "--dev-allow-partial-genome", "--id", "CONSTRUCTED_PAT", "--out", out, "--ledger", os.path.join(tmp, "ledger.jsonl")])
     q = (R3._bundle(out) or {}).get("iam_a") or {}
-    ok = not mism and n_read == G["read"] and code == 0 and q.get("stage") == "Q2" and q.get("A") is None and bool(q.get("refusal"))
+    ok = not mism and n_read == G["read"] and code == 0 and q.get("stage") == "Q2" and q.get("A") is None and bool(q.get("refusal")) and gate_ok
     rec("V2", ok, f"{n_read} of {G['read']} grand-test readings reproduced exactly, {len(mism)} differ {mism[:3]}; constructed .pat: stage {q.get('stage')}, "
-        f"refused: {str(q.get('refusal'))[:90]}" + ("" if code == 0 else " | exit %d %s" % (code, log[-200:])))
+        f"refused: {str(q.get('refusal'))[:90]}; coverage gate stops it with its explanation: {gate_ok}" + ("" if code == 0 else " | exit %d %s" % (code, log[-200:])))
 
 def V3(tmp):
     import stage_v4 as V4

@@ -4858,3 +4858,24 @@ accelerates (0.426, 0.437, 0.504), C2 climbs steadily (0.413, 0.455, 0.494), C3 
 within 45 days, so in these maintenance cells the held level is still moving after six weeks: a settling time of weeks or longer, far longer
 than a 72-hour experiment. Mouse stem cells: a lead, not a human measurement. Consequence for DEV-METHIONINE-01: its libraries may sample a
 level still on its way to the new steady state.
+
+### 2026-11-12 · OTH-070: release check down to its causes; one real fault fixed, five checks brought up to decided behavior
+After the PDF fix the release check on main (db878737) failed 6 of 34. V11, real: the genome-coverage intake stop (run_sample.py) exited
+without the five-part explanation every stop gives; it now gives it. The other five expected behavior changed on purpose since the last
+passing check: E2 (450K is read and flagged since 2026-10-23, not quarantined), E6 (tissue and unnamed specimens, a cell line among them,
+are read on the full atlas and flagged since 2026-10-23; PBMC is still refused), E4 (since 2026-11-07 no cell is taken from the specimen's
+words; a site table has no Deconvolver, so the check names its cell; the --seq-cell help text, which still promised the old default, is
+corrected), E9 (its own C-score tests passed; it read E4's report), V2 (since 2026-11-04 the genome-coverage gate stops its small constructed
+file before Stage Q2; V2 now checks both: the gate stops it with its explanation, and Stage Q2, reached with the development flag on test
+material, refuses it rather than reading it). Each check keeps its strictness; release_check_v3.py and release_check_v4.py cite the decisions.
+
+### 2026-11-12 · PHY-083: with the eraser's measured share added, the candidate lands on the healthy readings (after the fact)
+**Where IAM's Law is:** the hold against thermal kicks (the candidate) plus a measured loss the law does not set (the eraser).
+`doors/data/DEV_CHAIN_Q2_01/candidate_with_eraser.py` (`candidate_with_eraser_summary.txt`): the candidate is the loss of a mark held
+against thermal kicks alone; the eraser adds loss on top, measured in DEV-ERASE-01's five eraser-removal units (recount: held error with the
+eraser removed 0.79-0.99 of the control's, median 0.8642). Like for like, through the counter at the healthy clustering: lone-loss 0.04582
+(0.04387-0.04649 over the middle three units) against healthy 0.04526 (0.04375-0.04657); per-call 0.05006 (0.04792-0.05079) against 0.05048
+(0.04887-0.05208). Per site: 0.05154 against the 0.0509-0.0520 the healthy readings imply. On 2026-11-12 the same sum (0.0515) was set aside as
+an overshoot because it was compared with the lone-loss reading, the scale error found tonight. **Limits:** found after the forward model, so
+not a sealed test; the eraser share was measured in embryonic and neural stem cells, not blood; the eraser's losses are taken as acting
+like the kicks' on the counter. The sealed referee test now carries both parts, with the eraser share's spread in its bar.

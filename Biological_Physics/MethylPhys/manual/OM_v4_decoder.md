@@ -41,7 +41,7 @@ Read from the code at build time: the one command can load **37 Python files** h
 
 | file | lines | functions | called, array run | called, sequencing run |
 |---|---|---|---|---|
-| `MethylPhys_Interface/run_sample.py` | 1,601 | 19 | 11 | 10 |
+| `MethylPhys_Interface/run_sample.py` | 1,608 | 19 | 11 | 10 |
 | `stage_0_intake.py` | 1,241 | 46 | 33 | 1 |
 | `stage_0_1_qc_handoff.py` | 194 | 7 | 7 | 0 |
 | `stage_1_idat_calibration.py` | 232 | 6 | 6 | 0 |
@@ -199,7 +199,7 @@ Read from `run_sample.py`'s own option definitions at build time: **124 options*
 | `--red` | none |  | the array's red-channel raw file (IDAT, .gz allowed), with --grn |
 | `--ref-fasta` | None |  | the reference FASTA the --bam was aligned to (indexed) |
 | `--save-betas` | None |  | also write this specimen's Stage 1 beta vector (after the detection mask) to this path as a two-column file cpg_id,beta (.parquet or .csv); recorded in the bundle |
-| `--seq-cell` | None |  | cell type of the sequenced specimen (Stage Q); default: the stated specimen's IAM-Atlas v2.1 cell when it names one (2026-10-25: 'sorted b cells' was read as neutrophils and refused), else neutrophils |
+| `--seq-cell` | None |  | cell type of the sequenced specimen (Stage Q); default: for --pat and --bam, the cell the IAM-Deconvolver found most of among those IAM-A holds a reference for (2026-11-07: never the specimen's words); a --site-table has no Deconvolver, so name the cell |
 | `--seq-chemistry` | 'whole-genome bisulfite' |  | chemistry of the sequencing input (IAM-A is commissioned on whole-genome bisulfite) |
 | `--seq-pipeline` | None |  | the read-level pipeline that produced --site-table (required with it); IAM-A is refused unless a position P was frozen for it |
 | `--sesame-rscript` | os.environ.get('METHYLPHYS_SESAME_RSCRIPT') |  | Rscript of an environment with Bioconductor sesame (--dev-epic-v2) |
@@ -527,14 +527,14 @@ For a declared sorted cell (specimen "sorted ...", "isolated ..." or "purified .
 
 **One scale (2026-11-09).** The self-tare map rescales only the 6,963 probes in its own table and leaves the rest at Stage 1's values; the per-cell readings read those values while the array's line is measured on sites almost all outside that table, so 3 to 7 % of each cell's identity sites were corrected twice. `--dev-one-scale` reads them on Stage 1's values with the same line, the old path's per-cell Met-A beside it. The curve calibration (`--dev-curve-cal`) first took the same short design table; it now takes the ruler's full one (`stage_metaa_atlas._ruler`). The default chain (no `--commissioned-only`) reads with every atlas cell (`--cell-panel` left unset becomes 'atlas'); on arrays the six-cell commissioned reading is written beside it as `cell_shares_blood6`. Isolated / sorted neutrophils get the atlas readings (cells found, Met-A per cell, whole-sample Met-A, C-Score per cell, territories) like every other specimen, beside the first commissioning's neutrophil path, which still runs and is flagged as being re-commissioned.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1021 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
+*Code:* `MethylPhys_Interface/run_sample.py` line 578 (1028 lines) · arguments: none · calls: array run 1, bam run 1 · constants read: `BIO`, `CONTROL_SITES`, `CONTROL_SITES_ABOUT`, `ENG`, `_ISV_ABOUT` · files named: `.gz`, `DIR/deconv_reference_v1.parquet`, `MethylPhys/chain/Runtime Matrices/Met_A_Floors/metA_floors_v1_3.json`, `OUT.csv`, `Runtime Matrices/Seq_Atlas/metaa_seq_reference_v1.parquet`, `_bundle.json`, `a wgbstools .pat / .pat.gz`, `array_sites/mu_part1.parquet`, `deconv_reference_mk_dev.parquet`, `deconv_reference_v1.parquet`, `metA_floors_v1_3.json`, `mu_part1.parquet`
 
 ### `run_sample.py::main._panel`
 
 Turns `--cell-panel` into the IAM-Deconvolver's panel: nothing for `blood` (its six commissioned cells), every IAM-Atlas v2.1 cell type for
 `atlas`, or the named cells, refusing any name the atlas does not hold.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1177 (8 lines) · arguments: none · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1184 (8 lines) · arguments: none · calls: not called on the traced runs
 
 ### `run_sample.py::main._stopped`
 
@@ -542,13 +542,13 @@ True when an intake record's status begins with QUARANTINE. Intake checks it aft
 cause. Without it a later step overwrote the status, and the verdict named a downstream symptom (seen 2026-09-23: an array-type
 mismatch was reported as a detection failure).
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 942 (5 lines) · arguments: r · calls: array run 3
+*Code:* `MethylPhys_Interface/run_sample.py` line 949 (5 lines) · arguments: r · calls: array run 3
 
 ### `run_sample.py::main._ctx`
 
 Builds the comparison record Stage 12b needs from a draw: the identifier hash, the array type and the calibration pipeline.
 
-*Code:* `MethylPhys_Interface/run_sample.py` line 1520 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
+*Code:* `MethylPhys_Interface/run_sample.py` line 1527 (2 lines) · arguments: b, it, pipe · calls: not called on the traced runs
 
 ## 2. Stage 0, intake: `stage_0_intake.py`
 
@@ -3397,6 +3397,10 @@ A library's molecule-end error is a bias on a site's level, linear in it: with f
 the observed level is m_obs = m (1 - f e_m) + (1 - m) f e_u (e_m the false-T rate on marked molecules, e_u the false-C rate on unmarked
 ones), so m = (m_obs - f e_u) / (1 - f (e_u + e_m)) exactly in expectation. Every site's level is corrected so and clipped to 0-1; sites
 whose denominator would fall below 0.05 keep their observed level. Counts only; nothing fitted. Development.
+
+### run_sample.py --seq-cell
+
+The cell type IAM-A reads. For --pat and --bam, when not given, the cell the IAM-Deconvolver found most of among those IAM-A holds a reference for (2026-11-07: never the specimen's words). A --site-table has no Deconvolver, so its cell must be named; with none, Stage Q refuses it ('no frozen IAM-A position'). The genome-coverage intake stop now prints and keeps the same five parts as every other stop (2026-11-12, release check V11).
 
 ### run_sample.py --dev-seq-self-cal-reach
 
