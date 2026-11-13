@@ -81,3 +81,11 @@ every timing, slightly smaller in late DNA, so copier lag does not explain it. P
 Prediction (1) holds: in both controls late-copied DNA carries more held error than early (MZGC1 0.0654 vs 0.0588, MZGC3 0.0652 vs 0.0551).
 The fall of about 7 % under methionine restriction stays unexplained and genome-wide.
 
+**Both sides of the lever (exploration, 2026-11-12, after the author's breaker and block-loading answers).** `DEV_METHIONINE_01/score_sides.py`
+(`DEV_METHIONINE_01/score_sides_summary.txt`), from the committed counts. Depleted over control: marked-side losses 0.936 and 0.929;
+unmarked-side stray marks 0.843 and 0.905; half-marked molecules 0.858 and 0.917 (MZGC1, MZGC3). **Where IAM's Law is:** a mark is held
+by paid restoring (one SAM per transfer); an unmarked site costs nothing to hold, and fails only by a stray paid write. Reading: with
+the methyl supply cut, the whole system is quieter on both sides, and the stray writes fall most. Two candidates, not yet tested: the
+writers' and erasers' activity is turned down under fuel shortage (the loss side slowing more than the restore side, like a unit block
+loaded off regulation at its minimum), and stray writes are paid in SAM so they fall with it.
+

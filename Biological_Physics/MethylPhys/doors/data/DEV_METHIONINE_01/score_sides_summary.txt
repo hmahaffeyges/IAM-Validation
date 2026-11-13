@@ -1,0 +1,3 @@
+Both sides, depleted over control (held = marked-side losses; gain = unmarked-side stray marks; mid = half-marked molecules)
+MZGC1: held 0.936, gain 0.843, mid 0.858
+MZGC3: held 0.929, gain 0.905, mid 0.917

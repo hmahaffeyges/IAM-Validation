@@ -4808,3 +4808,6 @@ Recorded in `doors/DEV_METHIONINE_01.md`: if lag, the fall sits in late-replicat
 
 ### 2026-11-12 · PHY-083: the methionine fall is not copier lag (the same at every replication timing)
 Recorded in `doors/DEV_METHIONINE_01.md`: ratios early/mid/late MZGC1 0.934/0.927/0.953, MZGC3 0.933/0.945/0.948; late DNA holds worse in both controls; the 7 % fall is genome-wide and unexplained.
+
+### 2026-11-12 · PHY-083: both sides of the methionine lever; stray writes fall most
+Recorded in `doors/DEV_METHIONINE_01.md` (`score_sides.py`): losses 0.936/0.929, stray marks 0.843/0.905, half-marked molecules 0.858/0.917.
