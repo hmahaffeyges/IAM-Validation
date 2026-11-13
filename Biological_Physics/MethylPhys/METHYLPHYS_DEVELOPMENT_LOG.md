@@ -4950,3 +4950,8 @@ EGAS00001003454 (PHY-085).
 - The referee seal (PHY-084), drafted; tighten its bar with the eraser in blood (PHY-085) first.
 - The release check rerun on main.
 - Gross-to-net ledger line 3 (station service) is no longer needed for the average; the cell-type spread stays open.
+
+### 2026-11-12 · PHY-085: the read rule for the eraser in blood, sealed before any library is opened
+`doors/DEV_ERASE_01.md` (section PHY-085), `doors/data/DEV_ERASE_01/erase_blood_samples.csv`: GSE227977's six mouse bone-marrow libraries
+(LSK and lineage-negative; Tet2 wild type, catalytic mutant, knockout), read exactly as the recount (count only, 10 million pairs per library
+in blocks across the run). Expected before reading: knockout over wild type 0.86-0.95 in both units. Canary first.

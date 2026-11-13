@@ -353,3 +353,19 @@ molecule length (positions four and beyond exist only on molecules of nine calls
 means for the firm rate:** the meter's end error inside the counted interior is at most about a tenth of the held error, in one laboratory;
 a tenth moves phi from 0.147 to 0.1525. For phi to be one half, the held error would have to be 1,543 times smaller, so the meter cannot
 be what keeps the cell's held share below one half. Next, if needed: the same tally within one molecule length.
+
+**PHY-085, the eraser's share in blood cells: the read rule, sealed before any library is opened (2026-11-12)**
+**Where IAM's Law is:** none directly; the eraser is a measured loss the law does not set. It enters PHY-084's prediction as a measured
+input (candidate / r, PHY-083 candidate_with_eraser.py), where its spread between stem-cell units (8.3 %) is the largest part of the bar.
+**Data** (`data/DEV_ERASE_01/erase_blood_samples.csv`): GSE227977, mouse bone marrow, LSK (unit B1) and lineage-negative cells (unit B2),
+each Tet2 wild type, catalytic mutant and knockout (3 mice pooled per library); never read. TET1 and TET3 remain, so this measures TET2's
+share, a lower bound on the eraser's share in blood.
+**Read rule, fixed now:** exactly as the recount (erase_test.yml, count only, 10 million read pairs per library in blocks across the run,
+Stage Q2 held error, errors summed over chances); one canary library first (B1 wild type, short), then all six. Reported per unit: knockout
+over wild type and mutant over wild type.
+**Expected, written before reading:** knockout over wild type 0.86-0.95 in both units (a fall, not a halving: TET2 alone, at most the
+stem cells' total share); mutant over wild type between knockout's and 1.
+**What it changes:** if both units fall inside 0.86-0.95, PHY-084's eraser component becomes the blood value with its own spread; outside,
+the referee test's eraser input is reconsidered before sealing.
+**Synthetic test:** DEV_CHAIN_Q2_01/counter_synthetic.py, DEV_CHAIN_Q2_01/counter_synthetic_summary.txt
+

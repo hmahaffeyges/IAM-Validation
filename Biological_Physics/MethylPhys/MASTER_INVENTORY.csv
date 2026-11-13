@@ -241,6 +241,7 @@ GSE225544,,,,,spent,,,COMMISSIONING_NOTE_CSCORE,,,,,,
 GSE225944,,,,,,,,DEV_METHIONINE_01,,,,,,
 GSE226298,,,,,spent,,,COMMISSIONING_NOTE_ATLAS_V21; COMMISSIONING_NOTE_CSCORE_ATLAS_SORTED; COMMISSIONING_NOTE_DECONV_V21; COMMISSIONING_NOTE_METAA_ATLAS_SORTED; COMMISSIONING_NOTE_M,held-out test,granulocytes | monocytes,yes,IDAT listed for 106/106 samples,Epigenome analysis of samples from  Alzheimer's disease patients and healthy controls with and without LOY (loss of chromosome Y),gold-mine map; candidates DEV_ATLAS_COMMISSION_01
 GSE227271,,,,,,,,PROC_CHARR_01_PREREG,,,,,,
+GSE227977,,,,,,,,DEV_ERASE_01,,,,,,
 GSE230132,,,,,,,,DEV_EPIQC_ARRAY_01; DEV_METAA_HEALTHY_01,,,,,,
 GSE230850,,,,,spent,,,,not usable (not purified (PBMC)),,yes,IDAT listed for 189/189 samples,Impact of Plasmodium falciparum Infection on DNA Methylation of Circulating Immune Cells,gold-mine map
 GSE231417,,,,,spent,,,,not usable (same group as the atlas (Salas/Koestler/Christensen/Kelsey/Wiencke); gMDSC),,no,IDAT listed for 14/14 samples,A core of differentially methylated CpG loci in gMDSCs isolated from neonatal and adult sources,gold-mine map
