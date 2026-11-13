@@ -409,5 +409,13 @@ knockout libraries over the median of its control libraries.
 **What would fail the law's reading here:** P3 reversed (types move apart when the eraser is removed) with a control spread larger than
 the scatter: the differences between cell types would then not come from the eraser.
 
+**PHY-086, amendment 1 (2026-11-13, before any held error was read).** The canary (GSM6415387, a GSE210026 CMP control, 2 million pairs,
+Google) ran to the end, but 48 % of its reads failed quality and it aligned about 6 times slower per pair than PHY-085's standard libraries
+(about 2 % failed). GSE210026's own protocol explains it: about 500 cells per library, post-bisulfite adapter tagging (PBAT), non-directional
+reads, and read ends clipped 6 bp by the submitters because random priming makes false calls there, which the counter would read as losses.
+The counter's read path is directional and reads every call, so GSE210026 cannot be read fairly by this rule. It is withdrawn; P1, P2 and P3
+are not assessed. No held error from the canary was opened. P4 (GSE161463, mature B cells, standard directional WGBS from 1 ug with
+methylated adapters, as PHY-085) proceeds, canary first. Lesson kept: the library method is read before a set is sealed.
+
 **Synthetic test:** DEV_CHAIN_Q2_01/counter_synthetic.py, DEV_CHAIN_Q2_01/counter_synthetic_summary.txt
 

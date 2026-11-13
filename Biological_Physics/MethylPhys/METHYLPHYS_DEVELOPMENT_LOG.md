@@ -5061,3 +5061,9 @@ hemimethylated site, minutes to hours (Repli-BS), so the measured share, the pub
 magnitude. Not sealed; mouse pluripotent cells for the rate, mouse ES and neural stem cells for the share. Next (written before reading):
 why the cell pays for these cycles. Hot standby predicts the most-cycled sites are the ones that switch on activation; proofreading
 predicts held error creeping up over divisions with the erasers removed.
+
+### 2026-11-13 · PHY-086: GSE210026 withdrawn before any held error was read (PBAT, non-directional, 500 cells); P4 proceeds
+The canary showed 48 % of reads failing quality and alignment about 6 times slower per pair than standard mouse libraries; the set's
+protocol is PBAT, non-directional, about 500 cells, ends clipped 6 bp. Withdrawn (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md,
+amendment 1); P1-P3 not assessed; P4 on GSE161463 proceeds. Also corrected: "two coins (one per strand)" in WHY_IAM.md; the book's own text
+is right: two coins are the price of one SAM, one methyl transfer onto one strand.
