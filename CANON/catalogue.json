@@ -279,12 +279,6 @@
    "what": "Two or more draws of the same person, read the same way: the later against the earlier, at every site both measured, so the person is their own reference.",
    "next": "the tools are being moved onto the current chain's records; public data with repeated draws of the same healthy people is held for its test",
    "record": "Biological_Physics/MethylPhys/doors/PROC_SERIAL_01_PREREG.md"
-  },
-  {
-   "name": "Same-laboratory reference correction (sequencing)",
-   "what": "Retired: healthy comes only from the atlases. A few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against them. On two outside laboratories, three of their own healthy samples brought them to Normal.",
-   "next": "the test on a laboratory never read before is running",
-   "record": "Biological_Physics/MethylPhys/doors/DEV_ATLAS_V21_01.md"
   }
  ],
  "report": {

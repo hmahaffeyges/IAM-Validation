@@ -285,12 +285,6 @@ Two or more draws of the same person, read the same way: the later against the e
 
 **Next:** the tools are being moved onto the current chain's records; public data with repeated draws of the same healthy people is held for its test **Record:** [PROC_SERIAL_01_PREREG.md](doors/PROC_SERIAL_01_PREREG.md)
 
-### Same-laboratory reference correction (sequencing)
-
-Retired: healthy comes only from the atlases. A few healthy samples of the same cell from the same laboratory set that laboratory's level, and every other sample from it is read against them. On two outside laboratories, three of their own healthy samples brought them to Normal.
-
-**Next:** the test on a laboratory never read before is running **Record:** [DEV_ATLAS_V21_01.md](doors/DEV_ATLAS_V21_01.md)
-
 ## Sex and the X chromosome
 
 <!-- SEX-SECTION:BEGIN -->
