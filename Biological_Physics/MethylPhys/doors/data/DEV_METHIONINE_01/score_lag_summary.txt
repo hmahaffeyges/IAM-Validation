@@ -1,0 +1,7 @@
+Copier-lag check: held error by replication timing (early / mid / late thirds), depleted over control
+MZGC1 early: control 0.0588, depleted 0.0549, ratio 0.934
+MZGC1 mid: control 0.0589, depleted 0.0546, ratio 0.927
+MZGC1 late: control 0.0654, depleted 0.0623, ratio 0.953
+MZGC3 early: control 0.0551, depleted 0.0514, ratio 0.933
+MZGC3 mid: control 0.0556, depleted 0.0525, ratio 0.945
+MZGC3 late: control 0.0652, depleted 0.0618, ratio 0.948

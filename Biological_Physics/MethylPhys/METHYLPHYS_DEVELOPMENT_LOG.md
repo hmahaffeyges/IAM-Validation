@@ -4805,3 +4805,6 @@ Recorded in `doors/DEV_METHIONINE_01.md` (`score_methionine.py`): MZGC1 0.936, M
 
 ### 2026-11-12 · PHY-083: is the methionine fall copier lag? the prediction, written before reading
 Recorded in `doors/DEV_METHIONINE_01.md`: if lag, the fall sits in late-replicating DNA and early DNA reads near the energy route; if not, the ratio is flat across timing.
+
+### 2026-11-12 · PHY-083: the methionine fall is not copier lag (the same at every replication timing)
+Recorded in `doors/DEV_METHIONINE_01.md`: ratios early/mid/late MZGC1 0.934/0.927/0.953, MZGC3 0.933/0.945/0.948; late DNA holds worse in both controls; the 7 % fall is genome-wide and unexplained.

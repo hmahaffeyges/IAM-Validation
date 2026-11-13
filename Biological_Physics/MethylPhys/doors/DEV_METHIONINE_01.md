@@ -73,3 +73,11 @@ MZGC1 about 1.01). **If not lag:** the ratio is the same across timing. Timing: 
 (hg19; constitutive timing, no cell line chosen), split into thirds by CpG. Each library's molecule file is split by its molecules' first
 CpG into the three thirds, and each part is counted by the one command (run_sample.py --pat PART --dev-count-only).
 
+**The copier-lag check, read (2026-11-12): not lag.** Splitter `DEV_METHIONINE_01/lag_split.py`, scored by `DEV_METHIONINE_01/score_lag.py` (`DEV_METHIONINE_01/score_lag_summary.txt`) (CpG numbering checked against the chain's
+per-chromosome index ranges, no mismatch); each part counted by `run_sample.py --pat PART --dev-count-only --dev-allow-partial-genome`
+(the split covers the genome unevenly by design); bundles in `DEV_METHIONINE_01/lag/`. Depleted over control, early / mid / late thirds:
+MZGC1 0.934, 0.927, 0.953; MZGC3 0.933, 0.945, 0.948. Prediction (2), a lower ratio in late DNA, is not met: the fall is about the same at
+every timing, slightly smaller in late DNA, so copier lag does not explain it. Prediction (3), early DNA near the energy route, is not met.
+Prediction (1) holds: in both controls late-copied DNA carries more held error than early (MZGC1 0.0654 vs 0.0588, MZGC3 0.0652 vs 0.0551).
+The fall of about 7 % under methionine restriction stays unexplained and genome-wide.
+
