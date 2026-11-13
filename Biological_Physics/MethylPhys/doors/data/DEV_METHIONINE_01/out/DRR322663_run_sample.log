@@ -1,0 +1,180 @@
+The Deconvolver runs first: values made from the sequencing file (at least 1 call a site)
+Sequencing values: counting DRR322663.pat.gz at IAM-Atlas v2.1's sites (at least 1 calls)
+  151,510 of 813,951 sites with a value; median 10 calls per site
+  copies: the sample's calls are copies of about 3.71 each (measured at 1,835 floor sites); counted as molecules
+Stage D21: cell shares against the IAM Sequencing Atlas (development)
+Stage D21: a second deconvolution with provisional columns (megakaryocytes), flagged
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: divide by zero encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+/home/runner/work/IAM-Validation/IAM-Validation/Biological_Physics/MethylPhys/chain/stage_seq_copies.py:40: RuntimeWarning: invalid value encountered in divide
+  r = T1[eb, nn] / T0[eb, nn]; ex = np.asarray(expected_H_counts(es, n), "float64"); ok = np.isfinite(r) & (T0[eb, nn] > 0)
+Stage Q0: intake checks on DRR322663.pat.gz
+Stage Q2: counting only (development, --dev-count-only): held error and its opportunities, flagged
+Stage Q2 held error by tile: 13775 tiles written to /home/runner/work/IAM-Validation/IAM-Validation/eout/DRR322663_tiles.csv.gz
+Stage Q2: IAM-A in the sample's mix, against the IAM Sequencing Atlas's held-error reference (development)
+Stage Q2: a mixed specimen: IAM-A read on the self-reference line, flagged (no healthy shape reference for a mix)
+
+DRR322663: Met-A (neutrophils) None (None) | C None | tare None | IAM-A 0.8093 (Normal)
+report: /home/runner/work/IAM-Validation/IAM-Validation/eout/DRR322663_report.html | bundle: /home/runner/work/IAM-Validation/IAM-Validation/eout/DRR322663_bundle.json | evidence ledger: /home/runner/work/IAM-Validation/IAM-Validation/eout/evidence_ledger.jsonl (one row appended)

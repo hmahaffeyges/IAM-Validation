@@ -1,0 +1,3 @@
+DEV-METHIONINE-01 score (as sealed; predictions in predictions_by_line_summary.txt, mapped through the synthetic at the controls' lengths)
+MZGC1: control 0.05982 (loose 0.661), depleted 0.05600 (loose 0.578); ratio 0.9361; energy route 1.012-1.015 not met; supply route 1.267-1.343 not met
+MZGC3: control 0.05699 (loose 0.645), depleted 0.05295 (loose 0.643); ratio 0.9290; energy route 1.053-1.07 not met; supply route 2.392-2.708 not met

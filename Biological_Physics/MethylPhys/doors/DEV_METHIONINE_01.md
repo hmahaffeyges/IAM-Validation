@@ -52,3 +52,15 @@ scoring. **Open caveat:** SAM/SAH was measured at 72 h; the paper does not state
 supply x3.3-5.0 (each mapped through the synthetic at the libraries' own molecule lengths before scoring). **Open caveat:** SAM/SAH was
 measured at 72 h; the paper does not state when the RRBS libraries were taken.
 
+**Read and scored as sealed (2026-11-12): neither route met; the held error fell in both lines.** (`DEV_METHIONINE_01/score_methionine.py`,
+`DEV_METHIONINE_01/score_methionine_summary.txt`; counts in `DEV_METHIONINE_01/out/`, the one command through the erase_test pipeline;
+the synthetic re-run at the two controls' own molecule lengths, `methionine_synthetic_lengths.py`, `methionine_synthetic_lengths_summary.txt`,
+before any depleted library was opened). **Where IAM's Law is:** the work per methyl transfer, in coins of M kT, against the methyl
+supply. MZGC1: held error depleted over control 0.936 (energy route 1.012-1.015, supply route 1.267-1.343). MZGC3: 0.929 (energy
+1.053-1.070, supply 2.392-2.708), its loose share unchanged (0.645, 0.643). **What it shows:** the held error did not rise with the methyl
+supply cut three- to five-fold; it fell about 7 % in both lines. The supply route (the hold set by the size of the methyl pool) is ruled out
+by a wide margin. The energy route's predicted small rise was not seen either; something moves the held error down by about 7 %, the same
+sign and size in both lines. Leading candidate, not tested: methionine restriction slows division, and the counter cannot tell a freshly
+copied strand still awaiting its copier from a loss, so fewer copies in flight read as a lower held error. Open caveat as sealed: SAM/SAH
+was measured at 72 h and the libraries' timing is not stated. One library per arm, so no replicate sets the noise.
+

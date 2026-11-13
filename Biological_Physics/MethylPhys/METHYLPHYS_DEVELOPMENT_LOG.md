@@ -4799,3 +4799,6 @@ check's own constructed molecule file.
 
 ### 2026-11-12 · ATL-071: the array-versus-sequencing comparison for all 56 cell types (exploration)
 Recorded in `doors/DEV_ATLAS_V21_01.md` (`ref_compare/` bundles): the array's unmarked offset about five points in every type (instrument); marked-side sequencing disorder 0.251-0.450, median 0.314, the candidate 0.263 at its lower edge; IAM-A's reference derivable, Met-A's keeps a measured part.
+
+### 2026-11-12 · PHY-083: the methionine lever read; the supply route ruled out, the energy route not met (held error fell about 7 % in both lines)
+Recorded in `doors/DEV_METHIONINE_01.md` (`score_methionine.py`): MZGC1 0.936, MZGC3 0.929 against energy 1.012-1.015 / 1.053-1.070 and supply 1.267-1.343 / 2.392-2.708. Leading candidate for the fall: slower division, fewer copies in flight.
