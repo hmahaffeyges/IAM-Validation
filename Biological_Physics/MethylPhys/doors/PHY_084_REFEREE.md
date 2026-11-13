@@ -33,6 +33,11 @@ chr22 under half the median share of sites with a value): a small chromosome got
 Changed: 2,000 blocks (5,000 pairs each, the same 10 million). The coverage check is kept, not bypassed; the prediction, bar and pass/fail
 are untouched.
 
+**Disclosure (2026-11-13).** The third canary (GSM5278426, 2,000 blocks, 2 million pairs, GitHub run 43412998020) passed
+the coverage check and counted. Its report's figure, shown to the agent, displayed that library's IAM-A self-reference reading (0.829,
+Normal). That is not the sealed quantity (each cell type's zero-loose intercept against the M-based prediction), and nothing in this record
+was changed after it was seen. All 58 libraries, the canary's included, are then read at the sealed depth.
+
 **The prediction, through the meter.** For each cell type, the counter's lone-loss reading (`held_err_length`) that the forward model gives
 at that cell type's own measured clustering (median `coupling` of its libraries, an instrument property read from the same libraries),
 interpolated on the committed grid (`data/DEV_CHAIN_Q2_01/forward_out/pg_<ratio>_<x>.csv`: forward_candidate.py, seq mode, 3 samples of
