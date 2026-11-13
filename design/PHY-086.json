@@ -1,0 +1,43 @@
+{
+ "_written": "AFTER THE FACT, 2026-11-13 1:00 PM Pacific: P4's machines changed three times (GitHub queue, Google, GitHub) and P1-P3 were sealed on a PBAT set; this sheet records the corrected design for P4 and P5",
+ "physics": {
+  "where_iam_law": "the thermal part of the loss (CANON eps0_candidate: two coins per restore against thermal kicks at 310 K) is the same in every cell type; removing the eraser should leave each type near it, so the types converge"
+ },
+ "data": {
+  "set": "P4 GSE161463 (mature splenic B, TET2+TET3 removed, 2 WT + 2 KO); P5 GSE66834 (iNKT, same laboratory, 2 WT + 2 KO young)",
+  "protocol_read": "GSE161463: 1 ug DNA, lambda spike, sonicated, end repaired, A-tailed, methylated adaptors, Methylcode bisulfite. GSE66834: Covaris 200 bp, lambda spike 1:200, end repair, MethylC-seq, paired 2x100",
+  "spent_first": "no: no spent set has the eraser removed in mature blood cell types; PHY-085's two progenitor types sit 1.2 % apart, too close to answer",
+  "alternatives": "GSE210026 (PBAT, about 500 cells, ends clipped: withdrawn); PRJNA1403508 (TET1/2/3 in five lineages: not public); Lio 2016 pro-B (to check)"
+ },
+ "kiss": {
+  "smallest": "two wild type and two knockout per type: the fewest that measure replicate scatter",
+  "samples_why": "each arm needs two to measure its own scatter (the not-assessed rule)"
+ },
+ "machines": {
+  "platform": "github",
+  "github_free_at_design": "17 at 12:25 PM Pacific (PHY-084 finishing)",
+  "s_per_pair": "0.00052 (PHY-085 GSM7111686_timing.json: 5,196 s for 10 million pairs)",
+  "pairs": 10000000,
+  "peak_mem_gb": "not measured",
+  "machine_mem_gb": 16,
+  "parallel_per_machine": 1,
+  "expected_hours": 2.6,
+  "time_limit_hours": 6,
+  "cost": "free (GitHub)"
+ },
+ "save": {
+  "resume": "ckpt: a failed run reruns from its saved molecules (erase_test.yml patfrom=<run id>), no realignment"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "all P4 and P5 runs completed (p4_runs.txt, p5_runs.txt)"
+ },
+ "canary": {
+  "instrument_check": {
+   "qc_failed_max": 0.05,
+   "mapped_min": 0.95,
+   "s_per_pair_max": 0.0015
+  }
+ },
+ "cosmologist": "instrument check on a 2-million-pair canary per set before any full library (P4 passed: 2.8 % failed, 99.8 % mapped); the replicate scatter is the null test (not assessed if it exceeds half the effect)"
+}

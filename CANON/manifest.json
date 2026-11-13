@@ -28662,6 +28662,34 @@
    "next_step": "none; the band's upper edge beyond independence is whole blood's measured clustering",
    "cost": "github",
    "impact": 4
+  },
+  {
+   "instrument_or_term": "all",
+   "sources": [
+    "Loyfer 2023 via PROC-CHANNEL-01 and DEV-ARCH-01"
+   ],
+   "data_status": "",
+   "cost": "laptop",
+   "impact": 5,
+   "legacy_ids": [],
+   "id": "OTH-086",
+   "sources_of_row": [
+    "session 2026-10-16"
+   ],
+   "title": "A design sheet required before any new test's first synthetic test (the checklist in code)",
+   "purpose": "For the researcher package: the SOP and the operations manual describe the one-command chain v4 (Deconvolver, IAM-A on its own reference, the sky plate, the v4 report), generated from the code where possible.",
+   "status": "run",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "runs": [
+    {
+     "date": "2026-10-18",
+     "outcome": "success",
+     "note": "chain v4 SOP generated from the chain's files (commissioning, frozen inputs, live stages, shape reference); gated by checked_push.sh",
+     "page": "not headline: a procedure document for the researcher package"
+    }
+   ],
+   "next_step": "every new PHY/COM/DEV row carries design/<ROW>.json",
+   "notes": "2026-11-13: CANON/TEST_DESIGN_CHECKLIST.md, CANON/design_check.py (gate), design_check_controls.py (11 planted cases, each a mistake of 11-13); the launchers refuse jobs without a complete sheet naming their platform"
   }
  ],
  "not_tests": {

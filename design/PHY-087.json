@@ -1,0 +1,45 @@
+{
+ "_written": "AFTER THE FACT, 2026-11-13 1:00 PM Pacific: three counts per 16 GB machine were killed for memory, and the relaunch went to Google when GitHub had 17 free slots",
+ "physics": {
+  "where_iam_law": "IAM-A's baseline eps_pred(L) = a + b L: a has a physical account (PHY-083); this asks whether b is mixing inside a sample (loose tiles hold weakly) or cell type"
+ },
+ "data": {
+  "set": "eleven spent healthy Loyfer samples (slope_samples.csv), spanning the loose share",
+  "protocol_read": "Loyfer et al. 2023 WGBS .pat files from GEO (standard libraries; already read by IAM-A, PHY-050)",
+  "spent_first": "yes: spent samples, only the per-tile split is new",
+  "alternatives": "all 150 spent healthy samples (more than needed for step 1)"
+ },
+ "kiss": {
+  "smallest": "eleven samples, one every 15 in loose-share order",
+  "samples_why": "to span the loose share end to end"
+ },
+ "machines": {
+  "platform": "google",
+  "github_free_at_design": "0 at 9:04 AM Pacific; 17 at the 12:15 PM relaunch (a miss)",
+  "why_not_github": "at first launch all 20 were reading PHY-084; the relaunch should have gone to GitHub",
+  "s_per_pair": "n/a (no alignment; one .pat download and count per sample, about 85 min observed)",
+  "pairs": "n/a",
+  "peak_mem_gb": "not measured (3 per 16 GB machine were killed, signal 9)",
+  "machine_mem_gb": 16,
+  "parallel_per_machine": 1,
+  "expected_hours": 1.5,
+  "time_limit_hours": 3,
+  "cost": "ten spot machines x 1.5 h, about $1"
+ },
+ "save": {
+  "resume": "skip-done: each tile file uploaded as written, taken back on relaunch"
+ },
+ "watchers": {
+  "count": 1,
+  "stop_condition": "ten tile files in phy087/out"
+ },
+ "canary": {
+  "instrument_check": {
+   "rows_min": 14000,
+   "halves_corr_min": 0.7,
+   "hours_per_sample_max": 3,
+   "_from": "GSM5652295 (finished first): 14,106 tiles, halves' correlation 0.823 over 13,940 tiles with at least 200 opportunities per half"
+  }
+ },
+ "cosmologist": "two independent halves per tile (even and odd lines) give each tile's own noise before any slope is read"
+}

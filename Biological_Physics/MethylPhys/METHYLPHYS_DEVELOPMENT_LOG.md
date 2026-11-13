@@ -5087,3 +5087,12 @@ extra width is whole blood's own clustering, which stays measured. Derivation re
 
 ### 2026-11-13 · PHY-086 amendment 3: P4's canary passed; the four B-cell libraries read on GitHub
 Instrument check passed (2.8 % failing quality, 99.8 % mapped); machines only, method unchanged (Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md, amendment 3).
+
+### 2026-11-13 · OTH-086: a design sheet is required before any new test's first synthetic test
+Author (2026-11-13): the checklist belongs in the design phase, in code that refuses. On 11-13 a progenitor set was sealed without reading
+its library method (PBAT, about 500 cells), PHY-086's machines changed three times, a time was promised from the wrong machine's speed, and
+three counts were put on one 16 GB machine and killed for memory. Now every new PHY/COM/DEV row needs design/<ROW>.json, complete under
+CANON/TEST_DESIGN_CHECKLIST.md (physics, data and its deposited method, KISS, machines with measured speed and memory, saving, one watcher,
+a numeric canary rule, the cosmologist's null test), before its first synthetic test (CANON/design_check.py in the gate; its controls plant
+each of the 11-13 mistakes and must refuse them). The launchers refuse any job whose row has no complete sheet on main naming that
+platform. Sheets written after the fact for PHY-086 and PHY-087 record their gaps.

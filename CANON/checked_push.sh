@@ -26,6 +26,8 @@ python3 CANON/status_lines.py --check || { echo "checked_push.sh: STATUS.md or B
 python3 CANON/plan_md.py --check || { echo "checked_push.sh: STATUS.md or Biological_Physics/MethylPhys/COMMISSIONING_PLAN.md differs from its sources [failed: CANON/plan_md.py; its findings are printed above] - push refused"; exit 1; }
 python3 CANON/kiss_check_controls.py > /dev/null || { echo "checked_push.sh: KISS CHECK FAILED - a sealed rule needs the instrument's job, at most 3 bars and public sources [failed: CANON/kiss_check_controls.py; the check's own planted cases did not pass] - push refused"; exit 1; }
 python3 CANON/kiss_check.py check || { echo "checked_push.sh: KISS CHECK FAILED - a sealed rule needs the instrument's job, at most 3 bars and public sources [failed: CANON/kiss_check.py; its findings are printed above] - push refused"; exit 1; }
+python3 CANON/design_check_controls.py > /dev/null || { echo "checked_push.sh: DESIGN CHECK FAILED [failed: CANON/design_check_controls.py; the check's own planted cases did not pass] - push refused"; exit 1; }
+python3 CANON/design_check.py check || { echo "checked_push.sh: DESIGN CHECK FAILED - a new test needs a complete design/<ROW>.json before its first synthetic test (CANON/TEST_DESIGN_CHECKLIST.md) [failed: CANON/design_check.py; its findings are printed above] - push refused"; exit 1; }
 python3 CANON/costs_fresh.py || { echo "checked_push.sh: COSTS ON THE PAGE ARE STALE - push refused"; exit 1; }
 python3 website/build/build_home.py --check || { echo "checked_push.sh: THE PAGE DOES NOT BUILD from this commit - push refused (LESSONS C22)"; exit 1; }
 python3 CANON/site_build_check.py || { echo "checked_push.sh: WEBSITE BUILD IS FAILING - push refused"; exit 1; }
