@@ -5049,3 +5049,15 @@ novo, the hold's restore). An erased mark costs 7 to 32 times a mark lost to the
 13.6 % of losses (all erasers, stem cells) but take 52-83 % of the record's maintenance energy; TET2 alone in blood progenitors, 9.5 % and
 42-77 %. The dCTP bracket sets most of the range. Next: the absolute erasure rate from published 5hmC turnover against the restore rate
 the hold implies, an independent check of the measured shares.
+
+### 2026-11-13 · PHY-088 step 2: the erased share as a time, against an independent erasure rate (exploration, desk)
+Marks absent through erasure at any moment (held error with erasers minus without, DEV-ERASE-01 recount, five units) divided by the
+published erasure rate (Spada et al. 2020, Nat Chem Biol, doi 10.1038/s41589-020-0621-y; bioRxiv 846584: in primed mouse pluripotent cells
+mdC turns over 3-6 % faster than passive dilution through DNA synthesis, measured against labelled dT, mostly TET-dependent: 0.0013-0.0035
+per mark per hour at a 12-16 h doubling time) gives how long an erased mark stays unmarked: 1.0-6.3 h in three units, 5.5-14.6 h in one,
+0.1-0.2 h in the unit whose eraser share is almost zero
+(Biological_Physics/MethylPhys/doors/data/PHY_088_ERASER/eraser_rate.py). An erased strand is restored like a post-replication
+hemimethylated site, minutes to hours (Repli-BS), so the measured share, the published rate and the restore speed agree in order of
+magnitude. Not sealed; mouse pluripotent cells for the rate, mouse ES and neural stem cells for the share. Next (written before reading):
+why the cell pays for these cycles. Hot standby predicts the most-cycled sites are the ones that switch on activation; proofreading
+predicts held error creeping up over divisions with the erasers removed.

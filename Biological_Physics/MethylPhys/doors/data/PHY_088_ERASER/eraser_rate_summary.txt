@@ -1,0 +1,6 @@
+erasure rate per mark (Spada et al. 2020, T_d 12-16 h): 0.00130 to 0.00347 per hour
+U1: wt 0.04198 ko 0.04167; marks absent through erasure 0.00031; an erased mark stays unmarked 0.1 to 0.2 h
+U2: wt 0.09085 ko 0.07187; marks absent through erasure 0.01898; an erased mark stays unmarked 5.5 to 14.6 h
+U3: wt 0.04352 ko 0.03761; marks absent through erasure 0.00591; an erased mark stays unmarked 1.7 to 4.5 h
+U4: wt 0.03583 ko 0.03234; marks absent through erasure 0.00349; an erased mark stays unmarked 1.0 to 2.7 h
+U5: wt 0.05525 ko 0.04706; marks absent through erasure 0.00819; an erased mark stays unmarked 2.4 to 6.3 h

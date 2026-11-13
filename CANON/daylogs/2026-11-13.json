@@ -62,6 +62,54 @@
      "outcome": "Running; scored once with referee_score.py when all have finished.",
      "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
      "reference": "none (not a reading against healthy): healthy samples to be read against the M-based prediction"
+    },
+    {
+     "title": "IAM-A's healthy spread split by cell type",
+     "status": "development",
+     "what": "IAM-A's held error over its baseline on its own 150 healthy samples (55 types), split into between-type and within-type spread.",
+     "outcome": "81 % of the healthy spread is between cell types; one baseline for all types spans about 0.86-1.16, a baseline per type would span about 0.94-1.07 (iama_spread_split.py; exploration).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): IAM-A's own baseline samples, decomposed"
+    },
+    {
+     "title": "The eraser's share by cell type sealed (PHY-086)",
+     "status": "development",
+     "what": "Predictions written before any library is opened: TET2 knockout in LSK, CMP and GMP progenitors (GSE210026) and TET2 + TET3 in mature B cells (GSE161463); does removing the eraser bring cell types together?",
+     "outcome": "Sealed in DEV_ERASE_01.md; moved to Google spot machines (erase_google.sh) before any library was opened; canary running.",
+     "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+     "reference": "none (not a reading against healthy): eraser-removed libraries against their own controls"
+    },
+    {
+     "title": "IAM-A's slope from physics, step 1 (PHY-087)",
+     "status": "development",
+     "what": "Two readings of the baseline's measured slope written before counting: mixing inside each sample, or cell type; eleven spent healthy samples recounted tile by tile.",
+     "outcome": "Running on Google (the first machine lost its network and was relaunched).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): spent healthy samples, tile by tile"
+    },
+    {
+     "title": "The eraser's price (PHY-088)",
+     "status": "development",
+     "what": "One erasure (TET, TDG, base excision repair) plus its restore priced in ATP from cited sources; the measured eraser share turned into a time with an independent erasure rate (Spada et al. 2020).",
+     "outcome": "14-63 coins per erasure and restore (420-1,900 times Landauer's floor); erasers cause 9.5-13.6 % of losses but take 42-83 % of the record's maintenance energy; an erased mark stays unmarked about 1-6 h in most units, inside the published restore time (eraser_price.py, eraser_rate.py; exploration).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): a desk ledger and published rates"
+    },
+    {
+     "title": "Four referee libraries refused at intake (PHY-084)",
+     "status": "development",
+     "what": "The genome-coverage check refused GSM5278446 (B) and GSM5278470, GSM5278472, GSM5278476 (CD4).",
+     "outcome": "Their deposited runs put about 99 % of molecules on chr1 and chr2 although the block plan spans each whole run; reported, not read by another route (sealed rule); CD4 keeps 9 of 12, B 23 of 24.",
+     "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
+     "reference": "none (not a reading against healthy): intake refusals"
+    },
+    {
+     "title": "The home page centered on the derivation; device columns off public pages",
+     "status": "development",
+     "what": "Author's decisions: qubit and chip columns removed from public tables, Met-A's commissioning on the front, older material trimmed, a first section on the derivation, reading its numbers from the canon.",
+     "outcome": "On main (four_domains.json public_domains; build_home.py, the derivation section).",
+     "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+     "reference": "none (not a reading against healthy): website"
     }
    ]
   }
