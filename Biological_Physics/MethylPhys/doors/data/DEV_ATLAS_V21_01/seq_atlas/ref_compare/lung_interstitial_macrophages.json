@@ -1,0 +1,35 @@
+{
+ "cell": "lung interstitial macrophages",
+ "seq_cell": "lung interstitial macrophages",
+ "identity_sites": 6000,
+ "sites_compared": 4190,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3098,
+  "seq_H": 0.1536
+ },
+ "marked": {
+  "sites": 1520,
+  "array_level": 0.9425,
+  "array_H": 0.3168,
+  "seq_level": 0.9446,
+  "seq_H": 0.2906
+ },
+ "unmarked": {
+  "sites": 2670,
+  "array_level": 0.0549,
+  "array_H": 0.3059,
+  "seq_level": 0.0107,
+  "seq_H": 0.0756
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "lung interstitial macrophages,lung interstitial macrophages",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/lung_interstitial_macrophages.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

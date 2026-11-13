@@ -1,0 +1,35 @@
+{
+ "cell": "colon epithelium",
+ "seq_cell": "colon epithelium",
+ "identity_sites": 6000,
+ "sites_compared": 4271,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3412,
+  "seq_H": 0.1638
+ },
+ "marked": {
+  "sites": 1366,
+  "array_level": 0.9377,
+  "array_H": 0.3348,
+  "seq_level": 0.9041,
+  "seq_H": 0.4248
+ },
+ "unmarked": {
+  "sites": 2905,
+  "array_level": 0.065,
+  "array_H": 0.3442,
+  "seq_level": 0.006,
+  "seq_H": 0.0411
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "colon epithelium,colon epithelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/colon_epithelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

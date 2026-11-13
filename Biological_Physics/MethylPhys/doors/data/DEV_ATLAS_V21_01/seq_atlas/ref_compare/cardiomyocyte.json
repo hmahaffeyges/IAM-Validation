@@ -1,0 +1,35 @@
+{
+ "cell": "cardiomyocyte",
+ "seq_cell": "cardiomyocyte",
+ "identity_sites": 6000,
+ "sites_compared": 4132,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.316,
+  "seq_H": 0.1634
+ },
+ "marked": {
+  "sites": 1512,
+  "array_level": 0.9393,
+  "array_H": 0.3293,
+  "seq_level": 0.9378,
+  "seq_H": 0.3158
+ },
+ "unmarked": {
+  "sites": 2620,
+  "array_level": 0.0555,
+  "array_H": 0.3084,
+  "seq_level": 0.0108,
+  "seq_H": 0.0755
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "cardiomyocyte,cardiomyocyte",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/cardiomyocyte.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

@@ -2155,3 +2155,13 @@ donors: marked side, array level 0.9461 (H 0.3025 bits) against sequencing 0.947
 points above zero. On sequencing, the marked identity sites' 0.2617 bits sits beside IAM-A's H(eps0) 0.2593 and the candidate's 0.2627,
 and the unmarked identity sites are held about ten times better than the marked ones. Different laboratories and pooled donors; nothing sealed.
 
+**The same comparison for all 56 cell types (exploration, 2026-11-12)** (`run_sample.py --build ref-compare --build-cell CELL,CELL` for each type the IAM
+Sequencing Atlas holds; bundles in `data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/`). (1) The array's unmarked level sits about five points
+above sequencing in nearly every type (array median 0.0556, 0.053-0.093; sequencing 0.010, 0.004-0.029): an instrument offset,
+calibratable. (2) The marked identity sites' sequencing disorder runs 0.251 (naive CD8) to 0.450 (cortical neurons), median 0.314; the
+neutrophils' 0.262 is among the lowest, so the earlier closeness to the candidate (0.263) is not general. Site-level disorder of pooled
+donors carries cell-to-cell variation, which only raises it. (3) The candidate sits at the lower edge: the purest sorted blood cells (naive
+T cells 0.251-0.273, alveolar macrophages 0.269) reach it and none sits clearly below (lowest 4.5 % under, within IAM-A's measured
+cell-type spread). Reading: IAM-A's reference (single molecules) can come from the law; Met-A's reference is the law's lower edge plus each
+cell type's measured variation, so the atlas stays as its measured part.
+

@@ -1,0 +1,35 @@
+{
+ "cell": "t effector cell cd8",
+ "seq_cell": "t effector cell cd8",
+ "identity_sites": 6000,
+ "sites_compared": 4176,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3492,
+  "seq_H": 0.2014
+ },
+ "marked": {
+  "sites": 1560,
+  "array_level": 0.9331,
+  "array_H": 0.3517,
+  "seq_level": 0.9229,
+  "seq_H": 0.3717
+ },
+ "unmarked": {
+  "sites": 2616,
+  "array_level": 0.0661,
+  "array_H": 0.3477,
+  "seq_level": 0.0159,
+  "seq_H": 0.0999
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "t effector cell cd8,t effector cell cd8",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/t_effector_cell_cd8.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

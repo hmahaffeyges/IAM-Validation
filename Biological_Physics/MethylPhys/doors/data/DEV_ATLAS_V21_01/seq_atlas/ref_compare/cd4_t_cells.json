@@ -1,0 +1,35 @@
+{
+ "cell": "cd4 t cells",
+ "seq_cell": "cd4 t cells",
+ "identity_sites": 6000,
+ "sites_compared": 4462,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3145,
+  "seq_H": 0.1355
+ },
+ "marked": {
+  "sites": 1562,
+  "array_level": 0.946,
+  "array_H": 0.303,
+  "seq_level": 0.9376,
+  "seq_H": 0.3098
+ },
+ "unmarked": {
+  "sites": 2900,
+  "array_level": 0.0587,
+  "array_H": 0.3207,
+  "seq_level": 0.0061,
+  "seq_H": 0.0415
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "cd4 t cells,cd4 t cells",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/cd4_t_cells.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

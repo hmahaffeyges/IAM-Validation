@@ -1,0 +1,35 @@
+{
+ "cell": "kidney glomerular endothelium",
+ "seq_cell": "kidney glomerular endothelium",
+ "identity_sites": 6000,
+ "sites_compared": 4441,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3101,
+  "seq_H": 0.1673
+ },
+ "marked": {
+  "sites": 1705,
+  "array_level": 0.9429,
+  "array_H": 0.3155,
+  "seq_level": 0.9413,
+  "seq_H": 0.3041
+ },
+ "unmarked": {
+  "sites": 2736,
+  "array_level": 0.0551,
+  "array_H": 0.3068,
+  "seq_level": 0.0116,
+  "seq_H": 0.082
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "kidney glomerular endothelium,kidney glomerular endothelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/kidney_glomerular_endothelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

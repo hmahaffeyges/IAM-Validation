@@ -1,0 +1,35 @@
+{
+ "cell": "kidney tubular epithelium",
+ "seq_cell": "kidney tubular epithelium",
+ "identity_sites": 6000,
+ "sites_compared": 4461,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3093,
+  "seq_H": 0.1588
+ },
+ "marked": {
+  "sites": 1693,
+  "array_level": 0.9426,
+  "array_H": 0.3164,
+  "seq_level": 0.9428,
+  "seq_H": 0.2994
+ },
+ "unmarked": {
+  "sites": 2768,
+  "array_level": 0.0546,
+  "array_H": 0.3049,
+  "seq_level": 0.0101,
+  "seq_H": 0.0729
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "kidney tubular epithelium,kidney tubular epithelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/kidney_tubular_epithelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

@@ -1,0 +1,35 @@
+{
+ "cell": "colon enteroendocrine",
+ "seq_cell": "colon enteroendocrine",
+ "identity_sites": 4278,
+ "sites_compared": 2459,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3024,
+  "seq_H": 0.1753
+ },
+ "marked": {
+  "sites": 1372,
+  "array_level": 0.9451,
+  "array_H": 0.3068,
+  "seq_level": 0.9471,
+  "seq_H": 0.2763
+ },
+ "unmarked": {
+  "sites": 1087,
+  "array_level": 0.0525,
+  "array_H": 0.2969,
+  "seq_level": 0.0069,
+  "seq_H": 0.0478
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "colon enteroendocrine,colon enteroendocrine",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/colon_enteroendocrine.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

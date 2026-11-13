@@ -1,0 +1,35 @@
+{
+ "cell": "kidney glomerular epithelium",
+ "seq_cell": "kidney glomerular epithelium",
+ "identity_sites": 3832,
+ "sites_compared": 2078,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3042,
+  "seq_H": 0.2032
+ },
+ "marked": {
+  "sites": 1352,
+  "array_level": 0.9447,
+  "array_H": 0.308,
+  "seq_level": 0.9473,
+  "seq_H": 0.2767
+ },
+ "unmarked": {
+  "sites": 726,
+  "array_level": 0.0526,
+  "array_H": 0.2971,
+  "seq_level": 0.0098,
+  "seq_H": 0.0663
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "kidney glomerular epithelium,kidney glomerular epithelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/kidney_glomerular_epithelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

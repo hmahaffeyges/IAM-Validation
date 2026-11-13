@@ -1,0 +1,35 @@
+{
+ "cell": "smooth muscle",
+ "seq_cell": "smooth muscle",
+ "identity_sites": 6000,
+ "sites_compared": 4176,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3299,
+  "seq_H": 0.2103
+ },
+ "marked": {
+  "sites": 1760,
+  "array_level": 0.9333,
+  "array_H": 0.3515,
+  "seq_level": 0.9197,
+  "seq_H": 0.3843
+ },
+ "unmarked": {
+  "sites": 2416,
+  "array_level": 0.057,
+  "array_H": 0.3141,
+  "seq_level": 0.0124,
+  "seq_H": 0.0835
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "smooth muscle,smooth muscle",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/smooth_muscle.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

@@ -1,0 +1,35 @@
+{
+ "cell": "striated muscle",
+ "seq_cell": "striated muscle",
+ "identity_sites": 4163,
+ "sites_compared": 2427,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3027,
+  "seq_H": 0.1945
+ },
+ "marked": {
+  "sites": 1367,
+  "array_level": 0.9452,
+  "array_H": 0.3061,
+  "seq_level": 0.9431,
+  "seq_H": 0.2963
+ },
+ "unmarked": {
+  "sites": 1060,
+  "array_level": 0.0529,
+  "array_H": 0.2983,
+  "seq_level": 0.0091,
+  "seq_H": 0.0632
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "striated muscle,striated muscle",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/striated_muscle.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

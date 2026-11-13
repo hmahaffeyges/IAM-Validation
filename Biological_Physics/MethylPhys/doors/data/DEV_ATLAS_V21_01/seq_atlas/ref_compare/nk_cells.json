@@ -1,0 +1,35 @@
+{
+ "cell": "nk cells",
+ "seq_cell": "nk cells",
+ "identity_sites": 6000,
+ "sites_compared": 4737,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3132,
+  "seq_H": 0.1589
+ },
+ "marked": {
+  "sites": 1807,
+  "array_level": 0.944,
+  "array_H": 0.3107,
+  "seq_level": 0.9268,
+  "seq_H": 0.3464
+ },
+ "unmarked": {
+  "sites": 2930,
+  "array_level": 0.057,
+  "array_H": 0.3148,
+  "seq_level": 0.0064,
+  "seq_H": 0.0432
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "nk cells,nk cells",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/nk_cells.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

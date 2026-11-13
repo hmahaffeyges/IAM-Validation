@@ -1,0 +1,35 @@
+{
+ "cell": "erythrocyte progenitors",
+ "seq_cell": "erythrocyte progenitors",
+ "identity_sites": 6000,
+ "sites_compared": 4791,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3258,
+  "seq_H": 0.2058
+ },
+ "marked": {
+  "sites": 2242,
+  "array_level": 0.935,
+  "array_H": 0.3452,
+  "seq_level": 0.9239,
+  "seq_H": 0.3768
+ },
+ "unmarked": {
+  "sites": 2549,
+  "array_level": 0.0557,
+  "array_H": 0.3087,
+  "seq_level": 0.0078,
+  "seq_H": 0.0555
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "erythrocyte progenitors,erythrocyte progenitors",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/erythrocyte_progenitors.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

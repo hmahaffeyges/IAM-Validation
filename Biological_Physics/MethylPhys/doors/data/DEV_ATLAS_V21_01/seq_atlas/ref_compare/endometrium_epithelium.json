@@ -1,0 +1,35 @@
+{
+ "cell": "endometrium epithelium",
+ "seq_cell": "endometrium epithelium",
+ "identity_sites": 6000,
+ "sites_compared": 4160,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3106,
+  "seq_H": 0.158
+ },
+ "marked": {
+  "sites": 1631,
+  "array_level": 0.9423,
+  "array_H": 0.3177,
+  "seq_level": 0.9422,
+  "seq_H": 0.3024
+ },
+ "unmarked": {
+  "sites": 2529,
+  "array_level": 0.0548,
+  "array_H": 0.3059,
+  "seq_level": 0.0093,
+  "seq_H": 0.065
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "endometrium epithelium,endometrium epithelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/endometrium_epithelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

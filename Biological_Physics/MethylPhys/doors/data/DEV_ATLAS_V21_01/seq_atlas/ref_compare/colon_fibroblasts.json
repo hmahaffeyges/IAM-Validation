@@ -1,0 +1,35 @@
+{
+ "cell": "colon fibroblasts",
+ "seq_cell": "colon fibroblasts",
+ "identity_sites": 4257,
+ "sites_compared": 2845,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3036,
+  "seq_H": 0.2058
+ },
+ "marked": {
+  "sites": 1694,
+  "array_level": 0.9451,
+  "array_H": 0.3065,
+  "seq_level": 0.9431,
+  "seq_H": 0.2974
+ },
+ "unmarked": {
+  "sites": 1151,
+  "array_level": 0.0532,
+  "array_H": 0.2994,
+  "seq_level": 0.0102,
+  "seq_H": 0.071
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "colon fibroblasts,colon fibroblasts",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/colon_fibroblasts.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

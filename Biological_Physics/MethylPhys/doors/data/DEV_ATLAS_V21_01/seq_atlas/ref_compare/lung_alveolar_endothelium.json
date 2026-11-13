@@ -1,0 +1,35 @@
+{
+ "cell": "lung alveolar endothelium",
+ "seq_cell": "lung alveolar endothelium",
+ "identity_sites": 6000,
+ "sites_compared": 4447,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3108,
+  "seq_H": 0.1693
+ },
+ "marked": {
+  "sites": 1721,
+  "array_level": 0.9427,
+  "array_H": 0.316,
+  "seq_level": 0.9406,
+  "seq_H": 0.3086
+ },
+ "unmarked": {
+  "sites": 2726,
+  "array_level": 0.0553,
+  "array_H": 0.3075,
+  "seq_level": 0.0116,
+  "seq_H": 0.0814
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "lung alveolar endothelium,lung alveolar endothelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/lung_alveolar_endothelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

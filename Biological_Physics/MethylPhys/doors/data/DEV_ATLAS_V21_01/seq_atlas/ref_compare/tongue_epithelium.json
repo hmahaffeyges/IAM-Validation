@@ -1,0 +1,35 @@
+{
+ "cell": "tongue epithelium",
+ "seq_cell": "tongue epithelium",
+ "identity_sites": 6000,
+ "sites_compared": 4153,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.315,
+  "seq_H": 0.1648
+ },
+ "marked": {
+  "sites": 1684,
+  "array_level": 0.9396,
+  "array_H": 0.328,
+  "seq_level": 0.9379,
+  "seq_H": 0.3185
+ },
+ "unmarked": {
+  "sites": 2469,
+  "array_level": 0.0549,
+  "array_H": 0.306,
+  "seq_level": 0.0085,
+  "seq_H": 0.0599
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "tongue epithelium,tongue epithelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/tongue_epithelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

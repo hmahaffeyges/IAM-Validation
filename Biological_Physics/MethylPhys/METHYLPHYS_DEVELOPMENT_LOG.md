@@ -4796,3 +4796,6 @@ page; every report since that row grew had no PDFs. report_pdf_v4.py now shows a
 of the rest (the HTML keeps all), and table rows may split across pages. Checked on DRR322659's bundle: both PDFs written (21 pages). The
 other six (E2, E4, E6, E9, V2, V11) are traced next; V2 and E4 are the genome-coverage intake check (2026-11-04) refusing the release
 check's own constructed molecule file.
+
+### 2026-11-12 · ATL-071: the array-versus-sequencing comparison for all 56 cell types (exploration)
+Recorded in `doors/DEV_ATLAS_V21_01.md` (`ref_compare/` bundles): the array's unmarked offset about five points in every type (instrument); marked-side sequencing disorder 0.251-0.450, median 0.314, the candidate 0.263 at its lower edge; IAM-A's reference derivable, Met-A's keeps a measured part.

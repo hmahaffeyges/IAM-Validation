@@ -1,0 +1,35 @@
+{
+ "cell": "vascular saphenous endothelium",
+ "seq_cell": "vascular saphenous endothelium",
+ "identity_sites": 6000,
+ "sites_compared": 4304,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3099,
+  "seq_H": 0.1581
+ },
+ "marked": {
+  "sites": 1605,
+  "array_level": 0.9426,
+  "array_H": 0.3165,
+  "seq_level": 0.9403,
+  "seq_H": 0.3083
+ },
+ "unmarked": {
+  "sites": 2699,
+  "array_level": 0.0549,
+  "array_H": 0.3059,
+  "seq_level": 0.0096,
+  "seq_H": 0.0688
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "vascular saphenous endothelium,vascular saphenous endothelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/vascular_saphenous_endothelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

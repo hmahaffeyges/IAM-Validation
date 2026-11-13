@@ -1,0 +1,35 @@
+{
+ "cell": "gastric antrum epithelium",
+ "seq_cell": "gastric antrum epithelium",
+ "identity_sites": 6000,
+ "sites_compared": 3968,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3087,
+  "seq_H": 0.1512
+ },
+ "marked": {
+  "sites": 1553,
+  "array_level": 0.9423,
+  "array_H": 0.3175,
+  "seq_level": 0.9397,
+  "seq_H": 0.311
+ },
+ "unmarked": {
+  "sites": 2415,
+  "array_level": 0.0542,
+  "array_H": 0.3032,
+  "seq_level": 0.0067,
+  "seq_H": 0.0484
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "gastric antrum epithelium,gastric antrum epithelium",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/gastric_antrum_epithelium.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

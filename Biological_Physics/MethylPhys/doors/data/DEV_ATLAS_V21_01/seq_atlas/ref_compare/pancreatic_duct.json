@@ -1,0 +1,35 @@
+{
+ "cell": "pancreatic duct",
+ "seq_cell": "pancreatic duct",
+ "identity_sites": 6000,
+ "sites_compared": 4109,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3748,
+  "seq_H": 0.217
+ },
+ "marked": {
+  "sites": 1577,
+  "array_level": 0.9317,
+  "array_H": 0.3574,
+  "seq_level": 0.9211,
+  "seq_H": 0.3773
+ },
+ "unmarked": {
+  "sites": 2532,
+  "array_level": 0.0782,
+  "array_H": 0.3856,
+  "seq_level": 0.0201,
+  "seq_H": 0.1172
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "pancreatic duct,pancreatic duct",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/pancreatic_duct.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}

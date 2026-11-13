@@ -1,0 +1,35 @@
+{
+ "cell": "t central memory cd4",
+ "seq_cell": "t central memory cd4",
+ "identity_sites": 6000,
+ "sites_compared": 4320,
+ "min_reads": 10,
+ "all": {
+  "array_H": 0.3484,
+  "seq_H": 0.1778
+ },
+ "marked": {
+  "sites": 1543,
+  "array_level": 0.9334,
+  "array_H": 0.3502,
+  "seq_level": 0.9168,
+  "seq_H": 0.386
+ },
+ "unmarked": {
+  "sites": 2777,
+  "array_level": 0.0659,
+  "array_H": 0.3473,
+  "seq_level": 0.0098,
+  "seq_H": 0.0622
+ },
+ "command": [
+  "run_sample.py",
+  "--build",
+  "ref-compare",
+  "--build-cell",
+  "t central memory cd4,t central memory cd4",
+  "--bundle",
+  "/Users/hmahaffeyges/.claude-science/orgs/b3fa12f1-8d79-429e-bb1a-aa5513757937/workspaces/1ee15a11-4119-40d8-abd8-f57c96e7c721/iamrepo/Biological_Physics/MethylPhys/doors/data/DEV_ATLAS_V21_01/seq_atlas/ref_compare/t_central_memory_cd4.json"
+ ],
+ "label": "DEVELOPMENT - not commissioned"
+}
