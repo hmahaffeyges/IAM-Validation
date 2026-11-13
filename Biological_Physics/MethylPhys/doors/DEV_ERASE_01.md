@@ -377,3 +377,35 @@ agree within 0.02. **Meaning:** TET2 alone causes about 9-10 % of held-mark loss
 mature human blood); one pooled library per genotype; the error bars are binomial widened by each library's coupling and still understate
 library-to-library spread; molecule-end damage differs between libraries (0.0018-0.0049), so part of a ratio may be meter, not eraser.
 
+**PHY-086, the eraser's share by cell type (sealed 2026-11-13, before any library is opened).**
+
+**Where IAM's Law is.** The law sets the thermal part of the loss: a mark held by two coins per restore against thermal kicks, the same in
+every cell type at one coin (CANON eps0_candidate). The eraser adds planned losses on top. If the law is right and cell types differ mainly
+by how much they erase, then removing the eraser should bring cell types toward one level. On IAM-A's own healthy samples, 81 % of the
+healthy spread is between cell types (PHY_050_PERCALL/iama_spread_split.py); a per-type baseline from physics would roughly halve IAM-A's
+Normal band. This test asks the first question: does the eraser's share differ by cell type, and does removing it reduce the spread?
+
+**Answers to the four questions.** (1) Best data: the only public whole-genome sets with the eraser removed in several blood cell types of
+one laboratory (GSE210026: TET2 knockout and its floxed control, four mice each, in LSK, CMP and GMP progenitors, vehicle arm only; the
+IL-1 beta arm is inflammation, not healthy) and mature B cells (GSE161463: TET2 + TET3 removed, two and two). Human mature-cell data with
+the eraser removed are controlled access. Spent data cannot answer it: PHY-085's two types already sit within 1.2 % of each other.
+(2) Synthetic: the counter synthetic (planted held error through run_sample.py). (3) Canary first, one library, short. (4) GitHub
+machines, after the referee test (PHY-084) has finished, so it is not delayed.
+
+**Read exactly as PHY-085:** `erase_types_samples.csv` (2,000 blocks, 10 million read pairs per library), mm10, run_sample.py
+--dev-count-only (development flag for non-human counts), lone-loss counter `held_err_length`; each unit's ratio is the median of its
+knockout libraries over the median of its control libraries.
+
+**Predictions (sealed):**
+- P1, replication in a second laboratory: LSK knockout over control 0.86-0.95 (PHY-085 read 0.900).
+- P2: CMP and GMP knockout over control each 0.80-0.97.
+- P3, the law's convergence: the spread across LSK, CMP and GMP (largest over smallest median held error) is smaller in the knockouts than
+  in the controls. Not assessed if the controls' spread is smaller than their own replicate scatter (the median absolute deviation of the
+  control libraries, relative), as in PHY-085.
+- P4, mature B cells, two of the three erasers removed: knockout over control 0.75-0.95.
+
+**What would fail the law's reading here:** P3 reversed (types move apart when the eraser is removed) with a control spread larger than
+the scatter: the differences between cell types would then not come from the eraser.
+
+**Synthetic test:** DEV_CHAIN_Q2_01/counter_synthetic.py, DEV_CHAIN_Q2_01/counter_synthetic_summary.txt
+

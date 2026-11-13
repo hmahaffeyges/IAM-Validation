@@ -28571,6 +28571,75 @@
    "next_step": "read GSE227977 by the sealed rule (DEV_ERASE_01.md, PHY-085 section), canary first",
    "cost": "github",
    "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-084"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-12 session"
+   ],
+   "notes": "added 2026-11-13 (author: work on these while the referee test runs) | 2026-11-13: added 2026-11-13: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "id": "PHY-086",
+   "title": "The eraser's share by cell type: does removing it bring cell types together?",
+   "purpose": "Where IAM's Law is: none directly; the eraser (TET) is a measured loss the law does not set. Its share was measured only in embryonic and neural stem cells (DEV-ERASE-01, median 0.8642); in blood it is the largest part of PHY-084's bar (8.3 %).",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [
+    "GSE210026 (TET2 knockout, LSK, CMP, GMP; vehicle arm)",
+    "GSE161463 (TET2 + TET3 removed, mature B cells)"
+   ],
+   "data_status": "reserved",
+   "record": "Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md",
+   "status": "sealed",
+   "next_step": "canary on GitHub after PHY-084 has finished, then 28 libraries by the sealed rule",
+   "cost": "github",
+   "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-084"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-12 session"
+   ],
+   "notes": "added 2026-11-13 (author: work on these while the referee test runs) | 2026-11-13: added 2026-11-13: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "id": "PHY-087",
+   "title": "IAM-A's baseline slope from physics: why the loss rises with the loose share",
+   "purpose": "Where IAM's Law is: none directly; the eraser (TET) is a measured loss the law does not set. Its share was measured only in embryonic and neural stem cells (DEV-ERASE-01, median 0.8642); in blood it is the largest part of PHY-084's bar (8.3 %).",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [],
+   "data_status": "reserved",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "planned",
+   "next_step": "desk derivation, after PHY-086 says whether part of the slope is a cell-type effect",
+   "cost": "github",
+   "impact": 4
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-084"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-12 session"
+   ],
+   "notes": "added 2026-11-13 (author: work on these while the referee test runs) | 2026-11-13: added 2026-11-13: Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "id": "PHY-088",
+   "title": "The eraser's price from IAM's Law: the energy of a planned erasure and the most a cell can afford",
+   "purpose": "Where IAM's Law is: none directly; the eraser (TET) is a measured loss the law does not set. Its share was measured only in embryonic and neural stem cells (DEV-ERASE-01, median 0.8642); in blood it is the largest part of PHY-084's bar (8.3 %).",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [],
+   "data_status": "reserved",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "planned",
+   "next_step": "desk physics; changes no number IAM-A uses today",
+   "cost": "github",
+   "impact": 4
   }
  ],
  "not_tests": {

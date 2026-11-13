@@ -1,0 +1,4 @@
+IAM-A on its baseline's own healthy samples: 150 samples, 55 cell types; median 0.952, middle 95 % 0.814-1.056
+log standard deviation: total 0.0729; between cell types 0.0656 (81 % of the variance); within a cell type 0.0328
++/-2 sd: one baseline for all types 0.864-1.157; a baseline per type 0.936-1.068
+Caveats: 1-3 samples per type, one laboratory (cross-laboratory spread is not in 'within'); exploration, nothing sealed.

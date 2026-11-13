@@ -5025,3 +5025,12 @@ use it for FOUR_DOMAINS.md and the home table (book_bits.py keeps every domain f
 healthy baseline, from the law" (build_home.py breakthrough_section), every number read from the canon or a committed summary; its status
 reads "Sealed test running" until referee_out_summary.txt exists, then quotes its verdict. Met-A's atlas commissioning joins the front
 cards (CANON/chain_front.json); the campaign cost block leaves the page (the costs section remains).
+
+### 2026-11-13 · PHY-086, PHY-087, PHY-088: IAM-A's spread split; the eraser by cell type sealed; slope and eraser price planned
+On IAM-A's own 150 healthy samples (55 cell types), 81 % of the healthy spread is between cell types (log sd 0.066 between, 0.033 within;
+PHY_050_PERCALL/iama_spread_split.py): one baseline for all types spans about 0.86-1.16, a baseline per type about 0.94-1.07 (exploration;
+1-3 samples per type, one laboratory). The October sealed test of eraser RNA against each type's level (DEV-POSITION-EXPR-01) was not met,
+so the eraser is now measured by removing it. PHY-086 sealed before any library is opened (DEV_ERASE_01.md): GSE210026 (TET2 knockout in LSK,
+CMP, GMP, one laboratory) and GSE161463 (mature B cells); the law's prediction is that cell types converge when the eraser is removed.
+PHY-085's two types were already within 1.2 % of each other, so spent data cannot answer it. Planned: PHY-087 (IAM-A's slope from physics),
+PHY-088 (the eraser's price).
