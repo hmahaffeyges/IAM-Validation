@@ -1407,5 +1407,11 @@
   "cells": "Cells: IAM-A (molecules)",
   "cells_meta": "Cells: Met-A (arrays)"
  },
- "_instrument_rule": "The cell has two instruments that read the same physics differently (author: 'the cell section should be divided between instruments where they are different'): IAM-A counts single molecules; Met-A reads an array's averaged level per site. Where they agree, the Met-A entry is {\"same_as\": \"cells\"} and is drawn from the IAM-A entry, so nothing is written twice."
+ "_instrument_rule": "The cell has two instruments that read the same physics differently (author: 'the cell section should be divided between instruments where they are different'): IAM-A counts single molecules; Met-A reads an array's averaged level per site. Where they agree, the Met-A entry is {\"same_as\": \"cells\"} and is drawn from the IAM-A entry, so nothing is written twice.",
+ "public_domains": [
+  "cosmos",
+  "cells",
+  "cells_meta"
+ ],
+ "_public_rule": "Author 2026-11-13: the public pages (the home page's connections table, FOUR_DOMAINS.md and its bit tables) show the cosmos and the cells only; the qubit and chip entries stay here as the book's source (book_bits.py keeps every domain) and are not shown on public pages."
 }

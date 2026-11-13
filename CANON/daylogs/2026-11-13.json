@@ -46,6 +46,22 @@
      "outcome": "Sealed before any library is read; the scorer passed its synthetic test.",
      "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
      "reference": "none (not a reading against healthy): healthy samples to be read against the M-based prediction"
+    },
+    {
+     "title": "The referee canaries and two read-method amendments (PHY-084)",
+     "status": "development",
+     "what": "Three canaries of GSM5278426 at 2 million pairs: 20 blocks, 200 blocks, 2,000 blocks.",
+     "outcome": "The runs are stored in genome order; 20 and 200 blocks were refused by the coverage check, 2,000 passed. Amendments 1 and 2 written before any held error was computed; the check kept.",
+     "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
+     "reference": "none (not a reading against healthy): a test of the read method"
+    },
+    {
+     "title": "The 58 referee libraries dispatched (PHY-084)",
+     "status": "development",
+     "what": "GSE173787's 58 healthy controls on GitHub by the sealed rule, 2,000 blocks, 10 million pairs each.",
+     "outcome": "Running; scored once with referee_score.py when all have finished.",
+     "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
+     "reference": "none (not a reading against healthy): healthy samples to be read against the M-based prediction"
     }
    ]
   }

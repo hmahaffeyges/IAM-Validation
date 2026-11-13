@@ -75,6 +75,35 @@ def intro_instruments():
     assert set(out) == set(K.values()), f"INTRODUCTION.md is missing an instrument section: {set(K.values()) - set(out)}"
     return out
 
+def breakthrough_section():
+    """The newest result (author 2026-11-13: the home page centers on it): the healthy baseline from IAM's Law plus the measured eraser.
+    Every number is read from the canon or a committed summary; the status line follows the sealed referee test (PHY-084) by itself."""
+    K = J("CANON/iam_canon.json")["constants"]; D = os.path.join(REPO, "Biological_Physics", "MethylPhys", "doors", "data")
+    ce = open(os.path.join(D, "DEV_CHAIN_Q2_01", "candidate_with_eraser_summary.txt"), encoding="utf-8").read()
+    bl = open(os.path.join(D, "DEV_ERASE_01", "blood_01", "phy085_summary.txt"), encoding="utf-8").read()
+    med = re.search(r"median ([\d.]+)", ce).group(1)
+    pred, healthy = re.search(r"lone-loss ([\d.]+) \([\d.-]+\) against healthy ([\d.]+)", ce).groups()
+    ko = [float(x) for x in re.findall(r"held_err_length\s+KO/WT\s+([\d.]+)", bl)]
+    ref = os.path.join(D, "DEV_CHAIN_Q2_01", "referee_out_summary.txt")
+    if os.path.exists(ref):
+        status = '<span class="chip st-g">Sealed test read</span>'; line = E(open(ref, encoding="utf-8").read().split("\n", 1)[0])
+    else:
+        status = '<span class="chip st-b">Sealed test running</span>'
+        line = ("The test is reading now: 58 healthy blood libraries from a laboratory we had never read, with the prediction, its allowed range "
+                "(built from measured uncertainty, not chosen) and what counts as a miss written down before any of them was opened.")
+    return (f'<section class="wrap" id="baseline"><h2>The newest result: the healthy baseline, from the law</h2>{status}'
+        f'<p class="lead">A cell keeps each methyl mark by paying to restore it against the kicks of heat. From one number of physics, '
+        f'M = {K["M_cell"]["value"]} (how many thermal kicks one ATP is worth), and a price of two ATP per restore, one for each DNA strand, IAM&rsquo;s Law gives '
+        f'the chance that a healthy cell loses a held mark: {K["eps0_candidate"]["value"]} per site. Nothing in it is fitted to methylation data.</p>'
+        f'<p>The cell also erases some marks on purpose, with its TET enzymes. That share was measured: switching the erasers off lowers the loss to '
+        f'{med} of normal in stem cells, and switching off TET2 alone lowers it to {min(ko):.3f}&ndash;{max(ko):.3f} in blood progenitors, inside a range written down before '
+        f'those libraries were read. The law and the measured eraser together, read through the same meter as real cells, give {pred}; healthy cells read {healthy}.</p>'
+        f'<p><b>Where it stands.</b> That agreement was found after the fact, so it is not yet a test. {line}</p>'
+        f'<p class="more"><a href="{rec("Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md")}">The sealed test</a> &middot; '
+        f'<a href="{rec("Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md")}">the eraser measurements</a> &middot; '
+        f'<a href="{rec("Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a></p></section>')
+
+
 def researcher_section(onpage=None):
     """The researcher package on the page (author 2026-10-20). Rendered from the package's own files, so the page and the package cannot differ."""
     RP = J("CANON/researcher_page.json"); MP = "Biological_Physics/MethylPhys/"
@@ -275,13 +304,13 @@ def page(art):
                  f'(Coupling-A), the territories and Met-A on sequencing. Each prints in every report with its flag until it meets its own bars.</p><div class="grid">{_devcards}</div>'
                  f'<p class="more"><a href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The catalogue as a document</a></p></details></section>')
     _bs = importlib.util.spec_from_file_location("bits", os.path.join(REPO, "CANON", "bit_tables.py")); BT = importlib.util.module_from_spec(_bs); _bs.loader.exec_module(BT)
-    _bits_rows = "".join(f'<tr><th>{E(t)}<br><span class="sub">{E(m)}</span></th>' + "".join(f'<td>{E(BT.short(BT.S[k][d].get("native") or BT.S[k][d].get("formula"), 120))} <span class="chip st-b">{E(BT.S[k][d].get("status"))}</span></td>' for d in BT.DOM) + "</tr>"
+    _bits_rows = "".join(f'<tr><th>{E(t)}<br><span class="sub">{E(m)}</span></th>' + "".join(f'<td>{E(BT.short(BT.S[k][d].get("native") or BT.S[k][d].get("formula"), 120))} <span class="chip st-b">{E(BT.S[k][d].get("status"))}</span></td>' for d in BT.PUB) + "</tr>"
                          for t, k, m in BT.ROWS)
-    bits = (f'<section class="wrap" id="bits"><h2>One law, four applications, in computer language</h2>'
-            f'<p class="sub">IAM is a model of how reality begins with a bit and the cost that comes with it. The same terms run through the cosmos, '
-            f'quantum computers, computer chips and living cells; each row gives the word each application uses and how far it is established. Built from the four-domain schematic.</p>'
+    bits = (f'<section class="wrap" id="bits"><h2>One law, from the cosmos to the cell, in computer language</h2>'
+            f'<p class="sub">IAM is a model of how reality begins with a bit and the cost that comes with it. The same terms run from the cosmos '
+            f'to living cells; each row gives the word each uses and how far it is established. Built from the domain schematic.</p>'
             f'<details class="fold"><summary>Open the connections table</summary><div style="overflow-x:auto"><table class="tools"><thead><tr><th>Computer term</th>'
-            + "".join(f"<th>{BT.NAME[d]}</th>" for d in BT.DOM) + f'</tr></thead><tbody>{_bits_rows}</tbody></table></div>'
+            + "".join(f"<th>{BT.NAME[d]}</th>" for d in BT.PUB) + f'</tr></thead><tbody>{_bits_rows}</tbody></table></div>'
             f'<p class="more"><a href="{rec("FOUR_DOMAINS.md")}">Every bit table, with each value and its source, and the four-domain schematic</a></p></details></section>')
     _dlj = sorted(f for f in os.listdir(os.path.join(REPO, "CANON", "daylogs")) if re.fullmatch(r"\d{4}-\d\d-\d\d\.json", f))[-1]
     _DL = J("CANON/daylogs/" + _dlj); _ran = next((x for x in _DL["sections"] if x.get("kind") == "ran"), {"entries": []})
@@ -377,6 +406,7 @@ def page(art):
 <p class="sub">To read the genome, we use the measurement methods cosmologists built for the microwave sky: calibration against a reference, null tests, simulations with known answers, and maps with an uncertainty at every point. <a href="{PDF}#page={CH['astro'][1]}">Where these methods came from, the chapter &rarr;</a></p>
 <p class="cta"><a class="btn" href="#researchers">For researchers: the package</a><a class="btn ghost" href="#atlases">The two atlases, on the globe</a><a class="btn ghost" href="#daylogs">Follow the work</a><a class="btn ghost" href="read/">Read the book</a><a class="btn ghost" href="{E(FUND["url"])}">Help fund it</a></p></div></header>
 <main>
+{breakthrough_section()}
 <section class="wrap" id="wins"><h2>{E(CF["title"])}</h2>{chain_lead}<div class="grid">{results}</div>
 <p class="sub">Each card links to its record. <a href="{rec("Biological_Physics/MethylPhys/EARLIER_RESULTS.md")}">{E(CF["earlier"])}</a> ({n_earlier}, each with its record).</p>
 </section>
@@ -421,7 +451,6 @@ def page(art):
 {bits}
 {catalogue}
 {researcher_section()}
-{campaign}
 {last24}
 <div class="wrap"><p class="continues">{("Running now: " + going + ". ") if going else ""}<a href="#road">The road ahead</a>.</p></div>
 <section class="wrap" id="manifest"><h2>Every test, numbered</h2>
@@ -498,7 +527,7 @@ Full records, including the simulated tests that failed: <a href="{rec("Biologic
 <div class="card"><p class="big">Every run</p><p>its purpose, its estimate before it starts and its actual cost: <a href="{rec("Biological_Physics/MethylPhys/RUNS.md")}">the run ledger</a>.</p></div></div></details></section>
 <section class="wrap"><h2>Check it yourself</h2><div class="grid links">
 <a class="tile" href="read/">The book, every number checked by a script</a><a class="tile" href="book/">Run every check in your browser</a>
-<a class="tile" href="{rec("FOUR_DOMAINS.md")}">One law, four applications, and IAM in bits</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md")}">Commissioning report: what is commissioned and what it passed</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The instrument catalogue</a>
+<a class="tile" href="{rec("FOUR_DOMAINS.md")}">One law, from the cosmos to the cell, and IAM in bits</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md")}">Commissioning report: what is commissioned and what it passed</a><a class="tile" href="{rec("Biological_Physics/MethylPhys/INSTRUMENTS.md")}">The instrument catalogue</a>
 <a class="tile" href="https://github.com/hmahaffeyges/IAM-Validation">The repository: every script and record</a><a class="tile" href="{E(FUND["url"])}">The fundraiser</a></div>
 <p class="more"><b>Cite this work.</b> The book: Mahaffey, H. W. <i>IAM's Law and Order: The Actualization of Reality</i>, version 1.0, 2026, DOI <a href="https://doi.org/10.5281/zenodo.23151068">10.5281/zenodo.23151068</a>. The atlases: IAM-Atlas v2.1, DOI <a href="https://doi.org/10.5281/zenodo.23441999">10.5281/zenodo.23441999</a>; the IAM Sequencing Atlas, DOI <a href="https://doi.org/10.5281/zenodo.24051846">10.5281/zenodo.24051846</a>, and its globe, DOI <a href="https://doi.org/10.5281/zenodo.24029332">10.5281/zenodo.24029332</a>. Code and records carry the MIT license, in the repository. A preprint follows the first replication kit.</p>
 <p class="more"><b>Questions, or think something here is wrong?</b> Open an <a href="https://github.com/hmahaffeyges/IAM-Validation/issues">issue</a> or a <a href="https://github.com/hmahaffeyges/IAM-Validation/discussions">discussion</a>. Finding an error in our numbers is the most useful thing anyone can do with this page.</p>
@@ -550,7 +579,7 @@ sys.path.insert(0, HERE); import md_lite
 INLINE = [("doc-commissioning", "Commissioning report: what is commissioned, its scope and what it passed", "Biological_Physics/MethylPhys/COMMISSIONING_REPORT.md"),
           ("doc-instruments", "The instrument catalogue", "Biological_Physics/MethylPhys/INSTRUMENTS.md"),
           ("doc-why", "Why IAM: what the law gives, beside what the field says", "WHY_IAM.md"),
-          ("doc-four", "One law, four applications, and IAM in bits", "FOUR_DOMAINS.md"),
+          ("doc-four", "One law, from the cosmos to the cell, and IAM in bits", "FOUR_DOMAINS.md"),
           ("doc-runs", "Every rented-computer run and what AWS billed", "Biological_Physics/MethylPhys/RUNS.md"),
           ("doc-status", "Status of every instrument", "Biological_Physics/MethylPhys/STATUS.md")]
 ALIAS = {"development/bit_paper/BIT_TABLES.md": "FOUR_DOMAINS.md"}   # moved; its tables are in FOUR_DOMAINS.md
