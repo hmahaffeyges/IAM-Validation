@@ -4879,3 +4879,9 @@ eraser removed 0.79-0.99 of the control's, median 0.8642). Like for like, throug
 an overshoot because it was compared with the lone-loss reading, the scale error found tonight. **Limits:** found after the forward model, so
 not a sealed test; the eraser share was measured in embryonic and neural stem cells, not blood; the eraser's losses are taken as acting
 like the kicks' on the counter. The sealed referee test now carries both parts, with the eraser share's spread in its bar.
+
+### 2026-11-12 · PHY-085: measuring the eraser's share of the loss in blood (planned; nothing read)
+The eraser's measured share brings the candidate onto the healthy readings (PHY-083, candidate_with_eraser.py), but it was measured in
+embryonic and neural stem cells; in blood it is the largest part of the referee test's bar. Two data sets carry the eraser turned down in blood
+cells: GSE227977 (mouse Tet2 knockout and catalytic mutant, LSK and lineage-negative bone marrow, public) and EGAS00001003454 (cancer-free
+human TET2 germline carriers against non-carriers, blood, controlled access). Reserved; the read rule is sealed before either is opened.

@@ -28547,6 +28547,31 @@
    "next_step": "after the CD4 atlas donors' interior floors: pick one cell line read by the most laboratories; seal the rule and the bar before reading",
    "cost": "GitHub machines",
    "impact": 5
+  },
+  {
+   "runs": [],
+   "depends_on": [
+    "PHY-084"
+   ],
+   "legacy_ids": [],
+   "sources_of_row": [
+    "2026-11-12 session"
+   ],
+   "notes": "added 2026-11-12 night: the eraser's measured share closes the candidate's gap after the fact (candidate_with_eraser.py); measuring it in blood narrows PHY-084's bar",
+   "id": "PHY-085",
+   "title": "The eraser's share of the loss measured in blood cells (tightens the referee bar)",
+   "purpose": "Where IAM's Law is: none directly; the eraser (TET) is a measured loss the law does not set. Its share was measured only in embryonic and neural stem cells (DEV-ERASE-01, median 0.8642); in blood it is the largest part of PHY-084's bar (8.3 %).",
+   "instrument_or_term": "IAM-A (Stage Q2 counter) and the candidate eps0_candidate (PHY-083)",
+   "sources": [
+    "GSE227977 (mouse Tet2 knockout and catalytic-mutant vs wild type, LSK and lineage-negative bone marrow, WGBS, pooled n = 3; public; never read)",
+    "EGAS00001003454 (human cancer-free TET2 germline carriers vs age-matched non-carriers, blood WGBS, 3 + 3; controlled access, an application by the author)"
+   ],
+   "data_status": "reserved",
+   "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
+   "status": "planned",
+   "next_step": "seal the read rule (held error with the eraser reduced over control, by cell population) and read GSE227977 by the one command; ask the author whether to apply to EGA",
+   "cost": "github",
+   "impact": 4
   }
  ],
  "not_tests": {
