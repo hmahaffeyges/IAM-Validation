@@ -31836,7 +31836,7 @@ def check_3921():
     return locals()
 
 @check(label='ch:iama:L61', chapter='ch:iama', part=6, title='healthy donors on H_ref alone, lowest',
-       file='part6/p6_08_iama', line=105, status='measured', kind='file', printed='1.137', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=116, status='measured', kind='file', printed='1.137', tol=0.0, source=_B09_IG)
 def check_3922():
     'Healthy granulocyte donors on the bare floor, H(eps)/H(eps0): lowest. Book line 61, printed 1.137.137. Inputs: iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31844,7 +31844,7 @@ def check_3922():
     return locals()
 
 @check(label='ch:iama:L61:1.168', chapter='ch:iama', part=6, title='healthy donors on H_ref alone, highest',
-       file='part6/p6_08_iama', line=105, status='measured', kind='file', printed='1.168', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=116, status='measured', kind='file', printed='1.168', tol=0.0, source=_B09_IG)
 def check_3923():
     'Healthy donors on the bare floor: highest (the inventory read the range "1.084--1.127" as -1.127; the number is the upper end, 1.127). Book line 61, printed 1.168.169. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31852,7 +31852,7 @@ def check_3923():
     return locals()
 
 @check(label='ch:iama:L53', chapter='ch:iama', part=6, title='healthy donors with P, leave-one-donor-out, lowest',
-       file='part6/p6_08_iama', line=106, status='measured', kind='file', printed='0.984', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=117, status='measured', kind='file', printed='0.984', tol=0.0, source=_B09_IG)
 def check_3924():
     'Each donor read with its own leave-one-donor-out P: H(eps_i)/(P_i H(eps0)): lowest. Book line 62, printed 0.984.978. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31860,7 +31860,7 @@ def check_3924():
     return locals()
 
 @check(label='ch:iama:L53:1.025', chapter='ch:iama', part=6, title='healthy donors with P, leave-one-donor-out, highest',
-       file='part6/p6_08_iama', line=106, status='measured', kind='file', printed='1.025', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=117, status='measured', kind='file', printed='1.025', tol=0.0, source=_B09_IG)
 def check_3925():
     'Each donor with its own leave-one-donor-out P: highest (inventory printed -1.040 from the range dash). Book line 62, printed 1.025.040. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31868,7 +31868,7 @@ def check_3925():
     return locals()
 
 @check(label='ch:iama:L55', chapter='ch:iama', part=6, title='the 2 % rise read at each donor held-out position, lowest',
-       file='part6/p6_08_iama', line=109, status='measured', kind='file', printed='1.273', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=120, status='measured', kind='file', printed='1.273', tol=0.0, source=_B09_IG)
 def check_3926():
     'The same molecules with 2 % held error added, each donor with its leave-one-donor-out P: lowest. Book line 65, printed 1.273.285. Inputs: eps_damaged, iso, opp of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31876,7 +31876,7 @@ def check_3926():
     return locals()
 
 @check(label='ch:iama:L55:1.313', chapter='ch:iama', part=6, title='the 2 % rise read at each donor held-out position, highest',
-       file='part6/p6_08_iama', line=109, status='measured', kind='file', printed='1.313', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=120, status='measured', kind='file', printed='1.313', tol=0.0, source=_B09_IG)
 def check_3927():
     'The same molecules with 2 % held error added: highest (inventory printed -1.346 from the range dash). Book line 65, printed 1.313.346. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31898,7 +31898,7 @@ def check_3929():
     return locals()
 
 @check(label='ch:iama:L74', chapter='ch:iama', part=6, title='P in the curve of the figure',
-       file='part6/p6_08_iama', line=128, status='calc', kind='file', printed='1.149', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=139, status='calc', kind='file', printed='1.149', tol=0.0, source=_B09_IG)
 def check_3930():
     'P used for the curve H(eps)/(P H(eps0)) in the figure: the same P, recomputed from the three donors (see eq:iama). Book line 84, printed 1.149. Inputs: iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31906,7 +31906,7 @@ def check_3930():
     return locals()
 
 @check(label='ch:iama:L75', chapter='ch:iama', part=6, title='a 2 % rise in held error moves the reading by about 0.3',
-       file='part6/p6_08_iama', line=119, status='calc', kind='file', printed='0.3', tol=0.0, source=_B09_IG)
+       file='part6/p6_08_iama', line=130, status='calc', kind='file', printed='0.3', tol=0.0, source=_B09_IG)
 def check_3931():
     'On the curve A = H(eps)/(P H(eps0)), eps0 = 1/(1+e^3.41), P recomputed: the mean over the three donors of A(eps with 2 % added) - A(eps). Book line 75, printed 0.3 ("about"). Inputs: eps (iso/opp) and eps_damaged of iama_floor_granulocytes.csv; E_hold (CANON).'
     eps, ed, oth, e0, P = _b09_gran()
@@ -31915,7 +31915,7 @@ def check_3931():
     return locals()
 
 @check(label='ch:iama:L90', chapter='ch:iama', part=6, title='held error across 56 healthy cell types, lowest',
-       file='part6/p6_08_iama', line=134, status='measured', kind='file', printed='0.033', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part6/p6_08_iama', line=145, status='measured', kind='file', printed='0.033', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3932():
     'held error across 56 healthy cell types, lowest (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 90, printed 0.033.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -31923,14 +31923,14 @@ def check_3932():
     return locals()
 
 @check(label='ch:iama:L90:0.042', chapter='ch:iama', part=6, title='held error across 56 healthy cell types, highest',
-       file='part6/p6_08_iama', line=134, status='measured', kind='num', printed='0.042', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=145, status='measured', kind='num', printed='0.042', tol=0.0, source=_B09_PC)
 def check_3933():
     'Held error across the 56 healthy cell types: upper end. Book line 90, printed 0.042. Inputs: PROC_CHANNEL_01_OUTCOME.md.'
     value=_chan()['eps_max']
     return locals()
 
 @check(label='ch:iama:L90:3.41', chapter='ch:iama', part=6, title='holding energy across 56 cell types, mean',
-       file='part6/p6_08_iama', line=134, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part6/p6_08_iama', line=145, status='measured', kind='file', printed='3.08', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3934():
     'holding energy across 56 cell types, mean (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 90, printed 3.08.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -31938,14 +31938,14 @@ def check_3934():
     return locals()
 
 @check(label='ch:iama:L91', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, lowest',
-       file='part6/p6_08_iama', line=135, status='measured', kind='file', printed='0.79', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=146, status='measured', kind='file', printed='0.79', tol=0.0, source=_B09_PC)
 def check_3935():
     'The 56 healthy cell types read on the one physics floor eps0 (methylated channel): lowest A (0.794). Book line 91, printed 0.79. Inputs: PROC_CHANNEL_01_OUTCOME.md section 3, row "methylated".'
     value = _b09_nums(_b09_md_line(_B09_PC, '| methylated |'))[2]
     return locals()
 
 @check(label='ch:iama:L91:1.23', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, highest',
-       file='part6/p6_08_iama', line=135, status='measured', kind='file', printed='1.18', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part6/p6_08_iama', line=146, status='measured', kind='file', printed='1.18', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3936():
     'healthy cell types on one physics floor, highest (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 1.18.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -31953,7 +31953,7 @@ def check_3936():
     return locals()
 
 @check(label='ch:iama:L91:1.01', chapter='ch:iama', part=6, title='healthy cell types on one physics floor, median',
-       file='part6/p6_08_iama', line=135, status='measured', kind='file', printed='1.02', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part6/p6_08_iama', line=146, status='measured', kind='file', printed='1.02', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3937():
     'healthy cell types on one physics floor, median (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 91, printed 1.02.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -31961,7 +31961,7 @@ def check_3937():
     return locals()
 
 @check(label='ch:iama:L94', chapter='ch:iama', part=6, title='held error on the common sites, highest over lowest',
-       file='part6/p6_08_iama', line=138, status='measured', kind='file', printed='1.66', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=149, status='measured', kind='file', printed='1.66', tol=0.0, source=_B09_PC)
 def check_3938():
     'Fold difference of held error on the 26,800 CpGs all 56 cell types keep methylated: highest over lowest, recomputed from the range 0.0136-0.0226 in the record. Book line 94, printed 1.66. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
     lo, hi = _b09_nums(_b09_md_line(_B09_PC, '- Copy error on the common sites'))[1:3]  # matches a dated record's wording (retired term)
@@ -31969,21 +31969,21 @@ def check_3938():
     return locals()
 
 @check(label='ch:iama:L95', chapter='ch:iama', part=6, title='intraclass correlation of the common-site held error across donors',
-       file='part6/p6_08_iama', line=139, status='measured', kind='file', printed='0.80', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=150, status='measured', kind='file', printed='0.80', tol=0.0, source=_B09_PC)
 def check_3939():
     'Replicate agreement of the common-site held error, 53 cell types with >= 2 samples from different donors: intraclass correlation. Book line 95, printed 0.80. Inputs: PROC_CHANNEL_01_OUTCOME.md section 7.'
     value = float(re.search(r"intraclass\s+correlation\s+(\d+\.\d+)", file_text(_B09_PC)).group(1))
     return locals()
 
 @check(label='ch:iama:L96', chapter='ch:iama', part=6, title='colon epithelium lifespan (days)',
-       file='part6/p6_08_iama', line=140, status='measured', kind='file', printed='3.4', tol=0.0, source=_B09_PC)
+       file='part6/p6_08_iama', line=151, status='measured', kind='file', printed='3.4', tol=0.0, source=_B09_PC)
 def check_3940():
     'Colon epithelium lifespan in days as taken from Sender and Milo 2021 (Summary table) into the record of the turnover test. Book line 96, printed 3.4. Inputs: PROC_CHANNEL_01_OUTCOME.md section 4.'
     value = float(re.search(r"Colon epithelium \((\d+\.\d+)-day lifespan\)", file_text(_B09_PC)).group(1))
     return locals()
 
 @check(label='ch:iama:L97', chapter='ch:iama', part=6, title='held error of colon epithelium and cardiomyocytes',
-       file='part6/p6_08_iama', line=141, status='measured', kind='file', printed='0.042', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
+       file='part6/p6_08_iama', line=152, status='measured', kind='file', printed='0.042', tol=0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
 def check_3941():
     'held error of colon epithelium and cardiomyocytes (held error per interior opportunity, chain Stage Q2, 56 healthy cell types; 2026-10-19). Book line 97, printed 0.042.'
     R=load_json('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/holding_energy_q2.json')
@@ -44422,6 +44422,67 @@ def check_mc_ak_eps_hi():
 def check_mc_ak_ident():
     'SAM/coin = 2 - dG_AK/coin.'
     a, ak = sp.symbols('a ak'); lhs = (a + (a - ak)) / a; rhs = 2 - ak / a; ok = sp.simplify(lhs - rhs) == 0
+    return locals()
+
+DATA_FILES['Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt'] = 'PHY-084, the blind test of the baseline, read by the agreed standard (referee_classes.py on the sealed scorer output)'
+
+def _ref_row(cell, k):
+    m = re.search(r'^\s*' + cell + r'\s+(\d+)\s+[\d.]+\s+[\d.]+\s+[\d.]+\s+(-?[\d.]+)\s+\w+', load_data('Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt'), re.M)
+    if not m: raise ValueError('row not found: ' + cell)
+    return float(m.group(k))
+
+@check(label='ch:iama:ref:n_total', chapter='ch:iama', part=6, title='libraries read in the blind test', file='part6/p6_08_iama', line=106, status='measured', kind='file', printed='54', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_0():
+    'libraries read in the blind test. Book printed 54.'
+    value = sum(_ref_row(c, 1) for c in ('b cells', 'cd4 t cells', 'cd8 t cells', 'monocytes'))
+    return locals()
+
+@check(label='ch:iama:ref:n_b', chapter='ch:iama', part=6, title='B-cell libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='23', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_1():
+    'B-cell libraries. Book printed 23.'
+    value = _ref_row('b cells', 1)
+    return locals()
+
+@check(label='ch:iama:ref:n_cd4', chapter='ch:iama', part=6, title='CD4 libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='9', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_2():
+    'CD4 libraries. Book printed 9.'
+    value = _ref_row('cd4 t cells', 1)
+    return locals()
+
+@check(label='ch:iama:ref:n_cd8', chapter='ch:iama', part=6, title='CD8 libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='12', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_3():
+    'CD8 libraries. Book printed 12.'
+    value = _ref_row('cd8 t cells', 1)
+    return locals()
+
+@check(label='ch:iama:ref:n_mono', chapter='ch:iama', part=6, title='monocyte libraries', file='part6/p6_08_iama', line=107, status='measured', kind='file', printed='10', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_4():
+    'monocyte libraries. Book printed 10.'
+    value = _ref_row('monocytes', 1)
+    return locals()
+
+@check(label='ch:iama:ref:p_cd4', chapter='ch:iama', part=6, title='CD4 pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-0.45', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_5():
+    'CD4 pull. Book printed -0.45.'
+    value = _ref_row('cd4 t cells', 2)
+    return locals()
+
+@check(label='ch:iama:ref:p_cd8', chapter='ch:iama', part=6, title='CD8 pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-1.72', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_6():
+    'CD8 pull. Book printed -1.72.'
+    value = _ref_row('cd8 t cells', 2)
+    return locals()
+
+@check(label='ch:iama:ref:p_mono', chapter='ch:iama', part=6, title='monocyte pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-0.54', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_7():
+    'monocyte pull. Book printed -0.54.'
+    value = _ref_row('monocytes', 2)
+    return locals()
+
+@check(label='ch:iama:ref:p_b', chapter='ch:iama', part=6, title='B-cell pull', file='part6/p6_08_iama', line=110, status='measured', kind='file', printed='-2.45', tol=0.0, source='Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes_summary.txt')
+def check_ref_8():
+    'B-cell pull. Book printed -2.45.'
+    value = _ref_row('b cells', 2)
     return locals()
 
 if __name__ == "__main__":
