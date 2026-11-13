@@ -171,7 +171,11 @@ RSX=$(python3 -c "import csv,sys; r=[x for x in csv.DictReader(open(sys.argv[1])
     --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 35
 echo "{\"gsm\": \"$GSM\", \"pairs\": $n1, \"index_s\": $((TI-T0)), \"fetch_s\": $((TF-TI)), \"align_s\": $((TA-TF)), \"to_pat_s\": $((TP-TA)), \"threads\": $T, \"genome\": \"$gen\"}" > $OUT/${GSM}_timing.json; cat $OUT/${GSM}_timing.json; exit 0
 fi
-( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --specimen "cultured cells" --seq-cell "$GSM" --id $GSM --dev-count-only \
+# 2026-11-12 (PHY-085 canary, exit 35): the genome-coverage check (2026-11-04, after the recount) measures coverage at IAM-Atlas v2.1's
+# human sites, so a mouse library can never pass it (it has no chr20-22). A count on a non-human genome passes it with the development
+# flag the Decoder gives for counts; human counts keep the check. The count still samples blocks across the whole run (erase_blocks.py).
+case "$gen" in hg19|hg38) PG="" ;; *) PG="--dev-allow-partial-genome" ;; esac
+( cd $MP/chain/MethylPhys_Interface && "$CHAINPY" run_sample.py --pat $PAT --specimen "cultured cells" --seq-cell "$GSM" --id $GSM --dev-count-only $PG \
     --dev-count-genome $gen --dev-count-tiles $OUT/${GSM}_tiles.csv.gz --out $OUT/${GSM}_report.html --bundle $OUT/${GSM}_bundle.json > $OUT/${GSM}_run_sample.log 2>&1 ) || exit 35
 python3 -c "import json,sys; B=json.load(open(sys.argv[1])); c=B['iam_a_count_only']; json.dump(dict(gsm=sys.argv[2], genome=c['genome'], counter='run_sample.py --dev-count-only (chain Stage Q2)', **c['count']), open(sys.argv[3], 'w'), indent=1)" \
     $OUT/${GSM}_bundle.json $GSM $OUT/${GSM}_q2.json || exit 36
