@@ -4955,3 +4955,9 @@ EGAS00001003454 (PHY-085).
 `doors/DEV_ERASE_01.md` (section PHY-085), `doors/data/DEV_ERASE_01/erase_blood_samples.csv`: GSE227977's six mouse bone-marrow libraries
 (LSK and lineage-negative; Tet2 wild type, catalytic mutant, knockout), read exactly as the recount (count only, 10 million pairs per library
 in blocks across the run). Expected before reading: knockout over wild type 0.86-0.95 in both units. Canary first.
+
+### 2026-11-12 · OTH-074: the operator guide brought up to the chain's current behavior
+`sop/MethylPhys_CPG_SOP_v4.md`: the cell for --pat and --bam comes from the IAM-Deconvolver, never the specimen's words (2026-11-07); only a
+--site-table names its cell; the same-run tare text removed (healthy comes only from the atlases); the specimens read, read and flagged
+(plasma, marrow, tissue, unnamed and cell lines, since 2026-10-23) and refused (PBMC, saliva, buccal), checked against stage_0_intake; the
+genome-coverage stop's WHY; this month's development options listed, every option in the Decoder.

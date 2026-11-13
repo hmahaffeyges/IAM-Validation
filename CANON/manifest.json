@@ -27809,7 +27809,7 @@
     }
    ],
    "next_step": "wording fix confirmed by clean clone run 9 (25 of 25)",
-   "notes": "2026-10-18: operations manual rebuilt for chain v4 (manual/OM_v4_chain.md, build_manual_v4.py); SOP and run_sample help: the reference table needs columns A and C"
+   "notes": "2026-10-18: operations manual rebuilt for chain v4 (manual/OM_v4_chain.md, build_manual_v4.py); SOP and run_sample help: the reference table needs columns A and C | 2026-11-12: operator guide brought up to current behavior: Biological_Physics/MethylPhys/sop/MethylPhys_CPG_SOP_v4.md"
   },
   {
    "id": "ATL-069",
