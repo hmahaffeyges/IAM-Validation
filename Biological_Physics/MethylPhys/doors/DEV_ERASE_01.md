@@ -369,3 +369,11 @@ stem cells' total share); mutant over wild type between knockout's and 1.
 the referee test's eraser input is reconsidered before sealing.
 **Synthetic test:** DEV_CHAIN_Q2_01/counter_synthetic.py, DEV_CHAIN_Q2_01/counter_synthetic_summary.txt
 
+**PHY-085 outcome (2026-11-13): met.** Six GitHub runs (erase_test.yml, count only, 10 million pairs per library in blocks; `data/DEV_ERASE_01/blood_01/`).
+Lone-loss held error, knockout over wild type: LSK 0.900 +/- 0.013, lineage-negative 0.909 +/- 0.013 (sealed expectation 0.86-0.95: both
+inside). Catalytic mutant over wild type: 0.952 and 0.934 (expected between the knockout's and 1: both). Per-call and pooled-error ratios
+agree within 0.02. **Meaning:** TET2 alone causes about 9-10 % of held-mark losses in mouse blood progenitors; the five stem-cell units
+(all TETs) gave 13.6 %, so blood's total eraser share is at least this, consistent with it. **Limits:** mouse, bone-marrow progenitors (not
+mature human blood); one pooled library per genotype; the error bars are binomial widened by each library's coupling and still understate
+library-to-library spread; molecule-end damage differs between libraries (0.0018-0.0049), so part of a ratio may be meter, not eraser.
+

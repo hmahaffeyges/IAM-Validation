@@ -1,0 +1,18 @@
+B1 LSK      held_err_length  KO/WT  0.8998 +/- 0.0129  (in 0.86-0.95: True)
+B1 LSK      held_err_length  Mut/WT 0.9520 +/- 0.0133  (in 0.86-0.95: False)
+B1 LSK      held_e_call      KO/WT  0.8918 +/- 0.0123  (in 0.86-0.95: True)
+B1 LSK      held_e_call      Mut/WT 0.9479 +/- 0.0127  (in 0.86-0.95: True)
+B1 LSK      held_err         KO/WT  0.9088 +/- 0.0138  (in 0.86-0.95: True)
+B1 LSK      held_err         Mut/WT 0.9564 +/- 0.0142  (in 0.86-0.95: False)
+B2 Lin-neg  held_err_length  KO/WT  0.9086 +/- 0.0126  (in 0.86-0.95: True)
+B2 Lin-neg  held_err_length  Mut/WT 0.9340 +/- 0.0131  (in 0.86-0.95: True)
+B2 Lin-neg  held_e_call      KO/WT  0.9011 +/- 0.0120  (in 0.86-0.95: True)
+B2 Lin-neg  held_e_call      Mut/WT 0.9284 +/- 0.0125  (in 0.86-0.95: True)
+B2 Lin-neg  held_err         KO/WT  0.9167 +/- 0.0134  (in 0.86-0.95: True)
+B2 Lin-neg  held_err         Mut/WT 0.9405 +/- 0.0139  (in 0.86-0.95: True)
+GSM7111686 held_opp 508341 loose 0.101 mol_n 14177 end_damage 0.00445
+GSM7111687 held_opp 512332 loose 0.077 mol_n 13949 end_damage 0.00178
+GSM7111688 held_opp 533085 loose 0.081 mol_n 14262 end_damage 0.00383
+GSM7111689 held_opp 503469 loose 0.105 mol_n 14196 end_damage 0.0049
+GSM7111690 held_opp 557994 loose 0.086 mol_n 15190 end_damage 0.00459
+GSM7111691 held_opp 543914 loose 0.088 mol_n 14732 end_damage 0.00394

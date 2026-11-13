@@ -4986,3 +4986,8 @@ it, flagged") and the verdict line, as strict as before.
 
 ### 2026-11-13 · OTH-070: the release check passes, 34 of 34
 release.yml on bbf79331 (GitHub run 43374282691): PASS, 34 checks, 4,526 s. First full pass since the report PDFs stopped building.
+
+### 2026-11-13 · PHY-085: the eraser in blood progenitors read; met (TET2 alone, 9-10 % of losses)
+**Where IAM's Law is:** none directly; a measured input to PHY-084. GSE227977, read by the sealed rule (doors/DEV_ERASE_01.md): knockout over
+wild type 0.900 (LSK) and 0.909 (lineage-negative), inside the sealed 0.86-0.95; mutant 0.952 and 0.934, between the knockout's and 1. TET2
+alone accounts for about 9-10 % of losses in blood progenitors, against 13.6 % for all erasers in stem cells. Limits in the record.
