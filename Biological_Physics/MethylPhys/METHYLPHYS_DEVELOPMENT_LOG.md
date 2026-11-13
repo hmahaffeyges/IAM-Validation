@@ -4961,3 +4961,7 @@ in blocks across the run). Expected before reading: knockout over wild type 0.86
 --site-table names its cell; the same-run tare text removed (healthy comes only from the atlases); the specimens read, read and flagged
 (plasma, marrow, tissue, unnamed and cell lines, since 2026-10-23) and refused (PBMC, saliva, buccal), checked against stage_0_intake; the
 genome-coverage stop's WHY; this month's development options listed, every option in the Decoder.
+
+### 2026-11-12 · PHY-085: the controlled-access human set dropped (public data only)
+EGAS00001003454 is controlled access; the project reads public data only (CANON/status_facts.json, public_data_only). PHY-085 rests on
+GSE227977 alone. My error: I had listed it as a source.
