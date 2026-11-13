@@ -1,0 +1,5 @@
+coin (kJ/mol) | per-site thermal | WT / thermal | KO / thermal | Mut / thermal
+canon 54.0 | 0.04454 | 0.944-0.956 | 0.849-0.869 | 0.893-0.899
+in-tissue mean 58.5 | 0.04133 | 1.017-1.031 | 0.915-0.936 | 0.963-0.968
+human brain 62.1 | 0.03907 | 1.076-1.090 | 0.968-0.990 | 1.018-1.024
+Reading: with the erasers removed the progenitors read below the thermal level at the canon coin (a floor should not be crossed); at measured coins they come closer. The coin is the lead for each type's level.

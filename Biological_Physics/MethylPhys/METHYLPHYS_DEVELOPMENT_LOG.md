@@ -5132,3 +5132,10 @@ passes; 2 to 3 watch; beyond 3 a real miss; one result just past 2 is not a refu
 monocytes -0.54 pass; B cells -2.45 watch; no type beyond 3. Both readings stay in the record; the shared negative direction stays on watch.
 The design sheet now requires the pass rule in the standard's own classes (bars.rule; a planted case refuses 'all inside')
 (Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md; Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes.py).
+
+### 2026-11-13 · PHY-083: rehearsal before a physics-only knockout prediction: the knockouts read below the thermal level at the canon coin
+Before sealing 'with the erasers removed, every type falls to the thermal level' for PHY-086, the prediction was rehearsed on PHY-085's
+spent counts (the design sheet's new rule): TET2-knockout progenitors read 0.85-0.87 of the thermal level at the canon coin (54 kJ/mol),
+which a floor should not allow, and 0.92-0.94 at the measured in-tissue coin (58.5). It is not sealed in that form. Lead: the coin, larger in
+cells that hold best, as a second route to each type's own level. Register, four domains (PHY-084 result) and the simulator's status line
+updated (Biological_Physics/MethylPhys/doors/data/DEV_ERASE_01/blood_01/knockout_thermal_rehearsal.py).

@@ -42,7 +42,7 @@ IAM_RELATIONS = {
                    "(Boltzmann); IAM's content is that E_hold is the share of the drive maintenance delivers (E_hold = phi M kT), so the error moves "
                    "with the drive and the local temperature",
     "delivery_phi": "phi = E_hold / M: the share of each coin delivered as holding",
-    "driven_passage": "CANDIDATE (PHY-083): the baseline as restoring paid against thermal kicks, odds = (w/2)/(1-(1-e^-w)/w), w = W/kT, W = (SAM price in coins) x M kT per methyl transfer; candidate, its test not yet passed",
+    "driven_passage": "CANDIDATE (PHY-083): the baseline as restoring paid against thermal kicks, odds = (w/2)/(1-(1-e^-w)/w), w = W/kT, W = (SAM price in coins) x M kT per methyl transfer; candidate; blind test PHY-084 passed by the agreed standard (B cells on watch, pull -2.45)",
     "virial_half": "a 1/r-bound record releases exactly half its binding energy as the minimum cost of the record it writes (the book's labels apply)",
 }
 
