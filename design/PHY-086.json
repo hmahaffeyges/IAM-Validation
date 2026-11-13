@@ -75,5 +75,8 @@
     "why": "2 million pairs gives about 1.5 % counting error per library, as large as the replicate scatter"
    }
   ]
+ },
+ "bars": {
+  "rule": "GUM k = 2; pull within 2 passes, 2 to 3 watch, beyond 3 a real miss (WHY_IAM.md rule 4) (PHY-086 P-rules were written as ranges before this rule; read by the classes as well)"
  }
 }

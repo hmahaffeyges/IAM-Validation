@@ -86,9 +86,10 @@ def breakthrough_section():
     ko = [float(x) for x in re.findall(r"held_err_length\s+KO/WT\s+([\d.]+)", bl)]
     ref = os.path.join(D, "DEV_CHAIN_Q2_01", "referee_out_summary.txt")
     if os.path.exists(ref):
-        first = open(ref, encoding="utf-8").read().split("\n", 1)[0]
-        met = ": MET" in first
-        status = f'<span class="chip {"st-g" if met else "st-r"}">Sealed test {"met" if met else "not met"}</span>'; line = E(first)
+        cls = os.path.join(D, "DEV_CHAIN_Q2_01", "referee_classes_summary.txt")
+        first = open(cls if os.path.exists(cls) else ref, encoding="utf-8").read().split("\n", 1)[0]
+        met = ": MET" in first or ": passes" in first
+        status = f'<span class="chip {"st-g" if met else "st-r"}">Sealed test {"passed, one on watch" if met and "watch" in first else ("met" if met else "not met")}</span>'; line = E(first)
     else:
         status = '<span class="chip st-b">Sealed test running</span>'
         line = ("The test is reading now: 58 healthy blood libraries from a laboratory we had never read, with the prediction, its allowed range "

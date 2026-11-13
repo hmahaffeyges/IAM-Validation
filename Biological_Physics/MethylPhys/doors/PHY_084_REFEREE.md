@@ -101,3 +101,26 @@ says that is not enough for B cells.
 **What it does not license.** No refit and no new bar on these libraries: they are spent for this question. The candidate stays a candidate,
 now with a blind test not met. Open, in the derivation register: each cell type's own level (A8: PHY-086, the eraser's share by type,
 reading), and whether a laboratory's meter offset differs from the forward model's (the grid used the healthy atlas laboratory's molecules).
+
+## Read by the agreed standard (amendment 4, 2026-11-13, after the result; the scorer and its output unchanged)
+
+The project's standard for reading a sealed result (WHY_IAM.md rule 4: within 2 passes; 2 to 3, watch; beyond 3, a real miss; one result
+just past 2 is not a refutation) was committed on 2026-11-12 (938a6f81), 23 hours before this record was sealed (a1a956da). This record's
+pass rule (NOT MET if any type lies outside k = 2) was stricter than that standard and should have used it; the error was in writing the
+seal, not in the data. Read by the standard that existed before the seal (data/DEV_CHAIN_Q2_01/referee_classes.py):
+
+```
+PHY-084 by the agreed standard (WHY_IAM.md rule 4, committed before the seal): passes, with b cells on watch (pull -2.45); no cell type beyond 3. By the seal's stricter wording (any type outside k = 2): NOT MET.
+
+       cell  n  intercept  pred_mid  u_combined  pull class
+    b cells 23    0.03248   0.04377      0.1054 -2.45 watch
+cd4 t cells  9    0.04043   0.04370      0.1654 -0.45  pass
+cd8 t cells 12    0.03337   0.04370      0.1372 -1.72  pass
+  monocytes 10    0.03996   0.04350      0.1502 -0.54  pass
+
+All four pulls are negative (mean -1.29): the shared direction is on watch too; it is not independent across types (the between-type term is common).
+```
+
+Both readings stay in the record. The B-cell pull (-2.45) and the shared negative direction remain the open items (diagnosis:
+data/DEV_CHAIN_Q2_01/referee_diagnosis_summary.txt). From now on a sealed pass rule must be the standard's own classes
+(CANON/TEST_DESIGN_CHECKLIST.md, bars.rule).

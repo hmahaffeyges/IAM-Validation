@@ -78,5 +78,8 @@
     "why": "tests the model's mixing, not the data's; kept as step 2"
    }
   ]
+ },
+ "bars": {
+  "rule": "GUM k = 2; pull within 2 passes, 2 to 3 watch, beyond 3 a real miss (WHY_IAM.md rule 4)"
  }
 }

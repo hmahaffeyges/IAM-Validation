@@ -8,6 +8,7 @@ OK = {"physics": {"where_iam_law": "the candidate's hold against thermal kicks a
       "kiss": {"smallest": "two wild type, two knockout: the fewest that measure replicate scatter", "samples_why": "each arm needs two"},
       "machines": {"platform": "github", "github_free_at_design": 17, "s_per_pair": "0.0005 (PHY-085 timing.json)", "pairs": 10000000,
                    "peak_mem_gb": 6, "machine_mem_gb": 16, "parallel_per_machine": 1, "expected_hours": 2.2, "time_limit_hours": 6, "cost": "free"},
+      "bars": {"rule": "GUM k = 2; pull within 2 passes, 2 to 3 watch, beyond 3 a real miss (WHY_IAM.md rule 4)"},
       "save": {"resume": "ckpt"}, "watchers": {"count": 1, "stop_condition": "all four runs completed"},
       "canary": {"instrument_check": {"qc_failed_max": 0.05, "mapped_min": 0.95, "s_per_pair_max": 0.0015}},
       "cosmologist": {"method": "forward-model the knockout through the same counter; self-calibrate on the lambda spike", "null_test": "the two wild-type replicates must agree before any ratio is read"},
@@ -38,5 +39,6 @@ R = [case("complete sheet passes", lambda S: None, False),
      case("no preflight refused (the four referee libraries on chr1 and chr2, 11-13)", lambda S: S["data"].pop("preflight"), True),
      case("preflight that found a problem without resolving it refused", lambda S: S["data"]["preflight"].update(result="chr6 missing in 4 libraries"), True),
      case("'quality-failed share' in a clean preflight is not a problem", lambda S: S["data"]["preflight"].update(result="99.8 % mapped, 2.8 % quality-failed share"), False),
+     case("'MET only if every type is inside' without the agreed classes refused (PHY-084, 11-13)", lambda S: S["bars"].update(rule="MET if all four types lie inside k = 2"), True),
      case("count-only canary with its own three numbers passes", lambda S: S["canary"].update(instrument_check={"rows_min": 14000, "halves_corr_min": 0.7, "hours_per_sample_max": 3}), False)]
 print("design_check_controls: " + ("ok" if all(R) else "FAILED")); sys.exit(0 if all(R) else 1)

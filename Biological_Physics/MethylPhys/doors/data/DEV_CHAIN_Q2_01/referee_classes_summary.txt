@@ -1,0 +1,9 @@
+PHY-084 by the agreed standard (WHY_IAM.md rule 4, committed before the seal): passes, with b cells on watch (pull -2.45); no cell type beyond 3. By the seal's stricter wording (any type outside k = 2): NOT MET.
+
+       cell  n  intercept  pred_mid  u_combined  pull class
+    b cells 23    0.03248   0.04377      0.1054 -2.45 watch
+cd4 t cells  9    0.04043   0.04370      0.1654 -0.45  pass
+cd8 t cells 12    0.03337   0.04370      0.1372 -1.72  pass
+  monocytes 10    0.03996   0.04350      0.1502 -0.54  pass
+
+All four pulls are negative (mean -1.29): the shared direction is on watch too; it is not independent across types (the between-type term is common).

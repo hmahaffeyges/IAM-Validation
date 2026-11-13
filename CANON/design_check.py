@@ -38,6 +38,9 @@ def sheet_findings(S, name="sheet"):
         F.append(f"{name}: canary.instrument_check needs numbers: {', '.join(ALIGN)} (alignment jobs) or {', '.join(COUNT)} (count-only jobs)")
     if FLAG.search(str(get(S, "data.protocol_read") or "")) and not get(S, "data.method_ok"):
         F.append(f"{name}: the deposited method is flagged ({FLAG.search(str(get(S, 'data.protocol_read'))).group(0)}) and data.method_ok does not say how the read path handles it")
+    br = str(get(S, "bars.rule") or "")
+    if br and not (re.search(r"(?i)within 2", br) and re.search(r"(?i)beyond 3", br) and re.search(r"(?i)watch", br)):
+        F.append(f"{name}: bars.rule must use the agreed classes (WHY_IAM.md rule 4: within 2 passes; 2 to 3 watch; beyond 3 a real miss)")
     O = get(S, "value.options")
     if not (isinstance(O, list) and len(O) >= 2 and all(isinstance(o, dict) and num(o.get("hours")) is not None and num(o.get("cost_usd")) is not None and "adequate" in o for o in O)):
         F.append(f"{name}: value.options needs at least two options, each with hours, cost_usd and adequate")

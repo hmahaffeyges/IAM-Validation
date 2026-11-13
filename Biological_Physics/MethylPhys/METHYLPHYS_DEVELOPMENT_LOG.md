@@ -5124,3 +5124,11 @@ type by type (0.876-0.965), at every molecule length (the gap grows with length,
 at 3.5 % of it, so the usual laboratory meter faults are not the cause. The scorer's own slope: B cells' slope fitted in their own 23
 libraries gives 0.0325, against 0.0371 along IAM-A's slope. Donor age, a known driver of loss, is not assessed: GSE173787 deposited no ages.
 (Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_diagnosis.py, referee_diagnosis_summary.txt.)
+
+### 2026-11-13 · PHY-084 amendment 4: read by the agreed standard, it passes with B cells on watch (pull -2.45)
+The author asked whether the agreed scoring method was used. It was not, for the verdict: the bar followed it (GUM, k = 2), but the pass
+rule I sealed (NOT MET if any type lies outside) was stricter than the standard committed 23 hours earlier (WHY_IAM.md rule 4: within 2
+passes; 2 to 3 watch; beyond 3 a real miss; one result just past 2 is not a refutation). Read by that standard: CD4 -0.45, CD8 -1.72,
+monocytes -0.54 pass; B cells -2.45 watch; no type beyond 3. Both readings stay in the record; the shared negative direction stays on watch.
+The design sheet now requires the pass rule in the standard's own classes (bars.rule; a planted case refuses 'all inside')
+(Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md; Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_classes.py).

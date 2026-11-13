@@ -43,4 +43,5 @@ Answers are evidence (numbers, file names, quoted protocol lines), not reassuran
 | cosmologist.method | How the CMB missions would answer this (forward model through the instrument, null tests, self-calibration on calibrators, cross-spectra between independent halves) and whether this design does it |
 | data.needs | Every field and condition the test needs from the data (e.g. both strands, paired reads, whole-genome spread, the cell label, read length) |
 | data.preflight | A check on a small slice, minutes long, that confirms every item in data.needs BEFORE the canary or any full run: what was checked, minutes taken, and the result |
+| bars.rule | The pass rule, in the agreed standard's own classes (WHY_IAM.md rule 4: pull within 2 passes; 2 to 3 watch; beyond 3 a real miss), with the bar from measured uncertainty (GUM, k = 2) |
 | cosmologist.null_test | The null test or self-calibration in this design, stated before it runs |
