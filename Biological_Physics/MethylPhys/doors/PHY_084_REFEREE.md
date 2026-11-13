@@ -38,6 +38,14 @@ the coverage check and counted. Its report's figure, shown to the agent, display
 Normal). That is not the sealed quantity (each cell type's zero-loose intercept against the M-based prediction), and nothing in this record
 was changed after it was seen. All 58 libraries, the canary's included, are then read at the sealed depth.
 
+**Amendment 3 (2026-11-13, 1:15 PM Pacific, after all 58 runs finished and before any held error was computed).** The chain refused four libraries at intake
+(exit 35, genome coverage: GSM5278446, B; GSM5278470, GSM5278472, GSM5278476, CD4; about 99 % of their molecules fall on chr1 and chr2
+although the 2,000-block plan spans each whole run). As this record already rules, they are reported, not read by another route. The
+scorer stopped on their missing counts before computing anything; it now takes the list of intake refusals
+(data/DEV_CHAIN_Q2_01/referee_refused_intake.csv, exit 35 only) and drops them, and any other missing count still stops it. B is scored on
+23 libraries, CD4 on 9, CD8 on 12, monocytes on 10. The prediction, the bar and the pass rule are unchanged; the scorer's synthetic test
+gives the same verdicts.
+
 **The prediction, through the meter.** For each cell type, the counter's lone-loss reading (`held_err_length`) that the forward model gives
 at that cell type's own measured clustering (median `coupling` of its libraries, an instrument property read from the same libraries),
 interpolated on the committed grid (`data/DEV_CHAIN_Q2_01/forward_out/pg_<ratio>_<x>.csv`: forward_candidate.py, seq mode, 3 samples of

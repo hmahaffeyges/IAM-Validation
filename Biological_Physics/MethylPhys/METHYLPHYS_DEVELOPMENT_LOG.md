@@ -5096,3 +5096,6 @@ CANON/TEST_DESIGN_CHECKLIST.md (physics, data and its deposited method, KISS, ma
 a numeric canary rule, the cosmologist's null test), before its first synthetic test (CANON/design_check.py in the gate; its controls plant
 each of the 11-13 mistakes and must refuse them). The launchers refuse any job whose row has no complete sheet on main naming that
 platform. Sheets written after the fact for PHY-086 and PHY-087 record their gaps.
+
+### 2026-11-13 · PHY-084 amendment 3: the four intake refusals reported and dropped before scoring
+All 58 runs finished: 54 counted, 4 refused at intake (exit 35). The scorer takes the refusals as a list (exit 35 only) and drops them; prediction, bar and pass rule unchanged (Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md, amendment 3).

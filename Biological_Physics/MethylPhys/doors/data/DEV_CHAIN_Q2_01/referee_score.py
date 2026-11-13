@@ -14,7 +14,7 @@ sd of log held error); the eraser band as a uniform distribution (half-width ove
 replicate spread; copier lag 0.4 % (lag_bound_blood.py); the intercept's own resampled standard error. Met if every cell type's
 intercept lies within its bar; not met if any lies outside.
 
-Usage: python3 referee_score.py COUNTS_DIR SAMPLES_CSV GRID_DIR OUT_PREFIX
+Usage: python3 referee_score.py COUNTS_DIR SAMPLES_CSV GRID_DIR OUT_PREFIX [REFUSED_CSV]
   COUNTS_DIR: one count JSON per library (erase_gh.sh's *_count.json form: gsm, held_err_length, loose_share, coupling)
   SAMPLES_CSV: columns gsm, cell
   GRID_DIR: forward_candidate.py outputs named pg_<ratio>_<coupling-param>.csv
@@ -59,10 +59,16 @@ def predict(G, r, coupling):
     return float(np.interp(coupling, c, v))
 
 
+REFUSED = None
+
+
 def load(cdir, scsv):
     S = pd.read_csv(scsv); S["cell"] = S.cell.str.lower().str.strip(); R = []
     for f in sorted(glob.glob(os.path.join(cdir, "*_count.json"))):
         c = json.load(open(f)); R.append(dict(gsm=c["gsm"], obs=c["held_err_length"], loose=c["loose_share"], coupling=c["coupling"]))
+    # 2026-11-13, amendment 3 (before scoring): libraries the chain refused at intake are reported, not read by another route (sealed rule);
+    # they are named in REFUSED_CSV with their exit code and dropped from the list; any other missing count still stops the scorer
+    if REFUSED is not None: S = S[~S.gsm.isin(REFUSED.gsm)]
     X = pd.DataFrame(R).merge(S, on="gsm", how="inner")
     if len(X) != len(S): raise SystemExit(f"{len(S) - len(X)} libraries in the sample list have no count")
     return X
@@ -88,4 +94,7 @@ def main(cdir, scsv, gdir, out):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 5:
+        REFUSED = pd.read_csv(sys.argv[5]); assert set(REFUSED.exit) == {35}, "only intake refusals (exit 35) may be dropped"
+        print("refused at intake, reported, not read:", ", ".join(f"{g} ({c})" for g, c in zip(REFUSED.gsm, REFUSED.cell)))
     main(*sys.argv[1:5])

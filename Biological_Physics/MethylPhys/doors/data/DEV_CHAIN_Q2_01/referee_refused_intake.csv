@@ -1,0 +1,5 @@
+gsm,cell,title,exit,reason
+GSM5278446,b cells,HC-21-CD19 BS-Seq,35,"GENOME_COVERAGE_REFUSED: about 99 % of molecules on chr1 and chr2 although the 2,000-block plan spans the whole run"
+GSM5278470,cd4 t cells,HC-4-CD4 BS-Seq,35,"GENOME_COVERAGE_REFUSED: about 99 % of molecules on chr1 and chr2 although the 2,000-block plan spans the whole run"
+GSM5278472,cd4 t cells,HC-6-CD4 BS-Seq,35,"GENOME_COVERAGE_REFUSED: about 99 % of molecules on chr1 and chr2 although the 2,000-block plan spans the whole run"
+GSM5278476,cd4 t cells,HC-10-CD4 BS-Seq,35,"GENOME_COVERAGE_REFUSED: about 99 % of molecules on chr1 and chr2 although the 2,000-block plan spans the whole run"
