@@ -4811,3 +4811,11 @@ Recorded in `doors/DEV_METHIONINE_01.md`: ratios early/mid/late MZGC1 0.934/0.92
 
 ### 2026-11-12 · PHY-083: both sides of the methionine lever; stray writes fall most
 Recorded in `doors/DEV_METHIONINE_01.md` (`score_sides.py`): losses 0.936/0.929, stray marks 0.843/0.905, half-marked molecules 0.858/0.917.
+
+### 2026-11-12 · PHY-083: the candidate is a per-site loss, the healthy value a lone-loss reading; the forward model written
+The candidate (eps0_candidate 0.04454) is a per-site loss; eps_healthy_pool (0.04526) is the counter's lone-loss reading, which for
+independent losses estimates e(1-e)^2 (counter_synthetic.py), so the earlier 1.6 % comparison was not like for like: like for like the
+candidate implies a lone-loss reading near 0.0406, about 10 % below, the same gap PHY-050 found on the per-call scale (0.05048 against
+0.04558). Instead of correcting the meter, `doors/data/DEV_CHAIN_Q2_01/forward_candidate.py` pushes the candidate through it: held
+molecules with the candidate's per-site loss, the real libraries' lengths and stated clustering (losses following each other, or some
+molecules losing more), read by the one command on GitHub, to be set beside the healthy samples' own measured clustering (median 1.46).
