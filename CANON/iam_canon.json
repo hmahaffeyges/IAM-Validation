@@ -164,27 +164,27 @@
     "W_restore": {
       "value": 41.88,
       "units": "kT per methyl transfer",
-      "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): W = 2 M_cell, the price of one SAM (about two ATP coins) per methyl transfer"
+      "derivation": "CONJECTURE (PHY-083; candidate; sealed blind test PHY-084 NOT MET 2026-11-13: B cells 26 % below, 3 of 4 types inside): W = 2 M_cell, the price of one SAM (about two ATP coins) per methyl transfer"
     },
     "odds_restore": {
       "value": 21.45,
       "units": "restores per loss",
-      "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): g/f = (w/2)/(1 - (1 - e^-w)/w), w = W_restore/kT (driven first passage; Einstein relation)"
+      "derivation": "CONJECTURE (PHY-083; candidate; sealed blind test PHY-084 NOT MET 2026-11-13: B cells 26 % below, 3 of 4 types inside): g/f = (w/2)/(1 - (1 - e^-w)/w), w = W_restore/kT (driven first passage; Einstein relation)"
     },
     "eps0_candidate": {
       "value": 0.04454,
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): 1/(1 + odds_restore); compare eps_healthy_pool"
+      "derivation": "CONJECTURE (PHY-083; candidate; sealed blind test PHY-084 NOT MET 2026-11-13: B cells 26 % below, 3 of 4 types inside): 1/(1 + odds_restore); compare eps_healthy_pool"
     },
     "E_hold_candidate": {
       "value": 3.066,
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): ln(odds_restore); compare E_hold_meth"
+      "derivation": "CONJECTURE (PHY-083; candidate; sealed blind test PHY-084 NOT MET 2026-11-13: B cells 26 % below, 3 of 4 types inside): ln(odds_restore); compare E_hold_meth"
     },
     "phi_candidate": {
       "value": 0.1464,
       "units": "fraction of one ATP per held bit",
-      "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): E_hold_candidate / M_cell; compare phi"
+      "derivation": "CONJECTURE (PHY-083; candidate; sealed blind test PHY-084 NOT MET 2026-11-13: B cells 26 % below, 3 of 4 types inside): E_hold_candidate / M_cell; compare phi"
     },
     "eps0_candidate_SAM": {
       "value": [
@@ -192,7 +192,7 @@
         0.04524
       ],
       "units": "held error",
-      "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
+      "derivation": "CONJECTURE (PHY-083; candidate; sealed blind test PHY-084 NOT MET 2026-11-13: B cells 26 % below, 3 of 4 types inside): 1/(1 + odds(w)) with w = SAM_cost_ATP x M_cell over the SAM_cost_ATP range"
     },
     "E_hold_candidate_SAM": {
       "value": [
@@ -200,7 +200,7 @@
         3.082
       ],
       "units": "kT per methylated site",
-      "derivation": "CONJECTURE (PHY-083; candidate, its test not yet passed): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
+      "derivation": "CONJECTURE (PHY-083; candidate; sealed blind test PHY-084 NOT MET 2026-11-13: B cells 26 % below, 3 of 4 types inside): ln odds(SAM_cost_ATP x M_cell) over the SAM_cost_ATP range"
     },
     "strand_coupling_maintenance_only": {
       "value": [

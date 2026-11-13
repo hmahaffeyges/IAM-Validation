@@ -86,19 +86,21 @@ def breakthrough_section():
     ko = [float(x) for x in re.findall(r"held_err_length\s+KO/WT\s+([\d.]+)", bl)]
     ref = os.path.join(D, "DEV_CHAIN_Q2_01", "referee_out_summary.txt")
     if os.path.exists(ref):
-        status = '<span class="chip st-g">Sealed test read</span>'; line = E(open(ref, encoding="utf-8").read().split("\n", 1)[0])
+        first = open(ref, encoding="utf-8").read().split("\n", 1)[0]
+        met = ": MET" in first
+        status = f'<span class="chip {"st-g" if met else "st-r"}">Sealed test {"met" if met else "not met"}</span>'; line = E(first)
     else:
         status = '<span class="chip st-b">Sealed test running</span>'
         line = ("The test is reading now: 58 healthy blood libraries from a laboratory we had never read, with the prediction, its allowed range "
                 "(built from measured uncertainty, not chosen) and what counts as a miss written down before any of them was opened.")
     return (f'<section class="wrap" id="baseline"><h2>The newest result: the healthy baseline, from the law</h2>{status}'
         f'<p class="lead">A cell keeps each methyl mark by paying to restore it against the kicks of heat. From one number of physics, '
-        f'M = {K["M_cell"]["value"]} (how many thermal kicks one ATP is worth), and a price of two ATP per restore, one for each DNA strand, IAM&rsquo;s Law gives '
+        f'M = {K["M_cell"]["value"]} (how many thermal kicks one ATP is worth), and a price of two ATP per restore (the cost of one methyl donor, SAM), IAM&rsquo;s Law gives '
         f'the chance that a healthy cell loses a held mark: {K["eps0_candidate"]["value"]} per site. Nothing in it is fitted to methylation data.</p>'
         f'<p>The cell also erases some marks on purpose, with its TET enzymes. That share was measured: switching the erasers off lowers the loss to '
         f'{med} of normal in stem cells, and switching off TET2 alone lowers it to {min(ko):.3f}&ndash;{max(ko):.3f} in blood progenitors, inside a range written down before '
         f'those libraries were read. The law and the measured eraser together, read through the same meter as real cells, give {pred}; healthy cells read {healthy}.</p>'
-        f'<p><b>Where it stands.</b> That agreement was found after the fact, so it is not yet a test. {line}</p>'
+        f'<p><b>Where it stands.</b> That agreement was found after the fact. The blind test on another laboratory&rsquo;s healthy blood: {line}</p>'
         f'<p class="more"><a href="{rec("Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md")}">The sealed test</a> &middot; '
         f'<a href="{rec("Biological_Physics/MethylPhys/doors/DEV_ERASE_01.md")}">the eraser measurements</a> &middot; '
         f'<a href="{rec("Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md")}">the development log</a></p></section>')

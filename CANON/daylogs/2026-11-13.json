@@ -110,6 +110,14 @@
      "outcome": "On main (four_domains.json public_domains; build_home.py, the derivation section).",
      "record": "Biological_Physics/MethylPhys/METHYLPHYS_DEVELOPMENT_LOG.md",
      "reference": "none (not a reading against healthy): website"
+    },
+    {
+     "title": "The referee test read (PHY-084)",
+     "status": "development",
+     "what": "54 healthy-control blood libraries from a laboratory never read, scored once against the M-based prediction sealed before reading.",
+     "outcome": "NOT MET: B cells below their bar (0.0325 against 0.0438); CD4, CD8 and monocytes inside; all four below the prediction.",
+     "record": "Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md",
+     "reference": "none (not a reading against healthy): healthy samples read against the M-based prediction"
     }
    ]
   }

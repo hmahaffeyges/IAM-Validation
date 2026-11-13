@@ -78,3 +78,26 @@ prediction, MET with pulls -0.17 to -0.03; planted 30 % high, NOT MET with pulls
 **Decision.** The seal was made by the agent under the author's standing authority ("you know my answers 99 percent of the time so I give
 you the authority to make them, just tell me what you did and why"). Why now: every input is measured and committed; waiting would add
 nothing the referee data could not then be accused of being tuned to.
+
+## Result (2026-11-13, 1:20 PM Pacific): NOT MET
+
+Scored once with the committed scorer (data/DEV_CHAIN_Q2_01/referee_score.py, identical to main) on the 54 counted libraries; the four
+intake refusals are reported (amendment 3). Three of four cell types fall inside their bars; B cells do not.
+
+```
+PHY-084 referee test: NOT MET (3 of 4 cell types inside their bars, k = 2)
+       cell  n  coupling  intercept  int_lo95  int_hi95  pred_ratio_0864  pred_ratio_0905  pred_mid  u_between  u_eraser  u_forward  u_lag  u_intercept  u_combined  bar_lo  bar_hi  pull  inside
+    b cells 23     1.486    0.03248   0.02713   0.03699          0.04460          0.04294   0.04377     0.0878    0.0110     0.0057  0.004       0.0569      0.1054 0.03454 0.05300 -2.45   False
+cd4 t cells  9     1.505    0.04043   0.03194   0.05140          0.04446          0.04293   0.04370     0.0878    0.0101     0.0057  0.004       0.1396      0.1654 0.02924 0.05815 -0.45    True
+cd8 t cells 12     1.504    0.03337   0.02422   0.04118          0.04447          0.04293   0.04370     0.0878    0.0102     0.0057  0.004       0.1046      0.1372 0.03171 0.05569 -1.72    True
+  monocytes 10     1.594    0.03996   0.02630   0.04509          0.04411          0.04289   0.04350     0.0878    0.0081     0.0057  0.004       0.1214      0.1502 0.03043 0.05657 -0.54    True
+```
+
+**What it shows, as read (no rule changed).** All four types read below the prediction (pulls -0.45 to -2.45): healthy blood cells in this
+laboratory hold their marks better than the candidate with the eraser's stem-cell share predicts. B cells, read on 23 libraries, fall 26 %
+below it, outside a bar that already carried the between-type spread (8.8 %). The prediction is one level for every cell type; this test
+says that is not enough for B cells.
+
+**What it does not license.** No refit and no new bar on these libraries: they are spent for this question. The candidate stays a candidate,
+now with a blind test not met. Open, in the derivation register: each cell type's own level (A8: PHY-086, the eraser's share by type,
+reading), and whether a laboratory's meter offset differs from the forward model's (the grid used the healthy atlas laboratory's molecules).

@@ -5099,3 +5099,10 @@ platform. Sheets written after the fact for PHY-086 and PHY-087 record their gap
 
 ### 2026-11-13 · PHY-084 amendment 3: the four intake refusals reported and dropped before scoring
 All 58 runs finished: 54 counted, 4 refused at intake (exit 35). The scorer takes the refusals as a list (exit 35 only) and drops them; prediction, bar and pass rule unchanged (Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md, amendment 3).
+
+### 2026-11-13 · PHY-084: the referee test of the healthy baseline, NOT MET (B cells below their bar; 3 of 4 types inside)
+Scored once on 54 libraries (GSE173787 healthy controls; four intake refusals reported): B cells 0.0325 against the prediction 0.0438 (bar
+0.0345-0.0530, pull -2.45); CD4 0.0404 (pull -0.45), CD8 0.0334 (-1.72), monocytes 0.0400 (-0.54) inside. All four read below the
+prediction: this laboratory's healthy blood holds its marks better than one level for every type predicts. The candidate stays a
+candidate with a blind test not met; no refit on these libraries. Next: each type's own level (PHY-086) and the laboratory meter offset
+(Biological_Physics/MethylPhys/doors/PHY_084_REFEREE.md, Result; Biological_Physics/MethylPhys/doors/data/DEV_CHAIN_Q2_01/referee_out_summary.txt).
