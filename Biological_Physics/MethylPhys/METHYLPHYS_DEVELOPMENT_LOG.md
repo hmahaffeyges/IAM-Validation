@@ -4819,3 +4819,10 @@ candidate implies a lone-loss reading near 0.0406, about 10 % below, the same ga
 0.04558). Instead of correcting the meter, `doors/data/DEV_CHAIN_Q2_01/forward_candidate.py` pushes the candidate through it: held
 molecules with the candidate's per-site loss, the real libraries' lengths and stated clustering (losses following each other, or some
 molecules losing more), read by the one command on GitHub, to be set beside the healthy samples' own measured clustering (median 1.46).
+
+### 2026-11-12 · PHY-083: the candidate through our own counter reads 12-14 % below healthy on both scales
+`doors/data/DEV_CHAIN_Q2_01/forward_combine.py` (`forward_candidate_summary.txt`; runs of `forward_candidate.py` on GitHub, `forward_out/`):
+with independent losses the candidate reads 0.0406 (lone-loss) and 0.0444 (per-call); at the healthy samples' own clustering (1.46) 0.0396
+and 0.0433, against healthy 0.04526 and 0.05048: 12.5 % and 14.3 % below, the same on both scales, so the gap is not a matter of which
+scale. The healthy readings imply a per-site loss 0.051-0.052, a work per restore of 1.69-1.73 coins, not 2. The earlier 1.6 % match
+compared a per-site prediction with a lone-loss reading. Open: what delivers about 85 % of the SAM's two coins to the hold.

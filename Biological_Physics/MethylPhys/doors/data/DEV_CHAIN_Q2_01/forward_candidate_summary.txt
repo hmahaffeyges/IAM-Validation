@@ -1,0 +1,14 @@
+The candidate pushed through the counter (per-site loss 0.04454; mean of the samples per setting)
+mode  param  held_err_length  held_e_call  coupling
+ het   2.00          0.03630      0.03934   0.99641
+ het   4.00          0.03808      0.04144   1.05769
+ het   8.00          0.03932      0.04293   1.02461
+ ind   0.00          0.04058      0.04445   1.01083
+ seq   1.50          0.03987      0.04359   1.41629
+ seq   1.75          0.03922      0.04281   1.52010
+ seq   2.00          0.03874      0.04223   1.75247
+
+at the healthy clustering 1.46 (losses following each other): lone-loss 0.03960 against healthy 0.04526 (-12.5 %); per-call 0.04326 against healthy 0.05048 (-14.3 %)
+molecules simply losing at different rates (het) lower both readings without raising the clustering measure, so they are not what the healthy clustering shows
+lone-loss: the healthy reading implies a per-site loss 0.0509, work per restore 36.3 kT = 1.73 coins (candidate 2.00)
+per-call: the healthy reading implies a per-site loss 0.0520, work per restore 35.5 kT = 1.69 coins (candidate 2.00)
